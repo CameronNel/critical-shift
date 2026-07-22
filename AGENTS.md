@@ -3,8 +3,10 @@
 ## Read Order
 
 1. `GAME_SPEC.md`
-2. Relevant architecture and subsystem documents once they exist
-3. The issue or task assigned to you
+2. `docs/CANON.md`
+3. `docs/ART_DIRECTION.md`
+4. Relevant architecture and subsystem documents once they exist
+5. The issue or task assigned to you
 
 ## Global Rules
 
@@ -23,6 +25,12 @@
 - Keep player-facing causality readable.
 - Preserve the production, safety, and compliance design triangle.
 
-## Art Direction Guardrail
+## Art Direction Guardrails
 
 - Character art must use stylised adult human proportions; avoid childlike anatomy, mascot faces, stubby limbs, and toy-like presentation.
+- The game targets low-to-mid visual fidelity suitable for a solo developer with AI assistance.
+- Do not generate or approve photorealistic, AAA-cinematic, photogrammetry-heavy, or micro-detailed environment art.
+- Prefer modular kits, shared materials, trim sheets, decals, repeated machine structures, broad forms, and strong lighting.
+- Concept art must represent a plausibly shippable visual target, not an expensive aspirational version.
+- Preserve clear gameplay routes and interaction readability over environmental clutter.
+- Reuse assets intentionally and expose that reuse through coherent industrial design rather than hiding it with unnecessary detail.
