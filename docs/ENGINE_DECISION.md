@@ -10,7 +10,7 @@
 Build the smallest equivalent test needed to resolve the technical risk:
 
 - Two locally running clients
-- Responsive cute humanoid controller
+- Responsive stylised adult human controller
 - Host-authoritative crate grabbing
 - Two-player object contention
 - Mine-cart impact causing recoverable ragdoll
