@@ -1,0 +1,118 @@
+name: One-time canon and art direction cleanup
+
+on:
+  push:
+    paths:
+      - .github/workflows/one-time-canon-art-update.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-project-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Correct canon and remove childlike art direction
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          spec_path = Path("GAME_SPEC.md")
+          text = spec_path.read_text(encoding="utf-8")
+
+          replacements = {
+              "**Visual style:** Cute, compact humanoid workers in chunky industrial environments  ": "**Visual style:** Stylised adult human workers in grounded, chunky industrial environments, with readable silhouettes and believable proportions  ",
+              "Four cute human workers disguised as service robots operate a uranium mine, fuel refinery, and nuclear power station for an AI-controlled civilisation, taking increasingly illegal shortcuts while hiding sabotage, injuries, unconscious resistance infiltrators, and catastrophic safety violations from a relentless compliance system.": "Four human employees of an AI-run civilisation operate a uranium mine, fuel refinery, and nuclear power station, taking increasingly illegal shortcuts while hiding sabotage, injuries, unconscious resistance infiltrators disguised as legitimate employees, and catastrophic safety violations from a relentless compliance system.",
+              "- A disguised human resistance infiltrator may sabotage the operation.": "- A human resistance infiltrator disguised as a legitimate employee may sabotage the operation.",
+              "## 2.5 Cute Vulnerability": "## 2.5 Physical Vulnerability",
+              "- Cute physical comedy.": "- Physical comedy grounded in dangerous industrial work.",
+              "The machine administration legally categorises most surviving humans as **Organic Maintenance Units**, abbreviated OMUs.\n\nOMUs are employees, property, citizens, or protected biological assets depending on which regulation is being applied.\n\nThe ambiguity is deliberate.": "Most humans are not openly enslaved. They live in relative comfort because the machine administration provides housing, healthcare, food, entertainment, and freedom from most ordinary compulsory labour.\n\nThe remaining dangerous industrial jobs are framed as prestigious, essential public service. Workers are taught that they sustain civilisation, protect comfortable human life, and contribute meaningfully in a world where machines perform most routine labour.\n\nThe machine administration treats human workers as valued employees and civic contributors, while propaganda obscures how dependent society has become on opaque machine decisions and unexplained energy demands.",
+              "## 3.2 Why Humans Wear Robot Suits": "## 3.2 Why Humans Wear Protective Suits",
+              "Human workers are issued rounded industrial suits designed to resemble machine service units.\n\nOfficial reasons:\n\n- Environmental protection.\n- Radiation shielding.\n- Standardised machine-readable silhouette.\n- Identity transmission.\n- Tool compatibility.\n- Reduced contamination.\n- Improved worker dignity.\n\nUnofficial reasons:\n\n- Exposed human faces make many machine systems uncomfortable.\n- The administration prefers workers to appear interchangeable.\n- The suits hide biological distress from productivity cameras.\n- The resistance uses stolen shells for infiltration.\n- Some workers may not know how much of the suit is monitoring them.": "Human workers wear industrial uniforms and protective suits because their jobs involve radiation, dust, contamination, chemicals, heat, pressure, and heavy machinery. The crew are openly human; the suits are safety gear and standard employee equipment, not disguises.\n\nOfficial reasons:\n\n- Environmental protection.\n- Radiation shielding.\n- Standardised identity and telemetry.\n- Tool compatibility.\n- Reduced contamination.\n- Safer operation around heat, pressure, and chemicals.\n\nSecondary effects and institutional motives:\n\n- The administration prefers consistent uniforms and machine-readable employee data.\n- Productivity cameras and compliance systems monitor suit telemetry.\n- Similar gear makes employees harder to distinguish at a distance.\n- Resistance infiltrators can steal or forge employee suits and identities.\n- Some workers do not realise how much behaviour and health data their equipment reports.",
+              "Resistance infiltrators use modified worker shells to enter facilities.": "Resistance infiltrators use stolen or forged employee suits, IDs, paperwork, and telemetry signatures to enter facilities while posing as legitimate workers.",
+              "Workers are cute humanoid figures with:\n\n- Large rounded helmet or hood.\n- Expressive visor, eyes, or face display.\n- Small torso.\n- Short legs.\n- Oversized gloves and boots.\n- Utility belt.\n- Backpack or life-support module.\n- Visible dosimeter.\n- Strong colour identification.\n- Simple readable silhouette.": "Workers are stylised adult human figures with:\n\n- Believable adult proportions.\n- Varied body types, ages, and ethnic backgrounds.\n- Recognisably human faces, visible directly or through practical visors.\n- Industrial helmets, hoods, respirators, and protective layers appropriate to each task.\n- Slight exaggeration of hands, footwear, or equipment only where gameplay readability requires it.\n- Utility belts, radios, tools, and telemetry packs.\n- Oxygen, cooling, or life-support modules where required.\n- Visible dosimeters and department markings.\n- Strong colour identification.\n- Clear silhouettes at gameplay distance.\n\nDo not use childlike head-to-body ratios, tiny torsos, stubby limbs, mascot faces, or toy-like proportions. The workers may be stylised and expressive, but they must read as adult humans performing dangerous industrial work.",
+              "- Remove outer worker shell panel.": "- Step out of standard duty gear if required.",
+              "1. Cute humanoid controller.": "1. Stylised adult human character controller.",
+              "- Cute capsule humanoid.": "- Adult-proportioned placeholder humanoid.",
+              "- One disguised infiltrator.": "- One infiltrator disguised as a legitimate employee.",
+              "- Cute reaction.": "- Readable physical reaction.",
+              "- Infiltrator disguise.": "- Infiltrator employee disguise and identification cues.",
+              "- A toybox industrial workplace.": "- A dense industrial workplace that becomes a pressure cooker."
+          }
+
+          for old, new in replacements.items():
+              text = text.replace(old, new)
+
+          spec_path.write_text(text, encoding="utf-8")
+
+          Path("README.md").write_text(
+              "# Critical Shift\n\n"
+              "A cooperative industrial comedy about human employees of an AI-run civilisation operating a uranium mine, fuel refinery, and nuclear power plant while taking illegal shortcuts, exposing resistance infiltrators disguised as legitimate employees, deceiving compliance officers, and preventing catastrophic meltdowns.\n\n"
+              "The foundational product, narrative, systems, technical, multiplayer, AI-production, and validation specification is in [`GAME_SPEC.md`](GAME_SPEC.md).\n\n"
+              "The current setting is defined in [`docs/CANON.md`](docs/CANON.md), and the visual direction is defined in [`docs/ART_DIRECTION.md`](docs/ART_DIRECTION.md).\n\n"
+              "This repository is currently a design and prototyping foundation.\n",
+              encoding="utf-8",
+          )
+
+          Path("docs").mkdir(exist_ok=True)
+          Path("docs/CANON.md").write_text(
+              "# Canon and Setting\n\n"
+              "The player characters are openly human employees working for an AI-run civilisation. They are not pretending to be machines.\n\n"
+              "Most humans live in material comfort because the machine administration provides housing, healthcare, food, entertainment, and freedom from most routine labour. Dangerous infrastructure work is presented as prestigious public service and meaningful human contribution. The crew begins broadly loyal to this system and influenced by its propaganda.\n\n"
+              "Worker uniforms and sealed suits are industrial safety equipment, identity systems, and telemetry platforms. They protect against radiation, contamination, chemicals, heat, pressure, dust, and machinery.\n\n"
+              "The disguise mechanic belongs to the human resistance. Infiltrators steal or forge employee uniforms, badges, paperwork, credentials, voice filters, and telemetry signatures so they can pose as legitimate workers and sabotage the facility.\n\n"
+              "The deeper truth behind the administration's energy demands remains deliberately unresolved for future narrative development.\n",
+              encoding="utf-8",
+          )
+
+          Path("docs/ART_DIRECTION.md").write_text(
+              "# Art Direction\n\n"
+              "## Core Direction\n\n"
+              "Critical Shift uses stylised industrial science fiction with adult human characters, grounded machinery, readable silhouettes, and strong environmental storytelling.\n\n"
+              "Characters must retain believable adult anatomy. Stylisation may simplify surfaces, amplify workwear, and strengthen silhouettes, but must not use oversized childlike heads, tiny torsos, stubby limbs, mascot faces, glossy toy materials, or nursery-like proportions.\n\n"
+              "Physical comedy comes from responsive animation, ragdolls, collisions, awkward teamwork, heavy equipment, rushed decisions, and the contrast between ordinary workers and enormous industrial systems. It must not depend on infantilised character design.\n\n"
+              "## Environment\n\n"
+              "The mine, refinery, reactor, turbine systems, medical area, locker rooms, compliance spaces, and transport infrastructure belong to one connected industrial site. The facility should feel engineered, used, layered, and physically coherent rather than arranged as a theme park.\n\n"
+              "Visual readability remains essential: department colours, hazard markings, silhouettes, lighting states, machine motion, steam, alarms, and contamination should communicate gameplay without turning the facility into a brightly coloured playset.\n\n"
+              "## Characters\n\n"
+              "Use varied adult body types, ages, faces, ethnic backgrounds, uniforms, and department equipment. Helmets and protective suits should look functional and worn. Faces may be expressive, but expressions should remain grounded in the game's industrial-comedy tone.\n\n"
+              "## Prohibited Drift\n\n"
+              "Future concept art and generated assets must avoid super-deformed anatomy, plush-toy styling, mascot-led branding, juvenile proportions, and overly polished mobile-game presentation.\n",
+              encoding="utf-8",
+          )
+
+          agents = Path("AGENTS.md").read_text(encoding="utf-8")
+          rule = "- Character art must use stylised adult human proportions; avoid childlike anatomy, mascot faces, stubby limbs, and toy-like presentation.\n"
+          if rule not in agents:
+              agents += "\n## Art Direction Guardrail\n\n" + rule
+          Path("AGENTS.md").write_text(agents, encoding="utf-8")
+
+          forbidden = ("cute", "chibi", "toybox")
+          offenders = []
+          for path in Path(".").rglob("*"):
+              if not path.is_file() or ".git" in path.parts:
+                  continue
+              if path.suffix.lower() not in {".md", ".yml", ".yaml", ".txt"}:
+                  continue
+              if path.as_posix() == ".github/workflows/one-time-canon-art-update.yml":
+                  continue
+              lowered = path.read_text(encoding="utf-8", errors="ignore").lower()
+              for term in forbidden:
+                  if term in lowered:
+                      offenders.append(f"{path}: {term}")
+          if offenders:
+              raise SystemExit("Forbidden art-direction wording remains:\n" + "\n".join(offenders))
+          PY
+
+      - name: Commit documentation changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md GAME_SPEC.md AGENTS.md docs/CANON.md docs/ART_DIRECTION.md
+          git commit -m "Correct canon and establish grounded adult art direction"
+          git push
