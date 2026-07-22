@@ -22,3 +22,7 @@
 - Prefer reversible, modular changes.
 - Keep player-facing causality readable.
 - Preserve the production, safety, and compliance design triangle.
+
+## Art Direction Guardrail
+
+- Character art must use stylised adult human proportions; avoid childlike anatomy, mascot faces, stubby limbs, and toy-like presentation.

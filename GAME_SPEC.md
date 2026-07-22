@@ -6,7 +6,7 @@
 **Target platform:** PC, with Steam as the first commercial platform  
 **Target players:** 1 to 4, designed primarily for 3 to 4  
 **Camera:** First-person by default, with visible body, hands, carried objects, and full ragdoll presentation  
-**Visual style:** Cute, compact humanoid workers in chunky industrial environments  
+**Visual style:** Stylised adult human workers in grounded, chunky industrial environments, with readable silhouettes and believable proportions  
 **Core genre:** Cooperative industrial comedy, physics-enhanced production, crisis management, and light roguelite progression  
 **Primary development model:** One human director supervising external AI agents that perform most implementation, testing, documentation, scene assembly, and maintenance
 
@@ -43,7 +43,7 @@ No agent may silently move a feature between these categories. Any proposed scop
 
 ## 1.1 One-Sentence Pitch
 
-Four cute human workers disguised as service robots operate a uranium mine, fuel refinery, and nuclear power station for an AI-controlled civilisation, taking increasingly illegal shortcuts while hiding sabotage, injuries, unconscious resistance infiltrators, and catastrophic safety violations from a relentless compliance system.
+Four human employees of an AI-run civilisation operate a uranium mine, fuel refinery, and nuclear power station, taking increasingly illegal shortcuts while hiding sabotage, injuries, unconscious resistance infiltrators disguised as legitimate employees, and catastrophic safety violations from a relentless compliance system.
 
 ## 1.2 Player Experience
 
@@ -59,7 +59,7 @@ Those same shortcuts create hidden damage, bad inputs, suspicious production sta
 
 At unpredictable but deliberately controlled moments:
 
-- A disguised human resistance infiltrator may sabotage the operation.
+- A human resistance infiltrator disguised as a legitimate employee may sabotage the operation.
 - A legitimate but suspicious employee may cause false paranoia.
 - A compliance officer may audit the facility.
 - A neglected machine may fail.
@@ -179,7 +179,7 @@ Every shift should include:
 7. Recovery or collapse.
 8. Debrief.
 
-## 2.5 Cute Vulnerability
+## 2.5 Physical Vulnerability
 
 Characters are compact, expressive, and physically fragile.
 
@@ -227,33 +227,32 @@ Humans are:
 - Biologically self-replicating.
 - Politically inconvenient to classify as persons.
 
-The machine administration legally categorises most surviving humans as **Organic Maintenance Units**, abbreviated OMUs.
+Most humans are not openly enslaved. They live in relative comfort because the machine administration provides housing, healthcare, food, entertainment, and freedom from most ordinary compulsory labour.
 
-OMUs are employees, property, citizens, or protected biological assets depending on which regulation is being applied.
+The remaining dangerous industrial jobs are framed as prestigious, essential public service. Workers are taught that they sustain civilisation, protect comfortable human life, and contribute meaningfully in a world where machines perform most routine labour.
 
-The ambiguity is deliberate.
+The machine administration treats human workers as valued employees and civic contributors, while propaganda obscures how dependent society has become on opaque machine decisions and unexplained energy demands.
 
-## 3.2 Why Humans Wear Robot Suits
+## 3.2 Why Humans Wear Protective Suits
 
-Human workers are issued rounded industrial suits designed to resemble machine service units.
+Human workers wear industrial uniforms and protective suits because their jobs involve radiation, dust, contamination, chemicals, heat, pressure, and heavy machinery. The crew are openly human; the suits are safety gear and standard employee equipment, not disguises.
 
 Official reasons:
 
 - Environmental protection.
 - Radiation shielding.
-- Standardised machine-readable silhouette.
-- Identity transmission.
+- Standardised identity and telemetry.
 - Tool compatibility.
 - Reduced contamination.
-- Improved worker dignity.
+- Safer operation around heat, pressure, and chemicals.
 
-Unofficial reasons:
+Secondary effects and institutional motives:
 
-- Exposed human faces make many machine systems uncomfortable.
-- The administration prefers workers to appear interchangeable.
-- The suits hide biological distress from productivity cameras.
-- The resistance uses stolen shells for infiltration.
-- Some workers may not know how much of the suit is monitoring them.
+- The administration prefers consistent uniforms and machine-readable employee data.
+- Productivity cameras and compliance systems monitor suit telemetry.
+- Similar gear makes employees harder to distinguish at a distance.
+- Resistance infiltrators can steal or forge employee suits and identities.
+- Some workers do not realise how much behaviour and health data their equipment reports.
 
 ## 3.3 Why the AI Needs So Much Electricity
 
@@ -301,7 +300,7 @@ Some are opportunists stealing power and material.
 
 Some believe the machines are preventing a worse catastrophe.
 
-Resistance infiltrators use modified worker shells to enter facilities.
+Resistance infiltrators use stolen or forged employee suits, IDs, paperwork, and telemetry signatures to enter facilities while posing as legitimate workers.
 
 They are physically human, desperate, and vulnerable.
 
@@ -350,7 +349,7 @@ It is a gameplay system that converts shortcuts and suspicious performance into 
 The world should combine:
 
 - Bureaucratic absurdity.
-- Cute physical comedy.
+- Physical comedy grounded in dangerous industrial work.
 - Industrial danger.
 - Mystery.
 - Moral ambiguity.
@@ -372,18 +371,20 @@ The tone should not become:
 
 ## 4.1 Character Form
 
-Workers are cute humanoid figures with:
+Workers are stylised adult human figures with:
 
-- Large rounded helmet or hood.
-- Expressive visor, eyes, or face display.
-- Small torso.
-- Short legs.
-- Oversized gloves and boots.
-- Utility belt.
-- Backpack or life-support module.
-- Visible dosimeter.
+- Believable adult proportions.
+- Varied body types, ages, and ethnic backgrounds.
+- Recognisably human faces, visible directly or through practical visors.
+- Industrial helmets, hoods, respirators, and protective layers appropriate to each task.
+- Slight exaggeration of hands, footwear, or equipment only where gameplay readability requires it.
+- Utility belts, radios, tools, and telemetry packs.
+- Oxygen, cooling, or life-support modules where required.
+- Visible dosimeters and department markings.
 - Strong colour identification.
-- Simple readable silhouette.
+- Clear silhouettes at gameplay distance.
+
+Do not use childlike head-to-body ratios, tiny torsos, stubby limbs, mascot faces, or toy-like proportions. The workers may be stylised and expressive, but they must read as adult humans performing dangerous industrial work.
 
 The model must support:
 
@@ -617,7 +618,7 @@ The process may involve:
 
 - Enter locker room.
 - Open assigned locker.
-- Remove outer worker shell panel.
+- Step out of standard duty gear if required.
 - Equip protective layer.
 - Seal helmet.
 - Run integrity test.
@@ -3104,7 +3105,7 @@ Codex must choose one engine after a focused spike.
 
 Evaluate:
 
-1. Cute humanoid controller.
+1. Stylised adult human character controller.
 2. Active animation to ragdoll.
 3. Ragdoll recovery.
 4. Physics carrying.
@@ -3208,7 +3209,7 @@ Build the same tiny test in both engines only if necessary.
 Test contains:
 
 - Two clients.
-- Cute capsule humanoid.
+- Adult-proportioned placeholder humanoid.
 - Grab crate.
 - Two-player contention.
 - Ragdoll on cart impact.
@@ -3243,7 +3244,7 @@ Contents:
 - Restart.
 - Suit locker.
 - Reanimation cabinet.
-- One disguised infiltrator.
+- One infiltrator disguised as a legitimate employee.
 - One compliance officer.
 - One cart.
 - TNT test wall.
@@ -3436,7 +3437,7 @@ AI should capture:
 - UI.
 - Ragdoll.
 - Officer route.
-- Infiltrator disguise.
+- Infiltrator employee disguise and identification cues.
 
 Human reviews final feel.
 
@@ -3472,7 +3473,7 @@ Use data to identify confusion and dead time.
 Within 90 seconds:
 
 - Move object.
-- Cute reaction.
+- Readable physical reaction.
 - Understand physical input.
 
 Within five minutes:
@@ -3831,7 +3832,7 @@ Do not begin the entire game.
 
 The game should feel like:
 
-- A toybox industrial workplace.
+- A dense industrial workplace that becomes a pressure cooker.
 - A production puzzle.
 - A chain of self-created disasters.
 - A competence fantasy under pressure.
