@@ -49,6 +49,59 @@ compliance road; the built plant itself is roughly 150 m across. Walking at
 
 That matches the travel targets in `GAME_SPEC.md` §23.2.
 
+## Two rooms built out in full
+
+Most of the site is greybox: massing, circulation and footprints. **Arrival and
+the reactor hall are built to a further level** — every station the design
+documents call for physically exists, is placed where it makes spatial sense,
+and carries an interaction marker. The rest of the facility is still blockout,
+and should be read that way.
+
+### Arrival — the preparation beat
+
+Carries the whole of GAME_SPEC §8.2 and every step of the suit procedure in
+§6.2. Three bands north to south:
+
+```
+Z -86..-76   shift office  |  locker room  |  suit-up
+Z -76..-70   central corridor, decontamination at its east end
+Z -70..-58   briefing      |  requisition
+```
+
+The suit route runs along the north band — lockers, suit racks, helmet shelf,
+integrity test booth, dosimeter rack — and leaves east through decontamination.
+The requisition route runs along the south band — tool crib, explosives cage,
+spare parts, medical supplies, machine upgrades, repair priorities — and leaves
+east onto S1. The two exits belong to different routes, and the three minutes
+you have will not cover both. That is the point of the room.
+
+The shift office overlooks the corridor through a window, which is where
+informal roles get settled.
+
+### Reactor hall — every control has a place
+
+Laid out so that every control in GAME_SPEC §12.4 has a physical station, and
+so that the ones you need at the same moment are deliberately far apart.
+Clockwise from the north:
+
+| Octant | Contains |
+|---|---|
+| N | charge floor, fuel receiving, transfer flask, new fuel rack |
+| NE | waste flask, shielded waste store, transfer trolley |
+| E | annunciator, log desk, radiation monitor, scram station — under the control windows |
+| SE | turbine, generator, condenser, throttle stand, lube skid |
+| S | coolant headers, valve stands, flow meter, emergency cooling injection |
+| SW | switchgear, breakers, backup generator, reserve power |
+| W | main access, muster point, tool point, emergency locker, scram station |
+| NW | vent stack, vent valve |
+
+Four levels: working floor 0, catwalk ring +8, upper gantry +17, and a charge
+deck at +20 carrying the control rod drives and the fuelling machine, sitting
+on the core itself. A travelling crane spans the hall at +23.
+
+Three emergency shutdown stations — west, east and south — because one would
+always be on the wrong side of the core.
+
 ## Zone by zone
 
 **Reactor hall.** Octagonal, 52 m across, 30 m clear. Core cylinder and

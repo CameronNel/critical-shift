@@ -64,7 +64,8 @@ export type EntityType =
   | 'mannequin'
   | 'landmark'
   | 'spawn'
-  | 'marker';
+  | 'marker'
+  | 'light';
 
 export interface EntityBase {
   /** Stable identifier. Used by persistence, the editor and cross-references. */
@@ -287,6 +288,26 @@ export interface MarkerEntity extends EntityBase {
   label: string;
 }
 
+/**
+ * A light fixture. The emissive housing is always drawn; `cast` additionally
+ * adds a real point light, which is expensive on a phone — reserve it for the
+ * few places where the pooled light actually changes how a space reads.
+ */
+export interface LightEntity extends EntityBase {
+  type: 'light';
+  position: Vec3;
+  /** Housing footprint. Default [2.4, 0.7]. */
+  size?: Vec2;
+  rotationY?: number;
+  /** Emissive tint. Default warm white. */
+  color?: string;
+  cast?: boolean;
+  /** Point-light intensity when `cast` is set. Default 60. */
+  intensity?: number;
+  /** Point-light range in metres. Default 26. */
+  distance?: number;
+}
+
 export type Entity =
   | FloorEntity
   | WallEntity
@@ -305,7 +326,8 @@ export type Entity =
   | MannequinEntity
   | LandmarkEntity
   | SpawnEntity
-  | MarkerEntity;
+  | MarkerEntity
+  | LightEntity;
 
 /** A named circulation route, drawn in map mode to explain traversal. */
 export interface Route {

@@ -42,9 +42,9 @@ export function createSiteScene(): SiteScene {
 
   // Interiors have no local lights, so the ambient floor has to keep ceilings
   // and undersides readable rather than black.
-  scene.add(new THREE.AmbientLight(0xb6c3d0, 0.55));
+  scene.add(new THREE.AmbientLight(0xb6c3d0, 0.78));
 
-  const hemi = new THREE.HemisphereLight(0xc9d8e8, 0x6a6358, 0.9);
+  const hemi = new THREE.HemisphereLight(0xc9d8e8, 0x77706a, 0.8);
   scene.add(hemi);
 
   const key = new THREE.DirectionalLight(0xfff0d8, 1.1);

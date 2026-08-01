@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import type { BoxCollider } from '../nav/collision';
 import { GeoBatch } from './geoBatch';
-import { SHARED, UNIT, customMaterial, zoneMaterial } from './materials';
+import { SHARED, UNIT, customMaterial, emissiveMaterial, zoneMaterial } from './materials';
 import { createTextSprite } from './textSprite';
 import { makeRng, range } from './rng';
 import {
@@ -12,6 +12,7 @@ import {
   type Entity,
   type FloorEntity,
   type LandmarkEntity,
+  type LightEntity,
   type MachineEntity,
   type MannequinEntity,
   type MarkerEntity,
@@ -1126,8 +1127,8 @@ function buildMarker(e: MarkerEntity): EntityBuild {
   stem.position.y = 0.75;
   group.add(stem);
   const label = createTextSprite(e.label, {
-    height: 0.5,
-    maxWidth: 4,
+    height: 0.42,
+    maxWidth: 2.8,
     color: '#f2f6fa',
     background: 'rgba(10,13,17,0.78)',
     border: `#${color.toString(16).padStart(6, '0')}`,
@@ -1136,6 +1137,42 @@ function buildMarker(e: MarkerEntity): EntityBuild {
   label.userData.isLabel = true;
   label.userData.labelKind = 'marker';
   group.add(label);
+  return { object: group, colliders: [] };
+}
+
+/**
+ * Fixture housing plus, optionally, a real point light. Housings are cheap and
+ * carry most of the read; actual lights are rationed because each one costs
+ * per-fragment work on every lit material in range.
+ */
+function buildLight(e: LightEntity): EntityBuild {
+  const [sx, sz] = e.size ?? [2.4, 0.7];
+  const rotY = THREE.MathUtils.degToRad(e.rotationY ?? 0);
+  const colour = e.color ?? '#ffeccd';
+  const group = new THREE.Group();
+
+  const housing = new THREE.Mesh(UNIT.box, SHARED.steel);
+  housing.position.set(e.position[0], e.position[1] + 0.11, e.position[2]);
+  housing.scale.set(sx + 0.2, 0.22, sz + 0.2);
+  housing.rotation.y = rotY;
+  group.add(housing);
+
+  const lens = new THREE.Mesh(UNIT.box, emissiveMaterial(colour));
+  lens.position.set(e.position[0], e.position[1] - 0.01, e.position[2]);
+  lens.scale.set(sx, 0.08, sz);
+  lens.rotation.y = rotY;
+  group.add(lens);
+
+  if (e.cast) {
+    const light = new THREE.PointLight(
+      new THREE.Color(colour),
+      e.intensity ?? 60,
+      e.distance ?? 26,
+      2,
+    );
+    light.position.set(e.position[0], e.position[1] - 0.4, e.position[2]);
+    group.add(light);
+  }
   return { object: group, colliders: [] };
 }
 
@@ -1156,8 +1193,8 @@ function buildSpawn(e: SpawnEntity): EntityBuild {
   ring.position.y = 0.06;
   group.add(ring);
   const label = createTextSprite(e.label, {
-    height: 0.5,
-    maxWidth: 4,
+    height: 0.45,
+    maxWidth: 3.2,
     color: '#eef4fa',
     background: 'rgba(10,13,17,0.7)',
   });
@@ -1206,6 +1243,8 @@ export function buildEntity(entity: Entity, zoneColor: string): EntityBuild {
       return buildMarker(entity);
     case 'spawn':
       return buildSpawn(entity);
+    case 'light':
+      return buildLight(entity);
     default: {
       const never: never = entity;
       throw new Error(`Unhandled entity type: ${JSON.stringify(never)}`);

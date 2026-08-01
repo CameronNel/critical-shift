@@ -5,6 +5,7 @@ import type {
   DoorwayEntity,
   FloorEntity,
   LandmarkEntity,
+  LightEntity,
   MachineEntity,
   MannequinEntity,
   MarkerEntity,
@@ -187,6 +188,11 @@ export function zoneAuthor(zone: ZoneId) {
       label: string,
       extra: Extra<SpawnEntity> = {},
     ): SpawnEntity => ({ id: id(name), type: 'spawn', zone, position, label, ...extra }),
+    light: (
+      name: string,
+      position: Vec3,
+      extra: Extra<LightEntity> = {},
+    ): LightEntity => ({ id: id(name), type: 'light', zone, position, ...extra }),
     marker: (
       name: string,
       position: Vec3,

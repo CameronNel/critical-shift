@@ -47,6 +47,22 @@ export function customMaterial(hex: string, role: MaterialRole = 'machine'): THR
   return tinted(hex, ROLE_TINT[role], `custom|${hex}|${role}`);
 }
 
+const emissiveCache = new Map<string, THREE.MeshLambertMaterial>();
+
+/** Lit housing for a fixture. Cheap: no real light is implied. */
+export function emissiveMaterial(hex: string): THREE.MeshLambertMaterial {
+  const existing = emissiveCache.get(hex);
+  if (existing) return existing;
+  const color = new THREE.Color(hex);
+  const material = new THREE.MeshLambertMaterial({
+    color: color.clone().multiplyScalar(0.35),
+    emissive: color,
+    emissiveIntensity: 1,
+  });
+  emissiveCache.set(hex, material);
+  return material;
+}
+
 /** Shared, zone-independent materials. Guard rails read the same everywhere. */
 export const SHARED = {
   rail: new THREE.MeshLambertMaterial({ color: 0xc9a23f }),

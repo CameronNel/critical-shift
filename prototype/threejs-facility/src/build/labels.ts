@@ -13,8 +13,8 @@ interface Tuning {
 
 const TUNING: Record<LabelKind, Tuning> = {
   zone: { maxDistance: 700, scaleWithDistance: true, minHeight: 2.6, maxHeight: 11 },
-  plate: { maxDistance: 70, scaleWithDistance: false, minHeight: 0, maxHeight: 0 },
-  marker: { maxDistance: 34, scaleWithDistance: false, minHeight: 0, maxHeight: 0 },
+  plate: { maxDistance: 55, scaleWithDistance: false, minHeight: 0, maxHeight: 0 },
+  marker: { maxDistance: 20, scaleWithDistance: false, minHeight: 0, maxHeight: 0 },
 };
 
 /**
