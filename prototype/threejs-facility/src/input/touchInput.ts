@@ -1,7 +1,7 @@
 import type { InputState } from './inputState';
 
 const LOOK_SPEED = 0.0032;
-const STICK_RADIUS = 62;
+const STICK_RADIUS = 56;
 const DEAD_ZONE = 0.12;
 
 export interface TouchInput {
@@ -38,6 +38,16 @@ export function createTouchInput(input: InputState): TouchInput {
   let active = false;
   const firstTouchHandlers: (() => void)[] = [];
 
+  // Capture can fail for synthetic or already-released pointers; it is an
+  // optimisation, not a requirement.
+  const capture = (pointerId: number) => {
+    try {
+      root.setPointerCapture(pointerId);
+    } catch {
+      /* ignore */
+    }
+  };
+
   const showStick = (x: number, y: number) => {
     stick.style.left = `${x}px`;
     stick.style.top = `${y}px`;
@@ -68,14 +78,14 @@ export function createTouchInput(input: InputState): TouchInput {
       originY = event.clientY;
       showStick(originX, originY);
       setKnob(0, 0);
-      root.setPointerCapture(event.pointerId);
+      capture(event.pointerId);
       event.preventDefault();
     } else if (!leftHalf && lookPointer === null) {
       lookPointer = event.pointerId;
       lastX = event.clientX;
       lastY = event.clientY;
       input.looking = true;
-      root.setPointerCapture(event.pointerId);
+      capture(event.pointerId);
       event.preventDefault();
     }
   };
