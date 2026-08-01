@@ -127,8 +127,10 @@ export class CollisionWorld {
         const c = this.colliders[index];
         if (!c.solid) continue;
         if (c.cy + c.hy <= bodyBottom || c.cy - c.hy >= bodyTop) continue;
-        const cos = Math.cos(-c.rotY);
-        const sin = Math.sin(-c.rotY);
+        // World -> box local. A box rotated by r maps local (0,0,1) to
+        // (sin r, cos r), so the inverse is the transpose below.
+        const cos = Math.cos(c.rotY);
+        const sin = Math.sin(c.rotY);
         const dx = px - c.cx;
         const dz = pz - c.cz;
         const lx = dx * cos - dz * sin;
@@ -143,10 +145,9 @@ export class CollisionWorld {
         } else {
           nz = lz + Math.sign(lz || 1) * penZ;
         }
-        const fcos = Math.cos(c.rotY);
-        const fsin = Math.sin(c.rotY);
-        px = c.cx + nx * fcos - nz * fsin;
-        pz = c.cz + nx * fsin + nz * fcos;
+        // Local -> world.
+        px = c.cx + nx * cos + nz * sin;
+        pz = c.cz - nx * sin + nz * cos;
         hit = true;
       }
     }
@@ -155,8 +156,8 @@ export class CollisionWorld {
 }
 
 function containsPoint(c: BoxCollider, x: number, z: number, margin: number): boolean {
-  const cos = Math.cos(-c.rotY);
-  const sin = Math.sin(-c.rotY);
+  const cos = Math.cos(c.rotY);
+  const sin = Math.sin(c.rotY);
   const dx = x - c.cx;
   const dz = z - c.cz;
   const lx = dx * cos - dz * sin;

@@ -4,67 +4,63 @@ import { roomWalls, zoneAuthor } from './authoring';
 const a = zoneAuthor('arrival');
 
 /**
- * Worker arrival block. X -120..-88, Z -18..+18, 6 m clear height.
- * Three bays: lockers north, briefing south-west, suit-up and decon south-east
- * next to the two exits that feed the rest of the site.
+ * Arrival block, north-west corner. X -128..-96, Z -86..-58.
+ * Lockers north, briefing south, lobby along the east side.
+ * Two exits split the route: east onto S1 behind the production row, or south
+ * into the haulage hall and the cart loop.
  */
 export const ARRIVAL_ENTITIES: Entity[] = [
-  a.floor('slab', [-104, 0, 0], [32, 36]),
-  a.roof('lid', [-104, 6, 0], [32, 36]),
+  a.floor('slab', [-112, 0, -72], [32, 28]),
+  a.roof('lid', [-112, 6, -72], [32, 28]),
 
   ...roomWalls(a, 'shell', {
-    min: [-120, -18],
-    max: [-88, 18],
+    min: [-128, -86],
+    max: [-96, -58],
     height: 6,
     openings: [
-      // Site entrance from the west approach.
-      { side: 'w', at: 0, width: 6, top: 3.6 },
-      // North route to the decline bridge and the crusher.
-      { side: 'e', at: -10, width: 4.5, top: 3.6 },
-      // South route to the yard, storage and the long way round the decline.
-      { side: 'e', at: 12, width: 4.5, top: 3.6 },
+      { side: 'w', at: -72, width: 6, top: 3.6 }, // site entrance
+      { side: 'e', at: -64.5, width: 5, top: 4 }, // onto S1
+      { side: 'e', at: -78, width: 4, top: 3.6 }, // west yard
+      { side: 's', at: -112, width: 4, top: 3.6 }, // down to haulage
     ],
   }),
 
-  // Locker bay (north). Broad blocks, not individual lockers.
-  a.wall('part.lockers', [-120, -4], [-88, -4], 3.2, {
+  a.wall('part.lockers', [-128, -76], [-104, -76], 3.2, {
+    thickness: 0.3,
+    gaps: [{ at: 10, width: 4 }],
+  }),
+  a.wall('part.lobby', [-104, -86], [-104, -62], 3.2, {
     thickness: 0.3,
     gaps: [
-      { at: 8, width: 4 },
-      { at: 26, width: 4 },
+      { at: 12, width: 5 },
+      { at: 21, width: 4 },
     ],
   }),
-  a.prop('lockers.1', [-115, 0, -14], [9, 2.3, 1.4]),
-  a.prop('lockers.2', [-115, 0, -9], [9, 2.3, 1.4]),
-  a.prop('lockers.3', [-99, 0, -14], [9, 2.3, 1.4]),
-  a.prop('lockers.4', [-99, 0, -9], [9, 2.3, 1.4]),
-  a.machine('bench.lockers', 'LOCKERS', [-107, 0, -16], [4, 1.1, 1.2]),
 
-  // Briefing bay (south-west).
-  a.wall('part.brief', [-104, -4], [-104, 18], 3.2, {
-    thickness: 0.3,
-    gaps: [{ at: 12, width: 5 }],
-  }),
-  a.platform('brief.dais', [-112, 0.3, 8], [12, 12], { label: 'SHIFT BRIEFING' }),
-  a.machine('brief.board', 'BRIEFING BOARD', [-112, 0.3, 13.4], [10, 3.4, 0.5]),
-  a.prop('brief.bench.1', [-112, 0.3, 5], [8, 0.44, 0.9]),
-  a.prop('brief.bench.2', [-112, 0.3, 7.5], [8, 0.44, 0.9]),
+  a.prop('lockers.1', [-120, 0, -83], [9, 2.3, 1.4]),
+  a.prop('lockers.2', [-120, 0, -79], [9, 2.3, 1.4]),
+  a.prop('lockers.3', [-110, 0, -83], [7, 2.3, 1.4]),
+  a.machine('bench.lockers', 'LOCKERS', [-116, 0, -77.5], [4, 1.1, 1.2]),
 
-  // Suit-up and decontamination (south-east), on the way out to the plant.
-  a.prop('suits.1', [-99, 0, 0], [1.4, 2.4, 6]),
-  a.prop('suits.2', [-94, 0, 0], [1.4, 2.4, 6]),
-  a.machine('decon', 'DECON', [-93, 0, 12], [6, 3.2, 6]),
+  a.platform('brief.dais', [-118, 0.3, -66], [16, 12], { label: 'SHIFT BRIEFING' }),
+  a.machine('brief.board', 'BRIEFING BOARD', [-118, 0.3, -60.6], [10, 3.4, 0.5]),
+  a.prop('brief.bench.1', [-118, 0.3, -69], [10, 0.44, 0.9]),
+  a.prop('brief.bench.2', [-118, 0.3, -66.5], [10, 0.44, 0.9]),
 
-  a.doorway('door.east.north', [-88, 0, -10], 4.5, 3.6, { rotationY: 90, label: 'NORTH ROUTE' }),
-  a.doorway('door.east.south', [-88, 0, 12], 4.5, 3.6, { rotationY: 90 }),
+  a.prop('suits.1', [-101, 0, -80], [1.4, 2.4, 6]),
+  a.prop('suits.2', [-101, 0, -70], [1.4, 2.4, 6]),
+  a.machine('decon', 'DECON', [-100, 0, -62], [5, 3.2, 5]),
 
-  a.spawn('spawn.start', [-110, 0, 2], 'Shift entrance', { primary: true, rotationY: 270 }),
-  a.spawn('spawn.brief', [-112, 0.3, 8], 'Briefing'),
+  a.doorway('door.spine', [-96, 0, -64.5], 5, 4, { rotationY: 90, label: 'S1' }),
+  a.doorway('door.south', [-112, 0, -58], 4, 3.6),
 
-  a.marker('m.suits', [-96, 0, 4], 'interaction', 'Suit-up: the decision that costs time'),
-  a.marker('m.exit.choice', [-90, 0, 1], 'shortcut', 'North exit = bridge. South exit = long way'),
+  a.spawn('spawn.start', [-112, 0, -72], 'Shift entrance', { primary: true, rotationY: 270 }),
+  a.spawn('spawn.brief', [-118, 0.3, -66], 'Briefing'),
 
-  a.mannequin('scale.1', [-106, 0, -8], { rotationY: 30 }),
-  a.mannequin('scale.2', [-112, 0.3, 6], { rotationY: 180 }),
-  a.mannequin('scale.3', [-95, 0, 6], { rotationY: 250 }),
+  a.marker('m.suits', [-101, 0, -75], 'interaction', 'Suit-up: the decision that costs time'),
+  a.marker('m.split', [-98, 0, -70], 'shortcut', 'East = S1 behind the plant. South = the cart loop.'),
+
+  a.mannequin('scale.1', [-114, 0, -80], { rotationY: 30 }),
+  a.mannequin('scale.2', [-118, 0.3, -68], { rotationY: 180 }),
+  a.mannequin('scale.3', [-100, 0, -66], { rotationY: 250 }),
 ];

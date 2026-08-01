@@ -5,8 +5,8 @@ import * as THREE from 'three';
  * full overview; the walker is contained by the perimeter walls, not by this.
  */
 export const SITE_BOUNDS = {
-  min: new THREE.Vector3(-190, -40, -120),
-  max: new THREE.Vector3(175, 240, 115),
+  min: new THREE.Vector3(-230, -40, -170),
+  max: new THREE.Vector3(120, 240, 130),
 };
 
 /** Falling below this triggers a respawn. */

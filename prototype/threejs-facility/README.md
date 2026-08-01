@@ -12,8 +12,9 @@ plus `.github/workflows/prototype-pages.yml`, once the engine decision in
 [`docs/ENGINE_DECISION.md`](../../docs/ENGINE_DECISION.md) is made and the real
 facility is built in Unity or Godot.
 
-The layout it describes is documented in
-[`DESIGN_NOTES.md`](DESIGN_NOTES.md) — read that to understand *why* the
+The layout follows the compact-facility blueprint at
+[`docs/facility-blueprint.png`](docs/facility-blueprint.png), and is documented
+in [`DESIGN_NOTES.md`](DESIGN_NOTES.md) — read that to understand *why* the
 facility is shaped the way it is, and to say what you want changed.
 
 ## Run it
@@ -63,9 +64,9 @@ drop it in cloud storage, open it from anywhere.
 ## Menu
 
 - **Layers** — hide roofs to read the plan, hide the ground to inspect the mine,
-  the crusher pit and the maintenance spine. Labels, markers, routes and scale
+  the crusher pit and the maintenance ring. Labels, markers, routes and scale
   figures toggle independently.
-- **Go to** — teleport to any of the 16 spawn points.
+- **Go to** — teleport to any of the 17 spawn points.
 - **Layout** — save to / restore from this browser, reset to the layout
   committed in the repository, export/import/copy facility JSON, export a
   greybox GLB.

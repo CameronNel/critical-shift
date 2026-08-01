@@ -4,69 +4,72 @@ import { roomWalls, zoneAuthor } from './authoring';
 const a = zoneAuthor('fuel');
 
 /**
- * Fuel processing and transfer. X 28..58, Z -20..+12, 8 m clear.
- * Its roof is a walkable deck: the best low-effort place on the site to spot
- * something arriving on the compliance road while still being near the plant.
- * The north door opens straight onto that approach, which cuts both ways.
+ * Fuel processing, east end of the north production row. X -10..18, Z -62..-32.
+ * Its roof at +10 is a walkable deck and the cheapest early warning on the
+ * site: it looks straight down the compliance approach. Its east door opens
+ * onto that approach, which cuts both ways.
  */
 export const FUEL_ENTITIES: Entity[] = [
-  a.floor('slab', [43, 0, -4], [30, 32]),
-  a.platform('roofdeck', [43, 8, -4], [30, 32], {
+  a.floor('slab', [4, 0, -47], [28, 30]),
+  a.platform('roofdeck', [4, 10, -47], [28, 30], {
     label: 'FUEL ROOF DECK',
     railings: ['n', 'e', 's', 'w'],
     tags: ['roof'],
   }),
 
   ...roomWalls(a, 'shell', {
-    min: [28, -20],
-    max: [58, 12],
-    height: 8,
+    min: [-10, -62],
+    max: [18, -32],
+    height: 10,
     openings: [
-      { side: 'w', at: -10, width: 5, bottom: 2.5, top: 7.5 }, // dried material in
-      { side: 'w', at: 4, width: 4, top: 3.6 }, // refinery ground route
-      { side: 'e', at: -2, width: 5, top: 4.2 }, // fuel corridor to reactor
-      { side: 'e', at: -12, width: 4, bottom: 3, top: 7.5 }, // fuel belt out
-      { side: 'n', at: 44, width: 4, top: 3.6 }, // compliance-side door
-      { side: 's', at: 36, width: 4, top: 3.6 }, // medical
+      { side: 'w', at: -52, width: 5, bottom: 2, top: 9 }, // dried material in
+      { side: 'w', at: -40, width: 4, top: 3.6 }, // ground route to refinery
+      { side: 'e', at: -40, width: 4, top: 3.6 }, // compliance approach
+      { side: 'n', at: 4, width: 4, top: 3.6 }, // onto S1
+      { side: 's', at: 8, width: 5, top: 4.2 }, // main route to the reactor
+      { side: 's', at: -4, width: 4, bottom: 2, top: 8 }, // fuel belt out
     ],
   }),
 
-  a.machine('assembly', 'FUEL ASSEMBLY', [36, 0, -12], [10, 6, 10]),
-  a.machine('inspection', 'INSPECTION', [50, 0, -12], [8, 5, 8]),
-  a.machine('store', 'CONTAINMENT STORE', [36, 0, 4], [9, 7, 9], { shape: 'cylinder' }),
+  a.machine('assembly', 'FUEL ASSEMBLY', [-2, 0, -52], [8, 6, 8]),
+  a.machine('inspection', 'INSPECTION', [10, 0, -52], [7, 5, 7]),
+  a.machine('store', 'CONTAINMENT STORE', [-2, 0, -40], [8, 7, 8], { shape: 'cylinder' }),
 
-  a.conveyor('conv.assemble', [[41, 4, -12], [46, 4, -12]], 2),
-  a.conveyor('conv.reactor', [[54, 5, -12], [62, 5, -12], [68, 5, -12]], 2.2, {
-    label: 'FUEL → REACTOR',
-  }),
+  a.conveyor('conv.assemble', [[2, 4, -52], [6.5, 4, -52]], 2),
+  a.conveyor(
+    'conv.reactor',
+    [
+      [10, 4.5, -48],
+      [4, 4.5, -42],
+      [-4, 4.5, -34],
+      [-5, 4.5, -28],
+      [-5, 4, -22],
+    ],
+    2,
+    { label: 'FUEL → REACTOR' },
+  ),
 
-  a.platform('staging', [50, 0.35, 4], [12, 12], { label: 'FUEL STAGING' }),
-  a.prop('crates.1', [46, 0.35, 8], [2.4, 2.2, 2.4]),
-  a.prop('crates.2', [49, 0.35, 8], [2.4, 2.2, 2.4]),
-  a.prop('crates.3', [46, 0.35, 1], [2.4, 2.2, 2.4]),
-  a.prop('flask.1', [54, 0.35, 2], [1.6, 2.6, 1.6], { shape: 'cylinder' }),
-  a.prop('flask.2', [54, 0.35, 6], [1.6, 2.6, 1.6], { shape: 'cylinder' }),
+  a.platform('staging', [10, 0.35, -40], [10, 10], { label: 'FUEL STAGING' }),
+  a.prop('crates.1', [7, 0.35, -37], [2.4, 2.2, 2.4]),
+  a.prop('crates.2', [10, 0.35, -37], [2.4, 2.2, 2.4]),
+  a.prop('crates.3', [13, 0.35, -37], [2.4, 2.2, 2.4]),
+  a.prop('flask.1', [14, 0.35, -43], [1.6, 2.6, 1.6], { shape: 'cylinder' }),
+  a.prop('flask.2', [14, 0.35, -46], [1.6, 2.6, 1.6], { shape: 'cylinder' }),
 
-  a.stair('stair.roof', [30.5, 0, 9], [30.5, 8, -3], 2),
+  a.stair('stair.roof', [-8, 0, -36], [-8, 10, -50], 2),
 
-  // Fuel corridor: six exposed metres between fuel and the reactor.
-  a.floor('corridor', [61, 0, -2], [6, 8]),
-  a.roof('corridor.lid', [61, 5, -2], [6, 8]),
-  a.wall('corridor.n', [58, -6], [64, -6], 5),
-  a.wall('corridor.s', [64, 2], [58, 2], 5),
-  a.doorway('door.corridor', [58, 0, -2], 5, 4.2, { rotationY: 90 }),
+  a.doorway('door.spine', [4, 0, -62], 4, 3.6, { label: 'S1' }),
+  a.doorway('door.south', [8, 0, -32], 5, 4.2),
+  a.doorway('door.east', [18, 0, -40], 4, 3.6, { rotationY: 90 }),
 
-  a.doorway('door.north', [44, 0, -20], 4, 3.6),
-  a.doorway('door.south', [36, 0, 12], 4, 3.6),
+  a.spawn('spawn.fuel', [4, 0, -40], 'Fuel hall'),
+  a.spawn('spawn.roof', [4, 10, -47], 'Fuel roof deck'),
 
-  a.spawn('spawn.fuel', [43, 0, 0], 'Fuel hall'),
-  a.spawn('spawn.roof', [43, 8, -4], 'Fuel roof deck'),
+  a.marker('m.roofview', [4, 10, -58], 'sightline', 'Roof deck: straight down the compliance approach'),
+  a.marker('m.crates', [10, 0.35, -37], 'hiding', 'Empty fuel crates'),
+  a.marker('m.inspect', [10, 0, -46], 'interaction', 'Inspection: last chance to catch a bad batch'),
+  a.marker('m.eastdoor', [20, 0, -40], 'hazard', 'East door: an auditor can walk straight in'),
 
-  a.marker('m.roofview', [43, 8, -18], 'sightline', 'Roof deck: the compliance road is right there'),
-  a.marker('m.crates', [46, 0.35, 8], 'hiding', 'Empty fuel crates'),
-  a.marker('m.inspect', [50, 0, -6], 'interaction', 'Inspection: the last chance to catch a bad batch'),
-  a.marker('m.northdoor', [44, 0, -22], 'hazard', 'North door: an auditor can walk straight in'),
-
-  a.mannequin('scale.1', [43, 0, -2], { rotationY: 200 }),
-  a.mannequin('scale.2', [43, 8, -14], { rotationY: 0 }),
+  a.mannequin('scale.1', [4, 0, -44], { rotationY: 200 }),
+  a.mannequin('scale.2', [4, 10, -54], { rotationY: 0 }),
 ];

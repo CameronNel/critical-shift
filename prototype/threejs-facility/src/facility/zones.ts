@@ -1,144 +1,144 @@
 import type { Zone } from './schema';
 
 /**
- * Macro layout of the site.
+ * Macro layout, following `docs/FACILITY_BLUEPRINT.md`.
  *
- * Three working datums keep the facility compact and interconnected:
- *   Y =  0  surface datum  - arrival, crusher hall, refinery, fuel, medical,
- *                            storage, reactor floor, compliance dock, yard
- *   Y = -6  service datum  - crusher pit and the maintenance spine that runs
- *                            under the plant from the crusher to cooling
- *   Y = -12 mine datum     - extraction chambers and the haulage drift
+ * A compact loop rather than a line. The reactor hall is a central octagonal
+ * volume; the production row (crusher, refinery, fuel) runs along the north
+ * edge; haulage and the mine sit west; storage, medical and cooling south.
+ * Everything is reachable more than one way, so route choice is tactical.
  *
- * Cooling sits on the service datum directly south of and below the control
- * room, so "cooling is below control" is literally true when you look down.
+ * Three working datums:
+ *   Y =  0  surface      - production row, reactor, control, the yard
+ *   Y = -5  service      - maintenance ring, crusher pit, cooling hall
+ *   Y = -2  mine         - excavated chambers inside the rock mass to the west
  */
 export const ZONES: Zone[] = [
   {
     id: 'yard',
     name: 'YARD',
     color: '#6a6d63',
-    bounds: { min: [-142, -78], max: [126, 66] },
-    signAt: [-20, 9, 56],
+    bounds: { min: [-182, -122], max: [74, 84] },
+    signAt: [-30, 9, 76],
     levels: 'grade (0 m)',
-    summary: 'Open surface between blocks. Long sightlines toward the compliance road.',
+    summary: 'Open surface, the north spine corridor, and the diagonal access run.',
   },
   {
     id: 'arrival',
     name: 'ARRIVAL',
     color: '#6b7a8f',
-    bounds: { min: [-120, -18], max: [-88, 18] },
-    signAt: [-104, 9, 0],
+    bounds: { min: [-128, -86], max: [-96, -58] },
+    signAt: [-112, 9, -72],
     levels: '0 m',
-    summary: 'Shift entrance, lockers, suit-up and briefing. Player start.',
+    summary: 'Shift entrance, lobby, lockers and briefing. Player start.',
   },
   {
     id: 'mine',
     name: 'MINE',
     color: '#6e6257',
-    bounds: { min: [-146, -48], max: [-108, -4] },
-    signAt: [-124, -7, -16],
-    levels: '-12 m',
-    summary: 'Excavated extraction face, a branch drift, a dead-end store, and the rise.',
+    bounds: { min: [-170, -32], max: [-116, 14] },
+    signAt: [-144, 3, -8],
+    levels: '-2 m, inside the rock',
+    summary: 'Extraction chambers driven west into the rock mass. Ore vein, dead-end store.',
   },
   {
     id: 'haulage',
     name: 'HAULAGE',
     color: '#7a6a52',
-    bounds: { min: [-112, -22], max: [-74, 42] },
-    signAt: [-80, 2.5, 24],
-    levels: '-12 m to 0 m',
-    summary: 'Open decline and cart drift. Everyone shares it with the carts.',
+    bounds: { min: [-112, -28], max: [-56, 28] },
+    signAt: [-84, 10, 0],
+    levels: '0 m',
+    summary: 'Cart loop between the mine and the crusher. Spurs north and east.',
   },
   {
     id: 'crusher',
     name: 'CRUSHER',
     color: '#8a6a4a',
-    bounds: { min: [-70, -26], max: [-36, 12] },
-    signAt: [-53, 14, -6],
-    levels: '-6 m to +20 m',
-    summary: 'Tipping deck over an open pit, the primary crusher, and the climb east.',
+    bounds: { min: [-88, -62], max: [-58, -32] },
+    signAt: [-73, 14, -47],
+    levels: '-5 m to +20 m',
+    summary: 'Tipping deck over an open pit. The pit is the way into the service ring.',
   },
   {
     id: 'refinery',
     name: 'REFINERY',
     color: '#7e8a72',
-    bounds: { min: [-32, -34], max: [24, 22] },
-    signAt: [-4, 20, -6],
-    levels: '0 m, +5 m, +10 m',
-    summary: 'Sorter, processor and dryer across three connected working levels.',
+    bounds: { min: [-54, -62], max: [-14, -32] },
+    signAt: [-34, 15, -47],
+    levels: '0 m, +5 m, +10 m, +14 m',
+    summary: 'Sorter, processor and dryer on one belt line. Four working elevations.',
   },
   {
     id: 'fuel',
     name: 'FUEL',
     color: '#8a8452',
-    bounds: { min: [28, -20], max: [58, 12] },
-    signAt: [43, 11, -4],
-    levels: '0 m, +8 m roof walk',
-    summary: 'Assembly, inspection, containment store and the corridor to the reactor.',
-  },
-  {
-    id: 'medical',
-    name: 'MEDICAL',
-    color: '#7d8a8a',
-    bounds: { min: [28, 18], max: [50, 34] },
-    signAt: [39, 7, 26],
-    levels: '0 m',
-    summary: 'Reanimation and decontamination, deliberately off the production line.',
-  },
-  {
-    id: 'storage',
-    name: 'STORAGE',
-    color: '#74705f',
-    bounds: { min: [-14, 26], max: [14, 46] },
-    signAt: [0, 8, 36],
-    levels: '0 m',
-    summary: 'Waste yard and bulk store. The obvious place to lose something.',
+    bounds: { min: [-10, -62], max: [18, -32] },
+    signAt: [4, 12, -47],
+    levels: '0 m, +10 m roof deck',
+    summary: 'Assembly, inspection, containment store. Its roof watches the compliance road.',
   },
   {
     id: 'reactor',
     name: 'REACTOR',
     color: '#5f7d8c',
-    bounds: { min: [64, -30], max: [120, 28] },
-    signAt: [92, 26, -1],
-    levels: '0 m, +9 m, +18 m',
-    summary: 'The dominant volume. Core, working floor, catwalk ring and upper gantry.',
+    bounds: { min: [-26, -26], max: [26, 26] },
+    signAt: [0, 27, 0],
+    levels: '0 m, +8 m, +17 m',
+    summary: 'Central octagonal hall. Core, catwalk ring, upper gantry. Four doors.',
   },
   {
     id: 'control',
     name: 'CONTROL',
     color: '#8c8a9c',
-    bounds: { min: [63, -7], max: [77, 11] },
-    signAt: [70, 18, 2],
-    levels: '+11 m',
-    summary: 'Open balcony on the reactor west wall. Great view, long walk down.',
+    bounds: { min: [30, -14], max: [54, 14] },
+    signAt: [42, 20, 0],
+    levels: '+10 m',
+    summary: 'East of the reactor, raised, looking in through the overlook windows.',
   },
   {
     id: 'cooling',
     name: 'COOLING',
     color: '#5b7f88',
-    bounds: { min: [66, 32], max: [112, 58] },
-    signAt: [89, 4, 45],
-    levels: '-6 m, lid flush with grade',
-    summary: 'Pump hall below and south of control. The valves are a run away.',
+    bounds: { min: [28, 28], max: [60, 62] },
+    signAt: [44, 6, 45],
+    levels: '-5 m, lid flush with grade',
+    summary: 'Sunk south-east of the reactor. Open cut on its north side, drains west.',
+  },
+  {
+    id: 'storage',
+    name: 'STORAGE',
+    color: '#74705f',
+    bounds: { min: [-86, 30], max: [-46, 58] },
+    signAt: [-66, 8, 44],
+    levels: '0 m',
+    summary: 'Waste yard and bulk store, with a stair down into the service ring.',
+  },
+  {
+    id: 'medical',
+    name: 'MEDICAL',
+    color: '#7d8a8a',
+    bounds: { min: [-36, 44], max: [-6, 70] },
+    signAt: [-21, 7, 57],
+    levels: '0 m',
+    summary: 'Reanimation and decontamination, on the southern loop.',
   },
   {
     id: 'maintenance',
     name: 'MAINTENANCE',
     color: '#6a6a6a',
-    bounds: { min: [-106, 2], max: [70, 40] },
-    signAt: [10, -2.5, 16],
-    levels: '-6 m',
-    summary: 'Service spine under the plant. Fast, unlit, and out of sight of the floor.',
+    bounds: { min: [-130, -38], max: [44, 38] },
+    signAt: [-96, -1.5, 0],
+    levels: '-5 m',
+    summary: 'Service ring under the site. Hidden flanking access to almost everywhere.',
   },
   {
     id: 'compliance',
     name: 'COMPLIANCE',
     color: '#8c7a86',
-    bounds: { min: [-40, -70], max: [100, -34] },
-    signAt: [76, 9, -55],
+    bounds: { min: [-4, -122], max: [34, -24] },
+    signAt: [18, 9, -100],
     levels: '0 m',
-    summary: 'Auditor road and dock north of the plant. Visible from anything elevated.',
+    summary: 'Road and dock north of the plant, then one long corridor to the reactor door.',
   },
 ];
 

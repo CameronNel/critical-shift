@@ -1,153 +1,155 @@
 # Facility layout — design notes
 
 What the greybox is trying to do, so that a change request can be specific.
-Everything below is implemented in `src/facility/data/`. Units are metres,
-+X east, +Z south, +Y up.
+The layout follows the compact-facility blueprint
+([`docs/facility-blueprint.png`](docs/facility-blueprint.png)). Everything below
+is implemented in `src/facility/data/`. Units are metres, +X east, +Z south,
++Y up.
+
+## The shape of it
+
+A **compact loop**, not a line. The reactor hall is a central octagonal volume
+with four doors on four different sides; the production row runs along the
+north edge; haulage and the mine sit west; storage, medical and cooling south.
+Nothing is a dead end, so route choice is tactical rather than obligatory.
+
+```
+                    COMPLIANCE  (road and dock, far north)
+                         |
+  ARRIVAL ─── S1 north spine ─────────────────────────┐
+     │      CRUSHER ── REFINERY ── FUEL               │
+     │         │           │         │                │
+   MINE ─── HAULAGE ═══════╪═════ REACTOR ── CONTROL  │
+             (cart loop)   │      (octagon)     │     │
+                │          │                    │     │
+              STORAGE ── MEDICAL ───────── COOLING ───┘
+                ╰──────── maintenance ring (-5 m) ────╯
+```
 
 ## Three working datums
 
 | Datum | Y | Contains |
 |---|---|---|
-| Surface | `0` | arrival, crusher hall deck, refinery, fuel, medical, storage, reactor floor, compliance dock, yard |
-| Service | `-6` | crusher pit, maintenance spine, cooling hall |
-| Mine | `-12` | extraction chambers, haulage drift |
+| Surface | `0` | production row, reactor, control, haulage, storage, medical, compliance, yard |
+| Service | `-5` | maintenance ring, crusher pit, cooling hall |
+| Mine | `-2` | extraction chambers, inside the rock mass west of the plant |
 
-Three datums instead of one flat site is what makes the plant feel stacked
-rather than spread out. The mine sits deep enough that its rough rock ceiling
-clears the surface slabs above it.
+## Scale and travel
 
-## Overall footprint
+About 256 m east–west by 206 m north–south including the mine and the
+compliance road; the built plant itself is roughly 150 m across. Walking at
+4.2 m/s:
 
-Roughly 268 m east–west by 144 m north–south. Arrival at the far west, the
-reactor at the far east, everything else between them. Walking the full
-crossing takes about 50 seconds; sprinting, about 28. That matches the travel
-targets in `GAME_SPEC.md` §23.2.
+| Leg | Distance | Walk |
+|---|---|---|
+| Crusher to refinery | 39 m | ~9 s |
+| Refinery to reactor | 58 m | ~14 s |
+| Mine face to refinery | ~115 m | ~27 s |
+| Arrival to control (full crossing) | ~170 m | ~40 s (23 s sprinting) |
 
-```
- W                                                                        E
- ARRIVAL ─ decline ─ CRUSHER ─ REFINERY ─ FUEL ─ corridor ─ REACTOR
-    │         │                    │        │                 │
-   MINE     (-12)              STORAGE   MEDICAL           COOLING (-6)
-                          MAINTENANCE SPINE (-6) ───────────────┘
-                     COMPLIANCE road and dock along the north edge
-```
+That matches the travel targets in `GAME_SPEC.md` §23.2.
 
 ## Zone by zone
 
-**Arrival** (X -120..-88). Lockers north, briefing south-west, suit-up and
-decon south-east. Two east doors, and which one you take commits you to a
-route: north leads to the decline bridge and the short way to the crusher,
-south leads the long way round and across the cart track.
+**Reactor hall.** Octagonal, 52 m across, 30 m clear. Core cylinder and
+containment frame in the middle, catwalk ring at +8, upper gantry ring at +17
+with a clerestory looking north up the compliance approach. Doors west (the
+cart diagonal), north (compliance), east (control) and south-east (cooling).
+Because it is central, most journeys can go through it or around it.
 
-**Mine** (-12 m). One main extraction chamber, one branch drift to a secondary
-face, one dead-end store drift, and the rise. Rock is built from slabs placed
-strictly outside the nominal void, so the space reads as excavated while the
-clean nominal box stays the collision surface.
+**Control room.** A raised block east of the reactor at +10, looking in through
+the overlook windows in the reactor's east wall. Total visibility, one stair
+down and the length of the link corridor to reach anything.
 
-**Haulage**. An open cut from grade at Z +40 down to the mine at Z -20 — 60 m
-at a 20% grade, 7.5 m wide. Carts and people share it. Two bridges cross it,
-so the yard is permanently split by a hazard. One refuge bay part-way down is
-the only place to stand when a loaded cart comes at you.
+**Crusher.** West end of the production row. Grade is a ring around an open pit
+at -5 m, crossed by an unrailed tipping deck carrying the live cart track. The
+pit floor *is* the west door of the maintenance ring, so the quietest route
+under the plant starts inside the busiest machine on it.
 
-**Crusher** (X -70..-36, -6 to +20 m). Grade is a ring around an open pit. The
-cart track crosses the pit on an unrailed tipping deck — the fastest way across
-the hall and the worst place to be standing when a cart arrives. Operator level
-at +6 overlooks the pit, the crusher throat and the deck. The crusher body
-pokes 10 m above grade, so it is a landmark from the yard.
+**Refinery.** Sorter, processor and dryer on one unbroken belt line along the
+north half, circulation south. Four working elevations: floor, mezzanine +5,
+centre aisle +10, gantry +14. The clerestory at +14 is one of only three places
+that can see the compliance road.
 
-**Refinery** (X -32..+24, 18 m clear). Sorter, processor and dryer on a
-continuous belt line across the north half, circulation south of them. Four
-usable elevations: floor 0, mezzanine +5, aisle catwalk +10, gantry +14. The
-belt line is unbroken from the crusher to fuel, so a bad batch has a clear path
-downstream — which is the point of the room. A clerestory at +14 in the north
-wall looks out at the compliance road.
+**Fuel.** Assembly, inspection, containment store, staging. Its roof at +10 is
+walkable and looks straight down the compliance approach. Its east door opens
+directly onto that approach.
 
-**Fuel** (X 28..58). Assembly, inspection, containment store, staging. Its roof
-at +8 is a walkable deck and the cheapest place on the site to spot something
-arriving on the compliance road. Its north door opens straight onto that
-approach, which cuts both ways.
+**Haulage.** A cart *loop*, not a line — carts run continuously, take the north
+spur to the crusher, or the east spur out onto the diagonal. Crossing the floor
+on foot is a timing problem.
 
-**Reactor** (X 64..120, 30 m clear). The dominant volume, visible from
-everywhere. Core and containment frame in the middle, catwalk ring at +9, upper
-gantry ring at +18 with a clerestory looking north over the compliance
-approach. Access is asymmetric on purpose: the floor-to-catwalk stair is on the
-east side, the control stair is on the west, so nobody is ever near both.
+**Mine.** Driven west into the rock at -2 m, so its rough ceiling rises above
+grade and reads as a hillside. Main face, ore-vein branch, dead-end store, and
+a 2.8 m service tunnel that climbs back under the plant into the ring.
 
-**Control** (+11 m, reactor west wall). An open balcony, not a sealed box — the
-sightline over the core is the mechanic. Whole reactor floor visible, two
-flights and a long walk to reach any of it.
+**Cooling.** Sunk to -5 m south-east of the reactor, below control's line of
+sight. The lid is flush with grade and stops short of the north wall, leaving
+an open cut: the state of the pumps is public, reaching them is not.
 
-**Cooling** (-6 m, south of and below control). Pumps, heat exchanger and a
-valve gallery. Two ways in: one stair through the reactor south wall, or the
-maintenance spine. The lid is flush with grade and stops short of the north
-wall, leaving an open cut you can look down into from the yard.
+**Maintenance.** A closed ring of 4 m corridors at -5 m with four ways in — the
+crusher pit, the storage stairwell, the mine's service tunnel, and the cooling
+hall it drains into. 4 m clear so two people pass and a body drags. A loop, not
+a maze.
 
-**Maintenance** (-6 m). A 4 m spine from the crusher pit, under the refinery,
-past a stairwell that surfaces in the yard, out to cooling. 4 m clear so two
-people pass and a body drags without snagging. One spine, one branch, one
-dead-end tool store — learnable, not a labyrinth.
-
-**Storage / medical**. Waste containers, a crate stack and a tarp in storage;
-reanimation and decontamination in medical, off the production line.
-
-**Compliance**. Road along the north edge, dock, then eighteen open metres to
-the reactor north door. The road continues west past the refinery north door,
-which is the quieter second way in.
+**Compliance.** Road, dock, and one straight corridor south past the fuel block
+to the reactor's north door. Deliberately legible.
 
 ## Routes
 
-Drawn as coloured ribbons; toggle them in the Layers menu.
+Toggle them in the Layers menu.
 
 | Route | Colour | What it is |
 |---|---|---|
-| Primary production circulation | blue | arrival → bridge → crusher → refinery → fuel → reactor |
-| Ore and material flow | amber | mine → decline → crusher → the three refinery stages → fuel → reactor |
-| The rise | green | mine face to the crusher pit without touching the decline |
-| Maintenance spine | violet | crusher pit to cooling, unseen from any working floor |
-| Cart route | red | crosses the south yard walkway, then runs through the crusher hall |
-| Compliance approach | pink | road, dock, and the exposed metres to the reactor door |
-| South yard walkway | yellow | the long way round the decline, across the cart track |
+| Primary production flow | green | mine → haulage → crusher → refinery → fuel → reactor |
+| Main worker access | blue | arrival → S1 → refinery link → the diagonal → reactor |
+| Cart line | red | the loop, the crusher spur, and the east spur onto the diagonal |
+| S1 north spine | yellow | straight behind crusher, refinery and fuel |
+| S2 haulage to storage | yellow | out of the cart hall without crossing the diagonal |
+| S3 medical to cooling | yellow | reaches cooling without entering the reactor at all |
+| Maintenance ring | violet | the closed loop one level down |
+| Compliance approach | pink | road, dock, and the last exposed stretch |
 
 ## Deliberate tensions
 
-- **Cart versus worker.** The track crosses the south walkway in the open yard
-  and then runs the length of the crusher hall floor. Both are places where a
-  cart and a person want to be at the same time.
-- **The rise.** About 60 m of 2.8 m-headroom tunnel from the mine face to the
-  crusher pit, versus about 130 m by the decline and the yard. Faster, tighter,
-  unlit, no second exit.
-- **Belt walking.** Conveyor belts are walkable. From the refinery north
-  mezzanine you can step onto the sorter belt and ride the line east to fuel
-  without touching a stair.
-- **Control versus cooling.** From the control balcony you can see the whole
-  reactor floor and, out to the south, the cooling cut. You cannot reach either
-  quickly. That gap is the coordination pressure.
-- **Elevation versus warning.** The reactor upper gantry, the refinery
-  clerestory and the fuel roof deck all see the compliance road. The working
-  floors do not. Whoever is high up is the early-warning system.
+- **The diagonal.** The cart line's east spur and the main worker route from
+  the refinery share one 8 m corridor between haulage and the reactor's west
+  door. That crossing is the site's signature hazard, and there is no refuge
+  bay on it.
+- **The loop never stops.** Because haulage is a loop rather than a siding,
+  crossing that floor is always a timing decision.
+- **Through the machine to get underneath.** The maintenance ring's west door
+  is the crusher pit, so the sneakiest route starts in the loudest room.
+- **Control versus cooling.** From the control deck you can see the whole
+  reactor floor, and out to the south, the cooling cut. You cannot reach either
+  quickly.
+- **Elevation versus warning.** The fuel roof deck, the refinery clerestory and
+  the reactor's upper gantry all see the compliance approach. Working floors
+  see nothing. Whoever is high up is the early-warning system.
+- **Belt walking.** Conveyor belts are walkable. From the refinery mezzanine
+  you can step onto the sorter belt and ride the line east to fuel without
+  touching a stair.
 - **Hiding places.** Four, not forty: the mine store drift, the maintenance
-  tool store, the storage waste containers and tarp, and the empty fuel crates
-  on the staging platform.
+  tool store, the storage waste containers and tarp, and the empty fuel crates.
 
 ## Known simplifications
 
-- The decline runs at 20%, steeper than a real haulage decline, to keep the
-  site compact. If it should read as gentler, the trench needs to run further
-  south and the yard grade strips need re-cutting to match.
-- Conveyor and pipe runs are indicative, not engineered. They exist to explain
-  where material goes.
-- Rough rock is slabs, not a sculpted mesh. It reads correctly at gameplay
-  distance and is wrong close up.
-- No lighting design. One ambient level, one key, one fill. Interiors are
-  legible rather than atmospheric.
+- The reactor's floor slab is square under an octagonal shell, so its corners
+  poke a little past the diagonal walls at grade.
+- Conveyor and pipe runs are indicative, not engineered.
+- Rough rock is overlapping slabs, not a sculpted mesh. It reads correctly at
+  gameplay distance and is wrong close up.
+- No lighting design. One ambient level, one key, one fill.
+- The mine, the compliance road and the yard are more generous than the
+  blueprint's proportions; the built plant matches it closely.
 
 ## Asking for changes
 
 Every entity has a stable id of the form `zone.name`, shown in the Edit panel
 when you select something. That id is the most useful thing to quote:
 
-> "`crusher.deck.track` is too narrow — make it 7 m."
-> "Move `control.deck` to the south wall instead of the west."
-> "The gap between `refinery.mezz.south` and `fuel` needs a direct link at +5."
+> "`yard.diag.floor` is too narrow — make it 12 m."
+> "Move `control.deck` to the north side of the reactor instead of the east."
+> "`haulage.loop` should be an oval twice this long."
 
 Exporting the JSON from the menu gives the whole document with those ids in it.

@@ -4,61 +4,73 @@ import { roomWalls, zoneAuthor } from './authoring';
 const a = zoneAuthor('cooling');
 
 /**
- * Cooling hall, sunk to -6 m south of the reactor and directly below the line
- * of sight from control. You can see the valves from the balcony and you
- * cannot touch them: the only fast way down is one stair through the reactor
- * south wall, and the only quiet way is the maintenance spine.
+ * Cooling hall, sunk to -5 m south-east of the reactor and directly below the
+ * control room's line of sight. Its lid is flush with grade and stops short of
+ * the north wall, leaving an open cut you can see down into from the yard —
+ * so the state of the pumps is public, and reaching them still is not.
+ *
+ * Two ways in: the corridor and stair from the reactor's south-east door, or
+ * the maintenance ring, which drains in through the west wall.
  */
 export const COOLING_ENTITIES: Entity[] = [
-  a.floor('slab', [89, -6, 45], [46, 26]),
-  // The lid is flush with grade and stops short of the north wall, leaving an
-  // open cut you can look straight down into from the yard.
-  a.platform('lid', [89, 0, 48], [46, 20], {
+  a.floor('slab', [44, -5, 45], [32, 34]),
+  a.platform('lid', [44, 0, 48], [32, 28], {
     label: 'COOLING LID',
     railings: ['n'],
     tags: ['roof'],
   }),
 
   ...roomWalls(a, 'shell', {
-    min: [66, 32],
-    max: [112, 58],
-    base: -6,
-    height: 6,
+    min: [28, 28],
+    max: [60, 62],
+    base: -5,
+    height: 5,
     openings: [
-      { side: 'n', at: 88, width: 8 }, // stair from the reactor floor
-      { side: 's', at: 100, width: 4 }, // emergency stair to grade
-      { side: 'w', at: 40, width: 4 }, // maintenance spine
+      { side: 'n', at: 32, width: 7 }, // stair down from the reactor
+      { side: 's', at: 52, width: 4 }, // emergency stair to grade
+      { side: 'w', at: 34, width: 5 }, // maintenance ring drains in
     ],
   }),
 
-  a.stair('stair.reactor', [88, 0, 26], [88, -6, 36], 3),
-  a.stair('stair.escape', [100, -6, 54], [100, 0, 62], 2),
+  // Approach from the reactor's south-east door.
+  a.floor('approach.a', [22.5, 0, 17], [11, 6]),
+  a.floor('approach.b', [30, 0, 24], [6, 14]),
+  a.roof('approach.a.lid', [22.5, 5, 17], [11, 6]),
+  a.roof('approach.b.lid', [30, 5, 24], [6, 14]),
+  a.wall('approach.n', [17, 14], [28, 14], 5),
+  a.wall('approach.s', [27, 20], [17, 20], 5),
+  a.wall('approach.b.w', [27, 20], [27, 31], 5),
+  a.wall('approach.b.n', [28, 17], [33, 17], 5),
+  a.wall('approach.b.e', [33, 31], [33, 17], 5),
+  a.stair('stair.reactor', [30, 0, 27], [30, -5, 35], 3),
+  a.stair('stair.escape', [52, -5, 58], [52, 0, 66], 2),
 
-  a.machine('pump.a', 'COOLANT PUMP A', [74, -6, 38], [7, 5, 7], { shape: 'cylinder' }),
-  a.machine('pump.b', 'COOLANT PUMP B', [74, -6, 50], [7, 5, 7], { shape: 'cylinder' }),
-  a.machine('pump.c', 'COOLANT PUMP C', [104, -6, 38], [7, 5, 7], { shape: 'cylinder' }),
-  a.machine('exchanger', 'HEAT EXCHANGER', [100, -6, 51], [16, 6, 10]),
+  a.machine('pump.a', 'COOLANT PUMP A', [34, -5, 40], [6, 4.5, 6], { shape: 'cylinder' }),
+  a.machine('pump.b', 'COOLANT PUMP B', [34, -5, 52], [6, 4.5, 6], { shape: 'cylinder' }),
+  a.machine('pump.c', 'COOLANT PUMP C', [56, -5, 40], [6, 4.5, 6], { shape: 'cylinder' }),
+  a.machine('exchanger', 'HEAT EXCHANGER', [52, -5, 54], [12, 5, 8]),
 
-  a.platform('gallery', [89, -2, 45], [8, 22], {
+  a.platform('gallery', [44, -1.5, 46], [7, 20], {
     label: 'VALVE GALLERY',
     railings: ['e', 'w'],
     supports: true,
   }),
-  a.stair('stair.gallery', [85, -6, 50], [85, -2, 44], 1.8),
-  a.prop('valve.1', [89, -2, 38], [1.6, 1.4, 1.6], { shape: 'cylinder' }),
-  a.prop('valve.2', [89, -2, 43], [1.6, 1.4, 1.6], { shape: 'cylinder' }),
-  a.prop('valve.3', [89, -2, 48], [1.6, 1.4, 1.6], { shape: 'cylinder' }),
-  a.prop('valve.4', [89, -2, 53], [1.6, 1.4, 1.6], { shape: 'cylinder' }),
+  a.stair('stair.gallery', [40, -5, 52], [40, -1.5, 46], 1.8),
+  a.prop('valve.1', [44, -1.5, 39], [1.6, 1.4, 1.6], { shape: 'cylinder' }),
+  a.prop('valve.2', [44, -1.5, 44], [1.6, 1.4, 1.6], { shape: 'cylinder' }),
+  a.prop('valve.3', [44, -1.5, 49], [1.6, 1.4, 1.6], { shape: 'cylinder' }),
+  a.prop('valve.4', [44, -1.5, 54], [1.6, 1.4, 1.6], { shape: 'cylinder' }),
 
-  a.pipe('pipe.up.a', [[88, 1, 34], [88, 6, 30], [88, 12, 22]], 0.9),
-  a.pipe('pipe.up.b', [[100, 1, 34], [100, 6, 30], [100, 12, 22]], 0.9),
-  a.pipe('pipe.loop', [[74, -3, 42], [74, -3, 46], [100, -3, 46]], 0.7),
+  a.pipe('pipe.up.a', [[36, 0, 32], [30, 6, 26], [22, 10, 18]], 0.9),
+  a.pipe('pipe.up.b', [[48, 0, 34], [44, 8, 28], [36, 12, 22]], 0.8),
+  a.pipe('pipe.loop', [[34, -2, 44], [34, -2, 48], [56, -2, 48]], 0.7),
 
-  a.spawn('spawn.cooling', [89, -6, 45], 'Cooling hall'),
-  a.marker('m.valves', [89, -2, 45], 'interaction', 'Main coolant valves'),
-  a.marker('m.run', [88, -6, 35], 'hazard', 'The run from the reactor floor: 40 m and a stair'),
-  a.marker('m.escape', [100, -6, 54], 'shortcut', 'Emergency stair straight up to grade'),
+  a.spawn('spawn.cooling', [44, -5, 45], 'Cooling hall'),
+  a.marker('m.valves', [44, -1.5, 46], 'interaction', 'Main coolant valves'),
+  a.marker('m.cut', [44, 0, 31], 'sightline', 'Open cut: the pumps are visible from the yard'),
+  a.marker('m.run', [30, -5, 36], 'hazard', 'The run from the reactor floor: a corridor and a stair'),
+  a.marker('m.escape', [52, -5, 58], 'shortcut', 'Emergency stair straight up to grade'),
 
-  a.mannequin('scale.1', [89, -6, 40], { rotationY: 0 }),
-  a.mannequin('scale.2', [89, -2, 50], { rotationY: 180 }),
+  a.mannequin('scale.1', [44, -5, 40], { rotationY: 0 }),
+  a.mannequin('scale.2', [44, -1.5, 50], { rotationY: 180 }),
 ];

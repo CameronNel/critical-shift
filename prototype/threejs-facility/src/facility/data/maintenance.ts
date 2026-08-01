@@ -1,88 +1,74 @@
 import type { Entity } from '../schema';
-import { roomWalls, zoneAuthor } from './authoring';
+import { zoneAuthor } from './authoring';
 
 const a = zoneAuthor('maintenance');
 
 /**
- * Service spine on the -6 m datum. It runs from the crusher pit, under the
- * refinery, past a stairwell that surfaces in the yard, and out to cooling.
- * 4 m clear width: two people pass, and a body drags without snagging.
- * Learnable on purpose — one spine, one branch, one dead-end store.
+ * Service ring on the -5 m datum: a closed loop of 4 m corridors under the
+ * plant with four ways in and out — the crusher pit, the storage stairwell,
+ * the mine's service tunnel, and the cooling hall it drains into.
+ *
+ * 4 m clear so two people pass and a body drags without snagging. A loop, not
+ * a maze: whichever way you set off, you come out somewhere useful.
  */
 export const MAINTENANCE_ENTITIES: Entity[] = [
-  // The rise continues from the mine, climbing 2 m over 50 m to the spine.
-  a.tunnel(
-    'rise.east',
-    [
-      [-104, -11, 4],
-      [-96, -9.5, 7],
-      [-84, -8, 11],
-      [-72, -6.6, 16],
-      [-54, -6, 16],
-    ],
-    3.2,
-    2.8,
-    { seed: 97, rough: 0.5 },
-  ),
+  a.floor('leg.w', [-96, -5, 1], [4, 70]),
+  a.floor('leg.n', [-59, -5, -34], [78, 4]),
+  a.floor('leg.s', [-32, -5, 34], [132, 4]),
+  a.floor('leg.e', [32, -5, 15], [4, 38]),
+  a.roof('leg.w.lid', [-96, -1, 1], [4, 70]),
+  a.roof('leg.n.lid', [-59, -1, -34], [78, 4]),
+  a.roof('leg.s.lid', [-32, -1, 34], [132, 4]),
+  a.roof('leg.e.lid', [32, -1, 15], [4, 38]),
 
-  a.floor('spine', [9, -6, 16], [122, 4]),
-  a.roof('spine.lid', [9, -2, 16], [122, 4]),
-  ...roomWalls(a, 'spine', {
-    min: [-52, 14],
-    max: [70, 18],
-    base: -6,
-    height: 4,
+  // West leg. The mine's service tunnel arrives through the outer wall.
+  a.wall('leg.w.outer', [-98, -34], [-98, 36], 4, {
+    base: -5,
     thickness: 0.3,
-    openings: [
-      { side: 'n', at: -50, width: 4 }, // crusher pit leg
-      { side: 's', at: 5, width: 3 }, // tool store
-      { side: 's', at: 28, width: 3.6 }, // stairwell to the yard
-      { side: 's', at: 68, width: 4 }, // cooling leg
-      { side: 'w', at: 16, width: 3.6 },
-    ],
+    gaps: [{ at: 42, width: 4 }],
   }),
+  a.wall('leg.w.inner.n', [-94, -32], [-94, 4], 4, { base: -5, thickness: 0.3 }),
+  a.wall('leg.w.inner.s', [-94, 12], [-94, 32], 4, { base: -5, thickness: 0.3 }),
 
-  // West leg up into the crusher pit.
-  a.floor('leg.west', [-50, -6, 10], [4, 14]),
-  a.roof('leg.west.lid', [-50, -2, 10], [4, 14]),
-  a.wall('leg.west.w', [-52, 3], [-52, 14], 4, { base: -6, thickness: 0.3 }),
-  a.wall('leg.west.e', [-48, 14], [-48, 3], 4, { base: -6, thickness: 0.3 }),
+  // North leg. The crusher pit opens straight into it.
+  a.wall('leg.n.outer', [-98, -36], [-20, -36], 4, {
+    base: -5,
+    thickness: 0.3,
+    gaps: [{ at: 25, width: 22 }],
+  }),
+  a.wall('leg.n.inner', [-20, -32], [-92, -32], 4, { base: -5, thickness: 0.3 }),
+  a.wall('leg.n.end', [-20, -36], [-20, -32], 4, { base: -5, thickness: 0.3 }),
 
-  // East leg out to the cooling hall.
-  a.floor('leg.east', [68, -6, 28], [4, 24]),
-  a.roof('leg.east.lid', [68, -2, 28], [4, 24]),
-  a.wall('leg.east.w', [66, 18], [66, 40], 4, { base: -6, thickness: 0.3 }),
-  a.wall('leg.east.e', [70, 40], [70, 18], 4, { base: -6, thickness: 0.3 }),
+  // South leg. Its outer wall is broken for the storage stairwell.
+  a.wall('leg.s.outer', [34, 36], [-98, 36], 4, {
+    base: -5,
+    thickness: 0.3,
+    gaps: [{ at: 90, width: 8 }], // storage stairwell
+  }),
+  a.wall('leg.s.inner', [-92, 32], [30, 32], 4, { base: -5, thickness: 0.3 }),
+
+  // East leg, running north from the cooling hall.
+  a.wall('leg.e.outer', [34, 32], [34, -4], 4, { base: -5, thickness: 0.3 }),
+  a.wall('leg.e.inner', [30, -4], [30, 32], 4, { base: -5, thickness: 0.3 }),
+  a.wall('leg.e.end', [30, -4], [34, -4], 4, { base: -5, thickness: 0.3 }),
 
   // Tool store: the one room down here with a door and a reason to linger.
-  a.floor('store', [5, -6, 22], [10, 8]),
-  a.roof('store.lid', [5, -2, 22], [10, 8]),
-  ...roomWalls(a, 'store', {
-    min: [0, 18],
-    max: [10, 26],
-    base: -6,
-    height: 4,
-    thickness: 0.3,
-    openings: [{ side: 'n', at: 5, width: 3 }],
-  }),
-  a.machine('bench', 'TOOL STORE', [3, -6, 24], [4, 1.2, 5]),
-  a.prop('racks', [8, -6, 22], [1.4, 2.4, 6]),
-  a.prop('spares', [5, -6, 19.5], [4, 1.6, 2]),
+  a.floor('store', [-87, -5, 8], [10, 8], { label: 'TOOL STORE' }),
+  a.roof('store.lid', [-87, -1, 8], [10, 8]),
+  a.wall('store.n', [-92, 4], [-82, 4], 4, { base: -5, thickness: 0.3 }),
+  a.wall('store.e', [-82, 4], [-82, 12], 4, { base: -5, thickness: 0.3 }),
+  a.wall('store.s', [-82, 12], [-92, 12], 4, { base: -5, thickness: 0.3 }),
+  a.machine('bench', 'TOOL STORE', [-89, -5, 10], [4, 1.2, 5]),
+  a.prop('racks', [-83, -5, 8], [1.4, 2.4, 6]),
+  a.prop('spares', [-87, -5, 5.5], [4, 1.6, 2]),
 
-  // Stairwell surfacing in the yard between the refinery and fuel.
-  a.floor('shaft.base', [28, -6, 21], [8, 18]),
-  a.wall('shaft.w', [24, 12], [24, 30], 6, { base: -6 }),
-  a.wall('shaft.e', [32, 30], [32, 12], 6, { base: -6 }),
-  a.wall('shaft.s', [32, 30], [24, 30], 6, { base: -6 }),
-  a.wall('shaft.n', [24, 12], [32, 12], 6, { base: -6 }),
-  a.stair('shaft.stair', [28, 0, 26], [28, -6, 17], 2),
+  a.spawn('spawn.ring', [-96, -5, 0], 'Service ring'),
+  a.marker('m.ring', [-32, -5, 34], 'shortcut', 'Service ring: a loop, not a maze'),
+  a.marker('m.store', [-87, -5, 8], 'hiding', 'Tool store: lockable, and nobody audits it'),
+  a.marker('m.pit', [-73, -5, -34], 'shortcut', 'Up into the crusher pit'),
+  a.marker('m.drain', [32, -5, 28], 'shortcut', 'East leg drains into the cooling hall'),
+  a.marker('m.mine', [-96, -5, 8], 'shortcut', 'Mine service tunnel arrives here'),
 
-  a.mannequin('scale.1', [0, -6, 16], { rotationY: 90 }),
-  a.mannequin('scale.2', [-70, -6.2, 16], { rotationY: 270 }),
-
-  a.spawn('spawn.spine', [10, -6, 16], 'Maintenance spine'),
-  a.marker('m.spine', [40, -6, 16], 'shortcut', 'Spine: crusher to cooling, unseen'),
-  a.marker('m.store', [5, -6, 22], 'hiding', 'Tool store: lockable, and nobody audits it'),
-  a.marker('m.shaft', [28, -6, 20], 'shortcut', 'Stairwell surfaces beside the refinery'),
-  a.marker('m.rise', [-70, -6.2, 16], 'hazard', '2.8 m headroom, no lighting, no second exit'),
+  a.mannequin('scale.1', [-60, -5, 34], { rotationY: 90 }),
+  a.mannequin('scale.2', [-96, -5, -10], { rotationY: 0 }),
 ];

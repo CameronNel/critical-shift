@@ -107,8 +107,8 @@ export class App {
   /** Centre map mode on the whole site. */
   frameSite(): void {
     this.map.frameSite(
-      new THREE.Vector3(-142, 0, -78),
-      new THREE.Vector3(126, 0, 66),
+      new THREE.Vector3(-182, 0, -122),
+      new THREE.Vector3(74, 0, 84),
       this.viewport.camera,
     );
   }

@@ -4,92 +4,81 @@ import { roomWalls, zoneAuthor } from './authoring';
 const a = zoneAuthor('crusher');
 
 /**
- * Crusher hall. X -70..-36, Z -26..+12, 20 m clear.
- * Grade is a ring around an open pit at -6 m. The cart track crosses the pit
- * on an unrailed deck, which is the fastest way across the hall and the worst
- * place to be standing when a cart arrives.
+ * Crusher hall, west end of the north production row. X -88..-58, Z -62..-32.
+ * Grade is a ring around an open pit at -5 m, and the pit is the west entrance
+ * to the maintenance ring — so the fastest way under the plant is through the
+ * busiest machine on the site.
  */
 export const CRUSHER_ENTITIES: Entity[] = [
-  a.floor('deck.w', [-65, 0, -7], [10, 38]),
-  a.floor('deck.e', [-38, 0, -7], [4, 38]),
-  a.floor('deck.n', [-50, 0, -22.5], [20, 7]),
-  a.floor('deck.s', [-50, 0, 9], [20, 6]),
-  a.floor('deck.track', [-50, 0, -6.5], [5, 25], { label: 'TIPPING DECK' }),
-  a.floor('pit', [-50, -6, -6.5], [20, 25]),
-  a.roof('lid', [-53, 20, -7], [34, 38]),
+  a.floor('deck.n', [-73, 0, -60], [30, 4]),
+  a.floor('deck.s', [-73, 0, -34], [30, 4]),
+  a.floor('deck.w', [-86, 0, -47], [4, 22]),
+  a.floor('deck.e', [-60, 0, -47], [4, 22]),
+  a.floor('deck.track', [-73, 0, -47], [6, 22], { label: 'TIPPING DECK' }),
+  a.floor('pit', [-73, -5, -47], [22, 22]),
+  a.roof('lid', [-73, 20, -47], [30, 30]),
 
   ...roomWalls(a, 'shell', {
-    min: [-70, -26],
-    max: [-36, 12],
+    min: [-88, -62],
+    max: [-58, -32],
     height: 20,
     openings: [
-      { side: 'w', at: -10, width: 4.5, top: 3.6 }, // north walkway door
-      { side: 's', at: -50, width: 6, top: 5 }, // cart track
-      { side: 's', at: -64, width: 4, top: 3.6 }, // south walkway door
-      { side: 'e', at: -6, width: 5, bottom: 0, top: 8 }, // output conveyor
-      { side: 'e', at: 3, width: 4, bottom: 5, top: 8.5 }, // high catwalk
-      { side: 'e', at: 8, width: 4, top: 3.6 }, // ground route to refinery
-      { side: 'n', at: -53, width: 8, bottom: 12, top: 18 }, // north clerestory
+      { side: 'n', at: -73, width: 4, top: 3.6 }, // onto S1
+      { side: 's', at: -73, width: 7, top: 6 }, // cart spur from the loop
+      { side: 's', at: -84, width: 4, top: 3.6 }, // worker door
+      { side: 'w', at: -40, width: 4, top: 3.6 }, // west yard
+      { side: 'e', at: -52, width: 5, bottom: 0, top: 8 }, // output conveyor
+      { side: 'e', at: -38, width: 4, bottom: 5, top: 8.5 }, // high link
+      { side: 'e', at: -44, width: 4, top: 3.6 }, // ground route to refinery
     ],
   }),
 
-  a.track('track.hall', [[-50, 0, 12], [-50, 0, -19]]),
+  a.track('track.hall', [[-73, 0, -30], [-73, 0, -55]]),
 
-  a.machine('hopper', 'RECEIVING HOPPER', [-51, -6, -21.5], [10, 7, 5], { shape: 'hopper' }),
-  a.machine('crusher', 'PRIMARY CRUSHER', [-44, -6, -6], [8, 16, 11]),
-  a.conveyor('conv.feed', [[-51, -4.5, -19], [-47, -4, -11]], 2.5, { label: 'FEED' }),
+  a.machine('hopper', 'RECEIVING HOPPER', [-73, -5, -57.5], [9, 6, 5], { shape: 'hopper' }),
+  a.machine('crusher', 'PRIMARY CRUSHER', [-66, -5, -47], [7, 15, 10]),
+  a.conveyor('conv.feed', [[-73, -3.5, -55], [-70, -3, -49]], 2.4, { label: 'FEED' }),
   a.conveyor(
     'conv.out',
     [
-      [-40, -3, -6],
-      [-37, 0, -6],
-      [-33, 3, -6],
-      [-31, 5, -9],
-      [-31, 6.5, -16],
+      [-62.5, -2, -47],
+      [-60, 0.5, -48],
+      [-57, 3, -50],
+      [-54, 5, -52],
     ],
-    2.6,
+    2.4,
     { label: 'CRUSHED ORE → REFINERY' },
   ),
 
-  // Operator level: sees the tipping deck, the pit and the crusher throat.
-  a.platform('op.deck', [-59, 6, -6], [10, 14], {
+  a.platform('op.deck', [-80, 6, -47], [8, 14], {
     label: 'CRUSHER CONTROL',
     railings: ['n', 'e', 's'],
     supports: true,
   }),
-  a.prop('op.console', [-56, 6, -6], [1.2, 1.1, 4]),
-  a.stair('op.stair', [-64, 0, 6], [-64, 6, -6], 2.2),
+  a.prop('op.console', [-77.5, 6, -47], [1.2, 1.1, 4]),
+  a.stair('op.stair', [-85, 0, -40], [-85, 6, -52], 2.2),
 
-  a.platform('maint.deck', [-44, 6, 0], [8, 6], {
+  a.platform('maint.deck', [-66, 6, -40], [7, 5], {
     label: 'CRUSHER MAINTENANCE',
     railings: ['n', 'e', 'w'],
     supports: true,
   }),
-  a.catwalk(
-    'cat.east',
-    [
-      [-54, 6, 3],
-      [-46, 6, 3],
-      [-38, 5.6, 3],
-      [-30, 5, 3],
-    ],
-    2.4,
-    { label: 'CRUSHER → REFINERY HIGH LINK' },
-  ),
+  a.catwalk('cat.east', [[-76, 6, -38], [-64, 6, -38], [-58, 5.5, -38], [-52, 5, -38]], 2.4, {
+    label: 'CRUSHER → REFINERY HIGH LINK',
+  }),
 
-  a.stair('pit.stair', [-61, 0, -14], [-55, -6, -14], 2),
+  a.stair('pit.stair', [-86, 0, -52], [-80, -5, -52], 2),
 
-  a.doorway('door.west', [-70, 0, -10], 4.5, 3.6, { rotationY: 90 }),
-  a.doorway('door.east', [-36, 0, 8], 4, 3.6, { rotationY: 90 }),
+  a.doorway('door.spine', [-73, 0, -62], 4, 3.6, { label: 'S1' }),
+  a.doorway('door.east', [-58, 0, -44], 4, 3.6, { rotationY: 90 }),
 
-  a.spawn('spawn.hall', [-65, 0, -2], 'Crusher hall'),
-  a.marker('m.deck', [-50, 0, -6], 'crossing', 'Tipping deck: no rails, live track'),
-  a.marker('m.pit', [-57, 0, 2], 'hazard', 'Open pit edge'),
-  a.marker('m.jam', [-44, 6, 0], 'interaction', 'Crusher jam clearance'),
-  a.marker('m.beltup', [-33, 3, -6], 'shortcut', 'Ride the output belt up to the refinery'),
-  a.marker('m.spine', [-50, -6, 4], 'shortcut', 'Pit connects to the maintenance spine'),
+  a.spawn('spawn.hall', [-85, 0, -47], 'Crusher hall'),
+  a.marker('m.deck', [-73, 0, -47], 'crossing', 'Tipping deck: no rails, live track'),
+  a.marker('m.pit', [-80, -5, -47], 'shortcut', 'Pit floor is the west door of the service ring'),
+  a.marker('m.jam', [-66, 6, -40], 'interaction', 'Crusher jam clearance'),
+  a.marker('m.beltup', [-56, 3.5, -50], 'shortcut', 'Ride the output belt into the refinery'),
 
-  a.mannequin('scale.1', [-64, 0, -2], { rotationY: 90 }),
-  a.mannequin('scale.2', [-50, -6, -2]),
-  a.mannequin('scale.3', [-59, 6, -2], { rotationY: 180 }),
+  a.mannequin('scale.1', [-86, 0, -47], { rotationY: 90 }),
+  a.mannequin('scale.2', [-78, -5, -47]),
+  a.mannequin('scale.3', [-80, 6, -43], { rotationY: 180 }),
 ];
