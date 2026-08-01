@@ -4,6 +4,7 @@ import { createSiteScene, VOID_Y, type SiteScene } from './scene';
 import { InputState } from '../input/inputState';
 import { createDesktopInput, type DesktopInput } from '../input/desktopInput';
 import { FlyController } from '../nav/flyController';
+import { MapController } from '../nav/mapController';
 import { WalkController, EYE_HEIGHT } from '../nav/walkController';
 import { applyToCamera, createNavState, type NavState } from '../nav/navState';
 import { buildFacility, type FacilityBuild } from '../build/buildFacility';
@@ -29,6 +30,7 @@ export class App {
   readonly nav: NavState;
 
   private readonly fly = new FlyController();
+  readonly map = new MapController();
   private readonly walk = new WalkController();
   private lastFrameTime = 0;
   private readonly listeners = new Set<(status: AppStatus) => void>();
@@ -36,6 +38,8 @@ export class App {
   private doc: FacilityDoc;
   private build: FacilityBuild;
   private currentMode: NavMode = 'walk';
+  /** Roof visibility outside map mode, restored when map mode is left. */
+  private roofsBeforeMap = true;
   private running = false;
   private frames = 0;
   private fpsAccum = 0;
@@ -77,12 +81,36 @@ export class App {
 
   setMode(mode: NavMode): void {
     if (mode === this.currentMode) return;
+    const previous = this.currentMode;
     this.currentMode = mode;
+
+    if (mode === 'map') {
+      // The plan is unreadable through the roofs, so drop them while mapping.
+      this.roofsBeforeMap = this.site.layers.roofs.visible;
+      this.site.layers.roofs.visible = false;
+      this.map.target.set(this.nav.position.x, 0, this.nav.position.z);
+      this.map.azimuth = this.nav.yaw;
+    } else if (previous === 'map') {
+      this.site.layers.roofs.visible = this.roofsBeforeMap;
+      // Drop back in above the point being looked at rather than in orbit.
+      this.nav.position.set(this.map.target.x, 30, this.map.target.z);
+      this.nav.pitch = 0;
+    }
+
     if (mode === 'walk') {
       this.walk.reset();
       this.snapToGround();
     }
     this.emit();
+  }
+
+  /** Centre map mode on the whole site. */
+  frameSite(): void {
+    this.map.frameSite(
+      new THREE.Vector3(-142, 0, -78),
+      new THREE.Vector3(126, 0, 66),
+      this.viewport.camera,
+    );
   }
 
   onStatus(listener: (status: AppStatus) => void): () => void {
@@ -204,6 +232,8 @@ export class App {
       if (this.currentMode === 'walk') {
         this.walk.update(dt, this.input, this.nav, this.build.collision);
         if (this.nav.position.y < VOID_Y) this.respawn();
+      } else if (this.currentMode === 'map') {
+        this.map.update(dt, this.input, this.nav);
       } else {
         this.fly.update(dt, this.input, this.nav);
       }

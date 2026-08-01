@@ -41,8 +41,10 @@ export class Hud {
   private readonly statusChip: HTMLElement;
   private readonly crosshair: HTMLElement;
   private readonly toastHost: HTMLElement;
+  private readonly legend: HTMLElement;
   private readonly modeButtons = new Map<NavMode, HTMLButtonElement>();
   private readonly flyOnly: HTMLElement[] = [];
+  private readonly mapOnly: HTMLElement[] = [];
 
   constructor(private readonly app: App, container: HTMLElement) {
     this.root = el('div', 'hud');
@@ -77,6 +79,9 @@ export class Hud {
     this.panel.append(panelHead, this.panelBody);
     this.root.appendChild(this.panel);
 
+    this.legend = el('div', 'legend hidden');
+    this.root.appendChild(this.legend);
+
     this.toastHost = el('div', 'toasts');
     this.root.appendChild(this.toastHost);
 
@@ -84,7 +89,9 @@ export class Hud {
 
     this.registerMode('walk', 'Walk');
     this.registerMode('fly', 'Fly');
+    this.registerMode('map', 'Map');
     this.buildActions();
+    this.buildLegend();
     this.buildLayerSection();
     this.buildTeleportSection();
     this.buildHelpSection();
@@ -102,19 +109,29 @@ export class Hud {
     this.render(this.app.mode, '', 0);
   }
 
-  addAction(label: string, onClick: () => void, options: { flyOnly?: boolean } = {}): HTMLButtonElement {
+  addAction(
+    label: string,
+    onClick: () => void,
+    options: { flyOnly?: boolean; mapOnly?: boolean } = {},
+  ): HTMLButtonElement {
     const node = button(label, 'btn btn-action');
     node.addEventListener('click', onClick);
     this.actions.appendChild(node);
     if (options.flyOnly) this.flyOnly.push(node);
+    if (options.mapOnly) this.mapOnly.push(node);
     return node;
   }
 
-  addHoldAction(label: string, onChange: (held: boolean) => void, flyOnly = false): HTMLElement {
+  addHoldAction(
+    label: string,
+    onChange: (held: boolean) => void,
+    options: { flyOnly?: boolean; mapOnly?: boolean } = {},
+  ): HTMLElement {
     const node = button(label, 'btn btn-action');
     bindHoldButton(node, onChange);
     this.actions.appendChild(node);
-    if (flyOnly) this.flyOnly.push(node);
+    if (options.flyOnly) this.flyOnly.push(node);
+    if (options.mapOnly) this.mapOnly.push(node);
     return node;
   }
 
@@ -143,8 +160,10 @@ export class Hud {
 
   private render(mode: NavMode, zone: string, fps: number): void {
     for (const [key, node] of this.modeButtons) node.classList.toggle('on', key === mode);
-    for (const node of this.flyOnly) node.classList.toggle('hidden', mode !== 'fly');
+    for (const node of this.flyOnly) node.classList.toggle('hidden', mode === 'walk');
+    for (const node of this.mapOnly) node.classList.toggle('hidden', mode !== 'map');
     this.crosshair.classList.toggle('hidden', mode === 'map');
+    this.legend.classList.toggle('hidden', mode !== 'map');
     const p = this.app.nav.position;
     this.statusChip.textContent = `${zone}  ·  ${p.x.toFixed(0)} ${(p.y - 1.62).toFixed(
       0,
@@ -156,17 +175,50 @@ export class Hud {
       this.app.respawn();
       this.toast('Respawned at the shift entrance');
     });
-    this.addHoldAction('▲', (held) => {
-      this.app.input.vertical = held ? 1 : 0;
-    }, true);
-    this.addHoldAction('▼', (held) => {
-      this.app.input.vertical = held ? -1 : 0;
-    }, true);
+    this.addAction('Frame site', () => this.app.frameSite(), { mapOnly: true });
+    this.addHoldAction(
+      '▲',
+      (held) => {
+        this.app.input.vertical = held ? 1 : 0;
+      },
+      { flyOnly: true },
+    );
+    this.addHoldAction(
+      '▼',
+      (held) => {
+        this.app.input.vertical = held ? -1 : 0;
+      },
+      { flyOnly: true },
+    );
     const sprint = this.addAction('Sprint', () => {
       const on = !this.app.input.sprint;
       this.app.input.sprint = on;
       sprint.classList.toggle('on', on);
     });
+  }
+
+  /** Zone key, shown only in map mode. Tapping a zone centres the view on it. */
+  private buildLegend(): void {
+    for (const zone of this.app.facility.zones) {
+      const item = el('button', 'legend-item');
+      item.type = 'button';
+      item.dataset.hud = 'legend';
+      const swatch = el('span', 'legend-swatch');
+      swatch.style.background = zone.color;
+      const text = el('span', 'legend-text');
+      text.appendChild(el('strong', undefined, zone.name));
+      text.appendChild(el('span', 'legend-levels', zone.levels));
+      item.append(swatch, text);
+      item.title = zone.summary;
+      item.addEventListener('click', () => {
+        const [x0, z0] = zone.bounds.min;
+        const [x1, z1] = zone.bounds.max;
+        this.app.map.target.set((x0 + x1) / 2, 0, (z0 + z1) / 2);
+        this.app.map.distance = Math.max(50, Math.max(x1 - x0, z1 - z0) * 1.5);
+        this.toast(zone.summary);
+      });
+      this.legend.appendChild(item);
+    }
   }
 
   private buildLayerSection(): void {
@@ -217,6 +269,7 @@ export class Hud {
         ['Phone', 'Left thumb: move. Right thumb: look. Buttons for mode, height and reset.'],
         ['Desktop', 'WASD to move, mouse to look (click to lock), Ctrl or Shift to sprint.'],
         ['Fly', 'Space / Shift or the ▲ ▼ buttons for height. F toggles fly.'],
+        ['Map', 'Left thumb or WASD pans, right thumb or mouse orbits, ▲ ▼ or the wheel zooms.'],
         ['Reset', 'R, or the Reset button, returns you to the shift entrance.'],
       ];
       for (const [term, description] of rows) {

@@ -12,7 +12,7 @@ interface Tuning {
 }
 
 const TUNING: Record<LabelKind, Tuning> = {
-  zone: { maxDistance: 600, scaleWithDistance: true, minHeight: 3, maxHeight: 16 },
+  zone: { maxDistance: 700, scaleWithDistance: true, minHeight: 2.6, maxHeight: 11 },
   plate: { maxDistance: 70, scaleWithDistance: false, minHeight: 0, maxHeight: 0 },
   marker: { maxDistance: 34, scaleWithDistance: false, minHeight: 0, maxHeight: 0 },
 };
@@ -48,7 +48,7 @@ export class LabelManager {
       if (!sprite.visible || !tuning.scaleWithDistance) continue;
       const aspect = (sprite.userData.aspect as number) ?? 4;
       const height = THREE.MathUtils.clamp(
-        distance * 0.05,
+        distance * 0.034,
         tuning.minHeight,
         tuning.maxHeight,
       );

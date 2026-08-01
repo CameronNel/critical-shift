@@ -367,3 +367,58 @@ button {
     padding: 0 11px;
   }
 }
+
+/* ------------------------------------------------------------- legend ---- */
+
+.legend {
+  position: absolute;
+  left: max(10px, env(safe-area-inset-left));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  right: 136px;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: 2px;
+  z-index: 4;
+  scrollbar-width: thin;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 6px 12px 6px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-bg);
+  color: var(--ui-text);
+  cursor: pointer;
+  text-align: left;
+}
+
+.legend-swatch {
+  width: 14px;
+  height: 26px;
+  border-radius: 4px;
+  flex: 0 0 auto;
+}
+
+.legend-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.legend-text strong {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+.legend-levels {
+  font-size: 10px;
+  color: var(--ui-dim);
+  white-space: nowrap;
+}
