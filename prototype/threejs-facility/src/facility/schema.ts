@@ -208,6 +208,16 @@ export interface DoorwayEntity extends EntityBase {
   rotationY?: number;
 }
 
+/** Opening in one side of a cavern, measured from the centre of that side. */
+export interface CavernOpening {
+  side: RailSide;
+  /** Signed offset from the centre of the side. */
+  at: number;
+  width: number;
+  /** Default: full chamber height. */
+  height?: number;
+}
+
 /** Rough excavated chamber. Irregular shell, unlike the built facility. */
 export interface CavernEntity extends EntityBase {
   type: 'cavern';
@@ -220,6 +230,9 @@ export interface CavernEntity extends EntityBase {
   seed?: number;
   /** Roughness of the rock shell, 0..1. Default 0.5. */
   rough?: number;
+  openings?: CavernOpening[];
+  /** Omit the rock ceiling, e.g. where a shaft rises. */
+  openRoof?: boolean;
 }
 
 /** Rough excavated drift connecting caverns. */
