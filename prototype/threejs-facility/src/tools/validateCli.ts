@@ -5,6 +5,9 @@
 import { DEFAULT_FACILITY } from '../facility/facility';
 import { formatIssues, hasErrors, validateFacility } from '../facility/validate';
 
+// Node-only entry; @types/node is not worth adding for one symbol.
+declare const process: { exit(code: number): never };
+
 const issues = validateFacility(DEFAULT_FACILITY);
 const byType = new Map<string, number>();
 const byZone = new Map<string, number>();
