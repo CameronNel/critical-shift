@@ -16,7 +16,12 @@ export interface DesktopInput {
  * Keyboard + pointer-lock mouse. Falls back to drag-to-look when pointer lock
  * is refused, which is what happens inside some embedded preview frames.
  */
-export function createDesktopInput(canvas: HTMLCanvasElement, input: InputState): DesktopInput {
+export function createDesktopInput(
+  canvas: HTMLCanvasElement,
+  input: InputState,
+  /** Suppress mouse-look, e.g. while an editor gizmo owns the pointer. */
+  blocked: () => boolean = () => false,
+): DesktopInput {
   const held = new Set<string>();
   const shortcutHandlers: ((key: string, event: KeyboardEvent) => void)[] = [];
   let dragging = false;
@@ -73,12 +78,23 @@ export function createDesktopInput(canvas: HTMLCanvasElement, input: InputState)
     input.look.y -= event.movementY * LOOK_SPEED;
   };
 
+  // The HUD overlays the canvas, so mouse-look listens on the window and
+  // ignores presses that land on interface elements.
+  const onInterface = (target: EventTarget | null) =>
+    target instanceof Element &&
+    target.closest(
+      '[data-hud="button"], [data-hud="legend"], .panel, .legend, input, select, textarea, label',
+    ) !== null;
+
   const onMouseDown = (event: MouseEvent) => {
     if (event.button !== 0) return;
+    if (onInterface(event.target)) return;
+    if (blocked()) return;
     if (!locked) {
       dragging = true;
       input.looking = true;
     }
+    requestLook();
   };
 
   const onMouseUp = () => {
@@ -99,25 +115,27 @@ export function createDesktopInput(canvas: HTMLCanvasElement, input: InputState)
   window.addEventListener('keyup', onKeyUp);
   window.addEventListener('blur', onBlur);
   window.addEventListener('mousemove', onMouseMove);
-  canvas.addEventListener('mousedown', onMouseDown);
+  window.addEventListener('mousedown', onMouseDown);
   window.addEventListener('mouseup', onMouseUp);
   document.addEventListener('pointerlockchange', onLockChange);
+
+  function requestLook(): void {
+    if (document.pointerLockElement !== canvas) {
+      const request = canvas.requestPointerLock?.bind(canvas);
+      try {
+        const result = request?.() as unknown;
+        if (result instanceof Promise) result.catch(() => undefined);
+      } catch {
+        /* Pointer lock is unavailable; drag-to-look still works. */
+      }
+    }
+  }
 
   return {
     get locked() {
       return locked;
     },
-    requestLook() {
-      if (document.pointerLockElement !== canvas) {
-        const request = canvas.requestPointerLock?.bind(canvas);
-        try {
-          const result = request?.() as unknown;
-          if (result instanceof Promise) result.catch(() => undefined);
-        } catch {
-          /* Pointer lock is unavailable; drag-to-look still works. */
-        }
-      }
-    },
+    requestLook,
     releaseLook() {
       if (document.pointerLockElement === canvas) document.exitPointerLock();
     },
@@ -129,7 +147,7 @@ export function createDesktopInput(canvas: HTMLCanvasElement, input: InputState)
       window.removeEventListener('keyup', onKeyUp);
       window.removeEventListener('blur', onBlur);
       window.removeEventListener('mousemove', onMouseMove);
-      canvas.removeEventListener('mousedown', onMouseDown);
+      window.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
       document.removeEventListener('pointerlockchange', onLockChange);
     },

@@ -47,8 +47,8 @@ export const ARRIVAL_ENTITIES: Entity[] = [
   }),
   a.platform('brief.dais', [-112, 0.3, 8], [12, 12], { label: 'SHIFT BRIEFING' }),
   a.machine('brief.board', 'BRIEFING BOARD', [-112, 0.3, 13.4], [10, 3.4, 0.5]),
-  a.prop('brief.bench.1', [-112, 0.3, 5], [8, 0.5, 0.9]),
-  a.prop('brief.bench.2', [-112, 0.3, 7.5], [8, 0.5, 0.9]),
+  a.prop('brief.bench.1', [-112, 0.3, 5], [8, 0.44, 0.9]),
+  a.prop('brief.bench.2', [-112, 0.3, 7.5], [8, 0.44, 0.9]),
 
   // Suit-up and decontamination (south-east), on the way out to the plant.
   a.prop('suits.1', [-99, 0, 0], [1.4, 2.4, 6]),

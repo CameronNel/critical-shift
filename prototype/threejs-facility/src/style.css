@@ -422,3 +422,84 @@ button {
   color: var(--ui-dim);
   white-space: nowrap;
 }
+
+/* ------------------------------------------------------------- editor ---- */
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.editor-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  word-break: break-all;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.nudge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.btn-compact {
+  min-height: 40px;
+  min-width: 44px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+.btn-danger {
+  border-color: rgba(226, 63, 63, 0.6);
+  color: #ffbcbc;
+}
+
+.field-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field-label {
+  flex: 0 0 84px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ui-dim);
+}
+
+.num-input,
+.text-input {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 8px;
+  border-radius: 8px;
+  border: 1px solid var(--ui-line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ui-text);
+  font: inherit;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.num-input:focus,
+.text-input:focus {
+  outline: 2px solid rgba(224, 163, 65, 0.7);
+  outline-offset: -1px;
+}

@@ -8,11 +8,14 @@ import { LabelManager } from './labels';
 import type { Entity, FacilityDoc, Route, SpawnEntity, Zone } from '../facility/schema';
 
 export interface FacilityBuild {
+  /** Replaced, not mutated, whenever an entity is rebuilt. */
   collision: CollisionWorld;
   labels: LabelManager;
   /** Entity id -> the object that represents it, for picking and editing. */
   objects: Map<string, THREE.Object3D>;
   entities: Map<string, Entity>;
+  /** Kept per entity so a single edit can rebuild without touching the rest. */
+  collidersByEntity: Map<string, BoxCollider[]>;
   spawns: SpawnEntity[];
   zones: Map<string, Zone>;
   stats: { entities: number; meshes: number; colliders: number };
@@ -58,7 +61,7 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
   const zones = new Map(doc.zones.map((z) => [z.id as string, z]));
   const objects = new Map<string, THREE.Object3D>();
   const entities = new Map<string, Entity>();
-  const colliders: BoxCollider[] = [];
+  const collidersByEntity = new Map<string, BoxCollider[]>();
   const spawns: SpawnEntity[] = [];
   const labels = new LabelManager();
   let meshes = 0;
@@ -81,7 +84,7 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
     });
     layerFor(layers, entity).add(built.object);
     objects.set(entity.id, built.object);
-    for (const collider of built.colliders) colliders.push(collider);
+    collidersByEntity.set(entity.id, built.colliders);
   }
 
   for (const zone of doc.zones) {
@@ -104,15 +107,68 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
     if (ribbon) layers.routes.add(ribbon);
   }
 
+  let colliderCount = 0;
+  for (const list of collidersByEntity.values()) colliderCount += list.length;
+
   return {
-    collision: new CollisionWorld(colliders),
+    collision: buildCollision(collidersByEntity),
     labels,
     objects,
     entities,
+    collidersByEntity,
     spawns,
     zones,
-    stats: { entities: doc.entities.length, meshes, colliders: colliders.length },
+    stats: { entities: doc.entities.length, meshes, colliders: colliderCount },
   };
+}
+
+function buildCollision(byEntity: Map<string, BoxCollider[]>): CollisionWorld {
+  const all: BoxCollider[] = [];
+  for (const list of byEntity.values()) for (const collider of list) all.push(collider);
+  return new CollisionWorld(all);
+}
+
+/**
+ * Rebuild one entity in place after an edit. Much cheaper and far less
+ * disruptive than rebuilding the whole facility on every nudge.
+ */
+export function rebuildEntity(
+  build: FacilityBuild,
+  layers: SceneLayers,
+  entity: Entity,
+): void {
+  removeBuiltEntity(build, entity.id, false);
+  build.entities.set(entity.id, entity);
+  if (!entity.hidden) {
+    const zoneColor = build.zones.get(entity.zone)?.color ?? DEFAULT_ZONE_COLOR;
+    const built = buildEntity(entity, zoneColor);
+    built.object.name = entity.id;
+    built.object.traverse((node) => {
+      node.userData.entityId = entity.id;
+      if (node instanceof THREE.Sprite && node.userData.labelKind) {
+        build.labels.add(node, node.userData.labelKind);
+      }
+    });
+    layerFor(layers, entity).add(built.object);
+    build.objects.set(entity.id, built.object);
+    build.collidersByEntity.set(entity.id, built.colliders);
+  }
+  build.collision = buildCollision(build.collidersByEntity);
+}
+
+/** Drop an entity from the built scene. */
+export function removeBuiltEntity(build: FacilityBuild, id: string, refresh = true): void {
+  const previous = build.objects.get(id);
+  if (previous) {
+    previous.parent?.remove(previous);
+    disposeObject(previous);
+  }
+  build.objects.delete(id);
+  build.collidersByEntity.delete(id);
+  if (refresh) {
+    build.entities.delete(id);
+    build.collision = buildCollision(build.collidersByEntity);
+  }
 }
 
 function buildRoute(route: Route): THREE.Object3D | null {

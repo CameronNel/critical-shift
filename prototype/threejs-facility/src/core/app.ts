@@ -11,7 +11,7 @@ import { buildFacility, type FacilityBuild } from '../build/buildFacility';
 import { defaultFacility } from '../facility/facility';
 import type { FacilityDoc, SpawnEntity } from '../facility/schema';
 
-export type NavMode = 'walk' | 'fly' | 'map';
+export type NavMode = 'walk' | 'fly' | 'map' | 'edit';
 
 export type LayerKey = 'roofs' | 'ground' | 'labels' | 'markers' | 'routes' | 'scaleRefs';
 
@@ -235,6 +235,7 @@ export class App {
       } else if (this.currentMode === 'map') {
         this.map.update(dt, this.input, this.nav);
       } else {
+        // Edit mode flies: you need to get to a thing before you can move it.
         this.fly.update(dt, this.input, this.nav);
       }
       applyToCamera(this.nav, this.viewport.camera);
