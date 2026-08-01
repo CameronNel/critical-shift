@@ -1,9 +1,12 @@
 import * as THREE from 'three';
 
-/** Extent of the playable site. Outside this the walk controller is stopped. */
+/**
+ * Extent the camera may occupy. Generous above the site so fly mode can get a
+ * full overview; the walker is contained by the perimeter walls, not by this.
+ */
 export const SITE_BOUNDS = {
-  min: new THREE.Vector3(-170, -40, -100),
-  max: new THREE.Vector3(150, 60, 90),
+  min: new THREE.Vector3(-190, -40, -120),
+  max: new THREE.Vector3(175, 240, 115),
 };
 
 /** Falling below this triggers a respawn. */
@@ -35,17 +38,21 @@ export interface SiteScene {
 export function createSiteScene(): SiteScene {
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x232a33);
-  scene.fog = new THREE.Fog(0x232a33, 90, 460);
+  scene.fog = new THREE.Fog(0x232a33, 140, 900);
 
-  const hemi = new THREE.HemisphereLight(0xc9d8e8, 0x2a2620, 1.15);
+  // Interiors have no local lights, so the ambient floor has to keep ceilings
+  // and undersides readable rather than black.
+  scene.add(new THREE.AmbientLight(0xb6c3d0, 0.55));
+
+  const hemi = new THREE.HemisphereLight(0xc9d8e8, 0x6a6358, 0.9);
   scene.add(hemi);
 
-  const key = new THREE.DirectionalLight(0xfff0d8, 1.35);
+  const key = new THREE.DirectionalLight(0xfff0d8, 1.1);
   key.position.set(-0.55, 1, 0.35).multiplyScalar(120);
   scene.add(key);
 
   // Weak fill from the opposite side so north faces are not pure silhouette.
-  const fill = new THREE.DirectionalLight(0x8fa8c0, 0.45);
+  const fill = new THREE.DirectionalLight(0x8fa8c0, 0.4);
   fill.position.set(0.6, 0.5, -0.6).multiplyScalar(120);
   scene.add(fill);
 

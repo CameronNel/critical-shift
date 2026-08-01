@@ -30,7 +30,7 @@ export class App {
 
   private readonly fly = new FlyController();
   private readonly walk = new WalkController();
-  private readonly clock = new THREE.Clock();
+  private lastFrameTime = 0;
   private readonly listeners = new Set<(status: AppStatus) => void>();
 
   private doc: FacilityDoc;
@@ -173,7 +173,7 @@ export class App {
   start(): void {
     if (this.running) return;
     this.running = true;
-    this.clock.start();
+    this.lastFrameTime = performance.now();
     const frame = () => {
       if (!this.running) return;
       requestAnimationFrame(frame);
@@ -186,7 +186,9 @@ export class App {
   renderOverride: ((dt: number) => boolean) | null = null;
 
   private tick(): void {
-    const dt = Math.min(this.clock.getDelta(), 0.05);
+    const now = performance.now();
+    const dt = Math.min((now - this.lastFrameTime) / 1000, 0.05);
+    this.lastFrameTime = now;
 
     this.frames++;
     this.fpsAccum += dt;
@@ -206,6 +208,7 @@ export class App {
         this.fly.update(dt, this.input, this.nav);
       }
       applyToCamera(this.nav, this.viewport.camera);
+      this.build.labels.update(this.viewport.camera, this.site.layers.labels.visible);
       this.viewport.renderer.render(this.site.scene, this.viewport.camera);
     }
 

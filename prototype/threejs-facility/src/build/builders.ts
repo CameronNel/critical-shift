@@ -82,15 +82,17 @@ function mesh(
   return m;
 }
 
-function namePlate(text: string, at: THREE.Vector3, height = 1.3): THREE.Sprite {
+function namePlate(text: string, at: THREE.Vector3, height = 0.9): THREE.Sprite {
   const sprite = createTextSprite(text, {
     height,
+    maxWidth: 4.6,
     color: '#eef3f8',
     background: 'rgba(14,17,21,0.72)',
     border: 'rgba(200,215,230,0.35)',
   });
   sprite.position.copy(at);
   sprite.userData.isLabel = true;
+  sprite.userData.labelKind = 'plate';
   return sprite;
 }
 
@@ -581,7 +583,7 @@ function buildMassing(
       namePlate(
         e.label,
         new THREE.Vector3(e.position[0], e.position[1] + sy + 1.4, e.position[2]),
-        role === 'machine' ? 1.5 : 1.1,
+        role === 'machine' ? 1 : 0.8,
       ),
     );
   }
@@ -1085,6 +1087,7 @@ function buildLandmark(e: LandmarkEntity, zoneColor: string): EntityBuild {
   const size = e.size ?? 3;
   const sprite = createTextSprite(e.text, {
     height: size,
+    maxWidth: 24,
     bold: true,
     color: '#0e1116',
     background: e.color ?? zoneColor,
@@ -1092,6 +1095,7 @@ function buildLandmark(e: LandmarkEntity, zoneColor: string): EntityBuild {
   });
   sprite.position.set(e.position[0], e.position[1], e.position[2]);
   sprite.userData.isLabel = true;
+  sprite.userData.labelKind = 'zone';
   return { object: sprite, colliders: [] };
 }
 
@@ -1122,12 +1126,15 @@ function buildMarker(e: MarkerEntity): EntityBuild {
   stem.position.y = 0.75;
   group.add(stem);
   const label = createTextSprite(e.label, {
-    height: 0.8,
+    height: 0.5,
+    maxWidth: 4,
     color: '#f2f6fa',
     background: 'rgba(10,13,17,0.78)',
     border: `#${color.toString(16).padStart(6, '0')}`,
   });
   label.position.y = 2.5;
+  label.userData.isLabel = true;
+  label.userData.labelKind = 'marker';
   group.add(label);
   return { object: group, colliders: [] };
 }
@@ -1149,11 +1156,14 @@ function buildSpawn(e: SpawnEntity): EntityBuild {
   ring.position.y = 0.06;
   group.add(ring);
   const label = createTextSprite(e.label, {
-    height: 0.7,
+    height: 0.5,
+    maxWidth: 4,
     color: '#eef4fa',
     background: 'rgba(10,13,17,0.7)',
   });
   label.position.y = 1.7;
+  label.userData.isLabel = true;
+  label.userData.labelKind = 'marker';
   group.add(label);
   return { object: group, colliders: [] };
 }

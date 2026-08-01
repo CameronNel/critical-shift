@@ -11,9 +11,11 @@ const a = zoneAuthor('cooling');
  */
 export const COOLING_ENTITIES: Entity[] = [
   a.floor('slab', [89, -6, 45], [46, 26]),
-  a.platform('lid', [89, 1, 45], [46, 26], {
+  // The lid is flush with grade and stops short of the north wall, leaving an
+  // open cut you can look straight down into from the yard.
+  a.platform('lid', [89, 0, 48], [46, 20], {
     label: 'COOLING LID',
-    railings: ['n', 'e', 's', 'w'],
+    railings: ['n'],
     tags: ['roof'],
   }),
 
@@ -21,7 +23,7 @@ export const COOLING_ENTITIES: Entity[] = [
     min: [66, 32],
     max: [112, 58],
     base: -6,
-    height: 7,
+    height: 6,
     openings: [
       { side: 'n', at: 88, width: 8 }, // stair from the reactor floor
       { side: 's', at: 100, width: 4 }, // emergency stair to grade

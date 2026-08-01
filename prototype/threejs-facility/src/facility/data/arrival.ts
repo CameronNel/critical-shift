@@ -55,10 +55,10 @@ export const ARRIVAL_ENTITIES: Entity[] = [
   a.prop('suits.2', [-94, 0, 0], [1.4, 2.4, 6]),
   a.machine('decon', 'DECON', [-93, 0, 12], [6, 3.2, 6]),
 
-  a.doorway('door.east.north', [-88, 0, -10], 4.5, 3.6, { rotationY: 90 }),
+  a.doorway('door.east.north', [-88, 0, -10], 4.5, 3.6, { rotationY: 90, label: 'NORTH ROUTE' }),
   a.doorway('door.east.south', [-88, 0, 12], 4.5, 3.6, { rotationY: 90 }),
 
-  a.spawn('spawn.start', [-110, 0, 2], 'Shift entrance', { primary: true, rotationY: 90 }),
+  a.spawn('spawn.start', [-110, 0, 2], 'Shift entrance', { primary: true, rotationY: 270 }),
   a.spawn('spawn.brief', [-112, 0.3, 8], 'Briefing'),
 
   a.marker('m.suits', [-96, 0, 4], 'interaction', 'Suit-up: the decision that costs time'),

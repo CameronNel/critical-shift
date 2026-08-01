@@ -8,7 +8,7 @@ import type { Zone } from './schema';
  *                            storage, reactor floor, compliance dock, yard
  *   Y = -6  service datum  - crusher pit and the maintenance spine that runs
  *                            under the plant from the crusher to cooling
- *   Y = -8  mine datum     - extraction chambers and the haulage drift
+ *   Y = -12 mine datum     - extraction chambers and the haulage drift
  *
  * Cooling sits on the service datum directly south of and below the control
  * room, so "cooling is below control" is literally true when you look down.
@@ -37,8 +37,8 @@ export const ZONES: Zone[] = [
     name: 'MINE',
     color: '#6e6257',
     bounds: { min: [-146, -48], max: [-108, -4] },
-    signAt: [-124, -3, -16],
-    levels: '-8 m',
+    signAt: [-124, -7, -16],
+    levels: '-12 m',
     summary: 'Excavated extraction face, a branch drift, a dead-end store, and the rise.',
   },
   {
@@ -47,7 +47,7 @@ export const ZONES: Zone[] = [
     color: '#7a6a52',
     bounds: { min: [-112, -22], max: [-74, 42] },
     signAt: [-80, 2.5, 24],
-    levels: '-8 m to 0 m',
+    levels: '-12 m to 0 m',
     summary: 'Open decline and cart drift. Everyone shares it with the carts.',
   },
   {
@@ -119,7 +119,7 @@ export const ZONES: Zone[] = [
     color: '#5b7f88',
     bounds: { min: [66, 32], max: [112, 58] },
     signAt: [89, 4, 45],
-    levels: '-6 m, +1 m lid',
+    levels: '-6 m, lid flush with grade',
     summary: 'Pump hall below and south of control. The valves are a run away.',
   },
   {

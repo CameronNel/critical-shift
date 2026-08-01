@@ -3,6 +3,8 @@ import * as THREE from 'three';
 export interface TextStyle {
   /** Sprite height in metres. */
   height: number;
+  /** Cap on the rendered width; long labels shrink instead of spanning a room. */
+  maxWidth?: number;
   color?: string;
   background?: string;
   border?: string;
@@ -73,7 +75,14 @@ export function createTextSprite(text: string, style: TextStyle): THREE.Sprite {
   });
   const sprite = new THREE.Sprite(material);
   const aspect = (texture.userData.aspect as number) ?? 4;
-  sprite.scale.set(style.height * aspect, style.height, 1);
+  let height = style.height;
+  if (style.maxWidth !== undefined && height * aspect > style.maxWidth) {
+    height = style.maxWidth / aspect;
+  }
+  sprite.scale.set(height * aspect, height, 1);
+  // Remembered so distance-scaled signs can rescale without losing their shape.
+  sprite.userData.aspect = aspect;
+  sprite.userData.baseHeight = height;
   sprite.renderOrder = 10;
   return sprite;
 }

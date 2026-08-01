@@ -14,9 +14,10 @@ export const MAINTENANCE_ENTITIES: Entity[] = [
   a.tunnel(
     'rise.east',
     [
-      [-104, -7.6, 4],
-      [-90, -7, 10],
-      [-72, -6.3, 16],
+      [-104, -11, 4],
+      [-96, -9.5, 7],
+      [-84, -8, 11],
+      [-72, -6.6, 16],
       [-54, -6, 16],
     ],
     3.2,
@@ -77,11 +78,11 @@ export const MAINTENANCE_ENTITIES: Entity[] = [
   a.stair('shaft.stair', [28, 0, 26], [28, -6, 17], 2),
 
   a.mannequin('scale.1', [0, -6, 16], { rotationY: 90 }),
-  a.mannequin('scale.2', [-70, -6.3, 16], { rotationY: 270 }),
+  a.mannequin('scale.2', [-70, -6.2, 16], { rotationY: 270 }),
 
   a.spawn('spawn.spine', [10, -6, 16], 'Maintenance spine'),
   a.marker('m.spine', [40, -6, 16], 'shortcut', 'Spine: crusher to cooling, unseen'),
   a.marker('m.store', [5, -6, 22], 'hiding', 'Tool store: lockable, and nobody audits it'),
   a.marker('m.shaft', [28, -6, 20], 'shortcut', 'Stairwell surfaces beside the refinery'),
-  a.marker('m.rise', [-70, -6.3, 16], 'hazard', '2.8 m headroom, no lighting, no second exit'),
+  a.marker('m.rise', [-70, -6.2, 16], 'hazard', '2.8 m headroom, no lighting, no second exit'),
 ];

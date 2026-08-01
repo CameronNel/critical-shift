@@ -4,10 +4,12 @@ import { CollisionWorld, type BoxCollider } from '../nav/collision';
 import { buildEntity } from './builders';
 import { GeoBatch } from './geoBatch';
 import { createTextSprite } from './textSprite';
+import { LabelManager } from './labels';
 import type { Entity, FacilityDoc, Route, SpawnEntity, Zone } from '../facility/schema';
 
 export interface FacilityBuild {
   collision: CollisionWorld;
+  labels: LabelManager;
   /** Entity id -> the object that represents it, for picking and editing. */
   objects: Map<string, THREE.Object3D>;
   entities: Map<string, Entity>;
@@ -58,6 +60,7 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
   const entities = new Map<string, Entity>();
   const colliders: BoxCollider[] = [];
   const spawns: SpawnEntity[] = [];
+  const labels = new LabelManager();
   let meshes = 0;
 
   for (const entity of doc.entities) {
@@ -72,6 +75,9 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
     built.object.traverse((node) => {
       node.userData.entityId = entity.id;
       if ((node as THREE.Mesh).isMesh) meshes++;
+      if (node instanceof THREE.Sprite && node.userData.labelKind) {
+        labels.add(node, node.userData.labelKind);
+      }
     });
     layerFor(layers, entity).add(built.object);
     objects.set(entity.id, built.object);
@@ -81,6 +87,7 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
   for (const zone of doc.zones) {
     const sign = createTextSprite(zone.name, {
       height: 5,
+      maxWidth: 26,
       bold: true,
       color: '#0d1014',
       background: zone.color,
@@ -88,7 +95,7 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
     });
     sign.position.set(zone.signAt[0], zone.signAt[1], zone.signAt[2]);
     sign.userData.zoneSign = zone.id;
-    sign.userData.isLabel = true;
+    labels.add(sign, 'zone');
     layers.labels.add(sign);
   }
 
@@ -99,6 +106,7 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
 
   return {
     collision: new CollisionWorld(colliders),
+    labels,
     objects,
     entities,
     spawns,
