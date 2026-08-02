@@ -1,13 +1,23 @@
 import type { Entity } from '../schema';
+import { translateEntity } from '../../editor/transforms';
 import { roomWalls, zoneAuthor } from './authoring';
 
 const a = zoneAuthor('arrival');
+
+/**
+ * The block is authored around its own origin and then moved as one piece.
+ * It used to sit at the far north-west, a long walk from anything; it now sits
+ * on the cart hall's north-west corner so that stepping out of it puts the
+ * mine adit about thirty metres away and the crusher spur about the same.
+ */
+const MOVE: [number, number, number] = [-4, 0, 30];
 
 const HAZARD = '#c2622c';
 const CLEAN = '#5f8f96';
 
 /**
- * Arrival block. X -128..-96, Z -86..-58, 6 m clear.
+ * Arrival block, authored at X -128..-96, Z -86..-58 and moved to
+ * X -132..-100, Z -56..-28 by MOVE. 6 m clear.
  *
  * Built to carry the whole preparation beat (GAME_SPEC §8.2) and every step of
  * the suit procedure (§6.2), because the three minutes spent in here are the
@@ -22,7 +32,7 @@ const CLEAN = '#5f8f96';
  * route out through decontamination, the south one drops onto S1 with whatever
  * you drew from the store. You cannot easily do both and still be on time.
  */
-export const ARRIVAL_ENTITIES: Entity[] = [
+const ARRIVAL_SOURCE: Entity[] = [
   a.floor('slab', [-112, 0, -72], [32, 28]),
   a.roof('lid', [-112, 6, -72], [32, 28]),
 
@@ -193,3 +203,7 @@ export const ARRIVAL_ENTITIES: Entity[] = [
   a.mannequin('scale.4', [-105.5, 0, -65.8], { rotationY: 0 }),
   a.mannequin('scale.5', [-116, 0, -73], { rotationY: 270 }),
 ];
+
+export const ARRIVAL_ENTITIES: Entity[] = ARRIVAL_SOURCE.map((e) =>
+  translateEntity(e, MOVE),
+);

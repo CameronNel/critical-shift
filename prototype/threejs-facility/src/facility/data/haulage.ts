@@ -23,7 +23,6 @@ export const HAULAGE_ENTITIES: Entity[] = [
       { side: 'w', at: 0, width: 9, top: 6 }, // mine adit
       { side: 'n', at: -73, width: 7, top: 6 }, // cart spur to the crusher
       { side: 'n', at: -100, width: 4, top: 3.6 }, // door up to arrival
-      { side: 'e', at: 14, width: 8, top: 5.5 }, // diagonal access run
       { side: 'e', at: -14, width: 4, top: 3.6 }, // yard door
       { side: 's', at: -84, width: 4, top: 3.6 }, // S2 to storage
     ],
@@ -51,7 +50,6 @@ export const HAULAGE_ENTITIES: Entity[] = [
   ]),
   a.track('spur.crusher', [[-73, 0, -20], [-73, 0, -32]]),
   a.track('spur.mine', [[-106, 0, 0], [-126, -2, 0]]),
-  a.track('spur.diagonal', [[-70, 0, 10], [-60, 0, 14], [-40, 0, 4], [-27, 0, -2]]),
 
   a.machine('winch', 'HAUL WINCH', [-104, 0, -24], [5, 3.5, 4]),
   a.machine('marshal', 'MARSHALLING CONTROL', [-84, 0, -24], [6, 3, 4]),
@@ -67,12 +65,10 @@ export const HAULAGE_ENTITIES: Entity[] = [
   a.prop('cart.3', [-96, 0, 20], [2, 1.6, 3], { rotationY: 90 }),
   a.prop('spares', [-108, 0, -22], [4, 2, 5]),
 
-  a.doorway('door.diagonal', [-56, 0, 14], 8, 5.5, { rotationY: 90, label: 'MAIN ACCESS' }),
   a.doorway('door.adit', [-112, 0, 0], 9, 6, { rotationY: 90 }),
 
   a.spawn('spawn.loop', [-84, 0, 0], 'Haulage loop'),
   a.marker('m.loop', [-84, 0, -10], 'crossing', 'The loop never stops; crossing is a timing problem'),
-  a.marker('m.spur', [-62, 0, 12], 'hazard', 'East spur: carts leave onto the shared diagonal'),
   a.marker('m.adit', [-110, 0, 0], 'interaction', 'Mine adit'),
 
   a.mannequin('scale.1', [-84, 0, 8], { rotationY: 0 }),
