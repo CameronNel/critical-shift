@@ -174,13 +174,21 @@ function buildWall(e: WallEntity, zoneColor: string): EntityBuild {
   return { object, colliders };
 }
 
-/** Guard rail along a straight run, returned as merged geometry plus a blocker. */
+/**
+ * Guard rail along a straight run, returned as merged geometry plus a blocker.
+ *
+ * `inset` shortens the *collider* at both ends without shortening the rail you
+ * can see. A stair's rail is one long slab spanning the whole flight, so
+ * without this every landing, spur and catwalk that meets a flight at its head
+ * or its foot is walled off by the rail beside it.
+ */
 function addRail(
   batch: GeoBatch,
   colliders: BoxCollider[],
   id: string,
   a: THREE.Vector3,
   b: THREE.Vector3,
+  inset = 0,
 ): void {
   const dx = b.x - a.x;
   const dz = b.z - a.z;
@@ -208,21 +216,26 @@ function addRail(
       0,
     );
   }
-  const centre = new THREE.Vector3(
-    (a.x + b.x) / 2,
-    (a.y + b.y) / 2 + RAIL_HEIGHT / 2,
-    (a.z + b.z) / 2,
-  );
-  colliders.push(
-    box(
-      id,
-      centre,
-      new THREE.Vector3(0.18, RAIL_HEIGHT + Math.abs(b.y - a.y), length),
-      angle,
-      true,
-      false,
-    ),
-  );
+  // The blocker follows the rail in short segments rather than being one box
+  // spanning the whole run. On a stair a single box would be as tall as the
+  // flight's entire rise everywhere along it, walling off anything that passes
+  // above or below the rail's actual height.
+  const blocked = Math.max(0, length - inset * 2);
+  if (blocked < 0.2) return;
+  const segments = Math.max(1, Math.round(blocked / 2.5));
+  const segLength = blocked / segments;
+  for (let i = 0; i < segments; i++) {
+    const t0 = inset + segLength * i;
+    const t1 = t0 + segLength;
+    const mid = (t0 + t1) / 2;
+    const centre = new THREE.Vector3(
+      a.x + dir.x * mid,
+      a.y + dir.y * mid + RAIL_HEIGHT / 2,
+      a.z + dir.z * mid,
+    );
+    const size = new THREE.Vector3(0.18, RAIL_HEIGHT + Math.abs(dir.y) * segLength, segLength);
+    colliders.push(box(id, centre, size, angle, true, false));
+  }
 }
 
 function buildPlatform(e: PlatformEntity, zoneColor: string): EntityBuild {
@@ -330,8 +343,9 @@ function buildStair(e: StairEntity, zoneColor: string): EntityBuild {
     const highA = new THREE.Vector3(to.x + perp.x, to.y, to.z + perp.z);
     const lowB = new THREE.Vector3(from.x - perp.x, from.y, from.z - perp.z);
     const highB = new THREE.Vector3(to.x - perp.x, to.y, to.z - perp.z);
-    addRail(railBatch, colliders, e.id, lowA, highA);
-    addRail(railBatch, colliders, e.id, lowB, highB);
+    // Leave the head and foot of the flight open so landings can meet it.
+    addRail(railBatch, colliders, e.id, lowA, highA, 1.6);
+    addRail(railBatch, colliders, e.id, lowB, highB, 1.6);
     const rails = railBatch.build(SHARED.rail, `${e.id}:rails`);
     if (rails) group.add(rails);
   }

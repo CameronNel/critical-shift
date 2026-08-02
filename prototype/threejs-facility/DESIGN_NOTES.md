@@ -38,7 +38,7 @@ Nothing is a dead end, so route choice is tactical rather than obligatory.
 
 The layout is authored at a comfortable drafting scale and then **compacted in
 plan by a single factor** (`SITE_SCALE` in `src/facility/scale.ts`, currently
-`0.72`) before it is built. The compaction is not uniform:
+`0.6`) before it is built. The compaction is not uniform:
 
 - **Scaled:** X and Z positions, wall runs, room footprints, machine
   footprints, distances along a wall to an opening.
@@ -51,8 +51,16 @@ dragged body needs, or the reactor hall losing the height that makes it worth
 looking at. A 1.75 m worker stays 1.75 m. Set `SITE_SCALE` to `1` to inspect
 the uncompacted drafting scale.
 
-Compacted, the site is about 184 m east–west by 148 m north–south including the
-mine and the compliance road; the built plant is roughly 108 m across.
+Compacted, the site is about 153 m east–west by 123 m north–south including the
+mine and the compliance road; the built plant is roughly 90 m across.
+
+**Stairs are the thing compaction breaks.** Shortening the plan shortens a
+stair's run but not its rise, so every flight gets steeper as `SITE_SCALE`
+drops. `validateFacility` therefore checks stair slope: it errors past 48°
+(no longer a stair by any industrial standard) and warns past 40°. Most flights
+in the plant now sit at 33–35°, which is why several of them are far longer
+than the room they serve strictly needs, and why the fuel roof and the control
+deck are reached by switchbacks rather than single flights.
 
 ### Emergency runs
 
@@ -61,14 +69,14 @@ if the run to the valves is short enough to attempt.
 
 | Run | Distance | Sprint | Walk | Suited |
 |---|---|---|---|---|
-| Control desk → coolant valves | 90 m | 12 s | 21 s | 28 s |
-| Control desk → reactor scram | 33 m | 4 s | 8 s | 10 s |
-| Reactor floor → coolant valves | 62 m | 8 s | 15 s | 20 s |
-| Reactor west door → south scram | 25 m | 3 s | 6 s | 8 s |
-| Refinery floor → reactor core | 50 m | 7 s | 12 s | 16 s |
-| Crusher → reactor | 78 m | 10 s | 18 s | 24 s |
-| Mine face → reactor | 133 m | 18 s | 32 s | 42 s |
-| Arrival → reactor | 118 m | 16 s | 28 s | 37 s |
+| Control desk → coolant valves | 75 m | 10 s | 18 s | 23 s |
+| Control desk → reactor scram | 28 m | 4 s | 7 s | 9 s |
+| Reactor floor → coolant valves | 52 m | 7 s | 12 s | 16 s |
+| Reactor west door → south scram | 21 m | 3 s | 5 s | 7 s |
+| Refinery floor → reactor core | 42 m | 6 s | 10 s | 13 s |
+| Crusher → reactor | 65 m | 9 s | 15 s | 20 s |
+| Mine face → reactor | 111 m | 15 s | 26 s | 35 s |
+| Arrival → reactor | 98 m | 13 s | 23 s | 31 s |
 
 **These times depend entirely on a movement speed that nothing in the design
 documents fixes yet.** The figures above assume 7.4 m/s sprinting, 4.2 m/s
@@ -125,9 +133,18 @@ Clockwise from the north:
 | W | main access, muster point, tool point, emergency locker, scram station |
 | NW | vent stack, vent valve |
 
+The two coolant headers sit either side of a clear lane at Z 12..15. That lane
+is not decoration: it is the only straight run on the working floor long enough
+to carry a stair up to the catwalk ring at a pitch you can walk.
+
 Four levels: working floor 0, catwalk ring +8, upper gantry +17, and a charge
 deck at +20 carrying the control rod drives and the fuelling machine, sitting
 on the core itself. A travelling crane spans the hall at +23.
+
+Getting between them is deliberately slow. The floor reaches the catwalk ring
+in two places only — a west flight off the south floor and a north-east flight
+off the charge floor — and the ring reaches the gantry by one long flight that
+runs the entire east annulus, past the operating face and over the turbine.
 
 Three emergency shutdown stations — west, east and south — because one would
 always be on the wrong side of the core.
@@ -147,7 +164,9 @@ down and the length of the link corridor to reach anything.
 **Crusher.** West end of the production row. Grade is a ring around an open pit
 at -5 m, crossed by an unrailed tipping deck carrying the live cart track. The
 pit floor *is* the west door of the maintenance ring, so the quietest route
-under the plant starts inside the busiest machine on it.
+under the plant starts inside the busiest machine on it. The stair into the pit
+runs north off the south deck; the operator's stair runs the full length of the
+west deck.
 
 **Refinery.** Sorter, processor and dryer on one unbroken belt line along the
 north half, circulation south. Four working elevations: floor, mezzanine +5,
@@ -222,7 +241,23 @@ Toggle them in the Layers menu.
 - Conveyor and pipe runs are indicative, not engineered.
 - Rough rock is overlapping slabs, not a sculpted mesh. It reads correctly at
   gameplay distance and is wrong close up.
-- No lighting design. One ambient level, one key, one fill.
+- No lighting design beyond housings and a handful of real point lights.
+- `reactor.stair.floor.w` is 46°, steeper than anything else on the site. The
+  south-west octant is full of coolant headers and switchgear and there is
+  nowhere to put a longer flight without moving equipment that belongs where
+  it is. It reads as an industrial stair rather than a public one.
+- Stairs that climb to a level and land inside that level's slab come up
+  through it, rather than through a modelled stairwell. The fuel roof deck is
+  the exception: it is laid in four pieces around a real hole.
+- Guard rails are solid, so anything that meets a railed catwalk from another
+  level has to meet it at a gap. Both reactor rings, the refinery centre aisle
+  and gantry, and the crusher high link are therefore split into railed runs
+  plus short unrailed landings at each stair head. A stair's own rails stop
+  1.6 m short of its ends for the same reason.
+- Widths and clearances do not shrink with the plan, so a two-metre stair
+  parked two metres from a catwalk ends up with its rail in the walkway once
+  the plan is compacted. Keep flights clear of walkways by more than half
+  their own width.
 - The mine, the compliance road and the yard are more generous than the
   blueprint's proportions; the built plant matches it closely.
 

@@ -22,7 +22,7 @@ import type { Entity, Route, Vec2, Vec3, Zone } from './schema';
  *
  * Set to 1 to author and inspect at the uncompacted drafting scale.
  */
-export const SITE_SCALE = 0.72;
+export const SITE_SCALE = 0.6;
 
 const s = (n: number) => n * SITE_SCALE;
 

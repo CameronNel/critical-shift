@@ -60,7 +60,7 @@ export const ARRIVAL_ENTITIES: Entity[] = [
   }),
   a.wall('part.suits', [-105, -85.6], [-105, -76], 3.6, {
     thickness: 0.3,
-    gaps: [{ at: 6.6, width: 4 }],
+    gaps: [{ at: 6, width: 4 }],
   }),
   a.wall('part.brief', [-112, -70], [-112, -58.4], 3.6, {
     thickness: 0.3,

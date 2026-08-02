@@ -26,7 +26,7 @@ export const STORAGE_ENTITIES: Entity[] = [
     ],
   }),
   store.floor('shaft.base', [-56, -5, 42], [8, 12]),
-  store.stair('stair.down', [-56, 0, 44], [-56, -5, 35], 2),
+  store.stair('stair.down', [-56, 0, 49], [-56, -5, 36.5], 2),
   store.machine('press', 'WASTE PRESS', [-80, 0, 52], [6, 4, 6]),
   store.prop('waste.1', [-82, 0, 36], [4, 3, 4]),
   store.prop('waste.2', [-77, 0, 36], [4, 3, 4]),

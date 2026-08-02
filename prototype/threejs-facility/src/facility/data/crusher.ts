@@ -28,8 +28,9 @@ export const CRUSHER_ENTITIES: Entity[] = [
       { side: 's', at: -84, width: 4, top: 3.6 }, // worker door
       { side: 'w', at: -40, width: 4, top: 3.6 }, // west yard
       { side: 'e', at: -52, width: 5, bottom: 0, top: 8 }, // output conveyor
-      { side: 'e', at: -38, width: 4, bottom: 5, top: 8.5 }, // high link
-      { side: 'e', at: -44, width: 4, top: 3.6 }, // ground route to refinery
+      // One tall opening carries both the high link and the ground route: two
+      // separate gaps this close together leave a sill panel across the door.
+      { side: 'e', at: -38, width: 4, bottom: 0, top: 8.5 },
     ],
   }),
 
@@ -56,25 +57,30 @@ export const CRUSHER_ENTITIES: Entity[] = [
     supports: true,
   }),
   a.prop('op.console', [-77.5, 6, -47], [1.2, 1.1, 4]),
-  a.stair('op.stair', [-85, 0, -40], [-85, 6, -52], 2.2),
+  a.stair('op.stair', [-85, 0, -37], [-85, 6, -52], 2.2),
 
   a.platform('maint.deck', [-66, 6, -40], [7, 5], {
     label: 'CRUSHER MAINTENANCE',
     railings: ['n', 'e', 'w'],
     supports: true,
   }),
-  a.catwalk('cat.east', [[-76, 6, -38], [-64, 6, -38], [-58, 5.5, -38], [-52, 5, -38]], 2.4, {
+  a.catwalk('cat.east', [[-76, 6, -38], [-64, 6, -38], [-58, 5.5, -38], [-54, 5.2, -38]], 2.4, {
     label: 'CRUSHER → REFINERY HIGH LINK',
   }),
+  // Unrailed where it lands, because the refinery's ground stair tops out
+  // beside it and a rail across that corner seals the stair off.
+  a.catwalk('cat.east.land', [[-54, 5.2, -38], [-49, 5, -38]], 2.4, { railings: 'none' }),
 
-  a.stair('pit.stair', [-86, 0, -52], [-80, -5, -52], 2),
+  // Down the south deck rather than straight off the west deck: the pit is
+  // five metres down and a six-metre run was a ladder, not a stair.
+  a.stair('pit.stair', [-80, 0, -34], [-80, -5, -46.5], 2),
 
   a.doorway('door.spine', [-73, 0, -62], 4, 3.6, { label: 'S1' }),
   a.doorway('door.east', [-58, 0, -44], 4, 3.6, { rotationY: 90 }),
 
   a.spawn('spawn.hall', [-85, 0, -47], 'Crusher hall'),
   a.marker('m.deck', [-73, 0, -47], 'crossing', 'Tipping deck: no rails, live track'),
-  a.marker('m.pit', [-80, -5, -47], 'shortcut', 'Pit floor is the west door of the service ring'),
+  a.marker('m.pit', [-74, -5, -38], 'shortcut', 'Pit floor is the west door of the service ring'),
   a.marker('m.jam', [-66, 6, -40], 'interaction', 'Crusher jam clearance'),
   a.marker('m.beltup', [-56, 3.5, -50], 'shortcut', 'Ride the output belt into the refinery'),
 

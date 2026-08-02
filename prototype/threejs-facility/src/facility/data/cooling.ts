@@ -26,36 +26,41 @@ export const COOLING_ENTITIES: Entity[] = [
     base: -5,
     height: 5,
     openings: [
-      { side: 'n', at: 32, width: 7 }, // stair down from the reactor
+      { side: 'n', at: 34, width: 7 }, // stair down from the reactor
       { side: 's', at: 52, width: 4 }, // emergency stair to grade
       { side: 'w', at: 34, width: 5 }, // maintenance ring drains in
     ],
   }),
 
   // Approach from the reactor's south-east door.
-  a.floor('approach.a', [22.5, 0, 17], [11, 6]),
-  a.floor('approach.b', [30, 0, 24], [6, 14]),
-  a.roof('approach.a.lid', [22.5, 5, 17], [11, 6]),
-  a.roof('approach.b.lid', [30, 5, 24], [6, 14]),
-  a.wall('approach.n', [17, 14], [28, 14], 5),
-  a.wall('approach.s', [27, 20], [17, 20], 5),
-  a.wall('approach.b.w', [27, 20], [27, 31], 5),
-  a.wall('approach.b.n', [28, 17], [33, 17], 5),
-  a.wall('approach.b.e', [33, 31], [33, 17], 5),
-  a.stair('stair.reactor', [30, 0, 27], [30, -5, 35], 3),
-  a.stair('stair.escape', [52, -5, 58], [52, 0, 66], 2),
+  a.floor('approach.a', [23.5, 0, 17], [13, 6]),
+  a.floor('approach.b', [33, 0, 24], [6, 14]),
+  a.roof('approach.a.lid', [23.5, 5, 17], [13, 6]),
+  a.roof('approach.b.lid', [33, 5, 24], [6, 14]),
+  a.wall('approach.n', [17, 14], [30, 14], 5),
+  a.wall('approach.s', [30, 20], [17, 20], 5),
+  a.wall('approach.b.w', [30, 20], [30, 31], 5),
+  a.wall('approach.b.n', [30, 17], [36, 17], 5),
+  // Stops at the hall's north wall: past that the corridor turns into the
+  // head of the stair and opens east into the cut.
+  a.wall('approach.b.e', [36, 28], [36, 17], 5),
+  // Both flights turn to run along the hall rather than straight at it: five
+  // metres down a compacted plan is a long way, and a short flight is a ladder.
+  a.stair('stair.reactor', [33, 0, 30], [45.5, -5, 30], 3),
+  a.stair('stair.escape', [52, -5, 55.5], [52, 0, 68], 2),
 
   a.machine('pump.a', 'COOLANT PUMP A', [34, -5, 40], [6, 4.5, 6], { shape: 'cylinder' }),
   a.machine('pump.b', 'COOLANT PUMP B', [34, -5, 52], [6, 4.5, 6], { shape: 'cylinder' }),
   a.machine('pump.c', 'COOLANT PUMP C', [56, -5, 40], [6, 4.5, 6], { shape: 'cylinder' }),
-  a.machine('exchanger', 'HEAT EXCHANGER', [52, -5, 54], [12, 5, 8]),
+  a.machine('exchanger', 'HEAT EXCHANGER', [54, -5, 50], [12, 5, 8]),
 
   a.platform('gallery', [44, -1.5, 46], [7, 20], {
     label: 'VALVE GALLERY',
-    railings: ['e', 'w'],
+    // West is the way up, so only the east edge is railed.
+    railings: ['e'],
     supports: true,
   }),
-  a.stair('stair.gallery', [40, -5, 52], [40, -1.5, 46], 1.8),
+  a.stair('stair.gallery', [32.1, -5, 56], [40.6, -1.5, 56], 1.8),
   a.prop('valve.1', [44, -1.5, 39], [1.6, 1.4, 1.6], { shape: 'cylinder' }),
   a.prop('valve.2', [44, -1.5, 44], [1.6, 1.4, 1.6], { shape: 'cylinder' }),
   a.prop('valve.3', [44, -1.5, 49], [1.6, 1.4, 1.6], { shape: 'cylinder' }),

@@ -122,6 +122,59 @@ export function validateFacility(doc: unknown): ValidationIssue[] {
     if (entity.type === 'spawn' && entity.primary) primarySpawns++;
   }
 
+  // Compacting the plan shortens stair runs but not their rises, so slope is
+  // the first thing that breaks. Fixed industrial stairs top out around 50
+  // degrees; past that it is a ladder and you cannot carry anything up it.
+  // Warn at 40 because a suited worker on a 45-degree flight is already slow.
+  for (const entity of d.entities as Entity[]) {
+    if (!entity || entity.type !== 'stair') continue;
+    const from = entity.from;
+    const to = entity.to;
+    if (!finiteVec(from, 3) || !finiteVec(to, 3)) continue;
+    const run = Math.hypot(to[0] - from[0], to[2] - from[2]);
+    const rise = Math.abs(to[1] - from[1]);
+    if (rise < 0.05) continue;
+    const degrees = (Math.atan2(rise, run) * 180) / Math.PI;
+    if (degrees > 48) {
+      issues.push({
+        level: 'error',
+        where: entity.id,
+        message: `stair is ${degrees.toFixed(0)}° (${rise.toFixed(1)} m over ${run.toFixed(1)} m) — needs a longer run`,
+      });
+    } else if (degrees > 40) {
+      issues.push({
+        level: 'warning',
+        where: entity.id,
+        message: `stair is ${degrees.toFixed(0)}°, steep even for industrial`,
+      });
+    }
+  }
+
+  // Openings keep their real width while the wall they sit in gets shorter, so
+  // compaction can push a door off the end of its wall. `splitWall` then drops
+  // the panel silently and the doorway becomes solid, which is very hard to
+  // spot from inside the building.
+  for (const entity of d.entities as Entity[]) {
+    if (!entity || entity.type !== 'wall' || !entity.gaps) continue;
+    const from = entity.from;
+    const to = entity.to;
+    if (!finiteVec(from, 2) || !finiteVec(to, 2)) continue;
+    const length = Math.hypot(to[0] - from[0], to[1] - from[1]);
+    for (const gap of entity.gaps) {
+      const start = gap.at - gap.width / 2;
+      const end = gap.at + gap.width / 2;
+      if (start < -0.01 || end > length + 0.01) {
+        issues.push({
+          level: 'warning',
+          where: entity.id,
+          message:
+            `opening at ${gap.at.toFixed(1)} is ${gap.width.toFixed(1)} m wide but the wall ` +
+            `runs 0..${length.toFixed(1)} — it overhangs the end`,
+        });
+      }
+    }
+  }
+
   if (primarySpawns === 0) {
     issues.push({ level: 'error', where: 'spawns', message: 'no spawn is marked primary' });
   } else if (primarySpawns > 1) {

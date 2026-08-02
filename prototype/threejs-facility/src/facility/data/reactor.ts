@@ -45,15 +45,15 @@ export const REACTOR_ENTITIES: Entity[] = [
     gaps: [
       { at: 4, width: 4, bottom: 2.5, top: 7 }, // fuel belt in
       { at: 11, width: 8, bottom: 17, top: 23 }, // gantry clerestory
-      { at: 17, width: 4, top: 4.5 }, // compliance door
+      { at: 16, width: 4, top: 4.5 }, // compliance door
     ],
   }),
   a.wall('shell.ne', [10, -24], [24, -10], 30, { thickness: 0.6 }),
   a.wall('shell.e', [24, -10], [24, 10], 30, {
     thickness: 0.6,
     gaps: [
-      { at: 3, width: 4, top: 4.5 }, // link to control
-      { at: 13, width: 12, bottom: 9, top: 15 }, // overlook windows
+      { at: 4, width: 4, top: 4.5 }, // link to control
+      { at: 13, width: 8, bottom: 9, top: 15 }, // overlook windows
     ],
   }),
   a.wall('shell.se', [24, 10], [10, 24], 30, {
@@ -78,12 +78,13 @@ export const REACTOR_ENTITIES: Entity[] = [
   // Charge deck sits on the core: control rod drives and the fuelling machine.
   a.platform('charge.deck', [0, 20, 0], [18, 18], {
     label: 'CHARGE DECK +20',
-    railings: ['n', 'e', 's', 'w'],
+    // Open on the north: that edge is where the stair from the gantry lands.
+    railings: ['e', 's', 'w'],
   }),
   a.machine('drives', 'CONTROL ROD DRIVES', [0, 20, 1], [10, 2.5, 10]),
   a.machine('fuelling', 'FUELLING MACHINE', [0, 20, -6], [4.5, 3, 3.5]),
-  a.catwalk('charge.spur', [[0, 17, -20], [0, 17, -12]], 2, { railings: 'both' }),
-  a.stair('charge.stair', [0, 17, -12], [0, 20, -6], 1.8),
+  a.catwalk('charge.spur', [[0, 17, -20], [0, 17, -16.5]], 2, { railings: 'none' }),
+  a.stair('charge.stair', [0, 17, -16.5], [0, 20, -9], 1.8),
 
   // --- North: charge floor and fuel handling --------------------------------
   a.platform('charge.floor', [0, 1.2, -17.5], [16, 7], {
@@ -101,10 +102,10 @@ export const REACTOR_ENTITIES: Entity[] = [
   a.marker('m.fuel.uncertain', [5, 1.2, -16], 'hazard', 'Use uncertain fuel — nobody checks twice'),
 
   // --- North-east: waste ----------------------------------------------------
-  a.machine('waste.flask', 'WASTE FLASK', [14, 0, -14], [4.5, 5, 4.5], { shape: 'cylinder' }),
+  a.machine('waste.flask', 'WASTE FLASK', [16.5, 0, -15], [4.5, 5, 4.5], { shape: 'cylinder' }),
   a.machine('waste.store', 'SHIELDED WASTE STORE', [16, 0, -9], [7, 4, 6], { rotationY: -45 }),
   a.prop('waste.trolley', [11, 0, -10], [2, 1.2, 3]),
-  a.marker('m.waste', [14, 0, -11], 'interaction', 'Waste transfer'),
+  a.marker('m.waste', [15, 0, -11.5], 'interaction', 'Waste transfer'),
   a.marker('m.waste.illegal', [17, 0, -6], 'hiding', 'Store waste illegally'),
 
   // --- East: operating face, under the control windows ----------------------
@@ -120,7 +121,7 @@ export const REACTOR_ENTITIES: Entity[] = [
   // --- South-east: turbine and generator ------------------------------------
   a.platform('turbine.deck', [14, 0.6, 6], [8, 16], {
     label: 'TURBINE DECK',
-    railings: ['w'],
+    // No rail on the west edge: it is a 0.6 m step and the stair lands there.
     supports: true,
   }),
   a.machine('turbine', 'TURBINE', [14, 0.6, 11], [4, 3.5, 10]),
@@ -133,15 +134,17 @@ export const REACTOR_ENTITIES: Entity[] = [
   a.marker('m.overload', [14, 0.6, 16], 'hazard', 'Overload the turbine'),
 
   // --- South: coolant connections -------------------------------------------
-  a.machine('header.a', 'COOLANT HEADER A', [-8, 0, 17], [5, 6, 5], { shape: 'cylinder' }),
+  // The headers sit either side of a clear lane at Z 12..15, which is the only
+  // straight run long enough to get a stair from this floor up to the ring.
+  a.machine('header.a', 'COOLANT HEADER A', [-9, 0, 18], [5, 6, 5], { shape: 'cylinder' }),
   a.machine('header.b', 'COOLANT HEADER B', [6, 0, 17], [5, 6, 5], { shape: 'cylinder' }),
-  a.machine('eci', 'EMERGENCY COOLING INJECTION', [-1, 0, 21], [7, 4, 4], { color: HAZARD }),
+  a.machine('eci', 'EMERGENCY COOLING INJECTION', [6, 0, 22], [7, 4, 4], { color: HAZARD }),
   a.prop('valve.1', [-11, 0, 14], [1.2, 1.4, 1.2], { shape: 'cylinder' }),
-  a.prop('valve.2', [-4, 0, 14], [1.2, 1.4, 1.2], { shape: 'cylinder' }),
+  a.prop('valve.2', [-4, 0, 11], [1.2, 1.4, 1.2], { shape: 'cylinder' }),
   a.prop('valve.3', [2, 0, 14], [1.2, 1.4, 1.2], { shape: 'cylinder' }),
   a.prop('valve.4', [9, 0, 14], [1.2, 1.4, 1.2], { shape: 'cylinder' }),
   a.prop('flowmeter', [-1, 0, 13], [2.4, 1.6, 0.8]),
-  a.machine('scram.south', 'EMERGENCY SHUTDOWN', [8, 0, 20], [1.4, 1.6, 1.4], { color: HAZARD }),
+  a.machine('scram.south', 'EMERGENCY SHUTDOWN', [-4, 0, 22], [1.4, 1.6, 1.4], { color: HAZARD }),
   a.marker('m.valves', [-1, 0, 12], 'interaction', 'Coolant valves · confirm cooling'),
   a.marker('m.cooling.cut', [-1, 0, 19], 'hazard', 'Reduce cooling to save power'),
 
@@ -168,43 +171,74 @@ export const REACTOR_ENTITIES: Entity[] = [
   a.marker('m.vent', [-12, 0, -13], 'interaction', 'Venting'),
 
   // --- Circulation ----------------------------------------------------------
+  // Both rings are broken into railed arcs and short unrailed landings. A
+  // catwalk railed along both sides is a wall to anything arriving from
+  // another level, so every stair head needs a gap in the rail to step through.
   a.catwalk(
     'ring.8',
     [
-      [7, 8, -17],
-      [17, 8, -7],
+      [17, 8, -3],
       [17, 8, 7],
+      [13, 8, 11],
+    ],
+    2.4,
+    { label: 'REACTOR CATWALK +8' },
+  ),
+  // The landing wraps the corner: the spur leaves from the vertex itself, so
+  // the railed arc has to stop short of it.
+  a.catwalk('ring.8.land.ne', [[15, 8, -9], [17, 8, -7], [17, 8, -3]], 2.4, { railings: 'none' }),
+  a.catwalk('ring.8.land.se', [[13, 8, 11], [9, 8, 15], [7, 8, 17]], 2.4, { railings: 'none' }),
+  a.catwalk(
+    'ring.8.w',
+    [
       [7, 8, 17],
       [-7, 8, 17],
       [-17, 8, 7],
       [-17, 8, -7],
       [-7, 8, -17],
       [7, 8, -17],
+      [15, 8, -9],
     ],
     2.4,
-    { label: 'REACTOR CATWALK +8' },
   ),
   a.catwalk(
     'ring.17',
     [
-      [8, 17, -20],
-      [20, 17, -8],
-      [20, 17, 8],
+      [16, 17, 12],
       [8, 17, 20],
       [-8, 17, 20],
       [-20, 17, 8],
       [-20, 17, -8],
       [-8, 17, -20],
-      [8, 17, -20],
+      [-2, 17, -20],
     ],
     2.2,
     { label: 'UPPER GANTRY +17' },
   ),
-  a.catwalk('spur.stair.low', [[17, 8, -6], [18, 8, -6]], 2, { railings: 'both' }),
-  a.catwalk('spur.stair.high', [[18, 17, 6], [20, 17, 6]], 2, { railings: 'both' }),
-  a.stair('stair.floor.w', [-6, 0, 18], [-15, 8, 9], 2.2),
-  a.stair('stair.floor.ne', [9, 0, -18], [15.5, 8, -8.5], 2.2),
-  a.stair('stair.upper', [18, 8, -6], [18, 17, 6], 2),
+  a.catwalk('ring.17.land.n', [[-2, 17, -20], [2, 17, -20]], 2.2, { railings: 'none' }),
+  a.catwalk(
+    'ring.17.e',
+    [
+      [2, 17, -20],
+      [8, 17, -20],
+      [20, 17, -8],
+      [20, 17, 4],
+    ],
+    2.2,
+  ),
+  a.catwalk('ring.17.land.e', [[20, 17, 4], [20, 17, 8], [16, 17, 12]], 2.2, { railings: 'none' }),
+  a.catwalk('spur.stair.low', [[17, 8, -7], [20.5, 8, -11]], 2, { railings: 'none' }),
+  a.catwalk('spur.stair.high', [[20.5, 17, 11], [20, 17, 8]], 2, { railings: 'none' }),
+  // South flight: the lane between the coolant headers is the only straight
+  // run on this floor long enough to reach the ring at a walkable pitch.
+  a.stair('stair.floor.s', [-8, 0, 13], [11, 8, 13], 2.2),
+  a.stair('stair.floor.ne', [9, 0, -21], [17, 8, -6], 2.2),
+  // The upper flight uses the whole east annulus: nine metres of rise is two
+  // storeys, and it has to clear the operating face on the way past.
+  // Set out from the ring by more than half its own width: stair widths do not
+  // shrink with the plan, so a flight parked too close to a catwalk puts its
+  // guard rail in the walkway.
+  a.stair('stair.upper', [20.5, 8, -11], [20.5, 17, 11], 1.8),
 
   // --- Overhead travelling crane --------------------------------------------
   a.prop('crane.rail.w', [-21, 22.4, 0], [0.8, 0.8, 40]),
@@ -213,9 +247,12 @@ export const REACTOR_ENTITIES: Entity[] = [
   a.prop('crane.hoist', [0, 21, -6], [2.2, 2, 2.2]),
 
   // --- Services -------------------------------------------------------------
-  a.pipe('pipe.cool.a', [[6, 12, 8], [10, 12, 15], [8, 6, 19]], 0.9),
-  a.pipe('pipe.cool.b', [[-6, 12, 8], [-9, 12, 15], [-8, 6, 19]], 0.9),
-  a.pipe('pipe.steam', [[8, 14, 2], [14, 14, 8], [14, 5, 10]], 0.7),
+  // Each of these crosses the catwalk ring on its way to a header. They run
+  // high over the walkway and only drop once they are outside the ring's edge,
+  // because a pipe coming down through the walking surface closes the ring.
+  a.pipe('pipe.cool.a', [[6, 12, 8], [6, 12, 19.5], [6, 6, 19.5]], 0.9),
+  a.pipe('pipe.cool.b', [[-6, 12, 8], [-9, 12, 18], [-9, 6, 18]], 0.9),
+  a.pipe('pipe.steam', [[8, 14, 2], [16, 14, 12], [16, 5, 15]], 0.7),
 
   // --- Lighting -------------------------------------------------------------
   a.light('hi.n', [0, 27, -16], { size: [4, 1.2], cast: true, intensity: 260, distance: 46 }),
@@ -238,7 +275,7 @@ export const REACTOR_ENTITIES: Entity[] = [
   a.spawn('spawn.floor', [-14, 0, 0], 'Reactor floor'),
   a.spawn('spawn.charge', [0, 1.2, -17.5], 'Charge floor'),
   a.spawn('spawn.ring', [0, 8, -17], 'Reactor catwalk +8'),
-  a.spawn('spawn.gantry', [0, 17, -20], 'Reactor upper gantry'),
+  a.spawn('spawn.gantry', [5, 17, -20], 'Reactor upper gantry'),
   a.spawn('spawn.deck', [0, 20, 7.5], 'Charge deck +20'),
 
   a.marker('m.core', [-9, 0, 0], 'hazard', 'Core face: nothing between you and it'),
@@ -262,10 +299,10 @@ export const REACTOR_ENTITIES: Entity[] = [
  * link corridor to reach any of it.
  */
 export const CONTROL_ENTITIES: Entity[] = [
-  c.floor('link', [27, 0, -7], [6, 8]),
-  c.roof('link.lid', [27, 5, -7], [6, 8]),
-  c.wall('link.n', [24, -11], [30, -11], 5),
-  c.wall('link.s', [30, -3], [24, -3], 5),
+  c.floor('link', [27, 0, -6], [6, 8]),
+  c.roof('link.lid', [27, 5, -6], [6, 8]),
+  c.wall('link.n', [24, -10], [30, -10], 5),
+  c.wall('link.s', [30, -2], [24, -2], 5),
 
   c.floor('slab', [42, 0, 0], [24, 28]),
   c.roof('lid', [42, 16, 0], [24, 28]),
@@ -276,25 +313,31 @@ export const CONTROL_ENTITIES: Entity[] = [
   c.wall('shell.s', [54, 14], [30, 14], 16),
   c.wall('shell.w', [30, 14], [30, -14], 16, {
     gaps: [
-      { at: 10, width: 12, bottom: 10, top: 15 }, // overlook windows
-      { at: 21, width: 4, top: 4 }, // link corridor
+      { at: 11, width: 8, bottom: 10, top: 15 }, // overlook windows
+      { at: 20, width: 4, top: 4 }, // link corridor
     ],
   }),
 
   c.platform('deck', [40, 10, 0], [20, 24], {
     label: 'REACTOR CONTROL',
-    railings: ['e', 'n', 's'],
+    // North is open onto the stair head, which runs the width of the room.
+    railings: ['s', 'e'],
     supports: true,
   }),
-  c.stair('stair', [33, 0, 10], [33, 10, -4], 2.2),
+  // The stair climbs the four-metre strip east of the deck — in open air, not
+  // under the slab it lands on — and arrives on a landing across the north end.
+  c.platform('stair.head', [42, 10, -13], [24, 2], { supports: true }),
+  c.stair('stair', [52, 0, 13], [52, 10, -12], 2.2),
 
   // Desk faces the windows: reactivity and temperature on the left, turbine
   // and grid on the right, with the shutdown key between them.
   c.machine('desk.core', 'CORE', [32, 10, -6], [1.4, 1.2, 5], { color: ELECTRIC }),
   c.machine('desk.scram', 'EMERGENCY SHUTDOWN', [32, 10, 0], [1.4, 1.3, 2], { color: HAZARD }),
   c.machine('desk.grid', 'TURBINE & GRID', [32, 10, 5], [1.4, 1.2, 5], { color: ELECTRIC }),
-  c.machine('mimic', 'PLANT MIMIC', [40, 10, -11.4], [12, 2.6, 0.4], { color: ELECTRIC }),
-  c.light('mimic.lamp', [40, 12.9, -11], { size: [11, 0.5], color: '#9fd8e8' }),
+  // Sits on the east half of the north wall: the west half is the way in from
+  // the stair head.
+  c.machine('mimic', 'PLANT MIMIC', [46, 10, -11.4], [7, 2.6, 0.4], { color: ELECTRIC }),
+  c.light('mimic.lamp', [46, 12.9, -11], { size: [6, 0.5], color: '#9fd8e8' }),
   c.machine('demand', 'GRID DEMAND', [48, 10, 8], [4, 2.4, 0.4], { color: ELECTRIC }),
   c.prop('log.table', [44, 10, 4], [2.4, 1.1, 3]),
   c.prop('chair.1', [34, 10, -6], [0.7, 1.1, 0.7]),

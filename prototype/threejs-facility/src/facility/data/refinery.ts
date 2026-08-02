@@ -20,8 +20,8 @@ export const REFINERY_ENTITIES: Entity[] = [
     height: 18,
     openings: [
       { side: 'w', at: -52, width: 5, bottom: 2, top: 9 }, // crushed ore in
-      { side: 'w', at: -38, width: 4, bottom: 4.5, top: 8 }, // high link
-      { side: 'w', at: -44, width: 4, top: 3.6 }, // ground route
+      // High link and ground route share one opening — see crusher.shell.e.
+      { side: 'w', at: -38, width: 5, bottom: 0, top: 8 },
       { side: 'e', at: -52, width: 5, bottom: 2, top: 9 }, // dried material out
       { side: 'e', at: -40, width: 4, top: 3.6 }, // ground route to fuel
       { side: 'n', at: -34, width: 4, top: 3.6 }, // onto S1
@@ -40,30 +40,32 @@ export const REFINERY_ENTITIES: Entity[] = [
   a.conveyor('conv.proc', [[-26.5, 6.5, -52], [-24.5, 6, -52]], 2, { label: 'PROCESSED' }),
   a.conveyor('conv.out', [[-15.5, 5.5, -52], [-10, 5, -52]], 2, { label: 'DRIED → FUEL' }),
 
-  a.platform('mezz', [-34, 5, -37], [38, 8], {
+  // West end left unrailed: the ground stair and the crusher high link both
+  // arrive there, and a guard rail along that edge would seal both off.
+  a.platform('mezz.landing', [-50, 5, -37], [6, 8], { supports: true }),
+  a.platform('mezz', [-31, 5, -37], [32, 8], {
     label: 'REFINERY MEZZANINE',
     railings: ['n'],
     supports: true,
   }),
-  a.catwalk('cat.aisle', [[-39.3, 10, -60], [-39.3, 10, -36]], 2, { label: 'CENTRE AISLE' }),
-  a.catwalk(
-    'cat.gantry',
-    [
-      [-49, 14, -58],
-      [-49, 14, -36],
-      [-18, 14, -36],
-      [-18, 14, -58],
-    ],
-    2.2,
-    { label: 'UPPER GANTRY' },
-  ),
-  a.catwalk('cat.beltaccess', [[-44, 5, -40], [-42, 5.5, -46], [-40, 5.6, -50]], 1.6, {
+  // Split at the south end: a railed run plus an unrailed landing, because a
+  // catwalk railed on both sides cannot be stepped off onto a stair.
+  a.catwalk('cat.aisle', [[-39.3, 10, -60], [-39.3, 10, -38]], 2, { label: 'CENTRE AISLE' }),
+  a.catwalk('cat.aisle.landing', [[-39.3, 10, -38], [-39.3, 10, -36]], 2, { railings: 'none' }),
+  a.catwalk('cat.gantry', [[-49, 14, -58], [-49, 14, -40]], 2.2, { label: 'UPPER GANTRY' }),
+  a.catwalk('cat.gantry.land', [[-49, 14, -40], [-49, 14, -36]], 2.2, { railings: 'none' }),
+  a.catwalk('cat.gantry.e', [[-49, 14, -36], [-18, 14, -36], [-18, 14, -58]], 2.2),
+  // Starts on the unrailed west landing, not the railed mezzanine.
+  a.catwalk('cat.beltaccess', [[-49, 5, -40], [-43, 5.4, -45], [-40, 5.6, -50]], 1.6, {
     railings: 'left',
   }),
 
-  a.stair('stair.ground', [-52, 0, -46], [-52, 5, -38], 2.2),
-  a.stair('stair.mezz', [-39.3, 5, -38], [-39.3, 10, -46], 1.8),
-  a.stair('stair.gantry', [-42, 10, -58], [-49, 14, -58], 1.6),
+  // All three flights run the full length of the bay they sit in. Five metres
+  // of rise needs twelve and a half of run to stay a stair once the plan is
+  // compacted, which is why the ground door sits south of the bottom step.
+  a.stair('stair.ground', [-52.3, 0, -52.5], [-52.3, 5, -40], 2.2),
+  a.stair('stair.mezz', [-39.3, 5, -34], [-39.3, 10, -46.5], 1.8),
+  a.stair('stair.gantry', [-40, 10, -37], [-49, 14, -37], 1.6),
 
   a.prop('batch.1', [-44, 0, -36], [3, 2.2, 3]),
   a.prop('batch.2', [-40, 0, -36], [3, 2.2, 3]),

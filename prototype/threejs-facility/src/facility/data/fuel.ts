@@ -11,11 +11,20 @@ const a = zoneAuthor('fuel');
  */
 export const FUEL_ENTITIES: Entity[] = [
   a.floor('slab', [4, 0, -47], [28, 30]),
-  a.platform('roofdeck', [4, 10, -47], [28, 30], {
+  // The roof deck is laid in four pieces around an open stairwell at
+  // X 1..16, Z -48..-44. Ten metres of climb needs two flights, and two
+  // flights need somewhere to come out.
+  a.platform('roofdeck.n', [4, 10, -55], [28, 14], {
     label: 'FUEL ROOF DECK',
-    railings: ['n', 'e', 's', 'w'],
+    railings: ['n', 'e', 'w'],
     tags: ['roof'],
   }),
+  a.platform('roofdeck.s', [4, 10, -38], [28, 12], {
+    railings: ['s', 'e', 'w'],
+    tags: ['roof'],
+  }),
+  a.platform('roofdeck.w', [-4.5, 10, -46], [11, 4], { railings: ['w'], tags: ['roof'] }),
+  a.platform('roofdeck.e', [17, 10, -46], [2, 4], { railings: ['e'], tags: ['roof'] }),
 
   ...roomWalls(a, 'shell', {
     min: [-10, -62],
@@ -56,14 +65,18 @@ export const FUEL_ENTITIES: Entity[] = [
   a.prop('flask.1', [14, 0.35, -43], [1.6, 2.6, 1.6], { shape: 'cylinder' }),
   a.prop('flask.2', [14, 0.35, -46], [1.6, 2.6, 1.6], { shape: 'cylinder' }),
 
-  a.stair('stair.roof', [-8, 0, -36], [-8, 10, -50], 2),
+  // Switchback to the roof: north up the east wall, half-landing over the
+  // staging bay, then west out through the stairwell.
+  a.stair('stair.roof.a', [16, 0, -59], [16, 5, -46.5], 2),
+  a.platform('stair.landing', [15.5, 5, -45.5], [5, 5], { railings: ['s'], supports: true }),
+  a.stair('stair.roof.b', [13.5, 5, -45], [1, 10, -45], 2),
 
   a.doorway('door.spine', [4, 0, -62], 4, 3.6, { label: 'S1' }),
   a.doorway('door.south', [8, 0, -32], 5, 4.2),
   a.doorway('door.east', [18, 0, -40], 4, 3.6, { rotationY: 90 }),
 
   a.spawn('spawn.fuel', [4, 0, -40], 'Fuel hall'),
-  a.spawn('spawn.roof', [4, 10, -47], 'Fuel roof deck'),
+  a.spawn('spawn.roof', [4, 10, -52], 'Fuel roof deck'),
 
   a.marker('m.roofview', [4, 10, -58], 'sightline', 'Roof deck: straight down the compliance approach'),
   a.marker('m.crates', [10, 0.35, -37], 'hiding', 'Empty fuel crates'),
