@@ -46,13 +46,6 @@ export const YARD_ENTITIES: Entity[] = [
   a.wall('spine.n', [-96, -67], [22, -67], 5),
   a.roof('spine.lid', [-37, 5, -64.5], [118, 5]),
 
-  // The last leg of the production row: out of the fuel block's south door and
-  // straight into the reactor's only worker entrance. The whole shift funnels
-  // through these eight metres, which is why the reactor has no second way in.
-  a.floor('link.reactor', [8, 0, -28], [6, 8], { label: 'REACTOR ENTRANCE' }),
-  a.roof('link.reactor.lid', [8, 5, -28], [6, 8]),
-  a.wall('link.reactor.e', [11, -32], [11, -24], 5),
-  a.wall('link.reactor.w', [5, -24], [5, -32], 5),
 
   // S2: the short hop between the haulage hall and storage.
   a.floor('s2', [-75, 0, 29], [22, 6], { label: 'S2' }),
