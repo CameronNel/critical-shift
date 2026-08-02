@@ -1,4 +1,5 @@
 import type {
+  CartEntity,
   CatwalkEntity,
   CavernEntity,
   ConveyorEntity,
@@ -79,6 +80,11 @@ export function zoneAuthor(zone: ZoneId) {
       width: number,
       extra: Extra<StairEntity> = {},
     ): StairEntity => ({ id: id(name), type: 'stair', zone, from, to, width, ...extra }),
+    cart: (
+      name: string,
+      position: Vec3,
+      extra: Extra<CartEntity> = {},
+    ): CartEntity => ({ id: id(name), type: 'cart', zone, position, ...extra }),
     ramp: (
       name: string,
       from: Vec3,

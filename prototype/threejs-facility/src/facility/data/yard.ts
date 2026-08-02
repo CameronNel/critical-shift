@@ -19,11 +19,15 @@ export const YARD_ENTITIES: Entity[] = [
   a.grade('g.n', [-55, -0.02, -86.5], [250, 57]),
   a.grade('g.mid.w', [-132, -0.02, -47], [96, 22]),
   a.grade('g.mid.e', [4, -0.02, -47], [132, 22]),
-  // Centre band, cut around the mine adit.
-  a.grade('g.c.n', [-56, -0.02, -21], [252, 30]),
-  a.grade('g.c.adit.w', [-155, -0.02, 0], [54, 12]),
+  // Centre band, cut around the whole rock mass rather than just the adit.
+  // The mine's chambers sit under this band; leaving grade over them put a
+  // walkable surface two metres above the mine floor, so every mine spawn
+  // landed on the hillside instead of underground.
+  a.grade('g.c.n', [-28, -0.02, -21], [196, 30]),
+  a.grade('g.c.w', [-172, -0.02, -12], [20, 48]),
   a.grade('g.c.adit.e', [-21, -0.02, 0], [182, 12]),
-  a.grade('g.c.s', [-56, -0.02, 17], [252, 22]),
+  a.grade('g.c.s.e', [-28, -0.02, 9], [196, 6]),
+  a.grade('g.c.s', [-56, -0.02, 20], [252, 16]),
   // Cooling cut and the storage stairwell.
   a.grade('g.cut.w', [-121, -0.02, 31], [122, 6]),
   a.grade('g.cut.m', [-12, -0.02, 31], [80, 6]),
