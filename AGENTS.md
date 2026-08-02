@@ -17,7 +17,12 @@
 - Clients submit intentions, not outcomes.
 - Every multiplayer change requires a deterministic or automated multiplayer test.
 - Every machine requires a standalone test scene.
-- Never merge your own work.
+- Merge your own pull requests. Open one for every change, drive it to green,
+  then merge it yourself rather than leaving finished work waiting for a human.
+- Never push directly to `main`. Everything still goes through a branch and a
+  pull request; the merge is the part you no longer wait for.
+- Do not merge past red checks, unresolved review comments, or a decision that
+  is genuinely the owner's to make. Say so and leave the pull request open.
 - Do not modify unrelated files.
 - Run relevant validation before reporting completion.
 - Report missing assets, unclear requirements, and unverified assumptions.
