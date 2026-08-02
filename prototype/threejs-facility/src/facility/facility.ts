@@ -1,0 +1,56 @@
+import {
+  FACILITY_FORMAT,
+  FACILITY_FORMAT_VERSION,
+  type Entity,
+  type FacilityDoc,
+} from './schema';
+import { ZONES } from './zones';
+import { scaleEntity, scaleRoute, scaleZone, SITE_SCALE } from './scale';
+import { YARD_ENTITIES } from './data/yard';
+import { ARRIVAL_ENTITIES } from './data/arrival';
+import { MINE_ENTITIES } from './data/mine';
+import { HAULAGE_ENTITIES } from './data/haulage';
+import { CRUSHER_ENTITIES } from './data/crusher';
+import { REFINERY_ENTITIES } from './data/refinery';
+import { FUEL_ENTITIES } from './data/fuel';
+import { MEDICAL_ENTITIES, STORAGE_ENTITIES } from './data/support';
+import { MAINTENANCE_ENTITIES } from './data/maintenance';
+import { CONTROL_ENTITIES, REACTOR_ENTITIES } from './data/reactor';
+import { COOLING_ENTITIES } from './data/cooling';
+import { COMPLIANCE_ENTITIES } from './data/compliance';
+import { ROUTES } from './data/routes';
+
+const ENTITIES: Entity[] = [
+  ...YARD_ENTITIES,
+  ...ARRIVAL_ENTITIES,
+  ...MINE_ENTITIES,
+  ...HAULAGE_ENTITIES,
+  ...CRUSHER_ENTITIES,
+  ...REFINERY_ENTITIES,
+  ...FUEL_ENTITIES,
+  ...MEDICAL_ENTITIES,
+  ...STORAGE_ENTITIES,
+  ...MAINTENANCE_ENTITIES,
+  ...REACTOR_ENTITIES,
+  ...CONTROL_ENTITIES,
+  ...COOLING_ENTITIES,
+  ...COMPLIANCE_ENTITIES,
+];
+
+export const DEFAULT_FACILITY: FacilityDoc = {
+  format: FACILITY_FORMAT,
+  version: FACILITY_FORMAT_VERSION,
+  name: 'Critical Shift — Facility Greybox',
+  description:
+    `Structural skeleton of the Critical Shift site, compacted to ${SITE_SCALE} of ` +
+    'the drafting scale in plan. Vertical dimensions and human clearances are ' +
+    'unscaled. Greybox: no dressing, no art.',
+  zones: ZONES.map(scaleZone),
+  entities: ENTITIES.map(scaleEntity),
+  routes: ROUTES.map(scaleRoute),
+};
+
+/** Deep copy so edits never mutate the repository default. */
+export function defaultFacility(): FacilityDoc {
+  return structuredClone(DEFAULT_FACILITY);
+}
