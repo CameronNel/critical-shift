@@ -6,6 +6,7 @@ import { createTextSprite } from './textSprite';
 import { makeRng, range } from './rng';
 import {
   type CatwalkEntity,
+  type CartEntity,
   type CavernEntity,
   type ConveyorEntity,
   type DoorwayEntity,
@@ -516,6 +517,48 @@ function shapeGeometry(shape: MachineEntity['shape']): THREE.BufferGeometry {
     default:
       return UNIT.box;
   }
+}
+
+/**
+ * A cart. Built at the origin of its own group so the pushable system can move
+ * it by setting the group's position, and deliberately given no collider here:
+ * a baked static box would be in the wrong place the moment anyone touched it.
+ */
+function buildCart(e: CartEntity, zoneColor: string): EntityBuild {
+  const [sx, sy, sz] = e.size ?? [1.7, 1.5, 2.6];
+  const group = new THREE.Group();
+  const material = e.color ? customMaterial(e.color, 'prop') : zoneMaterial(zoneColor, 'prop');
+  const batch = new GeoBatch();
+
+  // Body: an open box, so it reads as a container rather than a crate.
+  const wall = 0.14;
+  const bodyY = 0.55 + (sy - 0.55) / 2;
+  batch.addBox(new THREE.Vector3(0, 0.55, 0), new THREE.Vector3(sx, wall, sz), 0);
+  for (const [ox, oz, w, d] of [
+    [-(sx - wall) / 2, 0, wall, sz],
+    [(sx - wall) / 2, 0, wall, sz],
+    [0, -(sz - wall) / 2, sx, wall],
+    [0, (sz - wall) / 2, sx, wall],
+  ] as const) {
+    batch.addBox(new THREE.Vector3(ox, bodyY, oz), new THREE.Vector3(w, sy - 0.55, d), 0);
+  }
+  const body = batch.build(material, e.id);
+  if (body) group.add(body);
+
+  // Wheels and axles, low enough to read as a rail cart at a glance.
+  const wheels = new GeoBatch();
+  for (const oz of [-sz / 2 + 0.5, sz / 2 - 0.5]) {
+    wheels.addBox(new THREE.Vector3(0, 0.3, oz), new THREE.Vector3(sx + 0.12, 0.12, 0.12), 0);
+    for (const ox of [-(sx + 0.1) / 2, (sx + 0.1) / 2]) {
+      wheels.addBox(new THREE.Vector3(ox, 0.3, oz), new THREE.Vector3(0.16, 0.56, 0.56), 0);
+    }
+  }
+  const wheelMesh = wheels.build(SHARED.rail, `${e.id}:wheels`);
+  if (wheelMesh) group.add(wheelMesh);
+
+  group.position.set(e.position[0], e.position[1], e.position[2]);
+  group.rotation.y = THREE.MathUtils.degToRad(e.rotationY ?? 0);
+  return { object: group, colliders: [] };
 }
 
 function buildMassing(
@@ -1237,6 +1280,8 @@ export function buildEntity(entity: Entity, zoneColor: string): EntityBuild {
       return buildMassing(entity, zoneColor, 'machine');
     case 'prop':
       return buildMassing(entity, zoneColor, 'prop');
+    case 'cart':
+      return buildCart(entity, zoneColor);
     case 'conveyor':
       return buildConveyor(entity, zoneColor);
     case 'track':

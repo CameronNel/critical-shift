@@ -9,8 +9,8 @@ const a = zoneAuthor('yard');
  *
  *   S1  north spine corridor  - straight run behind the production row, from
  *                               arrival to the compliance approach
- *   the diagonal access run   - haulage to the reactor west door, shared with
- *                               the cart line, which is the site's main hazard
+ *   the reactor entrance link  - fuel block to the reactor's one worker door,
+ *                               which the whole shift has to funnel through
  *
  * Grade is authored as strips with holes for the crusher pit and the cooling
  * cut, so hiding the ground layer exposes the service datum below.
@@ -19,11 +19,15 @@ export const YARD_ENTITIES: Entity[] = [
   a.grade('g.n', [-55, -0.02, -86.5], [250, 57]),
   a.grade('g.mid.w', [-132, -0.02, -47], [96, 22]),
   a.grade('g.mid.e', [4, -0.02, -47], [132, 22]),
-  // Centre band, cut around the mine adit.
-  a.grade('g.c.n', [-56, -0.02, -21], [252, 30]),
-  a.grade('g.c.adit.w', [-155, -0.02, 0], [54, 12]),
+  // Centre band, cut around the whole rock mass rather than just the adit.
+  // The mine's chambers sit under this band; leaving grade over them put a
+  // walkable surface two metres above the mine floor, so every mine spawn
+  // landed on the hillside instead of underground.
+  a.grade('g.c.n', [-28, -0.02, -21], [196, 30]),
+  a.grade('g.c.w', [-172, -0.02, -12], [20, 48]),
   a.grade('g.c.adit.e', [-21, -0.02, 0], [182, 12]),
-  a.grade('g.c.s', [-56, -0.02, 17], [252, 22]),
+  a.grade('g.c.s.e', [-28, -0.02, 9], [196, 6]),
+  a.grade('g.c.s', [-56, -0.02, 20], [252, 16]),
   // Cooling cut and the storage stairwell.
   a.grade('g.cut.w', [-121, -0.02, 31], [122, 6]),
   a.grade('g.cut.m', [-12, -0.02, 31], [80, 6]),
@@ -46,24 +50,6 @@ export const YARD_ENTITIES: Entity[] = [
   a.wall('spine.n', [-96, -67], [22, -67], 5),
   a.roof('spine.lid', [-37, 5, -64.5], [118, 5]),
 
-  // The diagonal: haulage to the reactor west door. The cart line runs down
-  // the middle of it and workers use the same 8 m, which is the point.
-  a.floor('diag.floor', [-41, 0, 7], [8, 33.5], {
-    rotationY: 115,
-    label: 'MAIN ACCESS — CART LINE',
-  }),
-  a.roof('diag.lid', [-41, 5, 7], [8, 33.5], { rotationY: 115 }),
-  a.wall('diag.n', [-57.7, 10.4], [-27.7, -3.6], 5, {
-    gaps: [{ at: 28, width: 6, top: 3.6 }], // where the refinery link lands
-  }),
-  a.wall('diag.s', [-24.3, 3.6], [-54.3, 17.6], 5),
-
-  // Link from the refinery's south door down to the diagonal. Where it lands
-  // is the crossing: workers arrive from the north, carts from the west.
-  a.floor('link.refinery', [-30, 0, -16], [6, 34]),
-  a.roof('link.refinery.lid', [-30, 5, -16], [6, 34]),
-  a.wall('link.refinery.w', [-33, -33], [-33, -3], 5),
-  a.wall('link.refinery.e', [-27, -3], [-27, -33], 5),
 
   // S2: the short hop between the haulage hall and storage.
   a.floor('s2', [-75, 0, 29], [22, 6], { label: 'S2' }),
@@ -72,10 +58,8 @@ export const YARD_ENTITIES: Entity[] = [
   // S3: medical across to the cooling lid, avoiding the reactor entirely.
   a.floor('s3', [11, 0, 50], [34, 5], { label: 'S3' }),
 
-  a.marker('m.crossing', [-31, 0, -2], 'crossing', 'CART CROSSING — main access, live track'),
   a.marker('m.spine', [-37, 0, -64.5], 'shortcut', 'S1: straight behind the whole production row'),
-  a.marker('m.diag', [-45, 0, 12], 'hazard', 'No refuge on the diagonal once a cart is moving'),
 
-  a.mannequin('scale.yard', [-40, 0, 6], { rotationY: 115 }),
+  a.mannequin('scale.link', [8, 0, -28], { rotationY: 180 }),
   a.mannequin('scale.spine', [-60, 0, -64.5], { rotationY: 90 }),
 ];

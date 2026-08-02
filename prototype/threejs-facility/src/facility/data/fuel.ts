@@ -4,85 +4,69 @@ import { roomWalls, zoneAuthor } from './authoring';
 const a = zoneAuthor('fuel');
 
 /**
- * Fuel processing, east end of the north production row. X -10..18, Z -62..-32.
- * Its roof at +10 is a walkable deck and the cheapest early warning on the
- * site: it looks straight down the compliance approach. Its east door opens
- * onto that approach, which cuts both ways.
+ * Fuel. Two rooms and the corridor that funnels the whole shift at the
+ * reactor. The roof deck and its switchback are gone.
+ *
+ *   assembly hall     X -6..10, Z -52..-38   build the assembly, inspect it
+ *   containment store X 12..20, Z -50..-42   finished fuel, and the crate you
+ *                                            can fit inside
+ *
+ * The south corridor is the only way from the production row to the reactor,
+ * which is what makes the reactor feel like the end of the line rather than
+ * one more room.
  */
 export const FUEL_ENTITIES: Entity[] = [
-  a.floor('slab', [4, 0, -47], [28, 30]),
-  // The roof deck is laid in four pieces around an open stairwell at
-  // X 1..16, Z -48..-44. Ten metres of climb needs two flights, and two
-  // flights need somewhere to come out.
-  a.platform('roofdeck.n', [4, 10, -55], [28, 14], {
-    label: 'FUEL ROOF DECK',
-    railings: ['n', 'e', 'w'],
-    tags: ['roof'],
-  }),
-  a.platform('roofdeck.s', [4, 10, -38], [28, 12], {
-    railings: ['s', 'e', 'w'],
-    tags: ['roof'],
-  }),
-  a.platform('roofdeck.w', [-4.5, 10, -46], [11, 4], { railings: ['w'], tags: ['roof'] }),
-  a.platform('roofdeck.e', [17, 10, -46], [2, 4], { railings: ['e'], tags: ['roof'] }),
-
-  ...roomWalls(a, 'shell', {
-    min: [-10, -62],
-    max: [18, -32],
-    height: 10,
+  // --- Assembly hall --------------------------------------------------------
+  a.floor('hall.slab', [2, 0, -45], [16, 14]),
+  a.roof('hall.lid', [2, 6, -45], [16, 14]),
+  ...roomWalls(a, 'hall', {
+    min: [-6, -52],
+    max: [10, -38],
+    height: 6,
     openings: [
-      { side: 'w', at: -52, width: 5, bottom: 2, top: 9 }, // dried material in
-      { side: 'w', at: -40, width: 4, top: 3.6 }, // ground route to refinery
-      { side: 'e', at: -40, width: 4, top: 3.6 }, // compliance approach
-      { side: 'n', at: 4, width: 4, top: 3.6 }, // onto S1
-      { side: 's', at: 8, width: 5, top: 4.2 }, // main route to the reactor
-      { side: 's', at: -4, width: 4, bottom: 2, top: 8 }, // fuel belt out
+      { side: 'w', at: -45, width: 4, bottom: 2, top: 5 }, // refined ore in
+      { side: 'n', at: 2, width: 4, top: 3.6 }, // S1 spine
+      { side: 'e', at: -46, width: 4, top: 3.6 }, // through to the store
+      { side: 's', at: 6, width: 4, top: 3.6 }, // out to the reactor
     ],
   }),
+  a.machine('assembly', 'FUEL ASSEMBLY', [-1, 0, -48], [5, 3, 5]),
+  a.machine('inspection', 'ASSEMBLY INSPECTION', [6, 0, -48], [4, 2.6, 4]),
+  a.prop('bench', [2, 0, -41], [8, 0.9, 1.2]),
+  a.light('hall.l1', [2, 5.4, -45], { cast: true, intensity: 110, distance: 24 }),
+  a.marker('m.assemble', [-1, 0, -44.5], 'interaction', 'Build the assembly'),
+  a.marker('m.inspect', [6, 0, -44.5], 'interaction', 'Inspect it — skipping this is invisible until it is not'),
+  a.spawn('spawn.hall', [2, 0, -43], 'Fuel assembly'),
+  a.mannequin('scale.1', [0, 0, -44], { rotationY: 180 }),
 
-  a.machine('assembly', 'FUEL ASSEMBLY', [-2, 0, -52], [8, 6, 8]),
-  a.machine('inspection', 'INSPECTION', [10, 0, -52], [7, 5, 7]),
-  a.machine('store', 'CONTAINMENT STORE', [-2, 0, -40], [8, 7, 8], { shape: 'cylinder' }),
+  // --- Containment store ----------------------------------------------------
+  a.floor('store.slab', [16, 0, -46], [8, 8]),
+  a.roof('store.lid', [16, 4.5, -46], [8, 8]),
+  ...roomWalls(a, 'store', {
+    min: [12, -50],
+    max: [20, -42],
+    height: 4.5,
+    openings: [{ side: 'w', at: -46, width: 4, top: 3.6 }],
+  }),
+  a.machine('containment', 'CONTAINMENT STORE', [18, 0, -48], [3, 3, 5], { color: '#8a8452' }),
+  a.prop('crates', [14, 0, -44], [3, 2.2, 3]),
+  a.light('store.l1', [16, 4, -46], { cast: true, intensity: 80, distance: 16 }),
+  a.marker('m.store', [17, 0, -46], 'interaction', 'Draw or return a finished assembly'),
+  a.marker('m.crate', [14, 0, -45.5], 'hiding', 'Empty crate — big enough, if nobody is counting'),
+  a.spawn('spawn.store', [15, 0, -47], 'Containment store'),
+  a.mannequin('scale.2', [16, 0, -44], { rotationY: 0 }),
 
-  a.conveyor('conv.assemble', [[2, 4, -52], [6.5, 4, -52]], 2),
-  a.conveyor(
-    'conv.reactor',
-    [
-      [10, 4.5, -48],
-      [4, 4.5, -42],
-      [-4, 4.5, -34],
-      [-5, 4.5, -28],
-      [-5, 4, -22],
-    ],
-    2,
-    { label: 'FUEL → REACTOR' },
-  ),
+  // --- The reactor corridor -------------------------------------------------
+  a.floor('link.slab', [6, 0, -31], [6, 14]),
+  a.roof('link.lid', [6, 5, -31], [6, 14]),
+  a.wall('link.w', [3, -24], [3, -38], 5),
+  a.wall('link.e', [9, -38], [9, -24], 5),
+  a.marker('m.funnel', [6, 0, -31], 'crossing', 'Everyone goes through here, in both directions'),
+  a.mannequin('scale.3', [6, 0, -30], { rotationY: 180 }),
 
-  a.platform('staging', [10, 0.35, -40], [10, 10], { label: 'FUEL STAGING' }),
-  a.prop('crates.1', [7, 0.35, -37], [2.4, 2.2, 2.4]),
-  a.prop('crates.2', [10, 0.35, -37], [2.4, 2.2, 2.4]),
-  a.prop('crates.3', [13, 0.35, -37], [2.4, 2.2, 2.4]),
-  a.prop('flask.1', [14, 0.35, -43], [1.6, 2.6, 1.6], { shape: 'cylinder' }),
-  a.prop('flask.2', [14, 0.35, -46], [1.6, 2.6, 1.6], { shape: 'cylinder' }),
-
-  // Switchback to the roof: north up the east wall, half-landing over the
-  // staging bay, then west out through the stairwell.
-  a.stair('stair.roof.a', [16, 0, -59], [16, 5, -46.5], 2),
-  a.platform('stair.landing', [15.5, 5, -45.5], [5, 5], { railings: ['s'], supports: true }),
-  a.stair('stair.roof.b', [13.5, 5, -45], [1, 10, -45], 2),
-
-  a.doorway('door.spine', [4, 0, -62], 4, 3.6, { label: 'S1' }),
-  a.doorway('door.south', [8, 0, -32], 5, 4.2),
-  a.doorway('door.east', [18, 0, -40], 4, 3.6, { rotationY: 90 }),
-
-  a.spawn('spawn.fuel', [4, 0, -40], 'Fuel hall'),
-  a.spawn('spawn.roof', [4, 10, -52], 'Fuel roof deck'),
-
-  a.marker('m.roofview', [4, 10, -58], 'sightline', 'Roof deck: straight down the compliance approach'),
-  a.marker('m.crates', [10, 0.35, -37], 'hiding', 'Empty fuel crates'),
-  a.marker('m.inspect', [10, 0, -46], 'interaction', 'Inspection: last chance to catch a bad batch'),
-  a.marker('m.eastdoor', [20, 0, -40], 'hazard', 'East door: an auditor can walk straight in'),
-
-  a.mannequin('scale.1', [4, 0, -44], { rotationY: 200 }),
-  a.mannequin('scale.2', [4, 10, -54], { rotationY: 0 }),
+  a.conveyor('conv.charge', [[10, 3.5, -46], [8, 4, -30], [6, 4, -26]], 2, {
+    label: 'FUEL → CHARGE MACHINE',
+  }),
+  a.doorway('door.spine', [2, 0, -52], 4, 3.6),
+  a.doorway('door.reactor', [6, 0, -38], 4, 3.6),
 ];

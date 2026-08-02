@@ -55,6 +55,7 @@ export type EntityType =
   | 'catwalk'
   | 'machine'
   | 'prop'
+  | 'cart'
   | 'conveyor'
   | 'track'
   | 'pipe'
@@ -176,6 +177,21 @@ export interface PropEntity extends EntityBase {
   position: Vec3;
   size: Vec3;
   rotationY?: number;
+}
+
+/**
+ * A cart you can push. The only thing in the document that moves at runtime,
+ * and it earns that: a drift is wide enough when you can get a cart round the
+ * corner, which is not a question a static greybox can answer.
+ */
+export interface CartEntity extends EntityBase {
+  type: 'cart';
+  position: Vec3;
+  /** [X, height, Z]. Default [1.7, 1.5, 2.6]. */
+  size?: Vec3;
+  rotationY?: number;
+  /** Set false to leave it parked as scenery. */
+  pushable?: boolean;
 }
 
 export interface ConveyorEntity extends EntityBase {
@@ -317,6 +333,7 @@ export type Entity =
   | CatwalkEntity
   | MachineEntity
   | PropEntity
+  | CartEntity
   | ConveyorEntity
   | TrackEntity
   | PipeEntity

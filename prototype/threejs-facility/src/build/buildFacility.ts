@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import type { SceneLayers } from '../core/scene';
 import { CollisionWorld, type BoxCollider } from '../nav/collision';
+import type { CartBody } from '../nav/pushable';
 import { buildEntity } from './builders';
 import { GeoBatch } from './geoBatch';
 import { createTextSprite } from './textSprite';
@@ -13,6 +14,8 @@ export interface FacilityBuild {
   labels: LabelManager;
   /** Entity id -> the object that represents it, for picking and editing. */
   objects: Map<string, THREE.Object3D>;
+  /** Dynamic bodies, handed to the pushable system rather than baked. */
+  carts: CartBody[];
   entities: Map<string, Entity>;
   /** Kept per entity so a single edit can rebuild without touching the rest. */
   collidersByEntity: Map<string, BoxCollider[]>;
@@ -60,6 +63,7 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
 
   const zones = new Map(doc.zones.map((z) => [z.id as string, z]));
   const objects = new Map<string, THREE.Object3D>();
+  const carts: CartBody[] = [];
   const entities = new Map<string, Entity>();
   const collidersByEntity = new Map<string, BoxCollider[]>();
   const spawns: SpawnEntity[] = [];
@@ -85,6 +89,21 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
     layerFor(layers, entity).add(built.object);
     objects.set(entity.id, built.object);
     collidersByEntity.set(entity.id, built.colliders);
+    if (entity.type === 'cart') {
+      const [sx, sy, sz] = entity.size ?? [1.7, 1.5, 2.6];
+      carts.push({
+        id: entity.id,
+        object: built.object,
+        halfX: sx / 2,
+        halfZ: sz / 2,
+        height: sy,
+        rotY: THREE.MathUtils.degToRad(entity.rotationY ?? 0),
+        x: entity.position[0],
+        y: entity.position[1],
+        z: entity.position[2],
+        pushable: entity.pushable !== false,
+      });
+    }
   }
 
   for (const zone of doc.zones) {
@@ -118,6 +137,7 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
     collidersByEntity,
     spawns,
     zones,
+    carts,
     stats: { entities: doc.entities.length, meshes, colliders: colliderCount },
   };
 }

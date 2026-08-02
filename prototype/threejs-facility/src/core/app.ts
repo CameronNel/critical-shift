@@ -6,6 +6,7 @@ import { createDesktopInput, type DesktopInput } from '../input/desktopInput';
 import { FlyController } from '../nav/flyController';
 import { MapController } from '../nav/mapController';
 import { WalkController, EYE_HEIGHT } from '../nav/walkController';
+import { PushableSystem } from '../nav/pushable';
 import { applyToCamera, createNavState, type NavState } from '../nav/navState';
 import { buildFacility, type FacilityBuild } from '../build/buildFacility';
 import { defaultFacility } from '../facility/facility';
@@ -28,6 +29,7 @@ export class App {
   readonly input = new InputState();
   readonly desktop: DesktopInput;
   readonly nav: NavState;
+  readonly pushables = new PushableSystem();
 
   private readonly fly = new FlyController();
   readonly map = new MapController();
@@ -51,6 +53,7 @@ export class App {
     this.desktop = createDesktopInput(canvas, this.input);
     this.doc = defaultFacility();
     this.build = buildFacility(this.doc, this.site.layers);
+    this.loadCarts();
     this.nav = createNavState(new THREE.Vector3(0, EYE_HEIGHT, 0));
     this.site.layers.roofs.visible = true;
     this.respawn();
@@ -72,11 +75,13 @@ export class App {
   setFacility(doc: FacilityDoc): void {
     this.doc = doc;
     this.build = buildFacility(this.doc, this.site.layers);
+    this.loadCarts();
     this.emit();
   }
 
   rebuild(): void {
     this.build = buildFacility(this.doc, this.site.layers);
+    this.loadCarts();
   }
 
   setMode(mode: NavMode): void {
@@ -165,6 +170,12 @@ export class App {
     return this.site.layers[layer].visible;
   }
 
+  /** Carts are rebuilt with the facility, so the system is refilled with it. */
+  private loadCarts(): void {
+    this.pushables.clear();
+    for (const cart of this.build.carts) this.pushables.add(cart);
+  }
+
   zoneAt(position: THREE.Vector3): string {
     let best: string = '—';
     let bestArea = Infinity;
@@ -231,6 +242,7 @@ export class App {
     if (!handled) {
       if (this.currentMode === 'walk') {
         this.walk.update(dt, this.input, this.nav, this.build.collision);
+        this.pushables.update(this.nav.position, this.build.collision);
         if (this.nav.position.y < VOID_Y) this.respawn();
       } else if (this.currentMode === 'map') {
         this.map.update(dt, this.input, this.nav);
