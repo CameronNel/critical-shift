@@ -36,18 +36,48 @@ Nothing is a dead end, so route choice is tactical rather than obligatory.
 
 ## Scale and travel
 
-About 256 m east–west by 206 m north–south including the mine and the
-compliance road; the built plant itself is roughly 150 m across. Walking at
-4.2 m/s:
+The layout is authored at a comfortable drafting scale and then **compacted in
+plan by a single factor** (`SITE_SCALE` in `src/facility/scale.ts`, currently
+`0.72`) before it is built. The compaction is not uniform:
 
-| Leg | Distance | Walk |
-|---|---|---|
-| Crusher to refinery | 39 m | ~9 s |
-| Refinery to reactor | 58 m | ~14 s |
-| Mine face to refinery | ~115 m | ~27 s |
-| Arrival to control (full crossing) | ~170 m | ~40 s (23 s sprinting) |
+- **Scaled:** X and Z positions, wall runs, room footprints, machine
+  footprints, distances along a wall to an opening.
+- **Not scaled:** every vertical dimension, and every human-scale clearance —
+  corridor and catwalk widths, stair widths, door widths, wall thickness, pipe
+  radius, ceiling heights.
 
-That matches the travel targets in `GAME_SPEC.md` §23.2.
+So the plan tightens without corridors narrowing, doors shrinking below what a
+dragged body needs, or the reactor hall losing the height that makes it worth
+looking at. A 1.75 m worker stays 1.75 m. Set `SITE_SCALE` to `1` to inspect
+the uncompacted drafting scale.
+
+Compacted, the site is about 184 m east–west by 148 m north–south including the
+mine and the compliance road; the built plant is roughly 108 m across.
+
+### Emergency runs
+
+These are what the scale is really for. The meltdown beat is only frightening
+if the run to the valves is short enough to attempt.
+
+| Run | Distance | Sprint | Walk | Suited |
+|---|---|---|---|---|
+| Control desk → coolant valves | 90 m | 12 s | 21 s | 28 s |
+| Control desk → reactor scram | 33 m | 4 s | 8 s | 10 s |
+| Reactor floor → coolant valves | 62 m | 8 s | 15 s | 20 s |
+| Reactor west door → south scram | 25 m | 3 s | 6 s | 8 s |
+| Refinery floor → reactor core | 50 m | 7 s | 12 s | 16 s |
+| Crusher → reactor | 78 m | 10 s | 18 s | 24 s |
+| Mine face → reactor | 133 m | 18 s | 32 s | 42 s |
+| Arrival → reactor | 118 m | 16 s | 28 s | 37 s |
+
+**These times depend entirely on a movement speed that nothing in the design
+documents fixes yet.** The figures above assume 7.4 m/s sprinting, 4.2 m/s
+walking and 3.2 m/s suited. The Movement speed section of the menu switches
+between Slow, Default and Fast at runtime, because the honest way to judge the
+scale is to run to the coolant valves at each and see which one feels right.
+
+The compacted numbers sit at or just under the travel targets in
+`GAME_SPEC.md` §23.2, which were written for a walking pace, not a sprint.
 
 ## Two rooms built out in full
 

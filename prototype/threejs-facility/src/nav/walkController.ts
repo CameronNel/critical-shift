@@ -10,8 +10,17 @@ const RADIUS = 0.42;
 const STEP_UP = 0.45;
 /** Waist height: anything lower is stepped over rather than blocking. */
 const STEP_OVER = 0.4;
-const WALK_SPEED = 4.2;
-const SPRINT_SPEED = 7.4;
+/**
+ * Nothing in the design documents fixes a movement speed yet, and every travel
+ * time in this layout depends on it. These are a starting point, adjustable at
+ * runtime so the plan can be judged against a speed rather than an assumption.
+ */
+export const SPEEDS = {
+  walk: 4.2,
+  sprint: 7.4,
+  /** Multiplier applied to both. 1 = the values above. */
+  scale: 1,
+};
 const ACCEL = 34;
 const GRAVITY = -22;
 const JUMP = 6.2;
@@ -51,7 +60,7 @@ export class WalkController {
       .addScaledVector(this.forward, input.move.y)
       .addScaledVector(this.right, input.move.x);
     if (target.lengthSq() > 1) target.normalize();
-    target.multiplyScalar(sprinting ? SPRINT_SPEED : WALK_SPEED);
+    target.multiplyScalar((sprinting ? SPEEDS.sprint : SPEEDS.walk) * SPEEDS.scale);
 
     // Simple acceleration so stopping and starting reads naturally on a phone.
     this.velocity.x = THREE.MathUtils.damp(this.velocity.x, target.x, ACCEL * 0.35, dt);

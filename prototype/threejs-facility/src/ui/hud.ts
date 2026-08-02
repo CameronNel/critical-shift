@@ -1,5 +1,6 @@
 import type { App, LayerKey, NavMode } from '../core/app';
 import { bindHoldButton, createTouchInput } from '../input/touchInput';
+import { SPEEDS } from '../nav/walkController';
 
 const LAYERS: { key: LayerKey; label: string }[] = [
   { key: 'roofs', label: 'Roofs' },
@@ -94,6 +95,7 @@ export class Hud {
     this.buildLegend();
     this.buildLayerSection();
     this.buildTeleportSection();
+    this.buildSpeedSection();
     this.buildHelpSection();
 
     app.onStatus((status) => this.render(status.mode, status.zone, status.fps));
@@ -259,6 +261,49 @@ export class Hud {
         grid.appendChild(node);
       }
       body.appendChild(grid);
+    });
+  }
+
+  /**
+   * Movement speed is the biggest unfixed variable behind every travel time in
+   * the layout, so it is adjustable rather than baked in.
+   */
+  private buildSpeedSection(): void {
+    this.addPanelSection('Movement speed', (body) => {
+      const readout = el('p', 'hint');
+      const update = () => {
+        const w = (SPEEDS.walk * SPEEDS.scale).toFixed(1);
+        const s = (SPEEDS.sprint * SPEEDS.scale).toFixed(1);
+        readout.textContent = `Walk ${w} m/s · sprint ${s} m/s`;
+      };
+      const grid = el('div', 'toggle-grid');
+      const options: [string, number][] = [
+        ['Slow', 0.7],
+        ['Default', 1],
+        ['Fast', 1.3],
+      ];
+      const buttons = options.map(([label, value]) => {
+        const node = button(label, 'btn btn-toggle');
+        node.classList.toggle('on', SPEEDS.scale === value);
+        node.addEventListener('click', () => {
+          SPEEDS.scale = value;
+          for (const other of buttons) other.classList.remove('on');
+          node.classList.add('on');
+          update();
+        });
+        grid.appendChild(node);
+        return node;
+      });
+      body.append(grid, readout);
+      update();
+      body.appendChild(
+        el(
+          'p',
+          'hint',
+          'Every travel time in the layout scales with this. Nothing in the design ' +
+            'documents fixes it yet, so try the run to the coolant valves at each.',
+        ),
+      );
     });
   }
 

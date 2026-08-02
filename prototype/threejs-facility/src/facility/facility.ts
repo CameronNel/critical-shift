@@ -5,6 +5,7 @@ import {
   type FacilityDoc,
 } from './schema';
 import { ZONES } from './zones';
+import { scaleEntity, scaleRoute, scaleZone, SITE_SCALE } from './scale';
 import { YARD_ENTITIES } from './data/yard';
 import { ARRIVAL_ENTITIES } from './data/arrival';
 import { MINE_ENTITIES } from './data/mine';
@@ -41,11 +42,12 @@ export const DEFAULT_FACILITY: FacilityDoc = {
   version: FACILITY_FORMAT_VERSION,
   name: 'Critical Shift — Facility Greybox',
   description:
-    'Structural skeleton of the Critical Shift site. Surface datum 0 m, service ' +
-    'datum -6 m, mine datum -8 m. Greybox only: no props, no dressing, no art.',
-  zones: ZONES,
-  entities: ENTITIES,
-  routes: ROUTES,
+    `Structural skeleton of the Critical Shift site, compacted to ${SITE_SCALE} of ` +
+    'the drafting scale in plan. Vertical dimensions and human clearances are ' +
+    'unscaled. Greybox: no dressing, no art.',
+  zones: ZONES.map(scaleZone),
+  entities: ENTITIES.map(scaleEntity),
+  routes: ROUTES.map(scaleRoute),
 };
 
 /** Deep copy so edits never mutate the repository default. */
