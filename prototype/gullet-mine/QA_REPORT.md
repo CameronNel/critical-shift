@@ -4,6 +4,8 @@ Date: 2026-08-03
 
 The prototype was served from `prototype/gullet-mine/` with a local HTTP server and inspected in bundled headless Chromium through Playwright. Desktop captures are 1365×768. The mobile capture is exactly 706×1536 with coarse pointer and touch enabled. The cloud browser could not reach the container loopback address, so the local Chromium render was used for the actual screenshot inspection.
 
+The container’s software-rendered Chromium measured roughly 1–2 rendered frames per second during capture (desktop/full-quality and coarse/low-resolution respectively); this is an environment capture metric, not a device-GPU benchmark. The prototype stayed functional and responsive enough for the visual and collision passes, with shadows disabled on coarse-pointer devices.
+
 ## Required visual checkpoints
 
 The inspected screenshot artifacts are in the QA working set under `qa-v4/`:
@@ -32,4 +34,3 @@ The inspected screenshot artifacts are in the QA working set under `qa-v4/`:
 ## Iteration notes
 
 The visual loop replaced the disposable fragment geometry with a compact authored spline cave, connected timber/rail structures, a real raised bridge hazard, a flooded boardwalk, an embedded mineral seam, Powderworks staging and a barred vault. It also removed the floating Drowned fixture, corrected the water/shadow artifact, mounted the practical bridge lamps to the structure, and added collision bars to the vault gate.
-
