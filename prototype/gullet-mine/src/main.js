@@ -21,7 +21,7 @@ renderer.setPixelRatio(Math.min(devicePixelRatio, coarse ? 1.25 : 1.6));
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = coarse ? 1.22 : 1.16;
-renderer.shadowMap.enabled = true;
+renderer.shadowMap.enabled = !coarse;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.body.prepend(renderer.domElement);
 
@@ -101,9 +101,10 @@ const waterTexture = canvasTexture(256, (ctx, s) => {
 }, 2.8, 2.2);
 
 const mats = {
-  cave: new THREE.MeshStandardMaterial({ map: rockTexture, color: 0x98aaa0, roughness: .98, side: THREE.BackSide, vertexColors: true }),
-  rock: new THREE.MeshStandardMaterial({ map: rockTexture, color: 0x7f9188, roughness: .98 }),
-  darkRock: new THREE.MeshStandardMaterial({ map: rockTexture, color: 0x304a47, roughness: 1 }),
+  cave: new THREE.MeshStandardMaterial({ map: rockTexture, color: 0xc1d0c2, roughness: .98, side: THREE.BackSide, vertexColors: true }),
+  rock: new THREE.MeshStandardMaterial({ map: rockTexture, color: 0x9caf9e, roughness: .98 }),
+  darkRock: new THREE.MeshStandardMaterial({ map: rockTexture, color: 0x48645e, roughness: 1 }),
+  matrix: new THREE.MeshStandardMaterial({ color: 0x0b1d1c, roughness: 1 }),
   earth: new THREE.MeshStandardMaterial({ map: earthTexture, color: 0x8a8068, roughness: 1 }),
   wood: new THREE.MeshStandardMaterial({ map: woodTexture, color: 0xa76b45, roughness: .93 }),
   woodDark: new THREE.MeshStandardMaterial({ map: woodTexture, color: 0x613925, roughness: .98 }),
@@ -113,17 +114,17 @@ const mats = {
   gold: new THREE.MeshStandardMaterial({ color: 0xd89d42, metalness: .55, roughness: .34 }),
   red: new THREE.MeshStandardMaterial({ color: 0x933c2d, roughness: .84 }),
   canvas: new THREE.MeshStandardMaterial({ color: 0x476d68, roughness: 1 }),
-  crystal: new THREE.MeshStandardMaterial({ color: 0x7fe1d1, emissive: 0x185b55, emissiveIntensity: .75, roughness: .25, metalness: .06 }),
-  crystalBlue: new THREE.MeshStandardMaterial({ color: 0x7cc8e2, emissive: 0x124d67, emissiveIntensity: .65, roughness: .28 }),
-  vein: new THREE.MeshStandardMaterial({ color: 0x7de5c7, emissive: 0x176b5d, emissiveIntensity: .75, roughness: .3 }),
-  water: new THREE.MeshPhysicalMaterial({ map: waterTexture, color: 0x438f8b, roughness: .16, metalness: .05, transparent: true, opacity: .79, clearcoat: .35, clearcoatRoughness: .2, side: THREE.DoubleSide }),
+  crystal: new THREE.MeshStandardMaterial({ color: 0x1e5c57, emissive: 0x041614, emissiveIntensity: .02, roughness: .52, metalness: .06 }),
+  crystalBlue: new THREE.MeshStandardMaterial({ color: 0x214b58, emissive: 0x04171d, emissiveIntensity: .02, roughness: .54 }),
+  vein: new THREE.MeshStandardMaterial({ color: 0x17473f, emissive: 0x03110f, emissiveIntensity: .025, roughness: .58, side: THREE.DoubleSide }),
+  water: new THREE.MeshStandardMaterial({ color: 0x236463, roughness: .34, metalness: .08, side: THREE.DoubleSide }),
   black: new THREE.MeshBasicMaterial({ color: 0x02080a }),
   flame: new THREE.MeshBasicMaterial({ color: 0xffc66b }),
   paper: new THREE.MeshStandardMaterial({ color: 0xd7bc7e, roughness: 1 }),
 };
 
 function receive(mesh, cast = true) { mesh.castShadow = cast; mesh.receiveShadow = true; return mesh; }
-function add(mesh, parent = visual) { parent.add(receive(mesh)); return mesh; }
+function add(mesh, parent = visual) { if (mesh.material === mats.water) { mesh.castShadow = false; mesh.receiveShadow = false; parent.add(mesh); return mesh; } parent.add(receive(mesh)); return mesh; }
 function box(w, h, d, mat, x = 0, y = 0, z = 0, ry = 0, rz = 0, rx = 0, parent = visual) {
   const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
   mesh.position.set(x, y, z); mesh.rotation.set(rx, ry, rz); return add(mesh, parent);
@@ -179,7 +180,7 @@ function buildCaveShell() {
       const rough = 1 + Math.sin(i * .61 + j * 1.27) * .035 + Math.sin(i * .19 - j * .7) * .022;
       const point = p.clone().addScaledVector(side, c * width * rough); point.y = s * height * rough + (s < -.45 ? -.08 : 0);
       positions.push(point.x, point.y, point.z);
-      rockColor.setHSL(.43, .12, .30 + (s + 1) * .055 + ((i + j) % 4) * .009); colors.push(rockColor.r, rockColor.g, rockColor.b);
+    rockColor.setHSL(.43, .12, .42 + (s + 1) * .07 + ((i + j) % 4) * .012); colors.push(rockColor.r, rockColor.g, rockColor.b);
     }
   }
   for (let i = 0; i < segments; i++) for (let j = 0; j < ring; j++) { const a = i * (ring + 1) + j, b = a + ring + 1; indices.push(a, b, a + 1, a + 1, b, b + 1); }
@@ -201,7 +202,7 @@ buildCaveShell(); buildGround();
 // Simplified collision follows the route but intentionally leaves the Blackshaft void open.
 for (let i = 0; i < 110; i++) {
   const t0 = i / 110, t1 = (i + 1) / 110, a = basis(t0).p, b = basis(t1).p, mid = a.clone().add(b).multiplyScalar(.5), tangent = new V().subVectors(b, a), length = Math.max(.5, Math.hypot(tangent.x, tangent.z)), yaw = Math.atan2(tangent.x, tangent.z), width = profile((t0 + t1) / 2, nodeProfiles) * .78;
-  if (!inShaft(mid) && !inWater(mid)) colliderBox(width * 2, .48, length + .14, mid.x, -.27, mid.z, yaw);
+  if (!inShaft(mid) && !inWater(mid)) colliderBox(width * 2, .60, length + .14, mid.x, -.26, mid.z, yaw);
   if (!inWater(mid)) {
     const side = new V(-tangent.z, 0, tangent.x).normalize(), wallOffset = width + .38, wallHeight = profile((t0 + t1) / 2, nodeHeights) + 2.6;
     const left = mid.clone().addScaledVector(side, -wallOffset), right = mid.clone().addScaledVector(side, wallOffset);
@@ -223,7 +224,7 @@ function timberFrame(x, z, width, height, lean = 0, ry = 0, damaged = false) {
   const leftTop = new V(-width + lean, height, 0), rightTop = new V(width - lean, height - (damaged ? .14 : 0), 0);
   beamBetween(leftBottom, leftTop, .28, mats.woodDark, group); beamBetween(rightBottom, rightTop, .28, mats.wood, group);
   beamBetween(leftTop, rightTop, .30, mats.wood, group);
-  if (damaged) beamBetween(new V(-width + .1, .5, .04), new V(width - .3, height - .55, .04), .11, mats.woodDark, group);
+  if (damaged) beamBetween(new V(-width + .1, .5, .04), new V(-width * .28, height - .45, .04), .085, mats.woodDark, group);
   colliderBox(.48, height, .52, x - width + lean * .5, height / 2, z, ry); colliderBox(.48, height, .52, x + width - lean * .5, height / 2, z, ry);
 }
 [[0, 12.2, 2.55, 4.5, .12, 0, false], [0, 7.4, 2.35, 4.25, -.16, .015, false], [0, 2.2, 2.25, 4.1, .2, -.01, true], [0, -3.2, 2.35, 4.4, -.1, .01, false], [0, -8.5, 2.55, 4.65, .18, -.02, true]].forEach(args => timberFrame(...args));
@@ -264,7 +265,7 @@ function lamp(x, y, z, color = 0xffc169, real = true, scale = 1) {
   cyl(.14 * scale, .19 * scale, .13 * scale, 8, mats.ironDark, 0, -.17 * scale, .42 * scale, 0, 0, 0, group);
   cyl(.14 * scale, .14 * scale, .26 * scale, 8, mats.ironDark, 0, -.35 * scale, .42 * scale, 0, 0, 0, group);
   const flame = new THREE.Mesh(new THREE.SphereGeometry(.085 * scale, 10, 8), new THREE.MeshBasicMaterial({ color })); flame.scale.set(.7, 1.35, .7); flame.position.set(0, -.35 * scale, .42 * scale); group.add(flame);
-  if (real) { const light = new THREE.PointLight(color, coarse ? 3.6 : 4.9, coarse ? 9 : 11, 1.8); light.position.set(0, -.27 * scale, .34 * scale); group.add(light); lampLights.push({ light, phase: lampLights.length * 1.41 }); }
+  if (real) { const light = new THREE.PointLight(color, coarse ? 24 : 31, coarse ? 9 : 11, 1.8); light.position.set(0, -.27 * scale, .34 * scale); group.add(light); lampLights.push({ light, phase: lampLights.length * 1.41 }); }
 }
 lamp(-2.55, 3.85, 12.1, 0xffc26a, true); lamp(2.55, 3.8, 7.1, 0x9ad9c4, false); lamp(-2.45, 3.78, 2.0, 0xffc26a, true); lamp(2.55, 3.95, -3.2, 0x9fd6df, false); lamp(-2.75, 4.1, -8.4, 0xffb35d, true);
 lamp(-4.5, 3.1, 17.3, 0xffbd65, true); lamp(4.55, 3.15, 17.3, 0xffbd65, false);
@@ -273,46 +274,67 @@ lamp(-4.5, 3.1, 17.3, 0xffbd65, true); lamp(4.55, 3.15, 17.3, 0xffbd65, false);
 const shaftBottom = box(8.2, .18, 11.8, mats.black, 0, -7.2, -17, 0, 0, 0, visual); shaftBottom.receiveShadow = false;
 for (const x of [-3.9, 3.9]) { box(.52, 7.4, .52, mats.woodDark, x, -3.45, -12.1); box(.52, 7.4, .52, mats.woodDark, x, -3.45, -21.9); beamBetween(new V(x, -.1, -12), new V(x, 2.9, -21.8), .12, mats.rope); }
 box(2.45, .34, 10.4, mats.wood, 0, .72, -17); colliderBox(2.45, .38, 10.4, 0, .72, -17);
-box(2.45, .16, 2.5, mats.wood, 0, .36, -11.15, 0, 0, .28); colliderBox(2.45, .18, 2.5, 0, .36, -11.15, 0, 0, .28);
-box(2.45, .16, 2.5, mats.wood, 0, .36, -22.85, 0, 0, -.28); colliderBox(2.45, .18, 2.5, 0, .36, -22.85, 0, 0, -.28);
+box(2.45, .16, 3.8, mats.wood, 0, .436, -9.9, 0, 0, .21);
+box(2.45, .16, 2.5, mats.wood, 0, .36, -22.85, 0, 0, -.28);
+// Collision ramps overlap the approach floor and bridge deck so a normal walk never hits a seam.
+colliderBox(2.6, .48, 3.8, 0, .28, -9.9, 0, 0, .21);
+colliderBox(2.6, .60, 3.6, 0, .23, -23.1, 0, 0, -.22);
 for (let z = -12.3; z >= -21.7; z -= 1.15) box(2.7, .10, .24, mats.woodDark, 0, .94, z);
 for (const x of [-1.32, 1.32]) { for (const z of [-12.1, -14.6, -17.1, -19.6, -21.9]) { box(.16, .72, .18, mats.metal, x, 1.17, z); } box(.18, .16, 10.3, mats.metal, x, 1.52, -17); beamBetween(new V(x, 1.2, -12.1), new V(x, 1.2, -21.9), .06, mats.rope); }
-box(7.6, .5, 2.2, mats.earth, 0, -.25, -10.25); colliderBox(7.6, .48, 2.2, 0, -.25, -10.25); box(7.6, .5, 2.2, mats.earth, 0, -.25, -23.75); colliderBox(7.6, .48, 2.2, 0, -.25, -23.75);
+box(7.6, .5, 2.2, mats.earth, 0, -.25, -10.25); colliderBox(7.6, .60, 2.2, 0, -.26, -10.25); box(7.6, .5, 2.2, mats.earth, 0, -.25, -23.75); colliderBox(7.6, .60, 2.2, 0, -.26, -23.75);
 const winch = new THREE.Group(); winch.position.set(-3.65, 3.8, -10.8); visual.add(winch); box(1.1, .18, .8, mats.woodDark, 0, 0, 0, 0, 0, 0, winch); cyl(.62, .62, .16, 14, mats.metal, 0, .06, 0, 0, 0, Math.PI / 2, winch); cyl(.13, .13, 1.0, 10, mats.wood, 0, .08, 0, 0, 0, Math.PI / 2, winch); beamBetween(new V(0, .18, 0), new V(0, -6.6, 0), .025, mats.rope, winch);
-lamp(-2.55, 3.8, -12.1, 0xffbd66, true); lamp(2.55, 3.8, -21.9, 0x76cbd0, true);
-sign('BLACKSHAFT', 'BRIDGE ONLY // WATCH YOUR STEP', 0, 2.25, -11.2, Math.PI, '#d98352', .92);
+lamp(-1.32, 2.05, -12.1, 0xffbd66, true); lamp(1.32, 2.05, -21.9, 0x76cbd0, true);
+sign('BLACKSHAFT', 'BRIDGE ONLY // WATCH YOUR STEP', 0, 2.25, -11.2, 0, '#d98352', .92);
 
 function walkSegment(a, b, width = 2.8, y = .28) {
   const midpoint = a.clone().add(b).multiplyScalar(.5), d = b.clone().sub(a), length = Math.hypot(d.x, d.z), yaw = Math.atan2(d.x, d.z);
   box(width, .20, length, mats.wood, midpoint.x, y, midpoint.z, yaw); colliderBox(width, .25, length, midpoint.x, y, midpoint.z, yaw);
   return { midpoint, length, yaw };
 }
-const drownedPath = [new V(0, 0, -24.2), new V(5.2, 0, -27), new V(9.7, 0, -30.6), new V(10, 0, -38.2)];
-for (let i = 0; i < drownedPath.length - 1; i++) { const a = drownedPath[i], b = drownedPath[i + 1], d = b.clone().sub(a); const length = Math.hypot(d.x, d.z); for (let u = 0; u < length; u += 1.15) { const p = a.clone().addScaledVector(d, (u + .48) / length); box(2.75, .12, .25, mats.woodDark, p.x, .39, p.z, Math.atan2(d.x, d.z)); } walkSegment(a, b, 2.65, .28); }
+const drownedPath = [new V(0, 0, -24.2), new V(5.2, 0, -27), new V(9.7, 0, -30.6), new V(10, 0, -38.2), new V(10, 0, -42)];
+for (let i = 0; i < drownedPath.length - 1; i++) { const a = drownedPath[i], b = drownedPath[i + 1], d = b.clone().sub(a); const length = Math.hypot(d.x, d.z), walkwayWidth = 4.4; for (let u = 0; u < length; u += 1.15) { const p = a.clone().addScaledVector(d, (u + .48) / length); box(walkwayWidth, .12, .25, mats.woodDark, p.x, .39, p.z, Math.atan2(d.x, d.z)); } walkSegment(a, b, walkwayWidth, .28); }
 box(16, .10, 11, mats.water, 10, .04, -32.1); box(16, .10, 7.5, mats.water, 10, .04, -38.5);
 // Damaged side walkway and pump make the water pocket read as a workplace, not a blue plane.
 box(2.5, .16, 4.9, mats.woodDark, 15.1, .30, -31.8); colliderBox(2.5, .20, 4.9, 15.1, .30, -31.8);
 const pump = new THREE.Group(); pump.position.set(14.8, .22, -33); visual.add(pump); box(1.0, 1.35, .85, mats.metal, 0, .68, 0, 0, 0, 0, pump); cyl(.62, .62, .12, 16, mats.metal, 0, 1.34, 0, 0, 0, Math.PI / 2, pump); cyl(.12, .12, 1.7, 8, mats.wood, 0, 1.35, 0, 0, 0, Math.PI / 2, pump); beamBetween(new V(0, 1.35, 0), new V(.7, 1.9, 0), .07, mats.metal, pump);
-lamp(7.5, 3.9, -28.2, 0x83d0d0, true); lamp(13.8, 3.55, -34.7, 0x7ed1d0, false); lamp(11.5, 4.0, -39.2, 0x9fd6e2, true);
+lamp(7.5, 3.9, -28.2, 0x83d0d0, true); lamp(13.8, 3.55, -34.7, 0x7ed1d0, false);
 sign('DROWNED POCKET', 'PUMP BATTERY // WALKWAY DAMAGED', 14.2, 3.2, -27.4, Math.PI * .98, '#79c8c0', .75);
 
-function veinStrip(points, z, material, width = .12) {
-  const vertices = [], index = [];
-  for (let i = 0; i < points.length; i++) { const p = points[i], next = points[Math.min(i + 1, points.length - 1)], tangent = new V(next[0] - p[0], next[1] - p[1], 0).normalize(), normal = new V(-tangent.y, tangent.x, 0).multiplyScalar(width); vertices.push(p[0] - normal.x, p[1] - normal.y, z, p[0] + normal.x, p[1] + normal.y, z); if (i) { const a = (i - 1) * 2; index.push(a, a + 1, a + 2, a + 1, a + 3, a + 2); } }
-  const geometry = new THREE.BufferGeometry(); geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3)); geometry.setIndex(index); geometry.computeVertexNormals(); const mesh = new THREE.Mesh(geometry, material); mesh.castShadow = true; visual.add(mesh); return mesh;
+const heroOffset = new V(0, 0, 0);
+function rockLobe(x, y, z, sx, sy, rotation = 0, material = mats.matrix) {
+  x += heroOffset.x; z += heroOffset.z;
+  const outline = [[-1, -.35], [-.55, -.82], [.15, -.74], [.85, -.44], [1, .2], [.42, .72], [-.3, .58], [-.9, .3]];
+  const front = [], back = [], c = Math.cos(rotation), s = Math.sin(rotation);
+  const transform = ([px, py]) => [x + (px * c - py * s) * sx, y + (px * s + py * c) * sy];
+  outline.forEach((point, i) => { const [px, py] = transform(point); front.push(new V(px, py, z + .18 + (i % 3) * .045)); back.push(new V(px, py, z - .28)); });
+  const vertices = [...front, new V(x, y, z + .27), ...back, new V(x, y, z - .28)], index = [];
+  const frontCenter = outline.length, backStart = frontCenter + 1, backCenter = backStart + outline.length;
+  for (let i = 0; i < outline.length; i++) {
+    const next = (i + 1) % outline.length;
+    index.push(frontCenter, i, next, i, backStart + i, backStart + next, i, backStart + next, next);
+    index.push(backCenter, backStart + next, backStart + i);
+  }
+  const geometry = new THREE.BufferGeometry(); geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices.flatMap(v => [v.x, v.y, v.z]), 3)); geometry.setIndex(index); geometry.computeVertexNormals();
+  const mesh = new THREE.Mesh(geometry, material); mesh.castShadow = true; visual.add(mesh); return mesh;
+}
+function seamTube(points, material, radius = .045) {
+  const curve = new THREE.CatmullRomCurve3(points.map(([x, y, z]) => new V(x, y, z).add(heroOffset)));
+  const mesh = new THREE.Mesh(new THREE.TubeGeometry(curve, 18, radius, 5, false), material); mesh.castShadow = true; visual.add(mesh); return mesh;
 }
 function crystal(x, y, z, scale, material = mats.crystal, ry = 0) {
   const mesh = new THREE.Mesh(new THREE.DodecahedronGeometry(1, 0), material); mesh.position.set(x, y, z); mesh.scale.set(scale * .55, scale * 1.25, scale * .42); mesh.rotation.set(.12, ry, -.1); add(mesh); return mesh;
 }
-// Saint Glimmer hero wall: a mineral seam in a dark matrix, with only a few exposed faces.
-box(6.7, 2.9, .56, mats.darkRock, 10, 2.05, -48.7, 0, 0, 0);
-veinStrip([[6.7,1.3],[7.5,1.7],[8.2,1.52],[8.9,2.12],[9.6,2.0],[10.4,2.72],[11.25,2.5],[12.5,3.2]], -48.36, mats.vein, .14);
-veinStrip([[8.15,1.55],[7.8,.95],[8.0,.46]], -48.34, mats.vein, .09);
-veinStrip([[9.65,2.03],[9.4,2.75],[9.55,3.38]], -48.33, mats.vein, .085);
-crystal(7.5, 1.72, -48.28, .48, mats.crystal, -.2); crystal(8.9, 2.16, -48.27, .64, mats.crystalBlue, .25); crystal(10.45, 2.75, -48.25, .58, mats.crystal, -.35); crystal(11.35, 2.55, -48.27, .39, mats.crystalBlue, .15);
+function heroCrystal(x, y, z, scale, material = mats.crystal, ry = 0) { return crystal(x + heroOffset.x, y, z + heroOffset.z, scale, material, ry); }
+// Saint Glimmer hero wall: a hand-laid cluster of fractured matrix lobes with a seam tucked into the cracks.
+rockLobe(7.55, 1.62, -50.55, 1.55, .82, -.12, mats.darkRock); rockLobe(9.45, 2.18, -50.62, 1.88, 1.02, .10, mats.darkRock); rockLobe(11.45, 2.22, -50.58, 1.68, .82, -.10, mats.darkRock); rockLobe(12.95, 1.62, -50.50, 1.42, .64, .12, mats.darkRock);
+rockLobe(9.55, 1.55, -49.90, .82, .42, -.12); rockLobe(10.75, 2.08, -49.88, 1.02, .60, .14); rockLobe(12.02, 2.46, -49.89, .90, .52, -.10); rockLobe(13.18, 2.20, -49.90, .86, .43, .12); rockLobe(10.15, 1.00, -49.89, .52, .27, .18);
+seamTube([[9.08, 1.58, -49.63], [9.78, 1.80, -49.61], [10.38, 1.68, -49.60], [10.92, 2.16, -49.59], [11.52, 2.10, -49.59], [12.20, 2.52, -49.60], [13.02, 2.36, -49.62], [13.70, 2.62, -49.65]], mats.vein, .024);
+seamTube([[10.40, 1.68, -49.58], [10.12, 1.25, -49.57], [10.20, .86, -49.60]], mats.vein, .020);
+seamTube([[11.51, 2.10, -49.57], [11.35, 2.55, -49.59], [11.48, 2.88, -49.62]], mats.vein, .019);
+heroCrystal(9.86, 1.82, -49.55, .14, mats.crystal, -.2); heroCrystal(11.00, 2.18, -49.53, .17, mats.crystalBlue, .25); heroCrystal(12.23, 2.54, -49.55, .15, mats.crystal, -.35);
 // Mining scars and a hand tool give the seam a reason to be exposed.
-box(1.6, .08, .08, mats.ironDark, 8.3, .72, -48.22, -.26, 0, 0); box(.10, .5, .10, mats.woodDark, 8.9, .93, -48.18, 0, 0, -.48);
-const glimmerLight = new THREE.PointLight(0x59c9b4, coarse ? 3.2 : 4.4, 12, 1.8); glimmerLight.position.set(9.5, 2.3, -46.5); scene.add(glimmerLight); lamp(6.2, 3.8, -45.8, 0x9be0cb, true); lamp(13.6, 3.85, -46.5, 0x83c9dd, false); sign('SAINT GLIMMER', 'MARKED SEAM // DO NOT BLAST', 10, 4.25, -48.1, 0, '#7be1c5', 1.1);
+  box(1.15, .055, .07, mats.ironDark, 10.58 + heroOffset.x, .76, -49.68 + heroOffset.z, -.26, 0, 0); box(.08, .38, .08, mats.woodDark, 11.26 + heroOffset.x, .96, -49.66 + heroOffset.z, 0, 0, -.48);
+const glimmerLight = new THREE.PointLight(0x59c9b4, coarse ? 10 : 15, 9, 1.8); glimmerLight.position.set(10.8 + heroOffset.x, 2.2, -49.0 + heroOffset.z); scene.add(glimmerLight); beamBetween(new V(10.0, 2.28, -49.62).add(heroOffset), new V(10.0, 3.06, -49.16).add(heroOffset), .045, mats.ironDark); beamBetween(new V(11.55, 2.28, -49.62).add(heroOffset), new V(11.55, 3.06, -49.16).add(heroOffset), .045, mats.ironDark); sign('SAINT GLIMMER', 'MARKED SEAM // DO NOT BLAST', 10.78 + heroOffset.x, 3.28, -49.10 + heroOffset.z, 0, '#7be1c5', .72);
 
 // Powderworks: warmer, stricter construction and deliberately staged powder storage.
 timberFrame(2.2, -55.5, 2.45, 4.6, -.12, .12, false); timberFrame(-.8, -61, 2.55, 4.9, .14, -.1, true);
@@ -324,21 +346,22 @@ lamp(3.8, 3.9, -55.2, 0xffa455, true); lamp(-2.6, 4.1, -61.2, 0xff7f4e, true);
 // Foreman's Vault: an end composition with a gate, ironwork and a single warm reward focal point.
 function gate(x, z) {
   for (const xx of [-2.2, 2.2]) { box(.28, 3.5, .28, mats.ironDark, x + xx, 1.75, z); box(.48, .24, .48, mats.gold, x + xx, 3.55, z); }
-  box(4.7, .22, .32, mats.ironDark, x, 3.45, z); for (let xx = -1.7; xx <= 1.7; xx += .85) box(.11, 3.2, .12, mats.metal, x + xx, 1.6, z);
+  box(4.7, .22, .32, mats.ironDark, x, 3.45, z); for (let xx = -1.7; xx <= 1.7; xx += .85) { box(.11, 3.2, .12, mats.metal, x + xx, 1.6, z); colliderBox(.16, 3.2, .18, x + xx, 1.6, z); }
   colliderBox(.34, 3.5, .34, x - 2.2, 1.75, z); colliderBox(.34, 3.5, .34, x + 2.2, 1.75, z);
 }
 gate(-8.5, -66.1); sign('FOREMAN\'S VAULT', 'AUTHORIZED CREW ONLY', -8.5, 4.1, -65.65, 0, '#edb75c', .9);
-box(3.0, .14, 1.2, mats.woodDark, -9, .95, -72.4); box(2.65, .08, 1.0, mats.paper, -9, 1.06, -72.4); box(.75, .13, .56, mats.gold, -9, 1.18, -72.42);
+box(3.0, .14, 1.2, mats.woodDark, -9, .95, -68.25); box(2.65, .08, 1.0, mats.paper, -9, 1.06, -68.25); box(.75, .13, .56, mats.gold, -9, 1.18, -68.27); box(.12, .90, .12, mats.woodDark, -10.1, .48, -68.25); box(.12, .90, .12, mats.woodDark, -7.9, .48, -68.25);
 crate(-12.2, -72.1, 1.05, .12); crate(-12.1, -74.0, .82, -.1); barrel(-6.0, -74.0, .9, .2); ropeCoil(-5.7, -72.55, .85);
 for (const x of [-12.8, -5.1]) lamp(x, 3.75, -70.5, 0xffc569, true);
-const vaultLight = new THREE.PointLight(0xffb35e, coarse ? 4 : 5.5, 15, 1.7); vaultLight.position.set(-9, 3.6, -72.2); scene.add(vaultLight);
+const vaultLight = new THREE.PointLight(0xffb35e, coarse ? 24 : 32, 15, 1.7); vaultLight.position.set(-9, 3.6, -68.0); scene.add(vaultLight);
 sign('LEDGER ROOM', 'THE MINE REMEMBERS', -9, 3.2, -76.1, Math.PI, '#e9b35a', .8);
 
 // Lighting stays limited and practical: strong pools near fixtures, cool ambient between them.
-scene.add(new THREE.HemisphereLight(0x8bb5ac, 0x261f1c, coarse ? .62 : .56));
-const moon = new THREE.DirectionalLight(0x9fc8c5, .42); moon.position.set(-18, 25, 14); moon.castShadow = !coarse; moon.shadow.mapSize.set(1024, 1024); moon.shadow.camera.left = -30; moon.shadow.camera.right = 30; moon.shadow.camera.top = 24; moon.shadow.camera.bottom = -82; scene.add(moon);
-const coolBounce = new THREE.PointLight(0x3a8587, coarse ? 1.3 : 1.8, 28, 2); coolBounce.position.set(3, 3.2, -29); scene.add(coolBounce);
-const warmBounce = new THREE.PointLight(0xa85b35, coarse ? 1.2 : 1.5, 24, 2); warmBounce.position.set(1, 3.2, -58); scene.add(warmBounce);
+scene.add(new THREE.HemisphereLight(0x8bb5ac, 0x261f1c, coarse ? 2.15 : 1.9));
+const moon = new THREE.DirectionalLight(0x9fc8c5, 1.25); moon.position.set(-18, 25, 14); moon.castShadow = !coarse; moon.shadow.mapSize.set(1024, 1024); moon.shadow.camera.left = -30; moon.shadow.camera.right = 30; moon.shadow.camera.top = 24; moon.shadow.camera.bottom = -82; scene.add(moon);
+const entranceFill = new THREE.PointLight(0x5b9993, coarse ? 10 : 13, 23, 2); entranceFill.position.set(0, 3.1, 7); scene.add(entranceFill);
+const coolBounce = new THREE.PointLight(0x3a8587, coarse ? 8 : 11, 28, 2); coolBounce.position.set(3, 3.2, -29); scene.add(coolBounce);
+const warmBounce = new THREE.PointLight(0xa85b35, coarse ? 7 : 9, 24, 2); warmBounce.position.set(1, 3.2, -58); scene.add(warmBounce);
 
 // Player and collision.
 colliderRoot.updateMatrixWorld(true);
@@ -348,7 +371,7 @@ const playerCollider = new Capsule(new V(spawn.x, .35, spawn.z), new V(spawn.x, 
 const velocity = new V(); let playerOnFloor = false; let ghost = false; let lanternOn = true; let jumpQueued = false;
 const controls = new PointerLockControls(camera, renderer.domElement);
 camera.position.copy(playerCollider.end); scene.add(camera);
-const handLamp = new THREE.SpotLight(0xffdca1, coarse ? 5.3 : 6.8, 22, Math.PI / 5, .62, 1.7); handLamp.position.set(.16, -.08, .12); handLamp.target.position.set(0, -.12, -4); camera.add(handLamp, handLamp.target);
+const handLamp = new THREE.SpotLight(0xffdca1, coarse ? 64 : 82, 22, Math.PI / 5, .62, 1.7); handLamp.position.set(.16, -.08, .12); handLamp.target.position.set(0, -.12, -4); camera.add(handLamp, handLamp.target);
 function resetPlayer() { playerCollider.start.set(spawn.x, .35, spawn.z); playerCollider.end.set(spawn.x, 1.65, spawn.z); velocity.set(0, 0, 0); camera.position.copy(playerCollider.end); toast('Back at Maw Camp'); }
 function getForward() { camera.getWorldDirection(playerDirection); playerDirection.y = 0; return playerDirection.normalize(); }
 function getSide() { getForward(); return playerDirection.cross(camera.up).normalize(); }
@@ -366,7 +389,7 @@ addEventListener('keydown', event => {
   if (event.code.startsWith('Digit')) { const index = Number(event.code.slice(5)) - 1; if (qaViews[index]) teleportQa(qaViews[index]); }
 });
 addEventListener('keyup', event => { keys[event.code] = false; });
-function toggleLantern() { lanternOn = !lanternOn; handLamp.intensity = lanternOn ? (coarse ? 5.3 : 6.8) : 0; toast(lanternOn ? 'Hand lantern lit' : 'Hand lantern snuffed'); }
+function toggleLantern() { lanternOn = !lanternOn; handLamp.intensity = lanternOn ? (coarse ? 64 : 82) : 0; toast(lanternOn ? 'Hand lantern lit' : 'Hand lantern snuffed'); }
 
 let yaw = 0, pitch = 0, looking = false, lastPointer = null;
 const lookZone = $('look-zone');
@@ -390,14 +413,13 @@ function movePlayer(dt) {
 }
 
 const zones = [
-  ['MAW CAMP', 0, 16, 'Follow the rail into the old workings.'], ['CROOKED RAIL', 0, 4, 'The supports are older than the warning signs.'], ['BLACKSHAFT', 0, -17, 'Cross the bridge. Do not step off the bridge.'], ['DROWNED POCKET', 9, -32, 'Keep to the repaired walkway over the sump.'], ['SAINT GLIMMER', 10, -46, 'A valuable seam. Someone has already started the work.'], ['POWDERWORKS', 0, -58, 'Powder, sparks and a very bad idea.'], ["FOREMAN'S VAULT", -9, -72, 'The ledger is behind the iron gate.']
+  ['MAW CAMP', 0, 16, 'Follow the rail into the old workings.'], ['CROOKED RAIL', 0, 4, 'The supports are older than the warning signs.'], ['BLACKSHAFT', 0, -17, 'Cross the bridge. Do not step off the bridge.'], ['DROWNED POCKET', 9, -32, 'Keep to the repaired walkway over the sump.'], ['SAINT GLIMMER', 10, -46, 'A valuable seam. Someone has already started the work.'], ['POWDERWORKS', 0, -58, 'Powder, sparks and a very bad idea.'], ["FOREMAN'S VAULT", -8.5, -66, 'The ledger is behind the iron gate.']
 ];
 function updateZone() { let nearest = zones[0], distance = Infinity; for (const zone of zones) { const d = (camera.position.x - zone[1]) ** 2 + (camera.position.z - zone[2]) ** 2; if (d < distance) { distance = d; nearest = zone; } } $('zone').textContent = nearest[0]; $('objective').textContent = nearest[3]; }
-
 const qaViews = [
-  { p: [0, 1.65, 16.5], r: [0, 0, 0] }, { p: [0, 1.65, 7.2], r: [0, Math.PI, 0] }, { p: [0, 2.0, -9.2], r: [-.04, Math.PI, 0] },
-  { p: [0, 1.95, -15], r: [0, Math.PI, 0] }, { p: [8.4, 1.7, -31], r: [0, Math.PI * .5, 0] }, { p: [10, 1.7, -43], r: [0, Math.PI, 0] },
-  { p: [10, 2.3, -45.4], r: [-.08, Math.PI, 0] }, { p: [1.5, 1.7, -57], r: [0, -.4, 0] }, { p: [-9, 1.7, -70], r: [0, Math.PI, 0] }
+  { p: [0, 1.65, 16.5], r: [0, 0, 0] }, { p: [0, 1.65, 7.2], r: [0, 0, 0] }, { p: [0, 1.85, -7.4], r: [0, 0, 0] },
+  { p: [0, 1.65, -16.8], r: [0, 0, 0] }, { p: [8.4, 1.7, -31], r: [0, 0, 0] }, { p: [10, 1.7, -43], r: [0, 0, 0] },
+  { p: [9.1, 1.90, -44.4], r: [-.02, 0, 0] }, { p: [2.4, 1.7, -53.4], r: [0, 0, 0] }, { p: [-8.5, 1.85, -59.5], r: [0, 0, 0] }
 ];
 function teleportQa(view) { ghost = true; camera.position.set(...view.p); camera.rotation.set(...view.r); toast('QA viewpoint · ghost mode'); }
 
