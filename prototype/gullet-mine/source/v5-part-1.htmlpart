@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<title>Friendslop — The Gullet Mine V5</title>
+<style>
+:root{--cream:#f4dfb1;--gold:#e7b45a;--glass:rgba(9,16,15,.66)}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#172522;font-family:Georgia,"Times New Roman",serif}
+canvas{display:block;width:100%;height:100%;touch-action:none}
+#start{position:fixed;inset:0;z-index:9;display:grid;place-items:center;color:var(--cream);background:radial-gradient(circle at 50% 42%,rgba(78,116,104,.26),rgba(7,12,12,.95) 69%)}
+#card{width:min(570px,calc(100vw - 38px));padding:28px;text-align:center;border:1px solid rgba(244,223,177,.20);border-radius:18px;background:rgba(9,16,15,.82);box-shadow:0 25px 100px rgba(0,0,0,.56);backdrop-filter:blur(8px)}
+#card h1{margin:0 0 9px;font-size:31px;letter-spacing:.07em}#card p{margin:0 auto 19px;max-width:470px;font:14px/1.52 system-ui,sans-serif;opacity:.86}
+#enter{border:0;border-radius:999px;padding:12px 22px;background:var(--gold);color:#2d200f;font-weight:900;letter-spacing:.06em;cursor:pointer}
+#hud{position:fixed;inset:0;pointer-events:none;color:var(--cream);text-shadow:0 2px 3px #000,0 0 10px #000;z-index:5}
+#title{position:absolute;top:18px;left:22px;font-weight:800;font-size:17px;letter-spacing:.12em}#zone{position:absolute;top:46px;left:22px;font-size:12px;letter-spacing:.08em;opacity:.92}
+#help{position:absolute;left:22px;bottom:20px;padding:9px 11px;border-radius:8px;border:1px solid rgba(244,223,177,.16);background:var(--glass);font:12px/1.4 system-ui,sans-serif;opacity:.84;backdrop-filter:blur(5px)}
+#cross{position:absolute;left:50%;top:50%;width:12px;height:12px;transform:translate(-50%,-50%);opacity:.52}#cross:before,#cross:after{content:"";position:absolute;background:#f3dfb4}#cross:before{left:5px;top:0;width:2px;height:12px}#cross:after{top:5px;left:0;width:12px;height:2px}
+#toast{position:absolute;left:50%;bottom:78px;transform:translateX(-50%);padding:8px 13px;border-radius:999px;background:rgba(5,10,10,.82);border:1px solid rgba(244,223,177,.16);font:12px system-ui,sans-serif;opacity:0;transition:opacity .18s}
+#mobile{display:none;position:fixed;inset:0;z-index:6;pointer-events:none}#stick{position:absolute;left:24px;bottom:24px;width:116px;height:116px;border-radius:50%;background:rgba(244,223,177,.07);border:1px solid rgba(244,223,177,.23);pointer-events:auto;touch-action:none}#knob{position:absolute;left:50%;top:50%;width:48px;height:48px;margin:-24px;border-radius:50%;background:rgba(244,223,177,.18);border:1px solid rgba(244,223,177,.40)}#look{position:absolute;left:38%;top:0;right:0;bottom:0;pointer-events:auto;touch-action:none}#buttons{position:absolute;right:20px;bottom:24px;display:flex;gap:10px;pointer-events:auto}.mb{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:var(--cream);background:rgba(244,223,177,.09);border:1px solid rgba(244,223,177,.28);font:bold 11px system-ui,sans-serif;touch-action:none;user-select:none}
+@media(pointer:coarse){#mobile{display:block}#help{display:none}#title{font-size:15px}#cross{opacity:.32}}
+</style>
+</head>
+<body>
+<div id="start"><div id="card"><h1>THE GULLET MINE</h1><p>V5: authored cave spaces, grounded props, embedded ore veins, and a real capsule-vs-world collision system. No cone confetti.</p><button id="enter">ENTER THE MINE</button></div></div>
+<div id="hud"><div id="title">FRIENDSLOP // THE GULLET MINE</div><div id="zone">Maw Camp</div><div id="cross"></div><div id="help">WASD move · mouse look · Shift sprint · Space jump · F lantern · G debug ghost</div><div id="toast"></div></div>
+<div id="mobile"><div id="stick"><div id="knob"></div></div><div id="look"></div><div id="buttons"><div class="mb" id="lamp">LAMP</div><div class="mb" id="jump">JUMP</div></div></div>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { Octree } from 'three/addons/math/Octree.js';
+import { Capsule } from 'three/addons/math/Capsule.js';
+
+const coarse=matchMedia('(pointer:coarse)').matches;
+const scene=new THREE.Scene();
+scene.background=new THREE.Color(0x172522);
+scene.fog=new THREE.FogExp2(0x172522,coarse?0.0072:0.0082);
+
+const camera=new THREE.PerspectiveCamera(coarse?68:71,innerWidth/innerHeight,.05,240);
+camera.rotation.order='YXZ';
+
+const renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});
+renderer.setSize(innerWidth,innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio,coarse?1.35:1.75));
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=coarse?1.34:1.28;
+renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+document.body.prepend(renderer.domElement);
+
+const composer=new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene,camera));
+const bloom=new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),coarse?.14:.20,.48,1.22);
+composer.addPass(bloom);
+
+const clamp=THREE.MathUtils.clamp;
+const rand=(a,b)=>a+Math.random()*(b-a);
+
+function canvasTexture(size,draw,rx=1,ry=1){
+  const c=document.createElement('canvas');c.width=c.height=size;
+  const x=c.getContext('2d');draw(x,size);
+  const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(rx,ry);
+  t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy?.()||4,8);return t;
+}
+function glowTexture(){
+  const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d');
+  const g=x.createRadialGradient(64,64,0,64,64,64);
+  g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.16,'rgba(255,242,205,.82)');
+  g.addColorStop(.43,'rgba(255,183,90,.20)');g.addColorStop(1,'rgba(255,183,90,0)');
+  x.fillStyle=g;x.fillRect(0,0,128,128);return new THREE.CanvasTexture(c);
+}
+const glowTex=glowTexture();
+
+const rockTex=canvasTexture(512,(x,s)=>{
+  const g=x.createLinearGradient(0,0,s,s);g.addColorStop(0,'#7b8980');g.addColorStop(.5,'#56645e');g.addColorStop(1,'#394945');x.fillStyle=g;x.fillRect(0,0,s,s);
+  for(let i=0;i<150;i++){x.fillStyle=`rgba(${70+Math.random()*55|0},${78+Math.random()*52|0},${72+Math.random()*48|0},${rand(.08,.22)})`;x.beginPath();x.ellipse(rand(0,s),rand(0,s),rand(9,34),rand(3,13),rand(0,Math.PI),0,Math.PI*2);x.fill()}
+  for(let i=0;i<32;i++){x.strokeStyle=`rgba(226,217,184,${rand(.04,.10)})`;x.lineWidth=rand(1,3);x.beginPath();let px=rand(-20,s),py=rand(0,s);x.moveTo(px,py);for(let j=0;j<6;j++){px+=rand(22,65);py+=rand(-24,24);x.lineTo(px,py)}x.stroke()}
+},3.0,2.1);
+const floorTex=canvasTexture(512,(x,s)=>{
+  x.fillStyle='#5a5a4d';x.fillRect(0,0,s,s);
+  for(let i=0;i<210;i++){x.fillStyle=`rgba(${68+Math.random()*52|0},${61+Math.random()*43|0},${48+Math.random()*35|0},${rand(.08,.24)})`;x.beginPath();x.ellipse(rand(0,s),rand(0,s),rand(3,19),rand(2,8),rand(0,Math.PI),0,Math.PI*2);x.fill()}
+  for(let i=0;i<16;i++){x.strokeStyle='rgba(22,25,22,.28)';x.lineWidth=rand(2,5);x.beginPath();let px=rand(0,s),py=rand(0,s);x.moveTo(px,py);for(let j=0;j<5;j++){px+=rand(-35,35);py+=rand(18,55);x.lineTo(px,py)}x.stroke()}
+},3.7,9);
+const woodTex=canvasTexture(512,(x,s)=>{
+  const g=x.createLinearGradient(0,0,s,0);g.addColorStop(0,'#a8744d');g.addColorStop(.5,'#70442c');g.addColorStop(1,'#a16b47');x.fillStyle=g;x.fillRect(0,0,s,s);
+  for(let i=0;i<52;i++){x.strokeStyle=`rgba(${55+Math.random()*52|0},${30+Math.random()*26|0},${17+Math.random()*18|0},${rand(.14,.34)})`;x.lineWidth=rand(1,4);x.beginPath();const yy=i*s/52+rand(-3,3);x.moveTo(0,yy);for(let px=0;px<s;px+=28)x.lineTo(px,yy+Math.sin(px*.026+i*.75)*rand(2,6));x.stroke()}
+  for(let i=0;i<18;i++){x.fillStyle='rgba(40,20,11,.25)';x.beginPath();x.ellipse(rand(0,s),rand(0,s),rand(5,15),rand(2,6),rand(0,Math.PI),0,Math.PI*2);x.fill()}
+},1.6,5);
+const ironTex=canvasTexture(256,(x,s)=>{
+  const g=x.createLinearGradient(0,0,s,s);g.addColorStop(0,'#808681');g.addColorStop(.55,'#4d5552');g.addColorStop(1,'#2b3131');x.fillStyle=g;x.fillRect(0,0,s,s);
+  for(let i=0;i<90;i++){x.strokeStyle=`rgba(255,255,255,${rand(.02,.08)})`;x.lineWidth=1;x.beginPath();const px=rand(0,s),py=rand(0,s);x.moveTo(px,py);x.lineTo(px+rand(-30,30),py+rand(-5,5));x.stroke()}
+},1.4,1.4);
+const waterTex=canvasTexture(256,(x,s)=>{
+  const g=x.createLinearGradient(0,0,s,s);g.addColorStop(0,'#328e87');g.addColorStop(1,'#174b47');x.fillStyle=g;x.fillRect(0,0,s,s);
+  for(let i=0;i<18;i++){x.strokeStyle='rgba(181,249,238,.15)';x.lineWidth=2;x.beginPath();for(let px=0;px<=s;px+=12){const py=i*s/18+Math.sin(px*.07+i)*4;if(px===0)x.moveTo(px,py);else x.lineTo(px,py)}x.stroke()}
+},3,3);
+
+const mats={
+  cave:new THREE.MeshStandardMaterial({map:rockTex,bumpMap:rockTex,bumpScale:.10,color:0xb7c1ba,roughness:.97,side:THREE.BackSide,vertexColors:true}),
+  rock:new THREE.MeshStandardMaterial({map:rockTex,bumpMap:rockTex,bumpScale:.12,color:0xaab6ae,roughness:.96}),
+  rockWarm:new THREE.MeshStandardMaterial({map:rockTex,bumpMap:rockTex,bumpScale:.12,color:0xb69a7d,roughness:.96}),
+  oreRock:new THREE.MeshStandardMaterial({map:rockTex,bumpMap:rockTex,bumpScale:.13,color:0x314842,roughness:.90}),
+  floor:new THREE.MeshStandardMaterial({map:floorTex,bumpMap:floorTex,bumpScale:.07,color:0xa09a88,roughness:.98}),
+  wood:new THREE.MeshStandardMaterial({map:woodTex,bumpMap:woodTex,bumpScale:.09,color:0xb98963,roughness:.92}),
+  woodDark:new THREE.MeshStandardMaterial({map:woodTex,bumpMap:woodTex,bumpScale:.09,color:0x74503a,roughness:.95}),
+  iron:new THREE.MeshStandardMaterial({map:ironTex,bumpMap:ironTex,bumpScale:.05,color:0x929b96,roughness:.52,metalness:.38}),
+  rail:new THREE.MeshStandardMaterial({map:ironTex,color:0xa8aaa1,roughness:.38,metalness:.46}),
+  rope:new THREE.MeshStandardMaterial({color:0xaa8355,roughness:1}),
+  gold:new THREE.MeshStandardMaterial({color:0xe0aa43,roughness:.32,metalness:.56}),
+  bone:new THREE.MeshStandardMaterial({color:0xd9cba7,roughness:.9}),
+  red:new THREE.MeshStandardMaterial({color:0xa04631,roughness:.92}),
+  crystal:new THREE.MeshStandardMaterial({color:0x69f4df,emissive:0x159582,emissiveIntensity:1.55,roughness:.18,metalness:.03}),
+  crystalBlue:new THREE.MeshStandardMaterial({color:0x91d7ff,emissive:0x286fa7,emissiveIntensity:1.38,roughness:.20,metalness:.02}),
+  water:new THREE.MeshPhysicalMaterial({map:waterTex,color:0x58aaa1,roughness:.18,transparent:true,opacity:.78,clearcoat:.22,clearcoatRoughness:.28})
+};
+
+const visual=new THREE.Group();scene.add(visual);
+const colliderRoot=new THREE.Group();scene.add(colliderRoot);
+const colliderMat=new THREE.MeshBasicMaterial({color:0xff00ff,wireframe:true});
+
+function shadow(m,cast=true,receive=true){m.castShadow=cast;m.receiveShadow=receive;return m}
+function box(w,h,d,mat,x=0,y=0,z=0,rx=0,ry=0,rz=0){const m=shadow(new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat));m.position.set(x,y,z);m.rotation.set(rx,ry,rz);return m}
+function cyl(rt,rb,h,seg,mat,x=0,y=0,z=0,rx=0,ry=0,rz=0){const m=shadow(new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,seg),mat));m.position.set(x,y,z);m.rotation.set(rx,ry,rz);return m}
+function addColliderBox(w,h,d,x,y,z,ry=0){
+  const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),colliderMat);m.position.set(x,y,z);m.rotation.y=ry;colliderRoot.add(m);return m;
+}
+function addVisualBox(w,h,d,mat,x,y,z,ry=0,rz=0){const m=box(w,h,d,mat,x,y,z,0,ry,rz);visual.add(m);return m}
+function groundedBox(w,h,d,mat,x,z,ry=0,rz=0,collide=true){const m=addVisualBox(w,h,d,mat,x,h/2,z,ry,rz);if(collide)addColliderBox(w,h,d,x,h/2,z,ry);return m}
+
+const pathPts=[
+ [0,3.25,31],[0,3.25,25],[0,3.2,18],[0,3.2,10],[0,3.25,2],[0,3.35,-7],[1,3.4,-14],[5,3.3,-19],[11,3.25,-24],[13,3.35,-30],[17,3.45,-35],[24,3.65,-41],[21,3.45,-47],[15,3.25,-51],[9,3.25,-56],[4,3.2,-61],[-1,3.2,-66],[-7,3.3,-69],[-10,3.35,-75],[-10,3.35,-82]
+].map(v=>new THREE.Vector3(...v));
+const widths=[6.5,7.3,6.7,4.55,4.45,8.7,7.2,5.2,7.8,8.6,5.6,10.4,7.1,4.9,8.8,6.0,5.0,6.8,10.1,7.7];
+const heights=[5.1,5.4,5.0,4.45,4.35,6.15,5.35,4.7,5.8,6.0,4.9,7.7,5.8,4.7,5.7,5.0,4.7,5.4,6.5,5.4];
