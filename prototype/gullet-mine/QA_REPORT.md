@@ -76,3 +76,43 @@ clear of the scene.
   the next lever.
 - The sump is walkable rather than a swim: the water is 0.5 m deep over the
   rock invert, and the boardwalk is the dry route.
+
+## Second pass — tighter layout, continuous rail, mining loop
+
+The mine was compressed from roughly 103 m of route to 81 m and narrowed
+(maximum half-width 4.1 m, down from 4.8 m), removing the long empty runs
+between beats without dropping any of the seven rooms.
+
+The tramway now runs unbroken from the portal to the Foreman's Vault. It was
+previously two disconnected stubs either side of the Blackshaft. Making it
+continuous meant laying the shaft crossing flush with the drift floor and
+replacing the Drowned Pocket boardwalk with a timber trestle at the same
+level, so the track never climbs or breaks. Measured from the rail's own
+geometry after load:
+
+```text
+rail spans z 20.5 .. -59.1, gaps: none
+worst offset from the 0.45 m half-gauge: 0.106 m   (tube radius is 0.05 m)
+rail head y range: 0.080 .. 0.180                  (level track)
+```
+
+Collision was re-walked at fourteen points with the controller stepped at a
+fixed 1/60 s; every probe settles on the right surface, including the flush
+bridge deck and the sump trestle at eye 1.70, and the drift floor at 1.65.
+
+Two defects found and fixed in this pass:
+
+- The rock plugs at both ends of the route were pushed *inward* along the
+  tangent rather than outward, so the plug at the entrance sat 1.6 m inside
+  Maw Camp and the player spawned inside the cone. `capEnd` now takes a
+  negative push at the start and a positive one at the end.
+- Ore-face art was authored at positive face-local Z, which is the axis
+  running into the rock, so the crust and chalk marks were buried inside the
+  wall. Face-local +Z into the rock is now the stated convention and
+  everything meant to be seen sits at negative Z.
+
+The drill / powder / blast / pick loop was driven end to end headlessly on
+Saint Glimmer: three holes drilled, three sticks charged, the round fired
+while standing at the face (player correctly respawned at Maw Camp), eight ore
+nodes exposed, all eight picked for 496 credits, sold and powder rebought at
+the store. Draw calls after the static merge: 83.
