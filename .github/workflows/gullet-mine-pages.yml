@@ -12,13 +12,13 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: gullet-mine-pages
   cancel-in-progress: true
 
 jobs:
   deploy:
     environment:
-      name: github-pages
+      name: gullet-mine-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
