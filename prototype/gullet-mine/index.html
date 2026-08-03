@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Gullet Mine V5 bootstrap</title>
+</head>
+<body style="margin:0;background:#111;color:#eee;font-family:system-ui;display:grid;place-items:center;min-height:100vh">
+  <div id="status">Loading the current V5 prototype…</div>
+  <script>
+    (async () => {
+      const parts = [
+        './source/v5-part-1.htmlpart',
+        './source/v5-part-2.htmlpart',
+        './source/v5-part-3.htmlpart',
+        './source/v5-part-4.htmlpart'
+      ];
+      try {
+        const html = (await Promise.all(parts.map(async p => {
+          const r = await fetch(p);
+          if (!r.ok) throw new Error(`${p}: ${r.status}`);
+          return r.text();
+        }))).join('');
+        document.open();
+        document.write(html);
+        document.close();
+      } catch (err) {
+        document.getElementById('status').textContent = `Failed to assemble V5: ${err.message}. Run this directory through a local HTTP server rather than file://.`;
+      }
+    })();
+  </script>
+</body>
+</html>
