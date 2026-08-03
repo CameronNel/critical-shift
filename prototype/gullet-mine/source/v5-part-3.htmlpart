@@ -1,0 +1,139 @@
+ [.938,-1,0xffd387,0],[.975,1,0xffd387,1]
+];
+lampPlan.forEach(([t,s,c,r])=>lampAt(t,s,c,!!r));
+
+// Blackshaft: visual pit, collidable rim platforms, collidable bridge
+const pit=new THREE.Mesh(new THREE.CircleGeometry(6.15,48),new THREE.MeshBasicMaterial({color:0x010606}));pit.rotation.x=-Math.PI/2;pit.position.set(.3,.015,-10.5);visual.add(pit);
+const rim=new THREE.Mesh(new THREE.TorusGeometry(6.05,.38,8,36),mats.rock);rim.rotation.x=Math.PI/2;rim.position.set(.3,.04,-10.5);rim.castShadow=rim.receiveShadow=true;visual.add(rim);
+for(let z=-16.0;z<=-5.0;z+=.68){
+  if(z>-11.2&&z<-10.15)continue;
+  const pl=addVisualBox(3.0,.16,.54,(Math.round(z*10)%2)?mats.wood:mats.woodDark,.3,.08,z,0,(z%1)*.025);
+  addColliderBox(2.96,.16,.52,.3,.08,z,0);
+}
+function ropeBetween(a,b,r=.035){
+  const d=new THREE.Vector3().subVectors(b,a),len=d.length(),m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,len,7),mats.rope);
+  m.position.copy(a).add(b).multiplyScalar(.5);m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.clone().normalize());m.castShadow=true;visual.add(m);
+}
+ropeBetween(new THREE.Vector3(-1.35,1.92,-16),new THREE.Vector3(-1.35,1.92,-5),.045);
+ropeBetween(new THREE.Vector3(1.95,1.92,-16),new THREE.Vector3(1.95,1.92,-5),.045);
+for(let z=-15.7;z<-5;z+=1.55){ropeBetween(new THREE.Vector3(-1.35,.24,z),new THREE.Vector3(-1.35,1.92,z),.028);ropeBetween(new THREE.Vector3(1.95,.24,z),new THREE.Vector3(1.95,1.92,z),.028)}
+const shaftGlow=new THREE.PointLight(0x4a9f92,15,15,2);shaftGlow.position.set(.3,-2,-10.5);scene.add(shaftGlow);
+
+// Embedded ore veins. Each seam is mounted to a cave wall, not dropped on the floor.
+function oreVeinAt(t,sideSign=1,type='teal',scale=1){
+  const {p,side,tan}=basisAt(t),w=profile(t,widths)*.78;
+  const inward=side.clone().multiplyScalar(-sideSign),wall=p.clone().addScaledVector(side,sideSign*w);wall.y=1.8+scale*.55;
+  const g=new THREE.Group();
+  // irregular dark host-rock plate
+  const host=new THREE.Mesh(new THREE.IcosahedronGeometry(1.0,1),mats.oreRock);host.scale.set(1.55*scale,1.05*scale,.22*scale);g.add(host);
+  const cm=type==='blue'?mats.crystalBlue:mats.crystal;
+  const shardData=[
+    [-.62,.18,.18,.24,.66,-.20],[.02,.36,.22,.28,.88,.08],[.52,.10,.20,.22,.58,.22],
+    [-.25,-.30,.17,.19,.52,-.30],[.38,-.25,.16,.18,.48,.28]
+  ];
+  shardData.forEach(([x,y,z,sx,sy,rz],i)=>{
+    const sh=new THREE.Mesh(new THREE.OctahedronGeometry(.55,0),cm);sh.scale.set(sx*scale,sy*scale,.24*scale);sh.position.set(x*scale,y*scale,.20*scale);sh.rotation.set(.10,(i-2)*.18,rz);g.add(sh);
+  });
+  // chalky mineral fringe makes seam look embedded
+  [[-1.0,.0,.02,.34],[-.72,-.52,.02,.27],[.80,.48,.01,.29],[.92,-.26,.0,.22]].forEach(([x,y,z,s])=>{
+    const r=new THREE.Mesh(new THREE.DodecahedronGeometry(s*scale,0),mats.rockWarm);r.scale.z=.35;r.position.set(x*scale,y*scale,z);g.add(r);
+  });
+  g.position.copy(wall);
+  const yaw=Math.atan2(inward.x,inward.z);g.rotation.y=yaw;
+  g.rotation.z=(sideSign>0?-.08:.08);
+  g.traverse(o=>{if(o.isMesh){o.castShadow=o.receiveShadow=true}});visual.add(g);
+}
+oreVeinAt(.105,-1,'teal',.85);oreVeinAt(.205,1,'blue',.72);
+oreVeinAt(.392,-1,'blue',1.0);oreVeinAt(.430,1,'teal',.88);
+oreVeinAt(.545,-1,'teal',1.35);oreVeinAt(.575,1,'blue',1.05);oreVeinAt(.610,-1,'teal',.86);
+oreVeinAt(.755,1,'teal',.70);
+
+// Drowned Pocket: low water plane, authored broken dock
+const water=new THREE.Mesh(new THREE.CircleGeometry(6.15,48),mats.water);water.scale.set(1.22,.82,1);water.rotation.x=-Math.PI/2;water.position.set(13,.015,-27.0);visual.add(water);
+[[8.8,-24.2,1.15],[10.0,-24.1,1.08],[11.2,-24.15,.88],[12.4,-24.0,.72],[13.6,-24.18,.54]].forEach(([x,z,len],i)=>{
+  groundedBox(.28,len,.28,mats.woodDark,x,z,0,0,false);
+  addVisualBox(1.02,.12,.50,mats.wood,x,.06,z,0,(i-2)*.025);
+});
+
+// Cathedral: hero ore formation is built from faceted octahedra, not cones.
+function crystalShard(x,y,z,sx,sy,sz,mat,rx=0,ry=0,rz=0){
+  const m=new THREE.Mesh(new THREE.OctahedronGeometry(1,0),mat);m.position.set(x,y,z);m.scale.set(sx,sy,sz);m.rotation.set(rx,ry,rz);m.castShadow=m.receiveShadow=true;visual.add(m);return m;
+}
+const altar=groundedBox(4.2,.62,2.6,mats.rockWarm,25,-44.6,.35,0,true);
+groundedBox(3.45,.42,2.05,mats.rock,25,-44.6,.35,0,true);
+crystalShard(25,3.0,-44.6,1.15,2.85,1.15,mats.crystal,.05,.22,.08);
+[
+ [21.4,1.0,-39.2,.34,1.0,.34,'t'],[22.2,1.35,-38.5,.42,1.4,.42,'b'],[26.8,.9,-39.0,.32,.9,.32,'t'],
+ [28.6,1.25,-42.0,.38,1.25,.38,'t'],[20.4,.95,-43.8,.32,.95,.32,'b'],[27.6,.82,-46.0,.28,.82,.28,'t'],
+ [23.0,.72,-47.1,.25,.72,.25,'b'],[18.9,.70,-41.0,.24,.70,.24,'t']
+].forEach(([x,y,z,sx,sy,sz,k],i)=>crystalShard(x,y,z,sx,sy,sz,k==='b'?mats.crystalBlue:mats.crystal,.05,(i-3)*.19,(i%2?.10:-.10)));
+bounce(24,3.8,-41,0x4dffe1,52,22);bounce(20,2.2,-43,0x6cbcff,26,13);
+
+// Powderworks, precise prop layout
+[[2.0,-55.0,.1],[3.1,-55.2,-.15],[11.6,-55.7,.3],[12.2,-57.0,-.1],[3.0,-62.2,.2],[10.9,-62.5,-.25],[12.1,-61.5,.1]].forEach(v=>barrel(...v));
+[[1.2,-58.0,.86,.12],[2.2,-59.1,.78,-.10],[10.4,-58.6,.92,.18],[11.4,-59.8,.75,-.16]].forEach(v=>crate(...v));
+[[.0,-61.2,3.4,.55],[-1.0,-60.2,2.8,-.40],[1.0,-62.0,3.0,.46]].forEach(([x,z,h,rz])=>{const m=addVisualBox(.28,h,.28,mats.woodDark,x,h/2,z,.1,rz);addColliderBox(.34,h,.34,x,h/2,z,.1)});
+bounce(7,2.6,-58,0xff743d,30,16);
+
+// Vault
+const gate=new THREE.Group();
+for(let x=-3.2;x<=3.2;x+=.62)gate.add(cyl(.065,.065,5.2,7,mats.iron,x,2.6,0));
+gate.add(box(7.0,.18,.20,mats.iron,0,.25,0));gate.add(box(7.0,.18,.20,mats.iron,0,4.95,0));gate.position.set(-10,0,-79.1);visual.add(gate);
+addColliderBox(7.0,5.1,.28,-10,2.55,-79.1,0);
+[[-13.8,-72.4,.12],[-11.2,-71.0,-.15],[-8.4,-72.0,.16],[-6.0,-70.9,-.18]].forEach(([x,z,r])=>crate(x,z,.95,r));
+for(let i=0;i<55;i++){const coin=cyl(.06,.06,.028,8,mats.gold,-13.5+(i%11)*.68,.04+Math.floor(i/11)*.035,-75.0+Math.floor(i/11)*.42,rand(0,3),rand(0,3),rand(0,3));visual.add(coin)}
+const skull=new THREE.Mesh(new THREE.SphereGeometry(.34,12,9),mats.bone);skull.scale.set(1,.8,.9);skull.position.set(-5.2,.34,-74.0);visual.add(skull);
+bounce(-10,3.0,-73,0xffc15f,38,19);
+
+// Signs
+function sign(x,y,z,text,yaw=0){
+  const g=new THREE.Group();
+  g.add(box(2.4,.84,.13,mats.wood,0,0,0));
+  // Two grounded posts make the sign an actual mine prop rather than a floating UI board.
+  g.add(box(.16,y,.16,mats.woodDark,-.72,-y/2,0));
+  g.add(box(.16,y,.16,mats.woodDark,.72,-y/2,0));
+  const c=document.createElement('canvas');c.width=512;c.height=180;const q=c.getContext('2d');q.fillStyle='#ecd39c';q.font='bold 46px Georgia';q.textAlign='center';q.textBaseline='middle';q.fillText(text,256,91);
+  const tx=new THREE.CanvasTexture(c);tx.colorSpace=THREE.SRGBColorSpace;const l=new THREE.Mesh(new THREE.PlaneGeometry(2.15,.68),new THREE.MeshBasicMaterial({map:tx,transparent:true,side:THREE.DoubleSide}));l.position.z=.071;g.add(l);
+  g.position.set(x,y,z);g.rotation.y=yaw;g.traverse(o=>{if(o.isMesh){o.castShadow=o.receiveShadow=true}});visual.add(g);
+}
+sign(-4.5,2.6,25.2,'THE GULLET',.38);sign(17.0,2.4,-35.0,'ST. GLIMMER',-.35);sign(-15.7,2.5,-76.0,"FOREMAN'S DUE",.14);
+
+// Dust only. No random boulder/cone scatter.
+const dustN=coarse?300:520,dustGeo=new THREE.BufferGeometry(),dustPos=new Float32Array(dustN*3);
+for(let i=0;i<dustN;i++){dustPos[i*3]=rand(-22,34);dustPos[i*3+1]=rand(.3,7.0);dustPos[i*3+2]=rand(-82,30)}
+dustGeo.setAttribute('position',new THREE.BufferAttribute(dustPos,3));
+const dust=new THREE.Points(dustGeo,new THREE.PointsMaterial({color:0xe5d5ac,size:coarse?.032:.028,transparent:true,opacity:.26,depthWrite:false}));scene.add(dust);
+
+// Build static collision octree from simplified proxy geometry.
+colliderRoot.updateMatrixWorld(true);
+const worldOctree=new Octree().fromGraphNode(colliderRoot);
+colliderRoot.visible=false;
+
+// Player collision capsule
+const spawnStart=new THREE.Vector3(0,.35,28);
+const spawnEnd=new THREE.Vector3(0,1.65,28);
+const playerCollider=new Capsule(spawnStart.clone(),spawnEnd.clone(),.35);
+const playerVelocity=new THREE.Vector3();
+const playerDirection=new THREE.Vector3();
+let playerOnFloor=false,ghost=false;
+
+function resetPlayer(){
+  playerCollider.start.copy(spawnStart);playerCollider.end.copy(spawnEnd);playerVelocity.set(0,0,0);camera.position.copy(playerCollider.end);
+}
+resetPlayer();
+
+function playerCollisions(){
+  const result=worldOctree.capsuleIntersect(playerCollider);
+  playerOnFloor=false;
+  if(result){
+    playerOnFloor=result.normal.y>.35;
+    if(!playerOnFloor)playerVelocity.addScaledVector(result.normal,-result.normal.dot(playerVelocity));
+    playerCollider.translate(result.normal.multiplyScalar(result.depth));
+  }
+}
+function getForwardVector(){
+  camera.getWorldDirection(playerDirection);playerDirection.y=0;playerDirection.normalize();return playerDirection;
+}
+function getSideVector(){
+  camera.getWorldDirection(playerDirection);playerDirection.y=0;playerDirection.normalize();playerDirection.cross(camera.up);return playerDirection;
+}
