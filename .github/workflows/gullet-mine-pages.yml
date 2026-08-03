@@ -25,8 +25,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure Pages
+      - name: Configure Pages and enable the site
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload Gullet Mine artifact
         uses: actions/upload-pages-artifact@v3
