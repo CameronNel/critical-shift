@@ -2,32 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The Gullet Mine V5 bootstrap</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <title>Critical Shift — The Gullet Mine</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #071014;
+      --cream: #f3dfb2;
+      --gold: #edb75c;
+      --glass: rgba(7, 15, 17, .72);
+      --line: rgba(243, 223, 178, .22);
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: var(--ink); }
+    body { font-family: Georgia, "Times New Roman", serif; }
+    canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+    #start {
+      position: fixed; inset: 0; z-index: 10; display: grid; place-items: center;
+      padding: 24px; color: var(--cream); text-align: center;
+      background: radial-gradient(ellipse at 50% 38%, rgba(38, 86, 79, .38), rgba(4, 10, 12, .97) 72%);
+    }
+    #start-card {
+      width: min(610px, calc(100vw - 42px)); padding: 31px 30px 27px;
+      border: 1px solid var(--line); border-radius: 18px; background: rgba(8, 17, 19, .84);
+      box-shadow: 0 28px 90px rgba(0,0,0,.65), inset 0 1px rgba(255,255,255,.04);
+      backdrop-filter: blur(9px);
+    }
+    #start-card h1 { margin: 0 0 8px; font-size: clamp(26px, 5vw, 38px); letter-spacing: .11em; }
+    #start-card .eyebrow { margin: 0 0 12px; color: #75c0b6; font: 700 11px/1.2 system-ui, sans-serif; letter-spacing: .19em; text-transform: uppercase; }
+    #start-card p { max-width: 510px; margin: 0 auto 21px; color: rgba(243,223,178,.82); font: 14px/1.55 system-ui, sans-serif; }
+    #enter { border: 0; border-radius: 999px; padding: 13px 23px; color: #2b1c09; background: var(--gold); font: 800 12px system-ui, sans-serif; letter-spacing: .09em; cursor: pointer; box-shadow: 0 6px 20px rgba(237,183,92,.2); }
+    #enter:active { transform: translateY(1px); }
+    #hud { position: fixed; inset: 0; z-index: 4; pointer-events: none; color: var(--cream); text-shadow: 0 2px 4px #000, 0 0 12px #000; }
+    #title { position: absolute; left: 22px; top: 18px; font-size: 16px; font-weight: 800; letter-spacing: .14em; }
+    #zone { position: absolute; left: 22px; top: 46px; color: #8ed0c3; font-size: 12px; letter-spacing: .11em; text-transform: uppercase; }
+    #objective { position: absolute; right: 22px; top: 20px; max-width: 240px; padding: 8px 10px; border-left: 2px solid rgba(237,183,92,.72); background: rgba(6,13,15,.35); color: rgba(243,223,178,.82); font: 11px/1.35 system-ui, sans-serif; text-align: right; }
+    #help { position: absolute; left: 22px; bottom: 20px; padding: 9px 11px; border: 1px solid rgba(243,223,178,.18); border-radius: 8px; background: var(--glass); color: rgba(243,223,178,.86); font: 12px/1.4 system-ui, sans-serif; backdrop-filter: blur(5px); }
+    #crosshair { position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; transform: translate(-50%, -50%); opacity: .55; }
+    #crosshair::before, #crosshair::after { content: ""; position: absolute; background: #f5e2b9; }
+    #crosshair::before { left: 6px; top: 0; width: 1px; height: 13px; }
+    #crosshair::after { left: 0; top: 6px; width: 13px; height: 1px; }
+    #toast { position: absolute; left: 50%; bottom: 76px; transform: translateX(-50%); padding: 8px 13px; border: 1px solid rgba(243,223,178,.17); border-radius: 999px; background: rgba(5,10,11,.84); font: 12px system-ui, sans-serif; opacity: 0; transition: opacity .18s; }
+    #mobile-ui { display: none; position: fixed; inset: 0; z-index: 6; pointer-events: none; }
+    #stick { position: absolute; left: max(22px, env(safe-area-inset-left)); bottom: max(22px, env(safe-area-inset-bottom)); width: 122px; height: 122px; border: 1px solid rgba(243,223,178,.24); border-radius: 50%; background: rgba(243,223,178,.065); pointer-events: auto; touch-action: none; }
+    #knob { position: absolute; left: 50%; top: 50%; width: 50px; height: 50px; margin: -25px; border: 1px solid rgba(243,223,178,.40); border-radius: 50%; background: rgba(243,223,178,.18); }
+    #look-zone { position: absolute; left: 34%; top: 0; right: 0; bottom: 0; pointer-events: auto; touch-action: none; }
+    #mobile-buttons { position: absolute; right: max(19px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom)); display: flex; gap: 10px; pointer-events: auto; }
+    .mobile-button { width: 60px; height: 60px; display: grid; place-items: center; border: 1px solid rgba(243,223,178,.30); border-radius: 50%; background: rgba(243,223,178,.10); color: var(--cream); font: 800 10px system-ui, sans-serif; letter-spacing: .04em; user-select: none; touch-action: none; }
+    @media (pointer: coarse) {
+      #mobile-ui { display: block; }
+      #help { display: none; }
+      #title { left: 17px; top: max(14px, env(safe-area-inset-top)); font-size: 14px; }
+      #zone { left: 17px; top: max(39px, calc(env(safe-area-inset-top) + 25px)); font-size: 10px; }
+      #objective { right: 14px; top: max(14px, env(safe-area-inset-top)); max-width: 166px; font-size: 10px; }
+      #crosshair { opacity: .32; }
+    }
+    @media (max-width: 440px) {
+      #start-card { padding: 26px 20px 22px; }
+      #start-card h1 { font-size: 25px; }
+      #start-card p { font-size: 13px; }
+    }
+  </style>
 </head>
-<body style="margin:0;background:#111;color:#eee;font-family:system-ui;display:grid;place-items:center;min-height:100vh">
-  <div id="status">Loading the current V5 prototype…</div>
-  <script>
-    (async () => {
-      const parts = [
-        './source/v5-part-1.htmlpart',
-        './source/v5-part-2.htmlpart',
-        './source/v5-part-3.htmlpart',
-        './source/v5-part-4.htmlpart'
-      ];
-      try {
-        const html = (await Promise.all(parts.map(async p => {
-          const r = await fetch(p);
-          if (!r.ok) throw new Error(`${p}: ${r.status}`);
-          return r.text();
-        }))).join('');
-        document.open();
-        document.write(html);
-        document.close();
-      } catch (err) {
-        document.getElementById('status').textContent = `Failed to assemble V5: ${err.message}. Run this directory through a local HTTP server rather than file://.`;
-      }
-    })();
+<body>
+  <div id="start">
+    <div id="start-card">
+      <div class="eyebrow">Critical Shift // Friendslop prototype</div>
+      <h1>THE GULLET MINE</h1>
+      <p>A compact, hand-built descent through Maw Camp, Blackshaft, the drowned workings and the foreman’s sealed vault. Keep the lantern lit. Mind the bridge.</p>
+      <button id="enter" type="button">ENTER THE MINE</button>
+    </div>
+  </div>
+  <div id="hud" aria-hidden="true">
+    <div id="title">THE GULLET MINE</div>
+    <div id="zone">MAW CAMP</div>
+    <div id="objective">Follow the rail into the old workings.</div>
+    <div id="crosshair"></div>
+    <div id="help">WASD move · mouse look · Shift sprint · Space jump · F lantern · G ghost QA · 1–9 viewpoints</div>
+    <div id="toast"></div>
+  </div>
+  <div id="mobile-ui" aria-hidden="true">
+    <div id="look-zone"></div>
+    <div id="stick"><div id="knob"></div></div>
+    <div id="mobile-buttons"><div class="mobile-button" id="lamp-button">LAMP</div><div class="mobile-button" id="jump-button">JUMP</div></div>
+  </div>
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"}}
   </script>
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>
