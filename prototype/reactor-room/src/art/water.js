@@ -124,12 +124,13 @@ export function createPool({
           body += uSky * spec * (0.22 + uAgitation * 0.5) * (0.35 + shimmer * 1.3);
           body += uSky * fres * 0.12;
 
-          // Deliberately thin. A spent-fuel pool is optically clear, and the
-          // whole point of an open pool is that you can see the lattice in it.
-          // Alpha follows the emission, though: a glowing patch of water has to
-          // reach the frame at full strength or it just reads as tinted glass.
+          // Thin enough to see the lattice through — that is the point of an
+          // open pool — but not so thin that a cold pool reads as an empty pit
+          // from across the deck. Alpha then follows the emission, because a
+          // glowing patch of water has to reach the frame at full strength or it
+          // just looks like tinted glass.
           float lit = dot(emission, vec3(0.33));
-          float alpha = mix(0.26, 0.74, fres) + clamp(lit * 0.7, 0.0, 0.55);
+          float alpha = mix(0.42, 0.82, fres) + clamp(lit * 0.7, 0.0, 0.45);
           gl_FragColor = vec4(body, clamp(alpha, 0.0, 1.0));
         }
       `,
