@@ -71,8 +71,8 @@ if the run to the valves is short enough to attempt.
 |---|---|---|---|---|
 | Control desk → coolant valves | 75 m | 10 s | 18 s | 23 s |
 | Control desk → reactor scram | 28 m | 4 s | 7 s | 9 s |
-| Reactor floor → coolant valves | 52 m | 7 s | 12 s | 16 s |
-| Reactor west door → south scram | 21 m | 3 s | 5 s | 7 s |
+| Reactor floor → coolant valves | 8 m | 1 s | 2 s | 3 s |
+| Reactor west door → central scram | 12 m | 2 s | 3 s | 4 s |
 | Refinery floor → reactor core | 42 m | 6 s | 10 s | 13 s |
 | Crusher → reactor | 65 m | 9 s | 15 s | 20 s |
 | Mine face → reactor | 111 m | 15 s | 26 s | 35 s |
@@ -119,43 +119,32 @@ informal roles get settled.
 ### Reactor hall — every control has a place
 
 Laid out so that every control in GAME_SPEC §12.4 has a physical station, and
-so that the ones you need at the same moment are deliberately far apart.
-Clockwise from the north:
+so that an emergency sends players across a short, readable loop rather than
+through a large room. Clockwise from the north:
 
-| Octant | Contains |
+| Station | Contains |
 |---|---|
-| N | charge floor, fuel receiving, transfer flask, new fuel rack |
-| NE | waste flask, shielded waste store, transfer trolley |
-| E | annunciator, log desk, radiation monitor, scram station — under the control windows |
-| SE | turbine, generator, condenser, throttle stand, lube skid |
-| S | coolant headers, valve stands, flow meter, emergency cooling injection |
-| SW | switchgear, breakers, backup generator, reserve power |
-| W | main access, muster point, tool point, emergency locker, scram station |
-| NW | vent stack, vent valve |
+| North | fuel receiving, uncertain-fuel rack, control position |
+| North-east | waste transfer, illegal store, vent valve |
+| East | turbine throttle, breakers, grid demand, sensor |
+| South | coolant pump, valves, emergency cooling injection |
+| West | backup generator, reserve power, live repair bay |
+| Centre-south | alarm panel, automatic-shutdown bypass, SCRAM |
 
-The two coolant headers sit either side of a clear lane at Z 12..15. That lane
-is not decoration: it is the only straight run on the working floor long enough
-to carry a stair up to the catwalk ring at a pitch you can walk.
-
-Four levels: working floor 0, catwalk ring +8, upper gantry +17, and a charge
-deck at +20 carrying the control rod drives and the fuelling machine, sitting
-on the core itself. A travelling crane spans the hall at +23.
-
-Getting between them is deliberately slow. The floor reaches the catwalk ring
-in two places only — a west flight off the south floor and a north-east flight
-off the charge floor — and the ring reaches the gantry by one long flight that
-runs the entire east annulus, past the operating face and over the turbine.
-
-Three emergency shutdown stations — west, east and south — because one would
-always be on the wrong side of the core.
+There is one working floor and a single +5 m overview perch above the north
+edge of containment. It helps a player call the room without creating another
+route they need to climb during a crisis. One central SCRAM is intentional:
+from the farthest station it remains a short, visible run.
 
 ## Zone by zone
 
-**Reactor hall.** Octagonal, 52 m across, 30 m clear. Core cylinder and
-containment frame in the middle, catwalk ring at +8, upper gantry ring at +17
-with a clerestory looking north up the compliance approach. Doors west (the
-cart diagonal), north (compliance), east (control) and south-east (cooling).
-Because it is central, most journeys can go through it or around it.
+**Reactor hall.** Compact octagon, 36 m across before plan compaction, with a
+16 m clear ceiling. A core cylinder and containment frame sit in the middle;
+a single +5 overview perch gives a full read without adding a second traversal
+loop. Fuel/reactivity, output, cooling, recovery, waste and emergency controls
+form one clockwise ring. Doors west (the cart diagonal), north (fuel), east
+(control) and south-east (cooling) attach through short links. Because it is
+central, most journeys can go through it or around it without a long interior run.
 
 **Control room.** A raised block east of the reactor at +10, looking in through
 the overlook windows in the reactor's east wall. Total visibility, one stair
@@ -222,12 +211,12 @@ Toggle them in the Layers menu.
   crossing that floor is always a timing decision.
 - **Through the machine to get underneath.** The maintenance ring's west door
   is the crusher pit, so the sneakiest route starts in the loudest room.
-- **Control versus cooling.** From the control deck you can see the whole
-  reactor floor, and out to the south, the cooling cut. You cannot reach either
-  quickly.
-- **Elevation versus warning.** The fuel roof deck, the refinery clerestory and
-  the reactor's upper gantry all see the compliance approach. Working floors
-  see nothing. Whoever is high up is the early-warning system.
+- **Control versus cooling.** The control nook has a short direct link to the
+  reactor floor, so its operator can join a core emergency quickly. Reaching
+  the sunk cooling hall still means taking the corridor and stair.
+- **Elevation versus warning.** The fuel roof deck and refinery clerestory see
+  the compliance approach. The reactor's small overview perch instead gives a
+  clean call-out position over the workroom, without becoming a second route.
 - **Belt walking.** Conveyor belts are walkable. From the refinery mezzanine
   you can step onto the sorter belt and ride the line east to fuel without
   touching a stair.
@@ -242,10 +231,6 @@ Toggle them in the Layers menu.
 - Rough rock is overlapping slabs, not a sculpted mesh. It reads correctly at
   gameplay distance and is wrong close up.
 - No lighting design beyond housings and a handful of real point lights.
-- `reactor.stair.floor.w` is 46°, steeper than anything else on the site. The
-  south-west octant is full of coolant headers and switchgear and there is
-  nowhere to put a longer flight without moving equipment that belongs where
-  it is. It reads as an industrial stair rather than a public one.
 - Stairs that climb to a level and land inside that level's slab come up
   through it, rather than through a modelled stairwell. The fuel roof deck is
   the exception: it is laid in four pieces around a real hole.
