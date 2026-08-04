@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <title>Critical Shift — Reactor Pool</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #101516;
+      --paper: #e6dcc0;
+      --muted: rgba(230,220,192,.62);
+      --gold: #e0ad3c;
+      --teal: #6fc9d8;
+      --red: #e0705c;
+      --green: #8bc47c;
+      --glass: rgba(12,20,22,.82);
+      --line: rgba(230,220,192,.20);
+      --panel: rgba(14,22,24,.74);
+      --stencil: "Arial Narrow", "Helvetica Neue Condensed", "Roboto Condensed", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: var(--ink); }
+    body { font-family: var(--stencil); }
+    canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+
+    /* ------------------------------------------------------- start card */
+    #start {
+      position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: 22px;
+      text-align: center; color: var(--paper);
+      background:
+        radial-gradient(ellipse at 50% 38%, rgba(38,110,120,.30), rgba(6,10,12,.97) 70%),
+        repeating-linear-gradient(135deg, rgba(224,173,60,.05) 0 14px, transparent 14px 28px);
+    }
+    #start-card {
+      width: min(640px, calc(100vw - 34px)); padding: 30px 30px 26px;
+      border: 1px solid var(--line); border-radius: 4px;
+      background: linear-gradient(180deg, rgba(20,29,30,.94), rgba(9,14,16,.96));
+      box-shadow: 0 30px 90px rgba(0,0,0,.72), inset 0 1px rgba(255,255,255,.05);
+      backdrop-filter: blur(8px);
+    }
+    #start-card::before {
+      content: ""; display: block; height: 5px; margin: -30px -30px 22px;
+      background: repeating-linear-gradient(135deg, var(--gold) 0 12px, #12181a 12px 24px);
+    }
+    .eyebrow { margin: 0 0 12px; color: var(--teal); font: 700 10px/1.2 var(--stencil); letter-spacing: .28em; text-transform: uppercase; }
+    #start h1 { margin: 0 0 12px; font-size: clamp(30px,6vw,48px); font-weight: 900; letter-spacing: .16em; }
+    #start p { max-width: 520px; margin: 0 auto 20px; color: rgba(230,220,192,.78); font: 14px/1.6 system-ui,sans-serif; }
+    #enter {
+      border: 0; border-radius: 2px; padding: 14px 28px; color: #1c1305; background: var(--gold);
+      font: 900 12px var(--stencil); letter-spacing: .22em; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(224,173,60,.22); transition: opacity .2s;
+    }
+    #enter[disabled] { opacity: .45; cursor: progress; }
+    #legend { margin: 18px 0 0; color: var(--muted); font: 10px/1.7 var(--stencil); letter-spacing: .16em; text-transform: uppercase; }
+
+    /* -------------------------------------------------------------- hud */
+    #hud { position: fixed; inset: 0; z-index: 4; pointer-events: none; color: var(--paper); text-shadow: 0 2px 5px #000, 0 0 14px rgba(0,0,0,.8); }
+    #title { position: absolute; left: 22px; top: 18px; font-size: 17px; font-weight: 900; letter-spacing: .22em; }
+    #zone { position: absolute; left: 22px; top: 45px; color: var(--teal); font: 700 10px var(--stencil); letter-spacing: .2em; text-transform: uppercase; }
+    #objective {
+      position: absolute; right: 22px; top: 18px; max-width: 290px; padding: 9px 11px;
+      border-left: 3px solid var(--gold); background: var(--panel);
+      color: rgba(230,220,192,.86); font: 11px/1.45 system-ui,sans-serif; text-align: right;
+    }
+    #systems {
+      position: absolute; left: 22px; top: 70px; display: grid; grid-template-columns: repeat(2,auto);
+      gap: 5px 16px; padding: 9px 11px; border: 1px solid var(--line); background: var(--panel);
+      font: 700 10px/1 var(--stencil); letter-spacing: .12em;
+    }
+    .metric { color: rgba(230,220,192,.55); }
+    .metric b { color: var(--teal); font-weight: 900; }
+    .metric.hot b { color: var(--red); }
+    #state {
+      position: absolute; left: 50%; top: 18px; transform: translateX(-50%); padding: 8px 15px;
+      border: 1px solid rgba(111,201,216,.34); background: rgba(10,28,30,.76);
+      color: var(--teal); font: 900 10px var(--stencil); letter-spacing: .2em;
+    }
+    #state.alarm { border-color: rgba(224,112,92,.75); background: rgba(64,17,12,.85); color: #ffb6a2; }
+    #carry {
+      position: absolute; left: 50%; top: 56px; transform: translateX(-50%); padding: 6px 12px;
+      border: 1px solid rgba(224,173,60,.5); background: rgba(52,32,6,.75);
+      color: var(--gold); font: 900 10px var(--stencil); letter-spacing: .18em; opacity: 0;
+    }
+    #carry.on { opacity: 1; }
+    #crosshair { position: absolute; left: 50%; top: 50%; width: 15px; height: 15px; transform: translate(-50%,-50%); opacity: .5; }
+    #crosshair::before, #crosshair::after { content: ""; position: absolute; background: #f2e6c6; }
+    #crosshair::before { left: 7px; top: 0; width: 1px; height: 15px; }
+    #crosshair::after { left: 0; top: 7px; width: 15px; height: 1px; }
+    #prompt {
+      position: absolute; left: 50%; bottom: 74px; transform: translateX(-50%); min-width: 240px; max-width: 380px;
+      padding: 10px 14px; border: 1px solid rgba(230,220,192,.26); background: rgba(9,16,18,.88);
+      text-align: center; font: 12px/1.4 system-ui,sans-serif; opacity: 0; transition: opacity .12s;
+    }
+    #prompt.on { opacity: 1; }
+    #prompt em { display: block; color: var(--gold); font: 900 11px var(--stencil); font-style: normal; letter-spacing: .18em; }
+    #prompt small { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+    #toast {
+      position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); padding: 9px 15px;
+      border: 1px solid rgba(230,220,192,.18); background: rgba(7,12,14,.92);
+      font: 12px system-ui,sans-serif; opacity: 0; transition: opacity .16s;
+    }
+    #help {
+      position: absolute; left: 22px; bottom: 20px; padding: 9px 12px; border: 1px solid rgba(230,220,192,.18);
+      background: var(--glass); color: rgba(230,220,192,.82); font: 11px/1.5 var(--stencil);
+      letter-spacing: .1em; backdrop-filter: blur(5px);
+    }
+    #help b { color: var(--gold); font-weight: 900; }
+    #quality { position: absolute; right: 22px; bottom: 20px; color: rgba(230,220,192,.4); font: 700 9px var(--stencil); letter-spacing: .2em; }
+    #flash { position: absolute; inset: 0; background: #ffd7a8; opacity: 0; transition: opacity .12s; }
+    /* Vignette over the render, so the HUD never floats on a flat frame. */
+    #hud::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 50% 50%, transparent 52%, rgba(0,0,0,.36) 100%);
+    }
+
+    /* ----------------------------------------------------------- mobile */
+    #mobile-ui { display: none; position: fixed; inset: 0; z-index: 6; pointer-events: none; }
+    #stick {
+      position: absolute; left: max(20px,env(safe-area-inset-left)); bottom: max(22px,env(safe-area-inset-bottom));
+      width: 124px; height: 124px; border: 1px solid rgba(230,220,192,.26); border-radius: 50%;
+      background: rgba(230,220,192,.07); pointer-events: auto; touch-action: none;
+    }
+    #knob {
+      position: absolute; left: 50%; top: 50%; width: 50px; height: 50px; margin: -25px;
+      border: 1px solid rgba(230,220,192,.42); border-radius: 50%; background: rgba(230,220,192,.18);
+    }
+    #look-zone { position: absolute; left: 35%; top: 0; right: 0; bottom: 0; pointer-events: auto; touch-action: none; }
+    #mobile-buttons {
+      position: absolute; right: max(18px,env(safe-area-inset-right)); bottom: max(23px,env(safe-area-inset-bottom));
+      display: grid; grid-template-columns: repeat(2,auto); gap: 10px; justify-items: end; pointer-events: auto;
+    }
+    .mobile-button {
+      width: 60px; height: 60px; display: grid; place-items: center; border: 1px solid rgba(230,220,192,.3);
+      border-radius: 50%; background: rgba(230,220,192,.11); color: var(--paper);
+      font: 900 10px var(--stencil); letter-spacing: .08em; user-select: none; touch-action: none; text-align: center;
+    }
+    .mobile-button.small { width: 50px; height: 50px; font-size: 9px; }
+    #use-button { width: 78px; height: 78px; border-color: var(--gold); background: rgba(224,173,60,.18); color: var(--gold); font-size: 12px; grid-column: span 2; }
+    #restart-button { border-color: rgba(111,201,216,.5); color: var(--teal); }
+    #gfx-button { border-color: rgba(139,196,124,.5); color: var(--green); }
+    @media (pointer:coarse) {
+      #mobile-ui { display: block; }
+      #help { display: none; }
+      #title { left: 16px; top: max(13px,env(safe-area-inset-top)); font-size: 14px; }
+      #zone { left: 16px; top: max(38px,calc(env(safe-area-inset-top) + 25px)); font-size: 9px; }
+      #systems { left: 16px; top: max(60px,calc(env(safe-area-inset-top) + 47px)); gap: 5px 10px; font-size: 9px; }
+      #objective { right: 13px; top: max(13px,env(safe-area-inset-top)); max-width: 178px; font-size: 10px; }
+      #state { top: max(100px,calc(env(safe-area-inset-top) + 86px)); }
+      #carry { top: max(130px,calc(env(safe-area-inset-top) + 116px)); }
+      #prompt { bottom: auto; top: max(158px,calc(env(safe-area-inset-top) + 144px)); font-size: 11px; }
+      #toast { bottom: max(164px,calc(env(safe-area-inset-bottom) + 148px)); }
+      #quality { display: none; }
+      #crosshair { opacity: .3; }
+    }
+  </style>
+</head>
+<body>
+  <div id="start">
+    <div id="start-card">
+      <div class="eyebrow">Critical Shift // standalone reactor test</div>
+      <h1>REACTOR POOL</h1>
+      <p>Operate from the elevated control booth, look down into the open pool, then leave the booth to fetch fuel rods and service the machinery on the containment deck.</p>
+      <button id="enter" type="button" disabled>PAINTING THE PLANT…</button>
+      <p id="legend">WASD move · mouse look · Shift sprint · Space jump · E use · R reset · G graphics</p>
+    </div>
+  </div>
+  <div id="hud" aria-hidden="true">
+    <div id="title">REACTOR POOL</div>
+    <div id="zone">ELEVATED CONTROL BOOTH</div>
+    <div id="objective">Authorise the coolant loop from the control desk.</div>
+    <div id="state">SHUTDOWN / SAFE</div>
+    <div id="carry">CARRYING FUEL ROD</div>
+    <div id="systems">
+      <div class="metric">TEMP <b id="temp">32°</b></div>
+      <div class="metric">COOL <b id="cool">0%</b></div>
+      <div class="metric">OUTPUT <b id="output">0 MW</b></div>
+      <div class="metric">DEMAND <b id="demand">45 MW</b></div>
+      <div class="metric">RODS <b id="rods">100%</b></div>
+      <div class="metric">FUEL <b id="fuel">0/4</b></div>
+    </div>
+    <div id="crosshair"></div>
+    <div id="prompt"><em id="prompt-action"></em><span id="prompt-detail"></span><small id="prompt-place"></small></div>
+    <div id="help"><b>WASD</b> move · <b>MOUSE</b> look · <b>SHIFT</b> sprint · <b>SPACE</b> jump · <b>E</b> use · <b>R</b> reset · <b>G</b> graphics</div>
+    <div id="quality">RENDER TIER <span id="quality-tag">—</span></div>
+    <div id="toast"></div>
+    <div id="flash"></div>
+  </div>
+  <div id="mobile-ui" aria-hidden="true">
+    <div id="look-zone"></div>
+    <div id="stick"><div id="knob"></div></div>
+    <div id="mobile-buttons">
+      <div class="mobile-button small" id="jump-button">JUMP</div>
+      <div class="mobile-button small" id="restart-button">RESET</div>
+      <div class="mobile-button small" id="gfx-button">GFX</div>
+      <div class="mobile-button" id="use-button">USE</div>
+    </div>
+  </div>
+  <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.185.1/build/three.module.js","three/addons/":"https://unpkg.com/three@0.185.1/examples/jsm/"}}
+  </script>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
