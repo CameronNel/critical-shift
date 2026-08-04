@@ -3,103 +3,102 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
-  <title>Critical Shift — Reactor Room</title>
+  <title>Critical Shift — Reactor Pool</title>
   <style>
     :root {
       color-scheme: dark;
-      --ink: #071114;
-      --paper: #e6d8b6;
-      --gold: #e5af55;
-      --teal: #68c2b1;
-      --red: #dd6b56;
-      --glass: rgba(5, 14, 17, .78);
-      --line: rgba(230, 216, 182, .23);
+      --ink: #071012;
+      --paper: #ebddbc;
+      --muted: rgba(235,221,188,.66);
+      --gold: #e9ad4b;
+      --teal: #64c6b5;
+      --red: #ef7159;
+      --glass: rgba(5,14,16,.82);
+      --line: rgba(235,221,188,.22);
     }
     * { box-sizing: border-box; }
     html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: var(--ink); }
     body { font-family: Georgia, "Times New Roman", serif; }
     canvas { display: block; width: 100%; height: 100%; touch-action: none; }
-    #start { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--paper); background: radial-gradient(ellipse at 50% 34%, rgba(31, 85, 78, .36), rgba(3, 9, 12, .98) 73%); }
-    #start-card { width: min(600px, calc(100vw - 42px)); padding: 30px 28px 25px; border: 1px solid var(--line); border-radius: 18px; background: rgba(8, 18, 20, .86); box-shadow: 0 28px 90px rgba(0,0,0,.66), inset 0 1px rgba(255,255,255,.04); backdrop-filter: blur(9px); }
-    #start-card .eyebrow { margin: 0 0 12px; color: var(--teal); font: 700 11px/1.2 system-ui, sans-serif; letter-spacing: .19em; text-transform: uppercase; }
-    #start-card h1 { margin: 0 0 11px; font-size: clamp(27px, 5.5vw, 42px); letter-spacing: .11em; }
-    #start-card p { max-width: 500px; margin: 0 auto 21px; color: rgba(230,216,182,.83); font: 14px/1.55 system-ui, sans-serif; }
-    #enter { border: 0; border-radius: 999px; padding: 13px 23px; color: #2a1b09; background: var(--gold); font: 800 12px system-ui, sans-serif; letter-spacing: .09em; cursor: pointer; box-shadow: 0 6px 20px rgba(229,175,85,.22); }
-    #enter:active { transform: translateY(1px); }
-    #hud { position: fixed; inset: 0; z-index: 4; pointer-events: none; color: var(--paper); text-shadow: 0 2px 4px #000, 0 0 12px #000; }
-    #title { position: absolute; left: 22px; top: 18px; font-size: 16px; font-weight: 800; letter-spacing: .14em; }
-    #zone { position: absolute; left: 22px; top: 46px; color: #8bd1c4; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
-    #objective { position: absolute; right: 22px; top: 18px; max-width: 260px; padding: 8px 10px; border-left: 2px solid rgba(229,175,85,.72); background: rgba(6,13,15,.35); color: rgba(230,216,182,.82); font: 11px/1.35 system-ui, sans-serif; text-align: right; }
-    #systems { position: absolute; left: 22px; top: 72px; display: grid; grid-template-columns: repeat(2, auto); gap: 5px 14px; font: 700 10px/1 system-ui, sans-serif; letter-spacing: .06em; }
-    .metric { color: rgba(230,216,182,.62); }
-    .metric b { color: var(--teal); font-weight: 800; }
+    #start { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: 22px; text-align: center; color: var(--paper); background: radial-gradient(ellipse at 50% 37%, rgba(29,84,77,.38), rgba(3,8,10,.98) 72%); }
+    #start-card { width: min(620px, calc(100vw - 38px)); padding: 30px 28px 26px; border: 1px solid var(--line); border-radius: 17px; background: rgba(7,17,19,.90); box-shadow: 0 28px 90px rgba(0,0,0,.70), inset 0 1px rgba(255,255,255,.04); backdrop-filter: blur(9px); }
+    .eyebrow { margin: 0 0 12px; color: var(--teal); font: 800 10px/1.2 system-ui,sans-serif; letter-spacing: .19em; text-transform: uppercase; }
+    #start h1 { margin: 0 0 10px; font-size: clamp(28px,5.6vw,43px); letter-spacing: .11em; }
+    #start p { max-width: 525px; margin: 0 auto 21px; color: rgba(235,221,188,.82); font: 14px/1.55 system-ui,sans-serif; }
+    #enter { border: 0; border-radius: 999px; padding: 13px 24px; color: #281907; background: var(--gold); font: 900 12px system-ui,sans-serif; letter-spacing: .09em; cursor: pointer; box-shadow: 0 7px 22px rgba(233,173,75,.24); }
+    #hud { position: fixed; inset: 0; z-index: 4; pointer-events: none; color: var(--paper); text-shadow: 0 2px 4px #000,0 0 13px #000; }
+    #title { position: absolute; left: 22px; top: 18px; font-size: 16px; font-weight: 900; letter-spacing: .14em; }
+    #zone { position: absolute; left: 22px; top: 46px; color: #87d2c4; font: 800 10px system-ui,sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+    #objective { position: absolute; right: 22px; top: 18px; max-width: 280px; padding: 8px 10px; border-left: 2px solid rgba(233,173,75,.78); background: rgba(5,13,15,.38); color: rgba(235,221,188,.84); font: 11px/1.38 system-ui,sans-serif; text-align: right; }
+    #systems { position: absolute; left: 22px; top: 71px; display: grid; grid-template-columns: repeat(2,auto); gap: 5px 14px; font: 800 10px/1 system-ui,sans-serif; letter-spacing: .06em; }
+    .metric { color: rgba(235,221,188,.57); }
+    .metric b { color: var(--teal); }
     .metric.hot b { color: var(--red); }
-    #state { position: absolute; left: 50%; top: 18px; transform: translateX(-50%); padding: 7px 12px; border: 1px solid rgba(104,194,177,.34); border-radius: 999px; background: rgba(7,26,27,.65); color: var(--teal); font: 800 11px system-ui, sans-serif; letter-spacing: .12em; }
-    #state.alarm { border-color: rgba(221,107,86,.75); background: rgba(65,17,13,.78); color: #ffb19a; }
-    #help { position: absolute; left: 22px; bottom: 20px; padding: 9px 11px; border: 1px solid rgba(230,216,182,.18); border-radius: 8px; background: var(--glass); color: rgba(230,216,182,.86); font: 12px/1.4 system-ui, sans-serif; backdrop-filter: blur(5px); }
-    #crosshair { position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; transform: translate(-50%, -50%); opacity: .53; }
-    #crosshair::before, #crosshair::after { content: ""; position: absolute; background: #f5e2b9; }
+    #state { position: absolute; left: 50%; top: 18px; transform: translateX(-50%); padding: 7px 12px; border: 1px solid rgba(100,198,181,.34); border-radius: 999px; background: rgba(6,25,26,.72); color: var(--teal); font: 900 10px system-ui,sans-serif; letter-spacing: .12em; }
+    #state.alarm { border-color: rgba(239,113,89,.72); background: rgba(64,15,11,.82); color: #ffb09b; }
+    #carry { position: absolute; left: 50%; top: 55px; transform: translateX(-50%); padding: 6px 10px; border: 1px solid rgba(233,173,75,.48); border-radius: 6px; background: rgba(50,29,5,.72); color: var(--gold); font: 900 10px system-ui,sans-serif; letter-spacing: .11em; opacity: 0; }
+    #carry.on { opacity: 1; }
+    #crosshair { position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; transform: translate(-50%,-50%); opacity: .53; }
+    #crosshair::before,#crosshair::after { content: ""; position: absolute; background: #f4e3be; }
     #crosshair::before { left: 6px; top: 0; width: 1px; height: 13px; }
     #crosshair::after { left: 0; top: 6px; width: 13px; height: 1px; }
-    #prompt { position: absolute; left: 50%; bottom: 72px; transform: translateX(-50%); min-width: 230px; max-width: 350px; padding: 9px 13px; border: 1px solid rgba(230,216,182,.22); border-radius: 9px; background: rgba(6,13,15,.80); text-align: center; font: 12px/1.35 system-ui, sans-serif; opacity: 0; transition: opacity .12s; }
+    #prompt { position: absolute; left: 50%; bottom: 71px; transform: translateX(-50%); min-width: 235px; max-width: 360px; padding: 9px 13px; border: 1px solid rgba(235,221,188,.25); border-radius: 9px; background: rgba(5,12,14,.86); text-align: center; font: 12px/1.35 system-ui,sans-serif; opacity: 0; transition: opacity .12s; }
     #prompt.on { opacity: 1; }
-    #prompt em { display: block; color: var(--gold); font: 800 11px system-ui, sans-serif; font-style: normal; letter-spacing: .09em; }
-    #prompt small { display: block; margin-top: 3px; color: rgba(230,216,182,.65); font-size: 10px; }
-    #toast { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); padding: 8px 13px; border: 1px solid rgba(230,216,182,.17); border-radius: 999px; background: rgba(5,10,11,.86); font: 12px system-ui, sans-serif; opacity: 0; transition: opacity .18s; }
-    #flash { position: absolute; inset: 0; background: #ffdcae; opacity: 0; }
+    #prompt em { display: block; color: var(--gold); font: 900 11px system-ui,sans-serif; font-style: normal; letter-spacing: .09em; }
+    #prompt small { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+    #toast { position: absolute; left: 50%; bottom: 25px; transform: translateX(-50%); padding: 8px 13px; border: 1px solid rgba(235,221,188,.17); border-radius: 999px; background: rgba(4,10,11,.90); font: 12px system-ui,sans-serif; opacity: 0; transition: opacity .16s; }
+    #help { position: absolute; left: 22px; bottom: 20px; padding: 9px 11px; border: 1px solid rgba(235,221,188,.18); border-radius: 8px; background: var(--glass); color: rgba(235,221,188,.85); font: 12px/1.4 system-ui,sans-serif; backdrop-filter: blur(5px); }
+    #flash { position: absolute; inset: 0; background: #ffcf9d; opacity: 0; transition: opacity .12s; }
     #mobile-ui { display: none; position: fixed; inset: 0; z-index: 6; pointer-events: none; }
-    #stick { position: absolute; left: max(22px, env(safe-area-inset-left)); bottom: max(22px, env(safe-area-inset-bottom)); width: 122px; height: 122px; border: 1px solid rgba(230,216,182,.24); border-radius: 50%; background: rgba(230,216,182,.065); pointer-events: auto; touch-action: none; }
-    #knob { position: absolute; left: 50%; top: 50%; width: 50px; height: 50px; margin: -25px; border: 1px solid rgba(230,216,182,.40); border-radius: 50%; background: rgba(230,216,182,.18); }
-    #look-zone { position: absolute; left: 34%; top: 0; right: 0; bottom: 0; pointer-events: auto; touch-action: none; }
-    #mobile-buttons { position: absolute; right: max(19px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom)); display: grid; grid-template-columns: repeat(2, auto); gap: 10px; justify-items: end; pointer-events: auto; }
-    .mobile-button { width: 60px; height: 60px; display: grid; place-items: center; border: 1px solid rgba(230,216,182,.30); border-radius: 50%; background: rgba(230,216,182,.10); color: var(--paper); font: 800 10px system-ui, sans-serif; letter-spacing: .04em; user-select: none; touch-action: none; text-align: center; }
+    #stick { position: absolute; left: max(20px,env(safe-area-inset-left)); bottom: max(22px,env(safe-area-inset-bottom)); width: 122px; height: 122px; border: 1px solid rgba(235,221,188,.25); border-radius: 50%; background: rgba(235,221,188,.07); pointer-events: auto; touch-action: none; }
+    #knob { position: absolute; left: 50%; top: 50%; width: 50px; height: 50px; margin: -25px; border: 1px solid rgba(235,221,188,.42); border-radius: 50%; background: rgba(235,221,188,.18); }
+    #look-zone { position: absolute; left: 35%; top: 0; right: 0; bottom: 0; pointer-events: auto; touch-action: none; }
+    #mobile-buttons { position: absolute; right: max(18px,env(safe-area-inset-right)); bottom: max(23px,env(safe-area-inset-bottom)); display: grid; grid-template-columns: repeat(2,auto); gap: 10px; justify-items: end; pointer-events: auto; }
+    .mobile-button { width: 60px; height: 60px; display: grid; place-items: center; border: 1px solid rgba(235,221,188,.31); border-radius: 50%; background: rgba(235,221,188,.11); color: var(--paper); font: 900 10px system-ui,sans-serif; letter-spacing: .04em; user-select: none; touch-action: none; text-align: center; }
     .mobile-button.small { width: 50px; height: 50px; font-size: 9px; }
-    #use-button { width: 76px; height: 76px; border-color: var(--gold); background: rgba(229,175,85,.17); color: var(--gold); font-size: 12px; }
-    #restart-button { border-color: rgba(104,194,177,.5); color: var(--teal); }
-    @media (pointer: coarse) {
+    #use-button { width: 78px; height: 78px; border-color: var(--gold); background: rgba(233,173,75,.18); color: var(--gold); font-size: 12px; }
+    #restart-button { border-color: rgba(100,198,181,.52); color: var(--teal); }
+    @media (pointer:coarse) {
       #mobile-ui { display: block; }
       #help { display: none; }
-      #title { left: 17px; top: max(14px, env(safe-area-inset-top)); font-size: 14px; }
-      #zone { left: 17px; top: max(39px, calc(env(safe-area-inset-top) + 25px)); font-size: 10px; }
-      #systems { left: 17px; top: max(62px, calc(env(safe-area-inset-top) + 48px)); gap: 5px 10px; font-size: 9px; }
-      #objective { right: 14px; top: max(14px, env(safe-area-inset-top)); max-width: 166px; font-size: 10px; }
-      #state { top: max(98px, calc(env(safe-area-inset-top) + 84px)); font-size: 10px; }
-      #crosshair { opacity: .30; }
-      #prompt { bottom: auto; top: max(132px, calc(env(safe-area-inset-top) + 118px)); font-size: 11px; }
-      #toast { bottom: max(162px, calc(env(safe-area-inset-bottom) + 146px)); }
-    }
-    @media (max-width: 440px) {
-      #start-card { padding: 26px 20px 22px; }
-      #start-card h1 { font-size: 25px; }
-      #start-card p { font-size: 13px; }
+      #title { left: 16px; top: max(13px,env(safe-area-inset-top)); font-size: 14px; }
+      #zone { left: 16px; top: max(38px,calc(env(safe-area-inset-top) + 25px)); font-size: 9px; }
+      #systems { left: 16px; top: max(60px,calc(env(safe-area-inset-top) + 47px)); gap: 5px 9px; font-size: 9px; }
+      #objective { right: 13px; top: max(13px,env(safe-area-inset-top)); max-width: 176px; font-size: 10px; }
+      #state { top: max(98px,calc(env(safe-area-inset-top) + 84px)); }
+      #carry { top: max(128px,calc(env(safe-area-inset-top) + 114px)); }
+      #prompt { bottom: auto; top: max(157px,calc(env(safe-area-inset-top) + 143px)); font-size: 11px; }
+      #toast { bottom: max(162px,calc(env(safe-area-inset-bottom) + 146px)); }
+      #crosshair { opacity: .32; }
     }
   </style>
 </head>
 <body>
   <div id="start">
     <div id="start-card">
-      <div class="eyebrow">Critical Shift // standalone Three.js room</div>
-      <h1>REACTOR ROOM</h1>
-      <p>A compact containment deck with six stations and one readable loop: cool it, fuel it, raise load, answer demand, and keep the alarms quiet.</p>
-      <button id="enter" type="button">ENTER THE REACTOR ROOM</button>
+      <div class="eyebrow">Critical Shift // standalone reactor test</div>
+      <h1>REACTOR POOL</h1>
+      <p>Operate from the elevated control booth, look down into the open pool, then leave the booth to fetch fuel rods and service the machinery on the containment deck.</p>
+      <button id="enter" type="button">START THE SHIFT</button>
     </div>
   </div>
   <div id="hud" aria-hidden="true">
-    <div id="title">REACTOR ROOM</div>
-    <div id="zone">CONTAINMENT DECK // 01</div>
-    <div id="objective">Start cooling, then insert fuel.</div>
-    <div id="state">COLD / SAFE</div>
+    <div id="title">REACTOR POOL</div>
+    <div id="zone">ELEVATED CONTROL BOOTH</div>
+    <div id="objective">Open the coolant loop from the control desk.</div>
+    <div id="state">SHUTDOWN / SAFE</div>
+    <div id="carry">CARRYING FUEL ROD</div>
     <div id="systems">
-      <div class="metric">TEMP <b id="temp">34°</b></div>
+      <div class="metric">TEMP <b id="temp">32°</b></div>
       <div class="metric">COOL <b id="cool">0%</b></div>
       <div class="metric">OUTPUT <b id="output">0 MW</b></div>
-      <div class="metric">DEMAND <b id="demand">42 MW</b></div>
-      <div class="metric">FUEL <b id="fuel">0%</b></div>
-      <div class="metric">WASTE <b id="waste">0%</b></div>
+      <div class="metric">DEMAND <b id="demand">45 MW</b></div>
+      <div class="metric">RODS <b id="rods">100%</b></div>
+      <div class="metric">FUEL <b id="fuel">0/4</b></div>
     </div>
     <div id="crosshair"></div>
-    <div id="prompt"><em id="prompt-action"></em><span id="prompt-detail"></span><small id="prompt-distance"></small></div>
-    <div id="help">WASD move · mouse look · Shift sprint · Space jump · E use · R restart</div>
+    <div id="prompt"><em id="prompt-action"></em><span id="prompt-detail"></span><small id="prompt-place"></small></div>
+    <div id="help">WASD move · mouse look · Shift sprint · Space jump · E use · R reset</div>
     <div id="toast"></div>
     <div id="flash"></div>
   </div>
@@ -109,341 +108,12 @@
     <div id="mobile-buttons">
       <div class="mobile-button small" id="jump-button">JUMP</div>
       <div class="mobile-button small" id="restart-button">RESET</div>
-      <div class="mobile-button" id="use-button" style="grid-column: span 2">USE</div>
+      <div class="mobile-button" id="use-button" style="grid-column:span 2">USE</div>
     </div>
   </div>
-  <script type="module">
-    import * as THREE from 'https://unpkg.com/three@0.185.1/build/three.module.js';
-
-    const $ = id => document.getElementById(id);
-    const coarse = matchMedia('(pointer: coarse)').matches;
-    const clamp = THREE.MathUtils.clamp;
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x071114);
-    scene.fog = new THREE.Fog(0x0a1b1d, 15, 58);
-    const camera = new THREE.PerspectiveCamera(coarse ? 67 : 70, innerWidth / innerHeight, .05, 120);
-    camera.rotation.order = 'YXZ';
-    let renderer;
-    try {
-      renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
-    } catch (error) {
-      $('start-card').innerHTML = '<div class="eyebrow">WebGL unavailable</div><h1>REACTOR ROOM</h1><p>This prototype needs a WebGL-capable browser. Try the latest Safari, Chrome, or Firefox on the test device.</p>';
-      throw error;
-    }
-    renderer.setSize(innerWidth, innerHeight);
-    renderer.setPixelRatio(Math.min(devicePixelRatio, coarse ? 1.25 : 1.6));
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = coarse ? 1.23 : 1.17;
-    renderer.shadowMap.enabled = false;
-    document.body.prepend(renderer.domElement);
-
-    const mats = {
-      floor: new THREE.MeshStandardMaterial({ color: 0x263738, roughness: .94, metalness: .05 }),
-      concrete: new THREE.MeshStandardMaterial({ color: 0x3d4b4a, roughness: .98 }),
-      darkSteel: new THREE.MeshStandardMaterial({ color: 0x152527, roughness: .72, metalness: .56 }),
-      steel: new THREE.MeshStandardMaterial({ color: 0x60716d, roughness: .52, metalness: .64 }),
-      black: new THREE.MeshStandardMaterial({ color: 0x0a1415, roughness: .88, metalness: .18 }),
-      amber: new THREE.MeshStandardMaterial({ color: 0xd79b3d, roughness: .48, metalness: .35 }),
-      amberGlow: new THREE.MeshStandardMaterial({ color: 0xf1bd54, emissive: 0x8d410b, emissiveIntensity: 2.1, roughness: .34 }),
-      teal: new THREE.MeshStandardMaterial({ color: 0x4cae9f, emissive: 0x123e3b, emissiveIntensity: .75, roughness: .35 }),
-      green: new THREE.MeshStandardMaterial({ color: 0x65ba7a, emissive: 0x163e1e, emissiveIntensity: .85, roughness: .38 }),
-      red: new THREE.MeshStandardMaterial({ color: 0xc75643, emissive: 0x4a1009, emissiveIntensity: .95, roughness: .42 }),
-      glass: new THREE.MeshStandardMaterial({ color: 0x2e5f5c, emissive: 0x082322, emissiveIntensity: .55, transparent: true, opacity: .66, roughness: .15, metalness: .2 }),
-      stripe: new THREE.MeshBasicMaterial({ color: 0xdea84d }),
-      ink: new THREE.MeshBasicMaterial({ color: 0x050b0c }),
-    };
-    const up = new THREE.Vector3(0, 1, 0);
-
-    function box(w, h, d, material, position, rotationY = 0, parent = scene) {
-      const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), material);
-      mesh.position.set(...position);
-      mesh.rotation.y = rotationY;
-      parent.add(mesh);
-      return mesh;
-    }
-    function cylinder(radius, height, material, position, radial = 20, parent = scene) {
-      const mesh = new THREE.Mesh(new THREE.CylinderGeometry(radius, radius, height, radial), material);
-      mesh.position.set(...position);
-      parent.add(mesh);
-      return mesh;
-    }
-    function torus(radius, tube, material, position, rotation = [Math.PI / 2, 0, 0], parent = scene) {
-      const mesh = new THREE.Mesh(new THREE.TorusGeometry(radius, tube, 10, 48), material);
-      mesh.position.set(...position);
-      mesh.rotation.set(...rotation);
-      parent.add(mesh);
-      return mesh;
-    }
-    function label(text, color = '#e6d8b6', scale = 1.7) {
-      const canvas = document.createElement('canvas');
-      canvas.width = 512; canvas.height = 128;
-      const ctx = canvas.getContext('2d');
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(4, 12, 14, .82)';
-      ctx.fillRect(10, 22, 492, 84);
-      ctx.strokeStyle = color; ctx.globalAlpha = .75; ctx.lineWidth = 3;
-      ctx.strokeRect(10, 22, 492, 84);
-      ctx.globalAlpha = 1; ctx.fillStyle = color;
-      ctx.font = '700 30px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText(text, canvas.width / 2, canvas.height / 2 + 2);
-      const texture = new THREE.CanvasTexture(canvas); texture.colorSpace = THREE.SRGBColorSpace;
-      const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, transparent: true, depthTest: false }));
-      sprite.scale.set(scale * 2.05, scale * .51, 1);
-      return sprite;
-    }
-    function hazardStrip(x, z, w, d, rotationY = 0) {
-      const group = new THREE.Group(); group.position.set(x, .012, z); group.rotation.y = rotationY;
-      for (let i = 0; i < Math.ceil(w / .6); i++) {
-        const stripe = box(.27, .018, d, mats.stripe, [(-w / 2) + .3 + i * .6, 0, 0], 0, group);
-        stripe.rotation.z = -.58;
-      }
-      scene.add(group); return group;
-    }
-
-    // Compact authored shell: 22m x 18m, with a single clear service door.
-    box(22, .35, 18, mats.floor, [0, -.18, 0]);
-    box(22, .35, .35, mats.concrete, [0, 11.1, -8.8]);
-    box(22, .35, .35, mats.concrete, [0, 11.1, 8.8]);
-    box(.35, 11.3, 18, mats.concrete, [-10.8, 5.45, 0]);
-    box(.35, 11.3, 18, mats.concrete, [10.8, 5.45, 0]);
-    box(8.8, 11.3, .35, mats.concrete, [-6.6, 5.45, 8.8]);
-    box(8.8, 11.3, .35, mats.concrete, [6.6, 5.45, 8.8]);
-    box(3.2, .4, .28, mats.amber, [0, 7.8, 8.58]);
-    box(3.2, .18, .22, mats.black, [0, 7.8, 8.40]);
-    const doorLabel = label('SERVICE ACCESS // KEEP CLEAR', '#e5af55', 1.15); doorLabel.position.set(0, 8.25, 8.35); doorLabel.rotation.y = Math.PI; scene.add(doorLabel);
-    for (const x of [-8.7, 8.7]) { box(.12, .12, 16.5, mats.teal, [x, .03, 0]); }
-    for (const z of [-7.3, 7.3]) { box(16.4, .12, .12, mats.teal, [0, .03, z]); }
-    hazardStrip(-5.7, 0, 3.0, 4.5, Math.PI / 2);
-    hazardStrip(5.7, 0, 3.0, 4.5, Math.PI / 2);
-    hazardStrip(0, -7.1, 5.0, .55);
-
-    // The reactor is the only oversized form in the room; all stations stay within a few seconds of it.
-    const core = new THREE.Group(); core.position.set(0, 0, 0); scene.add(core);
-    cylinder(3.25, .55, mats.darkSteel, [0, .28, 0], 32, core);
-    cylinder(2.72, 6.0, mats.black, [0, 3.3, 0], 32, core);
-    cylinder(2.28, 5.42, mats.glass, [0, 3.3, 0], 32, core);
-    cylinder(1.35, 4.9, mats.amberGlow, [0, 3.35, 0], 24, core);
-    torus(2.86, .17, mats.steel, [0, 1.0, 0], [Math.PI / 2, 0, 0], core);
-    torus(2.86, .17, mats.steel, [0, 3.25, 0], [Math.PI / 2, 0, 0], core);
-    torus(2.86, .17, mats.steel, [0, 5.65, 0], [Math.PI / 2, 0, 0], core);
-    for (let i = 0; i < 12; i++) {
-      const a = i / 12 * Math.PI * 2;
-      const rib = box(.18, 5.55, .24, i % 3 === 0 ? mats.amber : mats.steel, [Math.cos(a) * 2.72, 3.3, Math.sin(a) * 2.72], -a, core);
-      rib.userData.reactorRib = true;
-    }
-    const coreLabel = label('CONTAINMENT CORE', '#f1bd54', 1.34); coreLabel.position.set(0, 7.25, 0); scene.add(coreLabel);
-    const coreLight = new THREE.PointLight(0xf0a343, 3.2, 11, 2); coreLight.position.set(0, 3.8, 0); scene.add(coreLight);
-
-    // A simple overhead service gantry gives the silhouette a power-plant read without filling the room with clutter.
-    box(16.5, .25, .25, mats.steel, [0, 9.6, -1.4]);
-    box(.25, 2.2, .25, mats.steel, [-8.1, 8.5, -1.4]);
-    box(.25, 2.2, .25, mats.steel, [8.1, 8.5, -1.4]);
-    for (const x of [-7.1, -2.4, 2.4, 7.1]) box(1.1, .12, .12, mats.amber, [x, 9.1, -1.4]);
-    for (const p of [[-8, 8, -7.7], [8, 8, -7.7], [-8, 8, 6.8], [8, 8, 6.8]]) {
-      const light = new THREE.PointLight(0x74c9b8, 2.3, 8, 2); light.position.set(...p); scene.add(light);
-      box(1.3, .08, .4, mats.teal, [p[0], 10.4, p[2]]);
-    }
-
-    const stations = [];
-    const controls = [];
-    const stationConfig = [
-      { id: 'fuel', title: 'FUEL / CONTROL', subtitle: 'quality and reactivity', pos: [-7.4, 0, 2.9], color: '#e5af55', actions: [
-        ['FUEL INSERTION', 'load the delivered assembly'], ['CONTROL POSITION', 'raise or lower reactivity'] ] },
-      { id: 'cooling', title: 'COOLING MANIFOLD', subtitle: 'flow and pump health', pos: [7.2, 0, 2.7], color: '#68c2b1', actions: [
-        ['COOLANT VALVES', 'route flow around the core'], ['PUMP ACTIVATION', 'start the primary pumps'], ['EMERGENCY COOLING', 'spend reserve for a hard flush'], ['REPAIR COMPONENT', 'patch a damaged pump'] ] },
-      { id: 'power', title: 'POWER EXPORT', subtitle: 'turbine and grid', pos: [-7.4, 0, -4.9], color: '#e5af55', actions: [
-        ['TURBINE THROTTLE', 'match load to demand'], ['GRID BREAKERS', 'connect the export bus'] ] },
-      { id: 'aux', title: 'AUXILIARY POWER', subtitle: 'reserve and black start', pos: [7.2, 0, -4.9], color: '#68c2b1', actions: [
-        ['BACKUP GENERATOR', 'bring the old diesel online'], ['RESERVE POWER', 'route reserve to cooling'] ] },
-      { id: 'waste', title: 'WASTE / VENT', subtitle: 'storage and pressure', pos: [-2.6, 0, 7.0], color: '#c77a58', actions: [
-        ['WASTE TRANSFER', 'clear the holding drum'], ['VENTING', 'bleed pressure to the stack'] ] },
-      { id: 'safety', title: 'SAFETY / SCRAM', subtitle: 'alarms and shutdown', pos: [2.8, 0, 7.0], color: '#dd6b56', actions: [
-        ['ALARM ACKNOWLEDGEMENT', 'silence the local alarm'], ['AUTO-SHUTDOWN BYPASS', 'disable the safe limit'], ['EMERGENCY SHUTDOWN', 'insert all safety rods'] ] },
-    ];
-    function addStation(config) {
-      const group = new THREE.Group(); group.position.set(...config.pos); scene.add(group);
-      const facing = Math.atan2(-config.pos[0], -config.pos[2]); group.rotation.y = facing;
-      box(3.5, .32, 1.3, mats.darkSteel, [0, .22, 0], 0, group);
-      box(3.08, 1.65, .68, mats.steel, [0, 1.16, -.13], 0, group);
-      box(2.8, .08, .54, mats.black, [0, 1.84, -.15], 0, group);
-      const header = box(2.78, .10, .05, config.id === 'safety' ? mats.red : mats.teal, [0, 1.78, -.44], 0, group);
-      header.userData.station = config;
-      const title = label(config.title, config.color, .80); title.position.set(0, 2.72, 0); title.rotation.y = -facing; group.add(title);
-      const subtitle = label(config.subtitle.toUpperCase(), '#b6c5b9', .49); subtitle.position.set(0, 2.27, 0); subtitle.rotation.y = -facing; group.add(subtitle);
-      config.actions.forEach((action, index) => {
-        const x = (index - (config.actions.length - 1) / 2) * .75;
-        const control = box(.52, .18, .38, config.id === 'safety' ? mats.red : (index === 0 ? mats.amberGlow : mats.teal), [x, 2.11, -.24], 0, group);
-        control.userData.action = { station: config, index, name: action[0], detail: action[1] };
-        controls.push(control);
-        const buttonLabel = label(String(index + 1), '#081415', .25); buttonLabel.position.set(x, 2.25, -.46); buttonLabel.rotation.y = -facing; group.add(buttonLabel);
-      });
-      const conduit = cylinder(.08, 1.7, config.id === 'safety' ? mats.red : mats.teal, [0, .94, .58], 8, group); conduit.rotation.z = Math.PI / 2;
-      stations.push(config);
-    }
-    stationConfig.forEach(addStation);
-    // Four spawn pads keep the room multiplayer-readable without adding another room.
-    for (const [x, z] of [[-1.5, 7.7], [1.5, 7.7], [-8.9, 6.2], [8.9, 6.2]]) {
-      torus(.38, .035, mats.teal, [x, .03, z], [Math.PI / 2, 0, 0]);
-      cylinder(.08, .03, mats.teal, [x, .05, z], 12);
-    }
-
-    const hemi = new THREE.HemisphereLight(0x92c6bb, 0x091113, 1.25); scene.add(hemi);
-    const fill = new THREE.DirectionalLight(0xffd18a, 1.15); fill.position.set(-6, 13, 7); scene.add(fill);
-    const alarmLight = new THREE.PointLight(0xe05d43, 0, 15, 2); alarmLight.position.set(0, 8.5, 6.9); scene.add(alarmLight);
-
-    const sim = {
-      time: 0, temp: 34, cool: 0, output: 0, demand: 42, fuel: 0, fuelQuality: 78,
-      waste: 0, turbine: 0, reactivity: 0, reserve: 64, pumpHealth: 100,
-      breakers: false, pumps: false, emergencyCooling: false, autoShutdown: true,
-      alarm: false, state: 'COLD / SAFE', running: true, lastAction: '', demandWave: 0,
-    };
-    const player = new THREE.Vector3(0, .02, 7.55);
-    const velocity = new THREE.Vector3();
-    let yaw = 0, pitch = 0, started = false, jumpReady = true, focused = null, toastTimer = 0;
-    const keys = new Set();
-    const touchMove = { x: 0, y: 0 };
-    const raycaster = new THREE.Raycaster();
-
-    function stationForControl(mesh) { return mesh?.userData?.action || null; }
-    function focusControl() {
-      raycaster.setFromCamera({ x: 0, y: 0 }, camera);
-      const hits = raycaster.intersectObjects(controls, false);
-      const candidate = hits.find(hit => hit.distance < 4.8 && player.distanceTo(hit.object.getWorldPosition(new THREE.Vector3())) < 5.4);
-      if (candidate) return stationForControl(candidate.object);
-      let nearest = null, best = 3.0;
-      for (const control of controls) {
-        const world = control.getWorldPosition(new THREE.Vector3());
-        const distance = player.distanceTo(world);
-        if (distance > best) continue;
-        const to = world.sub(camera.position).normalize();
-        const forward = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
-        if (forward.dot(to) > .28) { best = distance; nearest = stationForControl(control); }
-      }
-      return nearest;
-    }
-    function showToast(message, seconds = 2.2) { $('toast').textContent = message; $('toast').style.opacity = '1'; toastTimer = seconds; }
-    function flash() { $('flash').style.opacity = '.32'; setTimeout(() => $('flash').style.opacity = '0', 100); }
-    function updateObjective() {
-      let objective = 'Keep the room stable.';
-      if (!sim.pumps) objective = 'Start cooling, then insert fuel.';
-      else if (sim.fuel < 1) objective = 'Insert a fuel assembly at FUEL / CONTROL.';
-      else if (!sim.breakers) objective = 'Connect GRID BREAKERS, then raise turbine load.';
-      else if (sim.output < sim.demand * .65) objective = 'Match turbine load to the rising demand.';
-      else if (sim.waste > 62) objective = 'Transfer waste before the drum fills.';
-      else if (sim.alarm) objective = 'Acknowledge the alarm or hit SCRAM.';
-      else objective = 'Hold output. Watch temperature and waste.';
-      $('objective').textContent = objective;
-    }
-    function updateHud() {
-      $('temp').textContent = `${Math.round(sim.temp)}°`;
-      $('cool').textContent = `${Math.round(sim.cool)}%`;
-      $('output').textContent = `${Math.round(sim.output)} MW`;
-      $('demand').textContent = `${Math.round(sim.demand)} MW`;
-      $('fuel').textContent = `${Math.round(sim.fuel)}%`;
-      $('waste').textContent = `${Math.round(sim.waste)}%`;
-      $('temp').parentElement.classList.toggle('hot', sim.temp > 590);
-      const state = $('state'); state.textContent = sim.state; state.classList.toggle('alarm', sim.alarm || sim.temp > 640);
-      updateObjective();
-      const prompt = $('prompt');
-      if (focused && started) {
-        prompt.classList.add('on'); $('prompt-action').textContent = `[E] ${focused.name}`; $('prompt-detail').textContent = focused.detail; $('prompt-distance').textContent = `${focused.station.title} // ${focused.station.actions.length} controls`;
-      } else prompt.classList.remove('on');
-    }
-    function setState(next, alarm = sim.alarm) { sim.state = next; sim.alarm = alarm; }
-    function interact(action) {
-      if (!action || !started) return;
-      const id = action.name;
-      sim.lastAction = id;
-      if (id === 'COOLANT VALVES') { sim.cool = clamp(sim.cool + 32, 0, 100); showToast('Coolant valves open — flow is climbing.'); }
-      if (id === 'PUMP ACTIVATION') { sim.pumps = true; sim.cool = clamp(sim.cool + 46, 0, 100); showToast('Primary pumps online.'); }
-      if (id === 'EMERGENCY COOLING') { if (sim.reserve < 12) showToast('Reserve power too low for emergency cooling.'); else { sim.reserve -= 12; sim.emergencyCooling = true; sim.cool = 100; sim.temp = Math.max(260, sim.temp - 120); showToast('Emergency cooling flushed the core.'); flash(); } }
-      if (id === 'REPAIR COMPONENT') { sim.pumpHealth = 100; sim.pumps = true; sim.cool = clamp(sim.cool + 25, 0, 100); showToast('Pump housing patched. It is ugly, but it holds.'); }
-      if (id === 'FUEL INSERTION') { if (!sim.pumps) showToast('No fuel transfer while cooling is offline.'); else { sim.fuel = clamp(sim.fuel + 42, 0, 100); sim.fuelQuality = sim.fuelQuality - 5; showToast('Fuel assembly seated. Quality: 73%.'); } }
-      if (id === 'CONTROL POSITION') { if (!sim.fuel) showToast('The control bank has nothing to regulate.'); else { sim.reactivity = clamp(sim.reactivity + .34, 0, 1); setState('WARMING / CONTROLLED'); showToast('Control position raised. Temperature will follow.'); } }
-      if (id === 'TURBINE THROTTLE') { if (!sim.fuel) showToast('Turbine wants steam. The core is still cold.'); else { sim.turbine = clamp(sim.turbine + .28, 0, 1); showToast('Turbine throttle raised. Keep it near demand.'); } }
-      if (id === 'GRID BREAKERS') { sim.breakers = true; showToast('Grid breakers closed — export connected.'); }
-      if (id === 'BACKUP GENERATOR') { sim.reserve = clamp(sim.reserve + 22, 0, 100); showToast('Backup generator coughing — reserve topped up.'); }
-      if (id === 'RESERVE POWER') { if (sim.reserve < 8) showToast('Reserve power is empty.'); else { sim.reserve -= 8; sim.pumps = true; sim.cool = clamp(sim.cool + 24, 0, 100); showToast('Reserve routed to the primary pumps.'); } }
-      if (id === 'WASTE TRANSFER') { sim.waste = Math.max(0, sim.waste - 54); showToast('Waste drum transferred to licensed storage.'); }
-      if (id === 'VENTING') { sim.waste = Math.max(0, sim.waste - 24); sim.temp = Math.max(180, sim.temp - 35); showToast('Venting pressure. Compliance will notice.'); }
-      if (id === 'ALARM ACKNOWLEDGEMENT') { sim.alarm = false; showToast('Alarm acknowledged. The light stays amber.'); }
-      if (id === 'AUTO-SHUTDOWN BYPASS') { sim.autoShutdown = false; sim.alarm = true; setState('BYPASS ACTIVE', true); showToast('Automatic shutdown bypassed — this is the shortcut.'); }
-      if (id === 'EMERGENCY SHUTDOWN') { sim.reactivity = 0; sim.turbine = 0; sim.breakers = false; sim.temp = Math.max(110, sim.temp - 180); sim.alarm = false; sim.emergencyCooling = false; setState('SCRAM / SAFE'); showToast('SCRAM inserted. Output is gone; the room is safe.'); flash(); }
-      updateHud();
-    }
-    function reset() {
-      Object.assign(sim, { time: 0, temp: 34, cool: 0, output: 0, demand: 42, fuel: 0, waste: 0, turbine: 0, reactivity: 0, reserve: 64, pumpHealth: 100, breakers: false, pumps: false, emergencyCooling: false, autoShutdown: true, alarm: false, state: 'COLD / SAFE', running: true });
-      player.set(0, .02, 7.55); velocity.set(0, 0, 0); yaw = 0; pitch = 0; showToast('Shift reset. Six stations. One room.'); updateHud();
-    }
-    function simulate(dt) {
-      if (!started || !sim.running) return;
-      sim.time += dt; sim.demand = 42 + Math.sin(sim.time * .11) * 7 + Math.max(0, Math.sin(sim.time * .023)) * 18;
-      if (sim.pumps) sim.cool = clamp(sim.cool + (sim.emergencyCooling ? 18 : 3.5) * dt - (sim.reactivity * 2.2 + sim.turbine * 1.2) * dt, 0, 100);
-      else sim.cool = Math.max(0, sim.cool - 1.8 * dt);
-      if (sim.fuel > 0 && sim.reactivity > 0) sim.fuel = Math.max(0, sim.fuel - sim.reactivity * .55 * dt);
-      const rawOutput = sim.breakers ? sim.turbine * sim.reactivity * 112 : 0;
-      sim.output = clamp(rawOutput, 0, 112);
-      sim.temp += (sim.reactivity * 72 + sim.output * .07 - sim.cool * .045 - 5) * dt;
-      sim.temp = clamp(sim.temp, 34, 1000);
-      sim.waste = clamp(sim.waste + sim.output * .0022 * dt, 0, 100);
-      if (sim.temp > 570 || sim.waste > 78 || sim.pumpHealth < 35) sim.alarm = true;
-      if (sim.temp > 690 && sim.autoShutdown) { sim.reactivity = Math.max(0, sim.reactivity - .03); sim.turbine = Math.max(0, sim.turbine - .02); setState('AUTO-SHUTDOWN', true); }
-      else if (sim.temp > 840) { setState('CORE DAMAGE / EVACUATE', true); sim.running = false; sim.output = 0; showToast('Containment is failing. Reset the room with R.', 5); flash(); }
-      else if (sim.alarm) setState(sim.temp > 610 ? 'COOLING EMERGENCY' : 'ALARM / CHECK SYSTEMS', true);
-      else if (sim.output > 0) setState('ONLINE / STABLE');
-      else if (sim.fuel > 0) setState('FUEL LOADED / IDLE');
-      coreLight.intensity = 2.3 + sim.reactivity * 4.5 + (sim.alarm ? Math.sin(sim.time * 12) * 1.2 : 0);
-      alarmLight.intensity = sim.alarm ? 3.0 + Math.abs(Math.sin(sim.time * 8)) * 2.2 : 0;
-      for (const rib of core.children) if (rib.userData.reactorRib) rib.material.emissiveIntensity = .34 + sim.reactivity * 1.8;
-      updateHud();
-    }
-    function updateMovement(dt) {
-      const inputX = (keys.has('d') ? 1 : 0) - (keys.has('a') ? 1 : 0) + touchMove.x;
-      const inputZ = (keys.has('s') ? 1 : 0) - (keys.has('w') ? 1 : 0) + touchMove.y;
-      const length = Math.hypot(inputX, inputZ); const nx = length > 1 ? inputX / length : inputX; const nz = length > 1 ? inputZ / length : inputZ;
-      const speed = (keys.has('shift') ? 5.2 : 3.2) * (coarse ? 1.12 : 1);
-      const forward = new THREE.Vector3(Math.sin(yaw), 0, -Math.cos(yaw)); const right = new THREE.Vector3(Math.cos(yaw), 0, Math.sin(yaw));
-      const move = forward.multiplyScalar(-nz).add(right.multiplyScalar(nx));
-      velocity.x = THREE.MathUtils.damp(velocity.x, move.x * speed, 14, dt); velocity.z = THREE.MathUtils.damp(velocity.z, move.z * speed, 14, dt);
-      if ((keys.has(' ') || keys.has('jump')) && jumpReady && player.y <= .03) { velocity.y = 5.3; jumpReady = false; }
-      if (!keys.has(' ') && !keys.has('jump')) jumpReady = true;
-      velocity.y -= 13.5 * dt; player.addScaledVector(velocity, dt);
-      if (player.y < .02) { player.y = .02; velocity.y = 0; }
-      player.x = clamp(player.x, -9.7, 9.7); player.z = clamp(player.z, -7.8, 8.1);
-      const coreDistance = Math.hypot(player.x, player.z); if (coreDistance < 3.35) { const scale = 3.35 / Math.max(coreDistance, .001); player.x *= scale; player.z *= scale; }
-      camera.position.set(player.x, player.y + 1.62, player.z); camera.rotation.set(pitch, yaw, 0, 'YXZ');
-    }
-    function onPointerMove(event) { if (!started || (document.pointerLockElement !== renderer.domElement && !coarse)) return; yaw -= event.movementX * .0022; pitch = clamp(pitch - event.movementY * .0022, -1.42, 1.42); }
-    renderer.domElement.addEventListener('click', () => { if (!coarse && started && document.pointerLockElement !== renderer.domElement) renderer.domElement.requestPointerLock?.(); });
-    document.addEventListener('pointerlockchange', () => {});
-    document.addEventListener('mousemove', onPointerMove);
-    addEventListener('keydown', event => { const key = event.key.toLowerCase(); keys.add(key); if (['w','a','s','d',' ','shift'].includes(key)) event.preventDefault(); if (key === 'e') interact(focused); if (key === 'r') reset(); });
-    addEventListener('keyup', event => keys.delete(event.key.toLowerCase()));
-    $('enter').addEventListener('click', () => { started = true; $('start').style.display = 'none'; if (!coarse) renderer.domElement.requestPointerLock?.(); showToast('Room live. Find the teal COOLING MANIFOLD.'); updateHud(); });
-    $('use-button').addEventListener('touchstart', event => { event.preventDefault(); interact(focused); }, { passive: false });
-    $('jump-button').addEventListener('touchstart', event => { event.preventDefault(); keys.add('jump'); setTimeout(() => keys.delete('jump'), 140); }, { passive: false });
-    $('restart-button').addEventListener('touchstart', event => { event.preventDefault(); reset(); }, { passive: false });
-    const stick = $('stick'), knob = $('knob'); let stickPointer = null;
-    stick.addEventListener('pointerdown', event => { stickPointer = event.pointerId; stick.setPointerCapture(event.pointerId); });
-    stick.addEventListener('pointermove', event => { if (event.pointerId !== stickPointer) return; const rect = stick.getBoundingClientRect(); const dx = event.clientX - (rect.left + rect.width / 2); const dy = event.clientY - (rect.top + rect.height / 2); const len = Math.min(Math.hypot(dx, dy), 47); const angle = Math.atan2(dy, dx); const x = Math.cos(angle) * len; const y = Math.sin(angle) * len; knob.style.transform = `translate(${x}px, ${y}px)`; touchMove.x = x / 47; touchMove.y = y / 47; });
-    function releaseStick() { stickPointer = null; knob.style.transform = ''; touchMove.x = 0; touchMove.y = 0; }
-    stick.addEventListener('pointerup', releaseStick); stick.addEventListener('pointercancel', releaseStick); stick.addEventListener('pointerleave', event => { if (stickPointer === event.pointerId) releaseStick(); });
-    let lookPointer = null, lastLookX = 0, lastLookY = 0;
-    $('look-zone').addEventListener('pointerdown', event => { lookPointer = event.pointerId; lastLookX = event.clientX; lastLookY = event.clientY; event.currentTarget.setPointerCapture(event.pointerId); });
-    $('look-zone').addEventListener('pointermove', event => { if (event.pointerId !== lookPointer) return; yaw -= (event.clientX - lastLookX) * .007; pitch = clamp(pitch - (event.clientY - lastLookY) * .007, -1.42, 1.42); lastLookX = event.clientX; lastLookY = event.clientY; });
-    function releaseLook() { lookPointer = null; }
-    $('look-zone').addEventListener('pointerup', releaseLook); $('look-zone').addEventListener('pointercancel', releaseLook);
-    addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); renderer.setPixelRatio(Math.min(devicePixelRatio, coarse ? 1.25 : 1.6)); });
-
-    let last = performance.now();
-    function frame(now) {
-      const dt = Math.min((now - last) / 1000, .05); last = now;
-      updateMovement(dt); focused = focusControl(); simulate(dt);
-      if (toastTimer > 0) { toastTimer -= dt; if (toastTimer <= 0) $('toast').style.opacity = '0'; }
-      renderer.render(scene, camera); requestAnimationFrame(frame);
-    }
-    camera.position.set(0, 1.64, 7.55); camera.rotation.set(0, 0, 0, 'YXZ'); updateHud(); requestAnimationFrame(frame);
+  <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.185.1/build/three.module.js","three/addons/":"https://unpkg.com/three@0.185.1/examples/jsm/"}}
   </script>
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>
