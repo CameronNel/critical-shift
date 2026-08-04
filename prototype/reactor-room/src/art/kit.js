@@ -329,8 +329,35 @@ export function workLight(options = {}) {
     });
   }
   ring(0.27, 0.016, mat('steel'), { pos: [0, -0.28, 0], parent: group, radial: 16 });
-  const cone = new THREE.Mesh(new THREE.ConeGeometry(1.5, 3.2, 14, 1, true), additive(colour, 0.055));
-  cone.position.y = -1.75;
+  // The visible beam. Front faces only, and it fades out along its length —
+  // a double-sided cone accumulates twice, and standing under one filled half
+  // the frame with white.
+  const cone = new THREE.Mesh(
+    new THREE.ConeGeometry(1.15, 2.6, 14, 1, true),
+    new THREE.ShaderMaterial({
+      uniforms: { uColour: { value: new THREE.Color(colour) } },
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+      side: THREE.FrontSide,
+      vertexShader: `
+        varying vec2 vUv;
+        void main() {
+          vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform vec3 uColour;
+        varying vec2 vUv;
+        void main() {
+          float a = pow(clamp(vUv.y, 0.0, 1.0), 2.0) * 0.16;
+          gl_FragColor = vec4(uColour * a, a);
+        }
+      `,
+    }),
+  );
+  cone.position.y = -1.45;
   cone.rotation.x = Math.PI;
   cone.renderOrder = 3;
   group.add(cone);
