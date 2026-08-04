@@ -1,6 +1,6 @@
 # Standalone Reactor Room
 
-This is the compact Three.js reactor-room prototype for Critical Shift. It is deliberately isolated from both the facility greybox and the mine: the scene is a single self-contained `index.html` with its own authored geometry, materials, controls, simulation loop, and touch UI.
+This is the compact Three.js reactor-pool prototype for Critical Shift. It is deliberately isolated from both the facility greybox and the mine, with its own authored geometry, collision world, controls, simulation loop, and touch UI.
 
 ## Run it
 
@@ -18,8 +18,10 @@ Then open `http://localhost:4173/` on desktop or a phone on the same network.
 - Desktop: `WASD` move, mouse look, `Shift` sprint, `Space` jump, `E` use, `R` reset.
 - Touch: left stick moves, drag the right side to look, `USE` activates the focused control, `JUMP` and `RESET` are available at the lower right.
 
-## Room loop
+## Reactor loop
 
-The room exposes the reactor controls called out in `GAME_SPEC.md`: coolant valves, pump activation, emergency cooling, fuel insertion, control position, turbine throttle, grid breakers, backup generator, reserve power, waste transfer, venting, alarm acknowledgement, automatic-shutdown bypass, component repair, and emergency shutdown.
+The player starts in an elevated control booth overlooking an open, water-filled reactor pool. The booth contains coolant authorisation, control-rod position, turbine load, and SCRAM controls. A side door opens onto a guarded landing and ramp down to the containment deck.
 
-The authored shell is 22m × 18m. The six stations sit around one central containment core so a player can cross the room in seconds, with no facility-wide traversal required.
+The deck contains the physical jobs: start the primary pumps, open coolant valves, collect a visible fuel rod from storage, carry it to the pool loading gantry, lower it into the core lattice, close the grid breakers, start reserve generation, and transfer waste. The active loop remains within a compact 24m × 20m hall.
+
+Movement uses a capsule against an authored collision octree, including the elevated booth, landing, sloped access ramp, deck, guard rails, walls, and open pool. Large decorative machines are intentionally non-blocking so the first-person route stays clean.
