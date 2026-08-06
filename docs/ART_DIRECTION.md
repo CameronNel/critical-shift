@@ -45,6 +45,14 @@ Visual readability remains essential. Department colours, hazard markings, silho
 
 The connected site should be understandable from landmarks and circulation routes. It does not need to depict every realistic component of a uranium operation.
 
+## Reactor Hall Visual Target
+
+The reactor hall has a dedicated production specification in [`REACTOR_ROOM_VISUAL_SPEC.md`](REACTOR_ROOM_VISUAL_SPEC.md). Its approved direction is a bright, clean **1990s industrial-science-fiction** room built around a recessed cyan reactor pool and exactly two dominant visible Control Bank A/B drive assemblies. The pool is the hero landmark and a diegetic reactor-state display; the two bank mechanisms provide readable large-scale motion during normal load changes, instability and SCRAM.
+
+This room should remain sterile and maintained rather than rusty or depressing. Use restrained grey/off-white architecture, stainless and muted blue-grey machinery, chunky physical controls, analogue gauges, CRT/early-digital displays, white coolant pipework and limited functional hazard marking. Do not introduce Soviet insignia, steampunk language, a forest of visible control rods, or ultra-modern holographic laboratory styling.
+
+The dimensional and animation constraints in `REACTOR_ROOM_VISUAL_SPEC.md` are authoritative for the reactor art pass and are designed to fit the existing compact Three.js gameplay room rather than enlarge it.
+
 ## Characters
 
 Use varied adult body types, ages, faces, ethnic backgrounds, uniforms, and department equipment. Helmets and protective suits should look functional and used, but use simplified shapes and restrained material detail.
