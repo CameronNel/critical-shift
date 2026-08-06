@@ -55,6 +55,27 @@ function layerFor(layers: SceneLayers, entity: Entity): THREE.Group {
   return layers.world;
 }
 
+/**
+ * Carry facility semantics onto every built Three.js node. This is useful for
+ * editor picking today, browser/MCP inspection while art-directing the room,
+ * and GLTF extras when the geometry is exported for Blender later.
+ */
+function stampEntityMetadata(object: THREE.Object3D, entity: Entity): void {
+  const metadata = {
+    entityId: entity.id,
+    entityType: entity.type,
+    zone: entity.zone,
+    semanticLabel: entity.label ?? null,
+    semanticTags: entity.tags ?? [],
+    semanticNotes: entity.notes ?? null,
+  };
+  object.name = entity.id;
+  Object.assign(object.userData, metadata);
+  object.traverse((node) => {
+    Object.assign(node.userData, metadata);
+  });
+}
+
 export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBuild {
   clearFacility(layers);
 
@@ -72,11 +93,8 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
     if (entity.hidden) continue;
     const zoneColor = zones.get(entity.zone)?.color ?? DEFAULT_ZONE_COLOR;
     const built = buildEntity(entity, zoneColor);
-    built.object.name = entity.id;
-    built.object.userData.entityId = entity.id;
-    built.object.userData.zone = entity.zone;
+    stampEntityMetadata(built.object, entity);
     built.object.traverse((node) => {
-      node.userData.entityId = entity.id;
       if ((node as THREE.Mesh).isMesh) meshes++;
       if (node instanceof THREE.Sprite && node.userData.labelKind) {
         labels.add(node, node.userData.labelKind);
@@ -142,9 +160,8 @@ export function rebuildEntity(
   if (!entity.hidden) {
     const zoneColor = build.zones.get(entity.zone)?.color ?? DEFAULT_ZONE_COLOR;
     const built = buildEntity(entity, zoneColor);
-    built.object.name = entity.id;
+    stampEntityMetadata(built.object, entity);
     built.object.traverse((node) => {
-      node.userData.entityId = entity.id;
       if (node instanceof THREE.Sprite && node.userData.labelKind) {
         build.labels.add(node, node.userData.labelKind);
       }
