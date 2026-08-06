@@ -5,7 +5,8 @@ import { buildEntity } from './builders';
 import { GeoBatch } from './geoBatch';
 import { createTextSprite } from './textSprite';
 import { LabelManager } from './labels';
-import type { Entity, FacilityDoc, Route, SpawnEntity, Zone } from '../facility/schema';
+import { SHARED, emissiveMaterial, waterMaterial } from './materials';
+import type { Entity, FacilityDoc, PipeEntity, Route, SpawnEntity, Zone } from '../facility/schema';
 
 export interface FacilityBuild {
   /** Replaced, not mutated, whenever an entity is rebuilt. */
@@ -55,6 +56,79 @@ function layerFor(layers: SceneLayers, entity: Entity): THREE.Group {
   return layers.world;
 }
 
+/**
+ * Tags remain plain facility data, but a few visual semantics deserve a richer
+ * browser material than the generic greybox palette. Keeping this translation
+ * here means the JSON/GLB object still has one stable semantic identity.
+ */
+function applySemanticMaterial(object: THREE.Object3D, entity: Entity): void {
+  const tags = entity.tags ?? [];
+  let material: THREE.Material | null = null;
+  if (tags.includes('water')) material = waterMaterial(entity.color ?? '#36d9ff');
+  else if (tags.includes('glass')) material = SHARED.glass;
+  else if (tags.includes('emissive')) material = emissiveMaterial(entity.color ?? '#55d9f2');
+  if (!material) return;
+
+  object.traverse((node) => {
+    const mesh = node as THREE.Mesh;
+    if (mesh.isMesh) mesh.material = material as THREE.Material;
+  });
+}
+
+/**
+ * Thin pool handrails use pipe geometry for the right silhouette. The generic
+ * pipe builder only blocks large industrial pipes, so tagged rail pipes get
+ * narrow segment colliders here to stop the walk controller stepping through
+ * the visible guardrail into the pool.
+ */
+function semanticPipeColliders(entity: Entity): BoxCollider[] {
+  if (entity.type !== 'pipe' || !entity.tags?.includes('collision-rail')) return [];
+  const pipe = entity as PipeEntity;
+  const result: BoxCollider[] = [];
+  for (let i = 0; i < pipe.path.length - 1; i++) {
+    const a = pipe.path[i];
+    const b = pipe.path[i + 1];
+    const dx = b[0] - a[0];
+    const dz = b[2] - a[2];
+    const planar = Math.hypot(dx, dz);
+    if (planar < 1e-3) continue;
+    result.push({
+      entityId: entity.id,
+      cx: (a[0] + b[0]) / 2,
+      cy: (a[1] + b[1]) / 2,
+      cz: (a[2] + b[2]) / 2,
+      hx: Math.max(pipe.radius, 0.055),
+      hy: Math.max(pipe.radius, 0.055),
+      hz: planar / 2 + 0.03,
+      rotY: Math.atan2(dx, dz),
+      solid: true,
+      walkable: false,
+    });
+  }
+  return result;
+}
+
+/**
+ * Carry facility semantics onto every built Three.js node. This is useful for
+ * editor picking today, browser/MCP inspection while art-directing the room,
+ * and GLTF extras when the geometry is exported for Blender later.
+ */
+function stampEntityMetadata(object: THREE.Object3D, entity: Entity): void {
+  const metadata = {
+    entityId: entity.id,
+    entityType: entity.type,
+    zone: entity.zone,
+    semanticLabel: entity.label ?? null,
+    semanticTags: entity.tags ?? [],
+    semanticNotes: entity.notes ?? null,
+  };
+  object.name = entity.id;
+  Object.assign(object.userData, metadata);
+  object.traverse((node) => {
+    Object.assign(node.userData, metadata);
+  });
+}
+
 export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBuild {
   clearFacility(layers);
 
@@ -72,11 +146,9 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
     if (entity.hidden) continue;
     const zoneColor = zones.get(entity.zone)?.color ?? DEFAULT_ZONE_COLOR;
     const built = buildEntity(entity, zoneColor);
-    built.object.name = entity.id;
-    built.object.userData.entityId = entity.id;
-    built.object.userData.zone = entity.zone;
+    applySemanticMaterial(built.object, entity);
+    stampEntityMetadata(built.object, entity);
     built.object.traverse((node) => {
-      node.userData.entityId = entity.id;
       if ((node as THREE.Mesh).isMesh) meshes++;
       if (node instanceof THREE.Sprite && node.userData.labelKind) {
         labels.add(node, node.userData.labelKind);
@@ -84,7 +156,7 @@ export function buildFacility(doc: FacilityDoc, layers: SceneLayers): FacilityBu
     });
     layerFor(layers, entity).add(built.object);
     objects.set(entity.id, built.object);
-    collidersByEntity.set(entity.id, built.colliders);
+    collidersByEntity.set(entity.id, [...built.colliders, ...semanticPipeColliders(entity)]);
   }
 
   for (const zone of doc.zones) {
@@ -142,16 +214,16 @@ export function rebuildEntity(
   if (!entity.hidden) {
     const zoneColor = build.zones.get(entity.zone)?.color ?? DEFAULT_ZONE_COLOR;
     const built = buildEntity(entity, zoneColor);
-    built.object.name = entity.id;
+    applySemanticMaterial(built.object, entity);
+    stampEntityMetadata(built.object, entity);
     built.object.traverse((node) => {
-      node.userData.entityId = entity.id;
       if (node instanceof THREE.Sprite && node.userData.labelKind) {
         build.labels.add(node, node.userData.labelKind);
       }
     });
     layerFor(layers, entity).add(built.object);
     build.objects.set(entity.id, built.object);
-    build.collidersByEntity.set(entity.id, built.colliders);
+    build.collidersByEntity.set(entity.id, [...built.colliders, ...semanticPipeColliders(entity)]);
   }
   build.collision = buildCollision(build.collidersByEntity);
 }

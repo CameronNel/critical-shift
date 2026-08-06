@@ -6,7 +6,7 @@ import {
   parseFacilityJson,
   pickJsonFile,
 } from '../io/facilityIo';
-import { exportGreyboxGlb } from '../io/exportGlb';
+import { exportGreyboxGlb, exportReactorGlb } from '../io/exportGlb';
 import { clearFacility, saveFacility } from '../io/persistence';
 import type { Hud } from './hud';
 
@@ -90,14 +90,27 @@ export function buildDataUi(hud: Hud, app: App): void {
         });
     });
 
-    grid.append(save, reset, exportJson, copyJson, importJson, exportGlb);
+    const exportReactor = button('Export Reactor GLB');
+    exportReactor.addEventListener('click', () => {
+      exportReactor.disabled = true;
+      exportReactor.textContent = 'Exporting reactor…';
+      exportReactorGlb(app.site.layers)
+        .then((bytes) => hud.toast(`Exported reactor-room GLB (${Math.round(bytes / 1024)} KB)`))
+        .catch((error: Error) => hud.toast(`Reactor GLB export failed: ${error.message}`, 'error'))
+        .finally(() => {
+          exportReactor.disabled = false;
+          exportReactor.textContent = 'Export Reactor GLB';
+        });
+    });
+
+    grid.append(save, reset, exportJson, copyJson, importJson, exportGlb, exportReactor);
     body.appendChild(grid);
     body.appendChild(
       el(
         'p',
         'hint',
-        'JSON is the authoritative layout. GLB is a one-way visual reference for ' +
-          'importing the blockout into Unity or Godot.',
+        'JSON is the authoritative layout. GLB is a one-way visual handoff; the reactor-only ' +
+          'export preserves semantic object names/tags for Blender inspection.',
       ),
     );
 
