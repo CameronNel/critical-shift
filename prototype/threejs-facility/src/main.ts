@@ -13,6 +13,10 @@ const ui = document.getElementById('ui');
 const boot = document.getElementById('boot');
 if (!canvas || !ui) throw new Error('Missing #viewport canvas or #ui container');
 
+const params = new URLSearchParams(window.location.search);
+const forceRepoDefault = params.get('repo') === '1';
+const requestedSpawn = params.get('spawn');
+
 const app = createApp(canvas);
 const hud = new Hud(app, ui);
 const editor = new Editor(app);
@@ -21,22 +25,52 @@ hud.registerMode('edit', 'Edit');
 buildEditorUi(hud, editor);
 buildDataUi(hud, app);
 
-// A locally edited layout wins over the repository default, but only if it
-// still validates; otherwise say so rather than starting from a broken map.
-const stored = loadFacility();
-if (stored.error) hud.toast(stored.error.split('\n')[0], 'error');
-if (stored.doc) {
-  app.setFacility(stored.doc);
-  hud.toast('Loaded your locally saved layout');
+// A locally edited layout wins over the repository default unless a shareable
+// preview URL explicitly asks for ?repo=1. That makes review links deterministic
+// even on a phone/browser that has an old saved greybox in local storage.
+if (!forceRepoDefault) {
+  const stored = loadFacility();
+  if (stored.error) hud.toast(stored.error.split('\n')[0], 'error');
+  if (stored.doc) {
+    app.setFacility(stored.doc);
+    hud.toast('Loaded your locally saved layout');
+  }
 }
 
-const view = loadView();
-if (view) {
-  app.setMode(view.mode as NavMode);
-  app.nav.position.set(view.position[0], view.position[1], view.position[2]);
-  app.nav.yaw = view.yaw;
-  app.nav.pitch = view.pitch;
-} else {
+function teleportFromQuery(): boolean {
+  if (!requestedSpawn) return false;
+  const normalized = requestedSpawn.trim().toLowerCase();
+  const spawn = app.spawns().find((candidate) => {
+    return (
+      candidate.id.toLowerCase() === normalized ||
+      candidate.id.toLowerCase().endsWith(`.${normalized}`) ||
+      candidate.zone.toLowerCase() === normalized ||
+      candidate.label.toLowerCase() === normalized
+    );
+  });
+  if (!spawn) {
+    hud.toast(`Unknown spawn '${requestedSpawn}'`, 'error');
+    return false;
+  }
+  app.teleport(spawn.position, spawn.rotationY);
+  hud.toast(`Preview: ${spawn.label}`);
+  return true;
+}
+
+// Explicit ?spawn=... wins over persisted camera state. ?repo=1 also skips the
+// old view so a shared reactor-review URL always opens where its author meant.
+const usedQuerySpawn = teleportFromQuery();
+if (!usedQuerySpawn && !forceRepoDefault) {
+  const view = loadView();
+  if (view) {
+    app.setMode(view.mode as NavMode);
+    app.nav.position.set(view.position[0], view.position[1], view.position[2]);
+    app.nav.yaw = view.yaw;
+    app.nav.pitch = view.pitch;
+  } else {
+    app.respawn();
+  }
+} else if (!usedQuerySpawn) {
   app.respawn();
 }
 
