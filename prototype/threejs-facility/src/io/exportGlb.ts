@@ -6,6 +6,11 @@ interface ExportOptions {
   filename: string;
   rootName: string;
   include?: (object: THREE.Object3D) => boolean;
+  /**
+   * Visual-state controllers may hide emergency objects in the healthy browser
+   * pose. A production handoff still needs those objects in Blender.
+   */
+  forceVisibleEntities?: boolean;
 }
 
 /**
@@ -18,7 +23,7 @@ async function exportLayersGlb(layers: SceneLayers, options: ExportOptions): Pro
 
   const root = new THREE.Group();
   root.name = options.rootName;
-  const restore: { object: THREE.Object3D; parent: THREE.Object3D }[] = [];
+  const restore: { object: THREE.Object3D; parent: THREE.Object3D; visible: boolean }[] = [];
 
   // Re-parent rather than clone: merged geometry is large and cloning it all
   // would spike memory on a phone.
@@ -29,18 +34,19 @@ async function exportLayersGlb(layers: SceneLayers, options: ExportOptions): Pro
     for (const child of [...group.children]) {
       if (child instanceof THREE.Sprite) continue;
       if (options.include && !options.include(child)) continue;
-      restore.push({ object: child, parent: group });
+      restore.push({ object: child, parent: group, visible: child.visible });
+      if (options.forceVisibleEntities) child.visible = true;
       holder.add(child);
     }
     root.add(holder);
   }
 
   // Sprites nested inside entity groups cannot be exported; hide them instead.
-  const hiddenSprites: THREE.Sprite[] = [];
+  const hiddenSprites: { sprite: THREE.Sprite; visible: boolean }[] = [];
   root.traverse((node) => {
-    if (node instanceof THREE.Sprite && node.visible) {
+    if (node instanceof THREE.Sprite) {
+      hiddenSprites.push({ sprite: node, visible: node.visible });
       node.visible = false;
-      hiddenSprites.push(node);
     }
   });
 
@@ -55,8 +61,11 @@ async function exportLayersGlb(layers: SceneLayers, options: ExportOptions): Pro
     downloadBlob(blob, options.filename);
     return blob.size;
   } finally {
-    for (const sprite of hiddenSprites) sprite.visible = true;
-    for (const { object, parent } of restore) parent.add(object);
+    for (const { sprite, visible } of hiddenSprites) sprite.visible = visible;
+    for (const { object, parent, visible } of restore) {
+      object.visible = visible;
+      parent.add(object);
+    }
     root.clear();
   }
 }
@@ -72,12 +81,14 @@ export function exportGreyboxGlb(layers: SceneLayers): Promise<number> {
 /**
  * Reactor/control-only handoff for Blender. Every top-level entity carries its
  * stable facility id, semantic label, tags and notes in userData, which GLTF
- * writes as node extras where supported.
+ * writes as node extras where supported. Emergency/meltdown entities hidden by
+ * the browser's normal visual state are temporarily made visible for export.
  */
 export function exportReactorGlb(layers: SceneLayers): Promise<number> {
   return exportLayersGlb(layers, {
     filename: 'critical-shift-reactor-room.glb',
     rootName: 'CriticalShiftReactorRoom',
     include: (object) => object.userData.zone === 'reactor' || object.userData.zone === 'control',
+    forceVisibleEntities: true,
   });
 }
