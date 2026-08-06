@@ -1,8 +1,9 @@
 import * as THREE from 'three';
 
 /**
- * A deliberately tiny material vocabulary. Zones are separated by restrained
- * tint, roles by lightness. This is orientation, not an art pass.
+ * A deliberately small material vocabulary. Zones are separated by restrained
+ * tint, roles by lightness. The reactor visual pass adds only two semantic
+ * exceptions: emissive display/core surfaces and transparent reactor water.
  */
 export type MaterialRole =
   | 'floor'
@@ -49,30 +50,60 @@ export function customMaterial(hex: string, role: MaterialRole = 'machine'): THR
 
 const emissiveCache = new Map<string, THREE.MeshLambertMaterial>();
 
-/** Lit housing for a fixture. Cheap: no real light is implied. */
+/** Lit housing/display surface. Cheap: a real light is not implied. */
 export function emissiveMaterial(hex: string): THREE.MeshLambertMaterial {
   const existing = emissiveCache.get(hex);
   if (existing) return existing;
   const color = new THREE.Color(hex);
   const material = new THREE.MeshLambertMaterial({
-    color: color.clone().multiplyScalar(0.35),
+    color: color.clone().multiplyScalar(0.34),
     emissive: color,
-    emissiveIntensity: 1,
+    emissiveIntensity: 1.15,
   });
   emissiveCache.set(hex, material);
   return material;
 }
 
+const waterCache = new Map<string, THREE.MeshPhysicalMaterial>();
+
+/**
+ * Reactor-pool water. This stays intentionally simple enough for phones while
+ * giving the deep pool an actual transparent surface instead of an opaque cyan
+ * disc. The separate submerged emissive/core objects provide most of the glow.
+ */
+export function waterMaterial(hex: string): THREE.MeshPhysicalMaterial {
+  const existing = waterCache.get(hex);
+  if (existing) return existing;
+  const color = new THREE.Color(hex);
+  const material = new THREE.MeshPhysicalMaterial({
+    color: color.clone().multiplyScalar(0.72),
+    roughness: 0.14,
+    metalness: 0,
+    transparent: true,
+    opacity: 0.58,
+    transmission: 0.18,
+    thickness: 0.22,
+    ior: 1.33,
+    side: THREE.DoubleSide,
+    depthWrite: false,
+  });
+  waterCache.set(hex, material);
+  return material;
+}
+
 /** Shared, zone-independent materials. Guard rails read the same everywhere. */
 export const SHARED = {
-  rail: new THREE.MeshLambertMaterial({ color: 0xc9a23f }),
-  steel: new THREE.MeshLambertMaterial({ color: 0x5c646d }),
+  rail: new THREE.MeshLambertMaterial({ color: 0xb3bdc1 }),
+  steel: new THREE.MeshLambertMaterial({ color: 0x657078 }),
   belt: new THREE.MeshLambertMaterial({ color: 0x3d444b }),
   track: new THREE.MeshLambertMaterial({ color: 0x757d86 }),
-  glass: new THREE.MeshLambertMaterial({
-    color: 0xa9d3e6,
+  glass: new THREE.MeshPhysicalMaterial({
+    color: 0x9fcfe0,
     transparent: true,
-    opacity: 0.24,
+    opacity: 0.22,
+    roughness: 0.08,
+    transmission: 0.26,
+    thickness: 0.08,
     side: THREE.DoubleSide,
     depthWrite: false,
   }),
@@ -84,7 +115,7 @@ export const SHARED = {
 /** Unit primitives reused by every builder, so the GPU sees very few buffers. */
 export const UNIT = {
   box: new THREE.BoxGeometry(1, 1, 1),
-  cylinder: new THREE.CylinderGeometry(0.5, 0.5, 1, 16),
+  cylinder: new THREE.CylinderGeometry(0.5, 0.5, 1, 20),
   cone: new THREE.CylinderGeometry(0.08, 0.5, 1, 16),
   hopper: new THREE.CylinderGeometry(0.5, 0.18, 1, 8),
 };
@@ -92,4 +123,8 @@ export const UNIT = {
 export function disposeMaterialCache(): void {
   for (const material of cache.values()) material.dispose();
   cache.clear();
+  for (const material of emissiveCache.values()) material.dispose();
+  emissiveCache.clear();
+  for (const material of waterCache.values()) material.dispose();
+  waterCache.clear();
 }
