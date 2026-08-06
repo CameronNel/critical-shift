@@ -15,15 +15,19 @@ Three passes, in order, because each depends on the last:
    the carve boundary first, so a post spanning the cut loses only the part
    below it instead of vanishing whole.
 
-2. Floor.  The shaft gets a solid slab, gently uneven so it reads as silt
+2. Floor.  Each pool gets a solid slab, gently uneven so it reads as silt
    rather than as a lid, grown outwards into the rock so no seam opens at the
-   wall.  The causeway crossing already has ground under it and gets none.
+   wall.  Its footprint is taken at the waterline rather than at the slab's own
+   level, so it reaches the shallows too instead of only the parts that were
+   already deep enough.
 
 3. Water.  For every point on a grid a ray drops from head height, passes
    through timber, rail and props, and stops at the first rock, ground or pool
    floor.  The point is wet when that surface sits below the waterline, so the
    shoreline lands exactly where the bottom dips under the water - wall to wall
-   under each bridge, on both sides, and never out through the tunnel.
+   under each bridge, on both sides, and never out through the tunnel.  Rim
+   vertices are then walked out along their own normals onto the real contour,
+   because a grid edge against a shelving bank reads as polygon, not waterline.
 
 The material is a real water shader - dark body, near-mirror specular, ripples
 from a seamless CC0 ocean normal map sampled at three scales and angles - with
@@ -69,7 +73,8 @@ PROBE_Z = 2.5
 # way down.  Cut everything inside this footprint below the level given; the
 # new floor sits just above it, so what survives reads as posts entering the
 # bottom rather than as stumps hanging over a void.
-CARVE = (("ravine shaft", (-25.2, -15.3, 6.0, 17.2), -1.10),)
+CARVE = (("ravine shaft", (-25.2, -15.3, 6.0, 17.2), -1.10),
+         ("trestle basin", (-19.5, -9.0, 23.0, 43.0), -1.10))
 
 # Each body carries its own dim lights.  EEVEE will not bounce the surface's
 # emission onto the rock on its own, so without these the glow stops dead at
@@ -81,7 +86,7 @@ BODIES = (
      (-0.95, 0.60)),
     ("MinePit_TrestleWater", -0.52, (-19.5, -9.0, 23.0, 43.0),
      (((-16.3, 28.5, -0.15), 13.0), ((-11.9, 36.0, -0.15), 13.0)),
-     None),
+     (-0.95, 0.60)),
 )
 
 
@@ -301,6 +306,38 @@ def sample_below(level, x0, x1, y0, y1):
     return grid, nx, ny
 
 
+def walk_to_shore(x, y, level, direction, reach=2.5):
+    """Slide a rim point along *direction* onto the real waterline contour.
+
+    March until the wet/dry answer flips, then bisect.  Falls back to the grid
+    position if the shore is further than *reach* cells away, which happens
+    where the water ends against something the grid never saw.
+    """
+    scene = bpy.context.scene
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+
+    def wet(px, py):
+        floor = rock_below(scene, depsgraph, px, py)
+        return floor is not None and floor < level
+
+    start = wet(x, y)
+    march = direction if start else -direction
+    step = CELL / 5.0
+    ax, ay = x, y
+    for _ in range(int(reach * 5)):
+        bx, by = ax + march.x * step, ay + march.y * step
+        if wet(bx, by) != start:
+            for _ in range(6):
+                mx, my = (ax + bx) / 2.0, (ay + by) / 2.0
+                if wet(mx, my) == start:
+                    ax, ay = mx, my
+                else:
+                    bx, by = mx, my
+            return (ax + bx) / 2.0, (ay + by) / 2.0
+        ax, ay = bx, by
+    return x, y
+
+
 def grow(grid, nx, ny, rings):
     """Dilate a grid so a slab built from it buries its rim in the rock."""
     for _ in range(rings):
@@ -328,9 +365,20 @@ def build_surface(name, level, x0, x1, y0, y1, collection, material):
         return all(0 <= a < nx - 1 and 0 <= b < ny - 1 and cell[a][b]
                    for a, b in ((i - 1, j - 1), (i, j - 1), (i - 1, j), (i, j)))
 
-    # A grid shoreline cuts in long straight runs that read as polygon edges
-    # even under water.  Nudging only the rim vertices sideways breaks those
-    # runs into something that passes for a waterline.
+    def outward(i, j):
+        """Direction from a rim vertex towards the dry cells around it."""
+        away = Vector((0.0, 0.0))
+        for (a, b), offset in (((i - 1, j - 1), (-1, -1)), ((i, j - 1), (1, -1)),
+                               ((i - 1, j), (-1, 1)), ((i, j), (1, 1))):
+            if not (0 <= a < nx - 1 and 0 <= b < ny - 1 and cell[a][b]):
+                away += Vector(offset)
+        return away.normalized() if away.length > 1e-6 else None
+
+    # A grid shoreline steps in and out in CELL-sized squares and cuts in long
+    # straight runs, which is exactly what reads as polygon edge rather than
+    # waterline.  Walk each rim vertex out along its own normal to where the
+    # ground actually crosses the waterline, so the edge follows the contour
+    # instead of the grid.  Interior vertices never move.
     rng = random.Random(SEED)
     verts, index, faces = [], {}, []
 
@@ -338,9 +386,13 @@ def build_surface(name, level, x0, x1, y0, y1, collection, material):
         key = (i, j)
         if key not in index:
             x, y = x0 + i * CELL, y0 + j * CELL
-            if not interior(i, j):
-                x += rng.uniform(-0.45, 0.45) * CELL
-                y += rng.uniform(-0.45, 0.45) * CELL
+            direction = None if interior(i, j) else outward(i, j)
+            if direction is not None:
+                x, y = walk_to_shore(x, y, level, direction)
+                # a hair of noise so a straight rock face still gets a ragged
+                # edge rather than a ruler-drawn one
+                x += rng.uniform(-0.12, 0.12) * CELL
+                y += rng.uniform(-0.12, 0.12) * CELL
             index[key] = len(verts)
             verts.append((x, y, level))
         return index[key]
@@ -376,14 +428,20 @@ def build_surface(name, level, x0, x1, y0, y1, collection, material):
     return obj, len(faces), (cell, nx, ny, x0, y0)
 
 
-def build_floor(name, level, thickness, x0, x1, y0, y1, collection):
-    """Solid bottom for a carved-out shaft.
+def build_floor(name, level, thickness, waterline, x0, x1, y0, y1, collection):
+    """Solid bottom for a pool.
+
+    The footprint is taken at the *waterline*, not at the slab's own level, so
+    the slab reaches the whole pool rather than only the parts that already
+    happened to be deep enough.  Over a shaft with sheer walls the two are the
+    same; over a basin with a shelving bank they are not, and sampling at the
+    slab level would leave the shallows floorless.
 
     Grown two cells outwards so the slab's rim ends up inside the rock rather
     than beside it, and shaken by a little smooth noise so the bottom reads as
     silt under shallow water instead of as a lid dropped in.
     """
-    open_shaft, nx, ny = sample_below(level, x0, x1, y0, y1)
+    open_shaft, nx, ny = sample_below(waterline, x0, x1, y0, y1)
     open_shaft = grow(open_shaft, nx, ny, 2)
 
     verts, index, faces = [], {}, []
@@ -405,7 +463,7 @@ def build_floor(name, level, thickness, x0, x1, y0, y1, collection):
                               vertex(i + 1, j + 1), vertex(i, j + 1)))
 
     if not faces:
-        raise RuntimeError("no open shaft found for %s at z=%.2f" % (name, level))
+        raise RuntimeError("no pool found for %s at z=%.2f" % (name, waterline))
 
     mesh = bpy.data.meshes.new(name)
     mesh.from_pydata(verts, [], faces)
@@ -569,7 +627,7 @@ def main():
             floor_level, thickness = floor
             slab_name = name.replace("Water", "Floor")
             slab, slab_faces = build_floor(slab_name, floor_level, thickness,
-                                           x0, x1, y0, y1, collection)
+                                           level, x0, x1, y0, y1, collection)
             report.append("%s: %d quads at z=%.2f, %.2f m under the waterline"
                           % (slab_name, slab_faces, floor_level, level - floor_level))
 
