@@ -16,6 +16,7 @@ import { FUEL_ENTITIES } from './data/fuel';
 import { MEDICAL_ENTITIES, STORAGE_ENTITIES } from './data/support';
 import { MAINTENANCE_ENTITIES } from './data/maintenance';
 import { CONTROL_ENTITIES, REACTOR_ENTITIES } from './data/reactor';
+import { REACTOR_DETAIL_ENTITIES } from './data/reactorVisualExtra';
 import { COOLING_ENTITIES } from './data/cooling';
 import { COMPLIANCE_ENTITIES } from './data/compliance';
 import { ROUTES } from './data/routes';
@@ -32,6 +33,7 @@ const ENTITIES: Entity[] = [
   ...STORAGE_ENTITIES,
   ...MAINTENANCE_ENTITIES,
   ...REACTOR_ENTITIES,
+  ...REACTOR_DETAIL_ENTITIES,
   ...CONTROL_ENTITIES,
   ...COOLING_ENTITIES,
   ...COMPLIANCE_ENTITIES,
@@ -44,7 +46,8 @@ export const DEFAULT_FACILITY: FacilityDoc = {
   description:
     `Structural skeleton of the Critical Shift site, compacted to ${SITE_SCALE} of ` +
     'the drafting scale in plan. Vertical dimensions and human clearances are ' +
-    'unscaled. Greybox: no dressing, no art.',
+    'unscaled. Reactor hall includes the detailed dual-bank pool visual pass; the ' +
+    'remaining facility is primarily structural greybox.',
   zones: ZONES.map(scaleZone),
   entities: ENTITIES.map(scaleEntity),
   routes: ROUTES.map(scaleRoute),
