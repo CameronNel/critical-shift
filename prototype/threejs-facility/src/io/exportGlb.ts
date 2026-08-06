@@ -2,18 +2,22 @@ import * as THREE from 'three';
 import type { SceneLayers } from '../core/scene';
 import { downloadBlob } from './facilityIo';
 
+interface ExportOptions {
+  filename: string;
+  rootName: string;
+  include?: (object: THREE.Object3D) => boolean;
+}
+
 /**
- * Greybox geometry as a .glb, for dropping into Unity or Godot as a sizing and
- * blockout reference. JSON stays the authoritative layout format — this is a
- * convenience, so sprites, gizmos and route ribbons are deliberately excluded.
- *
- * The exporter is loaded on demand to keep the initial phone download small.
+ * Export built facility geometry as GLB. JSON remains the authoritative layout,
+ * while object names and facility userData are preserved as GLTF node names /
+ * extras so Blender and MCP tooling can still identify individual assets.
  */
-export async function exportGreyboxGlb(layers: SceneLayers): Promise<number> {
+async function exportLayersGlb(layers: SceneLayers, options: ExportOptions): Promise<number> {
   const { GLTFExporter } = await import('three/examples/jsm/exporters/GLTFExporter.js');
 
   const root = new THREE.Group();
-  root.name = 'CriticalShiftGreybox';
+  root.name = options.rootName;
   const restore: { object: THREE.Object3D; parent: THREE.Object3D }[] = [];
 
   // Re-parent rather than clone: merged geometry is large and cloning it all
@@ -24,11 +28,13 @@ export async function exportGreyboxGlb(layers: SceneLayers): Promise<number> {
     holder.name = key;
     for (const child of [...group.children]) {
       if (child instanceof THREE.Sprite) continue;
+      if (options.include && !options.include(child)) continue;
       restore.push({ object: child, parent: group });
       holder.add(child);
     }
     root.add(holder);
   }
+
   // Sprites nested inside entity groups cannot be exported; hide them instead.
   const hiddenSprites: THREE.Sprite[] = [];
   root.traverse((node) => {
@@ -46,11 +52,32 @@ export async function exportGreyboxGlb(layers: SceneLayers): Promise<number> {
       truncateDrawRange: false,
     });
     const blob = new Blob([result as ArrayBuffer], { type: 'model/gltf-binary' });
-    downloadBlob(blob, 'critical-shift-greybox.glb');
+    downloadBlob(blob, options.filename);
     return blob.size;
   } finally {
     for (const sprite of hiddenSprites) sprite.visible = true;
     for (const { object, parent } of restore) parent.add(object);
     root.clear();
   }
+}
+
+/** Whole-site blockout handoff. */
+export function exportGreyboxGlb(layers: SceneLayers): Promise<number> {
+  return exportLayersGlb(layers, {
+    filename: 'critical-shift-greybox.glb',
+    rootName: 'CriticalShiftGreybox',
+  });
+}
+
+/**
+ * Reactor/control-only handoff for Blender. Every top-level entity carries its
+ * stable facility id, semantic label, tags and notes in userData, which GLTF
+ * writes as node extras where supported.
+ */
+export function exportReactorGlb(layers: SceneLayers): Promise<number> {
+  return exportLayersGlb(layers, {
+    filename: 'critical-shift-reactor-room.glb',
+    rootName: 'CriticalShiftReactorRoom',
+    include: (object) => object.userData.zone === 'reactor' || object.userData.zone === 'control',
+  });
 }
