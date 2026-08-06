@@ -93,7 +93,10 @@ export function waterMaterial(hex: string): THREE.MeshPhysicalMaterial {
 
 /** Shared, zone-independent materials. Guard rails read the same everywhere. */
 export const SHARED = {
-  rail: new THREE.MeshLambertMaterial({ color: 0xb3bdc1 }),
+  // Keep the established greybox rail colour site-wide. The finished reactor
+  // pool rails use explicit stainless colours in reactorVisual.ts instead of
+  // silently restyling stairs/catwalks in every other department.
+  rail: new THREE.MeshLambertMaterial({ color: 0xc9a23f }),
   steel: new THREE.MeshLambertMaterial({ color: 0x657078 }),
   belt: new THREE.MeshLambertMaterial({ color: 0x3d444b }),
   track: new THREE.MeshLambertMaterial({ color: 0x757d86 }),
