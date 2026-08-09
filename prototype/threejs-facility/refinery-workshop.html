@@ -6,12 +6,18 @@
 <div>Loading refinery operations pass…</div>
 <script>
 (async()=>{
-  const SOURCE='https://raw.githubusercontent.com/CameronNel/critical-shift/f4d283fb24da34d717264a24852610aef2957d23/prototype/threejs-facility/refinery-workshop.html';
+  const SOURCE='https://rawcdn.githack.com/CameronNel/critical-shift/f4d283fb24da34d717264a24852610aef2957d23/prototype/threejs-facility/refinery-workshop.html';
   let outer=await fetch(SOURCE,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('source '+r.status);return r.text()});
+
+  // Keep every nested refinery fetch on the same RawGitHack origin for mobile browsers.
+  outer=outer.split('https://raw.githubusercontent.com/CameronNel/critical-shift/').join('https://rawcdn.githack.com/CameronNel/critical-shift/');
+
+  // Harden the legacy Art Pass payload decoder used inside the Operations Pass.
   const needle="const bin=Uint8Array.from(atob(m[1]),c=>c.charCodeAt(0));";
   const replacement="const cleaned=[...m[1]].filter(ch=>'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='.includes(ch)).join('');const padded=cleaned+'='.repeat((4-cleaned.length%4)%4);const bin=Uint8Array.from(atob(padded),c=>c.charCodeAt(0));if(bin[0]!==31||bin[1]!==139)throw Error('decoded refinery payload is not gzip');";
   if(!outer.includes(needle)) throw Error('decoder patch target missing');
   outer=outer.replace(needle,replacement);
+
   document.open();document.write(outer);document.close();
 })().catch(err=>{document.body.innerHTML='<pre style="padding:20px;color:#ffb7b7;background:#160e10;white-space:pre-wrap">'+String(err.stack||err)+'</pre>';});
 </script>
