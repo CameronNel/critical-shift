@@ -1,5 +1,25 @@
-# Engine-generated files will be added after engine selection
 .DS_Store
 Thumbs.db
 *.tmp
 *.log
+
+# Unity-generated state and build outputs
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+[Bb]uild/
+[Bb]uilds/
+
+# Local IDE/editor state
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
