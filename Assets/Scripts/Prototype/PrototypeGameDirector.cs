@@ -17,14 +17,20 @@ namespace CriticalShift.Prototype
         public float EmergencySeconds { get; private set; } = PrototypeShiftRules.EmergencySeconds;
         public bool UnsafeShortcut { get; private set; }
         public PrototypeSocialSystem Social { get; private set; }
-        public string Message { get; private set; } = "Open the BRIEFING BOARD in Arrival. [E] interact";
+        public string Message { get; private set; } = "Open the authored BRIEFING BOARD in Arrival. The shift clock is already running.";
         public bool IsTerminal => State == PrototypeShiftState.Won || State == PrototypeShiftState.Failed;
 
         void Awake()
         {
             if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+            EnsureRuntimeReady();
+        }
+
+        public void EnsureRuntimeReady()
+        {
+            if (Instance != null && Instance != this) return;
             Instance = this;
-            Social = new PrototypeSocialSystem();
+            if (Social == null) Social = new PrototypeSocialSystem();
         }
 
         void OnDestroy() { if (Instance == this) Instance = null; }
@@ -32,10 +38,9 @@ namespace CriticalShift.Prototype
         void Update()
         {
             if (IsTerminal) return;
-            if (State == PrototypeShiftState.Briefing) return;
-            if (Social != null) Social.Tick(Time.deltaTime);
             RemainingSeconds -= Time.deltaTime;
             if (RemainingSeconds <= 0f) Fail("SHIFT EXPIRED — quota missed.");
+            if (State != PrototypeShiftState.Briefing && Social != null) Social.Tick(Time.deltaTime);
 
             if (State == PrototypeShiftState.CoolingEmergency)
             {
@@ -135,6 +140,14 @@ namespace CriticalShift.Prototype
         public void Fail(string reason) { State = PrototypeShiftState.Failed; Message = reason + " Press R to reset."; }
 
         public void SetMessage(string message) { Message = message; }
+        public void SetRuntimeState(PrototypeShiftState state, string message)
+        {
+            if (IsTerminal && state != PrototypeShiftState.Briefing) return;
+            State = state;
+            if (!string.IsNullOrEmpty(message)) Message = message;
+        }
+        public void SetProductionCounts(int ore, int fuel)
+        { Ore = Mathf.Max(0, ore); Fuel = Mathf.Max(0, fuel); }
         public void SetPhysicalHeat(float normalizedHeat) { ReactorHeat = Mathf.Clamp(normalizedHeat * 100f, 0f, 150f); }
         public void BeginPhysicalEmergency(string cause)
         {
@@ -156,9 +169,10 @@ namespace CriticalShift.Prototype
             RemainingSeconds = PrototypeShiftRules.ShiftSeconds;
             EmergencySeconds = PrototypeShiftRules.EmergencySeconds;
             State = PrototypeShiftState.Briefing;
-            Message = "Open the BRIEFING BOARD in Arrival. [E] interact";
+            Message = "Open the authored BRIEFING BOARD in Arrival. The shift clock is already running.";
             if (Social != null) Social.ResetRound();
-            PrototypeShoeboxRuntime.Instance?.ResetWorld();
+            if (PrototypeFacilityRuntime.Instance != null) PrototypeFacilityRuntime.Instance.ResetWorld();
+            else PrototypeShoeboxRuntime.Instance?.ResetWorld();
         }
     }
 }

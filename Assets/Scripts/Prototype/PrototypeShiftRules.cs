@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace CriticalShift.Prototype
 {
-    /// Pure, deterministic rules for the tiny vertical-slice shift loop.
+    /// Pure, deterministic rules shared by the authored full-facility prototype.
     public static class PrototypeShiftRules
     {
         public const int OreQuota = 3;
         public const int FuelQuota = 2;
-        public const float ShiftSeconds = 420f;
+        public const float ShiftSeconds = 1500f;
         public const float EmergencySeconds = 25f;
         public const float RecoveredHeat = 68f;
 

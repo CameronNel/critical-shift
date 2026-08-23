@@ -13,7 +13,7 @@ namespace CriticalShift.Prototype
         PrototypeInteractable focusedTarget;
         PrototypePhysicsInteractor physicsInteractor;
         PrototypeWorkerBody workerBody;
-        bool wearingSuit = true;
+        bool wearingSuit;
         public string FocusPrompt { get; private set; }
         public bool WearingSuit => wearingSuit;
         public PrototypeWorkerBody.BodyState BodyState => workerBody != null ? workerBody.State : PrototypeWorkerBody.BodyState.Normal;

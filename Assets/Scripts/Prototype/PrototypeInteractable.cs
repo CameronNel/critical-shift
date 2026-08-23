@@ -7,7 +7,12 @@ namespace CriticalShift.Prototype
         Briefing, Mine, Refinery, Reactor, EmergencyCooling,
         OrePile, Crusher, CoolingValve, SuitLocker, TntWall, Reanimation,
         Infiltrator, LegitimateWorker, ComplianceOfficer, EvidenceLocker,
-        OfficerBonk, MineCart
+        OfficerBonk, MineCart,
+        FacilityBriefing, FacilitySuit, FacilityMineFace, FacilityCart, FacilityHopper,
+        FacilityCrusher, FacilitySorter, FacilityProcessor, FacilityDryer,
+        FacilityFuelAssembly, FacilityInspection, FacilityFuelReceiving,
+        FacilityReactorPump, FacilityCoolingValve, FacilityEmergencyCooling,
+        FacilityReactorControl, FacilityGridDemand, FacilityReanimation, FacilityTnt
     }
 
     public sealed class PrototypeInteractable : MonoBehaviour
@@ -21,12 +26,19 @@ namespace CriticalShift.Prototype
         public string AlternatePrompt => string.IsNullOrEmpty(alternatePrompt) ? "take risky alternative" : alternatePrompt;
         public bool SupportsShortcut => station == PrototypeStation.Refinery || station == PrototypeStation.OrePile ||
             station == PrototypeStation.Crusher || station == PrototypeStation.Infiltrator ||
-            station == PrototypeStation.ComplianceOfficer;
+            station == PrototypeStation.ComplianceOfficer || station == PrototypeStation.FacilitySuit ||
+            station == PrototypeStation.FacilityMineFace || station == PrototypeStation.FacilityCrusher ||
+            station == PrototypeStation.FacilitySorter || station == PrototypeStation.FacilityProcessor ||
+            station == PrototypeStation.FacilityDryer || station == PrototypeStation.FacilityFuelAssembly ||
+            station == PrototypeStation.FacilityInspection || station == PrototypeStation.FacilityReactorControl ||
+            station == PrototypeStation.FacilityGridDemand || station == PrototypeStation.FacilityTnt;
 
         public void Interact(bool forceShortcut = false)
         {
             var game = PrototypeGameDirector.Instance;
             if (game == null) return;
+            var facility = PrototypeFacilityRuntime.Instance;
+            if (facility != null && facility.HandleInteraction(station, forceShortcut)) return;
             var shoebox = PrototypeShoeboxRuntime.Instance;
             switch (station)
             {

@@ -10,6 +10,7 @@ namespace CriticalShift.Prototype
         AudioSource source;
         PrototypeCrusher crusher;
         PrototypeReactorMachine reactor;
+        PrototypeFacilityMachine facility;
 
         void Awake()
         {
@@ -30,6 +31,12 @@ namespace CriticalShift.Prototype
         {
             reactor = target;
             reactor.AudioStateChanged += PlayState;
+        }
+
+        public void Bind(PrototypeFacilityMachine target)
+        {
+            facility = target;
+            facility.AudioStateChanged += PlayState;
         }
 
         void PlayState(MachineAudioState state)
@@ -56,6 +63,7 @@ namespace CriticalShift.Prototype
         {
             if (crusher != null) crusher.AudioStateChanged -= PlayState;
             if (reactor != null) reactor.AudioStateChanged -= PlayState;
+            if (facility != null) facility.AudioStateChanged -= PlayState;
         }
     }
 }

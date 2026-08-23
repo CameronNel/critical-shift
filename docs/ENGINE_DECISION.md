@@ -17,8 +17,9 @@ a physical rigidbody production-room prototype in the selected engine.
 
 Supporting evidence:
 
-- Unity 6000.4.3f1 imports and runs the fourteen-zone facility plus the compact
-  proof-of-fun annex.
+- Unity 6000.4.3f1 imports and runs the complete playable route inside the
+  fourteen-zone facility: Gullet mine, physical cart haulage, six-stage
+  refinery, fuel corridor, reactor startup, grid delivery and recovery.
 - Batch-mode compilation, tests, scene generation, screenshot capture and
   Windows builds are automated from the command line.
 - The project already has external Unity MCP integration and a validated

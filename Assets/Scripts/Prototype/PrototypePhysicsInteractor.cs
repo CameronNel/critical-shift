@@ -38,6 +38,10 @@ namespace CriticalShift.Prototype
             var item = held; held = null; item.IsHeld = false; item.Body.isKinematic = previousKinematic;
             if (throwObject && view != null) item.Body.AddForce(view.transform.forward * item.throwImpulse, ForceMode.VelocityChange);
         }
+        public void ReleaseIfHolding(PrototypeCarryable item)
+        {
+            if (item != null && held == item) Release(false);
+        }
         bool TryDragWorker()
         {
             if (view == null || !Physics.Raycast(view.transform.position, view.transform.forward, out var hit, reach)) return false;
