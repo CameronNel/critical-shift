@@ -16,9 +16,12 @@ namespace CriticalShift.Prototype.Tests
         [Test] public void WetBatchJamsCrusherUnlessUnsafeBypassIsEnabled()
         {
             var go = new GameObject("crusher-test"); var crusher = go.AddComponent<PrototypeCrusher>();
-            crusher.BeginOperation(); crusher.Tick(.3f); crusher.Accept(new PrototypeBatch { wetShortcut = true }); crusher.Tick(.1f); crusher.Tick(2f);
+            crusher.BeginOperation(); crusher.Tick(.3f); Assert.IsTrue(crusher.Accept(new PrototypeBatch { mass = 4.05f, wetShortcut = true })); crusher.Tick(.1f); crusher.Tick(2f);
             Assert.AreEqual(CrusherState.Faulted, crusher.state); Assert.IsTrue(crusher.WetJam);
-            crusher.Repair(); crusher.FinishRepair(); crusher.SetUnsafeBypass(true); crusher.Accept(new PrototypeBatch { wetShortcut = true }); crusher.Tick(2f); Assert.IsNotNull(crusher.output); Object.DestroyImmediate(go);
+            crusher.Repair(); crusher.FinishRepair();
+            var dried = new PrototypeBatch { mass = 4.05f, moisture = .65f, wetShortcut = true }.Dry();
+            Assert.IsFalse(dried.wetShortcut); Assert.IsTrue(crusher.Accept(dried)); crusher.Tick(2f);
+            Assert.AreEqual(CrusherState.OutputReady, crusher.state); Assert.IsNotNull(crusher.output); Object.DestroyImmediate(go);
         }
 
         [Test] public void ShortcutHasDelayedReadableConsequence()

@@ -6,7 +6,8 @@ The foundational product, narrative, systems, technical, multiplayer, AI-product
 
 The current setting is defined in [`docs/CANON.md`](docs/CANON.md), and the visual direction is defined in [`docs/ART_DIRECTION.md`](docs/ART_DIRECTION.md).
 
-This repository is currently a design and prototyping foundation.
+This repository contains the design foundation and a local single-player Unity
+vertical slice of the complete first shift.
 
 ## Working agreements
 
@@ -25,33 +26,43 @@ open with the reason stated.
 
 Open the repository as a Unity `6000.4.3f1` project, load
 `Assets/Scenes/FacilityGreybox.unity`, and press Play. A runtime bootstrap adds
-the first-person controller, objective HUD, and a compact physical
-**Radioactive Shoebox** annex to the authored fourteen-zone facility.
+the first-person controller, objective HUD, and gameplay directly to the
+authored fourteen-zone facility. The detached **Radioactive Shoebox** remains a
+fallback/test fixture; it is not the startup experience in the authored scene.
 
 Controls: WASD move, mouse look, Shift sprint, Ctrl crouch, Space jump,
 E interact, F take the displayed risky/alternate action, G or right mouse grab
 and drag, left mouse throw, R reset after a result, and Escape release the
 cursor.
 
-The physical loop is:
+The playable 25-minute physical loop is:
 
-1. Read the briefing.
-2. Release dry ore and carry three rocks onto the conveyor.
-3. Listen to the crusher; repair a wet jam or knowingly enable its bypass.
-4. Carry two spawned fuel assemblies into the yellow reactor port.
-5. Start the reactor and meet rising demand.
-6. If unsafe fuel causes a delayed emergency, open the physical cooling valve.
-7. Inspect the infiltrator and legitimate suspicious worker, respond to the
+1. Accept the briefing and either complete the 16-second suit procedure or
+   knowingly skip it.
+2. Walk to the integrated Gullet mine, drill three physical dry/wet ore chunks,
+   grab them, and load the parked mine cart.
+3. Release the brake and follow the loaded cart through haulage to the authored
+   receiving hopper.
+4. Tip the cart, operate crusher, sorter, processor, dryer, fuel assembly and
+   inspection in order, and respond to readable jams or risky bypasses.
+5. Carry two released fuel assemblies through the fuel corridor into the
+   reactor receiving port.
+6. Start coolant flow, raise the reactor, connect grid demand and deliver the
+   energy quota while watching heat, stability and the world objective beacon.
+7. If unsafe production causes a delayed emergency, inject physical emergency
+   cooling before staged meltdown completes.
+8. Inspect the infiltrator and legitimate suspicious worker, respond to the
    compliance officer, hide evidence or accept the consequences of a bonk.
-8. Shove the mine cart or arm TNT to create a recoverable casualty, drag the
+9. Shove the mine cart or arm TNT to create a recoverable casualty, drag the
    worker to the OCRU cabinet, and spend reserve power to reanimate them.
-9. Read the cause -> warning -> consequence -> recovery debrief and restart.
+10. Read the cause -> warning -> consequence -> recovery debrief and restart.
 
 Standalone machine test scenes live in `Assets/Scenes/Tests/` for the conveyor,
 crusher, reactor, and OCRU. The Unity EditMode suite covers deterministic batch
-transformation, machine faults/repair/reset, reactor crisis staging, physical
-scope construction, worker recovery, reanimation cost, social escalation, and
-causal debriefing.
+transformation, the full authored route markers, an end-to-end safe production
+shift, cart loading/overload/reset, the timed suit sequence, every refinery
+stage, machine faults/repair/reset, reactor crisis staging, worker recovery,
+reanimation cost, social escalation, and causal debriefing.
 
 This build is an honest local single-player proof-of-fun. Four-player
 host-authoritative networking, object contention, disconnect cleanup, Steam and

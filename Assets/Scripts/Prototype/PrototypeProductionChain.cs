@@ -27,7 +27,12 @@ namespace CriticalShift.Prototype
             if (unsafeBypass) { result.mass *= 1.08f; result.hiddenDefect = Mathf.Clamp01(result.hiddenDefect + .2f); }
             return result;
         }
-        public PrototypeBatch Dry() { var result = Clone(); result.form = OreForm.Dried; result.mass *= 1f - result.moisture * .08f; result.moisture = 0f; return result; }
+        public PrototypeBatch Dry()
+        {
+            var result = Clone(); result.form = OreForm.Dried;
+            result.mass *= 1f - result.moisture * .08f; result.moisture = 0f; result.wetShortcut = false;
+            return result;
+        }
         public PrototypeBatch AssembleFuel()
         {
             var result = Clone(); result.fuelQuality = Mathf.Clamp01(result.grade * (1f - result.contamination) * (1f - result.moisture * .35f) * (1f - result.hiddenDefect * .4f)); return result;
@@ -37,20 +42,33 @@ namespace CriticalShift.Prototype
     public sealed class PrototypeOre : MonoBehaviour
     {
         public PrototypeBatch batch = new PrototypeBatch();
-        public Rigidbody Body { get; private set; }
-        void Awake() { Body = GetComponent<Rigidbody>() ?? gameObject.AddComponent<Rigidbody>(); Body.mass = Mathf.Max(.1f, batch.mass); }
+        Rigidbody body;
+        public Rigidbody Body { get { EnsureBody(); return body; } }
+        void Awake() { EnsureBody(); }
+        void EnsureBody()
+        {
+            if (body == null) body = GetComponent<Rigidbody>();
+            if (body == null) body = gameObject.AddComponent<Rigidbody>();
+            body.mass = Mathf.Max(.1f, batch.mass);
+        }
     }
 
     public sealed class PrototypeFuelAssembly : MonoBehaviour
     {
         public PrototypeBatch batch;
         public bool inspected;
-        public Rigidbody Body { get; private set; }
+        Rigidbody body;
+        public Rigidbody Body { get { EnsureBody(); return body; } }
         public float Quality { get { return batch == null ? 0f : batch.fuelQuality; } }
         void Awake()
         {
-            Body = GetComponent<Rigidbody>() ?? gameObject.AddComponent<Rigidbody>();
+            EnsureBody();
             if (GetComponent<PrototypeCarryable>() == null) gameObject.AddComponent<PrototypeCarryable>();
+        }
+        void EnsureBody()
+        {
+            if (body == null) body = GetComponent<Rigidbody>();
+            if (body == null) body = gameObject.AddComponent<Rigidbody>();
         }
     }
 
@@ -100,7 +118,7 @@ namespace CriticalShift.Prototype
     {
         public CrusherState state = CrusherState.Offline;
         public MachineAudioState audioState = MachineAudioState.Idle;
-        public float processSeconds = 1.5f, damage, capacity = 3f;
+        public float processSeconds = 1.5f, damage, capacity = 4.5f;
         public bool safetyBypass;
         public PrototypeBatch input, output;
         float elapsed; public bool WetJam { get; private set; }

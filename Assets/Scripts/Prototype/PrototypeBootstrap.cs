@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace CriticalShift.Prototype
 {
-    /// Runtime-only bootstrap binds the prototype loop to the authored facility while
-    /// retaining a tiny fallback arena for isolated script/test scenes.
+    /// Runtime-only bootstrap binds the complete playable route to the authored facility
+    /// while retaining a tiny fallback arena for isolated script/test scenes.
     public sealed class PrototypeBootstrap : MonoBehaviour
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -22,15 +22,12 @@ namespace CriticalShift.Prototype
 
             DisableAuthoringCameras();
             bool hasAuthoredFacility = GameObject.Find("[MACHINE] BRIEFING BOARD") != null;
-            var annexOrigin = new Vector3(-42f, 0.05f, -52f);
-            BuildPlayer(hasAuthoredFacility ? annexOrigin + new Vector3(-11.5f, .05f, -7.85f) : new Vector3(0f, 0.05f, 0f),
-                0f);
+            BuildPlayer(hasAuthoredFacility ? FindSpawnPosition() : new Vector3(0f, 0.05f, 0f), 0f);
 
             if (hasAuthoredFacility)
             {
-                BindAuthoredFacility();
-                var shoebox = new GameObject("RadioactiveShoeboxRuntime").AddComponent<PrototypeShoeboxRuntime>();
-                shoebox.Build(annexOrigin);
+                var facility = new GameObject("FullFacilityShiftRuntime").AddComponent<PrototypeFacilityRuntime>();
+                facility.Build();
             }
             else BuildFallbackArena();
 
@@ -50,13 +47,9 @@ namespace CriticalShift.Prototype
 
         static Vector3 FindSpawnPosition()
         {
-            // The facility's authored shift-entrance marker sits inside a sealed
-            // transition volume. Begin on the briefing dais instead so the first
-            // frame is readable and the player can immediately reach the board.
-            var board = GameObject.Find("[MACHINE] BRIEFING BOARD");
-            if (board != null)
-                return new Vector3(board.transform.position.x - 1.5f, 0.06f,
-                    board.transform.position.z - 8.16f);
+            // Begin inside Arrival with a direct sightline to the authored briefing board.
+            if (GameObject.Find("[MACHINE] BRIEFING BOARD") != null)
+                return new Vector3(-72f, 0.06f, -40.2f);
 
             var spawn = GameObject.Find("[SPAWN] Shift entrance");
             return spawn != null ? spawn.transform.position + Vector3.up * 0.05f : new Vector3(-74.4f, 0.05f, -43.8f);
