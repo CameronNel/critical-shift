@@ -16,6 +16,7 @@ namespace CriticalShift.Prototype
         public float RemainingSeconds { get; private set; } = PrototypeShiftRules.ShiftSeconds;
         public float EmergencySeconds { get; private set; } = PrototypeShiftRules.EmergencySeconds;
         public bool UnsafeShortcut { get; private set; }
+        public PrototypeSocialSystem Social { get; private set; }
         public string Message { get; private set; } = "Open the BRIEFING BOARD in Arrival. [E] interact";
         public bool IsTerminal => State == PrototypeShiftState.Won || State == PrototypeShiftState.Failed;
 
@@ -23,11 +24,16 @@ namespace CriticalShift.Prototype
         {
             if (Instance != null && Instance != this) { Destroy(gameObject); return; }
             Instance = this;
+            Social = new PrototypeSocialSystem();
         }
+
+        void OnDestroy() { if (Instance == this) Instance = null; }
 
         void Update()
         {
             if (IsTerminal) return;
+            if (State == PrototypeShiftState.Briefing) return;
+            if (Social != null) Social.Tick(Time.deltaTime);
             RemainingSeconds -= Time.deltaTime;
             if (RemainingSeconds <= 0f) Fail("SHIFT EXPIRED — quota missed.");
 
@@ -43,7 +49,10 @@ namespace CriticalShift.Prototype
         {
             if (State != PrototypeShiftState.Briefing) return;
             State = PrototypeShiftState.Mining;
-            Message = "Mine 3 ore batches at the ORE LOADER. Follow the cyan worker route west.";
+            Message = PrototypeShoeboxRuntime.Instance != null
+                ? "Carry 3 ore rocks onto the conveyor. [G/right mouse] grab; [left mouse] throw."
+                : "Mine 3 ore batches at the ORE LOADER. Follow the cyan worker route west.";
+            if (Social != null) Social.Officer.BeginInspection();
         }
 
         public void MineOre()
@@ -74,9 +83,33 @@ namespace CriticalShift.Prototype
             else Message = $"Fuel batch ready ({Fuel}/{PrototypeShiftRules.FuelQuota}).";
         }
 
+        public bool RecordPhysicalFuel(bool unsafeFuel)
+        {
+            if (State != PrototypeShiftState.Refining || Ore <= 0) return false;
+            Ore--;
+            Fuel++;
+            UnsafeShortcut |= unsafeFuel;
+            if (PrototypeShiftRules.HasFuelQuota(Fuel))
+            {
+                State = PrototypeShiftState.Reactor;
+                Message = unsafeFuel
+                    ? "Fuel quota loaded, but telemetry is suspicious. Start the reactor and watch for delayed consequences."
+                    : "Two physical fuel assemblies loaded. Start the reactor control.";
+            }
+            else Message = $"Physical fuel assembly loaded ({Fuel}/{PrototypeShiftRules.FuelQuota}).";
+            return true;
+        }
+
         public void StartReactor()
         {
             if (State != PrototypeShiftState.Reactor) return;
+            if (PrototypeShoeboxRuntime.Instance != null)
+            {
+                if (PrototypeShoeboxRuntime.Instance.TryStartReactor())
+                    Message = "REACTOR ONLINE — meet demand. Watch the physical heat and stability board.";
+                else Message = "REACTOR REFUSED — physically load two fuel assemblies first.";
+                return;
+            }
             ReactorHeat = PrototypeShiftRules.ReactorHeatFor(Fuel, UnsafeShortcut);
             if (PrototypeShiftRules.IsMeltdown(ReactorHeat))
             {
@@ -101,6 +134,22 @@ namespace CriticalShift.Prototype
 
         public void Fail(string reason) { State = PrototypeShiftState.Failed; Message = reason + " Press R to reset."; }
 
+        public void SetMessage(string message) { Message = message; }
+        public void SetPhysicalHeat(float normalizedHeat) { ReactorHeat = Mathf.Clamp(normalizedHeat * 100f, 0f, 150f); }
+        public void BeginPhysicalEmergency(string cause)
+        {
+            if (IsTerminal || State == PrototypeShiftState.CoolingEmergency) return;
+            State = PrototypeShiftState.CoolingEmergency;
+            EmergencySeconds = PrototypeShiftRules.EmergencySeconds;
+            Message = cause;
+        }
+        public void CompletePhysicalShift(bool dirty, string explanation)
+        {
+            if (IsTerminal) return;
+            State = PrototypeShiftState.Won;
+            Message = (dirty ? "DIRTY SUCCESS — " : "CLEAN SHIFT COMPLETE — ") + explanation + " Press R to run it again.";
+        }
+
         public void ResetShift()
         {
             Ore = 0; Fuel = 0; ReactorHeat = 0f; UnsafeShortcut = false;
@@ -108,6 +157,8 @@ namespace CriticalShift.Prototype
             EmergencySeconds = PrototypeShiftRules.EmergencySeconds;
             State = PrototypeShiftState.Briefing;
             Message = "Open the BRIEFING BOARD in Arrival. [E] interact";
+            if (Social != null) Social.ResetRound();
+            PrototypeShoeboxRuntime.Instance?.ResetWorld();
         }
     }
 }

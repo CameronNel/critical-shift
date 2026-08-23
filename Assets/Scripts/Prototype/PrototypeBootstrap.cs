@@ -22,10 +22,16 @@ namespace CriticalShift.Prototype
 
             DisableAuthoringCameras();
             bool hasAuthoredFacility = GameObject.Find("[MACHINE] BRIEFING BOARD") != null;
-            BuildPlayer(hasAuthoredFacility ? FindSpawnPosition() : new Vector3(0f, 0.05f, 0f),
-                hasAuthoredFacility ? 10.5f : 0f);
+            var annexOrigin = new Vector3(-42f, 0.05f, -52f);
+            BuildPlayer(hasAuthoredFacility ? annexOrigin + new Vector3(-11.5f, .05f, -7.85f) : new Vector3(0f, 0.05f, 0f),
+                0f);
 
-            if (hasAuthoredFacility) BindAuthoredFacility();
+            if (hasAuthoredFacility)
+            {
+                BindAuthoredFacility();
+                var shoebox = new GameObject("RadioactiveShoeboxRuntime").AddComponent<PrototypeShoeboxRuntime>();
+                shoebox.Build(annexOrigin);
+            }
             else BuildFallbackArena();
 
             if (FindAnyObjectByType<Light>() == null)

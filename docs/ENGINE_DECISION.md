@@ -1,9 +1,55 @@
 # Engine Decision
 
-**Status:** Open  
-**Candidates:** Unity and Godot  
-**Decision owner:** Cameron  
-**Decision method:** Evidence from a focused implementation spike, not engine preference
+**Status:** Selected for prototype — Unity
+**Selected version:** Unity 6000.4.3f1
+**Decision owner:** Cameron
+**Recorded:** 2026-08-23
+**Confidence:** 72%
+
+## Decision
+
+Use Unity, C#, the Built-in Render Pipeline, and Unity's 3D physics for the
+proof-of-fun and networked-physics spikes.
+
+Primary reason: the working repository now demonstrates repeatable scene
+assembly, Blender FBX import, deterministic EditMode tests, Windows builds, and
+a physical rigidbody production-room prototype in the selected engine.
+
+Supporting evidence:
+
+- Unity 6000.4.3f1 imports and runs the fourteen-zone facility plus the compact
+  proof-of-fun annex.
+- Batch-mode compilation, tests, scene generation, screenshot capture and
+  Windows builds are automated from the command line.
+- The project already has external Unity MCP integration and a validated
+  Blender-to-FBX-to-Unity asset path.
+
+Known disadvantages:
+
+- Serialized scene and package changes require disciplined validation.
+- Networked held objects and ragdolls remain the highest technical risk.
+- Steam networking and voice will introduce dependency and debugging cost.
+
+This decision is intentionally provisional at the production gate. It must be
+reopened if the required two-client contention, disconnect cleanup, cart
+knockdown and body-dragging spike cannot remain stable during a 20-minute soak,
+or if Steam/proximity-voice integration proves materially less viable than the
+Godot alternative.
+
+## Current technical stack
+
+- Engine: Unity 6000.4.3f1
+- Language: C#
+- Renderer: Built-in Render Pipeline, low graphics defaults, no ray tracing
+- Physics: Unity 3D physics
+- Networking: not installed; next gate is host-authoritative selection/spike
+- Steam: not selected
+- Voice: not selected
+- MCP: vendored `com.coplaydev.unity-mcp`
+- Tests: Unity Test Framework EditMode tests
+- CI/build: local batch-mode validation today; CI multiplayer smoke is pending
+- Repository: engine assets under `Assets/`, packages under `Packages/`, project
+  settings under `ProjectSettings/`, source art under `art/`
 
 ## Required Spike
 

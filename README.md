@@ -25,14 +25,37 @@ open with the reason stated.
 
 Open the repository as a Unity `6000.4.3f1` project, load
 `Assets/Scenes/FacilityGreybox.unity`, and press Play. A runtime bootstrap adds
-the first-person controller, objective HUD, and interactable shift stations to
-the authored fourteen-zone facility.
+the first-person controller, objective HUD, and a compact physical
+**Radioactive Shoebox** annex to the authored fourteen-zone facility.
 
 Controls: WASD move, mouse look, Shift sprint, Ctrl crouch, Space jump,
-E interact, F take the risky refinery bypass, R reset, and Escape release the
-cursor. Complete briefing -> three ore loads -> two safe fuel batches -> reactor
-for a clean shift. The refinery bypass saves time but creates a delayed cooling
-emergency at the reactor shutdown station.
+E interact, F take the displayed risky/alternate action, G or right mouse grab
+and drag, left mouse throw, R reset after a result, and Escape release the
+cursor.
+
+The physical loop is:
+
+1. Read the briefing.
+2. Release dry ore and carry three rocks onto the conveyor.
+3. Listen to the crusher; repair a wet jam or knowingly enable its bypass.
+4. Carry two spawned fuel assemblies into the yellow reactor port.
+5. Start the reactor and meet rising demand.
+6. If unsafe fuel causes a delayed emergency, open the physical cooling valve.
+7. Inspect the infiltrator and legitimate suspicious worker, respond to the
+   compliance officer, hide evidence or accept the consequences of a bonk.
+8. Shove the mine cart or arm TNT to create a recoverable casualty, drag the
+   worker to the OCRU cabinet, and spend reserve power to reanimate them.
+9. Read the cause -> warning -> consequence -> recovery debrief and restart.
+
+Standalone machine test scenes live in `Assets/Scenes/Tests/` for the conveyor,
+crusher, reactor, and OCRU. The Unity EditMode suite covers deterministic batch
+transformation, machine faults/repair/reset, reactor crisis staging, physical
+scope construction, worker recovery, reanimation cost, social escalation, and
+causal debriefing.
+
+This build is an honest local single-player proof-of-fun. Four-player
+host-authoritative networking, object contention, disconnect cleanup, Steam and
+proximity voice remain Gate 1 work and are not claimed as implemented.
 
 A Windows x64 development build is produced at
 `Builds/Windows/CriticalShiftPrototype.exe`; build outputs are intentionally
