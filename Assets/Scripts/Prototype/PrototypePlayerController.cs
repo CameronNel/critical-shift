@@ -11,7 +11,14 @@ namespace CriticalShift.Prototype
         public float interactRange = 3f;
         CharacterController controller; Camera view; float pitch; Vector3 velocity;
         PrototypeInteractable focusedTarget;
+        PrototypePhysicsInteractor physicsInteractor;
+        PrototypeWorkerBody workerBody;
+        bool wearingSuit = true;
         public string FocusPrompt { get; private set; }
+        public bool WearingSuit => wearingSuit;
+        public PrototypeWorkerBody.BodyState BodyState => workerBody != null ? workerBody.State : PrototypeWorkerBody.BodyState.Normal;
+
+        public void SetSuitState(bool suitOn) { wearingSuit = suitOn; }
 
         void Awake()
         {
@@ -26,8 +33,35 @@ namespace CriticalShift.Prototype
                 view = go.AddComponent<Camera>();
                 go.AddComponent<AudioListener>();
             }
+            BuildViewHands();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            physicsInteractor = GetComponent<PrototypePhysicsInteractor>();
+            if (physicsInteractor == null) physicsInteractor = gameObject.AddComponent<PrototypePhysicsInteractor>();
+            workerBody = GetComponent<PrototypeWorkerBody>();
+            if (workerBody == null) workerBody = gameObject.AddComponent<PrototypeWorkerBody>();
+        }
+
+        void BuildViewHands()
+        {
+            if (view == null || view.transform.Find("View Hands") != null) return;
+            var root = new GameObject("View Hands").transform;
+            root.SetParent(view.transform);
+            root.localPosition = Vector3.zero;
+            var shader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard");
+            var material = shader != null ? new Material(shader) { color = new Color(.18f, .42f, .46f) } : null;
+            for (int i = 0; i < 2; i++)
+            {
+                var hand = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                hand.name = i == 0 ? "Left Glove" : "Right Glove";
+                hand.transform.SetParent(root);
+                hand.transform.localPosition = new Vector3(i == 0 ? -.23f : .23f, -.24f, .62f);
+                hand.transform.localRotation = Quaternion.Euler(18f, i == 0 ? -8f : 8f, 0f);
+                hand.transform.localScale = new Vector3(.13f, .13f, .34f);
+                var handCollider = hand.GetComponent<Collider>();
+                if (Application.isPlaying) Destroy(handCollider); else DestroyImmediate(handCollider);
+                if (material != null) hand.GetComponent<Renderer>().sharedMaterial = material;
+            }
         }
 
         void Update()
@@ -47,14 +81,21 @@ namespace CriticalShift.Prototype
             if (Cursor.lockState != CursorLockMode.Locked) return;
             transform.Rotate(0f, Input.GetAxis("Mouse X") * lookSpeed, 0f);
             pitch = Mathf.Clamp(pitch - Input.GetAxis("Mouse Y") * lookSpeed, -80f, 80f);
-            view.transform.localEulerAngles = new Vector3(pitch, 0f, 0f);
+            float knockdownTilt = workerBody != null && workerBody.State == PrototypeWorkerBody.BodyState.KnockedDown ? 62f : 0f;
+            view.transform.localEulerAngles = new Vector3(pitch, 0f, knockdownTilt);
         }
 
         void Move()
         {
+            if (workerBody != null && (workerBody.State == PrototypeWorkerBody.BodyState.KnockedDown ||
+                workerBody.State == PrototypeWorkerBody.BodyState.Incapacitated ||
+                workerBody.State == PrototypeWorkerBody.BodyState.Reanimating ||
+                workerBody.State == PrototypeWorkerBody.BodyState.BeingDragged))
+                return;
             Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
             input = Vector3.ClampMagnitude(input, 1f);
             float speed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : moveSpeed;
+            if (!wearingSuit) speed *= 1.15f;
             bool crouching = Input.GetKey(KeyCode.LeftControl);
             controller.height = crouching ? 1.15f : 1.8f;
             controller.center = new Vector3(0f, controller.height * 0.5f, 0f);
@@ -77,7 +118,7 @@ namespace CriticalShift.Prototype
                 {
                     focusedTarget = target;
                     FocusPrompt = target.SupportsShortcut
-                        ? $"[E] {target.Prompt}   [F] force bypass (fast / risky)"
+                        ? $"[E] {target.Prompt}   [F] {target.AlternatePrompt}"
                         : $"[E] {target.Prompt}";
                 }
             }
@@ -85,6 +126,7 @@ namespace CriticalShift.Prototype
 
         void Interact(bool forceShortcut)
         {
+            if (workerBody != null && workerBody.State != PrototypeWorkerBody.BodyState.Normal && workerBody.State != PrototypeWorkerBody.BodyState.Recovering) return;
             if (focusedTarget != null)
                 focusedTarget.Interact(forceShortcut && focusedTarget.SupportsShortcut);
         }
