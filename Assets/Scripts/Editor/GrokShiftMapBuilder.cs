@@ -62,7 +62,7 @@ namespace CriticalShift.Editor
 
             Transform markerRoot = FindInScene(scene, "--- SPAWN POINTS & MARKERS ---")?.transform ?? mapRoot.transform;
             CreateMarker(markerRoot, PrototypeFacilityLayout.PlayerSpawnMarker,
-                GrokPoint(0f, .06f, -1.8f), Quaternion.Euler(0f, 180f, 0f));
+                GrokPoint(0f, .12f, -7.5f), Quaternion.Euler(0f, 180f, 0f));
             CreateMarker(markerRoot, PrototypeFacilityLayout.OreOutputMarker,
                 GrokPoint(-54.2f, .65f, -17.2f), Quaternion.identity);
             CreateMarker(markerRoot, PrototypeFacilityLayout.MineTntMarker,
