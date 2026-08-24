@@ -92,3 +92,12 @@ Future concept art and generated assets must avoid:
 - Overly polished mobile-game presentation.
 
 The desired result is **stylised, grounded, readable, atmospheric, modular, and achievable**.
+## Spawn/Start Room Visual Target
+
+The spawn/start room is a grounded industrial sci-fi staging area utilizing Sea of Thieves-inspired stylized exaggeration. 
+
+- **Form Language:** Bold, readable silhouettes, chunky bevels, noticeable asymmetry, and controlled wear. 
+- **Materials:** Hand-authored, painterly textures relying heavily on shared trim sheets and decals rather than unique textures for every prop.
+- **Assets:** Hero-quality but stylized PPE (helmets, gloves, boots, suits) displayed in lockers. Modular architecture including ribbed ceilings, industrial doors, and readable safety signage. 
+- **Restraint:** Clutter is strictly controlled to maintain clear player navigation and interaction points. No visual noise that distracts from the core gameplay loop.
+- **Integration:** All geometry must be export-ready with correct pivots, clean hierarchy, and proper normals to ensure seamless replacement of the Unity blockout while keeping all gameplay hooks intact.
