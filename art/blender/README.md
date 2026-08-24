@@ -41,8 +41,40 @@ attribution required, no monetary restriction.
 Only the maps the scene actually samples are kept (Color, NormalGL, Roughness,
 AmbientOcclusion). Displacement and DX-normal variants were discarded.
 
-Paths are relative (`//textures/...`), so the scene opens correctly from any
-clone.
+Standing water samples one further CC0 map, a seamless ocean normal from
+[ProcTexture](https://proctexture.com/textures/water/normal-maps/ocean-normal-map),
+kept outside this directory in `art/textures/water/` alongside its `SOURCE.md`.
+
+Paths are relative (`//textures/...`, `//../textures/...`), so the scene opens
+correctly from any clone.
+
+## Standing water
+
+The drift crosses water twice — a timber deck around y = 7..16, and a ballast
+causeway on post bents around y = 24..42. Both crossings are wadeable pools:
+a solid bottom, water over it, nothing else. Neither is deeper than a long
+step, so the player can always climb out.
+
+[`rebuild_pit_water.py`](rebuild_pit_water.py) generates all of it — carve,
+floor, water — rather than any of it being modelled by hand. It drops a ray at
+every point on a grid, passes through timber, rail and props, and stops at the
+first rock, ground or pool floor, so the shoreline lands where the bottom
+actually dips under the waterline. Edit the script and re-run it in the live
+scene; do not nudge the meshes, they will be replaced.
+
+Two things it does that are not reversible by re-running:
+
+- The deck crossing was imported as an 8.6 m shaft furnished most of the way
+  down with an iron platform, hanging lanterns, ropes and scaffolding. All of
+  it below the new bottom is **cut away** from the source meshes.
+- `SafetyFloor` has the wet footprints **cut out of it**, otherwise it catches
+  the player above the waterline and the pool bottoms may as well not exist.
+  The hole is the wet footprint itself, never a rectangle around it: a cell is
+  only wet because a solid surface was found below the waterline there, so
+  everything removed has something to land on.
+
+The imported asset's own coarse `water_001` pool is hidden, not deleted, since
+the fitted surfaces supersede it.
 
 ## Fidelity note
 
