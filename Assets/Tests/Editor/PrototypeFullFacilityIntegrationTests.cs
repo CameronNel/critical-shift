@@ -18,12 +18,25 @@ namespace CriticalShift.Prototype.Tests
             "[MACHINE] CONTROL POSITION", "[MACHINE] GRID DEMAND", "[MACHINE] REANIMATION BAY"
         };
 
-        [Test]
-        public void AuthoredSceneContainsEveryFullShiftRouteMarker()
+        [TestCase("Assets/Scenes/FacilityGreybox.unity")]
+        [TestCase("Assets/Scenes/GrokShiftMap.unity")]
+        public void AuthoredScenesContainEveryFullShiftRouteMarker(string scenePath)
         {
-            string scene = File.ReadAllText(Path.GetFullPath("Assets/Scenes/FacilityGreybox.unity"));
+            string scene = File.ReadAllText(Path.GetFullPath(scenePath));
             foreach (string objectName in RequiredSceneObjects)
-                StringAssert.Contains(objectName, scene, objectName + " must remain authored into FacilityGreybox.");
+                StringAssert.Contains(objectName, scene, objectName + " must remain authored into " + scenePath + ".");
+        }
+
+        [Test]
+        public void GrokMapContainsConvertedEnvironmentAndLayoutMarkers()
+        {
+            string scene = File.ReadAllText(Path.GetFullPath("Assets/Scenes/GrokShiftMap.unity"));
+            StringAssert.Contains("[GROK] Arrival Mine Haulage Environment", scene);
+            StringAssert.Contains(PrototypeFacilityLayout.PlayerSpawnMarker, scene);
+            StringAssert.Contains(PrototypeFacilityLayout.CartRouteMarker, scene);
+            StringAssert.Contains(PrototypeFacilityLayout.OreOutputMarker, scene);
+            StringAssert.Contains(PrototypeFacilityLayout.MineTntMarker, scene);
+            StringAssert.Contains(PrototypeFacilityLayout.HopperDeckMarker, scene);
         }
 
         [Test]
