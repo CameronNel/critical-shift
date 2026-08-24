@@ -22,7 +22,9 @@ namespace CriticalShift.Prototype
 
             DisableAuthoringCameras();
             bool hasAuthoredFacility = GameObject.Find("[MACHINE] BRIEFING BOARD") != null;
-            BuildPlayer(hasAuthoredFacility ? FindSpawnPosition() : new Vector3(0f, 0.05f, 0f), 0f);
+            BuildPlayer(
+                hasAuthoredFacility ? FindSpawnPosition() : new Vector3(0f, 0.05f, 0f),
+                hasAuthoredFacility ? FindSpawnYaw() : 0f);
 
             if (hasAuthoredFacility)
             {
@@ -47,12 +49,21 @@ namespace CriticalShift.Prototype
 
         static Vector3 FindSpawnPosition()
         {
+            var authoredSpawn = PrototypeFacilityLayout.FindNamedTransform(PrototypeFacilityLayout.PlayerSpawnMarker);
+            if (authoredSpawn != null) return authoredSpawn.position;
+
             // Begin inside Arrival with a direct sightline to the authored briefing board.
             if (GameObject.Find("[MACHINE] BRIEFING BOARD") != null)
                 return new Vector3(-72f, 0.06f, -40.2f);
 
             var spawn = GameObject.Find("[SPAWN] Shift entrance");
             return spawn != null ? spawn.transform.position + Vector3.up * 0.05f : new Vector3(-74.4f, 0.05f, -43.8f);
+        }
+
+        static float FindSpawnYaw()
+        {
+            var authoredSpawn = PrototypeFacilityLayout.FindNamedTransform(PrototypeFacilityLayout.PlayerSpawnMarker);
+            return authoredSpawn == null ? 0f : authoredSpawn.eulerAngles.y;
         }
 
         static void BuildPlayer(Vector3 position, float yaw)

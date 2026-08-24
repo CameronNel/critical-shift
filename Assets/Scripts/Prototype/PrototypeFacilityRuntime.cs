@@ -92,6 +92,15 @@ namespace CriticalShift.Prototype
         Renderer batchTokenRenderer;
         Light reactorGlow;
         Vector3 cartStart;
+        Quaternion cartStartRotation;
+        Vector3 playerSpawn;
+        Quaternion playerSpawnRotation;
+        Vector3 briefingPosition;
+        Vector3 suitPosition;
+        Vector3 minePosition;
+        Vector3 oreSpawnPosition;
+        Vector3 hopperPosition;
+        Vector3 mineTntPosition;
         Vector3 workerStart;
         Vector3 infiltratorStart;
         bool built;
@@ -115,6 +124,7 @@ namespace CriticalShift.Prototype
             director = PrototypeGameDirector.Instance ?? FindAnyObjectByType<PrototypeGameDirector>();
             director?.EnsureRuntimeReady();
             player = FindAnyObjectByType<PrototypePlayerController>();
+            ResolveAuthoredLayout();
             BuildGuidance();
             BindArrival();
             BindMineAndCart();
@@ -123,6 +133,22 @@ namespace CriticalShift.Prototype
             BindRecoveryAndSocial();
             ResetWorld(false);
             Debug.Log("[PrototypeFacility] Full route online: Arrival -> Gullet Mine -> Cart Haulage -> Crusher -> Sorter -> Processor -> Dryer -> Fuel -> Reactor.");
+        }
+
+        void ResolveAuthoredLayout()
+        {
+            playerSpawn = PrototypeFacilityLayout.ResolvePosition(PrototypeFacilityLayout.PlayerSpawnMarker, PlayerSpawn);
+            playerSpawnRotation = PrototypeFacilityLayout.ResolveRotation(
+                PrototypeFacilityLayout.PlayerSpawnMarker, Quaternion.identity);
+            briefingPosition = PrototypeFacilityLayout.ResolvePosition("[MACHINE] BRIEFING BOARD", BriefingPosition);
+            suitPosition = PrototypeFacilityLayout.ResolvePosition("[MACHINE] SUIT INTEGRITY TEST", SuitPosition);
+            minePosition = PrototypeFacilityLayout.ResolvePosition("[MACHINE] DRILL RIG", MinePosition);
+            oreSpawnPosition = PrototypeFacilityLayout.ResolvePosition(
+                PrototypeFacilityLayout.OreOutputMarker, new Vector3(-87.6f, -.7f, -2.4f));
+            hopperPosition = PrototypeFacilityLayout.ResolvePosition(
+                PrototypeFacilityLayout.HopperDeckMarker, HopperPosition);
+            mineTntPosition = PrototypeFacilityLayout.ResolvePosition(
+                PrototypeFacilityLayout.MineTntMarker, new Vector3(-85.2f, -.3f, -9f));
         }
 
         void BuildGuidance()
@@ -140,9 +166,9 @@ namespace CriticalShift.Prototype
         void BindArrival()
         {
             BindStation("[MACHINE] BRIEFING BOARD", PrototypeStation.FacilityBriefing,
-                "accept the 25-minute power contract", null, BriefingPosition);
+                "accept the 25-minute power contract", null, briefingPosition);
             var suitObject = BindStation("[MACHINE] SUIT INTEGRITY TEST", PrototypeStation.FacilitySuit,
-                "run the complete suit sequence", "skip the suit for speed", SuitPosition);
+                "run the complete suit sequence", "skip the suit for speed", suitPosition);
             suitSequence = GetOrAdd<PrototypeSuitSequence>(suitObject);
             // Four authored steps at four seconds each keeps the safe route inside the
             // spec's 15-30 second target while the unsafe bypass remains immediate.
@@ -162,17 +188,19 @@ namespace CriticalShift.Prototype
                 }
                 SetPhase(PrototypeFacilityPhase.MineExtraction, PrototypeShiftState.Mining,
                     "Extract three physical ore chunks from the GULLET MINE. [E] drill, [F] mine the wet seam.",
-                    "EXTRACT ORE IN GULLET MINE", MinePosition);
+                    "EXTRACT ORE IN GULLET MINE", minePosition);
             };
         }
 
         void BindMineAndCart()
         {
             BindStation("[MACHINE] DRILL RIG", PrototypeStation.FacilityMineFace,
-                "drill one dry ore chunk", "blast the wet seam (fast / risky)", MinePosition);
-            var cartObject = FindClosestNamed("mine.cart.parked", CartPosition);
-            if (cartObject == null) cartObject = CreateFallbackBlock("mine.cart.parked", CartPosition, new Vector3(1.2f, 1.2f, 1.8f), "cart");
+                "drill one dry ore chunk", "blast the wet seam (fast / risky)", minePosition);
+            Vector3 authoredCartPosition = PrototypeFacilityLayout.ResolvePosition("mine.cart.parked", CartPosition);
+            var cartObject = FindClosestNamed("mine.cart.parked", authoredCartPosition);
+            if (cartObject == null) cartObject = CreateFallbackBlock("mine.cart.parked", authoredCartPosition, new Vector3(1.2f, 1.2f, 1.8f), "cart");
             cartStart = cartObject.transform.position;
+            cartStartRotation = cartObject.transform.rotation;
             var body = GetOrAdd<Rigidbody>(cartObject);
             body.mass = 95f;
             body.linearDamping = 2f;
@@ -201,7 +229,7 @@ namespace CriticalShift.Prototype
             cartInteractable.station = PrototypeStation.FacilityCart;
             cartInteractable.prompt = "release the brake and push the loaded cart to the refinery";
             cartDriver = cartObject.AddComponent<PrototypeFacilityCartRouteDriver>();
-            cartDriver.Configure(cart, new[]
+            var defaultRoute = new[]
             {
                 cartStart,
                 new Vector3(-75.6f, -1.2f, 0f),
@@ -210,7 +238,10 @@ namespace CriticalShift.Prototype
                 new Vector3(-60f, .8f, -12f),
                 new Vector3(-43.8f, .8f, -12f),
                 new Vector3(-43.8f, .8f, -28.2f)
-            });
+            };
+            Vector3[] route = PrototypeFacilityLayout.ResolveRoute(PrototypeFacilityLayout.CartRouteMarker, defaultRoute);
+            route[0] = cartStart;
+            cartDriver.Configure(cart, route);
             cartDriver.Arrived += OnCartArrived;
             BindStation("[MACHINE] RECEIVING HOPPER", PrototypeStation.FacilityHopper,
                 "tip the cart into the receiving hopper", null, new Vector3(-43.8f, -2f, -34.5f));
@@ -218,7 +249,7 @@ namespace CriticalShift.Prototype
             // interaction reach. Keep that real machine as the visual target and add a
             // compact deck-side tip control where the cart route actually terminates.
             var hopperControl = CreateFallbackBlock("[CONTROL] HOPPER TIP LEVER",
-                HopperPosition + new Vector3(0f, 1.1f, 0f), new Vector3(.8f, 1.2f, .8f), "control");
+                hopperPosition + new Vector3(0f, 1.1f, 0f), new Vector3(.8f, 1.2f, .8f), "control");
             BindExisting(hopperControl, PrototypeStation.FacilityHopper, "tip the cart into the receiving hopper", null);
         }
 
@@ -330,7 +361,7 @@ namespace CriticalShift.Prototype
             var evidence = CreateFallbackBlock("Evidence Locker", new Vector3(7f, .75f, -22f), new Vector3(1.2f, 1.5f, .8f), "evidence");
             BindExisting(evidence, PrototypeStation.EvidenceLocker, "hide recorded evidence", null);
 
-            var tntObject = CreateFallbackBlock("Mine TNT Charge", new Vector3(-85.2f, -.3f, -9f), new Vector3(1.2f, 1.2f, .6f), "danger");
+            var tntObject = CreateFallbackBlock("Mine TNT Charge", mineTntPosition, new Vector3(1.2f, 1.2f, .6f), "danger");
             BindExisting(tntObject, PrototypeStation.FacilityTnt, "arm a controlled TNT charge", "overcharge the wet seam");
             tnt = tntObject.AddComponent<PrototypeTntWall>();
             tnt.fuseSeconds = 3f; tnt.damageRadius = 7f;
@@ -483,7 +514,7 @@ namespace CriticalShift.Prototype
             director?.Social?.Officer.BeginInspection();
             SetPhase(PrototypeFacilityPhase.SuitPreparation, PrototypeShiftState.Mining,
                 "Go to the LOCKER ROOM and run the suit procedure. [F] skips it for speed and creates evidence.",
-                "PUT ON PROTECTIVE SUIT", SuitPosition);
+                "PUT ON PROTECTIVE SUIT", suitPosition);
         }
 
         void UseSuit(bool shortcut)
@@ -496,7 +527,7 @@ namespace CriticalShift.Prototype
                 Ledger("Crew skipped protective equipment", "Suit telemetry remained offline", "Movement improved but radiation/compliance risk increased", "Return through decontamination before shift end");
                 SetPhase(PrototypeFacilityPhase.MineExtraction, PrototypeShiftState.Mining,
                     "SUIT SKIPPED — move faster, but the mine and officer will record it. Extract three chunks.",
-                    "EXTRACT ORE IN GULLET MINE", MinePosition);
+                    "EXTRACT ORE IN GULLET MINE", minePosition);
                 return;
             }
             if (!suitSequence.IsRunning)
@@ -513,7 +544,7 @@ namespace CriticalShift.Prototype
             if (ExtractedOre >= PrototypeShiftRules.OreQuota) { SetMessage("ORE QUOTA EXTRACTED — physically load the cart."); return; }
             var go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             go.name = wetShortcut ? "Gullet Wet Ore Chunk" : "Gullet Dry Ore Chunk";
-            go.transform.position = new Vector3(-87.6f + ExtractedOre * .7f, -.7f, -2.4f);
+            go.transform.position = oreSpawnPosition + Vector3.right * (ExtractedOre * .7f);
             go.transform.localScale = wetShortcut ? new Vector3(1.05f, .78f, .9f) : new Vector3(.82f, .65f, .74f);
             go.GetComponent<Renderer>().sharedMaterial = MaterialFor(wetShortcut ? "wetOre" : "ore", wetShortcut ? new Color(.16f, .42f, .38f) : new Color(.38f, .28f, .2f));
             var ore = go.AddComponent<PrototypeOre>();
@@ -563,7 +594,7 @@ namespace CriticalShift.Prototype
                 if (cart.CargoCount < PrototypeShiftRules.OreQuota) { SetMessage("CART NEEDS 3 ORE CHUNKS BEFORE DEPARTURE."); return; }
                 Phase = PrototypeFacilityPhase.CartHaulage;
                 director?.SetRuntimeState(PrototypeShiftState.Mining, "CART ROLLING — follow it through haulage to the crusher tipping deck.");
-                SetWorldObjective("FOLLOW CART TO RECEIVING HOPPER", "MOVING ORE CART", HopperPosition);
+                SetWorldObjective("FOLLOW CART TO RECEIVING HOPPER", "MOVING ORE CART", hopperPosition);
                 cartDriver.BeginRoute(cart.IsOverloaded ? .78f : 1f);
             }
             else if (Phase == PrototypeFacilityPhase.CartHaulage) cartDriver.BeginRoute(cart.IsOverloaded ? .78f : 1f);
@@ -574,7 +605,7 @@ namespace CriticalShift.Prototype
         {
             SetPhase(PrototypeFacilityPhase.HopperUnload, PrototypeShiftState.Mining,
                 "Cart reached the crusher deck. [E] at RECEIVING HOPPER to tip and merge the ore batch.",
-                "TIP CART INTO HOPPER", HopperPosition);
+                "TIP CART INTO HOPPER", hopperPosition);
         }
 
         void UnloadCart()
@@ -721,7 +752,7 @@ namespace CriticalShift.Prototype
             Phase = PrototypeFacilityPhase.Complete;
             if (reactorGlow != null) reactorGlow.intensity = 1.2f;
             director?.CompletePhysicalShift(dirty, reason + " " + director.Social.Debrief);
-            guidance?.SetWorldTarget("SHIFT DEBRIEF", BriefingPosition, "SHIFT COMPLETE — PRESS R TO RESTART");
+            guidance?.SetWorldTarget("SHIFT DEBRIEF", briefingPosition, "SHIFT COMPLETE — PRESS R TO RESTART");
         }
 
         void TryReanimate()
@@ -820,7 +851,7 @@ namespace CriticalShift.Prototype
             suitSequence?.ResetSequence();
             cartDriver?.ResetRoute();
             cart?.ResetCart();
-            if (cart != null) { cart.transform.position = cartStart; cart.transform.rotation = Quaternion.Euler(0f, 16f, 0f); }
+            if (cart != null) { cart.transform.position = cartStart; cart.transform.rotation = cartStartRotation; }
             crusher?.ResetMachine();
             sorter?.ResetMachine(); processor?.ResetMachine(); dryer?.ResetMachine(); assembler?.ResetMachine(); inspection?.ResetMachine();
             reactor?.ResetReactor(); demandGauge?.ResetGauge();
@@ -835,13 +866,13 @@ namespace CriticalShift.Prototype
             {
                 var controller = player.GetComponent<CharacterController>();
                 if (controller != null) controller.enabled = false;
-                player.transform.position = PlayerSpawn;
-                player.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                player.transform.position = playerSpawn;
+                player.transform.rotation = playerSpawnRotation;
                 if (controller != null) controller.enabled = true;
             }
             Phase = PrototypeFacilityPhase.Briefing;
             guidance?.ResetGuidance();
-            guidance?.SetWorldTarget("BRIEFING BOARD", BriefingPosition, "OPEN SHIFT BRIEFING");
+            guidance?.SetWorldTarget("BRIEFING BOARD", briefingPosition, "OPEN SHIFT BRIEFING");
         }
 
         public void ForceCartArrivalForTest() { cartDriver?.ForceArrival(); }
@@ -1045,9 +1076,9 @@ namespace CriticalShift.Prototype
                 if (index >= route.Length)
                 {
                     IsRolling = false;
-                    cart.Body.linearVelocity = Vector3.zero;
                     cart.Body.isKinematic = false;
                     cart.Body.useGravity = true;
+                    cart.Body.linearVelocity = Vector3.zero;
                     Arrived?.Invoke();
                     return;
                 }
