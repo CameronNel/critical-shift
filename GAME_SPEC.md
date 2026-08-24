@@ -3859,3 +3859,29 @@ If yes, the project has its identity.
 If no, more content will not save it.
 
 Build the radioactive shoebox first.
+
+# 9. Spawn/Start Room Specification
+
+## 9.1 Overview
+The spawn/start room serves as the staging area where players begin their shift. It transitions them from the outside world into the high-stress environment of the facility. The architecture should feel like a grounded industrial sci-fi facility with Sea of Thieves-inspired stylized exaggeration: bold readable silhouettes, chunky bevels, asymmetry, and controlled wear.
+
+## 9.2 Complete Architecture
+- **Structure:** Modular floor panels, reinforced walls, curved ceiling ribs.
+- **Transit:** Airlock/doorway thresholds that clearly demarcate safe zones from hazardous areas.
+- **Staging & Briefing:** A dressing area, storage lockers, and a briefing terminal/board.
+- **Infrastructure:** Exposed pipes, thick cables, industrial vents, functional lighting fixtures.
+- **Detailing:** Safety hardware, signage/decals (hazard stripes, department identifiers), with intentional restraint to avoid clutter and preserve gameplay clearances.
+
+## 9.3 Hero Assets & Modular Kit
+- **Wearable Clothes/PPE:** Stylized adult worker suit pieces, helmets, gloves, and boots presented on hangers or inside lockers.
+- **Devices:** Briefing terminals, suit stations, chunky control panels, and handheld/rack devices.
+- **Safety Equipment:** Interactive hero props designed to be reusable, modular, cleanly named, and correctly pivoted for Unity export.
+
+## 9.4 Material Language & Budgets
+- Hand-authored painterly materials using shared material sets, trim sheets, and decals.
+- LOD-conscious density, sensible topology, and clean hierarchies to maintain mid-to-low fidelity suitable for a solo developer.
+- Online assets must have compatible licensing and be adapted to fit this art language.
+
+## 9.5 Unity Integration & Gameplay
+- The room must preserve all Unity gameplay systems intact: scale, axes, spawn placement, doorways, navigation meshes, interaction markers, and system hookups.
+- Ensure non-destructive export/import pipelines for the Grok map integration.
