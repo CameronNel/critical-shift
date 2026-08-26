@@ -6,9 +6,10 @@
 **Target platform:** PC, with Steam as the first commercial platform  
 **Target players:** 1 to 4, designed primarily for 3 to 4  
 **Camera:** First-person by default, with visible body, hands, carried objects, and full ragdoll presentation  
-**Visual style:** Stylised adult human workers in grounded, chunky industrial environments, with readable silhouettes and believable proportions  
+**Visual style:** Highly stylised, low-detail human workers and chunky industrial environments, using simple/faceted geometry, compact expressive proportions, bold colour blocking, texture-light materials, and strong gameplay silhouettes  
 **Core genre:** Cooperative industrial comedy, physics-enhanced production, crisis management, and light roguelite progression  
 **Primary development model:** One human director supervising external AI agents that perform most implementation, testing, documentation, scene assembly, and maintenance
+**Visual authority:** `docs/ART_DIRECTION.md` is authoritative for character, environment, material, lighting, concept-art, and generated-asset style. It supersedes conflicting legacy visual wording in this specification while gameplay, systems, dimensions, routes, and interaction requirements remain authoritative.
 
 ---
 
@@ -371,20 +372,22 @@ The tone should not become:
 
 ## 4.1 Character Form
 
-Workers are stylised adult human figures with:
+Workers are deliberately stylised adult human figures. `docs/ART_DIRECTION.md` is authoritative for their visual proportions and surface treatment. The target is compact, expressive, low-detail readability rather than anatomical realism.
 
-- Believable adult proportions.
-- Varied body types, ages, and ethnic backgrounds.
-- Recognisably human faces, visible directly or through practical visors.
-- Industrial helmets, hoods, respirators, and protective layers appropriate to each task.
-- Slight exaggeration of hands, footwear, or equipment only where gameplay readability requires it.
-- Utility belts, radios, tools, and telemetry packs.
-- Oxygen, cooling, or life-support modules where required.
-- Visible dosimeters and department markings.
-- Strong colour identification.
-- Clear silhouettes at gameplay distance.
+Use:
 
-Do not use childlike head-to-body ratios, tiny torsos, stubby limbs, mascot faces, or toy-like proportions. The workers may be stylised and expressive, but they must read as adult humans performing dangerous industrial work.
+- Compact adult-coded proportions, broadly around 5.5 to 6.5 heads tall.
+- Slightly enlarged helmet/head volume for expression and recognition.
+- Simplified torso and limb masses.
+- Readable, somewhat oversized hands/gloves and boots for physical interaction.
+- Varied body types, ages, skin tones, faces, and identities expressed within the shared stylised proportion system.
+- Recognisably human faces, visible directly or through practical visors, with simple features rather than facial microdetail.
+- Industrial helmets, hoods, respirators, sealed suits, packs, and protective layers appropriate to each task.
+- Utility belts, radios, tools, telemetry packs, dosimeters, and department markings simplified into large readable shapes.
+- Strong player/department colour identification.
+- Clear silhouettes at gameplay distance and while ragdolled.
+
+Workers must read as adults through posture, voice, role, equipment, and context, but they should not target realistic human anatomy. Avoid baby/toddler coding, chibi/anime proportions, plush-toy materials, or mascot costumes.
 
 The model must support:
 
@@ -3005,9 +3008,9 @@ The human is not expected to manually author most code.
 
 ## 32.5 Google AI Role
 
-- Visual critique.
+- Visual concept generation and critique using `docs/ART_DIRECTION.md` and dedicated prompts under `art/concepts/`.
 - Alternate technical analysis.
-- Reference analysis.
+- Reference analysis focused on high-level visual qualities rather than copying protected assets.
 - Documentation.
 - Independent review.
 
@@ -3105,7 +3108,7 @@ Codex must choose one engine after a focused spike.
 
 Evaluate:
 
-1. Stylised adult human character controller.
+1. PEAK-led stylised human character controller with compact, readable proportions.
 2. Active animation to ragdoll.
 3. Ragdoll recovery.
 4. Physics carrying.
@@ -3209,7 +3212,7 @@ Build the same tiny test in both engines only if necessary.
 Test contains:
 
 - Two clients.
-- Adult-proportioned placeholder humanoid.
+- Compact stylised placeholder humanoid matching `docs/ART_DIRECTION.md`.
 - Grab crate.
 - Two-player contention.
 - Ragdoll on cart impact.
@@ -3863,7 +3866,7 @@ Build the radioactive shoebox first.
 # 9. Spawn/Start Room Specification
 
 ## 9.1 Overview
-The spawn/start room serves as the staging area where players begin their shift. It transitions them from the outside world into the high-stress environment of the facility. The architecture should feel like a grounded industrial sci-fi facility with Sea of Thieves-inspired stylized exaggeration: bold readable silhouettes, chunky bevels, asymmetry, and controlled wear.
+The spawn/start room serves as the staging area where players begin their shift. It transitions them from the outside world into the high-stress environment of the facility. The architecture should establish Critical Shift's PEAK-led visual language immediately: simple/faceted low-detail geometry, bold readable silhouettes, chunky functional forms, broad colour blocking, sparse surface detail, and lighting-led atmosphere. It must remain an original Critical Shift industrial design rather than copying another game's assets.
 
 ## 9.2 Complete Architecture
 - **Structure:** Modular floor panels, reinforced walls, curved ceiling ribs.
@@ -3873,12 +3876,12 @@ The spawn/start room serves as the staging area where players begin their shift.
 - **Detailing:** Safety hardware, signage/decals (hazard stripes, department identifiers), with intentional restraint to avoid clutter and preserve gameplay clearances.
 
 ## 9.3 Hero Assets & Modular Kit
-- **Wearable Clothes/PPE:** Stylized adult worker suit pieces, helmets, gloves, and boots presented on hangers or inside lockers.
+- **Wearable Clothes/PPE:** The signature Critical Shift hero hazmat suit and modular PPE pieces, using compact stylised proportions, a strong helmet/visor silhouette, chunky gloves/boots, broad colour blocks, and minimal surface noise, presented clearly on hangers or inside lockers.
 - **Devices:** Briefing terminals, suit stations, chunky control panels, and handheld/rack devices.
 - **Safety Equipment:** Interactive hero props designed to be reusable, modular, cleanly named, and correctly pivoted for Unity export.
 
 ## 9.4 Material Language & Budgets
-- Hand-authored painterly materials using shared material sets, trim sheets, and decals.
+- Texture-light materials using broad colour blocks, simple shared material families, vertex colour/masks where useful, and sparse functional decals. Do not use painterly Sea of Thieves treatment or realistic PBR microdetail.
 - LOD-conscious density, sensible topology, and clean hierarchies to maintain mid-to-low fidelity suitable for a solo developer.
 - Online assets must have compatible licensing and be adapted to fit this art language.
 

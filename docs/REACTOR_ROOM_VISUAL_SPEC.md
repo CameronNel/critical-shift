@@ -4,6 +4,7 @@
 **Gameplay authority:** `GAME_SPEC.md` and `prototype/threejs-facility/src/facility/data/reactor.ts`  
 **Facility-layout authority:** `prototype/threejs-facility/DESIGN_NOTES.md`  
 **Art-direction authority:** `docs/ART_DIRECTION.md`
+**Surface-style rule:** this document remains authoritative for reactor layout, dimensions, object separation, interaction positions, and animation requirements; `docs/ART_DIRECTION.md` is authoritative for proportions, geometry language, materials, texture density, lighting treatment, and overall visual stylisation. Legacy realistic/PBR wording below is subordinate to that art bible.
 
 This document defines how the existing compact reactor gameplay room is to be represented in finished 3D art. It does not replace the reactor simulation or its clockwise gameplay layout. Where the previous greybox used a simple central core cylinder and containment frame, the finished visual target uses a recessed water pool with two large visible control-bank drive assemblies.
 
@@ -17,13 +18,13 @@ Required qualities:
 
 - Sterile, maintained, bright working environment.
 - Cool grey and off-white architectural shell.
-- Brushed stainless, galvanised steel and powder-coated machine housings.
+- Broad cool-grey/off-white/blue-green machine colour blocks that suggest industrial metal without realistic brushed-metal microdetail.
 - Restrained blue-grey / desaturated green equipment paint.
 - White or very light grey coolant pipework with simple blue direction markings.
 - A strongly luminous cyan-blue reactor pool as the room's visual hero.
 - Two, and only two, dominant visible control-bank drive columns.
 - Large physical buttons, guarded toggles, lever handles, analogue gauges, CRT-like displays and early flat-panel/industrial screens mixed together.
-- Modest wear at contact edges and service areas, but no blanket rust, soot or grime.
+- Sparse graphic wear only where it communicates use or damage; no blanket rust, soot, grime, scratch noise, or realistic surface ageing.
 - Functional labels, warning plates, numbered equipment and floor markings.
 - No Soviet flags, red stars, hammer-and-sickle imagery or real-world political insignia.
 - No dense forest of control rods. The room must read instantly from first-person gameplay distance.
@@ -125,7 +126,7 @@ The pool is a fictionalised power-reactor service/cooling pool chosen for visual
 
 Required internals:
 
-- Deep cylindrical/segmented shaft with pale tiled, enamelled or stainless inner walls.
+- Deep cylindrical/segmented shaft with broad pale wall segments that suggest tile, enamel or metal without realistic surface microdetail.
 - Cyan emissive light source concentrated low in the shaft rather than a uniformly glowing flat water plane.
 - Two submerged circular guide/manifold assemblies aligned to Control Bank A and B.
 - Simplified submerged structural frame and core housing visible through the water.
@@ -323,27 +324,34 @@ The Blender scene must not be a single merged environment mesh. At minimum, the 
 
 Objects intended to rotate must have origins at their hinges/shafts. Sliding objects must have local axes aligned to the intended travel. Bank A and B moving assemblies must have local Z/Y motion set up cleanly for vertical animation.
 
-## 12. Material families and PBR sourcing
+## 12. Material families and texture-light sourcing
 
-The room should use a restrained reusable material set, preferably sourced from free PBR libraries with clear permissive licences such as Poly Haven, ambientCG or CGBookcase.
+The reactor room uses a restrained reusable material palette consistent with `ART_DIRECTION.md`. Materials should read by **large value/colour blocks and simple response**, not by photographic texture detail.
 
 Required material families:
 
-1. brushed / satin stainless steel
-2. light grey painted metal
-3. blue-grey / muted green powder-coated metal
-4. sealed industrial floor / painted steel floor panels
-5. black rubber hose
-6. black/grey electrical cable jacket
-7. clear laminated glass
+1. off-white / pale structural shell
+2. cool grey machine body
+3. blue-grey / muted green equipment accent
+4. dark sealed floor / floor-panel family
+5. white or very light coolant pipe family
+6. dark rubber / grip / boot-like utility material
+7. simple clear / smoked glass for windows and protective covers
 8. dark screen glass
 9. emissive cyan reactor light
-10. coloured indicator/emergency emissives
-11. small yellow-black hazard marking/decal set
+10. coloured indicator / emergency emissives
+11. small yellow-black hazard marking / decal set
+12. sparse contamination / scorch / damage decal family
 
-Do not download a unique 4K material for every object. Use tiled/shared PBR families. Prefer 1K-2K textures for most room surfaces unless a hero asset demonstrably benefits from more.
+Preferred implementation:
 
-Any downloaded material used in production must have its source and licence recorded alongside the Blender deliverable or asset manifest.
+- Solid colours, gradients, vertex colour, simple masks and restrained roughness variation first.
+- Little or no normal-map detail on ordinary architecture and machines.
+- Reuse the same material families across many objects.
+- Use sparse decals only for labels, hazards, contamination and meaningful damage.
+- Do not use realistic brushed-metal normals, dense scratches, photographed grime, cloth weave, or high-frequency wear as a finishing layer.
+- Most ordinary assets should need no unique texture set. When textures are necessary, prefer small reusable textures; 512–1024 px is generally sufficient, with 2K reserved for a demonstrated hero/close-interaction need.
+- Any externally sourced texture or material retained in production must have a compatible licence and recorded source, but the art pipeline should not depend on realistic PBR libraries.
 
 ## 13. Lighting and state progression
 
@@ -454,5 +462,5 @@ A reactor-room Blender scene conforms to this specification only if all of the f
 - normal lighting is bright, sterile and readable
 - pool cyan is the hero visual
 - Control Bank A/B, water, doors, major controls, cart and important valves remain individually animatable
-- free/permissive PBR materials are used and their sources recorded
+- shared texture-light materials follow `ART_DIRECTION.md`; any external material sources used are permissively licensed and recorded
 - the room reads as clean 1990s industrial science fiction rather than steampunk, abandoned Soviet industrialism or ultra-modern laboratory futurism
