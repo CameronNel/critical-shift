@@ -57,7 +57,7 @@ Godot alternative.
 Build the smallest equivalent test needed to resolve the technical risk:
 
 - Two locally running clients
-- Responsive stylised adult human controller
+- Responsive compact stylised human controller matching `docs/ART_DIRECTION.md`
 - Host-authoritative crate grabbing
 - Two-player object contention
 - Mine-cart impact causing recoverable ragdoll
