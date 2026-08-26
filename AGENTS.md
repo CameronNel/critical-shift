@@ -8,6 +8,8 @@
 4. Relevant architecture and subsystem documents once they exist
 5. The issue or task assigned to you
 
+For **visual, character, environment, material, lighting, concept-art, and asset-generation decisions**, `docs/ART_DIRECTION.md` is the final authority. If older text, screenshots, prototypes, filenames, comments, or specifications conflict with it, follow `docs/ART_DIRECTION.md` and treat the conflicting visual direction as obsolete. Gameplay rules, dimensions, routes, and interaction requirements remain authoritative unless the task explicitly changes them.
+
 ## Global Rules
 
 - Work on one bounded task at a time.
@@ -32,10 +34,16 @@
 
 ## Art Direction Guardrails
 
-- Character art must use stylised adult human proportions; avoid childlike anatomy, mascot faces, stubby limbs, and toy-like presentation.
-- The game targets low-to-mid visual fidelity suitable for a solo developer with AI assistance.
-- Do not generate or approve photorealistic, AAA-cinematic, photogrammetry-heavy, or micro-detailed environment art.
-- Prefer modular kits, shared materials, trim sheets, decals, repeated machine structures, broad forms, and strong lighting.
-- Concept art must represent a plausibly shippable visual target, not an expensive aspirational version.
+- **PEAK is the visual north star for level of stylisation and readability.** Translate its high-level strengths into Critical Shift's own industrial identity: simple/faceted geometry, compact expressive characters, exaggerated readable silhouettes, bold colour blocking, restrained surface detail, and strong lighting.
+- This is a direction reference, not permission to copy another game's IP. Never reproduce PEAK-specific scouts, costumes, props, badges, logos, environments, textures, or distinctive asset designs. Critical Shift must remain recognisably its own game.
+- Character proportions should be deliberately stylised rather than anatomically realistic: compact body masses, simplified limbs, readable hands/boots, and strong gear silhouettes. Characters must still read as adult workers through scale, posture, voice, equipment, and context.
+- Prefer low-poly or low-to-mid-poly forms with intentional faceting and clean large shapes. Silhouette and motion matter more than small geometry.
+- Prefer broad, mostly texture-light materials and colour blocks. Use material response, gradients, vertex colour, simple masks, and sparse decals before adding texture noise.
+- Do not generate or approve photorealism, grounded realism, AAA-cinematic realism, photogrammetry, realistic fabric/skin microdetail, dense PBR wear, or small-scale greebling.
+- Do not use Sea of Thieves-inspired painterly distortion, brushy texture language, nautical exaggeration, or painterly grime as a target.
+- Keep industrial machinery chunky, legible, and slightly exaggerated. Controls, handles, valves, hazards, doors, and pickup objects must read immediately at gameplay distance.
+- Use lighting, fog, emission, scale, motion, colour contrast, and sound to create danger and atmosphere. Do not rely on realistic dirt, rust, scratches, or material complexity to make a scene feel finished.
+- Concept art and AI-generated references must depict a feasible shippable target using the same simplified geometry/material language expected in game.
 - Preserve clear gameplay routes and interaction readability over environmental clutter.
-- Reuse assets intentionally and expose that reuse through coherent industrial design rather than hiding it with unnecessary detail.
+- Reuse modular assets intentionally. Repetition should feel like coherent machine-admin standardisation, not something hidden under extra detail.
+- When updating an older area, convert its **surface style** to this direction without silently changing gameplay dimensions, routes, machine functions, interaction hooks, or canonical setting.
