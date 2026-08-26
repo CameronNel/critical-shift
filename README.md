@@ -6,6 +6,8 @@ The foundational product, narrative, systems, technical, multiplayer, AI-product
 
 The current setting is defined in [`docs/CANON.md`](docs/CANON.md), and the visual direction is defined in [`docs/ART_DIRECTION.md`](docs/ART_DIRECTION.md).
 
+**Current visual direction:** highly stylised, low-detail 3D with PEAK as the high-level north star for simplicity, silhouette readability, compact expressive characters, broad colour blocking, and texture-light materials. Critical Shift must remain an original industrial design language rather than copying PEAK-specific assets. Sea of Thieves painterly styling, grounded/photorealistic rendering, and dense realistic PBR detail are obsolete targets.
+
 This repository contains the design foundation and a local single-player Unity
 vertical slice of the complete first shift.
 
