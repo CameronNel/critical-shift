@@ -1,5 +1,19 @@
 # Blender art source
 
+## Shift Muster Bay production source
+
+`production/spawn_2026-08-27.blend` is the from-scratch source scene for the
+spawn/start area's Shift Muster Bay. It follows `docs/ART_DIRECTION.md`: simple
+faceted geometry, texture-light shared materials, bold interaction silhouettes,
+four hero PPE displays, and a clear safe-to-production airlock transition. No
+geometry, material, texture, or scene content from an older spawn asset was
+reused, and the file has no external or linked-library dependencies.
+
+The file uses metre scale, contains four 2.2 m-spaced player-spawn hooks, keeps
+an obstacle-free 3.6 m carry/body-drag lane, and opens on `CAM_Spawn_POV`.
+Validation and handoff views are stored beside this README as
+`spawn_2026-08-27_*.png`.
+
 `gullet-mine.blend` is a look-development scene for the Gullet Mine, not game
 data. Nothing here is loaded by the game or by any prototype — it exists so the
 mine's surfaces, lighting and proportions can be judged at eye level before the
