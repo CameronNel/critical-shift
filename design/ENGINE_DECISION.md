@@ -49,15 +49,14 @@ Godot alternative.
 - MCP: vendored `com.coplaydev.unity-mcp`
 - Tests: Unity Test Framework EditMode tests
 - CI/build: local batch-mode validation today; CI multiplayer smoke is pending
-- Repository: engine assets under `Assets/`, packages under `Packages/`, project
-  settings under `ProjectSettings/`, source art under `art/`
+- Repository: the previous Unity implementation was removed on 2026-09-04. The repository is currently planning-only; future implementation must be rebuilt from design/ and sections/.
 
 ## Required Spike
 
 Build the smallest equivalent test needed to resolve the technical risk:
 
 - Two locally running clients
-- Responsive compact stylised human controller matching `docs/ART_DIRECTION.md`
+- Responsive compact stylised human controller matching `design/ART_DIRECTION.md`
 - Host-authoritative crate grabbing
 - Two-player object contention
 - Mine-cart impact causing recoverable ragdoll

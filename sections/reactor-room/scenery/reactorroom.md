@@ -1,10 +1,10 @@
 # Reactor Room Visual Specification
 
 **Status:** authoritative visual-production specification for the reactor hall art pass  
-**Gameplay authority:** `GAME_SPEC.md` and `prototype/threejs-facility/src/facility/data/reactor.ts`  
+**Gameplay authority:** ../../../design/GAME_SPEC.md  
 **Facility-layout authority:** `prototype/threejs-facility/DESIGN_NOTES.md`  
-**Art-direction authority:** `docs/ART_DIRECTION.md`
-**Surface-style rule:** this document remains authoritative for reactor layout, dimensions, object separation, interaction positions, and animation requirements; `docs/ART_DIRECTION.md` is authoritative for proportions, geometry language, materials, texture density, lighting treatment, and overall visual stylisation. Legacy realistic/PBR wording below is subordinate to that art bible.
+**Art-direction authority:** `../../../design/ART_DIRECTION.md`
+**Surface-style rule:** this document remains authoritative for reactor layout, dimensions, object separation, interaction positions, and animation requirements; `../../../design/ART_DIRECTION.md` is authoritative for proportions, geometry language, materials, texture density, lighting treatment, and overall visual stylisation. Legacy realistic/PBR wording below is subordinate to that art bible.
 
 This document defines how the existing compact reactor gameplay room is to be represented in finished 3D art. It does not replace the reactor simulation or its clockwise gameplay layout. Where the previous greybox used a simple central core cylinder and containment frame, the finished visual target uses a recessed water pool with two large visible control-bank drive assemblies.
 
@@ -29,7 +29,7 @@ Required qualities:
 - No Soviet flags, red stars, hammer-and-sickle imagery or real-world political insignia.
 - No dense forest of control rods. The room must read instantly from first-person gameplay distance.
 
-The target remains consistent with `ART_DIRECTION.md`: broad modular forms, readable silhouettes and production-feasible detail. The concept's clean finish must not become photoreal micro-detail or unique bespoke geometry on every surface.
+The target remains consistent with `../../../design/ART_DIRECTION.md`: broad modular forms, readable silhouettes and production-feasible detail. The concept's clean finish must not become photoreal micro-detail or unique bespoke geometry on every surface.
 
 ## 2. Coordinate system and inherited room envelope
 
@@ -94,7 +94,7 @@ The 10.40 m circulation envelope has radius 5.20 m and occupies 84.949 m². It l
 
 ### 3.2 Fit against existing station ring
 
-With a 5.20 m outer service-ring radius, the nearest existing perimeter-machine footprint remains outside the pool envelope. Fit was checked against the current scaled machine centres and X/Z footprints in `reactor.ts`.
+With a 5.20 m outer service-ring radius, the nearest existing perimeter-machine footprint remains outside the pool envelope. Fit was checked against the current scaled machine centres and X/Z footprints in the future reactor gameplay implementation.
 
 Approximate minimum planar clearance from the 5.20 m service-ring radius to the nearest edge of each existing major station footprint:
 
@@ -194,7 +194,7 @@ This replaces the greybox's old central-south island without changing the emerge
 
 ## 7. Clockwise gameplay-to-art mapping
 
-The art pass must preserve the reactor gameplay logic already defined in `GAME_SPEC.md` and `reactor.ts`.
+The art pass must preserve the reactor gameplay logic already defined in `../../../design/GAME_SPEC.md` and the future reactor gameplay implementation.
 
 | Sector | Required visual functions |
 |---|---|
@@ -326,7 +326,7 @@ Objects intended to rotate must have origins at their hinges/shafts. Sliding obj
 
 ## 12. Material families and texture-light sourcing
 
-The reactor room uses a restrained reusable material palette consistent with `ART_DIRECTION.md`. Materials should read by **large value/colour blocks and simple response**, not by photographic texture detail.
+The reactor room uses a restrained reusable material palette consistent with `../../../design/ART_DIRECTION.md`. Materials should read by **large value/colour blocks and simple response**, not by photographic texture detail.
 
 Required material families:
 
@@ -462,5 +462,5 @@ A reactor-room Blender scene conforms to this specification only if all of the f
 - normal lighting is bright, sterile and readable
 - pool cyan is the hero visual
 - Control Bank A/B, water, doors, major controls, cart and important valves remain individually animatable
-- shared texture-light materials follow `ART_DIRECTION.md`; any external material sources used are permissively licensed and recorded
+- shared texture-light materials follow `../../../design/ART_DIRECTION.md`; any external material sources used are permissively licensed and recorded
 - the room reads as clean 1990s industrial science fiction rather than steampunk, abandoned Soviet industrialism or ultra-modern laboratory futurism

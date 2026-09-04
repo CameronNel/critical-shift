@@ -4,7 +4,7 @@ This roadmap is stage-gated. Later work begins only when the previous gate is de
 
 ## Gate 0: Engine and Agent Tooling
 
-- Select engine through `docs/ENGINE_DECISION.md`
+- Select engine through `design/ENGINE_DECISION.md`
 - Install and validate external MCP
 - Add engine-specific ignore rules
 - Establish local build and test command
