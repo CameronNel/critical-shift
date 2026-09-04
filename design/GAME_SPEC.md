@@ -3049,37 +3049,68 @@ However, production decisions must still be validated by working prototypes.
 
 # 33. Repository Structure
 
-The repository is planning-first. Global game rules live under design/. Each playable area is a self-contained section package so scenery specifications, prompts, Blender source, art references, and exported assets do not become mixed together.
+Critical Shift is planning-first and section-packaged.
 
-Current structure:
-
-    critical-shift/
+```text
+critical-shift/
+├── README.md
+├── design/
+│   ├── GAME_SPEC.md
+│   ├── CANON.md
+│   ├── ART_DIRECTION.md
+│   ├── ENGINE_DECISION.md
+│   ├── ROADMAP.md
+│   └── AUTONOMOUS_SECTION_BUILD_PROTOCOL.md
+└── sections/
     ├── README.md
-    ├── design/
-    │   ├── GAME_SPEC.md
-    │   ├── CANON.md
-    │   ├── ART_DIRECTION.md
-    │   ├── ENGINE_DECISION.md
-    │   └── ROADMAP.md
-    └── sections/
-        ├── README.md
-        ├── spawn-room/
-        │   ├── scenery/
-        │   │   └── spawnroom.md
-        │   ├── prompt/
-        │   │   └── spawnroomprompt.md
-        │   ├── blender/
-        │   ├── art/
-        │   └── assets/
-        └── reactor-room/
-            ├── scenery/
-            │   └── reactorroom.md
-            ├── prompt/
-            ├── blender/
-            ├── art/
-            └── assets/
+    └── <section-name>/
+        ├── scenery/
+        ├── prompt/
+        ├── blender/
+        ├── art/
+        ├── assets/
+        └── production/
+            ├── TASK_STATE.md
+            ├── RUBRIC.md
+            ├── CAMERAS.md
+            ├── CHECKLIST.md
+            ├── critics/
+            ├── renders/
+            │   ├── review/
+            │   └── final/
+            └── checkpoints/
+```
 
-When implementation resumes, engine code and runtime files should be added as separate top-level production areas rather than mixed into design or section-source folders.
+Global rules belong under `design/`.
+
+Room-specific planning, source, prompts, art and evidence stay inside that room's section package.
+
+When runtime implementation resumes, engine/runtime source must be separated from visual-source and planning folders rather than mixed into them.
+
+## 33.1 Autonomous environment production
+
+Every playable 3D section must follow `design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md`.
+
+The default environment architecture is:
+- Blender as visual source of truth;
+- headless Blender CLI/Python as reproducible builder;
+- MCP as orchestration, supervision and later engine-integration assistance;
+- fixed-camera pixel review;
+- fresh-context specialist criticism where available;
+- scored rubrics and regression tracking;
+- cold-start verification from a fresh Blender process.
+
+A section cannot be considered complete because code ran or a .blend was produced.
+
+Default quality gates:
+- at least four full correction cycles after first visual completion;
+- >=90/100 overall;
+- >=85% of available points in every rubric category;
+- zero critical failures;
+- no material regression across the final two cycles;
+- cold-start PASS.
+
+Three.js is not an approved authoritative production environment-authoring path.
 
 ---
 

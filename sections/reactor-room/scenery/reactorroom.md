@@ -2,11 +2,11 @@
 
 **Status:** authoritative visual-production specification for the reactor hall art pass  
 **Gameplay authority:** ../../../design/GAME_SPEC.md  
-**Facility-layout authority:** `prototype/threejs-facility/DESIGN_NOTES.md`  
-**Art-direction authority:** `../../../design/ART_DIRECTION.md`
+**Art-direction authority:** ../../../design/ART_DIRECTION.md  
+**Autonomous build authority:** ../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md  
 **Surface-style rule:** this document remains authoritative for reactor layout, dimensions, object separation, interaction positions, and animation requirements; `../../../design/ART_DIRECTION.md` is authoritative for proportions, geometry language, materials, texture density, lighting treatment, and overall visual stylisation. Legacy realistic/PBR wording below is subordinate to that art bible.
 
-This document defines how the existing compact reactor gameplay room is to be represented in finished 3D art. It does not replace the reactor simulation or its clockwise gameplay layout. Where the previous greybox used a simple central core cylinder and containment frame, the finished visual target uses a recessed water pool with two large visible control-bank drive assemblies.
+This document defines how the reactor gameplay room is to be represented in finished 3D art. It does not replace the reactor simulation or its clockwise gameplay layout. Where the previous greybox used a simple central core cylinder and containment frame, the finished visual target uses a recessed water pool with two large visible control-bank drive assemblies.
 
 The visual reference for this specification is the approved clean, sterile dual-bank reactor-room concept generated on 6 August 2026: a bright grey/silver industrial chamber with a cyan reactor pool, two labelled overhead `CONTROL BANK A` / `CONTROL BANK B` actuators, perimeter consoles, a visible control-room window, white coolant pipework, a fuel-handling position, sampling station and front-centre emergency shutdown. The reference image is an external production reference rather than a geometry source; absolute dimensions below are governed by the facility layout and the fit calculations in this document.
 
@@ -464,3 +464,22 @@ A reactor-room Blender scene conforms to this specification only if all of the f
 - Control Bank A/B, water, doors, major controls, cart and important valves remain individually animatable
 - shared texture-light materials follow `../../../design/ART_DIRECTION.md`; any external material sources used are permissively licensed and recorded
 - the room reads as clean 1990s industrial science fiction rather than steampunk, abandoned Soviet industrialism or ultra-modern laboratory futurism
+
+
+---
+
+# Autonomous Production Requirement
+
+Any reactor-room build must follow [../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md](../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md).
+
+The reactor room must be reproducible headlessly in Blender. MCP may supervise and integrate but cannot be the only build path.
+
+Before production begins, complete the reactor-specific files under ../production/:
+- TASK_STATE.md
+- RUBRIC.md
+- CAMERAS.md
+- CHECKLIST.md
+
+Formal review must use fixed-camera rendered evidence, fresh-context specialist critics where available, regression comparison, score gates and cold-start validation.
+
+The reactor cannot be accepted merely because all named machinery exists. It must also pass the global stylized-art, anti-plastic, anti-blockout and readability gates.

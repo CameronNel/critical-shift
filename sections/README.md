@@ -19,8 +19,33 @@ Approved concept art, composition studies, paintovers, visual references, materi
 ### assets/
 Section-specific production assets and exports: FBX/glTF meshes, textures, decals, reference documents and licensing notes for any external material.
 
+### production/
+Persistent evidence and state for autonomous long-horizon builds:
+- TASK_STATE.md
+- RUBRIC.md
+- CAMERAS.md
+- CHECKLIST.md
+- critics/
+- renders/review/
+- renders/final/
+- checkpoints/
+
 ## Naming
 
 Use lowercase folder names with hyphens. Keep explicitly requested filenames for authoritative specs and prompts.
 
 Do not mix generated screenshots, Blender sources and shipped exports into the same folder. Humans already invented enough entropy without help.
+
+
+## Mandatory autonomous build protocol
+
+Every section follows [../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md](../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md).
+
+Default execution is **headless-first, MCP-assisted**:
+- Blender CLI/scripts are the reproducible builder;
+- MCP may orchestrate, inspect, collect evidence and integrate;
+- no room may depend on MCP-only interactive state;
+- visual acceptance is based on fixed-camera renders and scored review, not scene-tree claims;
+- minimum four full correction cycles after first visual completion;
+- below-threshold stagnation triggers a structural pass rather than prop spam;
+- final acceptance requires cold-start validation from a fresh Blender process.

@@ -102,3 +102,27 @@ This roadmap is stage-gated. Later work begins only when the previous gate is de
 ## Scope Rule
 
 No stage may be accelerated by adding content before its core risk has passed. More rooms, tools, machines, enemies, or cosmetics cannot compensate for unstable carrying, weak causality, or a boring production loop.
+
+
+---
+
+## Autonomous section production gate
+
+Before any room can advance from scenery planning into production:
+
+- scenery specification exists;
+- room-specific prompt exists;
+- production/TASK_STATE.md exists;
+- production/RUBRIC.md exists;
+- production/CAMERAS.md exists;
+- production/CHECKLIST.md exists;
+- headless Blender entrypoint is planned;
+- the room adopts [AUTONOMOUS_SECTION_BUILD_PROTOCOL.md](AUTONOMOUS_SECTION_BUILD_PROTOCOL.md).
+
+Before any room can be called complete:
+- at least four full correction cycles;
+- >=90/100 overall;
+- >=85% of points in every rubric category;
+- zero critical failures;
+- final two cycles materially stable;
+- cold-start Blender validation PASS.

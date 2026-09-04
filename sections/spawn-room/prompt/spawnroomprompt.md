@@ -4,7 +4,12 @@
 **Target section:** Spawn Room  
 **Required scenery spec:** ../scenery/spawnroom.md  
 **Global art authority:** ../../../design/ART_DIRECTION.md  
-**Game authority:** ../../../design/GAME_SPEC.md
+**Game authority:** ../../../design/GAME_SPEC.md  
+**Autonomous build authority:** ../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md  
+**Persistent production state:** ../production/TASK_STATE.md  
+**Rubric:** ../production/RUBRIC.md  
+**Fixed cameras:** ../production/CAMERAS.md  
+**Checklist:** ../production/CHECKLIST.md
 
 ---
 
@@ -33,6 +38,24 @@ The final scene must look deliberately authored and suitable for a real stylized
 ---
 
 # 2. Tool and Output Rules
+
+## Execution architecture
+
+Use a **headless-first, MCP-assisted** pipeline.
+
+The authoritative build must be reproducible from a fresh process with Blender CLI and versioned scripts.
+
+MCP is encouraged for:
+- launching and supervising Blender jobs;
+- reading/writing state;
+- collecting renders;
+- coordinating critics;
+- aggregating scores;
+- inspecting technical state;
+- repository operations;
+- later Unity integration.
+
+MCP is not a hard dependency. The room must still build and cold-start validate without MCP.
 
 ## Preferred authoring tool
 
@@ -358,11 +381,12 @@ This loop is not optional.
 
 After every major build pass:
 
-1. Save the Blender source.
+1. Save the Blender source and update ../production/TASK_STATE.md.
 2. Render the defined validation cameras.
 3. Inspect each render as if reviewing another artist's work.
-4. Write down visible defects.
-5. Classify each defect:
+4. At formal review points, run fresh-context specialist critics using only the scenery goal, global art requirements, fixed-camera renders and rubric. Do not give visual critics the builder's reasoning.
+5. Write down visible defects.
+6. Classify each defect:
    - layout
    - scale
    - silhouette
@@ -374,11 +398,15 @@ After every major build pass:
    - collision/clearance
    - worldbuilding
    - style drift
-6. Fix the defects.
-7. Render again.
-8. Compare the new render against the previous render.
-9. Confirm the defect actually improved.
-10. Repeat until no major defect remains.
+7. Score the room using ../production/RUBRIC.md.
+8. Record the three to five highest-impact defects in TASK_STATE.md.
+9. Fix those defects.
+10. Render the identical cameras again.
+11. Compare new renders against the previous cycle.
+12. Mark each targeted issue improved / unchanged / regressed.
+13. Repair or roll back regressions.
+14. Update rubric scores and TASK_STATE.md.
+15. Repeat until all completion gates pass.
 
 Do not perform a critique and then stop without making corrections.
 
@@ -418,7 +446,9 @@ Create automated checks where practical.
 
 # 8. Validation Cameras
 
-Maintain named cameras.
+Use the permanent camera definitions in ../production/CAMERAS.md.
+
+Maintain the named cameras exactly once formal review begins. Their transforms, focal lengths, aspect ratio and render framing are part of the evidence baseline.
 
 ## VALIDATE_Spawn
 
@@ -448,7 +478,17 @@ Tests reverse readability and dressing balance.
 
 Additional first-person-height views through circulation pinch points.
 
+## VALIDATE_Material_A
+
+A material audit view containing representative wall, floor, painted equipment, rubber, paper and glass.
+
+## VALIDATE_Hero_A
+
+A hero-composition audit of the suits and integrity chamber.
+
 Do not evaluate only from elevated beauty cameras.
+
+All cycle-to-cycle comparisons must use identical validation-camera settings.
 
 ---
 
@@ -635,7 +675,7 @@ PASS only if:
 
 # 13. Minimum Iteration Requirement
 
-Perform at least three full visual correction cycles after the first complete scene exists.
+Perform at least four full visual correction cycles after the first visually complete scene exists.
 
 Cycle 1:
 - architecture
@@ -650,18 +690,39 @@ Cycle 2:
 - anti-plastic cleanup
 
 Cycle 3:
+- lighting
 - dressing
 - narrative detail
 - clutter balance
+
+Cycle 4:
+- holistic regression audit
+- technical cleanup
 - final composition
+- cold-start preparation
 
-If any major quality gate still fails after cycle 3, continue iterating.
+If any major quality gate still fails after cycle 4, continue iterating.
 
-Three cycles are a minimum, not permission to stop.
+Four cycles are a minimum, not permission to stop.
+
+## Stagnation rule
+
+If the room remains below the completion threshold and improves by less than one rubric point across two consecutive complete cycles, stop adding microdetail.
+
+Perform a structural pass on layout, proportions, hero placement, silhouette hierarchy, negative space, lighting structure and material palette.
+
+Do not try to rescue mediocre composition with prop spam.
 
 ---
 
 # 14. Evidence Required Before Declaring Done
+
+The room may not be declared done until:
+- overall rubric score is at least 90/100;
+- every category reaches at least 85% of its available points;
+- zero critical failures remain;
+- the final two full cycles are materially stable;
+- a fresh Blender process passes cold-start validation.
 
 Before completion, provide:
 
@@ -669,6 +730,11 @@ Before completion, provide:
 - final LockerDoor validation render
 - final BriefingDoor validation render
 - final ExitReverse validation render
+- final Material_A validation render
+- final Hero_A validation render
+- final scored RUBRIC.md
+- updated TASK_STATE.md
+- cold-start PASS evidence
 - list of automated/measurement checks performed
 - list of major defects discovered during self-review
 - description of how each defect was corrected
@@ -680,4 +746,17 @@ Do not hide failed checks.
 
 Do not claim completion based only on code execution or file generation.
 
-The work is done when the room looks correct, functions spatially, and survives its own review loop.
+## Cold-start requirement
+
+Before final delivery:
+1. save source and production state;
+2. close the active Blender process;
+3. launch a fresh Blender process;
+4. open or rebuild the authoritative source;
+5. verify dependencies and materials;
+6. rerun objective checks;
+7. rerender mandatory validation cameras;
+8. compare against approved renders;
+9. mark cold-start PASS/FAIL in TASK_STATE.md.
+
+The work is done only when the room looks correct, functions spatially, survives specialist criticism and regression review, and reproduces from a fresh process.

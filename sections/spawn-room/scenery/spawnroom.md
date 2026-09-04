@@ -4,7 +4,8 @@
 **Section:** Spawn Room  
 **Status:** Authoritative scenery specification  
 **Visual authority:** ../../../design/ART_DIRECTION.md  
-**Game authority:** ../../../design/GAME_SPEC.md
+**Game authority:** ../../../design/GAME_SPEC.md  
+**Build/validation authority:** ../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md
 
 ---
 
@@ -1059,3 +1060,61 @@ The Spawn Room is not complete until all are true.
 The area should feel like a real, slightly strange workplace where four human friends prepare for a dangerous shift inside an enormous machine-run facility.
 
 That feeling matters more than adding another thousand polygons.
+
+
+---
+
+# 22. Autonomous Production Requirements
+
+The Spawn Room must be produced and accepted under [../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md](../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md).
+
+Room-specific production evidence lives under ../production/.
+
+The authoritative production files are:
+- ../production/TASK_STATE.md
+- ../production/RUBRIC.md
+- ../production/CAMERAS.md
+- ../production/CHECKLIST.md
+
+## Fixed review
+
+Formal visual review uses the permanent named cameras in CAMERAS.md.
+
+Beauty shots are supplementary. They cannot replace evidence views.
+
+## Scoring
+
+The Spawn Room cannot be accepted until:
+- overall score >=90/100;
+- every rubric category reaches its defined floor;
+- zero critical failures remain;
+- at least four complete visual correction cycles have been performed after first visual completion;
+- final two cycles are materially stable;
+- cold-start Blender validation passes.
+
+## Spawn Room critical failures
+
+Any of the following blocks completion regardless of total score:
+- briefing-left / locker-right / exit-forward cannot be read immediately from spawn;
+- locker room fails the exact two-left / two-right / chamber-center composition;
+- a primary route or door is obstructed;
+- the room reads as final greybox/default primitives;
+- materials are dominantly plasticky/default-PBR;
+- visual style drifts into photoreal AAA or generic web-demo presentation;
+- required larger-building illusion is absent;
+- headless/cold-start reproduction fails.
+
+## Stagnation rule
+
+If the room remains below threshold and improves by less than one rubric point over two complete cycles, stop adding papers, rubble, props or microdetail.
+
+Perform a structural pass on:
+- room proportions;
+- hero-object placement;
+- architectural rhythm;
+- negative space;
+- silhouette hierarchy;
+- major lighting;
+- material palette.
+
+A structurally weak room must not be buried under decorative clutter.
