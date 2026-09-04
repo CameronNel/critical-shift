@@ -376,3 +376,36 @@ Do not approve assets or concepts that drift toward:
 - Direct copies of PEAK or any other game's protected characters, outfits, props, environments, logos, or textures.
 
 The desired result is **simple, bold, expressive, hazardous, readable, low-detail, physics-friendly, and unmistakably Critical Shift**.
+
+
+---
+
+# Autonomous Visual Validation Standard
+
+All production environment sections must follow [AUTONOMOUS_SECTION_BUILD_PROTOCOL.md](AUTONOMOUS_SECTION_BUILD_PROTOCOL.md).
+
+Visual quality is judged from fixed-camera rendered pixels, not from:
+- scene-tree complexity;
+- script output;
+- asset counts;
+- builder descriptions;
+- a single flattering beauty render.
+
+Formal reviews should use fresh-context specialist critics where tooling permits:
+- spatial readability;
+- stylized art direction;
+- materials / anti-plastic;
+- lighting / atmosphere;
+- environmental storytelling;
+- Blender technical quality.
+
+For environment art, the default completion standard is:
+- >=90/100 overall;
+- >=85% of available points in every rubric category;
+- zero critical failures;
+- final two cycles materially stable;
+- cold-start render PASS.
+
+If a below-threshold scene gains less than one rubric point across two consecutive full cycles, stop adding decorative detail and perform a structural pass.
+
+The art-direction goal remains simple: low-detail does not mean unfinished, and stylized does not mean plastic. Every major form must look intentionally authored.

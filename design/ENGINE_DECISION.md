@@ -104,3 +104,37 @@ When a decision is made, record:
 - Conditions that would reopen the decision
 
 No production content should be built before this decision is recorded.
+
+
+---
+
+# Autonomous Environment Authoring Policy
+
+This decision is now complemented by [AUTONOMOUS_SECTION_BUILD_PROTOCOL.md](AUTONOMOUS_SECTION_BUILD_PROTOCOL.md).
+
+## Authoring architecture
+
+- **Visual source of truth:** Blender
+- **Primary generation mode:** headless Blender CLI + Python
+- **Orchestration/supervision:** MCP where useful
+- **Runtime:** Unity remains the current engine decision until this ADR is formally reopened
+- **Three.js:** not an approved authoritative production environment authoring path
+
+## Why headless-first
+
+The environment source must be deterministic, scriptable, resumable and reproducible from a fresh process. Long-running generation should not depend on a fragile interactive Blender UI session or an MCP connection remaining alive.
+
+## Why retain MCP
+
+MCP materially improves orchestration:
+- launching jobs;
+- inspecting Blender/file state;
+- collecting renders;
+- coordinating fresh-context critics;
+- tracking scores and regressions;
+- managing repository state;
+- later automating Unity import/runtime validation.
+
+Therefore MCP is a multiplier, not the foundation.
+
+A valid section must still build and cold-start validate without MCP using documented Blender CLI entrypoints and repository state.

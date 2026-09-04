@@ -12,3 +12,8 @@ Examples:
 - source/licensing notes for external assets
 
 The authoritative editable Blender scene belongs in ../blender/.
+
+
+## Production protocol
+
+Any generated or imported section art/assets must remain compatible with the room's headless Blender source and ../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md. Do not introduce hidden MCP-only dependencies or unrecorded external sources.
