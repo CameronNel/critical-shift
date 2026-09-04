@@ -9,7 +9,7 @@
 **Visual style:** Highly stylised, low-detail human workers and chunky industrial environments, using simple/faceted geometry, compact expressive proportions, bold colour blocking, texture-light materials, and strong gameplay silhouettes  
 **Core genre:** Cooperative industrial comedy, physics-enhanced production, crisis management, and light roguelite progression  
 **Primary development model:** One human director supervising external AI agents that perform most implementation, testing, documentation, scene assembly, and maintenance
-**Visual authority:** `docs/ART_DIRECTION.md` is authoritative for character, environment, material, lighting, concept-art, and generated-asset style. It supersedes conflicting legacy visual wording in this specification while gameplay, systems, dimensions, routes, and interaction requirements remain authoritative.
+**Visual authority:** `design/ART_DIRECTION.md` is authoritative for character, environment, material, lighting, concept-art, and generated-asset style. It supersedes conflicting legacy visual wording in this specification while gameplay, systems, dimensions, routes, and interaction requirements remain authoritative.
 
 ---
 
@@ -372,7 +372,7 @@ The tone should not become:
 
 ## 4.1 Character Form
 
-Workers are deliberately stylised adult human figures. `docs/ART_DIRECTION.md` is authoritative for their visual proportions and surface treatment. The target is compact, expressive, low-detail readability rather than anatomical realism.
+Workers are deliberately stylised adult human figures. `design/ART_DIRECTION.md` is authoritative for their visual proportions and surface treatment. The target is compact, expressive, low-detail readability rather than anatomical realism.
 
 Use:
 
@@ -3008,7 +3008,7 @@ The human is not expected to manually author most code.
 
 ## 32.5 Google AI Role
 
-- Visual concept generation and critique using `docs/ART_DIRECTION.md` and dedicated prompts under `art/concepts/`.
+- Visual concept generation and critique using `design/ART_DIRECTION.md` and room-specific prompts under `sections/<section>/prompt/`.
 - Alternate technical analysis.
 - Reference analysis focused on high-level visual qualities rather than copying protected assets.
 - Documentation.
@@ -3049,54 +3049,37 @@ However, production decisions must still be validated by working prototypes.
 
 # 33. Repository Structure
 
-```text
-critical-shift/
-├── README.md
-├── GAME_SPEC.md
-├── AGENTS.md
-├── LICENSE
-├── docs/
-│   ├── VISION.md
-│   ├── CORE_LOOP.md
-│   ├── NARRATIVE.md
-│   ├── ARCHITECTURE.md
-│   ├── NETWORKING.md
-│   ├── PHYSICS.md
-│   ├── ART_BIBLE.md
-│   ├── AUDIO_BIBLE.md
-│   ├── TESTING.md
-│   ├── ROADMAP.md
-│   ├── DEFINITION_OF_DONE.md
-│   └── adr/
-├── game/
-│   ├── actors/
-│   ├── interactions/
-│   ├── items/
-│   ├── machines/
-│   ├── mine/
-│   ├── refinery/
-│   ├── reactor/
-│   ├── incidents/
-│   ├── compliance/
-│   ├── resistance/
-│   ├── networking/
-│   ├── ui/
-│   ├── audio/
-│   └── world/
-├── tests/
-│   ├── unit/
-│   ├── integration/
-│   ├── multiplayer/
-│   ├── scenes/
-│   └── fixtures/
-├── tools/
-└── .github/
-    ├── workflows/
-    ├── ISSUE_TEMPLATE/
-    └── pull_request_template.md
-```
+The repository is planning-first. Global game rules live under design/. Each playable area is a self-contained section package so scenery specifications, prompts, Blender source, art references, and exported assets do not become mixed together.
 
-The exact engine may alter paths, but conceptual separation remains.
+Current structure:
+
+    critical-shift/
+    ├── README.md
+    ├── design/
+    │   ├── GAME_SPEC.md
+    │   ├── CANON.md
+    │   ├── ART_DIRECTION.md
+    │   ├── ENGINE_DECISION.md
+    │   └── ROADMAP.md
+    └── sections/
+        ├── README.md
+        ├── spawn-room/
+        │   ├── scenery/
+        │   │   └── spawnroom.md
+        │   ├── prompt/
+        │   │   └── spawnroomprompt.md
+        │   ├── blender/
+        │   ├── art/
+        │   └── assets/
+        └── reactor-room/
+            ├── scenery/
+            │   └── reactorroom.md
+            ├── prompt/
+            ├── blender/
+            ├── art/
+            └── assets/
+
+When implementation resumes, engine code and runtime files should be added as separate top-level production areas rather than mixed into design or section-source folders.
 
 ---
 
@@ -3212,7 +3195,7 @@ Build the same tiny test in both engines only if necessary.
 Test contains:
 
 - Two clients.
-- Compact stylised placeholder humanoid matching `docs/ART_DIRECTION.md`.
+- Compact stylised placeholder humanoid matching `design/ART_DIRECTION.md`.
 - Grab crate.
 - Two-player contention.
 - Ragdoll on cart impact.

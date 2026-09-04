@@ -88,7 +88,7 @@ The base hero suit should use:
 
 The suit should feel **purpose-built, slightly awkward, charming, and immediately iconic**. Do not bury it under realistic seams, stitch lines, MOLLE-style detail, tactical clutter, dense hard-surface panels, or military operator styling.
 
-The dedicated Gemini concept prompt is in [`../art/concepts/GEMINI_HERO_HAZMAT_PROMPT.md`](../art/concepts/GEMINI_HERO_HAZMAT_PROMPT.md).
+Room-specific concept and build prompts belong inside each section package under ../sections/<section>/prompt/.
 
 ## Environment Shape Language
 
@@ -305,7 +305,7 @@ The spawn/start room is the cleanest introduction to the game's character style 
 
 ## Reactor Hall Visual Target
 
-The dimensional, route, and interaction constraints in [`REACTOR_ROOM_VISUAL_SPEC.md`](REACTOR_ROOM_VISUAL_SPEC.md) remain authoritative.
+The dimensional, route, and interaction constraints in [the reactor-room scenery specification](../sections/reactor-room/scenery/reactorroom.md) remain authoritative.
 
 Its **surface treatment is subordinate to this document**. Preserve the reactor pool, two-control-bank concept, physical 1990s-style control vocabulary, functional positions, and required clearances, but interpret them with simplified low-poly/faceted geometry, broad colours, sparse material detail, large controls, and lighting-led atmosphere.
 
