@@ -7,6 +7,7 @@ Mandatory shared gates:
 - [ ] no MCP-only dependency
 - [ ] fixed validation cameras
 - [ ] objective dimension/clearance checks
+- [ ] automated support-contact validation for wall/floor/ceiling-supported props
 - [ ] at least four full review cycles
 - [ ] fresh-context specialist critics where available
 - [ ] same-camera regression tracking

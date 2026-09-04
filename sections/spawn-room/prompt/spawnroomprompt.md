@@ -315,6 +315,8 @@ Add the larger secondary objects:
 - maintenance trolley or compact tool support
 - directional signage
 
+For every wall-, floor-, or ceiling-supported dressing prop, assign the support-contact metadata required by the shared protocol. All support-dependent dressing must be registered in the validation collections. Use explicit support anchors for irregular shapes.
+
 Render all four required composition views.
 
 Check hierarchy.
@@ -340,6 +342,12 @@ Add authored small detail:
 - subtle scuffs and repair evidence
 
 Every paper/image asset must have a believable physical mounting method.
+
+Every paper, portrait, framed artwork, sign, notice board and similar wall-mounted object must:
+- be registered for support-contact validation;
+- identify its exact support target;
+- define its support direction;
+- pass the automated gap/penetration/orientation checks.
 
 Do not float decals or image planes in space.
 
@@ -439,6 +447,13 @@ Check:
 - no inverted or broken normals on visible geometry
 - no absurdly tiny or giant asset scale
 - pivot/origin placement is sensible for future interactive parts
+- every support-dependent dressing prop is registered for contact validation
+- wall-mounted props are within 5 mm of their intended support surface
+- support penetration does not exceed 2 mm
+- support orientation is plausible
+- floor/ceiling props with explicit support anchors pass contact checks
+
+Run `validate_contacts.py` after dressing changes and during every formal review cycle. A contact-validation failure is a technical critical failure.
 
 Create automated checks where practical.
 
@@ -670,6 +685,7 @@ PASS only if:
 - reusable asset grouping
 - major interactive pieces remain separate
 - source remains editable
+- support-contact validation passes with zero failures
 
 ---
 
@@ -735,6 +751,7 @@ Before completion, provide:
 - final scored RUBRIC.md
 - updated TASK_STATE.md
 - cold-start PASS evidence
+- final ../production/contact_validation.json with PASS
 - list of automated/measurement checks performed
 - list of major defects discovered during self-review
 - description of how each defect was corrected

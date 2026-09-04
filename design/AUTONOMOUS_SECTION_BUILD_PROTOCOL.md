@@ -406,7 +406,44 @@ Where practical, use Blender Python to automatically validate:
 - render camera existence;
 - render resolution;
 - file save path;
-- linked dependency availability.
+- linked dependency availability;
+- support-dependent prop contact.
+
+## 14.1 Support-contact validation
+
+Fixed cameras do not prove physical contact. A poster can float off a wall, a plant can hover above the floor, or a ceiling fixture can be detached while every review camera misses the gap.
+
+Every support-dependent prop must therefore be validated geometrically.
+
+For each wall-, floor-, or ceiling-supported prop, record:
+- the intended support target;
+- the expected direction from prop toward support;
+- maximum allowed gap;
+- maximum allowed penetration;
+- orientation tolerance;
+- explicit support anchors when bounding-box contact is insufficient.
+
+The validator must fail when:
+- a support-dependent prop is not registered for validation;
+- the intended target does not exist;
+- no support surface is found in the expected direction;
+- the gap exceeds tolerance;
+- penetration exceeds tolerance;
+- the contacted surface is at an implausible angle;
+- a support anchor is floating.
+
+Recommended default tolerances:
+- maximum visible gap: **0.005 m (5 mm)**;
+- maximum penetration: **0.002 m (2 mm)**;
+- maximum support-angle deviation: **12°**.
+
+Thin wall dressing such as papers, portraits, signs, notice boards and framed art must use this system.
+
+Floor props and ceiling props must also use it when their contact cannot be proven reliably from ordinary collision/clearance checks.
+
+Use explicit child support-anchor empties for irregular objects such as chairs, benches, plants, pipes or fixtures when a bounding-box face would create false results.
+
+A room cannot pass technical validation while any required support-contact check fails.
 
 Visual quality cannot be fully automated. Spatial and technical mistakes often can.
 
@@ -561,6 +598,7 @@ A completed room must include:
 - fixed-camera final renders;
 - latest review renders or a curated audit trail;
 - defect/fix summary;
+- support-contact validation PASS report;
 - cold-start PASS;
 - asset/dependency notes;
 - confirmation of runtime handoff readiness.

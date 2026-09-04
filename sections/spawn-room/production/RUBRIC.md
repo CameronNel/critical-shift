@@ -23,4 +23,5 @@ Any one of these blocks completion regardless of score:
 - room no longer matches the global stylized art direction;
 - cold-start build/render fails;
 - missing required source/dependencies;
-- final two review cycles contain unresolved material regression.
+- final two review cycles contain unresolved material regression;
+- any required support-dependent prop is unregistered, floating beyond tolerance, excessively embedded, attached to the wrong target, or fails support orientation/contact validation.

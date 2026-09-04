@@ -11,6 +11,7 @@
 - Production rubric
 - Fixed-camera plan
 - Acceptance checklist
+- Automated support-contact validator and tagging convention
 
 ## Worst current visible defects
 No rendered build exists yet.
@@ -19,8 +20,11 @@ No rendered build exists yet.
 1. Create the headless Blender build entrypoint.
 2. Establish metric blockout.
 3. Create fixed validation cameras.
-4. Render baseline review set.
-5. Start formal scoring loop.
+4. Create the CS_SUPPORT_REQUIRED and dressing support collections.
+5. Tag support-dependent props as they are created.
+6. Run validate_contacts.py with every dressing pass.
+7. Render baseline review set.
+8. Start formal scoring loop.
 
 ## Last successful headless build command
 Not yet established.
