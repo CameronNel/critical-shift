@@ -18,6 +18,18 @@
 - [ ] Geiger station directly associated with exit
 - [ ] hallway/doors/circulation pass clearance checks
 
+## Support-contact validation
+- [ ] CS_SUPPORT_REQUIRED collection exists
+- [ ] all support-dependent wall/floor/ceiling dressing is registered
+- [ ] all registered props identify an exact support target
+- [ ] all registered props define a support direction
+- [ ] irregular props use explicit support anchors where needed
+- [ ] validate_contacts.py returns PASS
+- [ ] no wall-mounted prop exceeds 5 mm gap
+- [ ] no registered prop exceeds 2 mm penetration
+- [ ] support orientation checks pass
+- [ ] contact_validation.json exists and contains zero failures
+
 ## Visual quality
 - [ ] no final-greybox read
 - [ ] no generic web-demo read
@@ -45,6 +57,7 @@
 - [ ] fresh process launched
 - [ ] dependencies verified
 - [ ] objective checks rerun
+- [ ] contact validation rerun from fresh process
 - [ ] final cameras rerendered
 - [ ] cold-start images match approved quality
 - [ ] TASK_STATE.md marked PASS
