@@ -89,3 +89,15 @@ Every spawn validation camera must let reviewers judge:
 - whether detail clusters feel occupied rather than procedurally decorated.
 
 At least one fixed camera must expose the locker/suit area and one must expose the briefing room. Do not use only flattering beauty angles.
+
+
+## Reference-to-camera mapping
+
+- Entry camera compares against plates 00, 01 and 17.
+- Hall-forward camera compares against plates 07, 08, 11 and 12.
+- Locker-entry camera compares against plates 03, 04, 05, 06, 21 and 23.
+- Locker-reverse camera compares against plates 09, 10, 13 and 15.
+- Briefing-entry camera compares against plates 02, 18 and 19.
+- Material-close camera compares against plates 10, 20 and 24.
+
+Each review note should cite the plate number being used as the visual criterion.
