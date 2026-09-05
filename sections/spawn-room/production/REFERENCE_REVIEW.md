@@ -86,3 +86,11 @@ Record the chosen:
 Reference review complete: **NO**
 
 Change to **YES** only after the references above were actually inspected.
+
+## Detailed written references
+
+- [ ] SPAWN_REFERENCE_BIBLE.md read
+- [ ] SPAWN_ASSET_REFERENCE_MATRIX.md read
+- [ ] SPAWN_MATERIAL_REFERENCE.md read
+- [ ] SPAWN_LIGHTING_REFERENCE.md read
+- [ ] SPAWN_SIGNAGE_REFERENCE.md read
