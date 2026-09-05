@@ -1,5 +1,10 @@
 # Reactor Room Visual Specification
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 **Status:** authoritative visual-production specification for the reactor hall art pass  
 **Gameplay authority:** ../../../design/GAME_SPEC.md  
 **Art-direction authority:** ../../../design/ART_DIRECTION.md  
@@ -29,7 +34,7 @@ Required qualities:
 - No Soviet flags, red stars, hammer-and-sickle imagery or real-world political insignia.
 - No dense forest of control rods. The room must read instantly from first-person gameplay distance.
 
-The target remains consistent with `../../../design/ART_DIRECTION.md`: broad modular forms, readable silhouettes and production-feasible detail. The concept's clean finish must not become photoreal micro-detail or unique bespoke geometry on every surface.
+The target follows `../../../design/ART_DIRECTION.md`: grounded stylized semi-realism with believable construction, medium-complexity simplified geometry, tactile material separation, controlled colour blocking and strong gameplay readability. The clean finish must not become either photoreal micro-detail or primitive low-poly geometry.
 
 ## 2. Coordinate system and inherited room envelope
 
@@ -324,34 +329,11 @@ The Blender scene must not be a single merged environment mesh. At minimum, the 
 
 Objects intended to rotate must have origins at their hinges/shafts. Sliding objects must have local axes aligned to the intended travel. Bank A and B moving assemblies must have local Z/Y motion set up cleanly for vertical animation.
 
-## 12. Material families and texture-light sourcing
+## 12. Material families and stylized sourcing
 
-The reactor room uses a restrained reusable material palette consistent with `../../../design/ART_DIRECTION.md`. Materials should read by **large value/colour blocks and simple response**, not by photographic texture detail.
+The reactor room uses a restrained reusable material palette consistent with `../../../design/ART_DIRECTION.md`. Materials must read as believable categories at gameplay distance: painted metal, bare metal, concrete/plaster, rubber, glass, industrial flooring and restrained plastic. Use broad value/colour organization, but add low-frequency roughness and wear variation so the room does not read as flat plastic.
 
-Required material families:
-
-1. off-white / pale structural shell
-2. cool grey machine body
-3. blue-grey / muted green equipment accent
-4. dark sealed floor / floor-panel family
-5. white or very light coolant pipe family
-6. dark rubber / grip / boot-like utility material
-7. simple clear / smoked glass for windows and protective covers
-8. dark screen glass
-9. emissive cyan reactor light
-10. coloured indicator / emergency emissives
-11. small yellow-black hazard marking / decal set
-12. sparse contamination / scorch / damage decal family
-
-Preferred implementation:
-
-- Solid colours, gradients, vertex colour, simple masks and restrained roughness variation first.
-- Little or no normal-map detail on ordinary architecture and machines.
-- Reuse the same material families across many objects.
-- Use sparse decals only for labels, hazards, contamination and meaningful damage.
-- Do not use realistic brushed-metal normals, dense scratches, photographed grime, cloth weave, or high-frequency wear as a finishing layer.
-- Most ordinary assets should need no unique texture set. When textures are necessary, prefer small reusable textures; 512–1024 px is generally sufficient, with 2K reserved for a demonstrated hero/close-interaction need.
-- Any externally sourced texture or material retained in production must have a compatible licence and recorded source, but the art pipeline should not depend on realistic PBR libraries.
+Wear is localized to touch points, service paths, fasteners, floor traffic and maintenance areas. The clean reactor is maintained, not procedurally spotless.
 
 ## 13. Lighting and state progression
 
@@ -433,7 +415,7 @@ Do not introduce:
 
 ## 16. Relationship to the current Three.js greybox
 
-The existing Three.js reactor remains the authoritative route/interaction greybox until deliberately updated. The Blender art pass should use this document to interpret that geometry rather than silently changing gameplay.
+The existing Three.js reactor may remain a **route/interaction greybox reference only** until deliberately updated. It is not a visual reference. Blender must preserve the gameplay envelope and interaction positions while replacing web-demo primitive language with the canonical grounded stylized semi-realistic art direction.
 
 Visual reinterpretations introduced here:
 
@@ -483,3 +465,18 @@ Before production begins, complete the reactor-specific files under ../productio
 Formal review must use fixed-camera rendered evidence, fresh-context specialist critics where available, regression comparison, score gates and cold-start validation.
 
 The reactor cannot be accepted merely because all named machinery exists. It must also pass the global stylized-art, anti-plastic, anti-blockout and readability gates.
+
+## 18. Grounded semi-realism implementation gate
+
+Before the hall is expanded, build one small reactor slice that includes a wall transition, a console, a section of pool rim/railing, one practical light and 3–5 operator/maintenance details.
+
+The slice fails if it reads as:
+- low-poly;
+- uniform plastic;
+- generic sci-fi;
+- photoreal kitbash;
+- flatly lit;
+- cluttered with pipes/screens;
+- visually dependent on labels.
+
+The slice passes only when it demonstrates believable human scale, object-specific construction, distinct materials, restrained wear, strong contact, localized lighting and clear visual hierarchy from the gameplay camera.
