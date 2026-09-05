@@ -25,7 +25,7 @@ The Spawn Room now has a dedicated, much more detailed visual bible:
 
 - [Spawn Room Visual Reference Bible](../sections/spawn-room/art/SPAWN_REFERENCE_BIBLE.md)
 
-It is backed by a numbered **25-plate** reference library covering composition, floor plan, hallway, briefing room, locker room, suit bays, hazmat suit, integrity chamber, chamber states, radiation checkpoint, doors/walls, ceiling/floor, furniture, scale, materials, colour, lighting, signage, wall graphics, props, larger-building illusion, camera validation and do/don't examples.
+It is backed by a numbered **28-plate** reference library covering composition, floor plan, hallway, briefing room, locker room, suit bays, hazmat suit, integrity chamber, chamber states, radiation checkpoint, doors/walls, ceiling/floor, furniture, scale, materials, colour, lighting, signage, wall graphics, props, larger-building illusion, camera validation and do/don't examples.
 
 
 Primary generated references:
