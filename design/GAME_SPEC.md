@@ -1,4 +1,9 @@
 # CRITICAL SHIFT
+
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
 ## Master Game Design, Systems, Narrative, Technical, AI-Production, and Validation Specification
 
 **Document status:** Foundational product specification  
@@ -6,7 +11,7 @@
 **Target platform:** PC, with Steam as the first commercial platform  
 **Target players:** 1 to 4, designed primarily for 3 to 4  
 **Camera:** First-person by default, with visible body, hands, carried objects, and full ragdoll presentation  
-**Visual style:** Highly stylised, low-detail human workers and chunky industrial environments, using simple/faceted geometry, compact expressive proportions, bold colour blocking, texture-light materials, and strong gameplay silhouettes  
+**Visual style:** Highly stylised, low-detail human workers and chunky industrial environments, using simplified, object-specific geometry, compact expressive proportions, bold colour blocking, restrained, low-frequency textured materials, and strong gameplay silhouettes  
 **Core genre:** Cooperative industrial comedy, physics-enhanced production, crisis management, and light roguelite progression  
 **Primary development model:** One human director supervising external AI agents that perform most implementation, testing, documentation, scene assembly, and maintenance
 **Visual authority:** `design/ART_DIRECTION.md` is authoritative for character, environment, material, lighting, concept-art, and generated-asset style. It supersedes conflicting legacy visual wording in this specification while gameplay, systems, dimensions, routes, and interaction requirements remain authoritative.
@@ -372,7 +377,7 @@ The tone should not become:
 
 ## 4.1 Character Form
 
-Workers are deliberately stylised adult human figures. `design/ART_DIRECTION.md` is authoritative for their visual proportions and surface treatment. The target is compact, expressive, low-detail readability rather than anatomical realism.
+Workers are deliberately stylised adult human figures. `design/ART_DIRECTION.md` is authoritative for their visual proportions and surface treatment. The target is believably proportioned, simplified, readable readability rather than anatomical realism.
 
 Use:
 
@@ -3122,7 +3127,7 @@ Codex must choose one engine after a focused spike.
 
 Evaluate:
 
-1. PEAK-led stylised human character controller with compact, readable proportions.
+1. grounded stylized semi-realistic human character controller with compact, readable proportions.
 2. Active animation to ragdoll.
 3. Ragdoll recovery.
 4. Physics carrying.
@@ -3226,7 +3231,7 @@ Build the same tiny test in both engines only if necessary.
 Test contains:
 
 - Two clients.
-- Compact stylised placeholder humanoid matching `design/ART_DIRECTION.md`.
+- believably proportioned stylized placeholder humanoid matching `design/ART_DIRECTION.md`.
 - Grab crate.
 - Two-player contention.
 - Ragdoll on cart impact.
@@ -3880,7 +3885,7 @@ Build the radioactive shoebox first.
 # 9. Spawn/Start Room Specification
 
 ## 9.1 Overview
-The spawn/start room serves as the staging area where players begin their shift. It transitions them from the outside world into the high-stress environment of the facility. The architecture should establish Critical Shift's PEAK-led visual language immediately: simple/faceted low-detail geometry, bold readable silhouettes, chunky functional forms, broad colour blocking, sparse surface detail, and lighting-led atmosphere. It must remain an original Critical Shift industrial design rather than copying another game's assets.
+The spawn/start room serves as the staging area where players begin their shift. It transitions them from the outside world into the high-stress environment of the facility. The architecture should establish Critical Shift's grounded stylized semi-realistic visual language immediately: simplified but specific medium-complexity geometry, bold readable silhouettes, chunky functional forms, broad colour blocking, sparse surface detail, and lighting-led atmosphere. It must remain an original Critical Shift industrial design rather than copying another game's assets.
 
 ## 9.2 Complete Architecture
 - **Structure:** Modular floor panels, reinforced walls, curved ceiling ribs.
@@ -3890,15 +3895,30 @@ The spawn/start room serves as the staging area where players begin their shift.
 - **Detailing:** Safety hardware, signage/decals (hazard stripes, department identifiers), with intentional restraint to avoid clutter and preserve gameplay clearances.
 
 ## 9.3 Hero Assets & Modular Kit
-- **Wearable Clothes/PPE:** The signature Critical Shift hero hazmat suit and modular PPE pieces, using compact stylised proportions, a strong helmet/visor silhouette, chunky gloves/boots, broad colour blocks, and minimal surface noise, presented clearly on hangers or inside lockers.
+- **Wearable Clothes/PPE:** The signature Critical Shift hero hazmat suit and modular PPE pieces, using believably proportioned stylized proportions, a strong helmet/visor silhouette, chunky gloves/boots, broad colour blocks, and minimal surface noise, presented clearly on hangers or inside lockers.
 - **Devices:** Briefing terminals, suit stations, chunky control panels, and handheld/rack devices.
 - **Safety Equipment:** Interactive hero props designed to be reusable, modular, cleanly named, and correctly pivoted for Unity export.
 
 ## 9.4 Material Language & Budgets
-- Texture-light materials using broad colour blocks, simple shared material families, vertex colour/masks where useful, and sparse functional decals. Do not use painterly Sea of Thieves treatment or realistic PBR microdetail.
+- restrained, low-frequency textured materials using broad colour blocks, simple shared material families, vertex colour/masks where useful, and sparse functional decals. Do not use painterly Sea of Thieves treatment or realistic PBR microdetail.
 - LOD-conscious density, sensible topology, and clean hierarchies to maintain mid-to-low fidelity suitable for a solo developer.
 - Online assets must have compatible licensing and be adapted to fit this art language.
 
 ## 9.5 Unity Integration & Gameplay
 - The room must preserve all Unity gameplay systems intact: scale, axes, spawn placement, doorways, navigation meshes, interaction markers, and system hookups.
 - Ensure non-destructive export/import pipelines for the Grok map integration.
+
+
+# Art-direction implementation note
+
+For every gameplay system described below, visual execution must use grounded stylized semi-realism:
+- adult workers use believable proportions with simplified anatomy;
+- PPE reads as clothing and equipment, not polygon toys;
+- environments use real-world construction logic with deliberate simplification;
+- props use primary/secondary/tertiary form hierarchy;
+- materials are tactile and clearly differentiated;
+- wear is localized and purposeful;
+- lighting creates depth rather than flat uniform exposure;
+- signage is functional and sparse.
+
+PEAK remains useful for clarity and restraint only. It is not the rendering target. Valorant-like environmental art principles are the primary stylistic influence, without copying any specific assets or designs.
