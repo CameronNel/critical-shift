@@ -11,7 +11,7 @@ Read:
 - [../art/SPAWN_REFERENCE_BIBLE.md](../art/SPAWN_REFERENCE_BIBLE.md)
 
 Inspect every numbered SVG in:
-- `../art/reference/00_*.svg` through `../art/reference/24_*.svg` where present.
+- `../art/reference/00_*.svg` through `../art/reference/27_*.svg` where present.
 
 ## Review checklist
 
