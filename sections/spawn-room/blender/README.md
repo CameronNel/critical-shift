@@ -83,3 +83,15 @@ Forbidden as final art:
 - repeating generic sci-fi control boxes.
 
 Before rebuilding the full room, model only the approved style-validation slice.
+
+
+## Pre-build reference requirement
+
+Before starting or regenerating Spawn Blender art:
+
+1. read `../art/SPAWN_REFERENCE_BIBLE.md`;
+2. read `../art/SPAWN_ASSET_REFERENCE_MATRIX.md`;
+3. inspect the numbered reference plates;
+4. complete `../production/REFERENCE_REVIEW.md`.
+
+Do not build from the scenery text alone. The reference library exists specifically to prevent the generic bevelled-box / flat-plastic failure mode.
