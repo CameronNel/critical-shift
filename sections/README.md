@@ -1,5 +1,10 @@
 # Section Package Structure
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 Every playable location should live under sections/<section-name>/ and use the same internal structure.
 
 ## Required folders
@@ -49,3 +54,15 @@ Default execution is **headless-first, MCP-assisted**:
 - minimum four full correction cycles after first visual completion;
 - below-threshold stagnation triggers a structural pass rather than prop spam;
 - final acceptance requires cold-start validation from a fresh Blender process.
+
+
+## Required art package for every section
+
+Every section's `art/` folder must contain generated visual reference plates covering at least:
+- overall style target;
+- material/colour target;
+- lighting/composition or detail-density target.
+
+Agents must inspect these images **before** modelling. They are directional, not geometry blueprints.
+
+The first generated sets are indexed in [design/ART_REFERENCE_INDEX.md](/design/ART_REFERENCE_INDEX.md).
