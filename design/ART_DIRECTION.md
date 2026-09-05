@@ -1,411 +1,742 @@
-# Art Direction
-
-## Authority and Visual North Star
-
-Critical Shift is a **highly stylised, low-detail 3D co-op game** built around simple readable forms, expressive physical characters, bold colour blocking, and hazardous industrial spaces.
-
-**PEAK is the visual north star for the degree of stylisation, simplicity, readability, and character appeal.** Use the same broad design virtues rather than copying another game's protected designs. Critical Shift must not reproduce PEAK-specific scouts, outfits, faces, badges, props, locations, logos, textures, or other distinctive assets. The result should feel immediately at home beside that level of stylisation while remaining unmistakably Critical Shift.
-
-This document is the final authority for all visual decisions. If any older repository text, concept image, filename, prototype, screenshot, generated asset, or subsystem specification asks for Sea of Thieves styling, painterly materials, grounded realism, believable anatomical realism, photorealism, realistic industrial rendering, or dense PBR detail, that visual instruction is obsolete. Preserve the underlying gameplay requirement, dimension, route, machine function, or interaction hook and restyle its presentation according to this document.
-
-## Core Visual Thesis
-
-The world should look **simple enough to read instantly and strong enough to be memorable in silhouette**.
-
-Critical Shift should combine:
-
-- Compact, expressive human workers.
-- Simplified and slightly faceted geometry.
-- Chunky industrial machinery with large visual masses.
-- Bold, controlled colour blocks.
-- Mostly texture-light materials.
-- Clear functional silhouettes.
-- Strong atmospheric lighting and fog.
-- Big, readable physical interactions.
-- Dark industrial danger without muddy visibility.
-- Physical comedy created by animation, physics, scale, and panic.
-
-The facility can be dangerous, oppressive, radioactive, wet, scorched, or failing without becoming visually realistic. Danger should come primarily from **composition, motion, lighting state, sound, scale, and readable damage states**, not layers of photographic grime.
-
-## What “PEAK-Led” Means Here
-
-Use these high-level qualities throughout the game:
-
-- **Simple geometry:** large clean masses before detail; faceting is welcome when intentional.
-- **Readable silhouettes:** a player, tool, machine, valve, cart, door, or hazard should remain identifiable from a distance and while moving.
-- **Compact characters:** deliberately stylised proportions with simplified limbs and enlarged interaction features rather than realistic anatomy.
-- **Soft graphic materials:** broad colour and value changes instead of texture noise.
-- **Limited visual frequency:** avoid fields of tiny bolts, scratches, wires, seams, panels, labels, and surface breakup.
-- **Playful shape language:** machinery may lean, taper, bulge, pinch, or exaggerate functional parts while remaining usable and industrial.
-- **Strong colour separation:** player identity, departments, hazards, interactables, powered states, contamination, and emergencies should be readable through controlled colour families.
-- **Lighting-led atmosphere:** fog, bloom, emissive equipment, directional pools of light, alarm states, and darkness establish mood.
-- **Physics-friendly design:** silhouettes and collision volumes should support grabbing, carrying, ragdolling, climbing, dragging, throwing, and machine interaction.
-
-Do not interpret this as a request to clone PEAK. The visual grammar is the reference; Critical Shift's industrial workplace, hazmat equipment, machine administration, uranium production chain, compliance systems, and reactor imagery provide the original design identity.
-
-## Character Direction
-
-Workers are stylised adult humans, but **adult identity comes from context, gear, posture, voice, and role rather than realistic anatomy**.
-
-Target character qualities:
-
-- Compact overall proportions, approximately in the broad 5.5–6.5-head-tall range rather than fashion-model anatomy.
-- Slightly enlarged head/helmet volume for expression and instant recognition.
-- Simplified torso and limb masses.
-- Readable, somewhat oversized hands/gloves and boots because players grab, carry, climb, drag, and operate machinery constantly.
-- Strong silhouette differences through helmets, hoods, packs, harnesses, tools, suit modules, and department equipment.
-- Simple faces with restrained features where faces are visible.
-- Minimal skin and fabric surface detail.
-- Deformation and rigging designed for broad physical motion rather than anatomical subtlety.
-- Ragdolls that remain readable as characters rather than collapsing into visually noisy anatomy.
-
-Avoid:
-
-- Realistic human anatomy as the visual target.
-- Skin pores, realistic subsurface skin rendering, facial microdetail, realistic hair-strand rendering, or cloth weave.
-- Hero-shooter muscle anatomy.
-- Chibi/baby coding, toddler proportions, giant anime heads, or intentionally juvenile presentation.
-- Mascot costumes or plush-toy materials.
-
-A worker should read as a **small, brave, highly legible industrial person swallowed by machinery**, not a realistic simulation character.
-
-## Hero Hazmat Suit Language
-
-The protective suit is the signature character asset of Critical Shift and should carry the game's identity.
-
-The base hero suit should use:
-
-- One unmistakable helmet/hood and visor silhouette that remains readable in first person, third person, and ragdoll.
-- A compact sealed body suit with broad uninterrupted colour areas.
-- Chunky gloves and boots with simple protective shapes.
-- A clear chest or waist closure/seal mechanism large enough to read during the suiting sequence.
-- One strong back silhouette: telemetry/life-support/filter pack, small tanks, or a combined service module.
-- A large physical rescue/grab handle integrated into the upper back or pack.
-- A visible dosimeter/status module with simple emissive state colours.
-- A small number of functional hoses/cables, kept thick and readable rather than realistic and numerous.
-- Department/player identification through colour panels, tape bands, helmet/visor accents, badges, and replaceable modules.
-- Separate visual states for unsealed, sealed, damaged, contaminated, low-integrity, and emergency conditions.
-
-The suit should feel **purpose-built, slightly awkward, charming, and immediately iconic**. Do not bury it under realistic seams, stitch lines, MOLLE-style detail, tactical clutter, dense hard-surface panels, or military operator styling.
-
-Room-specific concept and build prompts belong inside each section package under ../sections/<section>/prompt/.
-
-## Environment Shape Language
-
-Architecture should be simple, bold, and modular.
-
-Preferred forms:
-
-- Thick walls and doorframes.
-- Broad floor and wall modules.
-- Large pipes with simple elbows and clamps.
-- Oversized valves, levers, switches, handles, wheels, and breaker shapes.
-- Strong ceiling ribs, supports, tanks, ducts, hoppers, conveyors, carts, and machine housings.
-- Intentional tapering or mild asymmetry where it helps character.
-- Visible structural logic without engineering completeness.
-- Large empty/rest areas between important visual clusters.
-
-A room should generally read in this order:
-
-1. Hero landmark or machine.
-2. Main gameplay route.
-3. Interaction points.
-4. Hazard state.
-5. Secondary supporting forms.
-6. Sparse set dressing.
-
-Do not fill negative space simply because a real facility would contain more hardware.
-
-## Department Families
-
-### Mine
-
-The mine is rough in **shape**, not texture density.
-
-Use:
-
-- Large faceted rock masses.
-- Chunky steel supports.
-- Broad wet/dry colour changes.
-- Thick rails, carts, cables, pumps, lamps, and explosive placements.
-- Strong shadow and work-light pools.
-- Readable cracks, collapses, flooding, and blast damage as large visual changes.
-
-Avoid photogrammetric rock, realistic gravel fields, dense debris, and noisy rock normal maps.
-
-### Refinery
-
-The refinery is the most kinetic department.
-
-Use:
-
-- Big conveyors and rollers.
-- Oversized crusher jaws/housings.
-- Broad vats, pipes, chutes, batch containers, and processing drums.
-- Strong motion and colour-state changes.
-- Large spill shapes and contamination zones.
-- Simplified mechanical logic that players can understand at a glance.
-
-Avoid dense chemical-plant pipe spaghetti or tiny instrumentation everywhere.
-
-### Reactor and Power Plant
-
-The power plant is the largest, cleanest, most dramatic department.
-
-Use:
-
-- Monumental but simple machinery.
-- Large clean architectural planes.
-- A bright cyan reactor pool as a major colour/emissive landmark where required by the reactor spec.
-- Two dominant control-bank assemblies in the reactor hall.
-- Thick coolant routes.
-- Large consoles and physical controls.
-- Controlled off-white/grey/blue-green bases with clear state lighting.
-- Emergency red/orange used selectively rather than permanently washing the room.
-
-The reactor may preserve its 1990s industrial-science-fiction influence in **technology vocabulary** such as physical switches, CRT-like screens, analogue gauges, and chunky housings, but it must render those objects with the same simplified PEAK-led geometry and texture-light material treatment as the rest of the game.
-
-## Materials and Textures
-
-The game should not depend on painterly texture work or realistic PBR authoring.
-
-Preferred material strategy:
-
-- Broad base colours.
-- Simple roughness/metalness families where the renderer needs them.
-- Vertex colour or masks for controlled variation.
-- Gentle gradients when useful.
-- Sparse decals for essential labels, hazards, contamination, damage, and identifiers.
-- Very limited edge wear applied as a graphic accent, not a physically simulated history.
-- Simple transparent materials for visors, liquids, glass, steam, and contamination effects.
-- Emission for power state, alarms, radiation, screens, and machine feedback.
-
-Texture detail should survive at gameplay distance. If a detail disappears when the camera moves a few metres away, it is probably not worth authoring unless it serves a specific close interaction.
-
-Avoid:
-
-- Hand-painted Sea of Thieves-like brushwork.
-- Painterly grime passes.
-- Photographic textures.
-- Photogrammetry.
-- Realistic fabric weave.
-- Tiny scratches across every asset.
-- High-frequency normal maps.
-- Dense edge wear.
-- Unique 4K texture sets for ordinary props.
-- “Realistic metal” as a default finishing goal.
-
-## Colour
-
-Colour should carry gameplay information and character appeal.
-
-General principles:
-
-- Give each major department a controlled identifying family.
-- Keep structural/background colours comparatively restrained so characters, hazards, and interactables read clearly.
-- Use saturated colour in purposeful blocks rather than confetti-like detail.
-- Let player colours survive on suits and equipment without being swallowed by environment lighting.
-- Reserve strong emergency colours for actual state changes.
-- Use cyan/blue emission carefully around reactor systems so it stays special.
-- Contamination needs a distinct readable presentation that does not rely solely on realism or subtle stains.
-
-Colour must never be the only gameplay signal. Pair it with shape, animation, sound, labels, or light patterns.
-
-## Lighting and Atmosphere
-
-The game can be dark, eerie, and hazardous while remaining easy to navigate.
-
-Use:
-
-- Strong local light pools.
-- Simple directional lighting.
-- Volumetric or height fog where affordable.
-- Emissive equipment and signage.
-- Clear alarm-state transitions.
-- Silhouette lighting around important machinery and players.
-- Intentional darkness outside navigable/readable zones.
-- Bloom in moderation for reactor, electrical, and emergency states.
-
-Avoid solving atmosphere with muddy exposure, crushed blacks, permanent red alarm lighting, or realistic grime. The player should be able to understand the room before admiring it.
-
-## Interaction Readability
-
-Interactive objects should be intentionally exaggerated.
-
-Examples:
-
-- A valve wheel should have a strong shape and hand clearance.
-- A breaker should visibly move between states.
-- A safety guard should be large enough to understand before use.
-- A machine input/output should have distinct silhouettes.
-- A cart handle should be obvious from approach angles.
-- A suit seal, grab handle, tool socket, or emergency control should not depend on tiny UI text.
-
-When realism conflicts with interaction readability, readability wins.
-
-## Damage, Wear, Contamination, and Failure
-
-Damage must be **state-driven and graphic**, not a universal realism layer.
-
-Prefer:
-
-- Large scorch patches.
-- Bent or displaced silhouette pieces.
-- One broken panel hanging visibly.
-- Strong cracks.
-- Broad leaks and puddles.
-- Steam jets.
-- Pulsing lights.
-- Changed emission.
-- Clear contamination splashes/footprints.
-- Large missing/broken machine elements.
-
-Avoid covering every object with generic dirt and scratches. A clean machine becoming visibly damaged is more readable than a permanently filthy machine becoming slightly dirtier.
-
-## Props and Clutter
-
-Prop density should be low enough that gameplay objects remain obvious.
-
-Each prop must earn its place by doing at least one of the following:
-
-- Supports gameplay.
-- Establishes scale.
-- Identifies a department.
-- Communicates state or story.
-- Improves composition.
-- Creates a physics/comedy opportunity.
-
-Do not add filler merely to make a screenshot look “detailed.”
-
-## UI, Labels, and Signage
-
-Diegetic UI should follow the same large-shape principle:
-
-- Big buttons.
-- Chunky toggles.
-- Large gauge needles.
-- Short labels.
-- Strong icons.
-- Simple screen layouts.
-- High contrast at interaction distance.
-
-Typography and safety graphics should be original to Critical Shift. Do not mimic another game's UI or signage.
-
-## Spawn/Start Room Visual Target
-
-The spawn/start room is the cleanest introduction to the game's character style and must immediately establish the new direction.
-
-- **Form language:** Simple, chunky, slightly faceted industrial forms with strong silhouettes and mild playful exaggeration.
-- **Characters/PPE:** The hero hazmat suit and its modular PPE pieces are the dominant visual focus. Lockers should present large readable helmets, gloves, boots, packs, and suit pieces rather than realistic clothing clutter.
-- **Materials:** Broad colour blocks and texture-light materials. No painterly Sea of Thieves treatment and no realistic fabric/metal surface pass.
-- **Architecture:** Thick modular wall/floor panels, ribbed ceiling forms, bold industrial doors, large vents/pipes, and clear safety zones.
-- **Lighting:** Welcoming enough to inspect equipment, with stronger contrast at the threshold into dangerous production spaces.
-- **Clutter:** Minimal and purposeful.
-- **Integration:** Geometry must remain export-ready with correct pivots, clean hierarchy, sensible colliders, and all gameplay hooks preserved.
-
-## Reactor Hall Visual Target
-
-The dimensional, route, and interaction constraints in [the reactor-room scenery specification](../sections/reactor-room/scenery/reactorroom.md) remain authoritative.
-
-Its **surface treatment is subordinate to this document**. Preserve the reactor pool, two-control-bank concept, physical 1990s-style control vocabulary, functional positions, and required clearances, but interpret them with simplified low-poly/faceted geometry, broad colours, sparse material detail, large controls, and lighting-led atmosphere.
-
-Where that specification uses terms such as brushed stainless, galvanised metal, realistic engineering detail, or material-specific finishing, treat them as functional/material identity cues rather than requests for realistic rendering.
-
-## Concept-Art and AI-Generation Standard
-
-Every generated concept should look achievable in the shipped game.
-
-Prompts should request:
-
-- Stylised 3D game concept/render.
-- Simple/faceted low-to-mid-poly geometry.
-- Strong silhouettes.
-- Broad colour blocks.
-- Minimal texture detail.
-- Readable interactions.
-- Clear gameplay-scale composition.
-- Original Critical Shift industrial design.
-
-Prompts should explicitly reject:
-
-- Photorealism.
-- Realistic cinematic rendering.
-- Sea of Thieves painterly styling.
-- Dense microdetail.
-- Realistic military/tactical gear.
-- Complex texture wear.
-- Protected characters, logos, costumes, props, or locations from reference games.
-
-When a reference screenshot from another game is supplied, analyse only high-level qualities such as silhouette, density, colour hierarchy, material simplicity, lighting, and proportion. Do not recreate its specific content.
-
-## Production Target
-
-This direction is intentionally suited to a small team with heavy AI assistance.
-
-Prefer:
-
-- Reusable modular kits.
-- Simple meshes with deliberate silhouettes.
-- Shared material families.
-- Small material counts per asset.
-- Sparse decals.
-- Easy LOD generation.
-- Clean pivots and hierarchy.
-- Simple collision.
-- Easily recoloured player/department variants.
-- Assets that remain coherent even when generated or assembled by different agents.
-
-A scene is finished when it is readable, atmospheric, cohesive, and fun to move through, not when every surface has received another detail pass.
-
-## Prohibited Drift
-
-Do not approve assets or concepts that drift toward:
-
-- Sea of Thieves-inspired painterly art.
-- Photorealism or grounded realism as the rendering target.
-- AAA cinematic fidelity.
-- Photogrammetry.
-- Realistic skin, cloth, rock, rust, or metal microdetail.
-- Dense greebling.
-- Engineering spaghetti.
-- Tactical/military operator aesthetics.
-- Generic realistic sci-fi corridors.
-- Dirty brown/grey visual noise everywhere.
-- Massive prop density.
-- Hyper-detailed hero assets surrounded by low-detail gameplay assets.
-- Direct copies of PEAK or any other game's protected characters, outfits, props, environments, logos, or textures.
-
-The desired result is **simple, bold, expressive, hazardous, readable, low-detail, physics-friendly, and unmistakably Critical Shift**.
-
+# Critical Shift Art Direction
+
+**Status:** canonical visual authority  
+**Applies to:** every character, room, prop, material, light, VFX element, concept, render and generated asset  
+**Reference index:** [ART_REFERENCE_INDEX.md](ART_REFERENCE_INDEX.md)
+
+> [!IMPORTANT]
+> **Critical Shift uses grounded stylized semi-realism.**  
+> Primary influence: **Valorant-style environmental art principles** — believable proportions, simplified but specific geometry, controlled material response, strong colour blocking, clear silhouettes and disciplined detail.  
+> Secondary influence: **PEAK-style readability and restraint** — strong silhouettes, simple compositions, low visual noise and immediate gameplay legibility.  
+> These are principle references only. Do not copy protected assets, layouts, characters, textures, branding, props or distinctive designs from either game.
+
+This document supersedes every older instruction that describes Critical Shift as PEAK-led low-poly, deliberately faceted, toy-like, texture-light in the sense of flat untextured colour, or compact/chibi. It also supersedes any instruction that pushes the game toward modern AAA photorealism.
 
 ---
 
-# Autonomous Visual Validation Standard
+# 1. Visual thesis
 
-All production environment sections must follow [AUTONOMOUS_SECTION_BUILD_PROTOCOL.md](AUTONOMOUS_SECTION_BUILD_PROTOCOL.md).
+Critical Shift should feel like:
 
-Visual quality is judged from fixed-camera rendered pixels, not from:
-- scene-tree complexity;
-- script output;
-- asset counts;
-- builder descriptions;
-- a single flattering beauty render.
+> **A believable industrial facility that has been simplified and art-directed for a stylized PC game.**
 
-Formal reviews should use fresh-context specialist critics where tooling permits:
-- spatial readability;
-- stylized art direction;
-- materials / anti-plastic;
-- lighting / atmosphere;
-- environmental storytelling;
-- Blender technical quality.
+The world should be grounded enough that a worker, locker, door, bench, respirator, pressure vessel, reactor console or maintenance cart reads as a plausible object with plausible scale and construction.
 
-For environment art, the default completion standard is:
-- >=90/100 overall;
-- >=85% of available points in every rubric category;
-- zero critical failures;
-- final two cycles materially stable;
-- cold-start render PASS.
+The stylization comes from:
+- controlled simplification;
+- strong silhouettes;
+- deliberate proportions;
+- broad colour/value grouping;
+- simplified material response;
+- restrained surface noise;
+- selective wear;
+- composition;
+- lighting;
+- gameplay readability.
 
-If a below-threshold scene gains less than one rubric point across two consecutive full cycles, stop adding decorative detail and perform a structural pass.
+The stylization must **not** come from turning every object into a bevelled box.
 
-The art-direction goal remains simple: low-detail does not mean unfinished, and stylized does not mean plastic. Every major form must look intentionally authored.
+## 1.1 Required qualities
+
+Every finished area should feel:
+- believable;
+- tactile;
+- stylized;
+- readable;
+- atmospheric;
+- human;
+- slightly worn;
+- purposeful;
+- professionally art-directed.
+
+## 1.2 Explicit non-targets
+
+Critical Shift is **not**:
+- modern AAA photorealism;
+- a cinematic Unreal Engine tech demo;
+- generic low-poly;
+- toy-like;
+- Roblox-like;
+- mobile-game low fidelity;
+- Fortnite-like exaggeration;
+- a Three.js-looking web demo;
+- a glossy sci-fi asset pack;
+- a random kitbash of industrial parts;
+- sterile procedural geometry;
+- a grunge-covered abandoned bunker.
+
+---
+
+# 2. Reference hierarchy
+
+## 2.1 Primary: Valorant environmental principles
+
+Use high-level principles associated with readable stylized semi-realistic environment art:
+- real-world-inspired architecture;
+- believable human scale;
+- clean silhouettes;
+- simplified but specific shapes;
+- controlled material families;
+- broad colour blocking;
+- restrained texture frequency;
+- selective high-frequency detail;
+- strong lighting hierarchy;
+- readability from gameplay distance.
+
+Do not imitate specific maps, architecture, textures, props, symbols or branding.
+
+## 2.2 Secondary: PEAK readability principles
+
+Borrow only the useful high-level lessons:
+- clarity at a glance;
+- strong silhouettes;
+- restrained clutter;
+- large readable visual masses;
+- negative space;
+- composition over microdetail;
+- interaction readability.
+
+Do **not** use PEAK as the rendering target. Critical Shift should no longer read as cartoon low-poly.
+
+## 2.3 Real-world reference
+
+Real industrial, institutional and nuclear workplaces are the functional reference for:
+- scale;
+- construction logic;
+- PPE;
+- maintenance;
+- doors;
+- furniture;
+- piping;
+- wall systems;
+- electrical cabinets;
+- consoles;
+- safety hardware;
+- signage logic;
+- wear patterns.
+
+Real-world reference informs **what objects are and how they are built**. The final rendering remains simplified and art-directed.
+
+---
+
+# 3. Shape language
+
+## 3.1 Primary rule
+
+**Shape first. Detail last.**
+
+Every important asset should be designed in three levels:
+
+1. **Primary form** — the overall silhouette and mass.
+2. **Secondary form** — functional construction: panels, frame, hinges, recesses, supports, doors, handles.
+3. **Tertiary detail** — labels, screws, scratches, decals, small wear, seams.
+
+If an asset looks boring in flat grey with no textures, redesign it before adding detail.
+
+## 3.2 Geometry target
+
+Use medium-complexity game geometry:
+- simplified, not primitive;
+- clean, not sterile;
+- readable, not faceted for its own sake;
+- specific to the object, not generated from a universal cube language.
+
+Cubes, cylinders and planes are valid starting primitives. They are not automatically finished assets.
+
+## 3.3 Bevel rule
+
+**Bevels are finishing tools, not design tools.**
+
+Forbidden failure mode:
+- box;
+- uniform bevel;
+- solid colour;
+- another box;
+- same bevel;
+- call it finished.
+
+Use edge treatment according to construction:
+- folded sheet metal;
+- cast metal;
+- molded plastic;
+- rubber;
+- concrete;
+- timber;
+- fabric;
+- painted steel.
+
+Avoid identical bevel widths across unrelated assets.
+
+## 3.4 Silhouette test
+
+At gameplay distance:
+- doors must still read as doors;
+- suit bays as suit bays;
+- benches as benches;
+- valves as valves;
+- tools as tools;
+- machine states as distinct.
+
+If tertiary detail is required to identify an object, the primary/secondary forms are too weak.
+
+---
+
+# 4. Scale and proportions
+
+Use believable human scale throughout.
+
+Do not rely on cartoon inflation to create stylization.
+
+Avoid:
+- giant handles without functional reason;
+- enormous buttons on every device;
+- paper-thin walls;
+- toy-sized furniture;
+- oversized scanner booths;
+- arbitrary thickening of all structures;
+- tiny doors or strangely short ceilings.
+
+Stylization should come from shape refinement and simplification, not broken scale.
+
+---
+
+# 5. Architecture
+
+Architecture should feel built by people for work.
+
+Use:
+- believable wall thickness;
+- sensible door frames and reveals;
+- functional floor transitions;
+- service access;
+- structural variation;
+- utility routing that enters and leaves somewhere plausible;
+- ceiling systems with lights, vents and selected infrastructure;
+- readable base trims, wall protection or lower-wall zones where appropriate.
+
+Do not make every room:
+- the same rectangular box;
+- the same wall stripe;
+- the same ceiling panel;
+- the same rectangular doorway;
+- the same row of props.
+
+## 5.1 Architectural detail density
+
+Large surfaces need breathing room.
+
+A good composition may be:
+- quiet wall;
+- quiet wall;
+- dense locker/bench cluster;
+- open movement area;
+- equipment focal point;
+- door.
+
+Do not decorate every square metre.
+
+---
+
+# 6. Materials and textures
+
+Materials must be **stylized but believable**.
+
+The player should be able to distinguish painted metal, bare metal, concrete, plastic, rubber, glass, fabric and flooring without reading labels.
+
+## 6.1 Material families
+
+### Painted metal
+- matte to semi-matte;
+- low-frequency roughness variation;
+- localized scratches;
+- restrained edge wear;
+- occasional dents;
+- grime only where use explains it.
+
+### Bare metal
+- controlled specular response;
+- not mirror chrome;
+- broad roughness breakup;
+- use sparingly.
+
+### Plastic
+- molded character;
+- distinct from painted metal;
+- restrained gloss;
+- slight surface variation;
+- never default shiny toy plastic.
+
+### Rubber
+- dark;
+- matte;
+- soft visual response;
+- subtle texture;
+- used on boots, grips, seals, floor mats and bumpers.
+
+### Fabric
+- broad folds;
+- matte;
+- visible thickness;
+- simplified weave or no visible weave at normal gameplay distance;
+- should read as clothing, not polygon armour.
+
+### Concrete / plaster
+- broad tonal variation;
+- subtle staining;
+- low-frequency texture;
+- occasional patching;
+- no noisy scan detail.
+
+### Flooring
+- believable institutional/industrial system;
+- slightly different roughness from walls;
+- localized route wear;
+- occasional replacement panel/tile;
+- no wet-plastic reflections unless actually wet.
+
+## 6.2 Texture frequency
+
+Prefer:
+- broad colour variation;
+- low-frequency roughness;
+- localized wear;
+- sparse decals;
+- selective small detail at focal points.
+
+Avoid:
+- 4K/8K uniqueness everywhere;
+- photographic grunge;
+- procedural scratch noise on every asset;
+- dense normal maps;
+- edge wear on every exposed edge;
+- uniform material response.
+
+---
+
+# 7. Colour
+
+Colour is functional.
+
+Base environment:
+- warm off-white / institutional grey;
+- desaturated industrial green or teal;
+- steel grey;
+- charcoal;
+- muted concrete.
+
+Accents:
+- hazard yellow;
+- maintenance orange;
+- emergency red;
+- limited utility blue/cyan;
+- department-specific identifiers.
+
+Rules:
+- most surfaces remain restrained;
+- saturation is reserved for useful information;
+- interactables and hazards must stand out without turning the whole room into colour confetti;
+- colour is never the only gameplay signal.
+
+---
+
+# 8. Lighting
+
+Lighting is a core art-direction system, not a final polish layer.
+
+Avoid flat interior exposure where every surface is equally bright.
+
+Use:
+- localized practical lights;
+- clear key-light zones;
+- darker secondary spaces;
+- soft indirect fill;
+- strong contact shadow;
+- visible light falloff;
+- controlled warm/cool contrast;
+- subtle atmospheric depth;
+- selective emissive cues.
+
+Every ceiling light should visibly influence nearby surfaces.
+
+Objects must feel grounded through:
+- contact shadow;
+- AO;
+- believable placement;
+- support contact;
+- local light response.
+
+Do not hide poor modeling in darkness. Gameplay readability wins.
+
+---
+
+# 9. Wear and imperfection
+
+The facility is active and maintained.
+
+Use restrained evidence of use:
+- worn handles;
+- scuffed floor routes;
+- chipped paint in plausible contact areas;
+- repaired pipe wrap;
+- taped label;
+- dented bin;
+- slightly mismatched replacement panel;
+- cable sag;
+- crooked paperwork;
+- chair slightly out of alignment;
+- boots left under a bench;
+- glove left behind;
+- used clipboard;
+- mug;
+- maintenance kit.
+
+Avoid:
+- blanket grime;
+- uniform edge damage;
+- abandoned-building decay;
+- random debris;
+- procedural dirt everywhere.
+
+Imperfection should look authored.
+
+---
+
+# 10. Environmental storytelling
+
+The core rule is:
+
+> **People work here.**
+
+Tell that story through objects and placement, not walls of text.
+
+Good examples:
+- open locker;
+- folded protective clothing;
+- spare respirator filters;
+- maintenance tape;
+- gloves;
+- boots;
+- battered mug;
+- clipboard;
+- replacement component;
+- tool left near a repair;
+- shift paperwork;
+- one personal item;
+- localized cleaning equipment.
+
+Every prop should have a plausible reason to exist.
+
+Random clutter is not storytelling.
+
+---
+
+# 11. Signage and text
+
+Use signage sparingly.
+
+A sign should:
+- serve navigation;
+- identify a hazard;
+- explain an interaction;
+- communicate procedure;
+- support institutional character.
+
+Do not use signage to compensate for weak environment design.
+
+Avoid:
+- a label on every wall;
+- title panels for obvious objects;
+- multiple warnings saying the same thing;
+- decorative fake UI;
+- screens that exist only to create visual noise.
+
+The environment should be understandable before reading text.
+
+---
+
+# 12. Technology and sci-fi restraint
+
+Critical Shift is industrial first.
+
+Technology should feel:
+- manufactured;
+- maintained;
+- practical;
+- specialized;
+- slightly dated in places;
+- physically operated.
+
+Use:
+- analogue gauges;
+- guarded switches;
+- industrial displays;
+- CRT-like equipment where appropriate;
+- early flat-panel displays;
+- physical controls;
+- believable housings.
+
+Avoid:
+- holograms;
+- decorative glowing lines;
+- meaningless screens;
+- futuristic hexagon motifs;
+- dense greebling;
+- random vents;
+- decorative pipe spaghetti;
+- spaceship corridor language.
+
+---
+
+# 13. Character direction
+
+Workers are stylized adult humans with **believable adult proportions**.
+
+Do not target compact/chibi 5.5-head characters.
+
+Target:
+- approximately believable adult proportions;
+- slightly simplified anatomy;
+- readable hands and boots without cartoon inflation;
+- clear silhouettes;
+- slightly simplified faces;
+- restrained skin/hair detail;
+- clothing and PPE doing most of the character design.
+
+The character should look like a person from a stylized semi-realistic PC game, not a polygon mascot.
+
+---
+
+# 14. Hazmat and PPE direction
+
+The hero hazmat suit must read as **protective clothing**.
+
+Required:
+- believable fabric volume;
+- broad folds;
+- recognisable seams;
+- closure logic;
+- visor thickness;
+- glove construction;
+- boot construction;
+- harness/pack integration;
+- functional hoses only where needed;
+- dosimeter/status device;
+- readable rescue handle;
+- modular department/player identifiers.
+
+Avoid:
+- armour-like polygon plates;
+- inflated toy proportions;
+- faceted mannequin bodies;
+- oversized helmet cubes;
+- random hard-surface greebles;
+- glossy plastic suit material.
+
+The suit may be simplified, but it must look wearable.
+
+---
+
+# 15. Department direction
+
+## 15.1 Spawn / preparation
+
+Feeling:
+- institutional;
+- safe but slightly oppressive;
+- used daily;
+- human;
+- practical;
+- clean enough to work in;
+- visibly connected to a larger facility.
+
+Use:
+- lockers;
+- PPE;
+- benches;
+- paperwork;
+- doors with believable frames;
+- modest maintenance evidence;
+- restrained safety signage;
+- material variation;
+- localized fluorescent lighting;
+- quiet areas between prop clusters.
+
+Avoid:
+- showroom cleanliness;
+- random potted plants as filler;
+- wall gadgets every metre;
+- giant scanners dominating the room;
+- toy suits in display alcoves.
+
+## 15.2 Mine
+
+Feeling:
+- rough working environment;
+- heavy structure;
+- moisture;
+- dirt;
+- constrained work lighting.
+
+Use simplified real mining vocabulary, not low-poly rock cartoons.
+
+## 15.3 Refinery
+
+Feeling:
+- kinetic;
+- hot;
+- mechanical;
+- process-driven.
+
+Use clear process equipment and readable material flow without industrial pipe spaghetti.
+
+## 15.4 Reactor and power plant
+
+Feeling:
+- maintained;
+- monumental;
+- controlled;
+- technical;
+- slightly dated industrial science fiction.
+
+Hero:
+- cyan reactor pool;
+- exactly two dominant control-bank assemblies;
+- believable 1990s/early-digital control language;
+- restrained perimeter equipment;
+- readable circulation.
+
+The reactor is the cleanest department, but still uses believable materials, subtle wear and grounded construction.
+
+---
+
+# 16. Detail density
+
+Detail must be clustered.
+
+Use three density levels:
+
+### Quiet
+Large surfaces, simple structural rhythm, minimal props.
+
+### Working
+Furniture, one utility route, a few signs, functional equipment.
+
+### Focal
+Hero machine, interaction point, character station or important repair area.
+
+Never make the entire room focal-density.
+
+---
+
+# 17. Gameplay camera rule
+
+All art decisions are judged from the actual gameplay camera.
+
+Every major pass must render:
+- entry;
+- primary route;
+- hero interaction;
+- reverse view;
+- circulation pinch point;
+- material/lighting problem area.
+
+Check:
+- scale;
+- silhouettes;
+- prop contact;
+- clipping;
+- floating objects;
+- lighting;
+- material readability;
+- detail visibility;
+- route clarity.
+
+A prop that looks good only in Blender's free camera has failed.
+
+---
+
+# 18. Validation slice rule
+
+**Do not build a full room before proving the style.**
+
+For each new section, first build one polished validation slice containing roughly:
+- one wall section;
+- one door;
+- one main prop cluster;
+- one light;
+- one utility element;
+- 3–5 storytelling props.
+
+The slice must prove:
+- geometry language;
+- proportions;
+- materials;
+- lighting;
+- wear;
+- colour;
+- prop style;
+- detail density;
+- gameplay-camera readability.
+
+Expansion is blocked until the slice passes visual review.
+
+---
+
+# 19. Hard visual vetoes
+
+A review can fail the scene immediately if any of these dominate:
+
+- obvious generic low-poly look;
+- repeated bevelled-box construction;
+- plastic materials across most assets;
+- primitive sci-fi control panels;
+- excessive signage;
+- flat even lighting;
+- toy-like PPE;
+- random decorative clutter;
+- procedural cleanliness;
+- photoreal texture noise inconsistent with the style;
+- modern AAA fidelity arms race;
+- generic web-demo presentation;
+- floating or unsupported props;
+- unreadable silhouettes.
+
+---
+
+# 20. Pass / fail questions
+
+Before approving any art pass, ask:
+
+1. Does this look like a believable place?
+2. Does it look stylized without looking cheap?
+3. Are important shapes specific rather than primitive?
+4. Are materials clearly distinguishable?
+5. Is wear localized and plausible?
+6. Does lighting create depth?
+7. Is there negative space?
+8. Does the room feel used by people?
+9. Is signage restrained?
+10. Are props grounded and supported?
+11. Does the scene avoid generic sci-fi?
+12. Does it avoid generic low-poly?
+13. Does it avoid modern AAA photorealism?
+14. Would a screenshot plausibly look like a commercially released stylized PC game?
+
+If the answer to 14 is no, the art pass is not complete.
+
+---
+
+# 21. Production mantra
+
+**Believable first. Stylized second. Readable always.**
+
+Do not confuse simplicity with cheapness.
+
+A simple object still needs:
+- good proportions;
+- construction logic;
+- material identity;
+- silhouette;
+- placement;
+- lighting;
+- purpose.
