@@ -73,3 +73,13 @@ Next actions:
 6. run contact validation;
 7. score `RUBRIC.md`;
 8. checkpoint only after pass.
+
+
+## Reference evidence required
+
+Before the next Blender build starts:
+- complete `REFERENCE_REVIEW.md`;
+- inspect `../art/SPAWN_REFERENCE_BIBLE.md`;
+- use the 00–27 numbered plates as the explicit visual baseline.
+
+The next checkpoint is not “full room improved.” It is “validation slice visibly matches the new reference library.”

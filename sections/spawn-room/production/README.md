@@ -36,3 +36,8 @@ New order:
 6. then expand hallway, briefing room and locker/suiting area.
 
 Do not polish or propagate the old low-poly/plastic asset language.
+
+
+## Reference-library gate
+
+Before any new Spawn build, `REFERENCE_REVIEW.md` must be completed and set to **YES**. The builder must read `../art/SPAWN_REFERENCE_BIBLE.md` and inspect the numbered reference plates. A build that starts without this evidence is invalid, even if the resulting Blender file opens successfully.

@@ -10,7 +10,8 @@
 **Status:** Authoritative scenery specification  
 **Visual authority:** ../../../design/ART_DIRECTION.md  
 **Game authority:** ../../../design/GAME_SPEC.md  
-**Build/validation authority:** ../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md
+**Build/validation authority:** ../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md  
+**Spawn visual-reference authority:** ../art/SPAWN_REFERENCE_BIBLE.md
 
 ---
 
@@ -124,10 +125,7 @@ Secondary influence: PEAK-style readability — strong silhouettes, restraint, n
 
 Do not copy assets or distinctive designs from either game.
 
-Generated visual calibration:
-- [overall target](../art/reference/spawn_style_target.svg)
-- [detail-density target](../art/reference/spawn_detail_density.svg)
-- [material/lighting target](../art/reference/spawn_material_lighting.svg)
+Generated visual calibration is mandatory. Read [../art/SPAWN_REFERENCE_BIBLE.md](../art/SPAWN_REFERENCE_BIBLE.md) and inspect the full numbered reference set in `../art/reference/` before modelling. The Spawn-specific reference bible is more detailed than the three legacy overview plates and takes priority for section-level visual decisions.
 
 The Spawn Room must be:
 - believable in human scale;
@@ -157,6 +155,20 @@ Every major prop must make sense in flat grey before labels or texture detail ar
 
 
 ---
+---
+
+# 4.1 Spawn-specific production references
+
+The following are mandatory companions to this scenery spec:
+
+- [../art/SPAWN_REFERENCE_BIBLE.md](../art/SPAWN_REFERENCE_BIBLE.md)
+- [../art/SPAWN_ASSET_REFERENCE_MATRIX.md](../art/SPAWN_ASSET_REFERENCE_MATRIX.md)
+- [../art/SPAWN_MATERIAL_REFERENCE.md](../art/SPAWN_MATERIAL_REFERENCE.md)
+- [../art/SPAWN_LIGHTING_REFERENCE.md](../art/SPAWN_LIGHTING_REFERENCE.md)
+- [../art/SPAWN_SIGNAGE_REFERENCE.md](../art/SPAWN_SIGNAGE_REFERENCE.md)
+
+When this scenery document says what must exist and a reference document says how it should look, obey both. Gameplay/layout requirements remain authoritative; the reference library governs visual execution.
+
 ---
 
 # 5. Architectural Language
@@ -221,6 +233,8 @@ Do not cover the whole floor in cracks or dirt.
 The hallway should feel occupied and maintained by humans.
 
 ## 6.1 Spawn side
+
+Reference plates: [01 hallway](../art/reference/01_hallway_composition.svg), [08 doors/walls](../art/reference/08_door_wall_architecture.svg), [09 ceiling/floor](../art/reference/09_ceiling_floor_language.svg), [14 larger-building illusion](../art/reference/14_larger_building_illusion.svg).
 
 The initial spawn area should remain relatively uncluttered so four players can appear together without intersecting props.
 
@@ -287,14 +301,16 @@ A short waiting bench or 2–3 linked chairs may sit against one wall.
 
 They must not narrow the main route.
 
-Use chunky institutional furniture:
+Use believable institutional furniture simplified for game readability:
+- normal adult seat height and depth;
+- clear seat/back silhouettes;
+- simplified tubular, folded-metal or molded frame;
+- restrained padded material;
+- subtle wear at actual touch/contact zones;
+- support legs and joins that look structurally plausible;
+- no tiny classroom proportions and no comically thick “stylized” construction.
 
-- broad seat/back shapes
-- simple metal or molded frame
-- restrained padded material
-- subtle wear at edges
-- legs thick enough to read
-- no flimsy realistic office-chair geometry
+Reference: [../art/reference/18_furniture_reference.svg](../art/reference/18_furniture_reference.svg).
 
 One seat may be slightly misaligned or carry a clipboard to break sterility.
 
@@ -303,6 +319,8 @@ One seat may be slightly misaligned or carry a clipboard to break sterility.
 # 7. Briefing Room
 
 ## 7.1 Functional intent
+
+Reference plates: [02 briefing room](../art/reference/02_briefing_room.svg), [18 furniture](../art/reference/18_furniture_reference.svg), [19 wall graphics](../art/reference/19_wall_graphics_portraits.svg).
 
 The left room is a voluntary social/tutorial room.
 
@@ -344,8 +362,8 @@ The focal wall should be a designed composition.
 
 Include:
 
-- large industrial screen or protected monitor
-- chunky housing or mounting frame
+- large industrial screen or protected monitor;
+- believable integrated housing or mounting frame
 - simple playback/status controls
 - title panel such as SHIFT BRIEFING / PRE-ENTRY ORIENTATION
 - small speakers or integrated grille
@@ -387,7 +405,7 @@ The facility administration can be gently propagandistic. It should feel believa
 
 Chairs:
 
-- matte tubular or chunky molded frame
+- matte tubular, folded-metal or restrained molded frame
 - muted vinyl/fabric seat
 - broad stylized shapes
 - no cloth weave
@@ -409,6 +427,8 @@ The briefing room does not require a plant. Prefer evidence of actual use: a mug
 # 8. Locker Room
 
 ## 8.1 Functional intent
+
+Reference plates: [03 locker overview](../art/reference/03_locker_room_overview.svg), [04 suit bay anatomy](../art/reference/04_suit_bay_anatomy.svg), [05 hazmat suit](../art/reference/05_hazmat_suit_reference.svg), [23 suit bay variation](../art/reference/23_suit_bay_variation.svg).
 
 The locker room is the signature preparation space.
 
@@ -475,39 +495,43 @@ The suit must be one of the best-looking objects in the room.
 
 Presentation requirements:
 
-- full silhouette readable from entrance
-- compact stylized proportions
-- oversized but not childish helmet/visor
-- clear torso mass
-- thick readable gloves
-- sturdy boots
-- simple life-support pack
-- rescue/grab handle
-- broad colour panels
-- very limited small hardware
-- visible seal/closure area
-- dosimeter/status module
+- full silhouette readable from the locker-room entrance;
+- believable adult proportions;
+- slightly simplified anatomy rather than compact/chibi anatomy;
+- hood/helmet sized plausibly around a human head;
+- clear torso and limb volume created by fabric, not polygon blocks;
+- readable gloves and boots without cartoon inflation;
+- simple integrated life-support/filter pack;
+- rescue/grab handle;
+- broad colour panels;
+- very limited small hardware;
+- visible seal/closure area;
+- dosimeter/status module;
+- broad folds at shoulders, elbows, hips and knees.
 
-The suit should feel substantial but soft enough to be worn.
+The suit should feel substantial but wearable.
 
 Avoid:
 
-- glossy astronaut plastic
-- military tactical clutter
-- realistic fabric folds everywhere
-- tiny straps
-- mannequin stiffness
-- toy-like proportions
-- generic sci-fi armor
+- glossy astronaut plastic;
+- military tactical clutter;
+- dense realistic cloth simulation;
+- tiny straps everywhere;
+- mannequin stiffness;
+- toy-like proportions;
+- generic sci-fi armor;
+- oversized cube-like helmet/visor;
+- faceted low-poly body forms.
+
+Reference: [../art/reference/05_hazmat_suit_reference.svg](../art/reference/05_hazmat_suit_reference.svg).
 
 Use lighting to separate each suit from its bay without turning the stations into retail displays.
 
 ## 8.5 Suit bay architecture
 
 Suit bays can use:
-
-- shallow recessed niche
-- chunky upper shelf
+- shallow recessed niche;
+- believable upper shelf / helmet cradle
 - strong vertical frame
 - locker/storage module
 - broad back panel in controlled colour
@@ -517,13 +541,15 @@ Suit bays can use:
 
 They should not simply be four rectangular cupboards.
 
-Introduce gentle tapering, softened corners, asymmetry in support brackets or other stylized shape choices where useful.
+Introduce modest shape variation only where construction supports it: a folded-metal return, offset bracket, recessed panel, changing wall thickness, or asymmetrical service access. Do not use taper/faceting merely to signal “stylized.”
 
 ---
 
 # 9. Integrity Check Chamber
 
 ## 9.1 Role
+
+Reference plates: [06 integrity chamber](../art/reference/06_integrity_chamber.svg), [22 chamber states](../art/reference/22_integrity_chamber_states.svg).
 
 The central chamber is the hero machine of the room.
 
@@ -549,7 +575,7 @@ Preferred form:
 - clear entry opening/door
 - floor platform
 - overhead scanner or seal assembly
-- chunky side equipment
+- one clearly constructed side equipment/controller module
 - status display
 - large readable lights
 - obvious handle or door mechanism
@@ -606,7 +632,7 @@ Provide one or two short benches where they do not obstruct suit access.
 
 Bench qualities:
 
-- chunky industrial frame
+- believable industrial frame simplified to its main structural members
 - broad seat
 - slightly softened edges
 - matte surface
@@ -666,6 +692,8 @@ Use:
 
 # 11. Operational Exit
 
+Reference plates: [08 doors/walls](../art/reference/08_door_wall_architecture.svg), [12 signage](../art/reference/12_signage_hierarchy.svg), [24 first-person scale](../art/reference/24_first_person_scale.svg).
+
 ## 11.1 Door
 
 The exit should feel heavier than the briefing and locker doors.
@@ -675,7 +703,7 @@ Use:
 - thick frame
 - broad slab/leaf
 - visible seal
-- chunky handle or powered opening mechanism
+- believable heavy-duty handle or powered opening mechanism
 - small protected viewport if useful
 - access/status panel
 - restrained hazard marking
@@ -720,7 +748,7 @@ Possible components:
 
 - large readable meter/display
 - physical probe or integrated detector
-- chunky speaker/grille
+- compact industrial speaker/grille
 - radiation icon
 - simple instruction plate
 - pass/caution indicator
@@ -877,6 +905,8 @@ Avoid:
 ---
 
 # 17. Lighting
+
+Reference plate: [11 lighting plan](../art/reference/11_lighting_plan.svg).
 
 ## 17.1 Hallway
 

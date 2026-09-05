@@ -87,3 +87,13 @@ Before any full-room rebuild:
 - [ ] all support-contact validation passes
 - [ ] generated Spawn Room reference plates reviewed
 - [ ] style slice scores 8/10+ with no visual veto
+
+
+## Reference-preload evidence
+
+- [ ] `REFERENCE_REVIEW.md` exists and is updated for this build
+- [ ] all numbered Spawn reference plates were inspected
+- [ ] five extracted visual rules are recorded
+- [ ] three explicit failure modes are recorded
+- [ ] chosen scale anchors are recorded
+- [ ] validation-slice composition is recorded before modelling

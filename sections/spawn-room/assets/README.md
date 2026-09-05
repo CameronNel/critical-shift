@@ -40,3 +40,17 @@ Use shared material families, but not one shared visual response:
 - paper/card.
 
 Reject any asset that only becomes recognizable after labels are added.
+
+
+## Asset-reference requirement
+
+Before authoring or sourcing a Spawn asset, check `../art/SPAWN_ASSET_REFERENCE_MATRIX.md`.
+
+Every major asset should have:
+- a scale anchor;
+- a material family;
+- a specific primary/secondary form;
+- one or more numbered visual reference plates;
+- an explicit failure condition.
+
+Sourced assets must be restyled to match the reference library rather than imported as-is.

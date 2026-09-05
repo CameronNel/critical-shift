@@ -50,3 +50,16 @@ A critic must answer, from rendered pixels:
 - does anything read as Three.js, asset-pack sci-fi or AAA photorealism.
 
 Critics should identify the **worst three visible defects** before praising anything.
+
+
+## Reference-based criticism
+
+Critics must cite at least three numbered Spawn reference plates in every formal visual review. Criticism such as “looks good” or “feels stylized” is insufficient.
+
+Use the plates to identify:
+- what should be larger/smaller;
+- what should be quieter;
+- what material response is wrong;
+- what silhouette is too primitive;
+- where lighting is too flat;
+- where signage/clutter exceeds the target.
