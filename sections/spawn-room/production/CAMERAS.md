@@ -1,5 +1,10 @@
 # Spawn Room — Fixed Validation Cameras
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 Once formal review begins, transforms and focal lengths remain fixed unless a camera is proven invalid and the change is documented.
 
 ## Required cameras
@@ -68,3 +73,19 @@ Use identical:
 - major lighting state
 
 for cycle-to-cycle comparisons.
+
+
+## Art-direction camera checks
+
+Every spawn validation camera must let reviewers judge:
+- believable human scale;
+- door / wall / bench / locker construction;
+- PPE fabric volume and proportion;
+- material separation;
+- localized practical lighting;
+- contact shadow and support contact;
+- negative space;
+- whether signage is subordinate to the environment;
+- whether detail clusters feel occupied rather than procedurally decorated.
+
+At least one fixed camera must expose the locker/suit area and one must expose the briefing room. Do not use only flattering beauty angles.
