@@ -93,6 +93,12 @@ The numbered reference plates are intentionally redundant. An autonomous builder
 
 ![16 Do / don't summary](reference/16_do_dont_summary.svg)
 
+![25 Validation slice](reference/25_validation_slice.svg)
+
+![26 Modeling progression](reference/26_modeling_progression.svg)
+
+![27 Wear placement](reference/27_wear_placement_map.svg)
+
 ### Legacy overview plates
 
 The earlier overview plates remain useful but are less specific:
