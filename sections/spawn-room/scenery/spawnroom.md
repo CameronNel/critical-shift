@@ -1,5 +1,10 @@
 # Critical Shift — Spawn Room Scenery Specification
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 **File:** spawnroom.md  
 **Section:** Spawn Room  
 **Status:** Authoritative scenery specification  
@@ -111,39 +116,47 @@ Do not make fake space so visually interesting that players constantly attempt t
 
 # 4. Visual Style
 
-This room follows the global art direction.
+The Spawn Room is the first proof of Critical Shift's **grounded stylized semi-realism**.
 
-PEAK is a high-level reference for simplicity, readability, stylized proportions, approachable forms, broad colour blocking and the ability to make low-detail geometry feel authored.
+Primary influence: Valorant-style environment principles — believable construction, simplified but specific geometry, disciplined material response, controlled colour blocking and readable lighting.
 
-Do not copy PEAK-specific assets, characters, rooms, props, costumes, logos or distinctive designs.
+Secondary influence: PEAK-style readability — strong silhouettes, restraint, negative space and immediate interaction clarity.
+
+Do not copy assets or distinctive designs from either game.
+
+Generated visual calibration:
+- [overall target](../art/reference/spawn_style_target.svg)
+- [detail-density target](../art/reference/spawn_detail_density.svg)
+- [material/lighting target](../art/reference/spawn_material_lighting.svg)
 
 The Spawn Room must be:
-
-- stylized
-- cleanly modeled
-- low-to-mid poly
-- deliberately faceted where attractive
-- soft and graphic in material treatment
-- readable at gameplay distance
-- charming without becoming childish
-- industrial without becoming gritty photorealism
-- detailed through authored composition rather than micro-geometry
+- believable in human scale;
+- stylized without looking low-poly;
+- medium-complexity and cleanly modeled;
+- specific in silhouette;
+- tactile in material response;
+- slightly worn but maintained;
+- readable at gameplay distance;
+- asymmetrical in small human ways;
+- sparse enough to breathe;
+- atmospheric without hiding navigation.
 
 It must not become:
+- photorealistic AAA;
+- cartoon low-poly;
+- a Three.js/web-demo look;
+- glossy plastic;
+- repeated bevelled boxes;
+- generic sci-fi corridor art;
+- an industrial asset kitbash;
+- a showroom;
+- an abandoned grunge bunker;
+- a wall of signs and screens.
 
-- photorealistic AAA
-- generic sci-fi
-- a web-graphics demo
-- shiny plastic
-- primitive boxes with materials slapped on
-- an empty greybox decorated with random props
-- a dense kitbash of realistic assets
-- a grunge-covered abandoned facility
-- a glossy showroom
-- a toy room
+Every major prop must make sense in flat grey before labels or texture detail are added.
 
-The scene should feel handmade even when it is procedurally or agent-generated.
 
+---
 ---
 
 # 5. Architectural Language
@@ -219,7 +232,7 @@ Possible elements around the spawn end:
 - clock or shift-status panel
 - modest bench pushed against one wall
 - wall-mounted notice board
-- one medium plant
+- optional single humanizing accent; a plant is allowed only if specifically justified
 - framed worker portrait or institutional artwork
 - sealed utility cabinet
 - waste/recycling bin
@@ -260,24 +273,13 @@ Use simple frames with matte finishes, modest plaques and stylized adult faces.
 
 Do not create rows of identical corporate headshots.
 
-## 6.4 Plants
+## 6.4 Humanizing accent
 
-Plants are deliberate human softness inside machine architecture.
+Do not automatically place a plant in the hallway.
 
-Hallway target:
+Default: **no plant**.
 
-- one medium floor plant
-- optionally one small wall/shelf plant
-
-Shape language:
-
-- broad stylized leaves
-- clean silhouette
-- matte ceramic or molded pot
-- no photoreal foliage cards
-- no jungle density
-
-A slightly imperfect plant, one leaning stem or one browned leaf can make the environment feel inhabited without requiring dirt everywhere.
+If the composition feels institutionally sterile after furniture, PPE, paperwork and maintenance details are in place, one deliberately chosen plant may be used as a humanizing accent. It must have a believable pot, restrained foliage and a reason to be there. Never use a plant merely to occupy an empty corner.
 
 ## 6.5 Chairs and bench
 
@@ -322,7 +324,7 @@ Preferred arrangement:
 - clear aisle around seating
 - small side cabinet/table
 - notice/art wall
-- modest plant
+- optional humanizing accent; do not default to a plant
 - no central conference table blocking the view
 
 Seats should be grouped socially, not in military-perfect rows.
@@ -398,11 +400,9 @@ Cabinet/table:
 - clear silhouette
 - limited edge wear
 
-## 7.6 Plants
+## 7.6 Humanizing detail
 
-One medium or small plant is enough.
-
-A briefing room plant should imply that someone consciously tried to make a sterile workplace nicer.
+The briefing room does not require a plant. Prefer evidence of actual use: a mug, training packet, spare chair, crew photo, worn armrest, or handwritten reminder. At most one small plant may be added if it improves the composition after those functional details are solved.
 
 ---
 
@@ -797,21 +797,15 @@ Avoid:
 
 ---
 
-# 14. Plants
+# 14. Optional plants
 
-Plants are accent props, not environmental filler.
+Plants are optional accents, never a checklist category.
 
-Target total across the whole spawn section: approximately 2–4 meaningful plants.
+Target total across the whole Spawn section: **0–2**.
 
-Use different scale categories:
+Use zero by default. Add one only when it communicates deliberate human care in an otherwise institutional space. A second is allowed only if the briefing room genuinely benefits from it.
 
-- one medium floor plant
-- one smaller briefing-room plant
-- optional tiny desk/shelf plant
-
-Make their silhouettes strong enough to read.
-
-Avoid thin alpha-card foliage and default Blender-looking plastic leaves.
+Do not use plants as filler, symmetry devices, or automatic corner decoration.
 
 ---
 
@@ -860,8 +854,8 @@ Material families:
 6. soft vinyl/padded chair surface
 7. matte paper/card
 8. modest glass
-9. plant foliage
-10. soil and matte pot
+9. optional plant foliage only if deliberately used
+10. optional soil/matte pot only if deliberately used
 11. restrained emissive indicators
 12. screen glass
 
@@ -1037,19 +1031,23 @@ The Spawn Room is not complete until all are true.
 - inaccessible architecture supports scale without creating route confusion
 
 ## Art
-- stylized, not photoreal
-- low-to-mid poly but not primitive
-- no random blockout-quality forms
+- grounded stylized semi-realism
+- believable human scale and construction
+- medium-complexity simplified geometry, not primitive or faceted-toy-like
+- no repeated bevelled-box design language
 - no plastic default-material appearance
 - no generic sci-fi kitbash
-- materials are tactile and graphic
-- lighting is atmospheric but readable
+- materials are tactile, differentiated and slightly worn
+- lighting is localized, atmospheric and readable
+- signage is restrained
+- PPE reads as clothing
+- negative space separates focal clusters
 
 ## Dressing
 - portraits exist and are integrated
 - meaningful information papers exist
 - original wall art/morale graphics exist
-- plants are used sparingly
+- plants are optional and used only when deliberately justified
 - chairs/benches are polished
 - localized rubble/repair evidence exists
 - tile variation exists
@@ -1118,3 +1116,24 @@ Perform a structural pass on:
 - material palette.
 
 A structurally weak room must not be buried under decorative clutter.
+
+---
+
+# 23. Spawn Room style-validation acceptance
+
+Before full-room art expansion, approve one small wall/door/locker/bench slice.
+
+The approved slice becomes the canonical source for:
+- door construction;
+- wall thickness and trim logic;
+- locker design;
+- bench/furniture proportions;
+- PPE presentation;
+- material roughness families;
+- wear intensity;
+- colour saturation;
+- practical-light falloff;
+- contact-shadow strength;
+- storytelling-detail density.
+
+Any later hallway or briefing-room work that drifts back toward primitive low-poly, flat plastic, excessive signage or uniform lighting must be rolled back to this slice.
