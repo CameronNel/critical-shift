@@ -40,6 +40,9 @@ Inspect every numbered SVG in:
 - [ ] 22 integrity chamber states
 - [ ] 23 suit bay variation
 - [ ] 24 first-person scale
+- [ ] 25 validation slice
+- [ ] 26 modeling progression
+- [ ] 27 wear placement
 
 ## Five strongest rules extracted
 
