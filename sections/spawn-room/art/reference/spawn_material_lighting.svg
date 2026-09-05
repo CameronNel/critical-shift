@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1719"/><stop offset="1" stop-color="#182529"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5f6665"/><stop offset="1" stop-color="#303737"/></linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9eefff"/><stop offset="1" stop-color="#14a8c7"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="28" y="24" width="1544" height="852" rx="18" fill="none" stroke="#31464b" stroke-width="2"/>
+  <text x="60" y="78" fill="#f2f1e9" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="40">SPAWN ROOM — MATERIAL + LIGHT</text>
+  <text x="60" y="112" fill="#d8aa3d" font-family="Arial,Helvetica,sans-serif" font-size="18" letter-spacing="3">CRITICAL SHIFT — GROUNDED STYLIZED SEMI-REALISM</text>
+  
+<g transform="translate(60,150)" font-family="Arial">
+ <rect width="1480" height="610" rx="12" fill="#101a1c" stroke="#33484c"/>
+ <rect x="40" y="55" width="650" height="420" fill="#1a2426"/>
+ <polygon points="90,430 625,430 555,210 150,210" fill="#4d5656"/>
+ <rect x="150" y="210" width="405" height="120" fill="#bcb9ae"/>
+ <rect x="260" y="225" width="165" height="205" fill="#31504e"/>
+ <rect x="293" y="247" width="100" height="160" fill="#1f292b"/>
+ <rect x="205" y="145" width="290" height="17" fill="#fff2c4"/>
+ <polygon points="205,162 495,162 585,430 115,430" fill="#f0c96e" opacity=".18"/>
+ <ellipse cx="350" cy="430" rx="170" ry="28" fill="#060a0b" opacity=".45"/>
+ <text x="60" y="515" fill="#f2f1e9" font-size="23" font-weight="700">LOCALIZED PRACTICAL</text>
+ <text x="60" y="550" fill="#aebdc0" font-size="17">Light affects nearby walls and floor. Secondary corners fall darker.</text>
+ <rect x="760" y="55" width="680" height="420" fill="#1a2426"/>
+ <g transform="translate(790,88)">
+  <rect width="600" height="54" rx="8" fill="#223234"/><text x="20" y="34" fill="#f2f1e9" font-size="18">PAINTED METAL</text><rect x="360" y="13" width="200" height="28" fill="#31504e"/>
+  <rect y="72" width="600" height="54" rx="8" fill="#223234"/><text x="20" y="106" fill="#f2f1e9" font-size="18">CONCRETE / PLASTER</text><rect x="360" y="85" width="200" height="28" fill="#a7a49a"/>
+  <rect y="144" width="600" height="54" rx="8" fill="#223234"/><text x="20" y="178" fill="#f2f1e9" font-size="18">RUBBER</text><rect x="360" y="157" width="200" height="28" fill="#222627"/>
+  <rect y="216" width="600" height="54" rx="8" fill="#223234"/><text x="20" y="250" fill="#f2f1e9" font-size="18">FABRIC / PPE</text><rect x="360" y="229" width="200" height="28" fill="#c79a33"/>
+  <rect y="288" width="600" height="54" rx="8" fill="#223234"/><text x="20" y="322" fill="#f2f1e9" font-size="18">FLOOR</text><rect x="360" y="301" width="200" height="28" fill="#525a5a"/>
+ </g>
+ <text x="790" y="515" fill="#f2f1e9" font-size="23" font-weight="700">MATERIALS MUST READ DIFFERENTLY</text>
+ <text x="790" y="550" fill="#aebdc0" font-size="17">Do not solve the entire room with one satin-plastic shader family.</text>
+</g>
+  <text x="60" y="852" fill="#8fa3a6" font-family="Arial,Helvetica,sans-serif" font-size="15">Directional reference only. Believable first. Stylized second. Readable always.</text>
+  </svg>
