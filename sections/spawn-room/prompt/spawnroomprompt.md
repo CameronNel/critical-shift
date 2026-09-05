@@ -116,6 +116,9 @@ Minimum mandatory plates before any modelling:
 23. `22_integrity_chamber_states.svg`
 24. `23_suit_bay_variation.svg`
 25. `24_first_person_scale.svg`
+26. `25_validation_slice.svg`
+27. `26_modeling_progression.svg`
+28. `27_wear_placement_map.svg`
 
 Do not claim “references reviewed” after opening only one image.
 
