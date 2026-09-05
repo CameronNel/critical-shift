@@ -1,5 +1,10 @@
 # Engine Decision
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 **Status:** Selected for prototype — Unity
 **Selected version:** Unity 6000.4.3f1
 **Decision owner:** Cameron
@@ -56,7 +61,7 @@ Godot alternative.
 Build the smallest equivalent test needed to resolve the technical risk:
 
 - Two locally running clients
-- Responsive compact stylised human controller matching `design/ART_DIRECTION.md`
+- Responsive believably proportioned stylized human controller matching `design/ART_DIRECTION.md`
 - Host-authoritative crate grabbing
 - Two-player object contention
 - Mine-cart impact causing recoverable ragdoll
@@ -138,3 +143,8 @@ MCP materially improves orchestration:
 Therefore MCP is a multiplier, not the foundation.
 
 A valid section must still build and cold-start validate without MCP using documented Blender CLI entrypoints and repository state.
+
+
+## Art-pipeline constraint
+
+Engine selection must support the grounded stylized semi-realistic target without forcing either photorealistic fidelity or primitive web-demo presentation. Blender remains the authoritative environment-authoring DCC. The runtime must preserve authored material separation, localized lighting, readable silhouettes, contact shadows and the validation-camera look closely enough that an approved Blender style slice does not collapse into a different visual language in-engine.
