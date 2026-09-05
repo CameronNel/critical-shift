@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1719"/><stop offset="1" stop-color="#182529"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5f6665"/><stop offset="1" stop-color="#303737"/></linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9eefff"/><stop offset="1" stop-color="#14a8c7"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="28" y="24" width="1544" height="852" rx="18" fill="none" stroke="#31464b" stroke-width="2"/>
+  <text x="60" y="78" fill="#f2f1e9" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="40">SPAWN ROOM — DETAIL DENSITY</text>
+  <text x="60" y="112" fill="#d8aa3d" font-family="Arial,Helvetica,sans-serif" font-size="18" letter-spacing="3">CRITICAL SHIFT — GROUNDED STYLIZED SEMI-REALISM</text>
+  
+<g transform="translate(60,150)" font-family="Arial">
+ <rect width="700" height="610" rx="12" fill="#131f22" stroke="#33484c"/>
+ <text x="28" y="46" fill="#ef6b5d" font-size="28" font-weight="700">AVOID</text>
+ <g transform="translate(30,80)">
+  <rect width="640" height="250" fill="#e9e6da"/>
+  <rect x="80" y="40" width="150" height="160" rx="25" fill="#f4f0e5" stroke="#31504e" stroke-width="18"/>
+  <rect x="280" y="35" width="150" height="170" rx="25" fill="#f4f0e5" stroke="#31504e" stroke-width="18"/>
+  <rect x="480" y="35" width="110" height="180" rx="18" fill="#31504e"/>
+  <circle cx="535" cy="85" r="22" fill="#d8a52e"/>
+  <text x="24" y="290" fill="#d8dad4" font-size="18">Bevelled boxes • plastic • wall gadgets • symmetry • labels as decoration</text>
+ </g>
+ <text x="30" y="420" fill="#ef6b5d" font-size="19">× Every object has the same edge treatment</text>
+ <text x="30" y="455" fill="#ef6b5d" font-size="19">× Detail evenly distributed</text>
+ <text x="30" y="490" fill="#ef6b5d" font-size="19">× Props float or barely touch supports</text>
+ <text x="30" y="525" fill="#ef6b5d" font-size="19">× PPE resembles a display toy</text>
+</g>
+<g transform="translate(820,150)" font-family="Arial">
+ <rect width="720" height="610" rx="12" fill="#131f22" stroke="#33484c"/>
+ <text x="28" y="46" fill="#71c98a" font-size="28" font-weight="700">TARGET</text>
+ <g transform="translate(30,80)">
+  <rect width="660" height="250" fill="#242f30"/>
+  <rect x="30" y="80" width="210" height="120" fill="#36514f"/><rect x="55" y="105" width="155" height="80" fill="#202b2c"/>
+  <rect x="300" y="110" width="280" height="28" fill="#6f5535"/><rect x="330" y="138" width="16" height="60" fill="#394345"/><rect x="540" y="138" width="16" height="60" fill="#394345"/>
+  <path d="M80 190 C95 120 130 105 155 105 C182 105 212 125 225 190" fill="#d5a42f"/>
+  <rect x="120" y="85" width="60" height="70" rx="22" fill="#222d2f" stroke="#d5a42f" stroke-width="8"/>
+  <rect x="335" y="88" width="70" height="20" fill="#d7d0bd"/><circle cx="445" cy="100" r="16" fill="#b68a35"/><rect x="500" y="70" width="45" height="34" fill="#213236"/>
+  <text x="20" y="290" fill="#d8dad4" font-size="18">Specific silhouette • material separation • localized wear • purposeful clutter</text>
+ </g>
+ <text x="30" y="420" fill="#71c98a" font-size="19">✓ Quiet space around focal clusters</text>
+ <text x="30" y="455" fill="#71c98a" font-size="19">✓ Bench, locker and door built differently</text>
+ <text x="30" y="490" fill="#71c98a" font-size="19">✓ One mug / clipboard / glove tells the story</text>
+ <text x="30" y="525" fill="#71c98a" font-size="19">✓ Local light creates contact and depth</text>
+</g>
+  <text x="60" y="852" fill="#8fa3a6" font-family="Arial,Helvetica,sans-serif" font-size="15">Directional reference only. Believable first. Stylized second. Readable always.</text>
+  </svg>
