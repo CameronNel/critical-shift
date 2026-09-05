@@ -947,3 +947,14 @@ Before completion, render the fixed gameplay cameras at final intended exposure 
 10. Is anything trying to look more realistic than the rest of the scene?
 
 If question 1 is no, or question 9 is yes for a major prop, continue iterating.
+
+## DETAILED PRODUCTION REFERENCES
+
+After the master reference bible, also read:
+
+- `../art/SPAWN_ASSET_REFERENCE_MATRIX.md`
+- `../art/SPAWN_MATERIAL_REFERENCE.md`
+- `../art/SPAWN_LIGHTING_REFERENCE.md`
+- `../art/SPAWN_SIGNAGE_REFERENCE.md`
+
+Use the asset matrix before creating each major prop. Use the material and lighting references before the first materialized validation render. Use the signage reference before adding any non-essential wall text.
