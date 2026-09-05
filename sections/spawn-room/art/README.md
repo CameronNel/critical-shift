@@ -104,3 +104,13 @@ The earlier overview plates remain useful but are less specific:
 The numbered reference library and `SPAWN_REFERENCE_BIBLE.md` take priority for Spawn Room work.
 
 Existing failed renders are **negative references only**. They must never be treated as a style baseline simply because they already exist.
+
+## Detailed production references
+
+In addition to the visual plates, use:
+
+- [SPAWN_REFERENCE_BIBLE.md](SPAWN_REFERENCE_BIBLE.md) — master section visual guide
+- [SPAWN_ASSET_REFERENCE_MATRIX.md](SPAWN_ASSET_REFERENCE_MATRIX.md) — per-asset scale, material, shape and failure criteria
+- [SPAWN_MATERIAL_REFERENCE.md](SPAWN_MATERIAL_REFERENCE.md) — Blender-facing material behavior and wear distribution
+- [SPAWN_LIGHTING_REFERENCE.md](SPAWN_LIGHTING_REFERENCE.md) — hallway / briefing / locker / threshold lighting rules
+- [SPAWN_SIGNAGE_REFERENCE.md](SPAWN_SIGNAGE_REFERENCE.md) — explicit sign budget and deletion test
