@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1719"/><stop offset="1" stop-color="#182529"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5f6665"/><stop offset="1" stop-color="#303737"/></linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9eefff"/><stop offset="1" stop-color="#14a8c7"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="28" y="24" width="1544" height="852" rx="18" fill="none" stroke="#31464b" stroke-width="2"/>
+  <text x="60" y="78" fill="#f2f1e9" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="40">VISUAL GRAMMAR</text>
+  <text x="60" y="112" fill="#d8aa3d" font-family="Arial,Helvetica,sans-serif" font-size="18" letter-spacing="3">CRITICAL SHIFT — GROUNDED STYLIZED SEMI-REALISM</text>
+  
+<g transform="translate(60,150)">
+  <rect width="920" height="520" rx="12" fill="#131f22" stroke="#33484c"/>
+  <polygon points="40,460 830,460 760,210 120,210" fill="url(#floor)"/>
+  <polygon points="120,210 760,210 760,95 120,95" fill="#c9c5b8"/>
+  <rect x="150" y="125" width="160" height="275" fill="#314f4d"/>
+  <rect x="175" y="145" width="110" height="220" fill="#223334" stroke="#d5a437" stroke-width="10"/>
+  <rect x="570" y="120" width="140" height="290" fill="#d6a62f"/>
+  <rect x="590" y="145" width="100" height="160" fill="#2b3638"/>
+  <rect x="365" y="275" width="150" height="25" fill="#7b5f3a"/>
+  <rect x="385" y="300" width="12" height="100" fill="#3b4646"/><rect x="485" y="300" width="12" height="100" fill="#3b4646"/>
+  <circle cx="390" cy="248" r="20" fill="#c59a41"/><rect x="430" y="226" width="65" height="28" rx="3" fill="#d8d4c7"/>
+  <path d="M175 370 C190 300, 215 285, 230 285 C245 285,270 300,285 370" fill="#d6a62f" opacity=".9"/>
+  <rect x="205" y="270" width="50" height="60" rx="20" fill="#222e31" stroke="#d6a62f" stroke-width="8"/>
+  <rect x="90" y="70" width="700" height="18" fill="#f3e9c8" opacity=".8"/>
+  <ellipse cx="440" cy="465" rx="270" ry="35" fill="#101819" opacity=".45"/>
+  <text x="48" y="505" fill="#f2f1e9" font-family="Arial" font-size="24" font-weight="700">TARGET READ</text>
+  <text x="48" y="535" fill="#aebdc0" font-family="Arial" font-size="18">Believable workplace • simplified geometry • tactile materials • localized lighting • human evidence</text>
+</g>
+<g transform="translate(1020,150)" font-family="Arial">
+ <rect width="520" height="520" rx="12" fill="#131f22" stroke="#33484c"/>
+ <text x="28" y="42" fill="#f2f1e9" font-size="24" font-weight="700">STYLE PILLARS</text>
+ <g transform="translate(28,70)">
+  <rect width="210" height="110" rx="10" fill="#213033"/><text x="18" y="34" fill="#d8aa3d" font-size="18" font-weight="700">BELIEVABLE</text><text x="18" y="62" fill="#d7d9d4" font-size="16">Human scale</text><text x="18" y="84" fill="#d7d9d4" font-size="16">Construction logic</text>
+  <rect x="240" width="210" height="110" rx="10" fill="#213033"/><text x="258" y="34" fill="#d8aa3d" font-size="18" font-weight="700">STYLIZED</text><text x="258" y="62" fill="#d7d9d4" font-size="16">Simplify forms</text><text x="258" y="84" fill="#d7d9d4" font-size="16">Control noise</text>
+  <rect y="135" width="210" height="110" rx="10" fill="#213033"/><text x="18" y="169" fill="#d8aa3d" font-size="18" font-weight="700">READABLE</text><text x="18" y="197" fill="#d7d9d4" font-size="16">Strong silhouette</text><text x="18" y="219" fill="#d7d9d4" font-size="16">Gameplay first</text>
+  <rect x="240" y="135" width="210" height="110" rx="10" fill="#213033"/><text x="258" y="169" fill="#d8aa3d" font-size="18" font-weight="700">HUMAN</text><text x="258" y="197" fill="#d7d9d4" font-size="16">Used objects</text><text x="258" y="219" fill="#d7d9d4" font-size="16">Purposeful clutter</text>
+  <text x="0" y="300" fill="#f2f1e9" font-size="20" font-weight="700">HARD VETOES</text>
+  <text x="0" y="330" fill="#ef6b5d" font-size="17">× repeated bevelled boxes</text>
+  <text x="0" y="358" fill="#ef6b5d" font-size="17">× uniform glossy plastic</text>
+  <text x="0" y="386" fill="#ef6b5d" font-size="17">× generic sci-fi panels</text>
+  <text x="0" y="414" fill="#ef6b5d" font-size="17">× flat even lighting</text>
+  <text x="0" y="442" fill="#ef6b5d" font-size="17">× toy-like low-poly PPE</text>
+ </g>
+</g>
+<g transform="translate(60,700)" font-family="Arial">
+  <rect width="220" height="54" rx="7" fill="#d2cec0"/><text x="18" y="34" fill="#1d2b2d" font-size="16">Warm institutional</text>
+  <rect x="235" width="220" height="54" rx="7" fill="#31504e"/><text x="253" y="34" fill="#f4f1e7" font-size="16">Industrial green</text>
+  <rect x="470" width="220" height="54" rx="7" fill="#d8a52e"/><text x="488" y="34" fill="#1f292b" font-size="16">Hazard yellow</text>
+  <rect x="705" width="220" height="54" rx="7" fill="#40484a"/><text x="723" y="34" fill="#f4f1e7" font-size="16">Charcoal / steel</text>
+  <rect x="940" width="220" height="54" rx="7" fill="#b24c3d"/><text x="958" y="34" fill="#fff" font-size="16">Emergency accent</text>
+  <rect x="1175" width="220" height="54" rx="7" fill="#4c8094"/><text x="1193" y="34" fill="#fff" font-size="16">Utility blue</text>
+</g>
+  <text x="60" y="852" fill="#8fa3a6" font-family="Arial,Helvetica,sans-serif" font-size="15">Directional reference only. Believable first. Stylized second. Readable always.</text>
+  </svg>

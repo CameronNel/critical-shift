@@ -1,5 +1,10 @@
 # Roadmap
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 This roadmap is stage-gated. Later work begins only when the previous gate is demonstrated in a playable build.
 
 ## Gate 0: Engine and Agent Tooling
@@ -126,3 +131,17 @@ Before any room can be called complete:
 - zero critical failures;
 - final two cycles materially stable;
 - cold-start Blender validation PASS.
+
+
+## Mandatory art-direction reset stage
+
+Before further room-scale environment production:
+
+1. Build a small Spawn Room validation slice.
+2. Judge it from fixed gameplay cameras.
+3. Pass the hard vetoes in `ART_DIRECTION.md`.
+4. Approve geometry, proportions, materials, wear, colour, lighting and prop density.
+5. Turn that slice into the canonical facility kit.
+6. Only then expand the Spawn Room or apply the language to the Reactor Room.
+
+No roadmap milestone may treat the current generic low-poly visual pass as reusable finished art merely because it already exists.

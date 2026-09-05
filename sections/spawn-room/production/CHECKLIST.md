@@ -1,5 +1,10 @@
 # Spawn Room — Production Checklist
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 ## Headless reproducibility
 - [ ] documented Blender CLI entrypoint exists
 - [ ] scene can build/open from fresh process
@@ -61,3 +66,24 @@
 - [ ] final cameras rerendered
 - [ ] cold-start images match approved quality
 - [ ] TASK_STATE.md marked PASS
+
+
+## Grounded semi-realism style gate
+
+Before any full-room rebuild:
+- [ ] validation slice only, not whole room
+- [ ] believable door and wall thickness
+- [ ] one locker/PPE station with specific construction
+- [ ] one bench/furniture asset with believable proportions
+- [ ] 3–5 storytelling props with plausible placement
+- [ ] no repeated bevelled-box language
+- [ ] no generic sci-fi control panels
+- [ ] no uniform satin-plastic material response
+- [ ] PPE reads as fabric/clothing, not polygon mannequin
+- [ ] signage reduced to functional necessities
+- [ ] no random plant used as filler
+- [ ] localized lighting creates depth and contact
+- [ ] quiet surfaces remain between focal clusters
+- [ ] all support-contact validation passes
+- [ ] generated Spawn Room reference plates reviewed
+- [ ] style slice scores 8/10+ with no visual veto

@@ -1,5 +1,120 @@
 # Critical Shift — Spawn Room Build and Self-Review Prompt
 
+
+# 0. ART DIRECTION RESET — READ BEFORE BUILDING ANYTHING
+
+The previous visual result is rejected.
+
+Do **not** polish the existing generic low-poly sci-fi look. Preserve only useful gameplay dimensions, circulation, doorway positions and interaction locations.
+
+## Target
+
+Build **grounded stylized semi-realism**:
+
+- believable real-world proportions;
+- simplified but specific medium-complexity geometry;
+- strong silhouettes;
+- tactile, differentiated materials;
+- restrained colour blocking;
+- localized wear;
+- strong practical lighting;
+- contact shadows;
+- sparse human storytelling;
+- visual rest between focal clusters.
+
+Primary influence: Valorant-style environmental art principles.  
+Secondary influence: PEAK-style readability and restraint.  
+Neither game is an asset/content template.
+
+## Immediate hard vetoes
+
+Stop and redesign if the scene reads as:
+- repeated bevelled cuboids;
+- low-poly asset pack;
+- Three.js demo;
+- glossy/satin plastic;
+- generic sci-fi;
+- showroom-clean procedural environment;
+- toy-like PPE;
+- wall of labels/screens;
+- flat even ceiling lighting;
+- photoreal AAA kitbash.
+
+## Bevel rule
+
+A bevel may finish an already-designed form. It may **never be the design**.
+
+Locker, bench, door, scanner, wall cabinet, suit bay and briefing equipment must each have distinct construction logic.
+
+## Signage rule
+
+Text is not environment design. Use only functional navigation, hazard and procedure signs. Remove labels whose only job is to make a boring prop seem specific.
+
+## PPE rule
+
+Hazmat suits are clothing:
+- believable adult proportions;
+- fabric volume;
+- broad folds;
+- wearable seams/closures;
+- believable visor, gloves and boots;
+- simplified but not faceted/toy-like.
+
+## Human-detail rule
+
+Prefer:
+- boots under a bench;
+- one glove;
+- used clipboard;
+- mug;
+- maintenance tape;
+- folded suit;
+- respirator filter;
+- small toolkit;
+- dented bin;
+- repaired pipe;
+- worn floor marker.
+
+Do not scatter random props merely to increase density.
+
+## Plant rule
+
+Plants are **optional, not a requirement**. Default to zero. Add one only if the composition benefits from a deliberate humanizing object. Never use a plant to fill an empty corner.
+
+## Required generated references
+
+Inspect before modelling:
+- `../art/reference/spawn_style_target.svg`
+- `../art/reference/spawn_detail_density.svg`
+- `../art/reference/spawn_material_lighting.svg`
+
+## STYLE VALIDATION SLICE — DO THIS FIRST
+
+Do not rebuild the whole Spawn Room.
+
+Build only:
+- one wall section;
+- one believable door;
+- one locker/PPE station;
+- one bench;
+- one ceiling/practical light;
+- one utility element;
+- 3–5 grounded storytelling props.
+
+Render it from the actual gameplay camera.
+
+The slice must score 8/10+ on `../production/RUBRIC.md` with no automatic veto.
+
+Only after the slice passes may you propagate its geometry, materials, lighting and detail language through the hallway, briefing room and remaining locker/suiting area.
+
+Style compliance is more important than content completeness.
+
+
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 **File:** spawnroomprompt.md  
 **Target section:** Spawn Room  
 **Required scenery spec:** ../scenery/spawnroom.md  
@@ -119,9 +234,7 @@ The desired result is:
 - rich environmental storytelling
 - clear first-person gameplay routes
 
-PEAK is only a high-level reference for simplification, readability and appealing stylization.
-
-Do not reproduce PEAK-specific assets or designs.
+Valorant-style environment principles are the primary reference for clean, believable stylized semi-realism. PEAK is a secondary reference for readability and restraint only. Do not reproduce assets or distinctive designs from either game.
 
 Do not drift into:
 
@@ -132,6 +245,7 @@ Do not drift into:
 - shiny plastic
 - random blocks
 - low-effort greybox
+- cartoon/faceted low-poly presentation
 - dense realistic kitbash
 - toy-room aesthetics
 - over-smoothed blobs
@@ -278,8 +392,8 @@ At minimum:
 - soft chair vinyl/padding
 - glass
 - paper/card
-- plant pot
-- plant foliage
+- optional plant pot only if deliberately used
+- optional plant foliage only if deliberately used
 - emissive indicator
 - screen material
 
@@ -306,7 +420,7 @@ Add the larger secondary objects:
 - benches/chairs
 - notice boards
 - cabinets
-- plants
+- optional single plant only when compositionally justified
 - bins
 - wall art
 - portrait frames
@@ -550,7 +664,7 @@ Fail the pass if:
 - suit bays are plain rectangular holes
 - chamber is just a cylinder/glass tube
 - Geiger station is a box with a screen
-- plants are default low-poly spheres/leaves
+- any deliberately used plant looks like a believable stylized plant, never default low-poly foliage
 - chairs look like primitive classroom props
 - door is a slab without framing/seal logic
 - ceiling is a flat plane with lights
@@ -587,7 +701,7 @@ Evidence should include some of:
 - personal note
 - maintenance evidence
 - chairs not perfectly aligned
-- plant
+- one deliberate humanizing accent (plant only if justified)
 - repaired tile
 - small human object
 
@@ -608,7 +722,7 @@ If yes:
 - add one meaningful composition cluster
 - add wall content
 - strengthen material rhythm
-- add a restrained plant/furniture element
+- add a restrained furniture or human-use element; use a plant only if specifically justified
 - improve ceiling/floor design
 
 Do not solve emptiness with dozens of random small props.
@@ -658,7 +772,7 @@ PASS only if:
 - scene no longer reads as greybox
 - scene no longer reads as random primitives
 - scene no longer reads as plastic
-- scene does not drift into photoreal AAA
+- scene does not drift into either photoreal AAA or cartoon low-poly
 - scene is cohesive with the Critical Shift art direction
 
 ## Gate F — Dressing
@@ -668,7 +782,7 @@ PASS only if all required categories are represented intentionally:
 - portraits
 - information papers
 - original art/posters
-- plants
+- optional plant only if justified; plant is not required
 - chairs/benches
 - small localized rubble/repair evidence
 - tile variation
@@ -777,3 +891,22 @@ Before final delivery:
 9. mark cold-start PASS/FAIL in TASK_STATE.md.
 
 The work is done only when the room looks correct, functions spatially, survives specialist criticism and regression review, and reproduces from a fresh process.
+
+---
+
+# 13. Commercial screenshot test
+
+Before completion, render the fixed gameplay cameras at final intended exposure and ask:
+
+1. Would this plausibly be a screenshot from a released stylized PC game?
+2. Does every major prop have a specific silhouette?
+3. Can painted metal, plastic, rubber, fabric, glass, wall and floor materials be told apart without labels?
+4. Is the brightest/most detailed area actually important?
+5. Are there quiet areas?
+6. Does the room look used, not randomly decorated?
+7. Are support contacts visibly convincing?
+8. Has text/signage been kept subordinate?
+9. Is anything obviously a bevelled box with a colour on it?
+10. Is anything trying to look more realistic than the rest of the scene?
+
+If question 1 is no, or question 9 is yes for a major prop, continue iterating.

@@ -1,5 +1,10 @@
 # Spawn Room — Task State
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 **Current phase:** Specification complete; build not started  
 **Current overall score:** Not scored  
 **Cold-start status:** Not run  
@@ -40,3 +45,31 @@ None.
 
 ## Blockers
 None recorded.
+
+
+## Art-direction reset state — 2026-09-05
+
+**Current phase:** STYLE VALIDATION SLICE  
+**Previous visual pass:** REJECTED AS ART DIRECTION  
+**Useful legacy content:** gameplay dimensions/routes/interaction locations only, where still valid  
+**Expansion:** BLOCKED
+
+Primary defects to prevent:
+- repeated bevelled boxes;
+- plastic material sameness;
+- excessive signage;
+- flat lighting;
+- generic sci-fi devices;
+- toy-like PPE;
+- random filler;
+- procedural cleanliness.
+
+Next actions:
+1. build one wall + door + locker/PPE + bench slice;
+2. add 3–5 grounded human props;
+3. establish differentiated materials;
+4. light from actual practical fixtures;
+5. render fixed gameplay cameras;
+6. run contact validation;
+7. score `RUBRIC.md`;
+8. checkpoint only after pass.

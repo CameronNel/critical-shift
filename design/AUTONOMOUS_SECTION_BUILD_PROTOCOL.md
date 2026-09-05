@@ -1,5 +1,10 @@
 # Critical Shift — Autonomous Section Build Protocol
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 **Status:** Mandatory production protocol  
 **Applies to:** Every playable room, corridor, facility zone and major 3D environment section  
 **Primary DCC:** Blender  
@@ -604,3 +609,45 @@ A completed room must include:
 - confirmation of runtime handoff readiness.
 
 The proof is part of the deliverable.
+
+
+# Art-direction validation gate
+
+Before a section may move from blockout into full production, the builder must prove one polished **style-validation slice** from gameplay camera height.
+
+Minimum slice:
+- one believable wall/architectural transition;
+- one door;
+- one primary prop cluster;
+- one practical light;
+- one utility element;
+- 3–5 human storytelling props.
+
+The slice must demonstrate:
+- believable scale and construction;
+- object-specific geometry rather than repeated bevelled boxes;
+- distinct painted metal / plastic / rubber / fabric / concrete responses;
+- localized wear;
+- controlled colour blocking;
+- localized lighting and contact shadow;
+- restrained signage;
+- negative space;
+- no toy-like PPE;
+- no generic sci-fi greeble language.
+
+**Expansion is blocked until this slice passes.** A technically valid Blender build is not permission to propagate a failed visual language across an entire room.
+
+## Visual veto checks
+
+A review is an automatic visual FAIL if the dominant read is any of:
+- generic low-poly;
+- Three.js/web-demo;
+- uniform satin plastic;
+- flat even lighting;
+- repeated box + bevel construction;
+- excessive labels/screens;
+- random decorative clutter;
+- toy/mannequin hazmat suits;
+- AAA photoreal texture noise.
+
+The pixel-review loop must compare against [ART_DIRECTION.md](ART_DIRECTION.md) and [ART_REFERENCE_INDEX.md](ART_REFERENCE_INDEX.md), not merely against the previous render.

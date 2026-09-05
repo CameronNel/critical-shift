@@ -1,5 +1,10 @@
 # Spawn Room Blender Source
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 Store the authoritative editable Blender source for the Spawn Room here.
 
 Primary filename when created:
@@ -55,3 +60,26 @@ Optional overrides:
 - `cs_support_max_angle_deg` — default 12.0
 
 For irregular objects, add child Empty objects with `cs_support_anchor = true`. The validator checks those anchor positions instead of relying on a bounding-box face.
+
+
+## Modeling guardrails
+
+The current art reset changes what counts as a finished asset.
+
+Required:
+- object-specific geometry;
+- believable wall and door thickness;
+- believable furniture proportions;
+- PPE with fabric volume;
+- visible support contact;
+- localized bevels only where construction warrants them;
+- actual gameplay-camera renders during every major pass.
+
+Forbidden as final art:
+- cube + uniform bevel + flat colour;
+- display-toy suit bays;
+- giant scanner booths built from primitive frames;
+- floating wall panels;
+- repeating generic sci-fi control boxes.
+
+Before rebuilding the full room, model only the approved style-validation slice.

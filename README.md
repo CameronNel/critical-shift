@@ -1,5 +1,10 @@
 # Critical Shift
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 Critical Shift is currently a planning-first game repository.
 
 The previous prototype implementation, maps, generated assets, and engine project files were deliberately removed so the production build can be reconstructed cleanly from the design foundation.
@@ -49,3 +54,10 @@ All playable 3D sections follow [design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md](de
 The core build is **headless Blender CLI + versioned scripts**. MCP is the supervision and integration layer, not a hard dependency for reproducing the room.
 
 A section is not complete because Blender produced a file. It must pass fixed-camera pixel review, fresh-context specialist criticism where available, a scored rubric, regression checks, and a fresh-process cold-start render.
+
+
+## Current visual production rule
+
+The previous low-poly/PEAK-rendering interpretation is retired. New environment work must first pass a **small style-validation slice** before an agent expands a room. Use the generated plates in [design/ART_REFERENCE_INDEX.md](design/ART_REFERENCE_INDEX.md) as visual calibration.
+
+The current Spawn Room art pass should be treated as a layout/prototyping artifact only where useful. Its repeated bevelled-box construction, plastic material response, excessive signage and flat lighting are specifically rejected by the new art bible.
