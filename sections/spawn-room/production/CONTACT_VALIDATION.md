@@ -92,3 +92,8 @@ For every support-dependent prop, review:
 - no furniture foot that visually hovers despite technically intersecting the floor.
 
 A mathematically valid contact can still fail art review.
+
+
+## Reference-aware contact review
+
+Use plate 24 for first-person scale and plates 04, 06, 08, 13 and 18 for expected support logic. Contact validation should confirm not only that objects mathematically touch a support, but that their mounting method visually matches the reference family.
