@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1719"/><stop offset="1" stop-color="#182529"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5f6665"/><stop offset="1" stop-color="#303737"/></linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9eefff"/><stop offset="1" stop-color="#14a8c7"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="28" y="24" width="1544" height="852" rx="18" fill="none" stroke="#31464b" stroke-width="2"/>
+  <text x="60" y="78" fill="#f2f1e9" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="40">REACTOR ROOM — STYLE TARGET</text>
+  <text x="60" y="112" fill="#d8aa3d" font-family="Arial,Helvetica,sans-serif" font-size="18" letter-spacing="3">CRITICAL SHIFT — GROUNDED STYLIZED SEMI-REALISM</text>
+  
+<g transform="translate(60,150)" font-family="Arial">
+ <rect width="1480" height="610" rx="12" fill="#101a1c" stroke="#33484c"/>
+ <polygon points="80,520 1400,520 1210,150 270,150" fill="#596161"/>
+ <polygon points="270,150 1210,150 1210,65 270,65" fill="#c9c6bb"/>
+ <ellipse cx="740" cy="405" rx="280" ry="95" fill="#22383c"/>
+ <ellipse cx="740" cy="390" rx="235" ry="78" fill="url(#cyan)" filter="url(#glow)"/>
+ <ellipse cx="740" cy="390" rx="170" ry="55" fill="#157a92" opacity=".7"/>
+ <rect x="610" y="105" width="90" height="260" fill="#556366"/><rect x="780" y="105" width="90" height="260" fill="#556366"/>
+ <rect x="585" y="80" width="140" height="70" fill="#2c4545"/><rect x="755" y="80" width="140" height="70" fill="#2c4545"/>
+ <rect x="150" y="250" width="240" height="85" fill="#324b4a"/><rect x="1090" y="250" width="240" height="85" fill="#324b4a"/>
+ <rect x="170" y="270" width="44" height="30" fill="#d6a62f"/><circle cx="255" cy="285" r="15" fill="#c7c0ae"/>
+ <rect x="1110" y="270" width="44" height="30" fill="#d6a62f"/><circle cx="1195" cy="285" r="15" fill="#c7c0ae"/>
+ <rect x="620" y="488" width="240" height="34" fill="#b24c3d"/>
+ <text x="642" y="512" fill="#fff" font-size="17" font-weight="700">EMERGENCY SHUTDOWN</text>
+ <rect x="340" y="90" width="280" height="18" fill="#f4ecc9" opacity=".85"/><rect x="860" y="90" width="280" height="18" fill="#f4ecc9" opacity=".85"/>
+ <text x="100" y="575" fill="#f2f1e9" font-size="30" font-weight="700">REACTOR ROOM — HERO POOL + TWO CONTROL BANKS</text>
+ <text x="100" y="610" fill="#aebdc0" font-size="18">Monumental but believable • cyan pool is the hero • two dominant bank assemblies • restrained perimeter equipment • readable circulation</text>
+</g>
+  <text x="60" y="852" fill="#8fa3a6" font-family="Arial,Helvetica,sans-serif" font-size="15">Directional reference only. Believable first. Stylized second. Readable always.</text>
+  </svg>
