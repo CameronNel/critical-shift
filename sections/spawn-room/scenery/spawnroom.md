@@ -157,6 +157,20 @@ Every major prop must make sense in flat grey before labels or texture detail ar
 ---
 ---
 
+# 4.1 Spawn-specific production references
+
+The following are mandatory companions to this scenery spec:
+
+- [../art/SPAWN_REFERENCE_BIBLE.md](../art/SPAWN_REFERENCE_BIBLE.md)
+- [../art/SPAWN_ASSET_REFERENCE_MATRIX.md](../art/SPAWN_ASSET_REFERENCE_MATRIX.md)
+- [../art/SPAWN_MATERIAL_REFERENCE.md](../art/SPAWN_MATERIAL_REFERENCE.md)
+- [../art/SPAWN_LIGHTING_REFERENCE.md](../art/SPAWN_LIGHTING_REFERENCE.md)
+- [../art/SPAWN_SIGNAGE_REFERENCE.md](../art/SPAWN_SIGNAGE_REFERENCE.md)
+
+When this scenery document says what must exist and a reference document says how it should look, obey both. Gameplay/layout requirements remain authoritative; the reference library governs visual execution.
+
+---
+
 # 5. Architectural Language
 
 ## 5.1 Walls
