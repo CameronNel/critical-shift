@@ -63,3 +63,19 @@ Score each category 0–10:
 
 **Style-validation slice pass:** average 8/10+ and no veto.
 **Full-room pass:** average 8.5/10+ and no veto, with no regression from approved slice.
+
+
+## Reference adherence modifier
+
+If the builder cannot point to the relevant numbered reference plate when defending a major Spawn decision, that category cannot score above **7/10**.
+
+Examples:
+- suit proportions → plate 05 / 21
+- chamber form → plate 06 / 22
+- hallway density → plate 01 / 13
+- materials → plate 10
+- lighting → plate 11
+- signage → plate 12
+- first-person scale → plate 24
+
+This prevents “I interpreted the style differently” from becoming an escape hatch.
