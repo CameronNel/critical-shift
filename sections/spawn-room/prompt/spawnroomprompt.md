@@ -81,12 +81,51 @@ Do not scatter random props merely to increase density.
 
 Plants are **optional, not a requirement**. Default to zero. Add one only if the composition benefits from a deliberate humanizing object. Never use a plant to fill an empty corner.
 
-## Required generated references
+## REQUIRED REFERENCE PRELOAD — DO NOT SKIP
 
-Inspect before modelling:
-- `../art/reference/spawn_style_target.svg`
-- `../art/reference/spawn_detail_density.svg`
-- `../art/reference/spawn_material_lighting.svg`
+Before opening Blender or writing geometry, read:
+
+- `../art/SPAWN_REFERENCE_BIBLE.md`
+
+Then inspect the full numbered reference library in `../art/reference/`.
+
+Minimum mandatory plates before any modelling:
+
+1. `00_spawn_master_overview.svg`
+2. `17_overhead_functional_plan.svg`
+3. `01_hallway_composition.svg`
+4. `02_briefing_room.svg`
+5. `03_locker_room_overview.svg`
+6. `04_suit_bay_anatomy.svg`
+7. `05_hazmat_suit_reference.svg`
+8. `06_integrity_chamber.svg`
+9. `07_radiation_checkpoint.svg`
+10. `08_door_wall_architecture.svg`
+11. `09_ceiling_floor_language.svg`
+12. `10_material_wear_matrix.svg`
+13. `11_lighting_plan.svg`
+14. `12_signage_hierarchy.svg`
+15. `13_small_props_storytelling.svg`
+16. `14_larger_building_illusion.svg`
+17. `15_camera_validation.svg`
+18. `16_do_dont_summary.svg`
+19. `18_furniture_reference.svg`
+20. `19_wall_graphics_portraits.svg`
+21. `20_spawn_colour_palette.svg`
+22. `21_prop_scale_lineup.svg`
+23. `22_integrity_chamber_states.svg`
+24. `23_suit_bay_variation.svg`
+25. `24_first_person_scale.svg`
+
+Do not claim “references reviewed” after opening only one image.
+
+Before modelling, update `../production/REFERENCE_REVIEW.md` and record:
+- which plates were inspected;
+- the five strongest visual rules you extracted;
+- the three failure modes you are explicitly preventing;
+- the target validation-slice composition.
+
+If the build agent cannot access or inspect these references, it must stop rather than improvising a visual style.
 
 ## STYLE VALIDATION SLICE — DO THIS FIRST
 
@@ -674,7 +713,6 @@ Refine shape language through:
 
 - taper
 - thickness
-- faceting
 - controlled chamfers
 - layered masses
 - supports
