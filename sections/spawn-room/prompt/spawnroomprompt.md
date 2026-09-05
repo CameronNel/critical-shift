@@ -246,8 +246,8 @@ They are not automatically final assets.
 Before an object is accepted, ask:
 
 - does its silhouette look intentionally designed?
-- are its proportions stylized?
-- does it have meaningful bevels, faceting or tapering?
+- are its proportions believable and intentionally simplified?
+- does it have construction-specific thickness, recesses, supports and edge treatment?
 - does it fit the room's shape language?
 - does it look like a placeholder?
 
@@ -260,18 +260,17 @@ If it still looks like a default primitive, refine it.
 Follow the global art direction exactly.
 
 The desired result is:
-
-- stylized
-- readable
-- charming
-- low-to-mid poly
-- strong silhouette
-- broad colour blocks
-- tactile matte materials
-- sparse but meaningful detail
-- intentional lighting
-- rich environmental storytelling
-- clear first-person gameplay routes
+- grounded stylized semi-realism;
+- believable human scale;
+- medium-complexity simplified geometry;
+- object-specific silhouettes;
+- controlled colour blocks;
+- tactile differentiated materials;
+- localized wear;
+- sparse but meaningful detail;
+- intentional practical lighting;
+- human environmental storytelling;
+- clear first-person gameplay routes.
 
 Valorant-style environment principles are the primary reference for clean, believable stylized semi-realism. PEAK is a secondary reference for readability and restraint only. Do not reproduce assets or distinctive designs from either game.
 
