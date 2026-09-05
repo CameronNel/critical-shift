@@ -1,5 +1,10 @@
 # Spawn Room — Support Contact Validation
 
+<!-- ART_DIRECTION_RESET_2026_09 -->
+> [!IMPORTANT]
+> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+
+
 Cameras are necessary for composition and appearance, but they cannot prove that every prop physically touches the surface it is supposed to touch.
 
 The Spawn Room therefore has a mandatory geometry-contact audit.
@@ -72,3 +77,18 @@ Expected output:
 The command must exit as a failed Blender job when any contact check fails.
 
 A PASS report is mandatory before the Spawn Room can pass technical validation or cold-start acceptance.
+
+
+## Visual-contact requirement
+
+Geometric contact passing is necessary but not sufficient. A prop must also **look grounded from the gameplay camera**.
+
+For every support-dependent prop, review:
+- visible contact shadow;
+- believable mounting hardware or support logic where appropriate;
+- no suspicious millimetre gap;
+- no deep penetration that hides poor placement;
+- no wall panel that appears to float because its shadow/light response is missing;
+- no furniture foot that visually hovers despite technically intersecting the floor.
+
+A mathematically valid contact can still fail art review.
