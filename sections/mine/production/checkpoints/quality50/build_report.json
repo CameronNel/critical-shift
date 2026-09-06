@@ -1,5 +1,5 @@
 {
-  "revision": "quality50-r6",
+  "revision": "quality50-r7",
   "blender": "5.2.1 LTS",
   "renderer": "Cycles",
   "source_blend": "Gullet_MaterialReview.blend",
@@ -4747,8 +4747,181 @@
     ],
     "reason": "Remove foreground obstructions from review views and illuminate previously unreadable shallow work areas."
   },
-  "elapsed_build_seconds": 74.75,
+  "task_light_clearances": [
+    {
+      "group": "A/1",
+      "sector": "A",
+      "stage": 1,
+      "original_triangle_conflicts": [
+        "CSM_A_Mineable_chunk_S1",
+        "Q50_A_Removable_fracture_03"
+      ],
+      "translation_m": [
+        0.6000000238418579,
+        -0.30000001192092896,
+        0.008486886508762836
+      ],
+      "candidate_positions_tested": 54,
+      "final_triangle_conflicts": 0,
+      "method": "All-variant triangle-overlap test; floor-seated feet; no visibility workaround."
+    },
+    {
+      "group": "A/2",
+      "sector": "A",
+      "stage": 2,
+      "original_triangle_conflicts": [
+        "CSM_A_Mineable_chunk_S2.007"
+      ],
+      "translation_m": [
+        0.0,
+        -0.15000000596046448,
+        -0.021427016705274582
+      ],
+      "candidate_positions_tested": 4,
+      "final_triangle_conflicts": 0,
+      "method": "All-variant triangle-overlap test; floor-seated feet; no visibility workaround."
+    },
+    {
+      "group": "A/3",
+      "sector": "A",
+      "stage": 3,
+      "original_triangle_conflicts": [
+        "CSM_A_Mineable_chunk_S3.014"
+      ],
+      "translation_m": [
+        0.0,
+        -0.15000000596046448,
+        -0.008186410181224346
+      ],
+      "candidate_positions_tested": 4,
+      "final_triangle_conflicts": 0,
+      "method": "All-variant triangle-overlap test; floor-seated feet; no visibility workaround."
+    },
+    {
+      "group": "B/2",
+      "sector": "B",
+      "stage": 2,
+      "original_triangle_conflicts": [
+        "CSM_Wet_seam_puddle.003",
+        "CSM_B_Mineable_chunk_S2.003",
+        "CSM_B_Mineable_chunk_S2.014"
+      ],
+      "translation_m": [
+        -0.15000000596046448,
+        0.0,
+        0.004347254056483507
+      ],
+      "candidate_positions_tested": 2,
+      "final_triangle_conflicts": 0,
+      "method": "All-variant triangle-overlap test; floor-seated feet; no visibility workaround."
+    },
+    {
+      "group": "B/3",
+      "sector": "B",
+      "stage": 3,
+      "original_triangle_conflicts": [],
+      "translation_m": [
+        0.0,
+        0.0,
+        -0.0011628374923020601
+      ],
+      "candidate_positions_tested": 1,
+      "final_triangle_conflicts": 0,
+      "method": "All-variant triangle-overlap test; floor-seated feet; no visibility workaround."
+    },
+    {
+      "group": "C/1",
+      "sector": "C",
+      "stage": 1,
+      "original_triangle_conflicts": [
+        "Q50_C_Removable_fracture_07"
+      ],
+      "translation_m": [
+        0.0,
+        0.30000001192092896,
+        -0.00905145239084959
+      ],
+      "candidate_positions_tested": 13,
+      "final_triangle_conflicts": 0,
+      "method": "All-variant triangle-overlap test; floor-seated feet; no visibility workaround."
+    },
+    {
+      "group": "C/2",
+      "sector": "C",
+      "stage": 2,
+      "original_triangle_conflicts": [],
+      "translation_m": [
+        0.0,
+        0.0,
+        -0.016051780432462692
+      ],
+      "candidate_positions_tested": 1,
+      "final_triangle_conflicts": 0,
+      "method": "All-variant triangle-overlap test; floor-seated feet; no visibility workaround."
+    },
+    {
+      "group": "C/3",
+      "sector": "C",
+      "stage": 3,
+      "original_triangle_conflicts": [],
+      "translation_m": [
+        0.0,
+        0.0,
+        0.0009428157936781645
+      ],
+      "candidate_positions_tested": 1,
+      "final_triangle_conflicts": 0,
+      "method": "All-variant triangle-overlap test; floor-seated feet; no visibility workaround."
+    },
+    {
+      "group": "CSM_Portable_worklight",
+      "sector": null,
+      "stage": 0,
+      "original_triangle_conflicts": [
+        "CSM_Continuous_stratified_mine_skin",
+        "CSM_Excavated_floor",
+        "CSM_Rolled_arch_section.003",
+        "CSM_Arch_spreader_pad.005",
+        "CSM_Arch_steel_shoe.005",
+        "CSM_Arch_shoe_anchor.019",
+        "CSM_Arch_shoe_anchor.020",
+        "CSM_Arch_joint_plate.005",
+        "CSM_Drainage_main",
+        "CSM_Sign_back.009",
+        "CSM_Sign_print.009"
+      ],
+      "translation_m": [
+        0.44999998807907104,
+        0.15000000596046448,
+        0.009080220945179462
+      ],
+      "candidate_positions_tested": 31,
+      "final_triangle_conflicts": 0,
+      "method": "All-variant triangle-overlap test; floor-seated feet; no visibility workaround."
+    },
+    {
+      "group": "CSM_Portable_worklight.002",
+      "sector": "B",
+      "stage": 1,
+      "original_triangle_conflicts": [
+        "CSM_Excavated_floor",
+        "CSM_B_Mineable_chunk_S1.006",
+        "CSM_B_Mineable_chunk_S1.014",
+        "Q50_B_Removable_fracture_14",
+        "Q50_B_Removable_fracture_18"
+      ],
+      "translation_m": [
+        1.0499999523162842,
+        -0.30000001192092896,
+        0.03104393556714058
+      ],
+      "candidate_positions_tested": 85,
+      "final_triangle_conflicts": 0,
+      "method": "All-variant triangle-overlap test; floor-seated feet; no visibility workaround."
+    }
+  ],
+  "elapsed_build_seconds": 39.12,
   "mesh_objects": 2637,
-  "visible_triangles": 399501,
+  "visible_triangles": 399685,
   "scene_saved": "/home/runner/work/critical-shift/critical-shift/sections/mine/production/quality50/Gullet_Quality50.blend"
 }
