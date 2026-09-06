@@ -1,23 +1,21 @@
 #!/usr/bin/env python3
-"""Canonical Critical Shift Gullet build entrypoint.
-
-The production builder is split into ordered UTF-8 source fragments so it can
-live cleanly in the repository's text-only upload path. This launcher
-reconstructs the source in memory and executes it as one module. Do not edit a
-generated concatenation; edit the appropriate source part instead.
+"""Canonical Gullet entrypoint. Builds the CC0-textured Blender revision.
+The original geometry/state API remains available to imports and audit tools.
 """
 from pathlib import Path
+import importlib.util, runpy, sys
+_ROOT=Path(__file__).resolve().parent
 
-_here=Path(__file__).resolve().parent
-_parts=sorted((_here/'source_parts').glob('build_mine.part*.pyfrag'))
-_expected={
- 'build_mine.part01.pyfrag','build_mine.part02a.pyfrag','build_mine.part02b.pyfrag','build_mine.part02c.pyfrag',
- 'build_mine.part03.pyfrag','build_mine.part04.pyfrag','build_mine.part05.pyfrag','build_mine.part06.pyfrag',
- 'build_mine.part07.pyfrag','build_mine.part08.pyfrag','build_mine.part09a.pyfrag','build_mine.part09b.pyfrag','build_mine.part10.pyfrag'
-}
-_found={p.name for p in _parts}
-if _found!=_expected:
- missing=sorted(_expected-_found);extra=sorted(_found-_expected)
- raise RuntimeError(f'Incomplete Gullet builder source. Missing={missing}; unexpected={extra}')
-_source='\n'.join(p.read_text(encoding='utf-8').rstrip('\n') for p in _parts)+'\n'
-exec(compile(_source,str(_here/'build_mine.full.py'),'exec'),globals(),globals())
+def _geometry_module():
+    spec=importlib.util.spec_from_file_location('gullet_geometry_source',_ROOT/'geometry_source.py')
+    module=importlib.util.module_from_spec(spec)
+    sys.modules[spec.name]=module
+    spec.loader.exec_module(module)
+    return module
+
+if __name__=='__main__' and '--audit-only' not in sys.argv:
+    runpy.run_path(str(_ROOT/'pbr'/'build_textured_mine.py'),run_name='__main__')
+else:
+    _base=_geometry_module()
+    globals().update({k:v for k,v in vars(_base).items() if not k.startswith('__')})
+    if __name__=='__main__':_base.main()
