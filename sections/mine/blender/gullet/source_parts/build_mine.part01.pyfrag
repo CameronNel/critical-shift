@@ -1,0 +1,200 @@
+#!/usr/bin/env python3
+"""CRITICAL SHIFT / GULLET
+Editable mine environment builder, authored for Blender 5.2, with a pure-data
+geometry backend. Run in Blender's Text Editor or with --background --python.
+
+The supplied geological mesh is an original, continuous, field-sculpted asset.
+All architecture, machinery, props, stages and interface sockets are constructed
+by this file. There are no external downloads, add-ons or network requests.
+
+IMPORTANT: blast indices are invented GAME BALANCE values. This program does
+not calculate explosive quantities, blast engineering or real safety ratings.
+
+Usage:
+  blender --background --python build_mine.py -- --output ./output --render entry
+  blender --background --python build_mine.py -- --quality high --render all
+  python build_mine.py --audit-only          # geometry/state checks, no Blender
+
+Only a new, builder-owned scene is created. Existing scenes are not deleted.
+Blender execution has not been verified in the delivery environment. Consult
+validation/report.json for the checks that actually ran.
+"""
+from __future__ import annotations
+import argparse
+from dataclasses import dataclass, field
+from pathlib import Path
+from contextlib import contextmanager
+import hashlib, json, math, os, sys, time
+import numpy as np
+
+VERSION='1.0.0'
+def package_root():
+ candidates=[]
+ if '__file__' in globals():candidates.append(Path(__file__).resolve().parent)
+ try:
+  import bpy
+  text=getattr(getattr(bpy.context,'space_data',None),'text',None)
+  if text and text.filepath:candidates.append(Path(bpy.path.abspath(text.filepath)).resolve().parent)
+  if bpy.context.scene.get('csm_source_dir'):candidates.append(Path(bpy.context.scene['csm_source_dir']))
+ except (ImportError,AttributeError,KeyError):pass
+ candidates.append(Path.cwd())
+ for path in candidates:
+  if (path/'assets'/'materials.json').is_file() and (path/'textures').is_dir():return path
+ raise FileNotFoundError('Open build_mine.py from the extracted package folder. Keep assets/ and textures/ beside it; do not run from inside the ZIP.')
+ROOT=package_root()
+ASSETS=ROOT/'assets'
+TEXTURES=ROOT/'textures'
+SEED=92026
+SLOPE=.025
+PREFIX='CSM_'
+CONFIG={
+ 'seed': SEED, 'slope': SLOPE, 'rail_gauge_m':1.10,
+ 'floor_to_eye_m':1.70, 'minimum_walkway_m':1.20,
+ 'target_blender':'5.2.x',
+ 'hardware':{'gpu':'AMD Radeon RX 9070 XT','cpu':'AMD Ryzen 7 5800X','ram_gb':32,'ram_type':'DDR4'},
+ 'preview_states':{'A':1,'B':2,'C':4},
+ 'authoritative_style':'Grounded stylized semi-realism; industrial, maintained, tactile.',
+ 'blasting':'Fictional tokens/index only. No real engineering quantities.',
+}
+COLLECTIONS={
+ '00_SITE':'Mountain and exterior context',
+ '01_ARCHITECTURE':'Preparation bay, facility transition, blast gate',
+ '02_GEOLOGY':'Continuous mine skin and ground',
+ '03_HAULAGE':'Rails, sleepers, ore carts and handoff',
+ '04_STRUCTURE':'Arch supports, fasteners and roof hardware',
+ '05_SERVICES':'Ventilation, drainage, cables, pump and power',
+ '06_WORKSTATIONS':'Charge issue, briefing, tools and operator controls',
+ '07_STORY':'Restrained worker evidence and wear',
+ '08_SECTOR_A':'Dry seam state geometry',
+ '09_SECTOR_B':'Wet seam state geometry',
+ '10_SECTOR_C':'Deep cut and collapse state geometry',
+ '11_LIGHTS':'Practical lights and limited render fill',
+ '12_CAMERAS':'Fixed gameplay and review cameras',
+ '13_INTERFACES':'Runtime sockets and route markers',
+ '14_COLLISION':'Simplified collision proxies; never beauty geometry',
+}
+SECTORS={
+ 'A':{'entry':(-3.9,17.8),'axis':(-1.,0.),'depths':(0,3.6,7.0,12.7),'name':'Dry seam'},
+ 'B':{'entry':(3.9,33.),'axis':(1.,0.),'depths':(0,3.7,7.1,12.4),'name':'Wet seam'},
+ 'C':{'entry':(0.,39.2),'axis':(0.,1.),'depths':(0,4.5,8.8,16.3),'name':'Deep cut'},
+}
+STATE_NAMES={0:'sealed',1:'shallow',2:'extended',3:'deep',4:'collapsed'}
+
+def floor_z(y: float)->float: return -SLOPE*max(float(y),0.)
+def v3(a): return np.asarray(a,dtype=np.float64)
+def normalized(a):
+ a=v3(a); n=np.linalg.norm(a)
+ if n<1e-10: raise ValueError('Zero-length direction')
+ return a/n
+
+def transform(loc=(0,0,0),rot=(0,0,0),scale=(1,1,1)):
+ rx,ry,rz=rot
+ X=np.array([[1,0,0],[0,math.cos(rx),-math.sin(rx)],[0,math.sin(rx),math.cos(rx)]])
+ Y=np.array([[math.cos(ry),0,math.sin(ry)],[0,1,0],[-math.sin(ry),0,math.cos(ry)]])
+ Z=np.array([[math.cos(rz),-math.sin(rz),0],[math.sin(rz),math.cos(rz),0],[0,0,1]])
+ M=np.eye(4);M[:3,:3]=Z@Y@X@np.diag(scale);M[:3,3]=loc
+ return M
+
+def earclip(points):
+ """Triangulate a simple planar profile, including concave I/U sections."""
+ p=np.asarray(points,float); n=len(p)
+ area=sum(p[i,0]*p[(i+1)%n,1]-p[(i+1)%n,0]*p[i,1] for i in range(n))
+ ids=list(range(n)) if area>0 else list(range(n))[::-1]
+ out=[]
+ def cross(a,b,c): return (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])
+ def inside(q,a,b,c):return min(cross(a,b,q),cross(b,c,q),cross(c,a,q))>=-1e-9
+ while len(ids)>3:
+  found=False
+  for k,b in enumerate(ids):
+   a=ids[k-1];c=ids[(k+1)%len(ids)]
+   if cross(p[a],p[b],p[c])<=1e-10:continue
+   if any(inside(p[q],p[a],p[b],p[c]) for q in ids if q not in (a,b,c)):continue
+   out.append((a,b,c));del ids[k];found=True;break
+  if not found: raise ValueError('Invalid/non-simple extrusion profile')
+ out.append(tuple(ids));return out
+
+@dataclass
+class Mesh:
+ vertices:np.ndarray
+ faces:np.ndarray
+ uv:np.ndarray|None=None
+ smooth:bool=False
+
+@dataclass
+class Item:
+ name:str
+ mesh:str
+ material:str
+ collection:str
+ matrix:np.ndarray
+ parent:str|None=None
+ meta:dict=field(default_factory=dict)
+
+class SceneData:
+ def __init__(self):
+  self.meshes={};self.items=[];self.empties=[];self.lights=[];self.cameras=[]
+  self.materials=json.loads((ASSETS/'materials.json').read_text())
+  self.frame=np.eye(4);self.parent=None;self.tags={};self.collection='01_ARCHITECTURE'
+  self.rng=np.random.default_rng(SEED);self.names=set();self._mesh_hash={}
+ def unique(self,name):
+  base=PREFIX+name
+  if base not in self.names:self.names.add(base);return base
+  i=2
+  while f'{base}.{i:03}' in self.names:i+=1
+  n=f'{base}.{i:03}';self.names.add(n);return n
+ def empty(self,name,loc=(0,0,0),rot=(0,0,0),meta=None,collection=None):
+  name=self.unique(name);M=self.frame@transform(loc,rot)
+  self.empties.append({'name':name,'matrix':M,'parent':self.parent,'meta':{**self.tags,**(meta or {})},'collection':collection or self.collection})
+  return name
+ @contextmanager
+ def group(self,name,loc=(0,0,0),rot=(0,0,0),meta=None,collection=None):
+  old=(self.frame,self.parent,self.tags,self.collection)
+  name=self.empty(name,loc,rot,meta,collection)
+  self.frame=self.empties[-1]['matrix'];self.parent=name
+  self.tags={**self.tags,**(meta or {})}
+  if collection:self.collection=collection
+  try:yield name
+  finally:self.frame,self.parent,self.tags,self.collection=old
+ def add(self,name,verts,faces,material,loc=(0,0,0),rot=(0,0,0),scale=(1,1,1),smooth=False,uv=None,meta=None,collection=None):
+  vs=np.asarray(verts,np.float32);fs=np.asarray(faces,np.int32)
+  if vs.ndim!=2 or vs.shape[1]!=3 or fs.ndim!=2 or fs.shape[1]!=3:raise ValueError(name+' invalid mesh shape')
+  if not len(vs) or not len(fs):raise ValueError(name+' empty mesh')
+  raw=vs.tobytes()+fs.tobytes()+bytes([smooth])+(np.asarray(uv,np.float32).tobytes() if uv is not None else b'')
+  key=hashlib.sha1(raw).hexdigest()[:16]
+  if key not in self.meshes:self.meshes[key]=Mesh(vs,fs,None if uv is None else np.asarray(uv,np.float32),smooth)
+  item=Item(self.unique(name),key,material,collection or self.collection,self.frame@transform(loc,rot,scale),self.parent,{**self.tags,**(meta or {})})
+  self.items.append(item);return item
+ def light(self,name,loc,target,color,power,size=1.0,kind='AREA',collection='11_LIGHTS'):
+  def wp(p):return (self.frame@np.r_[p,1])[:3].tolist()
+  self.lights.append({'name':self.unique(name),'loc':wp(loc),'target':wp(target),'color':color,'power':power,'size':size,'kind':kind,'collection':collection,'meta':dict(self.tags)})
+ def camera(self,name,loc,target,lens=25,eye=True):
+  self.cameras.append({'name':name,'loc':loc,'target':target,'lens':lens,'gameplay':eye})
+
+
+def rounded_outline(w,d,r,segments=3):
+ r=min(r,w*.49,d*.49)
+ if r<1e-6:return [(-w/2,-d/2),(w/2,-d/2),(w/2,d/2),(-w/2,d/2)]
+ p=[]
+ for cx,cy,a in [(w/2-r,d/2-r,0),(-w/2+r,d/2-r,90),(-w/2+r,-d/2+r,180),(w/2-r,-d/2+r,270)]:
+  for theta in np.linspace(a,a+90,segments+1):
+   t=math.radians(theta);p.append((cx+r*math.cos(t),cy+r*math.sin(t)))
+ return p
+
+def box(s,name,loc,dims,mat,bevel=.005,rot=(0,0,0),meta=None):
+ w,d,h=map(float,dims)
+ if min(w,d,h)<=0:raise ValueError('Nonpositive box size '+name)
+ b=min(bevel,min(w,d,h)*.23)
+ if b<1e-6:
+  poly=rounded_outline(w,d,0);rings=[(poly,-h/2),(poly,h/2)]
+ else:
+  poly=rounded_outline(w,d,b,2)
+  inner=rounded_outline(w-2*b,d-2*b,b*.25,2)
+  rings=[(inner,-h/2),(poly,-h/2+b),(poly,h/2-b),(inner,h/2)]
+ n=len(rings[0][0]);v=[(x,y,z) for p,z in rings for x,y in p];f=[]
+ for k in range(len(rings)-1):
+  for j in range(n):
+   a=k*n+j;b0=k*n+(j+1)%n;c=b0+n;d0=a+n
+   f.extend(((a,b0,c),(a,c,d0)))
+ f.extend(tuple(reversed(t)) for t in earclip(rings[0][0]))
+ top=(len(rings)-1)*n;f.extend(tuple(i+top for i in t) for t in earclip(rings[-1][0]))
+ return s.add(name,v,f,mat,loc=loc,rot=rot,meta=meta)
