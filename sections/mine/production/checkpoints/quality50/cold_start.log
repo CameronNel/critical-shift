@@ -1,0 +1,7 @@
+00:00.415  blend            | Read blend: "/home/runner/work/critical-shift/critical-shift/sections/mine/production/quality50/Gullet_Quality50.blend"
+/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/quality50/check_quality.py:23: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  images={n.image for m in materials if m.use_nodes for n in m.node_tree.nodes if n.type=='TEX_IMAGE' and n.image}
+Q50_COLD_START {"blender": "5.2.1 LTS", "fresh_process": true, "source_file": "Gullet_Quality50.blend", "checks": 8133, "issues": [], "scope": "Actual meshes, packed images, fifty cameras, cart contacts and art-state controls; not a universal no-intersection proof or Unity runtime test.", "packed_images": 36, "cart_contacts": [{"wheel": "Q50_Flanged_iron_wheel", "rail_gap_m": 0.0}, {"wheel": "Q50_Flanged_iron_wheel.001", "rail_gap_m": 0.0}, {"wheel": "Q50_Flanged_iron_wheel.002", "rail_gap_m": -2.9802322387695312e-08}, {"wheel": "Q50_Flanged_iron_wheel.003", "rail_gap_m": -2.9802322387695312e-08}, {"wheel": "Q50_Flanged_iron_wheel.004", "rail_gap_m": 0.00043660402297973633}, {"wheel": "Q50_Flanged_iron_wheel.005", "rail_gap_m": 0.00043660402297973633}, {"wheel": "Q50_Flanged_iron_wheel.006", "rail_gap_m": 0.0004366934299468994}, {"wheel": "Q50_Flanged_iron_wheel.007", "rail_gap_m": 0.0004366934299468994}], "rubble_triangle_overlap_candidates": [], "status": "PASS"}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:12:34)
+
+Blender quit

@@ -1,0 +1,1042 @@
+[
+  {
+    "camera": {
+      "id": "CAM_11",
+      "title": "Portal to sloping adit",
+      "position": [
+        1.8,
+        -1,
+        1.7
+      ],
+      "target": [
+        0.1,
+        6,
+        1.4500000000000002
+      ],
+      "lens": 24,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_11.png",
+    "sha256": "156709b9b91debfba05652cedad42eea18471079bf88ead5780e556123b68f93",
+    "seconds": 110.72,
+    "diagnostics": {
+      "minimum_forward_hit_m": 2.48906,
+      "rays": [
+        {
+          "distance": 4.60781,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 3.83913,
+          "object": "CSM_Exterior_subgrade",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 2.90244,
+          "object": "CSM_Shotcrete_portal_collar",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 6.14199,
+          "object": "CSM_Portal_inner_lining",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 21.71403,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 2.8907,
+          "object": "CSM_Portal_inner_lining.002",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 5.62826,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 5.98436,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 2.48906,
+          "object": "Q50_Gate_bulkhead_mount.001",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_12",
+      "title": "Main working route",
+      "position": [
+        1.95,
+        3.2,
+        1.72
+      ],
+      "target": [
+        -0.5,
+        19.4,
+        1.295
+      ],
+      "lens": 23,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_12.png",
+    "sha256": "27dcc7865d2a670cf4e5c4be4f3a1236a24c3ac04a4b07fdee63eea7c93892ed",
+    "seconds": 103.82,
+    "diagnostics": {
+      "minimum_forward_hit_m": 2.53754,
+      "rays": [
+        {
+          "distance": 4.93866,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 4.05316,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 3.0093,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 7.05998,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 33.06158,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 2.53754,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 5.66131,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 3.14047,
+          "object": "CSM_Ventilation_fabric_trunk",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 3.08619,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_13",
+      "title": "Main route reverse",
+      "position": [
+        1.93,
+        14.6,
+        1.435
+      ],
+      "target": [
+        -0.1,
+        -3,
+        1.8
+      ],
+      "lens": 25,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_13.png",
+    "sha256": "5d810bbfa3fde265b78605d497f86aec7418921ab2c9fac691158139d841957e",
+    "seconds": 105.43,
+    "diagnostics": {
+      "minimum_forward_hit_m": 3.14723,
+      "rays": [
+        {
+          "distance": 4.28973,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 4.34322,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 5.22936,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 3.94895,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 36.22651,
+          "object": "CSM_Facility_transition_wall",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 7.42918,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 3.14723,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 3.40683,
+          "object": "CSM_Ventilation_fabric_trunk",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 6.42578,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_14",
+      "title": "Rail level contact view",
+      "position": [
+        0.17,
+        6,
+        0.27999999999999997
+      ],
+      "target": [
+        0,
+        13,
+        -0.225
+      ],
+      "lens": 27,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    "file": "CAM_14.png",
+    "sha256": "bf5e062a8641122a258a783166f07d4eeb04b914d98c41149ab733c5a317db37",
+    "seconds": 99.81,
+    "diagnostics": {
+      "minimum_forward_hit_m": 0.71819,
+      "rays": [
+        {
+          "distance": 1.17878,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 1.00483,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 0.71819,
+          "object": "CSM_Continuous_I_rail.002",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 5.36287,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 7.86992,
+          "object": "CSM_Timber_sleeper.017",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 10.45523,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 5.74064,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 11.55405,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 8.20839,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_15",
+      "title": "Walkway and drainage edge",
+      "position": [
+        1.95,
+        8,
+        1.45
+      ],
+      "target": [
+        2.1,
+        15,
+        -0.175
+      ],
+      "lens": 26,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_15.png",
+    "sha256": "5aa055ecbb785754ac6ef7db1965da431ad1d8175a6459c45d6e4defb7189090",
+    "seconds": 99.93,
+    "diagnostics": {
+      "minimum_forward_hit_m": 2.33024,
+      "rays": [
+        {
+          "distance": 3.40505,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 2.68677,
+          "object": "CSM_Walkway_anti_slip.052",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 2.53126,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 8.5238,
+          "object": "CSM_Tripod_leg",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 7.6621,
+          "object": "CSM_Walkway_anti_slip.066",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 2.40244,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 8.39791,
+          "object": "CSM_Rolled_arch_section.003",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 10.82472,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 2.33024,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_16",
+      "title": "Support to geology contact",
+      "position": [
+        1.8,
+        9.5,
+        1.4625
+      ],
+      "target": [
+        2.8,
+        11.3,
+        0.8175000000000001
+      ],
+      "lens": 29,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_16.png",
+    "sha256": "8c8986b3ce8c1675ee407707a696839fc7d5b9b5be05230f3eefc776312335c1",
+    "seconds": 99.56,
+    "diagnostics": {
+      "minimum_forward_hit_m": 1.73034,
+      "rays": [
+        {
+          "distance": 3.28003,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 2.80149,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 2.14049,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 7.40916,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 5.87352,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 1.86566,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 17.68737,
+          "object": "CSM_Ventilation_fabric_trunk",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 5.02269,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 1.73034,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_17",
+      "title": "Rusted utility route",
+      "position": [
+        -1.3,
+        10,
+        1.4
+      ],
+      "target": [
+        -2.4,
+        13,
+        2.025
+      ],
+      "lens": 29,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_17.png",
+    "sha256": "d7bc039d929ce6f07e9d2b95aa42a198bce578b0d717669c96adaf124ca1dfa5",
+    "seconds": 102.39,
+    "diagnostics": {
+      "minimum_forward_hit_m": 1.75869,
+      "rays": [
+        {
+          "distance": 2.5424,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 5.48335,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 12.84275,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 1.75869,
+          "object": "CSM_Drainage_main",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 6.31875,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 12.21507,
+          "object": "CSM_Rolled_arch_section.004",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 2.54383,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 3.85109,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 5.64198,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_18",
+      "title": "Mid-adit darkness and work lights",
+      "position": [
+        1.9,
+        20,
+        1.15
+      ],
+      "target": [
+        0,
+        28,
+        0.6999999999999998
+      ],
+      "lens": 24,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_18.png",
+    "sha256": "9e75f4e59b6649081c9c3d31f1159f795c5a8b324167d076eb09e1989b19ba0e",
+    "seconds": 100.88,
+    "diagnostics": {
+      "minimum_forward_hit_m": 2.72603,
+      "rays": [
+        {
+          "distance": 3.01906,
+          "object": "Q50_Cart_bumper.002",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 3.61685,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 3.20181,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 6.98304,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 19.64489,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 2.99031,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 6.28381,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 6.64196,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 2.72603,
+          "object": "CSM_Roof_shale_shoulder.016",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_19",
+      "title": "Loaded wooden cart and passing space",
+      "position": [
+        1.8,
+        24.8,
+        1.0299999999999998
+      ],
+      "target": [
+        0,
+        22.7,
+        0.1825
+      ],
+      "lens": 29,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_19.png",
+    "sha256": "d70321c354676e726ba5217949a97a8af2286226cfe69d5f1891326a182f5aed",
+    "seconds": 96.12,
+    "diagnostics": {
+      "minimum_forward_hit_m": 1.8767,
+      "rays": [
+        {
+          "distance": 2.78933,
+          "object": "CSM_Walkway_panel.022",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 2.41264,
+          "object": "CSM_Continuous_I_rail.002",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 2.83613,
+          "object": "CSM_Continuous_I_rail",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 6.05801,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 1.8767,
+          "object": "Q50_Cart_top_wood_rail.003",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 5.25242,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 24.88612,
+          "object": "CSM_Shotcrete_portal_collar",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 6.77055,
+          "object": "CSM_Drainage_main",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 5.68946,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_20",
+      "title": "Ventilation and ceiling",
+      "position": [
+        0.5,
+        16,
+        1.6
+      ],
+      "target": [
+        0.6,
+        22,
+        2.8499999999999996
+      ],
+      "lens": 25,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_20.png",
+    "sha256": "a06293b613dd9c6bf6dc8e38e6d5f573eb4c8ce81d6a01ce81972e7ab578c45a",
+    "seconds": 100.95,
+    "diagnostics": {
+      "minimum_forward_hit_m": 2.20324,
+      "rays": [
+        {
+          "distance": 7.15651,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 7.27941,
+          "object": "Q50_Flanged_iron_wheel.007",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 4.44976,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 4.80985,
+          "object": "CSM_Cable_tray_pan.010",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 9.10252,
+          "object": "CSM_Rolled_arch_section.005",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 4.372,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 4.37018,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 3.3391,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 2.20324,
+          "object": "CSM_Ventilation_fabric_trunk",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  }
+]

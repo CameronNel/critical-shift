@@ -1,0 +1,45 @@
+{
+  "blender": "5.2.1 LTS",
+  "fresh_process": true,
+  "source_file": "Gullet_Quality50.blend",
+  "checks": 8133,
+  "issues": [],
+  "scope": "Actual meshes, packed images, fifty cameras, cart contacts and art-state controls; not a universal no-intersection proof or Unity runtime test.",
+  "packed_images": 36,
+  "cart_contacts": [
+    {
+      "wheel": "Q50_Flanged_iron_wheel",
+      "rail_gap_m": 0.0
+    },
+    {
+      "wheel": "Q50_Flanged_iron_wheel.001",
+      "rail_gap_m": 0.0
+    },
+    {
+      "wheel": "Q50_Flanged_iron_wheel.002",
+      "rail_gap_m": -2.9802322387695312e-08
+    },
+    {
+      "wheel": "Q50_Flanged_iron_wheel.003",
+      "rail_gap_m": -2.9802322387695312e-08
+    },
+    {
+      "wheel": "Q50_Flanged_iron_wheel.004",
+      "rail_gap_m": 0.00043660402297973633
+    },
+    {
+      "wheel": "Q50_Flanged_iron_wheel.005",
+      "rail_gap_m": 0.00043660402297973633
+    },
+    {
+      "wheel": "Q50_Flanged_iron_wheel.006",
+      "rail_gap_m": 0.0004366934299468994
+    },
+    {
+      "wheel": "Q50_Flanged_iron_wheel.007",
+      "rail_gap_m": 0.0004366934299468994
+    }
+  ],
+  "rubble_triangle_overlap_candidates": [],
+  "status": "PASS"
+}

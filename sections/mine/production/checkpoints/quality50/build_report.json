@@ -1,0 +1,4754 @@
+{
+  "revision": "quality50-r6",
+  "blender": "5.2.1 LTS",
+  "renderer": "Cycles",
+  "source_blend": "Gullet_MaterialReview.blend",
+  "visual_acceptance": "This build report is not visual approval. Read the subsequent fifty-camera review.",
+  "materials": [
+    {
+      "material": "CSM_label_cart",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "CSM_label_door",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "CSM_label_magazine",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "CSM_label_portal",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "CSM_label_pump",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "CSM_label_return",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "CSM_label_sector_a",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "CSM_label_sector_b",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "CSM_label_sector_c",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "CSM_label_shift_card",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "CSM_paper",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "CSM_timber",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_bare_steel",
+      "roughness_min": 0.7599999904632568,
+      "rust": true,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_canvas_duct",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_cart_ochre",
+      "roughness_min": 0.7599999904632568,
+      "rust": true,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_cast_concrete",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_damp_stone",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_dark_structural_steel",
+      "roughness_min": 0.7599999904632568,
+      "rust": true,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_dust_and_gravel",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_dust_worn_concrete",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_equipment_teal",
+      "roughness_min": 0.7599999904632568,
+      "rust": true,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_fresh_stone",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_ore_inclusions",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_oxide_red",
+      "roughness_min": 0.7599999904632568,
+      "rust": true,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_roof_graphite",
+      "roughness_min": 0.7599999904632568,
+      "rust": true,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_rubber",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_safety_ochre",
+      "roughness_min": 0.7599999904632568,
+      "rust": true,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_slate_blue_casing",
+      "roughness_min": 0.7599999904632568,
+      "rust": true,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_warm_enamel",
+      "roughness_min": 0.7599999904632568,
+      "rust": true,
+      "bump": true
+    },
+    {
+      "material": "GULLET_PBR_weathered_stone",
+      "roughness_min": 0.8500000238418579,
+      "rust": false,
+      "bump": true
+    }
+  ],
+  "carts": [
+    {
+      "root": "CSM_Dispatch_cart",
+      "removed_meshes_and_empties": 94,
+      "wooden_body": true,
+      "rim_above_floor_m": 1.1,
+      "old_rim_above_floor_m": 1.53,
+      "rail_gauge_preserved_m": 1.1,
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -8.800000190734863
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.07999999821186066
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "root": "CSM_Loaded_haulage_cart",
+      "removed_meshes_and_empties": 121,
+      "wooden_body": true,
+      "rim_above_floor_m": 1.1,
+      "old_rim_above_floor_m": 1.53,
+      "rail_gauge_preserved_m": 1.1,
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.999687671661377,
+          0.024992190301418304,
+          22.700000762939453
+        ],
+        [
+          0.0,
+          -0.024992190301418304,
+          0.999687671661377,
+          -0.48750001192092896
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "dented_panels": [
+    "CSM_Leaf_outer_skin",
+    "CSM_Leaf_outer_skin.002",
+    "CSM_Cabinet_back",
+    "CSM_Door_folded_skin",
+    "CSM_Door_recess",
+    "CSM_Door_folded_skin.002",
+    "CSM_Door_recess.002"
+  ],
+  "surface_age": {
+    "physical_wear_clusters": 70,
+    "sump_tideline_patches": 20
+  },
+  "coarse_surface_repair": [
+    "GULLET_PBR_cart_ochre",
+    "GULLET_PBR_cast_concrete",
+    "GULLET_PBR_dust_worn_concrete",
+    "GULLET_PBR_safety_ochre",
+    "GULLET_PBR_slate_blue_casing",
+    "GULLET_PBR_warm_enamel"
+  ],
+  "floor_seams": {
+    "geology_foot_clearance_vertices": 1750,
+    "previous_floor_triangles": 12288,
+    "new_floor_triangles": 56318,
+    "sump_aperture_m": [
+      8.3,
+      10.6,
+      20.0,
+      23.1
+    ],
+    "reason": "CAM_16/23/28 exposed grid-mask floor holes; CAM_09 exposed the cave foot projecting over the walkway."
+  },
+  "resources": {
+    "resources_settled": 153,
+    "details": [
+      {
+        "object": "CSM_A_Mineable_chunk_S1",
+        "settled": true,
+        "movement_z": -0.11522383546829223
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.002",
+        "settled": true,
+        "movement_z": -0.12599803066253662
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.003",
+        "settled": true,
+        "movement_z": -0.18824852561950683
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.004",
+        "settled": true,
+        "movement_z": -0.1733749017715454
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.005",
+        "settled": true,
+        "movement_z": -0.19204742765426636
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.006",
+        "settled": true,
+        "movement_z": -0.11576787686347961
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.007",
+        "settled": true,
+        "movement_z": -0.16781432485580444
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.008",
+        "settled": true,
+        "movement_z": -0.1805032000541687
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.009",
+        "settled": true,
+        "movement_z": -0.22476924514770508
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.010",
+        "settled": true,
+        "movement_z": -0.17903948879241943
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.011",
+        "settled": true,
+        "movement_z": -0.14026416397094726
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.012",
+        "settled": true,
+        "movement_z": -0.14682282066345215
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.013",
+        "settled": true,
+        "movement_z": -0.101742427110672
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.014",
+        "settled": true,
+        "movement_z": -0.1356317207813263
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2",
+        "settled": true,
+        "movement_z": -0.19102368807792663
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.002",
+        "settled": true,
+        "movement_z": -0.19083068823814392
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.003",
+        "settled": true,
+        "movement_z": -0.23203970050811767
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.004",
+        "settled": true,
+        "movement_z": -0.11712292885780334
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.005",
+        "settled": true,
+        "movement_z": -0.1784381822347641
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.006",
+        "settled": true,
+        "movement_z": -0.19080905175209045
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.007",
+        "settled": true,
+        "movement_z": -0.1339880928993225
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.008",
+        "settled": true,
+        "movement_z": -0.22792450642585754
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.009",
+        "settled": true,
+        "movement_z": -0.18068795955181122
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.010",
+        "settled": true,
+        "movement_z": -0.21504030680656433
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.011",
+        "settled": true,
+        "movement_z": -0.20179368114471435
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.012",
+        "settled": true,
+        "movement_z": -0.18279407477378845
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.013",
+        "settled": true,
+        "movement_z": -0.1428103551864624
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.014",
+        "settled": true,
+        "movement_z": -0.1323561177253723
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.015",
+        "settled": true,
+        "movement_z": -0.18720650231838226
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.016",
+        "settled": true,
+        "movement_z": -0.14429370617866516
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.017",
+        "settled": true,
+        "movement_z": -0.12985004043579101
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3",
+        "settled": true,
+        "movement_z": -0.1773993626832962
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.002",
+        "settled": true,
+        "movement_z": -0.13351015305519104
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.003",
+        "settled": true,
+        "movement_z": -0.12381250715255737
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.004",
+        "settled": true,
+        "movement_z": -0.1715337142944336
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.005",
+        "settled": true,
+        "movement_z": -0.13236327028274536
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.006",
+        "settled": true,
+        "movement_z": -0.15844152426719665
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.007",
+        "settled": true,
+        "movement_z": -0.15146688675880432
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.008",
+        "settled": true,
+        "movement_z": -0.13549668645858765
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.009",
+        "settled": true,
+        "movement_z": -0.17952088570594787
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.010",
+        "settled": true,
+        "movement_z": -0.17740077829360962
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.011",
+        "settled": true,
+        "movement_z": -0.09629492020606994
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.012",
+        "settled": true,
+        "movement_z": -0.1152035698890686
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.013",
+        "settled": true,
+        "movement_z": -0.13224051451683044
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.014",
+        "settled": true,
+        "movement_z": -0.18480662560462952
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.015",
+        "settled": true,
+        "movement_z": -0.12076715683937073
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.016",
+        "settled": true,
+        "movement_z": -0.11175094103813171
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.017",
+        "settled": true,
+        "movement_z": -0.21587173199653625
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.018",
+        "settled": true,
+        "movement_z": -0.24148229813575744
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.019",
+        "settled": true,
+        "movement_z": -0.135884295463562
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.020",
+        "settled": true,
+        "movement_z": -0.1717906401157379
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1",
+        "settled": true,
+        "movement_z": -0.15659208154678345
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.002",
+        "settled": true,
+        "movement_z": -0.1428151831626892
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.003",
+        "settled": true,
+        "movement_z": -0.188699613571167
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.004",
+        "settled": true,
+        "movement_z": -0.11191190338134765
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.005",
+        "settled": true,
+        "movement_z": -0.12471712684631348
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.006",
+        "settled": true,
+        "movement_z": -0.1994407877922058
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.007",
+        "settled": true,
+        "movement_z": -0.1296745047569275
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.008",
+        "settled": true,
+        "movement_z": -0.19757641410827637
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.009",
+        "settled": true,
+        "movement_z": -0.14642311191558838
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.010",
+        "settled": true,
+        "movement_z": -0.13872928476333618
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.011",
+        "settled": true,
+        "movement_z": -0.22497994756698608
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.012",
+        "settled": true,
+        "movement_z": -0.1701960072517395
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.013",
+        "settled": true,
+        "movement_z": -0.11894966220855713
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.014",
+        "settled": true,
+        "movement_z": -0.16108269548416138
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2",
+        "settled": true,
+        "movement_z": -0.12322474575042724
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.002",
+        "settled": true,
+        "movement_z": -0.1493769989013672
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.003",
+        "settled": true,
+        "movement_z": -0.12998409128189087
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.004",
+        "settled": true,
+        "movement_z": -0.12673057174682617
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.005",
+        "settled": true,
+        "movement_z": -0.13378627157211304
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.006",
+        "settled": true,
+        "movement_z": -0.15208328819274902
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.007",
+        "settled": true,
+        "movement_z": -0.16599262809753418
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.008",
+        "settled": true,
+        "movement_z": -0.13950873470306396
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.009",
+        "settled": true,
+        "movement_z": -0.19342167234420776
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.010",
+        "settled": true,
+        "movement_z": -0.14178038692474365
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.011",
+        "settled": true,
+        "movement_z": -0.2282077775001526
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.012",
+        "settled": true,
+        "movement_z": -0.14450872993469238
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.013",
+        "settled": true,
+        "movement_z": -0.16761572217941284
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.014",
+        "settled": true,
+        "movement_z": -0.1680326566696167
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.015",
+        "settled": true,
+        "movement_z": -0.14303673362731933
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.016",
+        "settled": true,
+        "movement_z": -0.13873274183273315
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.017",
+        "settled": true,
+        "movement_z": -0.14583588695526123
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3",
+        "settled": true,
+        "movement_z": -0.19512988185882568
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.002",
+        "settled": true,
+        "movement_z": -0.1573401198387146
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.003",
+        "settled": true,
+        "movement_z": -0.18540210580825806
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.004",
+        "settled": true,
+        "movement_z": -0.20712966775894165
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.005",
+        "settled": true,
+        "movement_z": -0.14527834510803223
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.006",
+        "settled": true,
+        "movement_z": -0.18886561250686645
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.007",
+        "settled": true,
+        "movement_z": -0.1545402512550354
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.008",
+        "settled": true,
+        "movement_z": -0.2077205286026001
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.009",
+        "settled": true,
+        "movement_z": -0.1272444829940796
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.010",
+        "settled": true,
+        "movement_z": -0.1634240255355835
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.011",
+        "settled": true,
+        "movement_z": -0.20950813150405884
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.012",
+        "settled": true,
+        "movement_z": -0.21365393257141113
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.013",
+        "settled": true,
+        "movement_z": -0.16910011625289917
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.014",
+        "settled": true,
+        "movement_z": -0.19177515363693237
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.015",
+        "settled": true,
+        "movement_z": -0.19734520769119263
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.016",
+        "settled": true,
+        "movement_z": -0.21418667888641357
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.017",
+        "settled": true,
+        "movement_z": -0.12338418817520141
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.018",
+        "settled": true,
+        "movement_z": -0.21949769115447998
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.019",
+        "settled": true,
+        "movement_z": -0.13520843839645386
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.020",
+        "settled": true,
+        "movement_z": -0.1739820942878723
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1",
+        "settled": true,
+        "movement_z": -0.12460387802124023
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.002",
+        "settled": true,
+        "movement_z": -0.1990200982093811
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.003",
+        "settled": true,
+        "movement_z": -0.20534731006622314
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.004",
+        "settled": true,
+        "movement_z": -0.16810036754608154
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.005",
+        "settled": true,
+        "movement_z": -0.19613582944869995
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.006",
+        "settled": true,
+        "movement_z": -0.14495731449127197
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.007",
+        "settled": true,
+        "movement_z": -0.17135072803497314
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.008",
+        "settled": true,
+        "movement_z": -0.12735677814483642
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.009",
+        "settled": true,
+        "movement_z": -0.21273512697219848
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.010",
+        "settled": true,
+        "movement_z": -0.20937068319320679
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.011",
+        "settled": true,
+        "movement_z": -0.15676880931854248
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.012",
+        "settled": true,
+        "movement_z": -0.13803125476837158
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.013",
+        "settled": true,
+        "movement_z": -0.16229570960998535
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.014",
+        "settled": true,
+        "movement_z": -0.16318453407287598
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2",
+        "settled": true,
+        "movement_z": -0.23135084962844848
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.002",
+        "settled": true,
+        "movement_z": -0.14475757932662964
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.003",
+        "settled": true,
+        "movement_z": -0.12186146831512451
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.004",
+        "settled": true,
+        "movement_z": -0.14613540029525757
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.005",
+        "settled": true,
+        "movement_z": -0.20900459146499634
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.006",
+        "settled": true,
+        "movement_z": -0.18324173545837402
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.007",
+        "settled": true,
+        "movement_z": -0.19338418102264404
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.008",
+        "settled": true,
+        "movement_z": -0.12551141834259033
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.009",
+        "settled": true,
+        "movement_z": -0.22421349143981933
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.010",
+        "settled": true,
+        "movement_z": -0.19690657711029053
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.011",
+        "settled": true,
+        "movement_z": -0.17823023653030395
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.012",
+        "settled": true,
+        "movement_z": -0.17369611120224
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.013",
+        "settled": true,
+        "movement_z": -0.20290977811813354
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.014",
+        "settled": true,
+        "movement_z": -0.17753971672058105
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.015",
+        "settled": true,
+        "movement_z": -0.20138968086242676
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.016",
+        "settled": true,
+        "movement_z": -0.15501392936706543
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.017",
+        "settled": true,
+        "movement_z": -0.18560720539093017
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3",
+        "settled": true,
+        "movement_z": -0.21108461475372314
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.002",
+        "settled": true,
+        "movement_z": -0.1271158561706543
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.003",
+        "settled": true,
+        "movement_z": -0.17367638206481933
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.004",
+        "settled": true,
+        "movement_z": -0.17371846294403076
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.005",
+        "settled": true,
+        "movement_z": -0.1222708330154419
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.006",
+        "settled": true,
+        "movement_z": -0.18412102317810058
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.007",
+        "settled": true,
+        "movement_z": -0.17998839473724365
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.008",
+        "settled": true,
+        "movement_z": -0.14796520328521728
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.009",
+        "settled": true,
+        "movement_z": -0.1979689702987671
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.010",
+        "settled": true,
+        "movement_z": -0.16211618041992187
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.011",
+        "settled": true,
+        "movement_z": -0.19124067878723144
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.012",
+        "settled": true,
+        "movement_z": -0.17439271068572998
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.013",
+        "settled": true,
+        "movement_z": -0.08905006504058838
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.014",
+        "settled": true,
+        "movement_z": -0.16972721672058105
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.015",
+        "settled": true,
+        "movement_z": -0.1721745834350586
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.016",
+        "settled": true,
+        "movement_z": -0.2145799503326416
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.017",
+        "settled": true,
+        "movement_z": -0.14476646041870117
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.018",
+        "settled": true,
+        "movement_z": -0.1187462911605835
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.019",
+        "settled": true,
+        "movement_z": -0.183725248336792
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.020",
+        "settled": true,
+        "movement_z": -0.16174055194854736
+      }
+    ],
+    "removed_intersecting_shoulder_dressing": [
+      "CSM_A_Seam_shoulder",
+      "CSM_A_Seam_shoulder.002",
+      "CSM_A_Seam_shoulder.003",
+      "CSM_A_Seam_shoulder.004",
+      "CSM_B_Seam_shoulder",
+      "CSM_B_Seam_shoulder.002",
+      "CSM_B_Seam_shoulder.003",
+      "CSM_B_Seam_shoulder.004",
+      "CSM_C_Seam_shoulder",
+      "CSM_C_Seam_shoulder.002",
+      "CSM_C_Seam_shoulder.003",
+      "CSM_C_Seam_shoulder.004"
+    ]
+  },
+  "collapse": [
+    {
+      "object": "Q50_A_Removable_fracture_00",
+      "sector": "A",
+      "index": 0,
+      "world_origin": [
+        -3.330500364303589,
+        18.54538345336914,
+        -0.2094833254814148
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_01",
+      "sector": "A",
+      "index": 1,
+      "world_origin": [
+        -2.633420467376709,
+        17.9466552734375,
+        -0.24476298689842224
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_02",
+      "sector": "A",
+      "index": 2,
+      "world_origin": [
+        -3.960881233215332,
+        17.27635955810547,
+        -0.146310955286026
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_03",
+      "sector": "A",
+      "index": 3,
+      "world_origin": [
+        -5.497465133666992,
+        18.97308921813965,
+        -0.20026500523090363
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_04",
+      "sector": "A",
+      "index": 4,
+      "world_origin": [
+        -5.270509719848633,
+        17.75208854675293,
+        -0.18203948438167572
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_05",
+      "sector": "A",
+      "index": 5,
+      "world_origin": [
+        -5.219903469085693,
+        16.511747360229492,
+        -0.12783575057983398
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_06",
+      "sector": "A",
+      "index": 6,
+      "world_origin": [
+        -6.7099151611328125,
+        19.435762405395508,
+        -0.06359446793794632
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_07",
+      "sector": "A",
+      "index": 7,
+      "world_origin": [
+        -11.228732109069824,
+        19.486059188842773,
+        -0.1746680587530136
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_08",
+      "sector": "A",
+      "index": 8,
+      "world_origin": [
+        -6.639134883880615,
+        16.512149810791016,
+        -0.15067899227142334
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_09",
+      "sector": "A",
+      "index": 9,
+      "world_origin": [
+        -2.2973766326904297,
+        19.19786834716797,
+        -0.20837756991386414
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_10",
+      "sector": "A",
+      "index": 10,
+      "world_origin": [
+        -1.5666998624801636,
+        17.47062110900879,
+        -0.1916104257106781
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_11",
+      "sector": "A",
+      "index": 11,
+      "world_origin": [
+        -6.01348352432251,
+        19.267881393432617,
+        -0.10705332458019257
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_12",
+      "sector": "A",
+      "index": 12,
+      "world_origin": [
+        -6.190718650817871,
+        17.440954208374023,
+        -0.22230705618858337
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_13",
+      "sector": "A",
+      "index": 13,
+      "world_origin": [
+        -5.953486442565918,
+        18.301206588745117,
+        -0.12086073309183121
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_14",
+      "sector": "A",
+      "index": 14,
+      "world_origin": [
+        -3.0584182739257812,
+        17.006122589111328,
+        -0.17250056564807892
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_15",
+      "sector": "A",
+      "index": 15,
+      "world_origin": [
+        -9.911467552185059,
+        19.726320266723633,
+        -0.2455509752035141
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_16",
+      "sector": "A",
+      "index": 16,
+      "world_origin": [
+        -8.582795143127441,
+        16.13688087463379,
+        -0.17023965716362
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_17",
+      "sector": "A",
+      "index": 17,
+      "world_origin": [
+        -4.090109825134277,
+        18.763748168945312,
+        -0.13490030169487
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_18",
+      "sector": "A",
+      "index": 18,
+      "world_origin": [
+        -6.008065700531006,
+        16.26642417907715,
+        -0.021297018975019455
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_19",
+      "sector": "A",
+      "index": 19,
+      "world_origin": [
+        -11.102225303649902,
+        20.185073852539062,
+        -0.19903872907161713
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_20",
+      "sector": "A",
+      "index": 20,
+      "world_origin": [
+        -10.32186222076416,
+        16.618165969848633,
+        -0.10423862934112549
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_A_Removable_fracture_21",
+      "sector": "A",
+      "index": 21,
+      "world_origin": [
+        -10.59529972076416,
+        17.86868667602539,
+        -0.23738034069538116
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_00",
+      "sector": "B",
+      "index": 0,
+      "world_origin": [
+        3.043384552001953,
+        31.98696517944336,
+        -0.5680955052375793
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_01",
+      "sector": "B",
+      "index": 1,
+      "world_origin": [
+        3.5900964736938477,
+        32.6236572265625,
+        -0.5676212310791016
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_02",
+      "sector": "B",
+      "index": 2,
+      "world_origin": [
+        3.658785104751587,
+        33.97098159790039,
+        -0.6093441843986511
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_03",
+      "sector": "B",
+      "index": 3,
+      "world_origin": [
+        5.473801612854004,
+        31.86241340637207,
+        -0.5260423421859741
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_04",
+      "sector": "B",
+      "index": 4,
+      "world_origin": [
+        5.056600570678711,
+        32.77914047241211,
+        -0.6292933225631714
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_05",
+      "sector": "B",
+      "index": 5,
+      "world_origin": [
+        6.1510210037231445,
+        34.34230041503906,
+        -0.5728023052215576
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_06",
+      "sector": "B",
+      "index": 6,
+      "world_origin": [
+        7.551695823669434,
+        32.0742073059082,
+        -0.5746487975120544
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_07",
+      "sector": "B",
+      "index": 7,
+      "world_origin": [
+        6.854766368865967,
+        32.96632766723633,
+        -0.5724779367446899
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_08",
+      "sector": "B",
+      "index": 8,
+      "world_origin": [
+        6.9708781242370605,
+        33.938743591308594,
+        -0.571683406829834
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_09",
+      "sector": "B",
+      "index": 9,
+      "world_origin": [
+        1.2724907398223877,
+        30.879905700683594,
+        -0.5738665461540222
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_10",
+      "sector": "B",
+      "index": 10,
+      "world_origin": [
+        3.886414051055908,
+        33.14906692504883,
+        -0.45702919363975525
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_11",
+      "sector": "B",
+      "index": 11,
+      "world_origin": [
+        6.466987133026123,
+        31.83962631225586,
+        -0.5062349438667297
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_12",
+      "sector": "B",
+      "index": 12,
+      "world_origin": [
+        6.774169445037842,
+        34.70188522338867,
+        -0.3976276218891144
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_13",
+      "sector": "B",
+      "index": 13,
+      "world_origin": [
+        4.112236499786377,
+        31.551076889038086,
+        -0.44372400641441345
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_14",
+      "sector": "B",
+      "index": 14,
+      "world_origin": [
+        4.362007141113281,
+        33.72209548950195,
+        -0.3930753171443939
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_15",
+      "sector": "B",
+      "index": 15,
+      "world_origin": [
+        9.052120208740234,
+        32.17643737792969,
+        -0.4048902094364166
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_16",
+      "sector": "B",
+      "index": 16,
+      "world_origin": [
+        8.878236770629883,
+        34.9666862487793,
+        -0.5181626081466675
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_17",
+      "sector": "B",
+      "index": 17,
+      "world_origin": [
+        5.109681129455566,
+        31.260272979736328,
+        -0.35115179419517517
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_18",
+      "sector": "B",
+      "index": 18,
+      "world_origin": [
+        5.236507892608643,
+        34.05221176147461,
+        -0.46286648511886597
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_19",
+      "sector": "B",
+      "index": 19,
+      "world_origin": [
+        9.971418380737305,
+        32.18124771118164,
+        -0.402282178401947
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_20",
+      "sector": "B",
+      "index": 20,
+      "world_origin": [
+        10.10873031616211,
+        35.35525131225586,
+        -0.6070128083229065
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_B_Removable_fracture_21",
+      "sector": "B",
+      "index": 21,
+      "world_origin": [
+        10.037369728088379,
+        33.60844421386719,
+        -0.6574789881706238
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_00",
+      "sector": "C",
+      "index": 0,
+      "world_origin": [
+        1.8581178188323975,
+        39.47713088989258,
+        -0.7360557913780212
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_01",
+      "sector": "C",
+      "index": 1,
+      "world_origin": [
+        0.7497609257698059,
+        38.96376037597656,
+        -0.6709185838699341
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_02",
+      "sector": "C",
+      "index": 2,
+      "world_origin": [
+        -0.6492452025413513,
+        39.79595184326172,
+        -0.6494062542915344
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_03",
+      "sector": "C",
+      "index": 3,
+      "world_origin": [
+        -1.9863046407699585,
+        39.201011657714844,
+        -0.6842500567436218
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_04",
+      "sector": "C",
+      "index": 4,
+      "world_origin": [
+        1.7832480669021606,
+        41.40077209472656,
+        -0.7438581585884094
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_05",
+      "sector": "C",
+      "index": 5,
+      "world_origin": [
+        0.6137951016426086,
+        40.366424560546875,
+        -0.8244433999061584
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_06",
+      "sector": "C",
+      "index": 6,
+      "world_origin": [
+        -0.5492925047874451,
+        40.6343994140625,
+        -0.7423270344734192
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_07",
+      "sector": "C",
+      "index": 7,
+      "world_origin": [
+        -1.6653015613555908,
+        40.713260650634766,
+        -0.7763779759407043
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_08",
+      "sector": "C",
+      "index": 8,
+      "world_origin": [
+        1.4646645784378052,
+        42.14338302612305,
+        -0.8186632990837097
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_09",
+      "sector": "C",
+      "index": 9,
+      "world_origin": [
+        0.31105661392211914,
+        41.881587982177734,
+        -0.7889464497566223
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_10",
+      "sector": "C",
+      "index": 10,
+      "world_origin": [
+        -0.5234048962593079,
+        43.43871307373047,
+        -0.8961210250854492
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_11",
+      "sector": "C",
+      "index": 11,
+      "world_origin": [
+        -1.3902297019958496,
+        42.479427337646484,
+        -0.8107236623764038
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_12",
+      "sector": "C",
+      "index": 12,
+      "world_origin": [
+        1.9356931447982788,
+        38.30560302734375,
+        -0.7324580550193787
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_13",
+      "sector": "C",
+      "index": 13,
+      "world_origin": [
+        -0.3317851126194,
+        37.97567367553711,
+        -0.6893830895423889
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_14",
+      "sector": "C",
+      "index": 14,
+      "world_origin": [
+        -1.9210551977157593,
+        38.17394256591797,
+        -0.602117657661438
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_15",
+      "sector": "C",
+      "index": 15,
+      "world_origin": [
+        2.48956298828125,
+        41.75879669189453,
+        -0.8634296655654907
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_16",
+      "sector": "C",
+      "index": 16,
+      "world_origin": [
+        -0.11471870541572571,
+        42.95930862426758,
+        -0.7055990099906921
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_17",
+      "sector": "C",
+      "index": 17,
+      "world_origin": [
+        -2.2317588329315186,
+        42.25645446777344,
+        -0.7590802311897278
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_18",
+      "sector": "C",
+      "index": 18,
+      "world_origin": [
+        2.377288341522217,
+        40.35157775878906,
+        -0.7932058572769165
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_19",
+      "sector": "C",
+      "index": 19,
+      "world_origin": [
+        0.3076121509075165,
+        41.09191131591797,
+        -0.7253427505493164
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_20",
+      "sector": "C",
+      "index": 20,
+      "world_origin": [
+        -2.226473569869995,
+        41.30233383178711,
+        -0.5672294497489929
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    },
+    {
+      "object": "Q50_C_Removable_fracture_21",
+      "sector": "C",
+      "index": 21,
+      "world_origin": [
+        -0.30763933062553406,
+        46.40407180786133,
+        -0.8775320649147034
+      ],
+      "method": "Blender Bullet convex-body settlement",
+      "frames": 200,
+      "collision_margin_m": 0.0015
+    }
+  ],
+  "natural_resource_placement": {
+    "natural_scatter_count": 153,
+    "reason": "CAM_23/24/28/29 showed unnatural two-row placement. Replaced with seeded collision-spaced scatter and seated contacts.",
+    "placements": [
+      {
+        "object": "CSM_A_Mineable_chunk_S1",
+        "radius_m": 0.18842800087107547,
+        "world_origin": [
+          -5.294286251068115,
+          18.87970733642578,
+          -0.33725032210350037
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.002",
+        "radius_m": 0.12483285516631275,
+        "world_origin": [
+          -4.619836807250977,
+          17.010366439819336,
+          -0.2828845679759979
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.003",
+        "radius_m": 0.17353105143279124,
+        "world_origin": [
+          -6.436825752258301,
+          16.74958610534668,
+          -0.3201921880245209
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.004",
+        "radius_m": 0.14869197269148093,
+        "world_origin": [
+          -5.528985977172852,
+          16.68529510498047,
+          -0.32437294721603394
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.005",
+        "radius_m": 0.13397157861477882,
+        "world_origin": [
+          -5.990543365478516,
+          16.35734748840332,
+          -0.3120180070400238
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.006",
+        "radius_m": 0.1641611093208732,
+        "world_origin": [
+          -5.270352363586426,
+          16.973453521728516,
+          -0.28241193294525146
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.007",
+        "radius_m": 0.1727676775572301,
+        "world_origin": [
+          -6.809976577758789,
+          18.81344223022461,
+          -0.34212836623191833
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.008",
+        "radius_m": 0.16778240587802168,
+        "world_origin": [
+          -6.129755020141602,
+          19.123924255371094,
+          -0.3745984435081482
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.009",
+        "radius_m": 0.180424972275065,
+        "world_origin": [
+          -6.712456703186035,
+          16.42357063293457,
+          -0.3244974613189697
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.010",
+        "radius_m": 0.142250938494918,
+        "world_origin": [
+          -4.85715913772583,
+          18.9084529876709,
+          -0.3473580777645111
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.011",
+        "radius_m": 0.1952376015627496,
+        "world_origin": [
+          -5.893673419952393,
+          16.7690372467041,
+          -0.3027559518814087
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.012",
+        "radius_m": 0.17651906676909218,
+        "world_origin": [
+          -7.0303754806518555,
+          16.8874568939209,
+          -0.29171276092529297
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.013",
+        "radius_m": 0.14224987105587567,
+        "world_origin": [
+          -4.452582359313965,
+          18.87554931640625,
+          -0.30860069394111633
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S1.014",
+        "radius_m": 0.1421595039540397,
+        "world_origin": [
+          -7.156338214874268,
+          19.10643196105957,
+          -0.33884385228157043
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2",
+        "radius_m": 0.16899891882474516,
+        "world_origin": [
+          -8.906972885131836,
+          19.103015899658203,
+          -0.3764278292655945
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.002",
+        "radius_m": 0.18646036260096555,
+        "world_origin": [
+          -9.731500625610352,
+          16.952499389648438,
+          -0.311233252286911
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.003",
+        "radius_m": 0.17131285372597305,
+        "world_origin": [
+          -10.416830062866211,
+          18.90777015686035,
+          -0.39450159668922424
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.004",
+        "radius_m": 0.1468346749613602,
+        "world_origin": [
+          -9.53035831451416,
+          16.4580135345459,
+          -0.24942637979984283
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.005",
+        "radius_m": 0.16467467002072866,
+        "world_origin": [
+          -8.91104507446289,
+          16.98323631286621,
+          -0.31210291385650635
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.006",
+        "radius_m": 0.18225813524395568,
+        "world_origin": [
+          -9.533391952514648,
+          18.748035430908203,
+          -0.3443295657634735
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.007",
+        "radius_m": 0.1807165490460066,
+        "world_origin": [
+          -8.20169448852539,
+          18.869873046875,
+          -0.3537791669368744
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.008",
+        "radius_m": 0.1062974282464972,
+        "world_origin": [
+          -10.22770881652832,
+          16.858600616455078,
+          -0.34383413195610046
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.009",
+        "radius_m": 0.17740207427615012,
+        "world_origin": [
+          -9.073400497436523,
+          16.409446716308594,
+          -0.30587542057037354
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.010",
+        "radius_m": 0.19329169708723476,
+        "world_origin": [
+          -8.036468505859375,
+          16.817893981933594,
+          -0.34789615869522095
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.011",
+        "radius_m": 0.15093137853875999,
+        "world_origin": [
+          -10.042285919189453,
+          19.295726776123047,
+          -0.38645416498184204
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.012",
+        "radius_m": 0.13891474705490597,
+        "world_origin": [
+          -10.05581283569336,
+          18.917335510253906,
+          -0.37065139412879944
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.013",
+        "radius_m": 0.1659154139029983,
+        "world_origin": [
+          -8.736346244812012,
+          18.779640197753906,
+          -0.35265442728996277
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.014",
+        "radius_m": 0.18681229491429152,
+        "world_origin": [
+          -10.287605285644531,
+          16.5065860748291,
+          -0.288508802652359
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.015",
+        "radius_m": 0.13302488828495984,
+        "world_origin": [
+          -7.929676055908203,
+          16.161523818969727,
+          -0.3044030964374542
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.016",
+        "radius_m": 0.1716527282684258,
+        "world_origin": [
+          -8.545618057250977,
+          16.89035987854004,
+          -0.30294275283813477
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S2.017",
+        "radius_m": 0.19173974367478225,
+        "world_origin": [
+          -7.941312313079834,
+          19.196081161499023,
+          -0.3426218628883362
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3",
+        "radius_m": 0.11320245303322371,
+        "world_origin": [
+          -15.644145965576172,
+          19.03657341003418,
+          -0.37901875376701355
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.002",
+        "radius_m": 0.1840317884346474,
+        "world_origin": [
+          -13.360174179077148,
+          16.526996612548828,
+          -0.281812459230423
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.003",
+        "radius_m": 0.14215991996450011,
+        "world_origin": [
+          -12.557117462158203,
+          19.020278930664062,
+          -0.33162277936935425
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.004",
+        "radius_m": 0.17406469201316466,
+        "world_origin": [
+          -11.767127990722656,
+          19.617935180664062,
+          -0.3810586929321289
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.005",
+        "radius_m": 0.19342691134291784,
+        "world_origin": [
+          -16.104555130004883,
+          18.942546844482422,
+          -0.35394003987312317
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.006",
+        "radius_m": 0.18975233392615742,
+        "world_origin": [
+          -15.549402236938477,
+          16.62154769897461,
+          -0.31234991550445557
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.007",
+        "radius_m": 0.1421895219294279,
+        "world_origin": [
+          -12.857940673828125,
+          18.78545379638672,
+          -0.34584230184555054
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.008",
+        "radius_m": 0.1445953877002774,
+        "world_origin": [
+          -11.583596229553223,
+          18.683719635009766,
+          -0.32641705870628357
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.009",
+        "radius_m": 0.15939290585226046,
+        "world_origin": [
+          -13.682451248168945,
+          16.065034866333008,
+          -0.29196834564208984
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.010",
+        "radius_m": 0.18804640234270587,
+        "world_origin": [
+          -15.084775924682617,
+          19.2600040435791,
+          -0.3562948703765869
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.011",
+        "radius_m": 0.18638784994060692,
+        "world_origin": [
+          -14.635505676269531,
+          16.52457618713379,
+          -0.25065186619758606
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.012",
+        "radius_m": 0.18772308414399602,
+        "world_origin": [
+          -14.542478561401367,
+          19.369787216186523,
+          -0.32588377594947815
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.013",
+        "radius_m": 0.1268297417239399,
+        "world_origin": [
+          -14.021682739257812,
+          19.136444091796875,
+          -0.3489423096179962
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.014",
+        "radius_m": 0.18198416658620697,
+        "world_origin": [
+          -12.979721069335938,
+          19.283523559570312,
+          -0.3969518840312958
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.015",
+        "radius_m": 0.18795301158072247,
+        "world_origin": [
+          -13.793773651123047,
+          18.867340087890625,
+          -0.3343515396118164
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.016",
+        "radius_m": 0.1281076695724791,
+        "world_origin": [
+          -11.30904769897461,
+          19.283475875854492,
+          -0.34477880597114563
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.017",
+        "radius_m": 0.12386159288254522,
+        "world_origin": [
+          -12.039422988891602,
+          16.173908233642578,
+          -0.3108958899974823
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.018",
+        "radius_m": 0.17849184243354893,
+        "world_origin": [
+          -12.931074142456055,
+          16.935461044311523,
+          -0.35539066791534424
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.019",
+        "radius_m": 0.18249738050283548,
+        "world_origin": [
+          -15.337610244750977,
+          16.160619735717773,
+          -0.2717774212360382
+        ]
+      },
+      {
+        "object": "CSM_A_Mineable_chunk_S3.020",
+        "radius_m": 0.1457448266137329,
+        "world_origin": [
+          -14.750335693359375,
+          19.073083877563477,
+          -0.3448152244091034
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1",
+        "radius_m": 0.1857681714890213,
+        "world_origin": [
+          5.318637847900391,
+          32.07890319824219,
+          -0.667074978351593
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.002",
+        "radius_m": 0.1598604348364301,
+        "world_origin": [
+          4.908978462219238,
+          31.674724578857422,
+          -0.6596891283988953
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.003",
+        "radius_m": 0.15988925517998787,
+        "world_origin": [
+          6.68483304977417,
+          32.124263763427734,
+          -0.7097845077514648
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.004",
+        "radius_m": 0.15911371968240762,
+        "world_origin": [
+          6.179963111877441,
+          34.0197639465332,
+          -0.7015423774719238
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.005",
+        "radius_m": 0.1751646700314166,
+        "world_origin": [
+          6.932945728302002,
+          34.173561096191406,
+          -0.7378425598144531
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.006",
+        "radius_m": 0.15807216121899698,
+        "world_origin": [
+          4.592214584350586,
+          34.15052032470703,
+          -0.7719380259513855
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.007",
+        "radius_m": 0.12624931015426752,
+        "world_origin": [
+          6.381782054901123,
+          32.0191650390625,
+          -0.6742620468139648
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.008",
+        "radius_m": 0.17138452173020158,
+        "world_origin": [
+          4.462239742279053,
+          32.009525299072266,
+          -0.715482771396637
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.009",
+        "radius_m": 0.12293872260496884,
+        "world_origin": [
+          6.028270721435547,
+          32.11988067626953,
+          -0.6706674098968506
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.010",
+        "radius_m": 0.15572157943165477,
+        "world_origin": [
+          6.348685264587402,
+          34.39575958251953,
+          -0.7388167977333069
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.011",
+        "radius_m": 0.16820458966256757,
+        "world_origin": [
+          5.570682525634766,
+          34.290321350097656,
+          -0.7523586750030518
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.012",
+        "radius_m": 0.11963286860170301,
+        "world_origin": [
+          4.224595069885254,
+          31.748458862304688,
+          -0.6809893846511841
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.013",
+        "radius_m": 0.11731728640600864,
+        "world_origin": [
+          4.221790313720703,
+          34.344905853271484,
+          -0.7271491289138794
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S1.014",
+        "radius_m": 0.17556673022092983,
+        "world_origin": [
+          5.17869758605957,
+          33.918209075927734,
+          -0.7160941958427429
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2",
+        "radius_m": 0.18926998627099323,
+        "world_origin": [
+          8.000947952270508,
+          34.19199752807617,
+          -0.7072530388832092
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.002",
+        "radius_m": 0.17399931335067637,
+        "world_origin": [
+          8.912764549255371,
+          31.95707130432129,
+          -0.6810283064842224
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.003",
+        "radius_m": 0.15589170834432886,
+        "world_origin": [
+          8.528507232666016,
+          34.27652359008789,
+          -0.7241371273994446
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.004",
+        "radius_m": 0.15923520153961118,
+        "world_origin": [
+          10.035856246948242,
+          31.785240173339844,
+          -0.6602068543434143
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.005",
+        "radius_m": 0.16883579514880287,
+        "world_origin": [
+          9.221174240112305,
+          33.99485778808594,
+          -0.7338374853134155
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.006",
+        "radius_m": 0.17838035977790145,
+        "world_origin": [
+          9.976962089538574,
+          34.21603012084961,
+          -0.7282712459564209
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.007",
+        "radius_m": 0.12815259609886787,
+        "world_origin": [
+          10.36859130859375,
+          34.44426345825195,
+          -0.72430419921875
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.008",
+        "radius_m": 0.17647155667206937,
+        "world_origin": [
+          8.396732330322266,
+          31.764802932739258,
+          -0.6576022505760193
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.009",
+        "radius_m": 0.1717641781058114,
+        "world_origin": [
+          10.474163055419922,
+          31.9824275970459,
+          -0.6869012117385864
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.010",
+        "radius_m": 0.15008250244655902,
+        "world_origin": [
+          9.753190994262695,
+          31.40788459777832,
+          -0.6517787575721741
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.011",
+        "radius_m": 0.18751175216402455,
+        "world_origin": [
+          9.545695304870605,
+          34.46147155761719,
+          -0.789782702922821
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.012",
+        "radius_m": 0.16409636142184209,
+        "world_origin": [
+          10.401799201965332,
+          31.382661819458008,
+          -0.6535263657569885
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.013",
+        "radius_m": 0.15821148783542732,
+        "world_origin": [
+          10.501002311706543,
+          33.97808074951172,
+          -0.7221724390983582
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.014",
+        "radius_m": 0.1928605209870483,
+        "world_origin": [
+          8.823832511901855,
+          34.00746154785156,
+          -0.7412383556365967
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.015",
+        "radius_m": 0.14689067031886932,
+        "world_origin": [
+          9.900969505310059,
+          34.610416412353516,
+          -0.7424945831298828
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.016",
+        "radius_m": 0.15700098482836783,
+        "world_origin": [
+          8.8565092086792,
+          34.59308624267578,
+          -0.7449358105659485
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S2.017",
+        "radius_m": 0.1467231880606153,
+        "world_origin": [
+          9.65015983581543,
+          33.83086395263672,
+          -0.7405796647071838
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3",
+        "radius_m": 0.13878940154278926,
+        "world_origin": [
+          13.897560119628906,
+          31.234987258911133,
+          -0.6791495680809021
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.002",
+        "radius_m": 0.1552405400458211,
+        "world_origin": [
+          12.294954299926758,
+          34.32566452026367,
+          -0.7420518398284912
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.003",
+        "radius_m": 0.13688536405110374,
+        "world_origin": [
+          15.489675521850586,
+          33.82366180419922,
+          -0.7168310880661011
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.004",
+        "radius_m": 0.13776221182095638,
+        "world_origin": [
+          15.347982406616211,
+          31.572895050048828,
+          -0.6971308588981628
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.005",
+        "radius_m": 0.15939326129924497,
+        "world_origin": [
+          13.410341262817383,
+          34.6619873046875,
+          -0.7293186187744141
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.006",
+        "radius_m": 0.16882056688959046,
+        "world_origin": [
+          11.943029403686523,
+          31.88129234313965,
+          -0.6998019814491272
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.007",
+        "radius_m": 0.19590227075864258,
+        "world_origin": [
+          14.635469436645508,
+          31.501827239990234,
+          -0.6776757836341858
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.008",
+        "radius_m": 0.18124631759652637,
+        "world_origin": [
+          13.034029006958008,
+          34.38349533081055,
+          -0.7576537132263184
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.009",
+        "radius_m": 0.13296455592202855,
+        "world_origin": [
+          12.977331161499023,
+          34.033119201660156,
+          -0.7028023600578308
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.010",
+        "radius_m": 0.12874996501071398,
+        "world_origin": [
+          11.99605941772461,
+          33.88698196411133,
+          -0.7482226490974426
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.011",
+        "radius_m": 0.19869697383190693,
+        "world_origin": [
+          14.360382080078125,
+          32.12968826293945,
+          -0.7163943648338318
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.012",
+        "radius_m": 0.15509785545801202,
+        "world_origin": [
+          11.746883392333984,
+          34.28684997558594,
+          -0.7876079082489014
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.013",
+        "radius_m": 0.16617083674608107,
+        "world_origin": [
+          15.113319396972656,
+          34.002418518066406,
+          -0.7208206653594971
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.014",
+        "radius_m": 0.14836907234945618,
+        "world_origin": [
+          14.983522415161133,
+          34.64638137817383,
+          -0.7589080929756165
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.015",
+        "radius_m": 0.17012656832389894,
+        "world_origin": [
+          11.660154342651367,
+          31.393085479736328,
+          -0.6910619139671326
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.016",
+        "radius_m": 0.17429173806284592,
+        "world_origin": [
+          14.388338088989258,
+          34.14009094238281,
+          -0.7832818627357483
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.017",
+        "radius_m": 0.1696568950804877,
+        "world_origin": [
+          14.843545913696289,
+          32.0499382019043,
+          -0.6734641194343567
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.018",
+        "radius_m": 0.1294347388592026,
+        "world_origin": [
+          13.43868637084961,
+          32.13800811767578,
+          -0.7196367979049683
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.019",
+        "radius_m": 0.17830647434317864,
+        "world_origin": [
+          13.862411499023438,
+          33.99435043334961,
+          -0.731541097164154
+        ]
+      },
+      {
+        "object": "CSM_B_Mineable_chunk_S3.020",
+        "radius_m": 0.1655973312086691,
+        "world_origin": [
+          12.412525177001953,
+          32.16903305053711,
+          -0.6978768706321716
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1",
+        "radius_m": 0.18520800727129205,
+        "world_origin": [
+          -1.215528964996338,
+          41.91902542114258,
+          -0.9119928479194641
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.002",
+        "radius_m": 0.11548784595665197,
+        "world_origin": [
+          1.1690647602081299,
+          42.03717041015625,
+          -0.9579572677612305
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.003",
+        "radius_m": 0.13408807969156655,
+        "world_origin": [
+          -0.9803045988082886,
+          41.19137191772461,
+          -0.9374584555625916
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.004",
+        "radius_m": 0.18512018326828394,
+        "world_origin": [
+          1.410989761352539,
+          41.44212341308594,
+          -0.9190624356269836
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.005",
+        "radius_m": 0.16343705657121455,
+        "world_origin": [
+          0.8178234696388245,
+          42.16157913208008,
+          -0.9580746293067932
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.006",
+        "radius_m": 0.12709047042969662,
+        "world_origin": [
+          0.9893397092819214,
+          39.64546585083008,
+          -0.8598488569259644
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.007",
+        "radius_m": 0.17257850513100792,
+        "world_origin": [
+          -1.341422438621521,
+          42.391536712646484,
+          -0.9541195034980774
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.008",
+        "radius_m": 0.1755046913509088,
+        "world_origin": [
+          -1.3375436067581177,
+          40.772010803222656,
+          -0.8703616261482239
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.009",
+        "radius_m": 0.1780364517028148,
+        "world_origin": [
+          -1.0454254150390625,
+          40.516971588134766,
+          -0.9163643717765808
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.010",
+        "radius_m": 0.12324417551734787,
+        "world_origin": [
+          -1.0624394416809082,
+          43.10181427001953,
+          -0.9948340654373169
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.011",
+        "radius_m": 0.17990535404995367,
+        "world_origin": [
+          -0.8659346103668213,
+          42.36158752441406,
+          -0.9386669397354126
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.012",
+        "radius_m": 0.19299294875646172,
+        "world_origin": [
+          0.9492930173873901,
+          41.592010498046875,
+          -0.9077069759368896
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.013",
+        "radius_m": 0.13821267567779172,
+        "world_origin": [
+          1.0262364149093628,
+          41.0538215637207,
+          -0.9066524505615234
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S1.014",
+        "radius_m": 0.14983586448892827,
+        "world_origin": [
+          1.4295390844345093,
+          40.06664276123047,
+          -0.8716757893562317
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2",
+        "radius_m": 0.13984340184623797,
+        "world_origin": [
+          -1.100699543952942,
+          45.61311721801758,
+          -1.0661448240280151
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.002",
+        "radius_m": 0.15248961135482708,
+        "world_origin": [
+          -1.61961829662323,
+          44.37836456298828,
+          -0.9975640773773193
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.003",
+        "radius_m": 0.1522892501044404,
+        "world_origin": [
+          1.0059068202972412,
+          47.406150817871094,
+          -1.0403878688812256
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.004",
+        "radius_m": 0.18872678005528082,
+        "world_origin": [
+          -0.9934409260749817,
+          46.380226135253906,
+          -1.0315587520599365
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.005",
+        "radius_m": 0.1438677589673102,
+        "world_origin": [
+          1.526836633682251,
+          45.136497497558594,
+          -1.0349819660186768
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.006",
+        "radius_m": 0.17785959485381958,
+        "world_origin": [
+          -1.370558500289917,
+          45.9841423034668,
+          -1.0516111850738525
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.007",
+        "radius_m": 0.15466592219610859,
+        "world_origin": [
+          0.9523873329162598,
+          45.94207763671875,
+          -1.049406886100769
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.008",
+        "radius_m": 0.1497619996560524,
+        "world_origin": [
+          1.135503888130188,
+          45.026451110839844,
+          -0.9912915229797363
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.009",
+        "radius_m": 0.18308165493256,
+        "world_origin": [
+          0.9578742980957031,
+          44.380943298339844,
+          -1.0301783084869385
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.010",
+        "radius_m": 0.164231067709378,
+        "world_origin": [
+          -1.0186371803283691,
+          47.205684661865234,
+          -1.0846781730651855
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.011",
+        "radius_m": 0.1950970738386935,
+        "world_origin": [
+          1.196720004081726,
+          46.34429168701172,
+          -1.0533643960952759
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.012",
+        "radius_m": 0.11385948035187583,
+        "world_origin": [
+          1.6202654838562012,
+          45.468727111816406,
+          -1.0213394165039062
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.013",
+        "radius_m": 0.1504268354106469,
+        "world_origin": [
+          -1.518916368484497,
+          47.23155975341797,
+          -1.088619351387024
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.014",
+        "radius_m": 0.14303621912209746,
+        "world_origin": [
+          -1.0555070638656616,
+          47.55545425415039,
+          -1.082060694694519
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.015",
+        "radius_m": 0.17165943331340333,
+        "world_origin": [
+          1.5301140546798706,
+          44.62799072265625,
+          -1.0174254179000854
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.016",
+        "radius_m": 0.11965783576564594,
+        "world_origin": [
+          1.0878548622131348,
+          46.980873107910156,
+          -1.0530683994293213
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S2.017",
+        "radius_m": 0.1776853828420184,
+        "world_origin": [
+          -0.9130150079727173,
+          44.3231315612793,
+          -1.0061641931533813
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3",
+        "radius_m": 0.18559372221020914,
+        "world_origin": [
+          -1.7909064292907715,
+          49.72602844238281,
+          -1.1430400609970093
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.002",
+        "radius_m": 0.17115890408037265,
+        "world_origin": [
+          1.19021475315094,
+          49.742958068847656,
+          -1.110669493675232
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.003",
+        "radius_m": 0.1259470514346967,
+        "world_origin": [
+          -1.3517478704452515,
+          51.39710998535156,
+          -1.173997163772583
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.004",
+        "radius_m": 0.18507316843992727,
+        "world_origin": [
+          1.7494930028915405,
+          52.793304443359375,
+          -1.2043788433074951
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.005",
+        "radius_m": 0.18163825870808742,
+        "world_origin": [
+          -1.3929225206375122,
+          50.800636291503906,
+          -1.1261709928512573
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.006",
+        "radius_m": 0.1316533981226764,
+        "world_origin": [
+          -1.0094969272613525,
+          52.521827697753906,
+          -1.2070480585098267
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.007",
+        "radius_m": 0.1723457238187639,
+        "world_origin": [
+          -1.4007234573364258,
+          50.1144905090332,
+          -1.1409727334976196
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.008",
+        "radius_m": 0.16023657908292038,
+        "world_origin": [
+          1.7645121812820435,
+          50.73710632324219,
+          -1.1537047624588013
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.009",
+        "radius_m": 0.15519004560031924,
+        "world_origin": [
+          -1.6369701623916626,
+          52.797401428222656,
+          -1.220365047454834
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.010",
+        "radius_m": 0.14620425906296985,
+        "world_origin": [
+          1.4872188568115234,
+          54.37450408935547,
+          -1.2262873649597168
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.011",
+        "radius_m": 0.14637240129054752,
+        "world_origin": [
+          1.194632649421692,
+          53.90788650512695,
+          -1.23623526096344
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.012",
+        "radius_m": 0.12201324811430757,
+        "world_origin": [
+          -1.7156102657318115,
+          54.85648727416992,
+          -1.2553043365478516
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.013",
+        "radius_m": 0.1677459265329011,
+        "world_origin": [
+          1.527273178100586,
+          52.035789489746094,
+          -1.1448885202407837
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.014",
+        "radius_m": 0.17111951722087182,
+        "world_origin": [
+          -1.473815679550171,
+          54.557823181152344,
+          -1.240762710571289
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.015",
+        "radius_m": 0.1778588639707402,
+        "world_origin": [
+          -1.0680928230285645,
+          54.935970306396484,
+          -1.2555880546569824
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.016",
+        "radius_m": 0.14547253327154147,
+        "world_origin": [
+          -1.6092318296432495,
+          51.8546142578125,
+          -1.2123750448226929
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.017",
+        "radius_m": 0.18751745619895777,
+        "world_origin": [
+          1.1094610691070557,
+          51.35783386230469,
+          -1.168339729309082
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.018",
+        "radius_m": 0.11911145430850617,
+        "world_origin": [
+          -1.6845813989639282,
+          53.57111358642578,
+          -1.1988040208816528
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.019",
+        "radius_m": 0.14000519091995134,
+        "world_origin": [
+          0.9151493310928345,
+          52.56374740600586,
+          -1.2206926345825195
+        ]
+      },
+      {
+        "object": "CSM_C_Mineable_chunk_S3.020",
+        "radius_m": 0.17961886549587702,
+        "world_origin": [
+          -0.9064443111419678,
+          53.19491958618164,
+          -1.215295433998108
+        ]
+      }
+    ]
+  },
+  "dressing": {
+    "web_clusters": [
+      {
+        "object": "Q50_Anchored_dust_web",
+        "anchors": [
+          [
+            -2.6428592205047607,
+            6.696772575378418,
+            3.1497554779052734
+          ],
+          [
+            -2.8513104915618896,
+            8.136909484863281,
+            2.7304272651672363
+          ],
+          [
+            -2.118831157684326,
+            7.8855462074279785,
+            3.448547601699829
+          ]
+        ],
+        "strand_radius_m": 0.0014
+      },
+      {
+        "object": "Q50_Anchored_dust_web.001",
+        "anchors": [
+          [
+            -2.764223337173462,
+            13.812520027160645,
+            3.0835206508636475
+          ],
+          [
+            -3.443612813949585,
+            15.864151954650879,
+            2.73599910736084
+          ],
+          [
+            -2.2038586139678955,
+            15.420757293701172,
+            3.871453046798706
+          ]
+        ],
+        "strand_radius_m": 0.0014
+      },
+      {
+        "object": "Q50_Anchored_dust_web.002",
+        "anchors": [
+          [
+            2.576753854751587,
+            20.659666061401367,
+            2.835510492324829
+          ],
+          [
+            2.9456729888916016,
+            22.267589569091797,
+            2.4580259323120117
+          ],
+          [
+            2.1253910064697266,
+            22.072019577026367,
+            3.6298608779907227
+          ]
+        ],
+        "strand_radius_m": 0.0014
+      },
+      {
+        "object": "Q50_Anchored_dust_web.003",
+        "anchors": [
+          [
+            -2.2905259132385254,
+            28.3617000579834,
+            2.5339245796203613
+          ],
+          [
+            -2.794625997543335,
+            29.732248306274414,
+            2.335458993911743
+          ],
+          [
+            -1.9015353918075562,
+            29.359193801879883,
+            2.921334743499756
+          ]
+        ],
+        "strand_radius_m": 0.0014
+      },
+      {
+        "object": "Q50_Anchored_dust_web.004",
+        "anchors": [
+          [
+            2.563890218734741,
+            35.079647064208984,
+            2.4200475215911865
+          ],
+          [
+            2.8594701290130615,
+            36.443870544433594,
+            2.085151433944702
+          ],
+          [
+            2.1613430976867676,
+            36.26103210449219,
+            3.013211965560913
+          ]
+        ],
+        "strand_radius_m": 0.0014
+      },
+      {
+        "object": "Q50_Anchored_dust_web.005",
+        "anchors": [
+          [
+            -2.220646381378174,
+            37.02749252319336,
+            2.672008752822876
+          ],
+          [
+            -2.555298089981079,
+            38.341854095458984,
+            2.383124589920044
+          ],
+          [
+            -1.8310166597366333,
+            38.10905456542969,
+            3.1612281799316406
+          ]
+        ],
+        "strand_radius_m": 0.0014
+      },
+      {
+        "object": "Q50_Anchored_dust_web.006",
+        "anchors": [
+          [
+            9.236822128295898,
+            16.325355529785156,
+            2.1217598915100098
+          ],
+          [
+            9.58771800994873,
+            17.329639434814453,
+            1.965173363685608
+          ],
+          [
+            9.017497062683105,
+            17.187129974365234,
+            2.7544515132904053
+          ]
+        ],
+        "strand_radius_m": 0.0014
+      },
+      {
+        "object": "Q50_Anchored_dust_web.007",
+        "anchors": [
+          [
+            9.059043884277344,
+            24.992895126342773,
+            1.901849627494812
+          ],
+          [
+            9.065794944763184,
+            25.978675842285156,
+            1.5259597301483154
+          ],
+          [
+            8.660146713256836,
+            25.885866165161133,
+            2.1147499084472656
+          ]
+        ],
+        "strand_radius_m": 0.0014
+      }
+    ],
+    "rotten_timber": [
+      "Q50_Discarded_split_timber",
+      "Q50_Discarded_split_timber.001",
+      "Q50_Discarded_split_timber.002",
+      "Q50_Discarded_split_timber.003",
+      "Q50_Discarded_split_timber.004",
+      "Q50_Discarded_split_timber.005",
+      "Q50_Discarded_split_timber.006",
+      "Q50_Discarded_split_timber.007",
+      "Q50_Discarded_split_timber.008",
+      "Q50_Discarded_split_timber.009",
+      "Q50_Discarded_split_timber.010",
+      "Q50_Discarded_split_timber.011",
+      "Q50_Discarded_split_timber.012",
+      "Q50_Discarded_split_timber.013",
+      "Q50_Discarded_split_timber.014",
+      "Q50_Discarded_split_timber.015",
+      "Q50_Discarded_split_timber.016",
+      "Q50_Discarded_split_timber.017",
+      "Q50_Discarded_split_timber.018",
+      "Q50_Discarded_split_timber.019"
+    ],
+    "runoff_strips": [
+      "Q50_Rock_water_bleed",
+      "Q50_Rock_water_bleed.001",
+      "Q50_Rock_water_bleed.002",
+      "Q50_Rock_water_bleed.003",
+      "Q50_Rock_water_bleed.004",
+      "Q50_Rock_water_bleed.005",
+      "Q50_Rock_water_bleed.006",
+      "Q50_Rock_water_bleed.007",
+      "Q50_Rock_water_bleed.008",
+      "Q50_Rock_water_bleed.009",
+      "Q50_Rock_water_bleed.010",
+      "Q50_Rock_water_bleed.011",
+      "Q50_Rock_water_bleed.012",
+      "Q50_Rock_water_bleed.013",
+      "Q50_Rock_water_bleed.014",
+      "Q50_Rock_water_bleed.015",
+      "Q50_Rock_water_bleed.016",
+      "Q50_Rock_water_bleed.017"
+    ],
+    "lights": [
+      {
+        "light": "PBR_late_day_sun",
+        "before": 0.8500000238418579,
+        "after": 0.12999999523162842
+      },
+      {
+        "light": "PBR_portal_stone_bounce",
+        "before": 160.0,
+        "after": 55.0
+      },
+      {
+        "light": "CSM_Practical",
+        "before": 175.0,
+        "after": 113.75
+      },
+      {
+        "light": "CSM_Practical.002",
+        "before": 290.0,
+        "after": 188.5
+      },
+      {
+        "light": "CSM_Practical.003",
+        "before": 230.0,
+        "after": 149.5
+      },
+      {
+        "light": "CSM_Practical.004",
+        "before": 290.0,
+        "after": 188.5
+      },
+      {
+        "light": "CSM_Practical.005",
+        "before": 230.0,
+        "after": 149.5
+      },
+      {
+        "light": "CSM_Practical.006",
+        "before": 95.0,
+        "after": 61.75
+      },
+      {
+        "light": "CSM_Practical.007",
+        "before": 210.0,
+        "after": 60.900001525878906
+      },
+      {
+        "light": "CSM_Practical.008",
+        "before": 150.0,
+        "after": 9.75
+      },
+      {
+        "light": "CSM_Practical.009",
+        "before": 210.0,
+        "after": 60.900001525878906
+      },
+      {
+        "light": "CSM_Practical.010",
+        "before": 150.0,
+        "after": 43.5
+      },
+      {
+        "light": "CSM_Practical.011",
+        "before": 210.0,
+        "after": 60.900001525878906
+      },
+      {
+        "light": "CSM_Practical.012",
+        "before": 150.0,
+        "after": 9.75
+      },
+      {
+        "light": "CSM_Practical.013",
+        "before": 210.0,
+        "after": 60.900001525878906
+      },
+      {
+        "light": "CSM_Practical.014",
+        "before": 85.0,
+        "after": 24.649999618530273
+      },
+      {
+        "light": "CSM_Practical.015",
+        "before": 85.0,
+        "after": 24.649999618530273
+      },
+      {
+        "light": "CSM_Practical.016",
+        "before": 85.0,
+        "after": 24.649999618530273
+      },
+      {
+        "light": "CSM_Practical.017",
+        "before": 85.0,
+        "after": 24.649999618530273
+      },
+      {
+        "light": "CSM_Practical.018",
+        "before": 240.0,
+        "after": 81.5999984741211
+      },
+      {
+        "light": "CSM_Portable_practical",
+        "before": 180.0,
+        "after": 72.0
+      },
+      {
+        "light": "CSM_Portable_practical.002",
+        "before": 180.0,
+        "after": 72.0
+      },
+      {
+        "light": "CSM_Dry_seam_bounce",
+        "before": 170.0,
+        "after": 47.599998474121094
+      },
+      {
+        "light": "CSM_Wet_seam_bounce",
+        "before": 220.0,
+        "after": 61.599998474121094
+      },
+      {
+        "light": "CSM_Overcast_sky_key",
+        "before": 4800.0,
+        "after": 1100.0
+      },
+      {
+        "light": "CSM_Bay_warm_bounce",
+        "before": 430.0,
+        "after": 120.0
+      },
+      {
+        "light": "CSM_Portal_daylight_fill",
+        "before": 390.0,
+        "after": 85.0
+      }
+    ],
+    "dirty_water": true
+  },
+  "excavation_practicals": [
+    {
+      "sector": "A",
+      "minimum_stage": 2,
+      "position": [
+        -8.399999618530273,
+        18.649999618530273,
+        1.0299999713897705
+      ],
+      "watts": 58.0
+    },
+    {
+      "sector": "A",
+      "minimum_stage": 3,
+      "position": [
+        -13.0,
+        19.049999237060547,
+        1.0199999809265137
+      ],
+      "watts": 75.0
+    },
+    {
+      "sector": "B",
+      "minimum_stage": 2,
+      "position": [
+        8.5,
+        33.95000076293945,
+        0.6474999785423279
+      ],
+      "watts": 58.0
+    },
+    {
+      "sector": "B",
+      "minimum_stage": 3,
+      "position": [
+        12.5,
+        34.45000076293945,
+        0.6349999904632568
+      ],
+      "watts": 75.0
+    },
+    {
+      "sector": "C",
+      "minimum_stage": 2,
+      "position": [
+        -1.2000000476837158,
+        44.849998474121094,
+        0.375
+      ],
+      "watts": 58.0
+    },
+    {
+      "sector": "C",
+      "minimum_stage": 3,
+      "position": [
+        2.799999952316284,
+        51.25,
+        0.2150000035762787
+      ],
+      "watts": 75.0
+    }
+  ],
+  "render_driven_refinements": {
+    "cart_floor_joints": 10,
+    "cart_load_fragments": 8,
+    "cloth_wrinkled": true,
+    "facility_connection_framed": true,
+    "removed_oversized_collision_boxes": [
+      "CSM_COL_A_Collapse_blocker",
+      "CSM_COL_B_Collapse_blocker",
+      "CSM_COL_C_Collapse_blocker"
+    ],
+    "decay_boards_resettled": 20,
+    "water_edge_stamps_replaced": true,
+    "runoff_softened_to_staining": true,
+    "inner_gate_practicals": 2
+  },
+  "gate_fixture_contacts": {
+    "reason": "The closed-gate view exposed lamps inside the collar. New lamps use measured surface attachment. Rear detailing stays within the original leaf envelope; pocket guards are moved clear.",
+    "surface_mounts": [
+      {
+        "surface": [
+          -2.690999984741211,
+          1.2999999523162842,
+          2.680000066757202
+        ],
+        "air_normal": [
+          0.9474923014640808,
+          -0.0,
+          -0.31977882981300354
+        ],
+        "light_position": [
+          -2.4541268348693848,
+          1.2999999523162842,
+          2.600055456161499
+        ],
+        "power_w": 85
+      },
+      {
+        "surface": [
+          2.690999746322632,
+          1.2999999523162842,
+          2.680000066757202
+        ],
+        "air_normal": [
+          -0.9474923014640808,
+          -0.0,
+          -0.31977882981300354
+        ],
+        "light_position": [
+          2.4541265964508057,
+          1.2999999523162842,
+          2.600055456161499
+        ],
+        "power_w": 85
+      }
+    ],
+    "pocket_guard_outward_shift_m": 0.22
+  },
+  "cameras": [
+    {
+      "id": "CAM_01",
+      "title": "Facility approach and preparation",
+      "position": [
+        3.7,
+        -13.05,
+        1.72
+      ],
+      "target": [
+        -0.15,
+        1,
+        2.18
+      ],
+      "lens": 23,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_02",
+      "title": "Preparation reverse",
+      "position": [
+        1.8,
+        -1.5,
+        1.65
+      ],
+      "target": [
+        0,
+        -15,
+        1.0
+      ],
+      "lens": 25,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_03",
+      "title": "Weathered charge issue",
+      "position": [
+        2.75,
+        -10.1,
+        1.65
+      ],
+      "target": [
+        6.25,
+        -7.6,
+        1.45
+      ],
+      "lens": 38,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_04",
+      "title": "Corroded blast door",
+      "position": [
+        2.8,
+        -5.4,
+        1.65
+      ],
+      "target": [
+        4.4,
+        -0.79,
+        1.9
+      ],
+      "lens": 32,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_05",
+      "title": "Rough concrete and rail transition",
+      "position": [
+        -1.6,
+        -7,
+        0.4
+      ],
+      "target": [
+        0,
+        -1,
+        0.1
+      ],
+      "lens": 27,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    {
+      "id": "CAM_06",
+      "title": "Preparation circulation overview",
+      "position": [
+        5.9,
+        -12.6,
+        3.7
+      ],
+      "target": [
+        -0.5,
+        -3.5,
+        1.85
+      ],
+      "lens": 23,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "overview"
+    },
+    {
+      "id": "CAM_07",
+      "title": "Instructions and worn workbench",
+      "position": [
+        -3.45,
+        -7.5,
+        1.72
+      ],
+      "target": [
+        -7.3,
+        -8.8,
+        2.04
+      ],
+      "lens": 30,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_08",
+      "title": "Wooden cart from player height",
+      "position": [
+        1.55,
+        -11,
+        1.68
+      ],
+      "target": [
+        0,
+        -8.8,
+        0.8
+      ],
+      "lens": 30,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_09",
+      "title": "Door lower track and threshold",
+      "position": [
+        2.8,
+        -2.5,
+        0.65
+      ],
+      "target": [
+        3.3,
+        -0.79,
+        0.35
+      ],
+      "lens": 35,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    {
+      "id": "CAM_10",
+      "title": "Canopy and service connections",
+      "position": [
+        2.6,
+        -8.3,
+        1.65
+      ],
+      "target": [
+        0,
+        -4,
+        4.2
+      ],
+      "lens": 25,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_11",
+      "title": "Portal to sloping adit",
+      "position": [
+        1.8,
+        -1,
+        1.7
+      ],
+      "target": [
+        0.1,
+        6,
+        1.4500000000000002
+      ],
+      "lens": 24,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_12",
+      "title": "Main working route",
+      "position": [
+        1.95,
+        3.2,
+        1.72
+      ],
+      "target": [
+        -0.5,
+        19.4,
+        1.295
+      ],
+      "lens": 23,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_13",
+      "title": "Main route reverse",
+      "position": [
+        1.93,
+        14.6,
+        1.435
+      ],
+      "target": [
+        -0.1,
+        -3,
+        1.8
+      ],
+      "lens": 25,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_14",
+      "title": "Rail level contact view",
+      "position": [
+        0.17,
+        6,
+        0.27999999999999997
+      ],
+      "target": [
+        0,
+        13,
+        -0.225
+      ],
+      "lens": 27,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    {
+      "id": "CAM_15",
+      "title": "Walkway and drainage edge",
+      "position": [
+        1.95,
+        8,
+        1.45
+      ],
+      "target": [
+        2.1,
+        15,
+        -0.175
+      ],
+      "lens": 26,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_16",
+      "title": "Support to geology contact",
+      "position": [
+        1.8,
+        9.5,
+        1.4625
+      ],
+      "target": [
+        2.8,
+        11.3,
+        0.8175000000000001
+      ],
+      "lens": 29,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_17",
+      "title": "Rusted utility route",
+      "position": [
+        -1.3,
+        10,
+        1.4
+      ],
+      "target": [
+        -2.4,
+        13,
+        2.025
+      ],
+      "lens": 29,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_18",
+      "title": "Mid-adit darkness and work lights",
+      "position": [
+        1.9,
+        20,
+        1.15
+      ],
+      "target": [
+        0,
+        28,
+        0.6999999999999998
+      ],
+      "lens": 24,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_19",
+      "title": "Loaded wooden cart and passing space",
+      "position": [
+        1.8,
+        24.8,
+        1.0299999999999998
+      ],
+      "target": [
+        0,
+        22.7,
+        0.1825
+      ],
+      "lens": 29,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_20",
+      "title": "Ventilation and ceiling",
+      "position": [
+        0.5,
+        16,
+        1.6
+      ],
+      "target": [
+        0.6,
+        22,
+        2.8499999999999996
+      ],
+      "lens": 25,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_21",
+      "title": "A dry sector sealed",
+      "position": [
+        -2.2,
+        17.8,
+        1.255
+      ],
+      "target": [
+        -3.9,
+        17.8,
+        1.055
+      ],
+      "lens": 26,
+      "sector": "A",
+      "state": 0,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_22",
+      "title": "A dry shallow pocket",
+      "position": [
+        -2.7,
+        17.6,
+        1.29
+      ],
+      "target": [
+        -8.8,
+        17.9,
+        0.7525
+      ],
+      "lens": 26,
+      "sector": "A",
+      "state": 1,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_23",
+      "title": "A dry extended chamber",
+      "position": [
+        -4.65,
+        17.8,
+        1.2149999999999999
+      ],
+      "target": [
+        -10.5,
+        17.8,
+        0.45499999999999996
+      ],
+      "lens": 26,
+      "sector": "A",
+      "state": 2,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_24",
+      "title": "A dry deep extraction",
+      "position": [
+        -8.3,
+        17.7,
+        1.2574999999999998
+      ],
+      "target": [
+        -14.5,
+        18.8,
+        1.03
+      ],
+      "lens": 26,
+      "sector": "A",
+      "state": 3,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_25",
+      "title": "A settled collapse",
+      "position": [
+        -2.7,
+        17.6,
+        1.29
+      ],
+      "target": [
+        -7.5,
+        17.8,
+        0.45499999999999996
+      ],
+      "lens": 26,
+      "sector": "A",
+      "state": 4,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_26",
+      "title": "B wet sector sealed",
+      "position": [
+        3.55,
+        32.4,
+        0.95
+      ],
+      "target": [
+        10.1,
+        33.15,
+        0.37124999999999997
+      ],
+      "lens": 26,
+      "sector": "B",
+      "state": 0,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_27",
+      "title": "B wet shallow pocket",
+      "position": [
+        3.55,
+        32.4,
+        0.95
+      ],
+      "target": [
+        10.1,
+        33.15,
+        0.37124999999999997
+      ],
+      "lens": 26,
+      "sector": "B",
+      "state": 1,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_28",
+      "title": "B wet extended chamber",
+      "position": [
+        5.5,
+        32.7,
+        0.8824999999999998
+      ],
+      "target": [
+        10,
+        33,
+        0.3749999999999999
+      ],
+      "lens": 26,
+      "sector": "B",
+      "state": 2,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_29",
+      "title": "B wet deep excavation",
+      "position": [
+        8.6,
+        33,
+        0.8749999999999999
+      ],
+      "target": [
+        14,
+        34,
+        0.44999999999999996
+      ],
+      "lens": 26,
+      "sector": "B",
+      "state": 3,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_30",
+      "title": "B settled collapse",
+      "position": [
+        3.55,
+        32.4,
+        0.95
+      ],
+      "target": [
+        7.5,
+        33,
+        0.07499999999999996
+      ],
+      "lens": 26,
+      "sector": "B",
+      "state": 4,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_31",
+      "title": "C deep sector sealed",
+      "position": [
+        1.65,
+        36.4,
+        0.85
+      ],
+      "target": [
+        0,
+        42,
+        0.21999999999999997
+      ],
+      "lens": 26,
+      "sector": "C",
+      "state": 0,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_32",
+      "title": "C shallow working space",
+      "position": [
+        1.65,
+        36.4,
+        0.85
+      ],
+      "target": [
+        0,
+        42,
+        0.21999999999999997
+      ],
+      "lens": 26,
+      "sector": "C",
+      "state": 1,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_33",
+      "title": "C extended working space",
+      "position": [
+        0.8,
+        40.7,
+        0.6824999999999999
+      ],
+      "target": [
+        0,
+        45.5,
+        -0.03749999999999987
+      ],
+      "lens": 26,
+      "sector": "C",
+      "state": 2,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_34",
+      "title": "C deep branching excavation",
+      "position": [
+        0.5,
+        44.9,
+        0.5774999999999999
+      ],
+      "target": [
+        0,
+        51.4,
+        0.11499999999999977
+      ],
+      "lens": 26,
+      "sector": "C",
+      "state": 3,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_35",
+      "title": "C settled collapse",
+      "position": [
+        1.65,
+        36.4,
+        0.85
+      ],
+      "target": [
+        0,
+        42,
+        0.21999999999999997
+      ],
+      "lens": 26,
+      "sector": "C",
+      "state": 4,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_36",
+      "title": "Sump and service overview",
+      "position": [
+        6.4,
+        18.8,
+        1.27
+      ],
+      "target": [
+        9,
+        22,
+        0.25
+      ],
+      "lens": 25,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_37",
+      "title": "Sump rail and walkway contact",
+      "position": [
+        7.7,
+        20.5,
+        1.1875
+      ],
+      "target": [
+        8.4,
+        21.5,
+        -0.03749999999999998
+      ],
+      "lens": 30,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_38",
+      "title": "Dirty water and mineral rim",
+      "position": [
+        8,
+        20.6,
+        0.5850000000000001
+      ],
+      "target": [
+        9.4,
+        21.8,
+        -0.845
+      ],
+      "lens": 32,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    {
+      "id": "CAM_39",
+      "title": "Pump and damp services",
+      "position": [
+        8.2,
+        17.35,
+        1.21625
+      ],
+      "target": [
+        10,
+        18.5,
+        0.0375
+      ],
+      "lens": 30,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_40",
+      "title": "Service alcove reverse",
+      "position": [
+        8.25,
+        24,
+        1.1
+      ],
+      "target": [
+        8.1,
+        20.5,
+        0.9375
+      ],
+      "lens": 23,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_41",
+      "title": "Anchored ceiling web",
+      "position": [
+        1.75,
+        12.8,
+        1.4
+      ],
+      "target": [
+        -1.8,
+        15,
+        2.525
+      ],
+      "lens": 35,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    {
+      "id": "CAM_42",
+      "title": "Discarded rotten timber",
+      "position": [
+        8.35,
+        15,
+        1.275
+      ],
+      "target": [
+        9.25,
+        16.45,
+        -0.06125000000000003
+      ],
+      "lens": 33,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    {
+      "id": "CAM_43",
+      "title": "Eerie return loop",
+      "position": [
+        6,
+        27.6,
+        1.0099999999999998
+      ],
+      "target": [
+        8.2,
+        24.9,
+        0.8775
+      ],
+      "lens": 25,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_44",
+      "title": "Fracture and rubble contact",
+      "position": [
+        -2.7,
+        17.6,
+        0.9599999999999999
+      ],
+      "target": [
+        -5.7,
+        17.8,
+        0.10499999999999998
+      ],
+      "lens": 38,
+      "sector": "A",
+      "state": 4,
+      "gate": 1,
+      "kind": "detail"
+    },
+    {
+      "id": "CAM_45",
+      "title": "Damp mineral bleeding",
+      "position": [
+        -1.2,
+        22.4,
+        1.0899999999999999
+      ],
+      "target": [
+        -2.3,
+        24.5,
+        1.3875
+      ],
+      "lens": 35,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    {
+      "id": "CAM_46",
+      "title": "Cabinet wear and readable issue label",
+      "position": [
+        4,
+        -8.7,
+        1.6
+      ],
+      "target": [
+        5.85,
+        -7.6,
+        2.35
+      ],
+      "lens": 38,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    {
+      "id": "CAM_47",
+      "title": "Blast door closed from mine side",
+      "position": [
+        1.8,
+        2.5,
+        1.6175
+      ],
+      "target": [
+        0,
+        -0.8,
+        1.8
+      ],
+      "lens": 24,
+      "sector": null,
+      "state": null,
+      "gate": 0,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_48",
+      "title": "Cart interior from standing eye",
+      "position": [
+        1.05,
+        -9.8,
+        1.65
+      ],
+      "target": [
+        0,
+        -8.8,
+        0.8
+      ],
+      "lens": 30,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_49",
+      "title": "Deep-route silhouette and dark gaps",
+      "position": [
+        1.8,
+        29.5,
+        0.9624999999999999
+      ],
+      "target": [
+        0,
+        37,
+        0.47499999999999987
+      ],
+      "lens": 25,
+      "sector": "C",
+      "state": 4,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    {
+      "id": "CAM_50",
+      "title": "Final entry atmosphere",
+      "position": [
+        2.7,
+        -11.5,
+        1.65
+      ],
+      "target": [
+        0,
+        2,
+        1.9
+      ],
+      "lens": 23,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    }
+  ],
+  "camera_and_light_refinements": {
+    "corrected_camera_ids": [
+      "CAM_06",
+      "CAM_39",
+      "CAM_40"
+    ],
+    "reason": "Remove foreground obstructions from review views and illuminate previously unreadable shallow work areas."
+  },
+  "elapsed_build_seconds": 74.75,
+  "mesh_objects": 2637,
+  "visible_triangles": 399501,
+  "scene_saved": "/home/runner/work/critical-shift/critical-shift/sections/mine/production/quality50/Gullet_Quality50.blend"
+}

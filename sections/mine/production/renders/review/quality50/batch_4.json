@@ -1,0 +1,1034 @@
+[
+  {
+    "camera": {
+      "id": "CAM_41",
+      "title": "Anchored ceiling web",
+      "position": [
+        1.75,
+        12.8,
+        1.4
+      ],
+      "target": [
+        -1.8,
+        15,
+        2.525
+      ],
+      "lens": 35,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    "file": "CAM_41.png",
+    "sha256": "45cce4a34bc185e831b7e7c7e9a7e6576814a4e11ffd7a10ce14f60e878ebd11",
+    "seconds": 70.68,
+    "diagnostics": {
+      "minimum_forward_hit_m": 4.53143,
+      "rays": [
+        {
+          "distance": 5.13961,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 5.74414,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 9.69372,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 5.04749,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 6.07614,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 8.71217,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 4.53143,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 4.8665,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 5.25644,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_42",
+      "title": "Discarded rotten timber",
+      "position": [
+        8.35,
+        15,
+        1.275
+      ],
+      "target": [
+        9.25,
+        16.45,
+        -0.06125000000000003
+      ],
+      "lens": 33,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    "file": "CAM_42.png",
+    "sha256": "b15541d791ae4e048819edcb77d832804a122c38530b0cf761c3c3b4cc34d978",
+    "seconds": 61.67,
+    "diagnostics": {
+      "minimum_forward_hit_m": 1.72549,
+      "rays": [
+        {
+          "distance": 2.25593,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 1.9985,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 1.86217,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 3.14529,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 2.76734,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 1.78088,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 7.00279,
+          "object": "CSM_Sump_water",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 3.4027,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 1.72549,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_43",
+      "title": "Eerie return loop",
+      "position": [
+        6,
+        27.6,
+        1.0099999999999998
+      ],
+      "target": [
+        8.2,
+        24.9,
+        0.8775
+      ],
+      "lens": 25,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_43.png",
+    "sha256": "d6e38e02501da4c23c60670ecf6d7515237966b7cb1c552e23cd874333854f80",
+    "seconds": 64.65,
+    "diagnostics": {
+      "minimum_forward_hit_m": 1.88573,
+      "rays": [
+        {
+          "distance": 3.31874,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 3.67526,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 1.88573,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 3.26559,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 8.41663,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 2.06786,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 3.11795,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 3.64924,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 2.0464,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_44",
+      "title": "Fracture and rubble contact",
+      "position": [
+        -2.7,
+        17.6,
+        0.9599999999999999
+      ],
+      "target": [
+        -5.7,
+        17.8,
+        0.10499999999999998
+      ],
+      "lens": 38,
+      "sector": "A",
+      "state": 4,
+      "gate": 1,
+      "kind": "detail"
+    },
+    "file": "CAM_44.png",
+    "sha256": "d8a581fcca0cae8dcea2ad1548a5178bebbc68906b5be1e04ad4edd874a82bf5",
+    "seconds": 64.45,
+    "diagnostics": {
+      "minimum_forward_hit_m": 1.67113,
+      "rays": [
+        {
+          "distance": 1.67113,
+          "object": "Q50_A_Removable_fracture_02",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 2.44688,
+          "object": "Q50_A_Removable_fracture_04",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 1.91381,
+          "object": "Q50_A_Removable_fracture_17",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 2.23065,
+          "object": "CSM_Buckled_steel_member",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 5.13463,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 3.53929,
+          "object": "Q50_A_Removable_fracture_11",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 8.27205,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 14.5251,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 5.83661,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_45",
+      "title": "Damp mineral bleeding",
+      "position": [
+        -1.2,
+        22.4,
+        1.0899999999999999
+      ],
+      "target": [
+        -2.3,
+        24.5,
+        1.3875
+      ],
+      "lens": 35,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    "file": "CAM_45.png",
+    "sha256": "6ea72d6f0126488e256ea45ca5efb6c51b1aaf41aa32044b5c1558bdbd431593",
+    "seconds": 67.46,
+    "diagnostics": {
+      "minimum_forward_hit_m": 2.73698,
+      "rays": [
+        {
+          "distance": 2.91976,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 5.0742,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 11.6438,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 2.75731,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 5.22427,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 21.88389,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 3.08285,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 2.73698,
+          "object": "CSM_Cable_tray_pan.013",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 5.57832,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_46",
+      "title": "Cabinet wear and readable issue label",
+      "position": [
+        4,
+        -8.7,
+        1.6
+      ],
+      "target": [
+        5.85,
+        -7.6,
+        2.35
+      ],
+      "lens": 38,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "detail"
+    },
+    "file": "CAM_46.png",
+    "sha256": "d4367743582c8e837097bb3d17ea9a72cae7c9bbfc72a77d0d2ead53c8a27ad2",
+    "seconds": 63.51,
+    "diagnostics": {
+      "minimum_forward_hit_m": 1.80813,
+      "rays": [
+        {
+          "distance": 2.19815,
+          "object": "CSM_Door_folded_skin",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 2.09331,
+          "object": "CSM_Door_folded_skin.002",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 1.80813,
+          "object": "CSM_Door_folded_skin.002",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 2.16943,
+          "object": "CSM_Door_folded_skin",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 2.21421,
+          "object": "CSM_Door_folded_skin.002",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 1.87792,
+          "object": "CSM_Door_barrel_hinge.004",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 6.76641,
+          "object": "CSM_Canopy_roof_half.002",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 4.7092,
+          "object": "CSM_Canopy_column.004",
+          "ray": [
+            0,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_47",
+      "title": "Blast door closed from mine side",
+      "position": [
+        1.8,
+        2.5,
+        1.6175
+      ],
+      "target": [
+        0,
+        -0.8,
+        1.8
+      ],
+      "lens": 24,
+      "sector": null,
+      "state": null,
+      "gate": 0,
+      "kind": "gameplay"
+    },
+    "file": "CAM_47.png",
+    "sha256": "d722f2b7cfa203a44ff12a4f29b8b7356f6f2afffbe59933ed640d818141b116",
+    "seconds": 95.64,
+    "diagnostics": {
+      "minimum_forward_hit_m": 3.0451,
+      "rays": [
+        {
+          "distance": 3.13271,
+          "object": "Q50_Gate_rear_cross_rib.003",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 3.62712,
+          "object": "CSM_Rail_notched_bottom_skirt.003",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 5.14124,
+          "object": "CSM_Apron_concrete_slab.003",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 3.0451,
+          "object": "CSM_Leaf_solid_core.002",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 3.43383,
+          "object": "CSM_Leaf_solid_core.002",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 5.14643,
+          "object": "CSM_Shotcrete_portal_collar",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 3.30587,
+          "object": "CSM_Leaf_solid_core.002",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 3.88126,
+          "object": "CSM_Leaf_solid_core.002",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 4.6086,
+          "object": "CSM_Shotcrete_portal_collar",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_48",
+      "title": "Cart interior from standing eye",
+      "position": [
+        1.05,
+        -9.8,
+        1.65
+      ],
+      "target": [
+        0,
+        -8.8,
+        0.8
+      ],
+      "lens": 30,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_48.png",
+    "sha256": "b1929b42b232abe02c4773008269bebb407032eac6385b65b86a1521b520f793",
+    "seconds": 54.42,
+    "diagnostics": {
+      "minimum_forward_hit_m": 0.98742,
+      "rays": [
+        {
+          "distance": 1.56411,
+          "object": "Q50_Cart_bumper",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 0.98742,
+          "object": "Q50_Cart_side_plank.003",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 2.43697,
+          "object": "CSM_Apron_concrete_slab.005",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 1.38046,
+          "object": "Q50_Cart_end_plank.004",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 1.92587,
+          "object": "Q50_Cart_floor_plank.001",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 3.8049,
+          "object": "CSM_Apron_concrete_slab.005",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 8.83443,
+          "object": "CSM_Dispatch_lower_wall",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 9.68476,
+          "object": "CSM_Apron_concrete_slab.003",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 11.10821,
+          "object": "CSM_Apron_concrete_slab.003",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_49",
+      "title": "Deep-route silhouette and dark gaps",
+      "position": [
+        1.8,
+        29.5,
+        0.9624999999999999
+      ],
+      "target": [
+        0,
+        37,
+        0.47499999999999987
+      ],
+      "lens": 25,
+      "sector": "C",
+      "state": 4,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_49.png",
+    "sha256": "8dfa70afe45781efac9c4463620d9f727259e052f3730a27be5ef0c84363d85e",
+    "seconds": 68.88,
+    "diagnostics": {
+      "minimum_forward_hit_m": 3.81482,
+      "rays": [
+        {
+          "distance": 4.51921,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 3.81482,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 4.58527,
+          "object": "CSM_Excavated_floor",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 6.13202,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 26.5769,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 5.84382,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 5.37311,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 6.7503,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 4.71691,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "camera": {
+      "id": "CAM_50",
+      "title": "Final entry atmosphere",
+      "position": [
+        2.7,
+        -11.5,
+        1.65
+      ],
+      "target": [
+        0,
+        2,
+        1.9
+      ],
+      "lens": 23,
+      "sector": null,
+      "state": null,
+      "gate": 1,
+      "kind": "gameplay"
+    },
+    "file": "CAM_50.png",
+    "sha256": "385393e52aae16209a834bf4ece32d51b4f1671e468a60f13152f2f3f4d0d62d",
+    "seconds": 64.08,
+    "diagnostics": {
+      "minimum_forward_hit_m": 3.12297,
+      "rays": [
+        {
+          "distance": 3.12297,
+          "object": "Q50_Cart_chassis.001",
+          "ray": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "distance": 3.96775,
+          "object": "CSM_Apron_concrete_slab.005",
+          "ray": [
+            0,
+            -1
+          ]
+        },
+        {
+          "distance": 4.76499,
+          "object": "CSM_Apron_concrete_slab.008",
+          "ray": [
+            1,
+            -1
+          ]
+        },
+        {
+          "distance": 13.41668,
+          "object": "CSM_Dispatch_cladding",
+          "ray": [
+            -1,
+            0
+          ]
+        },
+        {
+          "distance": 31.43482,
+          "object": "CSM_Continuous_stratified_mine_skin",
+          "ray": [
+            0,
+            0
+          ]
+        },
+        {
+          "distance": 5.022,
+          "object": "CSM_Door_folded_skin",
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "distance": 9.98155,
+          "object": "CSM_Canopy_roof_half",
+          "ray": [
+            -1,
+            1
+          ]
+        },
+        {
+          "distance": 8.65266,
+          "object": "CSM_Canopy_roof_half.002",
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "distance": 9.53746,
+          "object": "CSM_Canopy_roof_half.002",
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "near_plane_clear": true
+    },
+    "engine": "Cycles",
+    "blender": "5.2.1 LTS"
+  }
+]
