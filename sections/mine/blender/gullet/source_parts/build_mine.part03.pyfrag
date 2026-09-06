@@ -1,0 +1,150 @@
+ s.collection='01_ARCHITECTURE'
+ # Deliberately compact, sheltered prep apron. Slab joints are not a tile grid.
+ for x in [-4,0,4]:
+  for y in [-11.5,-6.5,-1.5]:box(s,'Apron_concrete_slab',(x,y,-.115),(3.99,4.985,.23),'concrete',.008)
+ for side in [-1,1]:
+  box(s,'Side_apron',(side*6.9,-7.5,-.10),(1.78,13,.20),'concrete',.005)
+  box(s,'Apron_curb',(side*7.85,-7.1,.11),(.28,13.5,.22),'concrete',.045)
+ # Facility-side docking socket: open 4.4 x 3.4 m, with 7 m of built continuation.
+ for side in [-1,1]:
+  box(s,'Facility_transition_wall',(side*2.42,-18,1.9),(.40,8,3.8),'concrete',.025)
+  box(s,'Facility_lower_protection',(side*2.195,-18,.75),(.06,7.95,1.35),'paint_teal',.006)
+ box(s,'Facility_transition_floor',(0,-18,-.1),(4.45,8,.20),'concrete',.004)
+ box(s,'Facility_transition_roof',(0,-18,3.86),(5.05,8,.20),'concrete',.02)
+ for y in [-21.7,-16.3]:
+  for side in [-1,1]:box(s,'Facility_door_reveal',(side*2.17,y,1.76),(.16,.26,3.52),'paint_cream',.014)
+  box(s,'Facility_door_header',(0,y,3.47),(4.5,.26,.20),'paint_cream',.014)
+ fluorescent(s,'Transition_practical',(0,-18,3.58),1.3,175)
+ sign(s,'Return_route',(0,-14.03,3.23),2.55,.38,'return')
+ s.empty('SOCKET_FACILITY',(0,-22,0),meta={'socket_type':'facility_connection','clear_width_m':4.4,'clear_height_m':3.4,'outward_axis':'-Y'},collection='13_INTERFACES')
+ s.empty('SOCKET_ORE_HANDOFF',(0,-21.5,.2),meta={'socket_type':'refinery_handoff','rail_gauge_m':1.1},collection='13_INTERFACES')
+ # Left return-wall gives the workstation a quiet visual backing.
+ box(s,'Dispatch_lower_wall',(-7.58,-7.15,.65),(.30,12.6,1.30),'concrete',.025)
+ box(s,'Dispatch_cladding',(-7.57,-7.15,2.20),(.18,12.6,1.8),'paint_teal',.012)
+ box(s,'Dispatch_coping',(-7.56,-7.15,3.12),(.27,12.7,.08),'paint_cream',.006)
+ for y in [-12.9,-10.6,-8.3,-6,-3.7,-1.2]:
+  box(s,'Cladding_seam',(-7.457,y,2.21),(.02,.025,1.73),'dark_steel',.002)
+ # Two partial windbreaks leave the charge-issue side connected to the yard.
+ for y,L in [(-9.8,4.4),(-2.1,3.)]:
+  box(s,'Issue_windbreak',(7.48,y,1.19),(.24,L,2.38),'concrete',.025)
+  box(s,'Windbreak_cap',(7.48,y,2.40),(.29,L+.04,.08),'paint_cream',.008)
+ # Real rolled profiles, base plates, bolts and pitched braced trusses.
+ for y in [-12.8,-6.8,-.8]:
+  for side in [-1,1]:
+   x=side*7.3
+   profile_extrude(s,'Canopy_column',ibeam_profile(.24,.29,.027),5.13,'paint_teal',(x,y,2.72),axis='Z')
+   box(s,'Column_plinth',(x,y,.13),(.67,.66,.26),'concrete',.028)
+   box(s,'Column_baseplate',(x,y,.281),(.43,.48,.043),'steel',.008)
+   for dx in [-.15,.15]:
+    for dy in [-.17,.17]:bolt(s,'Anchor_nut',(x+dx,y+dy,.305),.03)
+  sweep(s,'Truss_top',[(-7.5,y,5.15),(0,y,5.70),(7.5,y,5.15)],ibeam_profile(.15,.20,.019),'paint_teal')
+  sweep(s,'Truss_bottom',[(-7.5,y,4.91),(7.5,y,4.91)],ibeam_profile(.14,.16,.016),'paint_teal')
+  for x in np.arange(-6,7,2):
+   z=5.70-abs(x)*.0733
+   pipe(s,'Truss_vertical',(x,y,4.94),(x,y,z-.03),.035,'dark_steel',8)
+   nx=x+2
+   if nx<=7:pipe(s,'Truss_diagonal',(x,y,z-.04),(nx,y,4.95),.037,'paint_teal',8)
+ for side in [-1,1]:
+  box(s,'Canopy_roof_half',(side*3.93,-6.9,5.435),(7.91,14.1,.065),'paint_teal',.004,rot=(0,side*.070,0))
+  for x in np.arange(.35,7.7,.62):
+   z=5.72-x*.070
+   box(s,'Standing_roof_seam',(side*x,-6.9,z),(.035,14.09,.045),'steel',.005,rot=(0,side*.070,0))
+  # Folded gutter and an actual downpipe reaching grade.
+  sweep(s,'Rain_gutter',[(side*7.9,-13.9,5.12),(side*7.9,.2,5.12)],[(-.1,.1),(-.1,-.06),(.1,-.06),(.1,.1),(.075,.1),(.075,-.035),(-.075,-.035),(-.075,.1)],'dark_steel')
+  line(s,'Downpipe',[(side*7.83,-12.4,5.12),(side*7.95,-12.4,4.85),(side*7.95,-12.4,.25),(side*8.25,-12.4,.09)],.06,'steel')
+ for y in [-10.5,-4.5]:
+  fluorescent(s,'Bay_ceiling_practical',(-3.5,y,4.95),1.45,290,warm=(y<-7))
+  fluorescent(s,'Bay_ceiling_practical',(3.8,y,4.95),1.25,230)
+ # Portal is a deep reveal, not a paper-thin arch in front of a tube.
+ for side in [-1,1]:
+  profile=[(-1.23,0),(1.23,0),(1.08,5.6),(.58,6.08),(-1.1,6.08)]
+  profile_extrude(s,'Portal_buttress',profile,1.2,'concrete',(side*4.15,.28,0))
+  box(s,'Gate_recess_rear',(side*4.43,.5,2.32),(2.93,.25,4.64),'dark_steel',.01)
+  box(s,'Reveal_steel_jamb',(side*2.90,-.27,2.36),(.20,.32,4.73),'dark_steel',.012)
+  for z in [.5,2.,3.5,4.4]:bolt(s,'Reveal_anchor',(side*2.90,-.449,z),.033,'Y')
+ box(s,'Portal_lintel',(0,.25,5.44),(10.9,1.30,1.09),'concrete',.075)
+ box(s,'Gate_drive_rail',(0,-.48,4.82),(11.8,.29,.27),'dark_steel',.02)
+ box(s,'Gate_drive_cover',(0,-.43,5.08),(11.95,.56,.14),'paint_teal',.015)
+ sign(s,'Mine_identifier',(0,-.421,4.51),2.85,.35,'portal')
+ # Shotcrete reinforcement lining for the short entry reveal.
+ for side in [-1,1]:box(s,'Portal_inner_lining',(side*3.10,1.92,1.66),(.32,3.35,3.32),'concrete',.04)
+ # Shotcrete collar closes the geological cut edge against the portal reveal.
+ collar=[(-3.20,0),(-3.20,4.95),(3.20,4.95),(3.20,0),(2.88,0),(2.88,2.12),(2.61,2.92),(1.73,3.73),(0,4.05),(-1.73,3.73),(-2.61,2.92),(-2.88,2.12),(-2.88,0)]
+ profile_extrude(s,'Shotcrete_portal_collar',collar,1.68,'concrete',(0,.65,0))
+ # Double sliding blast leaves with separate, runtime-ready transforms.
+ controller=s.empty('CTRL_BLAST_GATE',(0,0,0),meta={'open_fraction':1.0,'gate_type':'double_slide','leaf_travel_m':2.98},collection='13_INTERFACES')
+ for side,key in [(-1,'L'),(1,'R')]:
+  with s.group('Blast_leaf_'+key,(side*4.43,-.61,0),meta={'component':'blast_leaf','gate_side':side,'closed_x':side*1.45,'travel':side*2.98}):
+   box(s,'Leaf_solid_core',(0,0,2.42),(2.87,.33,4.24),'dark_steel',.032)
+   notch=-side*.90
+   for xa,xb in [(-1.435,notch-.105),(notch+.105,1.435)]:
+    box(s,'Rail_notched_bottom_skirt',((xa+xb)/2,0,.18),(xb-xa,.33,.24),'dark_steel',.012)
+   box(s,'Leaf_outer_skin',(0,-.181,2.37),(2.70,.055,4.10),'paint_teal',.025)
+   for x in [-1.23,-.64,.64,1.23]:
+    profile_extrude(s,'Leaf_vertical_stiffener',[(-.065,-.04),(.065,-.04),(.075,.07),(.035,.10),(-.035,.10),(-.075,.07)],3.98,'steel',(x,-.25,2.3),rot=(math.pi/2,0,0))
+   for z in [.50,1.65,3.10,4.16]:
+    box(s,'Leaf_cross_rib',(0,-.26,z),(2.51,.10,.085),'paint_teal',.005)
+    for x in [-1.20,1.20]:bolt(s,'Leaf_stud',(x,-.325,z),.027,'Y')
+   hazard_strip(s,'Leaf_lower_warning',(0,-.219,.78),2.47,.25)
+   box(s,'Gate_closing_seal',(-side*1.43,0,2.28),(.073,.39,4.43),'rubber',.018)
+   for x in [-.83,.83]:
+    lathe(s,'Gate_carriage_wheel',[(.15,-.065),(.185,-.05),(.185,.02),(.15,.035)],'steel',(x,.04,4.77),(math.pi/2,0,0),n=24)
+    box(s,'Gate_hanger',(x,0,4.52),(.16,.19,.45),'paint_ochre',.015)
+ # Flush threshold and a pedestrian guardrail beside the leaf pockets.
+ box(s,'Gate_threshold',(0,-.45,.015),(5.82,.84,.03),'steel',.004)
+ for side in [-1,1]:
+  for y in [-1.9,-.5]:
+   pipe(s,'Pocket_guard_post',(side*5.87,y,.06),(side*5.87,y,1.03),.038,'paint_ochre')
+  pipe(s,'Pocket_guard_top',(side*5.87,-1.9,1.03),(side*5.87,-.5,1.03),.04,'paint_ochre')
+ # Wheel-operated interface, recessed switch, meter and caged state lamp.
+ with s.group('Gate_operator',(-4.02,-2.24,0),collection='06_WORKSTATIONS',meta={'interaction':'blast_gate_control'}):
+  box(s,'Console_base',(0,0,.13),(.70,.68,.26),'concrete',.03)
+  box(s,'Console_stem',(0,0,.62),(.32,.33,.76),'paint_teal',.025)
+  profile_extrude(s,'Operator_housing',[(-.38,.95),(.38,.95),(.38,1.36),(.23,1.62),(-.38,1.62)],.40,'paint_teal',axis='Y')
+  handwheel(s,'Manual_gate_wheel',(0,-.30,1.15),.22)
+  gauge(s,'Gate_pressure',(.20,-.224,1.46),.085)
+  box(s,'Switch_guard',(-.22,-.24,1.49),(.13,.08,.14),'dark_steel',.006)
+  pipe(s,'Guarded_toggle',(-.22,-.30,1.48),(-.22,-.34,1.53),.014,'paint_cream')
+  sign(s,'Operator_label',(0,-.225,.78),.57,.125,'door')
+  lathe(s,'Beacon_base',[(.078,0),(.078,.035),(.062,.045)],'dark_steel',(0,0,1.63))
+  lathe(s,'Beacon_lens',[(.055,0),(.056,.07),(.033,.105)],'emissive_amber',(0,0,1.67))
+  for a in np.linspace(0,2*math.pi,6,endpoint=False):
+   line(s,'Beacon_guard',[(.07*math.cos(a),.07*math.sin(a),1.67),(.07*math.cos(a),.07*math.sin(a),1.76),(0,0,1.79)],.004,'steel')
+ # Minor slab wear is local to feet and cart travel, not everything in the room.
+ for y in [-11,-7,-2]:panel(s,'Route_scuff',(1.65,y,.005),1.2,1.6,'scuff',rot=(0,0,.12*y))
+
+
+def charge_magazine(s):
+ with s.group('Charge_issue_cabinet',(6.20,-7.6,0),rot=(0,0,-math.pi/2),collection='06_WORKSTATIONS',meta={'interaction':'charge_inventory'}):
+  box(s,'Cabinet_plinth',(0,0,.09),(2.04,.85,.18),'concrete',.025)
+  box(s,'Cabinet_back',(0,.34,1.29),(1.98,.045,2.32),'paint_ochre',.008)
+  for x in [-.97,0,.97]:box(s,'Cabinet_upright',(x,0,1.30),(.054,.71,2.35),'paint_ochre',.008)
+  for z in [.18,2.44]:box(s,'Cabinet_folded_rail',(0,0,z),(2.0,.76,.07),'paint_ochre',.008)
+  for z in [.61,1.17,1.73]:
+   box(s,'Issue_shelf',(0,0,z),(1.87,.65,.036),'paint_cream',.003)
+   box(s,'Shelf_return',(0,-.335,z+.046),(1.90,.038,.09),'paint_cream',.004)
+  # One open leaf provides an authored silhouette and exposes the staged props.
+  for side in [-1,1]:
+   hinge_x=side*.97
+   with s.group('Magazine_door',loc=(hinge_x,-.38,0),rot=(0,0,math.radians(-67) if side==-1 else 0),meta={'component':'cabinet_door'}):
+    cx=-side*.473
+    box(s,'Door_folded_skin',(cx,0,1.30),(.943,.049,2.19),'paint_ochre',.010)
+    box(s,'Door_recess',(cx,-.029,1.42),(.75,.011,1.50),'paint_red',.011)
+    for z in [.43,2.16]:pipe(s,'Door_barrel_hinge',(0,.002,z-.1),(0,.002,z+.1),.034,'steel',16)
+    line(s,'Issue_handle',[(cx-side*.31,-.065,1.11),(cx-side*.31,-.125,1.11),(cx-side*.31,-.125,1.38),(cx-side*.31,-.065,1.38)],.018,'dark_steel')
+    for xx in [cx-.36,cx+.36]:
+     for z in [.33,2.24]:bolt(s,'Door_corner_fixing',(xx,-.034,z),.014,'Y')
+  # Individually named, removable fictional game charge tokens. No real initiation or engineering model.
+  for shelf,z in enumerate([.61,1.17,1.73]):
+   box(s,'Charge_tray',(-.49,.025,z+.028),(.74,.52,.046),'dark_steel',.006)
+   for j in range(4):
+    with s.group(f'Charge_token_{shelf}_{j}',(-.77+j*.182,-.02,z+.091),meta={'interaction':'pickup_charge_token','item_type':'fictional_charge','token_value':1,'rigidbody_pivot':True}):
+     lathe(s,'Paper_charge_body',[(.047,-.165),(.052,-.148),(.052,.148),(.046,.165)],'paint_red',rot=(math.pi/2,0,0),n=20)
+     for yy in [-.12,.12]:pipe(s,'Charge_paper_band',(0,yy-.014,0),(0,yy+.014,0),.053,'paper',20)
+  sign(s,'Charge_issue_title',(0,-.411,2.65),1.88,.30,'magazine')
+  box(s,'Cabinet_notice',(0,-.419,2.22),(.54,.018,.11),'paper',.002)
+  fluorescent(s,'Magazine_worklight',(0,-.36,2.93),.92,95,warm=True)
+
+
+def shovel(s,loc,rot=(0,0,0)):
+ with s.group('Shovel',loc,rot,collection='06_WORKSTATIONS',meta={'interaction':'pickup_tool','tool_type':'shovel'}):
