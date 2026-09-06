@@ -1,0 +1,117 @@
+{
+  "camera_manifests_identical": true,
+  "purpose": "Cold-start regression",
+  "images": [
+    {
+      "camera": "VALIDATE_Spawn",
+      "size": [
+        1440,
+        900
+      ],
+      "mean_absolute_8bit": 0.0014588477366255144,
+      "rms_8bit": 0.03819486531754647,
+      "identical_pixels": false
+    },
+    {
+      "camera": "VALIDATE_HallForward",
+      "size": [
+        1440,
+        900
+      ],
+      "mean_absolute_8bit": 0.00045396090534979426,
+      "rms_8bit": 0.021306358331488615,
+      "identical_pixels": false
+    },
+    {
+      "camera": "VALIDATE_LockerDoor",
+      "size": [
+        1440,
+        900
+      ],
+      "mean_absolute_8bit": 0.0011530349794238682,
+      "rms_8bit": 0.03395636876086529,
+      "identical_pixels": false
+    },
+    {
+      "camera": "VALIDATE_LockerReverse",
+      "size": [
+        1440,
+        900
+      ],
+      "mean_absolute_8bit": 0.00237011316872428,
+      "rms_8bit": 0.04868380807541949,
+      "identical_pixels": false
+    },
+    {
+      "camera": "VALIDATE_BriefingDoor",
+      "size": [
+        1440,
+        900
+      ],
+      "mean_absolute_8bit": 0.000673611111111111,
+      "rms_8bit": 0.025954019170662392,
+      "identical_pixels": false
+    },
+    {
+      "camera": "VALIDATE_Material_A",
+      "size": [
+        1440,
+        900
+      ],
+      "mean_absolute_8bit": 0.0006597222222222222,
+      "rms_8bit": 0.02568505834570407,
+      "identical_pixels": false
+    },
+    {
+      "camera": "VALIDATE_ExitReverse",
+      "size": [
+        1440,
+        900
+      ],
+      "mean_absolute_8bit": 0.0011193415637860084,
+      "rms_8bit": 0.033456562342625826,
+      "identical_pixels": false
+    },
+    {
+      "camera": "VALIDATE_Walk_A",
+      "size": [
+        1440,
+        900
+      ],
+      "mean_absolute_8bit": 0.0029403292181069958,
+      "rms_8bit": 0.054224802610124787,
+      "identical_pixels": false
+    },
+    {
+      "camera": "VALIDATE_Walk_B",
+      "size": [
+        1440,
+        900
+      ],
+      "mean_absolute_8bit": 0.003159207818930041,
+      "rms_8bit": 0.05620683071415823,
+      "identical_pixels": false
+    },
+    {
+      "camera": "VALIDATE_Walk_C",
+      "size": [
+        1440,
+        900
+      ],
+      "mean_absolute_8bit": 0.0016651234567901234,
+      "rms_8bit": 0.04080592428545301,
+      "identical_pixels": false
+    },
+    {
+      "camera": "VALIDATE_Hero_A",
+      "size": [
+        1440,
+        900
+      ],
+      "mean_absolute_8bit": 0.0024578189300411522,
+      "rms_8bit": 0.04957639488749815,
+      "identical_pixels": false
+    }
+  ],
+  "status": "PASS"
+}

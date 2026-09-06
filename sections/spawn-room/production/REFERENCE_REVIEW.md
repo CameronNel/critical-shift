@@ -1,5 +1,7 @@
 # Spawn Room Reference Review
 
+Current refinement, 6 September 2026: re-read global art direction and production protocol, Spawn reference bible and material/lighting references; re-inspected plates 10, 11 and 27. Online rendering/material skill research and source selection are recorded in `critics/tactile-lighting-review.md`. Latest main `97bb68c` was fetched and merged; its Gullet material changes introduce no new Spawn art-direction conflict. Original full reference review below remains the geometry baseline. The current pass changes materials, local wear and light hierarchy, retaining the fixed camera set.
+
 **Status:** mandatory pre-build evidence  
 **Rule:** this file must be updated before any new Spawn Room style-validation build begins.
 

@@ -1,5 +1,15 @@
 # Spawn Room — 100-Point Rubric
 
+## Current tactile refinement — builder review, 6 September 2026
+
+**92.5/100 for this material/lighting revision; human art approval remains pending.** This is a judgment of the rendered evidence, not a claim of perfection. Layout 18/20, shape/style 18/20, hero clarity 14/15, materials 14/15, lighting 9.5/10, dressing 9/10, technical 10/10. Material/lighting evidence: plates 10/11/27 versus `renders/final/tactile/` and its `walk/` subdirectory. Existing room silhouettes/layout are retained; the material pass does not claim to redesign them.
+
+The validation slice demonstrates stronger practical falloff, worn concrete and distinguishable timber/paint/plaster/rubber: **8.7/10 builder review**. The first slice's vertical tread stretch and broad paint-normal ripple were corrected in source before the final slice checkpoint. Full-room review exposed and corrected the overly broad tread-material selector and the dark operations hazard band.
+
+The two final EEVEE camera cycles retain the same material appearance after reopening (all eleven fixed views, maximum mean 8-bit difference 0.00316). Cycles received a separate full fresh-process eleven-view review and two detail renders. Technical checks: 83 support contacts, 29 objectives, 15 required packed texture hashes and ten scene-lit startup viewports. No score is inherited from the old worn pass, which the user rejected as flat.
+
+Remaining limitations are visible and documented: simplified inherited suit folds/furniture shapes, a deliberately sparse room, EEVEE/Cycles lighting differences, and no optimized game-engine export. This refinement is not an independent review or user acceptance of the entire environment.
+
 <!-- ART_DIRECTION_RESET_2026_09 -->
 > [!IMPORTANT]
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.

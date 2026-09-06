@@ -1,5 +1,24 @@
 # Spawn Room Blender Source
 
+## Current tactile revision — 6 September 2026
+
+Open **`spawnroom_tactile_walk.blend`** for walking with materials and scene lighting. It uses EEVEE, four baked room light volumes and a bounded floor-bounce approximation. Material Preview uses the scene lights/world and starts at the spawn eye position. Hover over the viewport, press F3, choose **Walk Navigation**; WASD moves, mouse looks, Shift speeds up, Esc exits. Initial material compilation can take a minute. No automatic script execution is required.
+
+**`spawnroom_tactile.blend`** is the editable Cycles authoring source with conservative Solid startup. Both are derived from an empty factory scene. This pass adds four CC0 material sets, separate surface finishes, localized sheet deflection and stronger practical-light falloff. The earlier locally edited `spawnroom_worn.blend` is preserved.
+
+Reproduce from the repository root:
+
+```powershell
+blender --background --factory-startup --python-exit-code 1 --python sections/spawn-room/blender/build_grounded.py -- --scope room --tactile --output spawnroom_tactile.blend --review-id tactile-source --samples 32 --no-render
+blender --background sections/spawn-room/blender/spawnroom_tactile.blend --python-exit-code 1 --python sections/spawn-room/blender/cold_start_grounded.py -- --review-id tactile-verify --device HIP
+blender --background sections/spawn-room/blender/spawnroom_tactile.blend --python-exit-code 1 --python sections/spawn-room/blender/prepare_lit_walk.py -- --review-id tactile-walk
+blender --background sections/spawn-room/blender/spawnroom_tactile_walk.blend --python-exit-code 1 --python sections/spawn-room/blender/cold_start_grounded.py -- --review-id tactile-walk-verify
+```
+
+Omit `--device HIP` to use CPU. The tested GPU is the Radeon RX 9070 XT, Blender 5.2.0 LTS. Review output is 1440×900, AgX Medium High Contrast, exposure +0.3, Cycles 32 samples/denoised; walking renders use EEVEE 64 samples with 16 viewport samples. All eleven fixed cameras remain unchanged. Material Preview is intentional: Blender restored the saved Rendered-mode viewport to Solid during the reopen check.
+
+Current evidence: `../production/renders/final/tactile/`, with `walk/` holding EEVEE images. New online sources and licenses: `../assets/textures/TACTILE_SOURCES.md`. Rendering-skill research and rejected passes: `../production/critics/tactile-lighting-review.md`. The EEVEE copy approximates indirect light; it is not pixel-identical to Cycles or an optimized game-engine export.
+
 <!-- ART_DIRECTION_RESET_2026_09 -->
 > [!IMPORTANT]
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.

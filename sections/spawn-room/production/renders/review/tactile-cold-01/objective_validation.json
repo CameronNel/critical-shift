@@ -1,0 +1,321 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "suit_station",
+      "pass": true,
+      "detail": [
+        "PPE_01",
+        "PPE_02",
+        "PPE_03",
+        "PPE_04"
+      ]
+    },
+    {
+      "check": "primary_seat",
+      "pass": true,
+      "detail": [
+        "BRIEFING_seat_00",
+        "BRIEFING_seat_01",
+        "BRIEFING_seat_02",
+        "BRIEFING_seat_03"
+      ]
+    },
+    {
+      "check": "integrity_chamber",
+      "pass": true,
+      "detail": [
+        "INTEGRITY"
+      ]
+    },
+    {
+      "check": "radiation_checkpoint",
+      "pass": true,
+      "detail": [
+        "RADIATION"
+      ]
+    },
+    {
+      "check": "two stations each side",
+      "pass": true,
+      "detail": "Locker centre y=4"
+    },
+    {
+      "check": "left briefing / right PPE",
+      "pass": true,
+      "detail": "World X sides from spawn facing +Y"
+    },
+    {
+      "check": "chamber circulation >=1.2m",
+      "pass": true,
+      "detail": {
+        "north": 1.2029995918273926,
+        "south": 1.2029999494552612,
+        "rear_to_bench": 1.294999599456787
+      }
+    },
+    {
+      "check": "gathering hall >=3m",
+      "pass": true,
+      "detail": 3.296000009536743
+    },
+    {
+      "check": "BRIEFING_entry editable pivot",
+      "pass": true,
+      "detail": "Separate hinged leaf root"
+    },
+    {
+      "check": "LOCKER_entry editable pivot",
+      "pass": true,
+      "detail": "Separate hinged leaf root"
+    },
+    {
+      "check": "OPERATIONS_door editable pivot",
+      "pass": true,
+      "detail": "Separate hinged leaf root"
+    },
+    {
+      "check": "BRIEFING_seat_00 seat height",
+      "pass": true,
+      "detail": 0.4690000116825104
+    },
+    {
+      "check": "BRIEFING_seat_01 seat height",
+      "pass": true,
+      "detail": 0.4690000116825104
+    },
+    {
+      "check": "BRIEFING_seat_02 seat height",
+      "pass": true,
+      "detail": 0.4690000116825104
+    },
+    {
+      "check": "BRIEFING_seat_03 seat height",
+      "pass": true,
+      "detail": 0.4690000116825104
+    },
+    {
+      "check": "briefing outer circulation >=1m",
+      "pass": true,
+      "detail": {
+        "behind_seats": 1.2467609786987304,
+        "north_of_seats": 1.4374047279357907
+      }
+    },
+    {
+      "check": "actual furniture feet on floor",
+      "pass": true,
+      "detail": {
+        "checked": 36,
+        "bad": {}
+      }
+    },
+    {
+      "check": "major supported asset coverage",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "eleven fixed eye height cameras",
+      "pass": true,
+      "detail": 11
+    },
+    {
+      "check": "packed image dependencies",
+      "pass": true,
+      "detail": [
+        "commissioning_crew.png",
+        "concrete_floor_worn_001_diff_2k.jpg",
+        "concrete_floor_worn_001_disp_2k.jpg",
+        "concrete_floor_worn_001_rough_2k.jpg",
+        "human_contribution.png",
+        "metal_plate_diff_2k.jpg",
+        "metal_plate_disp_2k.jpg",
+        "metal_plate_rough_2k.jpg",
+        "painted_plaster_wall_diff_2k.jpg",
+        "painted_plaster_wall_disp_2k.jpg",
+        "painted_plaster_wall_rough_2k.jpg",
+        "plastered_wall_diff_2k.jpg",
+        "plastered_wall_disp_2k.jpg",
+        "plastered_wall_rough_2k.jpg",
+        "wood_table_worn_diff_2k.jpg",
+        "wood_table_worn_disp_2k.jpg",
+        "wood_table_worn_rough_2k.jpg"
+      ]
+    },
+    {
+      "check": "no missing surface materials",
+      "pass": true,
+      "detail": "All mesh slots populated"
+    },
+    {
+      "check": "no legacy scene source",
+      "pass": true,
+      "detail": "8603063"
+    },
+    {
+      "check": "four spawn markers",
+      "pass": true,
+      "detail": "SPAWN_1..4"
+    },
+    {
+      "check": "machine state READY",
+      "pass": true,
+      "detail": {
+        "frame": 1,
+        "readout": [
+          "READY"
+        ],
+        "doors_open": true
+      }
+    },
+    {
+      "check": "machine state OCCUPIED",
+      "pass": true,
+      "detail": {
+        "frame": 31,
+        "readout": [
+          "OCCUPIED"
+        ],
+        "doors_open": false
+      }
+    },
+    {
+      "check": "machine state TESTING",
+      "pass": true,
+      "detail": {
+        "frame": 61,
+        "readout": [
+          "TESTING"
+        ],
+        "doors_open": false
+      }
+    },
+    {
+      "check": "machine state PASS",
+      "pass": true,
+      "detail": {
+        "frame": 91,
+        "readout": [
+          "PASS"
+        ],
+        "doors_open": true
+      }
+    },
+    {
+      "check": "machine state INSPECT",
+      "pass": true,
+      "detail": {
+        "frame": 121,
+        "readout": [
+          "INSPECT"
+        ],
+        "doors_open": false
+      }
+    },
+    {
+      "check": "machine state FAIL",
+      "pass": true,
+      "detail": {
+        "frame": 151,
+        "readout": [
+          "FAIL"
+        ],
+        "doors_open": false
+      }
+    }
+  ],
+  "measurements": {
+    "chamber_world_bounds": [
+      [
+        4.0400004386901855,
+        3.009999990463257,
+        0.0
+      ],
+      [
+        6.03000020980835,
+        4.990000247955322,
+        2.7825000286102295
+      ]
+    ],
+    "chamber_circulation_m": {
+      "north": 1.2029995918273926,
+      "south": 1.2029999494552612,
+      "rear_to_bench": 1.294999599456787
+    },
+    "hall_clear_m": 3.296000009536743,
+    "briefing_outer_aisles_m": {
+      "behind_seats": 1.2467609786987304,
+      "north_of_seats": 1.4374047279357907
+    },
+    "machine_states": [
+      {
+        "frame": 1,
+        "readout": [
+          "READY"
+        ],
+        "door_angles": [
+          1.5707963705062866,
+          -1.5707963705062866
+        ],
+        "scan_height": 1.9199999570846558
+      },
+      {
+        "frame": 31,
+        "readout": [
+          "OCCUPIED"
+        ],
+        "door_angles": [
+          0.0,
+          -0.0
+        ],
+        "scan_height": 1.9199999570846558
+      },
+      {
+        "frame": 61,
+        "readout": [
+          "TESTING"
+        ],
+        "door_angles": [
+          0.0,
+          -0.0
+        ],
+        "scan_height": 0.6499999761581421
+      },
+      {
+        "frame": 91,
+        "readout": [
+          "PASS"
+        ],
+        "door_angles": [
+          1.5707963705062866,
+          -1.5707963705062866
+        ],
+        "scan_height": 1.9199999570846558
+      },
+      {
+        "frame": 121,
+        "readout": [
+          "INSPECT"
+        ],
+        "door_angles": [
+          0.0,
+          -0.0
+        ],
+        "scan_height": 1.2000000476837158
+      },
+      {
+        "frame": 151,
+        "readout": [
+          "FAIL"
+        ],
+        "door_angles": [
+          0.0,
+          -0.0
+        ],
+        "scan_height": 1.2000000476837158
+      }
+    ]
+  },
+  "scope": "Source geometry and dependencies; runtime collision/networking are engine handoff work."
+}

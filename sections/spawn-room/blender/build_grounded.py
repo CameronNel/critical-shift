@@ -51,6 +51,7 @@ def slice_scene(stage):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',type=int,default=3);p.add_argument('--review-id',default='slice-01');p.add_argument('--samples',type=int,default=40);p.add_argument('--cameras',default='');p.add_argument('--scope',default='slice');p.add_argument('--no-render',action='store_true')
+    p.add_argument('--tactile',action='store_true');p.add_argument('--output',default='')
     args=p.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     review=(HERE.parent/'production/REFERENCE_REVIEW.md').read_text(encoding='utf-8')
     assert 'Reference review complete: **YES**' in review,'Complete reference review before modeling'
@@ -63,6 +64,9 @@ def main():
         import grounded_room
         names=grounded_room.build()
     if args.stage>=3:worn_surfaces.geometry(k,args.scope)
+    if args.tactile:
+        import tactile_lighting
+        tactile_lighting.apply(k,args.scope)
     s=bpy.context.scene;s.camera=bpy.data.objects[names[0]]
     s['build_scope']=args.scope;s['art_direction']='Grounded stylized semi-realism';s['reference_base']='8603063';s['review_id']=args.review_id
     if args.scope=='room':
@@ -88,7 +92,7 @@ def main():
                 area.spaces.active.shading.type='SOLID'
                 area.spaces.active.shading.color_type='MATERIAL'
                 area.spaces.active.overlay.show_overlays=False
-    output=HERE/('spawnroom_style_slice.blend' if args.scope=='slice' else 'spawnroom.blend')
+    output=HERE/(args.output or ('spawnroom_style_slice.blend' if args.scope=='slice' else 'spawnroom.blend'))
     bpy.ops.wm.save_as_mainfile(filepath=str(output),compress=True)
     out=HERE.parent/'production/renders/review'/args.review_id;out.mkdir(parents=True,exist_ok=True)
     import validate_contacts

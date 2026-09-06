@@ -1,0 +1,572 @@
+{
+  "validator": "Critical Shift support-contact validator",
+  "status": "PASS",
+  "required_collection": "CS_SUPPORT_REQUIRED",
+  "candidate_collections": [
+    "CS_WALL_DRESSING",
+    "CS_FLOOR_DRESSING",
+    "CS_CEILING_DRESSING"
+  ],
+  "objects_checked": 21,
+  "failures": [],
+  "objects": [
+    {
+      "object": "SLICE_bench",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_bench_contact_00",
+          "point_world": [
+            1.298,
+            -0.64,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.00027,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_bench_contact_01",
+          "point_world": [
+            1.298,
+            -0.2,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.00018,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_bench_contact_02",
+          "point_world": [
+            2.522,
+            -0.64,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000161,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_bench_contact_03",
+          "point_world": [
+            2.522,
+            -0.2,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 8.9e-05,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_bench_laminate_slat.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_bench_laminate_slat.001_rubbed_paint_contact_00",
+          "point_world": [
+            1.822955,
+            -0.4918,
+            0.431906
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_bench_laminate_slat.002_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_bench_laminate_slat.002_rubbed_paint_contact_00",
+          "point_world": [
+            1.95381,
+            -0.3408,
+            0.43443
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_bench_laminate_slat_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_bench_laminate_slat_rubbed_paint_contact_00",
+          "point_world": [
+            1.384421,
+            -0.6428,
+            0.432622
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_boot_traffic",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_boot_traffic_contact_00",
+          "point_world": [
+            0.05,
+            -1.04,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000752,
+          "normal_alignment": 0.999999
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_clipboard",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_clipboard_contact_00",
+          "point_world": [
+            1.45,
+            -0.44,
+            0.45
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_mug",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_mug_contact_00",
+          "point_world": [
+            2.39,
+            -0.45,
+            0.45
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_personnel_handle_contact_wear",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_personnel_handle_contact_wear_contact_00",
+          "point_world": [
+            -1.261,
+            0.006,
+            1.04
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_personnel_kickplate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_personnel_kickplate_rubbed_paint_contact_00",
+          "point_world": [
+            -1.457792,
+            -0.0033,
+            0.103045
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_personnel_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_personnel_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            -2.031948,
+            -0.1253,
+            0.006051
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_practical",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_practical_contact_00",
+          "point_world": [
+            -0.394,
+            -1.16,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_practical_contact_01",
+          "point_world": [
+            0.694,
+            -1.16,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_replaced_tile",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_replaced_tile_contact_00",
+          "point_world": [
+            -0.5,
+            -1.5,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000232,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_seat_contact",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_seat_contact_contact_00",
+          "point_world": [
+            2.02,
+            -0.56,
+            0.4507
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0007,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_station",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_station_contact_00",
+          "point_world": [
+            -0.43,
+            -0.152,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 9.6e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_station_contact_01",
+          "point_world": [
+            0.43,
+            -0.152,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000171,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:SLICE_station_contact_02",
+          "point_world": [
+            0.0,
+            -0.872,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.002,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_station_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_station_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            -0.088466,
+            -0.6123,
+            2.230485
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_station_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_station_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            -0.233694,
+            -0.6123,
+            0.085422
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_station_spare_cartridge",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_station_spare_cartridge_contact_00",
+          "point_world": [
+            0.37,
+            -0.222,
+            2.049
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_station_work_boot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_station_work_boot_contact_00",
+          "point_world": [
+            -0.131125,
+            -0.446975,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_station_work_boot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_station_work_boot.001_contact_00",
+          "point_world": [
+            0.130625,
+            -0.446992,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_threshold_traffic",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_threshold_traffic_contact_00",
+          "point_world": [
+            -1.7,
+            -0.3,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000971,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_utility",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_utility_contact_00",
+          "point_world": [
+            -2.78,
+            0.0,
+            0.35
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000395,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_utility_contact_01",
+          "point_world": [
+            -2.78,
+            0.0,
+            1.72
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000127,
+          "normal_alignment": 0.999928
+        },
+        {
+          "sample": "anchor:SLICE_utility_contact_02",
+          "point_world": [
+            -2.78,
+            0.0,
+            2.97
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000267,
+          "normal_alignment": 0.999995
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    }
+  ]
+}
