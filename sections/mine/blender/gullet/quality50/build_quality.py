@@ -15,7 +15,8 @@ from refinements import refine
 from finish_contacts import repair_gate_practicals
 from contact_repair import continuous_floor,natural_resources
 from review_corrections import apply as review_corrections
-REVISION='quality50-r6'
+from fixture_clearance import repair as repair_fixture_placements
+REVISION='quality50-r7'
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,required=True)
@@ -40,7 +41,12 @@ def main():
     report['dressing']=all_dressing(scene,mats);report['excavation_practicals']=excavation_lamps(scene,mats)
     report['render_driven_refinements']=refine(scene,mats)
     report['gate_fixture_contacts']=repair_gate_practicals(scene,mats)
-    report['cameras']=build_cameras(scene);report['camera_and_light_refinements']=review_corrections(scene,report['cameras']);set_review_state(scene,report['cameras'][0])
+    report['cameras']=build_cameras(scene)
+    report['camera_and_light_refinements']=review_corrections(scene,report['cameras'])
+    report['task_light_clearances']=repair_fixture_placements(scene)
+    (args.output/'fixture_clearance_report.json').write_text(json.dumps(report['task_light_clearances'],indent=2))
+    scene['q50_fixture_clearance']=json.dumps(report['task_light_clearances'])
+    set_review_state(scene,report['cameras'][0])
     scene['q50_revision']=REVISION;scene['q50_verified_art_status']='See the subsequent fifty-camera review and correction record.'
     import controls
     controls.register()
