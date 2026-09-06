@@ -1,0 +1,150 @@
+  state.update(state=stage,unlocked_stage=stage,remaining_rubble=0,cleared_rubble=[])
+ return state
+
+def is_visible(item:Item,states:dict,include_collision=False)->bool:
+ m=item.meta
+ if m.get('collision_only') and not include_collision:return False
+ sec=m.get('sector')
+ if not sec:return True
+ v=states.get(sec,0)
+ if isinstance(v,int):v={'state':v,'unlocked_stage':3 if v==4 else v,'remaining_rubble':22 if v==4 else 0,'cleared_rubble':[]}
+ st=int(v.get('state',0));unlocked=int(v.get('unlocked_stage',3 if st==4 else st))
+ if 'gate_index' in m:return st==int(m['gate_index'])
+ if m.get('collapse_only'):
+  if st!=4:return False
+  if m.get('damage_only'):return True
+  if int(v.get('remaining_rubble',0))<=0:return False
+  return int(m.get('rubble_index',-1)) not in v.get('cleared_rubble',[])
+ if 'min_stage' in m:return unlocked>=int(m['min_stage'])
+ return True
+
+
+def interfaces_and_cameras(s):
+ s.collection='13_INTERFACES'
+ for y in np.arange(-12,38,2):
+  s.empty('NAV_HAULAGE_ROUTE',(0,float(y),floor_z(y)+.2),meta={'socket_type':'cart_route','route_order':float(y),'slope':SLOPE})
+ for y in [1,5,9,15,20,24,30,35]:
+  s.empty('NAV_WALK_ROUTE',(2.07,y,floor_z(y)+.12),meta={'socket_type':'player_route','clear_width_m':1.2})
+ for i,(x,y) in enumerate([(3,12),(6,13.9),(8.4,16),(8.2,19),(7.69,21.6),(8,24.3),(6.5,27.3),(3,28.3)]):
+  s.empty('NAV_RETURN_LOOP',(x,y,floor_z(y)+.12),meta={'socket_type':'player_return_route','route_order':i})
+ s.camera('entry',(3.7,-13.05,1.72),(-.15,1.0,2.18),23)
+ s.camera('bay_overview',(9.8,-17.2,4.05),(-.50,-4.0,2.30),27,False)
+ s.camera('dispatch',(-3.45,-7.5,1.72),(-7.30,-8.8,2.04),30)
+ s.camera('charge_issue',(2.75,-10.1,1.65),(6.25,-7.6,1.45),38)
+ s.camera('main_route',(1.95,3.2,floor_z(3.2)+1.80),(-.50,19.4,floor_z(19.4)+1.78),23)
+ s.camera('reverse_route',(1.93,14.6,floor_z(14.6)+1.80),(-.10,-3.0,1.80),25)
+ s.camera('dry_cut',(-2.70,17.6,floor_z(17.6)+1.73),(-8.8,17.9,floor_z(17.9)+1.20),26)
+ s.camera('sump',(6.4,18.8,floor_z(18.8)+1.74),(9.0,22.0,floor_z(22)+.8),25)
+ s.camera('wet_cut',(3.55,32.4,floor_z(32.4)+1.76),(10.1,33.15,floor_z(33.15)+1.2),26)
+ s.camera('collapse',(1.65,36.4,floor_z(36.4)+1.76),(0,42.0,floor_z(42)+1.27),26)
+ # Soft exterior illumination, separate from practical indoor lighting.
+ s.light('Overcast_sky_key',(-9,-12,17),(0,-3,0),(.79,.87,1.0),4200,18)
+ s.light('Bay_warm_bounce',(3,-11,5.0),(-4,-4,1.0),(1.0,.90,.73),450,6)
+ s.light('Portal_daylight_fill',(0,-5,4.2),(0,4,1.6),(.78,.84,.90),430,4)
+
+
+def collision_meshes(s):
+ """Static triangle colliders retain openings; state colliders remain separate."""
+ pack=np.load(ASSETS/'geology.npz',allow_pickle=False)
+ old=s.collection;s.collection='14_COLLISION'
+ s.add('COL_GEOLOGY',pack['cave_vertices'],pack['cave_faces'],'collision',meta={'collision_only':True,'collision_type':'static_concave'})
+ s.add('COL_FLOOR',pack['floor_vertices'],pack['floor_faces'],'collision',meta={'collision_only':True,'collision_type':'static_concave'})
+ box(s,'COL_BAY_FLOOR',(0,-7.0,-.115),(15.7,14.0,.23),'collision',0,meta={'collision_only':True,'collision_type':'box'})
+ box(s,'COL_FACILITY_FLOOR',(0,-18,-.10),(4.45,8,.20),'collision',0,meta={'collision_only':True,'collision_type':'box'})
+ # Existing state surfaces are useful as independent static colliders.
+ for sec in SECTORS:
+  for level in range(3):
+   s.add(f'COL_{sec}_FACE_{level}',pack[f'gate_{sec}{level}_vertices'],pack[f'gate_{sec}{level}_faces'],'collision',meta={'collision_only':True,'sector':sec,'gate_index':level,'collision_type':'static_concave'})
+ s.collection=old
+
+
+def build_scene_data()->SceneData:
+ for path in [ASSETS/'geology.npz',ASSETS/'materials.json',TEXTURES/'shift_card.png']:
+  if not path.is_file():raise FileNotFoundError(f'Required packaged asset missing: {path}. Generate the section-local assets first; see AGENT_READ_FIRST.md.')
+ s=SceneData()
+ s.empty('ROOT',meta={'generator':VERSION,'source':'CameronNel/critical-shift','units':'metres','user_override':'Inclined adit, no lift','blender_runtime_tested':False})
+ s.parent=PREFIX+'ROOT'
+ t=time.time()
+ for fn in [cliff,architecture,workstations,haulage,geology_and_structure,services,sump,blast_sectors,interfaces_and_cameras,collision_meshes]:
+  fn(s);print('[GULLET]',fn.__name__,len(s.items),'objects',flush=True)
+ print('[GULLET] geometry authored in',round(time.time()-t,2),'seconds',flush=True)
+ return s
+
+
+def basic_audit(s:SceneData)->dict:
+ issues=[];degenerate=0;min_area=float('inf')
+ for key,m in s.meshes.items():
+  if not np.isfinite(m.vertices).all():issues.append('Nonfinite vertices: '+key)
+  if m.faces.min()<0 or m.faces.max()>=len(m.vertices):issues.append('Invalid topology index: '+key);continue
+  tri=m.vertices[m.faces];area=np.linalg.norm(np.cross(tri[:,1]-tri[:,0],tri[:,2]-tri[:,0]),axis=1)*.5
+  degenerate+=int((area<1e-12).sum());min_area=min(min_area,float(area.min()))
+ names=[a.name for a in s.items]+[a['name'] for a in s.empties]
+ if len(names)!=len(set(names)):issues.append('Duplicate object identifiers')
+ parents={a['name'] for a in s.empties}
+ for a in s.items:
+  if a.parent and a.parent not in parents:issues.append('Missing parent '+a.name)
+  if abs(np.linalg.det(a.matrix[:3,:3]))<1e-9:issues.append('Singular transform '+a.name)
+  if a.material in s.materials:
+   for suffix in ['basecolor','roughness','normal']:
+    if not (TEXTURES/f'{a.material}_{suffix}.png').is_file():issues.append('Missing texture '+a.material+'_'+suffix)
+  elif a.material.startswith('label_'):
+   filename='shift_card.png' if a.material=='label_shift_card' else a.material+'.png'
+   if not (TEXTURES/filename).is_file():issues.append('Missing sign texture '+filename)
+  elif a.material not in {'emissive_warm','emissive_cool','emissive_amber','water','scuff','collision'}:
+   issues.append('Unknown material '+a.material)
+ # State invariants across each sector and every unlocked phase.
+ state_tests=[]
+ for sec in SECTORS:
+  for stage in range(5):
+   st={k:0 for k in SECTORS};st[sec]=stage
+   gates=[x for x in s.items if x.meta.get('sector')==sec and x.meta.get('component')=='excavation_barrier' and is_visible(x,st)]
+   expected=1 if stage<3 else 0
+   if len(gates)!=expected:issues.append(f'{sec} stage {stage}: wrong active gate count {len(gates)}')
+   state_tests.append({'sector':sec,'state':STATE_NAMES[stage],'barriers':len(gates),'expected':expected})
+  a=evolve_state({'state':0,'unlocked_stage':0,'remaining_rubble':0},3)
+  b=evolve_state(a,1)
+  if b['unlocked_stage']!=2:issues.append('Unlock regression '+sec)
+  c=evolve_state(b,7)
+  if c['remaining_rubble']!=22 or c['state']!=4:issues.append('Missing collapse '+sec)
+  try:evolve_state(c,1);issues.append('A second game event erased rubble '+sec)
+  except ValueError:pass
+ # Actual continuous-surface roof clearance at fixed points on the main route.
+ cave=next(x for x in s.items if x.name==PREFIX+'Continuous_stratified_mine_skin')
+ tri=s.meshes[cave.mesh].vertices[s.meshes[cave.mesh].faces].astype(np.float64)
+ A=tri[:,0,:2];B=tri[:,1,:2];C=tri[:,2,:2]
+ den=(B[:,1]-C[:,1])*(A[:,0]-C[:,0])+(C[:,0]-B[:,0])*(A[:,1]-C[:,1])
+ valid=np.abs(den)>1e-10;safe=np.where(valid,den,1.)
+ roof=[]
+ for y in np.linspace(2.2,36,69):
+  x=2.07;u=((B[:,1]-C[:,1])*(x-C[:,0])+(C[:,0]-B[:,0])*(y-C[:,1]))/safe
+  v=((C[:,1]-A[:,1])*(x-C[:,0])+(A[:,0]-C[:,0])*(y-C[:,1]))/safe
+  mask=valid&(u>=-1e-7)&(v>=-1e-7)&(u+v<=1.0000001)
+  zz=u*tri[:,0,2]+v*tri[:,1,2]+(1-u-v)*tri[:,2,2]
+  hits=zz[mask&(zz>floor_z(y)+.16)]
+  if not len(hits):issues.append(f'No geological roof above route y={y:.2f}')
+  else:roof.append(float(hits.min()-floor_z(y)-.11))
+ if roof and min(roof)<2.10:issues.append(f'Main route geological headroom {min(roof):.3f} m')
+ if degenerate:issues.append(f'{degenerate} zero-area triangles')
+ active=[a for a in s.items if is_visible(a,CONFIG['preview_states'])]
+ report={
+  'generator':VERSION,'status':'PASS' if not issues else 'FAIL','issues':issues,
+  'executed':'Pure Python geometry, assets and state audit; NOT Blender execution',
+  'blender_build_executed':False,'blender_render_executed':False,
+  'unity_import_executed':False,'physics_or_multiplayer_validated':False,
+  'mesh_objects_all_variants':len(s.items),'mesh_objects_showcase':len(active),
+  'unique_meshes':len(s.meshes),'empty_interfaces_and_hierarchies':len(s.empties),
+  'unique_geometry_triangles':sum(len(m.faces) for m in s.meshes.values()),
+  'showcase_drawn_triangles':sum(len(s.meshes[a.mesh].faces) for a in active),
+  'named_cameras':len(s.cameras),'light_objects':len(s.lights),
+  'minimum_triangle_area_m2':min_area,'zero_area_triangles':degenerate,
+  'main_route_sample_count':69,'minimum_geological_headroom_m':min(roof) if roof else None,
+  'headroom_scope':'Cave shell only. Prop collisions need the Blender/runtime check.',
+  'state_tests':state_tests,
+  'dimensions':{'slope_ratio':SLOPE,'slope_degrees':math.degrees(math.atan(SLOPE)),'rail_gauge_m':1.1,'rail_y_extent_m':[-22,37.9]},
+ }
+ return report
+
+
+def material_for_blender(bpy,s,name,cache):
+ if name in cache:return cache[name]
+ m=bpy.data.materials.new(PREFIX+name);m.use_nodes=True
