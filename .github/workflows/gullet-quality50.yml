@@ -1,0 +1,142 @@
+name: Gullet quality pass - 50 actual Blender cameras
+on:
+  push:
+    branches: [art/gullet-quality-50-20260906]
+    paths:
+      - '.github/workflows/gullet-quality50.yml'
+      - 'sections/mine/blender/gullet/quality50/RUN.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: gullet-quality50
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      ready: ${{ steps.scene.outputs.ready }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install verified Blender
+        run: bash sections/mine/blender/gullet/quality50/install_blender.sh
+      - name: Inspect and improve the actual scene
+        id: scene
+        shell: bash
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '4'
+        run: |
+          set -euo pipefail
+          Q=sections/mine/blender/gullet/quality50
+          OUT="$GITHUB_WORKSPACE/sections/mine/production/quality50"
+          mkdir -p "$OUT"
+          blender -b sections/mine/blender/gullet/Gullet_MaterialReview.blend --threads 4 --python-exit-code 1 --python "$Q/inspect_scene.py" 2>&1 | tee "$OUT/source_inventory.log"
+          if [ -f "$Q/build_quality.py" ] && [ -f "$Q/RUN.json" ]; then
+            python "$Q/download_weathering.py"
+            blender -b sections/mine/blender/gullet/Gullet_MaterialReview.blend --threads 4 --python-exit-code 1 --python "$Q/build_quality.py" -- --output "$OUT" 2>&1 | tee "$OUT/build.log"
+            blender -b "$OUT/Gullet_Quality50.blend" --threads 4 --python-exit-code 1 --python "$Q/check_quality.py" -- --output "$OUT/cold_start_report.json" 2>&1 | tee "$OUT/cold_start.log"
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gullet-quality50-scene
+          path: sections/mine/production/quality50
+          retention-days: 14
+      - name: Preserve source inventory
+        if: steps.scene.outputs.ready != 'true'
+        run: |
+          git config user.name 'Critical Shift Asset Builder'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add sections/mine/production/quality50/source_inventory.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record actual Blender source inventory before quality edits [skip ci]'
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+  render:
+    needs: build
+    if: needs.build.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        batch: [0, 1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: gullet-quality50-scene
+          path: /tmp/quality50-scene
+      - name: Install verified Blender
+        run: bash sections/mine/blender/gullet/quality50/install_blender.sh
+      - name: Render ten actual Cycles views and record camera diagnostics
+        shell: bash
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '4'
+        run: |
+          set -euo pipefail
+          OUT=/tmp/quality50-renders
+          mkdir -p "$OUT"
+          blender -b /tmp/quality50-scene/Gullet_Quality50.blend --threads 4 --python-exit-code 1 --python sections/mine/blender/gullet/quality50/render_quality.py -- --batch ${{ matrix.batch }} --output "$OUT" --width 1100 --samples 32 2>&1 | tee "$OUT/batch_${{ matrix.batch }}.log"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gullet-quality50-views-${{ matrix.batch }}
+          path: /tmp/quality50-renders
+          retention-days: 14
+  publish:
+    needs: [build, render]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: gullet-quality50-scene
+          path: /tmp/quality50-scene
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: gullet-quality50-views-*
+          merge-multiple: true
+          path: /tmp/quality50-renders
+      - name: Assemble gallery and verify all fifty images exist
+        run: |
+          python -m pip install Pillow
+          python sections/mine/blender/gullet/quality50/make_gallery.py --scene /tmp/quality50-scene --renders /tmp/quality50-renders
+      - name: Publish only mine-local source, scene and evidence
+        run: |
+          set -euo pipefail
+          ROOT=sections/mine
+          REVIEW="$ROOT/production/renders/review/quality50"
+          CHECK="$ROOT/production/checkpoints/quality50"
+          mkdir -p "$REVIEW" "$CHECK"
+          cp /tmp/quality50-renders/* "$REVIEW/"
+          cp /tmp/quality50-scene/*.json /tmp/quality50-scene/*.log "$CHECK/"
+          cp /tmp/quality50-scene/Gullet_Quality50.blend "$ROOT/blender/gullet/Gullet_Quality50.blend"
+          git config user.name 'Critical Shift Asset Builder'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$REVIEW" "$CHECK" "$ROOT/blender/gullet/Gullet_Quality50.blend"
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish weathered mine scene and fifty actual Cycles review views [skip ci]'
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Gullet_Quality50_Complete
+          path: |
+            sections/mine/blender/gullet/quality50
+            sections/mine/blender/gullet/Gullet_Quality50.blend
+            sections/mine/production/renders/review/quality50
+            sections/mine/production/checkpoints/quality50
+          retention-days: 14
