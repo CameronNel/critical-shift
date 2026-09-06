@@ -104,4 +104,6 @@ Painted wall linings, window reveals and floor joints are architectural construc
 
 ## Reference-aware contact review
 
+The maintained-wear revision expands coverage to **83 registered supported objects**, including selected bonded paint-loss overlays. Four inappropriate overlays on curved vinyl cushions were rejected and removed; the existing angle/gap tolerances were not changed. The final-source and fresh-open audits pass all 83 contacts. Reports are in `renders/review/worn-room-final-source/` and `renders/review/worn-cold-start/`.
+
 Use plate 24 for first-person scale and plates 04, 06, 08, 13 and 18 for expected support logic. Contact validation should confirm not only that objects mathematically touch a support, but that their mounting method visually matches the reference family.

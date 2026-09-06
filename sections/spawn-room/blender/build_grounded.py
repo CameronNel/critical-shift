@@ -55,11 +55,14 @@ def main():
     review=(HERE.parent/'production/REFERENCE_REVIEW.md').read_text(encoding='utf-8')
     assert 'Reference review complete: **YES**' in review,'Complete reference review before modeling'
     bpy.ops.wm.read_factory_settings(use_empty=True);k.materials(args.stage);settings(args.samples)
+    import worn_surfaces
+    if args.stage>=3:worn_surfaces.materials(k)
     for name in ['CS_SUPPORT_REQUIRED','CS_WALL_DRESSING','CS_FLOOR_DRESSING','CS_CEILING_DRESSING']:k.collection(name)
     if args.scope=='slice':names=slice_scene(args.stage)
     else:
         import grounded_room
         names=grounded_room.build()
+    if args.stage>=3:worn_surfaces.geometry(k,args.scope)
     s=bpy.context.scene;s.camera=bpy.data.objects[names[0]]
     s['build_scope']=args.scope;s['art_direction']='Grounded stylized semi-realism';s['reference_base']='8603063';s['review_id']=args.review_id
     if args.scope=='room':
@@ -74,7 +77,8 @@ def main():
             default=bpy.data.collections.get('Collection')
             if default and o.name in default.objects:default.objects.unlink(o)
         for img in bpy.data.images:
-            if img.source=='FILE':img.filepath='//../assets/portraits/'+Path(img.filepath).name
+            if img.source=='FILE' and not img.filepath.startswith('//'):
+                img.filepath='//../assets/portraits/'+Path(img.filepath).name
     bpy.context.view_layer.update()
     for screen in bpy.data.screens:
         for area in screen.areas:

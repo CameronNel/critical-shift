@@ -7,7 +7,7 @@
     "CS_FLOOR_DRESSING",
     "CS_CEILING_DRESSING"
   ],
-  "objects_checked": 59,
+  "objects_checked": 83,
   "failures": [],
   "objects": [
     {
@@ -24,8 +24,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 9.6e-05,
+          "normal_alignment": 0.999985
         }
       ],
       "candidate_collections": [
@@ -46,8 +46,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000286,
+          "normal_alignment": 0.999954
         }
       ],
       "candidate_collections": [
@@ -69,6 +69,50 @@
           "status": "PASS",
           "relation": "gap",
           "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_entry_kickplate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_entry_kickplate_rubbed_paint_contact_00",
+          "point_world": [
+            -1.993385,
+            2.536316,
+            0.085183
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_entry_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_entry_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            -1.5747,
+            4.005498,
+            0.005224
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
           "normal_alignment": 1.0
         }
       ],
@@ -202,7 +246,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 3.5e-05,
           "normal_alignment": 1.0
         },
         {
@@ -214,7 +258,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 6.4e-05,
           "normal_alignment": 1.0
         },
         {
@@ -226,7 +270,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 3.5e-05,
           "normal_alignment": 1.0
         },
         {
@@ -238,7 +282,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 9.4e-05,
           "normal_alignment": 1.0
         }
       ],
@@ -260,7 +304,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 9.1e-05,
           "normal_alignment": 1.0
         },
         {
@@ -272,7 +316,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.000302,
           "normal_alignment": 1.0
         },
         {
@@ -284,7 +328,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.000107,
           "normal_alignment": 1.0
         },
         {
@@ -296,7 +340,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.000149,
           "normal_alignment": 1.0
         }
       ],
@@ -318,7 +362,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 2.6e-05,
           "normal_alignment": 1.0
         },
         {
@@ -330,7 +374,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 1.7e-05,
           "normal_alignment": 1.0
         },
         {
@@ -342,8 +386,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000302,
+          "normal_alignment": 0.999999
         },
         {
           "sample": "anchor:BRIEFING_seat_02_contact_03",
@@ -354,7 +398,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.000199,
           "normal_alignment": 1.0
         }
       ],
@@ -376,7 +420,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 3.5e-05,
           "normal_alignment": 1.0
         },
         {
@@ -388,7 +432,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 2.4e-05,
           "normal_alignment": 1.0
         },
         {
@@ -400,7 +444,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 3.9e-05,
           "normal_alignment": 1.0
         },
         {
@@ -412,7 +456,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 2.4e-05,
           "normal_alignment": 1.0
         }
       ],
@@ -434,7 +478,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.00012,
           "normal_alignment": 1.0
         },
         {
@@ -446,8 +490,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000316,
+          "normal_alignment": 0.999999
         },
         {
           "sample": "anchor:BRIEFING_sideboard_contact_02",
@@ -458,7 +502,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 7e-05,
           "normal_alignment": 1.0
         },
         {
@@ -470,7 +514,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.000172,
           "normal_alignment": 1.0
         }
       ],
@@ -492,7 +536,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 1.1e-05,
           "normal_alignment": 1.0
         }
       ],
@@ -514,8 +558,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000674,
+          "normal_alignment": 0.999999
         }
       ],
       "candidate_collections": [
@@ -637,9 +681,9 @@
             1.62
           ],
           "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "relation": "penetration",
+          "distance_m": 0.00049,
+          "normal_alignment": 0.999994
         }
       ],
       "candidate_collections": [
@@ -661,6 +705,50 @@
           "status": "PASS",
           "relation": "gap",
           "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_rear_door_kickplate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_rear_door_kickplate_rubbed_paint_contact_00",
+          "point_world": [
+            -0.25664,
+            -0.4967,
+            0.10781
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_rear_door_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_rear_door_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            0.349772,
+            -0.3747,
+            0.005933
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
           "normal_alignment": 1.0
         }
       ],
@@ -693,9 +781,9 @@
             1.72
           ],
           "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "relation": "penetration",
+          "distance_m": 0.000805,
+          "normal_alignment": 0.999967
         },
         {
           "sample": "anchor:HALL_riser_contact_02",
@@ -705,9 +793,9 @@
             2.97
           ],
           "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "relation": "penetration",
+          "distance_m": 0.000195,
+          "normal_alignment": 0.999997
         }
       ],
       "candidate_collections": [
@@ -727,9 +815,9 @@
             1.76
           ],
           "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "relation": "penetration",
+          "distance_m": 0.000118,
+          "normal_alignment": 0.999978
         }
       ],
       "candidate_collections": [
@@ -832,8 +920,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 7.2e-05,
+          "normal_alignment": 0.999999
         },
         {
           "sample": "anchor:HALL_waiting_bench_contact_01",
@@ -844,8 +932,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 6.3e-05,
+          "normal_alignment": 0.999999
         },
         {
           "sample": "anchor:HALL_waiting_bench_contact_02",
@@ -856,7 +944,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 5.6e-05,
           "normal_alignment": 1.0
         },
         {
@@ -868,12 +956,78 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 9e-06,
           "normal_alignment": 1.0
         }
       ],
       "candidate_collections": [
         "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench_laminate_slat.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_laminate_slat.001_rubbed_paint_contact_00",
+          "point_world": [
+            -1.7982,
+            1.171038,
+            0.433779
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench_laminate_slat.002_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_laminate_slat.002_rubbed_paint_contact_00",
+          "point_world": [
+            -1.9492,
+            1.091776,
+            0.432514
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench_laminate_slat_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_laminate_slat_rubbed_paint_contact_00",
+          "point_world": [
+            -1.6472,
+            1.725833,
+            0.433597
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
       ]
     },
     {
@@ -899,6 +1053,28 @@
       ]
     },
     {
+      "object": "HAZARD_threshold_plate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HAZARD_threshold_plate_rubbed_paint_contact_00",
+          "point_world": [
+            -0.321079,
+            9.275701,
+            2.928926
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
       "object": "INTEGRITY",
       "status": "PASS",
       "issues": [],
@@ -912,7 +1088,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.00018,
           "normal_alignment": 1.0
         },
         {
@@ -924,7 +1100,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.000229,
           "normal_alignment": 1.0
         },
         {
@@ -936,7 +1112,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.000187,
           "normal_alignment": 1.0
         },
         {
@@ -948,12 +1124,34 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.000143,
           "normal_alignment": 1.0
         }
       ],
       "candidate_collections": [
         "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "INTEGRITY_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:INTEGRITY_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            4.0802,
+            4.311265,
+            0.07281
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
       ]
     },
     {
@@ -970,8 +1168,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000263,
+          "normal_alignment": 0.999999
         },
         {
           "sample": "anchor:LOCKER_bench_contact_01",
@@ -982,8 +1180,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000476,
+          "normal_alignment": 0.999999
         },
         {
           "sample": "anchor:LOCKER_bench_contact_02",
@@ -994,8 +1192,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000264,
+          "normal_alignment": 0.999999
         },
         {
           "sample": "anchor:LOCKER_bench_contact_03",
@@ -1006,12 +1204,78 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000478,
+          "normal_alignment": 0.999999
         }
       ],
       "candidate_collections": [
         "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_bench_laminate_slat.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_bench_laminate_slat.001_rubbed_paint_contact_00",
+          "point_world": [
+            7.6518,
+            3.697803,
+            0.431721
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000301,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_bench_laminate_slat.002_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_bench_laminate_slat.002_rubbed_paint_contact_00",
+          "point_world": [
+            7.5008,
+            3.818415,
+            0.431069
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000301,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_bench_laminate_slat_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_bench_laminate_slat_rubbed_paint_contact_00",
+          "point_world": [
+            7.8028,
+            4.447323,
+            0.432116
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
       ]
     },
     {
@@ -1029,6 +1293,50 @@
           "status": "PASS",
           "relation": "gap",
           "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_entry_kickplate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_entry_kickplate_rubbed_paint_contact_00",
+          "point_world": [
+            1.7367,
+            5.296975,
+            0.092186
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_entry_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_entry_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            1.5747,
+            3.75907,
+            0.005805
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
           "normal_alignment": 1.0
         }
       ],
@@ -1152,8 +1460,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000161,
+          "normal_alignment": 0.999992
         }
       ],
       "candidate_collections": [
@@ -1173,9 +1481,9 @@
             3.15
           ],
           "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "relation": "penetration",
+          "distance_m": 0.00014,
+          "normal_alignment": 0.999997
         }
       ],
       "candidate_collections": [
@@ -1227,6 +1535,50 @@
       ]
     },
     {
+      "object": "OPERATIONS_door_kickplate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:OPERATIONS_door_kickplate_rubbed_paint_contact_00",
+          "point_world": [
+            0.288386,
+            9.2967,
+            0.102111
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000301,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "OPERATIONS_door_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:OPERATIONS_door_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            -0.413039,
+            9.1747,
+            0.006829
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000301,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
       "object": "PPE_01",
       "status": "PASS",
       "issues": [],
@@ -1240,7 +1592,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 8e-06,
           "normal_alignment": 1.0
         },
         {
@@ -1252,7 +1604,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 3.7e-05,
           "normal_alignment": 1.0
         },
         {
@@ -1264,12 +1616,56 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.000146,
           "normal_alignment": 1.0
         }
       ],
       "candidate_collections": [
         "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_01_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            5.02146,
+            6.6877,
+            2.230377
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_01_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            5.222304,
+            6.6877,
+            0.085138
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
       ]
     },
     {
@@ -1352,7 +1748,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 1.6e-05,
           "normal_alignment": 1.0
         },
         {
@@ -1364,7 +1760,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 5.9e-05,
           "normal_alignment": 1.0
         },
         {
@@ -1376,12 +1772,56 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 9e-05,
           "normal_alignment": 1.0
         }
       ],
       "candidate_collections": [
         "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_02_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            7.001602,
+            6.6877,
+            2.2286
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_02_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            6.954697,
+            6.6877,
+            0.084903
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
       ]
     },
     {
@@ -1464,7 +1904,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 7.1e-05,
           "normal_alignment": 1.0
         },
         {
@@ -1476,8 +1916,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 9.7e-05,
+          "normal_alignment": 0.999999
         },
         {
           "sample": "anchor:PPE_03_contact_02",
@@ -1488,12 +1928,56 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.000336,
           "normal_alignment": 1.0
         }
       ],
       "candidate_collections": [
         "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_03_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            5.394763,
+            1.3123,
+            2.229709
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_03_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            5.226016,
+            1.3123,
+            0.08595
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
       ]
     },
     {
@@ -1576,7 +2060,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 0.000104,
           "normal_alignment": 1.0
         },
         {
@@ -1588,8 +2072,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000156,
+          "normal_alignment": 0.999999
         },
         {
           "sample": "anchor:PPE_04_contact_02",
@@ -1600,12 +2084,56 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
+          "distance_m": 3e-05,
           "normal_alignment": 1.0
         }
       ],
       "candidate_collections": [
         "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            6.922017,
+            1.3123,
+            2.229513
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            6.814416,
+            1.3123,
+            0.083565
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
       ]
     },
     {
@@ -1688,8 +2216,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000356,
+          "normal_alignment": 0.999981
         },
         {
           "sample": "anchor:RADIATION_contact_01",
@@ -1700,8 +2228,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000134,
+          "normal_alignment": 0.999931
         }
       ],
       "candidate_collections": [
@@ -1756,7 +2284,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0007,
+          "distance_m": 0.0027,
           "normal_alignment": 1.0
         }
       ],
@@ -1778,7 +2306,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0007,
+          "distance_m": 0.0027,
           "normal_alignment": 1.0
         }
       ],
@@ -1800,7 +2328,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0007,
+          "distance_m": 0.000745,
           "normal_alignment": 1.0
         }
       ],
@@ -1822,7 +2350,7 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0007,
+          "distance_m": 0.00071,
           "normal_alignment": 1.0
         }
       ],
@@ -1844,8 +2372,8 @@
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.000887,
+          "normal_alignment": 0.999987
         }
       ],
       "candidate_collections": [
@@ -1865,9 +2393,9 @@
             2.49
           ],
           "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "relation": "penetration",
+          "distance_m": 0.000888,
+          "normal_alignment": 0.999987
         }
       ],
       "candidate_collections": [

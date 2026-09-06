@@ -97,3 +97,9 @@ Change to **YES** only after the references above were actually inspected.
 - [x] SPAWN_MATERIAL_REFERENCE.md read
 - [x] SPAWN_LIGHTING_REFERENCE.md read
 - [x] SPAWN_SIGNAGE_REFERENCE.md read
+
+## User-directed wear revision — 2026-09-06
+
+The user requests an old, dirty but maintained workplace with visible mild damage, rough stylized concrete/plaster, used PPE/equipment and less perfect geometry. This supersedes the earlier prohibition on scanned concrete inputs: CC0 scans are now expressly requested, with palette compression and controlled relief to retain stylization. Plates 09, 10 and 27 were reinspected before editing. Preserve adult scale, clear routes and the fixed camera baselines. Concentrate actual chips and repairs at tile corners, lower walls, furniture edges and thresholds. Retain low-cost SOLID startup; do not interrupt the user's game with Computer Use.
+
+Remote refreshed during this revision: main advanced from 8603063 to d849d3d with the separate Gullet mine section. The updates were merged cleanly into this branch; no Spawn art guidance changed.

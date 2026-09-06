@@ -99,3 +99,18 @@ Before any full-room rebuild:
 - [x] validation-slice composition is recorded before modelling
 
 Validation completed 2026-09-06. Evidence: renders/final/, cold_start_comparison.json, stability_comparison.json, RUBRIC.md and critics/. Visual checklist entries are builder judgments; measured entries are backed by the source/contact reports. Active build processes exited before the separate cold-start process launched. Runtime integration is outside this Blender art checklist.
+
+## Maintained-wear revision validation
+
+- [x] Six CC0 downloads and published checksums recorded.
+- [x] Packed texture bytes verified after opening the saved source.
+- [x] Three slice iterations and documented full-room corrections completed.
+- [x] All eleven fixed views and two detail views reviewed.
+- [x] All eleven mandatory views rerendered from a saved scene in fresh processes.
+- [x] Full-camera comparison inspected with no material regression.
+- [x] 83 contacts and 29 objective checks pass without relaxed tolerances.
+- [x] Ten saved viewport spaces start in SOLID.
+- [x] Unexpected old-scene resave preserved; unchanged source rebuilt and protected copy verified again.
+- [x] Current gallery, source hashes and render provenance updated.
+
+See critics/worn-surface-review.md and TASK_STATE.md for the exact scope of current and historical evidence.

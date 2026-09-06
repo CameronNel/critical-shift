@@ -28,3 +28,9 @@ A final render set must include gameplay-height views of:
 - reverse circulation view.
 
 The set must prove continuity with the approved style slice. Beauty renders are supplemental only.
+
+## Current maintained-wear delivery
+
+The eleven VALIDATE images and two DETAIL images show the user-directed worn surface revision, rendered from the saved scene in fresh background Blender processes. CONTACT_SHEET.png covers all eleven fixed views. Source and render provenance, including recovery from an older scene resave, are recorded in ../../critics/worn-surface-review.md and render_provenance.json. Review is the builder's assessment, not user acceptance.
+
+The earlier five STATE previews remain in ../review/cold-start/ as pre-wear historical evidence. All six machine states were rechecked objectively on the new source; those older pictures are not presented as current material previews.

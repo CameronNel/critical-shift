@@ -1,0 +1,75 @@
+{
+  "reference": "renders/review/worn-room-03",
+  "candidate": "renders/review/worn-cold-start",
+  "camera_transforms_match": true,
+  "cameras_compared": 11,
+  "comparisons": [
+    {
+      "camera": "VALIDATE_Spawn",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 0.016275720164609053,
+      "max_channel_difference": 15
+    },
+    {
+      "camera": "VALIDATE_HallForward",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 0.007944444444444445,
+      "max_channel_difference": 12
+    },
+    {
+      "camera": "VALIDATE_LockerDoor",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 0.0503451646090535,
+      "max_channel_difference": 31
+    },
+    {
+      "camera": "VALIDATE_LockerReverse",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 0.012558127572016459,
+      "max_channel_difference": 10
+    },
+    {
+      "camera": "VALIDATE_BriefingDoor",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 0.01167901234567901,
+      "max_channel_difference": 9
+    },
+    {
+      "camera": "VALIDATE_Material_A",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 0.008478395061728395,
+      "max_channel_difference": 9
+    },
+    {
+      "camera": "VALIDATE_ExitReverse",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 0.07730529835390947,
+      "max_channel_difference": 49
+    },
+    {
+      "camera": "VALIDATE_Walk_A",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 0.011070730452674897,
+      "max_channel_difference": 13
+    },
+    {
+      "camera": "VALIDATE_Walk_B",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 0.012565329218106996,
+      "max_channel_difference": 18
+    },
+    {
+      "camera": "VALIDATE_Walk_C",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 0.014702674897119341,
+      "max_channel_difference": 23
+    },
+    {
+      "camera": "VALIDATE_Hero_A",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 0.009060442386831275,
+      "max_channel_difference": 19
+    }
+  ],
+  "interpretation": "Nonzero differences after the final hidden structural slab rebuild; visual stability is assessed separately in critics/worn-surface-review.md. These images are not claimed pixel-identical."
+}

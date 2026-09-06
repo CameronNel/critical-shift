@@ -1,0 +1,27 @@
+{
+  "delivered_source_sha256": "0421a98c51d68a8dd7e723aeb6bc1a06db28f86ababfdb4ded89ab5913e11353",
+  "full_cold_render_source_sha256": "4938818474addcb7f900acf4218d425198505996074c05ff342637103a8478b6",
+  "full_cold_render_directory": "../review/worn-cold-start",
+  "recovery_verification_directory": "../review/worn-recovery-verification",
+  "recovery_reason": "An older room-06 live scene was resaved over the canonical path at 16:05. It was preserved separately, then the unchanged deterministic builder regenerated the wear pass. A separate worn snapshot was verified from a fresh process.",
+  "recovery_spawn_comparison": {
+    "pixel_identical": false,
+    "mean_absolute_8bit_difference": 4.7839506172839504e-05,
+    "max_channel_difference": 1
+  },
+  "current_images": [
+    "VALIDATE_BriefingDoor.png",
+    "VALIDATE_ExitReverse.png",
+    "VALIDATE_HallForward.png",
+    "VALIDATE_Hero_A.png",
+    "VALIDATE_LockerDoor.png",
+    "VALIDATE_LockerReverse.png",
+    "VALIDATE_Material_A.png",
+    "VALIDATE_Spawn.png",
+    "VALIDATE_Walk_A.png",
+    "VALIDATE_Walk_B.png",
+    "VALIDATE_Walk_C.png",
+    "DETAIL_BriefingHuman.png",
+    "DETAIL_LockerWork.png"
+  ]
+}

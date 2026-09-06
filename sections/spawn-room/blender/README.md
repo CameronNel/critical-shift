@@ -117,6 +117,23 @@ Before starting or regenerating Spawn Blender art:
 
 Do not build from the scenery text alone. The reference library exists specifically to prevent the generic bevelled-box / flat-plastic failure mode.
 
+## Worn surface revision (2026-09-06)
+
+The user's revised direction is old, dirty and mildly damaged, but maintained. `worn_surfaces.py` adds CC0 concrete/plaster maps with restrained colour remapping, metric projection and controlled relief. Cloth, rubber, wood, paint and glass have separate wear responses. Floors have actual recessed joints and occasional chipped corners; wall plaster has subtle mesh waviness and localized recessed loss. Selected equipment edges have small paint chips. The pass is deterministic and is included automatically in stage 3 fresh builds. Downloads, license URLs and checksums are in `../assets/textures/`; all six maps are packed, so opening the blend needs no network connection.
+
+The lightweight SOLID startup remains enabled. Use the saved render gallery to see the complete materials without changing the viewport shading.
+
+For this delivered wear pass, open **spawnroom_worn.blend**. It is a byte-identical verified copy of the rebuilt canonical `spawnroom.blend`, kept under a distinct name after an older open room-06 scene was resaved over the canonical path during validation. The unexpected resave was preserved in ignored production logs before recovery. Reopen the new file to load the new materials; a previously opened scene retains its old in-memory data.
+
+Example from repository root:
+
+```bash
+blender -b --python-exit-code 1 --python sections/spawn-room/blender/build_grounded.py -- --scope room --review-id worn-room-03 --samples 24
+blender -b sections/spawn-room/blender/spawnroom.blend --python-exit-code 1 --python sections/spawn-room/blender/cold_start_grounded.py -- --review-id worn-cold-start
+```
+
+Cold verification checks the SHA256 of each packed CC0 image against the original download, all saved viewport shading modes, support contacts and the existing layout/state audit. Omit `--cameras` for the complete eleven-camera cold render set; `--states` also renders all supplemental state previews.
+
 ## Desktop startup recovery (2026-09-06)
 
 The saved room and future builds now open in SOLID shading with material colours. This avoids automatically compiling the full GPU material-preview workload while loading. All saved 3D workspaces in the delivered room use SOLID. Cycles render settings, geometry, material graphs and packed portraits are unchanged. Switch shading deliberately after loading if needed.

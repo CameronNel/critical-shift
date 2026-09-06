@@ -7,9 +7,25 @@
 
 Completion requires overall >= 90/100, every category >= 85% of available points, zero critical failures, stable final two cycles, and cold-start PASS.
 
-## Grounded rebuild assessment — 2026-09-06
+## Maintained-wear revision assessment — 2026-09-06
 
-**Status: PASS for the Blender art delivery. Final score: 91.5/100.** Reviewer: builder self-review, not independent critic or user acceptance. Slice checkpoint: **8.5/10**, no veto identified, reviewed before expansion. Final visual average: **8.7/10**; art/layout subtotal **81.5/90**, technical **10/10**. All category floors are met. No critical failure or visual veto was identified in builder review.
+**Builder self-review: PASS, 92/100.** This is not user approval. All eleven fixed views and two details were inspected, including the full fresh-open comparison. Materials improve to 14/15: tactile plaster/concrete, restrained paint loss, softer fabric/rubber and localized real surface depth. Other category judgments remain stable against the same cameras; no visual veto or material regression was identified.
+
+| Category | Score | Current evidence |
+|---|---:|---|
+| Layout / route readability | 18/20 | Unchanged fixed routes and measured clearances; Spawn, ExitReverse, Walk_A/B/C |
+| Art direction / silhouettes | 18/20 | Maintained institutional construction with restrained surface irregularity; all fixed views |
+| Hero objects / focal clarity | 14/15 | LockerDoor, LockerReverse and Hero_A; readouts remain readable |
+| Materials / anti-plastic | 14/15 | Material_A, HallForward, both DETAIL views; concrete, plaster, fabric, rubber, paint, laminate and glass separate |
+| Lighting / atmosphere | 9/10 | Local practical falloff and contact remain stable through full cold comparison |
+| Dressing / worldbuilding | 9/10 | Targeted damage/use, portraits and functional work clusters; DETAIL views |
+| Technical cleanliness / reproducibility | 10/10 | 83 contacts, 29 objective checks, packed-byte verification, SOLID startup and documented source recovery |
+
+Correction and rejection evidence: critics/worn-surface-review.md. Exact differences and delivered-file provenance: worn_cold_start_comparison.json, worn_recovery_comparison.json and renders/final/render_provenance.json. No score is based merely on object count or successful rendering.
+
+## Original pre-wear rebuild assessment — 2026-09-06
+
+**Historical pre-wear score: 91.5/100.** Current wear-revision findings are in `critics/worn-surface-review.md`; this earlier score is not a new user approval. Reviewer: builder self-review, not independent critic or user acceptance. Slice checkpoint: **8.5/10**, no veto identified, reviewed before expansion. Final visual average: **8.7/10**; art/layout subtotal **81.5/90**, technical **10/10**. All category floors are met. No critical failure or visual veto was identified in builder review.
 
 | Category | Final score | Reference / evidence |
 |---|---:|---|

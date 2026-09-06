@@ -1,0 +1,2428 @@
+{
+  "validator": "Critical Shift support-contact validator",
+  "status": "PASS",
+  "required_collection": "CS_SUPPORT_REQUIRED",
+  "candidate_collections": [
+    "CS_WALL_DRESSING",
+    "CS_FLOOR_DRESSING",
+    "CS_CEILING_DRESSING"
+  ],
+  "objects_checked": 83,
+  "failures": [],
+  "objects": [
+    {
+      "object": "BRIEFING_crew",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_crew_contact_00",
+          "point_world": [
+            -4.6,
+            6.1,
+            1.79
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 9.6e-05,
+          "normal_alignment": 0.999985
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_display",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_display_contact_00",
+          "point_world": [
+            -7.3,
+            3.55,
+            1.77
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000286,
+          "normal_alignment": 0.999954
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_entry_handle_contact_wear",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_entry_handle_contact_wear_contact_00",
+          "point_world": [
+            -2.03971,
+            1.947419,
+            1.04
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_entry_kickplate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_entry_kickplate_rubbed_paint_contact_00",
+          "point_world": [
+            -1.993385,
+            2.536316,
+            0.085183
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_entry_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_entry_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            -1.5747,
+            4.005498,
+            0.005224
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_light_00",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_light_00_contact_00",
+          "point_world": [
+            -6.332,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_light_00_contact_01",
+          "point_world": [
+            -5.468,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_light_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_light_01_contact_00",
+          "point_world": [
+            -3.532,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_light_01_contact_01",
+          "point_world": [
+            -2.668,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_mug",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_mug_contact_00",
+          "point_world": [
+            -5.49,
+            1.36,
+            0.776
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_notes",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_notes_contact_00",
+          "point_world": [
+            -6.0,
+            1.38,
+            0.776
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_seat_00",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_seat_00_contact_00",
+          "point_world": [
+            -4.88,
+            2.78,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 3.5e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_00_contact_01",
+          "point_world": [
+            -4.42,
+            2.78,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 6.4e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_00_contact_02",
+          "point_world": [
+            -4.88,
+            2.32,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 3.5e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_00_contact_03",
+          "point_world": [
+            -4.42,
+            2.32,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 9.4e-05,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_seat_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_seat_01_contact_00",
+          "point_world": [
+            -4.889014,
+            4.620619,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 9.1e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_01_contact_01",
+          "point_world": [
+            -4.429381,
+            4.639014,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000302,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_01_contact_02",
+          "point_world": [
+            -4.870619,
+            4.160986,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000107,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_01_contact_03",
+          "point_world": [
+            -4.410986,
+            4.179381,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000149,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_seat_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_seat_02_contact_00",
+          "point_world": [
+            -3.600812,
+            3.15588,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 2.6e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_02_contact_01",
+          "point_world": [
+            -3.14412,
+            3.100812,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 1.7e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_02_contact_02",
+          "point_world": [
+            -3.65588,
+            2.699188,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000302,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_02_contact_03",
+          "point_world": [
+            -3.199188,
+            2.64412,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000199,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_seat_03",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_seat_03_contact_00",
+          "point_world": [
+            -3.614554,
+            4.225354,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 3.5e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_03_contact_01",
+          "point_world": [
+            -3.154646,
+            4.234554,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 2.4e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_03_contact_02",
+          "point_world": [
+            -3.605354,
+            3.765446,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 3.9e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_03_contact_03",
+          "point_world": [
+            -3.145446,
+            3.774646,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 2.4e-05,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_sideboard",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_00",
+          "point_world": [
+            -5.29,
+            1.57,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.00012,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_01",
+          "point_world": [
+            -6.31,
+            1.57,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000316,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_02",
+          "point_world": [
+            -5.29,
+            1.17,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 7e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_03",
+          "point_world": [
+            -6.31,
+            1.17,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000172,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "FLOOR_replacement_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:FLOOR_replacement_0_contact_00",
+          "point_world": [
+            -0.5,
+            7.5,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 1.1e-05,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "FLOOR_replacement_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:FLOOR_replacement_1_contact_00",
+          "point_world": [
+            6.5,
+            3.5,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000674,
+          "normal_alignment": 0.999999
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_light_00",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_light_00_contact_00",
+          "point_world": [
+            0.0,
+            1.0596,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_light_00_contact_01",
+          "point_world": [
+            -0.0,
+            1.8404,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_light_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_light_01_contact_00",
+          "point_world": [
+            0.0,
+            4.2596,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_light_01_contact_01",
+          "point_world": [
+            -0.0,
+            5.0404,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_light_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_light_02_contact_00",
+          "point_world": [
+            0.0,
+            7.6096,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_light_02_contact_01",
+          "point_world": [
+            -0.0,
+            8.3904,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_notice",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_notice_contact_00",
+          "point_world": [
+            1.7,
+            0.95,
+            1.62
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.00049,
+          "normal_alignment": 0.999994
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_rear_door_handle_contact_wear",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_rear_door_handle_contact_wear_contact_00",
+          "point_world": [
+            -0.489,
+            -0.506,
+            1.04
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_rear_door_kickplate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_rear_door_kickplate_rubbed_paint_contact_00",
+          "point_world": [
+            -0.25664,
+            -0.4967,
+            0.10781
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_rear_door_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_rear_door_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            0.349772,
+            -0.3747,
+            0.005933
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_riser",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_riser_contact_00",
+          "point_world": [
+            -1.7,
+            7.45,
+            0.35
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_riser_contact_01",
+          "point_world": [
+            -1.7,
+            7.45,
+            1.72
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000805,
+          "normal_alignment": 0.999967
+        },
+        {
+          "sample": "anchor:HALL_riser_contact_02",
+          "point_world": [
+            -1.7,
+            7.45,
+            2.97
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000195,
+          "normal_alignment": 0.999997
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_supervisor",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_supervisor_contact_00",
+          "point_world": [
+            -1.7,
+            5.65,
+            1.76
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000118,
+          "normal_alignment": 0.999978
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_ventilation",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_ventilation_contact_00",
+          "point_world": [
+            0.99,
+            1.2,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_ventilation_contact_01",
+          "point_world": [
+            0.99,
+            4.5,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_ventilation_contact_02",
+          "point_world": [
+            0.99,
+            7.8,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_ventilation_contact_03",
+          "point_world": [
+            1.45,
+            1.2,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_ventilation_contact_04",
+          "point_world": [
+            1.45,
+            4.5,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_ventilation_contact_05",
+          "point_world": [
+            1.45,
+            7.8,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_00",
+          "point_world": [
+            -1.65,
+            0.938,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 7.2e-05,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_01",
+          "point_world": [
+            -2.09,
+            0.938,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 6.3e-05,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_02",
+          "point_world": [
+            -1.65,
+            2.162,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 5.6e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_03",
+          "point_world": [
+            -2.09,
+            2.162,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 9e-06,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench_laminate_slat.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_laminate_slat.001_rubbed_paint_contact_00",
+          "point_world": [
+            -1.7982,
+            1.171038,
+            0.433779
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench_laminate_slat.002_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_laminate_slat.002_rubbed_paint_contact_00",
+          "point_world": [
+            -1.9492,
+            1.091776,
+            0.432514
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench_laminate_slat_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_laminate_slat_rubbed_paint_contact_00",
+          "point_world": [
+            -1.6472,
+            1.725833,
+            0.433597
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HAZARD_threshold",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HAZARD_threshold_contact_00",
+          "point_world": [
+            0.0,
+            9.3,
+            3.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HAZARD_threshold_plate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HAZARD_threshold_plate_rubbed_paint_contact_00",
+          "point_world": [
+            -0.321079,
+            9.275701,
+            2.928926
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "INTEGRITY",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:INTEGRITY_contact_00",
+          "point_world": [
+            4.3,
+            4.75,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.00018,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:INTEGRITY_contact_01",
+          "point_world": [
+            4.3,
+            3.25,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000229,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:INTEGRITY_contact_02",
+          "point_world": [
+            5.8,
+            4.75,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000187,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:INTEGRITY_contact_03",
+          "point_world": [
+            5.8,
+            3.25,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000143,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "INTEGRITY_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:INTEGRITY_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            4.0802,
+            4.311265,
+            0.07281
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_bench",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_bench_contact_00",
+          "point_world": [
+            7.8,
+            3.388,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000263,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:LOCKER_bench_contact_01",
+          "point_world": [
+            7.36,
+            3.388,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000476,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:LOCKER_bench_contact_02",
+          "point_world": [
+            7.8,
+            4.612,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000264,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:LOCKER_bench_contact_03",
+          "point_world": [
+            7.36,
+            4.612,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000478,
+          "normal_alignment": 0.999999
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_bench_laminate_slat.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_bench_laminate_slat.001_rubbed_paint_contact_00",
+          "point_world": [
+            7.6518,
+            3.697803,
+            0.431721
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000301,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_bench_laminate_slat.002_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_bench_laminate_slat.002_rubbed_paint_contact_00",
+          "point_world": [
+            7.5008,
+            3.818415,
+            0.431069
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000301,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_bench_laminate_slat_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_bench_laminate_slat_rubbed_paint_contact_00",
+          "point_world": [
+            7.8028,
+            4.447323,
+            0.432116
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_entry_handle_contact_wear",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_entry_handle_contact_wear_contact_00",
+          "point_world": [
+            1.746,
+            4.511,
+            1.04
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_entry_kickplate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_entry_kickplate_rubbed_paint_contact_00",
+          "point_world": [
+            1.7367,
+            5.296975,
+            0.092186
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_entry_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_entry_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            1.5747,
+            3.75907,
+            0.005805
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_light_00",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_light_00_contact_00",
+          "point_world": [
+            4.754,
+            2.2,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_light_00_contact_01",
+          "point_world": [
+            5.746,
+            2.2,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_light_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_light_01_contact_00",
+          "point_world": [
+            4.754,
+            5.8,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_light_01_contact_01",
+          "point_world": [
+            5.746,
+            5.8,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_light_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_light_02_contact_00",
+          "point_world": [
+            2.204,
+            4.0,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_light_02_contact_01",
+          "point_world": [
+            3.196,
+            4.0,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_procedure",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_procedure_contact_00",
+          "point_world": [
+            8.1,
+            4.0,
+            1.7
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000161,
+          "normal_alignment": 0.999992
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_return_air",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_return_air_contact_00",
+          "point_world": [
+            8.1,
+            4.0,
+            3.15
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.00014,
+          "normal_alignment": 0.999997
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_shift_notes",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_shift_notes_contact_00",
+          "point_world": [
+            7.58,
+            3.48,
+            0.45
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "OPERATIONS_door_handle_contact_wear",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:OPERATIONS_door_handle_contact_wear_contact_00",
+          "point_world": [
+            0.689,
+            9.306,
+            1.04
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "OPERATIONS_door_kickplate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:OPERATIONS_door_kickplate_rubbed_paint_contact_00",
+          "point_world": [
+            0.288386,
+            9.2967,
+            0.102111
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000301,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "OPERATIONS_door_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:OPERATIONS_door_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            -0.413039,
+            9.1747,
+            0.006829
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000301,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_contact_00",
+          "point_world": [
+            4.92,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 8e-06,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_01_contact_01",
+          "point_world": [
+            5.78,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 3.7e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_01_contact_02",
+          "point_world": [
+            5.35,
+            6.428,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000146,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_01_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            5.02146,
+            6.6877,
+            2.230377
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_01_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            5.222304,
+            6.6877,
+            0.085138
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_01_spare_cartridge",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_spare_cartridge_contact_00",
+          "point_world": [
+            5.72,
+            7.078,
+            2.049
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_01_work_boot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_work_boot_contact_00",
+          "point_world": [
+            5.218875,
+            6.853025,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_01_work_boot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_work_boot.001_contact_00",
+          "point_world": [
+            5.480625,
+            6.853008,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_contact_00",
+          "point_world": [
+            6.42,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 1.6e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_02_contact_01",
+          "point_world": [
+            7.28,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 5.9e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_02_contact_02",
+          "point_world": [
+            6.85,
+            6.428,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 9e-05,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_02_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            7.001602,
+            6.6877,
+            2.2286
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_02_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            6.954697,
+            6.6877,
+            0.084903
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_02_inspection_card",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_inspection_card_contact_00",
+          "point_world": [
+            6.72,
+            7.272,
+            2.129
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_02_work_boot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_work_boot_contact_00",
+          "point_world": [
+            6.719125,
+            6.853015,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_02_work_boot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_work_boot.001_contact_00",
+          "point_world": [
+            6.980875,
+            6.853015,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_03",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_contact_00",
+          "point_world": [
+            5.78,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 7.1e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_03_contact_01",
+          "point_world": [
+            4.92,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 9.7e-05,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:PPE_03_contact_02",
+          "point_world": [
+            5.35,
+            1.572,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000336,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_03_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            5.394763,
+            1.3123,
+            2.229709
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_03_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            5.226016,
+            1.3123,
+            0.08595
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_03_spare_cartridge",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_spare_cartridge_contact_00",
+          "point_world": [
+            4.98,
+            0.922,
+            2.049
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_03_work_boot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_work_boot_contact_00",
+          "point_world": [
+            5.480625,
+            1.146992,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_03_work_boot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_work_boot.001_contact_00",
+          "point_world": [
+            5.218875,
+            1.146975,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_contact_00",
+          "point_world": [
+            7.28,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000104,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_04_contact_01",
+          "point_world": [
+            6.42,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000156,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:PPE_04_contact_02",
+          "point_world": [
+            6.85,
+            1.572,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 3e-05,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            6.922017,
+            1.3123,
+            2.229513
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            6.814416,
+            1.3123,
+            0.083565
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04_inspection_card",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_inspection_card_contact_00",
+          "point_world": [
+            6.98,
+            0.728,
+            2.129
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04_work_boot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_work_boot_contact_00",
+          "point_world": [
+            6.980375,
+            1.146997,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04_work_boot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_work_boot.001_contact_00",
+          "point_world": [
+            6.718626,
+            1.146962,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "RADIATION",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:RADIATION_contact_00",
+          "point_world": [
+            1.25,
+            9.3,
+            1.13
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000356,
+          "normal_alignment": 0.999981
+        },
+        {
+          "sample": "anchor:RADIATION_contact_01",
+          "point_world": [
+            1.25,
+            9.3,
+            1.75
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000134,
+          "normal_alignment": 0.999931
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "SERVICE_light",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SERVICE_light_contact_00",
+          "point_world": [
+            -0.352,
+            11.0,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SERVICE_light_contact_01",
+          "point_world": [
+            0.352,
+            11.0,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "TRAFFIC_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_0_contact_00",
+          "point_world": [
+            0.0,
+            8.92,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0027,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "TRAFFIC_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_1_contact_00",
+          "point_world": [
+            3.66,
+            4.0,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0027,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "TRAFFIC_2",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_2_contact_00",
+          "point_world": [
+            5.15,
+            1.95,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000745,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "TRAFFIC_3",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_3_contact_00",
+          "point_world": [
+            6.85,
+            6.02,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.00071,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "WAYFIND_briefing",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:WAYFIND_briefing_contact_00",
+          "point_world": [
+            -1.62,
+            3.7,
+            2.49
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000887,
+          "normal_alignment": 0.999987
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "WAYFIND_lockers",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:WAYFIND_lockers_contact_00",
+          "point_world": [
+            1.62,
+            3.7,
+            2.49
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000888,
+          "normal_alignment": 0.999987
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "WAYFIND_operations",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:WAYFIND_operations_contact_00",
+          "point_world": [
+            0.0,
+            9.3,
+            2.66
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    }
+  ]
+}
