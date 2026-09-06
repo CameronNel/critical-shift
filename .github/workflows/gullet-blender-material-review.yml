@@ -41,7 +41,9 @@ jobs:
           echo "/tmp/gullet-toolchain/blender-${V}-linux-x64" >> "$GITHUB_PATH"
           "./blender-${V}-linux-x64/blender" --background --factory-startup --python-expr "import bpy; print('VERIFIED_BLENDER', bpy.app.version_string)"
       - name: Download selected CC0 material packs
-        run: python sections/mine/blender/gullet/pbr/download_materials.py
+        run: |
+          python sections/mine/blender/gullet/pbr/download_materials.py
+          python sections/mine/blender/gullet/pbr/download_geology_detail.py
       - name: Preserve downloaded originals and hashes
         uses: actions/upload-artifact@v4
         with:
@@ -56,7 +58,7 @@ jobs:
           cd sections/mine/blender/gullet
           if [ -f pbr/build_textured_mine.py ]; then
             python tools/prepare_assets.py
-            blender --background --factory-startup --threads 4 --python pbr/build_textured_mine.py -- --output "$GITHUB_WORKSPACE/sections/mine/production/material-review" --render entry
+            blender --background --factory-startup --threads 4 --python-exit-code 1 --python pbr/build_textured_mine.py -- --output "$GITHUB_WORKSPACE/sections/mine/production/material-review" --render entry --samples 32 --width 1200 --device cpu
           else
             echo 'Material downloads complete; Blender material repair source follows.'
           fi
