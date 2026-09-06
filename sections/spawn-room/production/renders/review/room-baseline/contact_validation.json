@@ -1,0 +1,1422 @@
+{
+  "validator": "Critical Shift support-contact validator",
+  "status": "PASS",
+  "required_collection": "CS_SUPPORT_REQUIRED",
+  "candidate_collections": [
+    "CS_WALL_DRESSING",
+    "CS_FLOOR_DRESSING",
+    "CS_CEILING_DRESSING"
+  ],
+  "objects_checked": 40,
+  "failures": [],
+  "objects": [
+    {
+      "object": "BRIEFING_crew",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_crew_contact_00",
+          "point_world": [
+            -4.6,
+            6.1,
+            1.79
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_display",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_display_contact_00",
+          "point_world": [
+            -7.3,
+            3.55,
+            1.77
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_light_00",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_light_00_contact_00",
+          "point_world": [
+            -6.332,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_light_00_contact_01",
+          "point_world": [
+            -5.468,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_light_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_light_01_contact_00",
+          "point_world": [
+            -3.532,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_light_01_contact_01",
+          "point_world": [
+            -2.668,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_mug",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_mug_contact_00",
+          "point_world": [
+            -5.49,
+            1.36,
+            0.756
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_notes",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_notes_contact_00",
+          "point_world": [
+            -6.0,
+            1.38,
+            0.756
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_seat_00",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_seat_00_contact_00",
+          "point_world": [
+            -4.88,
+            3.03,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_00_contact_01",
+          "point_world": [
+            -4.42,
+            3.03,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_00_contact_02",
+          "point_world": [
+            -4.88,
+            2.57,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_00_contact_03",
+          "point_world": [
+            -4.42,
+            2.57,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_seat_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_seat_01_contact_00",
+          "point_world": [
+            -4.889014,
+            4.300618,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_01_contact_01",
+          "point_world": [
+            -4.429381,
+            4.319014,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_01_contact_02",
+          "point_world": [
+            -4.870619,
+            3.840986,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_01_contact_03",
+          "point_world": [
+            -4.410986,
+            3.859381,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_seat_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_seat_02_contact_00",
+          "point_world": [
+            -3.600812,
+            3.00588,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_02_contact_01",
+          "point_world": [
+            -3.14412,
+            2.950812,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_02_contact_02",
+          "point_world": [
+            -3.65588,
+            2.549188,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_02_contact_03",
+          "point_world": [
+            -3.199188,
+            2.49412,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_seat_03",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_seat_03_contact_00",
+          "point_world": [
+            -3.614554,
+            4.345354,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_03_contact_01",
+          "point_world": [
+            -3.154646,
+            4.354554,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_03_contact_02",
+          "point_world": [
+            -3.605354,
+            3.885446,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_seat_03_contact_03",
+          "point_world": [
+            -3.145446,
+            3.894646,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "BRIEFING_sideboard",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_00",
+          "point_world": [
+            -5.29,
+            1.57,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_01",
+          "point_world": [
+            -6.31,
+            1.57,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_02",
+          "point_world": [
+            -5.29,
+            1.17,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_03",
+          "point_world": [
+            -6.31,
+            1.17,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "FLOOR_replacement_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:FLOOR_replacement_0_contact_00",
+          "point_world": [
+            -0.5,
+            7.5,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "FLOOR_replacement_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:FLOOR_replacement_1_contact_00",
+          "point_world": [
+            6.5,
+            3.5,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_light_00",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_light_00_contact_00",
+          "point_world": [
+            0.0,
+            1.0596,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_light_00_contact_01",
+          "point_world": [
+            -0.0,
+            1.8404,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_light_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_light_01_contact_00",
+          "point_world": [
+            0.0,
+            4.2596,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_light_01_contact_01",
+          "point_world": [
+            -0.0,
+            5.0404,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_light_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_light_02_contact_00",
+          "point_world": [
+            0.0,
+            7.6096,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_light_02_contact_01",
+          "point_world": [
+            -0.0,
+            8.3904,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_notice",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_notice_contact_00",
+          "point_world": [
+            1.7,
+            1.6,
+            1.62
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_riser",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_riser_contact_00",
+          "point_world": [
+            -1.7,
+            7.45,
+            0.35
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_riser_contact_01",
+          "point_world": [
+            -1.7,
+            7.45,
+            1.72
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_riser_contact_02",
+          "point_world": [
+            -1.7,
+            7.45,
+            2.97
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_supervisor",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_supervisor_contact_00",
+          "point_world": [
+            -1.7,
+            5.65,
+            1.76
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_00",
+          "point_world": [
+            -1.2,
+            0.938,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_01",
+          "point_world": [
+            -1.64,
+            0.938,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_02",
+          "point_world": [
+            -1.2,
+            2.162,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_03",
+          "point_world": [
+            -1.64,
+            2.162,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "HAZARD_threshold",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HAZARD_threshold_contact_00",
+          "point_world": [
+            0.0,
+            9.3,
+            3.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "INTEGRITY",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:INTEGRITY_contact_00",
+          "point_world": [
+            4.0,
+            4.75,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:INTEGRITY_contact_01",
+          "point_world": [
+            4.0,
+            3.25,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:INTEGRITY_contact_02",
+          "point_world": [
+            5.5,
+            4.75,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:INTEGRITY_contact_03",
+          "point_world": [
+            5.5,
+            3.25,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_bench",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_bench_contact_00",
+          "point_world": [
+            7.8,
+            3.388,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_bench_contact_01",
+          "point_world": [
+            7.36,
+            3.388,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_bench_contact_02",
+          "point_world": [
+            7.8,
+            4.612,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_bench_contact_03",
+          "point_world": [
+            7.36,
+            4.612,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_light_00",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_light_00_contact_00",
+          "point_world": [
+            4.754,
+            2.2,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_light_00_contact_01",
+          "point_world": [
+            5.746,
+            2.2,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_light_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_light_01_contact_00",
+          "point_world": [
+            4.754,
+            5.8,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_light_01_contact_01",
+          "point_world": [
+            5.746,
+            5.8,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_light_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_light_02_contact_00",
+          "point_world": [
+            2.204,
+            4.0,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_light_02_contact_01",
+          "point_world": [
+            3.196,
+            4.0,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "LOCKER_procedure",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_procedure_contact_00",
+          "point_world": [
+            8.1,
+            4.0,
+            1.7
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_contact_00",
+          "point_world": [
+            4.62,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_01_contact_01",
+          "point_world": [
+            5.48,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_01_contact_02",
+          "point_world": [
+            5.05,
+            6.428,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_contact_00",
+          "point_world": [
+            6.42,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_02_contact_01",
+          "point_world": [
+            7.28,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_02_contact_02",
+          "point_world": [
+            6.85,
+            6.428,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_03",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_contact_00",
+          "point_world": [
+            5.48,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_03_contact_01",
+          "point_world": [
+            4.62,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_03_contact_02",
+          "point_world": [
+            5.05,
+            1.572,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_contact_00",
+          "point_world": [
+            7.28,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_04_contact_01",
+          "point_world": [
+            6.42,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_04_contact_02",
+          "point_world": [
+            6.85,
+            1.572,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "RADIATION",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:RADIATION_contact_00",
+          "point_world": [
+            1.25,
+            9.3,
+            1.13
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:RADIATION_contact_01",
+          "point_world": [
+            1.25,
+            9.3,
+            1.75
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "SERVICE_light",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SERVICE_light_contact_00",
+          "point_world": [
+            -0.352,
+            11.0,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SERVICE_light_contact_01",
+          "point_world": [
+            0.352,
+            11.0,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "TRAFFIC_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_0_contact_00",
+          "point_world": [
+            0.0,
+            8.92,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0007,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "TRAFFIC_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_1_contact_00",
+          "point_world": [
+            3.66,
+            4.0,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0007,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "TRAFFIC_2",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_2_contact_00",
+          "point_world": [
+            5.15,
+            1.95,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0007,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "TRAFFIC_3",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_3_contact_00",
+          "point_world": [
+            6.85,
+            6.02,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0007,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "WAYFIND_briefing",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:WAYFIND_briefing_contact_00",
+          "point_world": [
+            -1.62,
+            3.7,
+            2.49
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "WAYFIND_lockers",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:WAYFIND_lockers_contact_00",
+          "point_world": [
+            1.62,
+            3.7,
+            2.49
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "WAYFIND_operations",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:WAYFIND_operations_contact_00",
+          "point_world": [
+            0.0,
+            9.3,
+            2.66
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    }
+  ]
+}

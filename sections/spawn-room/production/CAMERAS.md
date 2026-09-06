@@ -7,6 +7,16 @@
 
 Once formal review begins, transforms and focal lengths remain fixed unless a camera is proven invalid and the change is documented.
 
+## Rebuild baseline record — 2026-09-06
+
+Machine-readable transforms and lenses are retained in every review directory's `cameras.json`. All mandatory cameras use 1.63 m eye height, 1440 × 900 pixels, AgX Medium High Contrast, exposure +0.3, and Cycles CPU. Formal baseline is frozen from `room-02` onward. The planned final two cycles retain the same transforms, lenses, resolution and practical fixture locations.
+
+The rejected `room-01` baseline exposed three invalid audit views: Material A lay at the machine envelope and omitted material context; Walk B aimed into the side of the machine rather than along its circulation edge; Locker Reverse was too narrow to establish the reverse route. Their old renders and manifests remain available. Material A moved to open floor; Walk B retained its position and changed aim along the aisle; Locker Reverse retained position/aim and widened from 23 to 16 mm. No other formal camera moved. See `critics/full-room-review.md` for the findings that justified these exceptions.
+
+The six user-requested views map to A `VALIDATE_Spawn`, B `VALIDATE_HallForward`, C `VALIDATE_LockerDoor`, D `VALIDATE_LockerReverse`, E `VALIDATE_BriefingDoor`, F `VALIDATE_Material_A`. Five additional mandatory repository views complete the eleven-view review set.
+
+Two supplemental source cameras, `DETAIL_BriefingHuman` and `DETAIL_LockerWork`, expose the crew portrait and small work clusters that face away from the route cameras. These supplement rather than replace the eleven mandatory views. Cold-start `--states` also renders the five non-idle mechanical states from the unchanged `VALIDATE_Hero_A` camera.
+
 ## Required cameras
 
 ### VALIDATE_Spawn

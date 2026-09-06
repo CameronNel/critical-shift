@@ -7,6 +7,24 @@
 
 Completion requires overall >= 90/100, every category >= 85% of available points, zero critical failures, stable final two cycles, and cold-start PASS.
 
+## Grounded rebuild assessment — 2026-09-06
+
+**Status: PASS for the Blender art delivery. Final score: 91.5/100.** Reviewer: builder self-review, not independent critic or user acceptance. Slice checkpoint: **8.5/10**, no veto identified, reviewed before expansion. Final visual average: **8.7/10**; art/layout subtotal **81.5/90**, technical **10/10**. All category floors are met. No critical failure or visual veto was identified in builder review.
+
+| Category | Final score | Reference / evidence |
+|---|---:|---|
+| Layout / route readability | 18/20 | 00–03, 17, 23–24; left/right/forward navigation, four bays, four chairs, measured circulation |
+| Art direction / silhouettes | 18/20 | 04–09, 13, 20–21; folded sheet, sewn cloth, tubular furniture, continuous door apertures |
+| Hero objects / focal clarity | 14/15 | 03–07, 22; central test machine, editable mechanism and distinct PPE stations |
+| Materials / anti-plastic | 13.5/15 | 10, 20; cloth nap, curved visor, matte rubber, paint, laminate grain, enamel and clear glass |
+| Lighting / atmosphere | 9/10 | 11, 16; physical practical fixtures, quieter centre, cooler operations, grounded feet |
+| Dressing / worldbuilding | 9/10 | 12, 14–15, 18–19; two portraits, one notice cluster, cards/cartridges/clipboard/mug and contact wear |
+| Technical cleanliness / reproducibility | 10/10 | 59 contact checks, 29 objective checks; fresh rebuild PASS; all eleven cold-start PNGs pixel-identical |
+
+Full visual breakdown: scale 9; shape specificity 8.5; material separation 8.5; lighting/grounding 8.5; colour 9; human storytelling 8.5; density 9; signage 9; PPE 8.5; commercial game read 8.5. The room is intentionally restrained and clinical. The scores do not claim photoreal detail, a finished runtime integration, or perfection.
+
+Failed passes and exact fixes are retained in `critics/full-room-review.md` and the numbered render folders. The final two cycles are materially stable; see stability_comparison.json and cold_start_comparison.json. The original slice category mean is 8.45/10, reported as 8.5 at one decimal. The final room category mean is 8.7/10 (correcting an earlier arithmetic transcription of 8.75).
+
 | Category | Points | Pass floor |
 |---|---:|---:|
 | Layout / route readability | 20 | 17 |

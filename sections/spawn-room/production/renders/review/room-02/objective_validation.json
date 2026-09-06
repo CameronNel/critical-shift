@@ -1,0 +1,163 @@
+{
+  "status": "FAIL",
+  "checks": [
+    {
+      "check": "suit_station",
+      "pass": true,
+      "detail": [
+        "PPE_01",
+        "PPE_02",
+        "PPE_03",
+        "PPE_04"
+      ]
+    },
+    {
+      "check": "primary_seat",
+      "pass": true,
+      "detail": [
+        "BRIEFING_seat_00",
+        "BRIEFING_seat_01",
+        "BRIEFING_seat_02",
+        "BRIEFING_seat_03"
+      ]
+    },
+    {
+      "check": "integrity_chamber",
+      "pass": true,
+      "detail": [
+        "INTEGRITY"
+      ]
+    },
+    {
+      "check": "radiation_checkpoint",
+      "pass": true,
+      "detail": [
+        "RADIATION"
+      ]
+    },
+    {
+      "check": "two stations each side",
+      "pass": true,
+      "detail": "Locker centre y=4"
+    },
+    {
+      "check": "left briefing / right PPE",
+      "pass": true,
+      "detail": "World X sides from spawn facing +Y"
+    },
+    {
+      "check": "chamber circulation >=1.2m",
+      "pass": false,
+      "detail": {
+        "north": 1.1329994201660156,
+        "south": 1.2029999494552612,
+        "rear_to_bench": 1.3049993515014648
+      }
+    },
+    {
+      "check": "gathering hall >=3m",
+      "pass": true,
+      "detail": 3.296000009536743
+    },
+    {
+      "check": "BRIEFING_entry editable pivot",
+      "pass": true,
+      "detail": "Separate hinged leaf root"
+    },
+    {
+      "check": "LOCKER_entry editable pivot",
+      "pass": true,
+      "detail": "Separate hinged leaf root"
+    },
+    {
+      "check": "OPERATIONS_door editable pivot",
+      "pass": true,
+      "detail": "Separate hinged leaf root"
+    },
+    {
+      "check": "BRIEFING_seat_00 seat height",
+      "pass": true,
+      "detail": 0.4690000116825104
+    },
+    {
+      "check": "BRIEFING_seat_01 seat height",
+      "pass": true,
+      "detail": 0.4690000116825104
+    },
+    {
+      "check": "BRIEFING_seat_02 seat height",
+      "pass": true,
+      "detail": 0.4690000116825104
+    },
+    {
+      "check": "BRIEFING_seat_03 seat height",
+      "pass": true,
+      "detail": 0.4690000116825104
+    },
+    {
+      "check": "actual furniture feet on floor",
+      "pass": true,
+      "detail": {
+        "checked": 36,
+        "bad": {}
+      }
+    },
+    {
+      "check": "major supported asset coverage",
+      "pass": false,
+      "detail": [
+        "HALL_bench_recess_N_assembly",
+        "HALL_bench_recess_S_assembly"
+      ]
+    },
+    {
+      "check": "eleven fixed eye height cameras",
+      "pass": true,
+      "detail": 11
+    },
+    {
+      "check": "packed image dependencies",
+      "pass": true,
+      "detail": [
+        "commissioning_crew.png",
+        "human_contribution.png"
+      ]
+    },
+    {
+      "check": "no missing surface materials",
+      "pass": true,
+      "detail": "All mesh slots populated"
+    },
+    {
+      "check": "no legacy scene source",
+      "pass": true,
+      "detail": "8603063"
+    },
+    {
+      "check": "four spawn markers",
+      "pass": true,
+      "detail": "SPAWN_1..4"
+    }
+  ],
+  "measurements": {
+    "chamber_world_bounds": [
+      [
+        4.0400004386901855,
+        3.009999990463257,
+        0.0
+      ],
+      [
+        6.020000457763672,
+        5.060000419616699,
+        2.7825000286102295
+      ]
+    ],
+    "chamber_circulation_m": {
+      "north": 1.1329994201660156,
+      "south": 1.2029999494552612,
+      "rear_to_bench": 1.3049993515014648
+    },
+    "hall_clear_m": 3.296000009536743
+  },
+  "scope": "Source geometry and dependencies; runtime collision/networking are engine handoff work."
+}

@@ -1,0 +1,198 @@
+{
+  "validator": "Critical Shift support-contact validator",
+  "status": "PASS",
+  "required_collection": "CS_SUPPORT_REQUIRED",
+  "candidate_collections": [
+    "CS_WALL_DRESSING",
+    "CS_FLOOR_DRESSING",
+    "CS_CEILING_DRESSING"
+  ],
+  "objects_checked": 4,
+  "failures": [],
+  "objects": [
+    {
+      "object": "SLICE_bench",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_bench_contact_00",
+          "point_world": [
+            1.298,
+            -0.64,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_bench_contact_01",
+          "point_world": [
+            1.298,
+            -0.2,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_bench_contact_02",
+          "point_world": [
+            2.522,
+            -0.64,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_bench_contact_03",
+          "point_world": [
+            2.522,
+            -0.2,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_practical",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_practical_contact_00",
+          "point_world": [
+            -0.394,
+            -1.16,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_practical_contact_01",
+          "point_world": [
+            0.694,
+            -1.16,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_station",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_station_contact_00",
+          "point_world": [
+            -0.43,
+            -0.152,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_station_contact_01",
+          "point_world": [
+            0.43,
+            -0.152,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_station_contact_02",
+          "point_world": [
+            0.0,
+            -0.872,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "SLICE_utility",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SLICE_utility_contact_00",
+          "point_world": [
+            -2.78,
+            0.0,
+            0.35
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_utility_contact_01",
+          "point_world": [
+            -2.78,
+            0.0,
+            1.72
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SLICE_utility_contact_02",
+          "point_world": [
+            -2.78,
+            0.0,
+            2.97
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_WALL_DRESSING"
+      ]
+    }
+  ]
+}

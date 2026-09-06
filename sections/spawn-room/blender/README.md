@@ -7,6 +7,27 @@
 
 Store the authoritative editable Blender source for the Spawn Room here.
 
+## Grounded rebuild implementation
+
+`spawnroom.blend` is generated from an empty factory scene by `build_grounded.py`, `grounded_kit.py` and `grounded_room.py`. Existing blends are never read as build input. Reference base: `origin/main` commit `8603063`. Tested with Blender 5.2.0 LTS, Cycles CPU, eight threads. The build requires no MCP connection, addon, downloaded model or texture service.
+
+From the repository root (replace `blender` with its installed executable path):
+
+```powershell
+blender -b -t 8 --python-exit-code 1 --python sections/spawn-room/blender/build_grounded.py -- --scope room --review-id rebuild --samples 20
+blender -b -t 8 --python-exit-code 1 sections/spawn-room/blender/spawnroom.blend --python sections/spawn-room/blender/cold_start_grounded.py -- --review-id cold-start --states
+```
+
+The `--python-exit-code 1` flag is required: Blender otherwise can return process code zero after a Python exception. The build retains failed renders for diagnosis and raises if objective or support checks fail. Do not judge PASS from Blender's exit status alone without that flag.
+
+For the small kit slice, use `--scope slice`. `--stage 1` produces the primary-form grey review. `--no-render` builds and audits without rendering; `--cameras VALIDATE_Spawn,VALIDATE_LockerDoor` selects a diagnostic subset. Full review omits `--cameras` and renders all eleven fixed views at 1440 × 900, AgX Medium High Contrast, exposure +0.3.
+
+`validate_contacts.py` is the existing repository support audit. `validate_grounded.py` adds asset counts, metric clearances, actual furniture-foot bounds, packed dependencies, camera heights and machine-state checks. It is a source audit, not runtime collision simulation. `compare_reviews.py` uses Python 3 with Pillow to compare camera manifests and decoded pixels; it does not assign art scores.
+
+Major source collections separate the hall, briefing room, locker room, PPE stations, integrity machine, gameplay hooks and review cameras. Overlapping `CS_*` collections hold support audit registrations. Interactive leaves and the scan carriage remain separate objects with editable origins. Procedural materials are reusable. Both original portrait PNGs are packed and retain project-relative paths; provenance is in `../assets/portraits/SOURCES.md`.
+
+The six integrity preview keys are 1 ready, 31 occupied, 61 testing, 91 pass, 121 inspect, 151 fail. Readouts, indicator emission and inward-hinged doors change; the scanning carriage moves. Audio locations are named empties for the engine handoff. The pocket personnel door has a separate leaf and saved closed position; operations, rear-entry and briefing doors have hinge origins. Gameplay interaction, networking, collision meshes, character skinning/LODs, sound playback and engine lighting remain engine integration work.
+
 Primary filename when created:
 
 - spawnroom.blend
@@ -32,7 +53,7 @@ This section includes `validate_contacts.py`.
 Run it headlessly after any dressing pass:
 
 ```bash
-blender -b spawnroom.blend --python validate_contacts.py
+blender -b --python-exit-code 1 spawnroom.blend --python validate_contacts.py
 ```
 
 It writes `../production/contact_validation.json` and fails the Blender job when required props are floating, over-penetrating, incorrectly oriented, or not registered.

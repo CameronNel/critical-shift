@@ -93,6 +93,14 @@ For every support-dependent prop, review:
 
 A mathematically valid contact can still fail art review.
 
+## Grounded rebuild audit coverage
+
+The rebuilt scene registers assemblies at actual mounting/foot locations, with separate registrations for stored boots, cartridges, inspection cards, loose clipboards, mug, door-contact wear, portraits, notices, signs, duct hangers and the return-air grille. The fifth build has **59 registered props, zero contact failures**. The same report is copied into each cycle folder for traceability.
+
+During review, a passing bay-root contact did not prove its boots touched the tray. The 14.5 mm boot gap was corrected and each boot now has its own shelf-target registration. A cabinet-foot offset was also corrected at the actual mesh rather than moving its anchors. `validate_grounded.py` independently measures all 36 furniture feet, plus room clearances and required asset counts. This supplements, rather than replaces, the original validator.
+
+Painted wall linings, window reveals and floor joints are architectural construction. The machine's attached internals and PPE's sewn components are nested under their supported asset roots. Anchor tests do not certify arbitrary mesh intersections; fixed-camera visual inspection remains mandatory.
+
 
 ## Reference-aware contact review
 
