@@ -1,0 +1,19 @@
+{
+  "revision": "quality50-r5",
+  "purpose": "Implementation and correction pass following inspection of all 50 first-round Blender renders.",
+  "review_views": 50,
+  "renderer": "Cycles",
+  "blender": "5.2.1 LTS",
+  "render_width": 1100,
+  "samples": 32,
+  "corrections": [
+    "Smaller rough wooden carts with visible interiors and preserved rail contacts",
+    "Pitted paint and iron, grain, rust, dirt, dents and rough concrete",
+    "Darker practical lighting, anchored cobwebs, rotten timber and damp mineral staining",
+    "Physics-settled, separately removable collapse fragments",
+    "Continuous floor/rock seams and cleared entrance walkway",
+    "Finished facility junction, natural ore placement, corrected camera obstructions",
+    "Readable closed blast gate and shallow/deep excavation work lights"
+  ],
+  "visual_review_note": "Inspect the resulting PNGs after the runner finishes. Automated success alone is not visual acceptance."
+}
