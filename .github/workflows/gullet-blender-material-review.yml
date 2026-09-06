@@ -7,7 +7,7 @@ on:
       - 'sections/mine/blender/gullet/pbr/**'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: gullet-blender-material-review
   cancel-in-progress: true
@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false
+          ref: ${{ github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -44,29 +44,55 @@ jobs:
         run: |
           python sections/mine/blender/gullet/pbr/download_materials.py
           python sections/mine/blender/gullet/pbr/download_geology_detail.py
-      - name: Preserve downloaded originals and hashes
-        uses: actions/upload-artifact@v4
-        with:
-          name: gullet-cc0-materials
-          path: sections/mine/assets/pbr
-          if-no-files-found: error
-          retention-days: 7
-      - name: Prepare and review mine when repair source is present
+      - name: Build and render the actual mine
         shell: bash
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '4'
         run: |
           set -euo pipefail
           cd sections/mine/blender/gullet
-          if [ -f pbr/build_textured_mine.py ]; then
-            python tools/prepare_assets.py
-            blender --background --factory-startup --threads 4 --python-exit-code 1 --python pbr/build_textured_mine.py -- --output "$GITHUB_WORKSPACE/sections/mine/production/material-review" --render entry --samples 32 --width 1200 --device cpu
-          else
-            echo 'Material downloads complete; Blender material repair source follows.'
-          fi
-      - name: Preserve logs and actual Blender output
+          python tools/prepare_assets.py
+          OUT="$GITHUB_WORKSPACE/sections/mine/production/material-review"
+          mkdir -p "$OUT"
+          blender --background --factory-startup --threads 4 --python-exit-code 1 --python build_mine.py -- --output "$OUT" --render entry,main_route,sump --samples 32 --width 1280 --device cpu 2>&1 | tee "$OUT/blender_build.log"
+      - name: Cold-start checks in a new Blender process
+        shell: bash
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '4'
+        run: |
+          set -euo pipefail
+          cd sections/mine/blender/gullet
+          OUT="$GITHUB_WORKSPACE/sections/mine/production/material-review"
+          blender --background "$OUT/CriticalShift_Gullet_PBR.blend" --threads 4 --python-exit-code 1 --python pbr/validate_blender.py -- --output "$OUT/cold-start" --render entry --samples 16 --width 896 2>&1 | tee "$OUT/blender_cold_start.log"
+      - name: Preserve actual scene, downloaded assets and evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: gullet-blender-material-review
-          path: sections/mine/production/material-review
-          if-no-files-found: ignore
-          retention-days: 7
+          path: |
+            sections/mine/production/material-review
+            sections/mine/assets/pbr
+          if-no-files-found: error
+          retention-days: 14
+      - name: Publish only section-local assets after successful checks
+        if: success() && github.ref_name == 'art/gullet-material-repair-20260906'
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT=sections/mine
+          mkdir -p "$ROOT/production/renders/review/cc0-materials" "$ROOT/production/checkpoints/cc0-materials"
+          cp "$ROOT/production/material-review/CriticalShift_Gullet_PBR.blend" "$ROOT/blender/gullet/Gullet_MaterialReview.blend"
+          cp "$ROOT/production/material-review/renders/"*.png "$ROOT/production/renders/review/cc0-materials/"
+          cp "$ROOT/production/material-review/renders/render_report.json" "$ROOT/production/renders/review/cc0-materials/"
+          cp "$ROOT/production/material-review/build_report.json" "$ROOT/production/checkpoints/cc0-materials/"
+          cp "$ROOT/production/material-review/cold-start/cold_start_report.json" "$ROOT/production/checkpoints/cc0-materials/"
+          cp "$ROOT/production/material-review/"*.log "$ROOT/production/checkpoints/cc0-materials/"
+          git config user.name 'Critical Shift Asset Builder'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$ROOT/assets/pbr" "$ROOT/blender/gullet/Gullet_MaterialReview.blend" "$ROOT/production/renders/review/cc0-materials" "$ROOT/production/checkpoints/cc0-materials"
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish CC0 mine materials, actual Blender scene and verified review evidence [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
