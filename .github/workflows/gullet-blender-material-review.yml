@@ -40,6 +40,15 @@ jobs:
           tar -xf "blender-${V}-linux-x64.tar.xz"
           echo "/tmp/gullet-toolchain/blender-${V}-linux-x64" >> "$GITHUB_PATH"
           "./blender-${V}-linux-x64/blender" --background --factory-startup --python-expr "import bpy; print('VERIFIED_BLENDER', bpy.app.version_string)"
+      - name: Download selected CC0 material packs
+        run: python sections/mine/blender/gullet/pbr/download_materials.py
+      - name: Preserve downloaded originals and hashes
+        uses: actions/upload-artifact@v4
+        with:
+          name: gullet-cc0-materials
+          path: sections/mine/assets/pbr
+          if-no-files-found: error
+          retention-days: 7
       - name: Prepare and review mine when repair source is present
         shell: bash
         run: |
@@ -47,28 +56,15 @@ jobs:
           cd sections/mine/blender/gullet
           if [ -f pbr/build_textured_mine.py ]; then
             python tools/prepare_assets.py
-            python pbr/download_materials.py
             blender --background --factory-startup --threads 4 --python pbr/build_textured_mine.py -- --output "$GITHUB_WORKSPACE/sections/mine/production/material-review" --render entry
           else
-            echo 'Blender bootstrap only; material repair source follows.'
+            echo 'Material downloads complete; Blender material repair source follows.'
           fi
       - name: Preserve logs and actual Blender output
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: gullet-blender-material-review
-          path: |
-            sections/mine/production/material-review
-            sections/mine/blender/gullet/pbr/download_manifest.json
+          path: sections/mine/production/material-review
           if-no-files-found: ignore
           retention-days: 7
-      - name: Preserve verified temporary toolchain
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: gullet-verified-blender-toolchain
-          path: |
-            /tmp/gullet-toolchain/*.tar.xz
-            /tmp/gullet-toolchain/*.sha256
-          compression-level: 0
-          retention-days: 1
