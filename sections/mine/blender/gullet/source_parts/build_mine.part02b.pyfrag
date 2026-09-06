@@ -1,0 +1,86 @@
+  box(s,'Diffuser',(0,0,-.028),(length-.14,.12,.042),'emissive_warm' if warm else 'emissive_cool',.015)
+  for x in [-length/2+.055,length/2-.055]:
+   box(s,'Buckle',(x,0,-.012),(.055,.216,.06),'steel',.004)
+  for x in [-length*.26,length*.26]:pipe(s,'Light_hanger',(x,0,.095),(x,0,.25),.008,'dark_steel',8)
+  s.light('Practical',(0,0,-.09),(0,0,-2),(1.,.79,.54) if warm else (.76,.86,1.),power,length*.67)
+
+def handwheel(s,name,center,r=.20,axis='Y',mat='paint_ochre'):
+ ring(s,name+'_rim',center,r,.022,mat,axis)
+ c=v3(center)
+ for a in [0,2*math.pi/3,4*math.pi/3]:
+  end=c+v3((r*math.cos(a),0,r*math.sin(a)) if axis=='Y' else (0,r*math.cos(a),r*math.sin(a)))
+  pipe(s,name+'_spoke',c,end,.014,mat,10)
+ p=c+v3((0,.09,0) if axis=='Y' else (.09,0,0))
+ pipe(s,name+'_hub',c,p,.045,'steel',16)
+
+
+def gauge(s,name,p,r=.105,rot=(math.pi/2,0,0),reading=.68):
+ with s.group(name,p,rot):
+  lathe(s,'Instrument_case',[(r*.86,-.06),(r,-.035),(r,.012),(r*.89,.025)],'steel',n=32)
+  lathe(s,'Dial_face',[(r*.88,.024),(r*.88,.027)],'paper',n=32)
+  for i in range(13):
+   a=math.radians(-225+i*22.5);ra=r*.75
+   a0=(ra*math.cos(a),ra*math.sin(a),.031);a1=((ra-r*.12)*math.cos(a),(ra-r*.12)*math.sin(a),.031)
+   pipe(s,'Dial_tick',a0,a1,.0024,'dark_steel',6)
+  a=math.radians(-225+reading*270)
+  pipe(s,'Needle',(0,0,.034),(r*.62*math.cos(a),r*.62*math.sin(a),.034),.004,'paint_red',6)
+  lathe(s,'Needle_hub',[(.010,.034),(.010,.040)],'dark_steel',n=12)
+
+
+def lamp_stand(s,loc,rot=(0,0,0)):
+ with s.group('Portable_worklight',loc,rot,collection='06_WORKSTATIONS',meta={'interaction':'portable_lamp'}):
+  for a in [0,2.094,4.189]:
+   pipe(s,'Tripod_leg',(0,0,.35),(.45*math.cos(a),.45*math.sin(a),.045),.027,'paint_ochre')
+   box(s,'Rubber_foot',(.45*math.cos(a),.45*math.sin(a),.026),(.15,.10,.052),'rubber',.01,rot=(0,0,a))
+  pipe(s,'Stand',(0,0,.15),(0,0,1.57),.034,'steel')
+  box(s,'Lamp_yoke',(0,0,1.61),(.49,.12,.065),'paint_ochre',.008)
+  box(s,'Lamp_case',(0,.02,1.82),(.50,.18,.35),'paint_ochre',.035,rot=(math.radians(-12),0,0))
+  panel(s,'Lamp_lens',(0,-.10,1.83),.40,.24,'emissive_warm')
+  s.light('Portable_practical',(0,-.16,1.82),(0,-3,1.2),(1.,.76,.48),180,.36)
+  line(s,'Power_lead',[(0,.08,1.7),(.13,.1,1),(.2,.25,.03),(.9,.6,.03),(1.2,.45,.03)],.017)
+
+
+def hazard_strip(s,name,loc,w,h,rot=(math.pi/2,0,0)):
+ """Clipped diagonal paint, kept to gate edges and one intake threshold."""
+ def clip(poly,axis,value,ge):
+  out=[]
+  for a,b in zip(poly,poly[1:]+poly[:1]):
+   ina=a[axis]>=value if ge else a[axis]<=value; inb=b[axis]>=value if ge else b[axis]<=value
+   if ina:out.append(a)
+   if ina!=inb:
+    t=(value-a[axis])/(b[axis]-a[axis]);out.append([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])])
+  return out
+ with s.group(name,loc,rot):
+  panel(s,'Caution_undercoat',(0,0,0),w,h,'paint_ochre',rot=(0,0,0))
+  stripe=.18
+  for a in np.arange(-w/2-h,w/2+h,stripe*2):
+   p=[[a,-h/2],[a+stripe,-h/2],[a+stripe+h,h/2],[a+h,h/2]]
+   p=clip(p,0,-w/2,True);p=clip(p,0,w/2,False)
+   if len(p)>2:
+    pp=np.asarray(p);tri=[(0,i,i+1) for i in range(1,len(p)-1) if abs((pp[i,0]-pp[0,0])*(pp[i+1,1]-pp[0,1])-(pp[i,1]-pp[0,1])*(pp[i+1,0]-pp[0,0]))>1e-10]
+    if tri:s.add('Caution_diagonal',[(x,y,.0015) for x,y in p],tri,'dark_steel')
+
+
+def cliff(s):
+ s.collection='00_SITE'
+ # A quarried mountain frontage. Heightfield planes replace boulder scatter.
+ xs=np.linspace(-29,29,126);zs=np.linspace(-.2,22,63)
+ v=[]
+ for x in xs:
+  for z in zs:
+   y=2.5+.8*math.sin(x*.27+z*.45)+.36*math.sin(x*.83-z*.16)+.22*math.sin(z*2.2+x*.17)
+   y+=max(0,z-8)*.39
+   v.append((x,y,z))
+ f=[];nz=len(zs)
+ for i in range(len(xs)-1):
+  for j in range(nz-1):
+   cx=(xs[i]+xs[i+1])/2;cz=(zs[j]+zs[j+1])/2
+   if abs(cx)<5.2 and cz<6.5:continue
+   a=i*nz+j;b=a+nz;f.extend(((a,b,b+1),(a,b+1,a+1)))
+ s.add('Mountain_quarried_front',v,f,'rock',smooth=True)
+ # Upper mountain surface extends over the entire actual underground footprint.
+ xx=np.linspace(-29,29,75);yy=np.linspace(10,63,78);v=[]
+ for x in xx:
+  for y in yy:
+   z=21.8+2.8*math.sin(y*.058)+1.6*math.cos(x*.16)+.7*math.sin(x*.41+y*.22)
+   v.append((x,y,z))

@@ -1,0 +1,150 @@
+   box(s,'Rail_chair',(side*.55,y,z+.073),(.23,.25,.025),'dark_steel',.004)
+   for dx in [-.086,.086]:
+    bolt(s,'Rail_hold_down',(side*.55+dx,y,z+.09),.019)
+ for y in [-18,-11,-4,5,15,25,35]:
+  z=floor_z(y)
+  for side in [-1,1]:
+   box(s,'Rail_fishplate',(side*.55+side*.024,y,z+.151),(.018,.48,.07),'dark_steel',.003)
+   for dy in [-.16,.16]:bolt(s,'Fishplate_fastener',(side*.55+side*.04,y+dy,z+.151),.018,'X')
+ # Handoff buffer lives beside the external socket, not across the exit route.
+ box(s,'Handoff_batch_pad',(1.60,-19.15,.03),(.90,2.4,.06),'dark_steel',.008)
+ hazard_strip(s,'Handoff_pad_marking',(1.60,-20.43,.063),.94,.18,rot=(0,0,0))
+ ore_cart(s,(0,-8.8,.08),False,name='Dispatch_cart')
+ ore_cart(s,(0,22.7,floor_z(22.7)+.08),True,rot=(-math.atan(SLOPE),0,0),name='Loaded_haulage_cart')
+ # Raised-edge pedestrian boardwalk on the right, leaving >1.2 m clear.
+ for start,end in [(2.0,10.3),(14.1,24.0),(29.7,36.8)]:
+  for y in np.arange(start,end,.83):
+   box(s,'Walkway_panel',(2.07,y,floor_z(y)+.054),(1.18,.812,.085),'paint_cream',.009,rot=(-math.atan(SLOPE),0,0))
+   # Only five transverse ribs per panel: believable tread without visual noise.
+   for dy in [-.29,-.145,0,.145,.29]:
+    box(s,'Walkway_anti_slip',(2.07,y+dy,floor_z(y+dy)+.103),(1.04,.016,.007),'dark_steel',.001)
+  for side in [-1,1]:
+   line(s,'Walkway_edge',[(2.07+side*.585,start-.38,floor_z(start)+.10),(2.07+side*.585,end-.10,floor_z(end)+.10)],.018,'paint_ochre')
+ # A small door-step ramp keeps the walkway continuous to the apron.
+ vv=[(1.48,-1,0),(2.67,-1,0),(2.67,1.64,floor_z(1.64)+.10),(1.48,1.64,floor_z(1.64)+.10)]
+ s.add('Walkway_entry_ramp',vv,[(0,1,2),(0,2,3)],'concrete')
+
+
+def arch_support(s,y,width=2.91,height=4.12,collection='04_STRUCTURE'):
+ z=floor_z(y)
+ with s.group('Structural_arch',(0,y,z),collection=collection):
+  profile=ibeam_profile(.20,.18,.022)
+  path=[(-width,0,.17),(-width,0,1.30),(-width+.045,0,2.13),(-width+.32,0,2.94),(-width+.87,0,3.57),(-1.22,0,height-.06),(0,0,height),(1.22,0,height-.06),(width-.87,0,3.57),(width-.32,0,2.94),(width-.045,0,2.13),(width,0,1.30),(width,0,.17)]
+  sweep(s,'Rolled_arch_section',path,profile,'paint_teal',up=(0,1,0))
+  for side in [-1,1]:
+   box(s,'Arch_spreader_pad',(side*width,0,.062),(.55,.60,.125),'concrete',.028)
+   box(s,'Arch_steel_shoe',(side*width,0,.15),(.31,.41,.060),'steel',.006)
+   for dx in [-.105,.105]:
+    for yy in [-.14,.14]:bolt(s,'Arch_shoe_anchor',(side*width+dx,yy,.18),.026)
+   # Flange splice with paired studs at shoulder height.
+   box(s,'Arch_joint_plate',(side*(width-.04),-.122,2.09),(.28,.038,.32),'steel',.008,rot=(0,-side*.08,0))
+   for dx in [-.079,.079]:
+    for zz in [2.00,2.18]:bolt(s,'Arch_joint_bolt',(side*(width-.04)+dx,-.150,zz),.023,'Y')
+   # Roof-bolt bearer reaches toward the rock with a visible plate.
+   p=(side*2.42,0,3.12);end=(side*2.68,.02,3.34)
+   pipe(s,'Roof_anchor_tie',p,end,.018,'steel',12)
+   box(s,'Rock_anchor_plate',end,(.21,.20,.032),'steel',.007,rot=(0,side*.75,0))
+
+
+def geology_and_structure(s):
+ pack=np.load(ASSETS/'geology.npz',allow_pickle=False)
+ s.collection='02_GEOLOGY'
+ s.add('Continuous_stratified_mine_skin',pack['cave_vertices'],pack['cave_faces'],'rock',smooth=True)
+ s.add('Excavated_floor',pack['floor_vertices'],pack['floor_faces'],'ground',smooth=True)
+ for y in [3.8,8.2,15.,21.7,25.,30.,36.7]:arch_support(s,y)
+ # Three geology-to-shotcrete stitches emphasize excavation and construction.
+ s.collection='04_STRUCTURE'
+ for y in [4.4,8.8,22.5,30.6]:
+  for side in [-1,1]:
+   for i in range(3):
+    rock(s,'Roof_shale_shoulder',(side*(2.74+.07*i),y+.3*i,floor_z(y)+2.70+.29*i),(.60,1.28,.20),'rock_dark' if i==0 else 'rock',420+i+int(y)*3,rot=(0,side*.45,.045*i))
+ # Simple fixed supports along the person-width return path, not a second rail tunnel.
+ for x,y,ang in [(7.1,14.4,-.60),(8.85,18.2,-.14),(8.83,24.0,.18),(6.6,27.2,.92)]:
+  z=floor_z(y)
+  with s.group('Return_loop_frame',(x,y,z),rot=(0,0,ang),collection='04_STRUCTURE'):
+   path=[(-1.22,0,.12),(-1.22,0,1.95),(-.90,0,2.66),(0,0,2.96),(.90,0,2.66),(1.22,0,1.95),(1.22,0,.12)]
+   sweep(s,'Maintenance_arch',path,ibeam_profile(.12,.12,.018),'dark_steel',up=(0,1,0))
+   for side in [-1,1]:box(s,'Loop_frame_pad',(side*1.22,0,.05),(.34,.37,.10),'concrete',.015)
+ # Fine dressing is deliberately concentrated in wall margins, never across the route.
+ rng=np.random.default_rng(225)
+ for y in [5.3,9.5,13.9,23.7,26.4,30.3,35.0]:
+  for side in [-1,1]:
+   for i in range(4):
+    x=side*rng.uniform(2.72,3.00);yy=y+rng.uniform(-.38,.38)
+    rock(s,'Margin_spall',(x,yy,floor_z(yy)+.035),(.16+rng.random()*.17,.17+rng.random()*.18,.10+rng.random()*.08),'rock_dark',int(y*20+i+side*8),rot=(.08,-.1,rng.uniform(-2,2)))
+
+
+def services(s):
+ s.collection='05_SERVICES'
+ # Flexible ventilation trunk, stepped service joints and actual hanging straps.
+ path=[];profile=circle_profile(.285,24)
+ for y in np.linspace(.8,36,125):path.append((1.65+math.sin(y*.12)*.045,y,floor_z(y)+3.42-.03*math.sin(y*.5)))
+ sweep(s,'Ventilation_fabric_trunk',path,profile,'fabric',smooth=True,caps=False)
+ for y in np.arange(1,36,.80):
+  z=floor_z(y)+3.42-.03*math.sin(y*.5);x=1.65+math.sin(y*.12)*.045
+  ring(s,'Duct_reinforcing_band',(x,y,z),.287,.012,'dark_steel','Y',24)
+ for y in [2.,7.0,14.1,21.1,28.2,35.2]:
+  z=floor_z(y)+3.42
+  pipe(s,'Duct_joint_sleeve',(1.65,y-.115,z),(1.65,y+.115,z),.299,'paint_cream',24)
+  for yy in [y-.09,y+.09]:ring(s,'Duct_joint_clamp',(1.65,yy,z),.303,.012,'steel','Y',24)
+  line(s,'Duct_suspension',[(1.35,y,z+.03),(1.38,y,z+.31),(1.50,y,z+.55)],.020,'steel')
+ # Intake fan at the portal, with a guarded radial impeller and flange.
+ with s.group('Ventilation_booster',(1.66,1.65,3.38),rot=(math.pi/2,0,0),meta={'interaction':'ventilation_service'}):
+  lathe(s,'Fan_casing',[(.30,-.28),(.35,-.25),(.35,.14),(.39,.18),(.39,.215),(.30,.215)],'paint_teal',n=40)
+  lathe(s,'Fan_central_hub',[(.09,.12),(.10,.19),(.06,.23)],'steel',n=24)
+  for a in np.linspace(0,2*math.pi,6,endpoint=False):
+   verts=[]
+   for r,aa in [(.09,a),(.28,a+.11),(.29,a+.55),(.10,a+.20)]:verts.append((r*math.cos(aa),r*math.sin(aa),.115))
+   s.add('Fan_blade',verts,[(0,1,2),(0,2,3)],'dark_steel')
+  for r in [.16,.23,.30,.34]:ring(s,'Fan_guard_ring',(0,0,.25),r,.008,'steel')
+  for a in np.linspace(0,2*math.pi,8,endpoint=False):pipe(s,'Fan_guard_spoke',(.04*math.cos(a),.04*math.sin(a),.25),(.35*math.cos(a),.35*math.sin(a),.25),.008,'steel',8)
+ # Water main and flanges. Every run terminates at a believable service interface.
+ pipe(s,'Drainage_main',(-2.66,.45,2.02),(-2.66,35.3,floor_z(35.3)+2.02),.067,'steel',20)
+ for y in [2.1,9.8,18.0,26.1,34.8]:
+  z=floor_z(y)+2.02
+  for yy in [y-.025,y+.025]:pipe(s,'Pipe_flange',(-2.66,yy-.014,z),(-2.66,yy+.014,z),.116,'paint_teal',24)
+  for a in np.linspace(0,2*math.pi,6,endpoint=False):bolt(s,'Flange_bolt',(-2.66+.093*math.cos(a),y-.048,z+.093*math.sin(a)),.014,'Y')
+  pipe(s,'Pipe_support_peg',(-2.67,y,z),(-3.01,y,z),.018,'steel')
+ # One valve and one identifiable service branch, not decorative pipe spaghetti.
+ with s.group('Water_isolation',(-2.66,9.8,floor_z(9.8)+2.02)):
+  lathe(s,'Valve_cast_body',[(.067,-.11),(.11,-.05),(.11,.05),(.067,.11)],'paint_teal',rot=(math.pi/2,0,0),n=24)
+  pipe(s,'Valve_stem',(0,0,.07),(0,0,.31),.023,'steel')
+  handwheel(s,'Isolation_wheel',(0,-.03,.36),.17,'Y')
+ # Cable tray is a manufactured channel with three restrained cable runs.
+ for y in np.arange(1.2,36,2.0):
+  z=floor_z(y)+2.89
+  box(s,'Cable_tray_pan',(-2.33,y,z),(.30,1.96,.028),'dark_steel',.004)
+  for side in [-1,1]:box(s,'Cable_tray_lip',(-2.33+side*.143,y,z+.050),(.018,1.96,.11),'steel',.003)
+  pipe(s,'Cable_tray_bracket',(-2.48,y,z-.055),(-2.95,y,z-.055),.021,'steel')
+ for i in range(3):
+  pts=[(-2.42+.087*i,float(y),floor_z(y)+2.94+.011*math.sin(float(y)*1.3+i)) for y in np.linspace(.9,36.1,92)]
+  line(s,'Power_cable',pts,.022 if i==0 else .016,'rubber')
+ # The bay-side supply physically feeds the tunnel tray.
+ line(s,'Facility_supply_riser',[(-2.4,-18,3.27),(-2.4,-14.15,3.27),(-7.19,-13.50,3.22),(-7.19,-1.70,3.22),(-5.80,-.24,4.58),(-3.04,.50,3.18),(-2.40,1.40,2.94)],.04,'rubber')
+ for y in [-12.4,-9.6,-6.8,-4.,-1.8]:
+  pipe(s,'Supply_wall_bracket',(-7.20,y,3.20),(-7.48,y,3.20),.022,'steel')
+ # Electrical cabinet with a recessed inner panel and serviceable hinges.
+ with s.group('Mine_distribution_board',(-2.82,5.9,floor_z(5.9)),rot=(0,0,math.pi/2),meta={'interaction':'power_breaker'}):
+  box(s,'Electrical_back',(0,.03,1.28),(.83,.22,1.07),'paint_teal',.019)
+  box(s,'Breaker_recess',(0,-.094,1.30),(.67,.045,.80),'dark_steel',.012)
+  for x in [-.2,0,.2]:
+   box(s,'Breaker_switch',(x,-.143,1.39),(.10,.075,.22),'paint_cream',.008)
+   box(s,'Breaker_toggle',(x,-.197,1.37),(.065,.04,.08),'rubber',.006)
+  gauge(s,'Distribution_meter',(0,-.152,1.66),.087)
+  for z in [.98,1.76]:pipe(s,'Electrical_hinge',(-.40,-.11,z-.07),(-.40,-.11,z+.07),.022,'steel')
+  line(s,'Power_termination',[(0,.11,1.80),(0,.14,2.18),(0,.14,2.88)],.029,'rubber')
+ # Practical lighting establishes a warm/cool hierarchy at human eye level.
+ for i,y in enumerate([4.8,10.5,15.1,21.0,26.,30.2,36.4]):
+  fluorescent(s,'Mine_worklight',(-.36,y,floor_z(y)+3.83),1.13,210 if i%2==0 else 150,warm=(i in [1,4]))
+ for x,y in [(6.0,13.9),(9.0,18.0),(8.6,24.8),(5.9,27.3)]:
+  fluorescent(s,'Loop_worklight',(x,y,floor_z(y)+2.70),.78,85,warm=True,rot=(0,0,.12))
+
+
+def sump(s):
+ s.collection='05_SERVICES';cx,cy=9.45,21.55;z=floor_z(cy)
+ # The ground mesh has a matching cutout. Basin water is below the walking floor.
+ box(s,'Sump_basin_bottom',(cx,cy,z-.69),(2.45,3.32,.20),'concrete',.025)
+ for side in [-1,1]:
+  box(s,'Sump_sidewall',(cx+side*1.15,cy,z-.31),(.20,3.30,.70),'concrete',.028)
+  box(s,'Sump_endwall',(cx,cy+side*1.56,z-.31),(2.12,.18,.70),'concrete',.025)
+ panel(s,'Sump_water',(cx,cy,z-.235),2.05,2.87,'water',rot=(0,0,0))

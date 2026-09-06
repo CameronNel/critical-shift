@@ -66,3 +66,9 @@ Every section's `art/` folder must contain generated visual reference plates cov
 Agents must inspect these images **before** modelling. They are directional, not geometry blueprints.
 
 The first generated sets are indexed in [design/ART_REFERENCE_INDEX.md](/design/ART_REFERENCE_INDEX.md).
+
+## Current packaged sections
+
+- **Spawn Room** — preparation/locker-room package and visual bible.
+- **Reactor Room** — reactor/power section package.
+- **Gullet Mine** — production Blender source, progressive excavation states, haulage, wet-work infrastructure and validation handoff. **Agents must start with [`mine/AGENT_READ_FIRST.md`](mine/AGENT_READ_FIRST.md).**

@@ -1,0 +1,115 @@
+     if m.get('sector')==sec and m.get('collision_only') and is_visible(SimpleNamespace(meta=m),states,include_collision=True):state_colliders.append(o)
+    if state_colliders:emit(f'sector_{sec}_{STATE_NAMES[stage]}_colliders',state_colliders,{'kind':'state_collision','sector':sec,'state':stage})
+  colliders=[o for o in all_objects if o.get('csm_collision_only') and not o.get('csm_sector')]
+  emit('gullet_static_colliders',colliders,{'kind':'collision','static_concave_only':True})
+  (out/'variant_manifest.json').write_text(json.dumps({'units':'metres','variants':records,'notes':['Activate exactly one variant per sector.','Do not use static_concave colliders as dynamic rigid bodies.','Cart and gate physics, navigation, gameplay, and light conversion are not implemented by this exporter.','Procedural water/scuff rendering may require Unity material recreation.']},indent=2))
+ finally:
+  for o in all_objects:
+   h,r,sel=previous[o.name];o.hide_set(h);o.hide_render=r;o.select_set(sel)
+  bpy.context.view_layer.objects.active=original_active
+ return records
+
+
+def install_api(scene):
+ import bpy
+ bpy.app.driver_namespace['CSM_API']={
+  'scene':scene,'excavate':lambda sector,index:apply_excavation_event(scene,sector,index),
+  'clear_rubble':lambda sector:clear_next_rubble(scene,sector),
+  'reset':lambda:reset_states(scene,False),'showcase':lambda:reset_states(scene,True),
+  'gate':lambda fraction:set_gate(scene,fraction),
+  'render':lambda output,keys='all':render_cameras(scene,output,keys),
+  'export':lambda output,fmt='glb':export_variants(scene,output,fmt),
+ }
+
+
+def register_controls():
+ import bpy
+ from bpy.props import EnumProperty,IntProperty
+ # Remove only our own prior class registration; re-running does not clear data.
+ for name in ['CSM_PT_gullet','CSM_OT_excavate','CSM_OT_clear','CSM_OT_reset','CSM_OT_showcase','CSM_OT_gate']:
+  cls=getattr(bpy.types,name,None)
+  if cls:
+   try:bpy.utils.unregister_class(cls)
+   except RuntimeError:pass
+ class CSM_OT_excavate(bpy.types.Operator):
+  bl_idname='csm.excavate';bl_label='Apply excavation event';bl_options={'REGISTER','UNDO'}
+  def execute(self,context):
+   try:
+    v=apply_excavation_event(context.scene,context.scene.csm_sector,context.scene.csm_index)
+    self.report({'INFO'},f"{STATE_NAMES[v['state']]} / rubble {v['remaining_rubble']}");return {'FINISHED'}
+   except (ValueError,KeyError) as e:self.report({'WARNING'},str(e));return {'CANCELLED'}
+ class CSM_OT_clear(bpy.types.Operator):
+  bl_idname='csm.clear';bl_label='Clear next rubble slab';bl_options={'REGISTER','UNDO'}
+  def execute(self,context):
+   clear_next_rubble(context.scene,context.scene.csm_sector);return {'FINISHED'}
+ class CSM_OT_reset(bpy.types.Operator):
+  bl_idname='csm.reset';bl_label='Reset all sectors to sealed';bl_options={'REGISTER','UNDO'}
+  def execute(self,context):reset_states(context.scene);return {'FINISHED'}
+ class CSM_OT_showcase(bpy.types.Operator):
+  bl_idname='csm.showcase';bl_label='Showcase: shallow / extended / collapse';bl_options={'REGISTER','UNDO'}
+  def execute(self,context):reset_states(context.scene,True);return {'FINISHED'}
+ class CSM_OT_gate(bpy.types.Operator):
+  bl_idname='csm.gate';bl_label='Open / close blast gate';bl_options={'REGISTER','UNDO'}
+  def execute(self,context):
+   o=find_owned(context.scene,PREFIX+'CTRL_BLAST_GATE')
+   set_gate(context.scene,0 if o and o.get('csm_open_fraction',1)>.5 else 1);return {'FINISHED'}
+ class CSM_PT_gullet(bpy.types.Panel):
+  bl_label='Critical Shift / Gullet';bl_idname='CSM_PT_gullet';bl_space_type='VIEW_3D';bl_region_type='UI';bl_category='Gullet'
+  @classmethod
+  def poll(cls,context):return bool(context.scene.get('csm_generator'))
+  def draw(self,context):
+   layout=self.layout;scene=context.scene
+   layout.label(text='Fictional game indices only',icon='INFO')
+   layout.prop(scene,'csm_sector');layout.prop(scene,'csm_index');layout.operator('csm.excavate');layout.operator('csm.clear')
+   states=read_states(scene);v=states.get(scene.csm_sector,{})
+   layout.label(text=f"State: {STATE_NAMES.get(v.get('state',0),'unknown')}")
+   layout.label(text=f"Rubble remaining: {v.get('remaining_rubble',0)}")
+   layout.separator();layout.operator('csm.gate');layout.operator('csm.reset');layout.operator('csm.showcase')
+   layout.separator();layout.label(text='Art-state controls, not Unity gameplay.')
+ for cls in [CSM_OT_excavate,CSM_OT_clear,CSM_OT_reset,CSM_OT_showcase,CSM_OT_gate,CSM_PT_gullet]:bpy.utils.register_class(cls)
+ bpy.types.Scene.csm_sector=EnumProperty(name='Sector',items=[('A','A / Dry seam',''),('B','B / Wet seam',''),('C','C / Deep cut','')],default='A')
+ bpy.types.Scene.csm_index=IntProperty(name='Game cut index',default=3,min=1,max=12)
+
+
+def parse_args():
+ try:import bpy;in_blender=True
+ except ImportError:in_blender=False
+ argv=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else ([] if in_blender else sys.argv[1:])
+ p=argparse.ArgumentParser(description=__doc__,formatter_class=argparse.RawDescriptionHelpFormatter)
+ p.add_argument('--output',type=Path,default=ROOT/'output')
+ p.add_argument('--quality',choices=['balanced','high'],default='balanced')
+ p.add_argument('--mode',choices=['showcase','intact'],default='showcase')
+ p.add_argument('--device',choices=['auto','cpu'],default='auto')
+ p.add_argument('--render',default='',help='Comma-separated camera keys, or all')
+ p.add_argument('--export',choices=['glb','fbx'],default=None)
+ p.add_argument('--audit-only',action='store_true')
+ p.add_argument('--no-save',action='store_true')
+ return p.parse_args(argv)
+
+
+def main():
+ args=parse_args();data=build_scene_data();report=basic_audit(data)
+ args.output.mkdir(parents=True,exist_ok=True)
+ (args.output/'geometry_audit.json').write_text(json.dumps(report,indent=2))
+ if report['issues']:raise RuntimeError('Geometry audit failed: '+'; '.join(report['issues'][:12]))
+ if args.audit_only:print(json.dumps(report,indent=2));return
+ try:import bpy
+ except ImportError:raise RuntimeError('Run this file INSIDE Blender, or use --audit-only for the non-Blender checks.')
+ scene=create_blender_scene(data,args)
+ report['blender_build_executed']=True;report['blender_version']=bpy.app.version_string
+ report['blender_scene']=scene.name
+ (args.output/'build_report.json').write_text(json.dumps(report,indent=2))
+ (args.output/'scene_manifest.json').write_text(json.dumps({'generator':VERSION,'config':CONFIG,'sectors':SECTORS,'cameras':data.cameras,'objects':[{'name':o.name,'collection':o.collection,'parent':o.parent,'metadata':o.meta} for o in data.items]},indent=2))
+ if not args.no_save:
+  dest=args.output/'CriticalShift_Gullet.blend'
+  if dest.exists():dest=args.output/('CriticalShift_Gullet_'+time.strftime('%Y%m%d_%H%M%S')+'.blend')
+  bpy.ops.wm.save_as_mainfile(filepath=str(dest),compress=True);print('[GULLET] Saved',dest,flush=True)
+ if args.render:
+  rendered=render_cameras(scene,args.output/'renders',args.render)
+  report['blender_render_executed']=True;report['rendered_cameras']=rendered
+  report['visual_acceptance']='Render files generated. Human/pixel review is still required.'
+ if args.export:report['exported_variants']=export_variants(scene,args.output/'exports',args.export)
+ (args.output/'build_report.json').write_text(json.dumps(report,indent=2))
+ print('[GULLET] Build completed. Visual and runtime acceptance are separate gates.',flush=True)
+
+if __name__=='__main__':main()

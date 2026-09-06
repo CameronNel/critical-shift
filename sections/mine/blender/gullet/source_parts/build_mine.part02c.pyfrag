@@ -1,0 +1,14 @@
+ f=[];n=len(yy)
+ for i in range(len(xx)-1):
+  for j in range(n-1):
+   a=i*n+j;b=a+n;f.extend(((a,b,b+1),(a,b+1,a+1)))
+ s.add('Mountain_upper_mass',v,f,'rock',smooth=True)
+ # Ground aprons anchor wing walls and the canopy to the site.
+ box(s,'Exterior_subgrade',(0,-9,-.27),(40,25,.44),'ground',.025)
+ for side in [-1,1]:
+  for i in range(9):
+   x=side*(8.9+i*.78);y=1.0-.4*math.sin(i*.9)
+   rock(s,'Frontage_fracture',(x,y,.60+i*.11),(2.4,1.5,1.35+i*.13),'rock_dark' if i%3==0 else 'rock',83+i+side*10,rot=(.03*i,.08*i,side*.17))
+
+
+def architecture(s):

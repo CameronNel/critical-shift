@@ -1,0 +1,150 @@
+ nodes=m.node_tree.nodes;links=m.node_tree.links;nodes.clear()
+ out=nodes.new('ShaderNodeOutputMaterial');out.location=(620,0)
+ p=nodes.new('ShaderNodeBsdfPrincipled');p.location=(330,0);links.new(p.outputs['BSDF'],out.inputs['Surface'])
+ def image_node(path,color=True):
+  im=bpy.data.images.load(str(path),check_existing=True)
+  if not color:
+   try:im.colorspace_settings.name='Non-Color'
+   except TypeError:pass
+  n=nodes.new('ShaderNodeTexImage');n.image=im;n.interpolation='Linear';n.extension='REPEAT'
+  return n
+ if name in s.materials:
+  info=s.materials[name];m.diffuse_color=(*info['color'],1)
+  p.inputs['Base Color'].default_value=(*info['color'],1)
+  p.inputs['Roughness'].default_value=info['roughness'];p.inputs['Metallic'].default_value=info['metallic']
+  base=image_node(TEXTURES/f'{name}_basecolor.png');base.location=(-650,220);links.new(base.outputs['Color'],p.inputs['Base Color'])
+  rough=image_node(TEXTURES/f'{name}_roughness.png',False);rough.location=(-650,-70)
+  sep=nodes.new('ShaderNodeSeparateColor');sep.location=(-340,-70);links.new(rough.outputs['Color'],sep.inputs[0]);links.new(sep.outputs['Green'],p.inputs['Roughness'])
+  normal=image_node(TEXTURES/f'{name}_normal.png',False);normal.location=(-650,-370)
+  nmap=nodes.new('ShaderNodeNormalMap');nmap.location=(-150,-310);nmap.inputs['Strength'].default_value=.38
+  links.new(normal.outputs['Color'],nmap.inputs['Color']);links.new(nmap.outputs['Normal'],p.inputs['Normal'])
+ elif name.startswith('label_'):
+  file='shift_card.png' if name=='label_shift_card' else name+'.png'
+  im=image_node(TEXTURES/file);links.new(im.outputs['Color'],p.inputs['Base Color']);p.inputs['Roughness'].default_value=.80
+  m.diffuse_color=(.42,.44,.35,1)
+ elif name.startswith('emissive_'):
+  color={'emissive_warm':(1.,.77,.45),'emissive_cool':(.75,.87,1.),'emissive_amber':(1.,.36,.055)}[name]
+  p.inputs['Base Color'].default_value=(*color,1)
+  if 'Emission Color' in p.inputs:p.inputs['Emission Color'].default_value=(*color,1)
+  if 'Emission Strength' in p.inputs:p.inputs['Emission Strength'].default_value=3.0 if name!='emissive_amber' else 1.6
+  p.inputs['Roughness'].default_value=.38;m.diffuse_color=(*color,1)
+ elif name=='water':
+  p.inputs['Base Color'].default_value=(.105,.16,.15,1);p.inputs['Roughness'].default_value=.18
+  p.inputs['Metallic'].default_value=.03
+  if 'Transmission Weight' in p.inputs:p.inputs['Transmission Weight'].default_value=.16
+  p.inputs['IOR'].default_value=1.333;m.diffuse_color=(.12,.20,.18,1)
+  n=nodes.new('ShaderNodeTexNoise');n.inputs['Scale'].default_value=3.0;n.inputs['Detail'].default_value=1
+  bump=nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.13;bump.inputs['Distance'].default_value=.021
+  links.new(n.outputs['Fac'],bump.inputs['Height']);links.new(bump.outputs['Normal'],p.inputs['Normal'])
+ elif name=='scuff':
+  im=image_node(TEXTURES/'localized_scuff.png');links.new(im.outputs['Color'],p.inputs['Base Color']);links.new(im.outputs['Alpha'],p.inputs['Alpha']);p.inputs['Roughness'].default_value=.96
+  if hasattr(m,'surface_render_method'):m.surface_render_method='DITHERED'
+  elif hasattr(m,'blend_method'):m.blend_method='HASHED'
+  m.diffuse_color=(.17,.15,.10,.2)
+ else:
+  p.inputs['Base Color'].default_value=(1,.05,.3,1);m.diffuse_color=(1,.05,.3,1)
+ cache[name]=m;return m
+
+
+def make_uv(mesh:Mesh)->np.ndarray:
+ if mesh.uv is not None:return mesh.uv[mesh.faces].reshape(-1,2)
+ tri=mesh.vertices[mesh.faces];n=np.cross(tri[:,1]-tri[:,0],tri[:,2]-tri[:,0]);axis=np.abs(n).argmax(axis=1)
+ uv=np.zeros((len(tri),3,2),np.float32)
+ for ax,pair in [(0,(1,2)),(1,(0,2)),(2,(0,1))]:
+  mask=axis==ax
+  uv[mask,:,0]=tri[mask,:,pair[0]]/2.0
+  uv[mask,:,1]=tri[mask,:,pair[1]]/2.0
+ return uv.reshape(-1,2)
+
+
+def set_meta(obj,meta):
+ obj['csm_meta']=json.dumps(meta,separators=(',',':'))
+ for k,v in meta.items():
+  if isinstance(v,(str,int,float,bool)):obj['csm_'+k]=v
+
+
+def configure_device(bpy,scene,request='auto'):
+ scene.cycles.device='CPU';selected='CPU'
+ if request=='cpu':return selected
+ try:
+  prefs=bpy.context.preferences.addons['cycles'].preferences
+  for backend in ['HIP','OPTIX','CUDA','METAL','ONEAPI']:
+   try:
+    prefs.compute_device_type=backend
+    if hasattr(prefs,'refresh_devices'):prefs.refresh_devices()
+    else:prefs.get_devices()
+    devices=[d for d in prefs.devices if d.type==backend]
+    if not devices:continue
+    for d in prefs.devices:d.use=(d.type==backend)
+    scene.cycles.device='GPU';selected=backend+': '+', '.join(d.name for d in devices);break
+   except (TypeError,ValueError,RuntimeError):continue
+ except (KeyError,AttributeError,RuntimeError):pass
+ print('[GULLET] Cycles device:',selected,flush=True);return selected
+
+
+def create_blender_scene(s:SceneData,args):
+ import bpy
+ from mathutils import Matrix,Vector
+ if bpy.app.version<(4,2,0):raise RuntimeError('This builder requires Blender 4.2 or newer; authored target is Blender 5.2.')
+ scene=bpy.data.scenes.new('Critical Shift - Gullet')
+ if bpy.context.window:bpy.context.window.scene=scene
+ scene.unit_settings.system='METRIC';scene.unit_settings.scale_length=1.0
+ scene['csm_generator']=VERSION;scene['csm_source_dir']=str(ROOT)
+ scene['csm_states_json']=json.dumps({k:{'state':v,'unlocked_stage':3 if v==4 else v,'remaining_rubble':22 if v==4 else 0,'cleared_rubble':[]} for k,v in (CONFIG['preview_states'] if args.mode=='showcase' else {k:0 for k in SECTORS}).items()})
+ scene['csm_hardware_profile']=json.dumps(CONFIG['hardware']);scene['csm_physics_status']='Authoring source only; runtime integration pending'
+ cols={}
+ for name,description in COLLECTIONS.items():
+  c=bpy.data.collections.new(PREFIX+name);c['description']=description;scene.collection.children.link(c);cols[name]=c
+ matcache={};meshcache={};objects={}
+ # Parents are authored before their children. Never clear the user's scene.
+ for e in s.empties:
+  obj=bpy.data.objects.new(e['name'],None);cols[e['collection']].objects.link(obj)
+  obj.empty_display_type='PLAIN_AXES';obj.empty_display_size=.18
+  if e['parent']:obj.parent=objects[e['parent']]
+  obj.matrix_world=Matrix(e['matrix'].tolist());obj['csm_id']=e['name'];set_meta(obj,e['meta']);objects[e['name']]=obj
+ bpy.context.view_layer.update()
+ for index,a in enumerate(s.items):
+  if a.mesh not in meshcache:
+   m=s.meshes[a.mesh];me=bpy.data.meshes.new(PREFIX+'GEO_'+a.mesh)
+   me.from_pydata(m.vertices.tolist(),[],m.faces.tolist());me.update(calc_edges=True)
+   if m.smooth:me.polygons.foreach_set('use_smooth',np.ones(len(me.polygons),dtype=np.bool_))
+   uv=me.uv_layers.new(name='UVMap')
+   uv_values=make_uv(m).ravel()
+   try:
+    uv.uv.foreach_set('vector',uv_values)
+   except (AttributeError,TypeError,ValueError,RuntimeError):
+    uv.data.foreach_set('uv',uv_values)
+   # One placeholder slot supports per-object materials on shared geometry.
+   me.materials.append(material_for_blender(bpy,s,a.material,matcache));meshcache[a.mesh]=me
+  obj=bpy.data.objects.new(a.name,meshcache[a.mesh]);cols['14_COLLISION' if a.meta.get('collision_only') else a.collection].objects.link(obj)
+  if a.parent:obj.parent=objects[a.parent]
+  obj.matrix_world=Matrix(a.matrix.tolist())
+  obj.material_slots[0].link='OBJECT';obj.material_slots[0].material=material_for_blender(bpy,s,a.material,matcache)
+  set_meta(obj,a.meta);obj['csm_id']=a.name;objects[a.name]=obj
+  if a.meta.get('collision_only'):obj.display_type='WIRE';obj.hide_render=True;obj.hide_set(True)
+  if index%500==0:print('[GULLET] Blender objects:',index,'/',len(s.items),flush=True)
+ for a in s.lights:
+  ld=bpy.data.lights.new(a['name'],a['kind']);ld.energy=a['power'];ld.color=a['color']
+  if a['kind']=='AREA':ld.shape='DISK';ld.size=a['size']
+  elif a['kind']=='POINT':ld.shadow_soft_size=a['size']
+  obj=bpy.data.objects.new(a['name'],ld);cols[a['collection']].objects.link(obj);obj.location=a['loc']
+  obj.rotation_euler=(Vector(a['target'])-Vector(a['loc'])).to_track_quat('-Z','Y').to_euler()
+  set_meta(obj,a.get('meta',{}));objects[a['name']]=obj
+ for a in s.cameras:
+  cd=bpy.data.cameras.new(PREFIX+'CAM_'+a['name']);cd.lens=a['lens'];cd.sensor_width=36;cd.clip_start=.04;cd.clip_end=250
+  obj=bpy.data.objects.new(PREFIX+'CAM_'+a['name'],cd);cols['12_CAMERAS'].objects.link(obj)
+  obj.location=a['loc'];obj.rotation_euler=(Vector(a['target'])-Vector(a['loc'])).to_track_quat('-Z','Y').to_euler()
+  obj['csm_camera_key']=a['name'];obj['csm_gameplay_camera']=a['gameplay']
+  objects[obj.name]=obj
+  if a['name']=='entry':scene.camera=obj
+ world=bpy.data.worlds.new('Gullet overcast environment');world.use_nodes=True
+ world.node_tree.nodes['Background'].inputs[0].default_value=(.12,.16,.21,1)
+ world.node_tree.nodes['Background'].inputs[1].default_value=.30;scene.world=world
+ scene.render.engine='CYCLES';scene.cycles.samples=192 if args.quality=='high' else 80
+ scene.cycles.use_denoising=True;scene.cycles.max_bounces=7;scene.cycles.diffuse_bounces=4;scene.cycles.glossy_bounces=3
+ if hasattr(scene.cycles,'adaptive_threshold'):scene.cycles.adaptive_threshold=.015 if args.quality=='high' else .035
+ device=configure_device(bpy,scene,args.device);scene['csm_render_device']=device
+ scene.render.resolution_x=1920 if args.quality=='high' else 1440
+ scene.render.resolution_y=1200 if args.quality=='high' else 900
+ scene.render.resolution_percentage=100;scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGBA'
+ scene.render.film_transparent=False

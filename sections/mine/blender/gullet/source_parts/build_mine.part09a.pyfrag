@@ -1,0 +1,99 @@
+ try:scene.view_settings.view_transform='AgX'
+ except TypeError:pass
+ scene.view_settings.exposure=.25
+ # Avoid version-specific compositor APIs. Tonemapping and denoising are native.
+ scene['csm_visual_validation']='Pending actual Blender camera review'
+ scene['csm_collision_visibility']='Collision proxies are hidden; export explicitly'
+ apply_visibility(scene)
+ # Pack every required image so the saved .blend can be moved independently.
+ for image in {n.image for m in matcache.values() for n in m.node_tree.nodes if n.type=='TEX_IMAGE' and n.image}:
+  try:image.pack()
+  except RuntimeError as exc:print('[GULLET] Image pack warning:',image.name,exc)
+ text=bpy.data.texts.new('GULLET_READ_ME')
+ text.write('CRITICAL SHIFT / GULLET\n\n'
+  'Units: meters. +Y enters the mountain, downhill at 2.5%. No lift.\n'
+  'Default scene: A shallow / B extended / C collapsed.\n'
+  'N-panel > Gullet exposes excavation stage, rubble, and gate authoring controls.\n'
+  'Run register_controls.py after reopening; no automatic Python execution is needed.\n'
+  'The controls demonstrate art states, not implemented Unity gameplay.\n'
+  'The original build did not run in Blender before delivery. Review all fixed cameras.\n')
+ register_controls();install_api(scene)
+ if bpy.context.window:
+  for area in bpy.context.window.screen.areas:
+   if area.type=='VIEW_3D':
+    space=area.spaces.active;space.clip_end=250;space.clip_start=.04
+    space.shading.type='MATERIAL'
+    if hasattr(space.shading,'use_scene_lights'):space.shading.use_scene_lights=True
+    if hasattr(space.shading,'use_scene_world'):space.shading.use_scene_world=True
+    if space.region_3d:space.region_3d.view_perspective='CAMERA'
+ bpy.context.view_layer.update()
+ return scene
+
+
+def find_owned(scene,semantic_id):
+ return next((o for o in scene.objects if o.get('csm_id',o.name)==semantic_id),None)
+
+
+def read_states(scene):return json.loads(scene.get('csm_states_json','{}'))
+def apply_visibility(scene):
+ import bpy
+ from types import SimpleNamespace
+ states=read_states(scene)
+ for obj in scene.objects:
+  if 'csm_meta' not in obj:continue
+  meta=json.loads(obj['csm_meta'])
+  visible=is_visible(SimpleNamespace(meta=meta),states)
+  obj.hide_render=not visible
+  obj.hide_set(not visible)
+  if meta.get('collision_only'):obj.hide_render=True;obj.hide_set(True)
+ for sec,value in states.items():
+  obj=find_owned(scene,PREFIX+'CTRL_SECTOR_'+sec)
+  if obj:
+   for k in ['state','unlocked_stage','remaining_rubble']:obj['csm_'+k]=value[k]
+ bpy.context.view_layer.update()
+
+
+def apply_excavation_event(scene,sector,index):
+ if sector not in SECTORS:raise ValueError('Sector must be A, B, or C')
+ states=read_states(scene);states[sector]=evolve_state(states[sector],float(index))
+ scene['csm_states_json']=json.dumps(states);apply_visibility(scene);return states[sector]
+
+
+def clear_next_rubble(scene,sector):
+ states=read_states(scene);v=states[sector]
+ if v.get('remaining_rubble',0)<=0:return v
+ cleared=set(v.get('cleared_rubble',[]));idx=next(i for i in range(22) if i not in cleared)
+ cleared.add(idx);v['cleared_rubble']=sorted(cleared);v['remaining_rubble']=22-len(cleared)
+ if v['remaining_rubble']==0:v['state']=v['unlocked_stage']
+ scene['csm_states_json']=json.dumps(states);apply_visibility(scene);return v
+
+
+def reset_states(scene,showcase=False):
+ stages=CONFIG['preview_states'] if showcase else {k:0 for k in SECTORS}
+ scene['csm_states_json']=json.dumps({k:{'state':v,'unlocked_stage':3 if v==4 else v,'remaining_rubble':22 if v==4 else 0,'cleared_rubble':[]} for k,v in stages.items()})
+ apply_visibility(scene)
+
+
+def set_gate(scene,open_fraction):
+ t=max(0,min(1,float(open_fraction)))
+ for obj in scene.objects:
+  if obj.get('csm_id',obj.name) in [PREFIX+'Blast_leaf_L',PREFIX+'Blast_leaf_R']:
+   obj.location.x=float(obj['csm_closed_x'])+float(obj['csm_travel'])*t
+ controller=find_owned(scene,PREFIX+'CTRL_BLAST_GATE')
+ if controller:controller['csm_open_fraction']=t
+ return t
+
+
+def render_cameras(scene,output,keys='all'):
+ import bpy
+ out=Path(output);out.mkdir(parents=True,exist_ok=True)
+ wanted=None if keys=='all' else set(keys.split(','));oldcam=scene.camera;rendered=[]
+ try:
+  for obj in scene.objects:
+   key=obj.get('csm_camera_key')
+   if not key or (wanted is not None and key not in wanted):continue
+   scene.camera=obj;scene.render.filepath=str(out/(key+'.png'))
+   bpy.ops.render.render(write_still=True,scene=scene.name);rendered.append(key)
+  if wanted and wanted-set(rendered):raise ValueError('Unknown cameras: '+', '.join(wanted-set(rendered)))
+ finally:scene.camera=oldcam
+ return rendered
