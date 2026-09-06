@@ -1,0 +1,215 @@
+{
+  "schema": 1,
+  "downloaded_at_utc": "2026-09-06T13:31:56.903161+00:00",
+  "resolution": "2K",
+  "assets": [
+    {
+      "provider": "Poly Haven",
+      "asset": "rock_surface",
+      "source": "https://polyhaven.com/a/rock_surface",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "tile_m": 2.0,
+      "maps": {
+        "color": {
+          "path": "rock_surface/color.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_surface/rock_surface_diff_2k.jpg",
+          "sha256": "00b52fc626948b0bb4a3ebe4c6513d75d19cc8ff50c3bc92567d66002836877b",
+          "bytes": 3750802
+        },
+        "roughness": {
+          "path": "rock_surface/roughness.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_surface/rock_surface_rough_2k.jpg",
+          "sha256": "d64d3cda42beeea104d72d3b7b47f19968bd3deec021b17b80b65af015b9c4db",
+          "bytes": 2442707
+        },
+        "normal": {
+          "path": "rock_surface/normal.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_surface/rock_surface_nor_gl_2k.jpg",
+          "sha256": "f1cc9e614014461bbd556e5c83f434abf2b7b2a3b19af57ab39d6dfc1fd61f32",
+          "bytes": 4709620
+        },
+        "height": {
+          "path": "rock_surface/height.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_surface/rock_surface_disp_2k.jpg",
+          "sha256": "4b84f3a9c026894191d71a8cd10a7d3ffb889b397d0d240f1ce7a5c9a6f14d9e",
+          "bytes": 1291413
+        }
+      }
+    },
+    {
+      "provider": "Poly Haven",
+      "asset": "gravel_ground_01",
+      "source": "https://polyhaven.com/a/gravel_ground_01",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "tile_m": 2.0,
+      "maps": {
+        "color": {
+          "path": "gravel_ground_01/color.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_ground_01/gravel_ground_01_diff_2k.jpg",
+          "sha256": "b626c16301208b67eba976ad71860d98fd6fe82ae1c87d9d27692e70c1089cd2",
+          "bytes": 3823037
+        },
+        "roughness": {
+          "path": "gravel_ground_01/roughness.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_ground_01/gravel_ground_01_rough_2k.jpg",
+          "sha256": "18d0214f0b5b916d2439a24eef32ac82574f3fc34d1bef02fc92abfbf3d69fce",
+          "bytes": 1582667
+        },
+        "normal": {
+          "path": "gravel_ground_01/normal.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_ground_01/gravel_ground_01_nor_gl_2k.jpg",
+          "sha256": "571eb16b158eb8581ab5348579a26f42c3c711536941f347074795e79afe6329",
+          "bytes": 5481185
+        },
+        "height": {
+          "path": "gravel_ground_01/height.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_ground_01/gravel_ground_01_disp_2k.jpg",
+          "sha256": "f8d2b099b9212b649e88fe17d1cad042e70409d28c6ae05ef174a6ac772c7016",
+          "bytes": 980768
+        }
+      }
+    },
+    {
+      "provider": "ambientCG",
+      "asset": "Concrete046",
+      "source": "https://ambientcg.com/view?id=Concrete046",
+      "license": "CC0-1.0",
+      "license_url": "https://docs.ambientcg.com/license/",
+      "tile_m": 2.4,
+      "archive_url": "https://ambientcg.com/get?file=Concrete046_2K-JPG.zip",
+      "archive_sha256": "597e009cb504219e85671ec06a375cd0cf030142749bb414990cc3dece477dde",
+      "maps": {
+        "color": {
+          "path": "Concrete046/color.jpg",
+          "url": "https://ambientcg.com/get?file=Concrete046_2K-JPG.zip",
+          "sha256": "49111877b98409fbc6c39be7e1c42ceda95311d5ed68807f78e48f8346d75d91",
+          "bytes": 4547901
+        },
+        "roughness": {
+          "path": "Concrete046/roughness.jpg",
+          "url": "https://ambientcg.com/get?file=Concrete046_2K-JPG.zip",
+          "sha256": "1014509505bf57d0c0c07a3f5b0f89e995727a6695b72e4c2d11ac77ea70df71",
+          "bytes": 2861968
+        },
+        "normal": {
+          "path": "Concrete046/normal.jpg",
+          "url": "https://ambientcg.com/get?file=Concrete046_2K-JPG.zip",
+          "sha256": "bf1b405b7b577fc8c9d93f041246f9a9864811c84928bf30d77e290f50b3553f",
+          "bytes": 5745669
+        },
+        "height": {
+          "path": "Concrete046/height.jpg",
+          "url": "https://ambientcg.com/get?file=Concrete046_2K-JPG.zip",
+          "sha256": "9c69622e1b5b9e47dcc05d64be126c2d43b32d5cde6c95e8d173728af671d99c",
+          "bytes": 2920966
+        }
+      }
+    },
+    {
+      "provider": "ambientCG",
+      "asset": "Metal046B",
+      "source": "https://ambientcg.com/view?id=Metal046B",
+      "license": "CC0-1.0",
+      "license_url": "https://docs.ambientcg.com/license/",
+      "tile_m": 1.0,
+      "archive_url": "https://ambientcg.com/get?file=Metal046B_2K-JPG.zip",
+      "archive_sha256": "b10bffa3d74ce925ee12b9425b077609a1775e1aeebdc2dab2a750c55b882521",
+      "maps": {
+        "color": {
+          "path": "Metal046B/color.jpg",
+          "url": "https://ambientcg.com/get?file=Metal046B_2K-JPG.zip",
+          "sha256": "8263145285430210a6867010abeb09402aad5b9195366e18817a07ab5badc6fe",
+          "bytes": 2737143
+        },
+        "roughness": {
+          "path": "Metal046B/roughness.jpg",
+          "url": "https://ambientcg.com/get?file=Metal046B_2K-JPG.zip",
+          "sha256": "82cf613070e28568613b8ed71093c04664015da4f925f13e91928c692edd958a",
+          "bytes": 1770723
+        },
+        "normal": {
+          "path": "Metal046B/normal.jpg",
+          "url": "https://ambientcg.com/get?file=Metal046B_2K-JPG.zip",
+          "sha256": "496ef9170979a0dc51f227f326885afffeb0dcfd2d1d5e1233eaaa9406b8586f",
+          "bytes": 5281560
+        },
+        "height": {
+          "path": "Metal046B/height.jpg",
+          "url": "https://ambientcg.com/get?file=Metal046B_2K-JPG.zip",
+          "sha256": "4f3ec47de077cc98f6d73b46c9d73d68f6cd5093f4b854626d21d877017f1e93",
+          "bytes": 2283113
+        }
+      }
+    },
+    {
+      "provider": "Poly Haven",
+      "asset": "rock_face_03",
+      "source": "https://polyhaven.com/a/rock_face_03",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "tile_m": 3.0,
+      "maps": {
+        "color": {
+          "path": "rock_face_03/color.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_face_03/rock_face_03_diff_2k.jpg",
+          "sha256": "644ee79df7ffbf5f6afc330b64dd3f33794bab8820915fe61ffe0c88ecfd7ece",
+          "bytes": 3814362
+        },
+        "roughness": {
+          "path": "rock_face_03/roughness.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_face_03/rock_face_03_rough_2k.jpg",
+          "sha256": "9ca3e9e196685f702328f24d66f039b72f5330fc35cf2a2c265cfa50a7916301",
+          "bytes": 2601552
+        },
+        "normal": {
+          "path": "rock_face_03/normal.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_face_03/rock_face_03_nor_gl_2k.jpg",
+          "sha256": "a498cef4ba6191f6959b6d03fb835263c77271948264a289af24497ab7111dec",
+          "bytes": 4473242
+        },
+        "height": {
+          "path": "rock_face_03/height.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_face_03/rock_face_03_disp_2k.jpg",
+          "sha256": "5d24ec5a7f4f7333bcf9c158f63d0059d9a3ba234eeff7570a5f6cf2f4522cd5",
+          "bytes": 798149
+        }
+      }
+    },
+    {
+      "provider": "Poly Haven",
+      "asset": "quarry_wall",
+      "source": "https://polyhaven.com/a/quarry_wall",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "tile_m": 1.8,
+      "maps": {
+        "color": {
+          "path": "quarry_wall/color.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/quarry_wall/quarry_wall_diff_2k.jpg",
+          "sha256": "b15e5ad724af4b8e8c3452cafa88ecd863a56260a421694521591e18455c7f8c",
+          "bytes": 4036486
+        },
+        "roughness": {
+          "path": "quarry_wall/roughness.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/quarry_wall/quarry_wall_rough_2k.jpg",
+          "sha256": "a347097712c75d29af388be88fe3c5a29525ae3d449f051dbde3ad1f8d1c4e21",
+          "bytes": 2016430
+        },
+        "normal": {
+          "path": "quarry_wall/normal.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/quarry_wall/quarry_wall_nor_gl_2k.jpg",
+          "sha256": "1968a72878c7f5cd4abcff6842d4df744664889f099dbe9bbbea9d4c0851be48",
+          "bytes": 4235129
+        },
+        "height": {
+          "path": "quarry_wall/height.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/quarry_wall/quarry_wall_disp_2k.jpg",
+          "sha256": "5d5992d5515ed2af594543626cd7c57923151ca0ce525c641786a63cfb060cd8",
+          "bytes": 1147350
+        }
+      }
+    }
+  ]
+}
