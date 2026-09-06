@@ -1,0 +1,74 @@
+name: Gullet Blender material review
+on:
+  push:
+    branches: [art/gullet-material-repair-20260906]
+    paths:
+      - '.github/workflows/gullet-blender-material-review.yml'
+      - 'sections/mine/blender/gullet/pbr/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: gullet-blender-material-review
+  cancel-in-progress: true
+jobs:
+  blender:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install build dependencies
+        run: |
+          python -m pip install numpy Pillow scikit-image
+          sudo apt-get update -qq
+          sudo apt-get install -y libxrender1 libxi6 libxfixes3 libxkbcommon0 libsm6 libgl1
+      - name: Download and verify Blender
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/gullet-toolchain
+          cd /tmp/gullet-toolchain
+          V=5.2.1
+          curl -fL --retry 2 --connect-timeout 25 --max-time 300 "https://download.blender.org/release/Blender5.2/blender-${V}-linux-x64.tar.xz" -o "blender-${V}-linux-x64.tar.xz"
+          curl -fL --retry 2 --max-time 60 "https://download.blender.org/release/Blender5.2/blender-${V}.sha256" -o "blender-${V}.sha256"
+          grep "blender-${V}-linux-x64.tar.xz" "blender-${V}.sha256" | sha256sum --check -
+          tar -xf "blender-${V}-linux-x64.tar.xz"
+          echo "/tmp/gullet-toolchain/blender-${V}-linux-x64" >> "$GITHUB_PATH"
+          "./blender-${V}-linux-x64/blender" --background --factory-startup --python-expr "import bpy; print('VERIFIED_BLENDER', bpy.app.version_string)"
+      - name: Prepare and review mine when repair source is present
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd sections/mine/blender/gullet
+          if [ -f pbr/build_textured_mine.py ]; then
+            python tools/prepare_assets.py
+            python pbr/download_materials.py
+            blender --background --factory-startup --threads 4 --python pbr/build_textured_mine.py -- --output "$GITHUB_WORKSPACE/sections/mine/production/material-review" --render entry
+          else
+            echo 'Blender bootstrap only; material repair source follows.'
+          fi
+      - name: Preserve logs and actual Blender output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gullet-blender-material-review
+          path: |
+            sections/mine/production/material-review
+            sections/mine/blender/gullet/pbr/download_manifest.json
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Preserve verified temporary toolchain
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gullet-verified-blender-toolchain
+          path: |
+            /tmp/gullet-toolchain/*.tar.xz
+            /tmp/gullet-toolchain/*.sha256
+          compression-level: 0
+          retention-days: 1
