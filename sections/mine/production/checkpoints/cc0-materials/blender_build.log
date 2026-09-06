@@ -1,0 +1,32 @@
+[GULLET] cliff 21 objects
+[GULLET] architecture 357 objects
+[GULLET] workstations 493 objects
+[GULLET] haulage 1265 objects
+[GULLET] geology_and_structure 1548 objects
+[GULLET] services 1865 objects
+[GULLET] sump 1978 objects
+[GULLET] blast_sectors 2389 objects
+[GULLET] interfaces_and_cameras 2389 objects
+[GULLET] collision_meshes 2402 objects
+[GULLET] geometry authored in 1.47 seconds
+[GULLET] Blender objects: 0 / 2402
+[GULLET] Blender objects: 500 / 2402
+[GULLET] Blender objects: 1000 / 2402
+[GULLET] Blender objects: 1500 / 2402
+[GULLET] Blender objects: 2000 / 2402
+/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/pbr/build_textured_mine.py:37: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material.use_nodes = True
+Info: Saved as "CriticalShift_Gullet_PBR.blend"
+BLENDER_RENDER_START entry
+01:55.702  render           | Saved: '/home/runner/work/critical-shift/critical-shift/sections/mine/production/material-review/renders/entry.png'
+BLENDER_RENDER_COMPLETE entry 110.82965898513794
+BLENDER_RENDER_START main_route
+03:55.588  render           | Saved: '/home/runner/work/critical-shift/critical-shift/sections/mine/production/material-review/renders/main_route.png'
+BLENDER_RENDER_COMPLETE main_route 119.88368320465088
+BLENDER_RENDER_START sump
+05:47.586  render           | Saved: '/home/runner/work/critical-shift/critical-shift/sections/mine/production/material-review/renders/sump.png'
+BLENDER_RENDER_COMPLETE sump 111.99651622772217
+GULLET_MATERIAL_REPAIR_COMPLETE /home/runner/work/critical-shift/critical-shift/sections/mine/production/material-review/CriticalShift_Gullet_PBR.blend
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:12:34)
+
+Blender quit

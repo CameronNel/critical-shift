@@ -1,52 +1,49 @@
-# Gullet Mine — Task State
+# Gullet Mine: Task State
 
 **Read first:** `../AGENT_READ_FIRST.md`  
-**Current phase:** Blender execution + fixed-camera visual review  
-**Section source status:** committed / deterministic  
-**Visual acceptance:** **NOT YET EARNED**
+**Current revision:** `1.1.0-cc0-cycles`  
+**Phase:** Material/lighting repair executed; final art and Unity integration pending.  
+**Actual Blender build:** PASS, Blender 5.2.1 LTS / Cycles.  
+**Fresh-process validation:** PASS.  
+**Production-final acceptance:** NOT YET EARNED.
 
 ## Completed
 
-- Section-specific scenery specification authored.
-- Deterministic Blender builder source committed under `../blender/gullet/`.
-- Deterministic geology/material/signage generator committed.
-- Covered preparation/dispatch bay, facility connection and blast gate authored.
-- 2.5% downhill adit with rail haulage, pedestrian route and return/service loop authored.
-- Dry, wet and deep sectors authored with progressive state alternatives.
-- Collapse variants and individually removable rubble authored.
-- Pump, sump, ventilation, cable, drainage, supports, workstations, carts and tools authored.
-- Ten fixed review cameras defined.
-- Non-Blender geometry/state audits passed in the original generation environment.
+- Preserved deterministic mine geometry, 2.5% descending grade, no elevator, staging bay, facility handoff, blast gate, three progressive sectors and 22-piece collapse recovery.
+- Downloaded six CC0 2K texture sets and verified all 24 map hashes.
+- Applied differentiated rock, gravel, concrete, steel, paint and groundwater materials; limited teal to selected equipment/signage.
+- Added bounded rock relief and corrected concrete value separation and structural colours.
+- Executed the source in Blender, rather than treating Python compilation or VTK output as visual evidence.
+- Completed a focused three-stage material review and inspected all ten fixed camera views locally.
+- Independently rebuilt the committed source in the repository runner and rendered entry, main route and sump.
+- Reopened the repository-generated .blend in a fresh process, tested actual bpy state/gate/rubble controls and scene data, and rendered entry again.
+- Committed the packed Blender scene, original CC0 materials, real review renders, logs and validation reports in section-local paths.
 
-## Required next actions
+## Evidence
 
-1. Run `python tools/prepare_assets.py` from `../blender/gullet/`.
-2. Run the Blender builder from a fresh Blender process.
-3. Render all ten fixed cameras with the same settings.
-4. Inspect actual pixels against `design/ART_DIRECTION.md` and this section spec.
-5. Record visible defects, fix the deterministic source, rerender and compare.
-6. Perform at least four full correction cycles after first visual completion as required by the global protocol.
-7. Run `tools/cold_start_check.py` from a fresh Blender process reopening the saved `.blend`.
-8. Only after those gates, begin/complete Unity import and runtime validation.
+- Scene: `../blender/gullet/Gullet_MaterialReview.blend`.
+- Source entrypoint: `../blender/gullet/build_mine.py`.
+- Material originals and hashes: `../assets/pbr/`.
+- Actual repository renders: `renders/review/cc0-materials/`.
+- Build and cold-start evidence: `checkpoints/cc0-materials/`.
+- Pixel review and limitations: `MATERIAL_REVIEW.md`.
 
-## Known limitations / risks
+## Validation record
 
-- The initial authoring session did not have Blender installed, therefore it did not produce trustworthy Blender render evidence.
-- Unity physics, multiplayer authority, navigation, pickups, cart handling, rubble interaction, audio and VFX are not implemented by this Blender package.
-- Procedural Blender water/scuff material response may require a separate Unity material implementation.
-- GPU selection should be measured on the supplied RX 9070 XT rather than assumed.
+The repository cold-start report records PASS, 7,472 checks and no issues. Its scope is packed scene images, finite geometry, IDs, UVs, cameras, actual authoring-state controls and 61 standing-path clearance rays. It is not a complete physical controller sweep or Unity test.
 
-## Last known non-Blender checks
+## Remaining work
 
-- geometry/state audit: PASS in generation environment;
-- state-control assertions: PASS in generation environment;
-- actual Blender build: pending;
-- fixed-camera Blender render review: pending;
-- cold-start Blender validation: pending;
-- Unity runtime validation: pending.
+1. Continue the full global art-acceptance protocol, including the required complete correction cycles; do not count the focused material review as an automatic protocol pass.
+2. Improve any remaining repetitive excavation-face/collapse silhouettes and verify exterior facility integration at gameplay scale.
+3. Bake or recreate box-projected Blender materials in the engine, then compare actual gameplay-camera frames with the Blender evidence.
+4. Implement/test Unity cart, pickup, detonation, rubble, networking, navigation, collision, audio and VFX systems.
+5. Measure HIP rendering and runtime performance on the user's actual hardware.
 
-## Hardware target supplied by Cameron
+## Reproduction
 
-- AMD Radeon RX 9070 XT
-- AMD Ryzen 7 5800X
-- 32 GB DDR4
+Follow the fresh-build and cold-start commands in `../AGENT_READ_FIRST.md`. The canonical builder now selects the textured revision. Do not use the preserved geometry source or earlier diagnostic exporter as the visual delivery.
+
+## Supplied hardware
+
+Radeon RX 9070 XT; Ryzen 7 5800X; 32 GB DDR4. Recorded validation used CPU, not this GPU. No target-hardware performance number is asserted.

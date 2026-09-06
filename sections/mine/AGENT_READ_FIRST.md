@@ -1,93 +1,83 @@
-# Gullet Mine — AGENT READ FIRST
+# Gullet Mine: AGENT READ FIRST
 
-**This file is the entrypoint for any agent touching the mine. Read it before editing, generating, importing, rendering, or integrating anything in this section.**
+**Current revision: 1.1.0-cc0-cycles, 6 September 2026.** Read this before editing, building, importing or rendering the mine. This revision supersedes the rejected green-grey/VTK diagnostic-preview delivery.
 
-## Authority order
+## Authority and status
 
-1. `design/GAME_SPEC.md` — mine gameplay and systems requirements.
-2. `design/ART_DIRECTION.md` — authoritative visual target.
-3. `design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md` — mandatory build/review loop.
-4. `sections/mine/scenery/mine.md` — section-specific layout and interaction decisions.
-5. This handoff and the source under `sections/mine/blender/gullet/`.
+The gameplay specification, `design/ART_DIRECTION.md`, `design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md`, and `sections/mine/scenery/mine.md` remain authoritative. The visual target is grounded stylized semi-realism, not a primitive web demo, glossy sci-fi or unrestricted photographic grunge.
 
-Critical Shift is grounded stylized semi-realism: believable industrial construction, medium-complexity object-specific geometry, tactile material separation, controlled colour blocking, restrained wear, localized practical lighting, and readable silhouettes. Do not regress into primitive-heavy Three.js-looking geometry, glossy sci-fi, toy low-poly, or AAA photorealism.
+The scene has now actually been built and rendered in **Blender 5.2.1 LTS / Cycles**. A second repository-runner build and fresh-process check also passed. This is a verified material/lighting repair, not a declaration of complete production art acceptance or Unity integration. Read `production/MATERIAL_REVIEW.md` and `production/TASK_STATE.md` for the remaining gates.
 
-## User-approved mine decisions
+**Do not use Three.js or VTK previews as acceptance evidence. Do not run the preserved geometry source as a replacement for the current material build.**
 
-- The mine is the **Gullet** uranium mine section.
-- It enters the mountain on a shallow **2.5% descending grade** (about 1.43°). There is **no mine elevator/lift**.
-- Players can push/ride the mine cart back toward the facility handoff.
-- A covered preparation/staging bay sits before the mine portal and connects to the rest of the facility.
-- The staging bay includes: dynamite/fictional charge pickup, cart staging, mining/blast instructions, tools, workbench/service hardware, blast controls, and a substantial blast door.
-- Blast instructions use **fictional game indices/tokens only**, never real explosive engineering quantities or real-world charge formulas.
-- The mine has multiple mineable sectors and **progressive excavation states**, not one flat mineable wall.
-- Small blast -> shallow pocket.
-- Medium blast -> larger/deeper accessible area.
-- Large controlled blast -> full/deep excavation with additional shoulder/branch space.
-- Oversized blast -> the deep excavation exists but is blocked by a collapse. Players must remove rubble before mining/access continues.
-- Unlocks are monotonic: a later smaller blast must not magically close previously opened geometry.
-- Re-blasting must not erase uncleared collapse rubble.
-- Dry, wet and deep sectors are independent.
-- Wet mining has a real drainage/pump/sump working area.
-- Cart rails, supports, ventilation, cables, drainage and mining infrastructure must look functionally plausible and deliberately authored.
+## Open the delivered scene
 
-## Source layout
+`sections/mine/blender/gullet/Gullet_MaterialReview.blend`
 
-The primary Blender entrypoint is:
+Scene-used image textures are packed. Use Rendered shading or render a saved camera to evaluate authored lighting. Solid shading is not a texture preview. After reopening, run the adjacent `register_controls.py` to restore the Gullet sidebar without rebuilding. Do not enable arbitrary script auto-execution.
 
-`sections/mine/blender/gullet/build_mine.py`
+## Canonical source
 
-That file is a small launcher which reconstructs the exact generated builder source from `source_parts/` and executes it. The split exists only because this repo upload path is text-only; do **not** redesign the builder merely because its source is stored in parts.
+`sections/mine/blender/gullet/build_mine.py` is the entrypoint. It invokes `pbr/build_textured_mine.py`. `geometry_source.py` preserves the existing geometry/state source fragments and the import API used by audit/control tools.
 
-Before first Blender execution, generate the deterministic local geology/textures:
+The selected CC0 texture originals are committed under `sections/mine/assets/pbr/`, with per-map SHA-256 values and source/license URLs in `download_manifest.json`. The builder checks those hashes and fails explicitly for missing or altered maps; it does not silently fall back to the old flat palette.
+
+For a fresh source build:
 
 ```bash
 cd sections/mine/blender/gullet
+python -m pip install -r tools/requirements-authoring.txt
 python tools/prepare_assets.py
+blender --background --factory-startup --python-exit-code 1 --python build_mine.py -- --output ./output_pbr --render entry --samples 64 --width 1440
 ```
 
-`prepare_assets.py` requires Python with `numpy`, `Pillow`, and `scikit-image`. It creates only section-local `assets/` and `textures/` output. Do not download random art packs as a shortcut.
-
-Then build with the newest stable Blender available. The authored API target is Blender 5.2.x, with compatibility fallbacks for 4.2+:
+The authoring requirements file supplies numpy, Pillow and scikit-image. Blender consumes the resulting geometry/signage plus the committed material library. If the downloaded originals need intentional restoration, use:
 
 ```bash
-blender --background --python build_mine.py -- --output ./output --render entry
-blender --background --python build_mine.py -- --quality high --render all
+python pbr/download_materials.py
+python pbr/download_geology_detail.py
 ```
 
-After a saved `.blend` exists, reopen it in a **fresh Blender process** and run the cold-start check. The repo protocol requires fixed-camera pixel review and correction cycles; a successful Python exit is not visual approval.
+Use `--mode intact` for sealed initial sectors or default `--mode showcase` for different sector states. Use `--render all` for all ten fixed cameras. For a real cold start:
 
-## Hardware profile supplied by Cameron
+```bash
+blender --background output_pbr/CriticalShift_Gullet_PBR.blend --python-exit-code 1 --python pbr/validate_blender.py -- --output ./validation/blender --render entry
+```
 
-- GPU: AMD Radeon RX 9070 XT
-- CPU: AMD Ryzen 7 5800X
-- RAM: 32 GB DDR4
+## Materials and appearance
 
-Prefer HIP rendering when Blender enumerates the GPU; fall back to CPU if the driver/backend is unavailable. Do not assume performance numbers without measuring them.
+Six 2K CC0 sets are used: Poly Haven `rock_face_03`, `quarry_wall`, `rock_surface`, `gravel_ground_01`; ambientCG `Concrete046`, `Metal046B`. The material library contains 24 original image maps. Palette, saturation, roughness, scale and bump are art-directed in Blender, not used as an indiscriminate grunge overlay.
 
-## What the generated scene contains
+The main rock has bounded relief, the floor uses dusty gravel/concrete, structure is charcoal steel, carts are ochre, doors are slate blue-grey, and teal is limited to selected equipment/signage. Groundwater is separate from rock and paint. Scene-used images are packed into the `.blend`.
 
-- covered preparation/charge/cart bay;
-- facility transition/handoff;
-- detailed independent blast-door leaves and operator controls;
-- shallow sloped haulage route into the mountain;
-- continuous original field-sculpted geological shell, not visible rock spheres;
-- profiled rails, sleepers/chairs/fasteners and detailed carts;
-- heavy structural arches and mining support hardware;
-- ventilation, cable routing, water services and practical lighting;
-- pump installation and recessed sump;
-- dry, wet and deep mining sectors;
-- sealed, shallow, extended, deep and collapsed state alternatives per sector;
-- 22 individually identified removable rubble pieces per collapsed sector;
-- collision/interface metadata for later Unity integration;
-- ten fixed review cameras.
+Box-projected surfaces use height-based bump, not incorrectly oriented tangent normals. The original normal maps are retained for subsequent baking. Blender's node graph and lighting will not automatically transfer through FBX/glTF: bake or recreate the materials for Unity and compare actual in-engine frames.
 
-## Runtime boundary
+## User-approved layout and behaviour to preserve
 
-The Blender package authors geometry, hierarchy, state variants, metadata, materials, cameras and review evidence. It does **not** magically implement Unity gameplay. Unity still needs authoritative pickup/placement, detonation, rigid-body cart behaviour, rubble physics, collision cooking, navigation, multiplayer/network authority, VFX, audio and damage/state logic.
+- Shallow 2.5% descent into the mountain; no mine lift or elevator.
+- Covered preparation bay, facility connection, cart staging, fictional charge pickup, instructions, tools and substantial sliding blast gate.
+- Three independent sectors: dry, wet and deep. Larger valid events unlock genuinely larger excavation volumes.
+- Excessive events create a blocked collapse with 22 individually identified removable rubble pieces per sector.
+- Unlocks are monotonic. A smaller later event cannot close opened geometry, and another event cannot erase uncleared collapse rubble.
+- Working rails, pedestrian route, maintenance loop, supports, ventilation, cables, pump and recessed sump.
+- Instruction indices are fictional game balance, never real explosive engineering formulas.
 
-## Validation status
+## Evidence to inspect
 
-The non-Blender geometry/state audits from the generation session passed. The original delivery environment did **not** have Blender installed and therefore could not truthfully claim Blender render approval. The next agent must execute the Blender adapter, render the fixed cameras, inspect the actual pixels, repair defects in source, rerender, and perform cold-start validation before calling this section production-ready.
+Repository render evidence: `production/renders/review/cc0-materials/`.
 
-Do not rename diagnostic geometry previews as Blender renders. Do not hand-edit only the generated `.blend` while leaving the deterministic source broken.
+Repository build logs and cold-start report: `production/checkpoints/cc0-materials/`.
+
+![Actual Blender entry render](production/renders/review/cc0-materials/entry.png)
+
+![Actual Blender haulage-route render](production/renders/review/cc0-materials/main_route.png)
+
+The cold-start checks exercise real bpy state/gate/rubble controls, packed-image availability, finite mesh data, IDs, UVs, fixed cameras and sampled standing-path clearance. They are not a complete character-controller sweep, physics simulation or artistic score.
+
+## Runtime and final-acceptance boundary
+
+Unity still requires pickups, detonation, cart/rubble physics, networking, navigation, collider preparation, audio/VFX, material baking/recreation, gameplay-camera comparison and target-hardware testing. Preserve editable hierarchy and deterministic source while making corrections. Do not fix only the saved scene and leave regeneration broken.
+
+The focused three-stage material review does not replace the full four-cycle production acceptance protocol. Some face/collapse geometry remains simplified and repetitive; record further artistic decisions explicitly.
+
+Cameron's supplied workstation: Radeon RX 9070 XT, Ryzen 7 5800X, 32 GB DDR4. Prefer HIP when available and fall back to CPU. The recorded verification used CPU; Radeon performance is not yet measured.
