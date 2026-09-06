@@ -1,0 +1,100 @@
+
+def profile_extrude(s,name,profile,length,mat,loc=(0,0,0),rot=(0,0,0),axis='Y',meta=None):
+ p=np.asarray(profile);n=len(p);v=[]
+ for t in [-length/2,length/2]:
+  for a,b in p:
+   v.append((a,t,b) if axis=='Y' else (a,b,t) if axis=='Z' else (t,a,b))
+ f=[]
+ for j in range(n):
+  k=(j+1)%n;pair=[(j,k,n+k),(j,n+k,n+j)]
+  f.extend(t[::-1] for t in pair) if axis=='Y' else f.extend(pair)
+ caps=earclip(p)
+ f.extend(caps if axis=='Y' else [t[::-1] for t in caps])
+ f.extend(tuple(n+i for i in t) for t in ([t[::-1] for t in caps] if axis=='Y' else caps))
+ return s.add(name,v,f,mat,loc=loc,rot=rot,meta=meta)
+
+def circle_profile(r,n=16):return [(r*math.cos(t),r*math.sin(t)) for t in np.linspace(0,2*math.pi,n,endpoint=False)]
+def sweep(s,name,path,profile,mat,smooth=False,up=(0,0,1),caps=True,meta=None):
+ path=np.asarray(path,float);p=np.asarray(profile,float);n=len(p);v=[]
+ ref=normalized(up)
+ for i,c in enumerate(path):
+  tangent=normalized(path[min(i+1,len(path)-1)]-path[max(0,i-1)])
+  cross=np.cross(tangent,ref)
+  if np.linalg.norm(cross)<.01:cross=np.cross(tangent,[0,1,0] if abs(tangent[1])<.8 else [1,0,0])
+  u=normalized(cross);w=np.cross(u,tangent)
+  v.extend(c+u*a+w*b for a,b in p)
+ f=[]
+ for k in range(len(path)-1):
+  for j in range(n):
+   a=k*n+j;b=k*n+(j+1)%n;f.extend(((a,b,b+n),(a,b+n,a+n)))
+ if caps:
+  f.extend(tuple(reversed(t)) for t in earclip(p));end=(len(path)-1)*n
+  f.extend(tuple(end+i for i in t) for t in earclip(p))
+ return s.add(name,v,[t[::-1] for t in f],mat,smooth=smooth,meta=meta)
+
+def pipe(s,name,a,b,r,mat='steel',n=16,meta=None):
+ return sweep(s,name,[a,b],circle_profile(r,n),mat,smooth=True,meta=meta)
+
+def line(s,name,pts,r=.015,mat='rubber',meta=None):
+ return sweep(s,name,pts,circle_profile(r,10),mat,smooth=True,meta=meta)
+
+def lathe(s,name,profile,mat,loc=(0,0,0),rot=(0,0,0),n=32,meta=None):
+ v=[]
+ for r,z in profile:
+  for a in np.linspace(0,2*math.pi,n,endpoint=False):v.append((r*math.cos(a),r*math.sin(a),z))
+ f=[]
+ for k in range(len(profile)-1):
+  for j in range(n):
+   a=k*n+j;b=k*n+(j+1)%n;f.extend(((a,b,b+n),(a,b+n,a+n)))
+ # Closed caps are explicit. Duplicate axial vertices are avoided with a tiny radius.
+ v.extend([(0,0,profile[0][1]),(0,0,profile[-1][1])]);bottom=len(v)-2;top=bottom+1
+ for j in range(n):f.extend(((bottom,(j+1)%n,j),(top,(len(profile)-1)*n+j,(len(profile)-1)*n+(j+1)%n)))
+ return s.add(name,v,f,mat,loc=loc,rot=rot,smooth=True,meta=meta)
+
+def ring(s,name,center,r,tube=.014,mat='steel',axis='Z',n=32):
+ c=v3(center);path=[]
+ for t in np.linspace(0,2*math.pi,n+1):
+  p=(r*math.cos(t),r*math.sin(t),0) if axis=='Z' else (r*math.cos(t),0,r*math.sin(t)) if axis=='Y' else (0,r*math.cos(t),r*math.sin(t))
+  path.append(c+v3(p))
+ return sweep(s,name,path,circle_profile(tube,8),mat,smooth=True,up=(0,1,0) if axis=='Y' else (1,0,0) if axis=='X' else (0,0,1),caps=False)
+
+def bolt(s,name,p,r=.025,axis='Z',mat='steel'):
+ rot=(0,math.pi/2,0) if axis=='X' else (math.pi/2,0,0) if axis=='Y' else (0,0,0)
+ return lathe(s,name,[(r*.8,0),(r*1.2,.006),(r*1.2,.014),(r,.014),(r,.03)],mat,p,rot,n=6)
+
+def ibeam_profile(w=.18,h=.24,t=.025):
+ return [(-w/2,-h/2),(w/2,-h/2),(w/2,-h/2+t),(t/2,-h/2+t),(t/2,h/2-t),(w/2,h/2-t),(w/2,h/2),(-w/2,h/2),(-w/2,h/2-t),(-t/2,h/2-t),(-t/2,-h/2+t),(-w/2,-h/2+t)]
+
+def panel(s,name,center,w,h,material,rot=(math.pi/2,0,0),meta=None):
+ # Local XY, normal +Z; 90 degrees about X faces toward -Y.
+ v=[(-w/2,-h/2,0),(w/2,-h/2,0),(w/2,h/2,0),(-w/2,h/2,0)]
+ return s.add(name,v,[(0,1,2),(0,2,3)],material,center,rot,uv=[(0,0),(1,0),(1,1),(0,1)],meta=meta)
+
+def rock(s,name,loc,size,mat='rock',seed=1,rot=(0,0,0),meta=None):
+ """Layered fracture polyhedron, with broad planar cuts, not a UV/ico sphere."""
+ rng=np.random.default_rng(seed);n=9
+ ang=np.linspace(0,2*math.pi,n,endpoint=False)+rng.uniform(-.075,.075,n)
+ radii=rng.uniform(.82,1.09,n);v=[]
+ for k,(z,r) in enumerate([(-.50,.64),(-.33,.99),(.20,.94),(.48,.53)]):
+  offset=np.array([.07*k-.1,-.04*k])
+  for j,a in enumerate(ang):
+   v.append(((math.cos(a)*r*radii[j]+offset[0])*size[0]/2,(math.sin(a)*r*radii[j]+offset[1])*size[1]/2,(z+.075*math.cos(a+.3*k))*size[2]))
+ f=[]
+ for k in range(3):
+  for j in range(n):
+   a=k*n+j;b=k*n+(j+1)%n;f.extend(((a,b,b+n),(a,b+n,a+n)))
+ f.extend(tuple(reversed(t)) for t in earclip(np.asarray(v[:n])[:,:2]));f.extend(tuple(i+3*n for i in t) for t in earclip(np.asarray(v[-n:])[:,:2]))
+ return s.add(name,v,f,mat,loc,rot,smooth=False,meta=meta)
+
+
+def sign(s,name,center,w,h,label,rot=(math.pi/2,0,0)):
+ # Sheet with a real edge and separately UV-mapped printed face.
+ with s.group(name,center,rot):
+  box(s,'Sign_back',(0,0,-.012),(w+.045,h+.045,.024),'dark_steel',.006)
+  panel(s,'Sign_print',(0,0,.002),w,h,'label_'+label,rot=(0,0,0))
+  for x in [-w/2+.055,w/2-.055]:
+   for y in [-h/2+.04,h/2-.04]:bolt(s,'Sign_fixing',(x,y,.006),.011)
+
+def fluorescent(s,name,p,length=1.15,power=190,warm=False,rot=(0,0,0)):
+ with s.group(name,p,rot,collection='05_SERVICES'):
+  box(s,'Cast_light_housing',(0,0,.035),(length,.19,.11),'paint_cream',.018)
