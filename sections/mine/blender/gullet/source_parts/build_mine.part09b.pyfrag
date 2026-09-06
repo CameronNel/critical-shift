@@ -1,0 +1,50 @@
+
+def export_variants(scene,output,fmt='glb'):
+ """Export static art once, then the five disjoint state sets per sector.
+
+ There is no glTF visibility standard; overlapping hidden alternatives must NOT
+ be exported as a single always-visible level. The accompanying manifest tells
+ the runtime which state prefab to activate. Lighting still needs Unity setup.
+ """
+ import bpy
+ from types import SimpleNamespace
+ out=Path(output);out.mkdir(parents=True,exist_ok=True)
+ records=[];all_objects=list(scene.objects)
+ previous={o.name:(o.hide_get(),o.hide_render,o.select_get()) for o in all_objects}
+ original_active=bpy.context.view_layer.objects.active
+ def emit(name,objects,metadata):
+  for o in all_objects:o.select_set(False)
+  chosen=set(objects)
+  # Keep transform parents and sockets, but not unrelated meshes.
+  for o in list(chosen):
+   p=o.parent
+   while p:chosen.add(p);p=p.parent
+  for o in chosen:o.hide_set(False);o.hide_render=False;o.select_set(True)
+  if objects:bpy.context.view_layer.objects.active=objects[0]
+  path=out/(name+'.'+fmt)
+  if fmt=='glb':
+   bpy.ops.export_scene.gltf(filepath=str(path),export_format='GLB',use_selection=True,export_extras=True,export_animations=False,export_cameras=False,export_lights=False)
+  else:
+   bpy.ops.export_scene.fbx(filepath=str(path),use_selection=True,apply_unit_scale=True,global_scale=1.,axis_forward='-Z',axis_up='Y',object_types={'MESH','EMPTY'},bake_anim=False,path_mode='COPY',embed_textures=True,use_custom_props=True)
+  records.append({'file':path.name,**metadata})
+ try:
+  static=[]
+  for o in all_objects:
+   if o.type!='MESH' or 'csm_meta' not in o:continue
+   m=json.loads(o['csm_meta'])
+   if not m.get('sector') and not m.get('collision_only'):static.append(o)
+  # Export semantic roots and interface sockets even when they have no mesh.
+  static.extend(o for o in all_objects if o.type=='EMPTY' and 'csm_meta' in o and not json.loads(o['csm_meta']).get('sector'))
+  emit('gullet_static',static,{'kind':'static','units':'metres'})
+  for sec in SECTORS:
+   for stage in range(5):
+    states={k:0 for k in SECTORS};states[sec]=stage;chosen=[]
+    for o in all_objects:
+     if o.type!='MESH' or 'csm_meta' not in o:continue
+     m=json.loads(o['csm_meta'])
+     if m.get('sector')==sec and not m.get('collision_only') and is_visible(SimpleNamespace(meta=m),states):chosen.append(o)
+    emit(f'sector_{sec}_{STATE_NAMES[stage]}',chosen,{'kind':'state_variant','sector':sec,'state':stage,'state_name':STATE_NAMES[stage]})
+    state_colliders=[]
+    for o in all_objects:
+     if o.type!='MESH' or 'csm_meta' not in o:continue
+     m=json.loads(o['csm_meta'])
