@@ -80,7 +80,9 @@ def main():
         for area in screen.areas:
             if area.type=='VIEW_3D':
                 area.spaces.active.region_3d.view_perspective='CAMERA'
-                area.spaces.active.shading.type='MATERIAL'
+                # Open without eagerly compiling the full material-preview GPU workload.
+                area.spaces.active.shading.type='SOLID'
+                area.spaces.active.shading.color_type='MATERIAL'
                 area.spaces.active.overlay.show_overlays=False
     output=HERE/('spawnroom_style_slice.blend' if args.scope=='slice' else 'spawnroom.blend')
     bpy.ops.wm.save_as_mainfile(filepath=str(output),compress=True)

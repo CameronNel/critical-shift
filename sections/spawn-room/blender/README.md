@@ -116,3 +116,11 @@ Before starting or regenerating Spawn Blender art:
 4. complete `../production/REFERENCE_REVIEW.md`.
 
 Do not build from the scenery text alone. The reference library exists specifically to prevent the generic bevelled-box / flat-plastic failure mode.
+
+## Desktop startup recovery (2026-09-06)
+
+The saved room and future builds now open in SOLID shading with material colours. This avoids automatically compiling the full GPU material-preview workload while loading. All saved 3D workspaces in the delivered room use SOLID. Cycles render settings, geometry, material graphs and packed portraits are unchanged. Switch shading deliberately after loading if needed.
+
+The reported disappearing window did not produce a crash note in Blender's own temporary directory, the user temporary directory or the blend directory, nor a recent Blender Windows Application error. The desktop process was still answering its MCP add-on. GPU material preview is a suspected loading-pressure path, not a proven crash cause. The lightweight startup is a mitigation, not a driver diagnosis.
+
+After the change, a fresh headless open passed all 59 contacts and 29 objective checks. The desktop process was closed gracefully and relaunched minimized without Computer Use; the new process read the exact source in 5.829 seconds and remained MCP-ready. See ../production/renders/review/startup-fix/. Full rendered output was not rerendered for this viewport-only change. A local pre-change backup and launch stdout/stderr are kept in ignored ../production/logs/.
