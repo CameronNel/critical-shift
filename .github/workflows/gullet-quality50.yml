@@ -113,19 +113,21 @@ jobs:
         run: |
           python -m pip install Pillow
           python sections/mine/blender/gullet/quality50/make_gallery.py --scene /tmp/quality50-scene --renders /tmp/quality50-renders
-      - name: Publish only mine-local source, scene and evidence
+      - name: Publish only mine-local source, scene, licensed maps and evidence
         run: |
           set -euo pipefail
           ROOT=sections/mine
           REVIEW="$ROOT/production/renders/review/quality50"
           CHECK="$ROOT/production/checkpoints/quality50"
-          mkdir -p "$REVIEW" "$CHECK"
+          TEXTURES="$ROOT/assets/pbr/quality50"
+          mkdir -p "$REVIEW" "$CHECK" "$TEXTURES"
           cp /tmp/quality50-renders/* "$REVIEW/"
           cp /tmp/quality50-scene/*.json /tmp/quality50-scene/*.log "$CHECK/"
+          cp -a /tmp/quality50-scene/weathering_sources/. "$TEXTURES/"
           cp /tmp/quality50-scene/Gullet_Quality50.blend "$ROOT/blender/gullet/Gullet_Quality50.blend"
           git config user.name 'Critical Shift Asset Builder'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add "$REVIEW" "$CHECK" "$ROOT/blender/gullet/Gullet_Quality50.blend"
+          git add "$REVIEW" "$CHECK" "$TEXTURES" "$ROOT/blender/gullet/Gullet_Quality50.blend"
           if ! git diff --cached --quiet; then
             git commit -m 'Publish weathered mine scene and fifty actual Cycles review views [skip ci]'
             git pull --rebase origin "$GITHUB_REF_NAME"
@@ -137,6 +139,7 @@ jobs:
           path: |
             sections/mine/blender/gullet/quality50
             sections/mine/blender/gullet/Gullet_Quality50.blend
+            sections/mine/assets/pbr/quality50
             sections/mine/production/renders/review/quality50
             sections/mine/production/checkpoints/quality50
           retention-days: 14
