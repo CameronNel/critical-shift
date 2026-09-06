@@ -1,0 +1,22 @@
+name: Gullet quality texture preparation
+on:
+  push:
+    branches: [art/gullet-quality-50-20260906]
+    paths: ['.github/workflows/gullet-quality50-assets.yml']
+permissions:
+  contents: read
+jobs:
+  textures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - run: python sections/mine/blender/gullet/quality50/download_weathering.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gullet-quality50-weathering-source
+          path: |
+            sections/mine/assets/pbr/quality50
+            sections/mine/blender/gullet/quality50
+            sections/mine/production/quality50/source_inventory.json
+          retention-days: 14
