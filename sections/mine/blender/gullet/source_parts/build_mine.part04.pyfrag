@@ -1,0 +1,150 @@
+  # Pressed scoop: broad concavity, shoulder, and sharpened lower outline.
+  outline=[(-.12,.34),(-.17,.23),(-.145,.06),(0,0),(.145,.06),(.17,.23),(.12,.34)]
+  vv=[(x,.038*(abs(x)/.17)**1.5,z) for x,z in outline]+[(0,-.048,.20)]
+  ff=[(i,(i+1)%7,7) for i in range(7)]
+  s.add('Pressed_shovel_blade',vv,ff,'steel')
+  pipe(s,'Shovel_socket',(0,0,.25),(0,.018,.48),.036,'dark_steel')
+  pipe(s,'Shovel_shaft',(0,.018,.37),(0,.035,1.18),.021,'timber')
+  line(s,'D_handle',[(-.095,.035,1.29),(-.092,.035,1.39),(.092,.035,1.39),(.095,.035,1.29),(0,.035,1.14),(-.095,.035,1.29)],.018,'paint_ochre')
+  pipe(s,'D_handle_grip',(-.07,.035,1.39),(.07,.035,1.39),.028,'rubber')
+
+
+def prybar(s,loc,rot=(0,0,0)):
+ with s.group('Pry_bar',loc,rot,collection='06_WORKSTATIONS',meta={'interaction':'pickup_tool','tool_type':'prybar'}):
+  line(s,'Forged_bar',[(0,0,.04),(0,0,.94),(0,-.035,1.09),(0,-.12,1.13),(0,-.20,1.09)],.017,'steel')
+  box(s,'Forged_pry_tip',(0,-.014,.025),(.065,.06,.038),'steel',.004,rot=(.4,0,0))
+  pipe(s,'Bar_grip',(0,0,.48),(0,0,.77),.021,'paint_red')
+
+
+def drill(s,loc,rot=(0,0,0)):
+ with s.group('Hand_drill',loc,rot,collection='06_WORKSTATIONS',meta={'interaction':'pickup_tool','tool_type':'drill'}):
+  profile=[(-.12,-.06),(-.16,.05),(-.12,.20),(.12,.20),(.14,.04),(.09,-.06)]
+  profile_extrude(s,'Drill_cast_body',profile,.37,'paint_ochre',loc=(0,0,.33))
+  lathe(s,'Drill_chuck',[(.067,-.05),(.070,0),(.041,.12),(.024,.16)],'steel',(0,-.25,.40),(math.pi/2,0,0),n=24)
+  pipe(s,'Drill_bit',(0,-.43,.40),(0,-.86,.40),.012,'steel',10)
+  for j in range(7):ring(s,'Bit_flute',(0,-.43-j*.055,.40),.018,.004,'dark_steel','Y',12)
+  line(s,'Drill_rear_handle',[(-.11,.18,.47),(-.13,.33,.47),(-.13,.33,.23),(.13,.33,.23),(.13,.33,.47),(.11,.18,.47)],.025,'rubber')
+  pipe(s,'Auxiliary_handle',(.12,-.06,.36),(.36,-.06,.36),.030,'rubber')
+  for x in [-.12,.12]:
+   for y in [-.08,.09]:bolt(s,'Drill_casing_screw',(x,y,.529),.014)
+  line(s,'Drill_hose',[(0,.17,.26),(.08,.41,.12),(.39,.56,.03),(.65,.39,.03),(.57,.14,.03)],.023,'rubber')
+
+
+def hardhat(s,loc,rot=(0,0,0)):
+ with s.group('Hardhat',loc,rot,collection='07_STORY'):
+  lathe(s,'Helmet_shell',[(.13,.018),(.143,.038),(.138,.085),(.116,.14),(.076,.18),(.012,.199)],'paint_ochre',n=32)
+  lathe(s,'Helmet_brim',[(.126,.012),(.182,.008),(.178,.021),(.137,.033)],'paint_ochre',n=32)
+  line(s,'Helmet_crown_rib',[(0,-.125,.068),(0,-.09,.162),(0,0,.211),(0,.09,.162),(0,.125,.068)],.009,'paint_cream')
+
+
+def workstations(s):
+ # A single large instruction board, two tool positions, a practical desk.
+ s.collection='06_WORKSTATIONS'
+ sign(s,'Shift_instruction_board',(-7.345,-8.8,2.06),2.67,2.00,'shift_card',rot=(math.pi/2,0,math.pi/2))
+ # Workbench faces inward and is built from folded steel and timber boards.
+ with s.group('Dispatch_workbench',(-6.00,-10.60,0),rot=(0,0,math.pi/2)):
+  for x in [-.88,.88]:
+   for y in [-.25,.25]:
+    profile_extrude(s,'Bench_angle_leg',[(-.028,-.028),(.028,-.028),(.028,-.012),(-.012,-.012),(-.012,.028),(-.028,.028)],.85,'paint_teal',(x,y,.45),axis='Z')
+  for y in [-.25,.25]:box(s,'Bench_stretcher',(0,y,.27),(1.81,.032,.07),'paint_teal',.004)
+  box(s,'Bench_bottom_shelf',(0,0,.31),(1.85,.55,.032),'paint_teal',.004)
+  for j in range(4):box(s,'Bench_timber_board',(0,-.271+j*.18,.895),(2.0,.173,.064),'timber',.008)
+  drill(s,(.34,0,.94),rot=(0,0,.18))
+  hardhat(s,(-.65,-.06,.93),rot=(0,0,-.3))
+  # Clipboard and loosely folded shift sheet.
+  box(s,'Clipboard',(-.18,-.10,.94),(.25,.34,.022),'timber',.009,rot=(0,0,-.18))
+  panel(s,'Shift_sheet',(-.18,-.10,.953),.23,.30,'paper',rot=(0,0,-.18))
+  box(s,'Clipboard_clip',(-.16,.035,.965),(.09,.024,.012),'steel',.002,rot=(0,0,-.18))
+  # Hollow mug, a small human trace rather than arbitrary prop clutter.
+  with s.group('Enamel_mug',(-.79,.22,.93)):
+   lathe(s,'Mug_cup',[(.037,0),(.045,.006),(.047,.095),(.048,.104),(.040,.108),(.038,.10),(.038,.012)],'paint_cream',n=24)
+   ring(s,'Mug_handle',(.055,0,.055),.032,.007,'paint_cream','Y',24)
+  box(s,'Spare_filter_case',(.55,0,.365),(.55,.39,.10),'dark_steel',.018)
+ shovel(s,(-7.15,-3.65,.025),rot=(0,.10,math.pi/2))
+ prybar(s,(-7.10,-3.13,.024),rot=(0,.11,.08))
+ # Hanging canvas over a short practical hook.
+ with s.group('Maintenance_cloth',(-7.18,-11.90,1.48),rot=(0,0,math.pi/2),collection='07_STORY'):
+  pipe(s,'Cloth_hook',(0,.05,0),(0,-.07,0),.012,'steel')
+  vv=[];nx,nz=9,12
+  for i in range(nx):
+   for j in range(nz):
+    x=(i/(nx-1)-.5)*.41;z=-j/(nz-1)*.57
+    y=-.10+.025*math.sin(i*.9+j*.4)*(j/(nz-1))
+    vv.append((x,y,z))
+  ff=[]
+  for i in range(nx-1):
+   for j in range(nz-1):
+    a=i*nz+j;b=a+nz;ff.extend(((a,b,b+1),(a,b+1,a+1)))
+  s.add('Canvas_folded_surface',vv,ff,'fabric',smooth=True)
+ charge_magazine(s)
+
+
+def ore_cart(s,loc,loaded=False,rot=(0,0,0),name='Ore_cart'):
+ with s.group(name,loc,rot,collection='03_HAULAGE',meta={'interaction':'push_cart','component':'cart_root','rated_mass_game_units':100,'rigidbody_pivot':True}) as root:
+  for x in [-.48,.48]:
+   profile_extrude(s,'Cart_chassis_longitudinal',ibeam_profile(.10,.14,.015),2.16,'dark_steel',(x,0,.565))
+  for y in [-.79,.79]:
+   sweep(s,'Cart_chassis_crossmember',[(-.69,y,.54),(.69,y,.54)],ibeam_profile(.10,.11,.014),'dark_steel')
+  for y in [-.68,.68]:
+   pipe(s,'Cart_axle',(-.74,y,.375),(.74,y,.375),.049,'steel',20)
+   for side in [-1,1]:
+    with s.group('Cart_wheel',(side*.605,y,.375),meta={'component':'wheel','local_spin_axis':'X','wheel_radius_m':.235}):
+     prof=[(.175,-.065),(.272,-.055),(.272,-.035),(.235,-.022),(.235,.058),(.208,.068),(.08,.072)]
+     lathe(s,'Flanged_wheel',prof,'steel',rot=(0,side*math.pi/2,0),n=40)
+     lathe(s,'Wheel_hub',[(.074,-.014),(.082,.026),(.068,.065)],'dark_steel',(side*.069,0,0),rot=(0,side*math.pi/2,0),n=24)
+     for a in np.linspace(0,2*math.pi,5,endpoint=False):
+      bolt(s,'Wheel_face_fastener',(side*.079,.13*math.cos(a),.13*math.sin(a)),.014,'X')
+    box(s,'Axle_bearing',(side*.47,y,.405),(.15,.19,.15),'paint_ochre',.016)
+    for yy in [y-.15,y+.15]:
+     box(s,'Leaf_spring_stack',(side*.48,yy,.485),(.092,.28,.017),'steel',.004,rot=(.045 if yy<y else -.045,0,0))
+  # Double-sided tapered welded hopper. Interior volume is actually hollow.
+  outer0=[(-.45,-.73,.65),(.45,-.73,.65),(.45,.73,.65),(-.45,.73,.65)]
+  outer1=[(-.79,-1.02,1.42),(.79,-1.02,1.42),(.79,1.02,1.42),(-.79,1.02,1.42)]
+  inner1=[(-.737,-.967,1.405),(.737,-.967,1.405),(.737,.967,1.405),(-.737,.967,1.405)]
+  inner0=[(-.40,-.68,.71),(.40,-.68,.71),(.40,.68,.71),(-.40,.68,.71)]
+  vv=outer0+outer1+inner1+inner0;ff=[]
+  for a0,b0 in [(0,4),(4,8),(8,12)]:
+   for i in range(4):
+    j=(i+1)%4;ff.extend(((a0+i,a0+j,b0+j),(a0+i,b0+j,b0+i)))
+  ff.extend(((0,2,1),(0,3,2),(12,13,14),(12,14,15)))
+  s.add('Welded_hopper_shell',vv,ff,'paint_teal')
+  for a,b in zip(outer1,outer1[1:]+outer1[:1]):
+   sweep(s,'Hopper_rolled_lip',[a,b],[(-.03,-.03),(.03,-.03),(.03,.03),(-.03,.03)],'steel')
+  # Secondary forms follow the taper rather than floating in front of a box.
+  for side in [-1,1]:
+   for y in [-.78,0,.78]:
+    a=(side*.462,y*.81,.69);b=(side*.796,y,1.36)
+    sweep(s,'Hopper_external_rib',[a,b],[(-.026,-.015),(.026,-.015),(.026,.026),(-.026,.026)],'dark_steel',up=(0,1,0))
+    for p in [a,b]:bolt(s,'Hopper_rivet',p,.017,'X')
+   for y in [-.40,.40]:
+    # A few physically local paint chips near contact, not a procedural crust.
+    rock(s,'Cart_local_edge_chip',(side*.791,y,1.37),(.011,.10,.04),'steel',int(800+side*10+y*10),rot=(0,0,.12))
+  for y in [-1.10,1.10]:
+   box(s,'Cart_bumper',(0,y,.52),(.93,.15,.14),'rubber',.025)
+  line(s,'Cart_push_handle',[(-.58,-.88,.91),(-.58,-1.28,1.13),(.58,-1.28,1.13),(.58,-.88,.91)],.025,'steel')
+  pipe(s,'Cart_handle_grip',(-.37,-1.28,1.13),(.37,-1.28,1.13),.033,'rubber')
+  pipe(s,'Brake_shaft',(.61,-.81,.42),(.61,-1.04,1.09),.02,'steel')
+  pipe(s,'Brake_grip',(.61,-1.04,1.09),(.61,-1.12,1.23),.025,'paint_red')
+  for y in [-.68,.68]:box(s,'Brake_shoe',(.42,y+.19,.35),(.13,.05,.16),'dark_steel',.012,rot=(.13,0,0))
+  sign(s,'Cart_inventory_plate',(0,-1.025,1.15),.53,.116,'cart')
+  s.empty('SOCKET_CART_PUSH',(0,-1.31,1.13),meta={'socket_type':'push_handle'},collection='13_INTERFACES')
+  s.empty('SOCKET_CART_LOAD',(0,0,1.11),meta={'socket_type':'ore_load','capacity_game_units':100},collection='13_INTERFACES')
+  if loaded:
+   rng=np.random.default_rng(197)
+   for i in range(27):
+    x=rng.uniform(-.53,.53);y=rng.uniform(-.73,.73);z=1.09+rng.uniform(0,.18)
+    rock(s,'Cart_ore_chunk',(x,y,z),(.29+rng.random()*.22,.30+rng.random()*.21,.25+rng.random()*.14),'ore' if i%3==0 else 'rock_dark',i+221,rot=tuple(rng.uniform(-.7,.7,3)),meta={'ore_chunk':True,'mining_batch':'demonstration_load'})
+ return root
+
+
+def haulage(s):
+ s.collection='03_HAULAGE'
+ railprofile=[(-.067,0),(.067,0),(.067,.023),(.017,.023),(.017,.109),(.043,.12),(.043,.15),(-.043,.15),(-.043,.12),(-.017,.109),(-.017,.023),(-.067,.023)]
+ for side in [-1,1]:
+  path=[(side*.55,float(y),floor_z(y)+.08) for y in np.linspace(-22,37.9,171)]
+  sweep(s,'Continuous_I_rail',path,railprofile,'steel')
+ # Sleepers disappear under the flush concrete apron, with small retaining shoes.
+ for y in np.arange(.65,38,.83):
+  z=floor_z(y)
+  box(s,'Timber_sleeper',(0,y,z-.006),(1.78,.185,.14),'timber',.012,rot=(-math.atan(SLOPE),0,0))
+  for side in [-1,1]:
