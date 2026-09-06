@@ -1,5 +1,5 @@
-"""Download an explicit, small CC0 selection from Poly Haven's public API.
-Source attribution and SHA-256 are retained. No arbitrary code is executed.
+"""Download an explicit CC0 selection from Poly Haven's public API.
+Source attribution and SHA-256 are retained. No downloaded code is executed.
 """
 from pathlib import Path
 from urllib.request import Request,urlopen
@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 import json,hashlib,time,sys
 OUT=Path(sys.argv[1]) if len(sys.argv)>1 else Path(__file__).resolve().parent/'assets'
 HEAD={'User-Agent':'CriticalShift-Gullet-Artmatch/1.0 (CameronNel/critical-shift)','Referer':'https://github.com/CameronNel/critical-shift'}
-MODELS=['metal_toolbox','metal_tool_chest','barrel_03','wooden_crate_02','rusted_spade_01','sledgehammer_01','rusted_hacksaw','wooden_ladder','can_rusted','sand_rocks_small_01','rock_09']
+MODELS=['metal_toolbox','metal_tool_chest','barrel_03','wooden_crate_02','rusted_spade_01','sledgehammer_01','rusted_hacksaw','wooden_ladder','can_rusted','sand_rocks_small_01','rock_09','rock_07','rock_face_01','coast_rocks_03']
 TEXTURES=['damaged_concrete_floor','concrete_debris','rocky_gravel','rust_coarse_01','muddy_tracks']
 OUT.mkdir(parents=True,exist_ok=True)
 def get(url):
@@ -48,8 +48,7 @@ for name in MODELS+TEXTURES:
             record['maps']={}
             for role,keys in [('color',['diff','Diffuse','albedo']),('roughness',['rough','Rough']),('height',['disp','Displacement'])]:
                 key=next((k for k in keys if k in info),None)
-                if key is None:
-                    key=next((k for k in info if k.lower() in [x.lower() for x in keys]),None)
+                if key is None:key=next((k for k in info if k.lower() in [x.lower() for x in keys]),None)
                 if key is None:raise ValueError('Missing '+role+' in '+str(list(info)))
                 sizes=info[key];node=sizes.get('2k',sizes.get('1k'));fmt='jpg' if 'jpg' in node else 'png' if 'png' in node else next(iter(node));node=node[fmt]
                 item=save(node['url'],folder/(role+'.'+fmt));record['files'].append(item);record['maps'][role]=item['path']
