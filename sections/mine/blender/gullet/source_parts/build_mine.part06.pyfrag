@@ -1,0 +1,149 @@
+ for xx in [cx-1.23,cx+1.23]:
+  for yy in [cy-1.70,cy+1.70]:
+   box(s,'Sump_guard_base',(xx,yy,z+.035),(.17,.18,.07),'steel',.009)
+   pipe(s,'Sump_guard_post',(xx,yy,z+.07),(xx,yy,z+1.06),.032,'paint_ochre')
+ for xx in [cx-1.23,cx+1.23]:
+  for hh in [.51,1.06]:pipe(s,'Sump_long_guard',(xx,cy-1.70,z+hh),(xx,cy+1.70,z+hh),.029,'paint_ochre')
+ for hh in [.51,1.06]:pipe(s,'Sump_far_guard',(cx-1.23,cy+1.70,z+hh),(cx+1.23,cy+1.70,z+hh),.029,'paint_ochre')
+ # Adjacent service grating, with actual gaps and a structural border.
+ for yy in np.arange(19.6,23.6,.12):box(s,'Sump_access_grating',(7.69,yy,floor_z(yy)+.095),(1.05,.027,.065),'steel',.002)
+ for xx in [7.14,8.24]:box(s,'Grating_stringer',(xx,21.57,z+.049),(.055,4.04,.13),'dark_steel',.005)
+ with s.group('Pump_skid',(10.0,18.50,floor_z(18.5)),rot=(0,0,.05),meta={'interaction':'pump','component':'pump_root'}):
+  for y in [-.29,.29]:sweep(s,'Skid_runner',[(-.63,y,.12),(.83,y,.12)],ibeam_profile(.10,.13,.015),'paint_teal')
+  for x in [-.50,.65]:box(s,'Skid_crossbar',(x,0,.19),(.10,.66,.11),'dark_steel',.009)
+  # Finned motor and a non-cylindrical volute housing make the pump recognizable.
+  lathe(s,'Pump_motor',[(.12,-.26),(.17,-.21),(.18,.18),(.145,.28)],'paint_teal',(.30,0,.43),(0,math.pi/2,0),n=32)
+  for a in np.linspace(0,2*math.pi,12,endpoint=False):
+   x0=(-.04,.15*math.cos(a),.43+.15*math.sin(a));x1=(.50,.15*math.cos(a),.43+.15*math.sin(a))
+   pipe(s,'Motor_cooling_fin',x0,x1,.015,'dark_steel',6)
+  outline=[]
+  for a in np.linspace(0,2*math.pi,28,endpoint=False):
+   r=.205+.058*((a%(2*math.pi))/(2*math.pi));outline.append((r*math.cos(a),r*math.sin(a)))
+  profile_extrude(s,'Centrifugal_volute',outline,.16,'paint_ochre',(-.33,0,.43),axis='X')
+  pipe(s,'Pump_suction',(-.42,0,.43),(-.74,0,.43),.063,'dark_steel')
+  line(s,'Suction_hose',[(-.74,0,.43),(-.89,.26,.25),(-.85,1.15,.08),(-.45,1.85,-.08),(-.43,2.18,-.40)],.070,'rubber')
+  line(s,'Discharge_pipe',[(-.29,.13,.61),(-.29,.22,.87),(-.29,.50,1.01),(.40,.56,1.01),(.86,.6,.87)],.057,'steel')
+  gauge(s,'Pump_delivery_gauge',(-.03,.49,1.22),.09)
+  box(s,'Pump_switch_box',(.40,-.16,.71),(.22,.20,.21),'paint_cream',.02)
+  box(s,'Pump_switch',(.40,-.27,.73),(.060,.020,.081),'paint_red',.007)
+ sign(s,'Sump_service_sign',(9.1,23.9,z+2.14),1.23,.25,'pump')
+ fluorescent(s,'Sump_key_light',(8.9,21.8,z+3.01),1.12,240)
+ # Hose coil and one repair kit establish the maintenance story.
+ for i in range(4):ring(s,'Spare_hose_coil',(7.0,24.4,floor_z(24.4)+.04+i*.044),.35-i*.034,.025,'rubber')
+ box(s,'Pump_service_case',(6.60,25.35,floor_z(25.35)+.14),(.69,.41,.28),'paint_ochre',.03,rot=(0,0,.24))
+
+
+def face_position(sec,depth,u,w):
+ a=SECTORS[sec];axis=np.array([*a['axis'],0.]);side=np.array([-axis[1],axis[0],0.]);base=np.array([*a['entry'],floor_z(a['entry'][1])])
+ displacement=.13*math.sin(u*2.7+w*.8)+.065*math.sin(w*5.1-u*.55)+.1*math.sin(u*.6-w*1.4)
+ return base+axis*(depth+displacement-.028)+side*u+np.array([0,0,w])
+
+
+def vein_ribbon(s,name,sec,depth,points,width,meta):
+ v=[]
+ for i,(u,z) in enumerate(points):
+  w=width*(.72+.25*math.sin(i*2.3+.8))
+  v.extend([face_position(sec,depth,u-w,z),face_position(sec,depth,u+w,z)])
+ f=[]
+ for i in range(len(points)-1):a=i*2;f.extend(((a,a+1,a+3),(a,a+3,a+2)))
+ s.add(name,v,f,'ore',meta=meta)
+
+
+def blast_sectors(s):
+ pack=np.load(ASSETS/'geology.npz',allow_pickle=False)
+ for sec,definition in SECTORS.items():
+  coll={'A':'08_SECTOR_A','B':'09_SECTOR_B','C':'10_SECTOR_C'}[sec]
+  s.collection=coll
+  axis=np.array([*definition['axis'],0.]);side=np.array([-axis[1],axis[0],0.]);base=np.array([*definition['entry'],floor_z(definition['entry'][1])])
+  s.empty('CTRL_SECTOR_'+sec,meta={'sector':sec,'state':CONFIG['preview_states'][sec],'unlocked_stage':3 if CONFIG['preview_states'][sec]==4 else CONFIG['preview_states'][sec],'remaining_rubble':22 if CONFIG['preview_states'][sec]==4 else 0},collection='13_INTERFACES')
+  for level in range(3):
+   meta={'sector':sec,'gate_index':level,'component':'excavation_barrier','gameplay_gate':True}
+   s.add(f'{sec}_Face_{STATE_NAMES[level]}',pack[f'gate_{sec}{level}_vertices'],pack[f'gate_{sec}{level}_faces'],'rock_fresh' if level else 'rock',meta=meta)
+   meta={'sector':sec,'gate_index':level,'component':'face_dressing'}
+   depth=definition['depths'][level]
+   # Two broad faults with thinner offshoots, intentionally clustered.
+   vein_ribbon(s,f'{sec}_Ore_main_{level}',sec,depth,[(-.9,.35),(-.51,.84),(-.59,1.22),(-.19,1.58),(-.11,2.03),(.37,2.60)],.090,meta)
+   vein_ribbon(s,f'{sec}_Ore_branch_{level}',sec,depth,[(-.48,.86),(.08,.97),(.33,1.23),(.89,1.40),(1.04,1.85)],.058,meta)
+   if level>0:vein_ribbon(s,f'{sec}_Ore_secondary_{level}',sec,depth,[(.26,.20),(.37,.62),(.74,.78),(1.19,.96)],.083,meta)
+   for j in range(8):
+    u=-1.2+j*.32;p=base+axis*(depth-.17)+side*u;p[2]=floor_z(p[1])+.055
+    rock(s,f'{sec}_Broken_face_toe',p,(.20+.025*(j%3),.23,.16),'ore' if j%3==0 else 'rock_fresh',700+level*20+j,rot=(.1,-.07,j*.53),meta=meta)
+   p=base+axis*(depth-.33);p[2]+=1.28
+   s.empty(f'SOCKET_{sec}_FACE_{level}',p,meta={'sector':sec,'gate_index':level,'socket_type':'scan_or_game_charge','game_units_only':True},collection='13_INTERFACES')
+  # State-specific mineable batches in newly opened, distinct volumes.
+  for stage in [1,2,3]:
+   depth=(definition['depths'][stage]+definition['depths'][stage-1])*.5
+   for j in range(11+stage*3):
+    rng=np.random.default_rng(1000+ord(sec)*20+stage*100+j)
+    u=rng.uniform(-.9-.2*stage,.9+.2*stage)
+    p=base+axis*(depth+rng.uniform(-.70,.7))+side*u;p[2]=floor_z(p[1])+.11
+    rock(s,f'{sec}_Mineable_chunk_S{stage}',p,(rng.uniform(.27,.53),rng.uniform(.27,.56),rng.uniform(.22,.39)),'ore' if j%3 else 'rock_fresh',1000+j+stage*37,rot=tuple(rng.uniform(-.3,.3,3)),meta={'sector':sec,'min_stage':stage,'ore_chunk':True,'component':'mineable_resource','moisture_game_units':75 if sec=='B' else 10,'batch_origin':sec})
+   p=base+axis*depth
+   s.empty(f'REGION_{sec}_STAGE_{stage}',p,meta={'sector':sec,'min_stage':stage,'socket_type':'ore_region','stage':stage,'depth_m':definition['depths'][stage]},collection='13_INTERFACES')
+  # Oversized game-event state: individually removable slabs in a physically blocking pile, a damaged prop, and an explicit traversal blocker.
+  pile_center=base+axis*1.30
+  pile_center[2]=floor_z(pile_center[1])
+  if sec=='C':width=2.32
+  else:width=1.48
+  idx=0
+  for tier,count,z0,spread in [(0,8,.37,1.0),(1,7,.96,.88),(2,5,1.55,.70),(3,2,2.12,.36)]:
+   for j in range(count):
+    u=(j/max(count-1,1)*2-1)*width*spread
+    along=.12*math.sin(j*2.1)+tier*.20
+    p=pile_center+side*u+axis*along;p[2]=floor_z(p[1])+z0
+    scale=(.97+(j%3)*.18,1.12+(j%2)*.28,.92+(j%2)*.14)
+    with s.group(f'{sec}_Rubble_{idx:02}',p,rot=(.07*math.sin(j),.15*math.cos(j),j*.47),meta={'sector':sec,'collapse_only':True,'rubble_index':idx,'component':'removable_rubble','interaction':'clear_rock','mass_game_units':2+tier},collection=coll):
+     rock(s,'Fractured_collapse_slab',(0,0,0),scale,'rock_fresh' if idx%4==0 else 'rock',1800+idx+ord(sec))
+     if idx%4==0:rock(s,'Rubble_ore_inclusion',(.13,-.21,.27),(.37,.11,.11),'ore',idx+302,rot=(.2,.16,.3))
+    idx+=1
+  # A bent, grounded support fragment reads as a consequence, not random debris.
+  with s.group(f'{sec}_Damaged_support',pile_center+side*(width+.18),meta={'sector':sec,'collapse_only':True,'damage_only':True},collection=coll):
+   sweep(s,'Buckled_steel_member',[(0,-.44,.09),(.2,-.12,.15),(.43,.48,.51),(.58,.86,.74)],ibeam_profile(.16,.18,.019),'paint_teal')
+   line(s,'Severed_cable',[(0,-.27,.13),(-.38,.22,.08),(-.6,.69,.05),(-.39,.9,.035)],.026,'rubber')
+  # Collision state is exported separately. No fake physics is enabled in Blender.
+  rot=(0,0,math.atan2(axis[1],axis[0])-math.pi/2)
+  box(s,f'COL_{sec}_Collapse_blocker',pile_center+np.array([0,0,1.30]),(width*2+.70,1.70,2.6),'collision',.0,rot=rot,meta={'sector':sec,'collapse_only':True,'collision_only':True,'component':'traversal_blocker'})
+  # Sculpted side-wall flakes are placed behind the initial mouth, not in routes.
+  for i in range(4):
+   p=base+axis*(.65+i*.35)+side*(1.30+i*.055);p[2]=floor_z(p[1])+1.2+i*.2
+   rock(s,f'{sec}_Seam_shoulder',p,(.40,.84,.29),'rock_dark',2100+i+ord(sec),rot=(.12,.45,.23*i),meta={'sector':sec,'min_stage':1})
+ # One sign per actual branch, positioned outside newly opened geometry.
+ s.collection='06_WORKSTATIONS'
+ sign(s,'Dry_seam_marker',(-2.74,15.36,floor_z(15.36)+1.88),1.02,.23,'sector_a',rot=(math.pi/2,0,math.pi/2))
+ sign(s,'Wet_seam_marker',(2.75,30.65,floor_z(30.65)+1.90),1.02,.23,'sector_b',rot=(math.pi/2,0,-math.pi/2))
+ sign(s,'Deep_cut_marker',(-1.92,37.30,floor_z(37.30)+1.82),1.05,.23,'sector_c')
+ lamp_stand(s,(-2.78,15.1,floor_z(15.1)),rot=(0,0,-math.pi/2))
+ with s.group('Wet_cut_work_cluster',meta={'sector':'B','min_stage':1}):
+  lamp_stand(s,(4.70,34.03,floor_z(34.03)),rot=(0,0,math.pi/2))
+  shovel(s,(5.43,34.15,floor_z(34.15)),rot=(0,.15,-.20))
+ # Local pools at the wet sector occupy wall margins, not the cart bed.
+ for x,y,w,h in [(5.8,34.1,1.0,.43),(8.1,31.8,1.4,.65),(9.0,33.9,1.0,.75)]:
+  # Irregular shallow pool, with its perimeter following the sloped floor.
+  n=40;points=[(0,0,0)]
+  for t in np.linspace(0,2*math.pi,n,endpoint=False):
+   r=1+.13*math.sin(3*t+x)+.07*math.sin(7*t-y)
+   px=.5*w*r*math.cos(t);py=.5*h*r*math.sin(t)
+   points.append((px,py,-SLOPE*py))
+  faces=[(0,1+i,1+(i+1)%n) for i in range(n)]
+  s.add('Wet_seam_puddle',points,faces,'water',loc=(x,y,floor_z(y)+.018),meta={'sector':'B','min_stage':1})
+ s.light('Dry_seam_bounce',(-2.3,17.7,floor_z(17.7)+2.6),(-8,17.7,floor_z(17.7)+1.2),(.94,.84,.65),170,1.7)
+ s.light('Wet_seam_bounce',(3,32.2,floor_z(32.2)+2.7),(9.4,33,floor_z(33)+1.0),(.64,.79,.88),220,1.4)
+
+
+def state_from_index(index:float)->int:
+ """Fictional normalized effort, with no physical units or real engineering formula."""
+ if not math.isfinite(index) or index<0:raise ValueError('Index must be finite and nonnegative')
+ if index==0:return 0
+ return 1 if index<=2 else 2 if index<=4 else 3 if index<=6 else 4
+
+def evolve_state(current:dict,index:float)->dict:
+ """Unlocks are monotonic. A collapse cannot be erased by a subsequent game event."""
+ state=dict(current)
+ if state.get('remaining_rubble',0)>0:
+  raise ValueError('Clear the existing collapse before another excavation event')
+ target=state_from_index(index)
+ if target==0:return state
+ if target==4:
+  state.update(state=4,unlocked_stage=3,remaining_rubble=22,cleared_rubble=[])
+ else:
+  stage=max(int(state.get('unlocked_stage',0)),target)
