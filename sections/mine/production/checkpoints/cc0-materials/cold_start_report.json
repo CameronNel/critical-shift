@@ -1,0 +1,642 @@
+{
+  "blender": "5.2.1 LTS",
+  "file": "CriticalShift_Gullet_PBR.blend",
+  "fresh_process": true,
+  "renderer": "Cycles",
+  "status": "PASS",
+  "assertions": 7472,
+  "issues": [],
+  "scope": "Blender file, images, actual bpy state/gate controls and sampled route clearance. Not Unity or final art acceptance.",
+  "images": [
+    {
+      "name": "roughness.jpg.004",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "label_door.png",
+      "packed": true,
+      "size": [
+        1024,
+        224
+      ]
+    },
+    {
+      "name": "timber_basecolor.png",
+      "packed": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "color.jpg.003",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "label_magazine.png",
+      "packed": true,
+      "size": [
+        1024,
+        224
+      ]
+    },
+    {
+      "name": "height.jpg.003",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "roughness.jpg.005",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "roughness.jpg",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "timber_normal.png",
+      "packed": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "label_sector_a.png",
+      "packed": true,
+      "size": [
+        1024,
+        224
+      ]
+    },
+    {
+      "name": "shift_card.png",
+      "packed": true,
+      "size": [
+        2048,
+        1536
+      ]
+    },
+    {
+      "name": "color.jpg.004",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "height.jpg.004",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "label_sector_b.png",
+      "packed": true,
+      "size": [
+        1024,
+        224
+      ]
+    },
+    {
+      "name": "roughness.jpg.001",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "paper_basecolor.png",
+      "packed": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "color.jpg",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "height.jpg",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "timber_roughness.png",
+      "packed": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "label_portal.png",
+      "packed": true,
+      "size": [
+        1024,
+        224
+      ]
+    },
+    {
+      "name": "height.jpg.005",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "label_sector_c.png",
+      "packed": true,
+      "size": [
+        1024,
+        224
+      ]
+    },
+    {
+      "name": "roughness.jpg.002",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "color.jpg.005",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "paper_normal.png",
+      "packed": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "label_pump.png",
+      "packed": true,
+      "size": [
+        1024,
+        224
+      ]
+    },
+    {
+      "name": "color.jpg.001",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "height.jpg.001",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "roughness.jpg.003",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "localized_scuff.png",
+      "packed": true,
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "label_cart.png",
+      "packed": true,
+      "size": [
+        1024,
+        224
+      ]
+    },
+    {
+      "name": "paper_roughness.png",
+      "packed": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "label_return.png",
+      "packed": true,
+      "size": [
+        1024,
+        224
+      ]
+    },
+    {
+      "name": "color.jpg.002",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "height.jpg.002",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "standing_path_probes": [
+    {
+      "x": 2.02,
+      "y": 1.8,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 2.35,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 2.9,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 3.45,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 4.0,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 4.55,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 5.1,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 5.65,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 6.2,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 6.75,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 7.3,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 7.85,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 8.4,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 8.95,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 9.5,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 10.05,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 10.6,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 11.15,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 11.7,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 12.25,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 12.8,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 13.35,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 13.9,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 14.45,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 15.0,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 15.55,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 16.1,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 16.65,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 17.2,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 17.75,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 18.3,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 18.85,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 19.4,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 19.95,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 20.5,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 21.05,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 21.6,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 22.15,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 22.7,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 23.25,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 23.8,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 24.35,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 24.9,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 25.45,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 26.0,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 26.55,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 27.1,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 27.65,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 28.2,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 28.75,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 29.3,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 29.85,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 30.4,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 30.95,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 31.5,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 32.05,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 32.6,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 33.15,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 33.7,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 34.25,
+      "standing_clear": true
+    },
+    {
+      "x": 2.02,
+      "y": 34.8,
+      "standing_clear": true
+    }
+  ],
+  "mesh_objects": 2402,
+  "cold_start_renders": [
+    {
+      "camera": "entry",
+      "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/production/material-review/cold-start/renders/entry.png",
+      "seconds": 29.850877046585083,
+      "bytes": 621862,
+      "renderer": "Blender 5.2.1 LTS / Cycles",
+      "samples": 16,
+      "resolution": [
+        896,
+        560
+      ],
+      "camera_matrix": [
+        [
+          0.9644463062286377,
+          0.008340728469192982,
+          0.26414722204208374,
+          3.700000047683716
+        ],
+        [
+          0.2642788887023926,
+          -0.030438262969255447,
+          -0.9639658331871033,
+          -13.050000190734863
+        ],
+        [
+          5.55932633261591e-09,
+          0.9995018243789673,
+          -0.031560350209474564,
+          1.7200000286102295
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens_mm": 23.0,
+      "sha256": "f59d632c4880e0166e043c4a51faf501e02ae163eb3fda64f8a9c65e4e45b9c0"
+    }
+  ]
+}

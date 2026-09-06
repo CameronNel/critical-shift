@@ -1,0 +1,62 @@
+00:00.397  blend            | Read blend: "/home/runner/work/critical-shift/critical-shift/sections/mine/production/material-review/CriticalShift_Gullet_PBR.blend"
+/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/pbr/validate_blender.py:38: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  images={n.image for mat in used if mat.use_nodes for n in mat.node_tree.nodes if n.type=='TEX_IMAGE' and n.image}
+BLENDER_RENDER_START entry
+01:09.855  render           | Saved: '/home/runner/work/critical-shift/critical-shift/sections/mine/production/material-review/cold-start/renders/entry.png'
+BLENDER_RENDER_COMPLETE entry 29.850877046585083
+{
+  "blender": "5.2.1 LTS",
+  "file": "CriticalShift_Gullet_PBR.blend",
+  "fresh_process": true,
+  "renderer": "Cycles",
+  "status": "PASS",
+  "assertions": 7472,
+  "issues": [],
+  "scope": "Blender file, images, actual bpy state/gate controls and sampled route clearance. Not Unity or final art acceptance.",
+  "mesh_objects": 2402,
+  "cold_start_renders": [
+    {
+      "camera": "entry",
+      "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/production/material-review/cold-start/renders/entry.png",
+      "seconds": 29.850877046585083,
+      "bytes": 621862,
+      "renderer": "Blender 5.2.1 LTS / Cycles",
+      "samples": 16,
+      "resolution": [
+        896,
+        560
+      ],
+      "camera_matrix": [
+        [
+          0.9644463062286377,
+          0.008340728469192982,
+          0.26414722204208374,
+          3.700000047683716
+        ],
+        [
+          0.2642788887023926,
+          -0.030438262969255447,
+          -0.9639658331871033,
+          -13.050000190734863
+        ],
+        [
+          5.55932633261591e-09,
+          0.9995018243789673,
+          -0.031560350209474564,
+          1.7200000286102295
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens_mm": 23.0,
+      "sha256": "f59d632c4880e0166e043c4a51faf501e02ae163eb3fda64f8a9c65e4e45b9c0"
+    }
+  ]
+}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:12:34)
+
+Blender quit
