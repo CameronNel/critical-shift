@@ -1,19 +1,17 @@
 {
-  "revision": "quality50-r6",
-  "purpose": "Full fifty-view rerender after implemented corrections from the complete camera review.",
+  "revision": "quality50-r7",
+  "purpose": "Full fifty-view rerender after the final image inspection exposed task-light/rubble intersections.",
   "review_views": 50,
   "renderer": "Cycles",
   "blender": "5.2.1 LTS",
   "render_width": 1100,
   "samples": 32,
   "corrections": [
-    "Smaller rough wooden carts with visible interiors and preserved rail contacts",
-    "Pitted paint and iron, timber grain, rust, dirt, dents and rough concrete",
-    "Darker practical lighting, anchored webs, rotten timber and damp mineral staining",
-    "Physics-settled independently removable collapse fragments",
-    "Closed floor seams, clear walkway, framed facility connection and naturally scattered ore",
-    "Corrected obstructed camera placements and underlit work pockets",
-    "Gate lamps mounted to measured collar surfaces; recessed rear detailing remains inside the sliding envelope"
+    "All earlier wooden-cart, rough-material, rust, atmosphere, geology and gateway corrections retained",
+    "Ten task-light assemblies tested against all relevant excavation variants",
+    "Clipping lights physically relocated rather than hidden in collapse states",
+    "Two buried power leads reauthored as compact slack coils",
+    "Fixture feet seated to the actual ground surface"
   ],
-  "visual_review_note": "Inspect the resulting fifty PNGs before final delivery. Automated success alone is not visual acceptance."
+  "visual_review_note": "Inspect all resulting PNGs before delivery. Automated success alone is not visual acceptance."
 }
