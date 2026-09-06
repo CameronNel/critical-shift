@@ -1,4 +1,4 @@
-"""Raycast-mount gate lights; the closed-gate view exposed occluded lamps."""
+"""Raycast-mount gate lights and retain the original gate motion envelope."""
 import bpy,json
 from mathutils import Vector
 import geometry
@@ -24,8 +24,18 @@ def repair_gate_practicals(scene,m):
         records.append({'surface':list(surface),'air_normal':list(normal),'light_position':list(obj.location),'power_w':85})
     for key in ['CSM_Blast_leaf_L','CSM_Blast_leaf_R']:
         root=scene.objects[key]
-        for x in [-.98,.98]:box('Gate_rear_vertical_rib',(x,.215,2.38),(.09,.10,3.90),m['iron'],root,bevel=.006)
-        for z in [.63,2.38,4.12]:box('Gate_rear_cross_rib',(0,.215,z),(1.87,.10,.09),m['iron'],root,bevel=.005)
-        curve('Gate_rear_manual_grip',[[(-.19,.22,1.34),(-.19,.39,1.34),(.19,.39,1.34),(.19,.22,1.34)]],.018,m['iron'],root)
+        for child in root.children:
+            if child.type=='MESH' and 'Leaf_solid_core' in child.name:
+                child.data=child.data.copy()
+                for vertex in child.data.vertices:
+                    if vertex.co.y>0:vertex.co.y*=.60
+                child.data.update()
+        for x in [-.98,.98]:box('Gate_rear_vertical_rib',(x,.133,2.38),(.09,.060,3.90),m['iron'],root,bevel=.006)
+        for z in [.63,2.38,4.12]:box('Gate_rear_cross_rib',(0,.133,z),(1.87,.060,.09),m['iron'],root,bevel=.005)
+        curve('Gate_rear_manual_grip',[[(-.19,.105,1.34),(-.19,.15,1.34),(.19,.15,1.34),(.19,.105,1.34)]],.012,m['iron'],root)
+    for o in scene.objects:
+        if o.type=='MESH' and o.name.startswith('CSM_Pocket_guard_'):
+            center=sum((o.matrix_world@v.co).x for v in o.data.vertices)/len(o.data.vertices)
+            transform=o.matrix_world.copy();transform.translation.x+=(.22 if center>0 else -.22);o.matrix_world=transform
     bpy.context.view_layer.update()
-    return {'reason':'CAM_47 and light-to-door rays showed lamps inside the collar. Replacement fixtures are mounted to the measured surface and illuminate the actual rear gate ribs.','surface_mounts':records}
+    return {'reason':'The closed-gate view exposed lamps inside the collar. New lamps use measured surface attachment. Rear detailing stays within the original leaf envelope; pocket guards are moved clear.','surface_mounts':records,'pocket_guard_outward_shift_m':.22}
