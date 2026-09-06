@@ -1,0 +1,39 @@
+name: Gullet art-match asset recovery
+on:
+  push:
+    branches: [art/gullet-artmatch-recovery-20260906]
+    paths: ['.github/workflows/gullet-artmatch-assets.yml', 'sections/mine/blender/gullet/artmatch/download_assets.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Inventory free public assets for the mine art pass
+        run: |
+          mkdir -p /tmp/gullet-artmatch-assets
+          python - <<'PY'
+          from pathlib import Path
+          import urllib.request,json,time
+          out=Path('/tmp/gullet-artmatch-assets')
+          for kind in ['models','textures']:
+              req=urllib.request.Request('https://api.polyhaven.com/assets?t='+kind,headers={'User-Agent':'CriticalShift-Gullet-Artmatch/1.0 (CameronNel/critical-shift)','Referer':'https://github.com/CameronNel/critical-shift'})
+              with urllib.request.urlopen(req,timeout=45) as response:
+                  data=json.load(response)
+              words=['rock','rubble','concrete','tool','barrel','crate','plank','wood','box','shovel','spade','hammer','bucket','gravel','mud','rust']
+              selected={k:v for k,v in data.items() if any(w in k for w in words)}
+              (out/(kind+'.json')).write_text(json.dumps(selected,indent=2))
+              print(kind,', '.join(selected))
+              time.sleep(1)
+          PY
+          if [ -f sections/mine/blender/gullet/artmatch/download_assets.py ]; then python sections/mine/blender/gullet/artmatch/download_assets.py /tmp/gullet-artmatch-assets; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gullet-artmatch-free-assets
+          path: /tmp/gullet-artmatch-assets
+          retention-days: 14
