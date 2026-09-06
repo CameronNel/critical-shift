@@ -1,0 +1,3672 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "warnings": [
+    {
+      "zero_area_triangle_objects": [
+        {
+          "object": "Sorter_calibration_clipboard_clip",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Processor_pressure_gauge_dial",
+          "zero_area_triangles": 48
+        },
+        {
+          "object": "Processor_pressure_gauge_tick",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_pressure_gauge_tick.001",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_pressure_gauge_tick.002",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_pressure_gauge_tick.003",
+          "zero_area_triangles": 28
+        },
+        {
+          "object": "Processor_pressure_gauge_tick.004",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_pressure_gauge_tick.005",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_pressure_gauge_tick.006",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_temperature_gauge_dial",
+          "zero_area_triangles": 48
+        },
+        {
+          "object": "Processor_temperature_gauge_tick",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_temperature_gauge_tick.001",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_temperature_gauge_tick.002",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_temperature_gauge_tick.003",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_temperature_gauge_tick.004",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_temperature_gauge_tick.005",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_temperature_gauge_tick.006",
+          "zero_area_triangles": 32
+        },
+        {
+          "object": "Processor_seal_wrench_jaw",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Processor_seal_wrench_jaw.001",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Processor_seal_wrench_jaw.002",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Processor_seal_wrench_jaw.003",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Dryer_door_seal",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Dryer_door_skin",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Assembly_empty_casing_dark_inner_floor",
+          "zero_area_triangles": 48
+        },
+        {
+          "object": "Assembly_empty_casing_dark_inner_floor.001",
+          "zero_area_triangles": 48
+        },
+        {
+          "object": "Assembly_empty_casing_dark_inner_floor.002",
+          "zero_area_triangles": 48
+        },
+        {
+          "object": "Assembly_ID_plate",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Inspection_results_display",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Inspection_ID_plate",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Inspection_batch_record_clip",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Dispatch_ID_plate",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Utility_door",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Pendant_diffuser",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Pendant_diffuser.001",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Pendant_diffuser.002",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Pendant_diffuser.003",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Pendant_diffuser.004",
+          "zero_area_triangles": 24
+        },
+        {
+          "object": "Pendant_diffuser.005",
+          "zero_area_triangles": 24
+        }
+      ]
+    }
+  ],
+  "statistics": {
+    "scene_objects": 1544,
+    "evaluated_geometry_objects": 1227,
+    "closed_meshes_volume_checked": 1149,
+    "open_meshes": 78,
+    "support_objects": 147,
+    "control_markers": 33,
+    "errors": 0,
+    "warnings": 1
+  },
+  "support_contacts": [
+    {
+      "object": "ASSEMBLY_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_ASSEMBLY_foot_00",
+          "point_world": [
+            4.845,
+            0.56,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "ASSEMBLY_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_ASSEMBLY_foot.001_00",
+          "point_world": [
+            4.845,
+            2.44,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "ASSEMBLY_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_ASSEMBLY_foot.002_00",
+          "point_world": [
+            5.955,
+            0.56,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "ASSEMBLY_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_ASSEMBLY_foot.003_00",
+          "point_world": [
+            5.955,
+            2.44,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Assembly_alignment_tool",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Assembly_alignment_tool_00",
+          "point_world": [
+            5.92,
+            0.66,
+            1.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Assembly_completed_fuel_casing",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Assembly_completed_fuel_casing_00",
+          "point_world": [
+            5.06,
+            0.73,
+            1.045
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0025,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Assembly_empty_casing_bottom",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Assembly_empty_casing_bottom_00",
+          "point_world": [
+            5.27,
+            2.3,
+            1.09
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Assembly_empty_casing_bottom.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Assembly_empty_casing_bottom.001_00",
+          "point_world": [
+            5.51,
+            2.3,
+            1.09
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Assembly_empty_casing_bottom.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Assembly_empty_casing_bottom.002_00",
+          "point_world": [
+            5.75,
+            2.3,
+            1.09
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Assembly_fuel_component",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Assembly_fuel_component_00",
+          "point_world": [
+            5.36,
+            0.71,
+            1.045
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0025,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Assembly_fuel_component.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Assembly_fuel_component.001_00",
+          "point_world": [
+            5.55,
+            0.71,
+            1.045
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0025,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Assembly_fuel_component.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Assembly_fuel_component.002_00",
+          "point_world": [
+            5.74,
+            0.71,
+            1.045
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0025,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Assembly_work_glove_palm",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Assembly_work_glove_palm_00",
+          "point_world": [
+            4.96,
+            2.29,
+            1.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Batch_clipboard",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Batch_clipboard_00",
+          "point_world": [
+            0.14,
+            -4.64,
+            0.86
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "CRUSHER_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_CRUSHER_foot_00",
+          "point_world": [
+            -6.18,
+            3.67,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "CRUSHER_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_CRUSHER_foot.001_00",
+          "point_world": [
+            -6.18,
+            5.23,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "CRUSHER_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_CRUSHER_foot.002_00",
+          "point_world": [
+            -3.92,
+            3.67,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "CRUSHER_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_CRUSHER_foot.003_00",
+          "point_world": [
+            -3.92,
+            5.23,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "CSM_Cart_wheel",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_CSM_Cart_wheel_00",
+          "point_world": [
+            -5.83,
+            -3.1,
+            0.16
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "CSM_Cart_wheel.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_CSM_Cart_wheel.002_00",
+          "point_world": [
+            -5.83,
+            -4.2,
+            0.16
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "CSM_Cart_wheel.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_CSM_Cart_wheel.003_00",
+          "point_world": [
+            -4.47,
+            -3.1,
+            0.16
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "CSM_Cart_wheel.004",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_CSM_Cart_wheel.004_00",
+          "point_world": [
+            -4.47,
+            -4.2,
+            0.16
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Concrete_replacement_patch",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Concrete_replacement_patch_00",
+          "point_world": [
+            -0.1,
+            -3.5,
+            0.001
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.001,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Crusher_control_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Crusher_control_foot_00",
+          "point_world": [
+            -3.85,
+            3.29,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Crusher_dust_bin",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Crusher_dust_bin_00",
+          "point_world": [
+            -4.08,
+            5.15,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Crusher_spares_shelf",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Crusher_spares_shelf_00",
+          "point_world": [
+            -7.0,
+            4.7,
+            1.02
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Crusher_tool_rack",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Crusher_tool_rack_00",
+          "point_world": [
+            -7.0,
+            2.8,
+            1.72
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "DRYER_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_DRYER_foot_00",
+          "point_world": [
+            2.045,
+            3.86,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "DRYER_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_DRYER_foot.001_00",
+          "point_world": [
+            2.045,
+            5.2,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "DRYER_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_DRYER_foot.002_00",
+          "point_world": [
+            4.155,
+            3.86,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "DRYER_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_DRYER_foot.003_00",
+          "point_world": [
+            4.155,
+            5.2,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dispatch_loaded_fuel_casing",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dispatch_loaded_fuel_casing_00",
+          "point_world": [
+            5.21,
+            -3.09,
+            0.475
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dispatch_loaded_fuel_casing.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dispatch_loaded_fuel_casing.001_00",
+          "point_world": [
+            5.49,
+            -3.09,
+            0.475
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dispatch_loaded_fuel_casing.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dispatch_loaded_fuel_casing.002_00",
+          "point_world": [
+            5.21,
+            -3.45,
+            0.475
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dispatch_loaded_fuel_casing.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dispatch_loaded_fuel_casing.003_00",
+          "point_world": [
+            5.49,
+            -3.45,
+            0.475
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dispatch_loaded_fuel_casing.004",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dispatch_loaded_fuel_casing.004_00",
+          "point_world": [
+            5.21,
+            -3.81,
+            0.475
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dispatch_loaded_fuel_casing.005",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dispatch_loaded_fuel_casing.005_00",
+          "point_world": [
+            5.49,
+            -3.81,
+            0.475
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dispatch_rubber_wheel",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dispatch_rubber_wheel_00",
+          "point_world": [
+            5.06,
+            -2.98,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dispatch_rubber_wheel.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dispatch_rubber_wheel.001_00",
+          "point_world": [
+            5.64,
+            -2.98,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dispatch_rubber_wheel.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dispatch_rubber_wheel.002_00",
+          "point_world": [
+            5.06,
+            -3.92,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dispatch_rubber_wheel.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dispatch_rubber_wheel.003_00",
+          "point_world": [
+            5.64,
+            -3.92,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Drain_recess",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Drain_recess_00",
+          "point_world": [
+            -5.0,
+            2.7,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Drain_recess.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Drain_recess.001_00",
+          "point_world": [
+            0.7,
+            3.22,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Drain_recess.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Drain_recess.002_00",
+          "point_world": [
+            3.65,
+            3.5,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Drain_recess.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Drain_recess.003_00",
+          "point_world": [
+            -5.35,
+            -5.05,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_Removed_dirty_filter_frame",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_Removed_dirty_filter_frame_00",
+          "point_world": [
+            2.51,
+            3.54,
+            0.91
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_Spare_filter_frame",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_Spare_filter_frame_00",
+          "point_world": [
+            2.19,
+            3.54,
+            0.91
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_dried_material_batch",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_dried_material_batch_00",
+          "point_world": [
+            4.6,
+            4.23,
+            1.16
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_dried_material_batch.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_dried_material_batch.001_00",
+          "point_world": [
+            4.6,
+            4.44,
+            1.16
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_dried_material_batch.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_dried_material_batch.002_00",
+          "point_world": [
+            4.6,
+            4.65,
+            1.16
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_filter_service_ledge_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_filter_service_ledge_foot_00",
+          "point_world": [
+            2.115,
+            3.43,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_filter_service_ledge_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_filter_service_ledge_foot.001_00",
+          "point_world": [
+            2.115,
+            3.65,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_filter_service_ledge_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_filter_service_ledge_foot.002_00",
+          "point_world": [
+            2.885,
+            3.43,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_filter_service_ledge_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_filter_service_ledge_foot.003_00",
+          "point_world": [
+            2.885,
+            3.65,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_heat_glove_palm",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_heat_glove_palm_00",
+          "point_world": [
+            2.8,
+            3.5,
+            0.91
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_output_stand_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_output_stand_foot_00",
+          "point_world": [
+            4.45,
+            4.06,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_output_stand_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_output_stand_foot.001_00",
+          "point_world": [
+            4.45,
+            4.84,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_output_stand_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_output_stand_foot.002_00",
+          "point_world": [
+            4.87,
+            4.06,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_output_stand_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_output_stand_foot.003_00",
+          "point_world": [
+            4.87,
+            4.84,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_transfer_support_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_transfer_support_foot_00",
+          "point_world": [
+            2.11,
+            4.77,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_transfer_support_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_transfer_support_foot.001_00",
+          "point_world": [
+            2.11,
+            4.13,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_transfer_support_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_transfer_support_foot.002_00",
+          "point_world": [
+            3.21,
+            4.77,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_transfer_support_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_transfer_support_foot.003_00",
+          "point_world": [
+            3.21,
+            4.13,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_transfer_support_foot.004",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_transfer_support_foot.004_00",
+          "point_world": [
+            4.31,
+            4.77,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Dryer_transfer_support_foot.005",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Dryer_transfer_support_foot.005_00",
+          "point_world": [
+            4.31,
+            4.13,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Extinguisher",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Extinguisher_00",
+          "point_world": [
+            -4.5,
+            -5.75,
+            0.24
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Extinguisher_bracket",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Extinguisher_bracket_00",
+          "point_world": [
+            -4.5,
+            -6.0,
+            0.38
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Extinguisher_support_shelf",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Extinguisher_support_shelf_00",
+          "point_world": [
+            -4.5,
+            -6.0,
+            0.21
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Eyewash_support_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Eyewash_support_foot_00",
+          "point_world": [
+            -6.25,
+            -5.67,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Eyewash_support_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Eyewash_support_foot.001_00",
+          "point_world": [
+            -5.55,
+            -5.67,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "FEEDER_support_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_FEEDER_support_foot_00",
+          "point_world": [
+            -5.59,
+            -0.923,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "FEEDER_support_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_FEEDER_support_foot.001_00",
+          "point_world": [
+            -4.71,
+            -0.923,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "FEEDER_support_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_FEEDER_support_foot.002_00",
+          "point_world": [
+            -5.59,
+            1.475,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "FEEDER_support_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_FEEDER_support_foot.003_00",
+          "point_world": [
+            -4.71,
+            1.475,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "FEEDER_support_foot.004",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_FEEDER_support_foot.004_00",
+          "point_world": [
+            -5.59,
+            3.001,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "FEEDER_support_foot.005",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_FEEDER_support_foot.005_00",
+          "point_world": [
+            -4.71,
+            3.001,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "INSPECTION_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_INSPECTION_foot_00",
+          "point_world": [
+            4.71,
+            -2.105,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "INSPECTION_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_INSPECTION_foot.001_00",
+          "point_world": [
+            4.71,
+            -0.295,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "INSPECTION_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_INSPECTION_foot.002_00",
+          "point_world": [
+            5.89,
+            -2.105,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "INSPECTION_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_INSPECTION_foot.003_00",
+          "point_world": [
+            5.89,
+            -0.295,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Inspection_batch_record_board",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Inspection_batch_record_board_00",
+          "point_world": [
+            5.43,
+            -2.0,
+            1.0425
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Inspection_comparison_sample",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Inspection_comparison_sample_00",
+          "point_world": [
+            5.74,
+            -2.0,
+            1.0425
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Inspection_sample_fuel_casing",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Inspection_sample_fuel_casing_00",
+          "point_world": [
+            5.22,
+            -0.84,
+            1.175
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0025,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Maintenance_rag",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Maintenance_rag_00",
+          "point_world": [
+            -6.64,
+            4.9,
+            1.045
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PROCESSOR_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_PROCESSOR_foot_00",
+          "point_world": [
+            -0.16,
+            3.875,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PROCESSOR_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_PROCESSOR_foot.001_00",
+          "point_world": [
+            -0.16,
+            5.185,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PROCESSOR_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_PROCESSOR_foot.002_00",
+          "point_world": [
+            1.26,
+            3.875,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PROCESSOR_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_PROCESSOR_foot.003_00",
+          "point_world": [
+            1.26,
+            5.185,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor_00",
+          "point_world": [
+            -5.35,
+            -2.5,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor.001_00",
+          "point_world": [
+            -4.35,
+            -2.5,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor.002_00",
+          "point_world": [
+            -4.9,
+            3.25,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor.003_00",
+          "point_world": [
+            -3.9,
+            3.25,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor.004",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor.004_00",
+          "point_world": [
+            -0.5,
+            3.1,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor.005",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor.005_00",
+          "point_world": [
+            0.5,
+            3.1,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor.006",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor.006_00",
+          "point_world": [
+            4.3,
+            2.3,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor.007",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor.007_00",
+          "point_world": [
+            5.3,
+            2.3,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor.008",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor.008_00",
+          "point_world": [
+            4.3,
+            -2.0,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor.009",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor.009_00",
+          "point_world": [
+            5.3,
+            -2.0,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor.010",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor.010_00",
+          "point_world": [
+            -2.0,
+            -3.3,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Pendant_ceiling_anchor.011",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Pendant_ceiling_anchor.011_00",
+          "point_world": [
+            -1.0,
+            -3.3,
+            4.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Processor_replacement_gasket",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Processor_replacement_gasket_00",
+          "point_world": [
+            0.375,
+            3.49,
+            0.87
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Processor_seal_lubricant",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Processor_seal_lubricant_00",
+          "point_world": [
+            0.52,
+            3.5,
+            0.87
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Processor_seal_wrench_handle",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Processor_seal_wrench_handle_00",
+          "point_world": [
+            0.76,
+            3.49,
+            0.87
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Processor_service_ledge_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Processor_service_ledge_foot_00",
+          "point_world": [
+            0.18,
+            3.39,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Processor_service_ledge_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Processor_service_ledge_foot.001_00",
+          "point_world": [
+            0.18,
+            3.59,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Processor_service_ledge_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Processor_service_ledge_foot.002_00",
+          "point_world": [
+            0.92,
+            3.39,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Processor_service_ledge_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Processor_service_ledge_foot.003_00",
+          "point_world": [
+            0.92,
+            3.59,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Receiving_control_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Receiving_control_foot_00",
+          "point_world": [
+            -3.7,
+            -2.38,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Service_crate_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Service_crate_0_00",
+          "point_world": [
+            2.8,
+            -5.5,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Service_crate_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Service_crate_1_00",
+          "point_world": [
+            3.47,
+            -5.5,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Service_crate_2",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Service_crate_2_00",
+          "point_world": [
+            4.14,
+            -5.5,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Service_wrench_handle",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Service_wrench_handle_00",
+          "point_world": [
+            -0.27,
+            -4.7,
+            0.86
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_bin_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_bin_foot_00",
+          "point_world": [
+            -2.3,
+            3.36,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_bin_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_bin_foot.001_00",
+          "point_world": [
+            -2.3,
+            3.67,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_bin_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_bin_foot.002_00",
+          "point_world": [
+            -1.8,
+            3.36,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_bin_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_bin_foot.003_00",
+          "point_world": [
+            -1.8,
+            3.67,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_calibration_clipboard_board",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_calibration_clipboard_board_00",
+          "point_world": [
+            -3.32,
+            3.7,
+            1.04
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_calibration_ledge_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_calibration_ledge_foot_00",
+          "point_world": [
+            -3.41,
+            3.56,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_calibration_ledge_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_calibration_ledge_foot.001_00",
+          "point_world": [
+            -3.41,
+            3.84,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_calibration_ledge_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_calibration_ledge_foot.002_00",
+          "point_world": [
+            -2.95,
+            3.56,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_calibration_ledge_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_calibration_ledge_foot.003_00",
+          "point_world": [
+            -2.95,
+            3.84,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_calibration_reference",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_calibration_reference_00",
+          "point_world": [
+            -3.03,
+            3.74,
+            1.04
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_rejected_inclusion",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_rejected_inclusion_00",
+          "point_world": [
+            -2.26,
+            3.51,
+            0.14
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_rejected_inclusion.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_rejected_inclusion.001_00",
+          "point_world": [
+            -2.06,
+            3.51,
+            0.14
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_rejected_inclusion.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_rejected_inclusion.002_00",
+          "point_world": [
+            -1.86,
+            3.51,
+            0.14
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_support_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_support_foot_00",
+          "point_world": [
+            -3.67,
+            4.89,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_support_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_support_foot.001_00",
+          "point_world": [
+            -3.67,
+            4.11,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_support_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_support_foot.002_00",
+          "point_world": [
+            -2.35,
+            4.89,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_support_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_support_foot.003_00",
+          "point_world": [
+            -2.35,
+            4.11,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_support_foot.004",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_support_foot.004_00",
+          "point_world": [
+            -1.03,
+            4.89,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Sorter_support_foot.005",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Sorter_support_foot.005_00",
+          "point_world": [
+            -1.03,
+            4.11,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Spill_kit",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Spill_kit_00",
+          "point_world": [
+            -3.65,
+            -5.58,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Tipper_trunnion_support",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Tipper_trunnion_support_00",
+          "point_world": [
+            -6.52,
+            -2.85,
+            0.09
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Tipper_trunnion_support.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Tipper_trunnion_support.001_00",
+          "point_world": [
+            -3.78,
+            -2.85,
+            0.09
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Tool_trolley_foot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Tool_trolley_foot_00",
+          "point_world": [
+            -0.505,
+            -4.87,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Tool_trolley_foot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Tool_trolley_foot.001_00",
+          "point_world": [
+            -0.505,
+            -4.43,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Tool_trolley_foot.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Tool_trolley_foot.002_00",
+          "point_world": [
+            0.305,
+            -4.87,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Tool_trolley_foot.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Tool_trolley_foot.003_00",
+          "point_world": [
+            0.305,
+            -4.43,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Utility_cabinet",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Utility_cabinet_00",
+          "point_world": [
+            -7.0,
+            0.35,
+            1.65
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Utility_wall_standoff",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Utility_wall_standoff_00",
+          "point_world": [
+            -5.8,
+            6.0,
+            3.96
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Utility_wall_standoff.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Utility_wall_standoff.001_00",
+          "point_world": [
+            -1.7,
+            6.0,
+            3.96
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Utility_wall_standoff.002",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Utility_wall_standoff.002_00",
+          "point_world": [
+            2.8,
+            6.0,
+            3.96
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Utility_wall_standoff.003",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Utility_wall_standoff.003_00",
+          "point_world": [
+            6.2,
+            6.0,
+            3.96
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Utility_wall_standoff.004",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Utility_wall_standoff.004_00",
+          "point_world": [
+            -5.8,
+            6.0,
+            4.18
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Utility_wall_standoff.005",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Utility_wall_standoff.005_00",
+          "point_world": [
+            -1.7,
+            6.0,
+            4.18
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Utility_wall_standoff.006",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Utility_wall_standoff.006_00",
+          "point_world": [
+            2.8,
+            6.0,
+            4.18
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "Utility_wall_standoff.007",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SUPPORT_Utility_wall_standoff.007_00",
+          "point_world": [
+            6.2,
+            6.0,
+            4.18
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    }
+  ],
+  "scope": "Automated Blender scene geometry and metadata checks; not final visual acceptance or Unity physics/navigation/networking validation.",
+  "tolerances": {
+    "contact_gap_m": 0.005,
+    "contact_penetration_m": 0.002,
+    "route_box_m": [
+      [
+        -3.35,
+        -0.6,
+        0.08
+      ],
+      [
+        3.7,
+        1.6,
+        2.15
+      ]
+    ],
+    "cart_floor_penetration_m": 0.002,
+    "cart_sweep_step_deg": 1
+  },
+  "limitations": [
+    "BVH overlap checks triangle surfaces, supplemented by vertex containment for route checks; complete solid containment in cart obstacles is not a physics simulation.",
+    "Open sheet meshes have no signed-volume orientation test. Closed-mesh signed volume detects global reversal, not every local flipped face.",
+    "Control approach floor rays establish a standing surface only; reaching pose, occlusion and full character controller clearance require runtime checks.",
+    "Transfer markers are checked against authored guide geometry when declared; ore dynamics and collision response are not simulated."
+  ],
+  "room_dimensions_m": [
+    14.0,
+    12.0,
+    4.800000190734863
+  ],
+  "controls": [
+    {
+      "name": "INT_CRUSHER_START",
+      "position": [
+        -4.2444000244140625,
+        3.0199999809265137,
+        1.2899999618530273
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_CRUSHER_STOP",
+      "position": [
+        -3.8499999046325684,
+        3.0199999809265137,
+        1.2899999618530273
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_CRUSHER_REVERSE",
+      "position": [
+        -3.4556000232696533,
+        3.0199999809265137,
+        1.2899999618530273
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_CRUSHER_SPEED",
+      "position": [
+        -4.2444000244140625,
+        3.0199999809265137,
+        1.0800000429153442
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_CRUSHER_EMERGENCY_RELEASE",
+      "position": [
+        -3.8499999046325684,
+        3.0199999809265137,
+        1.0800000429153442
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_CRUSHER_SAFETY_BYPASS",
+      "position": [
+        -3.4556000232696533,
+        3.0199999809265137,
+        1.0800000429153442
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_SORTER_BELT_SPEED",
+      "position": [
+        -1.5052000284194946,
+        3.5899999141693115,
+        1.1299999952316284
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_SORTER_SCANNER_SENSITIVITY",
+      "position": [
+        -1.2400000095367432,
+        3.5899999141693115,
+        1.1299999952316284
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_SORTER_DIVERTER",
+      "position": [
+        -0.9747999906539917,
+        3.5899999141693115,
+        1.1299999952316284
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_SORTER_RECALIBRATION",
+      "position": [
+        -1.5052000284194946,
+        3.5899999141693115,
+        0.9200000166893005
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_SORTER_MANUAL_OVERRIDE",
+      "position": [
+        -1.2400000095367432,
+        3.5899999141693115,
+        0.9200000166893005
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_PROCESSOR_PRESSURE",
+      "position": [
+        -0.07000000029802322,
+        3.6700000762939453,
+        1.1299999952316284
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_PROCESSOR_TEMPERATURE",
+      "position": [
+        1.149999976158142,
+        3.6700000762939453,
+        1.1299999952316284
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_DRYER_INCREASE_HEAT",
+      "position": [
+        3.3543999195098877,
+        3.3499999046325684,
+        1.190000057220459
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_DRYER_MOISTURE_CHECK",
+      "position": [
+        3.640000104904175,
+        3.3499999046325684,
+        1.190000057220459
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_DRYER_FILTER_BYPASS",
+      "position": [
+        3.925600051879883,
+        3.3499999046325684,
+        1.190000057220459
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_ASSEMBLY_PRESS",
+      "position": [
+        4.510000228881836,
+        1.8035999536514282,
+        1.1649999618530273
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_ASSEMBLY_HIGH_SPEED",
+      "position": [
+        4.510000228881836,
+        1.5,
+        1.1649999618530273
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_ASSEMBLY_ALIGNMENT",
+      "position": [
+        4.510000228881836,
+        1.1964000463485718,
+        1.1649999618530273
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_ASSEMBLY_SEAL_STAGE",
+      "position": [
+        4.510000228881836,
+        1.8035999536514282,
+        1.0049999952316284
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_ASSEMBLY_STOP",
+      "position": [
+        4.510000228881836,
+        1.5,
+        1.0049999952316284
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_INSPECTION_APPROVE",
+      "position": [
+        4.590000152587891,
+        -0.5400000214576721,
+        1.1699999570846558
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_INSPECTION_REJECT",
+      "position": [
+        4.590000152587891,
+        -1.1799999475479126,
+        1.1699999570846558
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_INSPECTION_REPROCESS",
+      "position": [
+        4.590000152587891,
+        -1.8200000524520874,
+        1.1699999570846558
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_INSPECTION_BLEND",
+      "position": [
+        4.300000190734863,
+        -1.3097000122070312,
+        1.0750000476837158
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_INSPECTION_FALSIFY",
+      "position": [
+        4.300000190734863,
+        -1.6100000143051147,
+        1.0750000476837158
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_INSPECTION_SEND_UNINSPECTED",
+      "position": [
+        4.300000190734863,
+        -1.9103000164031982,
+        1.0750000476837158
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_ROOM_POWER_ISOLATOR",
+      "position": [
+        -6.599999904632568,
+        0.6000000238418579,
+        1.5
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_ROOM_EMERGENCY_SHOWER",
+      "position": [
+        -6.099999904632568,
+        -5.400000095367432,
+        1.399999976158142
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_RECEIVING_BRAKE",
+      "position": [
+        -3.9142000675201416,
+        -2.5799999237060547,
+        1.2100000381469727
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_RECEIVING_LATCH",
+      "position": [
+        -3.700000047683716,
+        -2.5799999237060547,
+        1.2100000381469727
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_RECEIVING_TIP",
+      "position": [
+        -3.48580002784729,
+        -2.5799999237060547,
+        1.2100000381469727
+      ],
+      "floor_approach": true
+    },
+    {
+      "name": "INT_RECEIVING_SIZE_GATE",
+      "position": [
+        -3.9142000675201416,
+        -2.5799999237060547,
+        1.0
+      ],
+      "floor_approach": true
+    }
+  ],
+  "route": {
+    "reserved_bbox": [
+      [
+        -3.35,
+        -0.6,
+        0.08
+      ],
+      [
+        3.7,
+        1.6,
+        2.15
+      ]
+    ],
+    "intersections": []
+  },
+  "doorway_clearance": [
+    {
+      "door": "MINE",
+      "sampled_width_m": 2.4,
+      "sampled_height_m": 2.2,
+      "rays": 104,
+      "obstructions": []
+    },
+    {
+      "door": "REACTOR",
+      "sampled_width_m": 2.4,
+      "sampled_height_m": 2.2,
+      "rays": 104,
+      "obstructions": []
+    },
+    {
+      "door": "ENTRY",
+      "sampled_width_m": 2.2,
+      "sampled_height_m": 2.2,
+      "rays": 104,
+      "obstructions": []
+    }
+  ],
+  "unintended_floor_penetrations": [],
+  "unexplained_hidden_geometry": [],
+  "cart_sweep": {
+    "angles": 51,
+    "moving_objects": 96,
+    "aabb": [
+      [
+        -6.510000228881836,
+        -4.4760003089904785,
+        0.005000006407499313
+      ],
+      [
+        -3.7899999618530273,
+        -2.0021557807922363,
+        2.3216309547424316
+      ]
+    ],
+    "collisions": [],
+    "lip_at_50deg": [
+      -5.150000095367432,
+      -2.0444204807281494,
+      1.0690152645111084
+    ],
+    "lip_inside_hopper": true,
+    "vertical_drop_m": 0.4190152645111084
+  },
+  "cart_approach": {
+    "start_root": [
+      -8,
+      -3.65,
+      0.02
+    ],
+    "end_root": [
+      -5.15,
+      -3.65,
+      0.02
+    ],
+    "samples": 30,
+    "wall_collisions": []
+  },
+  "transfers": [
+    {
+      "from": "INT_RECEIVING_OUTPUT",
+      "to": "INT_FEEDER_INPUT",
+      "from_position": [
+        -5.150000095367432,
+        -1.25,
+        0.3199999928474426
+      ],
+      "to_position": [
+        -5.150000095367432,
+        -1.25,
+        0.3199999928474426
+      ],
+      "marker_gap_m": 0.0,
+      "mode": "mechanized coincident interfaces",
+      "max_marker_gap_m": 0.02,
+      "interface_geometry_within_20cm": [
+        {
+          "geometry": "FEEDER_upper_belt",
+          "distance_m": 0.0
+        },
+        {
+          "geometry": "FEEDER_roller",
+          "distance_m": 0.004957249853760004
+        },
+        {
+          "geometry": "FEEDER_cleat",
+          "distance_m": 0.005000010132789612
+        },
+        {
+          "geometry": "FEEDER_visible_return",
+          "distance_m": 0.1702904850244522
+        },
+        {
+          "geometry": "Hopper_size_gate_finger.002",
+          "distance_m": 0.19452928006649017
+        }
+      ],
+      "verification_boundary": "Matching interface coordinates and nearest physical surfaces; not a simulated ore traversal."
+    },
+    {
+      "from": "INT_FEEDER_OUTPUT",
+      "to": "INT_CRUSHER_INPUT",
+      "from_position": [
+        -5.150000095367432,
+        4.199999809265137,
+        2.7799999713897705
+      ],
+      "to_position": [
+        -5.150000095367432,
+        4.199999809265137,
+        2.7799999713897705
+      ],
+      "marker_gap_m": 0.0,
+      "mode": "mechanized coincident interfaces",
+      "max_marker_gap_m": 0.02,
+      "interface_geometry_within_20cm": [
+        {
+          "geometry": "FEEDER_upper_belt",
+          "distance_m": 0.0
+        },
+        {
+          "geometry": "FEEDER_roller.016",
+          "distance_m": 0.004957410041242838
+        },
+        {
+          "geometry": "FEEDER_visible_return",
+          "distance_m": 0.1903010755777359
+        }
+      ],
+      "verification_boundary": "Matching interface coordinates and nearest physical surfaces; not a simulated ore traversal."
+    },
+    {
+      "from": "INT_CRUSHER_OUTPUT",
+      "to": "INT_SORTER_INPUT",
+      "from_position": [
+        -3.8499999046325684,
+        4.5,
+        1.25
+      ],
+      "to_position": [
+        -3.8499999046325684,
+        4.5,
+        1.25
+      ],
+      "marker_gap_m": 0.0,
+      "mode": "mechanized coincident interfaces",
+      "max_marker_gap_m": 0.02,
+      "interface_geometry_within_20cm": [
+        {
+          "geometry": "Sorter_upper_belt",
+          "distance_m": 0.0
+        },
+        {
+          "geometry": "Crusher_discharge_chute",
+          "distance_m": 0.06374279409646988
+        },
+        {
+          "geometry": "Sorter_roller",
+          "distance_m": 0.0910114273428917
+        },
+        {
+          "geometry": "Crusher_cast_bed",
+          "distance_m": 0.12841469049453735
+        },
+        {
+          "geometry": "CRUSHER_cross.001",
+          "distance_m": 0.17613913118839264
+        },
+        {
+          "geometry": "Sorter_visible_return",
+          "distance_m": 0.18802401423454285
+        }
+      ],
+      "verification_boundary": "Matching interface coordinates and nearest physical surfaces; not a simulated ore traversal."
+    },
+    {
+      "from": "INT_SORTER_OUTPUT",
+      "to": "INT_PROCESSOR_INPUT",
+      "from_position": [
+        -0.8500000238418579,
+        4.5,
+        1.25
+      ],
+      "to_position": [
+        -0.8500000238418579,
+        4.5,
+        1.25
+      ],
+      "marker_gap_m": 0.0,
+      "mode": "carry or intermediate authored processing; no conveyor assumed"
+    },
+    {
+      "from": "INT_PROCESSOR_OUTPUT",
+      "to": "INT_DRYER_INPUT",
+      "from_position": [
+        1.9600000381469727,
+        4.449999809265137,
+        1.2000000476837158
+      ],
+      "to_position": [
+        1.9600000381469727,
+        4.449999809265137,
+        1.2000000476837158
+      ],
+      "marker_gap_m": 0.0,
+      "mode": "carry or intermediate authored processing; no conveyor assumed"
+    },
+    {
+      "from": "INT_DRYER_OUTPUT",
+      "to": "INT_ASSEMBLY_INPUT",
+      "from_position": [
+        4.460000038146973,
+        4.449999809265137,
+        1.2000000476837158
+      ],
+      "to_position": [
+        5.570000171661377,
+        0.7099999785423279,
+        1.1299999952316284
+      ],
+      "marker_gap_m": 3.901871176119855,
+      "mode": "carry or intermediate authored processing; no conveyor assumed"
+    },
+    {
+      "from": "INT_ASSEMBLY_OUTPUT",
+      "to": "INT_INSPECTION_INPUT",
+      "from_position": [
+        5.059999942779541,
+        0.7300000190734863,
+        1.2999999523162842
+      ],
+      "to_position": [
+        4.929999828338623,
+        -0.8399999737739563,
+        1.4299999475479126
+      ],
+      "marker_gap_m": 1.5807276193672999,
+      "mode": "carry or intermediate authored processing; no conveyor assumed"
+    },
+    {
+      "from": "INT_INSPECTION_OUTPUT",
+      "to": "INT_DISPATCH_INPUT",
+      "from_position": [
+        4.820000171661377,
+        -0.5400000214576721,
+        1.2200000286102295
+      ],
+      "to_position": [
+        4.769999980926514,
+        -3.450000047683716,
+        0.75
+      ],
+      "marker_gap_m": 2.9481351047349875,
+      "mode": "carry or intermediate authored processing; no conveyor assumed"
+    }
+  ],
+  "declared_transfer_geometry": [
+    {
+      "geometry": "Sorter_upper_belt",
+      "from_machine": "CRUSHER",
+      "to_machine": "PROCESSOR",
+      "world_bounds": [
+        [
+          -3.8499999046325684,
+          4.170000076293945,
+          1.2274999618530273
+        ],
+        [
+          -0.8500000238418579,
+          4.829999923706055,
+          1.2725000381469727
+        ]
+      ],
+      "endpoint_surface_tolerance_m": 0.2,
+      "endpoint_results": [
+        {
+          "marker": "INT_CRUSHER_OUTPUT",
+          "distance_m": 0.0
+        },
+        {
+          "marker": "INT_PROCESSOR_INPUT",
+          "distance_m": 0.0
+        }
+      ]
+    },
+    {
+      "geometry": "Dryer_transfer_upper_belt",
+      "from_machine": "PROCESSOR",
+      "to_machine": "DRYER",
+      "world_bounds": [
+        [
+          1.9600001573562622,
+          4.189999580383301,
+          1.1775000095367432
+        ],
+        [
+          4.460000038146973,
+          4.710000038146973,
+          1.2225000858306885
+        ]
+      ],
+      "endpoint_surface_tolerance_m": 0.2,
+      "endpoint_results": [
+        {
+          "marker": "INT_PROCESSOR_OUTPUT",
+          "distance_m": 1.1920928955078125e-07
+        },
+        {
+          "marker": "INT_DRYER_INPUT",
+          "distance_m": 1.1920928955078125e-07
+        }
+      ]
+    },
+    {
+      "geometry": "FEEDER_upper_belt",
+      "from_machine": "RECEIVING",
+      "to_machine": "CRUSHER",
+      "world_bounds": [
+        [
+          -5.53000020980835,
+          -1.2577069997787476,
+          0.30104196071624756
+        ],
+        [
+          -4.769999980926514,
+          4.207706928253174,
+          2.7989580631256104
+        ]
+      ],
+      "endpoint_surface_tolerance_m": 0.2,
+      "endpoint_results": [
+        {
+          "marker": "INT_RECEIVING_OUTPUT",
+          "distance_m": 0.0
+        },
+        {
+          "marker": "INT_CRUSHER_INPUT",
+          "distance_m": 0.0
+        }
+      ]
+    }
+  ],
+  "feeder_expected": {
+    "start": [
+      -5.15,
+      -1.25,
+      0.32
+    ],
+    "end": [
+      -5.15,
+      4.2,
+      2.78
+    ],
+    "length_m": 5.9794732209451364,
+    "reason_for_head_height": "Return belt clears crusher bearing cheeks; no upstairs manual loading."
+  }
+}

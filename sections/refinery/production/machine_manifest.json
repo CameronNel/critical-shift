@@ -1,0 +1,2266 @@
+{
+  "units": "metres",
+  "machine_order": [
+    "RECEIVING",
+    "FEEDER",
+    "CRUSHER",
+    "SORTER",
+    "PROCESSOR",
+    "DRYER",
+    "ASSEMBLY",
+    "INSPECTION",
+    "DISPATCH"
+  ],
+  "material_chain": [
+    "ORE CHUNKS",
+    "ORE BATCH",
+    "CRUSHED BATCH",
+    "SORTED BATCH",
+    "PROCESSED MATERIAL",
+    "DRIED MATERIAL",
+    "FUEL COMPONENTS",
+    "FUEL ASSEMBLY",
+    "INSPECTION RESULT",
+    "REACTOR DELIVERY"
+  ],
+  "machines": [
+    {
+      "name": "ROOT_RECEIVING",
+      "id": "RECEIVING",
+      "collection": [
+        "MACHINE_RECEIVING"
+      ]
+    },
+    {
+      "name": "ROOT_FEEDER",
+      "id": "FEEDER",
+      "collection": [
+        "MACHINE_FEEDER"
+      ]
+    },
+    {
+      "name": "ROOT_CRUSHER",
+      "id": "CRUSHER",
+      "collection": [
+        "MACHINE_CRUSHER"
+      ]
+    },
+    {
+      "name": "ROOT_SORTER",
+      "id": "SORTER",
+      "collection": [
+        "MACHINE_SORTER"
+      ]
+    },
+    {
+      "name": "ROOT_PROCESSOR",
+      "id": "PROCESSOR",
+      "collection": [
+        "MACHINE_PROCESSOR"
+      ]
+    },
+    {
+      "name": "ROOT_DRYER",
+      "id": "DRYER",
+      "collection": [
+        "MACHINE_DRYER"
+      ]
+    },
+    {
+      "name": "ROOT_ASSEMBLY",
+      "id": "ASSEMBLY",
+      "collection": [
+        "MACHINE_ASSEMBLY"
+      ]
+    },
+    {
+      "name": "ROOT_INSPECTION",
+      "id": "INSPECTION",
+      "collection": [
+        "MACHINE_INSPECTION"
+      ]
+    },
+    {
+      "name": "ROOT_DISPATCH",
+      "id": "DISPATCH",
+      "collection": [
+        "MACHINE_DISPATCH"
+      ]
+    }
+  ],
+  "markers": [
+    {
+      "name": "INT_RECEIVING_MINE_ROUTE",
+      "position": [
+        -7.0,
+        -3.6500000953674316,
+        0.0
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "RECEIVING",
+        "role": "MINE_ROUTE",
+        "kind": "route"
+      }
+    },
+    {
+      "name": "INT_DISPATCH_REACTOR_ROUTE",
+      "position": [
+        7.0,
+        -3.6500000953674316,
+        0.0
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DISPATCH",
+        "role": "REACTOR_ROUTE",
+        "kind": "route"
+      }
+    },
+    {
+      "name": "INT_ROOM_ENTRY_ROUTE",
+      "position": [
+        -1.7999999523162842,
+        -6.0,
+        0.0
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ROOM",
+        "role": "ENTRY_ROUTE",
+        "kind": "route"
+      }
+    },
+    {
+      "name": "INT_RECEIVING_INPUT",
+      "position": [
+        -5.150000095367432,
+        -3.6500000953674316,
+        1.1299999952316284
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "RECEIVING",
+        "role": "INPUT",
+        "kind": "interaction"
+      }
+    },
+    {
+      "name": "INT_RECEIVING_OUTPUT",
+      "position": [
+        -5.150000095367432,
+        -1.25,
+        0.3199999928474426
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "RECEIVING",
+        "role": "OUTPUT",
+        "kind": "interaction"
+      }
+    },
+    {
+      "name": "INT_FEEDER_INPUT",
+      "position": [
+        -5.150000095367432,
+        -1.25,
+        0.3199999928474426
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "FEEDER",
+        "role": "INPUT",
+        "kind": "transfer"
+      }
+    },
+    {
+      "name": "INT_FEEDER_OUTPUT",
+      "position": [
+        -5.150000095367432,
+        4.199999809265137,
+        2.7799999713897705
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "FEEDER",
+        "role": "OUTPUT",
+        "kind": "transfer"
+      }
+    },
+    {
+      "name": "INT_FEEDER_BELT_TENSION",
+      "position": [
+        -4.53000020980835,
+        -0.5799999833106995,
+        0.699999988079071
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "FEEDER",
+        "role": "BELT_TENSION",
+        "kind": "repair"
+      }
+    },
+    {
+      "name": "INT_FEEDER_SERVICE_ACCESS",
+      "position": [
+        -4.300000190734863,
+        0.4000000059604645,
+        1.149999976158142
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "FEEDER",
+        "role": "SERVICE_ACCESS",
+        "kind": "service"
+      }
+    },
+    {
+      "name": "INT_CRUSHER_START",
+      "position": [
+        -4.2444000244140625,
+        3.0199999809265137,
+        1.2899999618530273
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "START",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_STOP",
+      "position": [
+        -3.8499999046325684,
+        3.0199999809265137,
+        1.2899999618530273
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "STOP",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_REVERSE",
+      "position": [
+        -3.4556000232696533,
+        3.0199999809265137,
+        1.2899999618530273
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "REVERSE",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_SPEED",
+      "position": [
+        -4.2444000244140625,
+        3.0199999809265137,
+        1.0800000429153442
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "SPEED",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_EMERGENCY_RELEASE",
+      "position": [
+        -3.8499999046325684,
+        3.0199999809265137,
+        1.0800000429153442
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "EMERGENCY_RELEASE",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_SAFETY_BYPASS",
+      "position": [
+        -3.4556000232696533,
+        3.0199999809265137,
+        1.0800000429153442
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "SAFETY_BYPASS",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_INPUT",
+      "position": [
+        -5.150000095367432,
+        4.199999809265137,
+        2.7799999713897705
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "INPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_OUTPUT",
+      "position": [
+        -3.8499999046325684,
+        4.5,
+        1.25
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "OUTPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_JAM_CLEARING",
+      "position": [
+        -3.6500000953674316,
+        3.5999999046325684,
+        1.600000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "JAM_CLEARING",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_TOOTH_DAMAGE",
+      "position": [
+        -3.6500000953674316,
+        3.6500000953674316,
+        1.600000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "TOOTH_DAMAGE",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_MOTOR_OVERLOAD",
+      "position": [
+        -6.139999866485596,
+        3.700000047683716,
+        1.399999976158142
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "MOTOR_OVERLOAD",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_ACCESS_PANEL",
+      "position": [
+        -3.6500000953674316,
+        3.5999999046325684,
+        1.600000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "ACCESS_PANEL",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_SERVICE_ACCESS",
+      "position": [
+        -3.6500000953674316,
+        3.5999999046325684,
+        1.5
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "SERVICE_ACCESS",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_PROHIBITED_OBJECT_DETECTION",
+      "position": [
+        -4.349999904632568,
+        3.9100000858306885,
+        1.600000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "PROHIBITED_OBJECT_DETECTION",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_CRUSHER_DUST_WASTE",
+      "position": [
+        -4.079999923706055,
+        5.150000095367432,
+        0.44999998807907104
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "CRUSHER",
+        "role": "DUST_WASTE",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_BELT_SPEED",
+      "position": [
+        -1.5052000284194946,
+        3.5899999141693115,
+        1.1299999952316284
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "BELT_SPEED",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_SCANNER_SENSITIVITY",
+      "position": [
+        -1.2400000095367432,
+        3.5899999141693115,
+        1.1299999952316284
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "SCANNER_SENSITIVITY",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_DIVERTER",
+      "position": [
+        -0.9747999906539917,
+        3.5899999141693115,
+        1.1299999952316284
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "DIVERTER",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_RECALIBRATION",
+      "position": [
+        -1.5052000284194946,
+        3.5899999141693115,
+        0.9200000166893005
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "RECALIBRATION",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_MANUAL_OVERRIDE",
+      "position": [
+        -1.2400000095367432,
+        3.5899999141693115,
+        0.9200000166893005
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "MANUAL_OVERRIDE",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_INPUT",
+      "position": [
+        -3.8499999046325684,
+        4.5,
+        1.25
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "INPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_OUTPUT",
+      "position": [
+        -0.8500000238418579,
+        4.5,
+        1.25
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "OUTPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_REJECT_OUTPUT",
+      "position": [
+        -2.049999952316284,
+        3.490000009536743,
+        0.6399999856948853
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "REJECT_OUTPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_REJECT_BIN",
+      "position": [
+        -2.049999952316284,
+        3.299999952316284,
+        0.550000011920929
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "REJECT_BIN",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_CALIBRATION_ACCESS",
+      "position": [
+        -2.7200000286102295,
+        3.7899999618530273,
+        1.5199999809265137
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "CALIBRATION_ACCESS",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_SERVICE_ACCESS",
+      "position": [
+        -2.619999885559082,
+        3.799999952316284,
+        1.4600000381469727
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "SERVICE_ACCESS",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_SORTER_GATE_FAULT",
+      "position": [
+        -1.5700000524520874,
+        3.9100000858306885,
+        1.350000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "GATE_FAULT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_PROCESSOR_SCREW_LIFT_SERVICE",
+      "position": [
+        -0.4000000059604645,
+        4.150000095367432,
+        1.600000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "PROCESSOR",
+        "role": "SCREW_LIFT_SERVICE",
+        "kind": "repair"
+      }
+    },
+    {
+      "name": "INT_PROCESSOR_INPUT",
+      "position": [
+        -0.8500000238418579,
+        4.5,
+        1.25
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "PROCESSOR",
+        "role": "INPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_PROCESSOR_OUTPUT",
+      "position": [
+        1.9600000381469727,
+        4.449999809265137,
+        1.2000000476837158
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "PROCESSOR",
+        "role": "OUTPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_PROCESSOR_PRESSURE",
+      "position": [
+        -0.07000000029802322,
+        3.6700000762939453,
+        1.1299999952316284
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "PROCESSOR",
+        "role": "PRESSURE",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_PROCESSOR_TEMPERATURE",
+      "position": [
+        1.149999976158142,
+        3.6700000762939453,
+        1.1299999952316284
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "PROCESSOR",
+        "role": "TEMPERATURE",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_PROCESSOR_EMERGENCY_DUMP",
+      "position": [
+        0.550000011920929,
+        3.430000066757202,
+        0.699999988079071
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "PROCESSOR",
+        "role": "EMERGENCY_DUMP",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_PROCESSOR_PROCESSOR_DUMP",
+      "position": [
+        0.550000011920929,
+        3.609999895095825,
+        0.20000000298023224
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "PROCESSOR",
+        "role": "PROCESSOR_DUMP",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_PROCESSOR_SEAL_REPAIR",
+      "position": [
+        0.8500000238418579,
+        3.6500000953674316,
+        1.600000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "PROCESSOR",
+        "role": "SEAL_REPAIR",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_PROCESSOR_SERVICE_ACCESS",
+      "position": [
+        0.550000011920929,
+        3.5999999046325684,
+        1.600000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "PROCESSOR",
+        "role": "SERVICE_ACCESS",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_PROCESSOR_COOLANT_CONNECTION",
+      "position": [
+        1.149999976158142,
+        4.980000019073486,
+        1.149999976158142
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "PROCESSOR",
+        "role": "COOLANT_CONNECTION",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DRYER_DRIED_MATERIAL_PICKUP",
+      "position": [
+        4.579999923706055,
+        3.930000066757202,
+        1.2999999523162842
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "DRIED_MATERIAL_PICKUP",
+        "kind": "carry_pickup"
+      }
+    },
+    {
+      "name": "INT_DRYER_INCREASE_HEAT",
+      "position": [
+        3.3543999195098877,
+        3.3499999046325684,
+        1.190000057220459
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "INCREASE_HEAT",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DRYER_MOISTURE_CHECK",
+      "position": [
+        3.640000104904175,
+        3.3499999046325684,
+        1.190000057220459
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "MOISTURE_CHECK",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DRYER_FILTER_BYPASS",
+      "position": [
+        3.925600051879883,
+        3.3499999046325684,
+        1.190000057220459
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "FILTER_BYPASS",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DRYER_INPUT",
+      "position": [
+        1.9600000381469727,
+        4.449999809265137,
+        1.2000000476837158
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "INPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DRYER_OUTPUT",
+      "position": [
+        4.460000038146973,
+        4.449999809265137,
+        1.2000000476837158
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "OUTPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DRYER_BLOCKED_FILTER",
+      "position": [
+        2.380000114440918,
+        3.549999952316284,
+        1.600000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "BLOCKED_FILTER",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DRYER_DRYER_FILTER",
+      "position": [
+        2.380000114440918,
+        3.549999952316284,
+        1.600000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "DRYER_FILTER",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DRYER_FILTER_REPAIR",
+      "position": [
+        2.380000114440918,
+        3.549999952316284,
+        1.600000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "FILTER_REPAIR",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DRYER_FIRE_FAULT",
+      "position": [
+        3.130000114440918,
+        3.5,
+        1.4800000190734863
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "FIRE_FAULT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DRYER_TEMPERATURE_ACCESS",
+      "position": [
+        3.5999999046325684,
+        3.3399999141693115,
+        1.100000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "TEMPERATURE_ACCESS",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DRYER_SERVICE_ACCESS",
+      "position": [
+        3.109999895095825,
+        3.490000009536743,
+        1.4800000190734863
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DRYER",
+        "role": "SERVICE_ACCESS",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_PRESS",
+      "position": [
+        4.510000228881836,
+        1.8035999536514282,
+        1.1649999618530273
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "PRESS",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_HIGH_SPEED",
+      "position": [
+        4.510000228881836,
+        1.5,
+        1.1649999618530273
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "HIGH_SPEED",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_ALIGNMENT",
+      "position": [
+        4.510000228881836,
+        1.1964000463485718,
+        1.1649999618530273
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "ALIGNMENT",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_SEAL_STAGE",
+      "position": [
+        4.510000228881836,
+        1.8035999536514282,
+        1.0049999952316284
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "SEAL_STAGE",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_STOP",
+      "position": [
+        4.510000228881836,
+        1.5,
+        1.0049999952316284
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "STOP",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_INPUT",
+      "position": [
+        5.570000171661377,
+        0.7099999785423279,
+        1.1299999952316284
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "INPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_CASING_INPUT",
+      "position": [
+        5.079999923706055,
+        2.299999952316284,
+        1.25
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "CASING_INPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_ALIGNMENT_FIXTURE",
+      "position": [
+        4.889999866485596,
+        1.5,
+        1.1399999856948853
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "ALIGNMENT_FIXTURE",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_JAM_CLEARING",
+      "position": [
+        4.869999885559082,
+        1.5,
+        1.5
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "JAM_CLEARING",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_SERVICE_ACCESS",
+      "position": [
+        4.849999904632568,
+        1.9500000476837158,
+        1.5199999809265137
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "SERVICE_ACCESS",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_OUTPUT",
+      "position": [
+        5.059999942779541,
+        0.7300000190734863,
+        1.2999999523162842
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "OUTPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_OUTPUT_PICKUP",
+      "position": [
+        4.849999904632568,
+        0.7300000190734863,
+        1.2999999523162842
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "OUTPUT_PICKUP",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_ASSEMBLY_FUEL_OUTPUT",
+      "position": [
+        4.849999904632568,
+        0.7300000190734863,
+        1.2999999523162842
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ASSEMBLY",
+        "role": "FUEL_OUTPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_APPROVE",
+      "position": [
+        4.590000152587891,
+        -0.5400000214576721,
+        1.1699999570846558
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "APPROVE",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_REJECT",
+      "position": [
+        4.590000152587891,
+        -1.1799999475479126,
+        1.1699999570846558
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "REJECT",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_REPROCESS",
+      "position": [
+        4.590000152587891,
+        -1.8200000524520874,
+        1.1699999570846558
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "REPROCESS",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_BLEND",
+      "position": [
+        4.300000190734863,
+        -1.3097000122070312,
+        1.0750000476837158
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "BLEND",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_FALSIFY",
+      "position": [
+        4.300000190734863,
+        -1.6100000143051147,
+        1.0750000476837158
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "FALSIFY",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_SEND_UNINSPECTED",
+      "position": [
+        4.300000190734863,
+        -1.9103000164031982,
+        1.0750000476837158
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "SEND_UNINSPECTED",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_INPUT",
+      "position": [
+        4.929999828338623,
+        -0.8399999737739563,
+        1.4299999475479126
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "INPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_INSPECTION_INPUT",
+      "position": [
+        4.929999828338623,
+        -0.8399999737739563,
+        1.4299999475479126
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "INSPECTION_INPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_OUTPUT",
+      "position": [
+        4.820000171661377,
+        -0.5400000214576721,
+        1.2200000286102295
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "OUTPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_DISPATCH_PICKUP",
+      "position": [
+        4.570000171661377,
+        -0.5400000214576721,
+        1.2200000286102295
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "DISPATCH_PICKUP",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_SERVICE_ACCESS",
+      "position": [
+        4.769999980926514,
+        -0.5199999809265137,
+        1.4199999570846558
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "SERVICE_ACCESS",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_SCANNER_CALIBRATION",
+      "position": [
+        4.940000057220459,
+        -0.8399999737739563,
+        1.600000023841858
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "SCANNER_CALIBRATION",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_INSPECTION_OVERRIDE",
+      "position": [
+        4.650000095367432,
+        -1.649999976158142,
+        1.2999999523162842
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "INSPECTION",
+        "role": "OVERRIDE",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DISPATCH_INPUT",
+      "position": [
+        4.769999980926514,
+        -3.450000047683716,
+        0.75
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DISPATCH",
+        "role": "INPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DISPATCH_OUTPUT",
+      "position": [
+        5.920000076293945,
+        -3.450000047683716,
+        0.75
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DISPATCH",
+        "role": "OUTPUT",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DISPATCH_CARRY_PICKUP",
+      "position": [
+        4.769999980926514,
+        -3.450000047683716,
+        0.7699999809265137
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DISPATCH",
+        "role": "CARRY_PICKUP",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DISPATCH_DISPATCH",
+      "position": [
+        4.690000057220459,
+        -3.450000047683716,
+        1.0499999523162842
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DISPATCH",
+        "role": "DISPATCH",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DISPATCH_BRAKE",
+      "position": [
+        4.909999847412109,
+        -3.9100000858306885,
+        0.8500000238418579
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DISPATCH",
+        "role": "BRAKE",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DISPATCH_SERVICE_ACCESS",
+      "position": [
+        4.869999885559082,
+        -3.950000047683716,
+        0.8500000238418579
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DISPATCH",
+        "role": "SERVICE_ACCESS",
+        "kind": "interaction",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_DISPATCH_REACTOR_ROUTE.001",
+      "position": [
+        6.400000095367432,
+        -3.450000047683716,
+        0.20000000298023224
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "DISPATCH",
+        "role": "REACTOR_ROUTE",
+        "kind": "route",
+        "direction": "EAST"
+      }
+    },
+    {
+      "name": "INT_SORTER_CALIBRATION_SAMPLE",
+      "position": [
+        -3.0299999713897705,
+        3.430000066757202,
+        1.1299999952316284
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "SORTER",
+        "role": "CALIBRATION_SAMPLE",
+        "kind": "carry_pickup"
+      }
+    },
+    {
+      "name": "INT_ROOM_POWER_ISOLATOR",
+      "position": [
+        -6.599999904632568,
+        0.6000000238418579,
+        1.5
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ROOM",
+        "role": "POWER_ISOLATOR",
+        "kind": "control"
+      }
+    },
+    {
+      "name": "INT_ROOM_EMERGENCY_SHOWER",
+      "position": [
+        -6.099999904632568,
+        -5.400000095367432,
+        1.399999976158142
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "ROOM",
+        "role": "EMERGENCY_SHOWER",
+        "kind": "control"
+      }
+    },
+    {
+      "name": "INT_RECEIVING_CART_DOCK",
+      "position": [
+        -5.150000095367432,
+        -3.6500000953674316,
+        0.20000000298023224
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "RECEIVING",
+        "role": "CART_DOCK",
+        "kind": "interaction"
+      }
+    },
+    {
+      "name": "INT_RECEIVING_HOPPER",
+      "position": [
+        -5.150000095367432,
+        -1.600000023841858,
+        0.6499999761581421
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "RECEIVING",
+        "role": "HOPPER",
+        "kind": "interaction"
+      }
+    },
+    {
+      "name": "INT_RECEIVING_SPILL_CLEANUP",
+      "position": [
+        -4.0,
+        -2.3499999046325684,
+        0.20000000298023224
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "RECEIVING",
+        "role": "SPILL_CLEANUP",
+        "kind": "interaction"
+      }
+    },
+    {
+      "name": "INT_RECEIVING_BRAKE",
+      "position": [
+        -3.9142000675201416,
+        -2.5799999237060547,
+        1.2100000381469727
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "RECEIVING",
+        "role": "BRAKE",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_RECEIVING_LATCH",
+      "position": [
+        -3.700000047683716,
+        -2.5799999237060547,
+        1.2100000381469727
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "RECEIVING",
+        "role": "LATCH",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_RECEIVING_TIP",
+      "position": [
+        -3.48580002784729,
+        -2.5799999237060547,
+        1.2100000381469727
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "RECEIVING",
+        "role": "TIP",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    },
+    {
+      "name": "INT_RECEIVING_SIZE_GATE",
+      "position": [
+        -3.9142000675201416,
+        -2.5799999237060547,
+        1.0
+      ],
+      "properties": {
+        "refinery_authored": true,
+        "machine": "RECEIVING",
+        "role": "SIZE_GATE",
+        "kind": "control",
+        "reach_m": 0.65
+      }
+    }
+  ],
+  "moving_parts": [
+    {
+      "name": "Hopper_size_gate_PIVOT",
+      "pivot_world": [
+        -5.150000095367432,
+        -0.8899999856948853,
+        0.7300000190734863
+      ],
+      "parent": "ROOT_RECEIVING",
+      "role": "adjustable size gate"
+    },
+    {
+      "name": "Crusher_roller_0_PIVOT",
+      "pivot_world": [
+        -5.440000057220459,
+        4.460000038146973,
+        1.8200000524520874
+      ],
+      "parent": "ROOT_CRUSHER",
+      "role": "counterrotating toothed crusher roller"
+    },
+    {
+      "name": "Crusher_roller_1_PIVOT",
+      "pivot_world": [
+        -4.760000228881836,
+        4.460000038146973,
+        1.8200000524520874
+      ],
+      "parent": "ROOT_CRUSHER",
+      "role": "counterrotating toothed crusher roller"
+    },
+    {
+      "name": "Crusher_service_hinged_panel",
+      "pivot_world": [
+        -5.079999923706055,
+        3.7850000858306885,
+        1.7300000190734863
+      ],
+      "parent": "ROOT_CRUSHER",
+      "role": "hinged service cover"
+    },
+    {
+      "name": "Crusher_side_service_panel",
+      "pivot_world": [
+        -3.884999990463257,
+        4.050000190734863,
+        1.649999976158142
+      ],
+      "parent": "ROOT_CRUSHER",
+      "role": "removable side service plate"
+    },
+    {
+      "name": "Sorter_roller",
+      "pivot_world": [
+        -3.6999998092651367,
+        4.5,
+        1.1799999475479126
+      ],
+      "parent": "ROOT_SORTER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Sorter_roller.001",
+      "pivot_world": [
+        -3.362499952316284,
+        4.5,
+        1.1799999475479126
+      ],
+      "parent": "ROOT_SORTER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Sorter_roller.002",
+      "pivot_world": [
+        -3.0249998569488525,
+        4.5,
+        1.1799999475479126
+      ],
+      "parent": "ROOT_SORTER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Sorter_roller.003",
+      "pivot_world": [
+        -2.6875,
+        4.5,
+        1.1799999475479126
+      ],
+      "parent": "ROOT_SORTER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Sorter_roller.004",
+      "pivot_world": [
+        -2.3499999046325684,
+        4.5,
+        1.1799999475479126
+      ],
+      "parent": "ROOT_SORTER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Sorter_roller.005",
+      "pivot_world": [
+        -2.0124998092651367,
+        4.5,
+        1.1799999475479126
+      ],
+      "parent": "ROOT_SORTER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Sorter_roller.006",
+      "pivot_world": [
+        -1.674999713897705,
+        4.5,
+        1.1799999475479126
+      ],
+      "parent": "ROOT_SORTER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Sorter_roller.007",
+      "pivot_world": [
+        -1.3375000953674316,
+        4.5,
+        1.1799999475479126
+      ],
+      "parent": "ROOT_SORTER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Sorter_roller.008",
+      "pivot_world": [
+        -1.0,
+        4.5,
+        1.1799999475479126
+      ],
+      "parent": "ROOT_SORTER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Sorter_diverter_PIVOT",
+      "pivot_world": [
+        -1.5499999523162842,
+        4.78000020980835,
+        1.340000033378601
+      ],
+      "parent": "ROOT_SORTER",
+      "role": "diverter gate"
+    },
+    {
+      "name": "Processor_sealed_hatch",
+      "pivot_world": [
+        0.550000011920929,
+        3.819999933242798,
+        1.7100000381469727
+      ],
+      "parent": "ROOT_PROCESSOR",
+      "role": "bolted removable pressure hatch"
+    },
+    {
+      "name": "Processor_screw_PIVOT",
+      "pivot_world": [
+        -0.40000003576278687,
+        4.550000190734863,
+        1.2999999523162842
+      ],
+      "parent": "ROOT_PROCESSOR",
+      "role": "enclosed vertical screw conveyor"
+    },
+    {
+      "name": "Dryer_transfer_roller",
+      "pivot_world": [
+        1.9600000381469727,
+        4.449999809265137,
+        1.1299999952316284
+      ],
+      "parent": "ROOT_DRYER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Dryer_transfer_roller.001",
+      "pivot_world": [
+        2.376666784286499,
+        4.449999809265137,
+        1.1299999952316284
+      ],
+      "parent": "ROOT_DRYER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Dryer_transfer_roller.002",
+      "pivot_world": [
+        2.7933335304260254,
+        4.449999809265137,
+        1.1299999952316284
+      ],
+      "parent": "ROOT_DRYER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Dryer_transfer_roller.003",
+      "pivot_world": [
+        3.2100000381469727,
+        4.449999809265137,
+        1.1299999952316284
+      ],
+      "parent": "ROOT_DRYER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Dryer_transfer_roller.004",
+      "pivot_world": [
+        3.626666784286499,
+        4.449999809265137,
+        1.1299999952316284
+      ],
+      "parent": "ROOT_DRYER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Dryer_transfer_roller.005",
+      "pivot_world": [
+        4.043333053588867,
+        4.449999809265137,
+        1.1299999952316284
+      ],
+      "parent": "ROOT_DRYER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Dryer_transfer_roller.006",
+      "pivot_world": [
+        4.460000038146973,
+        4.449999809265137,
+        1.1299999952316284
+      ],
+      "parent": "ROOT_DRYER",
+      "role": "belt roller"
+    },
+    {
+      "name": "Dryer_sealed_access_door",
+      "pivot_world": [
+        3.109999895095825,
+        3.7899999618530273,
+        1.4800000190734863
+      ],
+      "parent": "ROOT_DRYER",
+      "role": "hinged insulated dryer access"
+    },
+    {
+      "name": "Dryer_filter_cartridge",
+      "pivot_world": [
+        2.380000114440918,
+        3.7699999809265137,
+        1.600000023841858
+      ],
+      "parent": "ROOT_DRYER",
+      "role": "slide-out filter cassette"
+    },
+    {
+      "name": "Assembly_ram_PIVOT",
+      "pivot_world": [
+        5.519999980926514,
+        1.5,
+        1.7000000476837158
+      ],
+      "parent": "ROOT_ASSEMBLY",
+      "role": "press ram"
+    },
+    {
+      "name": "Assembly_hydraulic_ram",
+      "pivot_world": [
+        5.550000190734863,
+        1.5,
+        1.9649999141693115
+      ],
+      "parent": "Assembly_ram_PIVOT",
+      "role": "press hydraulic ram"
+    },
+    {
+      "name": "Assembly_guard_PIVOT",
+      "pivot_world": [
+        5.050000190734863,
+        2.109999895095825,
+        1.1699999570846558
+      ],
+      "parent": "ROOT_ASSEMBLY",
+      "role": "hinged safety guard"
+    },
+    {
+      "name": "Assembly_empty_casing_PICKUP_ROOT",
+      "pivot_world": [
+        5.269999980926514,
+        2.299999952316284,
+        1.090000033378601
+      ],
+      "parent": "ROOT_ASSEMBLY",
+      "role": "carryable fuel unit"
+    },
+    {
+      "name": "Assembly_empty_casing_PICKUP_ROOT.001",
+      "pivot_world": [
+        5.510000228881836,
+        2.299999952316284,
+        1.090000033378601
+      ],
+      "parent": "ROOT_ASSEMBLY",
+      "role": "carryable fuel unit"
+    },
+    {
+      "name": "Assembly_empty_casing_PICKUP_ROOT.002",
+      "pivot_world": [
+        5.75,
+        2.299999952316284,
+        1.090000033378601
+      ],
+      "parent": "ROOT_ASSEMBLY",
+      "role": "carryable fuel unit"
+    },
+    {
+      "name": "Assembly_completed_fuel_PICKUP_ROOT",
+      "pivot_world": [
+        5.059999942779541,
+        0.7300000190734863,
+        1.0449999570846558
+      ],
+      "parent": "ROOT_ASSEMBLY",
+      "role": "carryable fuel unit"
+    },
+    {
+      "name": "Inspection_sample_fuel_PICKUP_ROOT",
+      "pivot_world": [
+        5.21999979019165,
+        -0.8399999737739563,
+        1.1749999523162842
+      ],
+      "parent": "ROOT_INSPECTION",
+      "role": "carryable fuel unit"
+    },
+    {
+      "name": "Dispatch_trolley_PIVOT",
+      "pivot_world": [
+        5.349999904632568,
+        -3.450000047683716,
+        0.20000000298023224
+      ],
+      "parent": "ROOT_DISPATCH",
+      "role": "fuel delivery trolley"
+    },
+    {
+      "name": "Dispatch_rubber_wheel",
+      "pivot_world": [
+        5.059999942779541,
+        -2.9800000190734863,
+        0.11500000208616257
+      ],
+      "parent": "Dispatch_trolley_PIVOT",
+      "role": "swivel wheel"
+    },
+    {
+      "name": "Dispatch_rubber_wheel.001",
+      "pivot_world": [
+        5.639999866485596,
+        -2.9800000190734863,
+        0.11500000208616257
+      ],
+      "parent": "Dispatch_trolley_PIVOT",
+      "role": "swivel wheel"
+    },
+    {
+      "name": "Dispatch_rubber_wheel.002",
+      "pivot_world": [
+        5.059999942779541,
+        -3.9200000762939453,
+        0.11500000208616257
+      ],
+      "parent": "Dispatch_trolley_PIVOT",
+      "role": "swivel wheel"
+    },
+    {
+      "name": "Dispatch_rubber_wheel.003",
+      "pivot_world": [
+        5.639999866485596,
+        -3.9200000762939453,
+        0.11500000208616257
+      ],
+      "parent": "Dispatch_trolley_PIVOT",
+      "role": "swivel wheel"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_PICKUP_ROOT",
+      "pivot_world": [
+        5.210000038146973,
+        -3.0899999141693115,
+        0.47499996423721313
+      ],
+      "parent": "Dispatch_trolley_PIVOT",
+      "role": "carryable fuel unit"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_PICKUP_ROOT.001",
+      "pivot_world": [
+        5.489999771118164,
+        -3.0899999141693115,
+        0.47499996423721313
+      ],
+      "parent": "Dispatch_trolley_PIVOT",
+      "role": "carryable fuel unit"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_PICKUP_ROOT.002",
+      "pivot_world": [
+        5.210000038146973,
+        -3.450000047683716,
+        0.47499996423721313
+      ],
+      "parent": "Dispatch_trolley_PIVOT",
+      "role": "carryable fuel unit"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_PICKUP_ROOT.003",
+      "pivot_world": [
+        5.489999771118164,
+        -3.450000047683716,
+        0.47499996423721313
+      ],
+      "parent": "Dispatch_trolley_PIVOT",
+      "role": "carryable fuel unit"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_PICKUP_ROOT.004",
+      "pivot_world": [
+        5.210000038146973,
+        -3.809999942779541,
+        0.47499996423721313
+      ],
+      "parent": "Dispatch_trolley_PIVOT",
+      "role": "carryable fuel unit"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_PICKUP_ROOT.005",
+      "pivot_world": [
+        5.489999771118164,
+        -3.809999942779541,
+        0.47499996423721313
+      ],
+      "parent": "Dispatch_trolley_PIVOT",
+      "role": "carryable fuel unit"
+    },
+    {
+      "name": "FEEDER_roller",
+      "pivot_world": [
+        -5.150000095367432,
+        -1.25,
+        0.25
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.001",
+      "pivot_world": [
+        -5.150000095367432,
+        -0.909375011920929,
+        0.4037500023841858
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.002",
+      "pivot_world": [
+        -5.150000095367432,
+        -0.5687500238418579,
+        0.5575000047683716
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.003",
+      "pivot_world": [
+        -5.150000095367432,
+        -0.22812509536743164,
+        0.7112500071525574
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.004",
+      "pivot_world": [
+        -5.150000095367432,
+        0.11249995231628418,
+        0.8650000095367432
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.005",
+      "pivot_world": [
+        -5.150000095367432,
+        0.453125,
+        1.0187499523162842
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.006",
+      "pivot_world": [
+        -5.150000095367432,
+        0.7937498092651367,
+        1.1725000143051147
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.007",
+      "pivot_world": [
+        -5.150000095367432,
+        1.1343748569488525,
+        1.3262499570846558
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.008",
+      "pivot_world": [
+        -5.150000095367432,
+        1.4749999046325684,
+        1.4799998998641968
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.009",
+      "pivot_world": [
+        -5.150000095367432,
+        1.8156249523162842,
+        1.6337498426437378
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.010",
+      "pivot_world": [
+        -5.150000095367432,
+        2.15625,
+        1.787500023841858
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.011",
+      "pivot_world": [
+        -5.150000095367432,
+        2.4968748092651367,
+        1.941249966621399
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.012",
+      "pivot_world": [
+        -5.150000095367432,
+        2.8374996185302734,
+        2.0950000286102295
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.013",
+      "pivot_world": [
+        -5.150000095367432,
+        3.1781249046325684,
+        2.2487499713897705
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.014",
+      "pivot_world": [
+        -5.150000095367432,
+        3.518749713897705,
+        2.4025001525878906
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.015",
+      "pivot_world": [
+        -5.150000095367432,
+        3.859375,
+        2.5562500953674316
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "FEEDER_roller.016",
+      "pivot_world": [
+        -5.150000095367432,
+        4.199999809265137,
+        2.7100000381469727
+      ],
+      "parent": "ROOT_FEEDER",
+      "role": "belt roller"
+    },
+    {
+      "name": "CART_SIDE_TIP_PIVOT",
+      "pivot_world": [
+        -5.150000095367432,
+        -2.8499999046325684,
+        0.3799999952316284
+      ],
+      "parent": "ROOT_RECEIVING",
+      "role": "cart_tip_pivot"
+    }
+  ],
+  "state_presets": {
+    "idle": [
+      "CAM_ENTRY",
+      "No batch movement; equipment ready"
+    ],
+    "normal_production": [
+      "CAM_MINE_TO_CRUSHER",
+      "Docked cart tipped into hopper; belt carries consolidated batch"
+    ],
+    "crusher_jam": [
+      "CAM_PINCH",
+      "Wedge trapped at rollers; service access flagged"
+    ],
+    "wet_ore_overload": [
+      "CAM_MINE_TO_CRUSHER",
+      "Wet intake batch and localized spill"
+    ],
+    "sorter_gate_fault": [
+      "CAM_PROCESS",
+      "Diverter visibly stuck across accepted route"
+    ],
+    "processor_warning": [
+      "CAM_PROCESS",
+      "Pressure warning; local leak/dump"
+    ],
+    "dryer_filter_fault": [
+      "CAM_PROCESS",
+      "Removed blocked filter and amber fault"
+    ],
+    "assembly_jam": [
+      "CAM_MATERIAL",
+      "Crosshead halted low with misaligned casing"
+    ],
+    "inspection_uncertainty": [
+      "CAM_ASSEMBLY",
+      "Estimated reading and unresolved confidence"
+    ],
+    "emergency_stopped": [
+      "CAM_ENTRY",
+      "Red local lamps; machine motion stopped"
+    ]
+  },
+  "runtime_boundary": "Unity owns interactions, collision response, networked objects, simulation, audio, VFX, optimization and material translation."
+}

@@ -1,0 +1,1146 @@
+{
+  "source_blend": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\refinery-compact\\sections\\refinery\\blender\\Refinery.blend",
+  "source_sha256": "dbb6a84f516be685a21a2db0b6a0da34d7557e59897efd7cd8e53104434485ce",
+  "read_only": true,
+  "saved": false,
+  "evaluated_mesh_count": 1214,
+  "interface_collisions": [
+    {
+      "interface": "FEEDER_RECEIVING",
+      "a": "FEEDER_drive_motor",
+      "b": "Receiving_hopper_wall_1",
+      "triangle_pairs": 78,
+      "a_bounds": [
+        [
+          -4.550000190734863,
+          -1.409999966621399,
+          0.039999984204769135
+        ],
+        [
+          -4.199999809265137,
+          -1.090000033378601,
+          0.35999998450279236
+        ]
+      ],
+      "b_bounds": [
+        [
+          -4.550000190734863,
+          -2.375,
+          0.2215200811624527
+        ],
+        [
+          -4.083162784576416,
+          -0.824999988079071,
+          0.6499999761581421
+        ]
+      ],
+      "aabb_overlap_size": [
+        0.35000038146972656,
+        0.31999993324279785,
+        0.13847990334033966
+      ],
+      "intersecting_triangle_extent": [
+        [
+          -4.550000190734863,
+          -1.409999966621399,
+          0.08900254219770432
+        ],
+        [
+          -4.203000068664551,
+          -1.090000033378601,
+          0.35999998450279236
+        ]
+      ]
+    },
+    {
+      "interface": "FEEDER_RECEIVING",
+      "a": "FEEDER_gearbox",
+      "b": "Receiving_hopper_wall_1",
+      "triangle_pairs": 33,
+      "a_bounds": [
+        [
+          -4.690000057220459,
+          -1.3899999856948853,
+          0.0599999874830246
+        ],
+        [
+          -4.410000324249268,
+          -1.1100000143051147,
+          0.3399999737739563
+        ]
+      ],
+      "b_bounds": [
+        [
+          -4.550000190734863,
+          -2.375,
+          0.2215200811624527
+        ],
+        [
+          -4.083162784576416,
+          -0.824999988079071,
+          0.6499999761581421
+        ]
+      ],
+      "aabb_overlap_size": [
+        0.1399998664855957,
+        0.2799999713897705,
+        0.1184798926115036
+      ],
+      "intersecting_triangle_extent": [
+        [
+          -4.680000305175781,
+          -1.3899999856948853,
+          0.06999999284744263
+        ],
+        [
+          -4.410000324249268,
+          -1.1100000143051147,
+          0.3399999737739563
+        ]
+      ]
+    },
+    {
+      "interface": "CRUSHER_SORTER",
+      "a": "Crusher_cast_bed",
+      "b": "Sorter_roller",
+      "triangle_pairs": 38,
+      "a_bounds": [
+        [
+          -6.225000381469727,
+          3.629999876022339,
+          0.9399999380111694
+        ],
+        [
+          -3.875000238418579,
+          5.269999980926514,
+          1.1399999856948853
+        ]
+      ],
+      "b_bounds": [
+        [
+          -3.924999952316284,
+          4.139999866485596,
+          1.1049998998641968
+        ],
+        [
+          -3.7749998569488525,
+          4.860000133514404,
+          1.2549999952316284
+        ]
+      ],
+      "aabb_overlap_size": [
+        0.04999971389770508,
+        0.7200002670288086,
+        0.03500008583068848
+      ],
+      "intersecting_triangle_extent": [
+        [
+          -3.9200000762939453,
+          3.674999713897705,
+          1.09499990940094
+        ],
+        [
+          -3.875000238418579,
+          5.224999904632568,
+          1.1399999856948853
+        ]
+      ]
+    },
+    {
+      "interface": "CRUSHER_SORTER",
+      "a": "Crusher_discharge_chute",
+      "b": "Sorter_upper_belt",
+      "triangle_pairs": 76,
+      "a_bounds": [
+        [
+          -5.304999828338623,
+          4.074999809265137,
+          1.2121978998184204
+        ],
+        [
+          -3.809999942779541,
+          4.925000190734863,
+          1.5440340042114258
+        ]
+      ],
+      "b_bounds": [
+        [
+          -3.8499999046325684,
+          4.170000076293945,
+          1.2274999618530273
+        ],
+        [
+          -0.8500000238418579,
+          4.829999923706055,
+          1.2725000381469727
+        ]
+      ],
+      "aabb_overlap_size": [
+        0.039999961853027344,
+        0.6599998474121094,
+        0.04500007629394531
+      ],
+      "intersecting_triangle_extent": [
+        [
+          -5.270655155181885,
+          4.074999809265137,
+          1.2121978998184204
+        ],
+        [
+          -3.809999942779541,
+          4.925000190734863,
+          1.5307985544204712
+        ]
+      ]
+    },
+    {
+      "interface": "CRUSHER_SORTER",
+      "a": "Crusher_discharge_chute",
+      "b": "Sorter_roller",
+      "triangle_pairs": 68,
+      "a_bounds": [
+        [
+          -5.304999828338623,
+          4.074999809265137,
+          1.2121978998184204
+        ],
+        [
+          -3.809999942779541,
+          4.925000190734863,
+          1.5440340042114258
+        ]
+      ],
+      "b_bounds": [
+        [
+          -3.924999952316284,
+          4.139999866485596,
+          1.1049998998641968
+        ],
+        [
+          -3.7749998569488525,
+          4.860000133514404,
+          1.2549999952316284
+        ]
+      ],
+      "aabb_overlap_size": [
+        0.11500000953674316,
+        0.7200002670288086,
+        0.04280209541320801
+      ],
+      "intersecting_triangle_extent": [
+        [
+          -5.270655155181885,
+          4.074999809265137,
+          1.2121978998184204
+        ],
+        [
+          -3.809999942779541,
+          4.925000190734863,
+          1.5307985544204712
+        ]
+      ]
+    },
+    {
+      "interface": "SORTER_PROCESSOR",
+      "a": "Sorter_roller.008",
+      "b": "Processor_sorted_feed",
+      "triangle_pairs": 59,
+      "a_bounds": [
+        [
+          -0.9249998927116394,
+          4.139999866485596,
+          1.1049998998641968
+        ],
+        [
+          -0.7749999165534973,
+          4.860000133514404,
+          1.2549999952316284
+        ]
+      ],
+      "b_bounds": [
+        [
+          -0.8500000238418579,
+          4.340000152587891,
+          1.0978310108184814
+        ],
+        [
+          -0.0599999874830246,
+          4.710000038146973,
+          2.2021689414978027
+        ]
+      ],
+      "aabb_overlap_size": [
+        0.0750001072883606,
+        0.36999988555908203,
+        0.15000009536743164
+      ],
+      "intersecting_triangle_extent": [
+        [
+          -0.8694113492965698,
+          4.142999649047852,
+          1.1049998998641968
+        ],
+        [
+          -0.7749999165534973,
+          4.857000350952148,
+          1.2549999952316284
+        ]
+      ]
+    },
+    {
+      "interface": "PROCESSOR_DRYER",
+      "a": "Processor_product_line",
+      "b": "Dryer_transfer_upper_belt",
+      "triangle_pairs": 14,
+      "a_bounds": [
+        [
+          1.159999966621399,
+          4.328424453735352,
+          1.081771731376648
+        ],
+        [
+          2.023219585418701,
+          4.680000305175781,
+          1.4236372709274292
+        ]
+      ],
+      "b_bounds": [
+        [
+          1.9600001573562622,
+          4.189999580383301,
+          1.1775000095367432
+        ],
+        [
+          4.460000038146973,
+          4.710000038146973,
+          1.2225000858306885
+        ]
+      ],
+      "aabb_overlap_size": [
+        0.06321942806243896,
+        0.3515758514404297,
+        0.04500007629394531
+      ],
+      "intersecting_triangle_extent": [
+        [
+          1.7334011793136597,
+          4.5434041023254395,
+          1.1217241287231445
+        ],
+        [
+          2.023219585418701,
+          4.677858829498291,
+          1.3734208345413208
+        ]
+      ]
+    },
+    {
+      "interface": "PROCESSOR_DRYER",
+      "a": "Processor_product_line",
+      "b": "Dryer_transfer_roller",
+      "triangle_pairs": 44,
+      "a_bounds": [
+        [
+          1.159999966621399,
+          4.328424453735352,
+          1.081771731376648
+        ],
+        [
+          2.023219585418701,
+          4.680000305175781,
+          1.4236372709274292
+        ]
+      ],
+      "b_bounds": [
+        [
+          1.8849999904632568,
+          4.159999847412109,
+          1.0549999475479126
+        ],
+        [
+          2.0350000858306885,
+          4.739999771118164,
+          1.2050000429153442
+        ]
+      ],
+      "aabb_overlap_size": [
+        0.13821959495544434,
+        0.3515758514404297,
+        0.12322831153869629
+      ],
+      "intersecting_triangle_extent": [
+        [
+          1.6773133277893066,
+          4.328424453735352,
+          1.081771731376648
+        ],
+        [
+          2.005260467529297,
+          4.677858829498291,
+          1.3734208345413208
+        ]
+      ]
+    }
+  ],
+  "machine_bay_bounds": {
+    "ROOT_RECEIVING": [
+      [
+        -8.510000228881836,
+        -4.4760003089904785,
+        0.0
+      ],
+      [
+        -3.384999990463257,
+        -0.7999999523162842,
+        1.4700000286102295
+      ]
+    ],
+    "ROOT_FEEDER": [
+      [
+        -5.704999923706055,
+        -1.409999966621399,
+        0.0
+      ],
+      [
+        -4.199999809265137,
+        4.274999618530273,
+        2.987436294555664
+      ]
+    ],
+    "ROOT_CRUSHER": [
+      [
+        -6.322000026702881,
+        3.059999942779541,
+        0.0
+      ],
+      [
+        -3.2699999809265137,
+        5.389999866485596,
+        3.1649999618530273
+      ]
+    ],
+    "ROOT_SORTER": [
+      [
+        -3.924999952316284,
+        3.2699999809265137,
+        0.0
+      ],
+      [
+        -0.690000057220459,
+        5.065000057220459,
+        2.049999952316284
+      ]
+    ],
+    "ROOT_PROCESSOR": [
+      [
+        -0.9549999833106995,
+        3.2700002193450928,
+        0.0
+      ],
+      [
+        2.023219585418701,
+        5.304999828338623,
+        3.0799999237060547
+      ]
+    ],
+    "ROOT_DRYER": [
+      [
+        1.8849999904632568,
+        3.31000018119812,
+        0.0
+      ],
+      [
+        4.989999771118164,
+        5.319999694824219,
+        3.8645782470703125
+      ]
+    ],
+    "ROOT_ASSEMBLY": [
+      [
+        4.559999942779541,
+        0.4399999976158142,
+        0.0
+      ],
+      [
+        6.074999809265137,
+        2.559999942779541,
+        2.7200000286102295
+      ]
+    ],
+    "ROOT_INSPECTION": [
+      [
+        4.349999904632568,
+        -2.2249999046325684,
+        0.0
+      ],
+      [
+        6.009999752044678,
+        -0.17499995231628418,
+        1.8300000429153442
+      ]
+    ],
+    "ROOT_DISPATCH": [
+      [
+        4.945000171661377,
+        -4.050000190734863,
+        -9.874545625621067e-09
+      ],
+      [
+        5.75499963760376,
+        -2.8499999046325684,
+        1.1550002098083496
+      ]
+    ]
+  },
+  "control_approach_candidates": [
+    {
+      "control": "INT_CRUSHER_START",
+      "approach_box": [
+        [
+          -4.4944000244140625,
+          2.119999885559082,
+          0.1
+        ],
+        [
+          -3.9944000244140625,
+          2.619999885559082,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_CRUSHER_STOP",
+      "approach_box": [
+        [
+          -4.099999904632568,
+          2.119999885559082,
+          0.1
+        ],
+        [
+          -3.5999999046325684,
+          2.619999885559082,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_CRUSHER_REVERSE",
+      "approach_box": [
+        [
+          -3.7056000232696533,
+          2.119999885559082,
+          0.1
+        ],
+        [
+          -3.2056000232696533,
+          2.619999885559082,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_CRUSHER_SPEED",
+      "approach_box": [
+        [
+          -4.4944000244140625,
+          2.119999885559082,
+          0.1
+        ],
+        [
+          -3.9944000244140625,
+          2.619999885559082,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_CRUSHER_EMERGENCY_RELEASE",
+      "approach_box": [
+        [
+          -4.099999904632568,
+          2.119999885559082,
+          0.1
+        ],
+        [
+          -3.5999999046325684,
+          2.619999885559082,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_CRUSHER_SAFETY_BYPASS",
+      "approach_box": [
+        [
+          -3.7056000232696533,
+          2.119999885559082,
+          0.1
+        ],
+        [
+          -3.2056000232696533,
+          2.619999885559082,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_SORTER_BELT_SPEED",
+      "approach_box": [
+        [
+          -1.7552000284194946,
+          2.690000057220459,
+          0.1
+        ],
+        [
+          -1.2552000284194946,
+          3.190000057220459,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_SORTER_SCANNER_SENSITIVITY",
+      "approach_box": [
+        [
+          -1.4900000095367432,
+          2.690000057220459,
+          0.1
+        ],
+        [
+          -0.9900000095367432,
+          3.190000057220459,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_SORTER_DIVERTER",
+      "approach_box": [
+        [
+          -1.2247999906539917,
+          2.690000057220459,
+          0.1
+        ],
+        [
+          -0.7247999906539917,
+          3.190000057220459,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_SORTER_RECALIBRATION",
+      "approach_box": [
+        [
+          -1.7552000284194946,
+          2.690000057220459,
+          0.1
+        ],
+        [
+          -1.2552000284194946,
+          3.190000057220459,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_SORTER_MANUAL_OVERRIDE",
+      "approach_box": [
+        [
+          -1.4900000095367432,
+          2.690000057220459,
+          0.1
+        ],
+        [
+          -0.9900000095367432,
+          3.190000057220459,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_PROCESSOR_PRESSURE",
+      "approach_box": [
+        [
+          -0.3200000002980232,
+          2.7699999809265137,
+          0.1
+        ],
+        [
+          0.17999999970197678,
+          3.2699999809265137,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_PROCESSOR_TEMPERATURE",
+      "approach_box": [
+        [
+          0.8999999761581421,
+          2.7699999809265137,
+          0.1
+        ],
+        [
+          1.399999976158142,
+          3.2699999809265137,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_DRYER_INCREASE_HEAT",
+      "approach_box": [
+        [
+          3.1043999195098877,
+          2.4499998092651367,
+          0.1
+        ],
+        [
+          3.6043999195098877,
+          2.9499998092651367,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_DRYER_MOISTURE_CHECK",
+      "approach_box": [
+        [
+          3.390000104904175,
+          2.4499998092651367,
+          0.1
+        ],
+        [
+          3.890000104904175,
+          2.9499998092651367,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_DRYER_FILTER_BYPASS",
+      "approach_box": [
+        [
+          3.675600051879883,
+          2.4499998092651367,
+          0.1
+        ],
+        [
+          4.175600051879883,
+          2.9499998092651367,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_ASSEMBLY_PRESS",
+      "approach_box": [
+        [
+          3.6100001335144043,
+          1.5535999536514282,
+          0.1
+        ],
+        [
+          4.110000133514404,
+          2.0535999536514282,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_ASSEMBLY_HIGH_SPEED",
+      "approach_box": [
+        [
+          3.6100001335144043,
+          1.25,
+          0.1
+        ],
+        [
+          4.110000133514404,
+          1.75,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_ASSEMBLY_ALIGNMENT",
+      "approach_box": [
+        [
+          3.6100001335144043,
+          0.9464000463485718,
+          0.1
+        ],
+        [
+          4.110000133514404,
+          1.4464000463485718,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_ASSEMBLY_SEAL_STAGE",
+      "approach_box": [
+        [
+          3.6100001335144043,
+          1.5535999536514282,
+          0.1
+        ],
+        [
+          4.110000133514404,
+          2.0535999536514282,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_ASSEMBLY_STOP",
+      "approach_box": [
+        [
+          3.6100001335144043,
+          1.25,
+          0.1
+        ],
+        [
+          4.110000133514404,
+          1.75,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_INSPECTION_APPROVE",
+      "approach_box": [
+        [
+          3.690000057220459,
+          -0.7900000214576721,
+          0.1
+        ],
+        [
+          4.190000057220459,
+          -0.2900000214576721,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_INSPECTION_REJECT",
+      "approach_box": [
+        [
+          3.690000057220459,
+          -1.4299999475479126,
+          0.1
+        ],
+        [
+          4.190000057220459,
+          -0.9299999475479126,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_INSPECTION_REPROCESS",
+      "approach_box": [
+        [
+          3.690000057220459,
+          -2.0700000524520874,
+          0.1
+        ],
+        [
+          4.190000057220459,
+          -1.5700000524520874,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_INSPECTION_BLEND",
+      "approach_box": [
+        [
+          3.4000000953674316,
+          -1.5597000122070312,
+          0.1
+        ],
+        [
+          3.9000000953674316,
+          -1.0597000122070312,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_INSPECTION_FALSIFY",
+      "approach_box": [
+        [
+          3.4000000953674316,
+          -1.8600000143051147,
+          0.1
+        ],
+        [
+          3.9000000953674316,
+          -1.3600000143051147,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_INSPECTION_SEND_UNINSPECTED",
+      "approach_box": [
+        [
+          3.4000000953674316,
+          -2.1603000164031982,
+          0.1
+        ],
+        [
+          3.9000000953674316,
+          -1.6603000164031982,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk"
+      ],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_ROOM_POWER_ISOLATOR",
+      "approach_box": [
+        [
+          -6.849999904632568,
+          -0.2999999523162842,
+          0.1
+        ],
+        [
+          -6.349999904632568,
+          0.20000004768371582,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "Power_trunk",
+        "Utility_cabinet",
+        "Utility_door"
+      ],
+      "triangle_or_vertex_confirmed": [
+        "Utility_cabinet",
+        "Utility_door"
+      ]
+    },
+    {
+      "control": "INT_ROOM_EMERGENCY_SHOWER",
+      "approach_box": [
+        [
+          -6.349999904632568,
+          -6.300000190734863,
+          0.1
+        ],
+        [
+          -5.849999904632568,
+          -5.800000190734863,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "South_left",
+        "Eyewash_bowl"
+      ],
+      "triangle_or_vertex_confirmed": [
+        "South_left",
+        "Eyewash_bowl"
+      ]
+    },
+    {
+      "control": "INT_RECEIVING_BRAKE",
+      "approach_box": [
+        [
+          -3.514200210571289,
+          -2.8299999237060547,
+          0.1
+        ],
+        [
+          -3.014200210571289,
+          -2.3299999237060547,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "RECEIVING_Control_enclosure",
+        "RECEIVING_TIP_button",
+        "RECEIVING_TIP_engraving"
+      ],
+      "triangle_or_vertex_confirmed": [
+        "RECEIVING_Control_enclosure",
+        "RECEIVING_TIP_button",
+        "RECEIVING_TIP_engraving"
+      ]
+    },
+    {
+      "control": "INT_RECEIVING_LATCH",
+      "approach_box": [
+        [
+          -3.3000001907348633,
+          -2.8299999237060547,
+          0.1
+        ],
+        [
+          -2.8000001907348633,
+          -2.3299999237060547,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_RECEIVING_TIP",
+      "approach_box": [
+        [
+          -3.0858001708984375,
+          -2.8299999237060547,
+          0.1
+        ],
+        [
+          -2.5858001708984375,
+          -2.3299999237060547,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [],
+      "triangle_or_vertex_confirmed": []
+    },
+    {
+      "control": "INT_RECEIVING_SIZE_GATE",
+      "approach_box": [
+        [
+          -3.514200210571289,
+          -2.8299999237060547,
+          0.1
+        ],
+        [
+          -3.014200210571289,
+          -2.3299999237060547,
+          1.75
+        ]
+      ],
+      "evaluated_aabb_candidates": [
+        "RECEIVING_Control_enclosure",
+        "RECEIVING_TIP_button",
+        "RECEIVING_TIP_engraving"
+      ],
+      "triangle_or_vertex_confirmed": [
+        "RECEIVING_Control_enclosure",
+        "RECEIVING_TIP_button",
+        "RECEIVING_TIP_engraving"
+      ]
+    }
+  ],
+  "limits": [
+    "Interface collisions are actual evaluated triangle-BVH overlaps; intentional joints may overlap and need contextual interpretation.",
+    "Operating boxes are conservative AABB candidate tests, not capsule or navigation acceptance.",
+    "Complete mesh containment is not detected by triangle surface intersection."
+  ]
+}
