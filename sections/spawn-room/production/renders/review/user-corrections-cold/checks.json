@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "checks": {
+    "old_room_doors_removed": true,
+    "observation_windows_removed": true,
+    "meter_removed": true,
+    "old_tv_console_removed": true,
+    "exactly_two_briefing_benches": true,
+    "four_briefing_places": true,
+    "exactly_four_suit_bays": true,
+    "two_left_two_right": true,
+    "suits_near_entrance": true,
+    "pod_center_back": true,
+    "two_changing_benches": true,
+    "airlock_wider_than_old_1_7m": true,
+    "all_contact_checks": true,
+    "shadow_jitter_enabled": true,
+    "materials_packed": true,
+    "portal_clearance_170_rays": true,
+    "no_duplicate_floor_faces": true,
+    "floor_normals_up": true,
+    "six_pod_states": true
+  },
+  "dimensions_m": {
+    "briefing_portal_clear": [
+      1.3,
+      2.2
+    ],
+    "locker_portal_clear": [
+      2.2,
+      2.2
+    ],
+    "airlock_clear": [
+      2.56,
+      2.61
+    ],
+    "pod": [
+      2,
+      2.105,
+      2.77
+    ],
+    "briefing_bench_length": 1.5,
+    "seat_height": 0.45,
+    "locker_middle_aisle": 1.847
+  }
+}

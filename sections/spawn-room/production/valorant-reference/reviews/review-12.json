@@ -1,0 +1,81 @@
+{
+  "review_id": "review-12",
+  "date": "2026-09-07",
+  "reviewer": "Luna independent visual reviewer",
+  "type": "independent image review against fixed targets",
+  "render_set": "pass-12",
+  "source_sha256": "09713430c4841f9afa5da6a5ea963c0f525d3602ef8b4c4ed5779c2cef298eaf",
+  "dimensions": {
+    "renders": {"width": 1600, "height": 900},
+    "targets": {"width": 1672, "height": 941}
+  },
+  "paths": {
+    "BRIEFING_render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-12/REFERENCE_BRIEFING.png",
+    "HALL_render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-12/REFERENCE_HALL.png",
+    "LOCKER_render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-12/REFERENCE_LOCKER.png",
+    "BRIEFING_target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/BRIEFING_reference.png",
+    "HALL_target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/HALL_reference.png",
+    "LOCKER_target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/LOCKER_reference.png",
+    "four_locker_context": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-12/DETAIL_FourLockers.png"
+  },
+  "scale": "0-100 per category; 90 means close visual correspondence. The completion gate requires every room's lighting, art_style, and layout_fidelity score to be >=90.",
+  "gate": {"status": "not_met", "all_nine_at_least_90": false},
+  "scores": {
+    "BRIEFING": {"lighting": 82, "art_style": 86, "layout_fidelity": 89},
+    "HALL": {"lighting": 82, "art_style": 87, "layout_fidelity": 85},
+    "LOCKER": {"lighting": 79, "art_style": 85, "layout_fidelity": 84}
+  },
+  "normalized_pixel_evidence": [
+    {
+      "room": "BRIEFING",
+      "regions": [
+        {"label": "ceiling", "pass_rect_px": [1100, 50, 1200, 100], "target_rect_px": [1250, 50, 1350, 100], "pass_rect_norm": [0.6875, 0.0556, 0.75, 0.1111], "target_rect_norm": [0.7476, 0.0531, 0.8074, 0.1063], "pass_rgb": [50.5, 40.9, 29.7], "target_rgb": [54.8, 43.7, 33.7], "pass_luminance": 42.1, "target_luminance": 45.3, "pass_warmth_r_minus_b": 20.8, "target_warmth_r_minus_b": 21.1, "interpretation": "ceiling level and warmth are close"},
+        {"label": "upper_wall", "pass_rect_px": [1050, 230, 1150, 300], "target_rect_px": [1250, 200, 1350, 270], "pass_rect_norm": [0.6563, 0.2556, 0.7188, 0.3333], "target_rect_norm": [0.7476, 0.2125, 0.8074, 0.287], "pass_rgb": [141.4, 120.7, 95.1], "target_rgb": [113.8, 89.8, 70.8], "pass_luminance": 123.3, "target_luminance": 93.5, "pass_warmth_r_minus_b": 46.2, "target_warmth_r_minus_b": 43.0, "interpretation": "upper plaster is about 30 luminance points too bright; reduce wall fill/exposure locally while retaining the warm bias"},
+        {"label": "lower_wall", "pass_rect_px": [1040, 510, 1140, 570], "target_rect_px": [1250, 520, 1350, 580], "pass_rect_norm": [0.65, 0.5667, 0.7125, 0.6333], "target_rect_norm": [0.7476, 0.5526, 0.8074, 0.6164], "pass_rgb": [79.0, 88.8, 75.9], "target_rgb": [62.8, 67.9, 57.8], "pass_luminance": 85.8, "target_luminance": 66.1, "pass_warmth_r_minus_b": 3.1, "target_warmth_r_minus_b": 5.0, "interpretation": "teal wainscot is also roughly 20 luminance points too bright"},
+        {"label": "timber_floor", "pass_rect_px": [1260, 760, 1360, 830], "target_rect_px": [1350, 760, 1450, 830], "pass_rect_norm": [0.7875, 0.8444, 0.85, 0.9222], "target_rect_norm": [0.8074, 0.8077, 0.8672, 0.882], "pass_rgb": [62.6, 39.1, 23.1], "target_rgb": [101.3, 62.7, 39.0], "pass_luminance": 42.9, "target_luminance": 69.2, "pass_warmth_r_minus_b": 39.5, "target_warmth_r_minus_b": 62.3, "interpretation": "floor is about 26 luminance points darker and less orange; lift the floor pool and restore warm timber response"}
+      ]
+    },
+    {
+      "room": "HALL",
+      "regions": [
+        {"label": "ceiling", "pass_rect_px": [1080, 50, 1180, 105], "target_rect_px": [1100, 50, 1200, 105], "pass_rect_norm": [0.675, 0.0556, 0.7375, 0.1167], "target_rect_norm": [0.6579, 0.0531, 0.7177, 0.1116], "pass_rgb": [57.1, 46.3, 33.7], "target_rgb": [60.3, 51.4, 40.9], "pass_luminance": 47.7, "target_luminance": 52.5, "pass_warmth_r_minus_b": 23.4, "target_warmth_r_minus_b": 19.4, "interpretation": "ceiling is slightly darker but already warmer than target; do not globally brighten"},
+        {"label": "end_wall", "pass_rect_px": [850, 350, 930, 400], "target_rect_px": [850, 350, 930, 400], "pass_rect_norm": [0.5313, 0.3889, 0.5813, 0.4444], "target_rect_norm": [0.5084, 0.372, 0.5562, 0.4251], "pass_rgb": [154.1, 137.8, 116.1], "target_rgb": [148.8, 119.9, 90.7], "pass_luminance": 139.7, "target_luminance": 123.9, "pass_warmth_r_minus_b": 38.0, "target_warmth_r_minus_b": 58.1, "interpretation": "end plaster is 16 luminance points brighter and 20 warmth points cooler"},
+        {"label": "lower_wall", "pass_rect_px": [1080, 620, 1180, 680], "target_rect_px": [1120, 620, 1220, 680], "pass_rect_norm": [0.675, 0.6889, 0.7375, 0.7556], "target_rect_norm": [0.6699, 0.659, 0.7297, 0.7226], "pass_rgb": [88.1, 99.7, 89.1], "target_rgb": [80.5, 82.7, 71.4], "pass_luminance": 96.5, "target_luminance": 81.4, "pass_warmth_r_minus_b": -1.0, "target_warmth_r_minus_b": 9.1, "interpretation": "lower teal is 15 luminance points too bright and nearly neutral instead of warm"},
+        {"label": "tile_floor", "pass_rect_px": [800, 760, 900, 830], "target_rect_px": [800, 760, 900, 830], "pass_rect_norm": [0.5, 0.8444, 0.5625, 0.9222], "target_rect_norm": [0.4785, 0.8077, 0.5383, 0.882], "pass_rgb": [154.2, 148.4, 133.6], "target_rgb": [147.2, 130.6, 112.0], "pass_luminance": 148.6, "target_luminance": 132.8, "pass_warmth_r_minus_b": 20.6, "target_warmth_r_minus_b": 35.3, "interpretation": "tile field is 16 luminance points brighter and 15 warmth points cooler"}
+      ]
+    },
+    {
+      "room": "LOCKER",
+      "regions": [
+        {"label": "ceiling", "pass_rect_px": [750, 100, 850, 150], "target_rect_px": [900, 100, 1000, 150], "pass_rect_norm": [0.4688, 0.1111, 0.5313, 0.1667], "target_rect_norm": [0.5383, 0.1063, 0.5981, 0.1594], "pass_rgb": [85.9, 70.7, 52.7], "target_rgb": [100.5, 88.9, 74.9], "pass_luminance": 72.6, "target_luminance": 90.4, "pass_warmth_r_minus_b": 33.2, "target_warmth_r_minus_b": 25.7, "interpretation": "ceiling is about 18 luminance points too dark and already warmer than target"},
+        {"label": "back_wall", "pass_rect_px": [600, 200, 700, 270], "target_rect_px": [700, 200, 800, 270], "pass_rect_norm": [0.375, 0.2222, 0.4375, 0.3], "target_rect_norm": [0.4187, 0.2125, 0.4785, 0.287], "pass_rgb": [180.8, 168.7, 154.3], "target_rgb": [130.2, 117.9, 102.2], "pass_luminance": 170.2, "target_luminance": 119.4, "pass_warmth_r_minus_b": 26.6, "target_warmth_r_minus_b": 28.0, "interpretation": "back plaster is about 51 luminance points too bright; recover ceiling without adding general wall fill"},
+        {"label": "lower_wall", "pass_rect_px": [700, 500, 800, 560], "target_rect_px": [700, 500, 800, 560], "pass_rect_norm": [0.4375, 0.5556, 0.5, 0.6222], "target_rect_norm": [0.4187, 0.5313, 0.4785, 0.5951], "pass_rgb": [74.3, 67.5, 52.3], "target_rgb": [70.4, 76.0, 70.5], "pass_luminance": 67.9, "target_luminance": 74.4, "pass_warmth_r_minus_b": 22.0, "target_warmth_r_minus_b": -0.2, "interpretation": "lower wall is slightly too dark and strongly browner than the muted teal target"},
+        {"label": "tile_floor", "pass_rect_px": [700, 800, 800, 860], "target_rect_px": [850, 800, 950, 860], "pass_rect_norm": [0.4375, 0.8889, 0.5, 0.9556], "target_rect_norm": [0.5084, 0.8502, 0.5682, 0.913], "pass_rgb": [178.8, 167.0, 147.6], "target_rgb": [168.3, 150.9, 130.7], "pass_luminance": 168.1, "target_luminance": 153.1, "pass_warmth_r_minus_b": 31.2, "target_warmth_r_minus_b": 37.6, "interpretation": "tile field is 15 luminance points too bright and slightly less warm"}
+      ]
+    }
+  ],
+  "remaining_edits": {
+    "BRIEFING": [
+      {"priority": 1, "category": "lighting", "edit": "Reduce direct/ambient contribution on the upper plaster and teal wainscot by roughly 20-30 luminance points while preserving the current ceiling warmth; add a localized warm floor pool instead of lifting the whole room."},
+      {"priority": 2, "category": "actual content/material", "edit": "Increase visible worn-but-maintained variation on the teal paint, timber floor, and bench boards; the target's chipped lower wall and orange-brown floor read more strongly than the current smooth dark surfaces."},
+      {"priority": 3, "category": "camera composition", "edit": "Open the framing slightly at the bottom/right so both benches retain their target breathing room, and keep the left discipline poster and right doorway edge legible without changing the two-bench arrangement."}
+    ],
+    "HALL": [
+      {"priority": 1, "category": "lighting", "edit": "Lower the end-wall, lower-teal, and tile values while increasing their red-minus-blue warmth (measured gaps: end wall +16 L/-20 W, lower wall +15 L/-10 W, floor +16 L/-15 W); keep the ceiling from receiving a global brightening."},
+      {"priority": 2, "category": "camera composition", "edit": "Raise and slightly re-center the right-side anchor group: the briefing sign/door top and portrait sit about 50-100 px lower than the target in the 1600x900 render, while the cart is more cropped at the bottom. Preserve the open doorway and clear passage."},
+      {"priority": 3, "category": "actual content/material", "edit": "Add the target's stronger worn edges and legible layered paper detail to the shift board and corridor props; keep the extinguisher fully visible and leave only the right-edge pipe partial."}
+    ],
+    "LOCKER": [
+      {"priority": 1, "category": "lighting", "edit": "Recover the ceiling by about 18 luminance points with a neutral/warm overhead contribution, while cutting the back-wall fill by about 50 points; use local shaping so the locker recesses remain readable without whitening the plaster."},
+      {"priority": 2, "category": "camera composition", "edit": "Reduce the pod's apparent width by about 8-10% and shift the standing point/framing so the right locker bank, laundry/peg station, and trolley remain visible around it; keep the physical four identical lockers in two banks and the entrance clear."},
+      {"priority": 3, "category": "actual content/material", "edit": "Bring the locker-room palette back toward the target's muted teal lower wall and varied small tile pattern; retain the authorized jackets/towels but improve readable folds, shelf contents, and metal edge highlights instead of adding display suits."}
+    ]
+  },
+  "limitations": [
+    "This is an image-only comparison of the three pass-12 corner renders; Blender scene verification and route/contact checks are separate.",
+    "The AI targets use different camera projections, so anchor errors are treated as composition guidance only when they affect the target's visual intent; they are not a demand to reproduce impossible projective geometry.",
+    "DETAIL_FourLockers.png was used only to confirm the physical four-body/two-bank arrangement and was not substituted for the corner-vs-target score.",
+    "Scoring preserves the user's constraints: two briefing benches, four identical lockers, clear entrances, clear pod, matte timber, small tiles, used-maintained materials, and no displayed mannequin/coverall suits. Ordinary jackets and towels remain valid belongings."
+  ]
+}
+

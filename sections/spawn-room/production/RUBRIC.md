@@ -1,6 +1,22 @@
 # Spawn Room — 100-Point Rubric
 
-## Current tactile refinement — builder review, 6 September 2026
+## Current Valorant reference review — paused 7 September 2026
+
+Latest independent Luna review: `valorant-reference/reviews/review-12.json`. Scores in lighting/art style/layout order: Briefing 82/86/89, Hall 82/87/85, Locker 79/85/84. The requested 90 in every category remains unmet. A subsequent material-only revision is saved in `spawnroom_valorant_walk.blend` and has not been rendered or rated. Work is paused at the user's request; see `valorant-reference/PAUSED_20260907.md`. Historical scores below are not acceptance of this scene.
+
+## Current inhabited-room review — 6 September 2026
+
+The current user-directed source is `spawnroom_inhabited_walk.blend`. The delivered scene replaces displayed suits with personal locker contents, adds a timber floor and woven rug to briefing, adds six sockets and the approved workplace dressing. Final verification: 17/17 objective checks, 129/129 registered contacts, 180 entrance/main-route sample rays clear, and 18 stable fresh-process renders. Greatest image mean change is 0.000738 on the 0–255 scale. Live desktop checks cover the spawn hall, briefing floor and locker contents with scene-lit Material Preview.
+
+Four iterations corrected physical support errors, stretched painted surfaces, repeating fabric interference and overly inflated jacket shapes. The new materials reuse packed CC0 timber maps and add rough fabric/paint responses. The rug and clothing remain stylized, and the glass still uses the earlier realtime clarity approximation. This is a builder's bounded visual review, not a new numerical art score or user acceptance. See `INHABITED_REVISION_20260906.md` and `renders/final/inhabited/`.
+
+## Previous screenshot correction review — 6 September 2026
+
+The current user-directed source is `spawnroom_revised_walk.blend`. This bounded correction pass has 19/19 objective checks passing, 67/67 registered support contacts passing, 170 clear doorway sample rays, six correct pod states, and 14 stable cold-start camera renders. The live floor viewport also passed after a viewpoint change with shadows enabled. Request-by-request evidence: `USER_REVISION_20260906.md`.
+
+The previous 92.5 art score did not detect the user's walking-view shadow artifacts and must not be treated as acceptance of this new pass. No new holistic numerical art score is assigned here. The requested defects are corrected; broader art acceptance remains with the user. Current known framing and glass simplifications are documented in TASK_STATE.md.
+
+## Historical tactile refinement — builder review, 6 September 2026
 
 **92.5/100 for this material/lighting revision; human art approval remains pending.** This is a judgment of the rendered evidence, not a claim of perfection. Layout 18/20, shape/style 18/20, hero clarity 14/15, materials 14/15, lighting 9.5/10, dressing 9/10, technical 10/10. Material/lighting evidence: plates 10/11/27 versus `renders/final/tactile/` and its `walk/` subdirectory. Existing room silhouettes/layout are retained; the material pass does not claim to redesign them.
 

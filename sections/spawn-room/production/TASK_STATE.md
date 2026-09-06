@@ -1,5 +1,37 @@
 # Spawn Room — Task State
 
+## Current Valorant reference iteration
+
+**Paused at the user's request on 7 September 2026.** Active output: `../blender/spawnroom_valorant_walk.blend`, SHA256 `65c8a873da943e1936cd72d2a7b847938afc056adb9cfee87f5edf407b76d2b8`. It contains pass-12 geometry and a subsequent saved MCP material-palette revision. That palette revision has not been rendered or scored. Do not overwrite this checkpoint with the full builder, which currently reproduces pass 12 only.
+
+Latest completed independent review: 12. Lighting/art/layout scores are Briefing 82/86/89, Hall 82/87/85 and Locker 79/85/84. The requested 90 in every category is not achieved. Pass-12 renders passed 17 inherited checks, 170 support contacts and 180 entrance/route rays; all nine direct user checks were last run on pass 07. Native Computer Use and Blender MCP verified pass 12 in the desktop viewport before the final palette edits. The edits were subsequently saved successfully through MCP and its claim released. No additional geometry, camera or light edits were performed after the palette save. Resume instructions and exact saved evidence: `valorant-reference/PAUSED_20260907.md`.
+
+## Current inhabited-room delivery
+
+Status: **Personal lockers and workplace dressing implemented and verified**, 2026-09-06. Current editable/walking file: `../blender/spawnroom_inhabited_walk.blend`, SHA256 `88d17ded84f51691628af1b9337f458dbe198834ee650a21b2f10858a0f3ac47`. This is a separate output from the preserved corrected base. Latest direct user direction is in `INHABITED_REVISION_20260906.md` and removes displayed suits in favour of hangers, shoes and personal belongings.
+
+Implemented: four dressed personal lockers, twelve hangers, retained boots, short jackets, folded cotton, bags, thermoses and photograph; staggered timber briefing floor, bound/frayed woven rug, timber benches, six sockets, whiteboard/speaker/cables, remote and booklet; hall clock, notice, jacket, lunch bag, mop/bucket and dated repair; laundry/towel and supply-shelf clusters; pod inspection/service details; integrated airlock pressure gauge and guarded amber lamp.
+
+All 17 objective checks pass in a fresh process, all 129 registered support contacts pass, 170 entrance rays and ten main-route rays are clear. All 18 review images were repeated after reopening; maximum pixel difference is one 8-bit level, greatest image mean difference 0.000738. Final unchanged evidence: `renders/final/inhabited/`. Four build/review iterations corrected contact gaps, stretched metal shading, fabric moire and inflated clothing forms. All used image dependencies remain packed. Prior corrected and user-edited worn sources retain their pre-task hashes.
+
+The new source is open in the existing desktop Blender instance, PID 3036, and responded to API inspections and live viewport changes at Spawn, the briefing floor and personal lockers. Scene-lit Material Preview displays the timber, carpet and concrete without the old shadow stripes. The file load succeeded; the bridge reported a stale Camera RNA error after loading, then a fresh instance/session read confirmed the new file and responsive viewport. The file is saved; only review viewpoint changes are temporary.
+
+The previous open entrance/airlock/TV/pod corrections remain. Clock and amber-lamp keyframes are Blender animation; ambient sound and engine gameplay are not implemented. This is editable art, not an optimized game export. No renewed human art acceptance or permanent crash-free guarantee is claimed.
+
+## Previous screenshot-correction delivery
+
+Status: **User screenshot corrections implemented and verified**, 2026-09-06. Current editable/walking file: `../blender/spawnroom_revised_walk.blend`. It has been opened in the existing desktop Blender window and remains responsive. The floor was inspected again in the live viewport after moving the viewpoint; no stripe artifact was visible with shadows enabled.
+
+Latest requested direction is recorded in `USER_REVISION_20260906.md` and supersedes the older meter, observation-window, personnel-door, briefing-chair/console and central-room opaque chamber requirements below. Both room entrances now have clean open reveals. The locker doorway is widened to 2.2m to reduce occlusion of the forward suit bays. The operations airlock is 2.56m clear width. Briefing has one slim TV and exactly two two-person benches. Four suit stations move toward the entry; two changing benches flank the aisle; the glass/metal pod is centered at x=6.82, y=4 toward the back.
+
+Review trail: `renders/review/user-corrections-01`, `-02`, `-03`, and `user-corrections-cold`. Pass 01 exposed dark pod glass and excessive entry occlusion; pass 02 exposed transparency dither and faceted ring highlights; pass 03 fixes those and adds targeted floor/frame views. Final evidence: `renders/final/user-corrections/`. All 19 objective checks pass, all 67 support contacts pass, and 170 doorway rays are clear. Floor top normals and duplicate-face checks pass. Six pod readout/door states pass. Fourteen cold renders differ by at most one 8-bit channel level, greatest per-image mean 0.000344. Source SHA256: `f4efd7d19f277edef8a2ff59e0457f000a46639c8b287bf8c036c5958dc7208d`.
+
+The striped artifact was diagnosed by disabling shadow maps temporarily, then restoring them with jitter and filtering. Texture maps and bump relief were retained. Startup still uses Material Preview, scene lights/world, and a free perspective at spawn. The open file does not require startup Python. Its current source was saved by the background builder; live verification changed only the temporary viewport. The user's prior desktop states are preserved in two separate checkpoints. Original tactile sources and the pre-existing local `spawnroom_worn.blend` edit remain preserved. No global skill install or computer input automation was needed.
+
+Remaining limits: the narrow fixed doorway camera does not contain all four forward suits simultaneously; side/reverse views and object checks cover both pairs. The pod's blended glass is deliberately simplified for realtime clarity. This task validates the requested corrections; prior holistic art scores are not renewed human acceptance. No engine gameplay implementation or permanent crash-free guarantee is claimed.
+
+## Historical tactile delivery
+
 Status: **Tactile material/lighting revision verified and packaged**, 2026-09-06. Current files are `../blender/spawnroom_tactile.blend` and `../blender/spawnroom_tactile_walk.blend`. The latter opens with scene-lit Material Preview at spawn eye height. User art acceptance remains pending; the earlier worn pass below was rejected as too flat.
 
 Latest main `97bb68c` fetched and merged. New authoring still starts from an empty factory scene. Four CC0 Poly Haven sets (12 new maps) supply worn concrete, trowelled painted plaster, timber and threshold tread. Different material families now have distinct reflection/roughness response. Selected sheet panels have bounded 4mm deflection. Practical lights create pools, darker recesses and a clearer operational threshold. Current renders: `renders/final/tactile/`; the `walk/` subdirectory holds EEVEE evidence.

@@ -1,0 +1,136 @@
+{
+  "review_id": "review-03",
+  "review_type": "pass_03_render_vs_target_review",
+  "review_date": "2026-09-06",
+  "reviewer": "Codex independent visual reviewer",
+  "render_set": "pass-03",
+  "images": {
+    "BRIEFING": {
+      "render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-03/REFERENCE_BRIEFING.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/BRIEFING_reference.png"
+    },
+    "HALL": {
+      "render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-03/REFERENCE_HALL.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/HALL_reference.png"
+    },
+    "LOCKER": {
+      "render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-03/REFERENCE_LOCKER.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/LOCKER_reference.png"
+    }
+  },
+  "scoring_scale": "0-100 per category; 90 means genuinely close visual correspondence. Scores are independent for this pass and do not inherit prior values.",
+  "pass_gate": {
+    "required": "Every room must score at least 90 in lighting, art_style and layout_fidelity after iteration.",
+    "status": "not_met",
+    "reason": "Briefing is compositionally close but still materially and tonally behind the target; Hall retains poster/equipment crop defects; Locker remains dark and foreground-dominated."
+  },
+  "scores": {
+    "BRIEFING": {
+      "lighting": 85,
+      "art_style": 84,
+      "layout_fidelity": 87,
+      "overall_read": "The room now has a broad, legible composition with TV, boards, two benches, console and open entrance. Warmth is improved, but the target has richer plaster/wainscot wear, more balanced amber fill and less regular plant foliage; the left console and right plant still differ in scale and dressing."
+    },
+    "HALL": {
+      "lighting": 79,
+      "art_style": 79,
+      "layout_fidelity": 80,
+      "overall_read": "The corridor axis and major openings read, with more target equipment visible. The left poster headline is still cropped high, the right extinguisher is oversized and cut at the bottom, the pipe is clipped, and the render's props/materials remain simpler than the target."
+    },
+    "LOCKER": {
+      "lighting": 80,
+      "art_style": 81,
+      "layout_fidelity": 84,
+      "overall_read": "The pod, two benches, small tile floor, portal and locker banks are present and constraints remain legible. The large foreground locker and pod still crowd the frame, the scene is darker than the target, and the four identical entry lockers are not immediately countable."
+    }
+  },
+  "prioritized_edits": {
+    "BRIEFING": [
+      {
+        "priority": 1,
+        "category": "lighting",
+        "edit": "Raise warm ambient fill on the left console and lower wall while retaining fixture pools and bench contact shadows; the current ceiling/plant corners fall darker than the target's readable amber room."
+      },
+      {
+        "priority": 2,
+        "category": "layout_fidelity",
+        "edit": "Nudge the render framing only enough to show the full console footprint and keep a little more breathing room around the right plant/portal; keep TV, wall openings, architecture and exactly two benches fixed."
+      },
+      {
+        "priority": 3,
+        "category": "art_style",
+        "edit": "Replace the right plant's repeated edge-on leaves with fuller varied foliage and a narrower, more natural silhouette so it does not hide the safety notes or read as a regular graphic pattern."
+      },
+      {
+        "priority": 4,
+        "category": "art_style",
+        "edit": "Push target-level surface variation into plaster, teal wainscot, console cabinetry, timber and rug: matte roughness, restrained scuffs, edge wear and less uniform color, especially on the new console and books/cups."
+      },
+      {
+        "priority": 5,
+        "category": "art_style",
+        "edit": "Match the target's wall information density with a clean map/safety/pinned-note cluster and far-left discipline graphic; keep any clothing out of the room if the no-suits constraint is interpreted strictly."
+      }
+    ],
+    "HALL": [
+      {
+        "priority": 1,
+        "category": "layout_fidelity",
+        "edit": "Lower/reframe the left poster within the existing wall so its headline is fully inside the image, and widen the right edge enough to include the complete fire extinguisher and vertical pipe without moving corridor architecture."
+      },
+      {
+        "priority": 2,
+        "category": "lighting",
+        "edit": "Lift the dark ceiling and end-door midtones while keeping warm practical pools; the target retains more readable plaster and tile detail across the full corridor."
+      },
+      {
+        "priority": 3,
+        "category": "art_style",
+        "edit": "Correct the poster typography scale/placement so the large headline is not cropped or crowded, and keep the graphic hierarchy as clean as the target."
+      },
+      {
+        "priority": 4,
+        "category": "art_style",
+        "edit": "Rotate or vary plant leaves so foliage presents broad faces toward the camera rather than thin edge-on slivers; use fuller natural clusters without blocking the route."
+      },
+      {
+        "priority": 5,
+        "category": "art_style",
+        "edit": "Refine the cart, poster board, first-aid case and extinguisher with target-level roughness, labels and edge wear; their current surfaces still read as plain clean blocks beside the worn plaster/tile shell."
+      }
+    ],
+    "LOCKER": [
+      {
+        "priority": 1,
+        "category": "layout_fidelity",
+        "edit": "Reduce foreground locker and pod dominance with a slightly wider lens or crop while retaining the complete portal, both benches and the physical locker banks; do not move architecture or the pod."
+      },
+      {
+        "priority": 2,
+        "category": "layout_fidelity",
+        "edit": "Make the four identical locker bodies near the entry immediately countable as two matching banks through consistent front widths, vents, handles and labels. Preserve exactly two benches, the pod position and clear circulation."
+      },
+      {
+        "priority": 3,
+        "category": "lighting",
+        "edit": "Add warm fill to the foreground locker faces and pod recesses; keep the amber ceiling pools and contact shadows but recover the target's visible tile, locker and storage detail from near-black."
+      },
+      {
+        "priority": 4,
+        "category": "art_style",
+        "edit": "Replace the large foreground plant's repeated edge-on leaves with fuller varied foliage, and tune shelf/planter/laundry dressing toward the target's natural, maintained locker-room density without adding suits."
+      },
+      {
+        "priority": 5,
+        "category": "art_style",
+        "edit": "Add matte roughness and restrained wear to small bathroom tiles, locker paint, benches, towels, shelves and labels; reduce the current near-white floor and generic prop read while keeping the room maintained."
+      }
+    ]
+  },
+  "limitations": [
+    "This review compares still renders with target stills whose camera, lens and crop are not numerically calibrated; framing is included in layout fidelity, while recommendations keep architecture fixed.",
+    "The target images are ChatGPT-generated. Text, exact poster graphics, portraits and incidental props are style/dressing cues rather than literal geometry requirements.",
+    "User constraints outrank accidental target details: preserve four identical lockers near entry in two physical banks, no suits, exactly two briefing benches, a clear pod, open room entrances, matte timber, small bathroom tiles and used-but-maintained materials.",
+    "Pass-03 was judged from the three REFERENCE_*.png renders only; no scene script, geometry, contact-check output or passage-ray output was used to increase visual scores."
+  ]
+}

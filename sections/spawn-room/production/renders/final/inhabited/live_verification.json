@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "date": "2026-09-06",
+  "instance_id": "3c8fe890-cac1-499f-bd3c-b519773e9c1d",
+  "file_session_id": "2f68efbe-de51-4215-bdf0-bc98a59ded5e",
+  "pid": 3036,
+  "windows_session_id": 1,
+  "file": "spawnroom_inhabited_walk.blend",
+  "source_sha256": "88d17ded84f51691628af1b9337f458dbe198834ee650a21b2f10858a0f3ac47",
+  "object_count": 1684,
+  "displayed_suits": 0,
+  "wall_sockets": 6,
+  "viewport_checks": ["Spawn hallway", "Briefing wood floor and carpet", "Personal locker contents"],
+  "shading": "MATERIAL",
+  "scene_lights": true,
+  "scene_world": true,
+  "process_responding_after_inspections": true,
+  "handoff_view": "VALIDATE_Spawn free perspective",
+  "frame": 1,
+  "claim_released": true,
+  "saved_source_preserved": true,
+  "note": "The file-open operation triggered a stale Camera RNA bridge error after loading. A fresh file-session claim and subsequent object/viewport reads confirmed successful loading. Temporary review viewpoint changes were not saved over the delivered source."
+}

@@ -1,0 +1,119 @@
+{
+  "review_id": "review-00",
+  "review_type": "before_vs_target_corner_review",
+  "review_date": "2026-09-06",
+  "reviewer": "Codex independent visual reviewer",
+  "scope": [
+    "BRIEFING",
+    "HALL"
+  ],
+  "images": {
+    "BRIEFING": {
+      "before": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/before/BRIEFING_corner.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/BRIEFING_reference.png"
+    },
+    "HALL": {
+      "before": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/before/HALL_corner.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/HALL_reference.png"
+    },
+    "LOCKER": {
+      "before": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/before/LOCKER_corner.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/LOCKER_reference.png"
+    }
+  },
+  "scoring_scale": "0-100 per category; 90 means genuinely close visual correspondence, not merely recognizable subject matter.",
+  "scores": {
+    "BRIEFING": {
+      "lighting": 61,
+      "art_style": 73,
+      "layout_fidelity": 82,
+      "overall_read": "Main anchors are present and legible: TV on the left wall, briefing boards on the rear/right wall, two benches on the rug, timber floor, teal wainscot, and an open entrance. The current image is substantially cooler, darker, and less dressed than the target."
+    },
+    "HALL": {
+      "lighting": 54,
+      "art_style": 68,
+      "layout_fidelity": 79,
+      "overall_read": "The corridor shell and major openings align with the target, including the long axis, end door, right-side briefing opening, ceiling service run, and right wall pipe. The current view is sparse and clean compared with the target's warm, maintained, operational hallway."
+    },
+    "LOCKER": {
+      "lighting": 62,
+      "art_style": 70,
+      "layout_fidelity": 84,
+      "overall_read": "The pod, two benches, floor, teal lower wall, and clear portal are already strong structural matches. The current capture is cooler and much sparser, while the target adds locker-room dressing and uses a camera/locker arrangement that should not override the required four identical locker bodies near the entry."
+    }
+  },
+  "prioritized_edits": {
+    "BRIEFING": [
+      {
+        "priority": 1,
+        "edit": "Rebalance lighting toward the target's warm amber fluorescent look: lift the room's ambient fill, keep readable corner shadows, and add gentle wall grazing so the plaster and teal wainscot read at the same exposure as the target."
+      },
+      {
+        "priority": 2,
+        "edit": "Add the left refreshment/work console language visible in the target (matte timber top, kettle or thermos, mugs, stacked operations books, notepad and small waste basket) while keeping the two briefing benches and entrance clear."
+      },
+      {
+        "priority": 3,
+        "edit": "Dress the right wall around the whiteboard and crew image with a compact safety notice, map/plan sheet, pinned notes and a floor plant, matching the target's information density without changing the room's openings."
+      },
+      {
+        "priority": 4,
+        "edit": "Tune materials to the target's matte, used-but-maintained finish: warmer faded timber floor and benches, lightly uneven plaster, scuffed teal wainscot, and a less uniformly dark rug; avoid glossy or overly clean surfaces."
+      },
+      {
+        "priority": 5,
+        "edit": "Match the target camera read more closely by lowering the viewpoint and widening/pulling back enough to preserve the TV-to-bench proportions, show more of the left console and right plant, and keep the entrance visibly open."
+      }
+    ],
+    "HALL": [
+      {
+        "priority": 1,
+        "edit": "Shift the corridor lighting from cool gray to the target's warm amber practicals, with even pools down the hall and a modest warm bounce on the plaster and teal wainscot."
+      },
+      {
+        "priority": 2,
+        "edit": "Populate the left wall with the target's operational graphic poster and shift-update board, and add the right-side portrait, first-aid cabinet, fire extinguisher and small safety placard as readable wall anchors."
+      },
+      {
+        "priority": 3,
+        "edit": "Add controlled lived-in support props: a compact utility cart in the left foreground, a small bench/coat-hook zone near the briefing entrance, and potted plants near the end door; maintain clear walking space and open room entrances."
+      },
+      {
+        "priority": 4,
+        "edit": "Bring the material treatment toward the target: pale worn concrete/stone floor tiles with restrained variation, matte aged plaster, and teal paint with mild scuffing; reduce the current sterile, high-contrast gray read."
+      },
+      {
+        "priority": 5,
+        "edit": "Reframe from the current wall-hugging view toward the target's centered corridor perspective, keeping the end door, right briefing opening, ceiling duct, and right pipe in matching relative positions."
+      }
+    ],
+    "LOCKER": [
+      {
+        "priority": 1,
+        "edit": "Shift the practicals from cool gray to the target's warm maintained fluorescent look, lift ambient fill on locker faces and the back wall, and retain controlled contrast around the pod."
+      },
+      {
+        "priority": 2,
+        "edit": "Build or preserve four identical locker bodies near the entry with consistent dark teal proportions, vents, handles and labels. Treat the target's invented locker arrangement and camera shift as optional reference cues; keep the required pod position, two benches and clear portal."
+      },
+      {
+        "priority": 3,
+        "edit": "Replace the current large slab floor read with small matte bathroom-style tiles and restrained tonal variation, keeping grout and wear believable rather than glossy or overly patterned."
+      },
+      {
+        "priority": 4,
+        "edit": "Add restrained locker-room dressing from the target—towels, labels, open storage, pegboard/shelf gear, a plant and laundry cart—while keeping the room maintained and adding no suits."
+      },
+      {
+        "priority": 5,
+        "edit": "Tune the camera to show the pod as a clear right-side anchor while retaining both benches, the entry locker group and an unobstructed portal; avoid letting the foreground locker or pod erase the room's usable circulation."
+      }
+    ]
+  },
+  "limitations": [
+    "This is a still-image corner comparison; camera position, lens, crop and render exposure are not calibrated between before and target, so composition scores include a camera uncertainty component.",
+    "The target images are ChatGPT-generated references. Text, exact poster graphics, portrait details and incidental prop architecture are treated as style/dressing cues, not literal geometry requirements.",
+    "User constraints take precedence over accidental target details: preserve four identical lockers when reviewing the locker room, do not add suits, keep exactly two briefing benches, keep room entrances open, use a clear pod, and favor matte timber, small bathroom tiles, and used-but-maintained materials.",
+    "The LOCKER target became available after the initial BRIEFING/HALL pass and was reviewed in the same review-00 update. The target introduces camera and locker arrangement changes, so those were treated as lower priority than the explicit four-identical-locker, pod, bench and clear-portal constraints."
+  ]
+}

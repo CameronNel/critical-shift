@@ -1,0 +1,21 @@
+# Valorant reference revision — paused by user
+
+Editable output: `../blender/spawnroom_valorant_walk.blend`. It derives from the live scene checkpoint `checkpoints/before_valorant_reference_20260906.blend`. The earlier inhabited source and the user's unrelated worn-file changes remain preserved.
+
+The user requested original corner screenshots in chat before editing, ChatGPT browser-generated Valorant references, Blender MCP, native Computer Use and an independent Luna review loop. The three original viewport captures and all three generated targets were posted in the task. Provenance, browser conversation links and immutable targets are in `valorant-reference/README.md`.
+
+Implemented so far: matte timber (0.90–0.98 roughness, zero coat), 10 cm porcelain locker-room tiles with real joints, four identical metal cabinet shells, matching door construction, a modern flush staff-access door, potted and trailing plants, a dark steel refreshment sideboard, manuals and mugs, shift/culture/safety boards, first aid, extinguisher, storage trolley, laundry station, pegboard, duffel and towels. Wall wear retains the original packed CC0 plaster maps. All room entrances and earlier TV/bench/glass-pod corrections are retained.
+
+`valorant_polish.py` builds through pass 12 from the checkpoint. The `valorant_*.py` correction modules are included by the full builder; incremental launch scripts consume the immediately preceding saved pass. The current canonical file additionally contains a live MCP material revision, saved after pass 12. Its reusable materials are in `../blender/valorant_room_palette.blend`, with validated patches in `valorant-reference/room_palette_mcp_patches.json`. That final material stage is not yet integrated into the full builder. Resume from the saved canonical file. Review directories retain unretouched Blender renders, checks, provenance and available source snapshots.
+
+## Current review status
+
+The latest completed independent review is `valorant-reference/reviews/review-12.*`: Briefing 82/86/89, Hall 82/87/85, Locker 79/85/84 (lighting/art style/layout). The required 90 in every category has **not yet been achieved**. Pass 12 rendered all three rooms plus the four-locker detail and passed all 17 inherited checks, 170 support contacts and 180 doorway/route rays. All nine direct user-constraint checks were last run on pass 07. The latest saved palette has structured MCP readback verification, but no new render or art score. Work stopped at the user's request before further lighting, geometry or camera edits. See `valorant-reference/PAUSED_20260907.md`.
+
+The pass-12 desktop session was preserved in `checkpoints/desktop_before_pass12_20260907.blend`; the audit against its pass-07 source found no object or material changes. Pass 12 then loaded successfully and displayed through native Computer Use. The canonical file was saved again after the palette edits. Current SHA256: `65c8a873da943e1936cd72d2a7b847938afc056adb9cfee87f5edf407b76d2b8`.
+
+## Desktop recovery observation
+
+On 6 September, native Computer Use found the prior Blender window unable to activate. The visible AMD Bug Report Tool explicitly reported a graphics-driver timeout. No report was submitted. The original live scene was already preserved before the reference file was opened; the edited output is saved independently. Two background probe-cache refresh attempts stopped making CPU/GPU progress and were canceled. Working passes retain the previous architectural light-volume cache with adjusted practical and reflected-fill lights. No fresh probe bake or permanent crash-free guarantee is claimed.
+
+The pass-07 source opens in a fresh background process and passes structural checks. All three room views plus the locker aisle rendered successfully. Native Computer Use then launched a fresh visible Blender process (PID 75876), and Blender MCP loaded the canonical file. A fresh instance/session inspection verified the file path and responsive state. Native F3 → Walk Navigation → Return entered the walking mode successfully; Esc exited it. Control was released. This is observed recovery, not a permanent crash-free guarantee. A prior command-line launch requesting OpenGL did not remain running, so no particular backend is claimed for the successful native launch. Avoid concurrent GPU bakes during desktop review.

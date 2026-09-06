@@ -1,0 +1,258 @@
+[
+  {
+    "schema": "blender-node-tree-patch/1",
+    "tree_ref": {
+      "tree_type": "ShaderNodeTree",
+      "owner": {
+        "kind": "MATERIAL",
+        "name": "V13_BRIEFING_wall"
+      }
+    },
+    "base_revision": "sha256:b9b8ad830c15e0623081ee7239a2eea361b62593fce8409c181b8d99f3119469",
+    "operations": [
+      {
+        "op": "set_socket_default",
+        "node": "Reference palette balance",
+        "socket": "input:2:Color2",
+        "value": [
+          0.522,
+          0.534,
+          0.552,
+          1
+        ]
+      }
+    ],
+    "capabilities": [
+      "graph"
+    ]
+  },
+  {
+    "schema": "blender-node-tree-patch/1",
+    "tree_ref": {
+      "tree_type": "ShaderNodeTree",
+      "owner": {
+        "kind": "MATERIAL",
+        "name": "V13_BRIEFING_dado"
+      }
+    },
+    "base_revision": "sha256:c7aeaee8e4224af16d38912ef483fe7816cc21e486b3d32c793e0d682a967aae",
+    "capabilities": [
+      "graph"
+    ],
+    "operations": [
+      {
+        "op": "set_socket_default",
+        "node": "Reference palette balance",
+        "socket": "input:2:Color2",
+        "value": [
+          0.588,
+          0.665,
+          0.798,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "schema": "blender-node-tree-patch/1",
+    "tree_ref": {
+      "tree_type": "ShaderNodeTree",
+      "owner": {
+        "kind": "MATERIAL",
+        "name": "V13_HALL_wall"
+      }
+    },
+    "base_revision": "sha256:b9b8ad830c15e0623081ee7239a2eea361b62593fce8409c181b8d99f3119469",
+    "capabilities": [
+      "graph"
+    ],
+    "operations": [
+      {
+        "op": "set_socket_default",
+        "node": "Reference palette balance",
+        "socket": "input:2:Color2",
+        "value": [
+          0.8265,
+          0.801,
+          0.7728,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "schema": "blender-node-tree-patch/1",
+    "tree_ref": {
+      "tree_type": "ShaderNodeTree",
+      "owner": {
+        "kind": "MATERIAL",
+        "name": "V13_HALL_dado"
+      }
+    },
+    "base_revision": "sha256:c7aeaee8e4224af16d38912ef483fe7816cc21e486b3d32c793e0d682a967aae",
+    "capabilities": [
+      "graph"
+    ],
+    "operations": [
+      {
+        "op": "set_socket_default",
+        "node": "Reference palette balance",
+        "socket": "input:2:Color2",
+        "value": [
+          0.7308,
+          0.76,
+          0.8208,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "schema": "blender-node-tree-patch/1",
+    "tree_ref": {
+      "tree_type": "ShaderNodeTree",
+      "owner": {
+        "kind": "MATERIAL",
+        "name": "V13_LOCKER_wall"
+      }
+    },
+    "base_revision": "sha256:b9b8ad830c15e0623081ee7239a2eea361b62593fce8409c181b8d99f3119469",
+    "capabilities": [
+      "graph"
+    ],
+    "operations": [
+      {
+        "op": "set_socket_default",
+        "node": "Reference palette balance",
+        "socket": "input:2:Color2",
+        "value": [
+          0.4,
+          0.409,
+          0.423,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "schema": "blender-node-tree-patch/1",
+    "tree_ref": {
+      "tree_type": "ShaderNodeTree",
+      "owner": {
+        "kind": "MATERIAL",
+        "name": "V13_LOCKER_dado"
+      }
+    },
+    "base_revision": "sha256:c7aeaee8e4224af16d38912ef483fe7816cc21e486b3d32c793e0d682a967aae",
+    "capabilities": [
+      "graph"
+    ],
+    "operations": [
+      {
+        "op": "set_socket_default",
+        "node": "Reference palette balance",
+        "socket": "input:2:Color2",
+        "value": [
+          0.79,
+          0.97,
+          1.2,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "schema": "blender-node-tree-patch/1",
+    "tree_ref": {
+      "tree_type": "ShaderNodeTree",
+      "owner": {
+        "kind": "MATERIAL",
+        "name": "V13_LOCKER_V_ceiling_mineral"
+      }
+    },
+    "base_revision": "sha256:d3e332d0386787dd95d3928f05593d1c9d267bf343b8b828113a80b0a812c96f",
+    "capabilities": [
+      "graph"
+    ],
+    "operations": [
+      {
+        "op": "set_socket_default",
+        "node": "Reference palette balance",
+        "socket": "input:2:Color2",
+        "value": [
+          0.93,
+          0.9455,
+          0.9765,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "schema": "blender-node-tree-patch/1",
+    "tree_ref": {
+      "tree_type": "ShaderNodeTree",
+      "owner": {
+        "kind": "MATERIAL",
+        "name": "V_pod_satin_metal"
+      }
+    },
+    "base_revision": "sha256:d8998ca7f0eed796901e992174e9483e751a4b11cd49488b5663cef1ae1f3b3f",
+    "capabilities": [
+      "graph"
+    ],
+    "operations": [
+      {
+        "op": "set_socket_default",
+        "node": "Map Range",
+        "socket": "input:3:To Min",
+        "value": 0.36
+      },
+      {
+        "op": "set_socket_default",
+        "node": "Map Range",
+        "socket": "input:4:To Max",
+        "value": 0.5
+      },
+      {
+        "op": "set_socket_default",
+        "node": "Principled BSDF",
+        "socket": "input:1:Metallic",
+        "value": 0.78
+      }
+    ]
+  },
+  {
+    "schema": "blender-node-tree-patch/1",
+    "tree_ref": {
+      "tree_type": "ShaderNodeTree",
+      "owner": {
+        "kind": "MATERIAL",
+        "name": "pod_optical_glass"
+      }
+    },
+    "base_revision": "sha256:5afad2f46f64b4ec237f67f6e69d852c8ef1cbe3169c38afe22f409549ba988b",
+    "capabilities": [
+      "graph"
+    ],
+    "operations": [
+      {
+        "op": "set_socket_default",
+        "node": "Mix Shader",
+        "socket": "input:0:Fac",
+        "value": 0.16
+      },
+      {
+        "op": "set_socket_default",
+        "node": "Principled BSDF",
+        "socket": "input:0:Base Color",
+        "value": [
+          0.82,
+          0.93,
+          0.98,
+          1
+        ]
+      }
+    ]
+  }
+]

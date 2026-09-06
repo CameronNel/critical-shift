@@ -1,5 +1,7 @@
 # Critical Shift — Spawn Room Scenery Specification
 
+> **Latest user override, 6 September 2026:** [INHABITED_REVISION_20260906.md](../production/INHABITED_REVISION_20260906.md) removes displayed suits and turns the forward bays into personal lockers containing hangers, shoes and belongings. Briefing has worn wooden flooring, a woven carpet and two two-person benches. Both rooms and the hall have wall sockets and used workplace dressing. The earlier [USER_REVISION_20260906.md](../production/USER_REVISION_20260906.md) corrections remain: open room entrances without doors or observation windows, a large metal operations airlock without the Geiger counter, a slim large TV, changing benches and a clear glass/metal pod centered toward the back. These direct requests take precedence over conflicting legacy descriptions below.
+
 <!-- ART_DIRECTION_RESET_2026_09 -->
 > [!IMPORTANT]
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.

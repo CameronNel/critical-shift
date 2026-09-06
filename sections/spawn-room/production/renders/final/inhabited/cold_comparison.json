@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "images": [
+    {
+      "camera": "DETAIL_BriefingFloor",
+      "mean_8bit_difference": 0.00046301019028760493,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "DETAIL_HallLife",
+      "mean_8bit_difference": 0.0001428571413271129,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "DETAIL_LockerLife",
+      "mean_8bit_difference": 0.000737670052330941,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "DETAIL_LockerSupplies",
+      "mean_8bit_difference": 7.397959416266531e-05,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "USER_BriefingFrame",
+      "mean_8bit_difference": 5.1870749302906916e-05,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "USER_Floor",
+      "mean_8bit_difference": 1.9982993762823753e-05,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "USER_LockerEntry",
+      "mean_8bit_difference": 0.0005391156300902367,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_BriefingDoor",
+      "mean_8bit_difference": 0.00016539116040803492,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_ExitReverse",
+      "mean_8bit_difference": 0.0005161564913578331,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_HallForward",
+      "mean_8bit_difference": 9.09863956621848e-05,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Hero_A",
+      "mean_8bit_difference": 0.0003252550959587097,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_LockerDoor",
+      "mean_8bit_difference": 0.000582057808060199,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_LockerReverse",
+      "mean_8bit_difference": 0.00023937075457070023,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Material_A",
+      "mean_8bit_difference": 0.0004944727988913655,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Spawn",
+      "mean_8bit_difference": 0.0004034863959532231,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Walk_A",
+      "mean_8bit_difference": 0.00011777210602303967,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Walk_B",
+      "mean_8bit_difference": 0.00030952380620874465,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Walk_C",
+      "mean_8bit_difference": 0.0002767857222352177,
+      "maximum_8bit_difference": 1.0
+    }
+  ],
+  "contact_checks": 129,
+  "objective_checks": 17,
+  "source_sha256": "88d17ded84f51691628af1b9337f458dbe198834ee650a21b2f10858a0f3ac47"
+}

@@ -1,0 +1,3082 @@
+{
+  "status": "PASS",
+  "objects_checked": 129,
+  "failures": [],
+  "objects": [
+    {
+      "object": "AIRLOCK",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:AIRLOCK_contact_00",
+          "point_world": [
+            -1.2,
+            9.315001,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000238,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:AIRLOCK_contact_01",
+          "point_world": [
+            1.2,
+            9.315001,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000127,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_01_door_L_sheet_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_01_door_L_sheet_rubbed_paint_contact_00",
+          "point_world": [
+            2.451426,
+            6.550788,
+            0.609611
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_01_door_R_sheet_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_01_door_R_sheet_rubbed_paint_contact_00",
+          "point_world": [
+            3.582276,
+            6.469651,
+            0.399938
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_01_fold_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_01_fold_0_contact_00",
+          "point_world": [
+            3.25,
+            7.014,
+            0.625
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_01_fold_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_01_fold_1_contact_00",
+          "point_world": [
+            3.25,
+            7.014,
+            0.681
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.001,
+          "normal_alignment": 0.992612
+        }
+      ]
+    },
+    {
+      "object": "BELONG_01_hanger_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_01_hanger_0_contact_00",
+          "point_world": [
+            2.77,
+            7.148,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991448
+        }
+      ]
+    },
+    {
+      "object": "BELONG_01_hanger_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_01_hanger_1_contact_00",
+          "point_world": [
+            3.02,
+            7.148,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991448
+        }
+      ]
+    },
+    {
+      "object": "BELONG_01_hanger_2",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_01_hanger_2_contact_00",
+          "point_world": [
+            3.24,
+            7.148,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991448
+        }
+      ]
+    },
+    {
+      "object": "BELONG_01_thermos",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_01_thermos_contact_00",
+          "point_world": [
+            3.34,
+            7.013,
+            2.049
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_02_bag",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_02_bag_contact_00",
+          "point_world": [
+            4.36,
+            6.998,
+            0.629
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.004,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_02_crew_photo",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_02_crew_photo_contact_00",
+          "point_world": [
+            4.81,
+            7.272,
+            1.39
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_02_door_L_sheet_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_02_door_L_sheet_rubbed_paint_contact_00",
+          "point_world": [
+            4.110351,
+            6.621883,
+            0.525002
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_02_door_R_sheet_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_02_door_R_sheet_rubbed_paint_contact_00",
+          "point_world": [
+            5.079858,
+            6.532381,
+            0.387597
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_02_fold_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_02_fold_0_contact_00",
+          "point_world": [
+            4.75,
+            7.014,
+            0.625
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_02_hanger_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_02_hanger_0_contact_00",
+          "point_world": [
+            4.27,
+            7.148,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991448
+        }
+      ]
+    },
+    {
+      "object": "BELONG_02_hanger_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_02_hanger_1_contact_00",
+          "point_world": [
+            4.52,
+            7.148,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991448
+        }
+      ]
+    },
+    {
+      "object": "BELONG_02_hanger_2",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_02_hanger_2_contact_00",
+          "point_world": [
+            4.74,
+            7.148,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991448
+        }
+      ]
+    },
+    {
+      "object": "BELONG_03_door_L_sheet_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_03_door_L_sheet_rubbed_paint_contact_00",
+          "point_world": [
+            3.540146,
+            1.484503,
+            0.408197
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_03_door_R_sheet_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_03_door_R_sheet_rubbed_paint_contact_00",
+          "point_world": [
+            2.830688,
+            1.458313,
+            0.47413
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_03_fold_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_03_fold_0_contact_00",
+          "point_world": [
+            2.75,
+            0.986,
+            0.625
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_03_hanger_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_03_hanger_0_contact_00",
+          "point_world": [
+            3.23,
+            0.852,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991446
+        }
+      ]
+    },
+    {
+      "object": "BELONG_03_hanger_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_03_hanger_1_contact_00",
+          "point_world": [
+            2.98,
+            0.852,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991446
+        }
+      ]
+    },
+    {
+      "object": "BELONG_03_hanger_2",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_03_hanger_2_contact_00",
+          "point_world": [
+            2.76,
+            0.852,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991446
+        }
+      ]
+    },
+    {
+      "object": "BELONG_03_thermos",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_03_thermos_contact_00",
+          "point_world": [
+            2.66,
+            0.987,
+            2.049
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_04_bag",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_04_bag_contact_00",
+          "point_world": [
+            4.64,
+            1.002,
+            0.629
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.004,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_04_door_L_sheet_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_04_door_L_sheet_rubbed_paint_contact_00",
+          "point_world": [
+            5.054227,
+            1.42567,
+            0.612113
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_04_door_R_sheet_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_04_door_R_sheet_rubbed_paint_contact_00",
+          "point_world": [
+            3.95842,
+            1.500899,
+            0.496265
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_04_fold_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_04_fold_0_contact_00",
+          "point_world": [
+            4.25,
+            0.986,
+            0.625
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BELONG_04_fold_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_04_fold_1_contact_00",
+          "point_world": [
+            4.25,
+            0.986,
+            0.681
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.001,
+          "normal_alignment": 0.99261
+        }
+      ]
+    },
+    {
+      "object": "BELONG_04_hanger_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_04_hanger_0_contact_00",
+          "point_world": [
+            4.73,
+            0.852,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991446
+        }
+      ]
+    },
+    {
+      "object": "BELONG_04_hanger_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_04_hanger_1_contact_00",
+          "point_world": [
+            4.48,
+            0.852,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991446
+        }
+      ]
+    },
+    {
+      "object": "BELONG_04_hanger_2",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BELONG_04_hanger_2_contact_00",
+          "point_world": [
+            4.26,
+            0.852,
+            2.0125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0045,
+          "normal_alignment": 0.991446
+        }
+      ]
+    },
+    {
+      "object": "BRIEFING_TV",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_TV_contact_00",
+          "point_world": [
+            -7.3,
+            3.55,
+            1.86
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000107,
+          "normal_alignment": 0.999984
+        }
+      ]
+    },
+    {
+      "object": "BRIEFING_bench_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_bench_01_contact_00",
+          "point_world": [
+            -5.47,
+            4.06,
+            0.03
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0002,
+          "normal_alignment": 0.999993
+        },
+        {
+          "sample": "anchor:BRIEFING_bench_01_contact_01",
+          "point_world": [
+            -5.03,
+            4.06,
+            0.03
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000178,
+          "normal_alignment": 0.999996
+        },
+        {
+          "sample": "anchor:BRIEFING_bench_01_contact_02",
+          "point_world": [
+            -5.47,
+            3.04,
+            0.03
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000298,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_bench_01_contact_03",
+          "point_world": [
+            -5.03,
+            3.04,
+            0.03
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.00032,
+          "normal_alignment": 0.999997
+        }
+      ]
+    },
+    {
+      "object": "BRIEFING_bench_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_bench_02_contact_00",
+          "point_world": [
+            -3.929144,
+            4.085958,
+            0.03
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000105,
+          "normal_alignment": 0.999996
+        },
+        {
+          "sample": "anchor:BRIEFING_bench_02_contact_01",
+          "point_world": [
+            -3.489215,
+            4.093877,
+            0.03
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 0.999996
+        },
+        {
+          "sample": "anchor:BRIEFING_bench_02_contact_02",
+          "point_world": [
+            -3.910785,
+            3.066123,
+            0.03
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000298,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:BRIEFING_bench_02_contact_03",
+          "point_world": [
+            -3.470856,
+            3.074042,
+            0.03
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000284,
+          "normal_alignment": 0.999999
+        }
+      ]
+    },
+    {
+      "object": "BRIEFING_carpet",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_carpet_contact_00",
+          "point_world": [
+            -4.49,
+            3.595,
+            0.024
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.002,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BRIEFING_crew",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_crew_contact_00",
+          "point_world": [
+            -4.6,
+            6.1,
+            1.79
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 9.6e-05,
+          "normal_alignment": 0.999985
+        }
+      ]
+    },
+    {
+      "object": "BRIEFING_light_00",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_light_00_contact_00",
+          "point_world": [
+            -6.332,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_light_00_contact_01",
+          "point_world": [
+            -5.468,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BRIEFING_light_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_light_01_contact_00",
+          "point_world": [
+            -3.532,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_light_01_contact_01",
+          "point_world": [
+            -2.668,
+            3.6,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BRIEFING_mug",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_mug_contact_00",
+          "point_world": [
+            -5.49,
+            1.36,
+            0.798
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BRIEFING_notes",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_notes_contact_00",
+          "point_world": [
+            -6.0,
+            1.38,
+            0.798
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "BRIEFING_sideboard",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_00",
+          "point_world": [
+            -5.29,
+            1.57,
+            0.022
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_01",
+          "point_world": [
+            -6.31,
+            1.57,
+            0.022
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_02",
+          "point_world": [
+            -5.29,
+            1.17,
+            0.022
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:BRIEFING_sideboard_contact_03",
+          "point_world": [
+            -6.31,
+            1.17,
+            0.022
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "FLOOR_replacement_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:FLOOR_replacement_0_contact_00",
+          "point_world": [
+            -0.5,
+            7.5,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 1.1e-05,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "FLOOR_replacement_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:FLOOR_replacement_1_contact_00",
+          "point_world": [
+            6.5,
+            3.5,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000674,
+          "normal_alignment": 0.999999
+        }
+      ]
+    },
+    {
+      "object": "HALL_light_00",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_light_00_contact_00",
+          "point_world": [
+            0.0,
+            1.0596,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_light_00_contact_01",
+          "point_world": [
+            -0.0,
+            1.8404,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_light_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_light_01_contact_00",
+          "point_world": [
+            0.0,
+            4.2596,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_light_01_contact_01",
+          "point_world": [
+            -0.0,
+            5.0404,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_light_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_light_02_contact_00",
+          "point_world": [
+            0.0,
+            7.6096,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_light_02_contact_01",
+          "point_world": [
+            -0.0,
+            8.3904,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_notice",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_notice_contact_00",
+          "point_world": [
+            1.7,
+            0.95,
+            1.62
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.00049,
+          "normal_alignment": 0.999994
+        }
+      ]
+    },
+    {
+      "object": "HALL_rear_door_handle_contact_wear",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_rear_door_handle_contact_wear_contact_00",
+          "point_world": [
+            -0.489,
+            -0.506,
+            1.04
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_rear_door_kickplate_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_rear_door_kickplate_rubbed_paint_contact_00",
+          "point_world": [
+            -0.25664,
+            -0.4967,
+            0.10781
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_rear_door_threshold_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_rear_door_threshold_rubbed_paint_contact_00",
+          "point_world": [
+            0.349772,
+            -0.3747,
+            0.005933
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_riser",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_riser_contact_00",
+          "point_world": [
+            -1.7,
+            7.45,
+            0.35
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_riser_contact_01",
+          "point_world": [
+            -1.7,
+            7.45,
+            1.72
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_riser_contact_02",
+          "point_world": [
+            -1.7,
+            7.45,
+            2.97
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_supervisor",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_supervisor_contact_00",
+          "point_world": [
+            -1.7,
+            5.65,
+            1.76
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_ventilation",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_ventilation_contact_00",
+          "point_world": [
+            0.99,
+            1.2,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_ventilation_contact_01",
+          "point_world": [
+            0.99,
+            4.5,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_ventilation_contact_02",
+          "point_world": [
+            0.99,
+            7.8,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_ventilation_contact_03",
+          "point_world": [
+            1.45,
+            1.2,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_ventilation_contact_04",
+          "point_world": [
+            1.45,
+            4.5,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_ventilation_contact_05",
+          "point_world": [
+            1.45,
+            7.8,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_00",
+          "point_world": [
+            -1.65,
+            0.938,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 7.2e-05,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_01",
+          "point_world": [
+            -2.09,
+            0.938,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 6.3e-05,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_02",
+          "point_world": [
+            -1.65,
+            2.162,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 5.6e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:HALL_waiting_bench_contact_03",
+          "point_world": [
+            -2.09,
+            2.162,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 9e-06,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench_laminate_slat.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_laminate_slat.001_rubbed_paint_contact_00",
+          "point_world": [
+            -1.7982,
+            1.171038,
+            0.433779
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench_laminate_slat.002_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_laminate_slat.002_rubbed_paint_contact_00",
+          "point_world": [
+            -1.9492,
+            1.091776,
+            0.432514
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "HALL_waiting_bench_laminate_slat_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:HALL_waiting_bench_laminate_slat_rubbed_paint_contact_00",
+          "point_world": [
+            -1.6472,
+            1.725833,
+            0.433597
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "INTEGRITY_POD",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:INTEGRITY_POD_contact_00",
+          "point_world": [
+            6.82,
+            4.0,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.002,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:INTEGRITY_POD_contact_01",
+          "point_world": [
+            5.715,
+            4.53,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000267,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:INTEGRITY_POD_contact_02",
+          "point_world": [
+            5.715,
+            3.47,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000205,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_airlock_floor_boundary",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_airlock_floor_boundary_contact_00",
+          "point_world": [
+            0.0,
+            8.84,
+            0.00025
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.00225,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_airlock_pressure_gauge",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_airlock_pressure_gauge_contact_00",
+          "point_world": [
+            -0.89,
+            9.221,
+            1.88
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_airlock_status",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_airlock_status_contact_00",
+          "point_world": [
+            -0.95,
+            9.145,
+            2.73
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_bench_boot_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_bench_boot_0_contact_00",
+          "point_world": [
+            4.245033,
+            2.785498,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000216,
+          "normal_alignment": 0.999999
+        }
+      ]
+    },
+    {
+      "object": "LIFE_bench_boot_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_bench_boot_1_contact_00",
+          "point_world": [
+            4.082247,
+            2.885101,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 8.1e-05,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_briefing_speaker",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_briefing_speaker_contact_00",
+          "point_world": [
+            -7.3,
+            5.13,
+            2.57
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000365,
+          "normal_alignment": 0.999994
+        }
+      ]
+    },
+    {
+      "object": "LIFE_changed_shift",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_changed_shift_contact_00",
+          "point_world": [
+            1.7,
+            1.54,
+            1.55
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000432,
+          "normal_alignment": 0.999995
+        }
+      ]
+    },
+    {
+      "object": "LIFE_cleaning_bucket",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_cleaning_bucket_contact_00",
+          "point_world": [
+            1.41,
+            -0.19,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000157,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_hall_coat_hook",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_hall_coat_hook_contact_00",
+          "point_world": [
+            -2.15,
+            1.73,
+            1.96
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_laundry_hamper",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_laundry_hamper_contact_00",
+          "point_world": [
+            2.19,
+            1.22,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000195,
+          "normal_alignment": 0.999999
+        }
+      ]
+    },
+    {
+      "object": "LIFE_lunch_bag",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_lunch_bag_contact_00",
+          "point_world": [
+            -1.89,
+            1.36,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 7.9e-05,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_mop_floor_head",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_mop_floor_head_contact_00",
+          "point_world": [
+            1.565,
+            0.21,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000249,
+          "normal_alignment": 0.999999
+        }
+      ]
+    },
+    {
+      "object": "LIFE_mop_rack",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_mop_rack_contact_00",
+          "point_world": [
+            1.7,
+            0.23,
+            1.49
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.00057,
+          "normal_alignment": 0.999955
+        }
+      ]
+    },
+    {
+      "object": "LIFE_pod_inspection_log",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_pod_inspection_log_contact_00",
+          "point_world": [
+            8.1,
+            5.37,
+            1.56
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000559,
+          "normal_alignment": 0.999982
+        }
+      ]
+    },
+    {
+      "object": "LIFE_pod_service_connection",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_pod_service_connection_contact_00",
+          "point_world": [
+            8.1,
+            4.0,
+            0.52
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_remote",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_remote_contact_00",
+          "point_world": [
+            -5.98,
+            1.46,
+            0.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.002,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_repair_patch",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_repair_patch_contact_00",
+          "point_world": [
+            -1.692,
+            6.52,
+            0.74
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_shift_clock",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_shift_clock_contact_00",
+          "point_world": [
+            1.7,
+            0.95,
+            2.62
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000189,
+          "normal_alignment": 0.999981
+        }
+      ]
+    },
+    {
+      "object": "LIFE_socket_briefing_TV",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_socket_briefing_TV_contact_00",
+          "point_world": [
+            -7.292,
+            4.87,
+            0.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 1e-06,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_socket_briefing_side",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_socket_briefing_side_contact_00",
+          "point_world": [
+            -3.06,
+            6.092,
+            0.42
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_socket_hall_left",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_socket_hall_left_contact_00",
+          "point_world": [
+            -1.692,
+            6.1,
+            0.43
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_socket_hall_right",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_socket_hall_right_contact_00",
+          "point_world": [
+            1.692,
+            7.65,
+            0.43
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_socket_locker_back",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_socket_locker_back_contact_00",
+          "point_world": [
+            8.092,
+            5.53,
+            0.42
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 1e-06,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_socket_locker_south",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_socket_locker_south_contact_00",
+          "point_world": [
+            5.6,
+            0.708,
+            0.42
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_spare_filter_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_spare_filter_0_contact_00",
+          "point_world": [
+            7.95,
+            6.75,
+            1.3125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_spare_filter_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_spare_filter_1_contact_00",
+          "point_world": [
+            7.95,
+            6.6,
+            1.3125
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_supply_shelf",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_supply_shelf_contact_00",
+          "point_world": [
+            8.1,
+            6.83,
+            1.1
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:LIFE_supply_shelf_contact_01",
+          "point_world": [
+            8.1,
+            5.97,
+            1.1
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000147,
+          "normal_alignment": 0.999997
+        }
+      ]
+    },
+    {
+      "object": "LIFE_towel_hook",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_towel_hook_contact_00",
+          "point_world": [
+            2.22,
+            0.7,
+            1.76
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 0.999999
+        }
+      ]
+    },
+    {
+      "object": "LIFE_training_booklet",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_training_booklet_contact_00",
+          "point_world": [
+            -5.25,
+            3.1,
+            0.48
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LIFE_whiteboard",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LIFE_whiteboard_contact_00",
+          "point_world": [
+            -6.28,
+            6.1,
+            1.74
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.000591,
+          "normal_alignment": 0.999993
+        }
+      ]
+    },
+    {
+      "object": "LOCKER_changing_bench_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_changing_bench_01_contact_00",
+          "point_world": [
+            3.22,
+            2.63,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000194,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_changing_bench_01_contact_01",
+          "point_world": [
+            3.22,
+            3.07,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 1.2e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_changing_bench_01_contact_02",
+          "point_world": [
+            4.58,
+            2.63,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000374,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:LOCKER_changing_bench_01_contact_03",
+          "point_world": [
+            4.58,
+            3.07,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 6.2e-05,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LOCKER_changing_bench_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_changing_bench_02_contact_00",
+          "point_world": [
+            3.22,
+            4.93,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 4.2e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_changing_bench_02_contact_01",
+          "point_world": [
+            3.22,
+            5.37,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 2e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_changing_bench_02_contact_02",
+          "point_world": [
+            4.58,
+            4.93,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 4.9e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_changing_bench_02_contact_03",
+          "point_world": [
+            4.58,
+            5.37,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000132,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LOCKER_light_00",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_light_00_contact_00",
+          "point_world": [
+            4.754,
+            2.2,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_light_00_contact_01",
+          "point_world": [
+            5.746,
+            2.2,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LOCKER_light_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_light_01_contact_00",
+          "point_world": [
+            4.754,
+            5.8,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_light_01_contact_01",
+          "point_world": [
+            5.746,
+            5.8,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LOCKER_light_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_light_02_contact_00",
+          "point_world": [
+            2.204,
+            4.0,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_light_02_contact_01",
+          "point_world": [
+            3.196,
+            4.0,
+            3.8
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LOCKER_personal_north",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_personal_north_contact_00",
+          "point_world": [
+            5.78,
+            6.835,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 6.8e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_personal_north_contact_01",
+          "point_world": [
+            5.78,
+            7.175,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 4.4e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_personal_north_contact_02",
+          "point_world": [
+            6.42,
+            6.835,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 9.9e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_personal_north_contact_03",
+          "point_world": [
+            6.42,
+            7.175,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 1.9e-05,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LOCKER_personal_south",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_personal_south_contact_00",
+          "point_world": [
+            6.42,
+            1.165,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 3.3e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_personal_south_contact_01",
+          "point_world": [
+            6.42,
+            0.825,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000185,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:LOCKER_personal_south_contact_02",
+          "point_world": [
+            5.78,
+            1.165,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000157,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:LOCKER_personal_south_contact_03",
+          "point_world": [
+            5.78,
+            0.825,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 8.5e-05,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "LOCKER_return_air",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:LOCKER_return_air_contact_00",
+          "point_world": [
+            8.1,
+            4.0,
+            3.15
+          ],
+          "status": "PASS",
+          "relation": "penetration",
+          "distance_m": 0.00014,
+          "normal_alignment": 0.999997
+        }
+      ]
+    },
+    {
+      "object": "PPE_01",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_contact_00",
+          "point_world": [
+            2.57,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000169,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:PPE_01_contact_01",
+          "point_world": [
+            3.43,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000132,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_01_contact_02",
+          "point_world": [
+            3.0,
+            6.428,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.002,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_01_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            2.67146,
+            6.6877,
+            2.230377
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_01_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            2.872305,
+            6.6877,
+            0.085138
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_01_spare_cartridge",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_spare_cartridge_contact_00",
+          "point_world": [
+            3.37,
+            7.078,
+            2.049
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_01_work_boot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_work_boot_contact_00",
+          "point_world": [
+            2.868875,
+            6.853025,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_01_work_boot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_work_boot.001_contact_00",
+          "point_world": [
+            3.130625,
+            6.853008,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_02",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_contact_00",
+          "point_world": [
+            4.07,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 7e-06,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_02_contact_01",
+          "point_world": [
+            4.93,
+            7.148,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 7e-06,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_02_contact_02",
+          "point_world": [
+            4.5,
+            6.428,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000291,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_02_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            4.651602,
+            6.6877,
+            2.2286
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_02_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            4.604697,
+            6.6877,
+            0.084903
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_02_inspection_card",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_inspection_card_contact_00",
+          "point_world": [
+            4.37,
+            7.272,
+            2.129
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_02_work_boot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_work_boot_contact_00",
+          "point_world": [
+            4.369125,
+            6.853015,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_02_work_boot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_work_boot.001_contact_00",
+          "point_world": [
+            4.630875,
+            6.853015,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_03",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_contact_00",
+          "point_world": [
+            3.43,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000155,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:PPE_03_contact_01",
+          "point_world": [
+            2.57,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 4.7e-05,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_03_contact_02",
+          "point_world": [
+            3.0,
+            1.572,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.002,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_03_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            3.044763,
+            1.3123,
+            2.229709
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_03_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            2.876016,
+            1.3123,
+            0.08595
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_03_spare_cartridge",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_spare_cartridge_contact_00",
+          "point_world": [
+            2.63,
+            0.922,
+            2.049
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_03_work_boot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_work_boot_contact_00",
+          "point_world": [
+            3.130625,
+            1.146992,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_03_work_boot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_work_boot.001_contact_00",
+          "point_world": [
+            2.868875,
+            1.146975,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_04",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_contact_00",
+          "point_world": [
+            4.93,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 8.4e-05,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:PPE_04_contact_01",
+          "point_world": [
+            4.07,
+            0.852,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 8.4e-05,
+          "normal_alignment": 0.999999
+        },
+        {
+          "sample": "anchor:PPE_04_contact_02",
+          "point_world": [
+            4.5,
+            1.572,
+            0.0
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000306,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_04_folded_shelf.001_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_folded_shelf.001_rubbed_paint_contact_00",
+          "point_world": [
+            4.572017,
+            1.3123,
+            2.229513
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_04_folded_shelf_rubbed_paint",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_folded_shelf_rubbed_paint_contact_00",
+          "point_world": [
+            4.464416,
+            1.3123,
+            0.083565
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_04_inspection_card",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_inspection_card_contact_00",
+          "point_world": [
+            4.63,
+            0.728,
+            2.129
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_04_work_boot",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_work_boot_contact_00",
+          "point_world": [
+            4.630375,
+            1.146997,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "PPE_04_work_boot.001",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_work_boot.001_contact_00",
+          "point_world": [
+            4.368626,
+            1.146962,
+            0.0975
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "SERVICE_light",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:SERVICE_light_contact_00",
+          "point_world": [
+            -0.352,
+            11.0,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:SERVICE_light_contact_01",
+          "point_world": [
+            0.352,
+            11.0,
+            3.4
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "TRAFFIC_0",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_0_contact_00",
+          "point_world": [
+            0.0,
+            8.92,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0027,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "TRAFFIC_1",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_1_contact_00",
+          "point_world": [
+            3.66,
+            4.0,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0027,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "TRAFFIC_2",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_2_contact_00",
+          "point_world": [
+            5.15,
+            1.95,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.000745,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "TRAFFIC_3",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:TRAFFIC_3_contact_00",
+          "point_world": [
+            6.85,
+            6.02,
+            0.0007
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.00071,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "WAYFIND_briefing",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:WAYFIND_briefing_contact_00",
+          "point_world": [
+            -1.7,
+            3.7,
+            2.49
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "WAYFIND_lockers",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:WAYFIND_lockers_contact_00",
+          "point_world": [
+            1.7,
+            3.7,
+            2.49
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    },
+    {
+      "object": "WAYFIND_operations",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:WAYFIND_operations_contact_00",
+          "point_world": [
+            0.0,
+            9.3,
+            3.04
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0,
+          "normal_alignment": 1.0
+        }
+      ]
+    }
+  ]
+}

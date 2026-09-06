@@ -1,0 +1,130 @@
+{
+  "review_id": "review-04",
+  "review_type": "pass_04_render_vs_target_review",
+  "review_date": "2026-09-06",
+  "reviewer": "Codex independent visual reviewer",
+  "render_set": "pass-04",
+  "images": {
+    "BRIEFING": {
+      "render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-04/REFERENCE_BRIEFING.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/BRIEFING_reference.png"
+    },
+    "HALL": {
+      "render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-04/REFERENCE_HALL.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/HALL_reference.png"
+    },
+    "LOCKER": {
+      "render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-04/REFERENCE_LOCKER.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/LOCKER_reference.png"
+    }
+  },
+  "scoring_scale": "0-100 per category; 90 means genuinely close visual correspondence. Scores are independent for this pass and do not inherit prior values.",
+  "pass_gate": {
+    "required": "Every room must score at least 90 in lighting, art_style and layout_fidelity after iteration.",
+    "status": "not_met",
+    "reason": "Pass 04 is closer, but each room still has at least one camera/composition mismatch plus lighting or material/content gaps."
+  },
+  "scores": {
+    "BRIEFING": {
+      "lighting": 87,
+      "art_style": 86,
+      "layout_fidelity": 88,
+      "overall_read": "The main composition is now close: TV, boards, two benches, console, poster and open portal are all readable. The frame is shifted left relative to the target, the plant is larger and simpler, and target-level warm fill and surface richness are still short."
+    },
+    "HALL": {
+      "lighting": 82,
+      "art_style": 82,
+      "layout_fidelity": 80,
+      "overall_read": "The corridor anchors and safety program are present. The left poster is oversized and its headline begins at the top edge; the extinguisher cylinder is fully visible but placed smaller/further left than the target, and the pipe remains an edge-held element."
+    },
+    "LOCKER": {
+      "lighting": 82,
+      "art_style": 84,
+      "layout_fidelity": 86,
+      "overall_read": "The pod, two benches, small tile floor, portal and two-bank locker arrangement remain valid. The foreground locker shifts the composition right, the lighting is still dark in locker/pod recesses, and the dressing/foliage is simpler than the target."
+    }
+  },
+  "pixel_region_evidence": {
+    "coordinate_basis": "Approximate pixel regions in the 1600x900 pass-04 renders, measured by visual inspection; coordinates are evidence for framing comparisons, not automated segmentation.",
+    "BRIEFING": [
+      "The left console/cabinet touches the render boundary around x0-360, whereas the target console begins around x35 and leaves a visible wall margin. This is a framing offset, not missing geometry.",
+      "The pass-04 right plant occupies approximately x1235-1455 and covers more of the wall-note area than the target plant, approximately x1360-1530. It is oversized/shifted rather than clipped."
+    ],
+    "HALL": [
+      "The pass-04 large left poster spans approximately x165-465 and its headline begins at y0-15, with the top line clipped by the image edge. The target poster is approximately x75-300 and its headline begins well below the top edge around y75-95. This is a real poster scale/placement and framing mismatch.",
+      "The pass-04 extinguisher cylinder is fully inside the frame around x1295-1365, y545-690. It must not be described as cropped. The target cylinder sits further right/lower around x1435-1515, y565-760; the remaining issue is scale/placement. The vertical pipe at the far right is only partially visible around x1590-1600, matching the target's edge-held pipe treatment."
+    ],
+    "LOCKER": [
+      "The pass-04 foreground locker bank occupies approximately x160-535, while the target's comparable foreground bank begins at the left edge and occupies roughly x0-335. The pass framing therefore shifts the bank right and narrows the portal view; this is a camera/composition mismatch.",
+      "The pass-04 pod spans approximately x930-1510 and is fully readable in its main body; the target spans roughly x960-1500. The pod is not treated as missing or incorrectly cropped."
+    ]
+  },
+  "three_most_effective_changes": {
+    "BRIEFING": [
+      {
+        "priority": 1,
+        "categories": ["layout_fidelity"],
+        "scope": "camera/framing",
+        "edit": "Shift the render framing slightly right or widen the lens so the console gains a left wall margin (target begins around x35 rather than pass x0) and the TV/portal/plant align more closely; do not move architecture or benches."
+      },
+      {
+        "priority": 2,
+        "categories": ["lighting", "art_style"],
+        "scope": "lighting/material",
+        "edit": "Add warm fill to the console and lower walls while retaining fixture pools, then deepen matte plaster, teal-paint and timber variation so the room has the target's amber depth instead of broad even beige."
+      },
+      {
+        "priority": 3,
+        "categories": ["art_style"],
+        "scope": "actual content",
+        "edit": "Replace the oversized repeated-leaf plant with a narrower, fuller natural silhouette and keep the safety/map notes readable; the current plant occupies about x1235-1455 versus target x1360-1530."
+      }
+    ],
+    "HALL": [
+      {
+        "priority": 1,
+        "categories": ["layout_fidelity", "art_style"],
+        "scope": "content plus framing",
+        "edit": "Scale/lower the left poster artwork and adjust its wall framing so the headline has target-like top breathing room (pass begins around y0-15; target around y75-95). Keep the board's clean headline/graphic/footer hierarchy."
+      },
+      {
+        "priority": 2,
+        "categories": ["layout_fidelity"],
+        "scope": "actual prop placement",
+        "edit": "Move/scale the fully visible extinguisher toward the target's lower-right placement (pass roughly x1295-1365/y545-690; target roughly x1435-1515/y565-760), while retaining the edge-held pipe and open corridor route."
+      },
+      {
+        "priority": 3,
+        "categories": ["lighting", "art_style"],
+        "scope": "lighting/material",
+        "edit": "Lift the dark ceiling/end-door midtones and add restrained roughness/labels to the cart, update board, first-aid case and extinguisher; preserve warm practical pools and the target's worn-but-maintained hall."
+      }
+    ],
+    "LOCKER": [
+      {
+        "priority": 1,
+        "categories": ["layout_fidelity"],
+        "scope": "camera/framing",
+        "edit": "Widen or shift the camera so the foreground locker bank does not start at x160 and crowd the portal; recover the target's left-edge bank read while keeping the complete pod, two benches, clear portal and physical architecture fixed."
+      },
+      {
+        "priority": 2,
+        "categories": ["layout_fidelity", "art_style"],
+        "scope": "actual content",
+        "edit": "Make the two physical banks read as four identical locker bodies with matching fronts, vents, handles and labels, and add the target-like towel/personal belongings to the entry locker. Ordinary jackets/towels are allowed; add no mannequin or displayed coverall suits."
+      },
+      {
+        "priority": 3,
+        "categories": ["lighting", "art_style"],
+        "scope": "lighting/material",
+        "edit": "Raise warm fill in locker and pod recesses without flattening contact shadows, then add fuller non-edge-on foliage and subtle tile/locker/towel roughness so the room's dark geometry and maintained materials read like the target."
+      }
+    ]
+  },
+  "limitations": [
+    "This review compares still renders with target stills whose camera, lens and crop are not numerically calibrated. Pixel evidence is approximate visual measurement from 1600x900 images.",
+    "The target images are ChatGPT-generated. Text, exact poster graphics, portraits and incidental props are style/dressing cues rather than literal geometry requirements.",
+    "User constraints outrank accidental target details: preserve four identical lockers near entry in two physical banks, no mannequin/display coverall suits, exactly two briefing benches, a clear pod, open room entrances, matte timber, small bathroom tiles and used-but-maintained materials. Ordinary jackets and towels are authorized personal belongings.",
+    "Pass-04 was judged from the three REFERENCE_*.png renders only; no scene script, geometry, contact-check output or passage-ray output was used to increase visual scores."
+  ]
+}

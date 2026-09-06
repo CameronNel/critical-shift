@@ -1,6 +1,40 @@
 # Spawn Room Blender Source
 
-## Current tactile revision — 6 September 2026
+## Current Valorant reference iteration
+
+The latest editable output is **`spawnroom_valorant_walk.blend`**. Work is paused at the user's request on 7 September 2026. The saved file contains pass-12 geometry plus a newer MCP material palette; the newer palette has not been rendered or scored. Resume from this saved file: the full builder currently reproduces pass 12 and would omit the final palette revision. Resume details and hashes: `../production/valorant-reference/PAUSED_20260907.md`.
+
+The scene adds matte timber, small porcelain locker tiles, matching low-sheen metal lockers, a modern staff door, plants and detailed workplace props. The independent 90-per-category art review remains unmet; older delivery scores do not approve this revision. Status and recovery notes: `../production/VALORANT_REVISION_20260906.md`. Original corner captures, browser references, rendered passes and Luna reviews: `../production/valorant-reference/`.
+
+## Current inhabited-room revision — 6 September 2026
+
+Open **`spawnroom_inhabited_walk.blend`**. The four displayed suits have been removed. Their bays are personal lockers with hangers, shoes, folded clothing and belongings. Briefing now has staggered worn timber flooring, a faded woven rug and textured wooden benches. Six wall sockets, a whiteboard, clock, cleaning station, bags, towel/hamper, supply shelf and pod service details dress the rooms while preserving the open entrances and clear central routes.
+
+F3 → **Walk Navigation**; WASD/mouse to move, Shift for speed, Esc to exit. Startup uses Material Preview with scene lights/world and the corrected filtered shadows. All texture maps are packed; no startup script execution is required.
+
+```powershell
+blender --background --factory-startup sections/spawn-room/blender/spawnroom_revised_walk.blend --python-exit-code 1 --python sections/spawn-room/blender/inhabit_spawn.py -- --review inhabited-rebuild
+blender --background --factory-startup sections/spawn-room/blender/spawnroom_inhabited_walk.blend --python-exit-code 1 --python sections/spawn-room/blender/inhabit_spawn.py -- --validate-only --review inhabited-cold --cameras VALIDATE_Spawn,VALIDATE_HallForward,VALIDATE_LockerDoor,VALIDATE_LockerReverse,VALIDATE_BriefingDoor,VALIDATE_Material_A,VALIDATE_ExitReverse,VALIDATE_Walk_A,VALIDATE_Walk_B,VALIDATE_Walk_C,VALIDATE_Hero_A,USER_Floor,USER_BriefingFrame,USER_LockerEntry,DETAIL_LockerLife,DETAIL_BriefingFloor,DETAIL_HallLife,DETAIL_LockerSupplies
+```
+
+Direction and review history: `../production/INHABITED_REVISION_20260906.md`. Verification and unchanged render evidence: `../production/renders/final/inhabited/`. The previous corrected source remains preserved; this revision writes a separate output. Ambient sound, engine collisions and optimized exports remain integration work.
+
+## Previous user corrections — 6 September 2026
+
+Open **`spawnroom_revised_walk.blend`**. It is the editable EEVEE scene with the user-requested open room entrances, no observation windows or radiation meter, a 2.56m metal airlock, a large slim TV, two two-person briefing benches, forward PPE stations, changing benches and a rear-centered clear-glass metal pod. F3 → Walk Navigation; WASD/mouse, Shift for speed, Esc to exit. Materials and scene lighting are enabled at startup.
+
+`revise_spawn.py` applies the latest direction to the tactile base. The former display housing, both personnel leaves and all their hardware are removed. Entrance wall ends are rebuilt behind the new reveals. The repeating floor/wall stripes were isolated to shadow maps; the correction retains surface relief and enables filtered jittered shadows in both viewport and final renders. The pod uses blended thin glazing to avoid dither speckling and preserve a clear interior.
+
+```powershell
+blender --background --factory-startup sections/spawn-room/blender/spawnroom_tactile_walk.blend --python-exit-code 1 --python sections/spawn-room/blender/revise_spawn.py -- --review user-rebuild
+blender --background --factory-startup sections/spawn-room/blender/spawnroom_revised_walk.blend --python-exit-code 1 --python sections/spawn-room/blender/revise_spawn.py -- --validate-only --review user-cold --cameras VALIDATE_Spawn,VALIDATE_HallForward,VALIDATE_LockerDoor,VALIDATE_LockerReverse,VALIDATE_BriefingDoor,VALIDATE_Material_A,VALIDATE_ExitReverse,VALIDATE_Walk_A,VALIDATE_Walk_B,VALIDATE_Walk_C,VALIDATE_Hero_A,USER_Floor,USER_BriefingFrame,USER_LockerEntry
+```
+
+To rebuild the base from an empty scene, run the historical tactile commands below first, then apply this revision. For the delivered run, the actual desktop session was preserved as `../production/checkpoints/before_user_corrections_20260906.blend` and used as input. A second checkpoint preserves the desktop session immediately before reopening the corrected file. The older `.blend` sources remain unchanged.
+
+Evidence: `../production/renders/final/user-corrections/`. All 19 objective checks and 67 registered support contacts pass, including 170 ray tests through both room entrances, floor face/normal checks, and six pod states. Fourteen final renders were repeated in a fresh process; the greatest image mean difference is 0.000344 on the 0–255 scale. Native `.blend` textures are packed. This is an editable art scene; game interaction and collision integration remain separate.
+
+## Historical tactile revision — 6 September 2026
 
 Open **`spawnroom_tactile_walk.blend`** for walking with materials and scene lighting. It uses EEVEE, four baked room light volumes and a bounded floor-bounce approximation. Material Preview uses the scene lights/world and starts at the spawn eye position. Hover over the viewport, press F3, choose **Walk Navigation**; WASD moves, mouse looks, Shift speeds up, Esc exits. Initial material compilation can take a minute. No automatic script execution is required.
 

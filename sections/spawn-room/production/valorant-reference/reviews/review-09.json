@@ -1,0 +1,238 @@
+{
+  "review_id": "review-09",
+  "review_type": "pass_09_render_vs_target_review",
+  "review_date": "2026-09-07",
+  "reviewer": "Codex independent visual reviewer",
+  "render_set": "pass-09",
+  "source_dimensions": {
+    "renders": "1600x900",
+    "targets": "1672x941"
+  },
+  "images": {
+    "BRIEFING": {
+      "render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-09/REFERENCE_BRIEFING.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/BRIEFING_reference.png"
+    },
+    "HALL": {
+      "render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-09/REFERENCE_HALL.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/HALL_reference.png"
+    },
+    "LOCKER": {
+      "render": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-09/REFERENCE_LOCKER.png",
+      "target": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/targets/LOCKER_reference.png"
+    },
+    "LOCKER_DETAIL_CONTEXT_ONLY": "C:/Users/Camer/Games/critical-shift/worktrees/spawn-reference-rebuild/sections/spawn-room/production/valorant-reference/pass-09/DETAIL_FourLockers.png"
+  },
+  "scoring_scale": "0-100 per category; 90 means genuinely close visual correspondence. Scores are independent for this pass and do not inherit prior values.",
+  "pass_gate": {
+    "required": "Every room must score at least 90 in lighting, art_style and layout_fidelity after iteration.",
+    "status": "not_met",
+    "reason": "Pass 09 materially improves Pass 08, but local lighting balance, prop/material richness and camera proportions remain below the 90 correspondence threshold."
+  },
+  "scores": {
+    "BRIEFING": {
+      "lighting": 84,
+      "art_style": 86,
+      "layout_fidelity": 88,
+      "overall_read": "TV, boards, console, discipline graphic, exactly two benches, rug and open portal read clearly. The Hall-style wall/ceiling balance is closer, but Briefing walls remain over-bright against target, the plant is broad and repetitive, and camera proportions still differ."
+    },
+    "HALL": {
+      "lighting": 81,
+      "art_style": 85,
+      "layout_fidelity": 88,
+      "overall_read": "The poster headline is now readable with a materially better composition, and the safety equipment/cart are present. The ceiling/end-wall/floor light balance remains off, and the target still has richer operational detail and warmer tile/plaster."
+    },
+    "LOCKER": {
+      "lighting": 82,
+      "art_style": 88,
+      "layout_fidelity": 89,
+      "overall_read": "The pod, two benches, clear portal and physical two-bank/four-locker arrangement hold. Bench timber and dressing improved, but tile remains bright/cool, upper wall is bright, and local recess lighting is not yet target-like."
+    }
+  },
+  "normalized_pixel_evidence": {
+    "method": "Mean 8-bit sRGB RGB, luminance L = 0.2126R + 0.7152G + 0.0722B, warmth = R-B. Regions use separate normalized coordinates for 1600x900 renders and 1672x941 targets to sample semantic wall/floor/ceiling patches; samples were taken at 3-pixel spacing.",
+    "BRIEFING": [
+      {
+        "region": "ceiling",
+        "pass_rect": [0.6875, 0.0556, 0.75, 0.1111],
+        "target_rect": [0.748, 0.0531, 0.8074, 0.1063],
+        "pass_rgb": [52.1, 50.3, 45.8],
+        "target_rgb": [54.8, 43.7, 33.7],
+        "pass_luminance": 50.3,
+        "target_luminance": 45.3,
+        "pass_warmth": 6.3,
+        "target_warmth": 21.1,
+        "reading": "Brightness is close; pass remains 14.8 warmth cooler."
+      },
+      {
+        "region": "upper_wall",
+        "pass_rect": [0.6563, 0.2556, 0.7188, 0.3333],
+        "target_rect": [0.748, 0.2125, 0.8074, 0.287],
+        "pass_rgb": [161.6, 144.1, 122.6],
+        "target_rgb": [113.8, 89.8, 70.8],
+        "pass_luminance": 146.3,
+        "target_luminance": 93.5,
+        "pass_warmth": 39.0,
+        "target_warmth": 43.0,
+        "reading": "Pass is 52.8 L brighter with similar warmth."
+      },
+      {
+        "region": "bare_timber_floor",
+        "pass_rect": [0.7875, 0.8444, 0.85, 0.9222],
+        "target_rect": [0.8074, 0.8077, 0.8666, 0.882],
+        "pass_rgb": [110.3, 72.2, 46.2],
+        "target_rgb": [101.3, 62.7, 39.0],
+        "pass_luminance": 78.4,
+        "target_luminance": 69.2,
+        "pass_warmth": 64.0,
+        "target_warmth": 62.3,
+        "reading": "Floor is 9.2 L brighter with nearly matched warmth."
+      }
+    ],
+    "HALL": [
+      {
+        "region": "ceiling",
+        "pass_rect": [0.675, 0.0556, 0.7375, 0.1167],
+        "target_rect": [0.6579, 0.0531, 0.7177, 0.1116],
+        "pass_rgb": [34.7, 34.9, 32.7],
+        "target_rgb": [60.3, 51.4, 40.9],
+        "pass_luminance": 34.7,
+        "target_luminance": 52.5,
+        "pass_warmth": 2.0,
+        "target_warmth": 19.4,
+        "reading": "Pass is 17.8 L darker and 17.4 warmth cooler."
+      },
+      {
+        "region": "end_wall",
+        "pass_rect": [0.5313, 0.3889, 0.5813, 0.4444],
+        "target_rect": [0.5084, 0.3719, 0.5550, 0.4251],
+        "pass_rgb": [153.2, 138.5, 117.2],
+        "target_rgb": [148.8, 119.9, 90.7],
+        "pass_luminance": 140.1,
+        "target_luminance": 123.9,
+        "pass_warmth": 36.0,
+        "target_warmth": 58.1,
+        "reading": "Pass is 16.2 L brighter and 22.1 warmth cooler; avoid global fill."
+      },
+      {
+        "region": "tile_floor",
+        "pass_rect": [0.5, 0.8444, 0.5625, 0.9222],
+        "target_rect": [0.4785, 0.8077, 0.5383, 0.882],
+        "pass_rgb": [151.2, 149.1, 140.0],
+        "target_rgb": [147.2, 130.6, 112.0],
+        "pass_luminance": 148.9,
+        "target_luminance": 132.8,
+        "pass_warmth": 11.2,
+        "target_warmth": 35.3,
+        "reading": "Pass is 16.1 L brighter and 24.1 warmth cooler."
+      }
+    ],
+    "LOCKER": [
+      {
+        "region": "ceiling",
+        "pass_rect": [0.4688, 0.1111, 0.5313, 0.1667],
+        "target_rect": [0.5383, 0.1063, 0.5981, 0.1594],
+        "pass_rgb": [75.5, 73.9, 68.6],
+        "target_rgb": [100.5, 88.9, 74.9],
+        "pass_luminance": 73.9,
+        "target_luminance": 90.4,
+        "pass_warmth": 6.9,
+        "target_warmth": 25.7,
+        "reading": "Pass is 16.5 L darker and 18.8 warmth cooler."
+      },
+      {
+        "region": "back_wall",
+        "pass_rect": [0.375, 0.2222, 0.4375, 0.3],
+        "target_rect": [0.4187, 0.2125, 0.4785, 0.287],
+        "pass_rgb": [161.8, 149.0, 133.3],
+        "target_rgb": [130.2, 117.9, 102.2],
+        "pass_luminance": 150.6,
+        "target_luminance": 119.4,
+        "pass_warmth": 28.5,
+        "target_warmth": 28.0,
+        "reading": "Pass is 31.2 L brighter with matched warmth."
+      },
+      {
+        "region": "tile_floor",
+        "pass_rect": [0.4375, 0.8889, 0.5, 0.9556],
+        "target_rect": [0.5084, 0.8502, 0.5682, 0.9139],
+        "pass_rgb": [192.9, 190.9, 184.5],
+        "target_rgb": [168.3, 150.9, 130.7],
+        "pass_luminance": 190.9,
+        "target_luminance": 153.1,
+        "pass_warmth": 8.4,
+        "target_warmth": 37.6,
+        "reading": "Pass is 37.8 L brighter and 29.2 warmth cooler."
+      }
+    ]
+  },
+  "remaining_edits": {
+    "BRIEFING": [
+      {
+        "priority": 1,
+        "categories": ["lighting"],
+        "scope": "local shaped light",
+        "edit": "Keep the recovered ceiling brightness but warm its fill (pass L50.3/warmth 6.3 versus target L45.3/warmth 21.1), and reduce upper/lower wall exposure by roughly the measured +53/+45 L without darkening the benches or console."
+      },
+      {
+        "priority": 2,
+        "categories": ["layout_fidelity"],
+        "scope": "camera composition",
+        "edit": "Refine camera aim/lens only enough to match TV, console and plant proportions; preserve immutable room architecture, exactly two benches, rug and open portal."
+      },
+      {
+        "priority": 3,
+        "categories": ["art_style"],
+        "scope": "actual content/material",
+        "edit": "Replace the broad repeated right-plant silhouette with a more varied target-like cascade, and deepen the sparse wall-note cluster, plaster/wainscot wear and console detail."
+      }
+    ],
+    "HALL": [
+      {
+        "priority": 1,
+        "categories": ["lighting"],
+        "scope": "local shaped light",
+        "edit": "Warm/lift the ceiling locally (pass L34.7/warmth 2.0 versus target L52.5/warmth 19.4), then reduce direct end-wall/floor exposure and add warmer bounce; do not globally brighten the corridor."
+      },
+      {
+        "priority": 2,
+        "categories": ["layout_fidelity"],
+        "scope": "camera/prop proportions",
+        "edit": "Keep the repaired headline fully readable and tune the poster, first-aid case, extinguisher and pipe proportions toward target placements; preserve the corridor shell, open entrances and clear route."
+      },
+      {
+        "priority": 3,
+        "categories": ["art_style"],
+        "scope": "actual content/material",
+        "edit": "Add target-level roughness and readable micro-detail to the cart, update board, safety props and plants, and warm the tile's neutral gray cast toward the target's maintained amber floor."
+      }
+    ],
+    "LOCKER": [
+      {
+        "priority": 1,
+        "categories": ["lighting"],
+        "scope": "local shaped light",
+        "edit": "Warm/lift the ceiling modestly (pass L73.9/warmth 6.9 versus target L90.4/warmth 25.7), reduce upper-wall exposure (+31 L), and lower/warm the near-white tile (+37.8 L, -29.2 warmth) while filling pod/locker recesses locally."
+      },
+      {
+        "priority": 2,
+        "categories": ["layout_fidelity"],
+        "scope": "camera composition",
+        "edit": "Nudge the corner framing toward target pod/entry-bank proportions without moving the immutable pod, clear portal, two benches or physical two-bank/four-locker arrangement; DETAIL_FourLockers confirms the four bodies."
+      },
+      {
+        "priority": 3,
+        "categories": ["art_style"],
+        "scope": "actual content/material",
+        "edit": "Keep the improved faded bench timber and locker construction, then add warmer matte tile/locker/towel roughness, fuller varied plant cascades and clearer peg/laundry details. Ordinary jackets/towels remain allowed; no mannequin/display coverall suits."
+      }
+    ]
+  },
+  "limitations": [
+    "Corner-vs-target scores use only the three REFERENCE_*.png images. DETAIL_FourLockers.png is context-only for the physical four-locker/two-bank arrangement.",
+    "Pixel evidence uses separate normalized regions because target dimensions differ and AI reference perspective is not projectively consistent. Regions are semantic material patches, not exact pixel correspondences.",
+    "The target images are ChatGPT-generated. Exact text, graphics and incidental props are style/dressing cues rather than literal geometry requirements.",
+    "User constraints outrank accidental target details: preserve four identical lockers near entry in two physical banks, no mannequin/display coverall suits, exactly two briefing benches, a clear pod, open room entrances, matte timber, small bathroom tiles and used-but-maintained materials. Ordinary jackets and towels are authorized personal belongings.",
+    "Pass-09 was judged from images only; no scene script, geometry or automated contact/route checks were used to increase visual scores."
+  ]
+}

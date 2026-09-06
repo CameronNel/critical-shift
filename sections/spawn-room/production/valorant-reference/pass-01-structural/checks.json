@@ -1,0 +1,46 @@
+{
+  "status": "FAIL",
+  "checks": {
+    "no_displayed_suits": true,
+    "four_personal_lockers": true,
+    "twelve_clothes_hangers": true,
+    "shoes_retained": true,
+    "two_briefing_benches": true,
+    "wood_floor": true,
+    "woven_carpet": true,
+    "six_wall_sockets": true,
+    "wall_clock": true,
+    "whiteboard_and_training_booklet": true,
+    "cleaning_station": true,
+    "doorways_clear_170_rays": true,
+    "main_room_routes_clear": true,
+    "all_support_contacts": false,
+    "all_used_images_packed": true,
+    "shadow_correction_retained": true,
+    "no_geiger_or_room_doors": true
+  },
+  "blocked_rays": [],
+  "route_rays": 10,
+  "route_hits": [],
+  "contacts": 155,
+  "failed_contacts": [
+    {
+      "name": "TRAFFIC_1",
+      "issues": [
+        "No support hit in expected direction within 0.0050 m; nearest target surface is 1.9874 m away"
+      ]
+    },
+    {
+      "name": "TRAFFIC_2",
+      "issues": [
+        "No support hit in expected direction within 0.0050 m; nearest target surface is 1.9874 m away"
+      ]
+    },
+    {
+      "name": "TRAFFIC_3",
+      "issues": [
+        "No support hit in expected direction within 0.0050 m; nearest target surface is 1.9874 m away"
+      ]
+    }
+  ]
+}

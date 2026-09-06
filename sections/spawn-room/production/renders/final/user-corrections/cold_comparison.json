@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "images": [
+    {
+      "camera": "USER_BriefingFrame",
+      "mean_8bit_difference": 4.583333429764025e-05,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "USER_Floor",
+      "mean_8bit_difference": 1.0937499610008672e-05,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "USER_LockerEntry",
+      "mean_8bit_difference": 0.0001250000059371814,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_BriefingDoor",
+      "mean_8bit_difference": 0.0001390624966006726,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_ExitReverse",
+      "mean_8bit_difference": 0.0001739583385642618,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_HallForward",
+      "mean_8bit_difference": 4.6354165533557534e-05,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Hero_A",
+      "mean_8bit_difference": 0.0001723958266666159,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_LockerDoor",
+      "mean_8bit_difference": 0.0002947916800621897,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_LockerReverse",
+      "mean_8bit_difference": 0.00019114583847112954,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Material_A",
+      "mean_8bit_difference": 0.00031406249036081135,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Spawn",
+      "mean_8bit_difference": 0.00034374999813735485,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Walk_A",
+      "mean_8bit_difference": 4.1666667129902635e-06,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Walk_B",
+      "mean_8bit_difference": 1.3541666703531519e-05,
+      "maximum_8bit_difference": 1.0
+    },
+    {
+      "camera": "VALIDATE_Walk_C",
+      "mean_8bit_difference": 0.00017864583060145378,
+      "maximum_8bit_difference": 1.0
+    }
+  ],
+  "contact_checks": 67,
+  "objective_checks": 19,
+  "source_sha256": "f4efd7d19f277edef8a2ff59e0457f000a46639c8b287bf8c036c5958dc7208d"
+}
