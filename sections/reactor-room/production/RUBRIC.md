@@ -1,54 +1,20 @@
-# Reactor Room — Rubric Placeholder
+# Reactor scoring contract
 
-<!-- ART_DIRECTION_RESET_2026_09 -->
-> [!IMPORTANT]
-> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+The user's 7 September instruction replaces lower per-category thresholds. Every relevant category must independently reach **90/100**. No rounding up, averaging away failure or omitting a difficult category. Luna must ground visual scores in actual rendered pixels, and technical scores in measurements.
 
+| Category | Weight | Evidence |
+|---|---:|---|
+| Scale, construction and circulation | 15 | Spec dimensions, human scale, entrances, continuous >=1.20 m route and turbine gap |
+| Shape specificity and art direction | 15 | Grounded Valorant-influenced silhouettes, object-specific construction |
+| Reactor hierarchy and focal clarity | 10 | Deep cyan pool, two banks, reachable south emergency controls |
+| Material separation and tactile finish | 15 | Distinct concrete, paint, metal, rubber, glass and flooring; plausible wear |
+| Lighting, depth and exposure | 15 | Practical falloff, contact shadows, bright normal state, balanced cyan |
+| Colour and detail discipline | 10 | Restrained palette, quiet architecture, purposeful focal detail |
+| Environmental credibility | 10 | Operator use, maintenance, plausible utility endpoints and controls |
+| Technical cleanliness and reproduction | 10 | Measured geometry, contacts, pivots, states, dependencies, cold start |
 
-The reactor room must follow ../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md.
+Weighted score = sum(category score * weight / 100). All eight scores >=90; zero critical defects; all cameras and objective checks pass; at least four genuine correction cycles after first visual completion; final two materially stable; cold-start PASS.
 
-Before building, replace this placeholder with a reactor-specific 100-point rubric.
+Foundation reviews may separately score dimension fidelity, circulation, functional placement and separability. These scores do not replace or earn final art acceptance. Mark deferred art categories as unassessed. Concepts receive user ratings as proposed direction, never as rendered-scene evidence.
 
-Default categories:
-- Layout / route readability: 20
-- Art direction / silhouettes: 20
-- Hero objects / focal clarity: 15
-- Materials / anti-plastic: 15
-- Lighting / atmosphere: 10
-- Dressing / worldbuilding: 10
-- Technical cleanliness / reproducibility: 10
-
-Completion threshold remains >=90 overall, >=85% in every category, zero critical failures, stable final two cycles, and cold-start PASS.
-
-
-## Visual rubric — grounded stylized semi-realism
-
-Score each 0–10:
-
-| Category | Pass evidence |
-|---|---|
-| Believable scale & construction | doors, rails, consoles and machinery feel human-built and functional |
-| Shape specificity | major assets are recognizable without relying on labels or texture noise |
-| Material separation | painted metal, plastic, rubber, concrete, glass and flooring respond differently |
-| Lighting & depth | practical lights, pool glow, contact shadow and darker secondary spaces create depth |
-| Colour hierarchy | neutral structure, controlled equipment colours, cyan hero pool and emergency accents remain disciplined |
-| Detail density | quiet architecture exists between focal machinery and stations |
-| Environmental credibility | maintenance evidence and operator-use cues feel purposeful |
-| Reactor hierarchy | pool first, two banks second, route/emergency third, perimeter systems after |
-| Gameplay readability | routes, controls and pinch points remain clear at player height |
-| Originality / anti-generic | scene does not read as asset-pack sci-fi, low-poly web demo or photoreal kitbash |
-
-### Automatic visual vetoes
-
-Any one of these can cap the overall score below pass:
-- dominant repeated bevelled boxes;
-- uniform satin/plastic material response;
-- flat even lighting;
-- generic sci-fi console language;
-- toy-like equipment;
-- excessive tiny detail or pipe spaghetti;
-- cyan emission washing the whole room evenly;
-- unsupported/floating props;
-- AAA photoreal texture noise inconsistent with the project.
-
-Full-room production requires a style slice averaging **8/10 or better** with no veto.
+Critical failures: wrong scale; extra banks; blocked routes/doors; wrong Control level; moving fixed housings; fused controls; unsupported props; missing source dependencies; failed cold start; use of old 3D files; or failing to match the user-selected generated reference direction. The latest user explicitly permits computer use and has authorized building from the approved P02 / A02 direction.

@@ -1,0 +1,5 @@
+# Scene metadata hashes exact authoring bytes. Preserve them on every checkout.
+blender/build_scene.py -text
+blender/verify_checkpoint.py text eol=lf
+production/revisions/*/build_scene.py -text whitespace=cr-at-eol
+*.blend binary

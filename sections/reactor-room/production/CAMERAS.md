@@ -1,35 +1,20 @@
-# Reactor Room — Camera Plan Placeholder
+# Reactor production camera contract
 
-<!-- ART_DIRECTION_RESET_2026_09 -->
-> [!IMPORTANT]
-> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+Metric coordinates; X east / Y north / Z up. Art09a corrects the framing baseline. Ordinary perspective views retain all geometry. Each camera is judged for its stated subject; a close detail or enclosed stair view is not expected to contain the entire hall.
 
+| Camera | Position | Target | Lens | Aspect | Subject |
+|---|---|---|---:|---|---|
+| 01_HERO | (-6.0, -10.0, 8.5) | (0, 0, 6.4) | 22 mm | 1120:1400 | Whole pool / paired drives / upper support / east control relationship |
+| 02_WEST_ENTRY | (-10.05, -2.4, 1.7) | (0, 0, 5.0) | 21 mm | 1600:1100 | Human-height west entrance and perimeter circulation |
+| 03_SOUTH_GATE | (-2.6, -6.35, 1.7) | (0, -2.3, 1.7) | 24 mm | 1600:1000 | South gate, SCRAM, acknowledgement and bypass controls |
+| 04_TURBINE_AISLE | (5.3, -6.2, 1.8) | (7.5, -2.6, 1.05) | 23 mm | 1600:1000 | Complete local turbine and its service aisle |
+| 05_REVERSE_NORTH | (3.2, 7, 1.7) | (-1, -3.5, 3.0) | 23 mm | 1600:1000 | North reverse route and rear equipment |
+| 06_CONTROL_ROOM | (11.25, -1.7, 11.72) | (0, 0, 6.8) | 17 mm | 1600:1000 | Standing observation view from the east control room |
+| 07_COMPACT_STAIR | (11.72, 4.72, 1.65) | (15.75, 4.2, 1.5) | 16 mm | 1600:1000 | Ground vestibule, D01 opening and compact first stair flight |
+| 08_MATERIAL_SLICE | (-6, -5.9, 1.7) | (-3.6, -8, 1.4) | 28 mm | 1600:1000 | Pump, manifold, utility materials and maintenance evidence |
+| 09_BANK_MECHANISMS | (-4.6, -7.2, 7.9) | (0, 0, 10.85) | 28 mm | 1000:1280 | Fixed housings, moving carriage registers and overhead mounting |
+| 10_EAST_HIGH | (9.4, -5.9, 7.0) | (-1.1, 0, 6.4) | 18 mm | 1600:1200 | Opposite high view of the whole reactor relationship |
 
-Define permanent fixed validation cameras before formal polish.
+Art09a changes 01, 04, 06, 07, 09 and 10 after the Art08 review found key-subject cropping or obstruction. Views 02, 03, 05 and 08 remain unchanged. Camera corrections do not move or hide equipment and do not imply approved visual quality. The current saved scene stores each target and aspect.
 
-At minimum include:
-- main entry/readability
-- primary reactor-pool composition
-- control-bank readability
-- circulation/walkway validation
-- reverse route view
-- material audit
-- hero machinery audit
-- any operational blind spots
-
-All cameras must follow ../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md.
-
-
-## Art-direction camera checks
-
-Every fixed reactor camera must make it possible to judge:
-- whether the cyan pool dominates appropriately;
-- whether exactly two control-bank assemblies remain visually primary;
-- human scale of doors, rails and consoles;
-- material separation;
-- contact shadow and support contact;
-- negative space between stations;
-- whether signage/screens are restrained;
-- whether the scene reads as grounded industrial semi-realism rather than low-poly sci-fi or photoreal kitbash.
-
-At least one camera must be deliberately unflattering enough to expose repetitive geometry, flat lighting and clutter.
+PLAN_DIAGNOSTIC is an explicitly roof-off orthographic drawing check. CONTROL_INTERIOR_DIAGNOSTIC records the operator workstations. POOL_DEPTH_DIAGNOSTIC records submerged depth and internals. These extra views do not replace any of the ten production subjects. Final acceptance still requires a complete same-revision set and fresh-process reproduction.

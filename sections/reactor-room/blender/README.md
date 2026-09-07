@@ -1,24 +1,20 @@
-# Reactor Room Blender Source
+# Reactor Blender source
 
-<!-- ART_DIRECTION_RESET_2026_09 -->
-> [!IMPORTANT]
-> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+`build_scene.py` authors the complete P02 reactor hall from an empty factory scene. The editable output is `reactor_scene.blend`. No earlier 3D assets are opened, appended or imported during a normal build. Procedural surface maps are generated from the source and packed into the scene.
 
+The hall is metric, X east / Y north / Z up. The centered pool, two independent drive banks, east-wall-centered control room at +10 m and compact four-flight stair follow `../architecture/output/reactor_compact_stair_architectural_set.pdf`. Approved A02/B01 images set the material and rendering direction; their superseded stair layout is not used.
 
-Store the future authoritative reactor-room Blender source here.
+Use Blender 5.2 LTS. The recorded machine uses Cycles HIP on an AMD RX 9070 XT. `build-scene.ps1` is a convenience launcher where PowerShell script execution is already allowed. No execution-policy change is required; the direct command is:
 
-Recommended primary filename: reactorroom.blend
+```powershell
+$env:BLENDER_USER_RESOURCES = 'C:/path/to/reactor-room/production/private-blender-profile'
+& 'C:/Program Files/Blender Foundation/Blender 5.2/blender.exe' --background --factory-startup --disable-autoexec --threads 6 --python-exit-code 1 --python 'C:/path/to/reactor-room/blender/build_scene.py' -- --revision art-09a --render all --samples 80 --width 1440
+```
 
+Use `--render none` for geometry and validation only, a comma-separated list of camera names for a targeted preview, or `--render diagnostics` for the plan, control-interior and pool-depth diagnostics. Each revision writes its exact authoring source and a measured validation manifest. Ten camera subjects are documented in `../production/CAMERAS.md`.
 
-## Build policy
+To verify a saved scene, replace `--factory-startup` with the absolute `.blend` path and append `--cold-start` after the script arguments. Use a new revision/output label for reproduction so accepted images remain unchanged. A successful reopen is distinct from reproducing all ten images.
 
-Reactor Room source is headless-first and must remain reproducible without MCP.
+During parallel local facility work, wrap GPU Blender commands with `C:/Users/Camer/Games/critical-shift/ops/facility-run/gpu_gate.py --owner reactor --` using the bundled Python runtime. It serializes this run's GPU jobs and releases its lock on process exit. CPU geometry audits may run independently.
 
-See ../../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md.
-
-
-## Modeling guardrails
-
-The reactor Blender source must prove object-specific construction before detail. Major machinery, consoles, doors, pool rim, control-bank assemblies and railings must not share one universal bevel language. Bevels are finishing operations only.
-
-Build a small reactor material/lighting validation slice before duplicating modular pieces across the hall. Check the generated reactor reference plates in `../art/reference/` from the actual gameplay camera.
+Authoritative completion status and independent reports are in `../production/TASK_STATE.md` and `../production/critics/`. A renderable file or passing dimension checks do not constitute art acceptance or engine integration.

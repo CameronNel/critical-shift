@@ -1,0 +1,44 @@
+GPU acquired: reactor-art08
+C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\blender\build_scene.py:70: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\blender\build_scene.py:192: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  vol=bpy.data.materials.new('pool_medium'); vol.use_nodes=True; nt=vol.node_tree; nt.nodes.clear()
+00:03.906  cycles           | WARNING CUEW initialization failed: Error opening the library
+C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\blender\build_scene.py:1458: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True
+VALIDATION PASS: 64 checks; 4831 objects
+Info: Saved as "reactor_scene.blend"
+RENDER START 01_HERO
+01:00.218  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\art\renders\art-08\01_HERO.png'
+RENDER COMPLETE 01_HERO
+RENDER START 02_WEST_ENTRY
+01:44.062  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\art\renders\art-08\02_WEST_ENTRY.png'
+RENDER COMPLETE 02_WEST_ENTRY
+RENDER START 03_SOUTH_GATE
+03:33.640  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\art\renders\art-08\03_SOUTH_GATE.png'
+RENDER COMPLETE 03_SOUTH_GATE
+RENDER START 04_TURBINE_AISLE
+04:51.125  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\art\renders\art-08\04_TURBINE_AISLE.png'
+RENDER COMPLETE 04_TURBINE_AISLE
+RENDER START 05_REVERSE_NORTH
+06:50.625  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\art\renders\art-08\05_REVERSE_NORTH.png'
+RENDER COMPLETE 05_REVERSE_NORTH
+RENDER START 06_CONTROL_ROOM
+08:02.640  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\art\renders\art-08\06_CONTROL_ROOM.png'
+RENDER COMPLETE 06_CONTROL_ROOM
+RENDER START 07_COMPACT_STAIR
+09:26.859  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\art\renders\art-08\07_COMPACT_STAIR.png'
+RENDER COMPLETE 07_COMPACT_STAIR
+RENDER START 08_MATERIAL_SLICE
+10:17.359  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\art\renders\art-08\08_MATERIAL_SLICE.png'
+RENDER COMPLETE 08_MATERIAL_SLICE
+RENDER START 09_BANK_MECHANISMS
+11:12.359  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\art\renders\art-08\09_BANK_MECHANISMS.png'
+RENDER COMPLETE 09_BANK_MECHANISMS
+RENDER START 10_EAST_HIGH
+11:59.000  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\reactor-valorant\sections\reactor-room\art\renders\art-08\10_EAST_HIGH.png'
+RENDER COMPLETE 10_EAST_HIGH
+BUILD COMPLETE art-08
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

@@ -1,41 +1,21 @@
-# Reactor Room — Checklist Placeholder
+# Reactor evidence checklist
 
-<!-- ART_DIRECTION_RESET_2026_09 -->
-> [!IMPORTANT]
-> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+- [x] Current specification, art direction and P02 architectural set read
+- [x] Isolated worktree and private headless Blender profile
+- [x] P02 drawings committed and pushed before the detailed build (14a5672)
+- [x] New geometry authored entirely from an empty factory scene
+- [x] Centered 21.6 m octagonal hall, 16 m height and pool dimensions recorded
+- [x] Exactly two independent moving banks; 1.80 m travel and engagement measured
+- [x] East-wall-centered control room at +10 m with compact enclosed four-flight stair
+- [x] Generated A02/B01 references approved after foundation work
+- [x] Ten production camera views rendered and independently inspected
+- [x] Four or more genuine art correction cycles recorded
+- [x] Sol and Luna independent review chats dispatched; observational criticism only
+- [ ] Independent final circulation, door, support and articulation audit passes
+- [ ] Every relevant final visual/technical category independently scores at least 90
+- [ ] No critical defects remain
+- [ ] Final two review sets are materially stable
+- [ ] All ten final cameras reproduced from the saved scene in a fresh process
+- [ ] Final editable scene, original source, packed dependencies and evidence published
 
-
-Before production begins, expand this file into reactor-specific objective and visual checks.
-
-Mandatory shared gates:
-- [ ] headless Blender reproducibility
-- [ ] no MCP-only dependency
-- [ ] fixed validation cameras
-- [ ] objective dimension/clearance checks
-- [ ] automated support-contact validation for wall/floor/ceiling-supported props
-- [ ] at least four full review cycles
-- [ ] fresh-context specialist critics where available
-- [ ] same-camera regression tracking
-- [ ] score >= 90
-- [ ] every category >= 85% of available points
-- [ ] zero critical failures
-- [ ] final two cycles materially stable
-- [ ] cold-start PASS
-
-
-## Art-direction gate
-
-Before full-room expansion:
-- [ ] small reactor style-validation slice approved
-- [ ] believable human scale confirmed
-- [ ] pool / control-bank hierarchy reads from gameplay camera
-- [ ] no repeated bevelled-box design language
-- [ ] painted metal, plastic, rubber, glass, concrete and floor materials read distinctly
-- [ ] localized wear is plausible and restrained
-- [ ] practical lights create visible falloff and contact shadow
-- [ ] cyan emission does not flatten the entire room
-- [ ] perimeter consoles do not become generic sci-fi panels
-- [ ] pipe routes are functional and sparse
-- [ ] signage is functional, not decorative filler
-- [ ] pinch-point clearances remain visually and physically open
-- [ ] generated reactor art references were reviewed
+Art08 failed the visual gate at 77.6/100. Art09a is a corrective preview, not an accepted final scene. The obsolete +4.8 m overlook and exposed staircase are excluded by P02.

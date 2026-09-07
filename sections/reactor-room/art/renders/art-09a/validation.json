@@ -1,0 +1,453 @@
+{
+  "revision": "art-09a",
+  "source_sha256": "61bbcf3bcb1d4366ceb64cdeea5ab41c1308473062b43132dc196cb75aac19f8",
+  "blender": "5.2.0 LTS",
+  "objects": 4914,
+  "meshes": 4049,
+  "materials": 37,
+  "checks": [
+    {
+      "check": "Hall plan area",
+      "actual": 420.4800000000001,
+      "expected": 420.48,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Maximum room span",
+      "actual": 21.6,
+      "expected": 21.6,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Exactly two fixed housings",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Exactly two moving banks",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Bank A axis X",
+      "actual": -1.399999976158142,
+      "expected": -1.4,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Bank A nominal Z",
+      "actual": 8.600000381469727,
+      "expected": 8.6,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Bank A travel",
+      "actual": 1.8,
+      "expected": 1.8,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Bank B axis X",
+      "actual": 1.399999976158142,
+      "expected": 1.4,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Bank B nominal Z",
+      "actual": 8.600000381469727,
+      "expected": 8.6,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Bank B travel",
+      "actual": 1.8,
+      "expected": 1.8,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Turbine P02 envelope clearance",
+      "actual": 1.3124880038277231,
+      "expected": 1.312488,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Fourteen equal risers / flight",
+      "actual": 14.0,
+      "expected": 14,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Total stair rise",
+      "actual": 10.0,
+      "expected": 10,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Stair finished clear width",
+      "actual": 1.2,
+      "expected": 1.2,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Ten production cameras",
+      "actual": 10,
+      "expected": 10,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Gate fixed surface opening",
+      "actual": 1.399999976158142,
+      "minimum": 1.4,
+      "pass": true
+    },
+    {
+      "check": "Gate actual open leaf clearance",
+      "actual": 1.399999976158142,
+      "minimum": 1.4,
+      "pass": true
+    },
+    {
+      "check": "Bank A minimum upper engagement",
+      "actual": 0.24499988555908203,
+      "minimum": 0.2,
+      "pass": true
+    },
+    {
+      "check": "Bank A minimum lower engagement",
+      "actual": 0.20500023841857917,
+      "minimum": 0.2,
+      "pass": true
+    },
+    {
+      "check": "Bank B minimum upper engagement",
+      "actual": 0.24499988555908203,
+      "minimum": 0.2,
+      "pass": true
+    },
+    {
+      "check": "Bank B minimum lower engagement",
+      "actual": 0.20500023841857917,
+      "minimum": 0.2,
+      "pass": true
+    },
+    {
+      "check": "D01 attached hinge parts",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "D02 attached hinge parts",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Outward glazing normals: Control floor observation glass",
+      "actual": 0.1795600255330428,
+      "minimum": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Outward glazing normals: W01 safety glass",
+      "actual": 0.3650677899519579,
+      "minimum": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Outward glazing normals: W01 safety glass.001",
+      "actual": 0.3088705042998008,
+      "minimum": 0.0001,
+      "pass": true
+    },
+    {
+      "check": "Support: Column foot",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: Column foot.001",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: Column foot.002",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: Column foot.003",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: Column foot.004",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: Column foot.005",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: Column foot.006",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: Column foot.007",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 01 fuel receiving skid",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 02 rack foot",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 02 rack foot.001",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 02 rack foot.002",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 02 rack foot.003",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 03 BANK CONTROL.plinth",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 04 Waste circular plinth",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 04 WASTE.base",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 05 vent foot",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 06 turbine skid",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: GRID / L1.skid",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: GRID / L2.skid",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: GRID / L3.skid",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 08 GRID DEMAND.plinth",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 09 sensor base",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 10 pump skid",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 11 manifold skid",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 12 emergency cooling skid",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: EC-1.base",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: EC-2.base",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 13 generator skid",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 14 RESERVE POWER.skid",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 14 RESERVE POWER.skid.001",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 15 workbench leg",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 15 workbench leg.001",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 15 workbench leg.002",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: 15 workbench leg.003",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: Sampling kiosk foot",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: OPERATOR DESK.plinth",
+      "actual": 10.0,
+      "expected": 10.0,
+      "tolerance": 0.005,
+      "pass": true
+    },
+    {
+      "check": "Support: OPERATOR DESK.plinth.001",
+      "actual": 10.0,
+      "expected": 10.0,
+      "tolerance": 0.005,
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "cold_start": false,
+  "old_3d_imports": [],
+  "elapsed_seconds": 383.86
+}
