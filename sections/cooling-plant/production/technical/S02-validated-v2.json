@@ -1,0 +1,2674 @@
+{
+  "validation_note": "Historical S02 scene checked while source and architecture were changing. Superseded by S03-validation.json; do not use this report for current acceptance.",
+  "schema": "critical-shift.cooling-plant.technical-validation.v1",
+  "timestamp_utc": "2026-09-07T22:36:33.626673+00:00",
+  "revision": "S02",
+  "stage": "slice",
+  "objective_status": "FAIL",
+  "failure_count": 29,
+  "review_count": 0,
+  "production_acceptance": "INCOMPLETE: requires independent >=90 per-category visual evidence, four full cycles, ten final cameras and cold-start render comparison",
+  "fresh_process_open": true,
+  "cold_start_render_validated": false,
+  "scene_path": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\sections\\cooling-plant\\blender\\cooling_plant.blend",
+  "blender_version": "5.2.0 LTS",
+  "runtime": {
+    "background": true,
+    "threads": 4,
+    "render_device": "CPU",
+    "render_performed": false,
+    "private_user_resources": "C:/Users/Camer/.codex/worktrees/ef37/critical-shift/sections/cooling-plant/.blender-user-validation"
+  },
+  "limitations": [
+    "No visual scores are assigned.",
+    "Clearances use actual evaluated surfaces; intended floor/flush marks and own door swing exclusions are enumerated.",
+    "Support coverage is audited by root registration and standalone geometry inventory, not perfect semantic inference.",
+    "Duplicate detection covers exactly coincident evaluated vertices to 10 microns; arbitrary self-intersections and all nonmanifold geometry are not certified.",
+    "Fresh-process open/check is not a cold-start render comparison or runtime engine acceptance."
+  ],
+  "checks": {
+    "source": {
+      "saved_source_sha256": "87636d9b26f27f18848e5f6d0e3581673e15c08fbf858b18c5a85a8f446d7a21",
+      "current_source_sha256": "21f207eb8c589635e3e120c6df0a74309b2a2e296e6a3d0d78cd19917f1662a9",
+      "blend_sha256": "822e3e690599bf8ddd39ecf71e9e89afcb78975f542960775ecdbdcc99bea21f",
+      "interface_sha256": "5c10d1b36f431714098ffc7c234bd3675c1144974af8c764ceddd6399360c03c"
+    },
+    "evaluated_geometry": {
+      "objects": 568,
+      "triangles": 144236,
+      "method": "depsgraph evaluated meshes including modifiers, curves and text; world coordinates"
+    },
+    "keep_clear": {
+      "volumes": [
+        {
+          "id": "KC-MAIN",
+          "bounds": {
+            "min": [
+              -1.1,
+              0,
+              0
+            ],
+            "max": [
+              1.1,
+              12.6,
+              2.4
+            ]
+          },
+          "geometry_clash_count": 0
+        },
+        {
+          "id": "KC-PUMP-A",
+          "bounds": {
+            "min": [
+              -4.95,
+              1.7,
+              0
+            ],
+            "max": [
+              -1.1,
+              3.1,
+              2.2
+            ]
+          },
+          "geometry_clash_count": 0
+        },
+        {
+          "id": "KC-PUMP-B",
+          "bounds": {
+            "min": [
+              -4.95,
+              5.2,
+              0
+            ],
+            "max": [
+              -1.1,
+              6.5,
+              2.2
+            ]
+          },
+          "geometry_clash_count": 0
+        },
+        {
+          "id": "KC-ALCOVE-APPROACH",
+          "bounds": {
+            "min": [
+              -4.95,
+              8.6,
+              0
+            ],
+            "max": [
+              -1.1,
+              10,
+              2.2
+            ]
+          },
+          "geometry_clash_count": 2
+        },
+        {
+          "id": "KC-HX-SIDE",
+          "bounds": {
+            "min": [
+              1.1,
+              4.6,
+              0
+            ],
+            "max": [
+              2.3,
+              12.8,
+              2.2
+            ]
+          },
+          "geometry_clash_count": 0
+        },
+        {
+          "id": "KC-HX-WITHDRAW",
+          "bounds": {
+            "min": [
+              2,
+              9.3,
+              0
+            ],
+            "max": [
+              4.6,
+              12.8,
+              3
+            ]
+          },
+          "geometry_clash_count": 0
+        },
+        {
+          "id": "KC-HX-HOIST",
+          "bounds": {
+            "min": [
+              2,
+              9.3,
+              3.1
+            ],
+            "max": [
+              4.6,
+              12.8,
+              5.8
+            ]
+          },
+          "geometry_clash_count": 7
+        },
+        {
+          "id": "KC-RESTART",
+          "bounds": {
+            "min": [
+              3.4,
+              1.7,
+              0
+            ],
+            "max": [
+              4.85,
+              2.7,
+              2.2
+            ]
+          },
+          "geometry_clash_count": 0
+        },
+        {
+          "id": "KC-BENCH",
+          "bounds": {
+            "min": [
+              -5.05,
+              11.4,
+              0
+            ],
+            "max": [
+              -2.25,
+              12.3,
+              2.2
+            ]
+          },
+          "geometry_clash_count": 8
+        },
+        {
+          "id": "KC-ALCOVE-DOOR",
+          "bounds": {
+            "min": [
+              -4.7,
+              10.14,
+              0
+            ],
+            "max": [
+              -3.5,
+              11.4,
+              2.2
+            ]
+          },
+          "geometry_clash_count": 0
+        },
+        {
+          "id": "PORTAL-CP-P01",
+          "bounds": {
+            "min": [
+              -2.5,
+              0,
+              0
+            ],
+            "max": [
+              2.5,
+              0.6,
+              5
+            ]
+          },
+          "geometry_clash_count": 0
+        },
+        {
+          "id": "PORTAL-CP-D02",
+          "bounds": {
+            "min": [
+              -4.7,
+              10,
+              0
+            ],
+            "max": [
+              -3.5,
+              10.2,
+              2.2
+            ]
+          },
+          "geometry_clash_count": 3
+        }
+      ],
+      "exemptions": [
+        {
+          "object": "floor saw cut.001",
+          "volume": "KC-MAIN",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.003",
+          "volume": "KC-MAIN",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.004",
+          "volume": "KC-MAIN",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.005",
+          "volume": "KC-MAIN",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.006",
+          "volume": "KC-MAIN",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut",
+          "volume": "KC-PUMP-A",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.003",
+          "volume": "KC-PUMP-A",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "patched concrete.002",
+          "volume": "KC-PUMP-A",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate",
+          "volume": "KC-PUMP-A",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.001",
+          "volume": "KC-PUMP-A",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.002",
+          "volume": "KC-PUMP-A",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.003",
+          "volume": "KC-PUMP-A",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.004",
+          "volume": "KC-PUMP-A",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.005",
+          "volume": "KC-PUMP-A",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.006",
+          "volume": "KC-PUMP-A",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "route worn edge",
+          "volume": "KC-PUMP-A",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.004",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.024",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.025",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.026",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.027",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.028",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.029",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.030",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.031",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.032",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.033",
+          "volume": "KC-PUMP-B",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "patched concrete",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.051",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.052",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.053",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.054",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.055",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.056",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.057",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.058",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.059",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.060",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "drain flush grate.061",
+          "volume": "KC-ALCOVE-APPROACH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.004",
+          "volume": "KC-HX-SIDE",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.005",
+          "volume": "KC-HX-SIDE",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.006",
+          "volume": "KC-HX-SIDE",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "route worn edge.005",
+          "volume": "KC-HX-SIDE",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "route worn edge.006",
+          "volume": "KC-HX-SIDE",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "route worn edge.007",
+          "volume": "KC-HX-SIDE",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.002",
+          "volume": "KC-HX-WITHDRAW",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.006",
+          "volume": "KC-HX-WITHDRAW",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.002",
+          "volume": "KC-RESTART",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.003",
+          "volume": "KC-RESTART",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut",
+          "volume": "KC-BENCH",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut",
+          "volume": "KC-ALCOVE-DOOR",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut.006",
+          "volume": "KC-ALCOVE-DOOR",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "D02 recessed door leaf",
+          "volume": "KC-ALCOVE-DOOR",
+          "reason": "intentional_leaf_inside_own_swing_reserve"
+        },
+        {
+          "object": "D02 pressed panel",
+          "volume": "KC-ALCOVE-DOOR",
+          "reason": "intentional_leaf_inside_own_swing_reserve"
+        },
+        {
+          "object": "D02 hinge pin",
+          "volume": "KC-ALCOVE-DOOR",
+          "reason": "intentional_leaf_inside_own_swing_reserve"
+        },
+        {
+          "object": "D02 hinge pin.001",
+          "volume": "KC-ALCOVE-DOOR",
+          "reason": "intentional_leaf_inside_own_swing_reserve"
+        },
+        {
+          "object": "D02 lever",
+          "volume": "KC-ALCOVE-DOOR",
+          "reason": "intentional_leaf_inside_own_swing_reserve"
+        },
+        {
+          "object": "floor saw cut.001",
+          "volume": "PORTAL-CP-P01",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        },
+        {
+          "object": "floor saw cut",
+          "volume": "PORTAL-CP-D02",
+          "reason": "expected_floor_or_flush_mark_under_10mm"
+        }
+      ],
+      "tolerance_m": 1e-05,
+      "method": "AABB broad phase then world triangle clipping and solid containment fallback"
+    },
+    "equipment_envelopes": [
+      {
+        "id": "CP-PUMP-B",
+        "object": "P-02",
+        "actual_bounds": {
+          "min": [
+            -4.96,
+            6.7750001,
+            0.0
+          ],
+          "max": [
+            -1.9400001,
+            8.4250002,
+            1.962
+          ]
+        },
+        "contract_bounds": {
+          "min": [
+            -4.95,
+            6.5,
+            0
+          ],
+          "max": [
+            -1.9,
+            8.6,
+            2.35
+          ]
+        },
+        "excess_xyz_m": [
+          0.010000228881835938,
+          0.0,
+          0.0
+        ],
+        "utility_members_excluded_from_equipment_bounds_only": []
+      },
+      {
+        "id": "CP-WORKBENCH",
+        "object": "maintenance workbench",
+        "actual_bounds": {
+          "min": [
+            -5.0999999,
+            12.1999998,
+            0.0
+          ],
+          "max": [
+            -2.3000002,
+            12.9644995,
+            1.11
+          ]
+        },
+        "contract_bounds": {
+          "min": [
+            -5.05,
+            12.3,
+            0
+          ],
+          "max": [
+            -2.25,
+            13,
+            1.24
+          ]
+        },
+        "excess_xyz_m": [
+          0.04999971389770508,
+          0.10000038146972656,
+          0.0
+        ],
+        "utility_members_excluded_from_equipment_bounds_only": []
+      },
+      {
+        "id": "CP-TOOL-CART",
+        "object": "service cart",
+        "actual_bounds": {
+          "min": [
+            -2.885,
+            10.6300001,
+            -0.0
+          ],
+          "max": [
+            -1.9022521,
+            11.2700005,
+            1.0477514
+          ]
+        },
+        "contract_bounds": {
+          "min": [
+            -2.7,
+            10.65,
+            0
+          ],
+          "max": [
+            -1.87,
+            11.25,
+            1.05
+          ]
+        },
+        "excess_xyz_m": [
+          0.18499994277954102,
+          0.020000457763671875,
+          7.212379027343729e-10
+        ],
+        "utility_members_excluded_from_equipment_bounds_only": []
+      }
+    ],
+    "dependencies_and_cameras": {
+      "external_images": [],
+      "fixed_camera_count": 10,
+      "coincident_duplicate_groups": [],
+      "render_resolution": [
+        1440,
+        960,
+        100
+      ]
+    },
+    "support_contacts": {
+      "registered_roots": 18,
+      "tested_anchors": [
+        {
+          "object": "maintenance workbench",
+          "target": "Floor",
+          "anchor_index": 0,
+          "anchor_m": [
+            -4.9499998,
+            12.3000002,
+            0.0
+          ],
+          "actual_prop_member": "bench angle leg",
+          "actual_support_member": "Floor",
+          "actual_prop_contact_m": [
+            -4.9499998,
+            12.3000002,
+            -0.0
+          ],
+          "actual_support_contact_m": [
+            -4.9499998,
+            12.3000002,
+            -0.0
+          ],
+          "signed_gap_m": 0.0,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "maintenance workbench",
+          "target": "Floor",
+          "anchor_index": 1,
+          "anchor_m": [
+            -2.45,
+            12.8500004,
+            0.0
+          ],
+          "actual_prop_member": "bench angle leg.003",
+          "actual_support_member": "Floor",
+          "actual_prop_contact_m": [
+            -2.45,
+            12.8500004,
+            -0.0
+          ],
+          "actual_support_contact_m": [
+            -2.45,
+            12.8500004,
+            0.0
+          ],
+          "signed_gap_m": -7.450580596923828e-09,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "bench vise",
+          "target": "BenchTop",
+          "anchor_index": 0,
+          "anchor_m": [
+            -4.6500001,
+            12.4499998,
+            0.936
+          ],
+          "actual_prop_member": "vise mounting sole",
+          "actual_support_member": "BenchTop",
+          "actual_prop_contact_m": [
+            -4.6500001,
+            12.4499998,
+            0.936
+          ],
+          "actual_support_contact_m": [
+            -4.6500001,
+            12.4499998,
+            0.936
+          ],
+          "signed_gap_m": -5.960464477539063e-08,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "bench cloth",
+          "target": "BenchTop",
+          "anchor_index": 0,
+          "anchor_m": [
+            -4.2600002,
+            12.3999996,
+            0.936
+          ],
+          "actual_prop_member": "folded wiping rag",
+          "actual_support_member": "BenchTop",
+          "actual_prop_contact_m": [
+            -4.2600002,
+            12.3999996,
+            0.9533027
+          ],
+          "actual_support_contact_m": [
+            -4.2600002,
+            12.3999996,
+            0.936
+          ],
+          "signed_gap_m": 0.01730269193649292,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "bench wrench",
+          "target": "BenchTop",
+          "anchor_index": 0,
+          "anchor_m": [
+            -3.78,
+            12.3900003,
+            0.936
+          ],
+          "actual_prop_member": "large service spanner",
+          "actual_support_member": "BenchTop",
+          "actual_prop_contact_m": [
+            -3.78,
+            12.3900003,
+            0.936
+          ],
+          "actual_support_contact_m": [
+            -3.78,
+            12.3900003,
+            0.936
+          ],
+          "signed_gap_m": -5.960464477539063e-08,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "maintenance clipboard",
+          "target": "BenchTop",
+          "anchor_index": 0,
+          "anchor_m": [
+            -2.6900001,
+            12.5200005,
+            0.936
+          ],
+          "actual_prop_member": "clipboard backing",
+          "actual_support_member": "BenchTop",
+          "actual_prop_contact_m": [
+            -2.6900001,
+            12.5200005,
+            0.936
+          ],
+          "actual_support_contact_m": [
+            -2.6900001,
+            12.5200005,
+            0.936
+          ],
+          "signed_gap_m": -5.960464477539063e-08,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "worker thermos",
+          "target": "BenchTop",
+          "anchor_index": 0,
+          "anchor_m": [
+            -3.0999999,
+            12.7399998,
+            0.936
+          ],
+          "actual_prop_member": "thermos body",
+          "actual_support_member": "BenchTop",
+          "actual_prop_contact_m": [
+            -3.0999999,
+            12.7399998,
+            0.936
+          ],
+          "actual_support_contact_m": [
+            -3.0999999,
+            12.7399998,
+            0.936
+          ],
+          "signed_gap_m": -5.960464477539063e-08,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "spare mechanical seal",
+          "target": "BenchTop",
+          "anchor_index": 0,
+          "anchor_m": [
+            -3.566,
+            12.5799999,
+            0.936
+          ],
+          "actual_prop_member": "spare mechanical seal ring",
+          "actual_support_member": "BenchTop",
+          "actual_prop_contact_m": [
+            -3.566,
+            12.5799999,
+            0.937762
+          ],
+          "actual_support_contact_m": [
+            -3.566,
+            12.5799999,
+            0.936
+          ],
+          "signed_gap_m": 0.0017619132995605469,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "bench practical lamp",
+          "target": "RearWall",
+          "anchor_index": 0,
+          "anchor_m": [
+            -3.5999999,
+            13.0,
+            1.7
+          ],
+          "actual_prop_member": "bench lamp backplate",
+          "actual_support_member": "RearWall",
+          "actual_prop_contact_m": [
+            -3.5999999,
+            13.0,
+            1.7
+          ],
+          "actual_support_contact_m": [
+            -3.5999999,
+            13.0,
+            1.7
+          ],
+          "signed_gap_m": 0.0,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "alcove ceiling lamp",
+          "target": "Alcove ceiling",
+          "anchor_index": 0,
+          "anchor_m": [
+            -3.5,
+            11.5,
+            3.3
+          ],
+          "actual_prop_member": "alcove luminaire",
+          "actual_support_member": "Alcove ceiling",
+          "actual_prop_contact_m": [
+            -3.5,
+            11.5,
+            3.3
+          ],
+          "actual_support_contact_m": [
+            -3.5,
+            11.5,
+            3.3
+          ],
+          "signed_gap_m": 0.0,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "P-02",
+          "target": "Floor",
+          "anchor_index": 0,
+          "anchor_m": [
+            -3.45,
+            6.9099998,
+            0.0
+          ],
+          "actual_prop_member": "P-02 anchor rail",
+          "actual_support_member": "Floor",
+          "actual_prop_contact_m": [
+            -3.45,
+            6.9099998,
+            0.0
+          ],
+          "actual_support_contact_m": [
+            -3.45,
+            6.9099998,
+            -0.0
+          ],
+          "signed_gap_m": 7.450580596923828e-09,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "P-02",
+          "target": "Floor",
+          "anchor_index": 1,
+          "anchor_m": [
+            -3.45,
+            8.29,
+            0.0
+          ],
+          "actual_prop_member": "P-02 anchor rail.001",
+          "actual_support_member": "Floor",
+          "actual_prop_contact_m": [
+            -3.45,
+            8.29,
+            0.0
+          ],
+          "actual_support_contact_m": [
+            -3.45,
+            8.29,
+            0.0
+          ],
+          "signed_gap_m": -7.450580596923828e-09,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "west primary pipework",
+          "target": "WestWall",
+          "anchor_index": 0,
+          "anchor_m": [
+            -5.5,
+            5.9000001,
+            3.48
+          ],
+          "actual_prop_member": "pipe bracket wall pad.001",
+          "actual_support_member": "WestWall",
+          "actual_prop_contact_m": [
+            -5.4995003,
+            5.9000001,
+            3.48
+          ],
+          "actual_support_contact_m": [
+            -5.5,
+            5.9000001,
+            3.48
+          ],
+          "signed_gap_m": 0.000499725341796875,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "west primary pipework",
+          "target": "WestWall",
+          "anchor_index": 1,
+          "anchor_m": [
+            -5.5,
+            8.8999996,
+            3.48
+          ],
+          "actual_prop_member": "pipe bracket wall pad.002",
+          "actual_support_member": "WestWall",
+          "actual_prop_contact_m": [
+            -5.4995003,
+            8.8999996,
+            3.48
+          ],
+          "actual_support_contact_m": [
+            -5.5,
+            8.8999996,
+            3.48
+          ],
+          "signed_gap_m": 0.000499725341796875,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "service cart",
+          "target": "Floor",
+          "anchor_index": 0,
+          "anchor_m": [
+            -2.8199999,
+            10.7200003,
+            0.0
+          ],
+          "actual_prop_member": "service cart rubber caster",
+          "actual_support_member": "Floor",
+          "actual_prop_contact_m": [
+            -2.8199999,
+            10.7200003,
+            0.0
+          ],
+          "actual_support_contact_m": [
+            -2.8199999,
+            10.7200003,
+            -0.0
+          ],
+          "signed_gap_m": 7.450580596923828e-09,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "service cart",
+          "target": "Floor",
+          "anchor_index": 1,
+          "anchor_m": [
+            -2.1199999,
+            11.1800003,
+            0.0
+          ],
+          "actual_prop_member": "service cart rubber caster.003",
+          "actual_support_member": "Floor",
+          "actual_prop_contact_m": [
+            -2.1199999,
+            11.1800003,
+            0.0
+          ],
+          "actual_support_contact_m": [
+            -2.1199999,
+            11.1800003,
+            0.0
+          ],
+          "signed_gap_m": 0.0,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "service cart cloth prop",
+          "target": "service cart tray.001",
+          "anchor_index": 0,
+          "anchor_m": [
+            -2.8099999,
+            10.7700005,
+            0.883
+          ],
+          "actual_prop_member": "service cart wiping cloth",
+          "actual_support_member": "service cart tray.001",
+          "actual_prop_contact_m": [
+            -2.8099999,
+            10.7700005,
+            0.9014431
+          ],
+          "actual_support_contact_m": [
+            -2.8099999,
+            10.7700005,
+            0.883
+          ],
+          "signed_gap_m": 0.01844310760498047,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "service cart seal prop",
+          "target": "service cart tray.001",
+          "anchor_index": 0,
+          "anchor_m": [
+            -2.655,
+            11.1099997,
+            0.883
+          ],
+          "actual_prop_member": "service cart replacement seal",
+          "actual_support_member": "service cart tray.001",
+          "actual_prop_contact_m": [
+            -2.655,
+            11.1099997,
+            0.8841746
+          ],
+          "actual_support_contact_m": [
+            -2.655,
+            11.1099997,
+            0.883
+          ],
+          "signed_gap_m": 0.001174628734588623,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "service cart bearing carton",
+          "target": "service cart tray",
+          "anchor_index": 0,
+          "anchor_m": [
+            -2.5699999,
+            10.9499998,
+            0.273
+          ],
+          "actual_prop_member": "service cart parts bin bottom",
+          "actual_support_member": "service cart tray",
+          "actual_prop_contact_m": [
+            -2.5699999,
+            10.9499998,
+            0.273
+          ],
+          "actual_support_contact_m": [
+            -2.5699999,
+            10.9499998,
+            0.273
+          ],
+          "signed_gap_m": 0.0,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "pump task light",
+          "target": "Ceiling",
+          "anchor_index": 0,
+          "anchor_m": [
+            -3.2,
+            6.7399998,
+            5.8000002
+          ],
+          "actual_prop_member": "pump task light pendant",
+          "actual_support_member": "Ceiling",
+          "actual_prop_contact_m": [
+            -3.2,
+            6.7399998,
+            5.8000002
+          ],
+          "actual_support_contact_m": [
+            -3.2,
+            6.7399998,
+            5.8000002
+          ],
+          "signed_gap_m": 0.0,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        },
+        {
+          "object": "pump task light",
+          "target": "Ceiling",
+          "anchor_index": 1,
+          "anchor_m": [
+            -3.2,
+            7.8600001,
+            5.8000002
+          ],
+          "actual_prop_member": "pump task light pendant.001",
+          "actual_support_member": "Ceiling",
+          "actual_prop_contact_m": [
+            -3.2,
+            7.8600001,
+            5.8000002
+          ],
+          "actual_support_contact_m": [
+            -3.2,
+            7.8600001,
+            5.8000002
+          ],
+          "signed_gap_m": 0.0,
+          "support_angle_degrees": 0.0,
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "angle_tolerance_degrees": 12.0
+        }
+      ],
+      "unregistered_standalone_objects": [],
+      "method": "evaluated prop surface ray then intended evaluated support ray, signed gap and normal; anchors alone never count as contact"
+    },
+    "pipes": {
+      "source_curves": 11,
+      "connections": [
+        {
+          "object": "pump return branch 7.6",
+          "endpoint": "start",
+          "actual_endpoint_m": [
+            -5.0300002,
+            7.5999999,
+            3.76
+          ],
+          "target": "PRIMARY RETURN header",
+          "target_kind": "centreline",
+          "connection_distance_m": 9.5367431640625e-07,
+          "target_witness_m": [
+            -5.0300002,
+            7.599999,
+            3.76
+          ]
+        },
+        {
+          "object": "pump return branch 7.6",
+          "endpoint": "end",
+          "actual_endpoint_m": [
+            -4.6900001,
+            7.5999999,
+            0.91
+          ],
+          "target": "P-02 suction union cast flange",
+          "target_kind": "solid",
+          "connection_distance_m": 0.0,
+          "target_witness_m": [
+            -4.6900001,
+            7.5999999,
+            0.91
+          ]
+        },
+        {
+          "object": "pump discharge riser 7.6",
+          "endpoint": "start",
+          "actual_endpoint_m": [
+            -4.0999999,
+            7.2600002,
+            1.88
+          ],
+          "target": "P-02 discharge neck",
+          "target_kind": "end",
+          "connection_distance_m": 0.0,
+          "target_witness_m": [
+            -4.0999999,
+            7.2600002,
+            1.88
+          ]
+        },
+        {
+          "object": "pump discharge riser 7.6",
+          "endpoint": "end",
+          "actual_endpoint_m": [
+            -4.4299998,
+            7.2600002,
+            3.05
+          ],
+          "target": "pumped hot header",
+          "target_kind": "centreline",
+          "connection_distance_m": 0.0,
+          "target_witness_m": [
+            -4.4299998,
+            7.2600002,
+            3.05
+          ]
+        }
+      ],
+      "socket_tests": [
+        {
+          "socket": "CP-COOL-RETURN",
+          "object": "PRIMARY RETURN header",
+          "endpoint": "start",
+          "actual_m": [
+            -5.0300002,
+            0.0,
+            3.76
+          ],
+          "contract_m": [
+            -5.03,
+            0,
+            3.76
+          ],
+          "error_m": 0.0
+        }
+      ],
+      "limitation": "Geometric connectivity only; no hydraulic or engine behavior is asserted."
+    }
+  },
+  "issues": [
+    {
+      "category": "scope",
+      "code": "slice_is_not_full_section",
+      "severity": "INCOMPLETE",
+      "omitted_full_scene_objects": [
+        "EastWall",
+        "P-01",
+        "HX-01 exchanger",
+        "reserve restart socket"
+      ]
+    },
+    {
+      "category": "reproducibility",
+      "code": "saved_scene_source_differs_from_current_files",
+      "severity": "FAIL",
+      "saved_sha256": "87636d9b26f27f18848e5f6d0e3581673e15c08fbf858b18c5a85a8f446d7a21",
+      "current_sha256": "21f207eb8c589635e3e120c6df0a74309b2a2e296e6a3d0d78cd19917f1662a9"
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-ALCOVE-APPROACH",
+      "object": "D02 metal jamb",
+      "evaluated_bounds": {
+        "min": [
+          -4.8000002,
+          9.8950005,
+          0.0
+        ],
+        "max": [
+          -4.6999998,
+          10.1049995,
+          2.28
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.10000038146972656,
+        0.10499954223632812,
+        2.200000047683716
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -4.7897353,
+        9.9031372,
+        0.0021516
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-ALCOVE-APPROACH",
+      "object": "D02 metal jamb.001",
+      "evaluated_bounds": {
+        "min": [
+          -3.5,
+          9.8950005,
+          0.0
+        ],
+        "max": [
+          -3.4000001,
+          10.1049995,
+          2.28
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.09999990463256836,
+        0.10499954223632812,
+        2.200000047683716
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -3.4897356,
+        9.9031372,
+        0.0021516
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-HX-HOIST",
+      "object": "roof girder lower flange.001",
+      "evaluated_bounds": {
+        "min": [
+          -5.5,
+          9.6850004,
+          5.3849998
+        ],
+        "max": [
+          5.5,
+          9.915,
+          5.4349999
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        2.5999999046325684,
+        0.22999954223632812,
+        0.05000019073486328
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        3.2999997,
+        9.908494,
+        5.3852043
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-HX-HOIST",
+      "object": "roof girder web.001",
+      "evaluated_bounds": {
+        "min": [
+          -5.5,
+          9.7875004,
+          5.4099998
+        ],
+        "max": [
+          5.5,
+          9.8125,
+          5.75
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        2.5999999046325684,
+        0.024999618530273438,
+        0.3400001525878906
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        3.3000002,
+        9.8087826,
+        5.4101167
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-HX-HOIST",
+      "object": "roof girder top flange.001",
+      "evaluated_bounds": {
+        "min": [
+          -5.5,
+          9.6850004,
+          5.7350001
+        ],
+        "max": [
+          5.5,
+          9.915,
+          5.7850003
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        2.5999999046325684,
+        0.22999954223632812,
+        0.05000019073486328
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        3.2999997,
+        9.908494,
+        5.7352047
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-HX-HOIST",
+      "object": "beam end gusset.005",
+      "evaluated_bounds": {
+        "min": [
+          3.75,
+          9.6850004,
+          5.4000001
+        ],
+        "max": [
+          3.8499999,
+          9.915,
+          5.6799998
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.09999990463256836,
+        0.22999954223632812,
+        0.2799997329711914
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        3.7540376,
+        9.6878605,
+        5.4011927
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-HX-HOIST",
+      "object": "roof girder lower flange.002",
+      "evaluated_bounds": {
+        "min": [
+          -5.5,
+          12.7849998,
+          5.3849998
+        ],
+        "max": [
+          5.5,
+          13.0149994,
+          5.4349999
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        2.5999999046325684,
+        0.015000343322753906,
+        0.05000019073486328
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        3.3,
+        12.790019,
+        5.3858204
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-HX-HOIST",
+      "object": "roof girder top flange.002",
+      "evaluated_bounds": {
+        "min": [
+          -5.5,
+          12.7849998,
+          5.7350001
+        ],
+        "max": [
+          5.5,
+          13.0149994,
+          5.7850003
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        2.5999999046325684,
+        0.015000343322753906,
+        0.05000019073486328
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        3.3,
+        12.790019,
+        5.7358208
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-HX-HOIST",
+      "object": "beam end gusset.008",
+      "evaluated_bounds": {
+        "min": [
+          3.75,
+          12.7849998,
+          5.4000001
+        ],
+        "max": [
+          3.8499999,
+          13.0149994,
+          5.6799998
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.09999990463256836,
+        0.015000343322753906,
+        0.2799997329711914
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        3.7540376,
+        12.7878599,
+        5.4011927
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-BENCH",
+      "object": "bench angle leg",
+      "evaluated_bounds": {
+        "min": [
+          -4.9749999,
+          12.2750006,
+          0.0
+        ],
+        "max": [
+          -4.9249997,
+          12.3249998,
+          0.884
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.05000019073486328,
+        0.024999618530273438,
+        0.8840000033378601
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -4.9715805,
+        12.2777071,
+        0.0007206
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-BENCH",
+      "object": "bench angle leg.002",
+      "evaluated_bounds": {
+        "min": [
+          -2.4750001,
+          12.2750006,
+          0.0
+        ],
+        "max": [
+          -2.425,
+          12.3249998,
+          0.884
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.05000019073486328,
+        0.024999618530273438,
+        0.8840000033378601
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -2.4715807,
+        12.2777071,
+        0.0007206
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-BENCH",
+      "object": "BenchTop",
+      "evaluated_bounds": {
+        "min": [
+          -5.0999999,
+          12.1999998,
+          0.884
+        ],
+        "max": [
+          -2.3000002,
+          12.9499998,
+          0.936
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        2.75,
+        0.10000038146972656,
+        0.05200004577636719
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -2.3028593,
+        12.2040386,
+        0.8851926
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-BENCH",
+      "object": "bench under shelf",
+      "evaluated_bounds": {
+        "min": [
+          -5.04,
+          12.2649994,
+          0.2265
+        ],
+        "max": [
+          -2.3600001,
+          12.875,
+          0.2535
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        2.679999828338623,
+        0.03500080108642578,
+        0.02699999511241913
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -5.0343475,
+        12.2690029,
+        0.2281696
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-BENCH",
+      "object": "drawer pull",
+      "evaluated_bounds": {
+        "min": [
+          -4.5700006,
+          12.2709999,
+          0.635
+        ],
+        "max": [
+          -4.1999998,
+          12.3010006,
+          0.665
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.37000083923339844,
+        0.029000282287597656,
+        0.029999971389770508
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -4.567708,
+        12.2885122,
+        0.6643739
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-BENCH",
+      "object": "drawer pull.001",
+      "evaluated_bounds": {
+        "min": [
+          -4.5700006,
+          12.2709999,
+          0.775
+        ],
+        "max": [
+          -4.1999998,
+          12.3010006,
+          0.805
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.37000083923339844,
+        0.029000282287597656,
+        0.029999971389770508
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -4.567708,
+        12.2885122,
+        0.8043739
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-BENCH",
+      "object": "vise mounting sole",
+      "evaluated_bounds": {
+        "min": [
+          -4.8250003,
+          12.2950001,
+          0.936
+        ],
+        "max": [
+          -4.4749999,
+          12.6049995,
+          0.978
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.35000038146972656,
+        0.005000114440917969,
+        0.04200005531311035
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -4.8217697,
+        12.297287,
+        0.936954
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "KC-BENCH",
+      "object": "large service spanner",
+      "evaluated_bounds": {
+        "min": [
+          -3.9397359,
+          12.2451448,
+          0.936
+        ],
+        "max": [
+          -3.5560973,
+          12.5991135,
+          0.945
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.3836386203765869,
+        0.0548553466796875,
+        0.009000003337860107
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -3.9390345,
+        12.285594,
+        0.9371437
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "PORTAL-CP-D02",
+      "object": "D02 recessed door leaf",
+      "evaluated_bounds": {
+        "min": [
+          -4.7207007,
+          10.1385689,
+          0.01
+        ],
+        "max": [
+          -4.4189534,
+          11.272171,
+          2.1900001
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.28104639053344727,
+        0.061430931091308594,
+        2.180000066757202
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -4.6606216,
+        10.1483822,
+        0.0133392
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "PORTAL-CP-D02",
+      "object": "D02 hinge pin",
+      "evaluated_bounds": {
+        "min": [
+          -4.7220001,
+          10.1080008,
+          0.185
+        ],
+        "max": [
+          -4.658,
+          10.1719999,
+          0.335
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.04199981689453125,
+        0.06399917602539062,
+        0.14999999105930328
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -4.6953435,
+        10.1093931,
+        0.1903501
+      ]
+    },
+    {
+      "category": "clearance",
+      "code": "geometry_intersects_keep_clear",
+      "severity": "FAIL",
+      "volume": "PORTAL-CP-D02",
+      "object": "D02 hinge pin.001",
+      "evaluated_bounds": {
+        "min": [
+          -4.7220001,
+          10.1080008,
+          1.7249999
+        ],
+        "max": [
+          -4.658,
+          10.1719999,
+          1.875
+        ]
+      },
+      "aabb_overlap_extent_m": [
+        0.04199981689453125,
+        0.06399917602539062,
+        0.15000009536743164
+      ],
+      "method": "evaluated_triangle_clipped_to_open_volume",
+      "witness_m": [
+        -4.6953435,
+        10.1093931,
+        1.73035
+      ]
+    },
+    {
+      "category": "envelope",
+      "code": "equipment_exceeds_declared_envelope",
+      "severity": "FAIL",
+      "equipment": "CP-PUMP-B",
+      "object": "P-02",
+      "excess_xyz_m": [
+        0.010000228881835938,
+        0.0,
+        0.0
+      ],
+      "actual_bounds": {
+        "min": [
+          -4.96,
+          6.7750001,
+          0.0
+        ],
+        "max": [
+          -1.9400001,
+          8.4250002,
+          1.962
+        ]
+      },
+      "contract_bounds": {
+        "min": [
+          -4.95,
+          6.5,
+          0
+        ],
+        "max": [
+          -1.9,
+          8.6,
+          2.35
+        ]
+      }
+    },
+    {
+      "category": "envelope",
+      "code": "equipment_exceeds_declared_envelope",
+      "severity": "FAIL",
+      "equipment": "CP-WORKBENCH",
+      "object": "maintenance workbench",
+      "excess_xyz_m": [
+        0.04999971389770508,
+        0.10000038146972656,
+        0.0
+      ],
+      "actual_bounds": {
+        "min": [
+          -5.0999999,
+          12.1999998,
+          0.0
+        ],
+        "max": [
+          -2.3000002,
+          12.9644995,
+          1.11
+        ]
+      },
+      "contract_bounds": {
+        "min": [
+          -5.05,
+          12.3,
+          0
+        ],
+        "max": [
+          -2.25,
+          13,
+          1.24
+        ]
+      }
+    },
+    {
+      "category": "envelope",
+      "code": "equipment_exceeds_declared_envelope",
+      "severity": "FAIL",
+      "equipment": "CP-TOOL-CART",
+      "object": "service cart",
+      "excess_xyz_m": [
+        0.18499994277954102,
+        0.020000457763671875,
+        7.212379027343729e-10
+      ],
+      "actual_bounds": {
+        "min": [
+          -2.885,
+          10.6300001,
+          -0.0
+        ],
+        "max": [
+          -1.9022521,
+          11.2700005,
+          1.0477514
+        ]
+      },
+      "contract_bounds": {
+        "min": [
+          -2.7,
+          10.65,
+          0
+        ],
+        "max": [
+          -1.87,
+          11.25,
+          1.05
+        ]
+      }
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "patched concrete",
+      "count": 10,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "patched concrete.001",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "patched concrete.002",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "route worn edge",
+      "count": 13,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "route worn edge.001",
+      "count": 13,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "route worn edge.002",
+      "count": 13,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "route worn edge.003",
+      "count": 13,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "route worn edge.004",
+      "count": 13,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "route worn edge.005",
+      "count": 13,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "route worn edge.006",
+      "count": 13,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "route worn edge.007",
+      "count": 13,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.001",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.002",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.003",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.004",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.005",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.006",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.007",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.008",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.009",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.010",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.011",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.012",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.013",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.014",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.015",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.016",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.017",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.018",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "thermos cap grip.019",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "bench localized scrape",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "bench localized scrape.001",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "bench localized scrape.002",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "bench localized scrape.003",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "bench lamp lens",
+      "count": 96,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.001",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.002",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.003",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.004",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.005",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.006",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.007",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.008",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.009",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.010",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.011",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 fan grille.012",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 vertical grille stay",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 vertical grille stay.001",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 vertical grille stay.002",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge ivory dial",
+      "count": 96,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge tick",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge tick.001",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge tick.002",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge tick.003",
+      "count": 24,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge tick.004",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge tick.005",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge tick.006",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge tick.007",
+      "count": 24,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge tick.008",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge tick.009",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge tick.010",
+      "count": 16,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "geometry",
+      "code": "degenerate_evaluated_triangles",
+      "severity": "INFO",
+      "object": "P-02 outlet gauge needle",
+      "count": 20,
+      "note": "Zero-area evaluated tessellation is inventoried, not by itself proof of a visible or structural defect."
+    },
+    {
+      "category": "support",
+      "code": "anchor_has_no_actual_prop_surface",
+      "severity": "FAIL",
+      "object": "D02 swinging leaf",
+      "target": "D02 metal jamb",
+      "anchor_index": 0,
+      "anchor_m": [
+        -4.7199998,
+        10.0299997,
+        0.26
+      ]
+    },
+    {
+      "category": "support",
+      "code": "anchor_has_no_actual_prop_surface",
+      "severity": "FAIL",
+      "object": "D02 swinging leaf",
+      "target": "D02 metal jamb",
+      "anchor_index": 1,
+      "anchor_m": [
+        -4.7199998,
+        10.0299997,
+        1.8
+      ]
+    },
+    {
+      "category": "support",
+      "code": "floating_support_contact",
+      "severity": "FAIL",
+      "object": "bench cloth",
+      "target": "BenchTop",
+      "anchor_index": 0,
+      "anchor_m": [
+        -4.2600002,
+        12.3999996,
+        0.936
+      ],
+      "actual_prop_member": "folded wiping rag",
+      "actual_support_member": "BenchTop",
+      "actual_prop_contact_m": [
+        -4.2600002,
+        12.3999996,
+        0.9533027
+      ],
+      "actual_support_contact_m": [
+        -4.2600002,
+        12.3999996,
+        0.936
+      ],
+      "signed_gap_m": 0.01730269193649292,
+      "support_angle_degrees": 0.0,
+      "max_gap_m": 0.005,
+      "max_penetration_m": 0.002,
+      "angle_tolerance_degrees": 12.0
+    },
+    {
+      "category": "support",
+      "code": "floating_support_contact",
+      "severity": "FAIL",
+      "object": "service cart cloth prop",
+      "target": "service cart tray.001",
+      "anchor_index": 0,
+      "anchor_m": [
+        -2.8099999,
+        10.7700005,
+        0.883
+      ],
+      "actual_prop_member": "service cart wiping cloth",
+      "actual_support_member": "service cart tray.001",
+      "actual_prop_contact_m": [
+        -2.8099999,
+        10.7700005,
+        0.9014431
+      ],
+      "actual_support_contact_m": [
+        -2.8099999,
+        10.7700005,
+        0.883
+      ],
+      "signed_gap_m": 0.01844310760498047,
+      "support_angle_degrees": 0.0,
+      "max_gap_m": 0.005,
+      "max_penetration_m": 0.002,
+      "angle_tolerance_degrees": 12.0
+    },
+    {
+      "category": "support",
+      "code": "anchor_has_no_actual_prop_surface",
+      "severity": "FAIL",
+      "object": "service cart spanner prop",
+      "target": "service cart tray.001",
+      "anchor_index": 0,
+      "anchor_m": [
+        -2.28,
+        10.8400002,
+        0.883
+      ]
+    }
+  ]
+}

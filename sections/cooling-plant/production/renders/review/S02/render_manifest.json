@@ -1,0 +1,61 @@
+{
+  "revision": "S02",
+  "blend": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\sections\\cooling-plant\\blender\\cooling_plant.blend",
+  "source_sha256": "87636d9b26f27f18848e5f6d0e3581673e15c08fbf858b18c5a85a8f446d7a21",
+  "backend": "HIP",
+  "samples": 40,
+  "resolution": [
+    1200,
+    800
+  ],
+  "cameras": [
+    {
+      "camera": "C07_PINCH",
+      "seconds": 9.58,
+      "sha256": "36cdf8562df770aea7ba454c4b7c848760d65bacab95ef5ee01575a64105d41b",
+      "location": [
+        -0.30000001192092896,
+        5.840000152587891,
+        1.6799999475479126
+      ],
+      "rotation": [
+        1.5230672359466553,
+        6.910131844506395e-08,
+        0.8885956406593323
+      ],
+      "lens": 28.0
+    },
+    {
+      "camera": "C10_MATERIALS",
+      "seconds": 8.56,
+      "sha256": "e242492270170c9717d4ebaff5afd39a9e78e0f06997719e5d7485c2cb48bc1f",
+      "location": [
+        -1.840000033378601,
+        6.75,
+        1.5
+      ],
+      "rotation": [
+        1.2526963949203491,
+        -4.8296346477627594e-08,
+        0.9380474090576172
+      ],
+      "lens": 46.0
+    },
+    {
+      "camera": "C08_WORKSHOP",
+      "seconds": 8.68,
+      "sha256": "a515c5748cb9e288ff9e65cf1ee49ff942796c00249f227f3746ee57dea43d42",
+      "location": [
+        -3.9100000858306885,
+        10.569999694824219,
+        1.6799999475479126
+      ],
+      "rotation": [
+        1.2973061800003052,
+        -2.180292746345458e-08,
+        -0.10848332941532135
+      ],
+      "lens": 27.0
+    }
+  ]
+}

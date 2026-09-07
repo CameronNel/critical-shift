@@ -1,0 +1,55 @@
+{
+  "revision": "CP-A02",
+  "scope": "Section-local JSON envelope arithmetic and original SVG generation; not Blender collision or engine certification",
+  "checks": {
+    "permanent_solids_vs_keep_clear_conflicts": [],
+    "permanent_solid_pair_conflicts": [],
+    "solids_outside_clear_hall": [],
+    "declared_fixed_interface_overlaps": [
+      {
+        "solid": "CP-ALCOVE-FRONT-W",
+        "reserved_volume": "KC-ALCOVE-DOOR",
+        "reason": "Non-route west hinge/jamb hardware edge inside conservative swept AABB; clear doorway remains X-4.7..-3.5."
+      }
+    ],
+    "main_lane_width_m": 2.2,
+    "main_lane_headroom_m": 2.4,
+    "between_pumps_operator_lane_m": 1.2999999999999998,
+    "exchanger_reach_strip_width_m": 1.1999999999999997,
+    "section_min_y_m": 0,
+    "proposed_portal_endpoint_max_error_m": 4.756124077503513e-11,
+    "proposed_outer_shell_reactor_polygon_xy": [
+      [
+        12.501219330881977,
+        -4.298780669118025
+      ],
+      [
+        4.298780669118025,
+        -12.501219330881977
+      ],
+      [
+        13.703300858899109,
+        -21.905739520663058
+      ],
+      [
+        21.90573952066306,
+        -13.703300858899105
+      ]
+    ],
+    "control_y_separation_m": 0.8987806691180249,
+    "stair_y_separation_m": 7.498780669118025,
+    "reactor_inner_hall_separating_halfplane_min_x_minus_y": 16.8,
+    "reactor_se_facet_x_minus_y": 16.8
+  },
+  "acceptance_status": "S03 design target alignment only; as-built acceptance pending",
+  "unverified": [
+    "Actual Blender geometry and support contacts",
+    "S03 bench depth/upstand trim to target Y12.3..13",
+    "West edge of bench standing strip beside fully open D02 leaf",
+    "Runtime cart/rescue navigation, interactions, power, failures and recovery",
+    "Shared facade seam against 0.36m reactor exterior wall",
+    "New turbine-room footprint and utility endpoints",
+    "Cold-start visual acceptance"
+  ],
+  "status": "PASS"
+}

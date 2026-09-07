@@ -1,0 +1,889 @@
+{
+  "schema": "critical-shift.section-interface.v1",
+  "section": "cooling-plant",
+  "revision": "CP-A02",
+  "units": "metres",
+  "status": "S03 section-local design contract; as-built geometry acceptance pending; proposed external connection only; runtime behavior not implemented",
+  "coordinate_system": {
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "origin_meaning": "Main entry threshold centre at finished floor",
+    "inside_axis": "+Y",
+    "up_axis": "+Z",
+    "handedness": "right"
+  },
+  "bounds_convention": "All AABBs have min/max XYZ. Open-volume overlaps of positive extent are clashes; touching boundaries are allowed. Machine AABBs reserve bodies and local supports. Tagged utility risers belong to the separate service network and may leave machine envelopes while respecting circulation and portal clearances. Explicitly declared fixed interface overlaps are recorded separately; they never exempt the actual portal, public route or operator clearance.",
+  "shell": {
+    "clear_bounds": {
+      "min": [
+        -5.5,
+        0,
+        0
+      ],
+      "max": [
+        5.5,
+        13,
+        5.8
+      ]
+    },
+    "outer_bounds": {
+      "min": [
+        -5.8,
+        0,
+        -0.32
+      ],
+      "max": [
+        5.8,
+        13.3,
+        6.08
+      ]
+    },
+    "wall_thickness": 0.3,
+    "floor_elevation": 0,
+    "ceiling_clear_height": 5.8,
+    "floor_step_at_entry": 0,
+    "wall_rule": "Side walls extend outward in X; rear wall extends beyond Y13; front jamb construction stays at Y>=0 and outside entry opening. No geometry extends into Y<0.",
+    "raised_platform": false
+  },
+  "portals": [
+    {
+      "id": "CP-P01",
+      "purpose": "Reactor service/cart/rescue entry",
+      "centre": [
+        0,
+        0,
+        2.5
+      ],
+      "threshold": [
+        0,
+        0,
+        0
+      ],
+      "clear_width": 5,
+      "clear_height": 5,
+      "width_axis": "+X",
+      "inward_normal": [
+        0,
+        1,
+        0
+      ],
+      "clear_bounds": {
+        "min": [
+          -2.5,
+          0,
+          0
+        ],
+        "max": [
+          2.5,
+          0.6,
+          5
+        ]
+      },
+      "door": {
+        "type": "overhead service door",
+        "presentation_state": "fixed open",
+        "floor_swing": null,
+        "overhead_reserve": {
+          "min": [
+            -2.65,
+            0,
+            5
+          ],
+          "max": [
+            2.65,
+            0.6,
+            5.8
+          ]
+        },
+        "runtime_door_implemented": false
+      },
+      "connection_status": "proposed, not installed"
+    },
+    {
+      "id": "CP-D02",
+      "purpose": "Maintenance alcove personnel door",
+      "threshold": [
+        -4.1,
+        10,
+        0
+      ],
+      "clear_width": 1.2,
+      "clear_height": 2.2,
+      "width_axis": "+X",
+      "inward_normal": [
+        0,
+        1,
+        0
+      ],
+      "clear_bounds": {
+        "min": [
+          -4.7,
+          10,
+          0
+        ],
+        "max": [
+          -3.5,
+          10.21,
+          2.2
+        ]
+      },
+      "door": {
+        "type": "inward hinged",
+        "hinge": [
+          -4.74,
+          10.2,
+          0
+        ],
+        "leaf_length": 1.22,
+        "closed_leaf_end": [
+          -3.52,
+          10.2,
+          0
+        ],
+        "open_leaf_end": [
+          -4.74,
+          11.42,
+          0
+        ],
+        "presentation_angle_degrees": 90,
+        "reserved_angle_degrees": 90,
+        "swept_volume": {
+          "shape": "quarter-cylinder",
+          "centre_xy": [
+            -4.74,
+            10.2
+          ],
+          "radius": 1.22,
+          "angle_degrees": [
+            0,
+            90
+          ],
+          "z": [
+            0,
+            2.2
+          ],
+          "conservative_bounds": {
+            "min": [
+              -4.78,
+              10.16,
+              0
+            ],
+            "max": [
+              -3.5,
+              11.45,
+              2.2
+            ]
+          }
+        },
+        "runtime_door_implemented": false,
+        "hardware_note": "The conservative swept AABB includes non-route hinge/jamb hardware overlap at its west front corner. This does not reduce the 1.2m clear doorway. Physical geometry acceptance remains pending."
+      },
+      "source_object": "D02 swinging leaf"
+    }
+  ],
+  "equipment_envelopes": [
+    {
+      "id": "CP-PUMP-A",
+      "kind": "horizontal centrifugal pump skid",
+      "bounds": {
+        "min": [
+          -4.95,
+          3.1,
+          0
+        ],
+        "max": [
+          -1.9,
+          5.2,
+          2.35
+        ]
+      },
+      "shaft_axis": "+X",
+      "motor_end": "east / aisle-facing",
+      "service_zone_ids": [
+        "KC-PUMP-A",
+        "KC-PUMP-B"
+      ],
+      "source_object": "P-01",
+      "object_name": "P-01"
+    },
+    {
+      "id": "CP-PUMP-B",
+      "kind": "horizontal centrifugal pump skid",
+      "bounds": {
+        "min": [
+          -4.95,
+          6.5,
+          0
+        ],
+        "max": [
+          -1.9,
+          8.6,
+          2.35
+        ]
+      },
+      "shaft_axis": "+X",
+      "motor_end": "east / aisle-facing",
+      "service_zone_ids": [
+        "KC-PUMP-B",
+        "KC-ALCOVE-APPROACH"
+      ],
+      "source_object": "P-02",
+      "object_name": "P-02"
+    },
+    {
+      "id": "CP-HX-01",
+      "kind": "shell-and-tube heat exchanger with saddles and removable rear cover",
+      "bounds": {
+        "min": [
+          2.3,
+          4.6,
+          0
+        ],
+        "max": [
+          4.6,
+          9.3,
+          3.5
+        ]
+      },
+      "longitudinal_axis": "+Y",
+      "tube_withdrawal_direction": "+Y",
+      "barrel_length": 3.85,
+      "removable_tube_cartridge_nominal_length": 3.35,
+      "extraction_travel_allowance": 3.5,
+      "cartridge_note": "Shorter removable cartridge inside the barrel is an explicit game-scale implementation decision; rear dome reaches Y9.29.",
+      "service_zone_ids": [
+        "KC-HX-SIDE",
+        "KC-HX-WITHDRAW",
+        "KC-HX-HOIST"
+      ],
+      "source_object": "HX-01 exchanger",
+      "object_name": "HX-01 exchanger"
+    },
+    {
+      "id": "CP-RESTART",
+      "kind": "wall-mounted reserve restart terminal with portable battery socket",
+      "bounds": {
+        "min": [
+          4.85,
+          1.62,
+          0.77
+        ],
+        "max": [
+          5.5,
+          2.44,
+          1.7
+        ]
+      },
+      "service_zone_ids": [
+        "KC-RESTART"
+      ],
+      "source_object": "reserve restart socket",
+      "object_name": "reserve restart socket"
+    },
+    {
+      "id": "CP-WORKBENCH",
+      "kind": "maintenance bench and tools accessory envelope",
+      "bounds": {
+        "min": [
+          -5.05,
+          12.3,
+          0
+        ],
+        "max": [
+          -2.25,
+          13,
+          1.24
+        ]
+      },
+      "worktop_elevation": 0.936,
+      "nominal_bench_dimensions": [
+        2.8,
+        0.7,
+        0.9
+      ],
+      "service_zone_ids": [
+        "KC-BENCH"
+      ],
+      "source_object": "maintenance workbench",
+      "source_alignment": "Target Y12.3..13 requires the S03 worktop/upstand depth trim; not claimed as-built until geometry validation passes.",
+      "object_name": "maintenance workbench"
+    },
+    {
+      "id": "CP-TOOL-CART",
+      "kind": "parked mobile tool cart",
+      "bounds": {
+        "min": [
+          -2.885,
+          10.63,
+          0
+        ],
+        "max": [
+          -1.9023,
+          11.27,
+          1.05
+        ]
+      },
+      "parking_only": true,
+      "must_not_be_stored_in_keep_clear": true,
+      "source_object": "service cart",
+      "object_name": "service cart"
+    }
+  ],
+  "partitions": [
+    {
+      "id": "CP-ALCOVE-FRONT-W",
+      "bounds": {
+        "min": [
+          -5.5,
+          10,
+          0
+        ],
+        "max": [
+          -4.7,
+          10.2,
+          3.2
+        ]
+      }
+    },
+    {
+      "id": "CP-ALCOVE-FRONT-E",
+      "bounds": {
+        "min": [
+          -3.5,
+          10,
+          0
+        ],
+        "max": [
+          -1.6,
+          10.2,
+          3.2
+        ]
+      }
+    },
+    {
+      "id": "CP-ALCOVE-SIDE",
+      "bounds": {
+        "min": [
+          -1.8,
+          10.2,
+          0
+        ],
+        "max": [
+          -1.6,
+          13,
+          3.2
+        ]
+      }
+    }
+  ],
+  "keep_clear_volumes": [
+    {
+      "id": "KC-MAIN",
+      "purpose": "Permanent cart and rescue lane",
+      "bounds": {
+        "min": [
+          -1.1,
+          0,
+          0
+        ],
+        "max": [
+          1.1,
+          12.6,
+          2.4
+        ]
+      },
+      "minimum_width": 2.2,
+      "route_class": "public_cart_rescue",
+      "permanent": true
+    },
+    {
+      "id": "KC-PUMP-A",
+      "purpose": "Pump A front operator and coupling access",
+      "bounds": {
+        "min": [
+          -4.95,
+          1.7,
+          0
+        ],
+        "max": [
+          -1.1,
+          3.1,
+          2.2
+        ]
+      },
+      "minimum_width": 1.4,
+      "route_class": "operator_service",
+      "permanent": true
+    },
+    {
+      "id": "KC-PUMP-B",
+      "purpose": "Shared pump A rear and pump B front operator lane",
+      "bounds": {
+        "min": [
+          -4.95,
+          5.2,
+          0
+        ],
+        "max": [
+          -1.1,
+          6.5,
+          2.2
+        ]
+      },
+      "minimum_width": 1.3,
+      "route_class": "operator_service",
+      "permanent": true
+    },
+    {
+      "id": "KC-ALCOVE-APPROACH",
+      "purpose": "Pump B rear access and alcove doorway approach",
+      "bounds": {
+        "min": [
+          -4.95,
+          8.6,
+          0
+        ],
+        "max": [
+          -1.1,
+          10,
+          2.2
+        ]
+      },
+      "minimum_width": 1.4,
+      "route_class": "operator_service",
+      "permanent": true
+    },
+    {
+      "id": "KC-HX-SIDE",
+      "purpose": "Equipment reach strip west of exchanger; connects to main lane",
+      "bounds": {
+        "min": [
+          1.1,
+          4.6,
+          0
+        ],
+        "max": [
+          2.3,
+          12.8,
+          2.2
+        ]
+      },
+      "minimum_width": 1.2,
+      "route_class": "equipment_reach_only_not_cart_route",
+      "permanent": true
+    },
+    {
+      "id": "KC-HX-WITHDRAW",
+      "purpose": "Exchanger rear cover and 3.5m cartridge withdrawal reserve",
+      "bounds": {
+        "min": [
+          2,
+          9.3,
+          0
+        ],
+        "max": [
+          4.6,
+          12.8,
+          3
+        ]
+      },
+      "minimum_length": 3.5,
+      "route_class": "maintenance_work_volume_not_public_route",
+      "permanent": true,
+      "note": "No parked cart, terminal, columns, low pipes, bins or wall dressing within this volume; 3.35m removable cartridge has 3.5m extraction travel; service may temporarily use part of adjacent reach strip."
+    },
+    {
+      "id": "KC-HX-HOIST",
+      "purpose": "Dedicated hoist working zone above withdrawal reserve",
+      "bounds": {
+        "min": [
+          2,
+          9.3,
+          3.1
+        ],
+        "max": [
+          4.6,
+          12.8,
+          5.35
+        ]
+      },
+      "route_class": "overhead_hoist_work_zone",
+      "permanent": true,
+      "permitted_occupancy": [
+        "dedicated hoist mechanism and hook"
+      ],
+      "note": "Mechanism working envelope ends at Z5.35 below structural roof girders. Fixed dedicated hangers may extend above this zone to the ceiling. Unrelated services and props may not obstruct mechanism travel; hook nominal elevation Z3.1."
+    },
+    {
+      "id": "KC-RESTART",
+      "purpose": "Reserve terminal operation and portable battery set-down",
+      "bounds": {
+        "min": [
+          3.4,
+          1.7,
+          0
+        ],
+        "max": [
+          4.85,
+          2.7,
+          2.2
+        ]
+      },
+      "minimum_width": 1.45,
+      "route_class": "operator_service",
+      "permanent": true
+    },
+    {
+      "id": "KC-BENCH",
+      "purpose": "Workbench standing strip",
+      "bounds": {
+        "min": [
+          -5.05,
+          11.4,
+          0
+        ],
+        "max": [
+          -2.25,
+          12.3,
+          2.2
+        ]
+      },
+      "minimum_width": 0.9,
+      "route_class": "equipment_reach_only_not_cart_route",
+      "permanent": true
+    },
+    {
+      "id": "KC-ALCOVE-DOOR",
+      "purpose": "Conservative full-90-degree door sweep; leaf shown fully open at 90 degrees",
+      "bounds": {
+        "min": [
+          -4.78,
+          10.16,
+          0
+        ],
+        "max": [
+          -3.5,
+          11.45,
+          2.2
+        ]
+      },
+      "route_class": "door_swing",
+      "permanent": true,
+      "intentional_fixed_interface_overlap": [
+        {
+          "object_id": "CP-ALCOVE-FRONT-W",
+          "reason": "Non-route west hinge/jamb hardware edge inside conservative swept AABB; clear doorway remains X-4.7..-3.5."
+        }
+      ],
+      "shared_space_note": "Conservative sweep overlaps the front 0.05m of KC-BENCH. The open leaf reaches Y11.42 at the west edge; final standing-space/door geometry acceptance remains pending.",
+      "permitted_object_names": [
+        "D02 metal jamb",
+        "D02 metal jamb.001"
+      ]
+    }
+  ],
+  "utilities": {
+    "status": "Local proposed sockets only. Remote endpoints, capacity and final routing require connector coordination.",
+    "pipe_system": "Fictional game cooling support circuit; supply and return remain visibly traceable and isolated from electrical cable routing.",
+    "minimum_overhead_crossing_underside": 4.08,
+    "overhead_crossfeed_location_y": 2.5,
+    "crossfeed_note": "Hot overhead crossfeed underside Z4.08 at Y2.5 clears the Z2.4 cart route and is outside the entry portal depth Y0..0.6.",
+    "portal_crossing_rule": "No service crosses the 5m entry clear opening below Z5.0. Front sockets are outside portal width; side-wall alternatives require a revised connector contract.",
+    "sockets": [
+      {
+        "id": "CP-COOL-SUPPLY",
+        "kind": "outgoing primary reactor cooling supply / east",
+        "position": [
+          4.99,
+          0,
+          3.76
+        ],
+        "normal": [
+          0,
+          -1,
+          0
+        ],
+        "nominal_bore": 0.3,
+        "state": "proposed local front-wall interface",
+        "remote_position": null,
+        "source_object": "cooled SUPPLY return to reactor",
+        "source_endpoint": "end"
+      },
+      {
+        "id": "CP-COOL-RETURN",
+        "kind": "incoming primary reactor cooling return / west",
+        "position": [
+          -5.03,
+          0,
+          3.76
+        ],
+        "normal": [
+          0,
+          -1,
+          0
+        ],
+        "nominal_bore": 0.32,
+        "state": "proposed local front-wall interface",
+        "remote_position": null,
+        "source_object": "PRIMARY RETURN header",
+        "source_endpoint": "start"
+      },
+      {
+        "id": "CP-RESERVE-POWER",
+        "kind": "reserve electrical feeder interface",
+        "position": [
+          5.27,
+          0,
+          3
+        ],
+        "normal": [
+          0,
+          -1,
+          0
+        ],
+        "cable_diameter": 0.048,
+        "state": "proposed local front-wall junction",
+        "remote_position": null,
+        "source_object": "reserve cable upfeed",
+        "source_endpoint": "end"
+      },
+      {
+        "id": "CP-PORTABLE-BATTERY",
+        "kind": "portable mine-pump battery connection",
+        "position": [
+          4.88,
+          1.9,
+          1.03
+        ],
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "state": "local accessible restart-terminal socket",
+        "remote_position": null,
+        "source_object": "reserve cap",
+        "source_endpoint": "centre"
+      },
+      {
+        "id": "CP-MINE-WATER",
+        "kind": "emergency backup mine-water hose coupling",
+        "position": [
+          4.86,
+          3.15,
+          0.78
+        ],
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "nominal_bore": 0.152,
+        "isolator_elevation": 1.13,
+        "state": "capped local connection; no hose to another room is installed",
+        "remote_position": null,
+        "source_object": "mine water blank cap",
+        "source_endpoint": "centre"
+      },
+      {
+        "id": "CP-SECONDARY-WATER-01",
+        "kind": "exchanger secondary-water wall socket 01",
+        "position": [
+          5.5,
+          5.8,
+          1.7
+        ],
+        "normal": [
+          1,
+          0,
+          0
+        ],
+        "nominal_bore": 0.2,
+        "state": "proposed local side-wall interface",
+        "remote_position": null,
+        "source_object": "secondary water nozzle",
+        "source_endpoint": "end"
+      },
+      {
+        "id": "CP-SECONDARY-WATER-02",
+        "kind": "exchanger secondary-water wall socket 02",
+        "position": [
+          5.5,
+          7.85,
+          1.92
+        ],
+        "normal": [
+          1,
+          0,
+          0
+        ],
+        "nominal_bore": 0.2,
+        "state": "proposed local side-wall interface",
+        "remote_position": null,
+        "source_object": "secondary water nozzle.001",
+        "source_endpoint": "end"
+      },
+      {
+        "id": "CP-DRAIN-OUT",
+        "kind": "contained drainage outlet",
+        "position": [
+          5.5,
+          10,
+          -0.1
+        ],
+        "normal": [
+          1,
+          0,
+          0
+        ],
+        "state": "proposed local drainage interface",
+        "remote_position": null,
+        "installed": false,
+        "source_object": null,
+        "source_endpoint": null,
+        "validation_note": "Proposed external drainage outlet only; no installed source endpoint exists. Report unverified, not connected."
+      }
+    ],
+    "floor_drains": {
+      "type": "flush grates",
+      "step": 0,
+      "rule": "Keep grates and covers flush, and route drips locally without floor obstacles across KC-MAIN."
+    }
+  },
+  "proposed_reactor_connection": {
+    "status": "PROPOSED - not applied or approved as an assembled facility fit",
+    "authority": "reactor-room architecture/build_drawings.py and architecture/README.md, revision P02, read-only reference in reactor-valorant worktree",
+    "translation_xyz": [
+      8.4,
+      -8.4,
+      0
+    ],
+    "rotation_z_degrees": -135,
+    "local_positive_y_in_reactor": [
+      0.707106781,
+      -0.707106781,
+      0
+    ],
+    "reactor_portal_endpoints_xy": [
+      [
+        10.167766953,
+        -6.632233047
+      ],
+      [
+        6.632233047,
+        -10.167766953
+      ]
+    ],
+    "reactor_portal_clear_width": 5,
+    "reactor_portal_clear_height": 5,
+    "reactor_control_gross_xy": {
+      "min": [
+        10.8,
+        -3.4
+      ],
+      "max": [
+        14.96,
+        3.4
+      ]
+    },
+    "reactor_stair_gross_xy": {
+      "min": [
+        12.46,
+        3.2
+      ],
+      "max": [
+        18.71,
+        6.4
+      ]
+    },
+    "coordination_notes": [
+      "Local entry endpoints match P02 cooling portal exactly under the proposed transform.",
+      "Outer shell Y-maximum in reactor coordinates is -4.298780669, leaving at least 0.898780669m Y separation from P02 Control gross bounds and 7.498780669m from stair gross bounds.",
+      "P02 reactor exterior wall thickness is 0.36m; adjoining front shoulder wall geometry may occupy the same seam. Connector owner must resolve the wall/threshold seam before assembly without editing or moving reactor here.",
+      "P02 station 06 is an existing local turbine control/service station. It is not the new turbine room and has not been duplicated or modified.",
+      "No verified new turbine-room placement exists in this architecture reference; facility-wide turbine clearance remains unverified.",
+      "No neighbouring installed utility endpoint positions have been invented."
+    ]
+  },
+  "runtime_contract": {
+    "implementation_status": "visual authoring and semantic handoff only; no game simulation, physics, interactions, networking, AI navigation or engine validation implemented",
+    "authority": "Future host-authoritative game engine cooling system; renderer only depicts state",
+    "inputs": [
+      "electrical_feed_available",
+      "reserve_energy_available",
+      "portable_battery_connected",
+      "coolant_available",
+      "mine_water_connected",
+      "pump_health_A",
+      "pump_health_B",
+      "valve_positions",
+      "reactor_cooling_demand"
+    ],
+    "outputs": [
+      "coolant_flow",
+      "coolant_temperature",
+      "coolant_pressure",
+      "pump_health",
+      "requested_power",
+      "reserve_energy_use",
+      "cooling_alarm_state",
+      "repair_complete_event",
+      "cooling_recovery_event"
+    ],
+    "interaction_ids": [
+      "CP-PUMP-A.isolate",
+      "CP-PUMP-A.repair",
+      "CP-PUMP-B.isolate",
+      "CP-PUMP-B.repair",
+      "CP-HX-01.inspect",
+      "CP-VALVE.manual_hold",
+      "CP-RESTART.request_emergency_cooling",
+      "CP-PORTABLE-BATTERY.connect",
+      "CP-MINE-WATER.connect",
+      "CP-ALARM.acknowledge"
+    ],
+    "failures": [
+      {
+        "id": "pump_failure",
+        "warning": "grinding sound, pump-health indication and falling flow/pressure",
+        "recovery": "isolate and repair pump or route backup coolant",
+        "consequence": "reactor cooling emergency if demand is unmet"
+      },
+      {
+        "id": "pressure_loss",
+        "warning": "pressure gauge drop and localized steam/leak cue",
+        "recovery": "isolate leak, repair/clamp and restore circulation; alternate mine-water feed available by future system rules",
+        "consequence": "hot-zone and cooling alarm state"
+      },
+      {
+        "id": "power_loss",
+        "warning": "drive shutdown, dark run indicator and falling flow",
+        "recovery": "restore external power or consume shared reserve/portable battery through restart terminal",
+        "consequence": "reserve draw competes with reanimation power"
+      },
+      {
+        "id": "valve_fault",
+        "warning": "position indication disagrees with flow and handwheel feedback",
+        "recovery": "manual valve hold or isolated repair",
+        "consequence": "limited coolant flow until recovery"
+      }
+    ],
+    "engine_acceptance_scenarios": [
+      "Cart and two-person rescue traverse CP-P01 and KC-MAIN without permanent obstacles.",
+      "Players can reach both pump service sides, the restart terminal and alcove without moving installed machinery.",
+      "Pressure loss is readable before reactor escalation, and an authored repair path restores circulation.",
+      "Reserve restart and reanimation draw from one shared authoritative reserve pool; no free duplicate reserve exists in this section.",
+      "Portable battery and capped mine-water connection can be integrated without permanent cables or hoses obstructing the cart lane.",
+      "Alcove door swing is clear; public route remains usable during ordinary local service.",
+      "Tube withdrawal stays within its reserved work volume; it is not used as permanent storage."
+    ]
+  },
+  "coordination_pending": [
+    "Verify S03 geometry against CP-A02 contract before as-built acceptance.",
+    "Confirm west bench standing-strip edge remains usable beside fully open D02 leaf.",
+    "Retain bench target Y12.3..13 after depth trim."
+  ]
+}
