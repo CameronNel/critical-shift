@@ -1,0 +1,106 @@
+{
+  "revision": "s03",
+  "blender_version": "5.2.0 LTS",
+  "checks": {
+    "metric_units": true,
+    "ten_cameras": true,
+    "materials_present": true,
+    "no_external_libraries": true,
+    "no_external_images": true,
+    "finite_geometry": true,
+    "registered_contacts_pass": true
+  },
+  "support_contacts": [
+    {
+      "object": "Door steel jamb",
+      "target": "Finished seamless resin slab",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Door steel jamb.001",
+      "target": "Finished seamless resin slab",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Basin bracket wall plate",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Basin bracket wall plate.001",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Wash backsplash",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Hose utility riser",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Rinse pipe saddle",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Rinse pipe saddle.001",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Towel shelf folded sheet",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Decon procedure clipboard",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Revised paper form",
+      "target": "Decon procedure clipboard",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Linen bin rubber plinth",
+      "target": "Finished seamless resin slab",
+      "signed_gap_m": 7.450580596923828e-09,
+      "angle_deg": 0.0,
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Static Blender asset validation; runtime ragdoll, multiplayer and navigation are engine handoff tasks."
+  ],
+  "object_count": 211,
+  "mesh_count": 173,
+  "base_mesh_triangles": 7534,
+  "pass": true
+}

@@ -1,0 +1,1857 @@
+{
+  "revision": "s07",
+  "blender_version": "5.2.0 LTS",
+  "checks": {
+    "metric_units": true,
+    "ten_cameras": true,
+    "materials_present": true,
+    "no_external_libraries": true,
+    "no_external_images": true,
+    "finite_geometry": true,
+    "registered_contacts_pass": true,
+    "geometry_one_blender_unit_is_one_metre": true,
+    "geometry_all_geometry_evaluated": true,
+    "geometry_entry_width": true,
+    "geometry_entry_height": true,
+    "geometry_explicit_support_registrations": true,
+    "geometry_slice_floor_ceiling_wall_probes": true,
+    "geometry_slice_entry_arrival_and_wash_routes": true
+  },
+  "support_contacts": [
+    {
+      "object": "Door steel jamb",
+      "target": "Finished seamless resin slab",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Door steel jamb.001",
+      "target": "Finished seamless resin slab",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Basin bracket wall plate",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Basin bracket wall plate.001",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Formed enamel decon backsplash",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Hose utility riser",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Rinse pipe saddle",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Rinse pipe saddle.001",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Towel shelf folded sheet",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Folded linen towel",
+      "target": "Towel shelf folded sheet",
+      "signed_gap_m": 0.002000093460083008,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Decon procedure clipboard",
+      "target": "West reinforced plaster wall",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Revised paper form",
+      "target": "Decon procedure clipboard",
+      "signed_gap_m": 0.0,
+      "angle_deg": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Linen bin rubber plinth",
+      "target": "Finished seamless resin slab",
+      "signed_gap_m": 7.450580596923828e-09,
+      "angle_deg": 0.0,
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Static Blender asset validation; runtime ragdoll, multiplayer and navigation are engine handoff tasks."
+  ],
+  "object_count": 281,
+  "mesh_count": 238,
+  "geometry": {
+    "schema_version": 1,
+    "units": "metres",
+    "phase": "slice",
+    "scope": "static evaluated Blender geometry; no runtime physics or aesthetic scoring",
+    "contract": "C:\\Users\\Camer\\.codex\\worktrees\\1edf\\critical-shift\\sections\\medical-reanimation\\scenery\\interface.json",
+    "contract_revision": "P01",
+    "checks": {
+      "one_blender_unit_is_one_metre": true,
+      "all_geometry_evaluated": true,
+      "entry_width": true,
+      "entry_height": true,
+      "explicit_support_registrations": true,
+      "slice_floor_ceiling_wall_probes": true,
+      "slice_entry_arrival_and_wash_routes": true
+    },
+    "pass": true,
+    "evaluated_geometry_count": 267,
+    "evaluation_errors": [],
+    "collision_obstacle_count": 160,
+    "human_model": {
+      "width_m": 0.6,
+      "height_m": 1.8,
+      "footprint": "axis-aligned square (conservative for diameter 0.6 m cylinder)",
+      "standing_collision_z_m": [
+        0.035,
+        1.835
+      ],
+      "maximum_floor_step_allowance_m": 0.035,
+      "grid_spacing_m": 0.1,
+      "validated_domain": "main room x=-4\u20264, y=0\u20263.2 only",
+      "collision_method": "continuous swept square against evaluated world AABBs, cardinal grid search",
+      "geometry_exemptions": "only geometry wholly below the floor step allowance or wholly above standing height; no object-name exemptions"
+    },
+    "shell": {
+      "method": "distributed evaluated scene ray casts at expected interior faces",
+      "scope": "slice floor, ceiling and west wall only",
+      "tolerance_m": 0.002,
+      "measured_main_m": {
+        "width": null,
+        "length": null,
+        "height": null
+      },
+      "measured_recovery_m": {
+        "width": null,
+        "length": null,
+        "height": null
+      },
+      "pass": true,
+      "probes": [
+        {
+          "surface": "slice_west",
+          "origin_m": [
+            -3.98,
+            0.5,
+            2.75
+          ],
+          "expected_coordinate_m": -4.0,
+          "measured_coordinate_m": -4.0,
+          "normal_toward_interior_dot": 1.0,
+          "hit": true,
+          "point_m": [
+            -4.0,
+            0.5,
+            2.75
+          ],
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "object": "West reinforced plaster wall",
+          "distance_m": 0.02,
+          "pass": true
+        },
+        {
+          "surface": "slice_floor",
+          "origin_m": [
+            2.8,
+            0.5,
+            0.035
+          ],
+          "expected_coordinate_m": 0.0,
+          "measured_coordinate_m": 0.0,
+          "normal_toward_interior_dot": 1.0,
+          "hit": true,
+          "point_m": [
+            2.8,
+            0.5,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "object": "Finished seamless resin slab",
+          "distance_m": 0.035,
+          "pass": true
+        },
+        {
+          "surface": "slice_ceiling",
+          "origin_m": [
+            2.8,
+            0.5,
+            3.58
+          ],
+          "expected_coordinate_m": 3.6,
+          "measured_coordinate_m": 3.6,
+          "normal_toward_interior_dot": 1.0,
+          "hit": true,
+          "point_m": [
+            2.8,
+            0.5,
+            3.6
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "object": "Ceiling soffit",
+          "distance_m": 0.02,
+          "pass": true
+        },
+        {
+          "surface": "slice_west",
+          "origin_m": [
+            -3.98,
+            1.6,
+            2.75
+          ],
+          "expected_coordinate_m": -4.0,
+          "measured_coordinate_m": -4.0,
+          "normal_toward_interior_dot": 1.0,
+          "hit": true,
+          "point_m": [
+            -4.0,
+            1.6,
+            2.75
+          ],
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "object": "West reinforced plaster wall",
+          "distance_m": 0.02,
+          "pass": true
+        },
+        {
+          "surface": "slice_floor",
+          "origin_m": [
+            2.8,
+            1.6,
+            0.035
+          ],
+          "expected_coordinate_m": 0.0,
+          "measured_coordinate_m": 0.0,
+          "normal_toward_interior_dot": 1.0,
+          "hit": true,
+          "point_m": [
+            2.8,
+            1.6,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "object": "Finished seamless resin slab",
+          "distance_m": 0.035,
+          "pass": true
+        },
+        {
+          "surface": "slice_ceiling",
+          "origin_m": [
+            2.8,
+            1.6,
+            3.58
+          ],
+          "expected_coordinate_m": 3.6,
+          "measured_coordinate_m": 3.6,
+          "normal_toward_interior_dot": 1.0,
+          "hit": true,
+          "point_m": [
+            2.8,
+            1.6,
+            3.6
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "object": "Ceiling soffit",
+          "distance_m": 0.02,
+          "pass": true
+        },
+        {
+          "surface": "slice_west",
+          "origin_m": [
+            -3.98,
+            2.7,
+            2.75
+          ],
+          "expected_coordinate_m": -4.0,
+          "measured_coordinate_m": -4.0,
+          "normal_toward_interior_dot": 1.0,
+          "hit": true,
+          "point_m": [
+            -4.0,
+            2.7,
+            2.75
+          ],
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "object": "West reinforced plaster wall",
+          "distance_m": 0.02,
+          "pass": true
+        },
+        {
+          "surface": "slice_floor",
+          "origin_m": [
+            2.8,
+            2.7,
+            0.035
+          ],
+          "expected_coordinate_m": 0.0,
+          "measured_coordinate_m": -0.0,
+          "normal_toward_interior_dot": 1.0,
+          "hit": true,
+          "point_m": [
+            2.8,
+            2.7,
+            -0.0
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "object": "Finished seamless resin slab",
+          "distance_m": 0.035,
+          "pass": true
+        },
+        {
+          "surface": "slice_ceiling",
+          "origin_m": [
+            2.8,
+            2.7,
+            3.58
+          ],
+          "expected_coordinate_m": 3.6,
+          "measured_coordinate_m": 3.6,
+          "normal_toward_interior_dot": 1.0,
+          "hit": true,
+          "point_m": [
+            2.8,
+            2.7,
+            3.6
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "object": "Ceiling soffit",
+          "distance_m": 0.02,
+          "pass": true
+        }
+      ]
+    },
+    "entry": {
+      "method": "minimum over 18 horizontal and 15 upward scene ray casts through door depth",
+      "required_width_m": 2.2,
+      "required_height_m": 2.5,
+      "minimum_sampled_width_m": 2.2,
+      "minimum_sampled_height_m": 2.5,
+      "width_pass": true,
+      "height_pass": true,
+      "width_probes": [
+        {
+          "origin_m": [
+            0.0,
+            -0.08,
+            0.1
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              -0.08,
+              0.1
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              -0.08,
+              0.1
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            -0.08,
+            0.6
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              -0.08,
+              0.6
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              -0.08,
+              0.6
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            -0.08,
+            1.2
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              -0.08,
+              1.2
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              -0.08,
+              1.2
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            -0.08,
+            1.8
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              -0.08,
+              1.8
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              -0.08,
+              1.8
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            -0.08,
+            2.3
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              -0.08,
+              2.3
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              -0.08,
+              2.3
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            -0.08,
+            2.48
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              -0.08,
+              2.48
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              -0.08,
+              2.48
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Entry solid pier.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.0,
+            0.1
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.0,
+              0.1
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.0,
+              0.1
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.0,
+            0.6
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.0,
+              0.6
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.0,
+              0.6
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.0,
+            1.2
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.0,
+              1.2
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.0,
+              1.2
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.0,
+            1.8
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.0,
+              1.8
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.0,
+              1.8
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.0,
+            2.3
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.0,
+              2.3
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.0,
+              2.3
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.0,
+            2.48
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.0,
+              2.48
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.0,
+              2.48
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.08,
+            0.1
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.08,
+              0.1
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.08,
+              0.1
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.08,
+            0.6
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.08,
+              0.6
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.08,
+              0.6
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.08,
+            1.2
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.08,
+              1.2
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.08,
+              1.2
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.08,
+            1.8
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.08,
+              1.8
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.08,
+              1.8
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.08,
+            2.3
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.08,
+              2.3
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.08,
+              2.3
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        },
+        {
+          "origin_m": [
+            0.0,
+            0.08,
+            2.48
+          ],
+          "width_m": 2.2,
+          "left": {
+            "hit": true,
+            "point_m": [
+              -1.1,
+              0.08,
+              2.48
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb",
+            "distance_m": 1.1
+          },
+          "right": {
+            "hit": true,
+            "point_m": [
+              1.1,
+              0.08,
+              2.48
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "object": "Door steel jamb.001",
+            "distance_m": 1.1
+          }
+        }
+      ],
+      "height_probes": [
+        {
+          "xy_m": [
+            -0.9,
+            -0.08
+          ],
+          "height_m": 2.5,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              -0.9,
+              -0.08,
+              2.5
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door lintel",
+            "distance_m": 2.465
+          }
+        },
+        {
+          "xy_m": [
+            -0.45,
+            -0.08
+          ],
+          "height_m": 2.5,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              -0.45,
+              -0.08,
+              2.5
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door lintel",
+            "distance_m": 2.465
+          }
+        },
+        {
+          "xy_m": [
+            0.0,
+            -0.08
+          ],
+          "height_m": 2.5,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              0.0,
+              -0.08,
+              2.5
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door lintel",
+            "distance_m": 2.465
+          }
+        },
+        {
+          "xy_m": [
+            0.45,
+            -0.08
+          ],
+          "height_m": 2.5,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              0.45,
+              -0.08,
+              2.5
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door lintel",
+            "distance_m": 2.465
+          }
+        },
+        {
+          "xy_m": [
+            0.9,
+            -0.08
+          ],
+          "height_m": 2.5,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              0.9,
+              -0.08,
+              2.5
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door lintel",
+            "distance_m": 2.465
+          }
+        },
+        {
+          "xy_m": [
+            -0.9,
+            0.0
+          ],
+          "height_m": 2.52,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              -0.9,
+              0.0,
+              2.52
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door track hood",
+            "distance_m": 2.485
+          }
+        },
+        {
+          "xy_m": [
+            -0.45,
+            0.0
+          ],
+          "height_m": 2.52,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              -0.45,
+              0.0,
+              2.52
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door track hood",
+            "distance_m": 2.485
+          }
+        },
+        {
+          "xy_m": [
+            0.0,
+            0.0
+          ],
+          "height_m": 2.52,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              0.0,
+              0.0,
+              2.52
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door track hood",
+            "distance_m": 2.485
+          }
+        },
+        {
+          "xy_m": [
+            0.45,
+            0.0
+          ],
+          "height_m": 2.52,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              0.45,
+              0.0,
+              2.52
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door track hood",
+            "distance_m": 2.485
+          }
+        },
+        {
+          "xy_m": [
+            0.9,
+            0.0
+          ],
+          "height_m": 2.52,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              0.9,
+              0.0,
+              2.52
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door track hood",
+            "distance_m": 2.485
+          }
+        },
+        {
+          "xy_m": [
+            -0.9,
+            0.08
+          ],
+          "height_m": 2.52,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              -0.9,
+              0.08,
+              2.52
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door track hood",
+            "distance_m": 2.485
+          }
+        },
+        {
+          "xy_m": [
+            -0.45,
+            0.08
+          ],
+          "height_m": 2.52,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              -0.45,
+              0.08,
+              2.52
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door track hood",
+            "distance_m": 2.485
+          }
+        },
+        {
+          "xy_m": [
+            0.0,
+            0.08
+          ],
+          "height_m": 2.52,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              0.0,
+              0.08,
+              2.52
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door track hood",
+            "distance_m": 2.485
+          }
+        },
+        {
+          "xy_m": [
+            0.45,
+            0.08
+          ],
+          "height_m": 2.52,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              0.45,
+              0.08,
+              2.52
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door track hood",
+            "distance_m": 2.485
+          }
+        },
+        {
+          "xy_m": [
+            0.9,
+            0.08
+          ],
+          "height_m": 2.52,
+          "ceiling": {
+            "hit": true,
+            "point_m": [
+              0.9,
+              0.08,
+              2.52
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "object": "Door track hood",
+            "distance_m": 2.485
+          }
+        }
+      ],
+      "limitation": "Distributed samples can miss local protrusions between probe heights; human routes use all evaluated object bounds."
+    },
+    "equipment": {
+      "status": "not_applicable_to_slice",
+      "reason": "OCRU and recovery have not been built"
+    },
+    "navigation_scenarios": [
+      {
+        "scenario": "slice_entry_and_wash",
+        "start_xy_m": [
+          0.0,
+          0.4
+        ],
+        "reachable_grid_nodes": 1628,
+        "clear_grid_nodes": 1628,
+        "routes": {
+          "arrival_pad": {
+            "target_xy_m": [
+              0.0,
+              2.65
+            ],
+            "pass": true,
+            "path_xy_m": [
+              [
+                0.0,
+                0.4
+              ],
+              [
+                0.0,
+                2.65
+              ]
+            ],
+            "path_length_m": 2.25,
+            "swept_square_clear": true,
+            "sampled_floor_pass": true,
+            "failed_floor_probes": [],
+            "floor_step_edge_probes": [],
+            "floor_probe_count": 47,
+            "minimum_sampled_headroom_m": 3.584,
+            "target_blockers": []
+          },
+          "wash_approach": {
+            "target_xy_m": [
+              -2.55,
+              1.65
+            ],
+            "pass": true,
+            "path_xy_m": [
+              [
+                0.0,
+                0.4
+              ],
+              [
+                -0.8,
+                0.4
+              ],
+              [
+                -0.8,
+                0.6
+              ],
+              [
+                -1.0,
+                0.6
+              ],
+              [
+                -1.0,
+                0.7
+              ],
+              [
+                -2.5,
+                0.7
+              ],
+              [
+                -2.5,
+                1.6
+              ],
+              [
+                -2.55,
+                1.65
+              ]
+            ],
+            "path_length_m": 3.770711,
+            "swept_square_clear": true,
+            "sampled_floor_pass": true,
+            "failed_floor_probes": [],
+            "floor_step_edge_probes": [
+              {
+                "hit": true,
+                "point_m": [
+                  -0.83,
+                  0.6,
+                  0.016
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "object": "Flush perforated wash grate",
+                "distance_m": 0.019,
+                "nominal_xy_m": [
+                  -0.8500000000000001,
+                  0.6
+                ],
+                "support_sample_offset_xy_m": [
+                  0.02,
+                  0
+                ],
+                "step_edge_probe": {
+                  "hit": true,
+                  "point_m": [
+                    -0.85,
+                    0.6,
+                    0.008
+                  ],
+                  "normal": [
+                    -0.96602,
+                    0.0,
+                    0.258467
+                  ],
+                  "object": "Flush perforated wash grate",
+                  "distance_m": 0.027
+                }
+              }
+            ],
+            "floor_probe_count": 77,
+            "minimum_sampled_headroom_m": 3.1445,
+            "target_blockers": []
+          }
+        },
+        "pass": true
+      }
+    ],
+    "obstruction_proxies": [],
+    "doorway_blockage": {
+      "transverse_cart_width_m": 2.0,
+      "transverse_cart_depth_m": 0.75,
+      "centred_cart_side_gap_m": 0.1,
+      "human_width_m": 0.6,
+      "personnel_can_pass_beside_centred_cart": false,
+      "result": "Single exterior doorway can be blocked. Manual clearing/dragging is required; exterior access robustness is not passed.",
+      "runtime_clearing_verified": false
+    },
+    "support_registration_audit": {
+      "registered_object_count": 13,
+      "registered_objects": [
+        "Door steel jamb",
+        "Door steel jamb.001",
+        "Basin bracket wall plate",
+        "Basin bracket wall plate.001",
+        "Formed enamel decon backsplash",
+        "Hose utility riser",
+        "Rinse pipe saddle",
+        "Rinse pipe saddle.001",
+        "Towel shelf folded sheet",
+        "Folded linen towel",
+        "Decon procedure clipboard",
+        "Revised paper form",
+        "Linen bin rubber plinth"
+      ],
+      "explicit_required_but_unregistered": [],
+      "unclassified_geometry_count": 254,
+      "unclassified_geometry": [
+        "Finished seamless resin slab",
+        "West reinforced plaster wall",
+        "Entry solid pier",
+        "Entry solid pier.001",
+        "Door lintel",
+        "Ceiling soffit",
+        "Ceiling steel channel",
+        "Ceiling steel channel.001",
+        "West coved skirting",
+        "West cart buffer",
+        "Front coved skirting",
+        "Front coved skirting.001",
+        "Wash zone expansion strip",
+        "Wash zone expansion strip.001",
+        "Sparse wheel scuff",
+        "Sparse wheel scuff.001",
+        "Sparse wheel scuff.002",
+        "Sparse wheel scuff.003",
+        "Sparse wheel scuff.004",
+        "Sparse wheel scuff.005",
+        "Sparse wheel scuff.006",
+        "Sparse wheel scuff.007",
+        "Sparse wheel scuff.008",
+        "Sparse wheel scuff.009",
+        "Sparse wheel scuff.010",
+        "Sparse wheel scuff.011",
+        "Sparse wheel scuff.012",
+        "Sparse wheel scuff.013",
+        "Sparse wheel scuff.014",
+        "Sparse wheel scuff.015",
+        "Sparse wheel scuff.016",
+        "Sparse wheel scuff.017",
+        "Sparse wheel scuff.018",
+        "Sparse wheel scuff.019",
+        "Sparse wheel scuff.020",
+        "Sparse wheel scuff.021",
+        "Sparse wheel scuff.022",
+        "Sparse wheel scuff.023",
+        "Door rubber seal",
+        "Door rubber seal.001",
+        "Door track hood",
+        "Parked sliding leaf",
+        "Door kick plate",
+        "Recessed observation rim",
+        "Observation glass",
+        "Pull recess",
+        "Recessed door pull",
+        "Door panel folded seam",
+        "Door panel folded seam.001",
+        "Door removable panel screw",
+        "Door removable panel screw.001",
+        "Door removable panel screw.002",
+        "Door removable panel screw.003",
+        "Localized pull wear",
+        "Localized pull wear.001",
+        "Localized pull wear.002",
+        "Localized pull wear.003",
+        "Localized pull wear.004",
+        "Localized pull wear.005",
+        "Door edge primer exposed",
+        "Door edge primer exposed.001",
+        "Door edge primer exposed.002",
+        "Door edge primer exposed.003",
+        "Door edge primer exposed.004",
+        "Door edge primer exposed.005",
+        "Door edge primer exposed.006",
+        "Door edge primer exposed.007",
+        "Door edge primer exposed.008",
+        "Door edge primer exposed.009",
+        "Kickplate cart scratch",
+        "Kickplate cart scratch.001",
+        "Kickplate cart scratch.002",
+        "Kickplate cart scratch.003",
+        "Kickplate cart scratch.004",
+        "Sliding leaf number",
+        "Parked sliding leaf.001",
+        "Door kick plate.001",
+        "Recessed observation rim.001",
+        "Observation glass.001",
+        "Pull recess.001",
+        "Recessed door pull.001",
+        "Door panel folded seam.002",
+        "Door panel folded seam.003",
+        "Door removable panel screw.004",
+        "Door removable panel screw.005",
+        "Door removable panel screw.006",
+        "Door removable panel screw.007",
+        "Localized pull wear.006",
+        "Localized pull wear.007",
+        "Localized pull wear.008",
+        "Localized pull wear.009",
+        "Localized pull wear.010",
+        "Localized pull wear.011",
+        "Door edge primer exposed.010",
+        "Door edge primer exposed.011",
+        "Door edge primer exposed.012",
+        "Door edge primer exposed.013",
+        "Door edge primer exposed.014",
+        "Door edge primer exposed.015",
+        "Door edge primer exposed.016",
+        "Door edge primer exposed.017",
+        "Door edge primer exposed.018",
+        "Door edge primer exposed.019",
+        "Kickplate cart scratch.005",
+        "Kickplate cart scratch.006",
+        "Kickplate cart scratch.007",
+        "Kickplate cart scratch.008",
+        "Kickplate cart scratch.009",
+        "Sliding leaf number.001",
+        "Flush crossing threshold",
+        "Entry department title",
+        "Pressed stainless wash basin",
+        "Basin drain",
+        "Triangular wall bracket",
+        "Triangular wall bracket.001",
+        "Trapped basin drain",
+        "Wastepipe compression nut",
+        "Wastepipe compression nut.001",
+        "Basin bracket anchor",
+        "Basin bracket anchor.001",
+        "Basin bracket anchor.002",
+        "Basin bracket anchor.003",
+        "Swan neck tap",
+        "Ceramic isolation tap",
+        "Tap lever",
+        "Ceramic isolation tap.001",
+        "Tap lever.001",
+        "Backsplash folded perimeter",
+        "Backsplash captive screw",
+        "Backsplash captive screw.001",
+        "Backsplash captive screw.002",
+        "Backsplash captive screw.003",
+        "Enamel edge wear",
+        "Enamel edge wear.001",
+        "Enamel edge wear.002",
+        "Enamel edge wear.003",
+        "Enamel edge wear.004",
+        "Enamel edge wear.005",
+        "Wash zone identification",
+        "Pressed triangular basin gusset",
+        "Pressed triangular basin gusset.001",
+        "Coiled rinse hose",
+        "Spray grip",
+        "Spray barrel",
+        "Spray nozzle ferrule",
+        "Spray perforated face",
+        "Spray thumb trigger",
+        "Wall hose cradle",
+        "Rinse supply pipe",
+        "Rinse isolator stem",
+        "Rinse isolation handwheel",
+        "Handwheel spoke",
+        "Handwheel spoke.001",
+        "Handwheel spoke.002",
+        "Rinse pressure instrument case",
+        "Pressure dial ivory face",
+        "Pressure dial graduation",
+        "Pressure dial graduation.001",
+        "Pressure dial graduation.002",
+        "Pressure dial graduation.003",
+        "Pressure dial graduation.004",
+        "Pressure dial graduation.005",
+        "Pressure dial graduation.006",
+        "Pressure dial graduation.007",
+        "Pressure dial graduation.008",
+        "Pressure dial graduation.009",
+        "Pressure dial graduation.010",
+        "Pressure dial graduation.011",
+        "Pressure dial graduation.012",
+        "Pressure pointer",
+        "Dial center pin",
+        "Decon mat edge",
+        "Decon mat edge.001",
+        "Flush perforated wash grate",
+        "Grate tread",
+        "Grate tread.001",
+        "Grate tread.002",
+        "Grate tread.003",
+        "Grate tread.004",
+        "Grate tread.005",
+        "Grate tread.006",
+        "Grate tread.007",
+        "Grate tread.008",
+        "Grate tread.009",
+        "Grate tread.010",
+        "Grate tread.011",
+        "Grate tread.012",
+        "Grate tread.013",
+        "Grate tread.014",
+        "Grate tread.015",
+        "Drain rim",
+        "Drain slot",
+        "Drain slot.001",
+        "Drain slot.002",
+        "Drain slot.003",
+        "Drain slot.004",
+        "Drain slot.005",
+        "Drain slot.006",
+        "Drain slot.007",
+        "Drain slot.008",
+        "Drain slot.009",
+        "Drain slot.010",
+        "Drain slot.011",
+        "Drain slot.012",
+        "Drain slot.013",
+        "Drain slot.014",
+        "Drain slot.015",
+        "Suspended steel luminaire",
+        "Prismatic diffuser",
+        "Fixture drop",
+        "Fixture drop.001",
+        "Localized wall repair",
+        "Shelf front return",
+        "Folded towel sewn edge",
+        "Folded towel sewn edge.001",
+        "Rinse bottle",
+        "Bottle pump collar",
+        "Rinse bottle label",
+        "Rinse bottle batch",
+        "Bottle spout",
+        "Cleaning brush",
+        "Brush bristles",
+        "Brush bristles.001",
+        "Brush bristles.002",
+        "Brush bristles.003",
+        "Brush bristles.004",
+        "Brush bristles.005",
+        "Brush bristles.006",
+        "Brush bristles.007",
+        "Decon form",
+        "Towel rail",
+        "Hanging linen towel",
+        "Towel sewn hem",
+        "Clipboard metal spring clip",
+        "Pressed metal linen drum",
+        "Bin rolled bead",
+        "Bin rolled bead.001",
+        "Hinged linen-bin lid",
+        "Lid hinge",
+        "Foot pedal",
+        "Pedal linkage",
+        "Bin lid grip",
+        "Discarded cleaning glove palm",
+        "Glove finger",
+        "Glove finger.001",
+        "Glove finger.002",
+        "Glove finger.003",
+        "Glove thumb",
+        "Bin modest inventory mark",
+        "Localized pedal scuff",
+        "Localized pedal scuff.001",
+        "Localized pedal scuff.002",
+        "Localized pedal scuff.003",
+        "Localized pedal scuff.004"
+      ],
+      "explicit_registration_pass": true,
+      "exhaustive_support_taxonomy_verified": false,
+      "limitation": "The main validator checks registered contacts. Generic construction labels do not prove connected assembly support. Every remaining assembly/component needs explicit classification and contact evidence before protocol section 14.1 can pass exhaustively."
+    },
+    "limitations": [
+      "Navigation uses conservative evaluated object AABBs. Curves, hollow shapes and rotated objects can create false blockages; a failed route needs geometric investigation, never an automatic exemption.",
+      "Passed swept routes prove absence of the evaluated object bounds within the standing envelope; 0.10 m path search may fail to discover another valid route.",
+      "Floor contact and ceiling are sampled along routes, not a proof of a watertight walkable surface everywhere.",
+      "Small floor features up to 35 mm are treated as step-over surfaces; the engine must determine actual step, snag and collision behaviour.",
+      "Clearance starts at the inside entry approach; exterior facility approach, full cart turning/loading and ragdoll motion remain unverified.",
+      "Obstruction passes apply only to the listed chosen arrival placements. An obstruction occupying the loading approach or doorway requires physical clearing and cannot be claimed passable.",
+      "Shell dimensions and door clearance use explicit distributed ray probes; they do not establish a continuously watertight shell or full portal swept volume.",
+      "Support audit is explicitly incomplete until every support-dependent assembly and component is classified and contact-tested.",
+      "No Blender static test proves interaction reach, physics, door trapping, grabbing, dragging, network ownership or runtime navigation."
+    ]
+  },
+  "base_mesh_triangles": 13520,
+  "pass": true
+}

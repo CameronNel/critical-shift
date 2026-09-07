@@ -1,0 +1,6 @@
+production/runtime/
+production/logs/*.log
+*.blend1
+__pycache__/
+# Late queued GPU job read newer source; not valid historical s01 evidence.
+production/renders/review/s01/

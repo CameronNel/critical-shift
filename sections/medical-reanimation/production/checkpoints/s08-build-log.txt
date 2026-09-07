@@ -1,0 +1,17 @@
+C:\Users\Camer\.codex\worktrees\1edf\critical-shift\sections\medical-reanimation\blender\build_medical.py:35: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True
+C:\Users\Camer\.codex\worktrees\1edf\critical-shift\sections\medical-reanimation\blender\build_medical.py:59: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name); m.diffuse_color=(*color,1);m.use_nodes=True
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Saved as "style_slice.blend"
+MEDICAL_VALIDATION {"pass": true, "checks": {"metric_units": true, "ten_cameras": true, "materials_present": true, "no_external_libraries": true, "no_external_images": true, "finite_geometry": true, "registered_contacts_pass": true, "geometry_one_blender_unit_is_one_metre": true, "geometry_all_geometry_evaluated": true, "geometry_entry_width": true, "geometry_entry_height": true, "geometry_explicit_support_registrations": true, "geometry_slice_floor_ceiling_wall_probes": true, "geometry_slice_entry_arrival_and_wash_routes": true}, "failed_contacts": []}
+00:09.625  cycles           | WARNING CUEW initialization failed: Error opening the library
+MEDICAL_RENDER_DEVICE CPU
+00:27.875  render           | Saved: 'C:\Users\Camer\.codex\worktrees\1edf\critical-shift\sections\medical-reanimation\production\renders\review\s08\C00_slice.png'
+00:51.657  render           | Saved: 'C:\Users\Camer\.codex\worktrees\1edf\critical-shift\sections\medical-reanimation\production\renders\review\s08\C00b_workstation.png'
+MEDICAL_RENDER_COMPLETE s08
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
