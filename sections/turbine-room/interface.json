@@ -1,0 +1,160 @@
+{
+  "schema": "critical-shift.section-interface.design.v1",
+  "section_id": "turbine-room",
+  "revision": "A",
+  "date": "2026-09-08",
+  "status": "design_baseline_unbound",
+  "units": "metres",
+  "source_authority": {
+    "game_spec": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/design/GAME_SPEC.md",
+    "chapters": ["4.5", "11.3", "12", "17-19", "23-25", "28", "30.2", "31.1"],
+    "brief": "C:/Users/Camer/Games/critical-shift/ops/facility-run/briefs/turbine-room.md",
+    "dimensions_are_implementation_decisions": true,
+    "architecture_source": "architecture/generate_floorplan.py"
+  },
+  "frame": {
+    "origin": [0, 0, 0],
+    "origin_meaning": "D01 reactor-side main entry threshold centre at finished floor",
+    "inward_axis": "+Y",
+    "up_axis": "+Z",
+    "right_axis": "+X",
+    "facility_transform": null,
+    "neighbor_alignment_verified": false
+  },
+  "envelopes": {
+    "main_clear": {"min": [-4, 0, 0], "max": [10, 24, 7.2]},
+    "main_external_xy": {"min": [-4.25, -0.25], "max": [10.25, 24.25]},
+    "detachable_exit_reveal_external_xy": {"min": [-1.45, 24], "max": [1.45, 25.2]},
+    "overall_external_xy": {"min": [-4.25, -0.25], "max": [10.25, 25.2]},
+    "exit_reveal_clear": {"min": [-1.2, 24, 0], "max": [1.2, 25.2, 2.7]},
+    "exit_reveal_binding": "section-owned detachable reveal; D02 logical threshold remains y24; free edge y25.2 is not a second bound portal; connector must accept or remove reveal before binding",
+    "wall_thickness_m": 0.25,
+    "floor_z": 0,
+    "threshold_step_m": 0,
+    "mezzanine": "none_in_design_baseline"
+  },
+  "portals": [
+    {
+      "id": "D01", "marker": "IF_PORTAL_D01_REACTOR", "centre": [0, 0, 0],
+      "outward_normal": [0, -1, 0], "width_axis": "X",
+      "clear_width_m": 2.4, "clear_height_m": 2.7, "type": "two_opposed_sliding_leaves",
+      "leaf_parking_volumes": [{"min": [-2.65, 0.015, 0], "max": [-1.3, 0.135, 2.78]}, {"min": [1.3, 0.015, 0], "max": [2.65, 0.135, 2.78]}],
+      "parked_leaf_design_xy": [{"min": [-2.57, 0.02], "max": [-1.39, 0.13]}, {"min": [1.39, 0.02], "max": [2.57, 0.13]}],
+      "leaf_parking": "two pockets inside this module, beside entry wall and outside main route",
+      "header_minimum_underside_z": 2.7,
+      "door_swing": null,
+      "adjacent_section": "reactor-room", "adjacent_portal_id": null,
+      "binding_status": "provisional_unbound", "traversable_design_intent": true
+    },
+    {
+      "id": "D02", "marker": "IF_PORTAL_D02_ELECTRICAL", "centre": [0, 24, 0],
+      "outward_normal": [0, 1, 0], "width_axis": "X",
+      "clear_width_m": 2.4, "clear_height_m": 2.7, "type": "two_opposed_sliding_leaves",
+      "leaf_parking_volumes": [{"min": [-2.65, 23.865, 0], "max": [-1.3, 23.985, 2.78]}, {"min": [1.3, 23.865, 0], "max": [2.65, 23.985, 2.78]}],
+      "parked_leaf_design_xy": [{"min": [-2.57, 23.87], "max": [-1.39, 23.98]}, {"min": [1.39, 23.87], "max": [2.57, 23.98]}],
+      "leaf_parking": "two pockets inside this module, beside exit wall and outside main route",
+      "header_minimum_underside_z": 2.7,
+      "door_swing": null,
+      "adjacent_section": "electrical-room", "adjacent_portal_id": "D01",
+      "binding_status": "matching_nominal_opening_only_unbound", "traversable_design_intent": true
+    }
+  ],
+  "equipment_zones": [
+    {"id": "TRAIN_BASE", "purpose": "turbine-generator foundation envelope", "xy_min": [2.5, 5.5], "xy_max": [6.7, 20], "z_max_design": 0.45},
+    {"id": "TURBINE", "purpose": "specific segmented turbine casing", "axis_start": [4.6, 6, 2], "axis_end": [4.6, 12.6, 2], "max_width_design_m": 4.2, "max_top_design_z": 3.8},
+    {"id": "COUPLING", "purpose": "separate shaft and removable coupling guard", "axis_start": [4.6, 13, 2], "axis_end": [4.6, 14, 2]},
+    {"id": "GENERATOR", "purpose": "aligned generator and output terminals", "axis_start": [4.6, 14.4, 2], "axis_end": [4.6, 18.7, 2], "max_width_design_m": 4.2, "max_top_design_z": 3.8},
+    {"id": "CONTROL", "purpose": "open throttle/load/output station; no control booth", "xy_min": [-4, 8], "xy_max": [-1.5, 13], "service_front": [1, 0, 0], "furniture_max_x": -2.8, "operator_apron_x": [-2.8, -1.5]},
+    {"id": "BENCH", "purpose": "bearing-oil parts service and repair bench bay", "xy_min": [-4, 18], "xy_max": [-1.5, 24], "service_front": [1, 0, 0], "furniture_min_x": -3.87, "furniture_max_x": -2.62, "operator_apron_x": [-2.62, -1.2], "operator_apron_width_m": 1.42, "operator_apron_status": "design envelope; final standing and carried-object service clearance requires verification", "bench_top_y": [19.85, 22.85], "oil_stand_xy": {"min": [-3.31, 18.425], "max": [-2.59, 19.075]}}
+  ],
+  "circulation": {
+    "main_keep_clear": {"min": [-1.2, 0, 0], "max": [1.2, 24, 2.7]},
+    "main_route_width_m": 2.4,
+    "west_equipment_apron": {"xy_min": [1.2, 5.5], "xy_max": [2.5, 20], "width_m": 1.3},
+    "east_service_aisle": {"xy_min": [7.1, 1.1], "xy_max": [9.3, 23], "width_m": 2.2, "minimum_clear_height_m": 2.7},
+    "north_crossover": {"xy_min": [-1.2, 20.4], "xy_max": [9.3, 23], "depth_m": 2.6},
+    "south_crossover": {"xy_min": [-1.2, 1.1], "xy_max": [9.3, 4.9], "depth_m": 3.8},
+    "stretcher_cart_test_envelope_m": [0.8, 2.2, 1.6],
+    "straight_route_side_allowance_m": 0.8,
+    "east_aisle_straight_side_allowance_m": 0.7,
+    "rectangle_rotation_swept_diameter_m": 2.34094,
+    "turn_centres": [[0, 21.7, 0], [8.1, 21.7, 0], [0, 3, 0], [8.1, 3, 0]],
+    "turn_limit": "90-degree in-place cart rotation belongs at the crossover; east aisle alone is too narrow for the full rotation diameter",
+    "runtime_swept_volume_test": "pending; carrier bodies, collision skins and real cart handling are not represented",
+    "navigation_mesh": "not_built",
+    "final_geometry_clearance_verification": "pending"
+  },
+  "maintenance": {
+    "bearing_oil_service_design_point": [2.15, 12.9, 1.0],
+    "repair_access": "west apron from main route; east aisle reaches generator sides",
+    "removal_staging": {"xy_min": [2.5, 20.4], "xy_max": [6.7, 23]},
+    "component_cart_route_centres": [[4.6, 21.7, 0], [0, 21.7, 0], [0, 0, 0]],
+    "door_removal_limit": "only components within verified carried/cart envelope; full 4.2 m train foundation is not removable through 2.4 m personnel portal",
+    "overhead_lift_reservation": {"min": [2.5, 5.5, 3.8], "max": [6.7, 20, 5.8], "status": "conceptual_reservation_not_rigging_or_load_certification"},
+    "casing_disassembly_and_lift_sweeps": "pending_final_geometry"
+  },
+  "utilities": [
+    {"id": "U01", "marker": "IF_STEAM_IN_REACTOR", "kind": "steam_inlet", "centre": [8.4, 0, 4.9], "outward_normal": [0, -1, 0], "adjacent_section": "reactor-room", "binding_status": "provisional_unbound", "diameter_design_m": 0.4, "process_rating": null},
+    {"id": "U02", "marker": "IF_CONDENSATE_RETURN", "kind": "condensate_return", "centre": [9.5, 0, 0.45], "outward_normal": [0, -1, 0], "adjacent_section": null, "binding_status": "provisional_unbound_destination_requires_connector_assignment", "diameter_design_m": 0.2, "process_rating": null},
+    {"id": "U03", "marker": "IF_POWER_OUT_ELECTRICAL", "kind": "generator_output_bus", "centre": [8.4, 24, 4.6], "outward_normal": [0, 1, 0], "adjacent_section": "electrical-room", "binding_status": "provisional_unbound_adapter_required", "design_cross_section_m": [0.4, 0.3], "electrical_rating": null}
+  ],
+  "overhead_routes": {
+    "steam_centreline_design": [[8.4, 0, 4.9], [8.4, 7.2, 4.9], [4.6, 7.2, 4.9]],
+    "output_bus_centreline_design": [[4.6, 18.7, 4.6], [8.4, 18.7, 4.6], [8.4, 24, 4.6]],
+    "minimum_occupied_route_underside_z": 2.7,
+    "crossings_of_main_route": "none_in_this_design",
+    "supports_valves_and_insulation_clearance": "pending_final_geometry"
+  },
+  "floor_services": {
+    "condensate_centreline_design": [[9.5, 0, 0.45], [9.5, 12.6, 0.45]],
+    "condensate_branch": "route to turbine outside marked circulation, or beneath flush floor cover; final route pending",
+    "no_hoses_or_pipes_across_main_route": true
+  },
+  "neighbor_evidence": {
+    "electrical_interface_read": "C:/Users/Camer/.codex/worktrees/a81e/critical-shift/sections/electrical-room/interface.json",
+    "electrical_door_local_centre": [0, 0, 0],
+    "electrical_door_clear_m": [2.4, 2.7],
+    "electrical_incoming_bus_local_centre": [-4.4, 0, 3.9],
+    "mismatch": "electrical incoming bus x=-4.4 lies west of turbine clear x=-4; turbine output x=8.4,z=4.6 does not align; a connector adapter is required after transforms bind",
+    "reactor_interface": "no_authoritative_interface_json_found_by_builder",
+    "reciprocal_acceptance": false,
+    "existing_geometry_imported": false
+  },
+  "interaction_hooks": [
+    {"id": "INTERACT_TURBINE_THROTTLE", "equipment": "CONTROL", "action": "set_throttle", "status": "design_contract_not_runtime"},
+    {"id": "INTERACT_TURBINE_LOAD", "equipment": "CONTROL", "action": "match_generator_load_to_demand", "status": "design_contract_not_runtime"},
+    {"id": "READ_TURBINE_OUTPUT", "equipment": "CONTROL", "state": ["turbine_speed", "turbine_load", "electrical_output", "grid_demand", "alarm_state"], "status": "design_contract_not_runtime"},
+    {"id": "INTERACT_OVERSPEED_TRIP", "equipment": "CONTROL", "action": "trip_and_latched_reset", "status": "implementation_choice_not_spec_named_mechanism"},
+    {"id": "INTERACT_BEARING_OIL_SERVICE", "equipment": "TRAIN_BASE", "action": "inspect_and_service_bearing_oil", "status": "implementation_choice_design_contract_not_runtime"},
+    {"id": "INTERACT_TURBINE_REPAIR", "equipment": "BENCH", "action": "repair_or_replace_component", "status": "design_contract_not_runtime"}
+  ],
+  "incident_hooks": ["turbine_failure", "facility_blackout", "overload_trip", "bearing_oil_loss", "sensor_drift", "steam_leak", "repair_while_live", "alarm_suppression", "overspeed_warning"],
+  "incident_contract": {
+    "authority": "host_owned_pending_engine",
+    "warning_channels": ["physical_gauges", "distinct_control_states", "rising_turbine_pitch", "local_alarm_then_department_alarm"],
+    "recovery_options": ["reduce_throttle_and_match_load", "isolate_trip_and_repair", "coordinate_backup_power_with_electrical_room"],
+    "cause_and_debrief": "engine must preserve shortcut, warning, fault, response and downstream output consequences"
+  },
+  "engine_handoff": {
+    "blender_markers_verified": false,
+    "runtime_collision": "engine_owned_pending",
+    "navigation_and_rescue_sweeps": "engine_owned_pending",
+    "interaction_and_power_simulation": "engine_owned_pending",
+    "machine_state_and_incidents": "host_authoritative_pending_engine",
+    "client_contract": "send intentions; host validates range, state and contention then publishes outcomes",
+    "door_and_guard_animation": "engine_owned_pending",
+    "network_relevance_boundary": "section_volume_design_only_pending_engine",
+    "spawn_markers": "engine_owned_pending",
+    "audio_zones": "engine_owned_pending",
+    "runtime_lighting_and_optimization": "engine_owned_pending",
+    "whole_facility_travel_validation": "pending; no speed or complete route measured"
+  },
+  "known_issues": [
+    "Design arithmetic and plan evidence are distinct from Blender and engine validation.",
+    "Maintenance bench leaves 1.42 m between its top and main-route edge; verify operator stance and service access; bay itself is not a cart turning area.",
+    "All facility transforms and utility connections remain unbound.",
+    "Electrical output bus requires a connector adapter; door sizes alone do not prove placement.",
+    "Condensate branch, final overhead support undersides, rotating guards, maintenance sweeps and carrier volumes need final geometry checks.",
+    "Overspeed trip and bearing-oil detail are implementation choices, not quoted game-spec requirements."
+  ]
+}
