@@ -1,0 +1,47 @@
+{
+  "schema": "critical-shift.section-interface/1",
+  "section": "waste-storage",
+  "units": "metres",
+  "local_frame": {"origin": "main receiving doorway threshold", "position": [0,0,0], "forward": "+Y", "up": "+Z"},
+  "interior_bounds": {"min": [-6,0,0], "max": [6,18,4.8]},
+  "wall_thickness_m": 0.25,
+  "portals": [
+    {"id":"WS_RECEIVING", "center":[0,0,0], "outward_normal":[0,-1,0], "clear_width":3.0, "clear_height":3.2, "threshold_step":0, "door":"overhead sectional; open parked state", "traffic":"waste carts, two-person carry, workers, inspection", "connection_intent":"shared facility service circulation; electrical/reactor/refinery waste delivery", "adjacent_binding":"unbound: assembly coordinator resolves alignment without moving completed sections"},
+    {"id":"WS_PERSONNEL", "center":[6,2.4,0], "outward_normal":[1,0,0], "clear_width":1.2, "clear_height":2.3, "threshold_step":0, "door":"outward egress; swing reserved outside module", "traffic":"workers and medical response", "connection_intent":"medical/reanimation through future clean service connection", "adjacent_binding":"unbound"},
+    {"id":"WS_DISPATCH", "center":[0,18,0], "outward_normal":[0,1,0], "clear_width":2.4, "clear_height":2.8, "threshold_step":0, "door":"overhead sectional; open parked state", "traffic":"sealed waste cart and inspection", "connection_intent":"compliance-controlled dispatch/service network", "adjacent_binding":"unbound"}
+  ],
+  "internal_portals": [
+    {"id":"WS_MONITOR_BOOTH", "center":[-2.4,2.2,0], "normal":[1,0,0], "clear_width":1.1, "clear_height":2.3, "door":"inward-hinged glazed leaf; held 90 degrees open for final evidence", "sweep_reservation":"inside booth at north end of aperture; verify actual parked and swept geometry"}
+  ],
+  "zones": [
+    {"id":"receiving", "bounds_xy":[-6,0,6,4.5]},
+    {"id":"monitoring", "bounds_xy":[-5.7,0.4,-2.4,3.8]},
+    {"id":"west_front", "bounds_xy":[-5.65,4.8,-2.15,8.8], "purpose":"sealed process-residue overpacks"},
+    {"id":"west_rear", "bounds_xy":[-5.65,9.4,-2.15,13.4], "purpose":"shielded hot-waste cask storage"},
+    {"id":"east_front", "bounds_xy":[2.15,4.8,5.65,8.8], "purpose":"dry contaminated tools, filters and consumables"},
+    {"id":"east_rear", "bounds_xy":[2.15,9.4,5.65,13.4], "purpose":"quarantine and inventory hold"},
+    {"id":"rear_service", "bounds_xy":[-6,14.5,6,18], "purpose":"ventilation isolation, filter maintenance and dispatch"}
+  ],
+  "clearance_targets": {
+    "center_cart_route": {"bounds_xy":[-1.8,4.5,1.8,14.5], "minimum_clear_height":2.4},
+    "cart_envelope": {"width":1.0,"length":1.8,"height":1.8},
+    "receiving_turn_circle": {"center":[0,2.5,0],"diameter":3.6},
+    "rear_turn_circle": {"center":[0,16,0],"diameter":3.0},
+    "walking_width":1.0,
+    "two_person_carry_route_width":1.8,
+    "storage_cell_access_width":1.4,
+    "maintenance_working_depth":0.9
+  },
+  "utility_interfaces": [
+    {"id":"WS_POWER", "center":[5.75,17.75,3.6], "type":"facility low-voltage feed; rating deferred to game systems"},
+    {"id":"WS_EXTRACT", "center":[-4.8,18,4.0], "type":"controlled extract to facility ventilation; closed duct boundary"},
+    {"id":"WS_DATA", "center":[-5.75,0.25,2.8], "type":"inventory, exposure and door-state telemetry"}
+  ],
+  "implementation_decisions": [
+    "GAME_SPEC names Waste Storage and its systems but does not dimension the section. This 12x18x4.8 m envelope and all apertures are original implementation decisions.",
+    "Four separated cells use distinct container functions; no assertion of real-world nuclear storage design or shielding certification.",
+    "Connections describe intended network roles; no fabricated transform agreement with adjacent workers.",
+    "No completed room geometry is imported or repositioned. The authoritative section starts factory empty.",
+    "Physics, networking, dose simulation and engine navmesh remain runtime handoff responsibilities, not claims of this Blender environment package."
+  ]
+}

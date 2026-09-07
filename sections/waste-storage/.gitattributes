@@ -1,0 +1,3 @@
+# Preserve exact bytes: scene manifests and audit reports contain source hashes.
+# This section must round-trip on Windows without automatic CRLF conversion.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

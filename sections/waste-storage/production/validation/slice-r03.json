@@ -1,0 +1,2939 @@
+{
+  "schema_version": 1,
+  "section": "waste-storage",
+  "status": "FAIL",
+  "validation_kind": "fresh_process_read_only_geometry",
+  "utc_timestamp": "2026-09-07T22:36:47Z",
+  "process_id": 148748,
+  "blender_version": "5.2.0 LTS",
+  "background": true,
+  "inputs": {
+    "blend": {
+      "path": "C:\\Users\\Camer\\.codex\\worktrees\\71f5\\critical-shift\\sections\\waste-storage\\blender\\waste-storage-slice-r03.blend",
+      "sha256": "3b44b339d3a861efddeb8e7bbaa1523ec5fae0055b827c3d5bbfcbd2ad6e6f55"
+    },
+    "interface": {
+      "path": "C:\\Users\\Camer\\.codex\\worktrees\\71f5\\critical-shift\\sections\\waste-storage\\interface.json",
+      "sha256": "f25b405063c13f47c4f93e339d34e9657b224294e1a18ff83a5161cb0e4840a5"
+    },
+    "cameras": {
+      "path": "C:\\Users\\Camer\\.codex\\worktrees\\71f5\\critical-shift\\sections\\waste-storage\\production\\checkpoints\\slice-r03-scene-manifest.json",
+      "sha256": "5bb7f9d55218d379a25f0061716155fc28a49334ddaee08abf0c71daa51f063b"
+    },
+    "validator": {
+      "path": "C:\\Users\\Camer\\.codex\\worktrees\\71f5\\critical-shift\\sections\\waste-storage\\production\\validate_scene.py",
+      "sha256": "69a3f9cf42d9db119f39f838d7dd4c51a0a74d7b726f709fdb099e9b2ee828da"
+    },
+    "build_script": {
+      "path": "C:\\Users\\Camer\\.codex\\worktrees\\71f5\\critical-shift\\sections\\waste-storage\\production\\checkpoints\\slice-r03-build.py",
+      "sha256": "9a3bdb4df209f413e59fbbbc323b39ccdaa2d39dd06f8cc5507ad5fdd4e24156"
+    }
+  },
+  "acceptance_scope": "Objective source geometry only. This report is not visual approval, render comparison, runtime validation or full cold-start acceptance.",
+  "checks": [
+    {
+      "name": "isolated_authoritative_source",
+      "status": "PASS",
+      "blend_path": "C:\\Users\\Camer\\.codex\\worktrees\\71f5\\critical-shift\\sections\\waste-storage\\blender\\waste-storage-slice-r03.blend",
+      "background": true,
+      "private_user_resources": "C:/Users/Camer/.codex/worktrees/71f5/critical-shift/sections/waste-storage/.runtime",
+      "factory_startup": true,
+      "scene_modified": false,
+      "no_render_performed": true
+    },
+    {
+      "name": "saved_build_source_fingerprint",
+      "status": "PASS",
+      "recorded_source_sha256": "9a3bdb4df209f413e59fbbbc323b39ccdaa2d39dd06f8cc5507ad5fdd4e24156",
+      "current_build_source_sha256": "9a3bdb4df209f413e59fbbbc323b39ccdaa2d39dd06f8cc5507ad5fdd4e24156",
+      "saved_revision": "slice-r03",
+      "limitation": "Fingerprint proves saved metadata matches current script bytes; independent clean rebuild/render comparison remains a separate final gate"
+    },
+    {
+      "name": "interface_specification_present",
+      "status": "PASS",
+      "path": "C:\\Users\\Camer\\.codex\\worktrees\\71f5\\critical-shift\\sections\\waste-storage\\interface.json",
+      "sha256": "f25b405063c13f47c4f93e339d34e9657b224294e1a18ff83a5161cb0e4840a5"
+    },
+    {
+      "name": "cameras_specification_present",
+      "status": "PASS",
+      "path": "C:\\Users\\Camer\\.codex\\worktrees\\71f5\\critical-shift\\sections\\waste-storage\\production\\checkpoints\\slice-r03-scene-manifest.json",
+      "sha256": "5bb7f9d55218d379a25f0061716155fc28a49334ddaee08abf0c71daa51f063b"
+    },
+    {
+      "name": "metric_units",
+      "status": "PASS",
+      "unit_system": "METRIC",
+      "scale_length": 1.0
+    },
+    {
+      "name": "evaluated_geometry_snapshot",
+      "status": "PASS",
+      "evaluated_objects": 438,
+      "triangle_count": 160580,
+      "errors": []
+    },
+    {
+      "name": "build_stage_scope",
+      "status": "PASS",
+      "saved_stage": "slice",
+      "requested_stage": "auto",
+      "acceptance_scope": "Temporary receiving style slice only; no full-section circulation/acceptance claim"
+    },
+    {
+      "name": "support_registration",
+      "status": "PASS",
+      "registered_assemblies": 44,
+      "architectural_objects": 22,
+      "assembly_parts": 416,
+      "errors": []
+    },
+    {
+      "name": "support_contact_geometry",
+      "status": "PASS",
+      "method": "World-space evaluated target BVH ray casts and assembly BVH nearest-surface checks; explicit child empties for every assembly",
+      "failed_assemblies": [],
+      "orphan_anchors": [],
+      "assemblies": [
+        {
+          "root": "Receiving wall repair",
+          "target": "Front_Wall_East",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving wall repair__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                3.2,
+                0.0,
+                1.12
+              ],
+              "nearest_assembly_surface": {
+                "object": "Repaired mineral wall patch",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                3.2,
+                0.0,
+                1.12
+              ],
+              "target_triangle": 185,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Receiving wall joint",
+          "target": "Front_Wall_West",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving wall joint__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -4.1999998,
+                0.0,
+                2.0999999
+              ],
+              "nearest_assembly_surface": {
+                "object": "Architectural expansion joint",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -4.1999998,
+                0.0,
+                2.0999999
+              ],
+              "target_triangle": 184,
+              "signed_gap_m": -0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Receiving wall joint.001",
+          "target": "Front_Wall_East",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving wall joint__CONTACT_00.001",
+              "errors": [],
+              "position_world_m": [
+                4.1999998,
+                0.0,
+                2.0999999
+              ],
+              "nearest_assembly_surface": {
+                "object": "Architectural expansion joint.001",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                4.1999998,
+                0.0,
+                2.0999999
+              ],
+              "target_triangle": 185,
+              "signed_gap_m": -0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Receiving concrete panel reveal",
+          "target": "Front_Wall_West",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving concrete panel reveal__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -3.8199999,
+                0.0,
+                3.24
+              ],
+              "nearest_assembly_surface": {
+                "object": "Horizontal mineral panel joint",
+                "distance_m": 2.4e-07
+              },
+              "contact_world_m": [
+                -3.8199999,
+                0.0,
+                3.24
+              ],
+              "target_triangle": 184,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Receiving concrete panel reveal.001",
+          "target": "Front_Wall_East",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving concrete panel reveal__CONTACT_00.001",
+              "errors": [],
+              "position_world_m": [
+                3.8199999,
+                0.0,
+                3.24
+              ],
+              "nearest_assembly_surface": {
+                "object": "Horizontal mineral panel joint.001",
+                "distance_m": 2.4e-07
+              },
+              "contact_world_m": [
+                3.8199999,
+                0.0,
+                3.24
+              ],
+              "target_triangle": 184,
+              "signed_gap_m": -0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Booth approach boot marks",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Booth approach boot marks__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -2.1800001,
+                1.72,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Sparse rubbed floor patch",
+                "distance_m": 0.0004
+              },
+              "contact_world_m": [
+                -2.1800001,
+                1.72,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Floor construction joint",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Floor construction joint__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Floor construction joint paint",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                0.0,
+                1.0,
+                -0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Floor construction joint.001",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Floor construction joint__CONTACT_00.001",
+              "errors": [],
+              "position_world_m": [
+                0.0,
+                4.4499998,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Floor construction joint paint.001",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                0.0,
+                4.4499998,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Floor slab joint",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Floor slab joint__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -3.0,
+                2.3,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Floor slab joint paint",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -3.0,
+                2.3,
+                0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Floor slab joint.001",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Floor slab joint__CONTACT_00.001",
+              "errors": [],
+              "position_world_m": [
+                3.0,
+                2.3,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Floor slab joint paint.001",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                3.0,
+                2.3,
+                0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": -0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Threshold guide stripe",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Threshold guide stripe__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -1.48,
+                0.4,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Threshold guide stripe paint",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -1.48,
+                0.4,
+                -0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Threshold guide stripe.001",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Threshold guide stripe__CONTACT_00.001",
+              "errors": [],
+              "position_world_m": [
+                1.48,
+                0.4,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Threshold guide stripe paint.001",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                1.48,
+                0.4,
+                0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Receiving roller assembly",
+          "target": "Front_Wall_Lintel",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving roller assembly__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                0.0,
+                0.0,
+                3.55
+              ],
+              "nearest_assembly_surface": {
+                "object": "Roller fixing backplate",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                0.0,
+                0.0,
+                3.55
+              ],
+              "target_triangle": 185,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Receiving threshold steel",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving threshold steel__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                0.0,
+                0.02,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Receiving threshold steel paint",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                0.0,
+                0.02,
+                -0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Personnel exit frame",
+          "target": "East_Wall_Lintel",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Personnel exit frame__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                6.0,
+                2.4000001,
+                2.52
+              ],
+              "nearest_assembly_surface": {
+                "object": "Exit direction backing",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                6.0,
+                2.4000001,
+                2.52
+              ],
+              "target_triangle": 179,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Booth corner guard",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Booth corner guard__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -2.1099999,
+                3.9200001,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Guard base",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -2.1099999,
+                3.9200001,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Monitoring access plate",
+          "target": "Booth east stile 01",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Monitoring access plate__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -2.3800001,
+                1.62,
+                1.45
+              ],
+              "nearest_assembly_surface": {
+                "object": "Card reader bracket",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -2.3800001,
+                1.62,
+                1.45
+              ],
+              "target_triangle": 186,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Staging corner longitudinal",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Staging corner longitudinal__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -0.49,
+                2.04,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Staging corner longitudinal paint",
+                "distance_m": 3e-08
+              },
+              "contact_world_m": [
+                -0.49,
+                2.04,
+                0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Staging corner transverse",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Staging corner transverse__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -0.37,
+                2.04,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Staging corner transverse paint",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -0.37,
+                2.04,
+                -0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Staging corner longitudinal.001",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Staging corner longitudinal__CONTACT_00.001",
+              "errors": [],
+              "position_world_m": [
+                -0.49,
+                3.9300001,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Staging corner longitudinal paint.001",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -0.49,
+                3.9300001,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Staging corner transverse.001",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Staging corner transverse__CONTACT_00.001",
+              "errors": [],
+              "position_world_m": [
+                -0.37,
+                3.9300001,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Staging corner transverse paint.001",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -0.37,
+                3.9300001,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Staging corner longitudinal.002",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Staging corner longitudinal__CONTACT_00.002",
+              "errors": [],
+              "position_world_m": [
+                1.09,
+                2.04,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Staging corner longitudinal paint.002",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                1.09,
+                2.04,
+                -0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Staging corner transverse.002",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Staging corner transverse__CONTACT_00.002",
+              "errors": [],
+              "position_world_m": [
+                0.97,
+                2.04,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Staging corner transverse paint.002",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                0.97,
+                2.04,
+                0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Staging corner longitudinal.003",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Staging corner longitudinal__CONTACT_00.003",
+              "errors": [],
+              "position_world_m": [
+                1.09,
+                3.9300001,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Staging corner longitudinal paint.003",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                1.09,
+                3.9300001,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Staging corner transverse.003",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Staging corner transverse__CONTACT_00.003",
+              "errors": [],
+              "position_world_m": [
+                0.97,
+                3.9300001,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Staging corner transverse paint.003",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                0.97,
+                3.9300001,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Localized wheel scuff",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Localized wheel scuff__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -0.21,
+                2.1900001,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Localized wheel scuff paint",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -0.21,
+                2.1900001,
+                -0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Localized wheel scuff.001",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Localized wheel scuff__CONTACT_00.001",
+              "errors": [],
+              "position_world_m": [
+                0.8,
+                2.1900001,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Localized wheel scuff paint.001",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                0.8,
+                2.1900001,
+                0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Receiving wheel turn abrasion",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving wheel turn abrasion__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                0.0665108,
+                1.6784892,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Curved rubber transfer on concrete",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                0.0665108,
+                1.6784892,
+                0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Receiving wheel turn abrasion.001",
+          "target": "Floor",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving wheel turn abrasion__CONTACT_00.001",
+              "errors": [],
+              "position_world_m": [
+                0.0471449,
+                1.4634464,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Curved rubber transfer on concrete.001",
+                "distance_m": 2e-08
+              },
+              "contact_world_m": [
+                0.0471449,
+                1.4634464,
+                -0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Receiving inspection task lamp",
+          "target": "Booth east stile 00",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving inspection task lamp__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -2.3800001,
+                0.49,
+                2.1800001
+              ],
+              "nearest_assembly_surface": {
+                "object": "Task lamp mounting pad",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -2.3800001,
+                0.49,
+                2.1800001
+              ],
+              "target_triangle": 186,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Receiving practical",
+          "target": "Ceiling",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving practical__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                0.1,
+                2.55,
+                4.8000002
+              ],
+              "nearest_assembly_surface": {
+                "object": "Receiving practical drop",
+                "distance_m": 4.8e-07
+              },
+              "contact_world_m": [
+                0.1,
+                2.55,
+                4.8000002
+              ],
+              "target_triangle": 176,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Booth exterior practical",
+          "target": "Ceiling",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Booth exterior practical__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -3.3,
+                3.99,
+                4.8000002
+              ],
+              "nearest_assembly_surface": {
+                "object": "Booth exterior practical drop",
+                "distance_m": 4.8e-07
+              },
+              "contact_world_m": [
+                -3.3,
+                3.99,
+                4.8000002
+              ],
+              "target_triangle": 176,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Monitoring booth shell",
+          "target": "Floor",
+          "irregular": true,
+          "anchors": [
+            {
+              "name": "Monitoring booth shell__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -5.6199999,
+                0.52,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Booth front insulated sill",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -5.6199999,
+                0.52,
+                0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": -0.0,
+              "normal_angle_deg": 0.0
+            },
+            {
+              "name": "Monitoring booth shell__CONTACT_01",
+              "errors": [],
+              "position_world_m": [
+                -2.45,
+                0.52,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Booth return sill",
+                "distance_m": 6e-08
+              },
+              "contact_world_m": [
+                -2.45,
+                0.52,
+                0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            },
+            {
+              "name": "Monitoring booth shell__CONTACT_02",
+              "errors": [],
+              "position_world_m": [
+                -2.45,
+                3.6800001,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Booth return sill.001",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -2.45,
+                3.6800001,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Monitor desk",
+          "target": "Floor",
+          "irregular": true,
+          "anchors": [
+            {
+              "name": "Monitor desk__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -5.3400002,
+                1.02,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Desk foot",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -5.3400002,
+                1.02,
+                0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            },
+            {
+              "name": "Monitor desk__CONTACT_01",
+              "errors": [],
+              "position_world_m": [
+                -3.29,
+                1.02,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Desk foot.001",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -3.29,
+                1.02,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            },
+            {
+              "name": "Monitor desk__CONTACT_02",
+              "errors": [],
+              "position_world_m": [
+                -5.3400002,
+                1.51,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Desk foot",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -5.3400002,
+                1.51,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            },
+            {
+              "name": "Monitor desk__CONTACT_03",
+              "errors": [],
+              "position_world_m": [
+                -3.29,
+                1.51,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Desk foot.001",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -3.29,
+                1.51,
+                0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": -0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Inventory instrument",
+          "target": "Desk laminate worktop",
+          "irregular": true,
+          "anchors": [
+            {
+              "name": "Inventory instrument__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -4.5500002,
+                1.3399998,
+                0.82
+              ],
+              "nearest_assembly_surface": {
+                "object": "Instrument foot",
+                "distance_m": 6e-08
+              },
+              "contact_world_m": [
+                -4.5500002,
+                1.3399998,
+                0.82
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Physical monitoring controls",
+          "target": "Desk laminate worktop",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Physical monitoring controls__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -4.5700002,
+                1.55,
+                0.82
+              ],
+              "nearest_assembly_surface": {
+                "object": "Console keyboard lower shell",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -4.5700002,
+                1.55,
+                0.82
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Dose-rate analogue instrument",
+          "target": "Desk laminate worktop",
+          "irregular": true,
+          "anchors": [
+            {
+              "name": "Dose-rate analogue instrument__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -3.3,
+                1.37,
+                0.82
+              ],
+              "nearest_assembly_surface": {
+                "object": "Dose instrument mounting foot",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -3.3,
+                1.37,
+                0.82
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Operator swivel chair",
+          "target": "Floor",
+          "irregular": true,
+          "anchors": [
+            {
+              "name": "Operator swivel chair__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -3.79,
+                2.5,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Chair rubber caster",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -3.79,
+                2.5,
+                0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": -0.0,
+              "normal_angle_deg": 0.0
+            },
+            {
+              "name": "Operator swivel chair__CONTACT_01",
+              "errors": [],
+              "position_world_m": [
+                -4.3509998,
+                2.6819999,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Chair rubber caster.002",
+                "distance_m": 2.766e-05
+              },
+              "contact_world_m": [
+                -4.3509998,
+                2.6819999,
+                0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Booth task light",
+          "target": "Booth suspended cap",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Booth task light__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -4.0999999,
+                2.2,
+                2.905
+              ],
+              "nearest_assembly_surface": {
+                "object": "Booth lamp fixing",
+                "distance_m": 2.4e-07
+              },
+              "contact_world_m": [
+                -4.0999999,
+                2.2,
+                2.905
+              ],
+              "target_triangle": 176,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Receiving radiation monitor",
+          "target": "Booth rear insulated sill",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Receiving radiation monitor__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -2.95,
+                3.8,
+                0.84
+              ],
+              "nearest_assembly_surface": {
+                "object": "Monitor bolted backplate",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -2.95,
+                3.8,
+                0.84
+              ],
+              "target_triangle": 185,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Transfer cart and cask",
+          "target": "Floor",
+          "irregular": true,
+          "anchors": [
+            {
+              "name": "Transfer cart and cask__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -0.23,
+                2.4200001,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Load rated rubber wheel",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -0.23,
+                2.4200001,
+                0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            },
+            {
+              "name": "Transfer cart and cask__CONTACT_01",
+              "errors": [],
+              "position_world_m": [
+                0.83,
+                2.4200001,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Load rated rubber wheel.002",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                0.83,
+                2.4200001,
+                0.0
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            },
+            {
+              "name": "Transfer cart and cask__CONTACT_02",
+              "errors": [],
+              "position_world_m": [
+                -0.23,
+                3.5799999,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Load rated rubber wheel.001",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -0.23,
+                3.5799999,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            },
+            {
+              "name": "Transfer cart and cask__CONTACT_03",
+              "errors": [],
+              "position_world_m": [
+                0.83,
+                3.5799999,
+                0.0
+              ],
+              "nearest_assembly_surface": {
+                "object": "Load rated rubber wheel.003",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                0.83,
+                3.5799999,
+                -0.0
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Signed shift ledger",
+          "target": "Desk laminate worktop",
+          "irregular": false,
+          "anchors": [
+            {
+              "name": "Signed shift ledger__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -3.6600001,
+                1.24,
+                0.82
+              ],
+              "nearest_assembly_surface": {
+                "object": "Ledger cloth cover",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -3.6600001,
+                1.24,
+                0.82
+              ],
+              "target_triangle": 183,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Operator enamel mug",
+          "target": "Desk laminate worktop",
+          "irregular": true,
+          "anchors": [
+            {
+              "name": "Operator enamel mug__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -5.1900001,
+                1.1799999,
+                0.82
+              ],
+              "nearest_assembly_surface": {
+                "object": "Hollow enamel cup",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -5.1900001,
+                1.1799999,
+                0.82
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        },
+        {
+          "root": "Canvas wipe folded on desk",
+          "target": "Desk laminate worktop",
+          "irregular": true,
+          "anchors": [
+            {
+              "name": "Canvas wipe folded on desk__CONTACT_00",
+              "errors": [],
+              "position_world_m": [
+                -3.7,
+                1.52,
+                0.82
+              ],
+              "nearest_assembly_surface": {
+                "object": "Cloth bottom folded layer",
+                "distance_m": 0.0
+              },
+              "contact_world_m": [
+                -3.7,
+                1.52,
+                0.82
+              ],
+              "target_triangle": 182,
+              "signed_gap_m": 0.0,
+              "normal_angle_deg": 0.0
+            }
+          ],
+          "errors": [],
+          "tolerances": {
+            "gap_m": 0.005,
+            "penetration_m": 0.002,
+            "angle_deg": 12.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "assembly_component_support_connectivity",
+      "status": "FAIL",
+      "method": "Connectivity from anchor-touching members via evaluated BVH triangle intersection, closed-solid containment or <=5 mm vertex-to-surface/edge-to-edge separation",
+      "assemblies": [
+        {
+          "root": "Receiving wall repair",
+          "member_count": 3,
+          "anchor_touching_members": [
+            "Repaired mineral wall patch"
+          ],
+          "connected_members": 3,
+          "disconnected_members": []
+        },
+        {
+          "root": "Receiving wall joint",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Architectural expansion joint"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Receiving wall joint.001",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Architectural expansion joint.001"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Receiving concrete panel reveal",
+          "member_count": 3,
+          "anchor_touching_members": [
+            "Horizontal mineral panel joint"
+          ],
+          "connected_members": 1,
+          "disconnected_members": [
+            "Recessed panel tie plug",
+            "Recessed panel tie plug.001"
+          ]
+        },
+        {
+          "root": "Receiving concrete panel reveal.001",
+          "member_count": 3,
+          "anchor_touching_members": [
+            "Horizontal mineral panel joint.001"
+          ],
+          "connected_members": 1,
+          "disconnected_members": [
+            "Recessed panel tie plug.002",
+            "Recessed panel tie plug.003"
+          ]
+        },
+        {
+          "root": "Booth approach boot marks",
+          "member_count": 3,
+          "anchor_touching_members": [
+            "Sparse rubbed floor patch"
+          ],
+          "connected_members": 1,
+          "disconnected_members": [
+            "Sparse rubbed floor patch.001",
+            "Sparse rubbed floor patch.002"
+          ]
+        },
+        {
+          "root": "Floor construction joint",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Floor construction joint paint"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Floor construction joint.001",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Floor construction joint paint.001"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Floor slab joint",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Floor slab joint paint"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Floor slab joint.001",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Floor slab joint paint.001"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Threshold guide stripe",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Threshold guide stripe paint"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Threshold guide stripe.001",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Threshold guide stripe paint.001"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Receiving roller assembly",
+          "member_count": 46,
+          "anchor_touching_members": [
+            "Roller fixing backplate"
+          ],
+          "connected_members": 46,
+          "disconnected_members": []
+        },
+        {
+          "root": "Receiving threshold steel",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Receiving threshold steel paint"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Personnel exit frame",
+          "member_count": 6,
+          "anchor_touching_members": [
+            "Exit direction backing",
+            "Exit mounting ear"
+          ],
+          "connected_members": 6,
+          "disconnected_members": []
+        },
+        {
+          "root": "Booth corner guard",
+          "member_count": 4,
+          "anchor_touching_members": [
+            "Guard base"
+          ],
+          "connected_members": 4,
+          "disconnected_members": []
+        },
+        {
+          "root": "Monitoring access plate",
+          "member_count": 3,
+          "anchor_touching_members": [
+            "Card reader bracket"
+          ],
+          "connected_members": 3,
+          "disconnected_members": []
+        },
+        {
+          "root": "Staging corner longitudinal",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Staging corner longitudinal paint"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Staging corner transverse",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Staging corner transverse paint"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Staging corner longitudinal.001",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Staging corner longitudinal paint.001"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Staging corner transverse.001",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Staging corner transverse paint.001"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Staging corner longitudinal.002",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Staging corner longitudinal paint.002"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Staging corner transverse.002",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Staging corner transverse paint.002"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Staging corner longitudinal.003",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Staging corner longitudinal paint.003"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Staging corner transverse.003",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Staging corner transverse paint.003"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Localized wheel scuff",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Localized wheel scuff paint"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Localized wheel scuff.001",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Localized wheel scuff paint.001"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Receiving wheel turn abrasion",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Curved rubber transfer on concrete"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Receiving wheel turn abrasion.001",
+          "member_count": 1,
+          "anchor_touching_members": [
+            "Curved rubber transfer on concrete.001"
+          ],
+          "connected_members": 1,
+          "disconnected_members": []
+        },
+        {
+          "root": "Receiving inspection task lamp",
+          "member_count": 4,
+          "anchor_touching_members": [
+            "Task lamp mounting pad"
+          ],
+          "connected_members": 4,
+          "disconnected_members": []
+        },
+        {
+          "root": "Receiving practical",
+          "member_count": 5,
+          "anchor_touching_members": [
+            "Receiving practical drop"
+          ],
+          "connected_members": 5,
+          "disconnected_members": []
+        },
+        {
+          "root": "Booth exterior practical",
+          "member_count": 5,
+          "anchor_touching_members": [
+            "Booth exterior practical drop"
+          ],
+          "connected_members": 5,
+          "disconnected_members": []
+        },
+        {
+          "root": "Monitoring booth shell",
+          "member_count": 63,
+          "anchor_touching_members": [
+            "Booth east stile 00",
+            "Booth front insulated sill",
+            "Booth rear insulated sill",
+            "Booth return sill",
+            "Booth return sill.001"
+          ],
+          "connected_members": 63,
+          "disconnected_members": []
+        },
+        {
+          "root": "Monitor desk",
+          "member_count": 9,
+          "anchor_touching_members": [
+            "Desk foot",
+            "Desk foot.001"
+          ],
+          "connected_members": 9,
+          "disconnected_members": []
+        },
+        {
+          "root": "Inventory instrument",
+          "member_count": 25,
+          "anchor_touching_members": [
+            "Instrument foot"
+          ],
+          "connected_members": 25,
+          "disconnected_members": []
+        },
+        {
+          "root": "Physical monitoring controls",
+          "member_count": 34,
+          "anchor_touching_members": [
+            "Console keyboard lower shell"
+          ],
+          "connected_members": 34,
+          "disconnected_members": []
+        },
+        {
+          "root": "Dose-rate analogue instrument",
+          "member_count": 18,
+          "anchor_touching_members": [
+            "Dose instrument mounting foot"
+          ],
+          "connected_members": 18,
+          "disconnected_members": []
+        },
+        {
+          "root": "Operator swivel chair",
+          "member_count": 15,
+          "anchor_touching_members": [
+            "Chair rubber caster",
+            "Chair rubber caster.002"
+          ],
+          "connected_members": 15,
+          "disconnected_members": []
+        },
+        {
+          "root": "Booth task light",
+          "member_count": 2,
+          "anchor_touching_members": [
+            "Booth lamp fixing"
+          ],
+          "connected_members": 2,
+          "disconnected_members": []
+        },
+        {
+          "root": "Receiving radiation monitor",
+          "member_count": 12,
+          "anchor_touching_members": [
+            "Monitor bolted backplate"
+          ],
+          "connected_members": 12,
+          "disconnected_members": []
+        },
+        {
+          "root": "Transfer cart and cask",
+          "member_count": 120,
+          "anchor_touching_members": [
+            "Load rated rubber wheel",
+            "Load rated rubber wheel.001",
+            "Load rated rubber wheel.002",
+            "Load rated rubber wheel.003"
+          ],
+          "connected_members": 120,
+          "disconnected_members": []
+        },
+        {
+          "root": "Signed shift ledger",
+          "member_count": 7,
+          "anchor_touching_members": [
+            "Ledger cloth cover"
+          ],
+          "connected_members": 7,
+          "disconnected_members": []
+        },
+        {
+          "root": "Operator enamel mug",
+          "member_count": 3,
+          "anchor_touching_members": [
+            "Hollow enamel cup"
+          ],
+          "connected_members": 3,
+          "disconnected_members": []
+        },
+        {
+          "root": "Canvas wipe folded on desk",
+          "member_count": 2,
+          "anchor_touching_members": [
+            "Cloth bottom folded layer",
+            "Folded woven wiping cloth"
+          ],
+          "connected_members": 2,
+          "disconnected_members": []
+        }
+      ],
+      "limitation": "Subcomponents inside a single disconnected mesh datablock are not independently registered; geometry/normals audit remains separate"
+    },
+    {
+      "name": "metric_envelope_geometry",
+      "status": "PASS",
+      "required_minimum_surface_probes": 6,
+      "method": "Named evaluated architecture surface ray casts",
+      "probes": [
+        {
+          "name": "floor_receiving_elevation",
+          "target": "Floor",
+          "errors": [],
+          "expected_distance_m": 1.0,
+          "actual_distance_m": 1.0,
+          "tolerance_m": 0.005,
+          "hit_world_m": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "target_normal": [
+            0.0,
+            -0.0,
+            1.0
+          ]
+        },
+        {
+          "name": "west_interior_plane",
+          "target": "West_Wall",
+          "errors": [],
+          "expected_distance_m": 6.0,
+          "actual_distance_m": 6.0000005,
+          "tolerance_m": 0.005,
+          "hit_world_m": [
+            -6.0000005,
+            2.3,
+            3.3
+          ],
+          "target_normal": [
+            1.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "east_interior_plane",
+          "target": "East_Wall_Rear",
+          "errors": [],
+          "expected_distance_m": 6.0,
+          "actual_distance_m": 6.0,
+          "tolerance_m": 0.005,
+          "hit_world_m": [
+            6.0,
+            4.0999999,
+            3.3
+          ],
+          "target_normal": [
+            -1.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "entry_interior_plane",
+          "target": "Front_Wall_East",
+          "errors": [],
+          "expected_distance_m": 1.0,
+          "actual_distance_m": 0.9999999,
+          "tolerance_m": 0.005,
+          "hit_world_m": [
+            3.0,
+            1e-07,
+            3.5999999
+          ],
+          "target_normal": [
+            0.0,
+            0.9999999,
+            0.0
+          ]
+        },
+        {
+          "name": "ceiling_clear_height",
+          "target": "Ceiling",
+          "errors": [],
+          "expected_distance_m": 3.8000001907348633,
+          "actual_distance_m": 3.8,
+          "tolerance_m": 0.005,
+          "hit_world_m": [
+            0.0,
+            2.3,
+            4.8000002
+          ],
+          "target_normal": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        },
+        {
+          "name": "floor_rear_elevation",
+          "target": "Floor",
+          "errors": [],
+          "expected_distance_m": 1.0,
+          "actual_distance_m": 1.0,
+          "tolerance_m": 0.005,
+          "hit_world_m": [
+            0.0,
+            4.0999999,
+            0.0
+          ],
+          "target_normal": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "physical_portals_and_circulation",
+      "status": "PASS",
+      "method": "Exact evaluated triangle/AABB separating-axis tests plus solid containment; 250 mm floor-support grid",
+      "missing_required_purposes": [],
+      "volumes": [
+        {
+          "name": "WS_RECEIVING_aperture",
+          "purpose": "portal",
+          "errors": [],
+          "obstructions": [],
+          "min_m": [
+            -1.498,
+            -0.18,
+            0.021
+          ],
+          "max_m": [
+            1.498,
+            0.18,
+            3.198
+          ],
+          "dimensions_m": [
+            2.9960001,
+            0.36,
+            3.177
+          ],
+          "floor_support": {
+            "target": "Floor",
+            "samples": 39,
+            "maximum_grid_step_m": 0.25,
+            "misses": []
+          }
+        },
+        {
+          "name": "WS_PERSONNEL_aperture",
+          "purpose": "portal",
+          "errors": [],
+          "obstructions": [],
+          "min_m": [
+            5.8200002,
+            1.802,
+            0.021
+          ],
+          "max_m": [
+            6.1799998,
+            2.9980001,
+            2.2980001
+          ],
+          "dimensions_m": [
+            0.3599997,
+            1.1960001,
+            2.2770002
+          ],
+          "floor_support": {
+            "target": "Floor",
+            "samples": 18,
+            "maximum_grid_step_m": 0.25,
+            "misses": []
+          }
+        },
+        {
+          "name": "entry_cart_approach",
+          "purpose": "cart_route",
+          "errors": [],
+          "obstructions": [],
+          "min_m": [
+            -1.48,
+            0.02,
+            0.021
+          ],
+          "max_m": [
+            1.48,
+            0.68,
+            2.4000001
+          ],
+          "dimensions_m": [
+            2.96,
+            0.66,
+            2.3790002
+          ],
+          "floor_support": {
+            "target": "Floor",
+            "samples": 52,
+            "maximum_grid_step_m": 0.25,
+            "misses": []
+          }
+        }
+      ],
+      "access_errors": [],
+      "connected_clearance_volumes": [],
+      "disconnected_clearance_volumes": [],
+      "stage": "slice",
+      "full_circulation_evaluated": false,
+      "excluded_for_slice": [
+        "Receiving turning circle occupied by temporary slice hero staging",
+        "Full-depth cart route",
+        "Rear dispatch",
+        "Storage cell access",
+        "Booth internal passage"
+      ],
+      "limitations": "Static authored swept clearance volumes; dynamic door movement and runtime navigation are engine handoff checks"
+    },
+    {
+      "name": "mesh_normals_material_assignment_and_registration",
+      "status": "PASS",
+      "checked_objects": 438,
+      "errors": [],
+      "declared_open_surfaces": [],
+      "topology_weld_tolerance_m": 1e-06,
+      "signed_volume_arithmetic": "Translated local origin, Python double precision, compensated summation",
+      "limitations": "No general all-pairs self-intersection or outward-normal proof for open surfaces; support and routes are independently collision-tested"
+    },
+    {
+      "name": "exact_coincident_duplicates",
+      "status": "PASS",
+      "duplicates": [],
+      "method": "World-coordinate evaluated polygon signatures rounded to 1 micrometre; not an all-pairs intersection claim"
+    },
+    {
+      "name": "transforms_and_interactive_pivot_sanity",
+      "status": "FAIL",
+      "invalid_transforms": [],
+      "missing_interaction_pivots": [],
+      "pivots": [
+        {
+          "name": "Booth_Door_PIVOT",
+          "interaction": "controlled_access",
+          "pivot_world_m": [
+            -2.4949999,
+            2.75,
+            0.0
+          ],
+          "descendant_geometry_count": 11,
+          "errors": [],
+          "descendant_min_m": [
+            -3.5989997,
+            2.6220002,
+            0.0
+          ],
+          "descendant_max_m": [
+            -2.4909999,
+            2.7850001,
+            2.3050001
+          ],
+          "distance_to_descendant_bounds_m": 0.0
+        },
+        {
+          "name": "Cask_Lid_LIFT_PIVOT",
+          "interaction": "unseal_lift",
+          "pivot_world_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descendant_geometry_count": 1,
+          "errors": [
+            "Interactive origin is more than 150 mm outside its descendant geometry bounds"
+          ],
+          "descendant_min_m": [
+            -0.255,
+            2.4449999,
+            1.477
+          ],
+          "descendant_max_m": [
+            0.855,
+            3.5550001,
+            1.615
+          ],
+          "distance_to_descendant_bounds_m": 2.8564932
+        }
+      ],
+      "limitations": "Checks geometry-relative export origins and finite transforms; does not validate animation, physics, interaction scripts or complete door sweep"
+    },
+    {
+      "name": "ten_fixed_cameras",
+      "status": "PASS",
+      "expected_count": 10,
+      "actual_count": 10,
+      "extra_cameras": [],
+      "cameras": [
+        {
+          "name": "C01_ENTRY",
+          "errors": [],
+          "position_error_m": 0.0,
+          "rotation_error_deg": 0.0,
+          "lens_mm": 24.0,
+          "expected_lens_mm": 24.0
+        },
+        {
+          "name": "C02_HERO",
+          "errors": [],
+          "position_error_m": 0.0,
+          "rotation_error_deg": 0.0,
+          "lens_mm": 27.0,
+          "expected_lens_mm": 27.0
+        },
+        {
+          "name": "C03_REVERSE",
+          "errors": [],
+          "position_error_m": 0.0,
+          "rotation_error_deg": 0.0,
+          "lens_mm": 25.0,
+          "expected_lens_mm": 25.0
+        },
+        {
+          "name": "C04_ROUTE",
+          "errors": [],
+          "position_error_m": 0.0,
+          "rotation_error_deg": 0.0,
+          "lens_mm": 28.0,
+          "expected_lens_mm": 28.0
+        },
+        {
+          "name": "C05_CELL_ACCESS",
+          "errors": [],
+          "position_error_m": 0.0,
+          "rotation_error_deg": 0.0,
+          "lens_mm": 30.0,
+          "expected_lens_mm": 30.0
+        },
+        {
+          "name": "C06_CASK",
+          "errors": [],
+          "position_error_m": 0.0,
+          "rotation_error_deg": 0.0,
+          "lens_mm": 40.0,
+          "expected_lens_mm": 40.0
+        },
+        {
+          "name": "C07_MONITORING",
+          "errors": [],
+          "position_error_m": 0.0,
+          "rotation_error_deg": 0.0,
+          "lens_mm": 28.0,
+          "expected_lens_mm": 28.0
+        },
+        {
+          "name": "C08_VENTILATION",
+          "errors": [],
+          "position_error_m": 0.0,
+          "rotation_error_deg": 0.0,
+          "lens_mm": 29.0,
+          "expected_lens_mm": 29.0
+        },
+        {
+          "name": "C09_RECEIVING",
+          "errors": [],
+          "position_error_m": 0.0,
+          "rotation_error_deg": 0.0,
+          "lens_mm": 26.0,
+          "expected_lens_mm": 26.0
+        },
+        {
+          "name": "C10_MATERIALS",
+          "errors": [],
+          "position_error_m": 0.0,
+          "rotation_error_deg": 0.0,
+          "lens_mm": 49.0,
+          "expected_lens_mm": 49.0
+        }
+      ]
+    },
+    {
+      "name": "render_configuration",
+      "status": "PASS",
+      "expected": {
+        "engine": "CYCLES",
+        "resolution_x": 1280,
+        "resolution_y": 800,
+        "resolution_percentage": 100,
+        "image_format": "PNG",
+        "view_transform": "AgX",
+        "samples": 64,
+        "use_denoising": true,
+        "film_transparent": false,
+        "seed": 4217
+      },
+      "actual": {
+        "engine": "CYCLES",
+        "resolution_x": 1280,
+        "resolution_y": 800,
+        "resolution_percentage": 100,
+        "film_transparent": false,
+        "image_format": "PNG",
+        "view_transform": "AgX",
+        "samples": 64,
+        "use_denoising": true,
+        "seed": 4217
+      },
+      "errors": []
+    },
+    {
+      "name": "materials_and_portable_dependencies",
+      "status": "PASS",
+      "images": [],
+      "libraries": [],
+      "fonts": [],
+      "materials": [
+        {
+          "name": "ABS instrument housing",
+          "users": 36,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.47999998927116394,
+              "roughness_linked": true,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Brushed zinc steel",
+          "users": 92,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.30000001192092896,
+              "roughness_linked": true,
+              "metallic_default": 0.8799999952316284
+            }
+          ]
+        },
+        {
+          "name": "Carbon rubber • soft matte",
+          "users": 29,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.9300000071525574,
+              "roughness_linked": true,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Cast heat spreader metal",
+          "users": 7,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.8100000023841858,
+              "roughness_linked": true,
+              "metallic_default": 0.5199999809265137
+            }
+          ]
+        },
+        {
+          "name": "Dry wheel abrasion",
+          "users": 11,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.9399999976158142,
+              "roughness_linked": true,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Emergency red paint",
+          "users": 1,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.5899999737739563,
+              "roughness_linked": true,
+              "metallic_default": 0.15000000596046448
+            }
+          ]
+        },
+        {
+          "name": "Graphite lettering",
+          "users": 15,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.8500000238418579,
+              "roughness_linked": false,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Graphite powder coated steel",
+          "users": 87,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.6200000047683716,
+              "roughness_linked": true,
+              "metallic_default": 0.44999998807907104
+            }
+          ]
+        },
+        {
+          "name": "Inventory paper",
+          "users": 3,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.9300000071525574,
+              "roughness_linked": true,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Ivory enamel steel",
+          "users": 7,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.7400000095367432,
+              "roughness_linked": true,
+              "metallic_default": 0.25
+            }
+          ]
+        },
+        {
+          "name": "Maintenance ochre enamel",
+          "users": 19,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.5199999809265137,
+              "roughness_linked": true,
+              "metallic_default": 0.4000000059604645
+            }
+          ]
+        },
+        {
+          "name": "Opal warm lamp diffuser",
+          "users": 4,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.4000000059604645,
+              "roughness_linked": false,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Oxidised exposed primer",
+          "users": 9,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.8199999928474426,
+              "roughness_linked": true,
+              "metallic_default": 0.25
+            }
+          ]
+        },
+        {
+          "name": "Painted mineral wall • warm cream",
+          "users": 9,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.9100000262260437,
+              "roughness_linked": true,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Phenolic desk edge",
+          "users": 1,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.7599999904632568,
+              "roughness_linked": true,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Phosphor low output screen",
+          "users": 3,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.5199999809265137,
+              "roughness_linked": false,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Repainted teal panel",
+          "users": 1,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.6399999856948853,
+              "roughness_linked": true,
+              "metallic_default": 0.4000000059604645
+            }
+          ]
+        },
+        {
+          "name": "Sealed concrete • satin dry",
+          "users": 1,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.8299999833106995,
+              "roughness_linked": true,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Teal baked steel • maintained",
+          "users": 67,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.47999998927116394,
+              "roughness_linked": true,
+              "metallic_default": 0.6499999761581421
+            }
+          ]
+        },
+        {
+          "name": "Warm cast concrete • broad mineral tone",
+          "users": 13,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.8999999761581421,
+              "roughness_linked": true,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Warm white marking",
+          "users": 10,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.8100000023841858,
+              "roughness_linked": true,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Washed canvas",
+          "users": 4,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.9800000190734863,
+              "roughness_linked": true,
+              "metallic_default": 0.0
+            }
+          ]
+        },
+        {
+          "name": "Wired safety glazing",
+          "users": 9,
+          "use_nodes": true,
+          "surface_connected": true,
+          "principled": [
+            {
+              "roughness_default": 0.06499999761581421,
+              "roughness_linked": false,
+              "metallic_default": 0.0
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "limitations": "Shader connectivity/dependency checks do not establish tactile quality or anti-plastic visual acceptance"
+    }
+  ],
+  "stage": "slice",
+  "summary": {
+    "passed": 16,
+    "failed": 2,
+    "failing_checks": [
+      "assembly_component_support_connectivity",
+      "transforms_and_interactive_pivot_sanity"
+    ],
+    "elapsed_seconds": 16.948
+  }
+}

@@ -1,0 +1,563 @@
+{
+  "stage": "slice",
+  "revision": "slice-r01",
+  "camera_manifest": [
+    {
+      "name": "C01_ENTRY",
+      "position": [
+        0,
+        0.28,
+        1.65
+      ],
+      "target": [
+        0,
+        8,
+        1.45
+      ],
+      "lens": 24,
+      "stage": "full"
+    },
+    {
+      "name": "C02_HERO",
+      "position": [
+        3.27,
+        4.27,
+        1.65
+      ],
+      "target": [
+        -1.95,
+        2.02,
+        1.32
+      ],
+      "lens": 30,
+      "stage": "slice/full"
+    },
+    {
+      "name": "C03_REVERSE",
+      "position": [
+        0.3,
+        16.8,
+        1.65
+      ],
+      "target": [
+        0,
+        2,
+        1.5
+      ],
+      "lens": 25,
+      "stage": "full"
+    },
+    {
+      "name": "C04_ROUTE",
+      "position": [
+        0,
+        5.1,
+        1.65
+      ],
+      "target": [
+        0,
+        15.8,
+        1.5
+      ],
+      "lens": 28,
+      "stage": "full"
+    },
+    {
+      "name": "C05_CELL_ACCESS",
+      "position": [
+        0.3,
+        8.8,
+        1.65
+      ],
+      "target": [
+        -4.0,
+        7.0,
+        1.25
+      ],
+      "lens": 30,
+      "stage": "full"
+    },
+    {
+      "name": "C06_CASK",
+      "position": [
+        0.3,
+        6.0,
+        1.65
+      ],
+      "target": [
+        -4,
+        6.75,
+        1.23
+      ],
+      "lens": 40,
+      "stage": "full"
+    },
+    {
+      "name": "C07_MONITORING",
+      "position": [
+        -2.91,
+        3.2,
+        1.65
+      ],
+      "target": [
+        -4.32,
+        1.25,
+        1.07
+      ],
+      "lens": 28,
+      "stage": "slice/full"
+    },
+    {
+      "name": "C08_VENTILATION",
+      "position": [
+        3,
+        14.6,
+        1.65
+      ],
+      "target": [
+        -3.1,
+        16.6,
+        1.55
+      ],
+      "lens": 29,
+      "stage": "full"
+    },
+    {
+      "name": "C09_RECEIVING",
+      "position": [
+        4.7,
+        0.79,
+        1.65
+      ],
+      "target": [
+        -2.3,
+        2.45,
+        1.35
+      ],
+      "lens": 26,
+      "stage": "slice/full"
+    },
+    {
+      "name": "C10_MATERIALS",
+      "position": [
+        1.58,
+        1.28,
+        1.32
+      ],
+      "target": [
+        0.2,
+        3.1,
+        1.19
+      ],
+      "lens": 49,
+      "stage": "slice/full"
+    }
+  ],
+  "assemblies": [
+    {
+      "name": "Booth corner guard",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Booth corner guard__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Booth exterior practical",
+      "target": "Ceiling",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "anchors": [
+        "Booth exterior practical__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Booth task light",
+      "target": "Booth suspended cap",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "anchors": [
+        "Booth task light__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Canvas wipe folded on desk",
+      "target": "Desk laminate worktop",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Canvas wipe folded on desk__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Floor construction joint",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Floor construction joint__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Floor construction joint.001",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Floor construction joint__CONTACT_00.001"
+      ]
+    },
+    {
+      "name": "Floor slab joint",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Floor slab joint__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Floor slab joint.001",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Floor slab joint__CONTACT_00.001"
+      ]
+    },
+    {
+      "name": "Inventory instrument",
+      "target": "Desk laminate worktop",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Inventory instrument__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Localized wheel scuff",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Localized wheel scuff__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Localized wheel scuff.001",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Localized wheel scuff__CONTACT_00.001"
+      ]
+    },
+    {
+      "name": "Monitor desk",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Monitor desk__CONTACT_00",
+        "Monitor desk__CONTACT_01",
+        "Monitor desk__CONTACT_02",
+        "Monitor desk__CONTACT_03"
+      ]
+    },
+    {
+      "name": "Monitoring access plate",
+      "target": "Booth east stile",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "anchors": [
+        "Monitoring access plate__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Monitoring booth shell",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Monitoring booth shell__CONTACT_00",
+        "Monitoring booth shell__CONTACT_01",
+        "Monitoring booth shell__CONTACT_02"
+      ]
+    },
+    {
+      "name": "Operator enamel mug",
+      "target": "Desk laminate worktop",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Operator enamel mug__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Operator swivel chair",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Operator swivel chair__CONTACT_00",
+        "Operator swivel chair__CONTACT_01"
+      ]
+    },
+    {
+      "name": "Personnel exit frame",
+      "target": "East_Wall_Lintel",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "anchors": [
+        "Personnel exit frame__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Receiving practical",
+      "target": "Ceiling",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "anchors": [
+        "Receiving practical__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Receiving radiation monitor",
+      "target": "Booth rear insulated sill",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "anchors": [
+        "Receiving radiation monitor__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Receiving roller assembly",
+      "target": "Front_Wall_Lintel",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "anchors": [
+        "Receiving roller assembly__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Receiving threshold steel",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Receiving threshold steel__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Signed shift ledger",
+      "target": "Desk laminate worktop",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Signed shift ledger__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Staging corner longitudinal",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Staging corner longitudinal__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Staging corner longitudinal.001",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Staging corner longitudinal__CONTACT_00.001"
+      ]
+    },
+    {
+      "name": "Staging corner longitudinal.002",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Staging corner longitudinal__CONTACT_00.002"
+      ]
+    },
+    {
+      "name": "Staging corner longitudinal.003",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Staging corner longitudinal__CONTACT_00.003"
+      ]
+    },
+    {
+      "name": "Staging corner transverse",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Staging corner transverse__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Staging corner transverse.001",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Staging corner transverse__CONTACT_00.001"
+      ]
+    },
+    {
+      "name": "Staging corner transverse.002",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Staging corner transverse__CONTACT_00.002"
+      ]
+    },
+    {
+      "name": "Staging corner transverse.003",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Staging corner transverse__CONTACT_00.003"
+      ]
+    },
+    {
+      "name": "Threshold guide stripe",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Threshold guide stripe__CONTACT_00"
+      ]
+    },
+    {
+      "name": "Threshold guide stripe.001",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Threshold guide stripe__CONTACT_00.001"
+      ]
+    },
+    {
+      "name": "Transfer cart and cask",
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "anchors": [
+        "Transfer cart and cask__CONTACT_00",
+        "Transfer cart and cask__CONTACT_01",
+        "Transfer cart and cask__CONTACT_02",
+        "Transfer cart and cask__CONTACT_03"
+      ]
+    }
+  ]
+}

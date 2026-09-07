@@ -1,0 +1,55 @@
+{
+  "before_revision": "slice-r01",
+  "after_revision": "slice-r02",
+  "source_identical": false,
+  "settings_identical": false,
+  "camera_set_identical": true,
+  "cameras": [
+    {
+      "camera": "C02_HERO",
+      "framing_identical": false,
+      "pixel_dimensions_identical": true,
+      "file_identical": false,
+      "mean_absolute_channel_difference_255": 71.76385498046875,
+      "max_channel_difference_255": 248.0,
+      "fraction_pixels_any_channel_difference_gt_2": 0.99865234375,
+      "before_image": "slice-r01/C02_HERO.png",
+      "after_image": "slice-r02/C02_HERO.png"
+    },
+    {
+      "camera": "C07_MONITORING",
+      "framing_identical": true,
+      "pixel_dimensions_identical": true,
+      "file_identical": false,
+      "mean_absolute_channel_difference_255": 70.381103515625,
+      "max_channel_difference_255": 218.0,
+      "fraction_pixels_any_channel_difference_gt_2": 0.9997939453125,
+      "before_image": "slice-r01/C07_MONITORING.png",
+      "after_image": "slice-r02/C07_MONITORING.png"
+    },
+    {
+      "camera": "C09_RECEIVING",
+      "framing_identical": true,
+      "pixel_dimensions_identical": true,
+      "file_identical": false,
+      "mean_absolute_channel_difference_255": 52.243751525878906,
+      "max_channel_difference_255": 239.0,
+      "fraction_pixels_any_channel_difference_gt_2": 0.9993759765625,
+      "before_image": "slice-r01/C09_RECEIVING.png",
+      "after_image": "slice-r02/C09_RECEIVING.png"
+    },
+    {
+      "camera": "C10_MATERIALS",
+      "framing_identical": true,
+      "pixel_dimensions_identical": true,
+      "file_identical": false,
+      "mean_absolute_channel_difference_255": 70.04816436767578,
+      "max_channel_difference_255": 243.0,
+      "fraction_pixels_any_channel_difference_gt_2": 0.99914453125,
+      "before_image": "slice-r01/C10_MATERIALS.png",
+      "after_image": "slice-r02/C10_MATERIALS.png"
+    }
+  ],
+  "all_pixels_identical": false,
+  "interpretation": "Numeric comparison only; visual improvement or regression requires independent pixel review."
+}
