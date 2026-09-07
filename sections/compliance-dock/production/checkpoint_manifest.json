@@ -1,0 +1,22 @@
+{
+  "status": "incomplete_checkpoint",
+  "revision": "s06",
+  "acceptance": "FAIL at latest reviewed s05; s06 unreviewed",
+  "source_sha256": "812b95174feeb00623cfc1e47c0b533601b9796f2ace57aeac4709374ab810f4",
+  "blend_sha256": "3bbcf3e8099f203a0a7619c716b94781ea5b2df98c50239a5445c438de932bd8",
+  "render_files": [
+    {
+      "name": "S01_style.png",
+      "bytes": 1216484,
+      "sha256": "c4fe0690ef78ab9e47f6486f419ff3443e223fc7928cfba2873bae27caa8e12c"
+    },
+    {
+      "name": "S02_material.png",
+      "bytes": 1247851,
+      "sha256": "05965bac43f6fa37fabaee120d84d12d978504fc08dd5009e96001e79e880db3"
+    }
+  ],
+  "final_room_present": false,
+  "cold_start_pass": false,
+  "queued_render_exit_code": 0
+}

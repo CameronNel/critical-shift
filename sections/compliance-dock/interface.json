@@ -1,0 +1,1114 @@
+{
+  "schema_version": 1,
+  "section": "compliance-dock",
+  "revision": "P01",
+  "status": "authored dimensional contract; final-geometry and runtime verification pending",
+  "units": "metres",
+  "coordinate_system": {
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "origin_description": "centre of clear facility entry threshold at finished floor",
+    "right": "+X",
+    "inward": "+Y",
+    "up": "+Z",
+    "north_note": "drawing north means local +Y, not geographic bearing",
+    "global_transform": null
+  },
+  "source_authority": {
+    "game_spec": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/design/GAME_SPEC.md",
+    "build_brief": "C:/Users/Camer/Games/critical-shift/ops/facility-run/BUILD_BRIEF.md",
+    "section_brief": "C:/Users/Camer/Games/critical-shift/ops/facility-run/briefs/compliance-dock.md",
+    "dimension_basis": "builder-authored section layout; dimensions are implementation decisions rather than canonical measurements",
+    "traceability": [
+      "GAME_SPEC §14.1–14.6",
+      "GAME_SPEC §16.1–16.5",
+      "GAME_SPEC §23.1–23.4",
+      "GAME_SPEC §30.5",
+      "GAME_SPEC §31.2"
+    ]
+  },
+  "interior": {
+    "bounds_xy": [
+      -6.8,
+      0,
+      6.8,
+      15.8
+    ],
+    "floor_z": 0,
+    "gross_interior_area_m2": 214.88,
+    "area_note": "perimeter clear-face rectangle before internal partitions, equipment and route deductions",
+    "perimeter_wall_thickness_m": 0.28,
+    "perimeter_wall_convention": "outside stated interior bounds",
+    "office_partition_thickness_m": 0.16,
+    "internal_wall_convention": "centred on the named office and screen datums",
+    "maximum_exterior_bounds_xy": [
+      -7.08,
+      -0.28,
+      7.08,
+      16.08
+    ],
+    "ceiling_zones": [
+      {
+        "id": "release_apron",
+        "bounds_xy": [
+          -6.8,
+          0,
+          6.8,
+          3.6
+        ],
+        "clear_height_m": 3.4,
+        "note": "front office partition projects 0.08 m into this zoning rectangle"
+      },
+      {
+        "id": "office",
+        "bounds_xy": [
+          -6.8,
+          3.6,
+          -2.4,
+          9.6
+        ],
+        "clear_height_m": 3.05
+      },
+      {
+        "id": "main_dock_and_support",
+        "bounds_xy": [
+          -6.8,
+          3.6,
+          6.8,
+          15.8
+        ],
+        "clear_height_m": 4.4,
+        "exclude_zones": [
+          "office"
+        ]
+      }
+    ]
+  },
+  "portals": [
+    {
+      "id": "facility_entry",
+      "label": "P1",
+      "type": "facility_connector",
+      "threshold": [
+        0,
+        0,
+        0
+      ],
+      "width_axis": "+X",
+      "inward_normal": [
+        0,
+        1,
+        0
+      ],
+      "clear_width_m": 2.4,
+      "clear_height_m": 2.6,
+      "clear_bounds": {
+        "min": [
+          -1.2,
+          0,
+          0
+        ],
+        "max": [
+          1.2,
+          0,
+          2.6
+        ]
+      },
+      "mechanism": "sliding along X in perimeter wall; no swinging leaf",
+      "threshold_step_m": 0,
+      "connected_section": null,
+      "connection_status": "connector network target pending; medical adjacency only",
+      "aperture_wall_axis": "Y",
+      "aperture_depth_m": 0.28
+    },
+    {
+      "id": "sealed_external_access",
+      "label": "P2",
+      "type": "sealed_external_arrival",
+      "threshold": [
+        0,
+        15.8,
+        0
+      ],
+      "width_axis": "+X",
+      "inward_normal": [
+        0,
+        -1,
+        0
+      ],
+      "clear_width_m": 4.6,
+      "clear_height_m": 3.5,
+      "clear_bounds": {
+        "min": [
+          -2.3,
+          15.8,
+          0
+        ],
+        "max": [
+          2.3,
+          15.8,
+          3.5
+        ]
+      },
+      "mechanism": "opposed sliding leaves along X",
+      "threshold_step_m": 0,
+      "connected_section": null,
+      "default_state": "sealed",
+      "connection_status": "exterior presentation/arrival boundary; exterior scene and transport unassigned",
+      "aperture_wall_axis": "Y",
+      "aperture_depth_m": 0.28
+    },
+    {
+      "id": "staff_front",
+      "label": "D1",
+      "type": "internal_staff_door",
+      "threshold": [
+        -5.4,
+        3.6,
+        0
+      ],
+      "clear_width_m": 1.05,
+      "clear_height_m": 2.2,
+      "hinge_xy": [
+        -5.925,
+        3.6
+      ],
+      "swing_into": "office +Y",
+      "swing_radius_m": 1.05,
+      "threshold_step_m": 0,
+      "connects_local_spaces": [
+        "release_apron",
+        "office"
+      ],
+      "default_state": "locked_closed",
+      "width_axis": "+X",
+      "aperture_wall_axis": "Y",
+      "aperture_depth_m": 0.16
+    },
+    {
+      "id": "staff_rear",
+      "label": "D2",
+      "type": "internal_staff_door",
+      "threshold": [
+        -5.4,
+        9.6,
+        0
+      ],
+      "clear_width_m": 1.05,
+      "clear_height_m": 2.2,
+      "hinge_xy": [
+        -5.925,
+        9.6
+      ],
+      "swing_into": "office -Y",
+      "swing_radius_m": 1.05,
+      "threshold_step_m": 0,
+      "connects_local_spaces": [
+        "office",
+        "concealed_support_bay"
+      ],
+      "default_state": "alternate_open_state_shown; authored final-state check pending",
+      "width_axis": "+X",
+      "aperture_wall_axis": "Y",
+      "aperture_depth_m": 0.16
+    },
+    {
+      "id": "cart_gate",
+      "label": "G1",
+      "type": "internal_control_gate",
+      "threshold": [
+        1.95,
+        7,
+        0
+      ],
+      "clear_width_m": 1.8,
+      "clear_height_m": 4.4,
+      "clear_x_range": [
+        1.05,
+        2.85
+      ],
+      "mechanism": "four-panel telescoping side-pocket leaf retracts east; no swing",
+      "storage_pocket_bounds_xy": [
+        2.86,
+        6.75,
+        3.36,
+        7.25
+      ],
+      "threshold_step_m": 0,
+      "connects_local_spaces": [
+        "release_apron",
+        "arrival_dock"
+      ],
+      "mechanical_design_status": "compact telescoping/retracting mechanism allowance; detailed constructability pending",
+      "width_axis": "+X",
+      "aperture_wall_axis": "Y",
+      "aperture_depth_m": 0.5
+    },
+    {
+      "id": "support_screen_north_return",
+      "type": "internal_opening",
+      "threshold": [
+        -2.4,
+        15.025,
+        0
+      ],
+      "width_axis": "+Y",
+      "clear_width_m": 1.55,
+      "clear_height_m": 4.4,
+      "clear_y_range": [
+        14.25,
+        15.8
+      ],
+      "mechanism": "no leaf",
+      "connects_local_spaces": [
+        "concealed_support_bay",
+        "arrival_dock"
+      ],
+      "aperture_wall_axis": "X",
+      "aperture_depth_m": 0.16
+    }
+  ],
+  "external_boundary_cut_count": 2,
+  "adjacency": {
+    "canonical_sequence": "Reanimation and Medical → Compliance Dock (GAME_SPEC §23.1)",
+    "route_via": "facility connector network; no direct medical-to-dock wall cut authored",
+    "adjacent_section": "medical-reanimation",
+    "read_only_source": "C:/Users/Camer/.codex/worktrees/1edf/critical-shift/sections/medical-reanimation/scenery/interface.json",
+    "source_revision": "P01",
+    "medical_entry": {
+      "threshold_local": [
+        0,
+        0,
+        0
+      ],
+      "width_m": 2.2,
+      "height_m": 2.5
+    },
+    "dock_entry": {
+      "threshold_local": [
+        0,
+        0,
+        0
+      ],
+      "width_m": 2.4,
+      "height_m": 2.6
+    },
+    "transition_required": "connector transitions to the smaller medical aperture; do not move either existing module",
+    "relative_transform": null,
+    "connector_id": null,
+    "connector_length_m": null,
+    "geometry_confirmed": false,
+    "travel_time_confirmed": false,
+    "travel_target_seconds": [
+      10,
+      20
+    ]
+  },
+  "zones": [
+    {
+      "id": "release_apron",
+      "bounds_xy": [
+        -6.8,
+        0,
+        6.8,
+        3.6
+      ],
+      "purpose": "facility release, check-in queue and lower cart turn"
+    },
+    {
+      "id": "office",
+      "datum_bounds_xy": [
+        -6.8,
+        3.6,
+        -2.4,
+        9.6
+      ],
+      "net_clear_bounds_xy": [
+        -6.8,
+        3.68,
+        -2.48,
+        9.52
+      ],
+      "net_clear_area_before_fixtures_m2": 25.2288,
+      "purpose": "staff check-in, log review and controlled shortcut"
+    },
+    {
+      "id": "controlled_check",
+      "bounds_xy": [
+        -2.32,
+        3.6,
+        6.8,
+        10.2
+      ]
+    },
+    {
+      "id": "arrival_dock",
+      "bounds_xy": [
+        -2.32,
+        10.2,
+        3.4,
+        15.8
+      ],
+      "purpose": "officer arrival, cargo receipt and clear central approach"
+    },
+    {
+      "id": "concealed_support_bay",
+      "datum_bounds_xy": [
+        -6.8,
+        9.8,
+        -2.4,
+        15.8
+      ],
+      "screen_bounds": {
+        "min": [
+          -2.48,
+          9.8,
+          0
+        ],
+        "max": [
+          -2.32,
+          14.25,
+          2.7
+        ]
+      },
+      "purpose": "tarp trolley and evidence storage behind opaque screen; search remains possible"
+    },
+    {
+      "id": "equipment_nook",
+      "bounds_xy": [
+        3.4,
+        11,
+        6.8,
+        15.8
+      ],
+      "purpose": "wall utilities and parked hand cart"
+    }
+  ],
+  "equipment": {
+    "human_scanner": {
+      "centre": [
+        0,
+        7,
+        0
+      ],
+      "outer_bounds_xy": [
+        -0.85,
+        6.55,
+        0.85,
+        7.45
+      ],
+      "clear_width_m": 1.2,
+      "clear_height_m": 2.25,
+      "clear_x_range": [
+        -0.6,
+        0.6
+      ],
+      "outer_width_m": 1.7,
+      "overall_top_z_allowance": 2.55
+    },
+    "cargo_scanner": {
+      "centre": [
+        4.65,
+        7.7,
+        0
+      ],
+      "bounds": {
+        "min": [
+          3.4,
+          5.3,
+          0
+        ],
+        "max": [
+          5.9,
+          10,
+          2.1
+        ]
+      },
+      "belt_top_z": 0.8,
+      "maintenance_side": "east",
+      "maintenance_clearance_m": 0.9,
+      "maintenance_bounds_xy": [
+        5.9,
+        5.3,
+        6.8,
+        10
+      ],
+      "standing_load_positions": [
+        [
+          4.65,
+          4.5,
+          0
+        ],
+        [
+          4.65,
+          10.55,
+          0
+        ]
+      ]
+    },
+    "check_in_hatch": {
+      "counter_bounds_xy": [
+        -4.35,
+        3.25,
+        -2.67,
+        3.95
+      ],
+      "counter_top_z": 1.04,
+      "public_use_position": [
+        -3.51,
+        2.6,
+        0
+      ],
+      "centre_on_front_wall": [
+        -3.51,
+        3.6,
+        1.04
+      ],
+      "opening_x_range": [
+        -4.35,
+        -2.67
+      ],
+      "upper_opening_z": null,
+      "note": "front-wall sill-level transaction opening; no walkable portal, upper frame height to follow final geometry"
+    },
+    "observation_glass": {
+      "plane_x": -2.4,
+      "y_range": [
+        4,
+        8.9
+      ],
+      "bottom_z": 1.05,
+      "top_z": 2.5,
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    "staff_workbench": {
+      "bounds_xy": [
+        -4.25,
+        5.8,
+        -2.75,
+        7.8
+      ],
+      "operator_clearance_side": "west; preserve staff lane at x−5.4"
+    },
+    "tarp_trolley": {
+      "bounds_xy": [
+        -6.4,
+        12,
+        -5.3,
+        14.5
+      ],
+      "maximum_top_z": 1.3
+    },
+    "evidence_storage": {
+      "bounds_xy": [
+        -6.45,
+        14.8,
+        -4.7,
+        15.55
+      ],
+      "maximum_top_z": 1.6,
+      "front_access": "south"
+    },
+    "parked_hand_cart": {
+      "bounds_xy": [
+        4.05,
+        11.65,
+        4.8,
+        13.75
+      ]
+    },
+    "wall_utilities": {
+      "bounds_xy": [
+        6.05,
+        12,
+        6.7,
+        14.2
+      ]
+    },
+    "rear_utility_console": {
+      "bounds_xy": [
+        4,
+        14.65,
+        5.9,
+        15.55
+      ]
+    }
+  },
+  "reserved_routes": [
+    {
+      "id": "R1",
+      "purpose": "routine officer/person inspection then facility release",
+      "centreline_xy": [
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          10.5
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          1.2
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "nominal_clear_width_m": 1.2,
+      "limiting_element": "human_scanner",
+      "traversal_direction": "bidirectional; arrival proceeds -Y",
+      "headroom_min_m": 2.25,
+      "route_state_for_clearance_check": "facility_entry and sealed_external_access open; scanner operational"
+    },
+    {
+      "id": "R2",
+      "purpose": "loaded cart and body transport bypasses human scanner",
+      "centreline_xy": [
+        [
+          0,
+          15.25
+        ],
+        [
+          1.25,
+          13.45
+        ],
+        [
+          1.95,
+          12.2
+        ],
+        [
+          1.95,
+          3.2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "swept_width_allowance_m": 1.35,
+      "straight_swept_bounds_xy": [
+        1.275,
+        3.2,
+        2.625,
+        12.2
+      ],
+      "limiting_gate_clear_width_m": 1.8,
+      "portal_clear_width_m": 2.4,
+      "headroom_min_m": 2.6,
+      "turn_allowances": [
+        {
+          "centre_xy": [
+            1,
+            2
+          ],
+          "radius_m": 1.5
+        },
+        {
+          "centre_xy": [
+            1.25,
+            12.1
+          ],
+          "radius_m": 1.5
+        }
+      ],
+      "turn_note": "circles are local manoeuvre reservations, not the Minkowski sweep of this schematic centreline; actual curved turning path requires runtime verification",
+      "route_state_for_clearance_check": "facility_entry and sealed_external_access open; cart_gate fully retracted"
+    },
+    {
+      "id": "R3",
+      "purpose": "staff shortcut from apron through office to concealed support bay and around screen north end",
+      "centreline_xy": [
+        [
+          -4.65,
+          1.85
+        ],
+        [
+          -5.4,
+          2.7
+        ],
+        [
+          -5.4,
+          10.65
+        ],
+        [
+          -4.2,
+          11.8
+        ],
+        [
+          -3.5,
+          14.05
+        ],
+        [
+          -3.5,
+          15.025
+        ],
+        [
+          -1.7,
+          15.025
+        ]
+      ],
+      "limiting_door_clear_width_m": 1.05,
+      "headroom_min_m": 2.2,
+      "access_hook": "staff-authorised lock; officer can open selected access points",
+      "cart_note": "0.75 m cart nominally fits straight through, leaving 0.15 m each side; turning, door operation and body dragging are unverified",
+      "default_traversable": false,
+      "default_obstruction": "staff_front D1 locked shut",
+      "route_state_for_clearance_check": "staff_front unlocked and staff_front/staff_rear held at 90 degrees open into office; differs from authored front locked state"
+    }
+  ],
+  "swept_objects": {
+    "cart": {
+      "nominal_footprint_m": [
+        0.75,
+        2.1
+      ],
+      "straight_swept_allowance_width_m": 1.35,
+      "depicted_bounds_xy": [
+        1.575,
+        8.1,
+        2.325,
+        10.2
+      ]
+    },
+    "body": {
+      "nominal_footprint_m": [
+        0.7,
+        1.8
+      ],
+      "depicted_bounds_xy": [
+        1.6,
+        10.65,
+        2.3,
+        12.45
+      ],
+      "note": "offline/unconscious body transport; limb/ragdoll extents and handler space not resolved"
+    },
+    "obstruction_cases": [
+      {
+        "id": "transverse_cart_at_P1",
+        "nominal_footprint_m": [
+          2.1,
+          0.75
+        ],
+        "expected_issue": "cart can obstruct the 2.4 m entry despite nominal side gaps; manual clearing/drag needed"
+      },
+      {
+        "id": "body_at_human_scanner",
+        "nominal_footprint_m": [
+          1.8,
+          0.7
+        ],
+        "expected_issue": "human lane can be blocked; authorised cart bypass is alternate local path"
+      }
+    ],
+    "physics_verified": false
+  },
+  "sightlines": {
+    "status": "authored inspection intent, not raycast results",
+    "office_eye": {
+      "label": "E",
+      "position": [
+        -3.05,
+        5.3,
+        1.6
+      ]
+    },
+    "targets": [
+      {
+        "position": [
+          0,
+          7,
+          1.1
+        ],
+        "purpose": "worker scan"
+      },
+      {
+        "position": [
+          1.95,
+          7,
+          1.1
+        ],
+        "purpose": "cart-gate approach"
+      },
+      {
+        "position": [
+          0,
+          12.8,
+          1.4
+        ],
+        "purpose": "north arrival approach"
+      }
+    ],
+    "occlusion_intent": "2.7 m opaque support screen blocks routine central-eye view of low trolley; visibility from north return or opened tarp remains possible",
+    "required_checks": [
+      "glass actually transmits intended eye rays",
+      "screen and equipment occlusion",
+      "standing and crouched player views",
+      "officer search from north return"
+    ]
+  },
+  "hiding_spaces": [
+    {
+      "id": "H1_tarp_trolley",
+      "type": "tarp/cart",
+      "bounds_xy": [
+        -6.4,
+        12,
+        -5.3,
+        14.5
+      ],
+      "capacity": {
+        "bodies": 1,
+        "small_items": 2
+      },
+      "visibility": {
+        "closed_cover": "low from central route; concealment is conditional",
+        "open_cover": "high at close range",
+        "candidate_normalized_closed": 0.2
+      },
+      "sound_transmission": {
+        "candidate_factor": 0.7,
+        "note": "fabric attenuates lightly; waking occupant can be heard"
+      },
+      "search_probability": {
+        "routine_candidate": 0.15,
+        "formal_audit_candidate": 0.65,
+        "active_search_candidate": 0.9,
+        "status": "tuning placeholders, not canonical or implemented"
+      },
+      "escape_possibility": "unrestrained occupant lifts tarp and exits east into support aisle; staff doors and north return provide onward routes",
+      "environmental_risk": "trolley movement transports occupant; wake-up sound, discovery and obstruction possible; no lethal machinery in hiding berth",
+      "interaction_hooks": [
+        "cover_open",
+        "cover_close",
+        "stow",
+        "retrieve",
+        "wake_noise",
+        "escape",
+        "inspect"
+      ],
+      "implemented": false
+    },
+    {
+      "id": "H2_evidence_cabinet",
+      "type": "staff evidence storage",
+      "bounds_xy": [
+        -6.45,
+        14.8,
+        -4.7,
+        15.55
+      ],
+      "capacity": {
+        "bodies": 0,
+        "small_items": 6
+      },
+      "visibility": {
+        "closed": "opaque cabinet; registration/log record may remain discoverable",
+        "open": "contents visible",
+        "candidate_normalized_closed": 0.05
+      },
+      "sound_transmission": {
+        "candidate_factor": 0.25,
+        "note": "closed metal cabinet, rattling possible"
+      },
+      "search_probability": {
+        "routine_candidate": 0.25,
+        "formal_audit_candidate": 0.85,
+        "active_search_candidate": 1.0,
+        "status": "tuning placeholders, not canonical or implemented"
+      },
+      "escape_possibility": "not applicable to zero-body container; retrieval from south face",
+      "environmental_risk": "evidence logged, confiscated or linked to owner; cabinet is not radiation shielding",
+      "interaction_hooks": [
+        "unlock",
+        "open",
+        "register_evidence",
+        "stow",
+        "retrieve",
+        "inspect",
+        "confiscate"
+      ],
+      "implemented": false
+    }
+  ],
+  "runtime_markers": [
+    {
+      "id": "officer_arrival",
+      "label": "A",
+      "type": "spawn",
+      "position": [
+        0,
+        14,
+        0
+      ],
+      "facing": [
+        0,
+        -1,
+        0
+      ],
+      "enabled_when": "external access arrival event",
+      "requires_nav_and_collision_validation": true
+    },
+    {
+      "id": "check_in",
+      "label": "B",
+      "type": "interest_target",
+      "position": [
+        -3.51,
+        2.6,
+        0
+      ],
+      "facing": [
+        0,
+        1,
+        0
+      ],
+      "hooks": [
+        "headcount",
+        "read_logs",
+        "guided_tour",
+        "distraction"
+      ]
+    },
+    {
+      "id": "worker_inspection",
+      "label": "C",
+      "type": "interest_target",
+      "position": [
+        0,
+        8.3,
+        0
+      ],
+      "facing": [
+        0,
+        -1,
+        0
+      ],
+      "hooks": [
+        "scan_worker",
+        "inspect_injury",
+        "missing_registration"
+      ]
+    },
+    {
+      "id": "cargo_inspection",
+      "label": "D",
+      "type": "interest_target",
+      "position": [
+        4.65,
+        10.55,
+        0
+      ],
+      "facing": [
+        0,
+        -1,
+        0
+      ],
+      "hooks": [
+        "scan_waste",
+        "collect_evidence",
+        "cargo_confiscation"
+      ]
+    },
+    {
+      "id": "support_search",
+      "label": "F",
+      "type": "interest_target",
+      "position": [
+        -3.55,
+        13.5,
+        0
+      ],
+      "facing": [
+        -1,
+        0,
+        0
+      ],
+      "hooks": [
+        "search_cover",
+        "search_cabinet",
+        "body_discovery"
+      ]
+    },
+    {
+      "id": "officer_departure",
+      "type": "route_target",
+      "position": [
+        0,
+        14.8,
+        0
+      ],
+      "facing": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "facility_handoff",
+      "type": "connector_navigation_boundary",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "neighbour_transform": null
+    }
+  ],
+  "service_interfaces": [
+    {
+      "id": "power",
+      "wall": "east",
+      "anchor": [
+        6.8,
+        13.6,
+        1.15
+      ],
+      "outward_normal": [
+        1,
+        0,
+        0
+      ],
+      "connected_section": null,
+      "capacity": null
+    },
+    {
+      "id": "data",
+      "wall": "east",
+      "anchor": [
+        6.8,
+        13.2,
+        2.6
+      ],
+      "outward_normal": [
+        1,
+        0,
+        0
+      ],
+      "connected_section": null,
+      "protocol": null
+    }
+  ],
+  "runtime_handoff": {
+    "implemented_or_verified": false,
+    "incident_hooks": [
+      "audit_arrival",
+      "scanner_fault",
+      "destroyed_sensor",
+      "restricted_door",
+      "body_discovery",
+      "cargo_contraband",
+      "falsified_log",
+      "evidence_collected",
+      "officer_disabled",
+      "lockdown_override"
+    ],
+    "audio_zones": [
+      {
+        "id": "dock",
+        "bounds_xy": [
+          -2.32,
+          0,
+          6.8,
+          15.8
+        ],
+        "intent": "contained bay with practical machinery and scanner chirps"
+      },
+      {
+        "id": "office",
+        "bounds_xy": [
+          -6.8,
+          3.6,
+          -2.4,
+          9.6
+        ],
+        "intent": "partly isolated staff speech and console cues"
+      },
+      {
+        "id": "support",
+        "bounds_xy": [
+          -6.8,
+          9.8,
+          -2.4,
+          15.8
+        ],
+        "intent": "tarp and occupant noise audible around screen; tune occlusion"
+      }
+    ],
+    "network_relevance_boundary": {
+      "bounds_xy": [
+        -7.08,
+        -0.28,
+        7.08,
+        16.08
+      ],
+      "z_range": [
+        0,
+        4.4
+      ],
+      "handoff_at": [
+        "facility_entry",
+        "sealed_external_access"
+      ],
+      "status": "authored allowance; engine implementation pending"
+    },
+    "evidence_state_fields": [
+      "evidence_id",
+      "type",
+      "location",
+      "visibility",
+      "owner",
+      "related_event",
+      "compliance_value",
+      "resistance_value",
+      "hidden",
+      "discovered"
+    ],
+    "required_validation": [
+      "final geometry against dimensional contract",
+      "door leaf, frame and lock collision",
+      "scanner clear opening and overhead services",
+      "cart trajectory and swept volume",
+      "body dragging and ragdoll limb extent",
+      "occupied shortcut and open-door blocking",
+      "north screen-return manoeuvre",
+      "tarp retrieval and occupant escape",
+      "officer interest-target reachability",
+      "sensor rays through observation glass",
+      "inspection and escalation event hooks",
+      "navigation recovery under obstruction",
+      "network ownership and relevance handoff",
+      "audio propagation",
+      "medical connector width/height transition",
+      "adjacent travel time 10–20 seconds"
+    ],
+    "validation_or_acceptance_claimed": false
+  },
+  "design_decisions": [
+    "Section builder confirmed support screen x−2.4, y9.8…14.25, h2.7 and 1.55 m north return.",
+    "Section builder moved primary transaction hatch to front office wall y3.6, centre x−3.51, counter z1.04; east glass is observation only.",
+    "D1 is authored locked shut. D2 is an alternate open-state route; R3 is a conditional shortcut, not default traversability.",
+    "Candidate evidence cabinet moved to west end of rear wall so the schematic north-return approach has space; alignment to final geometry pending."
+  ]
+}
