@@ -2,4 +2,5 @@
 blender/build_scene.py -text
 blender/verify_checkpoint.py text eol=lf
 production/revisions/*/build_scene.py -text whitespace=cr-at-eol
+production/critics/evidence/** -text whitespace=cr-at-eol
 *.blend binary

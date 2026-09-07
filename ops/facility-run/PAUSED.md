@@ -14,6 +14,6 @@ The user requested that all separate builder chats finish only their in-flight c
 
 Exact task IDs and worktree locations are in CHATS.json. Each section has its own CONTINUE.md in its worktree and a status record in status/. Fuel Corridor is intentionally uncommitted; preserve its worktree C:/Users/Camer/.codex/worktrees/3598/critical-shift.
 
-The reactor parent also has a saved Art09a checkpoint, five inspected previews, 64 measured checks, a fresh-process reopen and packed-source integrity checks. It remains unaccepted; the last independent full visual score was Art08 at77.6. Resume from sections/reactor-room/CONTINUE.md in the reactor worktree.
+The reactor parent has pushed its unfinished Art09a checkpoint as 8cf95b1, with five inspected previews, 64 producer checks, a fresh-process reopen and packed-source integrity checks. It remains unaccepted; the last independent full visual score was Art08 at 77.6. Sol's final Art08 audit also failed (86 / 87 / 82 / 58), with critical floor topology defects and other unresolved technical evidence. The producer checks do not supersede that audit. Luna and Sol are both confirmed idle. Resume from sections/reactor-room/CONTINUE.md in the reactor worktree.
 
-Read current usage before resuming. Preserve the user's1% remaining reserve and do not redeem reset credits. Other builder chats stay paused until the user asks to resume them. Do not replace them with in-thread builder subagents or create duplicate chats.
+Read current usage before resuming. Preserve the user's 1% remaining reserve and do not redeem reset credits. Other builder chats stay paused until the user asks to resume them. Do not replace them with in-thread builder subagents or create duplicate chats.
