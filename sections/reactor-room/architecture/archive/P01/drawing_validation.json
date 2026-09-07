@@ -1,0 +1,369 @@
+{
+  "hall_octagon_area_m2": 420.4800000000001,
+  "core_gross_m": [
+    6.25,
+    3.2
+  ],
+  "core_area_m2": 20.0,
+  "core_length_chain_m": 6.25,
+  "core_width_chain_m": 3.2,
+  "clear_flight_width_m": 1.2,
+  "clear_landing_m": 1.25,
+  "flight_riser_count": 14,
+  "flight_going_count": 13,
+  "riser_mm": 178.57142857142858,
+  "total_risers": 56,
+  "total_rise_m": 10.0,
+  "nosing_pitch_deg": 35.53767779197438,
+  "control_clear_area_m2": 23.040000000000003,
+  "stair_hall_overlap_m2": 0.0,
+  "turbine_to_ring_m": 1.3124880038277231,
+  "stations": [
+    {
+      "id": "01",
+      "station": "FUEL RECEIVING",
+      "center_m": [
+        -4.4,
+        8.5
+      ],
+      "footprint_m": [
+        2.4,
+        2.4
+      ],
+      "ring_gap_m": 2.7705708703956704
+    },
+    {
+      "id": "02",
+      "station": "NEW FUEL RACK",
+      "center_m": [
+        4.4,
+        8.5
+      ],
+      "footprint_m": [
+        2.4,
+        1.8
+      ],
+      "ring_gap_m": 3.046211251235321
+    },
+    {
+      "id": "03",
+      "station": "BANK / REACTIVITY",
+      "center_m": [
+        0,
+        7.6
+      ],
+      "footprint_m": [
+        1.8,
+        1.8
+      ],
+      "ring_gap_m": 1.4999999999999991
+    },
+    {
+      "id": "04",
+      "station": "WASTE TRANSFER",
+      "center_m": [
+        7.2,
+        7.8
+      ],
+      "footprint_m": [
+        2.4,
+        2.4
+      ],
+      "ring_gap_m": 3.7196412483911034
+    },
+    {
+      "id": "05",
+      "station": "CONTAINMENT VENT",
+      "center_m": [
+        9.4,
+        5.7
+      ],
+      "footprint_m": [
+        1.2,
+        1.2
+      ],
+      "ring_gap_m": 4.971037311896954
+    },
+    {
+      "id": "06",
+      "station": "TURBINE / THROTTLE",
+      "center_m": [
+        7.5,
+        -3
+      ],
+      "footprint_m": [
+        2.1,
+        4.2
+      ],
+      "ring_gap_m": 1.3124880038277231
+    },
+    {
+      "id": "07",
+      "station": "GRID BREAKERS",
+      "center_m": [
+        9,
+        0.8
+      ],
+      "footprint_m": [
+        1.2,
+        3
+      ],
+      "ring_gap_m": 3.2
+    },
+    {
+      "id": "08",
+      "station": "GRID DEMAND",
+      "center_m": [
+        7.2,
+        4.5
+      ],
+      "footprint_m": [
+        1.8,
+        1.2
+      ],
+      "ring_gap_m": 2.2094534211370807
+    },
+    {
+      "id": "09",
+      "station": "CONTAINMENT SENSOR",
+      "center_m": [
+        9,
+        -4.5
+      ],
+      "footprint_m": [
+        0.48,
+        0.48
+      ],
+      "ring_gap_m": 4.540903448859351
+    },
+    {
+      "id": "10",
+      "station": "COOLANT PUMP",
+      "center_m": [
+        -4.8,
+        -7.8
+      ],
+      "footprint_m": [
+        2.4,
+        2.4
+      ],
+      "ring_gap_m": 2.3179784516849997
+    },
+    {
+      "id": "11",
+      "station": "COOLANT VALVES",
+      "center_m": [
+        -1.2,
+        -8.4
+      ],
+      "footprint_m": [
+        2.4,
+        1.8
+      ],
+      "ring_gap_m": 2.3
+    },
+    {
+      "id": "12",
+      "station": "EMERGENCY COOLING",
+      "center_m": [
+        3,
+        -7.8
+      ],
+      "footprint_m": [
+        3,
+        2.4
+      ],
+      "ring_gap_m": 1.5683085036070858
+    },
+    {
+      "id": "13",
+      "station": "BACKUP GENERATOR",
+      "center_m": [
+        -8.4,
+        -4.2
+      ],
+      "footprint_m": [
+        2.4,
+        2.4
+      ],
+      "ring_gap_m": 2.5999999999999996
+    },
+    {
+      "id": "14",
+      "station": "RESERVE POWER",
+      "center_m": [
+        -9,
+        1.2
+      ],
+      "footprint_m": [
+        1.5,
+        3
+      ],
+      "ring_gap_m": 3.05
+    },
+    {
+      "id": "15",
+      "station": "REPAIR / SPARES",
+      "center_m": [
+        -7.8,
+        5.4
+      ],
+      "footprint_m": [
+        1.8,
+        1.8
+      ],
+      "ring_gap_m": 3.0377181306475878
+    }
+  ],
+  "cad_units": "millimetres",
+  "cad_audit_errors": 0,
+  "cad_audit_fixes": 0,
+  "views": [
+    {
+      "name": "A100_GROUND_0",
+      "scale": 100,
+      "insert_mm": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "A101_CONTROL_10",
+      "scale": 50,
+      "insert_mm": [
+        60000,
+        0
+      ]
+    },
+    {
+      "name": "A101_STAIR_LEVEL_0",
+      "scale": 50,
+      "insert_mm": [
+        120000,
+        0
+      ]
+    },
+    {
+      "name": "A101_STAIR_LEVEL_1",
+      "scale": 50,
+      "insert_mm": [
+        0,
+        60000
+      ]
+    },
+    {
+      "name": "A101_STAIR_LEVEL_2",
+      "scale": 50,
+      "insert_mm": [
+        60000,
+        60000
+      ]
+    },
+    {
+      "name": "A101_STAIR_LEVEL_3",
+      "scale": 50,
+      "insert_mm": [
+        120000,
+        60000
+      ]
+    },
+    {
+      "name": "A201_HALL_SECTION",
+      "scale": 100,
+      "insert_mm": [
+        0,
+        120000
+      ]
+    },
+    {
+      "name": "A201_STAIR_SECTION",
+      "scale": 50,
+      "insert_mm": [
+        60000,
+        120000
+      ]
+    },
+    {
+      "name": "A202_EAST_ELEVATION",
+      "scale": 50,
+      "insert_mm": [
+        120000,
+        120000
+      ]
+    },
+    {
+      "name": "A202_WEST_LANDING_SECTION",
+      "scale": 50,
+      "insert_mm": [
+        0,
+        180000
+      ]
+    },
+    {
+      "name": "A202_ENTRY_SECTION",
+      "scale": 50,
+      "insert_mm": [
+        60000,
+        180000
+      ]
+    },
+    {
+      "name": "A202_V01_GLAZING",
+      "scale": 10,
+      "insert_mm": [
+        120000,
+        180000
+      ]
+    },
+    {
+      "name": "A301_STAIR_DETAIL",
+      "scale": 25,
+      "insert_mm": [
+        0,
+        240000
+      ]
+    },
+    {
+      "name": "A301_RAIL_DETAIL",
+      "scale": 20,
+      "insert_mm": [
+        60000,
+        240000
+      ]
+    },
+    {
+      "name": "A301_RISER_DETAIL",
+      "scale": 5,
+      "insert_mm": [
+        120000,
+        240000
+      ]
+    }
+  ],
+  "cad_block_entities": {
+    "A100_GROUND_0": 272,
+    "A101_CONTROL_10": 135,
+    "A101_STAIR_LEVEL_0": 51,
+    "A101_STAIR_LEVEL_1": 47,
+    "A101_STAIR_LEVEL_2": 47,
+    "A101_STAIR_LEVEL_3": 47,
+    "A201_HALL_SECTION": 93,
+    "A201_STAIR_SECTION": 55,
+    "A202_EAST_ELEVATION": 44,
+    "A202_WEST_LANDING_SECTION": 44,
+    "A202_ENTRY_SECTION": 27,
+    "A202_V01_GLAZING": 19,
+    "A301_STAIR_DETAIL": 143,
+    "A301_RAIL_DETAIL": 25,
+    "A301_RISER_DETAIL": 15
+  },
+  "cad_format_note": "Geometry-only model-space blocks in mm; PDF/SVG are the complete paper sheets.",
+  "pdf_pages": 5,
+  "drawing_points_outside_content": [],
+  "text_outside_sheet": [],
+  "source_policy": "All 2D linework newly authored from current written specification. No 3D files opened.",
+  "limitations": [
+    "Schematic architectural game layout, for user review before more 3D work.",
+    "Sightline section is an architectural ray diagram, not a completed 3D occlusion audit."
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "revision": "P02 - centered east-wall Control room",
+  "module_plan_translation_m": [
+    0,
+    1.2
+  ],
+  "control_clear_bounds_m": [
+    11.16,
+    -3.2,
+    14.76,
+    3.2
+  ],
+  "control_center_y_m": 0.0,
+  "observation_window_y_m": [
+    -2.7,
+    2.7
+  ],
+  "observation_window_center_y_m": 0.0,
+  "window_clear_end_jambs_m": [
+    0.5,
+    0.5
+  ],
+  "core_world_bounds_m": [
+    12.46,
+    3.2,
+    18.71,
+    6.4
+  ],
+  "vestibule_clear_bounds_m": [
+    11.16,
+    1.6,
+    12.46,
+    5.6
+  ],
+  "D01_clear_y_m": [
+    4.2,
+    5.4
+  ],
+  "D01_hinge_m": [
+    12.46,
+    5.4
+  ],
+  "D01_open_leaf_m": [
+    [
+      12.46,
+      5.4
+    ],
+    [
+      11.26,
+      5.4
+    ]
+  ],
+  "D02_clear_x_m": [
+    12.71,
+    13.91
+  ],
+  "D02_wall_y_m": 3.2,
+  "D02_reserved_door_space_m": [
+    12.71,
+    2.0,
+    13.91,
+    3.2
+  ],
+  "hall_octagon_area_m2": 420.4800000000001,
+  "core_gross_m": [
+    6.25,
+    3.2
+  ],
+  "core_area_m2": 20.0,
+  "core_length_chain_m": 6.25,
+  "core_width_chain_m": 3.2,
+  "clear_flight_width_m": 1.2,
+  "clear_landing_m": 1.25,
+  "flight_riser_count": 14,
+  "flight_going_count": 13,
+  "riser_mm": 178.57142857142858,
+  "total_risers": 56,
+  "total_rise_m": 10.0,
+  "nosing_pitch_deg": 35.53767779197438,
+  "control_clear_area_m2": 23.040000000000003,
+  "stair_hall_overlap_m2": 0.0,
+  "turbine_to_ring_m": 1.3124880038277231,
+  "cad_units": "millimetres",
+  "cad_audit_errors": 0,
+  "cad_audit_fixes": 0,
+  "cad_block_entities": {
+    "A100_GROUND_0": 279,
+    "A101_CONTROL_10": 137,
+    "A101_STAIR_LEVEL_0": 51,
+    "A101_STAIR_LEVEL_1": 47,
+    "A101_STAIR_LEVEL_2": 47,
+    "A101_STAIR_LEVEL_3": 47,
+    "A201_HALL_SECTION": 93,
+    "A201_STAIR_SECTION": 55,
+    "A202_EAST_ELEVATION": 58,
+    "A202_WEST_LANDING_SECTION": 44,
+    "A202_ENTRY_SECTION": 27,
+    "A202_V01_GLAZING": 19,
+    "A301_STAIR_DETAIL": 145,
+    "A301_RAIL_DETAIL": 25,
+    "A301_RISER_DETAIL": 15
+  },
+  "cad_format_note": "Geometry-only model-space blocks in mm; PDF/SVG are the complete paper sheets.",
+  "pdf_pages": 5,
+  "drawing_points_outside_content": [],
+  "text_outside_sheet": [],
+  "source_policy": "All 2D linework newly authored from current written specification. No 3D files opened.",
+  "limitations": [
+    "Schematic architectural game layout, for user review before more 3D work.",
+    "Sightline section is an architectural ray diagram, not a completed 3D occlusion audit."
+  ]
+}

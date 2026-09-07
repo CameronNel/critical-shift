@@ -1,45 +1,15 @@
-# Reactor Room — Task State
+# Reactor task state
 
-<!-- ART_DIRECTION_RESET_2026_09 -->
-> [!IMPORTANT]
-> **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
+Phase: APPROVED P02 -> NEW DETAILED 3D BUILD.
 
+The user explicitly approved building now, requested ten camera angles and a harsh independent Luna review, and permitted computer use / Blender MCP / Python. The chosen brighter A02 generated reference and B01 material detail are the art target. Preserve P02 scale and the centered east-wall Control room. No old 3D files may be reused. The new source will be `blender/build_scene.py`, built from factory startup into `blender/reactor_scene.blend`.
 
-**Current phase:** Scenery specification exists; autonomous build protocol not yet instantiated into a reactor-specific build prompt  
-**Current overall score:** Not scored  
-**Cold-start status:** Not run  
-**Authoritative source:** ../blender/reactorroom.blend (future)
+First action: publish the approved five-sheet drawing package under `architecture/` on branch `codex/reactor-valorant-20260907` in CameronNel/critical-shift. Then author the new detailed scene, establish ten fixed cameras, render and inspect every angle, and iterate Luna criticism until every relevant category is >=90. The standing production protocol requires four genuine correction cycles after first visual completion and a fresh-process final check.
 
-## Completed
-- Reactor scenery/visual specification
-- Section package structure
-- Global autonomous build protocol
+Current art score: unassessed. P02 architectural review passed95-99; that does not score rendered art. Luna's reference target is recorded in `production/critics/LUNA_ART_TARGET.md`.
 
-## Next actions
-1. Write reactor-specific build/self-review prompt.
-2. Define reactor-specific rubric and critical failures.
-3. Define fixed validation cameras.
-4. Establish headless Blender entrypoint.
-5. Begin blockout and review loop.
+Current geometry authority: `architecture/output/reactor_compact_stair_architectural_set.pdf` P02. Hall21.6m octagon, height16m. Poolcenter0, aperture6.8/rim7.8/service10.4m, water-.45, bottom-6.5. Exactly2banksX±1.4. ControlclearX11.16..14.76,Y-3.2..3.2,Z10; windowY±2.7. Compactstair6.25×3.2m behindeastwall,Y3.2..6.4,56risers, fourflights, D01northhinged intoexistingvestibule, D02directly intoControl.
 
-## Last successful headless build command
-Not yet established.
+Prior `reactor_foundation.blend` and checkpoints01-10 have the rejected exposed stair/catwalk. Preserve them as history; never load them to build the approved scene. All new geometry starts empty.
 
-## Last successful render batch
-None.
-
-
-## Art-direction reset state — 2026-09-05
-
-**Current phase:** STYLE VALIDATION REQUIRED  
-**Expansion status:** BLOCKED until a grounded stylized semi-realistic validation slice passes.
-
-Immediate next actions:
-1. Render one small reactor wall/console/pool-adjacent slice.
-2. Match `../art/reference/reactor_style_target.svg`.
-3. Establish approved material families.
-4. Prove practical lighting and cyan-pool balance.
-5. Score against `RUBRIC.md`.
-6. Only then expand the hall.
-
-Any prior low-poly/flat-plastic interpretation is not an approved baseline.
+Outstanding: document publication, new modeling/material/light work, ten-camera review iterations, all-category>=90, reference comparisons, final cold-start, saved editable scene and repository publication. No final-art claim has been earned yet.
