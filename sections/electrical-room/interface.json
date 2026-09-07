@@ -1,0 +1,523 @@
+{
+  "schema": "critical-shift.section-interface.design.v1",
+  "section_id": "electrical-room",
+  "revision": "C",
+  "date": "2026-09-08",
+  "status": "design_baseline_unbound",
+  "units": "metres",
+  "source_authority": {
+    "game_spec": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/design/GAME_SPEC.md",
+    "chapters": [
+      "5.3-5.6",
+      "12",
+      "18",
+      "19",
+      "23"
+    ],
+    "brief": "C:/Users/Camer/Games/critical-shift/ops/facility-run/briefs/electrical-room.md",
+    "dimensions_are_implementation_decisions": true
+  },
+  "frame": {
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "origin_meaning": "D01 main entry threshold centre",
+    "inward_axis": "+Y",
+    "up_axis": "+Z",
+    "facility_transform": null,
+    "neighbor_alignment_verified": false
+  },
+  "envelopes": {
+    "main_clear": {
+      "min": [
+        -5.5,
+        0,
+        0
+      ],
+      "max": [
+        5.5,
+        16.4,
+        4.8
+      ]
+    },
+    "main_external_xy": {
+      "min": [
+        -5.75,
+        -0.25
+      ],
+      "max": [
+        5.75,
+        16.65
+      ]
+    },
+    "reserve_nominal_clear": {
+      "min": [
+        5.5,
+        11,
+        0
+      ],
+      "max": [
+        8.3,
+        15.4,
+        3.6
+      ]
+    },
+    "reserve_return_wall_zone": {
+      "x": [
+        5.5,
+        5.75
+      ],
+      "y_segments": [
+        [
+          11,
+          12
+        ],
+        [
+          14.4,
+          15.4
+        ]
+      ],
+      "resulting_clear_width_m": 2.55
+    },
+    "wall_thickness_m": 0.25,
+    "overall_external_xy": {
+      "min": [
+        -5.75,
+        -0.25
+      ],
+      "max": [
+        8.55,
+        16.65
+      ]
+    },
+    "floor_z": 0,
+    "threshold_step_m": 0
+  },
+  "portals": [
+    {
+      "id": "D01",
+      "marker": "IF_PORTAL_D01_TURBINE",
+      "centre": [
+        0,
+        0,
+        0
+      ],
+      "outward_normal": [
+        0,
+        -1,
+        0
+      ],
+      "width_axis": "X",
+      "clear_width_m": 2.4,
+      "clear_height_m": 2.7,
+      "type": "sliding",
+      "leaf_parking": "parallel to hall-side south wall; outside protected route",
+      "adjacent_section": "turbine-room",
+      "adjacent_portal_id": null,
+      "binding_status": "provisional_unbound",
+      "traversable_design_intent": true,
+      "parked_leaf_x_footprints": [
+        [
+          -2.49,
+          -1.23
+        ],
+        [
+          1.23,
+          2.49
+        ]
+      ],
+      "leaf_thickness_m": 0.07,
+      "near_wall_depth_m": 0.3,
+      "handles_and_track_projection_into_hall_m": 0.5,
+      "external_pocket_required": false,
+      "door_swing": null
+    },
+    {
+      "id": "D02",
+      "marker": "IF_PORTAL_D02_WASTE",
+      "centre": [
+        0,
+        16.4,
+        0
+      ],
+      "outward_normal": [
+        0,
+        1,
+        0
+      ],
+      "width_axis": "X",
+      "clear_width_m": 2.4,
+      "clear_height_m": 2.7,
+      "type": "sliding",
+      "leaf_parking": "parallel to hall-side north wall; outside protected route",
+      "adjacent_section": "waste-storage",
+      "adjacent_portal_id": null,
+      "binding_status": "provisional_unbound",
+      "traversable_design_intent": true,
+      "parked_leaf_x_footprints": [
+        [
+          -2.49,
+          -1.23
+        ],
+        [
+          1.23,
+          2.49
+        ]
+      ],
+      "leaf_thickness_m": 0.07,
+      "near_wall_depth_m": 0.3,
+      "handles_and_track_projection_into_hall_m": 0.5,
+      "external_pocket_required": false,
+      "door_swing": null
+    },
+    {
+      "id": "P03",
+      "marker": "IF_PORTAL_P03_RESERVE",
+      "centre": [
+        5.5,
+        13.2,
+        0
+      ],
+      "outward_normal": [
+        1,
+        0,
+        0
+      ],
+      "width_axis": "Y",
+      "clear_width_m": 2.4,
+      "clear_height_m": 3.2,
+      "type": "permanently_open",
+      "adjacent_space": "reserve-bay",
+      "door_swing": null,
+      "binding_status": "internal_design",
+      "approach_status": "clear_design_intent"
+    }
+  ],
+  "equipment_zones": [
+    {
+      "id": "SG",
+      "purpose": "incoming isolation, metering, switchgear, outgoing breakers",
+      "xy_min": [
+        -5.1,
+        3.2
+      ],
+      "xy_max": [
+        -3.55,
+        10.9
+      ],
+      "service_front": [
+        1,
+        0,
+        0
+      ],
+      "service_xy_min": [
+        -3.55,
+        3.2
+      ],
+      "service_xy_max": [
+        -1.2,
+        10.9
+      ]
+    },
+    {
+      "id": "TX",
+      "purpose": "enclosed transformer niche",
+      "xy_min": [
+        3.05,
+        4.7
+      ],
+      "xy_max": [
+        5.3,
+        8.1
+      ],
+      "service_front": [
+        -1,
+        0,
+        0
+      ],
+      "service_xy_min": [
+        1.2,
+        4.7
+      ],
+      "service_xy_max": [
+        3.05,
+        8.1
+      ]
+    },
+    {
+      "id": "TD",
+      "purpose": "transfer and priority distribution",
+      "xy_min": [
+        4.35,
+        9.45
+      ],
+      "xy_max": [
+        5.3,
+        11.15
+      ],
+      "service_front": [
+        -1,
+        0,
+        0
+      ],
+      "service_xy_min": [
+        2.3,
+        9.45
+      ],
+      "service_xy_max": [
+        4.35,
+        11.15
+      ]
+    },
+    {
+      "id": "RB",
+      "purpose": "reserve battery cabinets",
+      "xy_min": [
+        7.35,
+        11.7
+      ],
+      "xy_max": [
+        8.1,
+        14.7
+      ],
+      "service_front": [
+        -1,
+        0,
+        0
+      ],
+      "service_xy_min": [
+        5.75,
+        11.7
+      ],
+      "service_xy_max": [
+        7.35,
+        14.7
+      ]
+    },
+    {
+      "id": "WB",
+      "purpose": "repair bench",
+      "xy_min": [
+        -5.25,
+        12.6
+      ],
+      "xy_max": [
+        -3.55,
+        15.2
+      ],
+      "service_front": [
+        1,
+        0,
+        0
+      ],
+      "service_xy_min": [
+        -3.55,
+        12.6
+      ],
+      "service_xy_max": [
+        -1.2,
+        15.2
+      ]
+    }
+  ],
+  "circulation": {
+    "main_keep_clear": {
+      "min": [
+        -1.2,
+        0,
+        0
+      ],
+      "max": [
+        1.2,
+        16.4,
+        2.7
+      ]
+    },
+    "main_route_width_m": 2.4,
+    "reserve_branch_design": {
+      "xy_min": [
+        1.2,
+        12
+      ],
+      "xy_max": [
+        7.35,
+        14.4
+      ],
+      "status": "clear_design_intent"
+    },
+    "stretcher_cart_test_envelope_m": [
+      0.8,
+      2.2,
+      1.6
+    ],
+    "straight_route_side_allowance_m": 0.8,
+    "rectangle_90_degree_bounding_width_m": 2.341,
+    "runtime_swept_volume_test": "pending; carried-body motion and collision skin not represented",
+    "navigation_mesh": "not_built",
+    "cabinet_opening_sweeps": "pending_final_geometry"
+  },
+  "utilities": [
+    {
+      "id": "U01",
+      "marker": "IF_POWER_IN_TURBINE",
+      "kind": "incoming_turbine_bus",
+      "centre": [
+        -4.32,
+        0,
+        3.88
+      ],
+      "outward_normal": [
+        0,
+        -1,
+        0
+      ],
+      "adjacent_section": "turbine-room",
+      "binding_status": "provisional_unbound",
+      "electrical_rating": null
+    },
+    {
+      "id": "U02",
+      "marker": "IF_POWER_OUT_DISTRIBUTION",
+      "kind": "outgoing_distribution_bus",
+      "centre": [
+        -4.32,
+        16.4,
+        3.88
+      ],
+      "outward_normal": [
+        0,
+        1,
+        0
+      ],
+      "adjacent_section": null,
+      "binding_status": "provisional_unbound",
+      "electrical_rating": null
+    },
+    {
+      "id": "U03",
+      "marker": "IF_ESSENTIAL_SUPPLY_IN",
+      "kind": "essential_backup_supply",
+      "centre": [
+        8.3,
+        14,
+        2.8
+      ],
+      "outward_normal": [
+        1,
+        0,
+        0
+      ],
+      "adjacent_section": null,
+      "binding_status": "placeholder_unbound",
+      "electrical_rating": null
+    }
+  ],
+  "overhead_routes": {
+    "main_bus_centreline": [
+      [
+        -4.32,
+        0,
+        3.88
+      ],
+      [
+        -4.32,
+        16.4,
+        3.88
+      ]
+    ],
+    "transformer_branch_centreline": [
+      [
+        -4.32,
+        6.4,
+        3.88
+      ],
+      [
+        4.175,
+        6.4,
+        3.88
+      ]
+    ],
+    "minimum_route_crossing_underside_z": 3.5,
+    "supports_and_junctions": "required; verify contact in final geometry"
+  },
+  "interaction_hooks": [
+    {
+      "id": "INTERACT_TURBINE_ISOLATOR",
+      "equipment": "SG",
+      "action": "disconnect_turbine",
+      "status": "proposed_marker_not_runtime"
+    },
+    {
+      "id": "INTERACT_LOAD_SHED",
+      "equipment": "SG",
+      "action": "selective_load_shedding",
+      "status": "proposed_marker_not_runtime"
+    },
+    {
+      "id": "INTERACT_MANUAL_TRANSFER",
+      "equipment": "TD",
+      "action": "restore_backup_power_and_manual_transfer",
+      "status": "proposed_marker_not_runtime"
+    },
+    {
+      "id": "INTERACT_PRIORITY_SELECTOR",
+      "equipment": "TD",
+      "action": "reserve_priority_cooling_or_OCRU",
+      "status": "proposed_marker_not_runtime"
+    },
+    {
+      "id": "INTERACT_RESERVE_SERVICE",
+      "equipment": "RB",
+      "action": "reserve_service_and_portable_power_connection",
+      "status": "proposed_marker_not_runtime"
+    },
+    {
+      "id": "INTERACT_COMPONENT_REPAIR",
+      "equipment": "WB",
+      "action": "physical_component_repair",
+      "status": "proposed_marker_not_runtime"
+    }
+  ],
+  "incident_hooks": [
+    "facility_blackout",
+    "turbine_failure",
+    "overload_trip",
+    "damaged_component",
+    "reserve_depletion",
+    "repair_while_live"
+  ],
+  "engine_handoff": {
+    "geometry_source": "original_Blender_authorship",
+    "existing_geometry_imported": false,
+    "blender_markers_verified": false,
+    "runtime_collision": "engine_owned_pending",
+    "navigation": "engine_owned_pending",
+    "interaction_and_electrical_simulation": "engine_owned_pending",
+    "animation_state": "engine_owned_pending",
+    "network_authority_and_relevance_boundaries": "engine_owned_pending",
+    "spawn_markers": "engine_owned_pending",
+    "audio_zones_and_triggers": "engine_owned_pending",
+    "final_runtime_lighting_and_optimization": "engine_owned_pending",
+    "whole_facility_travel_validation": "pending"
+  },
+  "known_issues": [
+    "Neither neighboring doorway nor utility has a bound reciprocal interface or accepted global transform.",
+    "Stretcher turning, carrier sweeps, cabinet motions and overhead underside require final-geometry and engine verification."
+  ],
+  "optional_scenic_connectors": [
+    {
+      "binding_envelope": false,
+      "closed_privacy_screen": "scenery_only_omit_for_engine_connection",
+      "depth_m": 2.8,
+      "portal": "D01"
+    },
+    {
+      "binding_envelope": false,
+      "closed_privacy_screen": "scenery_only_omit_for_engine_connection",
+      "depth_m": 2.8,
+      "portal": "D02"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "blend": "electrical_slice.blend",
+  "revision": "S02",
+  "source_sha256": "8563a92ab147c467ef04e8dc455fd73409dd5832803d7f5b5ed19da57e99f48d",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "HIP",
+    "samples": 24,
+    "resolution": [
+      1200,
+      750
+    ],
+    "seed": 17
+  },
+  "renders": [
+    {
+      "camera": "S01_Validation",
+      "seconds": 6.0,
+      "sha256": "4b068473453977b72f4b306ca16228627fe0153b6ebc33e49c2c087a4ca7a2e8",
+      "location": [
+        0.6000000238418579,
+        6.699999809265137,
+        1.649999976158142
+      ],
+      "rotation_euler": [
+        1.5707964897155762,
+        1.4925727498393826e-07,
+        2.343536853790283
+      ],
+      "lens_mm": 25.0
+    },
+    {
+      "camera": "S02_Construction",
+      "seconds": 5.3,
+      "sha256": "207d4cc57cb594dc1d695f95f6d334a74c070105d3e7dd1c84c1346afeca6e96",
+      "location": [
+        -1.600000023841858,
+        6.449999809265137,
+        1.7000000476837158
+      ],
+      "rotation_euler": [
+        1.4911683797836304,
+        -2.0265749967052216e-08,
+        2.285604953765869
+      ],
+      "lens_mm": 31.0
+    }
+  ]
+}

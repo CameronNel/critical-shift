@@ -1,0 +1,81 @@
+{
+  "blend": "electrical_slice.blend",
+  "revision": "S03",
+  "source_sha256": "22c84a0e035d2774d7b66a6c110d70ad8a172d090ab8d393bd3031bd555dec33",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "HIP",
+    "samples": 24,
+    "resolution": [
+      1200,
+      750
+    ],
+    "seed": 17
+  },
+  "renders": [
+    {
+      "camera": "S01_Validation",
+      "seconds": 6.94,
+      "sha256": "c31d66369d1c0265778f2bc237e94abaf95a2fd2af58b1b91d2dcf2c79e77cad",
+      "location": [
+        0.6000000238418579,
+        6.699999809265137,
+        1.649999976158142
+      ],
+      "rotation_euler": [
+        1.5707964897155762,
+        1.4925727498393826e-07,
+        2.343536853790283
+      ],
+      "lens_mm": 25.0
+    },
+    {
+      "camera": "S02_Construction",
+      "seconds": 5.9,
+      "sha256": "215b44bc2d30dcdfebb4a06ff5172f718da9c0d49ec7907583567355e02fe00b",
+      "location": [
+        -1.600000023841858,
+        6.449999809265137,
+        1.7000000476837158
+      ],
+      "rotation_euler": [
+        1.4911683797836304,
+        -2.0265749967052216e-08,
+        2.285604953765869
+      ],
+      "lens_mm": 31.0
+    },
+    {
+      "camera": "S03_Slice_Coverage",
+      "seconds": 6.51,
+      "sha256": "77959af72c2bca774c8197625b23321933ddfd06d2bc6900a9a0f9dbcbd3f77b",
+      "location": [
+        3.799999952316284,
+        6.900000095367432,
+        1.649999976158142
+      ],
+      "rotation_euler": [
+        1.5954657793045044,
+        -1.1762386975533445e-07,
+        2.2513177394866943
+      ],
+      "lens_mm": 25.0
+    },
+    {
+      "camera": "S04_Work_Evidence",
+      "seconds": 6.63,
+      "sha256": "795a06e1ba5c6396de230cb81d2954ca1191f011853533a1aaf288a22f0d72c4",
+      "location": [
+        -2.4000000953674316,
+        3.0,
+        1.649999976158142
+      ],
+      "rotation_euler": [
+        1.312900185585022,
+        -1.7954040743006772e-07,
+        2.0820271968841553
+      ],
+      "lens_mm": 40.0
+    }
+  ]
+}

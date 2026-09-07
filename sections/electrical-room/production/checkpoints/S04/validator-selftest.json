@@ -1,0 +1,85 @@
+{
+  "schema": "critical-shift.validator-mutation-tests.v1",
+  "revision": "S04",
+  "saved_blend_modified": false,
+  "baseline_pass": true,
+  "restored_scene_pass": true,
+  "tests": [
+    {
+      "case": "dummy_anchor_between_rods",
+      "baseline_category_passed": true,
+      "expected_failure": "support_contact",
+      "observed": "FAIL",
+      "specific_mutation_verified": true,
+      "pass": true,
+      "anchor_to_member_m": 0.13499975204467773,
+      "physical_member": "Folded fluorescent tray",
+      "note": "Initial test literal used invalid JSON; corrected to valid 0.2 and rerun with explicit dummy-anchor error assertion."
+    },
+    {
+      "case": "20_mm_floor_gap",
+      "baseline_category_passed": true,
+      "expected_failure": "support_contact",
+      "observed": "FAIL",
+      "specific_mutation_verified": true,
+      "pass": true
+    },
+    {
+      "case": "10_mm_floor_penetration",
+      "baseline_category_passed": true,
+      "expected_failure": "support_contact",
+      "observed": "FAIL",
+      "specific_mutation_verified": true,
+      "pass": true
+    },
+    {
+      "case": "wrong_support_direction",
+      "baseline_category_passed": true,
+      "expected_failure": "support_contact",
+      "observed": "FAIL",
+      "specific_mutation_verified": true,
+      "pass": true
+    },
+    {
+      "case": "missing_support_target",
+      "baseline_category_passed": true,
+      "expected_failure": "support_contact",
+      "observed": "FAIL",
+      "specific_mutation_verified": true,
+      "pass": true
+    },
+    {
+      "case": "exact_duplicate_inside_assembly",
+      "baseline_category_passed": true,
+      "expected_failure": "exact_duplicate_geometry",
+      "observed": "FAIL",
+      "specific_mutation_verified": true,
+      "pass": true
+    },
+    {
+      "case": "unregistered_loose_geometry",
+      "baseline_category_passed": true,
+      "expected_failure": "support_registration",
+      "observed": "FAIL",
+      "specific_mutation_verified": true,
+      "pass": true
+    },
+    {
+      "case": "prop_in_main_route",
+      "baseline_category_passed": true,
+      "expected_failure": "named_route_aabb_clearance",
+      "observed": "FAIL",
+      "specific_mutation_verified": true,
+      "pass": true
+    },
+    {
+      "case": "inverted_closed_mesh_normals",
+      "baseline_category_passed": true,
+      "expected_failure": "geometry_integrity",
+      "observed": "FAIL",
+      "specific_mutation_verified": true,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

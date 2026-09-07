@@ -1,0 +1,50 @@
+{
+  "schema": "critical-shift.validator-mutation-tests.v1",
+  "saved_blend_modified": false,
+  "tests": [
+    {
+      "case": "dummy_anchor_between_rods",
+      "expected_failure": "support_contact",
+      "observed": "FAIL",
+      "pass": true
+    },
+    {
+      "case": "20_mm_floor_gap",
+      "expected_failure": "support_contact",
+      "observed": "FAIL",
+      "pass": true
+    },
+    {
+      "case": "10_mm_floor_penetration",
+      "expected_failure": "support_contact",
+      "observed": "FAIL",
+      "pass": true
+    },
+    {
+      "case": "wrong_support_direction",
+      "expected_failure": "support_contact",
+      "observed": "FAIL",
+      "pass": true
+    },
+    {
+      "case": "exact_duplicate_inside_assembly",
+      "expected_failure": "exact_duplicate_geometry",
+      "observed": "FAIL",
+      "pass": true
+    },
+    {
+      "case": "unregistered_loose_geometry",
+      "expected_failure": "support_registration",
+      "observed": "FAIL",
+      "pass": true
+    },
+    {
+      "case": "prop_in_main_route",
+      "expected_failure": "named_route_aabb_clearance",
+      "observed": "FAIL",
+      "pass": true
+    }
+  ],
+  "pass": false,
+  "test_strength_limit": "Initial category probes only: support category already failed in the baseline, so support fault isolation requires a later per-root assertion."
+}
