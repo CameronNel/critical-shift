@@ -4,6 +4,8 @@
 > [!IMPORTANT]
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
 
+> [!IMPORTANT]
+> **Runtime-code architecture:** before creating or materially changing Unity/C# code, read [design/code-architecture/README.md](design/code-architecture/README.md) and its linked architecture, code-health and agent-checklist documents. These rules are mandatory planning for preventing dependency spaghetti, duplicate state and dead code. See also [AGENTS.md](AGENTS.md).
 
 Critical Shift is currently a planning-first game repository.
 
@@ -20,6 +22,7 @@ Global rules that apply to the entire game:
 - ENGINE_DECISION.md — engine decision record and reopening conditions
 - ROADMAP.md — stage-gated production plan
 - AUTONOMOUS_SECTION_BUILD_PROTOCOL.md — mandatory headless-first, MCP-assisted Blender build/review protocol
+- code-architecture/ — mandatory runtime architecture, code-health, dead-code prevention and implementation-agent planning
 
 ### sections/
 Each physical game area is kept as a self-contained package.
