@@ -4,9 +4,10 @@ import re
 import xml.etree.ElementTree as ET
 
 DOMAIN = "src/CriticalShift.Features.Interaction.Domain/CriticalShift.Features.Interaction.Domain.csproj"
+SESSION = "src/CriticalShift.Features.Session.Domain/CriticalShift.Features.Session.Domain.csproj"
 APPLICATION = "src/CriticalShift.Application/CriticalShift.Application.csproj"
 TESTS = "tests/CriticalShift.Offline.Tests/CriticalShift.Offline.Tests.csproj"
-ALLOWED = {DOMAIN: set(), APPLICATION: {DOMAIN}, TESTS: {DOMAIN, APPLICATION}}
+ALLOWED = {DOMAIN: set(), SESSION: set(), APPLICATION: {DOMAIN, SESSION}, TESTS: {DOMAIN, SESSION, APPLICATION}}
 TEST_PACKAGES = {"Microsoft.NET.Test.Sdk": "17.11.1", "NUnit": "3.14.0", "NUnit3TestAdapter": "4.6.0"}
 
 
@@ -58,6 +59,10 @@ def validate(root: Path) -> list[str]:
             for banned in ("UnityEngine", "UnityEditor", "System.IO", "System.Net", "System.Threading", "DllImport"):
                 if re.search(r"\b" + re.escape(banned) + r"\b", text):
                     problems.append(f"Forbidden engine/infrastructure API: {relative}: {banned}")
+            if ".Domain" in str(source.parent):
+                for clock in ("DateTime", "DateTimeOffset", "Stopwatch", "TickCount", "TickCount64"):
+                    if re.search(r"\b" + clock + r"\b", text):
+                        problems.append(f"Hidden clock read in pure domain: {relative}: {clock}")
     return problems
 
 

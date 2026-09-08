@@ -5,7 +5,7 @@ import shutil
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
-from check_boundaries import validate as check, DOMAIN, APPLICATION
+from check_boundaries import validate as check, DOMAIN, SESSION, APPLICATION
 from verify_results import validate as results
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,6 +29,17 @@ class GuardTests(unittest.TestCase):
         ET.SubElement(group, "ProjectReference", Include="../CriticalShift.Application/CriticalShift.Application.csproj")
         tree.write(path)
         self.assertTrue(any("dependency" in x for x in check(self.root)))
+
+    def test_session_domain_cannot_reference_interaction_domain(self):
+        path = self.root / SESSION; tree = ET.parse(path)
+        ET.SubElement(ET.SubElement(tree.getroot(), "ItemGroup"), "ProjectReference",
+                      Include="../CriticalShift.Features.Interaction.Domain/CriticalShift.Features.Interaction.Domain.csproj")
+        tree.write(path)
+        self.assertTrue(any("dependency" in x for x in check(self.root)))
+
+    def test_domain_cannot_read_hidden_clock(self):
+        (self.root / SESSION).parent.joinpath("ClockLeak.cs").write_text("class ClockLeak { object Now => System.DateTime.UtcNow; }")
+        self.assertTrue(any("Hidden clock" in x for x in check(self.root)))
 
     def test_package_leak(self):
         path = self.root / APPLICATION; tree = ET.parse(path)

@@ -1,74 +1,58 @@
-# Offline interaction implementation
+# Offline runtime: interaction, world and time
 
-**Task:** OFFLINE-001, 8 September 2026. **Baseline:** `57f15bcb5e879976f6af5465bb1f8bf7116702df`. **Scope:** engine-independent C# implementation and tests, explicitly requested while Cameron cannot use Unity. Independent review and merge are pending in [PR #40](https://github.com/CameronNel/critical-shift/pull/40). Check that PR's execution records and workflow artifacts for results on an exact revision; file existence is not test evidence.
+**Start here for real C# code.** Planning remains in [design/code-architecture/](../../design/code-architecture/README.md). This directory contains engine-independent runtime libraries and executable tests, not a Unity project.
 
-## Responsibility and non-goals
+## Active modules and ownership
 
-This slice owns exclusive logical object claims and their ordered host command workflow. It prevents duplicate claim changes, stale releases and retained world state. It deliberately does not implement Unity, physical attachment, worker movement/health, materials, machines, mining, saves, input/UI, Steam, voice or a networking transport.
+| Source | Responsibility | Allowed project references |
+| --- | --- | --- |
+| `src/CriticalShift.Features.Interaction.Domain/` | Exclusive object claims, versions, lease generations, expiry and retirement | None |
+| `src/CriticalShift.Features.Session.Domain/` | Shift lifecycle, separate host/shift clocks and bounded one-shot timers | None |
+| `src/CriticalShift.Application/` | Interaction command admission/receipts and WorldSession composition; detached public views | The two domains above |
+| `tests/CriticalShift.Offline.Tests/` | Contract, lifecycle, seeded model and compiled-boundary checks | Declared runtime subjects only |
+| `tools/` | Scoped dependency/result validation and build/test entrypoint | Not runtime code |
 
-The access-policy interface is the real host observation boundary. There is no permissive production default. TestAccess lives only in the test project. A successful offline test is not proof of authentication, spatial reach validation, connected multiplayer or working physical carrying.
-
-## Local decision: bounded offline prework
-
-The user authorized useful coding without starting Unity. This is a scoped sequencing/source-placement exception to the future `runtime/unity/` layout, not completion of WP-01/WP-02 or Roadmap Gate 0. Those still need the engine/agent tooling, engine ignore rules, actual Unity import/test/Player and CI smoke evidence, plus a bounded agent scene change and inspected errors specified in the roadmap. Gate 1 additionally needs a real playable controller, physical interactions and connected multiplayer. No production gate advances here. See the scoped exception in [DELIVERY_PLAN.md](../../design/code-architecture/DELIVERY_PLAN.md).
-
-The two real libraries target **.NET Standard 2.1 with C# 8.0** and have no third-party package dependencies. The .NET 8 SDK is only the offline compiler/test host, not a replacement Unity runtime. The current SDK policy permits stable 8.0 feature/patch roll-forward; every execution records its exact version. Exact Unity compiler, importer, AOT/stripping and Player compatibility remain unverified. The later integration must consume this single source/library or move it atomically; do not maintain copied implementations.
-
-Test-only dependencies are explicitly pinned: Microsoft.NET.Test.Sdk 17.11.1, NUnit 3.14.0 and NUnit3TestAdapter 4.6.0. They are not runtime dependencies or selections for Unity, networking or UI. Python standard-library checks provide graph/result validation without a new production framework. Review this bounded tooling choice with the PR; no unrequested packages are installed on Cameron's computer.
-
-The domain has one exclusive held object per actor in this first slice. This is not an implemented inventory or a final shared-carry design. Registration is setup-only; mid-session join/reconnect and dynamic spawning are not enabled. Default offline fixtures are four connection identities, 128 registered entities, 256 receipts per connection and a 3,000 ms lease. These are testable local configuration, not ratified networking/feel targets for the final game. D-02/D-03/D-08/D-09 remain open for their future scopes.
-
-## Source and dependency map
-
-| Location | Owner / allowed dependency |
-| --- | --- |
-| `src/CriticalShift.Features.Interaction.Domain/` | ExclusiveClaimStore owns custody, revisions, lease generations and expiry. Base libraries only. |
-| `src/CriticalShift.Application/` | InteractionWorld owns this workflow's connection mapping, command admission and bounded receipts. References Interaction.Domain, never Unity/transport. |
-| `tests/CriticalShift.Offline.Tests/` | NUnit examples, seeded independent model, public/compiled-boundary checks and an isolated failing control. Never referenced by production libraries. |
-| `tools/` | Scoped project/reference validation, result verification and reproducible test entrypoint. Not runtime code. |
-
-No Core assembly is created just to hold unused interfaces. There is no event bus, dependency-injection container, generic transaction framework, filesystem service or duplicated mutable RunState.
-
-## Calling contract
-
-A trusted composition point constructs one InteractionWorld with a **fresh nonempty epoch** and an IInteractionAccessPolicy. It registers stable entity IDs and already-authenticated connection-to-actor mappings, then calls Start. Start requires a still-connected actor, not merely a historical connection record. Do not accept registration calls or binding-failure callbacks directly from untrusted network payloads.
-
-Call every operation on the same host simulation thread. This module does not synchronize arbitrary parallel callers. AdvanceTo receives monotonically increasing **unscaled host milliseconds** before processing a tick's commands. Never use client time. Expiration is processed explicitly, not by a hidden timer; process the returned detached changed-state views when an adapter eventually exists.
-
-Commands start at sequence 1 per connection. Use the current entity revision for Grab and the exact granted lease generation for Release/Renew. Accepted and gameplay-rejected next commands both advance the stream. A matching retry returns its historical receipt; changed payload, forward gap and too-old evicted requests do not execute. Retained receipts are bounded and the high-water mark survives eviction.
-
-**Do not drive physical effects from Accepted alone.** Only HasNewCommit indicates a new state change; a replay can report an old accepted state after the object has already been released. Read current projections, compare epoch/revision, and never reattach from a historical receipt. This module reports logical custody only. An adapter must later report actual physical failure for the exact epoch/entity/lease generation and implement its own tested binding lifecycle.
-
-Release does not require a reach check: an object moving out of reach must not trap the holder. Grab and Renew call the supplied host policy. Unexpected policy/integrity exceptions during command execution fault the workflow and are rethrown; further commands fail closed until teardown. Routine invalid gameplay requests return typed rejections instead of throwing. No catch-and-ignore recovery is used. A host must also stop simulation on an unexpected failure in its clock/binding/cleanup path rather than catch and continue.
-
-Disconnect clears the actor's current logical claim and connection receipts. Stop is idempotent and clears world-owned claims/registrations/receipts. Recreate the next world with a new epoch; do not reuse a stopped instance or old epoch. Retired IDs cannot be re-registered within the same world, preventing an old lease from targeting a newly created entity with reused identity.
+The Session domain does not reference the Interaction domain. WorldSession privately composes the existing interaction owner; it does not duplicate custody, expose live domain objects or create a generic GameManager. There is no Core assembly, event bus, DI framework or repository abstraction without a present consumer.
 
 ## Run without Unity
 
-Prerequisites: stable .NET 8 SDK, Python 3.10+ and network access for the initial test-package restore. No Unity license, editor, GPU or local game installation is required by this test harness.
+Prerequisites: stable .NET 8 SDK, Python 3.10+ and network access for initial test-package restore. No Unity editor, GPU, Unity license or local game installation is needed.
 
 ```sh
 cd runtime/dotnet
 python tools/verify.py
 ```
 
-The command checks the actual project graph, runs Python negative controls, compiles the two libraries and test project, executes the positive NUnit suite, verifies expected test discovery/counters and the overall run outcome, then compiles and runs a deliberately failing NUnit test in a separate configuration. A missing/malformed/empty result, skip, unexpected test set, compiler warning/error or false-green negative control fails verification. Logs, TRX results, exact SDK/OS and per-file hashes are written under ignored `artifacts/`.
+The existing GitHub workflow `Offline interaction contracts` runs this same verification on Linux and Windows, now including session/time tests. It has read-only repository permissions and no game deployment step. No repository protection setting is changed.
 
-The GitHub workflow `Offline interaction contracts` runs the same command on Linux and Windows with read-only repository permissions and no Unity use. It runs on relevant PR changes and, after adoption, relevant pushes to main. It does not deploy a game or change branch protection. Evidence status must come from actual job results, not this workflow declaration.
+Verification checks project/source boundaries, negative Python fixtures, C# compilation, the exact expected NUnit test manifest, real TRX results, and a separate intentionally failing NUnit control. Missing/empty results, incorrect discovery, failure/skip rows, inconsistent totals and a false-green negative control fail validation. `artifacts/` contains actual logs, result files, source hashes and environment; test declarations alone are not passing evidence. Follow the current PR for run status.
 
-## Test scope and limitations
+Runtime libraries target **.NET Standard 2.1 / C# 8.0**, with no third-party runtime package dependencies. .NET 8 is the offline compiler/test host, not the eventual engine runtime. The SDK follows the existing stable 8.0 roll-forward policy and exact versions are recorded. Test-only packages remain Microsoft.NET.Test.Sdk 17.11.1, NUnit 3.14.0 and NUnit3TestAdapter 4.6.0. This work adds no new package selection.
 
-The positive manifest currently expects **149 NUnit cases across 42 named methods**, including 100 seeds x 200 actions in a separate array-based claim model. Additional cases exercise 10,000 rejected commands, receipt eviction, conflict/retry handling, access denial, exact expiry, stale attachment callbacks, overflow, setup disconnection, teardown and cross-epoch protection. Fifteen Python guard tests exercise clean/forbidden references and false result files. The deliberately failing NUnit control is separate, not counted as a positive test.
+## Interaction calling contract
 
-These provide **partial offline evidence** for CMD-01/02/03/04, HOLD-01/02/03, LIFE-01/02, SHIFT-01, ARCH-01/04 and CI-01/02. They do not fulfill those IDs' entire Unity/multiplayer acceptance scopes. The source tripwire is conservative and the compiled-reference check covers these libraries only; neither proves absence of every form of spaghetti, reflection-based dependency or dead code. Build-property overrides and future SDK integration require review beyond the current scoped checker.
+A trusted composition point creates an InteractionWorld (or the enclosing WorldSession), registers stable entities and already-authenticated connection-to-actor mappings, then starts it. There is no permissive production access policy; a caller must provide host-observed access decisions. TestAccess exists only in tests. Never accept registration or binding-failure callbacks directly from untrusted network payloads.
 
-No existing runtime implementation was found at the inspected baseline, so there is no replaced-source deletion. Source art, generated Blender code, materials and review evidence are untouched. There are no serialized Unity identity migrations in this change.
+All operations belong to one host simulation thread. Advance the monotonic unscaled host clock explicitly before processing a tick's commands. Claims do not expire through hidden threads. Input authentication, time sampling, rate limits and real reach/line-of-sight checks remain adapter responsibilities, not features implemented here.
 
-Future engine integration, trusted input/network adapters, clock/lifecycle hooks, rate limits, peer authentication, view delivery and physical readiness still require their own implementation and evidence. Broader game features remain in the existing roadmap, not as unused stubs here.
+Commands start at sequence 1 per connection. Grab uses the expected object revision; Release/Renew require the exact lease generation. Both accepted and well-formed gameplay-rejected next commands finalize their sequence. A matching retry returns its historical receipt without rerunning mutation. Changed payload, forward gap, wrong epoch and too-old evicted commands do not execute. Receipt storage is bounded; the high-water mark survives eviction.
 
-## Technical references
+**Accepted does not mean a new physical effect.** Only HasNewCommit identifies a new logical change. A replayed accepted receipt may describe an object already released. Compare current epoch/revision and never reattach from historical state. Physical binding must later acknowledge/fail the exact epoch/entity/lease with a separately tested adapter.
 
-- [.NET Standard API sharing](https://learn.microsoft.com/en-us/dotnet/standard/net-standard)
-- [Unity 6 .NET profile support](https://docs.unity.cn/6000.0/Documentation/Manual/dotnet-profile-support.html)
+Release remains possible when access/reach changes. Unexpected access-policy or integrity errors fault the workflow rather than silently continuing. Stop is idempotent and clears owned state. Retired entity IDs cannot be registered again within the world.
 
-These references inform the conservative library target. They do not certify the recorded Unity editor's compatibility with these unimported files.
+Setup roster changes now count only live connections toward player capacity. Disconnected connection identities remain invalid, but retained identity history has a separate bounded budget (default 256, max 4096). Rejoining setup needs a fresh connection identity. In-world joining/reconnect remains unsupported. This fixes the setup-capacity review finding on PR #40.
+
+## World and timer calling contract
+
+See [WORLD_AND_TIME.md](WORLD_AND_TIME.md) for phase transitions, timeout policy, explicit ticking, pause, cancellation, snapshot revisions, teardown and restart. These are logical session services, not terrain, rooms, scene loading, weather or a playable character controller.
+
+## Authorization, integration and gate status
+
+OFFLINE-001 introduced interaction prework; OFFLINE-002 extends it with world/session/time at Cameron's explicit request while Unity is unavailable. OFFLINE-002 is stacked on the implementation from PR #40, not a copied replacement. The scoped offline-prework exception in DELIVERY_PLAN remains applicable; no Roadmap Gate 0/1 or complete WP-01/02/03 is declared passed.
+
+Later Unity integration must consume these libraries/the same source or move them atomically. Do not copy them into competing Unity implementations. The exact editor import, C# profile, AOT/stripping, PlayMode, physical simulation and Player compatibility have not been validated. World configuration seed metadata does not imply deterministic physics or a generated world.
+
+Not implemented: Unity projects/assets/controllers, network transport/authentication, physical carrying, runtime geometry, inventory/materials/machines/reactor/mining, persistence, UI/input, Steam or voice. Existing Blender sources, textures, licensing/provenance and art evidence are unchanged. No serialized Unity migration is performed.
+
+Evidence scope: offline domain/application tests are partial evidence for CMD, HOLD, LIFE, SHIFT, ARCH and CI cases in the plan, not their complete Unity/multiplayer gate acceptance. Model-action totals are operations exercised inside seeded tests, not thousands of separate test methods or a code-coverage percentage. Static checks and review cannot prove absence of every dead path or design mistake.

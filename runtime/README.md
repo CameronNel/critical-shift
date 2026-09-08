@@ -1,7 +1,9 @@
-# Runtime source
+# Runtime code: start here
 
-The first bounded engine-independent implementation is in [dotnet/](dotnet/README.md): exclusive object claims, ordered command receipts, lifecycle cleanup and executable tests.
+The current engine-independent C# source, tests and verification tools live in [dotnet/](dotnet/README.md). No Unity project is created or needed to run these checks.
 
-This is **not a Unity project or a playable game**. The global [architecture plan](../design/code-architecture/README.md) still governs all implementation. Unity tooling, physical attachments, rendering and multiplayer transport remain separate unpassed gates.
+- [Interaction and offline build overview](dotnet/README.md)
+- [World/session, shift clock and timers](dotnet/WORLD_AND_TIME.md)
+- [Canonical architecture and code-health rules](../design/code-architecture/README.md)
 
-There is one canonical copy of each C# source file. Do not create a parallel Unity rewrite or copy the files into multiple source roots. The later Unity integration must deliberately consume the same library or perform one reviewed source migration.
+These libraries are intended for later engine integration as one canonical implementation, not a second game engine. Unity import, physical behaviour and connected multiplayer still need separate validation.

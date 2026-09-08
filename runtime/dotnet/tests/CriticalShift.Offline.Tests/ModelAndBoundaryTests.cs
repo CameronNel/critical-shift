@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using CriticalShift.Application;
 using CriticalShift.Features.Interaction.Domain;
+using CriticalShift.Features.Session.Domain;
 using NUnit.Framework;
 
 namespace CriticalShift.Offline.Tests
@@ -116,11 +117,18 @@ namespace CriticalShift.Offline.Tests
         public void CompiledAssembliesStayWithinReferenceAllowlist()
         {
             var domain = typeof(ExclusiveClaimStore).Assembly;
+            var session = typeof(SessionTimeline).Assembly;
             var application = typeof(InteractionWorld).Assembly;
             Assert.That(domain.GetReferencedAssemblies().Select(x => x.Name), Is.SubsetOf(new[] { "netstandard" }));
+            Assert.That(session.GetReferencedAssemblies().Select(x => x.Name), Is.SubsetOf(new[] { "netstandard" }));
             Assert.That(application.GetReferencedAssemblies().Select(x => x.Name),
-                Is.SubsetOf(new[] { "netstandard", "CriticalShift.Features.Interaction.Domain" }));
+                Is.SubsetOf(new[] { "netstandard", "CriticalShift.Features.Interaction.Domain", "CriticalShift.Features.Session.Domain" }));
         }
+
+        private static bool ContainsDomain(Type type) =>
+            type.Assembly == typeof(ExclusiveClaimStore).Assembly || type.Assembly == typeof(SessionTimeline).Assembly ||
+            (type.HasElementType && ContainsDomain(type.GetElementType()!)) ||
+            (type.IsGenericType && type.GetGenericArguments().Any(ContainsDomain));
 
         [Test, Category("ARCH-04")]
         public void ApplicationPublicApiDoesNotExposeDomainOwners()
@@ -129,20 +137,20 @@ namespace CriticalShift.Offline.Tests
             {
                 foreach (var method in type.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly))
                 {
-                    Assert.That(method.ReturnType.Assembly, Is.Not.EqualTo(typeof(ExclusiveClaimStore).Assembly));
+                    Assert.That(ContainsDomain(method.ReturnType), Is.False, method.Name);
                     foreach (var parameter in method.GetParameters())
-                        Assert.That(parameter.ParameterType.Assembly, Is.Not.EqualTo(typeof(ExclusiveClaimStore).Assembly));
+                        Assert.That(ContainsDomain(parameter.ParameterType), Is.False, method.Name);
                 }
                 foreach (var constructor in type.GetConstructors())
                     foreach (var parameter in constructor.GetParameters())
-                        Assert.That(parameter.ParameterType.Assembly, Is.Not.EqualTo(typeof(ExclusiveClaimStore).Assembly));
+                        Assert.That(ContainsDomain(parameter.ParameterType), Is.False, type.Name);
             }
         }
 
         [Test, Category("ARCH-04")]
         public void RuntimeHasNoAuthoredMutableStaticFields()
         {
-            foreach (var assembly in new[] { typeof(InteractionWorld).Assembly, typeof(ExclusiveClaimStore).Assembly })
+            foreach (var assembly in new[] { typeof(InteractionWorld).Assembly, typeof(ExclusiveClaimStore).Assembly, typeof(SessionTimeline).Assembly })
                 foreach (var type in assembly.GetTypes())
                 {
                     if (type.IsDefined(typeof(CompilerGeneratedAttribute), false)) continue;
@@ -154,7 +162,9 @@ namespace CriticalShift.Offline.Tests
         [Test]
         public void SnapshotPublicPropertiesCannotBeSet()
         {
-            foreach (var type in new[] { typeof(ClaimSnapshot), typeof(ObjectClaimView), typeof(InteractionReply), typeof(InteractionCommand) })
+            foreach (var type in new[] { typeof(ClaimSnapshot), typeof(ObjectClaimView), typeof(InteractionReply), typeof(InteractionCommand),
+                typeof(WorldSessionConfiguration), typeof(WorldSessionView), typeof(WorldTimerHandle), typeof(WorldTimerSignal),
+                typeof(WorldTimerScheduleReply), typeof(WorldAdvanceResult), typeof(TimerEntry) })
                 foreach (var property in type.GetProperties()) Assert.That(property.SetMethod, Is.Null, type.Name + "." + property.Name);
         }
     }

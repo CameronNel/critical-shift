@@ -14,6 +14,7 @@ namespace CriticalShift.Application
         private readonly IInteractionAccessPolicy _access;
         private readonly Dictionary<Guid, Connection> _connections = new Dictionary<Guid, Connection>();
         private readonly int _maxConnections;
+        private readonly int _maxConnectionIdentities;
         private readonly int _receiptCapacity;
         private bool _started;
         private bool _stopped;
@@ -21,15 +22,19 @@ namespace CriticalShift.Application
         private bool _executing;
 
         public InteractionWorld(Guid epoch, IInteractionAccessPolicy access, int maxEntities = 128,
-            int maxConnections = 4, int receiptCapacity = 256, long leaseMilliseconds = 3000)
+            int maxConnections = 4, int receiptCapacity = 256, long leaseMilliseconds = 3000,
+            int maxConnectionIdentities = 256)
         {
             if (epoch == Guid.Empty) throw new ArgumentException("World epoch must not be empty.", nameof(epoch));
             if (maxConnections < 1 || maxConnections > 4) throw new ArgumentOutOfRangeException(nameof(maxConnections));
             if (receiptCapacity < 1 || receiptCapacity > 4096) throw new ArgumentOutOfRangeException(nameof(receiptCapacity));
+            if (maxConnectionIdentities < maxConnections || maxConnectionIdentities > 4096)
+                throw new ArgumentOutOfRangeException(nameof(maxConnectionIdentities));
             Epoch = epoch;
             _access = access ?? throw new ArgumentNullException(nameof(access));
             _claims = new ExclusiveClaimStore(maxEntities, leaseMilliseconds);
             _maxConnections = maxConnections;
+            _maxConnectionIdentities = maxConnectionIdentities;
             _receiptCapacity = receiptCapacity;
         }
 
@@ -38,6 +43,16 @@ namespace CriticalShift.Application
         public bool IsFaulted => _faulted;
         public int RegisteredCount => _claims.RegisteredCount;
         public int ActiveClaimCount => _claims.ActiveClaimCount;
+        public int RetainedConnectionIdentityCount => _connections.Count;
+        public int ConnectedCount
+        {
+            get
+            {
+                int count = 0;
+                foreach (var connection in _connections.Values) if (connection.Connected) count++;
+                return count;
+            }
+        }
 
         public void RegisterObject(Guid entityId) { RequireSetup(); _claims.Register(entityId); }
 
@@ -48,18 +63,19 @@ namespace CriticalShift.Application
                 throw new ArgumentException("Connection and actor identities must not be empty.");
             if (_connections.ContainsKey(connectionId)) throw new InvalidOperationException("Duplicate connection identity.");
             foreach (var connection in _connections.Values)
-                if (connection.ActorId == actorId) throw new InvalidOperationException("An actor may have only one connection.");
-            if (_connections.Count >= _maxConnections) throw new InvalidOperationException("Connection capacity reached.");
+                if (connection.Connected && connection.ActorId == actorId)
+                    throw new InvalidOperationException("An actor may have only one live connection.");
+            if (ConnectedCount >= _maxConnections) throw new InvalidOperationException("Connection capacity reached.");
+            // Keep old identities invalid without allowing setup churn to grow history indefinitely.
+            if (_connections.Count >= _maxConnectionIdentities)
+                throw new InvalidOperationException("Connection identity budget exhausted; create a fresh world.");
             _connections.Add(connectionId, new Connection(actorId, _receiptCapacity));
         }
 
         public void Start()
         {
             RequireSetup();
-            bool hasConnectedActor = false;
-            foreach (var connection in _connections.Values)
-                if (connection.Connected) { hasConnectedActor = true; break; }
-            if (!hasConnectedActor) throw new InvalidOperationException("A connected actor is required before starting.");
+            if (ConnectedCount == 0) throw new InvalidOperationException("A connected actor is required before starting.");
             _started = true;
         }
 
