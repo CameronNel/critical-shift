@@ -1,0 +1,25 @@
+{
+  "name": "production-chain",
+  "seed": 42,
+  "duration": 20000,
+  "traceCapacity": 64,
+  "production": {"machines": [{"id": 700, "recipe": 701, "input": "Ore", "output": "CrushedOre", "duration": 1000, "bypassDuration": 500, "jamAfter": 200, "capacity": 1000, "yield": 800}, {"id": 702, "recipe": 703, "input": "CrushedOre", "output": "Fuel", "duration": 1000, "bypassDuration": 500, "jamAfter": 200, "capacity": 1000, "yield": 750}], "batches": [{"container": 600, "id": 610, "origin": 620, "cause": 630, "kind": "Ore", "units": 100, "moisture": 0, "contamination": 35}]},
+  "steps": [
+    {"op": "grab", "entity": 600, "seq": 1, "revision": 0, "expect": "Applied"},
+    {"op": "production", "seq": 2, "action": "Insert", "machine": 700, "machineRevision": 0, "expect": "Applied", "container": 600, "objectRevision": 1, "lease": 1},
+    {"op": "production", "seq": 3, "action": "Start", "machine": 700, "machineRevision": 1, "expect": "Applied"},
+    {"op": "production", "seq": 3, "action": "Start", "machine": 700, "machineRevision": 1, "expect": "Applied", "assert": {"pendingCycles": 1}},
+    {"op": "advance", "time": 400, "expect": "Running", "assert": {"machineWork": 400, "machineRevision": 3}},
+    {"op": "production", "seq": 4, "action": "SetPower", "machine": 700, "machineRevision": 3, "expect": "Applied", "powered": false},
+    {"op": "advance", "time": 9000, "expect": "Running", "assert": {"machineWork": 400, "machineMode": "PowerPaused"}},
+    {"op": "production", "seq": 5, "action": "SetPower", "machine": 700, "machineRevision": 4, "expect": "Applied", "powered": true},
+    {"op": "production", "seq": 6, "action": "Resume", "machine": 700, "machineRevision": 5, "expect": "Applied"},
+    {"op": "advance", "time": 9600, "expect": "Running", "assert": {"batchUnits": 80, "wasteUnits": 20, "completedCycles": 1, "machineRevision": 7}},
+    {"op": "production", "seq": 7, "action": "Eject", "machine": 700, "machineRevision": 7, "expect": "Applied", "objectRevision": 2},
+    {"op": "grab", "entity": 600, "seq": 8, "revision": 3, "expect": "Applied"},
+    {"op": "production", "seq": 9, "action": "Insert", "machine": 702, "machineRevision": 0, "expect": "Applied", "container": 600, "objectRevision": 4, "batchRevision": 1, "lease": 2},
+    {"op": "production", "seq": 10, "action": "Start", "machine": 702, "machineRevision": 1, "expect": "Applied", "batchRevision": 1},
+    {"op": "advance", "time": 10600, "expect": "Running", "assert": {"machine": 702, "batchKind": "Fuel", "batchUnits": 60, "wasteUnits": 40, "completedCycles": 2, "machineMode": "OutputReady"}},
+    {"op": "restart", "expect": "Running", "assert": {"completedCycles": 0, "issuedUnits": 100, "batchKind": "Ore", "batchUnits": 100, "claims": 0}}
+  ]
+}
