@@ -19,12 +19,17 @@ namespace CriticalShift.Application
             HazardId = hazardId != Guid.Empty ? hazardId : worker?.Worker?.LastHazardId ?? Guid.Empty;
             CauseId = causeId != Guid.Empty ? causeId : worker?.Worker?.LastCauseId ?? Guid.Empty;
             ImpactSeverity = severity;
-            ProductionResult = interaction?.Production?.Status; ProductionEvent = production?.Kind;
-            CycleId = production?.Machine.CycleId ?? interaction?.Production?.Machine?.CycleId ?? Guid.Empty;
-            BatchId = production?.Input.BatchId ?? interaction?.Production?.Batch?.BatchId ?? Guid.Empty;
-            OutputBatchId = production?.Output?.BatchId ?? Guid.Empty;
-            MaterialCauseId = production?.Input.CauseId ?? interaction?.Production?.Batch?.CauseId ?? Guid.Empty;
-            WasteUnits = production?.WasteUnits;
+            var change = production ?? interaction?.Production?.Change;
+            ProductionResult = interaction?.Production?.Status;
+            // Replays retain historical attribution, but cannot publish a second committed event.
+            ProductionEvent = changed ? change?.Kind : null;
+            CycleId = change?.CycleId ?? interaction?.Production?.Machine?.CycleId ?? Guid.Empty;
+            RecipeId = change?.RecipeId ?? interaction?.Production?.Machine?.RecipeId ?? Guid.Empty;
+            BypassedInspection = change?.BypassedInspection;
+            BatchId = change?.Input.BatchId ?? interaction?.Production?.Batch?.BatchId ?? Guid.Empty;
+            OutputBatchId = change?.Output?.BatchId ?? Guid.Empty;
+            MaterialCauseId = change?.Input.CauseId ?? interaction?.Production?.Batch?.CauseId ?? Guid.Empty;
+            WasteUnits = change?.WasteUnits;
             Sequence = sequence; Epoch = world.Epoch; RequestEpoch = requestEpoch; Kind = kind;
             ActorId = actorId; EntityId = entityId; InputSequence = inputSequence; Changed = changed;
             WorldRevision = world.Revision; HostMilliseconds = world.HostMilliseconds;
@@ -44,6 +49,8 @@ namespace CriticalShift.Application
         public ProductionStatus? ProductionResult { get; }
         public ProductionEvent? ProductionEvent { get; }
         public Guid CycleId { get; }
+        public Guid RecipeId { get; }
+        public bool? BypassedInspection { get; }
         public Guid BatchId { get; }
         public Guid OutputBatchId { get; }
         public Guid MaterialCauseId { get; }

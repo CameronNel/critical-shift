@@ -36,10 +36,19 @@ namespace CriticalShift.Scenarios
         {
             var machine = world.Production.GetMachine(Id(checked((int)Number(selectors, "machine", 700))));
             var batch = world.Production.GetBatch(Id(checked((int)Number(selectors, "batch", 600))));
+            var records = world.Trace.Records;
+            var last = records.Count == 0 ? null : records[records.Count - 1];
             var summary = world.Production.Summary; actual = null; expected = null;
             switch (assertion.Name)
             {
                 case "machine": case "batch": return true;
+                case "lastProductionEvent": actual = last?.ProductionEvent?.ToString(); expected = assertion.Value.GetString(); return true;
+                case "lastCyclePresent": actual = last != null && last.CycleId != Guid.Empty; expected = assertion.Value.GetBoolean(); return true;
+                case "lastCycleBypassed": actual = last?.BypassedInspection; expected = assertion.Value.GetBoolean(); return true;
+                case "lastOutputPresent": actual = last != null && last.OutputBatchId != Guid.Empty; expected = assertion.Value.GetBoolean(); return true;
+                case "lastMaterialCause": actual = last?.MaterialCauseId; expected = Id(assertion.Value.GetInt32()); return true;
+                case "lastReceiptCancelled": actual = last == null ? null : world.Production.GetConversion(last.CycleId)?.Cancelled;
+                    expected = assertion.Value.GetBoolean(); return true;
                 case "machineMode": actual = machine?.Mode.ToString(); expected = assertion.Value.GetString(); return true;
                 case "machinePower": actual = machine?.Powered; expected = assertion.Value.GetBoolean(); return true;
                 case "machineWork": actual = machine?.WorkMilliseconds; expected = assertion.Value.GetInt64(); return true;

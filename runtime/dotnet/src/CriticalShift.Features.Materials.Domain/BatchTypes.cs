@@ -37,13 +37,15 @@ namespace CriticalShift.Features.Materials.Domain
 
     public sealed class ConversionPlan
     {
-        internal ConversionPlan(Guid cycle, Guid machine, Guid recipe, BatchSnapshot input, BatchSnapshot output)
-        { CycleId = cycle; MachineId = machine; RecipeId = recipe; Input = input; Output = output; }
+        internal ConversionPlan(Guid cycle, Guid machine, Guid recipe, BatchSnapshot input, BatchSnapshot output, bool bypassedInspection)
+        { CycleId = cycle; MachineId = machine; RecipeId = recipe; Input = input; Output = output; BypassedInspection = bypassedInspection; }
         public Guid CycleId { get; }
         public Guid MachineId { get; }
         public Guid RecipeId { get; }
         public BatchSnapshot Input { get; }
         public BatchSnapshot Output { get; }
+        // This cycle's decision, not the cumulative flags inherited by its planned output.
+        public bool BypassedInspection { get; }
         public int WasteUnits => Input.Units - Output.Units;
     }
 

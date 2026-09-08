@@ -82,8 +82,11 @@ namespace CriticalShift.Application
                     if (machine.Powered) return Reply(ProductionStatus.PowerMustBeOff, machine);
                     if (!machine.CanCancel) return Reply(ProductionStatus.InvalidState, machine);
                     var cancelled = machine.Reset(true);
-                    _materials.Finish(machine.CycleId, true); _machines[machine.Id] = cancelled; _cancelled++;
-                    return Reply(ProductionStatus.Applied, cancelled);
+                    var receipt = _materials.Finish(machine.CycleId, true);
+                    if (receipt.Status != ConversionStatus.Cancelled)
+                        throw new InvalidOperationException("A completed cycle cannot be cancelled.");
+                    _machines[machine.Id] = cancelled; _cancelled++;
+                    return Reply(ProductionStatus.Applied, cancelled, change: Conversion(receipt, cancelled));
                 default: throw new InvalidOperationException("An unvalidated production request reached a workflow.");
             }
         }

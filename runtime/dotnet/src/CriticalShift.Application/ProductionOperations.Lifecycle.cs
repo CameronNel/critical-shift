@@ -26,10 +26,13 @@ namespace CriticalShift.Application
                     _machines[id] = next;
                     if (signal == MachineSignal.Jammed)
                     {
+                        var plan = _materials.GetPending(next.CycleId);
                         var container = _interaction.SlotOccupant(id);
-                        var input = container.HasValue ? _materials.Get(container.Value) : null;
-                        if (input == null) throw new InvalidOperationException("Active process lost custody.");
-                        changes.Add(new ProductionChange(ProductionEvent.Jammed, Project(next), Project(input)!, null, 0));
+                        if (plan == null || container != plan.Input.ContainerId ||
+                            !ReferenceEquals(_materials.Get(plan.Input.ContainerId), plan.Input))
+                            throw new InvalidOperationException("Active process lost its reserved input or custody.");
+                        changes.Add(new ProductionChange(ProductionEvent.Jammed, Project(next), Project(plan.Input)!, null, 0,
+                            plan.CycleId, plan.RecipeId, plan.BypassedInspection));
                     }
                 }
             }
@@ -45,14 +48,15 @@ namespace CriticalShift.Application
         }
         private ProductionChange Conversion(ConversionReceipt r, MachineState state) =>
             new ProductionChange(r.Status == ConversionStatus.Completed ? ProductionEvent.Completed : ProductionEvent.Cancelled,
-                // Receipt identity, not whichever later cycle the machine is currently executing.
+                // Keep the resulting machine view and the original cycle identity separate.
                 Project(state), Project(r.Plan.Input)!,
                 r.Status == ConversionStatus.Completed ? Project(r.Plan.Output) : null,
-                r.Status == ConversionStatus.Completed ? r.Plan.WasteUnits : 0);
+                r.Status == ConversionStatus.Completed ? r.Plan.WasteUnits : 0,
+                r.Plan.CycleId, r.Plan.RecipeId, r.Plan.BypassedInspection);
         private ConversionView Project(ConversionReceipt r) => new ConversionView(r.Plan.CycleId,
             r.Plan.MachineId, r.Plan.RecipeId, r.Status == ConversionStatus.Cancelled,
             Project(r.Plan.Input)!, r.Status == ConversionStatus.Completed ? Project(r.Plan.Output) : null,
-            r.Status == ConversionStatus.Completed ? r.Plan.WasteUnits : 0);
+            r.Status == ConversionStatus.Completed ? r.Plan.WasteUnits : 0, r.Plan.BypassedInspection);
         private MaterialView? Project(BatchSnapshot? b) => b == null ? null : new MaterialView(_world.Epoch,
             b.ContainerId, b.BatchId, b.ParentId, b.OriginId, b.CauseId, (MaterialKind)(int)b.Kind,
             b.Units, b.Moisture, b.Contamination, b.Revision, (MaterialFlags)(int)b.Flags);
@@ -60,14 +64,14 @@ namespace CriticalShift.Application
             s.Id, _recipes[s.Id].Id, s.Revision, (ProductionMode)(int)s.Mode, s.Powered, s.CycleId,
             _interaction.SlotOccupant(s.Id), s.DurationMilliseconds, s.WorkMilliseconds);
         private InteractionReply Reply(ProductionStatus status, MachineState? machine,
-            ObjectClaimView? custody = null, InteractionStatus? custodyError = null)
+            ObjectClaimView? custody = null, InteractionStatus? custodyError = null, ProductionChange? change = null)
         {
             var view = machine == null ? null : Project(machine);
             var batch = custody != null ? GetBatch(custody.EntityId) :
                 view?.ContainerId is Guid container ? GetBatch(container) : null;
             var outcome = status == ProductionStatus.Applied ? InteractionStatus.Applied :
                 status == ProductionStatus.NoChange ? InteractionStatus.NoChange : custodyError ?? InteractionStatus.ProductionRejected;
-            return new InteractionReply(outcome, true, custody, production: new ProductionReply(status, view, batch));
+            return new InteractionReply(outcome, true, custody, production: new ProductionReply(status, view, batch, change));
         }
     }
 }

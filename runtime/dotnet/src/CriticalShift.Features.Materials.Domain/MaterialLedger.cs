@@ -27,6 +27,7 @@ namespace CriticalShift.Features.Materials.Domain
         public long ActiveUnits { get { long units = 0; foreach (var b in _current.Values) units += b.Units; return units; } }
         public BatchSnapshot? Get(Guid container) => _current.TryGetValue(container, out var b) ? b : null;
         public bool HasCycleCapacity => _pending.Count + _receipts.Count < _cycles;
+        public ConversionPlan? GetPending(Guid cycle) => _pending.TryGetValue(cycle, out var p) ? p : null;
         public ConversionReceipt? GetReceipt(Guid cycle) => _receipts.TryGetValue(cycle, out var r) ? r : null;
         public void ValidateRegistration(BatchSnapshot batch)
         {
@@ -58,7 +59,7 @@ namespace CriticalShift.Features.Materials.Domain
             var output = new BatchSnapshot(container, outputId, input.OriginId, input.CauseId,
                 outputKind, quantity, outputMoisture, input.Contamination, input.BatchId,
                 checked(input.Revision + 1), input.Flags | (bypass ? BatchFlags.BypassedInspection : BatchFlags.None));
-            return new ConversionPlan(cycle, machine, recipe, input, output);
+            return new ConversionPlan(cycle, machine, recipe, input, output, bypass);
         }
         public void Reserve(ConversionPlan plan)
         {

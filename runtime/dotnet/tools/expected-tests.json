@@ -181,5 +181,15 @@
   "TwoPlayersLoadingOnePortLeaveTheLosingBatchHeldAndUnchanged": 1,
   "ExpiredLeaseCannotInsertAndOldAttachmentCannotEjectSlottedMaterial": 1,
   "ProductionAccessDenialCannotTransferOrReserveMaterial": 1,
-  "HundredConversionsStayBalancedAfterReceiptEvictionAndRepeatTicks": 1
+  "HundredConversionsStayBalancedAfterReceiptEvictionAndRepeatTicks": 1,
+  "CancelledJammedCycleKeepsItsIdentityInThePublicTrace": 1,
+  "CancellationRetainsItsOwnChoiceWithoutPublishingUnmadeOutput": 3,
+  "ReplayedCancellationPreservesHistoricalDataButDoesNotPublishASecondEvent": 1,
+  "LaterCycleCannotOverwriteCancelledReceiptOrItsCause": 1,
+  "InheritedBypassFlagDoesNotMisattributeTheCurrentCycleChoice": 1,
+  "JamAndCompletionExposeTheSameCycleDecision": 1,
+  "RejectedCancellationDoesNotPublishCommittedMetadata": 1,
+  "ConversionReceiptSurvivesDiagnosticRingEviction": 1,
+  "CancellationMetadataDoesNotRequireSpareHistoryCapacity": 1,
+  "CancelledEvidenceIsDetachedAcrossStopAndRestart": 1
 }

@@ -115,28 +115,40 @@ namespace CriticalShift.Application
     }
     public sealed class ProductionReply
     {
-        internal ProductionReply(ProductionStatus status, MachineView? machine, MaterialView? batch = null)
-        { Status = status; Machine = machine; Batch = batch; }
+        internal ProductionReply(ProductionStatus status, MachineView? machine, MaterialView? batch = null, ProductionChange? change = null)
+        { Status = status; Machine = machine; Batch = batch; Change = change; }
         public ProductionStatus Status { get; }
         public MachineView? Machine { get; }
         public MaterialView? Batch { get; }
+        // A historical change on a replay is data, not authorization to apply it again.
+        public ProductionChange? Change { get; }
     }
     public sealed class ConversionView
     {
-        internal ConversionView(Guid cycle, Guid machine, Guid recipe, bool cancelled, MaterialView input, MaterialView? output, int waste)
-        { CycleId = cycle; MachineId = machine; RecipeId = recipe; Cancelled = cancelled; Input = input; Output = output; WasteUnits = waste; }
+        internal ConversionView(Guid cycle, Guid machine, Guid recipe, bool cancelled, MaterialView input, MaterialView? output, int waste, bool bypassedInspection)
+        { CycleId = cycle; MachineId = machine; RecipeId = recipe; Cancelled = cancelled; Input = input; Output = output; WasteUnits = waste; BypassedInspection = bypassedInspection; }
         public Guid CycleId { get; }
         public Guid MachineId { get; }
         public Guid RecipeId { get; }
         public bool Cancelled { get; }
+        public bool BypassedInspection { get; }
         public MaterialView Input { get; }
         public MaterialView? Output { get; }
         public int WasteUnits { get; }
     }
     public sealed class ProductionChange
     {
-        internal ProductionChange(ProductionEvent kind, MachineView machine, MaterialView input, MaterialView? output, int waste)
-        { Kind = kind; Machine = machine; Input = input; Output = output; WasteUnits = waste; }
+        internal ProductionChange(ProductionEvent kind, MachineView machine, MaterialView input, MaterialView? output, int waste,
+            Guid cycleId, Guid recipeId, bool bypassedInspection)
+        {
+            Kind = kind; Machine = machine; Input = input; Output = output; WasteUnits = waste;
+            CycleId = cycleId; RecipeId = recipeId; BypassedInspection = bypassedInspection;
+        }
+        // Event identity is independent of Machine, which describes the resulting live state.
+        // A cancelled machine is Idle with an empty cycle, but this event retains its original cycle.
+        public Guid CycleId { get; }
+        public Guid RecipeId { get; }
+        public bool BypassedInspection { get; }
         public ProductionEvent Kind { get; }
         public MachineView Machine { get; }
         public MaterialView Input { get; }
