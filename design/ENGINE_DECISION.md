@@ -56,6 +56,15 @@ Godot alternative.
 - CI/build: local batch-mode validation today; CI multiplayer smoke is pending
 - Repository: the previous Unity implementation was removed on 2026-09-04. The repository is currently planning-only; future implementation must be rebuilt from design/ and sections/.
 
+## Runtime implementation architecture
+
+> [!IMPORTANT]
+> Before creating or materially changing Unity/C# runtime implementation, read the mandatory planning under [`design/code-architecture/`](code-architecture/README.md), including its architecture plan, code-health/dead-code policy and agent checklist.
+
+The runtime implementation is planned around explicit assembly/dependency boundaries, feature ownership, plain-C# game rules where practical, thin Unity adapters, automated architecture/testing gates and immediate removal of superseded code. The objective is to prevent global-state sprawl, duplicate authoritative systems and dead-code accumulation from becoming normal project state.
+
+This planning does not select the networking, Steam, voice, input or final UI frameworks. Those decisions remain separate gates and should not be silently baked into gameplay-domain code.
+
 ## Required Spike
 
 Build the smallest equivalent test needed to resolve the technical risk:
