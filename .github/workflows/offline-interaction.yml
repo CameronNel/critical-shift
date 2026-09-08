@@ -1,7 +1,7 @@
 name: Offline interaction contracts
 on:
   push:
-    branches: [feat/offline-interaction-20260908]
+    branches: [main]
     paths: ['runtime/dotnet/**', '.github/workflows/offline-interaction.yml']
   pull_request:
     paths: ['runtime/dotnet/**', '.github/workflows/offline-interaction.yml']

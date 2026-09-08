@@ -37,5 +37,8 @@
   "RetiredEntityCannotBeReclaimedOrReused": 1,
   "SnapshotsRemainDetachedAfterLaterMutations": 1,
   "BackwardsClockAndOverflowDoNotSilentlyCorruptClaims": 1,
-  "SetupRejectsInvalidIdentitiesDuplicatesCapacityAndLateJoin": 1
+  "SetupRejectsInvalidIdentitiesDuplicatesCapacityAndLateJoin": 1,
+  "StartRejectsDisconnectedSetupRoster": 1,
+  "ExpiredOldLeaseCannotDropReacquiredSameActor": 1,
+  "DeniedRenewalDoesNotExtendLease": 1
 }

@@ -171,6 +171,53 @@ namespace CriticalShift.Offline.Tests
         }
 
         [Test]
+        public void StartRejectsDisconnectedSetupRoster()
+        {
+            var epoch = Fixture.Id(1);
+            var world = new InteractionWorld(epoch, new TestAccess());
+            var connection = Fixture.Id(20);
+            world.RegisterConnection(connection, Fixture.Id(10));
+            world.Disconnect(connection);
+            Assert.Throws<InvalidOperationException>(() => world.Start());
+            Assert.That(world.IsStopped, Is.False);
+            // Setup may still add a different authenticated identity, but never reuse the old one.
+            Assert.Throws<InvalidOperationException>(() => world.RegisterConnection(connection, Fixture.Id(11)));
+            world.RegisterConnection(Fixture.Id(21), Fixture.Id(11));
+            world.RegisterObject(Fixture.Id(30));
+            world.Start();
+            var command = new InteractionCommand(epoch, 1, InteractionKind.Grab, Fixture.Id(30));
+            Assert.That(world.Execute(Fixture.Id(21), command).Accepted, Is.True);
+        }
+
+        [Test, Category("HOLD-02")]
+        public void ExpiredOldLeaseCannotDropReacquiredSameActor()
+        {
+            var f = new Fixture();
+            f.World.Execute(f.C1, f.Grab(1));
+            f.World.AdvanceTo(3000);
+            var current = f.World.Execute(f.C1, f.Grab(2, 2));
+            Assert.That(current.State!.LeaseGeneration, Is.EqualTo(2));
+            Assert.That(f.World.Execute(f.C1, f.Release(3, 1)).Status, Is.EqualTo(InteractionStatus.StaleLease));
+            Assert.That(f.World.ReportAttachmentFailure(f.Epoch, f.Box, 1).Status, Is.EqualTo(InteractionStatus.StaleLease));
+            f.Holder(f.A);
+        }
+
+        [Test, Category("HOLD-03")]
+        public void DeniedRenewalDoesNotExtendLease()
+        {
+            var f = new Fixture();
+            f.World.Execute(f.C1, f.Grab(1));
+            f.World.AdvanceTo(2000);
+            f.Access.Decision = AccessDecision.ActorUnavailable;
+            var denied = f.World.Execute(f.C1, f.Renew(2));
+            Assert.That(denied.Status, Is.EqualTo(InteractionStatus.ActorUnavailable));
+            Assert.That(denied.IsTerminal, Is.True);
+            Assert.That(f.World.GetObject(f.Box)!.ExpiresAtMilliseconds, Is.EqualTo(3000));
+            f.World.AdvanceTo(3000);
+            f.Holder(null);
+        }
+
+        [Test]
         public void SetupRejectsInvalidIdentitiesDuplicatesCapacityAndLateJoin()
         {
             var access = new TestAccess(); var epoch = Fixture.Id(1);

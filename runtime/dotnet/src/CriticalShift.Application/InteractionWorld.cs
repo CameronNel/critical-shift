@@ -56,7 +56,10 @@ namespace CriticalShift.Application
         public void Start()
         {
             RequireSetup();
-            if (_connections.Count == 0) throw new InvalidOperationException("Register a host/actor before starting.");
+            bool hasConnectedActor = false;
+            foreach (var connection in _connections.Values)
+                if (connection.Connected) { hasConnectedActor = true; break; }
+            if (!hasConnectedActor) throw new InvalidOperationException("A connected actor is required before starting.");
             _started = true;
         }
 

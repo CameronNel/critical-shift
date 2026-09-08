@@ -48,7 +48,7 @@ class GuardTests(unittest.TestCase):
         xml = ET.Element("TestRun")
         entries = ET.SubElement(xml, "Results")
         ET.SubElement(entries, "UnitTestResult", testName="Example", testId="one", outcome="Passed")
-        summary = ET.SubElement(xml, "ResultSummary")
+        summary = ET.SubElement(xml, "ResultSummary", outcome="Completed")
         ET.SubElement(summary, "Counters", total="1", executed="1", passed="1", failed="0", notExecuted="0")
         return xml
 
@@ -85,6 +85,14 @@ class GuardTests(unittest.TestCase):
         with self.assertRaises(FileNotFoundError): results(path, {"Example": 1})
         path.write_text("not xml")
         with self.assertRaises(ET.ParseError): results(path, {"Example": 1})
+
+    def test_overall_error_cannot_hide_behind_passing_rows(self):
+        xml = self.fixture(); xml.find("ResultSummary").set("outcome", "Failed")
+        with self.assertRaises(ValueError): self.run_result(xml)
+
+    def test_missing_overall_result(self):
+        xml = self.fixture(); xml.remove(xml.find("ResultSummary"))
+        with self.assertRaises(ValueError): self.run_result(xml)
 
     def test_empty_expected_manifest(self):
         with self.assertRaises(ValueError): self.run_result(self.fixture(), {})

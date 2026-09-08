@@ -9,6 +9,9 @@ def validate(result: Path, expected: dict[str, int]) -> dict[str, int]:
     if not expected or any(type(count) is not int or count <= 0 for count in expected.values()):
         raise ValueError("The expected-test manifest is empty or invalid.")
     root = ET.parse(result).getroot()  # Missing or malformed files fail, never become a pass.
+    summary = root.find(".//{*}ResultSummary")
+    if summary is None or summary.attrib.get("outcome") != "Completed":
+        raise ValueError("Missing or non-completed overall test-run outcome.")
     results = root.findall(".//{*}UnitTestResult")
     if not results:
         raise ValueError("Zero test results.")
