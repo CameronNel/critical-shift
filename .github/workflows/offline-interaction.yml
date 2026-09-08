@@ -46,3 +46,19 @@ jobs:
           path: runtime/dotnet/artifacts/
           if-no-files-found: error
           retention-days: 30
+      - name: Preserve exact first-party verification inputs
+        if: always() && matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: offline-verification-inputs
+          path: |
+            runtime/dotnet/
+            design/code-architecture/
+            .github/workflows/offline-interaction.yml
+            !runtime/dotnet/**/bin/**
+            !runtime/dotnet/**/obj/**
+            !runtime/dotnet/**/__pycache__/**
+            !runtime/dotnet/artifacts/**
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
