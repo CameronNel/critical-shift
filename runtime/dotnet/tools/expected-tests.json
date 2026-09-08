@@ -177,5 +177,9 @@
   "HazardCauseIsPartOfReplayPayload": 1,
   "HazardSourceHistoryIsBoundedWithoutEvictingReplayProtection": 1,
   "HazardTraceKeepsSourceCauseAndSeveritySeparateFromReleasedObject": 1,
-  "EmptyHazardIdentityIsRejectedWithoutReleasingCustody": 1
+  "EmptyHazardIdentityIsRejectedWithoutReleasingCustody": 1,
+  "TwoPlayersLoadingOnePortLeaveTheLosingBatchHeldAndUnchanged": 1,
+  "ExpiredLeaseCannotInsertAndOldAttachmentCannotEjectSlottedMaterial": 1,
+  "ProductionAccessDenialCannotTransferOrReserveMaterial": 1,
+  "HundredConversionsStayBalancedAfterReceiptEvictionAndRepeatTicks": 1
 }

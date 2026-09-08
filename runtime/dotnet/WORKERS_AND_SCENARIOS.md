@@ -1,6 +1,6 @@
 # Workers, recovery and offline scenarios
 
-**OFFLINE-003 | 8 September 2026 | Engine-independent implementation**
+**OFFLINE-003, updated by OFFLINE-004 | 8 September 2026 | Engine-independent implementation**
 
 Requested scope: worker condition/recovery, coordinated possession cleanup, a bounded diagnostic trace and a runnable scenario tool. This work is based on PR #41 at `63f81a5e31c10c4a5569f3616828c67313466dfc`, which itself depends on PR #40. Follow the active PR for tested revisions and independent-review status. No Unity/physics/multiplayer gate is advanced by these files.
 
@@ -18,7 +18,7 @@ All methods run on the same trusted host thread after advancing WorldSession's a
 
 Consciousness (Alert/Unconscious), logical posture (Upright/Down/Recovering), suit (None/Intact/Compromised) and contamination (integer 0..100 abstract test/configuration units) are separate. Contamination/suit values do not currently apply damage, medical effects or suit protection calculations. No hit points, injury simulation, physical ragdoll, body dragging or reanimation economy is claimed.
 
-- `ApplyWorkerImpact` requires the next positive impact sequence for that worker, severity and recovery delay. Repeating the retained sequence with the same severity/delay returns Duplicate; changing its payload is rejected. Older sequences and forward gaps never reapply an impact. Only the last impact payload is retained, so memory does not grow with damage history. An actually new impact starts a new recovery episode. A minor hit cannot wake an unconscious worker.
+- `ApplyWorkerImpact` requires explicit hazard/cause IDs and the next positive sequence for that worker/hazard pair. Repeating a retained source sequence with the same severity/delay/cause is Duplicate; changed payloads, old sequences and forward gaps are rejected. Independent hazards have separate streams. Up to 32 sources are retained per worker; exhausted source capacity rejects new sources without evicting replay protection. An actually new impact starts a new recovery episode. A minor hit cannot wake an unconscious worker. [PRODUCTION.md](PRODUCTION.md) records this PR #42 review repair.
 - A newly applied impact releases that worker's existing claim through the existing custody owner WITHOUT disconnecting the player. Both logical changes finish before a result is returned. Unexpected integrity failure faults/clears the world instead of allowing a partial transaction to continue. The returned released-claim view must later drive physical cleanup; no joint was removed by this offline module.
 - Down/unconscious/recovering workers cannot Grab or Renew. Rejections go through the existing interaction receipt stream, so later valid input is not wedged. Release remains possible. Historical successful interaction receipts still do not imply a new commit.
 - `StabilizeWorker` is an explicit trusted aid authorization against the current worker revision. It restores alertness and establishes a new cooldown/episode, not automatic standing. It does not charge resources or implement revive/medical equipment. Repeating an old revision cannot apply aid twice.
@@ -38,7 +38,7 @@ World timeout/finish/Stop/fault clears the worker roster along with claims/timer
 
 WorldSession.Trace returns a detached, read-only snapshot of a fixed-capacity ring. Default capacity is 128 records, configurable 1..4096. Overflow drops oldest records and increments a visible dropped-record count. Sequence-counter exhaustion is visible and cannot overflow into gameplay failure. Old-session terminal evidence is retained within that bounded instance; the successor starts a fresh trace.
 
-Records use typed event/result fields and IDs, original request epoch, host/shift time, world revision, worker before/after revisions and recovery/impact correlation where applicable. The causal key for worker recovery is `(epoch, workerId, impactSequence)`, not an unscoped sequence number. No arbitrary message string, exception payload, credential, voice or filesystem path is accepted by the runtime recorder. It runs no callback and changes no gameplay state. Reading it does not advance time or revision.
+Records use typed event/result fields and IDs, original request epoch, host/shift time, world revision, worker before/after revisions and recovery/impact correlation where applicable. The causal key for worker recovery is `(epoch, workerId, hazardId, impactSequence)`, with explicit cause ID, not an unscoped sequence number. No arbitrary message string, exception payload, credential, voice or filesystem path is accepted by the runtime recorder. It runs no callback and changes no gameplay state. Reading it does not advance time or revision.
 
 This is scoped diagnostics, not an event bus, durable audit log, save file, full incident history or completed debrief. Dropped records mean history is incomplete. Operational resource transfers must never depend on the trace. The scenario tool writes its own bounded result report; that is developer evidence, not a player save.
 
@@ -56,9 +56,11 @@ This runs the existing tests AND builds/runs the scenario executable. To run one
 dotnet run --project tools/CriticalShift.Scenarios --configuration Release -- --scenario scenarios/worker-recovery.json --report artifacts/manual-worker-recovery.json --repeat 2
 ```
 
+**Report output is create-new only:** an existing path, including an alias of the input, is rejected without replacement. Use a new report filename on repeated manual runs. Automated alias tests cover this behavior.
+
 The command-line tool executes versioned JSON actions against the actual WorldSession/Interaction/Workers libraries. It creates four logical worker identities and one crate, advances explicit time, checks expected statuses and state assertions, and returns a nonzero exit on mismatch. Limits are 256 KiB input, 512 steps and 50 repetitions. Scenario seed is configuration metadata; these scripts do not claim procedural worlds or random network traffic.
 
-Scripts included:
+Worker scripts included (the additional production scripts are listed in [PRODUCTION.md](PRODUCTION.md)):
 
 | Script | Behaviour exercised |
 | --- | --- |

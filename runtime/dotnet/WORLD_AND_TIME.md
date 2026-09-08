@@ -35,6 +35,10 @@ CancelTimer validates the full handle. CancelTimersForOwner explicitly clears pe
 
 **Deadline priority:** when an advancement reaches shift duration, the shift ends first, and all pending advisory signals are discarded, including ones overdue in that batch. There is no hidden catch-up burst after end. These timers are therefore for warnings/countdowns and advisory prompts, not guaranteed material transfers, resource spending or causal incidents. Such required effects need their separately specified workflow/commit semantics. Recurring timers, durable schedules and task retries are intentionally not implemented.
 
+## Required production outcomes
+
+[OFFLINE-004 production](PRODUCTION.md) does not use advisory timers. World advancement commits machine work due by the capped shift deadline before terminal cleanup, then discards pending advisory signals as before. Unfinished production is cancelled with input quantities retained in a detached terminal accounting summary. This is logical accounting, not persisted or physical inventory.
+
 ## Teardown and restart
 
 Finish, timeout, fault and Stop clear pending timers, logical claims, connection receipts and registered object state. EndedThisAdvance is true only on the tick that first times out. A terminal snapshot means a future engine adapter must tear down ALL bindings; an empty ReleasedClaims list on termination is not permission to retain joints or visuals.

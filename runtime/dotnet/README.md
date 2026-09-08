@@ -1,4 +1,4 @@
-# Offline runtime: interaction, world, workers and time
+# Offline runtime: interaction, world, workers and production
 
 **Start here for real C# code.** Planning remains in [design/code-architecture/](../../design/code-architecture/README.md). This directory contains engine-independent runtime libraries and executable tests, not a Unity project.
 
@@ -9,6 +9,8 @@
 | `src/CriticalShift.Features.Interaction.Domain/` | Exclusive object claims, versions, lease generations, expiry and retirement | None |
 | `src/CriticalShift.Features.Session.Domain/` | Shift lifecycle, separate host/shift clocks and bounded one-shot timers | None |
 | `src/CriticalShift.Features.Workers.Domain/` | Independent worker conditions, guarded recovery and completion deadlines | None |
+| `src/CriticalShift.Features.Materials.Domain/` | Material quantities, batch ancestry and bounded conversion accounting | None |
+| `src/CriticalShift.Features.Production.Domain/` | Recipe-cycle state, work, power and jam transitions | None |
 | `src/CriticalShift.Application/` | Interaction command admission/receipts and WorldSession composition; detached public views | The domains above |
 | `tests/CriticalShift.Offline.Tests/` | Contract, lifecycle, seeded model and compiled-boundary checks | Declared runtime subjects only |
 | `tools/` | Scoped dependency/result validation and build/test entrypoint | Not runtime code |
@@ -24,7 +26,7 @@ cd runtime/dotnet
 python tools/verify.py
 ```
 
-The existing GitHub workflow `Offline interaction contracts` runs this same verification on Linux and Windows, now including session/time tests. It has read-only repository permissions and no game deployment step. No repository protection setting is changed.
+The existing GitHub workflow `Offline interaction contracts` runs this same verification on Linux and Windows, including world, worker and production tests. It has read-only repository permissions and no game deployment step. No repository protection setting is changed.
 
 Verification checks project/source boundaries, negative Python fixtures, C# compilation, the exact expected NUnit test manifest, real TRX results, and a separate intentionally failing NUnit control. Missing/empty results, incorrect discovery, failure/skip rows, inconsistent totals and a false-green negative control fail validation. `artifacts/` contains actual logs, result files, source hashes and environment; test declarations alone are not passing evidence. Follow the current PR for run status.
 
@@ -32,7 +34,11 @@ Runtime libraries target **.NET Standard 2.1 / C# 8.0**, with no third-party run
 
 ## Workers and executable scenarios
 
-See [WORKERS_AND_SCENARIOS.md](WORKERS_AND_SCENARIOS.md) for current worker APIs, recovery clearance, possession cleanup, bounded diagnostics and scenario commands. The same verifier now runs the three versioned offline scenarios and deliberate failure controls. They use production rules with explicitly synthetic access/clearance observations, not Unity or network simulation.
+See [WORKERS_AND_SCENARIOS.md](WORKERS_AND_SCENARIOS.md) for current worker APIs, recovery clearance, possession cleanup, bounded diagnostics and scenario commands. The same verifier now runs the versioned worker and production scenarios and deliberate failure controls. They use production rules with explicitly synthetic access/clearance observations, not Unity or network simulation.
+
+## Production chain
+
+See [PRODUCTION.md](PRODUCTION.md) for safe machine transfers, shared command sequencing, recipe cycles, material/waste accounting, power/jam recovery and deadline semantics. The same guide records the hazard-attribution and report-overwrite review fixes.
 
 ## Interaction calling contract
 
@@ -54,10 +60,10 @@ See [WORLD_AND_TIME.md](WORLD_AND_TIME.md) for phase transitions, timeout policy
 
 ## Authorization, integration and gate status
 
-OFFLINE-001 introduced interaction prework; OFFLINE-002 extends it with world/session/time; OFFLINE-003 adds worker conditions/recovery, possession cleanup and executable scenarios at Cameron's explicit request while Unity is unavailable. OFFLINE-002 is stacked on the implementation from PR #40, not a copied replacement. The scoped offline-prework exception in DELIVERY_PLAN remains applicable; no Roadmap Gate 0/1 or complete WP-01/02/03 is declared passed.
+OFFLINE-001 introduced interaction prework; OFFLINE-002 extends it with world/session/time; OFFLINE-003 adds worker conditions/recovery, possession cleanup and executable scenarios at Cameron's explicit request while Unity is unavailable. OFFLINE-004 adds the bounded production chain and review repairs. OFFLINE-002 is stacked on the implementation from PR #40, not a copied replacement. The scoped offline-prework exception in DELIVERY_PLAN remains applicable; no Roadmap Gate 0/1 or complete WP-01/02/03 is declared passed.
 
 Later Unity integration must consume these libraries/the same source or move them atomically. Do not copy them into competing Unity implementations. The exact editor import, C# profile, AOT/stripping, PlayMode, physical simulation and Player compatibility have not been validated. World configuration seed metadata does not imply deterministic physics or a generated world.
 
-Not implemented: Unity projects/assets/controllers, network transport/authentication, physical carrying, runtime geometry, inventory/materials/machines/reactor/mining, persistence, UI/input, Steam or voice. Existing Blender sources, textures, licensing/provenance and art evidence are unchanged. No serialized Unity migration is performed.
+Not implemented: Unity projects/assets/controllers, network transport/authentication, physical carrying, runtime geometry, a general inventory UI, physical machines, reactor/mining integration, persistence, UI/input, Steam or voice. Existing Blender sources, textures, licensing/provenance and art evidence are unchanged. No serialized Unity migration is performed.
 
-Evidence scope: offline domain/application tests are partial evidence for CMD, HOLD, LIFE, SHIFT, ARCH and CI cases in the plan, not their complete Unity/multiplayer gate acceptance. Model-action totals are operations exercised inside seeded tests, not thousands of separate test methods or a code-coverage percentage. Static checks and review cannot prove absence of every dead path or design mistake.
+Evidence scope: offline domain/application tests are partial evidence for CMD, HOLD, LIFE, SHIFT, TX, CAUSE, ARCH and CI cases in the plan, not their complete Unity/multiplayer gate acceptance. Model-action totals are operations exercised inside seeded tests, not thousands of separate test methods or a code-coverage percentage. Static checks and review cannot prove absence of every dead path or design mistake.
