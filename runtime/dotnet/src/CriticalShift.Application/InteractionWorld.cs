@@ -85,6 +85,15 @@ namespace CriticalShift.Application
         public long LastSequence(Guid connectionId) =>
             _connections.TryGetValue(connectionId, out var c) ? c.Receipts.LastSequence : 0;
 
+        internal Guid? ConnectedActor(Guid connectionId) =>
+            _connections.TryGetValue(connectionId, out var c) && c.Connected ? c.ActorId : (Guid?)null;
+
+        internal ObjectClaimView? ReleaseActorClaims(Guid actorId)
+        {
+            RequireRunning();
+            return Project(_claims.ReleaseActor(actorId));
+        }
+
         public InteractionReply Execute(Guid connectionId, InteractionCommand command)
         {
             if (command == null) throw new ArgumentNullException(nameof(command));

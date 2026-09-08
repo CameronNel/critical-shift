@@ -5,7 +5,7 @@ import shutil
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
-from check_boundaries import validate as check, DOMAIN, SESSION, APPLICATION
+from check_boundaries import validate as check, DOMAIN, SESSION, WORKERS, APPLICATION
 from verify_results import validate as results
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,6 +17,7 @@ class GuardTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         shutil.copytree(ROOT / "src", self.root / "src", ignore=shutil.ignore_patterns("bin", "obj"))
+        shutil.copytree(ROOT / "tools" / "CriticalShift.Scenarios", self.root / "tools" / "CriticalShift.Scenarios", ignore=shutil.ignore_patterns("bin", "obj"))
         shutil.copytree(ROOT / "tests", self.root / "tests", ignore=shutil.ignore_patterns("bin", "obj"))
 
     def test_clean_graph(self):
@@ -40,6 +41,20 @@ class GuardTests(unittest.TestCase):
     def test_domain_cannot_read_hidden_clock(self):
         (self.root / SESSION).parent.joinpath("ClockLeak.cs").write_text("class ClockLeak { object Now => System.DateTime.UtcNow; }")
         self.assertTrue(any("Hidden clock" in x for x in check(self.root)))
+
+    def test_worker_domain_cannot_depend_on_session(self):
+        path = self.root / WORKERS; tree = ET.parse(path)
+        ET.SubElement(ET.SubElement(tree.getroot(), "ItemGroup"), "ProjectReference",
+                      Include="../CriticalShift.Features.Session.Domain/CriticalShift.Features.Session.Domain.csproj")
+        tree.write(path)
+        self.assertTrue(any("dependency" in x for x in check(self.root)))
+
+    def test_production_cannot_reference_scenario_runner(self):
+        path = self.root / APPLICATION; tree = ET.parse(path)
+        ET.SubElement(ET.SubElement(tree.getroot(), "ItemGroup"), "ProjectReference",
+                      Include="../../tools/CriticalShift.Scenarios/CriticalShift.Scenarios.csproj")
+        tree.write(path)
+        self.assertTrue(any("dependency" in x for x in check(self.root)))
 
     def test_package_leak(self):
         path = self.root / APPLICATION; tree = ET.parse(path)

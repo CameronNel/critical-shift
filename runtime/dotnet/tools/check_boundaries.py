@@ -5,9 +5,12 @@ import xml.etree.ElementTree as ET
 
 DOMAIN = "src/CriticalShift.Features.Interaction.Domain/CriticalShift.Features.Interaction.Domain.csproj"
 SESSION = "src/CriticalShift.Features.Session.Domain/CriticalShift.Features.Session.Domain.csproj"
+WORKERS = "src/CriticalShift.Features.Workers.Domain/CriticalShift.Features.Workers.Domain.csproj"
+RUNNER = "tools/CriticalShift.Scenarios/CriticalShift.Scenarios.csproj"
 APPLICATION = "src/CriticalShift.Application/CriticalShift.Application.csproj"
 TESTS = "tests/CriticalShift.Offline.Tests/CriticalShift.Offline.Tests.csproj"
-ALLOWED = {DOMAIN: set(), SESSION: set(), APPLICATION: {DOMAIN, SESSION}, TESTS: {DOMAIN, SESSION, APPLICATION}}
+ALLOWED = {DOMAIN: set(), SESSION: set(), WORKERS: set(), APPLICATION: {DOMAIN, SESSION, WORKERS},
+           TESTS: {DOMAIN, SESSION, WORKERS, APPLICATION}, RUNNER: {APPLICATION}}
 TEST_PACKAGES = {"Microsoft.NET.Test.Sdk": "17.11.1", "NUnit": "3.14.0", "NUnit3TestAdapter": "4.6.0"}
 
 
@@ -28,7 +31,7 @@ def validate(root: Path) -> list[str]:
             continue
         if xml.attrib.get("Sdk") != "Microsoft.NET.Sdk":
             problems.append(f"Unapproved SDK: {relative}")
-        expected_framework = "net8.0" if relative == TESTS else "netstandard2.1"
+        expected_framework = "net8.0" if relative in (TESTS, RUNNER) else "netstandard2.1"
         if xml.findtext(".//TargetFramework") != expected_framework:
             problems.append(f"Wrong target framework: {relative}")
         actual = set()

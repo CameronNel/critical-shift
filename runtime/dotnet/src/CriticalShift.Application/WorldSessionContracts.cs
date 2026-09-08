@@ -108,14 +108,16 @@ namespace CriticalShift.Application
     public sealed class WorldAdvanceResult
     {
         internal WorldAdvanceResult(WorldSessionView world, IReadOnlyList<WorldTimerSignal> signals,
-            IReadOnlyList<ObjectClaimView> releasedClaims, bool endedThisAdvance)
+            IReadOnlyList<ObjectClaimView> releasedClaims, bool endedThisAdvance,
+            IReadOnlyList<WorkerReply>? workerChanges = null)
         {
             World = world; Signals = signals; ReleasedClaims = releasedClaims;
-            EndedThisAdvance = endedThisAdvance;
+            EndedThisAdvance = endedThisAdvance; WorkerChanges = workerChanges ?? Array.Empty<WorkerReply>();
         }
         public WorldSessionView World { get; }
         public IReadOnlyList<WorldTimerSignal> Signals { get; }
         public IReadOnlyList<ObjectClaimView> ReleasedClaims { get; }
         public bool EndedThisAdvance { get; }
+        public IReadOnlyList<WorkerReply> WorkerChanges { get; }
     }
 }

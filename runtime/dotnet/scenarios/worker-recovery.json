@@ -1,0 +1,33 @@
+{
+  "name": "worker-recovery",
+  "seed": 42,
+  "duration": 20000,
+  "pause": true,
+  "steps": [
+    {"op": "grab", "actor": 1, "seq": 1, "revision": 0, "expect": "Applied"},
+    {"op": "grab", "actor": 2, "seq": 1, "revision": 1, "expect": "AlreadyClaimed"},
+    {"op": "environment", "actor": 1, "revision": 0, "suit": "Intact", "contamination": 40, "expect": "Applied"},
+    {"op": "impact", "actor": 1, "seq": 1, "severity": "Incapacitating", "delay": 100, "assert": {"claims": 0, "connections": 4, "suit": "Intact", "contamination": 40, "awareness": "Unconscious", "pose": "Down"}, "expect": "Applied"},
+    {"op": "impact", "actor": 1, "seq": 1, "severity": "Incapacitating", "delay": 100, "assert": {"revision": 2, "episode": 1, "readyAt": 100}, "expect": "Duplicate"},
+    {"op": "grab", "actor": 1, "seq": 2, "expect": "ActorUnavailable"},
+    {"op": "advance", "time": 1000, "assert": {"awareness": "Unconscious", "elapsed": 1000}, "expect": "Running"},
+    {"op": "beginRecovery", "actor": 1, "episode": 1, "revision": 2, "expect": "RequiresAid"},
+    {"op": "aid", "actor": 1, "revision": 2, "delay": 100, "expect": "Applied"},
+    {"op": "aid", "actor": 1, "revision": 2, "delay": 100, "expect": "RevisionConflict"},
+    {"op": "beginRecovery", "actor": 1, "episode": 2, "revision": 3, "expect": "TooEarly"},
+    {"op": "advance", "time": 1100, "expect": "Running"},
+    {"op": "beginRecovery", "actor": 1, "episode": 2, "revision": 3, "assert": {"pose": "Recovering", "attempt": 1}, "expect": "Applied"},
+    {"op": "beginRecovery", "actor": 1, "episode": 2, "revision": 3, "expect": "Duplicate"},
+    {"op": "completeRecovery", "actor": 1, "attempt": 1, "clearance": "Blocked", "expect": "ClearanceBlocked"},
+    {"op": "completeRecovery", "actor": 1, "attempt": 1, "clearance": "Safe", "expect": "StaleRecovery"},
+    {"op": "beginRecovery", "actor": 1, "episode": 2, "revision": 3, "expect": "RevisionConflict"},
+    {"op": "beginRecovery", "actor": 1, "episode": 2, "revision": 5, "expect": "Applied"},
+    {"op": "completeRecovery", "actor": 1, "attempt": 2, "clearance": "Safe", "assert": {"pose": "Upright", "awareness": "Alert", "suit": "Intact", "contamination": 40, "revision": 7}, "expect": "Applied"},
+    {"op": "grab", "actor": 1, "seq": 3, "revision": 2, "assert": {"claims": 1}, "expect": "Applied"},
+    {"op": "disconnect", "actor": 2, "assert": {"workers": 3, "connections": 3}, "expect": "Disconnected"},
+    {"op": "restart", "assert": {"elapsed": 0, "workers": 4, "claims": 0, "pose": "Upright", "suit": "None"}, "expect": "Running"},
+    {"op": "impact", "epoch": "previous", "actor": 1, "seq": 1, "severity": "Incapacitating", "delay": 0, "expect": "WrongEpoch"},
+    {"op": "release", "epoch": "previous", "actor": 1, "seq": 4, "lease": 1, "expect": "WrongEpoch"},
+    {"op": "assert", "assert": {"revision": 0, "claims": 0, "workers": 4}, "expect": "Checked"}
+  ]
+}
