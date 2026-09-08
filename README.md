@@ -5,10 +5,10 @@
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
 
 > [!IMPORTANT]
-> **Engineering start here:** [Runtime Architecture and Code Health](design/code-architecture/README.md) is the canonical planning section for Unity/C# work. It contains the dependency allowlist, state ownership and failure contracts, safe-deletion policy, test acceptance cases, staged delivery and open decisions. Read [AGENTS.md](AGENTS.md) before changes. **These are planning documents, not evidence that runtime safeguards or CI are already implemented.**
+> **Engineering start here:** [Runtime Architecture and Code Health](design/code-architecture/README.md) is the canonical planning section for Unity/C# work. It contains the dependency allowlist, state ownership and failure contracts, safe-deletion policy, test acceptance cases, staged delivery and open decisions. Read [AGENTS.md](AGENTS.md) before changes. **Planning documents specify requirements; actual implementation and execution status are recorded separately in the runtime entrypoint and its PR evidence.**
 
 > [!NOTE]
-> **Actual non-Unity code:** [Offline interaction implementation](runtime/dotnet/README.md) contains the first C# ownership module, executable contract tests and scoped build checks. Read its calling contract and limitations before extending it. These offline checks do not establish Unity, physics or connected-multiplayer readiness.
+> **Actual non-Unity code:** [Consolidated runtime entrypoint](runtime/README.md) covers interaction, world/time, workers, material production and executable scenarios. **PR #43 is the single integration candidate against main**, incorporating the earlier implementation PRs and review fixes. Check its live merge/test status; offline checks do not establish Unity, physics or connected-multiplayer readiness.
 
 Critical Shift is currently a planning-first game repository with bounded engine-independent implementation under `runtime/`.
 
@@ -28,7 +28,7 @@ Global rules that apply to the entire game:
 - [code-architecture/](design/code-architecture/README.md) — runtime architecture, state contracts, code health, validation, delivery and decision planning
 
 ### runtime/
-[Runtime entrypoint](runtime/README.md). The current `dotnet/` slice owns engine-independent interaction rules and their tests. It is not a Unity project. Source, test projects and verification tools are separated, with one canonical copy of each implementation.
+[Runtime entrypoint](runtime/README.md). The current `dotnet/` code contains interaction, world/time, worker and production rules, their tests and the offline scenario runner. It is not a Unity project. Source, test projects and verification tools are separated, with one canonical copy of each implementation. The entrypoint identifies the consolidated integration route and retained historical PRs.
 
 ### sections/
 Each physical game area is kept as a self-contained package.

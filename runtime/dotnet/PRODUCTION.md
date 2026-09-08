@@ -2,6 +2,8 @@
 
 **OFFLINE-004 | 8 September 2026 | Implementation without Unity**
 
+Current integration: [runtime/README.md](../README.md) identifies PR #43 as the single candidate against main; earlier stacked PRs are historical contributions.
+
 User-authorized scope: a substantial useful offline batch. Based on PR #42 at `82aae83fa0e9daa471eb31d59a51fb44f34faff4`, after the interaction, world/time and worker slices. See PR #43 for exact tested commits, executed counts and review status. Tests described here are requirements and executable fixtures, not a substitute for their run artifacts. No production milestone or merge approval is implied.
 
 ## The concrete loop
@@ -52,13 +54,23 @@ Stop, timeout, fault and restart clear live machines, material maps, reservation
 
 Actual physical insertion/ejection readiness is NOT implemented. The eventual Unity adapter must coordinate pending bindings, collision, placement and failure recovery before treating logical acceptance as a working machine. Tests here do not prove an inlet collider, material shader, conveyor or character controller works.
 
+## Cancellation attribution correction
+
+An explicit CancelCycle returns `ProductionReply.Change`, a detached `ProductionEvent.Cancelled` record built from the retained conversion receipt. `ProductionChange.CycleId` and `RecipeId` identify the original operation independently of `Machine`, which correctly describes the resulting Idle machine with an empty active cycle. Consumers must use the event identity for history, not reconstruct it from current machine state.
+
+The existing conversion plan now retains `BypassedInspection` for this specific cycle. ConversionView, ProductionChange and diagnostic records expose that choice even when cancellation has no output. It is separate from inherited material flags: a safe press cycle can consume input bearing an earlier crusher bypass flag without itself being a bypassed cycle. Cancellation keeps Output null, WasteUnits zero and the original input unchanged. No unmade product is published to preserve metadata.
+
+Matching command retries keep their historical change data but cannot publish another committed cancellation event. The trace retains the historical cycle/choice while its event field is absent and Changed is false. A new cycle cannot overwrite the previous cancellation receipt. Receipt retention remains separate from bounded diagnostic history; a dropped trace record does not remove the live-world conversion receipt.
+
+This correction concerns explicit CancelCycle and consistent jam/completion attribution. Existing terminal teardown still retains aggregate accounting and any already emitted bounded trace, not a durable per-cycle archive. It does not add a save system or complete debrief. `CancellationAttributionTests` and `production-cancel-attribution.json` cover the original failure, retries, inherited flags, subsequent cycles, capacity, trace eviction and detached evidence across restart. The original trace assertion was executed before the fix and failed on an empty cycle ID while the 513 inherited tests passed.
+
 ## Review fixes carried forward from PR #42
 
 Impact observations now require explicit hazard and cause IDs. Sequence admission is scoped per `(world, worker, hazard)` with up to 32 retained sources per worker. Duplicate severity/delay/cause returns Duplicate, changed cause is a payload mismatch, and independent hazard streams do not conflict. Exhausted source capacity rejects a new source; it never evicts protection and then replays old damage. The latest worker view and bounded trace keep source/cause/severity separately from the object released by an impact. Producers must retain their original identity and source-local sequence; they cannot rotate IDs to force a new observation.
 
 Scenario reports use create-new file semantics. Existing output paths are rejected without truncation, including Windows case aliases, hardlinks, symlinks and symlinked parents. Choose a new report filename or explicitly remove your obsolete report before invoking the tool. No overwrite flag is added. The verification harness exercises real filesystem aliases in temporary directories and checks source hashes after each failed attempt.
 
-Both repairs are in this dependent PR, not a claim that PR #42's original head was retroactively fixed. Its test-only old-arity convenience adapters supply explicit synthetic hazard IDs; there is no permissive source-free impact overload in runtime code.
+Both repairs are in the consolidated PR #43, not a claim that PR #42's original head was retroactively fixed. Its test-only old-arity convenience adapters supply explicit synthetic hazard IDs; there is no permissive source-free impact overload in runtime code.
 
 ## Run and review
 
@@ -74,7 +86,7 @@ For one production scenario, use a report path that does not already exist:
 dotnet run --project tools/CriticalShift.Scenarios --configuration Release -- --scenario scenarios/production-chain.json --report artifacts/manual-production-new.json --repeat 2
 ```
 
-The four production fixtures cover the chain with power interruption, wet-input bypass/jam recovery, cancellation and exact-deadline completion. The three existing worker fixtures still run. ProductionWorldTests and ProductionStressTests cover cross-owner and two-actor behavior; ProductionRuleTests include 100 fixed seeds x 200 independent machine-oracle actions. A separate throughput test completes 100 transformations across 50 input containers with a seven-receipt command window, checking accounting after every operation and rejection of an evicted old request.
+The four original production fixtures cover the chain with power interruption, wet-input bypass/jam recovery, cancellation and exact-deadline completion. The cancellation-attribution regression additionally checks the public history after a jam, cancellation and retry. The three existing worker fixtures still run. ProductionWorldTests and ProductionStressTests cover cross-owner and two-actor behavior; ProductionRuleTests include 100 fixed seeds x 200 independent machine-oracle actions. A separate throughput test completes 100 transformations across 50 input containers with a seven-receipt command window, checking accounting after every operation and rejection of an evicted old request.
 
 The existing verifier checks exact test/scenario discovery, compiled assembly references, immutable public projections, forbidden peer/tool dependencies, expected false-green controls, scenario failures and report safety. No new test/runtime package is introduced. Exact Linux/Windows results and source hashes belong in PR #43 and its artifacts. These are offline logical tests, not performance measurements, networked peer tests or proof of every possible dead path's absence.
 

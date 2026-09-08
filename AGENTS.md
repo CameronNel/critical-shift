@@ -10,6 +10,8 @@ The repository's [GAME_SPEC](design/GAME_SPEC.md), section 32.6, requires **one 
 
 Read [the code-architecture entrypoint](design/code-architecture/README.md) and [agent checklist](design/code-architecture/AGENT_CHECKLIST.md) before work. On first entry, read the complete linked plan. On subsequent tasks, reread the affected contracts, validation cases, open decisions and actual gate state.
 
+For the actual offline implementation, also read [runtime/README.md](runtime/README.md). It identifies the single consolidated integration route, canonical source, review repairs and retained historical PR heads. Inspect the live PR/ref state; do not reconstruct or separately merge an earlier partial implementation while ignoring its later fixes. This navigation rule does not change the independent-review or merge policy.
+
 The canonical planning section is `design/code-architecture/`:
 
 - [Architecture](design/code-architecture/ARCHITECTURE_PLAN.md): dependency allowlist, feature boundaries and composition.
