@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using CriticalShift.Application;
+using static CriticalShift.Scenarios.ScenarioInput;
 
 namespace CriticalShift.Scenarios
 {
@@ -42,14 +43,17 @@ namespace CriticalShift.Scenarios
                 string output = JsonSerializer.Serialize(result, options);
                 string? parent = Path.GetDirectoryName(Path.GetFullPath(reportPath));
                 if (parent != null) Directory.CreateDirectory(parent);
-                File.WriteAllText(reportPath, output + Environment.NewLine);
+                // Atomic create-new refuses any existing file, including case aliases, symlinks and hardlinks.
+                // Report generation never truncates or replaces a user file.
+                using (var file = new FileStream(reportPath, FileMode.CreateNew, FileAccess.Write, FileShare.None))
+                using (var writer = new StreamWriter(file)) writer.Write(output + Environment.NewLine);
                 Console.WriteLine($"{result.Status}: {result.Name}; {result.CompletedSteps} completed steps; {result.Assertions} assertions.");
                 if (result.Error != null) Console.Error.WriteLine(result.Error);
                 Console.WriteLine("Offline logical scenarios only. Reach and recovery clearance use synthetic test policies.");
                 return result.Status == "Passed" ? 0 : 1;
             }
             catch (Exception error) when (error is ArgumentException || error is FormatException ||
-                error is OverflowException || error is KeyNotFoundException || error is IOException || error is JsonException || error is InvalidOperationException)
+                error is OverflowException || error is UnauthorizedAccessException || error is KeyNotFoundException || error is IOException || error is JsonException || error is InvalidOperationException)
             {
                 // Configuration failures cannot become a successful empty run. Do not print private paths.
                 Console.Error.WriteLine("Scenario configuration failed: " + error.GetType().Name);
@@ -115,7 +119,7 @@ namespace CriticalShift.Scenarios
 
         private ScenarioReport Report(string status, int completedRuns, string? error) =>
             new ScenarioReport(_name, status, completedRuns, _completed, _assertions, _step,
-                error, _world?.View, _world?.Trace);
+                error, _world?.View, _world?.Trace, _world?.Production.Summary);
 
         private string Execute(JsonElement s)
         {
@@ -128,7 +132,7 @@ namespace CriticalShift.Scenarios
                 case "pause": return _world.Pause(epoch).ToString();
                 case "resume": return _world.Resume(epoch).ToString();
                 case "impact": return _world.ApplyWorkerImpact(epoch, who, Number(s, "seq"),
-                    Choice<WorkerImpact>(s, "severity"), Number(s, "delay")).Status.ToString();
+                    Choice<WorkerImpact>(s, "severity"), Number(s, "delay"), Id(checked((int)Number(s, "hazard"))), Id(checked((int)Number(s, "cause")))).Status.ToString();
                 case "aid": return _world.StabilizeWorker(epoch, who, Number(s, "revision"), Number(s, "delay")).Status.ToString();
                 case "environment": return _world.SetWorkerEnvironment(epoch, who, Number(s, "revision"),
                     Choice<WorkerSuit>(s, "suit"), checked((int)Number(s, "contamination"))).Status.ToString();
@@ -142,7 +146,8 @@ namespace CriticalShift.Scenarios
                 case "release":
                     return _world.ExecuteInteraction(Id(100 + actor), new InteractionCommand(epoch,
                         Number(s, "seq"), _operation == "grab" ? InteractionKind.Grab : InteractionKind.Release,
-                        Id(500), Number(s, "revision", 0), Number(s, "lease", 0))).Status.ToString();
+                        Id(checked((int)Number(s, "entity", 500))), Number(s, "revision", 0), Number(s, "lease", 0))).Status.ToString();
+                case "production": return ProductionScenarioSteps.Execute(s, _world, epoch, Id(100 + actor));
                 case "disconnect":
                     int count = _world.View.ConnectedPlayerCount;
                     _world.Disconnect(epoch, Id(100 + actor));
@@ -183,10 +188,14 @@ namespace CriticalShift.Scenarios
                     case "readyAt": Expect(worker?.RecoveryNotBeforeMilliseconds, (long?)a.Value.GetInt64(), a.Name); break;
                     case "workerPresent": Expect(worker != null, a.Value.GetBoolean(), a.Name); break;
                     case "traceDropped": Expect(_world.Trace.DroppedRecords > 0, a.Value.GetBoolean(), a.Name); break;
-                    default: throw new ArgumentException("Unknown assertion: " + a.Name);
+                    default:
+                        if (!ProductionScenarioSteps.TryRead(a, assertions, _world, out var actual, out var expected))
+                            throw new ArgumentException("Unknown assertion: " + a.Name);
+                        if (a.Name != "machine" && a.Name != "batch") Expect(actual, expected, a.Name);
+                        break;
                 }
             }
-            if (assertions.EnumerateObject().All(x => x.Name == "actor"))
+            if (assertions.EnumerateObject().All(x => x.Name == "actor" || x.Name == "machine" || x.Name == "batch"))
                 throw new ArgumentException("An actor selector alone is not an assertion.");
         }
 
@@ -203,24 +212,11 @@ namespace CriticalShift.Scenarios
                 throw new ArgumentException("Only an established previous epoch can be requested.");
             return _previousEpoch;
         }
-        private static void Bind(WorldSession world)
+        private void Bind(WorldSession world)
         {
             for (int i = 1; i <= 4; i++) world.RegisterConnection(Id(100 + i), Id(i));
-            world.RegisterObject(Id(500)); world.Start();
+            world.RegisterObject(Id(500)); ProductionScenarioSteps.Bind(_spec, world); world.Start();
         }
-        private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
-        private static string Text(JsonElement s, string key) =>
-            s.GetProperty(key).GetString() ?? throw new ArgumentException("Missing string: " + key);
-        private static long Number(JsonElement s, string key, long? fallback = null) =>
-            s.TryGetProperty(key, out var value) ? value.GetInt64() : fallback ?? throw new ArgumentException("Missing number: " + key);
-        private static bool Flag(JsonElement s, string key, bool fallback) => s.TryGetProperty(key, out var v) ? v.GetBoolean() : fallback;
-        private static T Choice<T>(JsonElement s, string key) where T : struct, Enum
-        {
-            string input = Text(s, key);
-            return Enum.TryParse<T>(input, out var value) && Enum.IsDefined(typeof(T), value) && value.ToString() == input ?
-                value : throw new ArgumentException("Invalid enum value for " + key);
-        }
-
         // Synthetic observations live only in this tool, never in runtime/Application/Domain.
         private sealed class ScriptedPolicies : IInteractionAccessPolicy, IWorkerRecoveryPolicy
         {
@@ -233,9 +229,9 @@ namespace CriticalShift.Scenarios
     internal sealed class ScenarioReport
     {
         internal ScenarioReport(string name, string status, int runs, int steps, int assertions, int lastStep,
-            string? error, WorldSessionView? world, SessionTraceView? trace)
+            string? error, WorldSessionView? world, SessionTraceView? trace, ProductionSummary? production)
         { Name = name; Status = status; CompletedRuns = runs; CompletedSteps = steps; Assertions = assertions;
-          LastStep = lastStep; Error = error; FinalWorld = world; Trace = trace; }
+          LastStep = lastStep; Error = error; FinalWorld = world; Trace = trace; Production = production; }
         public string Scope => "Offline logical execution; synthetic access/clearance; no physics or network";
         public string Name { get; }
         public string Status { get; }
@@ -246,5 +242,6 @@ namespace CriticalShift.Scenarios
         public string? Error { get; }
         public WorldSessionView? FinalWorld { get; }
         public SessionTraceView? Trace { get; }
+        public ProductionSummary? Production { get; }
     }
 }

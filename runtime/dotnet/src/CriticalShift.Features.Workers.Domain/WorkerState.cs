@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace CriticalShift.Features.Workers.Domain
 {
@@ -12,8 +13,19 @@ namespace CriticalShift.Features.Workers.Domain
         private readonly long _completionWindow;
         private long _attemptExpiresAt;
         private long _revision, _impact, _episode, _attempt, _readyAt, _lastTime;
-        private long _lastImpactDelay, _beginRevision;
-        private ImpactSeverity _lastSeverity;
+        private long _beginRevision;
+        private Guid _lastHazard, _lastCause;
+        private readonly Dictionary<Guid, ImpactReceipt> _sources = new Dictionary<Guid, ImpactReceipt>();
+        public const int HazardSourceCapacity = 32;
+        private sealed class ImpactReceipt
+        {
+            internal ImpactReceipt(long sequence, Guid cause, ImpactSeverity severity, long delay)
+            { Sequence = sequence; Cause = cause; Severity = severity; Delay = delay; }
+            internal long Sequence { get; }
+            internal Guid Cause { get; }
+            internal ImpactSeverity Severity { get; }
+            internal long Delay { get; }
+        }
         private Consciousness _consciousness;
         private Posture _posture;
         private SuitCondition _suit;
@@ -28,18 +40,21 @@ namespace CriticalShift.Features.Workers.Domain
         }
 
         public WorkerSnapshot Snapshot => new WorkerSnapshot(_id, _revision, _consciousness, _posture,
-            _suit, _contamination, _impact, _episode, _attempt, _readyAt, _attemptExpiresAt);
+            _suit, _contamination, _impact, _episode, _attempt, _readyAt, _attemptExpiresAt, _lastHazard, _lastCause);
 
-        public WorkerResult Impact(long sequence, ImpactSeverity severity, long recoveryDelay, long shiftTime)
+        public WorkerResult Impact(long sequence, ImpactSeverity severity, long recoveryDelay, long shiftTime, Guid hazardId, Guid causeId)
         {
-            if (sequence < 1 || sequence == long.MaxValue || recoveryDelay < 0 ||
+            if (hazardId == Guid.Empty || causeId == Guid.Empty || sequence < 1 || sequence == long.MaxValue || recoveryDelay < 0 ||
                 (severity != ImpactSeverity.Knockdown && severity != ImpactSeverity.Incapacitating) || shiftTime < _lastTime)
                 return WorkerResult.InvalidInput;
-            if (sequence == _impact)
-                return severity == _lastSeverity && recoveryDelay == _lastImpactDelay ?
+            _sources.TryGetValue(hazardId, out var previous);
+            long last = previous?.Sequence ?? 0;
+            if (sequence == last)
+                return severity == previous!.Severity && recoveryDelay == previous.Delay && causeId == previous.Cause ?
                     WorkerResult.Duplicate : WorkerResult.PayloadMismatch;
-            if (sequence < _impact) return WorkerResult.TooOld;
-            if (sequence != _impact + 1) return WorkerResult.SequenceGap;
+            if (sequence < last) return WorkerResult.TooOld;
+            if (sequence != last + 1) return WorkerResult.SequenceGap;
+            if (previous == null && _sources.Count >= HazardSourceCapacity) return WorkerResult.SourceCapacityReached;
             // Validate arithmetic before mutation, including when the impact interrupts recovery.
             if (recoveryDelay > long.MaxValue - shiftTime) return WorkerResult.InvalidInput;
             long revision = checked(_revision + 1), episode = checked(_episode + 1);
@@ -47,7 +62,8 @@ namespace CriticalShift.Features.Workers.Domain
             if (severity == ImpactSeverity.Incapacitating) _consciousness = Consciousness.Unconscious;
             // A mild impact cannot cure an unconscious worker.
             _posture = Posture.Down; _attemptExpiresAt = 0; _episode = episode; _revision = revision; _lastTime = shiftTime;
-            _impact = sequence; _lastSeverity = severity; _lastImpactDelay = recoveryDelay;
+            _sources[hazardId] = new ImpactReceipt(sequence, causeId, severity, recoveryDelay);
+            _impact = sequence; _lastHazard = hazardId; _lastCause = causeId;
             return WorkerResult.Applied;
         }
 

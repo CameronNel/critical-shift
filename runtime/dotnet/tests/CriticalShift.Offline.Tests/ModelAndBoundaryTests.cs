@@ -7,6 +7,8 @@ using CriticalShift.Application;
 using CriticalShift.Features.Interaction.Domain;
 using CriticalShift.Features.Session.Domain;
 using CriticalShift.Features.Workers.Domain;
+using CriticalShift.Features.Materials.Domain;
+using CriticalShift.Features.Production.Domain;
 using NUnit.Framework;
 
 namespace CriticalShift.Offline.Tests
@@ -121,15 +123,17 @@ namespace CriticalShift.Offline.Tests
             var session = typeof(SessionTimeline).Assembly;
             var workers = typeof(WorkerState).Assembly;
             var application = typeof(InteractionWorld).Assembly;
+            foreach (var asm in new[] { typeof(MaterialLedger).Assembly, typeof(MachineState).Assembly })
+                Assert.That(asm.GetReferencedAssemblies().Select(x => x.Name), Is.SubsetOf(new[] { "netstandard" }));
             Assert.That(domain.GetReferencedAssemblies().Select(x => x.Name), Is.SubsetOf(new[] { "netstandard" }));
             Assert.That(session.GetReferencedAssemblies().Select(x => x.Name), Is.SubsetOf(new[] { "netstandard" }));
             Assert.That(workers.GetReferencedAssemblies().Select(x => x.Name), Is.SubsetOf(new[] { "netstandard" }));
             Assert.That(application.GetReferencedAssemblies().Select(x => x.Name),
-                Is.SubsetOf(new[] { "netstandard", "CriticalShift.Features.Interaction.Domain", "CriticalShift.Features.Session.Domain", "CriticalShift.Features.Workers.Domain" }));
+                Is.SubsetOf(new[] { "netstandard", "CriticalShift.Features.Interaction.Domain", "CriticalShift.Features.Session.Domain", "CriticalShift.Features.Workers.Domain", "CriticalShift.Features.Materials.Domain", "CriticalShift.Features.Production.Domain" }));
         }
 
         private static bool ContainsDomain(Type type) =>
-            type.Assembly == typeof(ExclusiveClaimStore).Assembly || type.Assembly == typeof(SessionTimeline).Assembly || type.Assembly == typeof(WorkerState).Assembly ||
+            type.Assembly == typeof(ExclusiveClaimStore).Assembly || type.Assembly == typeof(SessionTimeline).Assembly || type.Assembly == typeof(WorkerState).Assembly || type.Assembly == typeof(MaterialLedger).Assembly || type.Assembly == typeof(MachineState).Assembly ||
             (type.HasElementType && ContainsDomain(type.GetElementType()!)) ||
             (type.IsGenericType && type.GetGenericArguments().Any(ContainsDomain));
 
@@ -153,7 +157,7 @@ namespace CriticalShift.Offline.Tests
         [Test, Category("ARCH-04")]
         public void RuntimeHasNoAuthoredMutableStaticFields()
         {
-            foreach (var assembly in new[] { typeof(InteractionWorld).Assembly, typeof(ExclusiveClaimStore).Assembly, typeof(SessionTimeline).Assembly, typeof(WorkerState).Assembly })
+            foreach (var assembly in new[] { typeof(InteractionWorld).Assembly, typeof(ExclusiveClaimStore).Assembly, typeof(SessionTimeline).Assembly, typeof(WorkerState).Assembly, typeof(MaterialLedger).Assembly, typeof(MachineState).Assembly })
                 foreach (var type in assembly.GetTypes())
                 {
                     if (type.IsDefined(typeof(CompilerGeneratedAttribute), false)) continue;

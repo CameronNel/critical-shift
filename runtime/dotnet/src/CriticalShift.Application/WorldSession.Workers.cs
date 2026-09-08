@@ -12,10 +12,10 @@ namespace CriticalShift.Application
 
         /// <summary>Trusted, ordered host observations; this is not an unauthenticated client damage API.</summary>
         public WorkerReply ApplyWorkerImpact(Guid epoch, Guid actorId, long observationSequence,
-            WorkerImpact severity, long recoveryDelayMilliseconds) =>
+            WorkerImpact severity, long recoveryDelayMilliseconds, Guid hazardId, Guid causeId) =>
             ExecuteWorker(epoch, actorId, SessionTraceKind.Impact, observationSequence, false,
                 () => _workers.Impact(_interaction, actorId, observationSequence, severity,
-                    recoveryDelayMilliseconds, _timeline.ElapsedMilliseconds));
+                    recoveryDelayMilliseconds, _timeline.ElapsedMilliseconds, hazardId, causeId), hazardId, causeId, severity);
 
         public WorkerReply StabilizeWorker(Guid epoch, Guid actorId, long expectedRevision, long delayMilliseconds) =>
             ExecuteWorker(epoch, actorId, SessionTraceKind.Aid, expectedRevision, false,
@@ -39,7 +39,7 @@ namespace CriticalShift.Application
                 () => _workers.Resolve(actorId, attempt, true));
 
         private WorkerReply ExecuteWorker(Guid epoch, Guid actor, SessionTraceKind kind, long input,
-            bool allowPaused, Func<WorkerReply> operation)
+            bool allowPaused, Func<WorkerReply> operation, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null)
         {
             RequireIdle();
             long? before = _workers.Get(actor)?.Revision;
@@ -68,7 +68,7 @@ namespace CriticalShift.Application
                 finally { _executing = false; }
             }
             _diagnostics.Append(View, epoch, kind, actor, reply.ReleasedClaim?.EntityId ?? Guid.Empty,
-                input, reply.Changed, worker: reply, previousWorkerRevision: before);
+                input, reply.Changed, worker: reply, previousWorkerRevision: before, hazardId: hazardId, causeId: causeId, severity: severity);
             return reply;
         }
     }

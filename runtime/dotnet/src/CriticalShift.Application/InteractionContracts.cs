@@ -2,14 +2,14 @@ using System;
 
 namespace CriticalShift.Application
 {
-    public enum InteractionKind { Grab, Release, Renew }
+    public enum InteractionKind { Grab, Release, Renew, Production }
     public enum AccessDecision { Allowed, OutOfReach, ActorUnavailable, TargetUnavailable }
     public enum InteractionStatus
     {
         Applied, NoChange, NotReady, WorldStopped, WorldFaulted, WrongEpoch,
         UnknownConnection, InvalidPayload, SequenceGap, TooOld, PayloadMismatch,
         OutOfReach, ActorUnavailable, TargetUnavailable, UnknownEntity, EntityRetired,
-        AlreadyClaimed, ActorAlreadyHolding, NotHolder, StaleLease, RevisionConflict
+        AlreadyClaimed, ActorAlreadyHolding, NotHolder, StaleLease, RevisionConflict, EntitySlotted, UnknownSlot, SlotOccupied, SlotEmpty, ProductionRejected
     }
 
     /// <summary>
@@ -25,14 +25,14 @@ namespace CriticalShift.Application
     public sealed class InteractionCommand
     {
         public InteractionCommand(Guid epoch, long sequence, InteractionKind kind, Guid entityId,
-            long expectedRevision = 0, long leaseGeneration = 0)
+            long expectedRevision = 0, long leaseGeneration = 0, ProductionRequest? production = null)
         {
             Epoch = epoch;
             Sequence = sequence;
             Kind = kind;
             EntityId = entityId;
             ExpectedRevision = expectedRevision;
-            LeaseGeneration = leaseGeneration;
+            LeaseGeneration = leaseGeneration; Production = production;
         }
 
         public Guid Epoch { get; }
@@ -41,22 +41,24 @@ namespace CriticalShift.Application
         public Guid EntityId { get; }
         public long ExpectedRevision { get; }
         public long LeaseGeneration { get; }
+        public ProductionRequest? Production { get; }
 
         internal bool IsWellFormed => Sequence > 0 && EntityId != Guid.Empty &&
-            (Kind == InteractionKind.Grab ? ExpectedRevision >= 0 && LeaseGeneration == 0 :
-            (Kind == InteractionKind.Release || Kind == InteractionKind.Renew) &&
-            ExpectedRevision == 0 && LeaseGeneration > 0);
+            (Kind == InteractionKind.Production ? Production != null && Production.IsWellFormed && ExpectedRevision == 0 && LeaseGeneration == 0 :
+             Production == null && (Kind == InteractionKind.Grab ? ExpectedRevision >= 0 && LeaseGeneration == 0 :
+             (Kind == InteractionKind.Release || Kind == InteractionKind.Renew) && ExpectedRevision == 0 && LeaseGeneration > 0));
 
         internal bool SamePayload(InteractionCommand other) => Epoch == other.Epoch &&
             Sequence == other.Sequence && Kind == other.Kind && EntityId == other.EntityId &&
-            ExpectedRevision == other.ExpectedRevision && LeaseGeneration == other.LeaseGeneration;
+            ExpectedRevision == other.ExpectedRevision && LeaseGeneration == other.LeaseGeneration &&
+            (Production == null ? other.Production == null : other.Production != null && Production.Same(other.Production));
     }
 
     /// <summary>Detached application projection; never exposes the live domain owner.</summary>
     public sealed class ObjectClaimView
     {
         internal ObjectClaimView(Guid epoch, Guid entityId, Guid? holderId, long revision,
-            long leaseGeneration, long expiresAtMilliseconds, bool retired)
+            long leaseGeneration, long expiresAtMilliseconds, bool retired, Guid? slotId = null)
         {
             Epoch = epoch;
             EntityId = entityId;
@@ -64,12 +66,13 @@ namespace CriticalShift.Application
             Revision = revision;
             LeaseGeneration = leaseGeneration;
             ExpiresAtMilliseconds = expiresAtMilliseconds;
-            IsRetired = retired;
+            IsRetired = retired; SlotId = slotId;
         }
 
         public Guid Epoch { get; }
         public Guid EntityId { get; }
         public Guid? HolderId { get; }
+        public Guid? SlotId { get; }
         public long Revision { get; }
         public long LeaseGeneration { get; }
         public long ExpiresAtMilliseconds { get; }
@@ -78,21 +81,22 @@ namespace CriticalShift.Application
 
     public sealed class InteractionReply
     {
-        internal InteractionReply(InteractionStatus status, bool terminal, ObjectClaimView? state = null, bool replay = false)
+        internal InteractionReply(InteractionStatus status, bool terminal, ObjectClaimView? state = null, bool replay = false, ProductionReply? production = null)
         {
             Status = status;
             IsTerminal = terminal;
             State = state;
-            IsReplay = replay;
+            IsReplay = replay; Production = production;
         }
 
         public InteractionStatus Status { get; }
         public bool IsTerminal { get; }
         public ObjectClaimView? State { get; }
         public bool IsReplay { get; }
+        public ProductionReply? Production { get; }
         public bool Accepted => Status == InteractionStatus.Applied || Status == InteractionStatus.NoChange;
         // Only this flag may trigger a new binding side effect. Replayed acceptance is historical.
         public bool HasNewCommit => Status == InteractionStatus.Applied && !IsReplay;
-        internal InteractionReply AsReplay() => new InteractionReply(Status, IsTerminal, State, true);
+        internal InteractionReply AsReplay() => new InteractionReply(Status, IsTerminal, State, true, Production);
     }
 }

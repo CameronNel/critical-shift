@@ -16,14 +16,18 @@ namespace CriticalShift.Application
         private readonly WorkerWorkflow _workers;
         private readonly SessionDiagnostics _diagnostics;
         private readonly long _recoveryCompletionWindowMilliseconds;
+        private readonly int _maxMachines, _maxProductionCycles;
         private bool _executing;
         private bool _restartIssued;
         private long _revision;
 
         public WorldSession(WorldSessionConfiguration configuration, IInteractionAccessPolicy access,
             IWorkerRecoveryPolicy? recovery = null, int traceCapacity = 128,
-            long recoveryCompletionWindowMilliseconds = 5000)
+            long recoveryCompletionWindowMilliseconds = 5000, int maxMachines = 16, int maxProductionCycles = 1024)
         {
+            if (maxMachines < 1 || maxMachines > 128 || maxProductionCycles < 1 || maxProductionCycles > 4096)
+                throw new ArgumentOutOfRangeException(nameof(maxMachines));
+            _maxMachines = maxMachines; _maxProductionCycles = maxProductionCycles;
             Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             if (access == null) throw new ArgumentNullException(nameof(access));
             if (recoveryCompletionWindowMilliseconds < 1 || recoveryCompletionWindowMilliseconds > 60000)
@@ -38,6 +42,20 @@ namespace CriticalShift.Application
             _interaction = new InteractionWorld(Epoch, new RunningAccess(_timeline, _workers, access),
                 configuration.MaxObjects, configuration.MaxConnections,
                 configuration.ReceiptCapacity, configuration.LeaseMilliseconds);
+            Production = new ProductionOperations(this, _interaction, configuration.MaxObjects, maxMachines, maxProductionCycles);
+            _interaction.BindProduction(Production);
+        }
+
+        public ProductionOperations Production { get; }
+
+        // Bounded setup transaction; public callers cannot submit arbitrary mutation delegates.
+        internal void RegisterProduction(Action registration)
+        {
+            RequireIdle();
+            if (_timeline.Phase != TimelinePhase.Setup) throw new InvalidOperationException("Production setup has closed.");
+            long next = NextRevision();
+            // Each registration prevalidates expected failures before registering its linked entity/slot.
+            registration(); _revision = next;
         }
 
         public Guid Epoch => _timeline.Epoch;
@@ -90,13 +108,24 @@ namespace CriticalShift.Application
             bool timeChanged = hostMilliseconds != _timeline.HostMilliseconds;
             try
             {
-                if (_timeline.AdvanceTo(hostMilliseconds))
+                bool ended = _timeline.AdvanceTo(hostMilliseconds);
+                // Required process outcomes are evaluated up to the exact deadline BEFORE terminal teardown.
+                // Advisory notifications retain their existing discard-on-end contract.
+                var productionChanges = Production.AdvanceTo(_timeline.ElapsedMilliseconds);
+                if (productionChanges.Count != 0)
+                {
+                    _revision = next;
+                    foreach (var change in productionChanges)
+                        _diagnostics.Append(View, Epoch, SessionTraceKind.Production, entity: change.Machine.Id, changed: true, production: change);
+                }
+                if (ended)
                 {
                     // End wins over advisory notifications in this batch, including overdue signals.
                     // A terminal snapshot requires complete adapter teardown, not just released-claim handling.
                     StopOwnedResources(); _revision = next;
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Ended, changed: true);
-                    return EmptyAdvance(true);
+                    return new WorldAdvanceResult(View, Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), true,
+                        productionChanges: productionChanges);
                 }
                 var released = _interaction.AdvanceTo(hostMilliseconds);
                 var workerChanges = _workers.ExpireRecovery(_timeline.ElapsedMilliseconds);
@@ -113,7 +142,7 @@ namespace CriticalShift.Application
                         previousWorkerRevision: change.Worker.Revision - 1);
                 if (timeChanged || released.Count != 0 || due.Count != 0)
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Advanced, changed: true);
-                return new WorldAdvanceResult(View, signals.AsReadOnly(), released, false, workerChanges);
+                return new WorldAdvanceResult(View, signals.AsReadOnly(), released, false, workerChanges, productionChanges);
             }
             catch { FailClosed(); throw; }
         }
@@ -262,6 +291,7 @@ namespace CriticalShift.Application
             RequireIdle(); long next = NextRevision();
             try
             {
+                if (Production.OwnsBatch(entityId)) return new InteractionReply(InteractionStatus.TargetUnavailable, false);
                 var reply = _interaction.RetireObject(epoch, entityId);
                 if (reply.HasNewCommit)
                 {
@@ -290,7 +320,7 @@ namespace CriticalShift.Application
             RequireIdle();
             if (_restartIssued) throw new InvalidOperationException("A successor was already created from this world.");
             var next = new WorldSession(Configuration, nextWorldAccess, nextRecovery, _diagnostics.Capacity,
-                _recoveryCompletionWindowMilliseconds);
+                _recoveryCompletionWindowMilliseconds, _maxMachines, _maxProductionCycles);
             Stop(); _restartIssued = true;
             return next;
         }
@@ -298,7 +328,7 @@ namespace CriticalShift.Application
         private WorldAdvanceResult EmptyAdvance(bool ended) => new WorldAdvanceResult(View,
             Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), ended);
         private long NextRevision() => checked(_revision + 1);
-        private void StopOwnedResources() { _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
+        private void StopOwnedResources() { Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
         private void FailClosed()
         {
             _timeline.Fault(); StopOwnedResources();
@@ -351,7 +381,7 @@ namespace CriticalShift.Application
                 // Rejections use the existing receipt stream; pause cannot create a sequence gap.
                 // Release and host-approved renewal remain possible while simulation is paused.
                 return !_workers.CanInteract(actorId) ||
-                    (kind == InteractionKind.Grab && _timeline.Phase != TimelinePhase.Running) ?
+                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production) && _timeline.Phase != TimelinePhase.Running) ?
                     AccessDecision.ActorUnavailable : _inner.Evaluate(actorId, entityId, kind);
             }
         }

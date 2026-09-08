@@ -5,7 +5,7 @@ import shutil
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
-from check_boundaries import validate as check, DOMAIN, SESSION, WORKERS, APPLICATION
+from check_boundaries import validate as check, DOMAIN, SESSION, WORKERS, APPLICATION, MATERIALS, PRODUCTION
 from verify_results import validate as results
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,6 +19,20 @@ class GuardTests(unittest.TestCase):
         shutil.copytree(ROOT / "src", self.root / "src", ignore=shutil.ignore_patterns("bin", "obj"))
         shutil.copytree(ROOT / "tools" / "CriticalShift.Scenarios", self.root / "tools" / "CriticalShift.Scenarios", ignore=shutil.ignore_patterns("bin", "obj"))
         shutil.copytree(ROOT / "tests", self.root / "tests", ignore=shutil.ignore_patterns("bin", "obj"))
+
+    def test_production_cannot_reference_materials_domain(self):
+        path = self.root / PRODUCTION; tree = ET.parse(path)
+        ET.SubElement(ET.SubElement(tree.getroot(), "ItemGroup"), "ProjectReference",
+                      Include="../CriticalShift.Features.Materials.Domain/CriticalShift.Features.Materials.Domain.csproj")
+        tree.write(path)
+        self.assertTrue(any("dependency" in x for x in check(self.root)))
+
+    def test_materials_cannot_reference_production_domain(self):
+        path = self.root / MATERIALS; tree = ET.parse(path)
+        ET.SubElement(ET.SubElement(tree.getroot(), "ItemGroup"), "ProjectReference",
+                      Include="../CriticalShift.Features.Production.Domain/CriticalShift.Features.Production.Domain.csproj")
+        tree.write(path)
+        self.assertTrue(any("dependency" in x for x in check(self.root)))
 
     def test_clean_graph(self):
         self.assertEqual(check(self.root), [])

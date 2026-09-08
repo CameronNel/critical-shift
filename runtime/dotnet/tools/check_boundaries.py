@@ -6,11 +6,14 @@ import xml.etree.ElementTree as ET
 DOMAIN = "src/CriticalShift.Features.Interaction.Domain/CriticalShift.Features.Interaction.Domain.csproj"
 SESSION = "src/CriticalShift.Features.Session.Domain/CriticalShift.Features.Session.Domain.csproj"
 WORKERS = "src/CriticalShift.Features.Workers.Domain/CriticalShift.Features.Workers.Domain.csproj"
+MATERIALS = "src/CriticalShift.Features.Materials.Domain/CriticalShift.Features.Materials.Domain.csproj"
+PRODUCTION = "src/CriticalShift.Features.Production.Domain/CriticalShift.Features.Production.Domain.csproj"
 RUNNER = "tools/CriticalShift.Scenarios/CriticalShift.Scenarios.csproj"
 APPLICATION = "src/CriticalShift.Application/CriticalShift.Application.csproj"
 TESTS = "tests/CriticalShift.Offline.Tests/CriticalShift.Offline.Tests.csproj"
-ALLOWED = {DOMAIN: set(), SESSION: set(), WORKERS: set(), APPLICATION: {DOMAIN, SESSION, WORKERS},
-           TESTS: {DOMAIN, SESSION, WORKERS, APPLICATION}, RUNNER: {APPLICATION}}
+ALLOWED = {DOMAIN: set(), SESSION: set(), WORKERS: set(), MATERIALS: set(), PRODUCTION: set(),
+           APPLICATION: {DOMAIN, SESSION, WORKERS, MATERIALS, PRODUCTION},
+           TESTS: {DOMAIN, SESSION, WORKERS, MATERIALS, PRODUCTION, APPLICATION}, RUNNER: {APPLICATION}}
 TEST_PACKAGES = {"Microsoft.NET.Test.Sdk": "17.11.1", "NUnit": "3.14.0", "NUnit3TestAdapter": "4.6.0"}
 
 

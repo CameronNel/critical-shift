@@ -1,0 +1,14 @@
+{
+  "name": "production-deadline",
+  "seed": 42,
+  "duration": 1000,
+  "traceCapacity": 64,
+  "production": {"machines": [{"id": 700, "recipe": 701, "input": "Ore", "output": "CrushedOre", "duration": 1000, "bypassDuration": 500, "jamAfter": 200, "capacity": 1000, "yield": 800}, {"id": 702, "recipe": 703, "input": "CrushedOre", "output": "Fuel", "duration": 1000, "bypassDuration": 500, "jamAfter": 200, "capacity": 1000, "yield": 750}], "batches": [{"container": 600, "id": 610, "origin": 620, "cause": 630, "kind": "Ore", "units": 100, "moisture": 0, "contamination": 35}]},
+  "steps": [
+    {"op": "grab", "entity": 600, "seq": 1, "revision": 0, "expect": "Applied"},
+    {"op": "production", "seq": 2, "action": "Insert", "machine": 700, "machineRevision": 0, "expect": "Applied", "container": 600, "objectRevision": 1, "lease": 1},
+    {"op": "production", "seq": 3, "action": "Start", "machine": 700, "machineRevision": 1, "expect": "Applied"},
+    {"op": "advance", "time": 10000, "expect": "Ended", "assert": {"outcome": "TimedOut", "completedCycles": 1, "pendingCycles": 0, "activeUnits": 80, "wasteUnits": 20, "workers": 0, "claims": 0}},
+    {"op": "advance", "time": 10000, "expect": "Ended", "assert": {"completedCycles": 1, "cancelledCycles": 0}}
+  ]
+}

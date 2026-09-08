@@ -4,7 +4,7 @@
   "duration": 20000,
   "pause": true,
   "steps": [
-    {"op": "impact", "actor": 1, "seq": 1, "severity": "Knockdown", "delay": 100, "expect": "Applied"},
+    {"op": "impact", "actor": 1, "seq": 1, "severity": "Knockdown", "delay": 100, "expect": "Applied", "hazard": 800, "cause": 900},
     {"op": "grab", "actor": 2, "seq": 1, "revision": 0, "expect": "Applied"},
     {"op": "advance", "time": 50, "expect": "Running"},
     {"op": "pause", "expect": "Applied"},

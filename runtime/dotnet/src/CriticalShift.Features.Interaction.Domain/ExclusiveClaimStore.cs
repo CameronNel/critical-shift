@@ -11,6 +11,7 @@ namespace CriticalShift.Features.Interaction.Domain
     {
         private readonly Dictionary<Guid, ClaimSnapshot> _objects = new Dictionary<Guid, ClaimSnapshot>();
         private readonly Dictionary<Guid, Guid> _heldByActor = new Dictionary<Guid, Guid>();
+        private readonly Dictionary<Guid, Guid?> _slots = new Dictionary<Guid, Guid?>();
         private readonly int _capacity;
         private readonly long _leaseMilliseconds;
         private bool _stopped;
@@ -31,7 +32,7 @@ namespace CriticalShift.Features.Interaction.Domain
         {
             RequireId(entityId, nameof(entityId));
             if (_stopped) throw new InvalidOperationException("The claim store has stopped.");
-            if (_objects.ContainsKey(entityId)) throw new InvalidOperationException("Entity IDs cannot be reused within a world.");
+            if (_objects.ContainsKey(entityId) || _slots.ContainsKey(entityId)) throw new InvalidOperationException("Entity IDs cannot be reused within a world.");
             if (_objects.Count >= _capacity) throw new InvalidOperationException("Entity capacity reached.");
             _objects.Add(entityId, new ClaimSnapshot(entityId, null, 0, 0, 0, false));
         }
@@ -47,6 +48,7 @@ namespace CriticalShift.Features.Interaction.Domain
             var error = Inspect(entityId, out var state);
             if (error != ClaimError.None) return new ClaimResult(error, state);
             if (state!.Revision != expectedRevision) return new ClaimResult(ClaimError.RevisionConflict, state);
+            if (state.SlotId.HasValue) return new ClaimResult(ClaimError.EntitySlotted, state);
             if (state.HolderId.HasValue) return new ClaimResult(ClaimError.AlreadyClaimed, state);
             if (_heldByActor.ContainsKey(actorId)) return new ClaimResult(ClaimError.ActorAlreadyHolding, state);
 
@@ -103,16 +105,49 @@ namespace CriticalShift.Features.Interaction.Domain
         public ClaimResult Retire(Guid entityId)
         {
             var error = Inspect(entityId, out var state);
+            if (error == ClaimError.None && state!.SlotId.HasValue) return new ClaimResult(ClaimError.EntitySlotted, state);
             return error == ClaimError.None
                 ? new ClaimResult(ClaimError.None, Free(state!, true), true)
                 : new ClaimResult(error, state);
+        }
+
+        public void RegisterSlot(Guid slotId)
+        {
+            RequireId(slotId, nameof(slotId));
+            if (_stopped || _slots.ContainsKey(slotId) || _objects.ContainsKey(slotId) || _slots.Count >= _capacity)
+                throw new InvalidOperationException("Invalid, duplicate or capacity-exhausted slot registration.");
+            _slots.Add(slotId, null);
+        }
+        public Guid? GetSlotOccupant(Guid slotId) => _slots.TryGetValue(slotId, out var occupant) ? occupant : null;
+
+        public ClaimResult TryInsert(Guid entity, Guid actor, long lease, long revision, Guid slot)
+        {
+            var error = InspectLease(entity, actor, lease, out var state);
+            if (error != ClaimError.None) return new ClaimResult(error, state);
+            if (state!.Revision != revision) return new ClaimResult(ClaimError.RevisionConflict, state);
+            if (!_slots.TryGetValue(slot, out var occupant)) return new ClaimResult(ClaimError.UnknownSlot, state);
+            if (occupant.HasValue) return new ClaimResult(ClaimError.SlotOccupied, state);
+            var next = new ClaimSnapshot(entity, null, checked(state.Revision + 1), state.LeaseGeneration, 0, false, slot);
+            _heldByActor.Remove(actor); _objects[entity] = next; _slots[slot] = entity;
+            return new ClaimResult(ClaimError.None, next, true);
+        }
+        public ClaimResult TryEject(Guid slot, long revision)
+        {
+            if (_stopped) return new ClaimResult(ClaimError.StoreStopped, null);
+            if (!_slots.TryGetValue(slot, out var occupant)) return new ClaimResult(ClaimError.UnknownSlot, null);
+            if (!occupant.HasValue) return new ClaimResult(ClaimError.SlotEmpty, null);
+            var current = _objects[occupant.Value];
+            if (current.Revision != revision) return new ClaimResult(ClaimError.RevisionConflict, current);
+            var next = new ClaimSnapshot(current.EntityId, null, checked(current.Revision + 1), current.LeaseGeneration, 0, false);
+            _objects[current.EntityId] = next; _slots[slot] = null;
+            return new ClaimResult(ClaimError.None, next, true);
         }
 
         public void Stop()
         {
             _stopped = true;
             _heldByActor.Clear();
-            _objects.Clear();
+            _objects.Clear(); _slots.Clear();
         }
 
         private ClaimSnapshot Free(ClaimSnapshot previous, bool retired)

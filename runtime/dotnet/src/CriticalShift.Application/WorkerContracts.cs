@@ -12,7 +12,7 @@ namespace CriticalShift.Application
         Applied, Duplicate, InvalidInput, SequenceGap, TooOld, PayloadMismatch,
         RevisionConflict, StaleRecovery, TooEarly, RequiresAid, InvalidState,
         ClearanceBlocked, ClearanceUnavailable, Cancelled, RecoveryExpired, UnknownWorker,
-        WrongEpoch, NotReady, Paused, WorldEnded, WorldStopped, WorldFaulted
+        WrongEpoch, NotReady, Paused, WorldEnded, WorldStopped, WorldFaulted, SourceCapacityReached
     }
 
     /// <summary>
@@ -28,8 +28,9 @@ namespace CriticalShift.Application
     {
         internal WorkerView(Guid epoch, Guid id, long revision, WorkerAwareness awareness,
             WorkerPose pose, WorkerSuit suit, int contamination, long impact, long episode,
-            long attempt, long recoveryNotBefore, long recoveryExpiresAt)
+            long attempt, long recoveryNotBefore, long recoveryExpiresAt, Guid hazardId, Guid causeId)
         {
+            LastHazardId = hazardId; LastCauseId = causeId;
             Epoch = epoch; Id = id; Revision = revision; Awareness = awareness;
             Pose = pose; Suit = suit; Contamination = contamination; LastImpactSequence = impact;
             RecoveryEpisode = episode; RecoveryAttempt = attempt; RecoveryNotBeforeMilliseconds = recoveryNotBefore; RecoveryExpiresAtMilliseconds = recoveryExpiresAt;
@@ -42,6 +43,8 @@ namespace CriticalShift.Application
         public WorkerSuit Suit { get; }
         public int Contamination { get; }
         public long LastImpactSequence { get; }
+        public Guid LastHazardId { get; }
+        public Guid LastCauseId { get; }
         public long RecoveryEpisode { get; }
         public long RecoveryAttempt { get; }
         public long RecoveryNotBeforeMilliseconds { get; }

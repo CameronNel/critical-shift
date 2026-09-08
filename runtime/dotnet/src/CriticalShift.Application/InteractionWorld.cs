@@ -16,6 +16,7 @@ namespace CriticalShift.Application
         private readonly int _maxConnections;
         private readonly int _maxConnectionIdentities;
         private readonly int _receiptCapacity;
+        private ProductionOperations? _production;
         private bool _started;
         private bool _stopped;
         private bool _faulted;
@@ -71,6 +72,14 @@ namespace CriticalShift.Application
                 throw new InvalidOperationException("Connection identity budget exhausted; create a fresh world.");
             _connections.Add(connectionId, new Connection(actorId, _receiptCapacity));
         }
+
+        internal void BindProduction(ProductionOperations production) { RequireSetup(); _production = production; }
+        internal void RegisterProductionSlot(Guid slot) { RequireSetup(); _claims.RegisterSlot(slot); }
+        internal Guid? SlotOccupant(Guid slot) => _claims.GetSlotOccupant(slot);
+        // Internal commit operations execute inside the already guarded/authorized command workflow.
+        internal InteractionReply InsertBatch(Guid entity, Guid actor, long lease, long revision, Guid slot) =>
+            Map(_claims.TryInsert(entity, actor, lease, revision, slot), true);
+        internal InteractionReply EjectBatch(Guid slot, long revision) => Map(_claims.TryEject(slot, revision), true);
 
         public void Start()
         {
@@ -185,6 +194,7 @@ namespace CriticalShift.Application
             }
             switch (command.Kind)
             {
+                case InteractionKind.Production: return _production?.Apply(actorId, command.EntityId, command.Production!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Grab: return Map(_claims.TryGrab(command.EntityId, actorId, command.ExpectedRevision), true);
                 case InteractionKind.Release: return Map(_claims.TryRelease(command.EntityId, actorId, command.LeaseGeneration), true);
                 case InteractionKind.Renew: return Map(_claims.TryRenew(command.EntityId, actorId, command.LeaseGeneration), true);
@@ -205,6 +215,10 @@ namespace CriticalShift.Application
                 case ClaimError.NotHolder: status = InteractionStatus.NotHolder; break;
                 case ClaimError.StaleLease: status = InteractionStatus.StaleLease; break;
                 case ClaimError.RevisionConflict: status = InteractionStatus.RevisionConflict; break;
+                case ClaimError.EntitySlotted: status = InteractionStatus.EntitySlotted; break;
+                case ClaimError.UnknownSlot: status = InteractionStatus.UnknownSlot; break;
+                case ClaimError.SlotOccupied: status = InteractionStatus.SlotOccupied; break;
+                case ClaimError.SlotEmpty: status = InteractionStatus.SlotEmpty; break;
                 case ClaimError.StoreStopped: status = InteractionStatus.WorldStopped; break;
                 default: throw new InvalidOperationException("Unmapped claim result.");
             }
@@ -213,7 +227,7 @@ namespace CriticalShift.Application
 
         private ObjectClaimView? Project(ClaimSnapshot? state) => state == null ? null :
             new ObjectClaimView(Epoch, state.EntityId, state.HolderId, state.Revision,
-                state.LeaseGeneration, state.ExpiresAtMilliseconds, state.IsRetired);
+                state.LeaseGeneration, state.ExpiresAtMilliseconds, state.IsRetired, state.SlotId);
 
         private InteractionReply? Readiness(Guid epoch)
         {

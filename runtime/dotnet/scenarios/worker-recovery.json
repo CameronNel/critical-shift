@@ -7,8 +7,8 @@
     {"op": "grab", "actor": 1, "seq": 1, "revision": 0, "expect": "Applied"},
     {"op": "grab", "actor": 2, "seq": 1, "revision": 1, "expect": "AlreadyClaimed"},
     {"op": "environment", "actor": 1, "revision": 0, "suit": "Intact", "contamination": 40, "expect": "Applied"},
-    {"op": "impact", "actor": 1, "seq": 1, "severity": "Incapacitating", "delay": 100, "assert": {"claims": 0, "connections": 4, "suit": "Intact", "contamination": 40, "awareness": "Unconscious", "pose": "Down"}, "expect": "Applied"},
-    {"op": "impact", "actor": 1, "seq": 1, "severity": "Incapacitating", "delay": 100, "assert": {"revision": 2, "episode": 1, "readyAt": 100}, "expect": "Duplicate"},
+    {"op": "impact", "actor": 1, "seq": 1, "severity": "Incapacitating", "delay": 100, "assert": {"claims": 0, "connections": 4, "suit": "Intact", "contamination": 40, "awareness": "Unconscious", "pose": "Down"}, "expect": "Applied", "hazard": 800, "cause": 900},
+    {"op": "impact", "actor": 1, "seq": 1, "severity": "Incapacitating", "delay": 100, "assert": {"revision": 2, "episode": 1, "readyAt": 100}, "expect": "Duplicate", "hazard": 800, "cause": 900},
     {"op": "grab", "actor": 1, "seq": 2, "expect": "ActorUnavailable"},
     {"op": "advance", "time": 1000, "assert": {"awareness": "Unconscious", "elapsed": 1000}, "expect": "Running"},
     {"op": "beginRecovery", "actor": 1, "episode": 1, "revision": 2, "expect": "RequiresAid"},
@@ -26,7 +26,7 @@
     {"op": "grab", "actor": 1, "seq": 3, "revision": 2, "assert": {"claims": 1}, "expect": "Applied"},
     {"op": "disconnect", "actor": 2, "assert": {"workers": 3, "connections": 3}, "expect": "Disconnected"},
     {"op": "restart", "assert": {"elapsed": 0, "workers": 4, "claims": 0, "pose": "Upright", "suit": "None"}, "expect": "Running"},
-    {"op": "impact", "epoch": "previous", "actor": 1, "seq": 1, "severity": "Incapacitating", "delay": 0, "expect": "WrongEpoch"},
+    {"op": "impact", "epoch": "previous", "actor": 1, "seq": 1, "severity": "Incapacitating", "delay": 0, "expect": "WrongEpoch", "hazard": 800, "cause": 900},
     {"op": "release", "epoch": "previous", "actor": 1, "seq": 4, "lease": 1, "expect": "WrongEpoch"},
     {"op": "assert", "assert": {"revision": 0, "claims": 0, "workers": 4}, "expect": "Checked"}
   ]

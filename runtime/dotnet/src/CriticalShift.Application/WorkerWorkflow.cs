@@ -42,13 +42,13 @@ namespace CriticalShift.Application
         }
 
         internal WorkerReply Impact(InteractionWorld interaction, Guid actor, long sequence,
-            WorkerImpact severity, long delay, long now)
+            WorkerImpact severity, long delay, long now, Guid hazardId, Guid causeId)
         {
             if (!_workers.TryGetValue(actor, out var worker)) return new WorkerReply(WorkerStatus.UnknownWorker);
             if (severity != WorkerImpact.Knockdown && severity != WorkerImpact.Incapacitating)
                 return new WorkerReply(WorkerStatus.InvalidInput, worker: Get(actor));
             var result = worker.Impact(sequence, severity == WorkerImpact.Knockdown ?
-                ImpactSeverity.Knockdown : ImpactSeverity.Incapacitating, delay, now);
+                ImpactSeverity.Knockdown : ImpactSeverity.Incapacitating, delay, now, hazardId, causeId);
             // No external callbacks occur between these logical owner updates. Unexpected integrity
             // failure propagates to WorldSession, which faults and clears the whole affected world.
             var released = result == WorkerResult.Applied ? interaction.ReleaseActorClaims(actor) : null;
@@ -98,6 +98,7 @@ namespace CriticalShift.Application
                 WorkerResult.TooEarly => WorkerStatus.TooEarly, WorkerResult.RequiresAid => WorkerStatus.RequiresAid,
                 WorkerResult.InvalidState => WorkerStatus.InvalidState, WorkerResult.ClearanceBlocked => WorkerStatus.ClearanceBlocked,
                 WorkerResult.RecoveryExpired => WorkerStatus.RecoveryExpired,
+                WorkerResult.SourceCapacityReached => WorkerStatus.SourceCapacityReached,
                 _ => throw new InvalidOperationException("Unmapped worker outcome.")
             };
             return new WorkerReply(status, result == WorkerResult.Applied || result == WorkerResult.ClearanceBlocked || result == WorkerResult.RecoveryExpired,
@@ -106,6 +107,6 @@ namespace CriticalShift.Application
 
         private WorkerView Project(WorkerSnapshot s) => new WorkerView(_epoch, s.Id, s.Revision,
             (WorkerAwareness)(int)s.Consciousness, (WorkerPose)(int)s.Posture, (WorkerSuit)(int)s.Suit,
-            s.Contamination, s.LastImpactSequence, s.RecoveryEpisode, s.RecoveryAttempt, s.RecoveryNotBefore, s.RecoveryExpiresAt);
+            s.Contamination, s.LastImpactSequence, s.RecoveryEpisode, s.RecoveryAttempt, s.RecoveryNotBefore, s.RecoveryExpiresAt, s.LastHazardId, s.LastCauseId);
     }
 }

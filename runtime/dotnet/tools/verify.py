@@ -10,6 +10,7 @@ import sys
 import xml.etree.ElementTree as ET
 from check_boundaries import validate, TESTS, RUNNER
 from verify_results import validate as validate_results
+from check_report_safety import verify as verify_report_safety
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts"
@@ -94,6 +95,8 @@ def main() -> None:
         "empty-scenario.log", expect_failure=True)
     if empty_report.exists() and json.loads(empty_report.read_text()).get("Status") == "Passed":
         raise RuntimeError("An empty scenario cannot pass.")
+    safety = verify_report_safety(Path(executable), ROOT / "scenarios/worker-recovery.json", ENV)
+    (ARTIFACTS / "report-safety.json").write_text(json.dumps(safety, indent=2) + "\n")
     try:
         commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     except (FileNotFoundError, subprocess.CalledProcessError):
@@ -108,9 +111,10 @@ def main() -> None:
                "configuration": "Release", "library_target": "netstandard2.1", "language": "C# 8.0",
                "tests": counts,
                "model_suites": {"ownership": {"sequences": 100, "actions": 20000},
-                                "timers": {"sequences": 100, "actions": 20000}},
+                                "timers": {"sequences": 100, "actions": 20000},
+                                "machines": {"sequences": 100, "actions": 20000}},
                "negative_control": "Expected failing NUnit test rejected by process and result checks",
-               "scenarios": scenario_results, "scenario_negative_controls": "Assertion mismatch and empty script rejected",
+               "scenarios": scenario_results, "report_safety": safety, "scenario_negative_controls": "Assertion mismatch and empty script rejected",
                "unity": "NotRun", "physics": "NotRun", "multiplayer_transport": "NotRun",
                "source_sha256": source_hashes}
     (ARTIFACTS / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")

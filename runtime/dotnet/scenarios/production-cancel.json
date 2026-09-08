@@ -1,0 +1,20 @@
+{
+  "name": "production-cancel",
+  "seed": 42,
+  "duration": 20000,
+  "traceCapacity": 64,
+  "production": {"machines": [{"id": 700, "recipe": 701, "input": "Ore", "output": "CrushedOre", "duration": 1000, "bypassDuration": 500, "jamAfter": 200, "capacity": 1000, "yield": 800}, {"id": 702, "recipe": 703, "input": "CrushedOre", "output": "Fuel", "duration": 1000, "bypassDuration": 500, "jamAfter": 200, "capacity": 1000, "yield": 750}], "batches": [{"container": 600, "id": 610, "origin": 620, "cause": 630, "kind": "Ore", "units": 100, "moisture": 0, "contamination": 35}]},
+  "steps": [
+    {"op": "grab", "entity": 600, "seq": 1, "revision": 0, "expect": "Applied"},
+    {"op": "production", "seq": 2, "action": "Insert", "machine": 700, "machineRevision": 0, "expect": "Applied", "container": 600, "objectRevision": 1, "lease": 1},
+    {"op": "production", "seq": 3, "action": "Start", "machine": 700, "machineRevision": 1, "expect": "Applied"},
+    {"op": "advance", "time": 300, "expect": "Running", "assert": {"machineWork": 300}},
+    {"op": "production", "seq": 4, "action": "CancelCycle", "machine": 700, "machineRevision": 3, "expect": "PowerMustBeOff"},
+    {"op": "production", "seq": 5, "action": "SetPower", "machine": 700, "machineRevision": 3, "expect": "Applied", "powered": false},
+    {"op": "production", "seq": 6, "action": "CancelCycle", "machine": 700, "machineRevision": 4, "expect": "Applied", "assert": {"cancelledCycles": 1, "pendingCycles": 0, "activeUnits": 100, "wasteUnits": 0}},
+    {"op": "advance", "time": 4000, "expect": "Running", "assert": {"completedCycles": 0, "batchKind": "Ore", "batchUnits": 100}},
+    {"op": "production", "seq": 7, "action": "Eject", "machine": 700, "machineRevision": 5, "expect": "Applied", "objectRevision": 2},
+    {"op": "grab", "entity": 600, "seq": 8, "revision": 3, "expect": "Applied"},
+    {"op": "restart", "expect": "Running", "assert": {"cancelledCycles": 0, "claims": 0, "activeUnits": 100}}
+  ]
+}
