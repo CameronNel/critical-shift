@@ -1,0 +1,48 @@
+name: Offline interaction contracts
+on:
+  push:
+    branches: [feat/offline-interaction-20260908]
+    paths: ['runtime/dotnet/**', '.github/workflows/offline-interaction.yml']
+  pull_request:
+    paths: ['runtime/dotnet/**', '.github/workflows/offline-interaction.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: offline-interaction-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  contracts:
+    name: Offline C# (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            runtime/dotnet
+            design/code-architecture
+            .github/workflows
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile, run contracts and prove failures are detected
+        working-directory: runtime/dotnet
+        run: python tools/verify.py
+      - name: Preserve actual results and environment
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: offline-interaction-${{ matrix.os }}
+          path: runtime/dotnet/artifacts/
+          if-no-files-found: error
+          retention-days: 30
