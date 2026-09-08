@@ -5,7 +5,7 @@
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
 
 > [!IMPORTANT]
-> **Runtime-code architecture:** before creating or materially changing Unity/C# code, read [design/code-architecture/README.md](design/code-architecture/README.md) and its linked architecture, code-health and agent-checklist documents. These rules are mandatory planning for preventing dependency spaghetti, duplicate state and dead code. See also [AGENTS.md](AGENTS.md).
+> **Engineering start here:** [Runtime Architecture and Code Health](design/code-architecture/README.md) is the canonical planning section for Unity/C# work. It contains the dependency allowlist, state ownership and failure contracts, safe-deletion policy, test acceptance cases, staged delivery and open decisions. Read [AGENTS.md](AGENTS.md) before changes. **These are planning documents, not evidence that runtime safeguards or CI are already implemented.**
 
 Critical Shift is currently a planning-first game repository.
 
@@ -22,7 +22,7 @@ Global rules that apply to the entire game:
 - ENGINE_DECISION.md — engine decision record and reopening conditions
 - ROADMAP.md — stage-gated production plan
 - AUTONOMOUS_SECTION_BUILD_PROTOCOL.md — mandatory headless-first, MCP-assisted Blender build/review protocol
-- code-architecture/ — mandatory runtime architecture, code-health, dead-code prevention and implementation-agent planning
+- [code-architecture/](design/code-architecture/README.md) — runtime architecture, state contracts, code health, validation, delivery and decision planning
 
 ### sections/
 Each physical game area is kept as a self-contained package.

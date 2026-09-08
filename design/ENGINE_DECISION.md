@@ -11,6 +11,9 @@
 **Recorded:** 2026-08-23
 **Confidence:** 72%
 
+> [!IMPORTANT]
+> **Current-state clarification, 8 September 2026:** the Unity implementation was removed on 4 September 2026. The supporting prototype evidence and tooling descriptions below are historical; they do not establish that the current repository contains a runnable Unity project, installed MCP package or working runtime test/build pipeline. The recorded engine selection is unchanged. Reproduce the required capabilities at Gate 0 before claiming present readiness. See [runtime planning status and decisions](code-architecture/DECISIONS_AND_RISKS.md).
+
 ## Decision
 
 Use Unity, C#, the Built-in Render Pipeline, and Unity's 3D physics for the
@@ -59,11 +62,11 @@ Godot alternative.
 ## Runtime implementation architecture
 
 > [!IMPORTANT]
-> Before creating or materially changing Unity/C# runtime implementation, read the mandatory planning under [`design/code-architecture/`](code-architecture/README.md), including its architecture plan, code-health/dead-code policy and agent checklist.
+> Start at [Runtime Architecture and Code Health](code-architecture/README.md) before Unity/C# work. Read its explicit dependency allowlist, state and failure contracts, reference-aware deletion policy, validation cases, staged delivery, decisions and agent checklist. Root [AGENTS.md](../AGENTS.md) supplies the branch/review entry rules.
 
-The runtime implementation is planned around explicit assembly/dependency boundaries, feature ownership, plain-C# game rules where practical, thin Unity adapters, automated architecture/testing gates and immediate removal of superseded code. The objective is to prevent global-state sprawl, duplicate authoritative systems and dead-code accumulation from becoming normal project state.
+This section is planning, not installed enforcement. The runtime proposal separates pure rules, host-owned commands/state, Unity simulation, presentation and infrastructure; it requires actual test/build evidence and safe removal of replaced paths. Historical runtime evidence above is not a substitute for the revised gates.
 
-This planning does not select the networking, Steam, voice, input or final UI frameworks. Those decisions remain separate gates and should not be silently baked into gameplay-domain code.
+The plan does not silently choose networking, Steam, voice, input/UI or persistence packages, change the renderer, or authorize immediate implementation of future features. Open choices and numerical acceptance fixtures must be resolved at their stated gates.
 
 ## Required Spike
 

@@ -1,55 +1,56 @@
-# Runtime-Code Agent Checklist
+# Runtime and Architecture Agent Checklist
 
-**Mandatory for agents creating, changing or refactoring Critical Shift Unity/C# runtime code.**
+**Revision 2.0 | Planning only | Entry and handoff requirements**
 
-Read [README.md](README.md), [ARCHITECTURE_PLAN.md](ARCHITECTURE_PLAN.md) and [CODE_HEALTH_PLAN.md](CODE_HEALTH_PLAN.md) before implementation work.
+Start at [README.md](README.md). A first implementation agent reads all linked plans once. A returning agent rereads this checklist, the affected A/S/H contracts and validation cases, the current decision/gate record and the relevant section handoff. Do not rely on previous-chat memory as the source of repository state.
 
-## Before changing code
+## Before work
 
-- Identify the feature/module that owns the responsibility.
-- Identify the single authoritative owner of any state being changed.
-- Search for an existing implementation before creating a new one.
-- Confirm the intended assembly/dependency direction.
-- Keep unselected packages/frameworks behind neutral contracts.
-- Decide which behavior can remain plain C# and which genuinely needs Unity.
+- Confirm the requested scope. Planning-only means documentation only: no Unity skeleton, runtime/test code, packages, workflows, scenes/assets or repository-setting changes.
+- Read current repository/branch state and search for the existing implementation, contracts and consumers before proposing another system. Note the inspected base commit.
+- Use one bounded task branch and one primary author. Do not directly edit main or merge your own work; GAME_SPEC 32.6 governs review.
+- Identify the responsibility, sole mutation owner, lifetime, explicit dependencies and relevant rule/test IDs. Distinguish host state, Unity physics state, client projections and authoring data.
+- Resolve only decisions needed by this task. Do not silently select a networking, UI/input, persistence, Steam or voice package. A candidate evaluation needs explicit scope before installation.
+- Establish acceptance, expected changed paths and deletion/serialization implications. Unavailable runner/hardware/reviewer is a declared blocker for that acceptance, not a reason to invent success.
 
-## While changing code
+## Task record
 
-- Do not introduce a global catch-all manager.
-- Do not use scene-wide lookup/service-location as architecture.
-- Do not introduce mutable global static state without a documented exceptional reason.
-- Do not duplicate authoritative gameplay state in UI/networking/Unity adapters.
-- Keep feature internals private to the feature where practical.
-- Keep Unity adapters thin when the rule itself does not depend on Unity.
-- Add tests at the lowest appropriate layer.
-- Avoid generic `Utils`, `Helpers`, `Misc` or similar dumping grounds.
-- Do not add speculative abstractions/packages for hypothetical future needs.
+Use a short issue, PR body or feature task note; do not create three copies. These fields must be answerable:
 
-## Before considering the change complete
+| Field | Required content |
+| --- | --- |
+| Purpose and non-goals | One bounded user-visible or technical responsibility |
+| Baseline and scope | Base SHA, branch, intended files and planning/implementation classification |
+| Ownership | Feature/aggregate writer, lifetime, command/query boundary |
+| Dependencies | Allowed graph edges added/changed; SDK/configuration decisions |
+| Contracts and evidence | A/S/H rule IDs and V test IDs; fixtures; observable acceptance |
+| Migration/removal | Replaced path, reference roots, identity/schema changes, deletion ledger or explicit none |
+| Risks/decisions | Relevant D/R IDs; needed approvals; unsupported assumptions |
+| Review | Primary author; independent reviewer when assigned; no fabricated approvals |
 
-- Compile cleanly.
-- Run relevant analysis and architecture checks.
-- Run relevant unit/EditMode/integration/PlayMode tests.
-- Search for the implementation being replaced.
-- Delete superseded code and safe-to-remove obsolete assets/configuration.
-- Remove stale TODOs, flags, imports, fields and documentation created obsolete by the change.
-- Confirm there is still one obvious active implementation.
-- Confirm no forbidden dependency or circular reference was introduced.
-- Update architecture/engine decision documentation if the technical architecture changed.
+## During implementation, when separately authorized
 
-## Stop conditions
+Keep domain operations separate from engine/transport/presentation. Do not return live mutable owners to UI or network code. Bind dependencies explicitly; avoid global service hunting. Keep commands, leases, epochs, transactions and lifecycle cleanup aligned with the state contracts. Limit abstractions to present consumers. Migrate and remove replaced paths rather than retaining two active authorities.
 
-Do not silently proceed if the change requires:
+Preserve serialized and logical identities intentionally. Review dynamic consumers before deletion. Do not delete authoring sources, licensed originals or validation history because they are absent from a Player dependency graph. Fix generated source and regenerate rather than hand-patching only the output.
 
-- selecting a networking framework;
-- selecting Steam/voice/input/UI infrastructure not yet decided;
-- violating an assembly boundary;
-- creating a second authoritative state model;
-- retaining old and new implementations indefinitely;
-- introducing a major new global service/framework.
+Unexpected authority, integrity or lifecycle failure is visible and blocks the affected gate. Do not catch and ignore it, retry a resource mutation under a fresh identity, broadly suppress diagnostics or weaken a test to obtain a pass.
 
-Instead, record the technical decision or migration plan first.
+## Before handoff
 
-## Final self-review question
+- Inspect the complete diff against the declared base. Remove unrelated changes and ensure the actual touched paths match the authorized scope.
+- Verify dependency/owner changes, input-validation and duplicate/stale-command paths; inspect teardown and cancellation as well as startup.
+- Execute the relevant checks on the latest revision when tooling exists. Report exact discovered/executed/failed/skipped counts and artifacts. Zero tests or absent results cannot pass.
+- Finish the deletion/migration ledger and validate after removal. Explain intentional old names, compatibility fixtures and unresolved candidates.
+- Update the affected owner map, decision and test mapping together. Keep the root entry links valid; do not add a competing hidden guide.
+- Submit a reviewable PR with evidence and limitations. Do not claim independent review, successful Unity execution, measured FPS or enforced branch protection unless verified.
 
-A fresh agent opening the repository six months later should be able to answer **which code owns this feature, where its state lives, what it depends on, and which implementation is current** without archaeology.
+## Required final handoff format
+
+State: **changed; deliberately not changed; validated; not run/blocked; decisions still open; review/merge status**. Include the commit/PR reference and only real evidence. Planned test names belong under Planned, not Passed. An author's self-review is useful but does not satisfy independent approval.
+
+For this planning revision, documentation consistency/scope checks are applicable. Runtime, compiler, PlayMode, multiplayer, physics, performance and save tests remain unimplemented/unrun by this revision. Do not create them merely to make the handoff sound more complete.
+
+## Stop and escalate the affected scope when
+
+An action would bypass host authority; create a second writer; cross an unapproved dependency; silently install a framework; risk irreversible serialized/save loss; require unsupported joins/migration; retain a replacement indefinitely; or claim readiness without the necessary evidence. Record the exact conflict and the smallest decision or test needed. Continue only unrelated already-authorized work, not a larger speculative rewrite.
