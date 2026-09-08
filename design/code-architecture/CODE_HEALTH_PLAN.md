@@ -1,262 +1,102 @@
-# Code Health, Dead-Code and Review Plan
+# Code Health and Safe Removal Plan
 
-**Status:** Planning only.
+**Revision 2.0 | Planning proposal | Safeguards not installed by this document**  
+Read with [architecture](ARCHITECTURE_PLAN.md), [validation](VALIDATION_PLAN.md) and [delivery](DELIVERY_PLAN.md). ADR-CA-003 defines the removal policy.
 
-This document defines how the future Critical Shift implementation should prevent dead code, duplicate systems and architectural decay from accumulating.
+## H01. Definition of done includes removal
 
-## 1. Definition of done includes deletion
+An implementation change is complete only when the intended path works, its ownership remains clear, obsolete consumers have migrated, and superseded active paths are removed or covered by an approved bounded migration. A successful compile alone does not establish any of those conditions.
 
-A feature or refactor is not complete merely because the new path works.
+No commented-out alternative implementations, unowned feature flags or indistinguishable Old/New/Final variants belong in active production source. Git history is the fallback for removed work. A deliberately supported legacy save reader is different: it has a named compatibility requirement, fixture, owner and retirement condition. Do not delete necessary compatibility code because its name contains Legacy.
 
-If a change replaces an existing implementation, the same change should normally:
+Do not generate unused interfaces, empty feature shells or managers for hypothetical future consumers. Tests and authoring tools are intentional consumers; a type need not appear in gameplay to be legitimate. A public method with no first-party caller is a candidate for review, not automatic proof of dead code.
 
-1. migrate callers/tests/data;
-2. remove the superseded implementation;
-3. remove now-unused interfaces/adapters/configuration;
-4. remove obsolete assets/prefabs/scenes when safe;
-5. update documentation;
-6. search the repository for stale references and old names.
+## H02. Four kinds of dependency must be reviewed
 
-Do not keep old code "just in case" in the active tree. Git history already exists for that purpose.
+| Dependency kind | Examples | Required check |
+| --- | --- | --- |
+| Compile-time | Assemblies, namespaces, plugins, generated source | Resolved assembly graph and analyzer report, including platform symbols |
+| Serialized/authored | Prefab script GUIDs, field values, UnityEvents, animation callbacks, ScriptableObjects | Unity-aware inspection of declared content roots and migration fixtures |
+| Dynamic/runtime | Explicit spawn catalogue, resource paths, reflection, registration, bundle/addressable entries if adopted | Catalogue/registration audit and runtime exercise of those paths |
+| Behavioural | Events, timers, ownership transfers, lifecycle callbacks | Contract and lifecycle tests plus reviewer tracing |
 
-## 2. Prohibited repository habits
+No single text search covers all four. Unity's dependency API describes asset references, not a proof of runtime reachability; stripping also requires special care around reflective use. See U4 and U6 in [technical sources](DECISIONS_AND_RISKS.md). Static analysis is useful evidence, not a complete dead-code oracle.
 
-The implementation should reject these patterns unless a documented, time-bounded exception exists:
+## H03. Reference-aware deletion protocol
 
-- commented-out legacy implementations;
-- `Old`, `New`, `New2`, `Final`, `Final2`, `UseThisOne` parallel implementations;
-- orphaned scripts no longer referenced by code, scenes or prefabs;
-- duplicate authoritative state models;
-- unused serialized fields kept to avoid thinking about migration;
-- TODO/FIXME comments without a tracked reason/owner or explicit local explanation;
-- broad warning suppression without justification;
-- empty abstractions created only for anticipated future use;
-- generic `Utils`, `Helpers` or `Misc` dumping grounds;
-- hidden static mutable state;
-- permanent feature flags for abandoned paths;
-- copied logic where one authoritative rule should exist.
+For each significant replacement, the PR contains a compact deletion ledger. Required fields: candidate path/type or asset GUID; old responsibility; replacement or reason no replacement is needed; last known consumers; inspected roots/dynamic registrations; migration performed; validation IDs/results; reviewer decision. Several files in one coherent replacement may share a row.
 
-## 3. Planned automated gate
+The removal sequence is:
 
-Once the Unity project exists, every merge to the implementation branch/main should aim to pass this sequence:
+1. Establish current behaviour with a focused regression test or preserved supported-format fixture.
+2. Identify the complete affected set: callers, serialized fields, prefab variants, scenes, events, generated registrations, runtime catalogues, tests, importer inputs and docs.
+3. Migrate consumers to the one intended replacement. Preserve stable identities or provide a reviewed mapping.
+4. Reimport/open affected assets and exercise dynamic paths. A successful IDE rename is not a serialized-content migration.
+5. Delete the superseded source and its genuinely unused adapters/configuration/flags. Remove a deleted asset's metadata too; preserve metadata when moving the same asset.
+6. Re-run graph, reference, compilation, test and representative Player checks after deletion, not only before it.
+7. Search old names/IDs again; explain every intentional match such as compatibility fixtures or history documentation.
+8. Record remaining candidates and their classification. No unexplained candidate becomes silently accepted legacy debt.
 
-```text
-Restore/package validation
-        ↓
-C# compilation
-        ↓
-Formatting/style validation
-        ↓
-Static analysis / Roslyn analyzers
-        ↓
-Architecture tests
-        ↓
-EditMode/unit tests
-        ↓
-Integration tests
-        ↓
-Relevant PlayMode tests
-        ↓
-Build validation
-```
+A scan produces **candidates**. Each is classified Active, Dynamic/Serialized, Test/Editor, Authoring/Evidence, SupportedCompatibility, Generated/Vendor, ProvenObsolete, or Unknown. Only ProvenObsolete is eligible for deletion. Unknown blocks deletion and requires an owner, investigation task and expiry; it does not justify deleting the file or claiming that the codebase is clean.
 
-For multiplayer work, the later gate should extend to deterministic local multi-client smoke tests and runtime error capture as required by `design/ENGINE_DECISION.md`.
+If old and new implementations must coexist during a staged migration, declare the active production path, explicit routing, owner, supported fixtures, remaining steps and removal deadline. Default expiry is the earlier of 14 calendar days and the next affected production gate. Independent review is required to extend it. Do not leave both paths simultaneously authoritative.
 
-## 4. Warning policy
+## H04. Unity serialization and identity
 
-The target is a near-zero warning baseline.
+Preserve `.meta` files/GUIDs when relocating existing assets. A deleted/recreated metadata file changes identity and may break references. Field renames, type/namespace/assembly moves, prefab variants, UnityEvent method bindings and managed-reference types are different migration problems. Do not assume one rename attribute repairs all of them. Unity documents FormerlySerializedAs for field-value migration; verify the appropriate supported mechanism for other changes in the pinned editor. Sources U5 and U7 cover these distinctions.
 
-New warnings must not be treated as harmless background noise. A warning may be suppressed only when:
+A serialization-affecting PR must state the old/new identity or schema, inventory of affected content, migration mechanism, validation fixtures and rollback path. Commit the source and metadata together. Do not hand-edit large scene/prefab YAML as the default migration strategy; use validated editor tooling once available and inspect the resulting serialized diff.
 
-- the warning is understood;
-- the code is intentionally correct;
-- the suppression is as narrow as possible;
-- the reason is documented beside the suppression or in the relevant project configuration.
+After migration: open/reimport affected scenes and prefab variants; verify required component and object references; invoke affected authored callbacks; test a clean import; and run a representative Player build using the selected scripting backend/stripping settings. Migration attributes and explicit preservation annotations remain until their documented consumers/compatibility obligations are gone. No blanket preservation of entire assemblies merely to hide incomplete reachability analysis.
 
-A repository with hundreds of ignored warnings loses the ability to use warnings as signal.
+## H05. Runtime assets and authoring assets are separate scopes
 
-## 5. Static analysis plan
+The future runtime content-root inventory includes enabled build scenes, registered spawn prefabs, startup/configuration assets, deliberately loaded resource paths, any adopted bundle/addressable catalogues, and reflection/registration preservation rules. Editor/test fixture roots are tracked separately from shipped roots. Root declarations must name real consumers rather than mark the entire asset tree permanently live.
 
-Select analyzers during Unity-project setup that can reliably run in the chosen Unity/C# environment. The exact package set is intentionally not selected in this planning pass.
+The asset inventory should detect missing script references, missing GUIDs, duplicate logical IDs, orphaned metadata, obsolete prefabs and unexpected included content. It must not delete source art, raw licensed material originals, deterministic generators, importer inputs or review evidence under `sections/` because a game build omits them. These already have authoring and provenance consumers. A runtime cleanup must not alter visual-production acceptance history.
 
-The analyzer configuration should target at least:
+Generated output is labelled with source, generation command/version and expected destination. Fix the source/generator, regenerate and validate; do not maintain an unrepeatable hand-patched output as the active implementation. Vendor/package code is excluded from first-party style cleanup but included in dependency, license, compatibility and security review.
 
-- unused private members where detectable;
-- unreachable code;
-- suspicious null handling;
-- accidental allocations/per-frame patterns where tooling supports it;
-- inconsistent naming and visibility;
-- redundant code;
-- misuse of async/task patterns if introduced;
-- unsafe exception swallowing;
-- overly broad suppressions;
-- common correctness bugs.
+## H06. Diagnostics and complexity budgets
 
-Analyzer severity should be introduced deliberately so the team/agents do not simply disable a useful rule because a first pass produces noise.
+Hard acceptance conditions after the relevant tooling gate: zero unapproved new first-party compiler/analyzer diagnostics; zero forbidden dependency edges; zero missing required serialized references; zero unexplained duplicate authoritative writers; zero expired exceptions in affected scope; and no known superseded active path left without a migration record. These are scoped findings backed by evidence, not a claim that every possible dead path has been mathematically discovered.
 
-## 6. Test layers
+Track third-party diagnostics separately with package/version, diagnostic ID, baseline count, reason and owner. Do not make all vendor warnings fatal by default, or suppress all warnings to obtain a green build. Narrow suppressions require an inline or linked reason. The analyzer set and severity configuration must be proven compatible with the pinned Unity toolchain before it becomes required.
 
-### Unit/domain tests
+The following are **initial review triggers**, not automatic quality scores:
 
-Fast tests for pure C# rules.
+| Trigger | Review action |
+| --- | --- |
+| Authored type exceeds roughly 400 logical lines, method exceeds 60, or measured cyclomatic complexity exceeds 15 | Inspect cohesion and branching; split by responsibility only if it improves comprehension. Exclude generated/data-heavy files with a stated reason. |
+| A feature adapter gains a peer-feature dependency or an Application workflow touches unrelated use cases | Check the allowlist and ownership before accepting it; prohibited edges are hard failures, not waived by size. |
+| New interface, event channel, global lifetime or third-party package | Identify the present consumer/problem and its removal cost. |
+| Material growth in warnings, suppressions, allocations, load time or dependency fan-out | Explain the delta against the same fixture/baseline; an unexplained regression blocks the affected gate. |
+| A PR exceeds roughly 500 authored source lines or crosses several unrelated features | Split by testable responsibility, or explain why an atomic migration is safer. Documentation, generated artifacts and deletion volume are not measured as ordinary source complexity. |
 
-Examples:
+Do not optimize for small files, high coverage or low class counts at the expense of readable responsibility. A hundred trivial interfaces are not healthier than a small cohesive implementation. Coverage shows executed paths, not assertion quality or production reachability.
 
-- mine progression is monotonic;
-- collapse rubble persists until removed;
-- refinery batch preconditions;
-- reactor startup interlocks;
-- inventory constraints;
-- save-state migrations.
+## H07. Continuous integration and review responsibilities
 
-These should not require a scene when Unity behavior is irrelevant.
+[VALIDATION_PLAN.md](VALIDATION_PLAN.md) is the single check/evidence specification. Do not maintain a second conflicting pipeline checklist here.
 
-### Integration tests
+Every non-trivial PR states its scope, owner, affected rule/contract IDs, dependency changes, tests, deletion/migration impact and known limitations. Code changes do not include unrelated cleanup. Architecture/package/serialization decisions are explicit review items. A planned PR template is described in AGENT_CHECKLIST.md; this revision does not install a GitHub template or workflow.
 
-Test the collaboration between a small number of real systems/adapters.
+Following GAME_SPEC section 32.6: use one task branch and one primary author; do not directly edit main; do not self-merge. Independent review may be human or a genuinely separate reviewer acting under project policy, but an author's second self-check is not independent acceptance. Cameron or a designated maintainer controls merge and product scope. Do not claim Tibo reviewed anything unless an actual review exists.
 
-Examples:
+Future branch rules must make required checks and independent review real, with administrative bypasses documented. Their existence must be inspected, not inferred from this policy. If permissions or Unity licensing prevent validation, the result is Blocked/NotRun, not Passed. A maintainer must not mark runtime readiness based solely on a docs-only green check.
 
-- pulling a lever sends an intended command and changes the correct machine state;
-- completing a refinery batch updates inventory/progression correctly;
-- save/load reconstructs feature states without duplicated ownership.
+## H08. Exceptions and technical debt
 
-### PlayMode tests
+An exception record contains ID, exact rule/scope, reason, alternatives considered, present risk, owner, independent approver, creation/expiry dates or gate, compensating test and removal condition. Store it with the affected feature decision/task and link it in the PR. Do not use a global catch-all exception list with no consumers.
 
-Use Unity runtime/physics only when the behavior actually depends on Unity.
+A justified analyzer false positive may be suppressed narrowly. A real authority bypass, corrupting save migration, broken required reference, reproducible integrity failure or missing mandatory evidence is not an ordinary style waiver. Stop the affected gate and correct or redesign it. Missing performance hardware means target performance remains unverified; it does not make that test pass.
 
-Examples:
+Avoid permanent debt scaffolding. A TODO/FIXME must identify a tracked local decision/work item or issue and removal condition. A legitimate deferred product feature stays in the roadmap, not as unused stub code in the runtime. Never pre-fill evidence, owners or approval dates for people who have not accepted them.
 
-- rigidbody cart collision behavior;
-- trigger and collider interaction;
-- ragdoll transitions;
-- scene/prefab wiring;
-- physical lever behavior;
-- later multiplayer runtime flows.
+## H09. Cleanup cadence and evidence
 
-Do not replace all meaningful tests with slow PlayMode tests simply because the project is a game.
+Perform targeted removal/reference review with each replacement PR. Run the full owned-code/content-root health review at physics Gate 1, proof-of-fun Gate 2, vertical slice Gate 5, Alpha Gate 6 and release readiness. Review the touched graph between those gates rather than stopping every small change for a whole-project rewrite.
 
-## 7. Architecture tests
+The gate health record reports forbidden edges; first-party/third-party diagnostics; suppressions and deltas; classified/unresolved removal candidates; known superseded paths; missing/broken required references; expired exceptions; test discovery/pass/fail/not-run counts; hot-path measurements; package/version changes; and supported migration fixtures. Include commit SHA, environment and reviewer. No current runtime baseline is asserted in this planning revision.
 
-The Unity skeleton should include tests/checks that make major dependency rules executable.
-
-At minimum, verify:
-
-- Core/domain assemblies do not reference `UnityEngine`;
-- gameplay does not reference UI/presentation;
-- feature internals are not referenced across feature boundaries without an allowed public contract;
-- networking package namespaces do not leak into authoritative gameplay assemblies;
-- editor assemblies do not leak into runtime assemblies;
-- forbidden dependency cycles do not exist.
-
-These tests are expected to evolve with the real assembly graph.
-
-## 8. Pull request / change review questions
-
-Every non-trivial implementation change should answer, explicitly or by obvious evidence:
-
-1. What responsibility is being added or changed?
-2. Which module/feature owns it?
-3. What new dependency is introduced?
-4. Is there already code that performs this responsibility?
-5. What existing code becomes obsolete?
-6. What was deleted as a result?
-7. Which tests prove the intended behavior?
-8. Does the change create a second source of truth?
-9. Does it increase coupling to Unity or a third-party package unnecessarily?
-10. Can a future agent identify the active implementation without guessing?
-
-Large changes spanning unrelated features should be split unless an atomic migration genuinely requires them to move together.
-
-## 9. Dead-code sweep after replacement work
-
-For every substantial replacement/refactor, perform a targeted sweep:
-
-```text
-Search old type names
-Search old namespaces
-Search serialized references
-Search old ScriptableObject/prefab/scene usage
-Search old feature flags
-Search TODO/FIXME created by the migration
-Run compile + tests
-Delete obsolete files/assets
-Run compile + tests again
-```
-
-Where Unity serialization makes deletion risky, the migration must document the reference transition and validate the affected scenes/prefabs before deleting the old asset.
-
-## 10. Asset dead-code policy
-
-Code hygiene includes Unity assets.
-
-The implementation should periodically detect/review:
-
-- unused prefabs;
-- duplicate materials/config assets;
-- obsolete ScriptableObjects;
-- abandoned scenes;
-- duplicate imported meshes/textures;
-- editor/test fixtures that leaked into production content.
-
-Do not automatically delete a Unity asset solely because a naive text search finds no reference; serialized/addressable/runtime-loaded references require engine-aware validation.
-
-## 11. Milestone cleanup gates
-
-Perform an explicit code-health review at least at:
-
-- technical prototype/spike completion;
-- vertical slice;
-- alpha;
-- beta/release-candidate preparation.
-
-Each review should inspect:
-
-- dependency graph;
-- oversized/low-cohesion classes;
-- duplicate systems;
-- dead code/assets;
-- abandoned interfaces;
-- stale feature flags;
-- warning/suppression count;
-- test gaps;
-- package leakage into domain code;
-- TODO/FIXME inventory;
-- save/data migration debt;
-- runtime allocation/performance hotspots where relevant.
-
-Major feature expansion should not continue through serious known architectural debt merely because the current build still launches.
-
-## 12. Refactor discipline
-
-Refactors should preserve behavior and improve structure in controlled steps.
-
-Preferred pattern:
-
-1. establish/strengthen tests around current behavior;
-2. make the structural change;
-3. migrate callers;
-4. delete the obsolete path;
-5. run full relevant validation;
-6. keep the repository buildable at the merge boundary.
-
-Avoid months-long parallel rewrites unless a written migration plan proves they are necessary.
-
-## 13. Complexity budget
-
-Do not add an abstraction, manager, event layer, service locator, framework or package merely because it might be useful later.
-
-Every new architectural mechanism must solve a present, named problem and have a clear owner.
-
-This applies equally to under-engineering and over-engineering. A hundred interfaces nobody needs are still spaghetti; they are simply alphabetized spaghetti.
-
-## 14. Documentation upkeep
-
-When architecture materially changes:
-
-- update this section;
-- update `design/ENGINE_DECISION.md` when the technical stack changes;
-- record framework/package decisions rather than silently introducing them;
-- keep the architecture diagram and feature ownership current enough that a fresh agent can understand the intended dependency direction before editing code.
-
-The repository must not depend on oral history or one agent remembering why a strange subsystem exists.
+A blocking finding stops expansion of the affected subsystem. It does not require unrelated art or approved documentation work to stop. Close the specific integrity gap and rerun its evidence; do not turn cleanup into an indefinite full-game rewrite.
