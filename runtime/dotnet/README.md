@@ -1,4 +1,4 @@
-# Offline runtime: interaction, world and time
+# Offline runtime: interaction, world, workers and time
 
 **Start here for real C# code.** Planning remains in [design/code-architecture/](../../design/code-architecture/README.md). This directory contains engine-independent runtime libraries and executable tests, not a Unity project.
 
@@ -8,7 +8,8 @@
 | --- | --- | --- |
 | `src/CriticalShift.Features.Interaction.Domain/` | Exclusive object claims, versions, lease generations, expiry and retirement | None |
 | `src/CriticalShift.Features.Session.Domain/` | Shift lifecycle, separate host/shift clocks and bounded one-shot timers | None |
-| `src/CriticalShift.Application/` | Interaction command admission/receipts and WorldSession composition; detached public views | The two domains above |
+| `src/CriticalShift.Features.Workers.Domain/` | Independent worker conditions, guarded recovery and completion deadlines | None |
+| `src/CriticalShift.Application/` | Interaction command admission/receipts and WorldSession composition; detached public views | The domains above |
 | `tests/CriticalShift.Offline.Tests/` | Contract, lifecycle, seeded model and compiled-boundary checks | Declared runtime subjects only |
 | `tools/` | Scoped dependency/result validation and build/test entrypoint | Not runtime code |
 
@@ -28,6 +29,10 @@ The existing GitHub workflow `Offline interaction contracts` runs this same veri
 Verification checks project/source boundaries, negative Python fixtures, C# compilation, the exact expected NUnit test manifest, real TRX results, and a separate intentionally failing NUnit control. Missing/empty results, incorrect discovery, failure/skip rows, inconsistent totals and a false-green negative control fail validation. `artifacts/` contains actual logs, result files, source hashes and environment; test declarations alone are not passing evidence. Follow the current PR for run status.
 
 Runtime libraries target **.NET Standard 2.1 / C# 8.0**, with no third-party runtime package dependencies. .NET 8 is the offline compiler/test host, not the eventual engine runtime. The SDK follows the existing stable 8.0 roll-forward policy and exact versions are recorded. Test-only packages remain Microsoft.NET.Test.Sdk 17.11.1, NUnit 3.14.0 and NUnit3TestAdapter 4.6.0. This work adds no new package selection.
+
+## Workers and executable scenarios
+
+See [WORKERS_AND_SCENARIOS.md](WORKERS_AND_SCENARIOS.md) for current worker APIs, recovery clearance, possession cleanup, bounded diagnostics and scenario commands. The same verifier now runs the three versioned offline scenarios and deliberate failure controls. They use production rules with explicitly synthetic access/clearance observations, not Unity or network simulation.
 
 ## Interaction calling contract
 
@@ -49,7 +54,7 @@ See [WORLD_AND_TIME.md](WORLD_AND_TIME.md) for phase transitions, timeout policy
 
 ## Authorization, integration and gate status
 
-OFFLINE-001 introduced interaction prework; OFFLINE-002 extends it with world/session/time at Cameron's explicit request while Unity is unavailable. OFFLINE-002 is stacked on the implementation from PR #40, not a copied replacement. The scoped offline-prework exception in DELIVERY_PLAN remains applicable; no Roadmap Gate 0/1 or complete WP-01/02/03 is declared passed.
+OFFLINE-001 introduced interaction prework; OFFLINE-002 extends it with world/session/time; OFFLINE-003 adds worker conditions/recovery, possession cleanup and executable scenarios at Cameron's explicit request while Unity is unavailable. OFFLINE-002 is stacked on the implementation from PR #40, not a copied replacement. The scoped offline-prework exception in DELIVERY_PLAN remains applicable; no Roadmap Gate 0/1 or complete WP-01/02/03 is declared passed.
 
 Later Unity integration must consume these libraries/the same source or move them atomically. Do not copy them into competing Unity implementations. The exact editor import, C# profile, AOT/stripping, PlayMode, physical simulation and Player compatibility have not been validated. World configuration seed metadata does not imply deterministic physics or a generated world.
 
