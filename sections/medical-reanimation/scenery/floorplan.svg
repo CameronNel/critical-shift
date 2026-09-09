@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-80 -80 560 620" width="1120" height="1240">
+  <title>OCRU medical-reanimation floorplan R01 — metres, origin at entry</title>
+  <defs>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#c9c2b3" stroke-width="2"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2b4c6f"/>
+    </marker>
+  </defs>
+  <!-- 40 px = 1 m. Plan +Y up the page, +X right. Entry at (0,0) maps to (160,40). -->
+  <style>
+    .wall { fill:#e8e2d6; stroke:#2a2a28; stroke-width:1.4; }
+    .equip { fill:#d5d8dc; stroke:#3a3d42; stroke-width:1.1; }
+    .ocru { fill:#ecece8; stroke:#2f3236; stroke-width:1.3; }
+    .decon { fill:#dfe4e2; stroke:#3a3d42; stroke-width:1.1; }
+    .route { fill:none; stroke:#2b4c6f; stroke-width:1.1; stroke-dasharray:5 3; }
+    .dim { stroke:#7a3b2e; stroke-width:0.8; fill:none; }
+    .dimt { font: 9px "Segoe UI", Arial, sans-serif; fill:#7a3b2e; }
+    .lab { font: 10px "Segoe UI", Arial, sans-serif; fill:#1f1f1d; }
+    .tiny { font: 8px "Segoe UI", Arial, sans-serif; fill:#333; }
+    .title { font: 16px "Segoe UI", Arial, sans-serif; fill:#111; }
+    .sub { font: 10px "Segoe UI", Arial, sans-serif; fill:#444; }
+  </style>
+  <rect x="-80" y="-80" width="560" height="620" fill="#f4f1ea"/>
+  <text class="title" x="-20" y="-52">OCRU — Organic Continuity and Recommissioning Unit</text>
+  <text class="sub" x="-20" y="-36">Section medical-reanimation  ·  R01  ·  metres  ·  origin (0,0,0) entry threshold  ·  +Y inward  ·  +Z up</text>
+  <text class="sub" x="-20" y="-22">Interior 8.00 × 9.00 × 3.60 m hall + 1.70 × 2.12 m decon alcove  ·  area 75.604 m²  ·  door 2.20 × 2.50 m</text>
+
+  <!-- Outer wall mass -->
+  <g transform="translate(160,40) scale(40,-40)">
+    <!-- coordinates now in metres, Y up on screen because of scale(40,-40) wait: SVG Y down, scale(40,-40) with translate(160,40) means +Y goes up. Point (0,0) -> (160,40). Point (0,9) -> (160,40-360)=(160,-320). That's off the view. -->
+  </g>
+  <!-- Use Y-down mapping: px = 160 + x*40, py = 40 + y*40 so +Y goes down the page (into the room from the entry at top of drawing? User typically wants entry at bottom. -->
+  <!-- Entry at BOTTOM: px = 160 + x*40, py = 480 - y*40. y=0 -> py=480, y=9 -> py=120, y=11.12 -> py=35.2 -->
+
+  <g id="plan">
+    <!-- exterior wall around hall -->
+    <path class="wall" d="
+      M 7.2,487.2 L 312.8,487.2 L 312.8,112.8 L 287.2,112.8 L 287.2,27.2 L 219.2,27.2 L 219.2,112.8 L 7.2,112.8 Z
+      M 0,480 L 320,480 L 320,120 L 287.2,120 L 287.2,35.2 L 219.2,35.2 L 219.2,120 L 0,120 Z" fill-rule="evenodd"/>
+    <!-- That evenodd is messy. Draw lining rectangle and alcove separately. -->
+  </g>
+
+  <!-- Clean redraw -->
+  <g id="room">
+    <!-- floor -->
+    <rect x="0" y="120" width="320" height="360" fill="#cfd3d6" stroke="#2a2a28" stroke-width="1.6"/>
+    <rect x="219.2" y="35.2" width="68" height="84.8" fill="#c5ccca" stroke="#2a2a28" stroke-width="1.6"/>
+    <!-- wall thickness outside -->
+    <rect x="-7.2" y="112.8" width="334.4" height="7.2" fill="#e8e2d6" stroke="#2a2a28" stroke-width="1"/>
+    <rect x="-7.2" y="480" width="334.4" height="7.2" fill="#e8e2d6" stroke="#2a2a28" stroke-width="1"/>
+    <rect x="-7.2" y="120" width="7.2" height="360" fill="#e8e2d6" stroke="#2a2a28" stroke-width="1"/>
+    <rect x="320" y="120" width="7.2" height="360" fill="#e8e2d6" stroke="#2a2a28" stroke-width="1"/>
+    <!-- door clear at y=0: x -1.10..1.10 => px 116..204, py 480 -->
+    <rect x="116" y="480" width="88" height="7.2" fill="#9aa3a8" stroke="#2a2a28" stroke-width="1"/>
+    <text class="tiny" x="160" y="502" text-anchor="middle">MAIN ENTRY 2.20 × 2.50  ·  sliding</text>
+    <text class="tiny" x="160" y="512" text-anchor="middle">(0,0,0)</text>
+    <!-- origin tick -->
+    <circle cx="160" cy="480" r="3" fill="#7a3b2e"/>
+  </g>
+
+  <!-- equipment: py = 480 - y*40, px = 160 + x*40, w = dx*40, h = dy*40 -->
+  <!-- OCRU x -3.9575..-1.46  y 2.48..6.78 -->
+  <g id="equipment">
+    <rect class="ocru" x="1.7" y="209.0" width="99.9" height="172.0"/>
+    <rect fill="#1b2430" x="90" y="232" width="8" height="126"/>
+    <text class="lab" x="51" y="290" text-anchor="middle">OCRU T-01</text>
+    <text class="tiny" x="51" y="304" text-anchor="middle">2.50 × 4.30 m</text>
+    <text class="tiny" x="51" y="316" text-anchor="middle">berth 0.88 × 2.20 @ z1.02</text>
+    <text class="tiny" x="51" y="328" text-anchor="middle">opening +X  ·  west lining</text>
+
+    <!-- Console x -1.34..0.52 y 8.10..9.00 -->
+    <rect class="equip" x="106.4" y="120.0" width="74.4" height="36.0"/>
+    <text class="tiny" x="143.6" y="141" text-anchor="middle">CONSOLE</text>
+
+    <!-- Cartridges 0.64..1.36 / 8.30..9.00 -->
+    <rect class="equip" x="185.6" y="120.0" width="28.8" height="28.0"/>
+    <text class="tiny" x="200" y="137" text-anchor="middle">CART.</text>
+
+    <!-- Reserve -2.58..-1.72 / 8.44..9.00 -->
+    <rect class="equip" x="56.8" y="120.0" width="34.4" height="22.4"/>
+    <text class="tiny" x="74" y="134" text-anchor="middle">BATT</text>
+
+    <!-- Decon 1.48..3.18 / 9.00..11.12 -->
+    <rect class="decon" x="219.2" y="35.2" width="68" height="84.8"/>
+    <text class="lab" x="253" y="72" text-anchor="middle">DECON</text>
+    <text class="tiny" x="253" y="86" text-anchor="middle">1.70 × 2.12 m</text>
+    <text class="tiny" x="253" y="98" text-anchor="middle">clear 1.20 × 2.15</text>
+
+    <!-- Power panel 3.18..3.72 / 8.86..9.00 -->
+    <rect class="equip" x="287.2" y="120.0" width="21.6" height="5.6"/>
+    <text class="tiny" x="298" y="116" text-anchor="middle">POWER</text>
+
+    <!-- Supplies cab 3.22..3.9575 / 6.52..8.42 -->
+    <rect class="equip" x="288.8" y="143.2" width="29.5" height="76.0"/>
+    <text class="tiny" x="303.5" y="184" text-anchor="middle">SUPPLY</text>
+    <text class="tiny" x="303.5" y="196" text-anchor="middle">CABINET</text>
+
+    <!-- Recovery 2.58..3.88 / 3.52..5.88 -->
+    <rect class="equip" x="263.2" y="244.8" width="52.0" height="94.4"/>
+    <text class="lab" x="289" y="288" text-anchor="middle">RECOVERY</text>
+    <text class="tiny" x="289" y="302" text-anchor="middle">gurney 0.95 × 2.20</text>
+    <text class="tiny" x="289" y="314" text-anchor="middle">foot −Y</text>
+
+    <!-- Supply bench 3.08..3.9575 / 0.42..2.52 -->
+    <rect class="equip" x="283.2" y="379.2" width="35.1" height="84.0"/>
+    <text class="tiny" x="300.7" y="418" text-anchor="middle">BENCH</text>
+
+    <!-- Wash 3.42..3.9575 / 2.62..3.28 -->
+    <rect class="equip" x="296.8" y="348.8" width="21.5" height="26.4"/>
+    <text class="tiny" x="307" y="364" text-anchor="middle">WASH</text>
+
+    <!-- Cart parking -3.82..-2.42 / 0.18..2.48 -->
+    <rect fill="none" stroke="#c9a227" stroke-width="1.4" stroke-dasharray="6 3" x="7.2" y="380.8" width="56.0" height="92.0"/>
+    <text class="tiny" x="35" y="424" text-anchor="middle">CART PARKING</text>
+    <text class="tiny" x="35" y="436" text-anchor="middle">2.10 × 0.74 cart</text>
+  </g>
+
+  <!-- routes -->
+  <g id="routes" fill="none" stroke="#2b4c6f" stroke-width="1.15" marker-end="url(#arrow)">
+    <path d="M160,478 L160,360"/>
+    <path d="M160,350 L70,290"/>
+    <path d="M160,340 L253,90"/>
+    <path d="M170,330 L289,280"/>
+    <path d="M150,210 L144,140"/>
+  </g>
+  <text class="tiny" fill="#2b4c6f" x="166" y="400">ARRIVAL 2.20</text>
+  <text class="tiny" fill="#2b4c6f" x="168" y="200">APRON</text>
+  <text class="tiny" fill="#2b4c6f" x="200" y="160">REAR SERVICE 1.10</text>
+  <text class="tiny" fill="#2b4c6f" x="210" y="250">EAST BYPASS 1.00</text>
+
+  <!-- obstruction overlays -->
+  <rect x="124" y="376" width="72" height="28" fill="#7a3b2e" fill-opacity="0.18" stroke="#7a3b2e" stroke-width="0.8"/>
+  <text class="tiny" x="160" y="394" text-anchor="middle">ragdoll 1.80×0.70</text>
+  <rect x="118" y="334.4" width="84" height="29.6" fill="#7a3b2e" fill-opacity="0.12" stroke="#7a3b2e" stroke-width="0.8"/>
+  <text class="tiny" x="160" y="352" text-anchor="middle">transverse cart 2.10×0.74</text>
+
+  <!-- dimensions -->
+  <g class="dim">
+    <path d="M0,528 L320,528"/>
+    <path d="M0,480 L0,528"/>
+    <path d="M320,480 L320,528"/>
+    <path d="M-28,480 L-28,120"/>
+    <path d="M0,480 L-28,480"/>
+    <path d="M0,120 L-28,120"/>
+    <path d="M219.2,20 L287.2,20"/>
+    <path d="M-50,480 L-50,35.2"/>
+  </g>
+  <text class="dimt" x="160" y="542" text-anchor="middle">8.00 m</text>
+  <text class="dimt" x="-32" y="300" text-anchor="middle" transform="rotate(-90 -32 300)">9.00 m</text>
+  <text class="dimt" x="253" y="16" text-anchor="middle">1.70 m</text>
+  <text class="dimt" x="-62" y="250" text-anchor="middle" transform="rotate(-90 -62 250)">11.12 m overall Y</text>
+  <text class="dimt" x="160" y="112" text-anchor="middle">rear wall Y = 9.00  ·  console / cartridges / battery flush</text>
+
+  <!-- scale -->
+  <g transform="translate(20,560)">
+    <path class="dim" d="M0,0 L80,0 M0,-4 L0,4 M40,-4 L40,4 M80,-4 L80,4"/>
+    <text class="dimt" x="0" y="16">0</text>
+    <text class="dimt" x="36" y="16">1</text>
+    <text class="dimt" x="76" y="16">2 m</text>
+    <text class="sub" x="100" y="4">40 px = 1.00 m</text>
+  </g>
+  <text class="sub" x="20" y="590">Do not move completed rooms. Adjacent connections unresolved. Fictional industrial recovery, not a hospital or morgue.</text>
+</svg>

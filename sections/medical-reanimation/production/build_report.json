@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "elapsed_seconds": 102.92267942428589,
+  "blender_version": "5.2.0 LTS",
+  "source": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\medical-reanimation\\sections\\medical-reanimation\\blender\\build_ocru.py",
+  "source_hash": "f83ad24c9600e783dcfeecfc0298f70c7728741e565cc936a41ed21f2c14a943",
+  "output": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\medical-reanimation\\sections\\medical-reanimation\\blender\\ocru.blend",
+  "revision": "R09",
+  "device": "GPU",
+  "samples": 72,
+  "validation": {
+    "status": "PASS",
+    "failures": [],
+    "notes": [
+      "door clear opening unobstructed by non-door meshes",
+      "berth span 0.840 x 2.020 z=1.060",
+      "arrival lane blocked samples 0/96",
+      "east bypass with ragdoll 18/18"
+    ],
+    "object_count": 742,
+    "mesh_count": 637,
+    "support_count": 26,
+    "cameras": [
+      "CAM_ENTRY",
+      "CAM_HERO",
+      "CAM_REVERSE",
+      "CAM_ROUTE",
+      "CAM_CONSOLE",
+      "CAM_DECON",
+      "CAM_RECOVERY",
+      "CAM_PINCH",
+      "CAM_MATERIALS",
+      "CAM_MAINT"
+    ],
+    "revision": "R09"
+  }
+}
