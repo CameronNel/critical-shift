@@ -18,8 +18,9 @@ Live reactor Blender was not touched.
 | R04 | 48 | 23 | 36 | 25 | 30 | 40 | 32 | 42 | 34.5 |
 | R06 | 50 | 25 | 40 | 26 | 31 | 41 | 35 | 38 | 35.8 |
 | R07 | 50 | 25 | 40 | 26 | 31 | 41 | 36 | 40 | 36.1 |
+| R09 | 50 | 25 | 40 | 26 | 31 | 43 | 36 | 40 | 36.4 |
 
-Every category must be 90. None are. Automatic low-poly / satin / flat-light veto still applies as of R07. R09 is a darker structural pass, not yet independently scored at write time.
+Every category must be 90. None are. Automatic low-poly / satin / flat-light veto still applies as of R09.
 
 ## Completed
 

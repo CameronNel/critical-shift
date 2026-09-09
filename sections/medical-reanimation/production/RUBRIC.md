@@ -12,8 +12,9 @@ Reviewer: independent Grok subagent. Automatic visual FAIL if the dominant read 
 | R04 | 48 | 23 | 36 | 25 | 30 | 40 | 32 | 42 | 34.5 | FAIL |
 | R06 | 50 | 25 | 40 | 26 | 31 | 41 | 35 | 38 | 35.8 | FAIL |
 | R07 | 50 | 25 | 40 | 26 | 31 | 41 | 36 | 40 | 36.1 | FAIL |
+| R09 | 50 | 25 | 40 | 26 | 31 | 43 | 36 | 40 | 36.4 | FAIL |
 
-Evidence: `critics/r01-independent.md`, `r04-independent.md`, `r06-independent.md`, `r07-independent.md`.
+Evidence: `critics/r01-independent.md`, `r04-independent.md`, `r06-independent.md`, `r07-independent.md`, `r09-independent.md`.
 
 No category is at 90. Scores are not inflated.
 
