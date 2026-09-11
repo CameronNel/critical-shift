@@ -1,20 +1,7 @@
-# Independent acceptance rubric
+# Independent integration-readiness rubric
 
-Every category must independently reach 90/100. No averaging can conceal a failed category.
+Luna independently inspects actual rendered pixels and measured evidence. Each category must reach 90/100; no average can conceal a failure. Categories: specification coverage, layout/flow, machinery, navigation/readability, construction, materials, lighting and reference fidelity. Geometry checks alone never establish art approval.
 
-| Category | S01 | S02 latest independent review |
-|---|---:|---:|
-| Scale/circulation | unscored | unscored |
-| Shape/art direction | 73 | 80 |
-| Hierarchy | 79 | 82 |
-| Materials | 64 | 73 |
-| Lighting | 73 | 76 |
-| Color | 87 | 88 |
-| Environmental storytelling | 59 | 68 |
-| Technical correctness | unscored | unscored |
+Hard failures include obstructed routes or maintenance access, missing required machinery, unsupported assemblies, obscured signage, teal palette, plastic-looking uniform materials, inadequate lighting, material departure from the approved Valorant concepts, or invented evidence. Concepts are guidance and cannot change specification requirements.
 
-Both reviews **FAIL the slice expansion gate**. Scores are from `/root/astra_reviewer` actual pixel reviews. S03 has completed three-camera renders but no independent art scores. Its separate CPU geometry audit has five failures. Full-room acceptance is incomplete; no overall score is claimed.
-
-Hard vetoes: primitive/blockout dominance, repeated universal beveled boxes, uniform plastic, flat even illumination, arbitrary clutter, excessive labels, unsupported props, obstructed routes, untraceable plumbing, undocumented camera changes, invented review evidence.
-
-Minimum four full review/correction cycles after first visual completion; last two materially stable; ten fixed cameras; cold reopen/render of all ten. Scores are reviewer-owned and pending until observed.
+The September11 user instruction supersedes the historical slice-first gate and fixed four-cycle/two-stable-cycle rules: deliver the complete integration-ready room, correct every relevant category below90, and verify the saved artifact. Earlier reviews remain intact as history; their old workflow language does not govern this resumed run. Current reviews are in critics/luna-Rxx-full-review.md. No whole-map/runtime approval is implied.

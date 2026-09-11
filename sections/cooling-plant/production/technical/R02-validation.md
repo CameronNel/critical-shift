@@ -1,0 +1,27 @@
+# Cooling Plant R02: objective validation
+
+Status: **FAIL**. Scope: **full**. 13 failures; 0 review items.
+
+This report does not assign a visual score or certify final production acceptance.
+
+Measured 1519 evaluated geometry objects from a fresh headless reopen. No render or geometry changes were performed.
+
+Failure categories: clearance: 10, envelope: 3
+
+Full measured evidence is in the accompanying JSON. Highest-priority failures:
+
+- geometry_intersects_keep_clear: {"volume": "KC-ALCOVE-APPROACH", "object": "Alcove wall west", "evaluated_bounds": {"min": [-5.5, 9.8999996, 0.0], "max": [-4.6999998, 10.0599995, 3.3]}, "aabb_overlap_extent_m": [0.25, 0.10000038146972656, 2.200000047683716], "method": "evaluated_triangle_clipped_to_open_volume", "witness_m": [-4.7081366, 9.910264, 0.0021516]}
+- geometry_intersects_keep_clear: {"volume": "KC-ALCOVE-APPROACH", "object": "Alcove wall east", "evaluated_bounds": {"min": [-3.5, 9.8999996, 0.0], "max": [-1.5999999, 10.0599995, 3.3]}, "aabb_overlap_extent_m": [1.9000000953674316, 0.10000038146972656, 2.200000047683716], "method": "evaluated_triangle_clipped_to_open_volume", "witness_m": [-3.4897354, 9.9081373, 0.0021516]}
+- geometry_intersects_keep_clear: {"volume": "KC-ALCOVE-APPROACH", "object": "Alcove side lower", "evaluated_bounds": {"min": [-1.76, 9.9799995, 0.0], "max": [-1.5999999, 13.0, 1.64]}, "aabb_overlap_extent_m": [0.16000008583068848, 0.020000457763671875, 1.6399999856948853], "method": "evaluated_triangle_clipped_to_open_volume", "witness_m": [-1.7497355, 9.9881372, 0.0021516]}
+- geometry_intersects_keep_clear: {"volume": "KC-ALCOVE-APPROACH", "object": "D02 metal jamb", "evaluated_bounds": {"min": [-4.8000002, 9.9000006, 0.0], "max": [-4.6999998, 10.1099997, 2.28]}, "aabb_overlap_extent_m": [0.10000038146972656, 0.09999942779541016, 2.200000047683716], "method": "evaluated_triangle_clipped_to_open_volume", "witness_m": [-4.7897353, 9.9081373, 0.0021516]}
+- geometry_intersects_keep_clear: {"volume": "KC-ALCOVE-APPROACH", "object": "D02 metal jamb.001", "evaluated_bounds": {"min": [-3.5, 9.9000006, 0.0], "max": [-3.4000001, 10.1099997, 2.28]}, "aabb_overlap_extent_m": [0.09999990463256836, 0.09999942779541016, 2.200000047683716], "method": "evaluated_triangle_clipped_to_open_volume", "witness_m": [-3.4897356, 9.9081373, 0.0021516]}
+- geometry_intersects_keep_clear: {"volume": "KC-ALCOVE-APPROACH", "object": "workshop door contract backing", "evaluated_bounds": {"min": [-3.0749998, 9.868, 2.1500001], "max": [-2.0250001, 9.8999996, 2.3899999]}, "aabb_overlap_extent_m": [1.049999713897705, 0.03199958801269531, 0.04999995231628418], "method": "evaluated_triangle_clipped_to_open_volume", "witness_m": [-3.0701549, 9.8714314, 2.1514311]}
+- geometry_intersects_keep_clear: {"volume": "KC-ALCOVE-APPROACH", "object": "workshop door contract fixing", "evaluated_bounds": {"min": [-3.0288484, 9.8590002, 2.1861515], "max": [-3.0111516, 9.8709993, 2.2038484]}, "aabb_overlap_extent_m": [0.017696857452392578, 0.011999130249023438, 0.013848543167114258], "method": "evaluated_triangle_clipped_to_open_volume", "witness_m": [-3.0284095, 9.8592386, 2.1951787]}
+- geometry_intersects_keep_clear: {"volume": "KC-ALCOVE-APPROACH", "object": "workshop door contract fixing.002", "evaluated_bounds": {"min": [-2.0888484, 9.8590002, 2.1861515], "max": [-2.0711515, 9.8709993, 2.2038484]}, "aabb_overlap_extent_m": [0.017696857452392578, 0.011999130249023438, 0.013848543167114258], "method": "evaluated_triangle_clipped_to_open_volume", "witness_m": [-2.0884094, 9.8592386, 2.1951787]}
+- geometry_intersects_keep_clear: {"volume": "KC-ALCOVE-APPROACH", "object": "workshop side skirting", "evaluated_bounds": {"min": [-1.599, 9.9799995, 0.0], "max": [-1.569, 13.0, 0.26]}, "aabb_overlap_extent_m": [0.029999971389770508, 0.020000457763671875, 0.25999999046325684], "method": "evaluated_triangle_clipped_to_open_volume", "witness_m": [-1.5955808, 9.9827051, 0.0007206]}
+- geometry_intersects_keep_clear: {"volume": "KC-RESTART", "object": "reserve guarded lever", "evaluated_bounds": {"min": [4.835, 2.1125002, 1.335], "max": [4.8850002, 2.1475, 1.4649999]}, "aabb_overlap_extent_m": [0.014999866485595703, 0.034999847412109375, 0.12999987602233887], "method": "evaluated_triangle_clipped_to_open_volume", "witness_m": [4.8430758, 2.1182189, 1.3373852]}
+- equipment_exceeds_declared_envelope: {"equipment": "CP-HX-01", "object": "HX-01 exchanger", "excess_xyz_m": [0.0, 0.10399961471557617, 0.0], "actual_bounds": {"min": [2.3900001, 4.4960003, 0.0], "max": [4.5100002, 9.29, 2.74]}, "contract_bounds": {"min": [2.3, 4.6, 0], "max": [4.6, 9.3, 3.5]}}
+- equipment_exceeds_declared_envelope: {"equipment": "CP-RESTART", "object": "reserve restart socket", "excess_xyz_m": [0.0005002021789550781, 0.0, 0.034999966621398926], "actual_bounds": {"min": [4.835, 1.625, 0.705], "max": [5.5005002, 2.4349999, 1.735]}, "contract_bounds": {"min": [4.83, 1.62, 0.7], "max": [5.5, 2.44, 1.7]}}
+- equipment_exceeds_declared_envelope: {"equipment": "CP-WORKBENCH", "object": "maintenance workbench", "excess_xyz_m": [0.0, 0.010000228881835938, 0.0], "actual_bounds": {"min": [-5.0500002, 12.3000002, 0.0], "max": [-2.25, 13.0100002, 1.11]}, "contract_bounds": {"min": [-5.05, 12.3, 0], "max": [-2.25, 13, 1.24]}}
+
+Final completion remains dependent on four full review cycles, independent scores of at least 90 in every required category, ten fixed-camera final renders, and a fresh-process render comparison.

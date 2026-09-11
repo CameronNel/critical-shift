@@ -45,7 +45,7 @@ STRUCTURE_PREFIX = ('lower wall impact paint', 'steel column', 'column base shoe
                     'D01 raised folded shutter', 'workshop glazing')
 FLUSH_PREFIX = ('floor saw cut', 'patched concrete', 'drain channel',
                 'drain flush grate', 'route worn edge', 'tube pull bay marking',
-                'tube withdrawal floor label', 'D01 threshold')
+                'tube withdrawal floor label', 'D01 threshold', 'pump bay edge', 'route floor identity', 'route arrow')
 
 
 def base_name(name):
@@ -219,7 +219,7 @@ class Validator:
         if self.stage == 'slice':
             self.issue('scope', 'slice_is_not_full_section', 'INCOMPLETE',
                        omitted_full_scene_objects=[n for n in FULL_ROOTS if n not in self.scene.objects])
-        source_digest = hashlib.sha256((HERE/'build_scene.py').read_bytes()+(HERE/'kit.py').read_bytes()).hexdigest()
+        source_digest = hashlib.sha256((HERE/'build_scene.py').read_bytes()+(HERE/'kit.py').read_bytes()+(HERE/'develop_room.py').read_bytes()).hexdigest()
         stored_digest = self.scene.get('source_sha256')
         if stored_digest != source_digest:
             self.issue('reproducibility', 'saved_scene_source_differs_from_current_files',
@@ -631,7 +631,7 @@ class Validator:
         self.pipe_connections()
         if sha(self.interface_path)!=self.initial_contract_hash:
             self.issue('reproducibility','interface_changed_during_validation')
-        final_source_digest = hashlib.sha256((HERE/'build_scene.py').read_bytes()+(HERE/'kit.py').read_bytes()).hexdigest()
+        final_source_digest = hashlib.sha256((HERE/'build_scene.py').read_bytes()+(HERE/'kit.py').read_bytes()+(HERE/'develop_room.py').read_bytes()).hexdigest()
         if final_source_digest != self.checks['source']['current_source_sha256']:
             self.issue('reproducibility','source_files_changed_during_validation')
         failures=sum(i['severity']=='FAIL' for i in self.issues)
@@ -640,7 +640,7 @@ class Validator:
         report={'schema':'critical-shift.cooling-plant.technical-validation.v1',
             'timestamp_utc':datetime.now(timezone.utc).isoformat(), 'revision':self.revision,
             'stage':self.stage,'objective_status':status,'failure_count':failures,'review_count':reviews,
-            'production_acceptance':'INCOMPLETE: requires independent >=90 per-category visual evidence, four full cycles, ten final cameras and cold-start render comparison',
+            'production_acceptance':'Objective audit only: independent >=90 per-category visual evidence, ten final cameras and cold-start render comparison are separate acceptance evidence',
             'fresh_process_open':bool(bpy.app.background and bpy.data.filepath),
             'cold_start_render_validated':False,
             'scene_path':bpy.data.filepath,'blender_version':bpy.app.version_string,
@@ -668,7 +668,7 @@ class Validator:
               'Full measured evidence is in the accompanying JSON. Highest-priority failures:', '']
         for issue in [i for i in self.issues if i['severity']=='FAIL'][:30]:
             text.append('- '+issue['code']+': '+json.dumps({k:v for k,v in issue.items() if k not in ('category','code','severity')},ensure_ascii=False))
-        text += ['', 'Final completion remains dependent on four full review cycles, independent scores of at least 90 in every required category, ten fixed-camera final renders, and a fresh-process render comparison.']
+        text += ['', 'Integration-readiness acceptance also requires independent scores of at least 90 in every required category, ten fixed-camera final renders, and a fresh-process render comparison. This objective audit does not substitute for pixel review.']
         out.with_suffix('.md').write_text('\n'.join(text)+'\n',encoding='utf-8')
         print('COOLING_TECHNICAL_RESULT '+json.dumps({'report':str(out),'revision':self.revision,
             'stage':self.stage,'status':status,'failures':failures,'review_items':reviews,'categories':dict(counts)}))

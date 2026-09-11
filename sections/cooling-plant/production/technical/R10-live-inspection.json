@@ -1,0 +1,137 @@
+{
+  "revision": "R10",
+  "instance": {
+    "active": true,
+    "instance_id": "1f096742-d63b-477b-82c0-14b657c75a14",
+    "file_session_id": "0cf9e8f1-0057-4401-b9a3-a8832b281f58",
+    "blend_file": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\sections\\cooling-plant\\blender\\cooling_plant.blend",
+    "blender_version": "5.2.0 LTS",
+    "lease_expires_at": 1789123623.3224773,
+    "last_command": "",
+    "release_required": true,
+    "handoff_action": "release_blender_instance"
+  },
+  "scene": {
+    "name": "Scene",
+    "object_count": 1653,
+    "objects": [
+      {
+        "name": "Floor",
+        "type": "MESH",
+        "location": [
+          0,
+          6.65,
+          -0.16
+        ]
+      },
+      {
+        "name": "floor saw cut",
+        "type": "MESH",
+        "location": [
+          -3.5,
+          6.5,
+          0
+        ]
+      },
+      {
+        "name": "floor saw cut.001",
+        "type": "MESH",
+        "location": [
+          0,
+          6.5,
+          0
+        ]
+      },
+      {
+        "name": "floor saw cut.002",
+        "type": "MESH",
+        "location": [
+          3.5,
+          6.5,
+          0
+        ]
+      },
+      {
+        "name": "floor saw cut.003",
+        "type": "MESH",
+        "location": [
+          0,
+          2.6,
+          0
+        ]
+      },
+      {
+        "name": "floor saw cut.004",
+        "type": "MESH",
+        "location": [
+          0,
+          5.2,
+          0
+        ]
+      },
+      {
+        "name": "floor saw cut.005",
+        "type": "MESH",
+        "location": [
+          0,
+          7.8,
+          0
+        ]
+      },
+      {
+        "name": "floor saw cut.006",
+        "type": "MESH",
+        "location": [
+          0,
+          10.4,
+          0
+        ]
+      },
+      {
+        "name": "patched concrete",
+        "type": "MESH",
+        "location": [
+          -3.8,
+          8.95,
+          0
+        ]
+      },
+      {
+        "name": "patched concrete.001",
+        "type": "MESH",
+        "location": [
+          3.4,
+          4.2,
+          0
+        ]
+      }
+    ],
+    "materials_count": 22
+  },
+  "dependencies": {
+    "schema": "blender-external-dependency-audit/1",
+    "blend_file": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\sections\\cooling-plant\\blender\\cooling_plant.blend",
+    "missing_only": false,
+    "dependency_count": 1,
+    "missing_count": 1,
+    "counts_by_type": {
+      "FONT": 1
+    },
+    "dependencies": [
+      {
+        "id_type": "FONT",
+        "name": "Bfont Regular",
+        "filepath": "<builtin>",
+        "resolved_path": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\<builtin>",
+        "exists": false,
+        "packed": false
+      }
+    ],
+    "mutated": false
+  },
+  "release": {
+    "released": true,
+    "instance_id": "1f096742-d63b-477b-82c0-14b657c75a14"
+  },
+  "interpretation": "MCP dependency audit naively treats Blender's Bfont Regular <builtin> sentinel as a filesystem path and reports it missing. This is retained honestly; it is not an external font dependency. Actual native font objects and rendered text survive independent factory-startup reopening. No external images or linked libraries reported. Live viewport is SOLID material-color inspection, not final lighting evidence. No live save or geometry/material mutation performed; other workers' instances were not claimed."
+}

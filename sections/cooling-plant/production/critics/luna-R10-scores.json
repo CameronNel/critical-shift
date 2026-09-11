@@ -1,0 +1,33 @@
+{
+  "revision": "R10",
+  "approved": true,
+  "scores": {
+    "specification_coverage": 94,
+    "layout_flow": 94,
+    "machinery": 95,
+    "navigation_readability": 91,
+    "construction": 93,
+    "materials": 92,
+    "lighting": 92,
+    "reference_fidelity": 93
+  },
+  "evidence": {
+    "render_count": 18,
+    "render_resolution": [1440, 960],
+    "source_sha256": "861ffec531f93ed3375064070bfeac45e31557cdd0fa121497101ed09acae406",
+    "objective_validation": "PASS",
+    "objective_failure_count": 0,
+    "objective_review_count": 0,
+    "walkthrough": "PASS",
+    "walkthrough_route_count": 8,
+    "cold_start_render_comparison": "pending",
+    "neighbor_assembly_claim": false
+  },
+  "limitations": [
+    "C01/C04/W01 crop some secondary pull-out signage at frame edges; closer views retain readable evidence.",
+    "C03 secondary eye-level plaque is partly hidden by the exchanger in that reverse composition; W08 is the clear return-facing plaque view.",
+    "W07 secondary service view is visually compressed and darker than the main route, while measured clearance evidence passes.",
+    "Live dependency audit reports Blender built-in Bfont Regular <builtin> as a missing filesystem path; native text survives factory-startup reopening and no external linked assets are reported missing.",
+    "Cold-start render comparison and runtime-engine acceptance remain separate pending evidence."
+  ]
+}

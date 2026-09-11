@@ -7,7 +7,7 @@ Run from PowerShell, replacing the revision with the saved scene revision:
 ```powershell
 $coolingSection = 'C:/Users/Camer/.codex/worktrees/ef37/critical-shift/sections/cooling-plant'
 $env:BLENDER_USER_RESOURCES = Join-Path $coolingSection '.blender-user-validation'
-& 'C:/Program Files/Blender Foundation/Blender 5.2/blender.exe' --background --factory-startup --threads 4 (Join-Path $coolingSection 'blender/cooling_plant.blend') --python (Join-Path $coolingSection 'blender/validate.py') -- --revision S02 --strict-exit
+& 'C:/Program Files/Blender Foundation/Blender 5.2/blender.exe' --background --factory-startup --threads 4 (Join-Path $coolingSection 'blender/cooling_plant.blend') --python (Join-Path $coolingSection 'blender/validate.py') -- --revision R08 --strict-exit
 ```
 
 The report defaults to `production/technical/<saved-revision>-validation.json`. `--out` may select another `.json` path inside this technical directory. Omitting `--strict-exit` preserves the same honest report but does not fail the Blender command for measured defects. A successful Blender exit is never a validation PASS.
@@ -45,4 +45,4 @@ Utility sockets may declare `source_object` and `source_endpoint` (`start`, `end
 
 Degenerate evaluated triangles are informational: bevels and tessellation can create zero-area triangles, and their existence alone does not establish a visible flaw. Their counts remain visible. This validator does not certify arbitrary intersections, all manifold/normals cases, pressure-vessel engineering, hydraulic flow, game collision or runtime interaction.
 
-Final acceptance remains outside this objective checker: independent scores of at least 90 in every required category, four genuine full review cycles, ten fixed-camera final renders, stable last two cycles and a fresh-process render comparison are mandatory. Missing evidence remains incomplete rather than becoming an invented PASS.
+Final acceptance remains outside this objective checker: independent scores of at least 90 in every required category, ten fixed-camera final renders and a fresh-process render comparison are required by the current user workflow. Missing evidence remains incomplete rather than becoming an invented PASS.

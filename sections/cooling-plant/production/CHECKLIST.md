@@ -1,15 +1,17 @@
-# Cooling Plant evidence checklist
+# R10 delivery checklist
 
-- [x] Dimensioned plan and documented proposed interface; as-built discrepancies remain
-- [x] Approved-reference pixel calibration
-- [ ] Polished style slice independent pass before expansion
-- [x] Original reproducible factory-empty Blender slice geometry
-- [ ] Detailed pump couplings/casings and exchanger service access
-- [ ] Traceable supply, return, secondary-water and reserve service
-- [ ] Ten fixed camera renders and honest independent reviews
-- [ ] Four full review/correction cycles
-- [ ] All eight independent scores >=90
-- [ ] Two materially stable final cycles
-- [ ] Evaluated route and contact checks
-- [ ] Fresh-process cold reopen/validation/render comparison
-- [ ] Section-only commit and push
+- [x] Dimensioned architecture and exact measured neighbour/interface contracts
+- [x] Complete original room, all required machinery/functions represented
+- [x] Approved no-teal Valorant concepts and honest rejected history
+- [x] Detailed couplings, casings, flanges, guards, supports and service connections
+- [x] Traceable local coolant, secondary water, reserve service and drains
+- [x] Ten fixed and eight supplementary actual rendered views
+- [x] Independent Luna score90+ in every category, no averaging
+- [x] Saved-scene evaluated geometry/support/clearance/dependency checks
+- [x] Eight conservative player/cart route sweeps
+- [x] Fresh-process cold-open, honest ten-camera numerical comparison and independent visual-stability review
+- [x] Verified source/scene checkpoint and integration handoff
+- [x] Separate live Blender inspection receipt and released control lease
+- [ ] Section-only commit/push receipt
+
+Git publication is recorded after packaging. Historical slice/fixed-cycle rules were superseded by the user's full-room integration-readiness workflow. Whole-map and engine validation are explicitly not claimed.

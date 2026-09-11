@@ -4,4 +4,4 @@
 
 Dimensions not supplied in the brief are explicit implementation decisions in `interface.json` and `architecture/README.md`. Proposed connections do not relocate existing rooms. Cooling failure, manual valve intervention, pump repair, portable power and mine-water recovery hooks follow GAME_SPEC, with host-authoritative implementation deferred to the engine.
 
-This is a scenery/contract package under construction. Only the pump/workshop style slice is currently built; full-room functions are unproven. The next run must correct the recorded geometry and art failures before expansion.
+The complete room is authored: two detailed pump skids, exchanger and hoist, workshop, reserve restart, water recovery services, drains, routes and lighting. Final acceptance is recorded in production/FINAL_HANDOFF.md when available; construction and historical failures are retained in production/CORRECTION_HISTORY.md. This is a local Blender scenery/contract package, not an assembled game-engine level.

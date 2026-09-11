@@ -1,9 +1,15 @@
-# Cooling Plant — work in progress
+# Cooling Plant
 
-Original Blender maintenance environment for Critical Shift. **Paused at style slice S03; production acceptance failed/incomplete.** Start with [CONTINUE.md](CONTINUE.md).
+Complete verified local Blender support room for Critical Shift, revision **R10**. Paired pumps, exchanger and hoist, maintenance workshop, reserve restart, backup water, drains, lighting and routes. Valorant direction in ivory, charcoal, oxide orange and yellow; no teal.
 
-The package contains a dimensioned local plan, proposed reactor interface, original reproducible pump/workshop slice, saved Blender scene, three-camera iteration evidence and independent art/technical failures. Ten cameras are defined; the complete ten-view plant has not been rendered.
+Independent Luna review: all eight categories90+. Saved geometry and all eight conservative routes pass. Ten fixed-camera cold-start renders preserve the scene and pass independent visual-stability review; small numerical differences are documented. This certifies the local artifact; the facility remains unassembled.
 
-The full-room source is staged for two pump skids, an exchanger, traceable supply/return, reserve restart connection, a capped emergency water port and a maintenance alcove. These full-room functions remain unbuilt pending style approval. Runtime behavior is a semantic handoff only.
+- [Saved scene](blender/cooling_plant.blend)
+- [Final handoff and scores](production/FINAL_HANDOFF.md)
+- [18-view image gallery](production/renders/final/gallery.html)
+- [Dimensioned plan](architecture/floorplan.png)
+- [Exact connections and ownership](architecture/CONNECTIONS.md)
+- [Equipment checklist](production/REQUIREMENTS.md)
+- [Approved concepts and rejected history](art/concepts/PROVENANCE.md)
 
-See `architecture/floorplan.png`, `interface.json`, `blender/run.ps1`, `production/critics/`, and `production/technical/`. Existing facility sections were not edited.
+Other sections were preserved. The reactor's closed door, remote utilities and global placement require assembly work by their owners/integrator.

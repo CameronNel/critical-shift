@@ -1,7 +1,9 @@
 # Art authority and reference provenance
 
-The builder and independent Astra reviewer inspected the approved A02 hall and B01 controls PNG pixels under the active reactor worktree. They establish grounded stylized semi-realism: specific construction, quiet mineral walls, restrained teal machinery, functional yellow accents, tactile materials and localized practical lighting. Their reactor layout is not a Cooling Plant geometry source.
+Approved reactor and mine images were inspected directly for construction, broad stylized forms and practical lighting. The user subsequently reinforced Valorant art direction and explicitly rejected teal. Current palette: warm ivory, charcoal, oxide orange and safety yellow. Earlier teal references remain historical only.
 
-Canonical authority read from `C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/design/`: GAME_SPEC, ART_DIRECTION, ART_REFERENCE_INDEX and AUTONOMOUS_SECTION_BUILD_PROTOCOL. These override old PEAK-heavy wording in the isolated worktree's starting branch. Orchestrator briefs were read first.
+Canonical GAME_SPEC, ART_DIRECTION, ART_REFERENCE_INDEX and AUTONOMOUS_SECTION_BUILD_PROTOCOL were read from the reactor-valorant design folder after the orchestrator briefs. The latest user workflow overrides older slice-first and fixed-cycle instructions.
 
-No new generated reference was adopted. No downloaded texture or 3D asset was used. All geometry and restrained procedural materials are original Python-authored work. Current S01/S02 reviewer evidence says the material and construction target has **not yet been met**.
+ChatGPT-generated concepts R05 overall, R06 machinery/prop panels1–5 and R07 interior reverse composition passed independent Luna concept review. R06 panel6 and earlier photoreal/teal concepts were rejected or superseded. See concepts/PROVENANCE.md for exact image hashes, sources and decisions. Concepts do not overrule dimensions or authorize neighbouring geometry.
+
+All scene geometry and procedural materials are original. No downloaded mesh or texture is used. Actual rendered-scene acceptance is separate from concept approval and is recorded in production/critics.

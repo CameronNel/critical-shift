@@ -1,4 +1,4 @@
-param([ValidateSet('build','render')][string]$Action='build',[string]$Stage='slice',[string]$Revision='S01',[string]$Cameras='C07_PINCH',[int]$Samples=40,[int]$Width=1440,[string]$Output='')
+param([ValidateSet('build','render')][string]$Action='build',[string]$Stage='full',[string]$Revision='R10',[string]$Cameras='all',[int]$Samples=48,[int]$Width=1440,[string]$Output='')
 $ErrorActionPreference='Stop'
 $coolingSection=Split-Path $PSScriptRoot -Parent
 $env:BLENDER_USER_RESOURCES=Join-Path $coolingSection '.blender-user'

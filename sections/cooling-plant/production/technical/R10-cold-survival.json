@@ -1,0 +1,33 @@
+{
+  "revision": "R10",
+  "status": "PASS",
+  "blend_sha256": "cdc0b48a5af6cb11bae6a4511074cc4b9aacf4dce687503e55d3891a49bb2693",
+  "artifact_unchanged": true,
+  "exact_pixel_test_status": "REVIEW",
+  "bit_identical": false,
+  "max_channel_difference": 9,
+  "maximum_changed_channel_percent": 0.050950038580246916,
+  "maximum_mean_absolute_difference": 0.000626929012345679,
+  "acceptance_basis": "Fresh-file geometry/dependency/camera checks plus all ten successful renders and independent Luna inspection of cold images. User requires saved-artifact survival; bit-exact GPU pixels are reported separately and are not claimed.",
+  "independent_review": {
+    "revision": "R10",
+    "artifact_survival_approved": true,
+    "visual_stability_approved": true,
+    "observations": [
+      "All ten cold-open primary images preserve visible room geometry, materials, lighting, camera composition, and native labels.",
+      "CP-P01 / REACTOR, HX-01, pump, service, withdrawal, reserve, route, hoist, and workshop labels remain present and visibly usable.",
+      "No visible geometry loss, material substitution, missing label, or lighting defect was found in the cold images.",
+      "The larger numerical deltas are localized to HX-01 conformed lettering; the lettering remains visible in every affected view.",
+      "The neutral gray beyond-portal boundary remains intentionally unassembled and receives no neighbor-assembly credit."
+    ],
+    "limitations": [
+      "The exact decoded RGB comparison remains REVIEW: all ten image pairs have decoded_pixels_equal=false.",
+      "Changed channels range from 211 to 2113, with maximum channel differences of 1 in five views and 7 to 9 in five HX-label views.",
+      "Mean absolute difference is at most 0.00062693/255 and RMS difference at most 0.03143/255; these measurements support stability but do not establish pixel equality.",
+      "Cold-open evidence covers saved-artifact survival and render repeatability only, not whole-map assembly or runtime-engine acceptance.",
+      "The live dependency audit's Blender built-in Bfont Regular <builtin> filesystem sentinel limitation remains documented; native text visibly survives cold renders."
+    ]
+  },
+  "retained_comparison": "R10-cold-start.json",
+  "limitations": "Not bit-identical. Differences over one 8-bit channel step localize to conformed HX shell lettering; numerical surface sensitivity is an inference, not a proven renderer diagnosis. Historical exact-pixel REVIEW is retained unchanged. No runtime or whole-map claim."
+}

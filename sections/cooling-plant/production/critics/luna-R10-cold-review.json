@@ -1,0 +1,19 @@
+{
+  "revision": "R10",
+  "artifact_survival_approved": true,
+  "visual_stability_approved": true,
+  "observations": [
+    "All ten cold-open primary images preserve visible room geometry, materials, lighting, camera composition, and native labels.",
+    "CP-P01 / REACTOR, HX-01, pump, service, withdrawal, reserve, route, hoist, and workshop labels remain present and visibly usable.",
+    "No visible geometry loss, material substitution, missing label, or lighting defect was found in the cold images.",
+    "The larger numerical deltas are localized to HX-01 conformed lettering; the lettering remains visible in every affected view.",
+    "The neutral gray beyond-portal boundary remains intentionally unassembled and receives no neighbor-assembly credit."
+  ],
+  "limitations": [
+    "The exact decoded RGB comparison remains REVIEW: all ten image pairs have decoded_pixels_equal=false.",
+    "Changed channels range from 211 to 2113, with maximum channel differences of 1 in five views and 7 to 9 in five HX-label views.",
+    "Mean absolute difference is at most 0.00062693/255 and RMS difference at most 0.03143/255; these measurements support stability but do not establish pixel equality.",
+    "Cold-open evidence covers saved-artifact survival and render repeatability only, not whole-map assembly or runtime-engine acceptance.",
+    "The live dependency audit's Blender built-in Bfont Regular <builtin> filesystem sentinel limitation remains documented; native text visibly survives cold renders."
+  ]
+}

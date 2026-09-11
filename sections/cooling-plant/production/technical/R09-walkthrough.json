@@ -1,0 +1,276 @@
+{
+  "revision": "R09",
+  "blend_sha256": "afc92d0b50a39968118502ff31fcebf00f9ee56712a6e029de84224336c9a272",
+  "method": "Every <=0.12m along polylines: evaluated-world triangle clipping against conservative upright player/cart box. Floor paint <=10mm excluded. Eye 1.68m, player height1.85m, cart envelope2.0m. No real-time game engine or dynamic door simulation.",
+  "routes": [
+    {
+      "id": "CP-P01 main cart return",
+      "path_xy": [
+        [
+          0,
+          0.86
+        ],
+        [
+          0,
+          11.5
+        ],
+        [
+          0,
+          0.86
+        ]
+      ],
+      "footprint_m": [
+        1.2,
+        1.7
+      ],
+      "sample_count": 180,
+      "collision_samples": 0,
+      "clashing_objects": [],
+      "status": "PASS"
+    },
+    {
+      "id": "P-01 controls and front service",
+      "path_xy": [
+        [
+          0,
+          2.35
+        ],
+        [
+          -4.7,
+          2.35
+        ],
+        [
+          -2.0,
+          2.35
+        ],
+        [
+          0,
+          2.35
+        ]
+      ],
+      "footprint_m": [
+        0.6,
+        0.6
+      ],
+      "sample_count": 83,
+      "collision_samples": 0,
+      "clashing_objects": [],
+      "status": "PASS"
+    },
+    {
+      "id": "P-02 between-pump service",
+      "path_xy": [
+        [
+          0,
+          5.85
+        ],
+        [
+          -4.6,
+          5.85
+        ],
+        [
+          0,
+          5.85
+        ]
+      ],
+      "footprint_m": [
+        0.6,
+        0.6
+      ],
+      "sample_count": 80,
+      "collision_samples": 0,
+      "clashing_objects": [],
+      "status": "PASS"
+    },
+    {
+      "id": "CP-D02 workshop and bench",
+      "path_xy": [
+        [
+          0,
+          9.25
+        ],
+        [
+          -4.1,
+          9.25
+        ],
+        [
+          -4.1,
+          10.6
+        ],
+        [
+          -3.5,
+          11.8
+        ],
+        [
+          -4.3,
+          11.8
+        ],
+        [
+          -3.5,
+          11.8
+        ],
+        [
+          -4.1,
+          10.6
+        ],
+        [
+          -4.1,
+          9.25
+        ],
+        [
+          0,
+          9.25
+        ]
+      ],
+      "footprint_m": [
+        0.6,
+        0.6
+      ],
+      "sample_count": 140,
+      "collision_samples": 0,
+      "clashing_objects": [],
+      "status": "PASS"
+    },
+    {
+      "id": "HX-01 aisle service",
+      "path_xy": [
+        [
+          0,
+          3.4
+        ],
+        [
+          1.65,
+          3.4
+        ],
+        [
+          1.65,
+          12.25
+        ],
+        [
+          0,
+          12.25
+        ]
+      ],
+      "footprint_m": [
+        0.6,
+        0.6
+      ],
+      "sample_count": 105,
+      "collision_samples": 0,
+      "clashing_objects": [],
+      "status": "PASS"
+    },
+    {
+      "id": "HX-01 withdrawal bay",
+      "path_xy": [
+        [
+          0,
+          11.7
+        ],
+        [
+          3.45,
+          11.7
+        ],
+        [
+          3.45,
+          9.85
+        ],
+        [
+          3.45,
+          11.7
+        ],
+        [
+          0,
+          11.7
+        ]
+      ],
+      "footprint_m": [
+        0.6,
+        0.6
+      ],
+      "sample_count": 94,
+      "collision_samples": 0,
+      "clashing_objects": [],
+      "status": "PASS"
+    },
+    {
+      "id": "CP-RESERVE and CP-MINE-WATER",
+      "path_xy": [
+        [
+          0,
+          1.05
+        ],
+        [
+          4.25,
+          1.05
+        ],
+        [
+          4.25,
+          3.5
+        ],
+        [
+          0,
+          3.5
+        ]
+      ],
+      "footprint_m": [
+        0.6,
+        0.6
+      ],
+      "sample_count": 96,
+      "collision_samples": 0,
+      "clashing_objects": [],
+      "status": "PASS"
+    },
+    {
+      "id": "secondary rear service access",
+      "path_xy": [
+        [
+          3.45,
+          11.7
+        ],
+        [
+          4.96,
+          11.7
+        ],
+        [
+          4.96,
+          9.2
+        ],
+        [
+          5.13,
+          9.2
+        ],
+        [
+          5.13,
+          6.3
+        ],
+        [
+          5.13,
+          9.2
+        ],
+        [
+          4.96,
+          9.2
+        ],
+        [
+          4.96,
+          11.7
+        ],
+        [
+          3.45,
+          11.7
+        ]
+      ],
+      "footprint_m": [
+        0.6,
+        0.6
+      ],
+      "sample_count": 130,
+      "collision_samples": 0,
+      "clashing_objects": [],
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}
