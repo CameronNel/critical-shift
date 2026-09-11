@@ -12,6 +12,6 @@
 - [x] Fresh-process cold-open, honest ten-camera numerical comparison and independent visual-stability review
 - [x] Verified source/scene checkpoint and integration handoff
 - [x] Separate live Blender inspection receipt and released control lease
-- [ ] Section-only commit/push receipt
+- [x] Section-only commit/push receipt
 
-Git publication is recorded after packaging. Historical slice/fixed-cycle rules were superseded by the user's full-room integration-readiness workflow. Whole-map and engine validation are explicitly not claimed.
+Git publication is recorded in DELIVERY_RECEIPT.md. Historical slice/fixed-cycle rules were superseded by the user's full-room integration-readiness workflow. Whole-map and engine validation are explicitly not claimed.

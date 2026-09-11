@@ -37,4 +37,4 @@ The reactor's existing static closed cooling door blocks assembled traversal; it
 
 This is integration-ready Blender scenery and interface evidence, not final whole-map polish, pressure-vessel certification, game-engine collision or interaction validation. Pumps, valve hold, repair, reserve sharing, battery/water attachment and hydraulic values still need host-authoritative gameplay integration. The conservative saved-scene route sweeps do not replace engine physics.
 
-Commit/push receipt and live inspection evidence are recorded separately after packaging. No merge to main is authorized by this package.
+[Commit/push receipt](DELIVERY_RECEIPT.md) and live inspection evidence are recorded separately. No merge to main is authorized by this package.

@@ -1,3 +1,3 @@
-# R10 verified local artifact
+# Cooling Plant complete — R10
 
-All eight independent categories90+, geometry and route audits PASS, ten-camera saved-artifact cold survival PASS; small numerical differences retained. See FINAL_HANDOFF.md; live inspection and commit/push receipt are the remaining delivery actions until DELIVERY_RECEIPT.md is written.
+Complete verified local integration package committed and pushed. Artifact commit cefe9d9ea66dc9dc64c4c40aa97a395b63a0496c; branch codex/cooling-plant-astra-20260908. See DELIVERY_RECEIPT.md and FINAL_HANDOFF.md. All eight Luna scores are91–95, measured geometry and eight routes pass, cold-open artifact survival is independently approved with small numerical differences recorded. Own Blender window remains open; MCP lease released. Other sections preserved. Whole-map assembly and engine validation are not claimed.
