@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "section": "medical-reanimation",
+  "revision": "medical-interface-1",
+  "units": "metres",
+  "coordinate_system": {
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "inward": "+Y",
+    "up": "+Z",
+    "note": "Local main entry threshold at origin. Do not move completed rooms."
+  },
+  "interior": {
+    "main_bounds": {
+      "min": [
+        -4.0,
+        0.0,
+        0.0
+      ],
+      "max": [
+        4.0,
+        9.0,
+        3.6
+      ]
+    },
+    "decon_alcove": {
+      "min": [
+        1.48,
+        9.0,
+        0.0
+      ],
+      "max": [
+        3.18,
+        11.12,
+        2.55
+      ]
+    },
+    "floor_outline_xy": [
+      [
+        -4.0,
+        0.0
+      ],
+      [
+        4.0,
+        0.0
+      ],
+      [
+        4.0,
+        9.0
+      ],
+      [
+        3.18,
+        9.0
+      ],
+      [
+        3.18,
+        11.12
+      ],
+      [
+        1.48,
+        11.12
+      ],
+      [
+        1.48,
+        9.0
+      ],
+      [
+        -4.0,
+        9.0
+      ]
+    ],
+    "gross_interior_area_m2": 75.604,
+    "clear_height_m": 3.6,
+    "wall_thickness_m": 0.18
+  },
+  "portals": [
+    {
+      "id": "main_entry",
+      "threshold": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "clear_width_m": 2.2,
+      "clear_height_m": 2.5,
+      "inward_normal": [
+        0,
+        1,
+        0
+      ],
+      "connected_section": null,
+      "mechanism": "opposed sliding pressure leaves; open traversal default; closed state separately tested",
+      "owner": "medical-reanimation",
+      "outward_normal": [
+        0,
+        -1,
+        0
+      ],
+      "external_face": [
+        0,
+        -0.18,
+        0
+      ]
+    }
+  ],
+  "equipment_bounds_xy_m": {
+    "OCRU": [
+      -3.9575,
+      2.48,
+      -1.46,
+      6.78
+    ],
+    "Console": [
+      -1.34,
+      8.1,
+      0.52,
+      9.0
+    ],
+    "Cartridges": [
+      0.64,
+      8.3,
+      1.36,
+      9.0
+    ],
+    "ReservePower": [
+      -2.58,
+      8.44,
+      -1.72,
+      9.0
+    ],
+    "Decon": [
+      1.48,
+      9.0,
+      3.18,
+      11.12
+    ],
+    "PowerPanel": [
+      3.18,
+      8.86,
+      3.72,
+      9.0
+    ],
+    "SuppliesCabinet": [
+      3.22,
+      6.52,
+      3.9575,
+      8.42
+    ],
+    "Recovery": [
+      2.58,
+      3.52,
+      3.88,
+      5.88
+    ],
+    "SupplyBench": [
+      3.08,
+      0.42,
+      3.9575,
+      2.52
+    ],
+    "Wash": [
+      3.42,
+      2.62,
+      3.9575,
+      3.28
+    ],
+    "CartParking": [
+      -3.82,
+      0.18,
+      -2.42,
+      2.48
+    ]
+  },
+  "adult_berth_m": {
+    "width": 0.88,
+    "length": 2.2,
+    "surface_height": 1.02
+  },
+  "cart_m": {
+    "length": 2.1,
+    "width": 0.74,
+    "height": 0.92
+  },
+  "decon_threshold": {
+    "min_x_m": 1.55,
+    "max_x_m": 2.75,
+    "y_m": 9.0,
+    "clear_width_m": 1.2,
+    "clear_height_m": 2.15
+  },
+  "implementation_decisions": [
+    "GAME_SPEC chapter 5 specifies procedure, not room dimensions. 8.00 x 9.00 x 3.60 m hall plus a 1.70 x 2.12 m rear decon alcove is an authored modest module.",
+    "Main portal 2.20 x 2.50 m sliding leaves so a 2.10 x 0.74 m cart and an adult ragdoll can enter without a swing envelope in the arrival lane.",
+    "OCRU seated on west lining; operator console and cartridge bank flush to rear wall Y=9.00; recovery along east; cart parking southwest.",
+    "Adjacent-section identity is unresolved. Rear utilities are local terminations, not claims on other departments.",
+    "Equipment is fictional game art, not medical guidance.",
+    "Latest user explicitly asks to retain existing layout as the baseline; no relocation of equipment or decon alcove without measured cause.",
+    "Rear alcove remains decontamination. A hose/wand serves the adjacent cart apron so a long cart need not rotate inside the narrow alcove. Handheld use and contamination rules belong to host.",
+    "Reserve battery cabinet and rear console remain at inherited placements; no direct Waste discharge is routed through the treatment room.",
+    "Fuel Corridor S02_CLEAN is a separate unbound clean header (6.6,21,0),2.0x2.5; Medical entry2.2x2.5. Shared service-junction placement remains connector-owner work; no invented global transform."
+  ],
+  "validation_status": "Acceptance is recorded separately in production/FINAL_EVIDENCE.json; this file is the geometric contract.",
+  "source_layout": {
+    "path": "C:/Users/Camer/Games/critical-shift/worktrees/medical-reanimation/sections/medical-reanimation/blender/ocru.blend",
+    "survey": "architecture/existing-saved-survey.json",
+    "sha256": "c95e7a815ef88fbb0c196c700116616bb6c3605ae8886244ab58678339d3f5e0"
+  },
+  "utilities": [
+    {
+      "id": "MED_POWER",
+      "center": [
+        -2.15,
+        9.18,
+        2.65
+      ],
+      "outward": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.2,
+        0.2
+      ],
+      "owner": "medical-reanimation",
+      "state": "capped unbound power socket"
+    },
+    {
+      "id": "MED_WATER",
+      "center": [
+        3.36,
+        10.7,
+        0.6
+      ],
+      "outward": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        0.12,
+        0.12
+      ],
+      "owner": "medical-reanimation",
+      "state": "capped unbound wash supply"
+    },
+    {
+      "id": "MED_DRAIN",
+      "center": [
+        2.33,
+        11.3,
+        0.15
+      ],
+      "outward": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.15,
+        0.15
+      ],
+      "owner": "medical-reanimation",
+      "state": "capped controlled drain"
+    },
+    {
+      "id": "MED_EXTRACT",
+      "center": [
+        2.33,
+        11.3,
+        2.25
+      ],
+      "outward": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.4,
+        0.3
+      ],
+      "owner": "medical-reanimation",
+      "state": "capped decon extract"
+    },
+    {
+      "id": "MED_DATA",
+      "center": [
+        -0.4,
+        9.18,
+        2.65
+      ],
+      "outward": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.12,
+        0.12
+      ],
+      "owner": "medical-reanimation",
+      "state": "capped employee telemetry"
+    }
+  ],
+  "host_hooks": [
+    {
+      "id": "OCRU_LOAD",
+      "purpose": "adult transfer berth and recoverable ragdoll insertion"
+    },
+    {
+      "id": "OCRU_SUIT_PORT",
+      "purpose": "suit service coupling"
+    },
+    {
+      "id": "OCRU_CARTRIDGE",
+      "purpose": "medical cartridge insertion/stock consumption"
+    },
+    {
+      "id": "OCRU_RESTART",
+      "purpose": "physical short restart sequence"
+    },
+    {
+      "id": "OCRU_POWER",
+      "purpose": "normal/reserve choice; low-power pause and resumption"
+    },
+    {
+      "id": "OCRU_MAINTENANCE",
+      "purpose": "fault repair access"
+    },
+    {
+      "id": "DECON_WAND",
+      "purpose": "gross contamination removal before chamber loading"
+    },
+    {
+      "id": "RECOVERY_EXIT",
+      "purpose": "revived worker recovery and egress"
+    },
+    {
+      "id": "OCRU_COMPLIANCE_LOCK",
+      "purpose": "remote lock/identity/firmware host state"
+    },
+    {
+      "id": "AUDIO_MEDICAL",
+      "purpose": "room audio zone"
+    }
+  ],
+  "host_responsibility": "Geometry provides editable mechanisms and anchors. Runtime owns authority/network replication, occupancy, power cost, cartridge inventory, state sequencing, contamination, locks, ragdoll physics and temporary debuffs. No gameplay implementation claimed.",
+  "equipment_bounds_role": "Inherited R09 reservation rectangles, not final manufactured projection limits. Read evaluated equipment_envelopes in production/validation."
+}

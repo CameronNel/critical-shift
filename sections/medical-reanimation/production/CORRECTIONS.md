@@ -1,0 +1,24 @@
+# Medical correction history
+
+The original Grok R09 file supplies the preserved layout, not imported geometry. Its fresh read-only renders are in `renders/existing-R09`. The art rebuild starts factory-empty and remains inside this section. The original SHA-256 is c95e7a815ef88fbb0c196c700116616bb6c3605ae8886244ab58678339d3f5e0.
+
+## Concepts
+
+M01 layout concept failed materials at 88 and remains preserved. M02 reverse concept is guidance only: its invented OCRU expansion was not adopted. Luna independently accepted M03 layout, M04 OCRU, M05 rear service and targeted M06 OCRU. Prompts, source images, hashes and reviewer references are in `art/concepts/provenance.json`. Concepts never override the inherited room dimensions or gameplay function.
+
+## Actual scene reviews and corrections
+
+- M01 failed: scale78, shape70, hierarchy76, materials69, lighting73, color95, storytelling75, technical58. The complete early room was too generic and insufficiently verified. Subsequent construction developed manufactured equipment, purposeful supplies, interfaces, service supports and distinct material families.
+- M02 produced the first broad saved-artifact checks. A relative render-output path mistakenly wrote one image outside the section. That exact image was recovered into `renders/review/M02`; the known stray file was removed. The renderer now resolves absolute output paths. No external source scene was changed.
+- M03 failed: scale86, shape82, hierarchy84, materials83, lighting85, color96, storytelling86, technical78. The retained actual images guided a targeted OCRU concept, deeper enclosure construction, task lighting, tactile textiles, service connections, control hierarchy and believable fixtures.
+- M05 broad art was above90, but labels89 and state-pose87 failed. The original scissor-lift demonstration was inconsistent. The fixed/staged images and independent rejection remain preserved. Labels required clear backing and oblique-view inspection; mechanism evidence required actual rendered correction.
+- M07 corrected the transfer mechanism and developed service/support evidence. M09 added captive lower/upper scissor tracks and a constant-length articulated lift pose. Transfer deck and bridge surfaces align at1.008m,12mm below the berth cushion; the bridge has a measured bearing overlap. The battery door and entry leaves are demonstrated in separate poses.
+- M09 still failed visual signage acceptance: the local normal-ray glyph audit passed, but CAM_DECON showed the wand obscuring the leading W in WASH / BEFORE LOAD, while CAM_MAINT caught a clipped fragment at its frame edge. This proves why geometry checks alone are insufficient. All fourteen M09 final and cold images remain in `renders/review/M09` and `M09-cold`; its five state renders remain in `renders/states/M09`.
+- M10 removes that long wash plaque and places BEFORE LOADING beneath the existing DECON threshold heading on an enlarged, physically supported backing. Equipment, floorplan and fourteen fixed cameras remain unchanged. Final acceptance depends on the M10 actual-pixel review and cold comparison, recorded separately.
+- M10's independent readiness audit identified the approximately5mm cart-extraction margin as a consequential integration risk. The queued M10 image batch was cancelled while still waiting, before it acquired the GPU; no M10 pixel approval is claimed. M11 moves only the entrance hardware closer to the owned wall, preserving the external portal contract. The cart now extracts directly sideways at its original Y1.33, with approximately95mm to the OCRU and109mm to the foremost door trim. The sweep includes the cart's label projection and a separate75mm padding case. Both pass. S06 adds an actual extraction pose to the existing five supplemental renders. M11 final images and independent review supersede the pending M10 acceptance.
+
+## Evidence limitations and recovery
+
+The contact audit is an8mm AABB candidate screen, not a manufacturing certification. The glyph audit checks backing fit and short normal-ray obstruction, not all oblique sightlines. The route checks sample explicit conservative player/cart/body paths, not every ragdoll arrangement. The independent image review supplies the visual judgment that these tools cannot.
+
+Live MCP reopening succeeded, but its post-call camera bookkeeping reported a stale Camera reference. A fresh instance/session discovery, claim and structured readback confirmed the new saved file; the open was not blindly repeated. The dependency tool reports Blender's `<builtin>` Bfont as a missing filesystem path. It is a built-in font rather than an external dependency; fresh-process text geometry and rendered lettering verify that it survives reopening. No external image textures, linked libraries or downloaded fonts are required.

@@ -1,0 +1,138 @@
+{
+  "render_comparison_pass": true,
+  "renders": [
+    {
+      "camera": "CAM_CONSOLE",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 209,
+      "mean_absolute_difference": 5.375514403292181e-05,
+      "final_sha256": "a06e3cfcf25090389480e6d0793d8364bd7469efe74ff62e16bdb0fd4c0e505a",
+      "cold_sha256": "d869783737833cf67444b9e98b50130744b052d3e2ab59cb6666196dd251e09b"
+    },
+    {
+      "camera": "CAM_DECON",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 202,
+      "mean_absolute_difference": 5.195473251028807e-05,
+      "final_sha256": "ac8a545bd2f88f26fab2e1c7d49e9a404ebef8550034af1a3f0f7784eb4041d0",
+      "cold_sha256": "ad72b72401ed7d1183a0ccf2011d9973163aceae59fc500a61acabd0b80f169f"
+    },
+    {
+      "camera": "CAM_ENTRY",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 199,
+      "mean_absolute_difference": 5.118312757201646e-05,
+      "final_sha256": "03b2efa7794c92e5b136ddf9fd5fa9115657e6cae704541230eaeb52ab2ec819",
+      "cold_sha256": "33d78ea5e2c4ab13482e97bde7fabc8c4d72c3b46708b04947d85bbc9e252638"
+    },
+    {
+      "camera": "CAM_HERO",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 158,
+      "mean_absolute_difference": 4.063786008230453e-05,
+      "final_sha256": "24177cf345d428cea57a7a5b91b9c320696304896149b212eda906486c6eaf62",
+      "cold_sha256": "419e0bdb473559d3a52945ca1d2f60c166c15ab853f03382f1906f63ef66cea4"
+    },
+    {
+      "camera": "CAM_MAINT",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 149,
+      "mean_absolute_difference": 3.8323045267489713e-05,
+      "final_sha256": "0c6dc7362731f8bb81c8f2cda3ab41daf6f72c30f8211a094ee50e1244dfb755",
+      "cold_sha256": "66f12e2b82446d3dd797dd5bafd58c51c4679b45cee3d8d3a6c6a9a115a0178f"
+    },
+    {
+      "camera": "CAM_MATERIALS",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 206,
+      "mean_absolute_difference": 5.2983539094650204e-05,
+      "final_sha256": "074376ebfb1484848126f4e2e4af9933c89d892c878c6a8965a4efab8c72a393",
+      "cold_sha256": "83a87c0f41e2859bef55dc3bca14bbc208e32dc6f3fbdb08f0b3901d7ee30086"
+    },
+    {
+      "camera": "CAM_PINCH",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 194,
+      "mean_absolute_difference": 4.9897119341563785e-05,
+      "final_sha256": "6932a03e3c0c76f08a834dd37e99c644d20de6e08b82ed5b410fe040eaa35ffb",
+      "cold_sha256": "7a0ad0f569cd4ab1e803a88edff4af5f59f95fbe00f757accac5f1088d60e5a9"
+    },
+    {
+      "camera": "CAM_RECOVERY",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 196,
+      "mean_absolute_difference": 5.041152263374486e-05,
+      "final_sha256": "93edacfed7b0954d6ca3ac8d8f8359eb10d261f1448eaa5b5d2125325c131003",
+      "cold_sha256": "3b686d60d004473adbb78128f683f328da8f686a881085047bf440ebc4d86c34"
+    },
+    {
+      "camera": "CAM_REVERSE",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 190,
+      "mean_absolute_difference": 4.886831275720165e-05,
+      "final_sha256": "f51cfa9fb9f6bea9d0a6e49e6a395953653807308d64d6bfcf4241544f450148",
+      "cold_sha256": "c59da0a0a5e7493a410b2b30a9dfcd8337d22de9f418778f027e226d1ba489b5"
+    },
+    {
+      "camera": "CAM_ROUTE",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 205,
+      "mean_absolute_difference": 5.272633744855967e-05,
+      "final_sha256": "dee3fbefbb8255e0bdb581e3c6017d1f01689c246b2e86e9faf1b78e979e764c",
+      "cold_sha256": "dd83f9b53acf9e251436ac01a77cb9b1dc8e675dae5103ef828dcb8a0fe65c99"
+    },
+    {
+      "camera": "W01_ENTRY_OUTSIDE",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 205,
+      "mean_absolute_difference": 5.272633744855967e-05,
+      "final_sha256": "45a4f9591dc5cf3bf718a521621ccf8793894a9e6e88d9e9aeba4f30e35c2ab8",
+      "cold_sha256": "ccab2ef8a9da73efa8aec20d01ea4706139a9efff090fe04007c299fff915cc9"
+    },
+    {
+      "camera": "W02_CART",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 146,
+      "mean_absolute_difference": 3.755144032921811e-05,
+      "final_sha256": "dd0c20b3f91190f94760adb417a322f4a8d797a9517adbfab979634fa8b94da0",
+      "cold_sha256": "04e43e88bc77bc6ec1310bd3e03ee02d15af748bcbfe33f5e9b6912ea80d3615"
+    },
+    {
+      "camera": "W03_SUPPLIES",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 231,
+      "mean_absolute_difference": 5.941358024691358e-05,
+      "final_sha256": "9efc769ace8ca2e4125f4fe86ebebf5cd4fd9f252b4e4861df43b622673890fa",
+      "cold_sha256": "f523330a54e6400157c7650a3fa69027a999d94b36655e2488e4d79cb9cf70a5"
+    },
+    {
+      "camera": "W04_REAR_SERVICE",
+      "pass": true,
+      "max_channel_difference": 1,
+      "changed_pixels": 202,
+      "mean_absolute_difference": 5.195473251028807e-05,
+      "final_sha256": "6d4826dd8760ac9b0be47464abf7d1b43a31323a0bc4b13e7eb5bfbd3b6431db",
+      "cold_sha256": "f48f37b6eb2f5f4de605c45c1674b5bc3a06a9f51f4f2ea30edb0aa42391d807"
+    }
+  ],
+  "state_fingerprints": {
+    "cold-A": "ee095b626465ef2941833261aae7433e973503400651823553c9d838c926b68e",
+    "cold-B": "ee095b626465ef2941833261aae7433e973503400651823553c9d838c926b68e",
+    "source-replay": "ee095b626465ef2941833261aae7433e973503400651823553c9d838c926b68e"
+  },
+  "state_comparison_pass": true,
+  "note": "At most one 8-bit code difference allows documented GPU rounding, not perceptual changes. Independent reviewer decides visual acceptance."
+}

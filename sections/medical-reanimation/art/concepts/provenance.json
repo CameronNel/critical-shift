@@ -1,0 +1,51 @@
+{
+  "concepts": [
+    {
+      "file": "art/concepts/M01-layout-redirection.png",
+      "sha256": "79de2ac250eb6940d70063588cb405f89b4528a3e7d56649d8b062200d1a9735",
+      "provider": "OpenAI built-in ChatGPT image generation",
+      "prompt": "art/concepts/M01-prompt.txt"
+    },
+    {
+      "file": "art/concepts/M02-reverse.png",
+      "sha256": "ad41b32e347f10aed7d6ebad34aa767ffc7f89a7abe8f85db13ae755938a0f32",
+      "provider": "OpenAI built-in ChatGPT image generation",
+      "prompt": "art/concepts/M02-prompt.txt"
+    },
+    {
+      "file": "art/concepts/M03-valorant-layout.png",
+      "sha256": "b62be1b221f13839225195085c130acf1dee6cf070931ccc7bae5a9c236c1fb6",
+      "provider": "OpenAI built-in ChatGPT image generation",
+      "prompt": "art/concepts/M03-prompt.txt"
+    },
+    {
+      "file": "art/concepts/M04-ocru-component.png",
+      "sha256": "3f19f2f8da625d228b0e2d91cb9b67a2c625d5202f2cfd9ab3af8dc2750f8d4f",
+      "provider": "OpenAI built-in ChatGPT image generation",
+      "prompt": "art/concepts/M04-prompt.txt"
+    },
+    {
+      "file": "art/concepts/M05-rear-service.png",
+      "sha256": "3b0d33bc4e41ba24023b8ec11807eb22b172e6b1194d169b91790ce5a6226c2f",
+      "provider": "OpenAI built-in ChatGPT image generation",
+      "prompt": "art/concepts/M05-prompt.txt"
+    },
+    {
+      "file": "art/concepts/M06-targeted-ocru.png",
+      "sha256": "3dbe784a6280807c7f000faa10e297aef5025941a75c7bf2d1b107e31b409631",
+      "provider": "OpenAI built-in ChatGPT image generation",
+      "prompt": "art/concepts/M06-prompt.txt"
+    }
+  ],
+  "source_layout_blend_sha256": "c95e7a815ef88fbb0c196c700116616bb6c3605ae8886244ab58678339d3f5e0",
+  "source_images": "Read-only fresh Grok R09 renders used for layout; reactor approved construction principles and user Valorant/no-teal direction used for style.",
+  "decisions": {
+    "M01": "rejected, materials88",
+    "M02": "reverse guidance only; invented long OCRU expansion rejected",
+    "M03": "approved by independent Luna",
+    "M04": "approved by independent Luna",
+    "M05": "approved by independent Luna >90",
+    "M06": "approved targeted OCRU correction >90"
+  },
+  "authority": "Concepts guide style only, never override geometry/spec. See unedited independent reports."
+}

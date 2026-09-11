@@ -1,0 +1,65 @@
+{
+  "blend": "ocru.blend",
+  "revision": "R09",
+  "source_sha256": null,
+  "settings": {
+    "engine": "CYCLES",
+    "device": "HIP",
+    "samples": 32,
+    "resolution": [
+      1440,
+      900
+    ],
+    "seed": 17
+  },
+  "renders": [
+    {
+      "camera": "CAM_ENTRY",
+      "seconds": 11.34,
+      "sha256": "cf7dc3692aa56d834ba222a12f00061b4db052f0d049fdbfaba05af3dc3c2834",
+      "location": [
+        0.0,
+        0.47999998927116394,
+        1.649999976158142
+      ],
+      "rotation_euler": [
+        1.5200374126434326,
+        7.825439740649642e-10,
+        -0.0203224029392004
+      ],
+      "lens_mm": 22.0
+    },
+    {
+      "camera": "CAM_REVERSE",
+      "seconds": 9.69,
+      "sha256": "6f2b608f5c08aee80a5f97f78fe152df4940720502d974d8b4b44f02866fec40",
+      "location": [
+        0.20000000298023224,
+        7.699999809265137,
+        1.649999976158142
+      ],
+      "rotation_euler": [
+        1.5246875286102295,
+        4.060407832184865e-08,
+        3.1185197830200195
+      ],
+      "lens_mm": 22.0
+    },
+    {
+      "camera": "CAM_HERO",
+      "seconds": 9.64,
+      "sha256": "0b535d126c14a31f8a5db9de7b72825ef955a15a470278ce031c54077fc82c18",
+      "location": [
+        1.350000023841858,
+        4.550000190734863,
+        1.5199999809265137
+      ],
+      "rotation_euler": [
+        1.4916276931762695,
+        -3.779586421615022e-08,
+        1.5267075300216675
+      ],
+      "lens_mm": 24.0
+    }
+  ]
+}

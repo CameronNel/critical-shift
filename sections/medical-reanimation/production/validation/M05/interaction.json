@@ -1,0 +1,143 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "id": "two_person_carry",
+      "pass": true,
+      "path": [
+        [
+          0,
+          -0.8
+        ],
+        [
+          0,
+          6.9
+        ]
+      ],
+      "envelope": [
+        1.8,
+        0.7,
+        1.825
+      ],
+      "obstacle_xy": null,
+      "samples": 79,
+      "obstructions": []
+    },
+    {
+      "id": "dropped_body_bypass",
+      "pass": true,
+      "path": [
+        [
+          0,
+          1.5
+        ],
+        [
+          1.45,
+          2.7
+        ],
+        [
+          1.45,
+          6.5
+        ],
+        [
+          0,
+          7.2
+        ]
+      ],
+      "envelope": [
+        0.6,
+        0.6,
+        1.825
+      ],
+      "obstacle_xy": [
+        -0.925,
+        3.95,
+        0.925,
+        4.6
+      ],
+      "samples": 77,
+      "obstructions": []
+    },
+    {
+      "id": "dropped_cart_bypass",
+      "pass": true,
+      "path": [
+        [
+          0,
+          1.5
+        ],
+        [
+          1.2,
+          2.8
+        ],
+        [
+          1.2,
+          6.6
+        ],
+        [
+          0,
+          7.2
+        ]
+      ],
+      "envelope": [
+        0.6,
+        0.6,
+        1.825
+      ],
+      "obstacle_xy": [
+        -0.37,
+        3.58,
+        0.37,
+        5.68
+      ],
+      "samples": 73,
+      "obstructions": []
+    },
+    {
+      "id": "transfer_deployed_contact_design",
+      "pass": true,
+      "cart_center": [
+        -1.08,
+        4.63,
+        0
+      ],
+      "cart_lift": 0.08799999999999997,
+      "surfaces_z": [
+        1.008,
+        1.008,
+        1.02
+      ],
+      "bridge_x": [
+        -1.6187500000000004,
+        -1.1787500000000004
+      ],
+      "cart_west_edge": -1.4500000000000002,
+      "bearing_overlap_m": 0.27124999999999977,
+      "note": "Slide-assisted lift aligns bridge and cart; evaluate posed rendered mechanism independently."
+    },
+    {
+      "id": "door_stroke",
+      "pass": true,
+      "strokes": [
+        {
+          "object": "ENTRY_LEAF_L",
+          "open_x": -1.67,
+          "closed_x": -0.55,
+          "width": 1.1
+        },
+        {
+          "object": "ENTRY_LEAF_R",
+          "open_x": 1.67,
+          "closed_x": 0.55,
+          "width": 1.1
+        }
+      ],
+      "note": "Opposed sliding leaves, no swing volume. Closed leaves intentionally fill main_entry."
+    }
+  ],
+  "limitations": [
+    "Specific static recoverable obstruction arrangements, not all possible ragdoll poses.",
+    "Host must support repositioning/detaching bodies and carts at the only entry.",
+    "No engine navmesh/network/state implementation asserted."
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "blend": "medical_integration.blend",
+  "blend_sha256": "35d278c93cf8f385258da9e5b93ab6709d8166552ef204aca41b97231c04eb9a",
+  "revision": "M11",
+  "source_sha256": "aca22b4b1aaa0076b28d6edfda3ce0df2e002e1a772ccabe153a161268c43247",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 32,
+    "resolution": [
+      1440,
+      900
+    ],
+    "seed": 17
+  },
+  "renders": [
+    {
+      "camera": "CAM_ENTRY",
+      "seconds": 89.67,
+      "sha256": "c0eeb5658fc65926de4bd4360932eade28761f08b4fb7410f865cae4bc4a77a8",
+      "location": [
+        0.0,
+        0.47999998927116394,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.5139588117599487,
+        -1.9309223109331697e-09,
+        -0.020322410389780998
+      ],
+      "lens_mm": 22.0
+    },
+    {
+      "camera": "CAM_DECON",
+      "seconds": 85.3,
+      "sha256": "f70e8427fc816e13f3cb867445bd4b411bd98470fb54f65398ba320a49bd5351",
+      "location": [
+        1.5499999523162842,
+        7.550000190734863,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.381238341331482,
+        1.4861782915431831e-09,
+        -0.28625577688217163
+      ],
+      "lens_mm": 28.0
+    },
+    {
+      "camera": "CAM_MAINT",
+      "seconds": 103.72,
+      "sha256": "8c51fcbc4844213da21ee620f189691425bb0933d0ffc6f26f3eb15f8717e9a8",
+      "location": [
+        2.049999952316284,
+        7.349999904632568,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.3768407106399536,
+        -6.621102954795788e-08,
+        -0.6375488638877869
+      ],
+      "lens_mm": 28.0
+    }
+  ]
+}

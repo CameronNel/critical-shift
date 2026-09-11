@@ -1,0 +1,139 @@
+{
+  "schema_version": 2,
+  "section": "medical-reanimation",
+  "revision": "P04-operator-attachments",
+  "units": "metres",
+  "coordinate_system": {
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "inward": "+Y",
+    "up": "+Z"
+  },
+  "interior": {
+    "main_bounds": {
+      "min": [
+        -4,
+        0,
+        0
+      ],
+      "max": [
+        4,
+        9,
+        3.6
+      ]
+    },
+    "floor_outline_xy": [
+      [
+        -4,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        -4,
+        9
+      ]
+    ],
+    "gross_interior_area_m2": 72
+  },
+  "portals": [
+    {
+      "id": "main_entry",
+      "threshold": [
+        0,
+        0,
+        0
+      ],
+      "clear_width_m": 2.2,
+      "clear_height_m": 2.5,
+      "inward_normal": [
+        0,
+        1,
+        0
+      ],
+      "connected_section": null,
+      "mechanism": "interlocked sliding pressure leaves; closed beauty pose/open traversal pose"
+    }
+  ],
+  "equipment_bounds_xy_m": {
+    "OCRU": [
+      -3.9575,
+      2.64,
+      -1.43,
+      6.62
+    ],
+    "Console": [
+      -1.592,
+      8.07,
+      0.36,
+      9.0
+    ],
+    "Cartridges": [
+      0.4,
+      8.365,
+      1.15,
+      9.0
+    ],
+    "Decon": [
+      1.35,
+      6.55,
+      3.4,
+      9.0
+    ],
+    "Recovery": [
+      2.75,
+      3.65,
+      3.9575,
+      6.0
+    ],
+    "Supply bench": [
+      3.05,
+      0.55,
+      3.9575,
+      2.65
+    ],
+    "Cart bay": [
+      -3.7,
+      0.15,
+      -2.5,
+      2.55
+    ],
+    "Reserve power": [
+      -2.7,
+      8.445,
+      -1.75,
+      9.0
+    ]
+  },
+  "adult_berth_m": {
+    "width": 0.88,
+    "length": 2.2,
+    "surface_height": 1.032
+  },
+  "decon_mode": "whole-cart; planned 2.05 x 2.45m gross bay and 1.20m clear threshold centered X=2.05m, not built/validated yet",
+  "decon_threshold": {
+    "min_x_m": 1.45,
+    "max_x_m": 2.65,
+    "y_m": 6.55,
+    "wall_thickness_m": 0.1
+  },
+  "decon_cart_pose_xy_m": [
+    2.05,
+    7.7
+  ],
+  "recovery_wall_dock": "Backside closure/bumper reaches lining X=3.9575; no inaccessible open slot behind bed.",
+  "recovery_foot": "front / -Y, 1.00m separation to supply bench",
+  "user_wall_placement": "Console shifted right +1m, rearward +1.36m; cartridges right +0.925m, rearward +0.985m. Cabinet backs contact rear wall Y=9m.",
+  "console_footprint_scope": "Includes handover ledge and retained flask holder; excludes movable operator stool.",
+  "implementation_decision": "User-reference-led replacement layout. Former external recovery alcove discarded; all functions inside 8x9m envelope.",
+  "validation_status": "Plan only; built bounds, circulation and all clearances require fresh-geometry verification."
+}
