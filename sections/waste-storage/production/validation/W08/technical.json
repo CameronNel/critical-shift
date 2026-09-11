@@ -1,0 +1,1124 @@
+{
+  "revision": "W08",
+  "blend_sha256": "47601903a668a0fd700f65eb144a47349e366dc93a43f459d338fe06e636309b",
+  "pass": false,
+  "checks": [
+    {
+      "id": "material_assignments",
+      "pass": true,
+      "evidence": []
+    },
+    {
+      "id": "finite_geometry",
+      "pass": true,
+      "evidence": 1917
+    },
+    {
+      "id": "equipment_inventory",
+      "pass": true,
+      "evidence": {
+        "residue_overpack": 3,
+        "shielded_cask": 2,
+        "handling_jib": 1,
+        "dry_container": 2,
+        "quarantine_container": 1,
+        "cart": 1,
+        "inventory": 1,
+        "ventilation": 1,
+        "repair_bench": 1
+      }
+    },
+    {
+      "id": "floor_footprint",
+      "pass": true,
+      "evidence": [
+        [
+          -6.320000171661377,
+          -0.31999969482421875,
+          -0.30000001192092896
+        ],
+        [
+          6.320000171661377,
+          18.31999969482422,
+          0.0
+        ]
+      ]
+    },
+    {
+      "id": "fixed_cameras",
+      "pass": true,
+      "evidence": [
+        {
+          "name": "C01_Entry",
+          "location": [
+            0.0,
+            0.550000011920929,
+            1.6799999475479126
+          ],
+          "lens": 24.0
+        },
+        {
+          "name": "C02_Casks",
+          "location": [
+            -1.0,
+            10.600000381469727,
+            1.6799999475479126
+          ],
+          "lens": 24.0
+        },
+        {
+          "name": "C03_Reverse",
+          "location": [
+            0.0,
+            17.350000381469727,
+            1.6799999475479126
+          ],
+          "lens": 24.0
+        },
+        {
+          "name": "C04_Route",
+          "location": [
+            0.44999998807907104,
+            4.150000095367432,
+            1.6799999475479126
+          ],
+          "lens": 25.0
+        },
+        {
+          "name": "C05_Transfer",
+          "location": [
+            1.399999976158142,
+            1.5,
+            1.6799999475479126
+          ],
+          "lens": 30.0
+        },
+        {
+          "name": "C06_Dry",
+          "location": [
+            1.0,
+            6.699999809265137,
+            1.6799999475479126
+          ],
+          "lens": 26.0
+        },
+        {
+          "name": "C07_Quarantine",
+          "location": [
+            1.0,
+            11.199999809265137,
+            1.6799999475479126
+          ],
+          "lens": 26.0
+        },
+        {
+          "name": "C08_Extraction",
+          "location": [
+            -2.9000000953674316,
+            13.899999618530273,
+            1.6799999475479126
+          ],
+          "lens": 24.0
+        },
+        {
+          "name": "C09_Inventory",
+          "location": [
+            -2.799999952316284,
+            2.9000000953674316,
+            1.6799999475479126
+          ],
+          "lens": 25.0
+        },
+        {
+          "name": "C10_Workbench",
+          "location": [
+            2.0999999046325684,
+            15.5,
+            1.6799999475479126
+          ],
+          "lens": 30.0
+        },
+        {
+          "name": "W01_Personnel",
+          "location": [
+            3.0,
+            2.4000000953674316,
+            1.6799999475479126
+          ],
+          "lens": 20.0
+        },
+        {
+          "name": "W02_ReceivingReturn",
+          "location": [
+            0.0,
+            5.0,
+            1.6799999475479126
+          ],
+          "lens": 22.0
+        },
+        {
+          "name": "W03_Dispatch",
+          "location": [
+            0.0,
+            14.0,
+            1.6799999475479126
+          ],
+          "lens": 22.0
+        },
+        {
+          "name": "W04_CellService",
+          "location": [
+            -2.9000000953674316,
+            12.899999618530273,
+            1.6799999475479126
+          ],
+          "lens": 24.0
+        },
+        {
+          "name": "W05_ReceivingExterior",
+          "location": [
+            0.0,
+            -1.2000000476837158,
+            1.6799999475479126
+          ],
+          "lens": 22.0
+        },
+        {
+          "name": "W06_PersonnelExterior",
+          "location": [
+            7.0,
+            2.200000047683716,
+            1.6799999475479126
+          ],
+          "lens": 20.0
+        },
+        {
+          "name": "W07_DispatchExterior",
+          "location": [
+            0.0,
+            19.0,
+            1.6799999475479126
+          ],
+          "lens": 22.0
+        },
+        {
+          "name": "W08_BoothDoor",
+          "location": [
+            -1.2000000476837158,
+            2.1500000953674316,
+            1.6799999475479126
+          ],
+          "lens": 24.0
+        }
+      ]
+    },
+    {
+      "id": "registered_root_support",
+      "pass": true,
+      "evidence": [
+        {
+          "root": "WS_RECEIVING",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                1.565000057220459,
+                1.3681665222975425e-07,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            },
+            {
+              "position": [
+                -1.565000057220459,
+                -1.3681665222975425e-07,
+                0.0
+              ],
+              "gap": -3.725290298461914e-09,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "WS_DISPATCH",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                -1.2649999856948853,
+                18.0,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                1.2649999856948853,
+                18.0,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "WS_PERSONNEL",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                6.0,
+                3.065000057220459,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            },
+            {
+              "position": [
+                6.0,
+                1.7350001335144043,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "RA01",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                -4.550000190734863,
+                5.298999786376953,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                -4.550000190734863,
+                5.901000022888184,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "RA02",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                -4.550000190734863,
+                7.3989996910095215,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                -4.550000190734863,
+                8.000999450683594,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "RA03",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                -3.1500000953674316,
+                7.3989996910095215,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                -3.1500000953674316,
+                8.000999450683594,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "SC01",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                -4.650000095367432,
+                10.35099983215332,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                -4.650000095367432,
+                11.14900016784668,
+                0.0
+              ],
+              "gap": 7.450580596923828e-09,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "SC02",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                -4.650000095367432,
+                11.951000213623047,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                -4.650000095367432,
+                12.749000549316406,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "HJ01_HANDLING_JIB",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                -3.1500000953674316,
+                10.300000190734863,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "DR01",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                3.5,
+                5.650000095367432,
+                0.0
+              ],
+              "gap": 7.450580596923828e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                5.0,
+                5.650000095367432,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "DR02",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                3.5,
+                7.550000190734863,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                5.0,
+                7.550000190734863,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "QH01",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                4.650000095367432,
+                12.5,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                4.650000095367432,
+                11.0,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "CT01_TRANSFER_CART",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                3.0500001907348633,
+                3.25,
+                0.0
+              ],
+              "gap": -3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                3.75,
+                3.25,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            },
+            {
+              "position": [
+                3.0500001907348633,
+                4.389999866485596,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                3.75,
+                4.389999866485596,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "IM01_INVENTORY",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                -3.799999952316284,
+                1.0099999904632568,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                -3.799999952316284,
+                2.2899999618530273,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            },
+            {
+              "position": [
+                -4.400000095367432,
+                1.0099999904632568,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                -4.400000095367432,
+                2.2899999618530273,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Inventory chair",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                -2.8399999141693115,
+                1.3799999952316284,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                -2.8399999141693115,
+                1.8200000524520874,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                -3.259999990463257,
+                1.3799999952316284,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                -3.259999990463257,
+                1.8200000524520874,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "VF01_EXTRACTION",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                -5.349999904632568,
+                16.049999237060547,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                -3.3499999046325684,
+                16.049999237060547,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "WB01_SEAL_REPAIR",
+          "target": "Floor",
+          "anchors": [
+            {
+              "position": [
+                3.830000162124634,
+                16.459999084472656,
+                0.0
+              ],
+              "gap": 3.725290298461914e-09,
+              "pass": true
+            },
+            {
+              "position": [
+                5.270000457763672,
+                16.459999084472656,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            },
+            {
+              "position": [
+                3.830000162124634,
+                17.040000915527344,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            },
+            {
+              "position": [
+                5.270000457763672,
+                17.040000915527344,
+                0.0
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Suspended practical",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "position": [
+                -2.9000000953674316,
+                2.0999999046325684,
+                4.799999713897705
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Suspended practical.001",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "position": [
+                2.5999999046325684,
+                3.0999999046325684,
+                4.799999713897705
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Suspended practical.002",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "position": [
+                -3.9000000953674316,
+                6.5,
+                4.799999713897705
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Suspended practical.003",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "position": [
+                3.9000000953674316,
+                6.5,
+                4.799999713897705
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Suspended practical.004",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "position": [
+                -3.9000000953674316,
+                11.199999809265137,
+                4.799999713897705
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Suspended practical.005",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "position": [
+                3.9000000953674316,
+                11.199999809265137,
+                4.799999713897705
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Suspended practical.006",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "position": [
+                -3.5,
+                16.0,
+                4.799999713897705
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Suspended practical.007",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "position": [
+                3.799999952316284,
+                16.0,
+                4.799999713897705
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Suspended practical.008",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "position": [
+                0.0,
+                8.0,
+                4.799999713897705
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Suspended practical.009",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "position": [
+                0.0,
+                14.0,
+                4.799999713897705
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Cell task wall fixture",
+          "target": "West Wall",
+          "anchors": [
+            {
+              "position": [
+                -6.0,
+                5.599999904632568,
+                3.5
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Cell task wall fixture.001",
+          "target": "West Wall",
+          "anchors": [
+            {
+              "position": [
+                -6.0,
+                10.699999809265137,
+                3.5
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Cell task wall fixture.002",
+          "target": "West Wall",
+          "anchors": [
+            {
+              "position": [
+                -6.0,
+                16.0,
+                3.5
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Cell task wall fixture.003",
+          "target": "East Wall.001",
+          "anchors": [
+            {
+              "position": [
+                6.0,
+                5.599999904632568,
+                3.5
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Cell task wall fixture.004",
+          "target": "East Wall.001",
+          "anchors": [
+            {
+              "position": [
+                6.0,
+                10.699999809265137,
+                3.5
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        },
+        {
+          "root": "Cell task wall fixture.005",
+          "target": "East Wall.001",
+          "anchors": [
+            {
+              "position": [
+                6.0,
+                16.0,
+                3.5
+              ],
+              "gap": 0.0,
+              "pass": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "player_routes",
+      "pass": true,
+      "evidence": [
+        {
+          "route": "main",
+          "samples": 186,
+          "obstructions": []
+        },
+        {
+          "route": "personnel",
+          "samples": 64,
+          "obstructions": []
+        },
+        {
+          "route": "inventory",
+          "samples": 35,
+          "obstructions": []
+        },
+        {
+          "route": "residue",
+          "samples": 37,
+          "obstructions": []
+        },
+        {
+          "route": "shielded",
+          "samples": 31,
+          "obstructions": []
+        },
+        {
+          "route": "dry",
+          "samples": 29,
+          "obstructions": []
+        },
+        {
+          "route": "quarantine",
+          "samples": 33,
+          "obstructions": []
+        },
+        {
+          "route": "ventilation",
+          "samples": 60,
+          "obstructions": []
+        },
+        {
+          "route": "bench",
+          "samples": 34,
+          "obstructions": []
+        }
+      ]
+    },
+    {
+      "id": "cart_straight_route",
+      "pass": true,
+      "evidence": []
+    },
+    {
+      "id": "cart_rotation_envelope",
+      "pass": true,
+      "evidence": [
+        {
+          "center": [
+            0,
+            2.5
+          ],
+          "conservative_rotating_cart_square_halfwidth": 1.03,
+          "hits": []
+        },
+        {
+          "center": [
+            0,
+            16
+          ],
+          "conservative_rotating_cart_square_halfwidth": 1.03,
+          "hits": []
+        }
+      ]
+    },
+    {
+      "id": "portal_openings",
+      "pass": false,
+      "evidence": [
+        {
+          "id": "WS_RECEIVING",
+          "obstructions": []
+        },
+        {
+          "id": "WS_DISPATCH",
+          "obstructions": []
+        },
+        {
+          "id": "WS_PERSONNEL",
+          "obstructions": [
+            {
+              "u": 0.575,
+              "z": 0.025,
+              "hits": [
+                "Personnel leaf inner core",
+                "Personnel leaf folded edge",
+                "Personnel leaf end rail"
+              ]
+            },
+            {
+              "u": 0.575,
+              "z": 1.0,
+              "hits": [
+                "Personnel leaf inner core",
+                "Personnel leaf folded edge"
+              ]
+            },
+            {
+              "u": 0.575,
+              "z": 2.275,
+              "hits": [
+                "Personnel leaf inner core",
+                "Personnel leaf folded edge",
+                "Personnel leaf end rail.001"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "connection_markers",
+      "pass": true,
+      "evidence": [
+        {
+          "id": "WS_RECEIVING",
+          "pass": true
+        },
+        {
+          "id": "WS_PERSONNEL",
+          "pass": true
+        },
+        {
+          "id": "WS_DISPATCH",
+          "pass": true
+        },
+        {
+          "id": "WS_POWER",
+          "pass": true
+        },
+        {
+          "id": "WS_EXTRACT",
+          "pass": true
+        },
+        {
+          "id": "WS_DATA",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "saved_source_bytes",
+      "pass": true,
+      "evidence": {
+        "access_pass.py": true,
+        "apply_finish.py": true,
+        "art_pass.py": true,
+        "build_scene.py": true,
+        "detail_pass.py": true,
+        "diagnose.py": true,
+        "finish_pass.py": true,
+        "full_hall.py": true,
+        "refine_pass.py": true,
+        "render_room.py": true,
+        "surface_pass.py": true,
+        "survey_connection.py": true,
+        "validate_scene.py": true
+      }
+    },
+    {
+      "id": "external_dependencies",
+      "pass": true,
+      "evidence": {
+        "libraries": 0,
+        "images": [],
+        "fonts": [
+          {
+            "name": "Bfont Regular",
+            "path": "<builtin>"
+          }
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Conservative evaluated bounds sweeps, not dynamic navigation or carried-body simulation.",
+    "Root anchors prove assembly floor/ceiling contact; internal connection graph and individual dressing contacts require separate audit.",
+    "No engineering certification or whole-map integration asserted."
+  ]
+}

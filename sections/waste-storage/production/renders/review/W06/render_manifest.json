@@ -1,0 +1,81 @@
+{
+  "blend": "waste_storage.blend",
+  "revision": "W06",
+  "source_sha256": "45e56dc5f566a68104ef0084324967d1a1720a17ddad8d4c35e76d5406f95ffe",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "HIP",
+    "samples": 32,
+    "resolution": [
+      1440,
+      900
+    ],
+    "seed": 17
+  },
+  "renders": [
+    {
+      "camera": "C01_Entry",
+      "seconds": 16.82,
+      "sha256": "05aeef3b1bd2bfe4e8c54b145773baaf652697cb9040c52931264f06a8cedefb",
+      "location": [
+        0.0,
+        0.550000011920929,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.577494740486145,
+        -0.0,
+        0.0
+      ],
+      "lens_mm": 24.0
+    },
+    {
+      "camera": "C02_Casks",
+      "seconds": 15.76,
+      "sha256": "1917c7349fae5c319ebebc19dc484cc6b359d76ff0898a861daced562f5c95e0",
+      "location": [
+        -1.0,
+        10.600000381469727,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.5041934251785278,
+        7.663316203831982e-09,
+        1.2765618562698364
+      ],
+      "lens_mm": 24.0
+    },
+    {
+      "camera": "C08_Extraction",
+      "seconds": 15.6,
+      "sha256": "9d1db8b7947f608723287c0e9fe7214797f86a625af7c3545394800c5329561d",
+      "location": [
+        -2.9000000953674316,
+        13.899999618530273,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.5014970302581787,
+        -3.649500612823431e-08,
+        0.5933502316474915
+      ],
+      "lens_mm": 24.0
+    },
+    {
+      "camera": "C09_Inventory",
+      "seconds": 15.71,
+      "sha256": "cf08a5882d4a7b958e798962c305c8045da3c7b59a4d9aa3384971fa12c3fb4a",
+      "location": [
+        -2.799999952316284,
+        2.9000000953674316,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.3505127429962158,
+        1.1168533831096283e-07,
+        2.356194496154785
+      ],
+      "lens_mm": 25.0
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "revision": "W22",
+  "same_settings": true,
+  "settings": {
+    "engine": "CYCLES",
+    "device": "HIP",
+    "samples": 32,
+    "resolution": [
+      1440,
+      900
+    ],
+    "seed": 17
+  },
+  "images": [
+    {
+      "camera": "C01_Entry",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 4.4753086419753084e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 174
+    },
+    {
+      "camera": "C02_Casks",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 5.041152263374486e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 196
+    },
+    {
+      "camera": "C03_Reverse",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 4.398148148148148e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 171
+    },
+    {
+      "camera": "C04_Route",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 4.398148148148148e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 171
+    },
+    {
+      "camera": "C05_Transfer",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 4.886831275720165e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 190
+    },
+    {
+      "camera": "C06_Dry",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 4.912551440329218e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 191
+    },
+    {
+      "camera": "C07_Quarantine",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 5.066872427983539e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 197
+    },
+    {
+      "camera": "C08_Extraction",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 5.169753086419753e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 200
+    },
+    {
+      "camera": "C09_Inventory",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 5.169753086419753e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 201
+    },
+    {
+      "camera": "C10_Workbench",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 5.4783950617283953e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 213
+    },
+    {
+      "camera": "W01_Personnel",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 4.9897119341563785e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 194
+    },
+    {
+      "camera": "W02_ReceivingReturn",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 4.552469135802469e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 177
+    },
+    {
+      "camera": "W03_Dispatch",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 5.272633744855967e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 205
+    },
+    {
+      "camera": "W04_CellService",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 5.1440329218106995e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 200
+    },
+    {
+      "camera": "W05_ReceivingExterior",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 4.70679012345679e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 183
+    },
+    {
+      "camera": "W06_PersonnelExterior",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 3.137860082304527e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 122
+    },
+    {
+      "camera": "W07_DispatchExterior",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 4.552469135802469e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 177
+    },
+    {
+      "camera": "W08_BoothDoor",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 4.7839506172839504e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 186
+    },
+    {
+      "camera": "W09_DrySouth",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 5.1440329218106995e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 200
+    },
+    {
+      "camera": "W10_ResidueService",
+      "pixel_identical": false,
+      "mean_absolute_8bit_difference": 5.066872427983539e-05,
+      "maximum_8bit_difference": 1,
+      "changed_pixels": 197
+    }
+  ],
+  "all_pixel_identical": false,
+  "artifact_sha256": "8ab458f9da2199a147cbb9d140a3eefb7b903eee68fb23e00a29c844770c7cf7",
+  "scope": "Two separate fresh-process opens of the same saved artifact. Not neighboring assembly or game runtime validation.",
+  "artifact_unchanged_since_first_open": true
+}

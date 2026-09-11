@@ -1,0 +1,1234 @@
+{
+  "revision": "W22",
+  "blend_sha256": "8ab458f9da2199a147cbb9d140a3eefb7b903eee68fb23e00a29c844770c7cf7",
+  "pass": true,
+  "checks": [
+    {
+      "id": "glyph_backing",
+      "pass": true,
+      "evidence": [
+        {
+          "name": "Portal identifier",
+          "body": "ELECTRICAL / RECEIVING",
+          "size_m": 0.17000000178813934,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Door sign backing": 24
+          }
+        },
+        {
+          "name": "Portal identifier.001",
+          "body": "DISPATCH / SERVICE",
+          "size_m": 0.17000000178813934,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Door sign backing.001": 25
+          }
+        },
+        {
+          "name": "Portal identifier.002",
+          "body": "PERSONNEL",
+          "size_m": 0.17000000178813934,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Door sign backing.002": 25
+          }
+        },
+        {
+          "name": "Cell large ID",
+          "body": "A",
+          "size_m": 0.47999998927116394,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate": 44
+          }
+        },
+        {
+          "name": "Cell function",
+          "body": "RESIDUE",
+          "size_m": 0.09000000357627869,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate": 25
+          }
+        },
+        {
+          "name": "Cell small descriptor",
+          "body": "SEALED STORE",
+          "size_m": 0.054999999701976776,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate": 25
+          }
+        },
+        {
+          "name": "Cell large ID.001",
+          "body": "B",
+          "size_m": 0.47999998927116394,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate.001": 25
+          }
+        },
+        {
+          "name": "Cell function.001",
+          "body": "SHIELDED",
+          "size_m": 0.09000000357627869,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate.001": 24
+          }
+        },
+        {
+          "name": "Cell small descriptor.001",
+          "body": "SEALED STORE",
+          "size_m": 0.054999999701976776,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate.001": 25
+          }
+        },
+        {
+          "name": "Cell large ID.002",
+          "body": "C",
+          "size_m": 0.47999998927116394,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate.002": 25
+          }
+        },
+        {
+          "name": "Cell function.002",
+          "body": "DRY",
+          "size_m": 0.09000000357627869,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate.002": 25
+          }
+        },
+        {
+          "name": "Cell small descriptor.002",
+          "body": "SEALED STORE",
+          "size_m": 0.054999999701976776,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate.002": 25
+          }
+        },
+        {
+          "name": "Cell large ID.003",
+          "body": "D",
+          "size_m": 0.47999998927116394,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate.003": 24
+          }
+        },
+        {
+          "name": "Cell function.003",
+          "body": "HOLD",
+          "size_m": 0.09000000357627869,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate.003": 24
+          }
+        },
+        {
+          "name": "Cell small descriptor.003",
+          "body": "SEALED STORE",
+          "size_m": 0.054999999701976776,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Cell identity plate.003": 25
+          }
+        },
+        {
+          "name": "Wall bay title",
+          "body": "RESIDUE",
+          "size_m": 0.23499999940395355,
+          "unsupported_samples": [],
+          "support_objects": {
+            "West Wall": 25
+          }
+        },
+        {
+          "name": "Wall bay code",
+          "body": "WS / A",
+          "size_m": 0.10999999940395355,
+          "unsupported_samples": [],
+          "support_objects": {
+            "West Wall": 24
+          }
+        },
+        {
+          "name": "Wall bay title.001",
+          "body": "SHIELDED",
+          "size_m": 0.23499999940395355,
+          "unsupported_samples": [],
+          "support_objects": {
+            "West Wall": 24
+          }
+        },
+        {
+          "name": "Wall bay code.001",
+          "body": "WS / B",
+          "size_m": 0.10999999940395355,
+          "unsupported_samples": [],
+          "support_objects": {
+            "West Wall": 25
+          }
+        },
+        {
+          "name": "Wall bay title.002",
+          "body": "DRY STORE",
+          "size_m": 0.23499999940395355,
+          "unsupported_samples": [],
+          "support_objects": {
+            "East Wall.001": 25
+          }
+        },
+        {
+          "name": "Wall bay code.002",
+          "body": "WS / C",
+          "size_m": 0.10999999940395355,
+          "unsupported_samples": [],
+          "support_objects": {
+            "East Wall.001": 25
+          }
+        },
+        {
+          "name": "Wall bay title.003",
+          "body": "QUARANTINE",
+          "size_m": 0.23499999940395355,
+          "unsupported_samples": [],
+          "support_objects": {
+            "East Wall.001": 25
+          }
+        },
+        {
+          "name": "Wall bay code.003",
+          "body": "WS / D",
+          "size_m": 0.10999999940395355,
+          "unsupported_samples": [],
+          "support_objects": {
+            "East Wall.001": 25
+          }
+        },
+        {
+          "name": "Inventory fascia title",
+          "body": "INVENTORY / SCAN",
+          "size_m": 0.1550000011920929,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Booth header": 25
+          }
+        },
+        {
+          "name": "Engraved WS_PERSONNEL",
+          "body": "WS_PERSONNEL",
+          "size_m": 0.08299999684095383,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.017": 25
+          }
+        },
+        {
+          "name": "Exact connection label",
+          "body": "WS_RECEIVING",
+          "size_m": 0.06499999761581421,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Door sign backing": 25
+          }
+        },
+        {
+          "name": "Exact connection label.001",
+          "body": "WS_DISPATCH",
+          "size_m": 0.06499999761581421,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Door sign backing.001": 24
+          }
+        },
+        {
+          "name": "Exact connection label.002",
+          "body": "WS_PERSONNEL",
+          "size_m": 0.06499999761581421,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Door sign backing.002": 25
+          }
+        },
+        {
+          "name": "Engraved RA01",
+          "body": "RA01",
+          "size_m": 0.06499999761581421,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate": 25
+          }
+        },
+        {
+          "name": "Meter unit",
+          "body": "SEAL",
+          "size_m": 0.020999999716877937,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Ivory instrument dial": 25
+          }
+        },
+        {
+          "name": "Engraved RA02",
+          "body": "RA02",
+          "size_m": 0.06499999761581421,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.001": 25
+          }
+        },
+        {
+          "name": "Meter unit.001",
+          "body": "SEAL",
+          "size_m": 0.020999999716877937,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Ivory instrument dial.001": 25
+          }
+        },
+        {
+          "name": "Engraved RA03",
+          "body": "RA03",
+          "size_m": 0.06499999761581421,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.002": 24
+          }
+        },
+        {
+          "name": "Meter unit.002",
+          "body": "SEAL",
+          "size_m": 0.020999999716877937,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Ivory instrument dial.002": 25
+          }
+        },
+        {
+          "name": "Engraved SC01",
+          "body": "SC01",
+          "size_m": 0.06499999761581421,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.003": 25
+          }
+        },
+        {
+          "name": "Meter unit.003",
+          "body": "SEAL",
+          "size_m": 0.020999999716877937,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Ivory instrument dial.003": 25
+          }
+        },
+        {
+          "name": "Engraved SC02",
+          "body": "SC02",
+          "size_m": 0.06499999761581421,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.004": 25
+          }
+        },
+        {
+          "name": "Meter unit.004",
+          "body": "SEAL",
+          "size_m": 0.020999999716877937,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Ivory instrument dial.004": 25
+          }
+        },
+        {
+          "name": "Engraved DR01",
+          "body": "DR01",
+          "size_m": 0.07000000029802322,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.005": 25
+          }
+        },
+        {
+          "name": "Engraved DR02",
+          "body": "DR02",
+          "size_m": 0.07000000029802322,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.006": 25
+          }
+        },
+        {
+          "name": "Engraved QH01",
+          "body": "QH01",
+          "size_m": 0.07000000029802322,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.007": 25
+          }
+        },
+        {
+          "name": "Engraved CT01",
+          "body": "CT01",
+          "size_m": 0.05000000074505806,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.008": 25
+          }
+        },
+        {
+          "name": "Inventory screen heading",
+          "body": "INVENTORY",
+          "size_m": 0.03700000047683716,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed screen": 25
+          }
+        },
+        {
+          "name": "Inventory row",
+          "body": "A  03 / SEALED",
+          "size_m": 0.023000000044703484,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed screen": 25
+          }
+        },
+        {
+          "name": "Inventory row.001",
+          "body": "B  02 / SEALED",
+          "size_m": 0.023000000044703484,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed screen": 25
+          }
+        },
+        {
+          "name": "Inventory row.002",
+          "body": "C  02 / CHECK",
+          "size_m": 0.023000000044703484,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed screen": 25
+          }
+        },
+        {
+          "name": "Inventory row.003",
+          "body": "D  01 / HOLD",
+          "size_m": 0.023000000044703484,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed screen": 25
+          }
+        },
+        {
+          "name": "Logbook title",
+          "body": "SHIFT LOG",
+          "size_m": 0.02800000086426735,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Logbook pages": 24
+          }
+        },
+        {
+          "name": "Meter unit.006",
+          "body": "DOSE",
+          "size_m": 0.03220000118017197,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Ivory instrument dial.006": 25
+          }
+        },
+        {
+          "name": "Engraved MONITOR",
+          "body": "MONITOR",
+          "size_m": 0.02199999988079071,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.012": 25
+          }
+        },
+        {
+          "name": "Engraved MONITOR.001",
+          "body": "MONITOR",
+          "size_m": 0.02199999988079071,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.013": 25
+          }
+        },
+        {
+          "name": "Engraved MONITOR.002",
+          "body": "MONITOR",
+          "size_m": 0.02199999988079071,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.014": 25
+          }
+        },
+        {
+          "name": "Engraved MONITOR.003",
+          "body": "MONITOR",
+          "size_m": 0.02199999988079071,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.015": 25
+          }
+        },
+        {
+          "name": "Meter unit.007",
+          "body": "DOSE",
+          "size_m": 0.03359999880194664,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Ivory instrument dial.007": 25
+          }
+        },
+        {
+          "name": "Engraved SCAN / LOG",
+          "body": "SCAN / LOG",
+          "size_m": 0.03500000014901161,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.016": 25
+          }
+        },
+        {
+          "name": "Tag serial",
+          "body": "104",
+          "size_m": 0.02199999988079071,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Loose serialized tag.001": 25
+          }
+        },
+        {
+          "name": "Meter unit.005",
+          "body": "DP",
+          "size_m": 0.036400001496076584,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Ivory instrument dial.005": 25
+          }
+        },
+        {
+          "name": "Engraved VF01 / FILTERS",
+          "body": "VF01 / FILTERS",
+          "size_m": 0.07500000298023224,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.009": 25
+          }
+        },
+        {
+          "name": "Engraved ISOLATE",
+          "body": "ISOLATE",
+          "size_m": 0.03500000014901161,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.011": 25
+          }
+        },
+        {
+          "name": "Engraved F1 / IN",
+          "body": "F1 / IN",
+          "size_m": 0.04500000178813934,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.018": 26
+          }
+        },
+        {
+          "name": "Engraved F2 / FINAL",
+          "body": "F2 / FINAL",
+          "size_m": 0.04500000178813934,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.019": 24
+          }
+        },
+        {
+          "name": "Engraved SEAL SERVICE",
+          "body": "SEAL SERVICE",
+          "size_m": 0.0560000017285347,
+          "unsupported_samples": [],
+          "support_objects": {
+            "Recessed engraved plate.010": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "contract_aperture_grid",
+      "pass": true,
+      "evidence": [
+        {
+          "id": "WS_RECEIVING",
+          "width": 3.0,
+          "height": 3.2,
+          "obstructions": [],
+          "positive_controls": [
+            {
+              "u": -1.6,
+              "solid_detected": true,
+              "objects": [
+                "Receiving wall",
+                "Steel portal reveal.001"
+              ]
+            },
+            {
+              "u": 1.6,
+              "solid_detected": true,
+              "objects": [
+                "Receiving wall.001",
+                "Steel portal reveal"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WS_PERSONNEL",
+          "width": 1.2,
+          "height": 2.3,
+          "obstructions": [],
+          "positive_controls": [
+            {
+              "u": -0.7,
+              "solid_detected": true,
+              "objects": [
+                "East Wall",
+                "Steel portal reveal.005",
+                "Personnel outer strike jamb"
+              ]
+            },
+            {
+              "u": 0.7,
+              "solid_detected": true,
+              "objects": [
+                "East Wall.001",
+                "Steel portal reveal.004",
+                "Personnel jamb hinge leaf.001",
+                "Personnel outer strike jamb.001"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WS_DISPATCH",
+          "width": 2.4,
+          "height": 2.8,
+          "obstructions": [],
+          "positive_controls": [
+            {
+              "u": -1.3,
+              "solid_detected": true,
+              "objects": [
+                "Dispatch wall.001",
+                "Steel portal reveal.003"
+              ]
+            },
+            {
+              "u": 1.3,
+              "solid_detected": true,
+              "objects": [
+                "Dispatch wall",
+                "Steel portal reveal.002"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WS_MONITOR_BOOTH",
+          "width": 1.1,
+          "height": 2.3,
+          "obstructions": [],
+          "positive_controls": [
+            {
+              "u": -0.65,
+              "solid_detected": true,
+              "objects": [
+                "Booth window glass"
+              ]
+            },
+            {
+              "u": 0.65,
+              "solid_detected": true,
+              "objects": [
+                "Booth window glass.001"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "required_walk_and_carry",
+      "pass": true,
+      "evidence": [
+        {
+          "id": "main_walk",
+          "body_width": 1.0,
+          "obstructions": []
+        },
+        {
+          "id": "main_carry",
+          "body_width": 1.8,
+          "obstructions": []
+        },
+        {
+          "id": "personnel_walk",
+          "body_width": 1.0,
+          "obstructions": []
+        },
+        {
+          "id": "booth_walk",
+          "body_width": 1.0,
+          "obstructions": []
+        },
+        {
+          "id": "residue_access",
+          "body_width": 1.0,
+          "obstructions": []
+        },
+        {
+          "id": "shielded_access",
+          "body_width": 1.0,
+          "obstructions": []
+        },
+        {
+          "id": "dry_access",
+          "body_width": 1.0,
+          "obstructions": []
+        },
+        {
+          "id": "quarantine_access",
+          "body_width": 1.0,
+          "obstructions": []
+        }
+      ]
+    },
+    {
+      "id": "maintenance_boxes",
+      "pass": true,
+      "evidence": [
+        {
+          "id": "SC01_face",
+          "min": [
+            -3.86,
+            10.45,
+            0.025
+          ],
+          "max": [
+            -2.96,
+            11.35,
+            1.9
+          ],
+          "objects": []
+        },
+        {
+          "id": "SC02_face",
+          "min": [
+            -3.86,
+            11.8,
+            0.025
+          ],
+          "max": [
+            -2.96,
+            12.75,
+            1.9
+          ],
+          "objects": []
+        },
+        {
+          "id": "DR01_face",
+          "min": [
+            3.175,
+            4.925,
+            0.025
+          ],
+          "max": [
+            5.325,
+            5.825,
+            1.9
+          ],
+          "objects": []
+        },
+        {
+          "id": "DR02_face",
+          "min": [
+            3.175,
+            7.775,
+            0.025
+          ],
+          "max": [
+            5.325,
+            8.675,
+            1.9
+          ],
+          "objects": []
+        },
+        {
+          "id": "RA01_face",
+          "min": [
+            -4.0,
+            5.05,
+            0.025
+          ],
+          "max": [
+            -3.1,
+            5.95,
+            1.9
+          ],
+          "objects": []
+        },
+        {
+          "id": "RA02_face",
+          "min": [
+            -4.0,
+            6.35,
+            0.025
+          ],
+          "max": [
+            -3.1,
+            7.25,
+            1.9
+          ],
+          "objects": []
+        },
+        {
+          "id": "RA03_face",
+          "min": [
+            -4.0,
+            7.65,
+            0.025
+          ],
+          "max": [
+            -3.1,
+            8.55,
+            1.9
+          ],
+          "objects": []
+        },
+        {
+          "id": "QH01_face",
+          "min": [
+            3.14,
+            10.7,
+            0.025
+          ],
+          "max": [
+            4.04,
+            12.8,
+            1.9
+          ],
+          "objects": []
+        },
+        {
+          "id": "VF01_filters",
+          "min": [
+            -5.65,
+            14.46,
+            0.025
+          ],
+          "max": [
+            -3.1,
+            15.36,
+            1.9
+          ],
+          "objects": []
+        },
+        {
+          "id": "WB01_face",
+          "min": [
+            3.7,
+            15.47,
+            0.025
+          ],
+          "max": [
+            5.4,
+            16.37,
+            1.9
+          ],
+          "objects": []
+        }
+      ]
+    },
+    {
+      "id": "physical_socket_faces",
+      "pass": true,
+      "evidence": [
+        {
+          "id": "WS_POWER",
+          "normal_match": true,
+          "boundary_surface": [
+            {
+              "object": "Power boundary sleeve",
+              "distance": 4.76837158203125e-07
+            }
+          ]
+        },
+        {
+          "id": "WS_EXTRACT",
+          "normal_match": true,
+          "boundary_surface": [
+            {
+              "object": "Exhaust outlet",
+              "distance": 0.0
+            },
+            {
+              "object": "Exterior extract collar",
+              "distance": 0.0025005340576171875
+            }
+          ]
+        },
+        {
+          "id": "WS_DATA",
+          "normal_match": true,
+          "boundary_surface": [
+            {
+              "object": "Data boundary sleeve",
+              "distance": 4.76837158203125e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "host_hook_targets",
+      "pass": true,
+      "evidence": [
+        {
+          "id": "INTERACT_INVENTORY",
+          "target": "IM01_INVENTORY",
+          "pass": true
+        },
+        {
+          "id": "INTERACT_VENT_ISOLATE",
+          "target": "VF01_EXTRACTION",
+          "pass": true
+        },
+        {
+          "id": "INSPECT_QUARANTINE",
+          "target": "QH01",
+          "pass": true
+        },
+        {
+          "id": "INCIDENT_WASTE_BREACH",
+          "target": "SC01",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "font_dependencies",
+      "pass": true,
+      "evidence": [
+        {
+          "name": "Bfont Regular",
+          "path": "<builtin>",
+          "packed": false
+        }
+      ]
+    },
+    {
+      "id": "saved_camera_manifest",
+      "pass": true,
+      "evidence": [
+        {
+          "name": "C01_Entry",
+          "location": [
+            0.0,
+            0.550000011920929,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.577494740486145,
+            -0.0,
+            0.0
+          ],
+          "lens": 20.0
+        },
+        {
+          "name": "C02_Casks",
+          "location": [
+            -1.0,
+            10.600000381469727,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.5041934251785278,
+            7.663316203831982e-09,
+            1.2765618562698364
+          ],
+          "lens": 24.0
+        },
+        {
+          "name": "C03_Reverse",
+          "location": [
+            0.0,
+            17.350000381469727,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            -1.5694024562835693,
+            3.141592502593994,
+            1.2184432629513964e-10
+          ],
+          "lens": 24.0
+        },
+        {
+          "name": "C04_Route",
+          "location": [
+            0.44999998807907104,
+            4.150000095367432,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.5488474369049072,
+            -3.0258755501222367e-09,
+            0.02744409255683422
+          ],
+          "lens": 25.0
+        },
+        {
+          "name": "C05_Transfer",
+          "location": [
+            1.399999976158142,
+            1.5,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.2495919466018677,
+            2.788715391943697e-08,
+            -0.8233547806739807
+          ],
+          "lens": 30.0
+        },
+        {
+          "name": "C06_Dry",
+          "location": [
+            2.6500000953674316,
+            8.25,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.2160474061965942,
+            2.0982602322305866e-08,
+            -2.0831856727600098
+          ],
+          "lens": 24.0
+        },
+        {
+          "name": "C07_Quarantine",
+          "location": [
+            1.0,
+            11.199999809265137,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.3815946578979492,
+            -3.8718695805073367e-08,
+            -1.4010181427001953
+          ],
+          "lens": 26.0
+        },
+        {
+          "name": "C08_Extraction",
+          "location": [
+            -1.399999976158142,
+            14.050000190734863,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.5904344320297241,
+            -1.4807234549607529e-08,
+            0.9750120043754578
+          ],
+          "lens": 21.0
+        },
+        {
+          "name": "C09_Inventory",
+          "location": [
+            -2.5999999046325684,
+            2.200000047683716,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.3372867107391357,
+            -1.534570941430502e-07,
+            1.9222412109375
+          ],
+          "lens": 25.0
+        },
+        {
+          "name": "C10_Workbench",
+          "location": [
+            2.0999999046325684,
+            15.5,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.3980199098587036,
+            7.076832986285808e-08,
+            -1.099018931388855
+          ],
+          "lens": 30.0
+        },
+        {
+          "name": "W01_Personnel",
+          "location": [
+            3.0,
+            2.4000000953674316,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.5774630308151245,
+            2.950413602320623e-08,
+            -1.570796251296997
+          ],
+          "lens": 20.0
+        },
+        {
+          "name": "W02_ReceivingReturn",
+          "location": [
+            0.0,
+            5.0,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            -1.5468010902404785,
+            3.141592502593994,
+            2.0975381431753704e-09
+          ],
+          "lens": 22.0
+        },
+        {
+          "name": "W03_Dispatch",
+          "location": [
+            0.0,
+            14.0,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.6007871627807617,
+            -0.0,
+            0.0
+          ],
+          "lens": 22.0
+        },
+        {
+          "name": "W04_CellService",
+          "location": [
+            -2.9000000953674316,
+            12.899999618530273,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.3885153532028198,
+            4.8184119805227965e-08,
+            2.253112554550171
+          ],
+          "lens": 24.0
+        },
+        {
+          "name": "W05_ReceivingExterior",
+          "location": [
+            0.0,
+            -1.2000000476837158,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.5659576654434204,
+            -0.0,
+            0.0
+          ],
+          "lens": 22.0
+        },
+        {
+          "name": "W06_PersonnelExterior",
+          "location": [
+            7.0,
+            2.200000047683716,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.5641365051269531,
+            -6.997399992769715e-08,
+            1.526381254196167
+          ],
+          "lens": 20.0
+        },
+        {
+          "name": "W07_DispatchExterior",
+          "location": [
+            0.0,
+            19.0,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.5665106773376465,
+            8.742196655475709e-08,
+            3.1415927410125732
+          ],
+          "lens": 22.0
+        },
+        {
+          "name": "W08_BoothDoor",
+          "location": [
+            -1.2000000476837158,
+            2.1500000953674316,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.4927130937576294,
+            8.202036383408995e-08,
+            1.5490607023239136
+          ],
+          "lens": 24.0
+        },
+        {
+          "name": "W09_DrySouth",
+          "location": [
+            2.6500000953674316,
+            5.349999904632568,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.1690162420272827,
+            -1.4843806184217101e-08,
+            -1.0584067106246948
+          ],
+          "lens": 24.0
+        },
+        {
+          "name": "W10_ResidueService",
+          "location": [
+            -3.0,
+            6.599999904632568,
+            1.6799999475479126
+          ],
+          "rotation_euler": [
+            1.160400152206421,
+            1.1710484670857113e-07,
+            1.44247305393219
+          ],
+          "lens": 20.0
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Static measured envelopes, not engine physics or animation.",
+    "Glyph backing sampling does not establish pixel readability.",
+    "Socket contact does not alone establish an entire utility connection graph."
+  ]
+}

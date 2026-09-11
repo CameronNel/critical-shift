@@ -1,0 +1,417 @@
+{
+  "revision": "W22",
+  "pass": true,
+  "checks": [
+    {
+      "id": "WS_PERSONNEL_LEAF",
+      "pass": true,
+      "frames": [
+        {
+          "angle_degrees": -90.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -85.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -80.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -75.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -70.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -65.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -60.00000000000001,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -55.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -50.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -45.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -40.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -35.00000000000001,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -30.000000000000004,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -24.999999999999996,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -20.000000000000004,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -15.000000000000009,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -10.000000000000002,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -4.999999999999995,
+          "collisions": []
+        },
+        {
+          "angle_degrees": 0.0,
+          "collisions": []
+        }
+      ],
+      "method": "19 evaluated conservative AABB poses; own frame/hinge contact excluded; no neighboring scene available."
+    },
+    {
+      "id": "WS_MONITOR_BOOTH_LEAF",
+      "pass": true,
+      "frames": [
+        {
+          "angle_degrees": -90.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -95.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -100.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -105.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -110.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -115.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -119.99999999999999,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -125.00000000000001,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -130.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -135.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -140.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -145.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -149.99999999999997,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -155.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -160.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -165.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -170.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -175.0,
+          "collisions": []
+        },
+        {
+          "angle_degrees": -180.0,
+          "collisions": []
+        }
+      ],
+      "method": "19 evaluated conservative AABB poses; own frame/hinge contact excluded; no neighboring scene available."
+    },
+    {
+      "id": "vent_process_joints",
+      "pass": true,
+      "joints": [
+        {
+          "a": "Connected filter plenum",
+          "b": "Filter inlet welded neck",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Filter inlet welded neck",
+          "b": "Filter inlet drop",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Filter inlet drop",
+          "b": "Filter inlet upper offset",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Filter inlet upper offset",
+          "b": "Longitudinal extract header",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Longitudinal extract header",
+          "b": "Raised intake bridge riser",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Raised intake bridge riser",
+          "b": "Rear intake crossheader",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Rear intake crossheader",
+          "b": "Raised intake bridge riser.001",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Raised intake bridge riser.001",
+          "b": "Longitudinal extract header.001",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Connected filter plenum",
+          "b": "Filter outlet bolted adapter",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Filter outlet bolted adapter",
+          "b": "Fan inlet collar",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Fan inlet collar",
+          "b": "Centrifugal volute",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Centrifugal volute",
+          "b": "Fan tangential outlet",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Fan tangential outlet",
+          "b": "Rising exhaust duct",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Rising exhaust duct",
+          "b": "Skid exhaust riser",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Skid exhaust riser",
+          "b": "Exhaust offset",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Exhaust offset",
+          "b": "Exhaust outlet",
+          "gap_m": 0.0,
+          "pass": true
+        },
+        {
+          "a": "Exhaust outlet",
+          "b": "Exterior extract collar",
+          "gap_m": 0.0,
+          "pass": true
+        }
+      ],
+      "method": "Evaluated geometric joint continuity; not airflow simulation."
+    },
+    {
+      "id": "intake_exhaust_separation",
+      "pass": true,
+      "pairs": [
+        {
+          "intake": "Longitudinal extract header",
+          "exhaust": "Skid exhaust riser",
+          "gap_m": 1.494999647140503,
+          "pass": true
+        },
+        {
+          "intake": "Longitudinal extract header",
+          "exhaust": "Exhaust offset",
+          "gap_m": 0.22499942779541016,
+          "pass": true
+        },
+        {
+          "intake": "Longitudinal extract header",
+          "exhaust": "Exhaust outlet",
+          "gap_m": 0.1099996566772461,
+          "pass": true
+        },
+        {
+          "intake": "Longitudinal extract header.001",
+          "exhaust": "Skid exhaust riser",
+          "gap_m": 8.554999589920044,
+          "pass": true
+        },
+        {
+          "intake": "Longitudinal extract header.001",
+          "exhaust": "Exhaust offset",
+          "gap_m": 8.554999589920044,
+          "pass": true
+        },
+        {
+          "intake": "Longitudinal extract header.001",
+          "exhaust": "Exhaust outlet",
+          "gap_m": 9.710000038146973,
+          "pass": true
+        },
+        {
+          "intake": "Rear intake crossheader",
+          "exhaust": "Skid exhaust riser",
+          "gap_m": 0.5687055022896197,
+          "pass": true
+        },
+        {
+          "intake": "Rear intake crossheader",
+          "exhaust": "Exhaust offset",
+          "gap_m": 0.49590907918701344,
+          "pass": true
+        },
+        {
+          "intake": "Rear intake crossheader",
+          "exhaust": "Exhaust outlet",
+          "gap_m": 0.029999732971191406,
+          "pass": true
+        },
+        {
+          "intake": "Raised intake bridge riser",
+          "exhaust": "Skid exhaust riser",
+          "gap_m": 1.5748173785528268,
+          "pass": true
+        },
+        {
+          "intake": "Raised intake bridge riser",
+          "exhaust": "Exhaust offset",
+          "gap_m": 0.5437375960424575,
+          "pass": true
+        },
+        {
+          "intake": "Raised intake bridge riser",
+          "exhaust": "Exhaust outlet",
+          "gap_m": 0.1099996566772461,
+          "pass": true
+        },
+        {
+          "intake": "Raised intake bridge riser.001",
+          "exhaust": "Skid exhaust riser",
+          "gap_m": 8.569308245965592,
+          "pass": true
+        },
+        {
+          "intake": "Raised intake bridge riser.001",
+          "exhaust": "Exhaust offset",
+          "gap_m": 8.569308245965592,
+          "pass": true
+        },
+        {
+          "intake": "Raised intake bridge riser.001",
+          "exhaust": "Exhaust outlet",
+          "gap_m": 9.710000038146973,
+          "pass": true
+        },
+        {
+          "intake": "Filter inlet drop",
+          "exhaust": "Skid exhaust riser",
+          "gap_m": 1.4249999523162842,
+          "pass": true
+        },
+        {
+          "intake": "Filter inlet drop",
+          "exhaust": "Exhaust offset",
+          "gap_m": 0.1549997329711914,
+          "pass": true
+        },
+        {
+          "intake": "Filter inlet drop",
+          "exhaust": "Exhaust outlet",
+          "gap_m": 0.039999961853027344,
+          "pass": true
+        },
+        {
+          "intake": "Filter inlet upper offset",
+          "exhaust": "Skid exhaust riser",
+          "gap_m": 1.4399998188018799,
+          "pass": true
+        },
+        {
+          "intake": "Filter inlet upper offset",
+          "exhaust": "Exhaust offset",
+          "gap_m": 0.1699995994567871,
+          "pass": true
+        },
+        {
+          "intake": "Filter inlet upper offset",
+          "exhaust": "Exhaust outlet",
+          "gap_m": 0.05499982833862305,
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Door poses are static geometric tests, not an implemented animation or engine physics.",
+    "Duct solids are exterior manufactured envelopes, not CFD volumes."
+  ]
+}

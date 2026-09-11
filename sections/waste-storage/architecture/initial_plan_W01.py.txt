@@ -1,0 +1,41 @@
+"""Dimensioned Waste Storage contract and SVG, original metric plan."""
+from pathlib import Path
+import json
+R=Path(__file__).resolve().parent
+i=json.loads((R/'inherited-interface.json').read_text(encoding='utf-8-sig'))
+i['revision']='W01';i['status']='authored full-room contract; verification pending'
+i['wall_thickness_m']=.32
+i['portals'][0].update(threshold_step=0,adjacent_binding='Measured proposal: Waste origin in Electrical=(0,16.97,0), Rz0; Electrical D02 exterior at16.65 meets Waste exterior-.32. New owned threshold removes inherited2mm lip.')
+i['portals'][1]['traffic']='personnel only; wider rescue traffic uses receiving/dispatch'
+i['portals'][2]['connection_intent']='shared clean/dispatch service network toward Medical and Compliance; no direct wall mating asserted'
+i['utility_interfaces']=[{'id':'WS_POWER','center':[6.32,16.8,3.6],'outward_normal':[1,0,0],'size':[.2,.2],'type':'unbound low-voltage branch'}, {'id':'WS_EXTRACT','center':[-4.8,18.32,4.0],'outward_normal':[0,1,0],'size':[.65,.6],'type':'unbound controlled extract'}, {'id':'WS_DATA','center':[-6.32,1.2,2.8],'outward_normal':[-1,0,0],'size':[.12,.12],'type':'unbound inventory data'}]
+i['implementation_decisions']+=['Preserve .32m measured receiving wall and all inherited portal centers/openings. Remove owned2mm lip to flush Z0.','Revised utilities are exact physical exterior-face sockets, replacing inherited approximate interior points. Neighbor utilities remain unchanged.','Cell gates use retracting side pockets; parked open during traversal evidence. All actual clearances require evaluated validation.']
+(R.parent/'interface.json').write_text(json.dumps(i,indent=2))
+S=40; ox=340;oy=900
+def xy(x,y):return ox+x*S,oy-y*S
+out=['<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1060" viewBox="0 0 1080 1060"><rect width="1080" height="1060" fill="#eee9df"/><g font-family="Arial" fill="#292b2c">','<text x="55" y="42" font-size="26" font-weight="bold">WASTE STORAGE / W01</text><text x="55" y="68" font-size="14">DIMENSIONED PLAN • metres • +Y up • floor Z0 • clear height4.8m • 11 SEPT2026</text>']
+def rect(x,y,w,h,fill,stroke='#555',sw=1):
+ a,b=xy(x,y+h);out.append(f'<rect x="{a}" y="{b}" width="{w*S}" height="{h*S}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"/>')
+def label(x,y,t,size=12):
+ a,b=xy(x,y);out.append(f'<text x="{a}" y="{b}" font-size="{size}">{t}</text>')
+rect(-6.32,-.32,12.64,18.64,'#494b49');rect(-6,0,12,18,'#d4cfc1')
+rect(-1.8,0,3.6,18,'#eadcaa','#b69a50')
+for x,y,r in [(0,2.5,1.8),(0,16,1.5)]:
+ a,b=xy(x,y);out.append(f'<circle cx="{a}" cy="{b}" r="{r*S}" fill="none" stroke="#a67e30" stroke-dasharray="6 4"/>')
+for x,y,title in [(-5.65,4.8,'A / RESIDUE'),(-5.65,9.4,'B / SHIELDED'),(2.15,4.8,'C / DRY'),(2.15,9.4,'D / HOLD')]:
+ rect(x,y,3.5,4,'#c0b49c');label(x+.15,y+3.6,title,13);rect(x+.25,y+.45,1.45,2.7,'#93836b');label(x+.2,y+.12,'1.8m CELL ACCESS',10)
+rect(-5.8,.4,3.4,3.5,'#b8bbb3');label(-5.65,3.25,'INVENTORY',12)
+rect(-5.7,14.7,2.7,2.7,'#9eaa9a');label(-5.6,17.05,'EXTRACT / SERVICE',10)
+rect(3.7,15,1.6,2.1,'#a89a80');label(2.6,17.35,'REPAIR / SEALS',11)
+for x,y,w,h in [(-1.5,-.32,3,.32),(-1.2,18,2.4,.32),(6,1.8,.32,1.2)]:rect(x,y,w,h,'#eadcaa')
+label(-1.6,-.95,'WS_RECEIVING / 3.0×3.2',12);label(-1.7,18.8,'WS_DISPATCH / 2.4×2.8',12)
+label(6.5,2.5,'WS_PERSONNEL',11);label(6.5,2.05,'1.2×2.3',11)
+label(-1.5,8.6,'3.6m CLEAR',13);label(-1.45,8.1,'CART SPINE',13)
+label(-1.4,2.5,'Ø3.6m TURN',11);label(-1.15,16,'Ø3m TURN',11)
+label(-6.2,19.6,'←──────────12.0m CLEAR──────────→',14)
+out+=['<text x="28" y="570" font-size="14" transform="rotate(-90 28 570)">←────────18.0m CLEAR────────→</text>']
+notes=['INTERFACE &amp; NAVIGATION','Electrical → receiving → storage / scan → dispatch','Waste origin in Electrical: (0,16.97,0), Rz0.','Wall .32m; receiving exterior Y−.32.','Floor Z0; inherited2mm lip removed in owned rebuild.','Personnel branch: workers only. Rescue via freight route.','Cart design envelope1.0×1.8m; eye height1.68m.','Minimum working depth.9m; cell access1.8m target.','Utility sockets:','WS_POWER (6.32,16.8,3.6), +X .2×.2','WS_EXTRACT (−4.8,18.32,4), +Y .65×.6','WS_DATA (−6.32,1.2,2.8), −X .12×.12','All utility and onward connectors unbound.','No neighboring section moved or rebuilt.','Drawing equipment is envelope guidance;','saved geometry and swept routes must verify it.']
+for n,t in enumerate(notes):out.append(f'<text x="660" y="{105+n*25}" font-size="{14 if n==0 else 12}" font-weight="{"bold" if n==0 else "normal"}">{t}</text>')
+out.append('<text x="55" y="1015" font-size="12">Architecture decisions are authored, not nuclear engineering specifications. Local integration readiness only; runtime and whole-map checks separate.</text></g></svg>')
+(R/'floorplan.svg').write_text('\n'.join(out),encoding='utf-8')
+
