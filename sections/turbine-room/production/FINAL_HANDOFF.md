@@ -48,4 +48,4 @@ Only this section is committed. Other section changes, including an existing mod
 
 Luna final review: `critics/luna-R07-final-review.md`. All categories independently approved: specification coverage 93, layout/flow 94, machinery 94, navigation/readability 93, construction 94, materials 92, lighting 92, reference fidelity 94. All sixteen warm and sixteen cold images directly inspected; visual stability approved. Numeric non-identity remains recorded honestly.
 
-Delivery branch: `codex/turbine-room-takeover-20260911`, remote `https://github.com/CameronNel/critical-shift.git`. The artifact commit and verified push receipt will be appended after the repository operation. No merge to main.
+Delivery branch: `codex/turbine-room-takeover-20260911`, remote `https://github.com/CameronNel/critical-shift.git`. Artifact commit: `d0f01c8b15638f4410d5ec61b775ba70cc417aa0`. Push succeeded and remote branch readback matched that exact hash on 2026-09-11. This receipt is a subsequent documentation-only commit; the artifact bytes are unchanged. No merge to main.
