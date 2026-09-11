@@ -1,0 +1,3015 @@
+{
+  "schema": "critical-shift.geometry-validation.v1",
+  "created_utc": "2026-09-07T22:40:28.224092+00:00",
+  "blend": "C:\\Users\\Camer\\.codex\\worktrees\\a81e\\critical-shift\\sections\\electrical-room\\blender\\electrical_slice.blend",
+  "blender_version": "5.2.0 LTS",
+  "section": "electrical-room",
+  "revision": "S05",
+  "stage": "slice",
+  "checks": [
+    {
+      "id": "scene_identity",
+      "status": "PASS",
+      "measurements": {
+        "section": "electrical-room",
+        "stage": "slice"
+      }
+    },
+    {
+      "id": "metric_units",
+      "status": "PASS",
+      "measurements": {
+        "system": "METRIC",
+        "scale_length": 1.0
+      }
+    },
+    {
+      "id": "saved_blend",
+      "status": "PASS",
+      "measurements": {
+        "path": "C:\\Users\\Camer\\.codex\\worktrees\\a81e\\critical-shift\\sections\\electrical-room\\blender\\electrical_slice.blend"
+      }
+    },
+    {
+      "id": "source_fingerprint",
+      "status": "PASS",
+      "measurements": {
+        "saved_sha256": "744e21a4cb2b90e4dbd1f1959e69157f0aa8164a155319604bc6f3ab3f1a19bb",
+        "current_source_sha256": "744e21a4cb2b90e4dbd1f1959e69157f0aa8164a155319604bc6f3ab3f1a19bb",
+        "checkpoint_source_sha256": "744e21a4cb2b90e4dbd1f1959e69157f0aa8164a155319604bc6f3ab3f1a19bb",
+        "checkpoint_source": "C:\\Users\\Camer\\.codex\\worktrees\\a81e\\critical-shift\\sections\\electrical-room\\production\\checkpoints\\S05\\build_room.py",
+        "require_current_source": true,
+        "verified_source": "current"
+      }
+    },
+    {
+      "id": "render_dimensions",
+      "status": "PASS",
+      "measurements": {
+        "width": 1440,
+        "height": 900,
+        "percentage": 100
+      }
+    },
+    {
+      "id": "external_dependencies",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "material_nodes",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "geometry_integrity",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "material_assignment",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "support_registration",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "degenerate_faces",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "open_mesh_inventory",
+      "status": "WARN",
+      "measurements": [
+        {
+          "object": "Localized chipped paint",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.001",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.001",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.002",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.003",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.004",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.005",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.006",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.007",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.008",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.009",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.010",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.011",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.012",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.013",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.014",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.015",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.016",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.017",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.018",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.019",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.020",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.021",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.022",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.023",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.002",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.003",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.024",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.025",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.026",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.027",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.028",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.029",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.030",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.031",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.032",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.033",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.034",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.035",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.036",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.037",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.038",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.039",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.040",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.041",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.042",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.043",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.044",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.045",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.046",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.047",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Engraved TURBINE",
+          "boundary_edges": 1248,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Subtle repaired wall patch",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Sparse floor handling scuff",
+          "boundary_edges": 4,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Sparse floor handling scuff.001",
+          "boundary_edges": 4,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Sparse floor handling scuff.002",
+          "boundary_edges": 4,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Sparse floor handling scuff.003",
+          "boundary_edges": 4,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Sparse floor handling scuff.004",
+          "boundary_edges": 4,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Sparse floor handling scuff.005",
+          "boundary_edges": 4,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Engraved 01  TURBINE",
+          "boundary_edges": 1648,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Meter unit",
+          "boundary_edges": 68,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Meter unit.001",
+          "boundary_edges": 112,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Engraved I   /   O",
+          "boundary_edges": 416,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.004",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.005",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.006",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.007",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.048",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.049",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.050",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.051",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.052",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.053",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.054",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.055",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.056",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.057",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.058",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.059",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.060",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.061",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.062",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.063",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.064",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.065",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.066",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.067",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.068",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.069",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.070",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.071",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.072",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.073",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.074",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.075",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.076",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.077",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.078",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.079",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.080",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.081",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.082",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.083",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Engraved 02  MAIN BUS",
+          "boundary_edges": 2124,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Meter unit.002",
+          "boundary_edges": 44,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Relay reading",
+          "boundary_edges": 1352,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Stored-energy operating spring",
+          "boundary_edges": 20,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Stored-energy operating spring.001",
+          "boundary_edges": 20,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Service lamp gooseneck",
+          "boundary_edges": 20,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Engraved WITHDRAWN",
+          "boundary_edges": 876,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.084",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.085",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.086",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.087",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.088",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.089",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.090",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.091",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.092",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.093",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.094",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.095",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.096",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.097",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.098",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.099",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.100",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.101",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.102",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.103",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.104",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.105",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.106",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.107",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Power flow direction stencil",
+          "boundary_edges": 4,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Power flow direction stencil.001",
+          "boundary_edges": 4,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Power flow direction stencil.002",
+          "boundary_edges": 4,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Power flow direction stencil.003",
+          "boundary_edges": 4,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.108",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.109",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.110",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.111",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.112",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.113",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.114",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.115",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.116",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.117",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.118",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.119",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.120",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.121",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.122",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.123",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.124",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.125",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.126",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.127",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.128",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.129",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.130",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Wear at repeatedly handled edge.131",
+          "boundary_edges": 7,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Push handle",
+          "boundary_edges": 20,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Meter LCD",
+          "boundary_edges": 1344,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Red test lead",
+          "boundary_edges": 20,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Black test lead",
+          "boundary_edges": 20,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Work order imprint",
+          "boundary_edges": 4016,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Fuse ceramic marking",
+          "boundary_edges": 1116,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Fuse ceramic marking.001",
+          "boundary_edges": 1116,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Permit heading",
+          "boundary_edges": 1252,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Permit content",
+          "boundary_edges": 14320,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Padlock steel shackle",
+          "boundary_edges": 20,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Padlock steel shackle.001",
+          "boundary_edges": 20,
+          "nonmanifold_edges": 0
+        }
+      ]
+    },
+    {
+      "id": "architectural_dimensions",
+      "status": "PASS",
+      "measurements": [
+        {
+          "object": "Floor",
+          "pass": true,
+          "actual_min": [
+            -5.5,
+            0.0,
+            -0.23999999
+          ],
+          "actual_max": [
+            5.5,
+            7.19999981,
+            0.0
+          ],
+          "expected_min": [
+            -5.5,
+            0,
+            null
+          ],
+          "expected_max": [
+            5.5,
+            7.2,
+            0
+          ]
+        },
+        {
+          "object": "Ceiling",
+          "pass": true,
+          "actual_min": [
+            -5.5,
+            0.0,
+            4.80000019
+          ],
+          "actual_max": [
+            5.5,
+            7.19999981,
+            5.0
+          ],
+          "expected_min": [
+            -5.5,
+            0,
+            4.8
+          ],
+          "expected_max": [
+            5.5,
+            7.2,
+            null
+          ]
+        },
+        {
+          "object": "West wall",
+          "pass": true,
+          "actual_min": [
+            -5.75,
+            0.0,
+            0.0
+          ],
+          "actual_max": [
+            -5.5,
+            7.19999981,
+            4.80000019
+          ],
+          "expected_min": [
+            -5.75,
+            0,
+            0
+          ],
+          "expected_max": [
+            -5.5,
+            7.2,
+            4.8
+          ]
+        },
+        {
+          "object": "East wall",
+          "pass": true,
+          "actual_min": [
+            5.5,
+            0.0,
+            0.0
+          ],
+          "actual_max": [
+            5.75,
+            7.19999981,
+            4.80000019
+          ],
+          "expected_min": [
+            5.5,
+            0,
+            0
+          ],
+          "expected_max": [
+            5.75,
+            7.2,
+            4.8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "named_route_aabb_clearance",
+      "status": "PASS",
+      "measurements": [
+        {
+          "route": "MAIN_KEEP_CLEAR",
+          "min": [
+            -1.2,
+            0,
+            0.025
+          ],
+          "max": [
+            1.2,
+            7.2,
+            2.7
+          ],
+          "obstructions": []
+        },
+        {
+          "route": "D01_CLEAR_APERTURE",
+          "min": [
+            -1.2,
+            -0.175,
+            0.025
+          ],
+          "max": [
+            1.2,
+            0.175,
+            2.7
+          ],
+          "obstructions": []
+        }
+      ]
+    },
+    {
+      "id": "overhead_route_crossing",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "support_contact",
+      "status": "PASS",
+      "measurements": [
+        {
+          "root": "D01_Turbine",
+          "target": "Floor",
+          "anchors": [
+            {
+              "local": [
+                -1.27,
+                0.0,
+                0.0
+              ],
+              "world": [
+                1.26999998,
+                1.1e-07,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 1.1102692809572545e-07,
+              "target_hit": [
+                1.26999998,
+                1.1e-07,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Deep steel portal jamb",
+              "member_nearest_point": [
+                1.26999998,
+                1e-07,
+                0.0
+              ],
+              "anchor_to_member_m": 6.7187997387918585e-09,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 3.725290298461914e-09
+            },
+            {
+              "local": [
+                1.27,
+                0.0,
+                0.0
+              ],
+              "world": [
+                -1.26999998,
+                -1.1e-07,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray_within_10_micrometre_edge_tolerance",
+              "target_nearest_distance_m": 1.1102692809572545e-07,
+              "target_hit": [
+                -1.26999998,
+                4.89e-06,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Deep steel portal jamb.001",
+              "member_nearest_point": [
+                -1.26999998,
+                -1e-07,
+                0.0
+              ],
+              "anchor_to_member_m": 6.7187997387918585e-09,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray_within_10_micrometre_edge_tolerance",
+              "physical_gap_m": 3.725290298461914e-09
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "Electrician service cart",
+          "target": "Floor",
+          "anchors": [
+            {
+              "local": [
+                -0.32,
+                -0.26,
+                0.0
+              ],
+              "world": [
+                -4.18999958,
+                1.48000002,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -4.18999958,
+                1.48000002,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Rubber castor tyre",
+              "member_nearest_point": [
+                -4.18999958,
+                1.48000002,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.62496942067862,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 3.725290298461914e-09
+            },
+            {
+              "local": [
+                0.32,
+                -0.26,
+                0.0
+              ],
+              "world": [
+                -4.19000006,
+                2.11999989,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 2.384185791015625e-07,
+              "target_hit": [
+                -4.19000006,
+                2.11999989,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Rubber castor tyre.002",
+              "member_nearest_point": [
+                -4.19000006,
+                2.11999989,
+                5e-08
+              ],
+              "anchor_to_member_m": 4.650792106986046e-08,
+              "member_angle_degrees": 5.62496942067862,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 3.905734047293663e-08
+            },
+            {
+              "local": [
+                -0.32,
+                0.26,
+                0.0
+              ],
+              "world": [
+                -4.70999956,
+                1.4799999,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 1.1920928955078125e-07,
+              "target_hit": [
+                -4.70999956,
+                1.4799999,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Rubber castor tyre.001",
+              "member_nearest_point": [
+                -4.70999956,
+                1.4799999,
+                5e-08
+              ],
+              "anchor_to_member_m": 4.644971340894699e-08,
+              "member_angle_degrees": 5.62496942067862,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 4.644971340894699e-08
+            },
+            {
+              "local": [
+                0.32,
+                0.26,
+                0.0
+              ],
+              "world": [
+                -4.71000004,
+                2.11999989,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -4.71000004,
+                2.11999989,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Rubber castor tyre.003",
+              "member_nearest_point": [
+                -4.71000004,
+                2.11999989,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.62496942067862,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": -3.725290298461914e-09
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "Enclosed main busway",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "local": [
+                -0.49,
+                1.2,
+                0.92
+              ],
+              "world": [
+                -4.81000042,
+                1.20000005,
+                4.80000019
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -4.81000042,
+                1.20000005,
+                4.80000019
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Threaded bus hanger",
+              "member_nearest_point": [
+                -4.81000042,
+                1.20000005,
+                4.80000019
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0
+            },
+            {
+              "local": [
+                0.49,
+                1.2,
+                0.92
+              ],
+              "world": [
+                -3.83000016,
+                1.20000005,
+                4.80000019
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 2.6656007889869215e-07,
+              "target_hit": [
+                -3.83000016,
+                1.20000005,
+                4.80000019
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Threaded bus hanger.001",
+              "member_nearest_point": [
+                -3.83000016,
+                1.20000005,
+                4.80000019
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0
+            },
+            {
+              "local": [
+                -0.49,
+                5.8,
+                0.92
+              ],
+              "world": [
+                -4.81000042,
+                5.80000019,
+                4.80000019
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -4.81000042,
+                5.80000019,
+                4.80000019
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Threaded bus hanger.002",
+              "member_nearest_point": [
+                -4.81000042,
+                5.80000019,
+                4.80000019
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0
+            },
+            {
+              "local": [
+                0.49,
+                5.8,
+                0.92
+              ],
+              "world": [
+                -3.83000016,
+                5.80000019,
+                4.80000019
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -3.83000016,
+                5.80000019,
+                4.80000019
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Threaded bus hanger.003",
+              "member_nearest_point": [
+                -3.83000016,
+                5.80000019,
+                4.80000019
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "Entry fluorescent",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "local": [
+                -0.66,
+                0.0,
+                0.2
+              ],
+              "world": [
+                0.44,
+                1.79999995,
+                4.79999971
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 5.364418029785156e-07,
+              "target_hit": [
+                0.44,
+                1.79999995,
+                4.80000019
+              ],
+              "signed_gap_m": 4.76837158203125e-07,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Luminaire hanger.002",
+              "member_nearest_point": [
+                0.44,
+                1.79999995,
+                4.79999971
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 4.76837158203125e-07
+            },
+            {
+              "local": [
+                0.66,
+                0.0,
+                0.2
+              ],
+              "world": [
+                1.75999999,
+                1.79999995,
+                4.79999971
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 7.152557373046875e-07,
+              "target_hit": [
+                1.75999999,
+                1.79999995,
+                4.80000019
+              ],
+              "signed_gap_m": 4.76837158203125e-07,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Luminaire hanger.003",
+              "member_nearest_point": [
+                1.75999999,
+                1.79999995,
+                4.79999971
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 4.76837158203125e-07
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "Historic conduit patch",
+          "target": "West wall",
+          "anchors": [
+            {
+              "local": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "world": [
+                -5.49900007,
+                2.22000003,
+                0.63
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0009999275207519531,
+              "target_hit": [
+                -5.5,
+                2.22000003,
+                0.63
+              ],
+              "signed_gap_m": 0.0009999275207519531,
+              "target_normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Subtle repaired wall patch",
+              "member_nearest_point": [
+                -5.49900007,
+                2.22000003,
+                0.63
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": -5.008956321717051e-06,
+              "zero_thickness_sheet": true,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0009999275207519531
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "planar_sheet_support_samples": [
+            {
+              "object": "Subtle repaired wall patch",
+              "sampled_vertices": 6,
+              "signed_gap_range_m": [
+                0.0009999275207519531,
+                0.0009999275207519531
+              ],
+              "failed_vertices": 0
+            }
+          ],
+          "pass": true
+        },
+        {
+          "root": "Insulating operating mat 4.5",
+          "target": "Floor",
+          "anchors": [
+            {
+              "local": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "world": [
+                -2.97000003,
+                4.5,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -2.97000003,
+                4.5,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Rubber mat backing",
+              "member_nearest_point": [
+                -2.97000003,
+                4.5,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 3.725290298461914e-09
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "Isolation work permit board",
+          "target": "West wall",
+          "anchors": [
+            {
+              "local": [
+                0.0,
+                0.035,
+                1.48
+              ],
+              "world": [
+                -5.5,
+                2.04999995,
+                1.48000002
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 2.384185791015625e-07,
+              "target_hit": [
+                -5.5,
+                2.04999995,
+                1.48000002
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Wall permit board",
+              "member_nearest_point": [
+                -5.5,
+                2.04999995,
+                1.48000002
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            -1.0,
+            -4e-08,
+            0.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "Localized floor use marks",
+          "target": "Floor",
+          "anchors": [
+            {
+              "local": [
+                -3.5,
+                2.2,
+                0.001
+              ],
+              "world": [
+                -3.5,
+                2.20000005,
+                0.001
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0010000000474974513,
+              "target_hit": [
+                -3.5,
+                2.20000005,
+                1e-08
+              ],
+              "signed_gap_m": 0.0009999925969168544,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Sparse floor handling scuff",
+              "member_nearest_point": [
+                -3.49999976,
+                2.20000005,
+                0.001
+              ],
+              "anchor_to_member_m": 2.384185791015625e-07,
+              "member_angle_degrees": -5.008956321717051e-06,
+              "zero_thickness_sheet": true,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0010000000474974513
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "planar_sheet_support_samples": [
+            {
+              "object": "Sparse floor handling scuff",
+              "sampled_vertices": 4,
+              "signed_gap_range_m": [
+                0.0009999963222071528,
+                0.0010000037727877498
+              ],
+              "failed_vertices": 0
+            },
+            {
+              "object": "Sparse floor handling scuff.001",
+              "sampled_vertices": 4,
+              "signed_gap_range_m": [
+                0.0009999925969168544,
+                0.0010000037727877498
+              ],
+              "failed_vertices": 0
+            },
+            {
+              "object": "Sparse floor handling scuff.002",
+              "sampled_vertices": 4,
+              "signed_gap_range_m": [
+                0.0009999925969168544,
+                0.0010000037727877498
+              ],
+              "failed_vertices": 0
+            },
+            {
+              "object": "Sparse floor handling scuff.003",
+              "sampled_vertices": 4,
+              "signed_gap_range_m": [
+                0.0009999963222071528,
+                0.0010000037727877498
+              ],
+              "failed_vertices": 0
+            },
+            {
+              "object": "Sparse floor handling scuff.004",
+              "sampled_vertices": 4,
+              "signed_gap_range_m": [
+                0.0009999963222071528,
+                0.0010000074980780482
+              ],
+              "failed_vertices": 0
+            },
+            {
+              "object": "Sparse floor handling scuff.005",
+              "sampled_vertices": 4,
+              "signed_gap_range_m": [
+                0.0009999925969168544,
+                0.0010000074980780482
+              ],
+              "failed_vertices": 0
+            }
+          ],
+          "pass": true
+        },
+        {
+          "root": "Multimeter on tray",
+          "target": "Cart upper tray",
+          "anchors": [
+            {
+              "local": [
+                0.0,
+                -0.06,
+                0.88
+              ],
+              "world": [
+                -4.38999987,
+                1.79999995,
+                0.88
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -4.38999987,
+                1.79999995,
+                0.88
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Multimeter rubber bumper",
+              "member_nearest_point": [
+                -4.38999987,
+                1.79999995,
+                0.88000005
+              ],
+              "anchor_to_member_m": 5.960464477539063e-08,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 5.960464477539063e-08
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "Rag on lower tray",
+          "target": "Cart lower tray",
+          "anchors": [
+            {
+              "local": [
+                -0.058,
+                0.086,
+                0.30000091
+              ],
+              "world": [
+                -4.53599977,
+                1.74199998,
+                0.30000091
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 8.940696716308594e-07,
+              "target_hit": [
+                -4.53599977,
+                1.74199998,
+                0.30000001
+              ],
+              "signed_gap_m": 8.940696716308594e-07,
+              "target_normal": [
+                3e-08,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Cotton rag on lower tray",
+              "member_nearest_point": [
+                -4.53599977,
+                1.74199998,
+                0.30000097
+              ],
+              "anchor_to_member_m": 5.960464477539063e-08,
+              "member_angle_degrees": 0.4630939760811519,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 9.5367431640625e-07
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "SG01_Incoming_turbine",
+          "target": "Floor",
+          "anchors": [
+            {
+              "local": [
+                -0.485,
+                -0.55,
+                0.0
+              ],
+              "world": [
+                -3.77000022,
+                3.4150002,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 3.3717478231665154e-07,
+              "target_hit": [
+                -3.77000022,
+                3.4150002,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth",
+              "member_nearest_point": [
+                -3.76999998,
+                3.4150002,
+                0.0
+              ],
+              "anchor_to_member_m": 2.384185791015625e-07,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": -1.1175870895385742e-08
+            },
+            {
+              "local": [
+                -0.485,
+                0.55,
+                0.0
+              ],
+              "world": [
+                -4.87000036,
+                3.41499996,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 2.384185791015625e-07,
+              "target_hit": [
+                -4.87000036,
+                3.41499996,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth",
+              "member_nearest_point": [
+                -4.87000036,
+                3.41499996,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 3.725290298461914e-09
+            },
+            {
+              "local": [
+                0.485,
+                -0.55,
+                0.0
+              ],
+              "world": [
+                -3.77000022,
+                4.38500023,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 2.384185791015625e-07,
+              "target_hit": [
+                -3.77000022,
+                4.38500023,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth",
+              "member_nearest_point": [
+                -3.76999998,
+                4.38500023,
+                0.0
+              ],
+              "anchor_to_member_m": 2.384185791015625e-07,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": -3.725290298461914e-09
+            },
+            {
+              "local": [
+                0.485,
+                0.55,
+                0.0
+              ],
+              "world": [
+                -4.87000036,
+                4.38500023,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -4.87000036,
+                4.38500023,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth",
+              "member_nearest_point": [
+                -4.87000036,
+                4.38500023,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": -3.725290298461914e-09
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "SG02_Main_bus",
+          "target": "Floor",
+          "anchors": [
+            {
+              "local": [
+                -0.485,
+                -0.55,
+                0.0
+              ],
+              "world": [
+                -3.77000022,
+                4.61499977,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 2.384185791015625e-07,
+              "target_hit": [
+                -3.77000022,
+                4.61499977,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth.001",
+              "member_nearest_point": [
+                -3.76999998,
+                4.61499977,
+                0.0
+              ],
+              "anchor_to_member_m": 2.384185791015625e-07,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": -3.725290298461914e-09
+            },
+            {
+              "local": [
+                -0.485,
+                0.55,
+                0.0
+              ],
+              "world": [
+                -4.87000036,
+                4.61499977,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -4.87000036,
+                4.61499977,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth.001",
+              "member_nearest_point": [
+                -4.87000036,
+                4.61499977,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 3.725290298461914e-09
+            },
+            {
+              "local": [
+                0.485,
+                -0.55,
+                0.0
+              ],
+              "world": [
+                -3.77000022,
+                5.58500004,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 2.384185791015625e-07,
+              "target_hit": [
+                -3.77000022,
+                5.58500004,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth.001",
+              "member_nearest_point": [
+                -3.76999998,
+                5.58500004,
+                0.0
+              ],
+              "anchor_to_member_m": 2.384185791015625e-07,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0
+            },
+            {
+              "local": [
+                0.485,
+                0.55,
+                0.0
+              ],
+              "world": [
+                -4.87000036,
+                5.58500004,
+                0.0
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -4.87000036,
+                5.58500004,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth.001",
+              "member_nearest_point": [
+                -4.87000036,
+                5.58500004,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 3.725290298461914e-09
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "Spare fuse on tray -0.14",
+          "target": "Cart upper tray",
+          "anchors": [
+            {
+              "local": [
+                -0.14,
+                -0.037,
+                0.881
+              ],
+              "world": [
+                -4.41299963,
+                1.65999997,
+                0.88099998
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0009999871253967285,
+              "target_hit": [
+                -4.41299963,
+                1.65999997,
+                0.88
+              ],
+              "signed_gap_m": 0.0009999871253967285,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Fuse end cap.002",
+              "member_nearest_point": [
+                -4.41299963,
+                1.65999997,
+                0.88099998
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.625108585782959,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0009999871253967285
+            },
+            {
+              "local": [
+                -0.14,
+                0.137,
+                0.881
+              ],
+              "world": [
+                -4.58699989,
+                1.65999997,
+                0.88099998
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0009999871253967285,
+              "target_hit": [
+                -4.58699989,
+                1.65999997,
+                0.88
+              ],
+              "signed_gap_m": 0.0009999871253967285,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Fuse end cap.003",
+              "member_nearest_point": [
+                -4.58699989,
+                1.65999997,
+                0.88099998
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.625108585782959,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0009999871253967285
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "Spare fuse on tray -0.24",
+          "target": "Cart upper tray",
+          "anchors": [
+            {
+              "local": [
+                -0.24,
+                -0.037,
+                0.881
+              ],
+              "world": [
+                -4.41299963,
+                1.55999994,
+                0.88099998
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0009999871253967285,
+              "target_hit": [
+                -4.41299963,
+                1.55999994,
+                0.88
+              ],
+              "signed_gap_m": 0.0009999871253967285,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Fuse end cap",
+              "member_nearest_point": [
+                -4.41299963,
+                1.55999994,
+                0.88099998
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.625108585782959,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0009999871253967285
+            },
+            {
+              "local": [
+                -0.24,
+                0.137,
+                0.881
+              ],
+              "world": [
+                -4.58699989,
+                1.55999994,
+                0.88099998
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0009999871253967285,
+              "target_hit": [
+                -4.58699989,
+                1.55999994,
+                0.88
+              ],
+              "signed_gap_m": 0.0009999871253967285,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Fuse end cap.001",
+              "member_nearest_point": [
+                -4.58699989,
+                1.55999994,
+                0.88099998
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.625108585782959,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0009999871253967285
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "West task fluorescent",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "local": [
+                -0.66,
+                0.0,
+                0.2
+              ],
+              "world": [
+                -3.16000009,
+                4.55000019,
+                4.79999971
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 5.331201577973843e-07,
+              "target_hit": [
+                -3.16000009,
+                4.55000019,
+                4.80000019
+              ],
+              "signed_gap_m": 4.76837158203125e-07,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Luminaire hanger",
+              "member_nearest_point": [
+                -3.16000009,
+                4.55000019,
+                4.79999971
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 4.76837158203125e-07
+            },
+            {
+              "local": [
+                0.66,
+                0.0,
+                0.2
+              ],
+              "world": [
+                -1.83999991,
+                4.55000019,
+                4.79999971
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -1.83999991,
+                4.55000019,
+                4.80000019
+              ],
+              "signed_gap_m": 4.76837158203125e-07,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Luminaire hanger.001",
+              "member_nearest_point": [
+                -1.83999991,
+                4.55000019,
+                4.79999971
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 4.76837158203125e-07
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        },
+        {
+          "root": "Work order on tray",
+          "target": "Cart upper tray",
+          "anchors": [
+            {
+              "local": [
+                0.22,
+                0.05,
+                0.88
+              ],
+              "world": [
+                -4.5,
+                2.01999998,
+                0.88
+              ],
+              "errors": [],
+              "target_query_method": "ray",
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -4.5,
+                2.01999998,
+                0.88
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Work order paper",
+              "member_nearest_point": [
+                -4.5,
+                2.01999998,
+                0.88
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "zero_thickness_sheet": false,
+              "physical_query_method": "ray",
+              "physical_gap_m": 0.0
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "planar_sheet_support_samples": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "fixed_camera_integrity",
+      "status": "PASS",
+      "measurements": {
+        "required": [
+          "S01_Validation",
+          "S02_Construction"
+        ],
+        "missing": [],
+        "invalid": [],
+        "duplicate_view_count": 0,
+        "active_camera": "S01_Validation",
+        "cameras": [
+          {
+            "name": "S01_Validation",
+            "world_matrix": [
+              -0.6981000900268555,
+              1.2454724362953584e-08,
+              0.7160001993179321,
+              0.6000000238418579,
+              0.7160001993179321,
+              2.2060318372041365e-07,
+              0.6981000900268555,
+              6.699999809265137,
+              -1.4925727498393826e-07,
+              1.0,
+              -1.6292068494294654e-07,
+              1.649999976158142,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "location": [
+              0.60000002,
+              6.69999981,
+              1.64999998
+            ],
+            "rotation_euler": [
+              1.57079649,
+              1.5e-07,
+              2.34353685
+            ],
+            "lens_mm": 25.0,
+            "sensor_width_mm": 36.0,
+            "clip_m": [
+              0.05999999865889549,
+              150.0
+            ]
+          },
+          {
+            "name": "S02_Construction",
+            "world_matrix": [
+              -0.6554728746414185,
+              -0.060072969645261765,
+              0.7528256773948669,
+              -1.600000023841858,
+              0.7552186846733093,
+              -0.05213883891701698,
+              0.65339595079422,
+              6.449999809265137,
+              2.0265749967052216e-08,
+              0.9968313574790955,
+              0.0795438289642334,
+              1.7000000476837158,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "location": [
+              -1.60000002,
+              6.44999981,
+              1.70000005
+            ],
+            "rotation_euler": [
+              1.49116838,
+              -2e-08,
+              2.28560495
+            ],
+            "lens_mm": 31.0,
+            "sensor_width_mm": 36.0,
+            "clip_m": [
+              0.05999999865889549,
+              150.0
+            ]
+          },
+          {
+            "name": "S03_Slice_Coverage",
+            "world_matrix": [
+              -0.6291983723640442,
+              0.01917233131825924,
+              0.7770082354545593,
+              3.799999952316284,
+              0.7772447466850281,
+              0.015520313754677773,
+              0.6290069222450256,
+              6.900000095367432,
+              1.1762386975533445e-07,
+              0.9996957182884216,
+              -0.02466695010662079,
+              1.649999976158142,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "location": [
+              3.79999995,
+              6.9000001,
+              1.64999998
+            ],
+            "rotation_euler": [
+              1.59546578,
+              -1.2e-07,
+              2.25131774
+            ],
+            "lens_mm": 25.0,
+            "sensor_width_mm": 36.0,
+            "clip_m": [
+              0.05999999865889549,
+              150.0
+            ]
+          },
+          {
+            "name": "S04_Work_Evidence",
+            "world_matrix": [
+              -0.48925110697746277,
+              -0.22243721783161163,
+              0.8433001041412354,
+              -2.4000000953674316,
+              0.8721429705619812,
+              -0.12478210031986237,
+              0.47307088971138,
+              3.0,
+              1.7954040743006772e-07,
+              0.9669287204742432,
+              0.2550468444824219,
+              1.649999976158142,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "location": [
+              -2.4000001,
+              3.0,
+              1.64999998
+            ],
+            "rotation_euler": [
+              1.31290019,
+              -1.8e-07,
+              2.0820272
+            ],
+            "lens_mm": 40.0,
+            "sensor_width_mm": 36.0,
+            "clip_m": [
+              0.05999999865889549,
+              150.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "camera_baseline",
+      "status": "PASS",
+      "measurements": {
+        "file": "sections/electrical-room/production/checkpoints/S04/build_manifest.json",
+        "failures": []
+      }
+    },
+    {
+      "id": "exact_duplicate_geometry",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "cross_assembly_surface_intersections",
+      "status": "PASS",
+      "measurements": {
+        "classified_candidate_counts": {
+          "known_named_construction_join": 12,
+          "known_structural_join": 58,
+          "same_assembly_construction": 284,
+          "nested_assembly_construction": 7
+        },
+        "reviewed_joins": [
+          {
+            "objects": [
+              "Floor",
+              "Flush portal threshold"
+            ],
+            "reason": "flush threshold inlay",
+            "aabb_overlap_m": [
+              2.4000001,
+              0.2250001,
+              0.012
+            ]
+          },
+          {
+            "objects": [
+              "Portal wall return",
+              "Deep steel portal jamb.001"
+            ],
+            "reason": "frame seated in structural opening",
+            "aabb_overlap_m": [
+              0.1400001,
+              0.17500012,
+              2.77999997
+            ]
+          },
+          {
+            "objects": [
+              "Portal wall return",
+              "Portal header"
+            ],
+            "reason": "header seated in structural opening",
+            "aabb_overlap_m": [
+              0.14000022,
+              0.17500012,
+              0.19999981
+            ]
+          },
+          {
+            "objects": [
+              "Wall permit board",
+              "Precast horizontal reveal"
+            ],
+            "reason": "board seated over shallow wall reveal",
+            "aabb_overlap_m": [
+              0.00500011,
+              0.49000013,
+              0.01399994
+            ]
+          },
+          {
+            "objects": [
+              "Bolted termination flange.001",
+              "Tapered tap-off transition"
+            ],
+            "reason": "flanged electrical transition",
+            "aabb_overlap_m": [
+              0.68999982,
+              0.68999982,
+              0.05499983
+            ]
+          },
+          {
+            "objects": [
+              "Bolted termination flange.003",
+              "Tapered tap-off transition.001"
+            ],
+            "reason": "flanged electrical transition",
+            "aabb_overlap_m": [
+              0.68999982,
+              0.69000006,
+              0.05499983
+            ]
+          },
+          {
+            "objects": [
+              "Cable termination boot",
+              "Tapered tap-off transition"
+            ],
+            "reason": "telescoping electrical transition",
+            "aabb_overlap_m": [
+              0.64999962,
+              0.67000008,
+              0.06499982
+            ]
+          },
+          {
+            "objects": [
+              "Cable termination boot.001",
+              "Tapered tap-off transition.001"
+            ],
+            "reason": "telescoping electrical transition",
+            "aabb_overlap_m": [
+              0.64999962,
+              0.67000008,
+              0.06499982
+            ]
+          },
+          {
+            "objects": [
+              "Connection vestibule floor",
+              "Flush portal threshold"
+            ],
+            "reason": "flush threshold inlay",
+            "aabb_overlap_m": [
+              2.4000001,
+              0.2250001,
+              0.012
+            ]
+          },
+          {
+            "objects": [
+              "Portal header",
+              "Portal wall head"
+            ],
+            "reason": "header seated in structural opening",
+            "aabb_overlap_m": [
+              2.4000001,
+              0.17500012,
+              0.0999999
+            ]
+          },
+          {
+            "objects": [
+              "Portal header",
+              "Portal wall return.001"
+            ],
+            "reason": "header seated in structural opening",
+            "aabb_overlap_m": [
+              0.14000022,
+              0.17500012,
+              0.19999981
+            ]
+          },
+          {
+            "objects": [
+              "Portal wall return.001",
+              "Deep steel portal jamb"
+            ],
+            "reason": "frame seated in structural opening",
+            "aabb_overlap_m": [
+              0.1400001,
+              0.17499989,
+              2.77999997
+            ]
+          }
+        ],
+        "unresolved": []
+      }
+    }
+  ],
+  "tolerances": {
+    "gap_m": 0.005,
+    "penetration_m": 0.002,
+    "support_angle_degrees": 12.0,
+    "dimension_m": 0.005
+  },
+  "limitations": [
+    "A slice result applies only to its 7.2 m partial hall; it cannot accept the full room.",
+    "Route checks are conservative world AABB exclusion tests, not a navigation or carried-body sweep.",
+    "Support proves registered anchors and their actual contact faces; arbitrary internal parts require their own support roots.",
+    "Intersection tests report triangle-surface crossings; fully contained solids can evade crossing detection.",
+    "Construction joins and same-assembly intersections are classified, not asserted collision-free.",
+    "Visual quality, electrical safety, runtime behavior and neighboring module alignment are not evaluated."
+  ],
+  "counts": {
+    "scene_objects": 657,
+    "evaluated_geometry_objects": 634,
+    "support_roots": 16
+  },
+  "pass": true,
+  "status": "PASS",
+  "failure_ids": [],
+  "warning_ids": [
+    "open_mesh_inventory"
+  ],
+  "scope": "partial_style_slice",
+  "visual_acceptance_evaluated": false,
+  "runtime_acceptance_evaluated": false
+}

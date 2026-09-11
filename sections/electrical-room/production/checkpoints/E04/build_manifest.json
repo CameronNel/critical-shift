@@ -1,0 +1,244 @@
+{
+  "section": "electrical-room",
+  "revision": "E04",
+  "stage": "full",
+  "blender_version": "5.2.0 LTS",
+  "source_sha256": "26f05fe76be72adaab104ced93a30d9caa524e79177ffe87ecae07d998f24d0c",
+  "objects": 2206,
+  "mesh_objects": 2055,
+  "materials": 27,
+  "support_roots": [
+    "D01_Turbine",
+    "D02_Waste",
+    "SG01_Incoming_turbine",
+    "SG02_Main_bus",
+    "Enclosed main busway",
+    "Electrician service cart",
+    "Multimeter on tray",
+    "Spare fuse on tray -0.24",
+    "Spare fuse on tray -0.14",
+    "Work order on tray",
+    "Rag on lower tray",
+    "Insulating operating mat 4.5",
+    "Isolation work permit board",
+    "Historic conduit patch",
+    "Localized floor use marks",
+    "West task fluorescent",
+    "Entry fluorescent",
+    "SG03_COOLING",
+    "SG04_PRODUCTION",
+    "SG05_FACILITY",
+    "SG06_SERVICE",
+    "Insulating operating mat 8.55",
+    "TX01_Guarded_dry_transformer",
+    "TD01_Manual_transfer",
+    "RB01_Reserve_module",
+    "RB02_Reserve_module",
+    "RB03_Reserve_module",
+    "Portable_blackstart_connection",
+    "WB01_Repair_bench",
+    "Rear hall practical",
+    "Transformer task practical",
+    "West rear practical",
+    "Transfer task practical",
+    "Reserve bay practical"
+  ],
+  "cameras": [
+    {
+      "name": "C01_Entry",
+      "location": [
+        0.0,
+        1.2000000476837158,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.59257173538208,
+        -1.3052028347004807e-09,
+        0.038442593067884445
+      ],
+      "lens_mm": 23.0
+    },
+    {
+      "name": "C02_Hero",
+      "location": [
+        -0.3499999940395355,
+        6.5,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.5760523080825806,
+        3.483707899931687e-08,
+        1.5182135105133057
+      ],
+      "lens_mm": 25.0
+    },
+    {
+      "name": "C03_Reverse",
+      "location": [
+        0.0,
+        15.100000381469727,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.5727760791778564,
+        -8.393160833009006e-09,
+        3.121793270111084
+      ],
+      "lens_mm": 23.0
+    },
+    {
+      "name": "C04_Route",
+      "location": [
+        0.0,
+        5.0,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.5681647062301636,
+        -0.0,
+        0.0
+      ],
+      "lens_mm": 23.0
+    },
+    {
+      "name": "C05_Drawout_Clearance",
+      "location": [
+        -1.350000023841858,
+        11.699999809265137,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.4142019748687744,
+        8.144306917756694e-08,
+        2.2044293880462646
+      ],
+      "lens_mm": 28.0
+    },
+    {
+      "name": "C06_Transformer",
+      "location": [
+        0.6499999761581421,
+        9.300000190734863,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.542203426361084,
+        1.0269403993845572e-08,
+        -2.2627177238464355
+      ],
+      "lens_mm": 26.0
+    },
+    {
+      "name": "C07_Reserve_Bay",
+      "location": [
+        4.199999809265137,
+        13.199999809265137,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.4656301736831665,
+        -0.0,
+        -1.5707963705062866
+      ],
+      "lens_mm": 24.0
+    },
+    {
+      "name": "C08_Material_Detail",
+      "location": [
+        -2.799999952316284,
+        12.699999809265137,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.3283629417419434,
+        -1.0549803874937425e-07,
+        0.938047468662262
+      ],
+      "lens_mm": 36.0
+    },
+    {
+      "name": "C09_Workbench",
+      "location": [
+        -0.699999988079071,
+        14.699999809265137,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.4969451427459717,
+        -1.616476339449946e-07,
+        1.8382072448730469
+      ],
+      "lens_mm": 28.0
+    },
+    {
+      "name": "C10_Transfer",
+      "location": [
+        1.5,
+        10.199999809265137,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.4412822723388672,
+        -6.2580483017882216e-09,
+        -1.5405024290084839
+      ],
+      "lens_mm": 26.0
+    },
+    {
+      "name": "W01_Turbine_Return",
+      "location": [
+        0.0,
+        3.9000000953674316,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.5502865314483643,
+        8.740438772747439e-08,
+        3.1415927410125732
+      ],
+      "lens_mm": 24.0
+    },
+    {
+      "name": "W02_Waste_Approach",
+      "location": [
+        0.0,
+        12.800000190734863,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.548577904701233,
+        -0.0,
+        0.0
+      ],
+      "lens_mm": 24.0
+    },
+    {
+      "name": "W03_Reserve_Return",
+      "location": [
+        6.75,
+        13.199999809265137,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.5539560317993164,
+        5.910064970748863e-08,
+        1.5707963705062866
+      ],
+      "lens_mm": 24.0
+    },
+    {
+      "name": "W04_Switchgear_Approach",
+      "location": [
+        -2.0,
+        2.700000047683716,
+        1.6799999475479126
+      ],
+      "rotation_euler": [
+        1.5461483001708984,
+        -5.8705165173478235e-08,
+        0.5880026817321777
+      ],
+      "lens_mm": 26.0
+    }
+  ]
+}

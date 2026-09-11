@@ -1,0 +1,287 @@
+{
+  "revision": "E04",
+  "blend_sha256": "8870fbee83cc5492e45916b6aa68e2d5b7e91904b463c2beb092c7efda3e7110",
+  "checks": [
+    {
+      "id": "U01",
+      "wall": "Portal wall return",
+      "samples": [
+        {
+          "origin": [
+            -4.470000267028809,
+            -0.6000000238418579,
+            3.7800002098083496
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.470000267028809,
+            -0.6000000238418579,
+            3.880000114440918
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.470000267028809,
+            -0.6000000238418579,
+            3.9800000190734863
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.320000171661377,
+            -0.6000000238418579,
+            3.7800002098083496
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.320000171661377,
+            -0.6000000238418579,
+            3.880000114440918
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.320000171661377,
+            -0.6000000238418579,
+            3.9800000190734863
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.170000076293945,
+            -0.6000000238418579,
+            3.7800002098083496
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.170000076293945,
+            -0.6000000238418579,
+            3.880000114440918
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.170000076293945,
+            -0.6000000238418579,
+            3.9800000190734863
+          ],
+          "blocked_by_wall": false
+        }
+      ],
+      "adjacent_solid_control": true,
+      "pass": true
+    },
+    {
+      "id": "U02",
+      "wall": "Portal wall return.002",
+      "samples": [
+        {
+          "origin": [
+            -4.62000036239624,
+            15.799999237060547,
+            3.680000066757202
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.62000036239624,
+            15.799999237060547,
+            3.880000114440918
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.62000036239624,
+            15.799999237060547,
+            4.079999923706055
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.320000171661377,
+            15.799999237060547,
+            3.680000066757202
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.320000171661377,
+            15.799999237060547,
+            3.880000114440918
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.320000171661377,
+            15.799999237060547,
+            4.079999923706055
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.019999980926514,
+            15.799999237060547,
+            3.680000066757202
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.019999980926514,
+            15.799999237060547,
+            3.880000114440918
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            -4.019999980926514,
+            15.799999237060547,
+            4.079999923706055
+          ],
+          "blocked_by_wall": false
+        }
+      ],
+      "adjacent_solid_control": true,
+      "pass": true
+    },
+    {
+      "id": "U03",
+      "wall": "Reserve east wall",
+      "samples": [
+        {
+          "origin": [
+            7.825000286102295,
+            13.930000305175781,
+            2.7300000190734863
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            7.825000286102295,
+            13.930000305175781,
+            2.799999952316284
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            7.825000286102295,
+            13.930000305175781,
+            2.869999885559082
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            7.825000286102295,
+            14.0,
+            2.7300000190734863
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            7.825000286102295,
+            14.0,
+            2.799999952316284
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            7.825000286102295,
+            14.0,
+            2.869999885559082
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            7.825000286102295,
+            14.069999694824219,
+            2.7300000190734863
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            7.825000286102295,
+            14.069999694824219,
+            2.799999952316284
+          ],
+          "blocked_by_wall": false
+        },
+        {
+          "origin": [
+            7.825000286102295,
+            14.069999694824219,
+            2.869999885559082
+          ],
+          "blocked_by_wall": false
+        }
+      ],
+      "adjacent_solid_control": true,
+      "pass": true
+    },
+    {
+      "id": "Entry seam slab",
+      "y_bounds": [
+        -0.25,
+        0.0
+      ],
+      "top_z": 0.0,
+      "expected_y": [
+        -0.25,
+        0
+      ],
+      "pass": true
+    },
+    {
+      "id": "Waste seam slab",
+      "y_bounds": [
+        16.399999618530273,
+        16.969999313354492
+      ],
+      "top_z": 0.0,
+      "expected_y": [
+        16.4,
+        16.97
+      ],
+      "pass": true
+    },
+    {
+      "id": "U01 physical mating face",
+      "centre": [
+        -4.32,
+        -0.25,
+        3.88
+      ],
+      "measured_cross_section": [
+        0.39999961853027344,
+        0.3000001907348633
+      ],
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "limits": "Local actual service apertures and floor seams; reciprocal transforms are proposed, neighboring geometry remains unchanged."
+}

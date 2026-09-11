@@ -1,0 +1,2850 @@
+{
+  "revision": "E05",
+  "blend_sha256": "01447dce65a406afa84448e440176aefd37cdda702dc0a4cd51cee366c298dfd",
+  "fingerprint_A": "234e32ef5fa998afc4241b05f13b2bb9399b761cae642fb8bf356275e875c577",
+  "fingerprint_B": "234e32ef5fa998afc4241b05f13b2bb9399b761cae642fb8bf356275e875c577",
+  "saved_file_unchanged": true,
+  "source_bytes_match": {
+    "aperture_audit.py": true,
+    "build_room.py": true,
+    "cold_snapshot.py": true,
+    "compare_renders.py": true,
+    "final_adjustments.py": true,
+    "full_hall.py": true,
+    "render_room.py": true,
+    "survey_connection.py": true,
+    "validate_scene.py": true,
+    "walkthrough_audit.py": true
+  },
+  "objects": 2206,
+  "materials": 26,
+  "cameras": 14,
+  "technical_pass": true,
+  "walkthrough_pass": true,
+  "apertures_pass": true,
+  "reviewed_open_mesh_warnings": [
+    {
+      "object": "Localized chipped paint",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.001",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.001",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.002",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.003",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.004",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.005",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.006",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.007",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.008",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.009",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.010",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.011",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.012",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.013",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.014",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.015",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.016",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.017",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.018",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.019",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.020",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.021",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.022",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.023",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.002",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.003",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.024",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.025",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.026",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.027",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.028",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.029",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.030",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.031",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.032",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.033",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.034",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.035",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.036",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.037",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.038",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.039",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.040",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.041",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.042",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.043",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.044",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.045",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.046",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.047",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved TURBINE / D01",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.004",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.005",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.048",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.049",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.050",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.051",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.052",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.053",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.054",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.055",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.056",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.057",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.058",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.059",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.060",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.061",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.062",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.063",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.064",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.065",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.066",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.067",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.068",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.069",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.070",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.071",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.006",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.007",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.072",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.073",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.074",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.075",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.076",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.077",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.078",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.079",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.080",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.081",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.082",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.083",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.084",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.085",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.086",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.087",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.088",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.089",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.090",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.091",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.092",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.093",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.094",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.095",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved WASTE / D02",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Subtle repaired wall patch",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Sparse floor handling scuff",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Sparse floor handling scuff.001",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Sparse floor handling scuff.002",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Sparse floor handling scuff.003",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Sparse floor handling scuff.004",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Sparse floor handling scuff.005",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved 01  TURBINE",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter unit",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter unit.001",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved I   /   O",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.008",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.009",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.010",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.011",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.096",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.097",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.098",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.099",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.100",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.101",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.102",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.103",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.104",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.105",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.106",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.107",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.108",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.109",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.110",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.111",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.112",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.113",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.114",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.115",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.116",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.117",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.118",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.119",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.120",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.121",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.122",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.123",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.124",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.125",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.126",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.127",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.128",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.129",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.130",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.131",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved 02  MAIN BUS",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter unit.002",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Relay reading",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved I   /   O.001",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.012",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.013",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.014",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.015",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.132",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.133",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.134",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.135",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.136",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.137",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.138",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.139",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.140",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.141",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.142",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.143",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.144",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.145",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.146",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.147",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.148",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.149",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.150",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.151",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.152",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.153",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.154",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.155",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.156",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.157",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.158",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.159",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.160",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.161",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.162",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.163",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.164",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.165",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.166",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.167",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved 03  COOLING",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter unit.003",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Relay reading.001",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved I   /   O.002",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.016",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.017",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.018",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.019",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.192",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.193",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.194",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.195",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.196",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.197",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.198",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.199",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.200",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.201",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.202",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.203",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.204",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.205",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.206",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.207",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.208",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.209",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.210",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.211",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.212",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.213",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.214",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.215",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.216",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.217",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.218",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.219",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.220",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.221",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.222",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.223",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.224",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.225",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.226",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.227",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved 04  PRODUCTION",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter unit.004",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Relay reading.002",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved I   /   O.003",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.020",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.021",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.022",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.023",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.228",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.229",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.230",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.231",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.232",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.233",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.234",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.235",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.236",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.237",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.238",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.239",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.240",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.241",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.242",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.243",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.244",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.245",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.246",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.247",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.248",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.249",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.250",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.251",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.252",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.253",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.254",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.255",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.256",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.257",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.258",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.259",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.260",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.261",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.262",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.263",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved 05  FACILITY",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter unit.005",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Relay reading.003",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved I   /   O.004",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.024",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.025",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.026",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Localized chipped paint.027",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.264",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.265",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.266",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.267",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.268",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.269",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.270",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.271",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.272",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.273",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.274",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.275",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.276",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.277",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.278",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.279",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.280",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.281",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.282",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.283",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.284",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.285",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.286",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.287",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.288",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.289",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.290",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.291",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.292",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.293",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.294",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.295",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.296",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.297",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.298",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.299",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved 06  SERVICE",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter unit.006",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Relay reading.004",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Stored-energy operating spring",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Stored-energy operating spring.001",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Service lamp gooseneck",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved WITHDRAWN",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.300",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.301",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.302",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.303",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.304",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.305",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.306",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.307",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.308",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.309",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.310",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.311",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.312",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.313",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.314",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.315",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.316",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.317",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.318",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.319",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.320",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.321",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.322",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.323",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Power flow direction stencil",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Power flow direction stencil.001",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Power flow direction stencil.002",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Power flow direction stencil.003",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "TX primary insulated lead",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "TX secondary enclosed lead",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "TX primary insulated lead.001",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "TX secondary enclosed lead.001",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "TX primary insulated lead.002",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "TX secondary enclosed lead.002",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved TX / 01",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved ISOLATE BEFORE ACCESS",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Transformer earth bond",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved MANUAL TRANSFER",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved NORMAL",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved RESERVE",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved ESSENTIAL PRIORITY",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter unit.007",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved COOLING",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved HOLD",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved MEDICAL",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved CRANK",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Stowed transfer crank",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved RESERVE / 01",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter unit.008",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Covered series interconnect",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Covered series interconnect.001",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved RESERVE / 02",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter unit.009",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Covered series interconnect.002",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Covered series interconnect.003",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved RESERVE / 03",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter unit.010",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Covered series interconnect.004",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Covered series interconnect.005",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved PORTABLE INPUT",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.168",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.169",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.170",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.171",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.172",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.173",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.174",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.175",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.176",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.177",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.178",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.179",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.180",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.181",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.182",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.183",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.184",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.185",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.186",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.187",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.188",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.189",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.190",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Wear at repeatedly handled edge.191",
+      "type": "MESH",
+      "reason": "Intentional surface wear/decal sheet, separately support-tested.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Push handle",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Meter LCD",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Red test lead",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Black test lead",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Work order imprint",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Fuse ceramic marking",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Fuse ceramic marking.001",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Permit heading",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Permit content",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Padlock steel shackle",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Padlock steel shackle.001",
+      "type": "CURVE",
+      "reason": "Swept curve tessellation; source caps enabled, ends are supported in the associated assembly.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Bench repair record",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    },
+    {
+      "object": "Engraved REPAIR / 01",
+      "type": "FONT",
+      "reason": "Evaluated font tessellation; backed surface text, not architectural shell.",
+      "nonmanifold_edges": 0
+    }
+  ],
+  "renders": [
+    {
+      "camera": "C01_Entry",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 0.000330761316872428,
+        "maximum_channel_error_255": 3.0,
+        "changed_pixel_fraction": 0.0008881172839506173,
+        "over_two_levels_pixel_fraction": 7.716049382716049e-07
+      },
+      "warm_sha256": "4cb3c0f79ba6490b6b186c395a03929ca03d79cfcdf83bd1818c22da67b5fa97",
+      "cold_sha256": "395cdd2d37bc8a2d13bc526a2e447a201a771194e920c29d02536f59677f9b26",
+      "camera_equal": true
+    },
+    {
+      "camera": "C02_Hero",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 5.838477366255144e-05,
+        "maximum_channel_error_255": 1.0,
+        "changed_pixel_fraction": 0.00017515432098765433,
+        "over_two_levels_pixel_fraction": 0.0
+      },
+      "warm_sha256": "eb7625db2d2b88190d9fc151c6543acdaf6ed0c9c3073ee6ff1364fa0765c030",
+      "cold_sha256": "f3ef45b0fe4e407c748c721e502b4ec13c27ddc9b66dc9e8d00a6efb361c58b3",
+      "camera_equal": true
+    },
+    {
+      "camera": "C03_Reverse",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 0.0003521090534979424,
+        "maximum_channel_error_255": 5.0,
+        "changed_pixel_fraction": 0.0009128086419753086,
+        "over_two_levels_pixel_fraction": 2.3148148148148148e-06
+      },
+      "warm_sha256": "a68677df225d6b5e630ba6819cae2bcb3b3331a4a96869f747ef79ccd2a99d71",
+      "cold_sha256": "13f6b80ee6f68c6beb78b47e6289eba0f9810a0babbe984e01575914ffc69350",
+      "camera_equal": true
+    },
+    {
+      "camera": "C04_Route",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 7.510288065843622e-05,
+        "maximum_channel_error_255": 1.0,
+        "changed_pixel_fraction": 0.00022530864197530865,
+        "over_two_levels_pixel_fraction": 0.0
+      },
+      "warm_sha256": "2d93501eb3a5389cd395d8cbe0677ad9f820615c5927a2f47c08899580551fb4",
+      "cold_sha256": "24e383b8abd9333c937d18503130b67b6f0b306dad8ef309a05c9f3c443a6f92",
+      "camera_equal": true
+    },
+    {
+      "camera": "C05_Drawout_Clearance",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 5.246913580246914e-05,
+        "maximum_channel_error_255": 1.0,
+        "changed_pixel_fraction": 0.0001574074074074074,
+        "over_two_levels_pixel_fraction": 0.0
+      },
+      "warm_sha256": "abdbad9e34e8bcbaf9cada4a4605143962f690fb6899bf77b418ee24437ecb71",
+      "cold_sha256": "d086a904e0d7e6699a4b3669f96f1e3e96111b13652a063acfcccecc39dc5103",
+      "camera_equal": true
+    },
+    {
+      "camera": "C06_Transformer",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 0.0006592078189300412,
+        "maximum_channel_error_255": 7.0,
+        "changed_pixel_fraction": 0.0016195987654320989,
+        "over_two_levels_pixel_fraction": 1.0802469135802469e-05
+      },
+      "warm_sha256": "50eef0591afba06ee19a0553f1af183b7571b07ad6b985dbcb6be3e1ea3c1de7",
+      "cold_sha256": "bfbe72ab7288a6968cfa23ee4c4870440fb57e982cf8b59a061dc3cca6121e59",
+      "camera_equal": true
+    },
+    {
+      "camera": "C07_Reserve_Bay",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 4.269547325102881e-05,
+        "maximum_channel_error_255": 1.0,
+        "changed_pixel_fraction": 0.00012808641975308642,
+        "over_two_levels_pixel_fraction": 0.0
+      },
+      "warm_sha256": "8a389933b0ab27f25e749bbe3f50d5120023349ba865b983beb2d45d6c293fec",
+      "cold_sha256": "4566c37823e0317877dea52cf9ecf8314af1fa5e305d1b2642407cd262974c0a",
+      "camera_equal": true
+    },
+    {
+      "camera": "C08_Material_Detail",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 6.610082304526749e-05,
+        "maximum_channel_error_255": 1.0,
+        "changed_pixel_fraction": 0.00019830246913580247,
+        "over_two_levels_pixel_fraction": 0.0
+      },
+      "warm_sha256": "9e937281a5d23abd99202b4f37107b1fc1a948c015226c88a78d2e920d528a1b",
+      "cold_sha256": "2149720c6d1a13a7a8bea8e3d5c73ebece594fe22d715d29a69d0d1921cb5fe6",
+      "camera_equal": true
+    },
+    {
+      "camera": "C09_Workbench",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 8.127572016460906e-05,
+        "maximum_channel_error_255": 1.0,
+        "changed_pixel_fraction": 0.00024305555555555555,
+        "over_two_levels_pixel_fraction": 0.0
+      },
+      "warm_sha256": "b76f2a989c9c4b024a5de0144f164ebf9877ba0f4e0f3315b3bb66b71a1e0161",
+      "cold_sha256": "d1d1cc100b08dffc5540960be9704bfed361a943dc7b64cc4b25f0654d4f3d6a",
+      "camera_equal": true
+    },
+    {
+      "camera": "C10_Transfer",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 9.799382716049382e-05,
+        "maximum_channel_error_255": 1.0,
+        "changed_pixel_fraction": 0.00029089506172839507,
+        "over_two_levels_pixel_fraction": 0.0
+      },
+      "warm_sha256": "84018b18c4a03165c8c136e74c76410dfc1862fb382508419c0d709526244f65",
+      "cold_sha256": "7414aebcaae1ec5d40dd2ce4b9e4e6ff3fda2c3a9fc569809850a0f4c4d7adfa",
+      "camera_equal": true
+    },
+    {
+      "camera": "W01_Turbine_Return",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 4.732510288065844e-05,
+        "maximum_channel_error_255": 1.0,
+        "changed_pixel_fraction": 0.0001419753086419753,
+        "over_two_levels_pixel_fraction": 0.0
+      },
+      "warm_sha256": "65f26d06c4a659faaf71ddea9fc79a0c13d12a41e7b2c390a5457242b232ceea",
+      "cold_sha256": "1c3c84c008dccb35d55e2542c169ccebb08558e6a8ded15b69954928dffdf3d3",
+      "camera_equal": true
+    },
+    {
+      "camera": "W02_Waste_Approach",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 5.838477366255144e-05,
+        "maximum_channel_error_255": 1.0,
+        "changed_pixel_fraction": 0.00017515432098765433,
+        "over_two_levels_pixel_fraction": 0.0
+      },
+      "warm_sha256": "5eadc6d0ee4e149ebb8c89a86002f86124054b45d713ff88e7581de9de452057",
+      "cold_sha256": "0266395a0f37479774e00ef7fcc85a27bc980d6babbf1e6ba67149a64c78c033",
+      "camera_equal": true
+    },
+    {
+      "camera": "W03_Reserve_Return",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 7.921810699588477e-05,
+        "maximum_channel_error_255": 1.0,
+        "changed_pixel_fraction": 0.00023611111111111112,
+        "over_two_levels_pixel_fraction": 0.0
+      },
+      "warm_sha256": "598ca962ea086868b150dc6c18a95b5396d1887538afa738151db13d204ca8fe",
+      "cold_sha256": "4b056d9917780841447cb8126b9650dc4c8520a1c6b42193101995761e634721",
+      "camera_equal": true
+    },
+    {
+      "camera": "W04_Switchgear_Approach",
+      "decoded_pixels_equal": false,
+      "render_numerically_stable": true,
+      "pixel_metrics": {
+        "mean_absolute_error_255": 5.401234567901235e-05,
+        "maximum_channel_error_255": 1.0,
+        "changed_pixel_fraction": 0.00016203703703703703,
+        "over_two_levels_pixel_fraction": 0.0
+      },
+      "warm_sha256": "24fff2cdac2bb5bdd08e213e3c19a433d8d01f3e139b54f5e9ac76747cb8c9cd",
+      "cold_sha256": "af16982d733a5f97becb2bd3db629bf007eadcb146df462b4095d7ca0514982e",
+      "camera_equal": true
+    }
+  ],
+  "limits": "Local saved artifact only. Independent Luna visual approval is separate. No engine or assembled-facility validation.",
+  "render_comparison_policy": "Exact comparison failed and is retained separately. GPU render numerical stability requires mean error<=0.01/255, maximum<=8/255, changed pixels<=0.5%, pixels differing by >2 levels<=0.01%. Independent cold pixel review remains required. No exact pixel identity claimed.",
+  "pass": true
+}

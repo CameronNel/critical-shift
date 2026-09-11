@@ -1,0 +1,8 @@
+# Reproduction fingerprints depend on exact Python source bytes.
+* -text
+* whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+*.py -text
+*.png -text
+*.blend -text
+# Markdown's intentional two-space line breaks are not whitespace defects.
+*.md whitespace=space-before-tab,cr-at-eol,-blank-at-eof,-blank-at-eol

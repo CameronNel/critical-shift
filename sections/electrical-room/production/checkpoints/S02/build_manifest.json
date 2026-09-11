@@ -1,0 +1,55 @@
+{
+  "section": "electrical-room",
+  "revision": "S02",
+  "stage": "slice",
+  "blender_version": "5.2.0 LTS",
+  "source_sha256": "8563a92ab147c467ef04e8dc455fd73409dd5832803d7f5b5ed19da57e99f48d",
+  "objects": 374,
+  "mesh_objects": 344,
+  "materials": 24,
+  "support_roots": [
+    "D01_Turbine",
+    "SG01_Incoming_turbine",
+    "SG02_Main_bus",
+    "Enclosed main busway",
+    "Electrician service cart",
+    "Multimeter on tray",
+    "Spare fuse on tray -0.24",
+    "Spare fuse on tray -0.14",
+    "Work order on tray",
+    "Rag on lower tray",
+    "Insulating operating mat 4.5",
+    "West task fluorescent",
+    "Entry fluorescent"
+  ],
+  "cameras": [
+    {
+      "name": "S01_Validation",
+      "location": [
+        0.6000000238418579,
+        6.699999809265137,
+        1.649999976158142
+      ],
+      "rotation_euler": [
+        1.5707964897155762,
+        1.4925727498393826e-07,
+        2.343536853790283
+      ],
+      "lens_mm": 25.0
+    },
+    {
+      "name": "S02_Construction",
+      "location": [
+        -1.600000023841858,
+        6.449999809265137,
+        1.7000000476837158
+      ],
+      "rotation_euler": [
+        1.4911683797836304,
+        -2.0265749967052216e-08,
+        2.285604953765869
+      ],
+      "lens_mm": 31.0
+    }
+  ]
+}

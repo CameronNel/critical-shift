@@ -1,0 +1,1878 @@
+{
+  "schema": "critical-shift.geometry-validation.v1",
+  "created_utc": "2026-09-07T22:24:38.565008+00:00",
+  "blend": "C:\\Users\\Camer\\.codex\\worktrees\\a81e\\critical-shift\\sections\\electrical-room\\blender\\electrical_slice.blend",
+  "blender_version": "5.2.0 LTS",
+  "section": "electrical-room",
+  "revision": "S02",
+  "stage": "slice",
+  "checks": [
+    {
+      "id": "scene_identity",
+      "status": "PASS",
+      "measurements": {
+        "section": "electrical-room",
+        "stage": "slice"
+      }
+    },
+    {
+      "id": "metric_units",
+      "status": "PASS",
+      "measurements": {
+        "system": "METRIC",
+        "scale_length": 1.0
+      }
+    },
+    {
+      "id": "saved_blend",
+      "status": "PASS",
+      "measurements": {
+        "path": "C:\\Users\\Camer\\.codex\\worktrees\\a81e\\critical-shift\\sections\\electrical-room\\blender\\electrical_slice.blend"
+      }
+    },
+    {
+      "id": "source_fingerprint",
+      "status": "FAIL",
+      "measurements": {
+        "saved_sha256": "8563a92ab147c467ef04e8dc455fd73409dd5832803d7f5b5ed19da57e99f48d",
+        "current_source_sha256": "40e78defc9418a0e81e11212a249d1a3c017df9eb3232bc27857bac2c4bfa336"
+      }
+    },
+    {
+      "id": "render_dimensions",
+      "status": "PASS",
+      "measurements": {
+        "width": 1440,
+        "height": 900,
+        "percentage": 100
+      }
+    },
+    {
+      "id": "external_dependencies",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "material_nodes",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "geometry_integrity",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "material_assignment",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "support_registration",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "degenerate_faces",
+      "status": "FAIL",
+      "measurements": [
+        {
+          "object": "Ivory instrument dial",
+          "count": 48
+        },
+        {
+          "object": "Ivory instrument dial.001",
+          "count": 48
+        },
+        {
+          "object": "Ivory instrument dial.002",
+          "count": 48
+        }
+      ]
+    },
+    {
+      "id": "open_mesh_inventory",
+      "status": "WARN",
+      "measurements": [
+        {
+          "object": "Engraved TURBINE",
+          "boundary_edges": 1248,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Engraved 01  TURBINE",
+          "boundary_edges": 1648,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Meter unit",
+          "boundary_edges": 68,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Meter unit.001",
+          "boundary_edges": 112,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Engraved I   /   O",
+          "boundary_edges": 416,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.001",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.002",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.003",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Engraved 02  MAIN BUS",
+          "boundary_edges": 2124,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Meter unit.002",
+          "boundary_edges": 44,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Relay reading",
+          "boundary_edges": 1352,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Engraved I   /   O.001",
+          "boundary_edges": 416,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.004",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.005",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.006",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Localized chipped paint.007",
+          "boundary_edges": 6,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Push handle",
+          "boundary_edges": 20,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Red test lead",
+          "boundary_edges": 20,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Black test lead",
+          "boundary_edges": 20,
+          "nonmanifold_edges": 0
+        },
+        {
+          "object": "Work order imprint",
+          "boundary_edges": 1928,
+          "nonmanifold_edges": 0
+        }
+      ]
+    },
+    {
+      "id": "architectural_dimensions",
+      "status": "PASS",
+      "measurements": [
+        {
+          "object": "Floor",
+          "pass": true,
+          "actual_min": [
+            -5.5,
+            0.0,
+            -0.23999999
+          ],
+          "actual_max": [
+            5.5,
+            7.19999981,
+            0.0
+          ],
+          "expected_min": [
+            -5.5,
+            0,
+            null
+          ],
+          "expected_max": [
+            5.5,
+            7.2,
+            0
+          ]
+        },
+        {
+          "object": "Ceiling",
+          "pass": true,
+          "actual_min": [
+            -5.5,
+            0.0,
+            4.80000019
+          ],
+          "actual_max": [
+            5.5,
+            7.19999981,
+            5.0
+          ],
+          "expected_min": [
+            -5.5,
+            0,
+            4.8
+          ],
+          "expected_max": [
+            5.5,
+            7.2,
+            null
+          ]
+        },
+        {
+          "object": "West wall",
+          "pass": true,
+          "actual_min": [
+            -5.75,
+            0.0,
+            0.0
+          ],
+          "actual_max": [
+            -5.5,
+            7.19999981,
+            4.80000019
+          ],
+          "expected_min": [
+            -5.75,
+            0,
+            0
+          ],
+          "expected_max": [
+            -5.5,
+            7.2,
+            4.8
+          ]
+        },
+        {
+          "object": "East wall",
+          "pass": true,
+          "actual_min": [
+            5.5,
+            0.0,
+            0.0
+          ],
+          "actual_max": [
+            5.75,
+            7.19999981,
+            4.80000019
+          ],
+          "expected_min": [
+            5.5,
+            0,
+            0
+          ],
+          "expected_max": [
+            5.75,
+            7.2,
+            4.8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "named_route_aabb_clearance",
+      "status": "PASS",
+      "measurements": [
+        {
+          "route": "MAIN_KEEP_CLEAR",
+          "min": [
+            -1.2,
+            0,
+            0.025
+          ],
+          "max": [
+            1.2,
+            7.2,
+            2.7
+          ],
+          "obstructions": []
+        },
+        {
+          "route": "D01_CLEAR_APERTURE",
+          "min": [
+            -1.2,
+            -0.175,
+            0.025
+          ],
+          "max": [
+            1.2,
+            0.175,
+            2.7
+          ],
+          "obstructions": []
+        }
+      ]
+    },
+    {
+      "id": "overhead_route_crossing",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "support_contact",
+      "status": "FAIL",
+      "measurements": [
+        {
+          "root": "D01_Turbine",
+          "target": "Floor",
+          "anchors": [
+            {
+              "local": [
+                -1.27,
+                0.0,
+                0.0
+              ],
+              "world": [
+                1.26999998,
+                1.1e-07,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 1.1102692809572545e-07,
+              "target_hit": [
+                1.26999998,
+                1.1e-07,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Deep steel portal jamb",
+              "member_nearest_point": [
+                1.26999998,
+                1e-07,
+                0.0
+              ],
+              "anchor_to_member_m": 6.7187997387918585e-09,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 3.725290298461914e-09
+            },
+            {
+              "local": [
+                1.27,
+                0.0,
+                0.0
+              ],
+              "world": [
+                -1.26999998,
+                -1.1e-07,
+                0.0
+              ],
+              "errors": [
+                "No target surface in support direction within 2 m",
+                "Actual member has no support surface in expected direction"
+              ],
+              "target_nearest_distance_m": 1.1102692809572545e-07,
+              "physical_member": "Deep steel portal jamb.001",
+              "member_nearest_point": [
+                -1.26999998,
+                -1e-07,
+                0.0
+              ],
+              "anchor_to_member_m": 6.7187997387918585e-09,
+              "member_angle_degrees": 0.0
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "pass": false
+        },
+        {
+          "root": "Electrician service cart",
+          "target": "Floor",
+          "anchors": [
+            {
+              "local": [
+                -0.32,
+                -0.26,
+                0.0
+              ],
+              "world": [
+                -4.18999958,
+                1.48000002,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -4.18999958,
+                1.48000002,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Rubber castor tyre",
+              "member_nearest_point": [
+                -4.18999958,
+                1.48000002,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.62496942067862,
+              "physical_gap_m": 3.725290298461914e-09
+            },
+            {
+              "local": [
+                0.32,
+                -0.26,
+                0.0
+              ],
+              "world": [
+                -4.19000006,
+                2.11999989,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 2.384185791015625e-07,
+              "target_hit": [
+                -4.19000006,
+                2.11999989,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Rubber castor tyre.002",
+              "member_nearest_point": [
+                -4.19000006,
+                2.11999989,
+                5e-08
+              ],
+              "anchor_to_member_m": 4.650792106986046e-08,
+              "member_angle_degrees": 5.62496942067862,
+              "physical_gap_m": 3.905734047293663e-08
+            },
+            {
+              "local": [
+                -0.32,
+                0.26,
+                0.0
+              ],
+              "world": [
+                -4.70999956,
+                1.4799999,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 1.1920928955078125e-07,
+              "target_hit": [
+                -4.70999956,
+                1.4799999,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Rubber castor tyre.001",
+              "member_nearest_point": [
+                -4.70999956,
+                1.4799999,
+                5e-08
+              ],
+              "anchor_to_member_m": 4.644971340894699e-08,
+              "member_angle_degrees": 5.62496942067862,
+              "physical_gap_m": 4.644971340894699e-08
+            },
+            {
+              "local": [
+                0.32,
+                0.26,
+                0.0
+              ],
+              "world": [
+                -4.71000004,
+                2.11999989,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -4.71000004,
+                2.11999989,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Rubber castor tyre.003",
+              "member_nearest_point": [
+                -4.71000004,
+                2.11999989,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.62496942067862,
+              "physical_gap_m": -3.725290298461914e-09
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "pass": true
+        },
+        {
+          "root": "Enclosed main busway",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "local": [
+                -0.49,
+                1.2,
+                0.92
+              ],
+              "world": [
+                -4.81000042,
+                1.20000005,
+                4.80000019
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -4.81000042,
+                1.20000005,
+                4.80000019
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Threaded bus hanger",
+              "member_nearest_point": [
+                -4.81000042,
+                1.20000005,
+                4.80000019
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 0.0
+            },
+            {
+              "local": [
+                0.49,
+                1.2,
+                0.92
+              ],
+              "world": [
+                -3.83000016,
+                1.20000005,
+                4.80000019
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 2.6656007889869215e-07,
+              "target_hit": [
+                -3.83000016,
+                1.20000005,
+                4.80000019
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Threaded bus hanger.001",
+              "member_nearest_point": [
+                -3.83000016,
+                1.20000005,
+                4.80000019
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 0.0
+            },
+            {
+              "local": [
+                -0.49,
+                5.8,
+                0.92
+              ],
+              "world": [
+                -4.81000042,
+                5.80000019,
+                4.80000019
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -4.81000042,
+                5.80000019,
+                4.80000019
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Threaded bus hanger.002",
+              "member_nearest_point": [
+                -4.81000042,
+                5.80000019,
+                4.80000019
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 0.0
+            },
+            {
+              "local": [
+                0.49,
+                5.8,
+                0.92
+              ],
+              "world": [
+                -3.83000016,
+                5.80000019,
+                4.80000019
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -3.83000016,
+                5.80000019,
+                4.80000019
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Threaded bus hanger.003",
+              "member_nearest_point": [
+                -3.83000016,
+                5.80000019,
+                4.80000019
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 0.0
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "pass": true
+        },
+        {
+          "root": "Entry fluorescent",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "local": [
+                -0.66,
+                0.0,
+                0.2
+              ],
+              "world": [
+                0.44,
+                1.79999995,
+                4.79999971
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 5.364418029785156e-07,
+              "target_hit": [
+                0.44,
+                1.79999995,
+                4.80000019
+              ],
+              "signed_gap_m": 4.76837158203125e-07,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Luminaire hanger.002",
+              "member_nearest_point": [
+                0.44,
+                1.79999995,
+                4.79999971
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 4.76837158203125e-07
+            },
+            {
+              "local": [
+                0.66,
+                0.0,
+                0.2
+              ],
+              "world": [
+                1.75999999,
+                1.79999995,
+                4.79999971
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 7.152557373046875e-07,
+              "target_hit": [
+                1.75999999,
+                1.79999995,
+                4.80000019
+              ],
+              "signed_gap_m": 4.76837158203125e-07,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Luminaire hanger.003",
+              "member_nearest_point": [
+                1.75999999,
+                1.79999995,
+                4.79999971
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 4.76837158203125e-07
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "pass": true
+        },
+        {
+          "root": "Insulating operating mat 4.5",
+          "target": "Floor",
+          "anchors": [
+            {
+              "local": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "world": [
+                -2.97000003,
+                4.5,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -2.97000003,
+                4.5,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Rubber mat backing",
+              "member_nearest_point": [
+                -2.97000003,
+                4.5,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 3.725290298461914e-09
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "pass": true
+        },
+        {
+          "root": "Multimeter on tray",
+          "target": "Cart upper tray",
+          "anchors": [
+            {
+              "local": [
+                0.0,
+                -0.06,
+                0.88
+              ],
+              "world": [
+                -4.38999987,
+                1.79999995,
+                0.88
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -4.38999987,
+                1.79999995,
+                0.88
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Handheld multimeter",
+              "member_nearest_point": [
+                -4.38999987,
+                1.79999995,
+                0.88
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 0.0
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "pass": true
+        },
+        {
+          "root": "Rag on lower tray",
+          "target": "Cart lower tray",
+          "anchors": [
+            {
+              "local": [
+                -0.058,
+                0.086,
+                0.30000027
+              ],
+              "world": [
+                -4.53599977,
+                1.74199998,
+                0.30000028
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 2.682209014892578e-07,
+              "target_hit": [
+                -4.53599977,
+                1.74199998,
+                0.30000001
+              ],
+              "signed_gap_m": 2.682209014892578e-07,
+              "target_normal": [
+                3e-08,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Cotton rag on lower tray",
+              "member_nearest_point": [
+                -4.53599977,
+                1.74199998,
+                0.30000025
+              ],
+              "anchor_to_member_m": 2.9802322387695312e-08,
+              "member_angle_degrees": 0.13562092985086077,
+              "physical_gap_m": 2.384185791015625e-07
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "pass": true
+        },
+        {
+          "root": "SG01_Incoming_turbine",
+          "target": "Floor",
+          "anchors": [
+            {
+              "local": [
+                -0.485,
+                -0.55,
+                0.0
+              ],
+              "world": [
+                -3.77000022,
+                3.4150002,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 3.3717478231665154e-07,
+              "target_hit": [
+                -3.77000022,
+                3.4150002,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth",
+              "member_nearest_point": [
+                -3.76999998,
+                3.4150002,
+                0.0
+              ],
+              "anchor_to_member_m": 2.384185791015625e-07,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": -1.1175870895385742e-08
+            },
+            {
+              "local": [
+                -0.485,
+                0.55,
+                0.0
+              ],
+              "world": [
+                -4.87000036,
+                3.41499996,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 2.384185791015625e-07,
+              "target_hit": [
+                -4.87000036,
+                3.41499996,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth",
+              "member_nearest_point": [
+                -4.87000036,
+                3.41499996,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 3.725290298461914e-09
+            },
+            {
+              "local": [
+                0.485,
+                -0.55,
+                0.0
+              ],
+              "world": [
+                -3.77000022,
+                4.38500023,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 2.384185791015625e-07,
+              "target_hit": [
+                -3.77000022,
+                4.38500023,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth",
+              "member_nearest_point": [
+                -3.76999998,
+                4.38500023,
+                0.0
+              ],
+              "anchor_to_member_m": 2.384185791015625e-07,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": -3.725290298461914e-09
+            },
+            {
+              "local": [
+                0.485,
+                0.55,
+                0.0
+              ],
+              "world": [
+                -4.87000036,
+                4.38500023,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -4.87000036,
+                4.38500023,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth",
+              "member_nearest_point": [
+                -4.87000036,
+                4.38500023,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": -3.725290298461914e-09
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "pass": true
+        },
+        {
+          "root": "SG02_Main_bus",
+          "target": "Floor",
+          "anchors": [
+            {
+              "local": [
+                -0.485,
+                -0.55,
+                0.0
+              ],
+              "world": [
+                -3.77000022,
+                4.61499977,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 2.384185791015625e-07,
+              "target_hit": [
+                -3.77000022,
+                4.61499977,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth.001",
+              "member_nearest_point": [
+                -3.76999998,
+                4.61499977,
+                0.0
+              ],
+              "anchor_to_member_m": 2.384185791015625e-07,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": -3.725290298461914e-09
+            },
+            {
+              "local": [
+                -0.485,
+                0.55,
+                0.0
+              ],
+              "world": [
+                -4.87000036,
+                4.61499977,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -4.87000036,
+                4.61499977,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth.001",
+              "member_nearest_point": [
+                -4.87000036,
+                4.61499977,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 3.725290298461914e-09
+            },
+            {
+              "local": [
+                0.485,
+                -0.55,
+                0.0
+              ],
+              "world": [
+                -3.77000022,
+                5.58500004,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 2.384185791015625e-07,
+              "target_hit": [
+                -3.77000022,
+                5.58500004,
+                0.0
+              ],
+              "signed_gap_m": -3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth.001",
+              "member_nearest_point": [
+                -3.76999998,
+                5.58500004,
+                0.0
+              ],
+              "anchor_to_member_m": 2.384185791015625e-07,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 0.0
+            },
+            {
+              "local": [
+                0.485,
+                0.55,
+                0.0
+              ],
+              "world": [
+                -4.87000036,
+                5.58500004,
+                0.0
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -4.87000036,
+                5.58500004,
+                -0.0
+              ],
+              "signed_gap_m": 3.725290298461914e-09,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Anchored channel plinth.001",
+              "member_nearest_point": [
+                -4.87000036,
+                5.58500004,
+                0.0
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 3.725290298461914e-09
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "pass": true
+        },
+        {
+          "root": "Spare fuse on tray -0.14",
+          "target": "Cart upper tray",
+          "anchors": [
+            {
+              "local": [
+                -0.14,
+                -0.037,
+                0.881
+              ],
+              "world": [
+                -4.41299963,
+                1.65999997,
+                0.88099998
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 0.0009999871253967285,
+              "target_hit": [
+                -4.41299963,
+                1.65999997,
+                0.88
+              ],
+              "signed_gap_m": 0.0009999871253967285,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Fuse end cap.002",
+              "member_nearest_point": [
+                -4.41299963,
+                1.65999997,
+                0.88099998
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.625108585782959,
+              "physical_gap_m": 0.0009999871253967285
+            },
+            {
+              "local": [
+                -0.14,
+                0.137,
+                0.881
+              ],
+              "world": [
+                -4.58699989,
+                1.65999997,
+                0.88099998
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 0.0009999871253967285,
+              "target_hit": [
+                -4.58699989,
+                1.65999997,
+                0.88
+              ],
+              "signed_gap_m": 0.0009999871253967285,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Fuse end cap.003",
+              "member_nearest_point": [
+                -4.58699989,
+                1.65999997,
+                0.88099998
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.625108585782959,
+              "physical_gap_m": 0.0009999871253967285
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "pass": true
+        },
+        {
+          "root": "Spare fuse on tray -0.24",
+          "target": "Cart upper tray",
+          "anchors": [
+            {
+              "local": [
+                -0.24,
+                -0.037,
+                0.881
+              ],
+              "world": [
+                -4.41299963,
+                1.55999994,
+                0.88099998
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 0.0009999871253967285,
+              "target_hit": [
+                -4.41299963,
+                1.55999994,
+                0.88
+              ],
+              "signed_gap_m": 0.0009999871253967285,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Fuse end cap",
+              "member_nearest_point": [
+                -4.41299963,
+                1.55999994,
+                0.88099998
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.625108585782959,
+              "physical_gap_m": 0.0009999871253967285
+            },
+            {
+              "local": [
+                -0.24,
+                0.137,
+                0.881
+              ],
+              "world": [
+                -4.58699989,
+                1.55999994,
+                0.88099998
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 0.0009999871253967285,
+              "target_hit": [
+                -4.58699989,
+                1.55999994,
+                0.88
+              ],
+              "signed_gap_m": 0.0009999871253967285,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Fuse end cap.001",
+              "member_nearest_point": [
+                -4.58699989,
+                1.55999994,
+                0.88099998
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 5.625108585782959,
+              "physical_gap_m": 0.0009999871253967285
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "pass": true
+        },
+        {
+          "root": "West task fluorescent",
+          "target": "Ceiling",
+          "anchors": [
+            {
+              "local": [
+                -0.66,
+                0.0,
+                0.2
+              ],
+              "world": [
+                -3.16000009,
+                4.55000019,
+                4.79999971
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 5.331201577973843e-07,
+              "target_hit": [
+                -3.16000009,
+                4.55000019,
+                4.80000019
+              ],
+              "signed_gap_m": 4.76837158203125e-07,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Luminaire hanger",
+              "member_nearest_point": [
+                -3.16000009,
+                4.55000019,
+                4.79999971
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 4.76837158203125e-07
+            },
+            {
+              "local": [
+                0.66,
+                0.0,
+                0.2
+              ],
+              "world": [
+                -1.83999991,
+                4.55000019,
+                4.79999971
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 4.76837158203125e-07,
+              "target_hit": [
+                -1.83999991,
+                4.55000019,
+                4.80000019
+              ],
+              "signed_gap_m": 4.76837158203125e-07,
+              "target_normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Luminaire hanger.001",
+              "member_nearest_point": [
+                -1.83999991,
+                4.55000019,
+                4.79999971
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 4.76837158203125e-07
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "pass": true
+        },
+        {
+          "root": "Work order on tray",
+          "target": "Cart upper tray",
+          "anchors": [
+            {
+              "local": [
+                0.22,
+                0.05,
+                0.88
+              ],
+              "world": [
+                -4.5,
+                2.01999998,
+                0.88
+              ],
+              "errors": [],
+              "target_nearest_distance_m": 0.0,
+              "target_hit": [
+                -4.5,
+                2.01999998,
+                0.88
+              ],
+              "signed_gap_m": 0.0,
+              "target_normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "target_angle_degrees": 0.0,
+              "physical_member": "Work order paper",
+              "member_nearest_point": [
+                -4.5,
+                2.01999998,
+                0.88
+              ],
+              "anchor_to_member_m": 0.0,
+              "member_angle_degrees": 0.0,
+              "physical_gap_m": 0.0
+            }
+          ],
+          "errors": [],
+          "direction_world": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "fixed_camera_integrity",
+      "status": "PASS",
+      "measurements": {
+        "required": [
+          "S01_Validation",
+          "S02_Construction"
+        ],
+        "missing": [],
+        "invalid": [],
+        "duplicate_view_count": 0,
+        "active_camera": "S01_Validation",
+        "cameras": [
+          {
+            "name": "S01_Validation",
+            "world_matrix": [
+              -0.6981000900268555,
+              1.2454724362953584e-08,
+              0.7160001993179321,
+              0.6000000238418579,
+              0.7160001993179321,
+              2.2060318372041365e-07,
+              0.6981000900268555,
+              6.699999809265137,
+              -1.4925727498393826e-07,
+              1.0,
+              -1.6292068494294654e-07,
+              1.649999976158142,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "location": [
+              0.60000002,
+              6.69999981,
+              1.64999998
+            ],
+            "rotation_euler": [
+              1.57079649,
+              1.5e-07,
+              2.34353685
+            ],
+            "lens_mm": 25.0,
+            "sensor_width_mm": 36.0,
+            "clip_m": [
+              0.05999999865889549,
+              150.0
+            ]
+          },
+          {
+            "name": "S02_Construction",
+            "world_matrix": [
+              -0.6554728746414185,
+              -0.060072969645261765,
+              0.7528256773948669,
+              -1.600000023841858,
+              0.7552186846733093,
+              -0.05213883891701698,
+              0.65339595079422,
+              6.449999809265137,
+              2.0265749967052216e-08,
+              0.9968313574790955,
+              0.0795438289642334,
+              1.7000000476837158,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "location": [
+              -1.60000002,
+              6.44999981,
+              1.70000005
+            ],
+            "rotation_euler": [
+              1.49116838,
+              -2e-08,
+              2.28560495
+            ],
+            "lens_mm": 31.0,
+            "sensor_width_mm": 36.0,
+            "clip_m": [
+              0.05999999865889549,
+              150.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "exact_duplicate_geometry",
+      "status": "PASS",
+      "measurements": []
+    },
+    {
+      "id": "cross_assembly_surface_intersections",
+      "status": "FAIL",
+      "measurements": {
+        "classified_candidate_counts": {
+          "known_structural_join": 61,
+          "same_assembly_construction": 174,
+          "nested_assembly_construction": 8
+        },
+        "unresolved": [
+          {
+            "objects": [
+              "Floor",
+              "Flush portal threshold"
+            ],
+            "owners": [
+              "fixed-architecture",
+              "D01_Turbine"
+            ],
+            "aabb_overlap_m": [
+              2.4000001,
+              0.2250001,
+              0.012
+            ],
+            "crossing_triangle_pairs": 16
+          },
+          {
+            "objects": [
+              "Portal wall return",
+              "Deep steel portal jamb.001"
+            ],
+            "owners": [
+              "fixed-architecture",
+              "D01_Turbine"
+            ],
+            "aabb_overlap_m": [
+              0.1400001,
+              0.17500012,
+              2.77999997
+            ],
+            "crossing_triangle_pairs": 26
+          },
+          {
+            "objects": [
+              "Portal wall return",
+              "Portal header"
+            ],
+            "owners": [
+              "fixed-architecture",
+              "D01_Turbine"
+            ],
+            "aabb_overlap_m": [
+              0.14000022,
+              0.17500012,
+              0.19999981
+            ],
+            "crossing_triangle_pairs": 18
+          },
+          {
+            "objects": [
+              "Crown rain lip",
+              "Tap-off riser"
+            ],
+            "owners": [
+              "SG01_Incoming_turbine",
+              "Enclosed main busway"
+            ],
+            "aabb_overlap_m": [
+              0.56999969,
+              0.51999974,
+              0.01249981
+            ],
+            "crossing_triangle_pairs": 12
+          },
+          {
+            "objects": [
+              "Crown rain lip.001",
+              "Tap-off riser.001"
+            ],
+            "owners": [
+              "SG02_Main_bus",
+              "Enclosed main busway"
+            ],
+            "aabb_overlap_m": [
+              0.56999969,
+              0.5199995,
+              0.01249981
+            ],
+            "crossing_triangle_pairs": 12
+          },
+          {
+            "objects": [
+              "Cable termination boot",
+              "Tap-off riser"
+            ],
+            "owners": [
+              "SG01_Incoming_turbine",
+              "Enclosed main busway"
+            ],
+            "aabb_overlap_m": [
+              0.56999969,
+              0.51999974,
+              0.4599998
+            ],
+            "crossing_triangle_pairs": 12
+          },
+          {
+            "objects": [
+              "Cable termination boot.001",
+              "Tap-off riser.001"
+            ],
+            "owners": [
+              "SG02_Main_bus",
+              "Enclosed main busway"
+            ],
+            "aabb_overlap_m": [
+              0.56999969,
+              0.5199995,
+              0.4599998
+            ],
+            "crossing_triangle_pairs": 12
+          },
+          {
+            "objects": [
+              "Connection vestibule floor",
+              "Flush portal threshold"
+            ],
+            "owners": [
+              "fixed-architecture",
+              "D01_Turbine"
+            ],
+            "aabb_overlap_m": [
+              2.4000001,
+              0.2250001,
+              0.012
+            ],
+            "crossing_triangle_pairs": 16
+          },
+          {
+            "objects": [
+              "Portal header",
+              "Portal wall head"
+            ],
+            "owners": [
+              "D01_Turbine",
+              "fixed-architecture"
+            ],
+            "aabb_overlap_m": [
+              2.4000001,
+              0.17500012,
+              0.0999999
+            ],
+            "crossing_triangle_pairs": 18
+          },
+          {
+            "objects": [
+              "Portal header",
+              "Portal wall return.001"
+            ],
+            "owners": [
+              "D01_Turbine",
+              "fixed-architecture"
+            ],
+            "aabb_overlap_m": [
+              0.14000022,
+              0.17500012,
+              0.19999981
+            ],
+            "crossing_triangle_pairs": 18
+          },
+          {
+            "objects": [
+              "Portal wall return.001",
+              "Deep steel portal jamb"
+            ],
+            "owners": [
+              "fixed-architecture",
+              "D01_Turbine"
+            ],
+            "aabb_overlap_m": [
+              0.1400001,
+              0.17499989,
+              2.77999997
+            ],
+            "crossing_triangle_pairs": 28
+          }
+        ]
+      }
+    }
+  ],
+  "tolerances": {
+    "gap_m": 0.005,
+    "penetration_m": 0.002,
+    "support_angle_degrees": 12.0,
+    "dimension_m": 0.005
+  },
+  "limitations": [
+    "A slice result applies only to its 7.2 m partial hall; it cannot accept the full room.",
+    "Route checks are conservative world AABB exclusion tests, not a navigation or carried-body sweep.",
+    "Support proves registered anchors and their actual contact faces; arbitrary internal parts require their own support roots.",
+    "Intersection tests report triangle-surface crossings; fully contained solids can evade crossing detection.",
+    "Construction joins and same-assembly intersections are classified, not asserted collision-free.",
+    "Visual quality, electrical safety, runtime behavior and neighboring module alignment are not evaluated."
+  ],
+  "counts": {
+    "scene_objects": 374,
+    "evaluated_geometry_objects": 357,
+    "support_roots": 13
+  },
+  "pass": false,
+  "status": "FAIL",
+  "failure_ids": [
+    "source_fingerprint",
+    "degenerate_faces",
+    "support_contact",
+    "cross_assembly_surface_intersections"
+  ],
+  "warning_ids": [
+    "open_mesh_inventory"
+  ],
+  "scope": "partial_style_slice",
+  "visual_acceptance_evaluated": false,
+  "runtime_acceptance_evaluated": false
+}
