@@ -1,0 +1,3022 @@
+{
+  "schema": "critical-shift.geometry-validation.v1",
+  "revision": "R02",
+  "phase": "full",
+  "status": "FAIL",
+  "blender_version": "5.2.0 LTS",
+  "blend_file": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\sections\\turbine-room\\blender\\turbine-room.blend",
+  "blend_sha256": "f9f99e9c1bc00386d1c87365b03fd7f716983841b74991d1bd3daf8eca0157a2",
+  "geometry_sha256": "3fa71031c98b355f720530b1b5d2fabdf57fd843090855f37015588687df68d5",
+  "validator_sha256": "bd311206c533f7c7fa403c0bf6064ef51d20a7c8361fe248031c3403773e2abe",
+  "source_counts": {
+    "objects": 1558,
+    "meshes": 1471,
+    "materials": 28,
+    "triangles": 325257
+  },
+  "method": "Fresh-process saved-blend CPU inspection; no mutation and no rendering",
+  "limitations": [
+    "No visual score or full cold-start render acceptance",
+    "No engine collision/navmesh/physics proof",
+    "General arbitrary inter-object collision and assembly strength are not proven",
+    "Neighbor alignment remains unbound; tested local geometry only",
+    "Support extrema check establishes contact at sampled authored support points, not mechanical stability"
+  ],
+  "seconds": 6.85,
+  "checks": [
+    {
+      "check": "configuration.revision",
+      "status": "PASS",
+      "evidence": "R02",
+      "expected": "R02"
+    },
+    {
+      "check": "configuration.cameras",
+      "status": "PASS",
+      "evidence": "Ten camera transforms and lenses compared with external contract",
+      "errors": [],
+      "count": 10
+    },
+    {
+      "check": "configuration.render",
+      "status": "PASS",
+      "evidence": "Saved render/metric configuration; no render performed",
+      "settings": {
+        "engine": "CYCLES",
+        "resolution": [
+          1440,
+          900,
+          100
+        ],
+        "units": "METRIC",
+        "unit_scale": 1.0,
+        "view_transform": "AgX",
+        "transparent": false,
+        "active_camera": "C02_hero"
+      }
+    },
+    {
+      "check": "configuration.file",
+      "status": "PASS",
+      "evidence": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\sections\\turbine-room\\blender\\turbine-room.blend"
+    },
+    {
+      "check": "configuration.private_resources",
+      "status": "PASS",
+      "evidence": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\sections\\turbine-room\\.blender-user"
+    },
+    {
+      "check": "dependencies",
+      "status": "PASS",
+      "evidence": "File-backed images, libraries and fonts checked",
+      "dependencies": []
+    },
+    {
+      "check": "materials.assignment",
+      "status": "PASS",
+      "evidence": "Every render-visible mesh/curve/font has non-null materials; shader statistics are not visual acceptance",
+      "missing": [],
+      "materials": [
+        {
+          "name": "Absorbed worktop stains",
+          "users": 3,
+          "roughness": 0.8500000238418579,
+          "metallic": 0.0
+        },
+        {
+          "name": "Bare scuffed edge",
+          "users": 4,
+          "roughness": 0.5799999833106995,
+          "metallic": 0.6499999761581421
+        },
+        {
+          "name": "Cool daylight glass",
+          "users": 3,
+          "roughness": 0.44999998807907104,
+          "metallic": 0.0
+        },
+        {
+          "name": "Cotton cleaning rag",
+          "users": 3,
+          "roughness": 0.9800000190734863,
+          "metallic": 0.0
+        },
+        {
+          "name": "Dark endgrain and old cuts",
+          "users": 18,
+          "roughness": 0.8999999761581421,
+          "metallic": 0.0
+        },
+        {
+          "name": "Dense cast concrete",
+          "users": 17,
+          "roughness": 0.8999999761581421,
+          "metallic": 0.0
+        },
+        {
+          "name": "Dry mineral oil residue",
+          "users": 1,
+          "roughness": 0.6600000262260437,
+          "metallic": 0.0
+        },
+        {
+          "name": "Dry worn terrazzo concrete",
+          "users": 2,
+          "roughness": 0.7699999809265137,
+          "metallic": 0.0
+        },
+        {
+          "name": "Emergency red enamel",
+          "users": 13,
+          "roughness": 0.5199999809265137,
+          "metallic": 0.15000000596046448
+        },
+        {
+          "name": "Exposed old primer",
+          "users": 2,
+          "roughness": 0.8299999833106995,
+          "metallic": 0.1599999964237213
+        },
+        {
+          "name": "Hand polished metal contact",
+          "users": 4,
+          "roughness": 0.4000000059604645,
+          "metallic": 0.699999988079071
+        },
+        {
+          "name": "Instrument phosphor",
+          "users": 6,
+          "roughness": 0.5,
+          "metallic": 0.0
+        },
+        {
+          "name": "Machined steel",
+          "users": 668,
+          "roughness": 0.4300000071525574,
+          "metallic": 0.8799999952316284
+        },
+        {
+          "name": "Maintenance enamel touchup",
+          "users": 1,
+          "roughness": 0.699999988079071,
+          "metallic": 0.0
+        },
+        {
+          "name": "Matte vulcanized rubber",
+          "users": 29,
+          "roughness": 0.9399999976158142,
+          "metallic": 0.0
+        },
+        {
+          "name": "Offwhite shift paper",
+          "users": 2,
+          "roughness": 0.9700000286102295,
+          "metallic": 0.0
+        },
+        {
+          "name": "Oiled iron",
+          "users": 106,
+          "roughness": 0.6200000047683716,
+          "metallic": 0.6499999761581421
+        },
+        {
+          "name": "Old cellulose paper edge",
+          "users": 1,
+          "roughness": 0.9599999785423279,
+          "metallic": 0.0
+        },
+        {
+          "name": "Old slate primer exposed at impacts",
+          "users": 20,
+          "roughness": 0.8299999833106995,
+          "metallic": 0.15000000596046448
+        },
+        {
+          "name": "Oxide orange enamel",
+          "users": 24,
+          "roughness": 0.5899999737739563,
+          "metallic": 0.05000000074505806
+        },
+        {
+          "name": "Printed dark ink",
+          "users": 24,
+          "roughness": 0.8700000047683716,
+          "metallic": 0.0
+        },
+        {
+          "name": "Service ochre enamel",
+          "users": 107,
+          "roughness": 0.5799999833106995,
+          "metallic": 0.11999999731779099
+        },
+        {
+          "name": "Structural painted steel",
+          "users": 287,
+          "roughness": 0.6399999856948853,
+          "metallic": 0.2800000011920929
+        },
+        {
+          "name": "Thermal jacket warm grey",
+          "users": 73,
+          "roughness": 0.699999988079071,
+          "metallic": 0.07999999821186066
+        },
+        {
+          "name": "Warm diffusing glass",
+          "users": 15,
+          "roughness": 0.4000000059604645,
+          "metallic": 0.0
+        },
+        {
+          "name": "Warm label lettering",
+          "users": 28,
+          "roughness": 0.7799999713897705,
+          "metallic": 0.0
+        },
+        {
+          "name": "Warm mineral plaster",
+          "users": 8,
+          "roughness": 0.8700000047683716,
+          "metallic": 0.0
+        },
+        {
+          "name": "Worn beech work surface",
+          "users": 2,
+          "roughness": 0.8199999928474426,
+          "metallic": 0.0
+        }
+      ]
+    },
+    {
+      "check": "geometry.finite",
+      "status": "PASS",
+      "evidence": "All object matrices and evaluated world vertices finite, transforms nonsingular",
+      "invalid": []
+    },
+    {
+      "check": "geometry.normals",
+      "status": "PASS",
+      "evidence": "Nondegenerate evaluated face normals finite and unit-length; outward winding is not generally proven",
+      "problems": []
+    },
+    {
+      "check": "geometry.degenerates",
+      "status": "PASS",
+      "evidence": "Zero-area evaluated polygons",
+      "problems": []
+    },
+    {
+      "check": "geometry.topology",
+      "status": "REVIEW",
+      "evidence": "Boundary/nonmanifold edges reported; intended open cloth/text surfaces need interpretation",
+      "problems": [
+        {
+          "object": "D01 reactor direction",
+          "boundary_or_nonmanifold_edges": 2068
+        },
+        {
+          "object": "D02 electrical direction",
+          "boundary_or_nonmanifold_edges": 2384
+        },
+        {
+          "object": "Enamel shift mug",
+          "boundary_or_nonmanifold_edges": 96
+        },
+        {
+          "object": "Shift log heading",
+          "boundary_or_nonmanifold_edges": 1904
+        },
+        {
+          "object": "Bench electrical conduit",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Chart title",
+          "boundary_or_nonmanifold_edges": 2752
+        },
+        {
+          "object": "Oil hose",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Old bearing oil witness",
+          "boundary_or_nonmanifold_edges": 27
+        },
+        {
+          "object": "Edge paint loss",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Edge paint loss.001",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Edge paint loss.002",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Edge paint loss.003",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Bearing batch marking",
+          "boundary_or_nonmanifold_edges": 2440
+        },
+        {
+          "object": "Spanner size stamp",
+          "boundary_or_nonmanifold_edges": 548
+        },
+        {
+          "object": "Log measurements",
+          "boundary_or_nonmanifold_edges": 7912
+        },
+        {
+          "object": "Cotton stitched hem",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Cotton stitched hem.001",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Oil stand grade",
+          "boundary_or_nonmanifold_edges": 1432
+        },
+        {
+          "object": "Oil tank contact chip",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Oil tank contact chip.001",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Door kickplate scuff",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Door kickplate scuff.001",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Case bail handle",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Mug hand marked initial",
+          "boundary_or_nonmanifold_edges": 392
+        },
+        {
+          "object": "Service chart procedure",
+          "boundary_or_nonmanifold_edges": 10036
+        },
+        {
+          "object": "Door localized primer",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Door localized primer.001",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Door localized primer.002",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Door localized primer.003",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Door localized primer.004",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Door localized primer.005",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Kickplate cart rub",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Kickplate cart rub.001",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Kickplate cart rub.002",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Kickplate cart rub.003",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Column use chip",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Column use chip.001",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Column use chip.002",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Column use chip.003",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Column use chip.004",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Bench grip wear",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Bench grip wear.001",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Bench grip wear.002",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Bench grip wear.003",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Bench grip wear.004",
+          "boundary_or_nonmanifold_edges": 11
+        },
+        {
+          "object": "Reservoir service scuff",
+          "boundary_or_nonmanifold_edges": 13
+        },
+        {
+          "object": "Reservoir service scuff.001",
+          "boundary_or_nonmanifold_edges": 13
+        },
+        {
+          "object": "Reservoir service scuff.002",
+          "boundary_or_nonmanifold_edges": 13
+        },
+        {
+          "object": "Reservoir service scuff.003",
+          "boundary_or_nonmanifold_edges": 13
+        },
+        {
+          "object": "Old oil stand touchup",
+          "boundary_or_nonmanifold_edges": 13
+        },
+        {
+          "object": "Old oil absorbed in wood",
+          "boundary_or_nonmanifold_edges": 35
+        },
+        {
+          "object": "Hand worked front wood",
+          "boundary_or_nonmanifold_edges": 35
+        },
+        {
+          "object": "Old cup spill",
+          "boundary_or_nonmanifold_edges": 35
+        },
+        {
+          "object": "Dried coffee ring",
+          "boundary_or_nonmanifold_edges": 56
+        },
+        {
+          "object": "Dried coffee ring.001",
+          "boundary_or_nonmanifold_edges": 56
+        },
+        {
+          "object": "Dried coffee ring.002",
+          "boundary_or_nonmanifold_edges": 56
+        },
+        {
+          "object": "Service tag handwriting",
+          "boundary_or_nonmanifold_edges": 1364
+        },
+        {
+          "object": "Coupling label",
+          "boundary_or_nonmanifold_edges": 1772
+        },
+        {
+          "object": "Steam insulated trunk",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Oil cabinet title",
+          "boundary_or_nonmanifold_edges": 1224
+        },
+        {
+          "object": "Oil main header",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Oil generator header",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Oil main header.001",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Oil generator header.001",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Journal feed",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Journal return",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Journal feed.001",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Journal return.001",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Journal feed.002",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Journal return.002",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Journal feed.003",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Journal return.003",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Flexible terminal lead",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Flexible terminal lead.001",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Flexible terminal lead.002",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Instrument heading SPEED",
+          "boundary_or_nonmanifold_edges": 1024
+        },
+        {
+          "object": "Instrument readout SPEED",
+          "boundary_or_nonmanifold_edges": 956
+        },
+        {
+          "object": "Instrument heading HEALTH",
+          "boundary_or_nonmanifold_edges": 244
+        },
+        {
+          "object": "Instrument readout HEALTH",
+          "boundary_or_nonmanifold_edges": 720
+        },
+        {
+          "object": "Instrument heading OUTPUT",
+          "boundary_or_nonmanifold_edges": 1296
+        },
+        {
+          "object": "Instrument readout OUTPUT",
+          "boundary_or_nonmanifold_edges": 576
+        },
+        {
+          "object": "Instrument heading DEMAND",
+          "boundary_or_nonmanifold_edges": 624
+        },
+        {
+          "object": "Instrument readout DEMAND",
+          "boundary_or_nonmanifold_edges": 864
+        },
+        {
+          "object": "Instrument heading RESERVE",
+          "boundary_or_nonmanifold_edges": 1412
+        },
+        {
+          "object": "Instrument readout RESERVE",
+          "boundary_or_nonmanifold_edges": 1220
+        },
+        {
+          "object": "Instrument heading SAFETY",
+          "boundary_or_nonmanifold_edges": 688
+        },
+        {
+          "object": "Instrument readout SAFETY",
+          "boundary_or_nonmanifold_edges": 744
+        },
+        {
+          "object": "THROTTLE label",
+          "boundary_or_nonmanifold_edges": 976
+        },
+        {
+          "object": "LOAD label",
+          "boundary_or_nonmanifold_edges": 668
+        },
+        {
+          "object": "Emergency trip label",
+          "boundary_or_nonmanifold_edges": 648
+        },
+        {
+          "object": "West title TURBINE CONTROL",
+          "boundary_or_nonmanifold_edges": 2880
+        },
+        {
+          "object": "West title MAINTENANCE / 02",
+          "boundary_or_nonmanifold_edges": 1560
+        },
+        {
+          "object": "Controls power conduit",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Controls power conduit.001",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Controls power conduit.002",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Control cable trunk",
+          "boundary_or_nonmanifold_edges": 24
+        },
+        {
+          "object": "Wall diagonal oxide field",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Wall diagonal oxide field.001",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Wall diagonal oxide field.002",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Wall diagonal oxide field.003",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Turbine identification",
+          "boundary_or_nonmanifold_edges": 688
+        },
+        {
+          "object": "Turbine identification.001",
+          "boundary_or_nonmanifold_edges": 664
+        },
+        {
+          "object": "Turbine identification.002",
+          "boundary_or_nonmanifold_edges": 664
+        },
+        {
+          "object": "Generator oxide stripe",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Generator oxide stripe.001",
+          "boundary_or_nonmanifold_edges": 4
+        },
+        {
+          "object": "Condensate wall return",
+          "boundary_or_nonmanifold_edges": 24
+        }
+      ]
+    },
+    {
+      "check": "geometry.exact_duplicates",
+      "status": "PASS",
+      "evidence": "Coincident evaluated point sets and triangle counts",
+      "groups": []
+    },
+    {
+      "check": "geometry.hidden",
+      "status": "PASS",
+      "evidence": "Hidden render geometry requires explicit intent review",
+      "objects": []
+    },
+    {
+      "check": "support.SUPPORT_D01 reactor sign",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_D01 reactor sign",
+        "target": "D01 reactor lintel",
+        "prop": "D01 reactor sign bracket",
+        "members": [
+          "D01 reactor sign",
+          "D01 reactor sign standoff",
+          "D01 reactor direction"
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          0.0,
+          -0.07999999821186066,
+          3.0
+        ],
+        "hit": [
+          0.0,
+          -0.07999999821186066,
+          3.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "D01 reactor sign bracket",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "D01 reactor direction",
+          "D01 reactor sign",
+          "D01 reactor sign standoff"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_D02 electrical sign",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_D02 electrical sign",
+        "target": "D02 electrical lintel",
+        "prop": "D02 electrical sign bracket",
+        "members": [
+          "D02 electrical sign",
+          "D02 electrical sign standoff",
+          "D02 electrical direction"
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          0.0,
+          23.920000076293945,
+          3.0
+        ],
+        "hit": [
+          0.0,
+          23.920000076293945,
+          3.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "D02 electrical sign bracket",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "D02 electrical direction",
+          "D02 electrical sign",
+          "D02 electrical sign standoff"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger",
+        "target": "Roof deck",
+        "prop": "Fixture hanger",
+        "members": [
+          "Suspended luminaire back",
+          "Prismatic diffuser"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          0.5,
+          2.9000000953674316,
+          7.199999809265137
+        ],
+        "hit": [
+          0.5,
+          2.9000000953674316,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser",
+          "Suspended luminaire back"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.001",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.001",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.001",
+        "members": [
+          "Suspended luminaire back",
+          "Prismatic diffuser"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          0.5,
+          4.099999904632568,
+          7.199999809265137
+        ],
+        "hit": [
+          0.5,
+          4.099999904632568,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.001",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser",
+          "Suspended luminaire back"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.002",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.002",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.002",
+        "members": [
+          "Suspended luminaire back.001",
+          "Prismatic diffuser.001"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          7.800000190734863,
+          2.9000000953674316,
+          7.199999809265137
+        ],
+        "hit": [
+          7.800000190734863,
+          2.9000000953674316,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.002",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.001",
+          "Suspended luminaire back.001"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.003",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.003",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.003",
+        "members": [
+          "Suspended luminaire back.001",
+          "Prismatic diffuser.001"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          7.800000190734863,
+          4.099999904632568,
+          7.199999809265137
+        ],
+        "hit": [
+          7.800000190734863,
+          4.099999904632568,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.003",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.001",
+          "Suspended luminaire back.001"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.004",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.004",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.004",
+        "members": [
+          "Suspended luminaire back.002",
+          "Prismatic diffuser.002"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          0.5,
+          8.399999618530273,
+          7.199999809265137
+        ],
+        "hit": [
+          0.5,
+          8.399999618530273,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.004",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.002",
+          "Suspended luminaire back.002"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.005",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.005",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.005",
+        "members": [
+          "Suspended luminaire back.002",
+          "Prismatic diffuser.002"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          0.5,
+          9.600000381469727,
+          7.199999809265137
+        ],
+        "hit": [
+          0.5,
+          9.600000381469727,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.005",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.002",
+          "Suspended luminaire back.002"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.006",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.006",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.006",
+        "members": [
+          "Suspended luminaire back.003",
+          "Prismatic diffuser.003"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          7.800000190734863,
+          8.399999618530273,
+          7.199999809265137
+        ],
+        "hit": [
+          7.800000190734863,
+          8.399999618530273,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.006",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.003",
+          "Suspended luminaire back.003"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.007",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.007",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.007",
+        "members": [
+          "Suspended luminaire back.003",
+          "Prismatic diffuser.003"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          7.800000190734863,
+          9.600000381469727,
+          7.199999809265137
+        ],
+        "hit": [
+          7.800000190734863,
+          9.600000381469727,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.007",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.003",
+          "Suspended luminaire back.003"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.008",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.008",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.008",
+        "members": [
+          "Suspended luminaire back.004",
+          "Prismatic diffuser.004"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          0.5,
+          13.899999618530273,
+          7.199999809265137
+        ],
+        "hit": [
+          0.5,
+          13.899999618530273,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.008",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.004",
+          "Suspended luminaire back.004"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.009",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.009",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.009",
+        "members": [
+          "Suspended luminaire back.004",
+          "Prismatic diffuser.004"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          0.5,
+          15.100000381469727,
+          7.199999809265137
+        ],
+        "hit": [
+          0.5,
+          15.100000381469727,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.009",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.004",
+          "Suspended luminaire back.004"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.010",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.010",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.010",
+        "members": [
+          "Suspended luminaire back.005",
+          "Prismatic diffuser.005"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          7.800000190734863,
+          13.899999618530273,
+          7.199999809265137
+        ],
+        "hit": [
+          7.800000190734863,
+          13.899999618530273,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.010",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.005",
+          "Suspended luminaire back.005"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.011",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.011",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.011",
+        "members": [
+          "Suspended luminaire back.005",
+          "Prismatic diffuser.005"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          7.800000190734863,
+          15.100000381469727,
+          7.199999809265137
+        ],
+        "hit": [
+          7.800000190734863,
+          15.100000381469727,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.011",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.005",
+          "Suspended luminaire back.005"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.012",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.012",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.012",
+        "members": [
+          "Suspended luminaire back.006",
+          "Prismatic diffuser.006"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          0.5,
+          19.399999618530273,
+          7.199999809265137
+        ],
+        "hit": [
+          0.5,
+          19.399999618530273,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.012",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.006",
+          "Suspended luminaire back.006"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.013",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.013",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.013",
+        "members": [
+          "Suspended luminaire back.006",
+          "Prismatic diffuser.006"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          0.5,
+          20.600000381469727,
+          7.199999809265137
+        ],
+        "hit": [
+          0.5,
+          20.600000381469727,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.013",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.006",
+          "Suspended luminaire back.006"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.014",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.014",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.014",
+        "members": [
+          "Suspended luminaire back.007",
+          "Prismatic diffuser.007"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          7.800000190734863,
+          19.399999618530273,
+          7.199999809265137
+        ],
+        "hit": [
+          7.800000190734863,
+          19.399999618530273,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.014",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.007",
+          "Suspended luminaire back.007"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_fixture Fixture hanger.015",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_fixture Fixture hanger.015",
+        "target": "Roof deck",
+        "prop": "Fixture hanger.015",
+        "members": [
+          "Suspended luminaire back.007",
+          "Prismatic diffuser.007"
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "point": [
+          7.800000190734863,
+          20.600000381469727,
+          7.199999809265137
+        ],
+        "hit": [
+          7.800000190734863,
+          20.600000381469727,
+          7.200000286102295
+        ]
+      },
+      "visible_prop": {
+        "prop": "Fixture hanger.015",
+        "explicit_association": true,
+        "extremal_vertex_count": 17,
+        "contact_pass_count": 17,
+        "min_gap_m": 1e-06,
+        "max_gap_m": 1e-06,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Prismatic diffuser.007",
+          "Suspended luminaire back.007"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_bench foot -3.620.05",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_bench foot -3.620.05",
+        "target": "Structural floor",
+        "prop": "Bench foot",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -3.5999999046325684,
+          20.049999237060547,
+          0.0
+        ],
+        "hit": [
+          -3.5999999046325684,
+          20.049999237060547,
+          0.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "Bench foot",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_bench foot -3.622.65",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_bench foot -3.622.65",
+        "target": "Structural floor",
+        "prop": "Bench foot.001",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -3.5999999046325684,
+          22.649999618530273,
+          0.0
+        ],
+        "hit": [
+          -3.5999999046325684,
+          22.649999618530273,
+          0.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "Bench foot.001",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_bench foot -2.8520.05",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_bench foot -2.8520.05",
+        "target": "Structural floor",
+        "prop": "Bench foot.002",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -2.8499999046325684,
+          20.049999237060547,
+          0.0
+        ],
+        "hit": [
+          -2.8499999046325684,
+          20.049999237060547,
+          0.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "Bench foot.002",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": -0.0,
+        "max_gap_m": -0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_bench foot -2.8522.65",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_bench foot -2.8522.65",
+        "target": "Structural floor",
+        "prop": "Bench foot.003",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -2.8499999046325684,
+          22.649999618530273,
+          0.0
+        ],
+        "hit": [
+          -2.8499999046325684,
+          22.649999618530273,
+          0.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "Bench foot.003",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_bench top -3.64",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_bench top -3.64",
+        "target": "Bench top angle",
+        "prop": "Bench top",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -3.640000104904175,
+          21.350000381469727,
+          0.8799999952316284
+        ],
+        "hit": [
+          -3.640000104904175,
+          21.350000381469727,
+          0.8799999952316284
+        ]
+      },
+      "visible_prop": {
+        "prop": "Bench top",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 1,
+        "min_gap_m": -0.0,
+        "max_gap_m": -0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          },
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          },
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          },
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          }
+        ],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_bench top -2.8",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_bench top -2.8",
+        "target": "Bench top angle.001",
+        "prop": "Bench top",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -2.799999952316284,
+          21.350000381469727,
+          0.8799999952316284
+        ],
+        "hit": [
+          -2.799999952316284,
+          21.350000381469727,
+          0.8799999952316284
+        ]
+      },
+      "visible_prop": {
+        "prop": "Bench top",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 1,
+        "min_gap_m": -0.0,
+        "max_gap_m": -0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          },
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          },
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          },
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          }
+        ],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_vise",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_vise",
+        "target": "Bench top",
+        "prop": "Vise bolt base",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -2.799999952316284,
+          20.299999237060547,
+          1.0
+        ],
+        "hit": [
+          -2.799999952316284,
+          20.299999237060547,
+          1.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "Vise bolt base",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": -0.0,
+        "max_gap_m": -0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_bearing cradle",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_bearing cradle",
+        "target": "Bench top",
+        "prop": "Bearing inspection cradle",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -3.2200000286102295,
+          21.25,
+          1.0
+        ],
+        "hit": [
+          -3.2200000286102295,
+          21.25,
+          1.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "Bearing inspection cradle",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": -0.0,
+        "max_gap_m": -0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_mug",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_mug",
+        "target": "Bench top",
+        "prop": "Enamel shift mug",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -3.4800000190734863,
+          22.229999542236328,
+          1.0
+        ],
+        "hit": [
+          -3.4800000190734863,
+          22.229999542236328,
+          1.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "Enamel shift mug",
+        "explicit_association": true,
+        "extremal_vertex_count": 96,
+        "contact_pass_count": 96,
+        "min_gap_m": -0.0,
+        "max_gap_m": -0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_rag",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_rag",
+        "target": "Bench top",
+        "prop": "Used folded cotton rag",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -3.25,
+          21.856666564941406,
+          1.0
+        ],
+        "hit": [
+          -3.25,
+          21.856666564941406,
+          1.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "Used folded cotton rag",
+        "explicit_association": true,
+        "extremal_vertex_count": 1,
+        "contact_pass_count": 1,
+        "min_gap_m": 0.000151,
+        "max_gap_m": 0.000151,
+        "anchor_to_prop_surface_m": 0.000832,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_clipboard",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_clipboard",
+        "target": "Bench top",
+        "prop": "Clipboard",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.002,
+        "angle_deg": 0.0,
+        "point": [
+          -2.990000009536743,
+          22.360000610351562,
+          1.0019999742507935
+        ],
+        "hit": [
+          -2.990000009536743,
+          22.360000610351562,
+          1.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "Clipboard",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.002,
+        "max_gap_m": 0.002,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_tool rail",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_tool rail",
+        "target": "West wall",
+        "prop": "Tool rail back",
+        "members": [],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -4.0,
+          21.149999618530273,
+          1.7999999523162842
+        ],
+        "hit": [
+          -4.0,
+          21.149999618530273,
+          1.7999999523162842
+        ]
+      },
+      "visible_prop": {
+        "prop": "Tool rail back",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_task lamp",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_task lamp",
+        "target": "West wall",
+        "prop": "Task lamp wall foot",
+        "members": [],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -4.0,
+          21.299999237060547,
+          2.450000047683716
+        ],
+        "hit": [
+          -4.0,
+          21.299999237060547,
+          2.450000047683716
+        ]
+      },
+      "visible_prop": {
+        "prop": "Task lamp wall foot",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_conduit saddle 1.8",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_conduit saddle 1.8",
+        "target": "West wall",
+        "prop": "Conduit saddle",
+        "members": [],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -4.0,
+          22.850000381469727,
+          1.7999999523162842
+        ],
+        "hit": [
+          -4.0,
+          22.850000381469727,
+          1.7999999523162842
+        ]
+      },
+      "visible_prop": {
+        "prop": "Conduit saddle",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_conduit saddle 3.2",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_conduit saddle 3.2",
+        "target": "West wall",
+        "prop": "Conduit saddle.001",
+        "members": [],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -4.0,
+          22.850000381469727,
+          3.200000047683716
+        ],
+        "hit": [
+          -4.0,
+          22.850000381469727,
+          3.200000047683716
+        ]
+      },
+      "visible_prop": {
+        "prop": "Conduit saddle.001",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_conduit saddle 3.8",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_conduit saddle 3.8",
+        "target": "West wall",
+        "prop": "Conduit saddle.002",
+        "members": [],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -4.0,
+          22.850000381469727,
+          3.799999952316284
+        ],
+        "hit": [
+          -4.0,
+          22.850000381469727,
+          3.799999952316284
+        ]
+      },
+      "visible_prop": {
+        "prop": "Conduit saddle.002",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_junction box",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_junction box",
+        "target": "West wall",
+        "prop": "Replacement junction box",
+        "members": [],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -4.0,
+          22.850000381469727,
+          1.3200000524520874
+        ],
+        "hit": [
+          -4.0,
+          22.850000381469727,
+          1.3200000524520874
+        ]
+      },
+      "visible_prop": {
+        "prop": "Replacement junction box",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_lubrication chart",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_lubrication chart",
+        "target": "West wall",
+        "prop": "Lubrication chart",
+        "members": [],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -4.0,
+          19.399999618530273,
+          1.649999976158142
+        ],
+        "hit": [
+          -4.0,
+          19.399999618530273,
+          1.649999976158142
+        ]
+      },
+      "visible_prop": {
+        "prop": "Lubrication chart",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_oil stand",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_oil stand",
+        "target": "Structural floor",
+        "prop": "Oil stand feet",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -2.950000047683716,
+          18.75,
+          0.0
+        ],
+        "hit": [
+          -2.950000047683716,
+          18.75,
+          0.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "Oil stand feet",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": -0.0,
+        "max_gap_m": -0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_table spanner",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_table spanner",
+        "target": "Bench top",
+        "prop": "Twelve point ring socket",
+        "members": [
+          "Forged spanner shank",
+          "Twelve point ring socket.001"
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -2.9110000133514404,
+          21.399999618530273,
+          1.0
+        ],
+        "hit": [
+          -2.9110000133514404,
+          21.399999618530273,
+          1.0
+        ]
+      },
+      "visible_prop": {
+        "prop": "Twelve point ring socket",
+        "explicit_association": true,
+        "extremal_vertex_count": 24,
+        "contact_pass_count": 24,
+        "min_gap_m": -0.001,
+        "max_gap_m": -0.001,
+        "anchor_to_prop_surface_m": 0.001,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Forged spanner shank",
+          "Twelve point ring socket.001"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_grease pencil",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_grease pencil",
+        "target": "Shift log paper",
+        "prop": "Grease pencil",
+        "members": [
+          "Pencil graphite"
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -3.130000114440918,
+          22.399999618530273,
+          1.0260000228881836
+        ],
+        "hit": [
+          -3.130000114440918,
+          22.399999618530273,
+          1.0260000228881836
+        ]
+      },
+      "visible_prop": {
+        "prop": "Grease pencil",
+        "explicit_association": true,
+        "extremal_vertex_count": 2,
+        "contact_pass_count": 2,
+        "min_gap_m": -0.0,
+        "max_gap_m": -0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Pencil graphite"
+        ]
+      }
+    },
+    {
+      "check": "support.SUPPORT_toolcase",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_toolcase",
+        "target": "Open lower shelf.004",
+        "prop": "Bearing toolcase body",
+        "members": [],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "point": [
+          -3.2100000381469727,
+          21.520000457763672,
+          0.27000001072883606
+        ],
+        "hit": [
+          -3.2100000381469727,
+          21.520000457763672,
+          0.27000001072883606
+        ]
+      },
+      "visible_prop": {
+        "prop": "Bearing toolcase body",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 1,
+        "min_gap_m": 0.0,
+        "max_gap_m": 0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          },
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          },
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          },
+          {
+            "status": "FAIL",
+            "reason": "no target surface along support direction"
+          }
+        ],
+        "verified_connected_members": []
+      }
+    },
+    {
+      "check": "support.SUPPORT_door lamp",
+      "status": "PASS",
+      "evidence": "Anchor and evaluated visible contact verified",
+      "registry": {
+        "anchor": "SUPPORT_door lamp",
+        "target": "Overdoor wall.001",
+        "prop": "Door lamp bracket",
+        "members": [
+          "Door downlight body",
+          "Door downlight lens"
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "max_gap": 0.005,
+        "max_penetration": 0.002,
+        "angle_deg": 12
+      },
+      "anchor_result": {
+        "status": "PASS",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "point": [
+          0.0,
+          24.0,
+          3.430000066757202
+        ],
+        "hit": [
+          0.0,
+          24.0,
+          3.430000066757202
+        ]
+      },
+      "visible_prop": {
+        "prop": "Door lamp bracket",
+        "explicit_association": true,
+        "extremal_vertex_count": 5,
+        "contact_pass_count": 5,
+        "min_gap_m": -0.0,
+        "max_gap_m": -0.0,
+        "anchor_to_prop_surface_m": 0.0,
+        "failed_samples": [],
+        "verified_connected_members": [
+          "Door downlight body",
+          "Door downlight lens"
+        ]
+      }
+    },
+    {
+      "check": "support.coverage",
+      "status": "PASS",
+      "evidence": "All enumerated support roots require explicit records; general arbitrary assembly support is not automatically inferred",
+      "registry_count": 41,
+      "associated_count": 67,
+      "unregistered": []
+    },
+    {
+      "check": "support.visible_contact_islands",
+      "status": "FAIL",
+      "evidence": "Every evaluated render-visible surface checked for a contact chain to structural floor/walls/roof within 5 mm; unsupported islands require review or correction",
+      "tested_objects": 1471,
+      "candidate_pairs": 3531,
+      "actual_pair_queries": 1721,
+      "disconnected_islands": [
+        [
+          "Hoist chain",
+          "Hoist chain.001",
+          "Hoist hook",
+          "Hoist motor housing",
+          "Hoist travelling trolley"
+        ],
+        [
+          "Oil header clamp.007"
+        ]
+      ],
+      "nearest_evidence": [
+        {
+          "island": [
+            "Hoist chain",
+            "Hoist chain.001",
+            "Hoist hook",
+            "Hoist motor housing",
+            "Hoist travelling trolley"
+          ],
+          "nearby": [
+            {
+              "object": "Hoist travelling trolley",
+              "nearest_object": "Hoist trolley wheel",
+              "sampled_surface_gap_m": 0.06
+            },
+            {
+              "object": "Hoist travelling trolley",
+              "nearest_object": "Hoist trolley wheel.001",
+              "sampled_surface_gap_m": 0.06
+            },
+            {
+              "object": "Hoist travelling trolley",
+              "nearest_object": "Hoist trolley wheel.002",
+              "sampled_surface_gap_m": 0.06
+            }
+          ]
+        },
+        {
+          "island": [
+            "Oil header clamp.007"
+          ],
+          "nearby": [
+            {
+              "object": "Oil header clamp.007",
+              "nearest_object": "Oil header clamp foot.007",
+              "sampled_surface_gap_m": 0.025
+            },
+            {
+              "object": "Oil header clamp.007",
+              "nearest_object": "Journal return.003",
+              "sampled_surface_gap_m": 0.098001
+            },
+            {
+              "object": "Oil header clamp.007",
+              "nearest_object": "Journal feed.003",
+              "sampled_surface_gap_m": 0.102001
+            }
+          ]
+        }
+      ],
+      "caveat": "Vertex/surface and segment/segment distance plus triangle intersections; connection is not mechanical stability or a substitute for an explicit intended-support registry"
+    },
+    {
+      "check": "architecture.dimensions",
+      "status": "PASS",
+      "evidence": "Evaluated interior wall, floor and roof planes compared to interface design",
+      "expected": {
+        "west_x": -4,
+        "east_x": 10,
+        "finished_floor_z": 0,
+        "clear_roof_z": 7.2,
+        "wall_start_y": 0,
+        "wall_end_y": 24
+      },
+      "actual": {
+        "west_x": -4.0,
+        "east_x": 10.0,
+        "finished_floor_z": 0.0,
+        "clear_roof_z": 7.200000286102295,
+        "wall_start_y": 0.0,
+        "wall_end_y": 24.0
+      },
+      "errors_m": {}
+    },
+    {
+      "check": "architecture.interface_markers",
+      "status": "PASS",
+      "evidence": "Local portal and utility marker positions only; neighboring alignment is not bound",
+      "missing": [],
+      "mismatches": []
+    },
+    {
+      "check": "clearance.main_route",
+      "status": "PASS",
+      "evidence": "Evaluated triangle clipping against open clearance volume, with enclosed-volume fallback",
+      "tested_min": [
+        -1.19999,
+        1e-05,
+        0.02001
+      ],
+      "tested_max": [
+        1.19999,
+        23.99999,
+        2.69999
+      ],
+      "intrusions": []
+    },
+    {
+      "check": "clearance.east_service_aisle",
+      "status": "PASS",
+      "evidence": "Evaluated triangle clipping against open clearance volume, with enclosed-volume fallback",
+      "tested_min": [
+        7.100009999999999,
+        1.1000100000000002,
+        0.02001
+      ],
+      "tested_max": [
+        9.299990000000001,
+        22.99999,
+        2.69999
+      ],
+      "intrusions": []
+    },
+    {
+      "check": "clearance.north_crossover",
+      "status": "PASS",
+      "evidence": "Evaluated triangle clipping against open clearance volume, with enclosed-volume fallback",
+      "tested_min": [
+        -1.19999,
+        20.400009999999998,
+        0.02001
+      ],
+      "tested_max": [
+        9.299990000000001,
+        22.99999,
+        2.69999
+      ],
+      "intrusions": []
+    },
+    {
+      "check": "clearance.south_crossover",
+      "status": "PASS",
+      "evidence": "Evaluated triangle clipping against open clearance volume, with enclosed-volume fallback",
+      "tested_min": [
+        -1.19999,
+        1.1000100000000002,
+        0.02001
+      ],
+      "tested_max": [
+        9.299990000000001,
+        4.899990000000001,
+        2.69999
+      ],
+      "intrusions": []
+    },
+    {
+      "check": "clearance.west_equipment_apron",
+      "status": "PASS",
+      "evidence": "Evaluated triangle clipping against open clearance volume, with enclosed-volume fallback",
+      "tested_min": [
+        1.20001,
+        5.50001,
+        0.02001
+      ],
+      "tested_max": [
+        2.49999,
+        19.99999,
+        2.69999
+      ],
+      "intrusions": []
+    },
+    {
+      "check": "clearance.portal.D01",
+      "status": "PASS",
+      "evidence": "Evaluated triangle clipping against open clearance volume, with enclosed-volume fallback",
+      "tested_min": [
+        -1.19999,
+        -0.37999,
+        0.02001
+      ],
+      "tested_max": [
+        1.19999,
+        0.37999,
+        2.69999
+      ],
+      "intrusions": []
+    },
+    {
+      "check": "clearance.portal.D02",
+      "status": "PASS",
+      "evidence": "Evaluated triangle clipping against open clearance volume, with enclosed-volume fallback",
+      "tested_min": [
+        -1.19999,
+        23.62001,
+        0.02001
+      ],
+      "tested_max": [
+        1.19999,
+        24.37999,
+        2.69999
+      ],
+      "intrusions": []
+    },
+    {
+      "check": "machine.interface_axis",
+      "status": "PASS",
+      "evidence": "Train axis compared to all three interface equipment axes",
+      "errors": []
+    },
+    {
+      "check": "machine.coverage",
+      "status": "PASS",
+      "evidence": "Named shaft and centered machine sets exist",
+      "shaft_count": 1,
+      "centered_count": 3,
+      "mirror_pairs": 0
+    },
+    {
+      "check": "machine.shaft.ANIM_TURBINE_SHAFT",
+      "status": "PASS",
+      "evidence": "Evaluated bounds centre and transformed authored shaft axis",
+      "measured_center": [
+        4.599999904632568,
+        12.55000114440918,
+        2.0
+      ],
+      "axis_offset_m": 0.0,
+      "direction_error_deg": 0.0,
+      "actual_axis": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "local_axis": "Z"
+    },
+    {
+      "check": "machine.symmetry.Generator stator body",
+      "status": "PASS",
+      "evidence": "Evaluated vertex set compared to its reflection across the declared train median plane",
+      "max_reflection_error_m": 4.76837158203125e-07,
+      "tolerance_m": 0.002
+    },
+    {
+      "check": "machine.symmetry.HP01 upper removable",
+      "status": "PASS",
+      "evidence": "Evaluated vertex set compared to its reflection across the declared train median plane",
+      "max_reflection_error_m": 2.489163080099388e-06,
+      "tolerance_m": 0.002
+    },
+    {
+      "check": "machine.symmetry.LP01 exhaust upper removable",
+      "status": "PASS",
+      "evidence": "Evaluated vertex set compared to its reflection across the declared train median plane",
+      "max_reflection_error_m": 2.5678466499812203e-06,
+      "tolerance_m": 0.002
+    },
+    {
+      "check": "configuration.build_manifest",
+      "status": "PASS",
+      "evidence": "Saved scene count and phase compared with the revision build manifest",
+      "expected_objects": 1558,
+      "actual_objects": 1558,
+      "expected_phase": "full"
+    },
+    {
+      "check": "configuration.snapshot_stability",
+      "status": "PASS",
+      "evidence": "Saved blend file timestamp and size stayed stable throughout validation"
+    }
+  ]
+}

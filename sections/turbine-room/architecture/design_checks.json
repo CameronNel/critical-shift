@@ -1,0 +1,251 @@
+{
+  "schema": "critical-shift.architecture-design-checks.v1",
+  "revision": "B",
+  "scope": "arithmetic on authored interface design, not Blender geometry or engine",
+  "checks": [
+    {
+      "check": "main route and portals nominal width",
+      "status": "PASS",
+      "observed": 2.4,
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "main route and portals nominal height",
+      "status": "PASS",
+      "observed": 2.7,
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "straight cart side clearance",
+      "status": "PASS",
+      "observed": {
+        "route_each_side_m": 0.7999999999999999,
+        "east_aisle_each_side_m": 0.7000000000000001
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "cart rotation fits 2.4 m square at main crossover",
+      "status": "PASS",
+      "observed": {
+        "swept_diameter_m": 2.3409399821439254,
+        "total_margin_m": 0.05906001785607451
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "cart turning disc 1 inside crossover",
+      "status": "PASS",
+      "observed": {
+        "centre": [
+          0,
+          21.7
+        ],
+        "radius_m": 1.1704699910719627
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "cart turning disc 2 inside crossover",
+      "status": "PASS",
+      "observed": {
+        "centre": [
+          8.1,
+          21.7
+        ],
+        "radius_m": 1.1704699910719627
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "cart turning disc 3 inside crossover",
+      "status": "PASS",
+      "observed": {
+        "centre": [
+          0,
+          3
+        ],
+        "radius_m": 1.1704699910719627
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "cart turning disc 4 inside crossover",
+      "status": "PASS",
+      "observed": {
+        "centre": [
+          8.1,
+          3
+        ],
+        "radius_m": 1.1704699910719627
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "D01 parked leaf 1 remains in module",
+      "status": "PASS",
+      "observed": {
+        "min": [
+          -2.65,
+          0.015,
+          0
+        ],
+        "max": [
+          -1.3,
+          0.135,
+          2.78
+        ]
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "D01 parked leaf 1 outside rescue route",
+      "status": "PASS",
+      "observed": {
+        "route_x": [
+          -1.2,
+          1.2
+        ],
+        "pocket_x": [
+          -2.65,
+          -1.3
+        ]
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "D01 parked leaf 2 remains in module",
+      "status": "PASS",
+      "observed": {
+        "min": [
+          1.3,
+          0.015,
+          0
+        ],
+        "max": [
+          2.65,
+          0.135,
+          2.78
+        ]
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "D01 parked leaf 2 outside rescue route",
+      "status": "PASS",
+      "observed": {
+        "route_x": [
+          -1.2,
+          1.2
+        ],
+        "pocket_x": [
+          1.3,
+          2.65
+        ]
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "D02 parked leaf 1 remains in module",
+      "status": "PASS",
+      "observed": {
+        "min": [
+          -2.65,
+          23.865,
+          0
+        ],
+        "max": [
+          -1.3,
+          23.985,
+          2.78
+        ]
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "D02 parked leaf 1 outside rescue route",
+      "status": "PASS",
+      "observed": {
+        "route_x": [
+          -1.2,
+          1.2
+        ],
+        "pocket_x": [
+          -2.65,
+          -1.3
+        ]
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "D02 parked leaf 2 remains in module",
+      "status": "PASS",
+      "observed": {
+        "min": [
+          1.3,
+          23.865,
+          0
+        ],
+        "max": [
+          2.65,
+          23.985,
+          2.78
+        ]
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "D02 parked leaf 2 outside rescue route",
+      "status": "PASS",
+      "observed": {
+        "route_x": [
+          -1.2,
+          1.2
+        ],
+        "pocket_x": [
+          1.3,
+          2.65
+        ]
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "base offset from main route",
+      "status": "PASS",
+      "observed": {
+        "apron_m": 1.3
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "west station bay offset from main route",
+      "status": "PASS",
+      "observed": {
+        "separation_m": 0.3
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "condensate wall-side strip does not enter east aisle",
+      "status": "PASS",
+      "observed": {
+        "pipe_min_x": 9.4,
+        "aisle_max_x": 9.3,
+        "nominal_margin_m": 0.1
+      },
+      "scope": "design_arithmetic"
+    },
+    {
+      "check": "no threshold step",
+      "status": "PASS",
+      "observed": 0,
+      "scope": "design_arithmetic"
+    }
+  ],
+  "design_arithmetic_status": "PASS",
+  "limitations": [
+    "2.2 m east aisle does not support full 2.34094 m in-place cart rotation; use crossover.",
+    "No carrier bodies, doors in motion, actual mesh, collision skin, rigging, lifting loads or code compliance tested.",
+    "No global transforms or complete facility travel validated."
+  ]
+}

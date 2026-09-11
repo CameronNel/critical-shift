@@ -1,0 +1,202 @@
+{
+  "revision": "R07",
+  "blend_sha256": "4f6a1f0d3869933f4922f5d4012bc84671150f39270ebde938042ebaafc78f3f",
+  "semantic_fingerprints_identical": true,
+  "artifact_fingerprint": "04c0a25d777cab961b8a411aed6f73ae18f7afb2925912be1cfca5ca262f4606",
+  "all_pixels_identical": false,
+  "method": "Two independent reopened Blender render processes through shared GPU gate; RGBA byte comparison with Pillow/NumPy. Numeric differences are evidence, not a substitute for independent visual review.",
+  "views": [
+    {
+      "camera": "C01_entry",
+      "warm_sha256": "521464c855cc6e9de8d6bd160b885a24945505df9b848b6e2888445396de52f3",
+      "cold_sha256": "f0976859e1e86b230e37386eccc05cdb80ccd0cdcc609ae9e334cdc54c27aadf",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 3.395061728395062e-05,
+      "changed_pixel_fraction": 0.00013580246913580247
+    },
+    {
+      "camera": "C02_hero",
+      "warm_sha256": "8a04f9e03e0879b694a19280b6c4c6587428e01b6f048a8d87f9540886dff6b9",
+      "cold_sha256": "1b6ecc56be365b85b83e43ab930a1f2be354b7c60f9ca2505fda13d4a6ae3afa",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 3.973765432098765e-05,
+      "changed_pixel_fraction": 0.0001589506172839506
+    },
+    {
+      "camera": "C03_reverse",
+      "warm_sha256": "9dac389a350bee82615c5d50fdc572aaa4733bbb85a13c969e037d27434fcf6d",
+      "cold_sha256": "b418b5e3dbf6170370d296c015e32bb709f31e70bba8d8eaf7a4c7851c122b10",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.070216049382716e-05,
+      "changed_pixel_fraction": 0.00016280864197530865
+    },
+    {
+      "camera": "C04_route",
+      "warm_sha256": "81d117c3f5ff6c19eb4834a57337a5d1ab2f845c29c1267ecf459c21ffd5e8e0",
+      "cold_sha256": "2fd336a2a7fc6e7adae56195929fafe7e405fcc99ebf1917799f736055a57dac",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 3.973765432098765e-05,
+      "changed_pixel_fraction": 0.0001589506172839506
+    },
+    {
+      "camera": "C05_east_service",
+      "warm_sha256": "1ea5701920fe4fb2d5cb01239ab8bc62bdaa039428844ed322a0e3a89d3e8cfe",
+      "cold_sha256": "e557784af67d3f9ab4073004028fdfcb97660ae508564d01297fb938a52677ee",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 3.896604938271605e-05,
+      "changed_pixel_fraction": 0.0001558641975308642
+    },
+    {
+      "camera": "C06_throttle",
+      "warm_sha256": "57a1b744e3e91d1eabe8d01ae30d5ba12f8f4298343b1bac52052ae54da1fafb",
+      "cold_sha256": "fd39b94bfaccef70ccfa3c3650b12f810e8f22729a7b1617db81df9e34e21f5e",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 3.935185185185185e-05,
+      "changed_pixel_fraction": 0.0001574074074074074
+    },
+    {
+      "camera": "C07_coupling",
+      "warm_sha256": "ce4d63191aa858e6e684b3d0c075e882690b1c921a7e2ea8fd2aa5cacac3a511",
+      "cold_sha256": "d3a9473df0b5dc8017563cad2058e8bc1ab552bf5bc192206b51e01b87deb719",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.0123456790123456e-05,
+      "changed_pixel_fraction": 0.00016049382716049382
+    },
+    {
+      "camera": "C08_maintenance",
+      "warm_sha256": "d3b041b1149162a79795d0694501e221205df2548660bb9a64cd626596245756",
+      "cold_sha256": "8d4e660049f0f668b489ebad4d9a555bf60512f445e6687c35dc1dddf29a3302",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.1666666666666665e-05,
+      "changed_pixel_fraction": 0.00016666666666666666
+    },
+    {
+      "camera": "C09_generator",
+      "warm_sha256": "c6efb456e36fc06fd651c6658a5e790e5ec843f2fa2e19186b7bdd0052b57252",
+      "cold_sha256": "3053e29c01e8e80f6746a7fe4962c72bcda2f1d11dbba65737f021050b2e284f",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 3.7037037037037037e-05,
+      "changed_pixel_fraction": 0.00014814814814814815
+    },
+    {
+      "camera": "C10_materials",
+      "warm_sha256": "cd9758fe9d9e0e743c49c154f6e4f76898c64c1a555c5cf75ae2486e9a40bdf9",
+      "cold_sha256": "d469c74363ffdb6539e2774d30176f4d3df19d1fb37e4220a0e2bfe769e3626d",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.1087962962962965e-05,
+      "changed_pixel_fraction": 0.00016435185185185186
+    },
+    {
+      "camera": "W01_entry_return",
+      "warm_sha256": "d8bc1c84efdee3a4308bb3e2ca76f7b6fb14c83397004ff1a3ea29c1e412552d",
+      "cold_sha256": "15a6e450e1bd54577d7daf202ee530df9c335b88a06b912737ec60a0dc0bbea9",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 3.722993827160494e-05,
+      "changed_pixel_fraction": 0.00014891975308641976
+    },
+    {
+      "camera": "W02_controls_full",
+      "warm_sha256": "c4059878ba8d07324b82c3a48b67a68241a35f23668ef8005013a255080ba5cf",
+      "cold_sha256": "1dd33756cc39fe50356b1164f511dc672fe3f29a4d68ef71b505e00443bf15a2",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.1666666666666665e-05,
+      "changed_pixel_fraction": 0.00016666666666666666
+    },
+    {
+      "camera": "W03_south_cross",
+      "warm_sha256": "b546c0770f33845bb0fe26f305e68beecc4f965e85968d2f3905072ce779bb5b",
+      "cold_sha256": "a816d75beb86202c13bc3cdc087161185eb42ec6f91c0827f7b68d62ee638f39",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 3.8580246913580246e-05,
+      "changed_pixel_fraction": 0.00015432098765432098
+    },
+    {
+      "camera": "W04_north_cross",
+      "warm_sha256": "63f29f03a03c33cf64be2420d059d673425e7101c63c0537f04737e971d2d28f",
+      "cold_sha256": "324eb0cd8baa25a41a0be81c7e2d89e982bc362237fb71e40a699d0baade5e7c",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.533179012345679e-05,
+      "changed_pixel_fraction": 0.00018055555555555555
+    },
+    {
+      "camera": "W05_oil_service",
+      "warm_sha256": "6a4cf175db3fb97e75f819ae4ab283f51babe0f4431eae9304d2b9693ce1a91d",
+      "cold_sha256": "7c84bec2363089c56061a23449329e49ed2b04e84666a36423c1a197d7a287e4",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.552469135802469e-05,
+      "changed_pixel_fraction": 0.00018209876543209876
+    },
+    {
+      "camera": "W06_steam_service",
+      "warm_sha256": "7bafa0075985e3930d18053108e916bc1543fab43d81e077431eb9e5ba91539c",
+      "cold_sha256": "61766e6a2eba26a510261487a1d6d686e03f85f2aa4bedee6875ca7feba8294e",
+      "dimensions": [
+        1440,
+        900
+      ],
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 3.8580246913580246e-05,
+      "changed_pixel_fraction": 0.00015432098765432098
+    }
+  ]
+}

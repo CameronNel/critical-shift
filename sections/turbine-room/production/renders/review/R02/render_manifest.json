@@ -1,0 +1,83 @@
+{
+  "revision": "R02",
+  "source_revision": "R02",
+  "samples": 48,
+  "resolution": [
+    1440,
+    900
+  ],
+  "devices": [
+    {
+      "name": "AMD Ryzen 7 5800X 8-Core Processor",
+      "type": "CPU",
+      "used": false
+    },
+    {
+      "name": "AMD Radeon RX 9070 XT",
+      "type": "HIP",
+      "used": true
+    }
+  ],
+  "renders": [
+    {
+      "camera": "C01_entry",
+      "seconds": 15.98,
+      "file": "C01_entry.png",
+      "sha256": "1030096e331dfc0839f8a5b588102436ea789044f6f0e36c5b49db5a5ea8c210"
+    },
+    {
+      "camera": "C02_hero",
+      "seconds": 15.36,
+      "file": "C02_hero.png",
+      "sha256": "a88bfb056862c682efddbfb6c95770698a00e25e36c08798d3348a96cfe477bb"
+    },
+    {
+      "camera": "C03_reverse",
+      "seconds": 15.14,
+      "file": "C03_reverse.png",
+      "sha256": "702033fb5b9f17b7a7c99b049b428a388fc42ffc4036d0069fba44952dca5fe7"
+    },
+    {
+      "camera": "C04_route",
+      "seconds": 14.63,
+      "file": "C04_route.png",
+      "sha256": "b0c4282bb4647e0f86af1ecd85ba6c269cfe6a6eb4a1f09df8594ad060d84f5a"
+    },
+    {
+      "camera": "C05_east_service",
+      "seconds": 14.54,
+      "file": "C05_east_service.png",
+      "sha256": "84244141ab671aea64b2bb00ac18689c40b8e5c50cff70bd826037d147bf1a4d"
+    },
+    {
+      "camera": "C06_throttle",
+      "seconds": 14.52,
+      "file": "C06_throttle.png",
+      "sha256": "f95dec69df8423fb170a222462f30b3cee5bfaa471b544b1c260fd0fef74ca84"
+    },
+    {
+      "camera": "C07_coupling",
+      "seconds": 14.49,
+      "file": "C07_coupling.png",
+      "sha256": "7a1cf3afd0cb891d98f6eb3fa9ebe863584299a85ab3a6facea4bfc6d09dacf8"
+    },
+    {
+      "camera": "C08_maintenance",
+      "seconds": 15.16,
+      "file": "C08_maintenance.png",
+      "sha256": "d44c38d3bf1a797cb9dd3c97846e75c2e08e76c29f54b9ecd3e1405381a07ff4"
+    },
+    {
+      "camera": "C09_generator",
+      "seconds": 14.86,
+      "file": "C09_generator.png",
+      "sha256": "1fd2180487c72cce613ac135f49a461e0d2299c35414007af541c0836ea0cec4"
+    },
+    {
+      "camera": "C10_materials",
+      "seconds": 14.86,
+      "file": "C10_materials.png",
+      "sha256": "049969351ef440431419115e3e291ba73917635c0535fc92c0ce6913a71a2b97"
+    }
+  ]
+}

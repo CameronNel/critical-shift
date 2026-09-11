@@ -1,0 +1,73 @@
+{
+  "provider": "OpenAI built-in ChatGPT image_gen.imagegen; no external image API, imported mesh or downloaded textures",
+  "date": "2026-09-11",
+  "mode": "new generation for each image; textual reference direction; no reference image editing",
+  "global_prompt_constraints": "Strict Valorant environmental style; original assets; no teal/cyan/green; believable supported construction; later prompts explicitly reject photorealism and all logos/branding. Exact submitted prompts are retained in the task tool-call history. Below are labeled prompt summaries, not verbatim claims.",
+  "reference_inspection": [
+    "reactor reference-a05-user-edited-orange.png directly viewed for style; teal/cyan pool not adopted",
+    "completed Cooling Plant C02_HERO directly viewed read-only for current material/palette calibration"
+  ],
+  "assets": [
+    {
+      "file": "art/concepts/A01-overall.png",
+      "sha256": "4b1c45cff40188fcfeeaf54f8e0b2e179c3b1fb8bd25e295640794cc98b3eb4a",
+      "original_generated_file": "C:/Users/Camer/.codex/generated_images/01a07deb-e7a7-7ee1-b3c6-03e0ad16ca0c/exec-9f578a2c-4ae6-4cea-8b43-fabfaa295549.png",
+      "prompt_summary_and_disposition": "Full14x24x7.2m turbine hall; Valorant influence, clear west lane, no-teal palette. Rejected as overall authority: extra platforms and realism drift."
+    },
+    {
+      "file": "art/concepts/A02-turbine.png",
+      "sha256": "c7a64d76fc84783753eb40105081a680a6148b5e9ea5786a992478881e516ecc",
+      "original_generated_file": "C:/Users/Camer/.codex/generated_images/01a07deb-e7a7-7ee1-b3c6-03e0ad16ca0c/exec-32510410-c793-4912-9e5e-ee6020b22969.png",
+      "prompt_summary_and_disposition": "Separate turbine casing/feet/flanges/lateral-inlet component. Superseded by A09 for style."
+    },
+    {
+      "file": "art/concepts/A03-generator.png",
+      "sha256": "f405dbe9dd27b45e43402a2becd5c35608178f7bc0d6cb5a5fc5416711b6e052",
+      "original_generated_file": "C:/Users/Camer/.codex/generated_images/01a07deb-e7a7-7ee1-b3c6-03e0ad16ca0c/exec-fe575faa-c69e-433a-99cf-def1cb374a8c.png",
+      "prompt_summary_and_disposition": "Separate generator/coupling/terminal component. Superseded by A10 for style."
+    },
+    {
+      "file": "art/concepts/A04-strict-reverse.png",
+      "sha256": "7251b8c96e0ec081b701e6adb7941217e4a71279405bea6740dabe8a902afcc6",
+      "original_generated_file": "C:/Users/Camer/.codex/generated_images/01a07deb-e7a7-7ee1-b3c6-03e0ad16ca0c/exec-89d5e810-75c2-40d2-8087-c15790413bd8.png",
+      "prompt_summary_and_disposition": "Complementary reverse hall view, stricter stylization, no stairs/catwalk. Style still rejected by Luna."
+    },
+    {
+      "file": "art/concepts/A05-graphic-valorant.png",
+      "sha256": "0d0b2a2a4ef47a64094502f521e5e836a32dc8217ea8a339a0d38b6fb03ddc0c",
+      "original_generated_file": "C:/Users/Camer/.codex/generated_images/01a07deb-e7a7-7ee1-b3c6-03e0ad16ca0c/exec-afff2f32-39e2-48bf-adb7-95b8f921563a.png",
+      "prompt_summary_and_disposition": "Strict videogame screenshot style: broad planar silhouettes, manually painted value fields, ivory/charcoal/orange. Approved relevant style components, not dimension authority."
+    },
+    {
+      "file": "art/concepts/A06-controls.png",
+      "sha256": "272ac644f944f4665863e1c6856ae5de249d2e2b6e53273f1458cdc9ee5b6ba5",
+      "original_generated_file": "C:/Users/Camer/.codex/generated_images/01a07deb-e7a7-7ee1-b3c6-03e0ad16ca0c/exec-aa66e72f-eab4-422b-b7b4-b947e179d77b.png",
+      "prompt_summary_and_disposition": "Separate three-cabinet SPEED/HEALTH/OUTPUT/DEMAND/RESERVE/SAFETY control bank with throttle/load/trip. Approved component guidance; pictured numeric ratings not adopted."
+    },
+    {
+      "file": "art/concepts/A07-maintenance.png",
+      "sha256": "475bfc7e9b29cafd4fd5eb7953f7d29809921266a94648cddda418f6ca6898be",
+      "original_generated_file": "C:/Users/Camer/.codex/generated_images/01a07deb-e7a7-7ee1-b3c6-03e0ad16ca0c/exec-591578c7-be27-46ee-b048-8c21855a17c7.png",
+      "prompt_summary_and_disposition": "Maintenance vignette. Rejected for unwanted generated branding and realism drift. No logos/slogans copied."
+    },
+    {
+      "file": "art/concepts/A08-stylized-props.png",
+      "sha256": "a0ccd312ec655a2645ff50f694f6446817f7fced6277daea4a1f1f6c321206e3",
+      "original_generated_file": "C:/Users/Camer/.codex/generated_images/01a07deb-e7a7-7ee1-b3c6-03e0ad16ca0c/exec-2c89a927-a022-4052-a60e-0c9b3b8fdedd.png",
+      "prompt_summary_and_disposition": "Brandless planar matte original maintenance props: bench, bearing, tools, mug, cloth, clipboard, task light. Approved depicted components only; no oil stand pictured."
+    },
+    {
+      "file": "art/concepts/A09-stylized-turbine.png",
+      "sha256": "39826cebf4aa9ea95f45d01391d73a4ac0d909a71d76ef6b00b642e58f9ed14c",
+      "original_generated_file": "C:/Users/Camer/.codex/generated_images/01a07deb-e7a7-7ee1-b3c6-03e0ad16ca0c/exec-1ee1f466-4778-454e-9a41-14bb8faef4a4.png",
+      "prompt_summary_and_disposition": "Separate strict stylized original HP/LP turbine, orange/ivory,2mshaft,6.6mlength,3mmaximumdiameter, supports and lower exhaust handoff. Approved applicable components."
+    },
+    {
+      "file": "art/concepts/A10-stylized-generator.png",
+      "sha256": "55cfdb4f7d30db139e5bdc1b934e43bf85b129f54bfe2b93b822b6c583a81bf7",
+      "original_generated_file": "C:/Users/Camer/.codex/generated_images/01a07deb-e7a7-7ee1-b3c6-03e0ad16ca0c/exec-bc4867e9-5899-489e-ab37-8cfbc045dc08.png",
+      "prompt_summary_and_disposition": "Separate strict stylized generator/coupling concept, planar jacket/diagonalorangefield/louvers/terminalconnections. Approved applicable components."
+    }
+  ],
+  "review_authority": "production/critics Luna reports retain actual independent category scores; no full approval inferred from one passing component."
+}

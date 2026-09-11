@@ -1,0 +1,119 @@
+{
+  "revision": "cold-R07",
+  "source_revision": "R07",
+  "samples": 48,
+  "resolution": [
+    1440,
+    900
+  ],
+  "devices": [
+    {
+      "name": "AMD Ryzen 7 5800X 8-Core Processor",
+      "type": "CPU",
+      "used": false
+    },
+    {
+      "name": "AMD Radeon RX 9070 XT",
+      "type": "HIP",
+      "used": true
+    }
+  ],
+  "renders": [
+    {
+      "camera": "C01_entry",
+      "seconds": 17.56,
+      "file": "C01_entry.png",
+      "sha256": "f0976859e1e86b230e37386eccc05cdb80ccd0cdcc609ae9e334cdc54c27aadf"
+    },
+    {
+      "camera": "C02_hero",
+      "seconds": 16.2,
+      "file": "C02_hero.png",
+      "sha256": "1b6ecc56be365b85b83e43ab930a1f2be354b7c60f9ca2505fda13d4a6ae3afa"
+    },
+    {
+      "camera": "C03_reverse",
+      "seconds": 16.06,
+      "file": "C03_reverse.png",
+      "sha256": "b418b5e3dbf6170370d296c015e32bb709f31e70bba8d8eaf7a4c7851c122b10"
+    },
+    {
+      "camera": "C04_route",
+      "seconds": 15.98,
+      "file": "C04_route.png",
+      "sha256": "2fd336a2a7fc6e7adae56195929fafe7e405fcc99ebf1917799f736055a57dac"
+    },
+    {
+      "camera": "C05_east_service",
+      "seconds": 16.47,
+      "file": "C05_east_service.png",
+      "sha256": "e557784af67d3f9ab4073004028fdfcb97660ae508564d01297fb938a52677ee"
+    },
+    {
+      "camera": "C06_throttle",
+      "seconds": 16.76,
+      "file": "C06_throttle.png",
+      "sha256": "fd39b94bfaccef70ccfa3c3650b12f810e8f22729a7b1617db81df9e34e21f5e"
+    },
+    {
+      "camera": "C07_coupling",
+      "seconds": 16.09,
+      "file": "C07_coupling.png",
+      "sha256": "d3a9473df0b5dc8017563cad2058e8bc1ab552bf5bc192206b51e01b87deb719"
+    },
+    {
+      "camera": "C08_maintenance",
+      "seconds": 16.59,
+      "file": "C08_maintenance.png",
+      "sha256": "8d4e660049f0f668b489ebad4d9a555bf60512f445e6687c35dc1dddf29a3302"
+    },
+    {
+      "camera": "C09_generator",
+      "seconds": 15.89,
+      "file": "C09_generator.png",
+      "sha256": "3053e29c01e8e80f6746a7fe4962c72bcda2f1d11dbba65737f021050b2e284f"
+    },
+    {
+      "camera": "C10_materials",
+      "seconds": 15.79,
+      "file": "C10_materials.png",
+      "sha256": "d469c74363ffdb6539e2774d30176f4d3df19d1fb37e4220a0e2bfe769e3626d"
+    },
+    {
+      "camera": "W01_entry_return",
+      "seconds": 15.12,
+      "file": "W01_entry_return.png",
+      "sha256": "15a6e450e1bd54577d7daf202ee530df9c335b88a06b912737ec60a0dc0bbea9"
+    },
+    {
+      "camera": "W02_controls_full",
+      "seconds": 15.74,
+      "file": "W02_controls_full.png",
+      "sha256": "1dd33756cc39fe50356b1164f511dc672fe3f29a4d68ef71b505e00443bf15a2"
+    },
+    {
+      "camera": "W03_south_cross",
+      "seconds": 15.43,
+      "file": "W03_south_cross.png",
+      "sha256": "a816d75beb86202c13bc3cdc087161185eb42ec6f91c0827f7b68d62ee638f39"
+    },
+    {
+      "camera": "W04_north_cross",
+      "seconds": 15.51,
+      "file": "W04_north_cross.png",
+      "sha256": "324eb0cd8baa25a41a0be81c7e2d89e982bc362237fb71e40a699d0baade5e7c"
+    },
+    {
+      "camera": "W05_oil_service",
+      "seconds": 15.51,
+      "file": "W05_oil_service.png",
+      "sha256": "7c84bec2363089c56061a23449329e49ed2b04e84666a36423c1a197d7a287e4"
+    },
+    {
+      "camera": "W06_steam_service",
+      "seconds": 15.44,
+      "file": "W06_steam_service.png",
+      "sha256": "61766e6a2eba26a510261487a1d6d686e03f85f2aa4bedee6875ca7feba8294e"
+    }
+  ]
+}

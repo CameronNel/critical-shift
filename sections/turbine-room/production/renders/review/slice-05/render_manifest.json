@@ -1,0 +1,35 @@
+{
+  "revision": "slice-05",
+  "source_revision": "slice-05",
+  "samples": 48,
+  "resolution": [
+    1280,
+    800
+  ],
+  "devices": [
+    {
+      "name": "AMD Ryzen 7 5800X 8-Core Processor",
+      "type": "CPU",
+      "used": false
+    },
+    {
+      "name": "AMD Radeon RX 9070 XT",
+      "type": "HIP",
+      "used": true
+    }
+  ],
+  "renders": [
+    {
+      "camera": "C08_maintenance",
+      "seconds": 25.37,
+      "file": "C08_maintenance.png",
+      "sha256": "65577bba95a85825776af7fc5eb033ade035c3a8efcb4e38ee87421a45d3bfaa"
+    },
+    {
+      "camera": "C10_materials",
+      "seconds": 27.13,
+      "file": "C10_materials.png",
+      "sha256": "78ea224ad562171106f5450be775e0d74271e06f6ed3810bbc48391e9d38caf5"
+    }
+  ]
+}
