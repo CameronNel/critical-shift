@@ -1,0 +1,143 @@
+00:02.532  blend            | Read blend: "C:\Users\Camer\.codex\worktrees\3598\critical-shift\sections\fuel-corridor\production\checkpoints\eng05\Fuel_Corridor.blend"
+{
+  "revision": "eng05",
+  "blend_sha256": "f793907fcf4774d84c9c372996b641d9f28acd3142c12e98b4d22a8dbcd1ca23",
+  "pairs": [
+    {
+      "a": "Bypass_isolation_termination_spacer.001",
+      "b": "Bypass_isolation_termination.001",
+      "nearest_vertex_surface_witness": {
+        "source": "Bypass_isolation_termination_spacer.001",
+        "target": "Bypass_isolation_termination.001",
+        "point": [
+          1.187999963760376,
+          15.2524995803833,
+          2.371999979019165
+        ],
+        "nearest": [
+          1.1879998445510864,
+          15.2524995803833,
+          2.371999979019165
+        ],
+        "distance_m": 1.1920928955078125e-07
+      },
+      "a_bounds": [
+        [
+          1.187999963760376,
+          15.179499626159668,
+          2.369999885559082
+        ],
+        [
+          1.2000000476837158,
+          15.254500389099121,
+          2.440000057220459
+        ]
+      ],
+      "b_bounds": [
+        [
+          1.1239999532699585,
+          15.177000045776367,
+          2.365000009536743
+        ],
+        [
+          1.1879998445510864,
+          15.256999969482422,
+          2.444999933242798
+        ]
+      ],
+      "triangle_overlap": null
+    },
+    {
+      "a": "Clean_blade_panel",
+      "b": "Clean_blade_drop",
+      "nearest_vertex_surface_witness": {
+        "source": "Clean_blade_drop",
+        "target": "Clean_blade_panel",
+        "point": [
+          5.2442755699157715,
+          20.025724411010742,
+          2.690000057220459
+        ],
+        "nearest": [
+          5.2442755699157715,
+          20.025724411010742,
+          2.68999981880188
+        ],
+        "distance_m": 2.384185791015625e-07
+      },
+      "a_bounds": [
+        [
+          5.236999988555908,
+          19.84000015258789,
+          2.450000047683716
+        ],
+        [
+          5.263000011444092,
+          20.959999084472656,
+          2.68999981880188
+        ]
+      ],
+      "b_bounds": [
+        [
+          5.241000175476074,
+          20.01099967956543,
+          2.690000057220459
+        ],
+        [
+          5.258999824523926,
+          20.029001235961914,
+          3.0
+        ]
+      ],
+      "triangle_overlap": null
+    },
+    {
+      "a": "Clean_blade_panel",
+      "b": "Clean_blade_drop.001",
+      "nearest_vertex_surface_witness": {
+        "source": "Clean_blade_drop.001",
+        "target": "Clean_blade_panel",
+        "point": [
+          5.256731033325195,
+          20.78449821472168,
+          2.690000057220459
+        ],
+        "nearest": [
+          5.256731033325195,
+          20.78449821472168,
+          2.68999981880188
+        ],
+        "distance_m": 2.384185791015625e-07
+      },
+      "a_bounds": [
+        [
+          5.236999988555908,
+          19.84000015258789,
+          2.450000047683716
+        ],
+        [
+          5.263000011444092,
+          20.959999084472656,
+          2.68999981880188
+        ]
+      ],
+      "b_bounds": [
+        [
+          5.241000175476074,
+          20.770999908447266,
+          2.690000057220459
+        ],
+        [
+          5.258999824523926,
+          20.78900146484375,
+          3.0
+        ]
+      ],
+      "triangle_overlap": null
+    }
+  ],
+  "no_save_render_or_mutation": true
+}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

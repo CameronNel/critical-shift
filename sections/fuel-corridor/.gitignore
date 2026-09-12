@@ -1,0 +1,12 @@
+production/runtime/
+production/logs/
+**/__pycache__/
+*.blend1
+*.blend2
+production/checkpoints/*.blend
+production/checkpoints/**/*.blend
+production/checkpoints/final-*/art/
+production/critics/*runtime*/
+production/renders/review/slice*/
+production/renders/review/style*/
+!production/renders/review/style22/

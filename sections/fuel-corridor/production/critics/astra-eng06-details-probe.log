@@ -1,0 +1,759 @@
+00:03.344  blend            | Read blend: "C:\Users\Camer\.codex\worktrees\3598\critical-shift\sections\fuel-corridor\production\checkpoints\eng06\Fuel_Corridor.blend"
+ALL_PHYSICAL_EVALUATED 6709
+ASSEMBLY_CHECKED Service_air_station 112 POSITIVE 1
+ASSEMBLY_CHECKED East_distribution 44 POSITIVE 0
+ASSEMBLY_CHECKED Bypass_isolation 28 POSITIVE 0
+ASSEMBLY_CHECKED Bypass_first_aid 10 POSITIVE 0
+ASSEMBLY_CHECKED Bypass_work_permit 20 POSITIVE 0
+ASSEMBLY_CHECKED Plant_work_permit 20 POSITIVE 1
+ASSEMBLY_CHECKED Clean_distribution 28 POSITIVE 7
+ASSEMBLY_CHECKED Reactor_turn_key 4 POSITIVE 0
+ASSEMBLY_CHECKED Refinery_approach_key 4 POSITIVE 0
+ASSEMBLY_CHECKED Reactor_left_key 4 POSITIVE 0
+ASSEMBLY_CHECKED Reactor_right_key 4 POSITIVE 0
+ASSEMBLY_CHECKED Clean_branch_blade_sign 6 POSITIVE 0
+ASSEMBLY_CHECKED Plant_branch_blade_sign 6 POSITIVE 0
+ASSEMBLY_CHECKED Recess_task_light 2 POSITIVE 0
+ASSEMBLY_CHECKED East_wall_key 4 POSITIVE 0
+ASSEMBLY_CHECKED Route_guide_00 5 POSITIVE 0
+ASSEMBLY_CHECKED Route_guide_01 5 POSITIVE 0
+ASSEMBLY_CHECKED Route_guide_02 5 POSITIVE 0
+ASSEMBLY_CHECKED Route_guide_03 5 POSITIVE 0
+ASSEMBLY_CHECKED Route_guide_04 5 POSITIVE 0
+ASSEMBLY_CHECKED Route_guide_05 5 POSITIVE 0
+ASSEMBLY_CHECKED Route_guide_06 5 POSITIVE 0
+ASSEMBLY_CHECKED Route_guide_07 5 POSITIVE 0
+ASSEMBLY_CHECKED Route_guide_08 5 POSITIVE 0
+ASSEMBLY_CHECKED Route_guide_09 5 POSITIVE 0
+ASSEMBLY_CHECKED Route_guide_10 5 POSITIVE 0
+{
+  "assemblies": [
+    {
+      "assembly": "Service_air_station",
+      "positive_pairs": [
+        [
+          "Service_air_station_service_pipe",
+          "Recess_air_branch"
+        ]
+      ],
+      "anchor_readings": [
+        {
+          "target": "Wall_W-1.65_0_14.3_formed_infill_panel.001",
+          "wall_gap": 0.0,
+          "back_gap": 1.1920928955078125e-07
+        }
+      ],
+      "mounts": [
+        {
+          "object": "Service_air_station_mounting_spacer",
+          "back_gap": -1.1920928955078125e-07,
+          "internal_contacts": 2
+        },
+        {
+          "object": "Service_air_station_spacer_wall_foot",
+          "back_gap": -1.1920928955078125e-07,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Service_air_station_mounting_spacer.001",
+          "back_gap": -1.1920928955078125e-07,
+          "internal_contacts": 2
+        },
+        {
+          "object": "Service_air_station_spacer_wall_foot.001",
+          "back_gap": -1.1920928955078125e-07,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Service_air_station_mounting_spacer.002",
+          "back_gap": -1.1920928955078125e-07,
+          "internal_contacts": 2
+        },
+        {
+          "object": "Service_air_station_spacer_wall_foot.002",
+          "back_gap": -1.1920928955078125e-07,
+          "internal_contacts": 1
+        }
+      ]
+    },
+    {
+      "assembly": "East_distribution",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_E16.4_0_7_formed_infill_panel",
+          "wall_gap": 0.0,
+          "back_gap": -1.9073486328125e-06
+        }
+      ],
+      "mounts": [
+        {
+          "object": "East_distribution_mounting_spacer",
+          "back_gap": 1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "East_distribution_clamp_wall_spacer",
+          "back_gap": 1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "East_distribution_clamp_wall_spacer.001",
+          "back_gap": 1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "East_distribution_termination_spacer",
+          "back_gap": 1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "East_distribution_clamp_wall_spacer.002",
+          "back_gap": 1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "East_distribution_clamp_wall_spacer.003",
+          "back_gap": 1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "East_distribution_termination_spacer.001",
+          "back_gap": 1.9073486328125e-06,
+          "internal_contacts": 1
+        }
+      ]
+    },
+    {
+      "assembly": "Bypass_isolation",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_E1.2_0_13.2_formed_infill_panel.002",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": [
+        {
+          "object": "Bypass_isolation_mounting_spacer",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Bypass_isolation_clamp_wall_spacer",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Bypass_isolation_clamp_wall_spacer.001",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Bypass_isolation_termination_spacer",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Bypass_isolation_clamp_wall_spacer.002",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Bypass_isolation_clamp_wall_spacer.003",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Bypass_isolation_termination_spacer.001",
+          "back_gap": 0.0,
+          "internal_contacts": 0
+        }
+      ]
+    },
+    {
+      "assembly": "Bypass_first_aid",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_E1.2_0_13.2_formed_infill_panel.002",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": [
+        {
+          "object": "Bypass_first_aid_wall_spacer",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        }
+      ]
+    },
+    {
+      "assembly": "Bypass_work_permit",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_E1.2_0_13.2_formed_infill_panel.004",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": [
+        {
+          "object": "Bypass_work_permit_mounting_spacer",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        }
+      ]
+    },
+    {
+      "assembly": "Plant_work_permit",
+      "positive_pairs": [
+        [
+          "Plant_work_permit_mounting_spacer",
+          "Wall_S16.2_0_-5.4_formed_infill_panel.002"
+        ]
+      ],
+      "anchor_readings": [
+        {
+          "target": "Wall_S16.2_0_-5.4_formed_infill_panel.002",
+          "wall_gap": 0.0,
+          "back_gap": 1.9073486328125e-06
+        }
+      ],
+      "mounts": [
+        {
+          "object": "Plant_work_permit_mounting_spacer",
+          "back_gap": -1.9073486328125e-06,
+          "internal_contacts": 1
+        }
+      ]
+    },
+    {
+      "assembly": "Clean_distribution",
+      "positive_pairs": [
+        [
+          "Clean_distribution_mounting_spacer",
+          "Wall_S18.0_0_1.2_formed_infill_panel.006"
+        ],
+        [
+          "Clean_distribution_clamp_wall_spacer",
+          "Wall_S18.0_0_1.2_formed_infill_panel.007"
+        ],
+        [
+          "Clean_distribution_clamp_wall_spacer.001",
+          "Wall_S18.0_0_1.2_formed_infill_panel.007"
+        ],
+        [
+          "Clean_distribution_termination_spacer",
+          "Wall_S18.0_0_1.2_formed_infill_panel.007"
+        ],
+        [
+          "Clean_distribution_clamp_wall_spacer.002",
+          "Wall_S18.0_0_1.2_formed_infill_panel.007"
+        ],
+        [
+          "Clean_distribution_clamp_wall_spacer.003",
+          "Wall_S18.0_0_1.2_formed_infill_panel.007"
+        ],
+        [
+          "Clean_distribution_termination_spacer.001",
+          "Wall_S18.0_0_1.2_formed_infill_panel.007"
+        ]
+      ],
+      "anchor_readings": [
+        {
+          "target": "Wall_S18.0_0_1.2_formed_infill_panel.006",
+          "wall_gap": 0.0,
+          "back_gap": 1.9073486328125e-06
+        }
+      ],
+      "mounts": [
+        {
+          "object": "Clean_distribution_mounting_spacer",
+          "back_gap": -1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Clean_distribution_clamp_wall_spacer",
+          "back_gap": -1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Clean_distribution_clamp_wall_spacer.001",
+          "back_gap": -1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Clean_distribution_termination_spacer",
+          "back_gap": -1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Clean_distribution_clamp_wall_spacer.002",
+          "back_gap": -1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Clean_distribution_clamp_wall_spacer.003",
+          "back_gap": -1.9073486328125e-06,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Clean_distribution_termination_spacer.001",
+          "back_gap": -1.9073486328125e-06,
+          "internal_contacts": 1
+        }
+      ]
+    },
+    {
+      "assembly": "Reactor_turn_key",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_W12_0_13.2_formed_infill_panel.003",
+          "wall_gap": 9.5367431640625e-07,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Refinery_approach_key",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "REFINERY_BOUNDARY_upper_motor_cover",
+          "wall_gap": 2.0260113327054638e-40,
+          "back_gap": -3.798765993953503e-40
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Reactor_left_key",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_W11.4_0_21_formed_infill_panel",
+          "wall_gap": 9.5367431640625e-07,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Reactor_right_key",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_E17.0_0_21_formed_infill_panel.002",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Clean_branch_blade_sign",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Recessed_ceiling_panel.100",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        },
+        {
+          "target": "Recessed_ceiling_panel.100",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": [
+        {
+          "object": "Clean_blade_ceiling_foot",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Clean_blade_ceiling_foot.001",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        }
+      ]
+    },
+    {
+      "assembly": "Plant_branch_blade_sign",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Recessed_ceiling_panel.086",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        },
+        {
+          "target": "Recessed_ceiling_panel.089",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": [
+        {
+          "object": "Plant_blade_ceiling_foot",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        },
+        {
+          "object": "Plant_blade_ceiling_foot.001",
+          "back_gap": 0.0,
+          "internal_contacts": 1
+        }
+      ]
+    },
+    {
+      "assembly": "Recess_task_light",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Recessed_ceiling_panel.115",
+          "wall_gap": -2.384185791015625e-07,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": [
+        {
+          "object": "Recess_light_pan",
+          "back_gap": -2.384185791015625e-07,
+          "internal_contacts": 1
+        }
+      ]
+    },
+    {
+      "assembly": "East_wall_key",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_E16.4_0_7_formed_infill_panel.003",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Route_guide_00",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_E16.4_0_7_washable_lower",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Route_guide_01",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_E16.4_0_7_washable_lower",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Route_guide_02",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_N12.2_1_6.78_washable_lower",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Route_guide_03",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_W12_0_13.2_washable_lower",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Route_guide_04",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_W12_0_13.2_washable_lower",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Route_guide_05",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_E1.2_0_13.2_washable_lower",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Route_guide_06",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_W-1.5_0_18.6_washable_lower",
+          "wall_gap": -1.1920928955078125e-07,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Route_guide_07",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_N21_0_-1.5_washable_lower",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Route_guide_08",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_S18.0_0_1.2_washable_lower",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Route_guide_09",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_S18.0_0_1.2_washable_lower",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    },
+    {
+      "assembly": "Route_guide_10",
+      "positive_pairs": [],
+      "anchor_readings": [
+        {
+          "target": "Wall_N18.6_0_-5.4_washable_lower",
+          "wall_gap": 0.0,
+          "back_gap": 0.0
+        }
+      ],
+      "mounts": []
+    }
+  ],
+  "service_hits": [],
+  "feed_gaps": [
+    1.1920928955078125e-07,
+    0.0
+  ]
+}
+{
+  "new_parts": [
+    {
+      "name": "REACTOR_BOUNDARY_leaf_pressed_border",
+      "parent": "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+      "own_leaf_contact_vertices": 16,
+      "own_hits": [],
+      "outside_hits": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_pressed_fastener",
+      "parent": "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+      "own_leaf_contact_vertices": 0,
+      "own_hits": [
+        [
+          "REACTOR_BOUNDARY_sliding_leaf",
+          [
+            0.021425247192382812,
+            0.00299835205078125,
+            0.019052505493164062
+          ]
+        ]
+      ],
+      "outside_hits": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_pressed_fastener.001",
+      "parent": "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+      "own_leaf_contact_vertices": 0,
+      "own_hits": [
+        [
+          "REACTOR_BOUNDARY_sliding_leaf",
+          [
+            0.021425247192382812,
+            0.00299835205078125,
+            0.019052505493164062
+          ]
+        ]
+      ],
+      "outside_hits": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_pressed_fastener.002",
+      "parent": "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+      "own_leaf_contact_vertices": 0,
+      "own_hits": [
+        [
+          "REACTOR_BOUNDARY_sliding_leaf",
+          [
+            0.021425247192382812,
+            0.00299835205078125,
+            0.019052505493164062
+          ]
+        ]
+      ],
+      "outside_hits": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_pressed_fastener.003",
+      "parent": "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+      "own_leaf_contact_vertices": 0,
+      "own_hits": [
+        [
+          "REACTOR_BOUNDARY_sliding_leaf",
+          [
+            0.021425247192382812,
+            0.00299835205078125,
+            0.019052505493164062
+          ]
+        ]
+      ],
+      "outside_hits": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_pressed_border.001",
+      "parent": "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+      "own_leaf_contact_vertices": 16,
+      "own_hits": [],
+      "outside_hits": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_pressed_fastener.004",
+      "parent": "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+      "own_leaf_contact_vertices": 0,
+      "own_hits": [
+        [
+          "REACTOR_BOUNDARY_sliding_leaf.001",
+          [
+            0.021425247192382812,
+            0.00299835205078125,
+            0.019052505493164062
+          ]
+        ]
+      ],
+      "outside_hits": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_pressed_fastener.005",
+      "parent": "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+      "own_leaf_contact_vertices": 0,
+      "own_hits": [
+        [
+          "REACTOR_BOUNDARY_sliding_leaf.001",
+          [
+            0.021425247192382812,
+            0.00299835205078125,
+            0.019052505493164062
+          ]
+        ]
+      ],
+      "outside_hits": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_pressed_fastener.006",
+      "parent": "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+      "own_leaf_contact_vertices": 0,
+      "own_hits": [
+        [
+          "REACTOR_BOUNDARY_sliding_leaf.001",
+          [
+            0.021427154541015625,
+            0.00299835205078125,
+            0.019052505493164062
+          ]
+        ]
+      ],
+      "outside_hits": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_pressed_fastener.007",
+      "parent": "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+      "own_leaf_contact_vertices": 0,
+      "own_hits": [
+        [
+          "REACTOR_BOUNDARY_sliding_leaf.001",
+          [
+            0.021427154541015625,
+            0.00299835205078125,
+            0.019052505493164062
+          ]
+        ]
+      ],
+      "outside_hits": []
+    }
+  ],
+  "connections": [
+    {
+      "a": "Clean_blade_panel",
+      "b": "Clean_blade_drop",
+      "distance": 2.384185791015625e-07
+    },
+    {
+      "a": "Clean_blade_panel",
+      "b": "Clean_blade_drop.001",
+      "distance": 2.384185791015625e-07
+    },
+    {
+      "a": "Plant_blade_panel",
+      "b": "Plant_blade_drop",
+      "distance": 0.0
+    },
+    {
+      "a": "Plant_blade_panel",
+      "b": "Plant_blade_drop.001",
+      "distance": 0.0
+    },
+    {
+      "a": "Bypass_isolation_termination_spacer.001",
+      "b": "Bypass_isolation_termination.001",
+      "distance": 1.1920928955078125e-07
+    }
+  ]
+}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

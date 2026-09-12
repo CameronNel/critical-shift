@@ -1,0 +1,112 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "exact_floor_contact",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true,
+      "anchor_issues": []
+    },
+    {
+      "name": "4mm_gap_within_limit",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true,
+      "anchor_issues": []
+    },
+    {
+      "name": "20mm_floating_prop",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "anchor_issues": [
+        "Support gap exceeds 5 mm maximum"
+      ]
+    },
+    {
+      "name": "1mm_penetration_within_limit",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true,
+      "anchor_issues": []
+    },
+    {
+      "name": "5mm_penetration_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "anchor_issues": [
+        "Support penetration exceeds 2 mm maximum"
+      ]
+    },
+    {
+      "name": "fabricated_anchor_on_floor_away_from_prop",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "anchor_issues": [
+        "Declared anchor does not touch own assembly geometry within 5 mm"
+      ]
+    },
+    {
+      "name": "fabricated_floor_anchor_under_floating_prop",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "anchor_issues": [
+        "Declared anchor does not touch own assembly geometry within 5 mm"
+      ]
+    },
+    {
+      "name": "unregistered_target_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "name": "unsupported_assembly_member_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "name": "clear_route_passes",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true
+    },
+    {
+      "name": "10mm_transverse_barrier_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "blocked_rays": 660
+    },
+    {
+      "name": "generic_cap_flag_cannot_exclude_barrier",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "name": "exact_duplicate_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "name": "clear_camera_passes",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true
+    },
+    {
+      "name": "6mm_camera_obstruction_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    }
+  ],
+  "scope": "Disposable factory-startup CPU validation controls; no production file loaded or saved."
+}

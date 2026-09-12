@@ -1,0 +1,1834 @@
+{
+  "utc": "2026-09-10T22:13:43.651497+00:00",
+  "blend_sha256": "b0e595264118404479147f72646a1f26038729d9b9fdc617911c2496c2b71909",
+  "scope": "Evaluated architecture shell mesh bounds in cold CPU process. Separate interface mating transforms only. No neighbor geometry or collision test. Nominal footprint means clear-width strip for the owned sill/stub length; it is not a full neighbor building envelope.",
+  "seams": [
+    {
+      "id": "F01_REFINERY",
+      "nominal_clear_width_height": [
+        2.6,
+        3.0
+      ],
+      "neighbor_owned_length": 1.1,
+      "architecture_near_seam": [
+        {
+          "object": "Floor_inlet",
+          "type": "MESH",
+          "materials": [
+            "floor"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              -1.3,
+              0.0,
+              -0.24
+            ],
+            [
+              1.3,
+              1.2,
+              0.0
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.3,
+              -1.2,
+              -0.24
+            ],
+            [
+              1.3,
+              0.0,
+              0.0
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.6066637,
+              -5.3842831,
+              -0.24
+            ],
+            [
+              9.8066635,
+              -2.7842834,
+              0.0
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_inlet",
+          "type": "MESH",
+          "materials": [
+            "darksteel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              -1.3099999,
+              -0.01,
+              3.9180002
+            ],
+            [
+              1.3099999,
+              1.21,
+              4.118
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.3099999,
+              -1.21,
+              3.9180002
+            ],
+            [
+              1.3099999,
+              0.01,
+              4.118
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.5966635,
+              -5.3942833,
+              3.9180002
+            ],
+            [
+              9.8166637,
+              -2.7742834,
+              4.118
+            ]
+          ],
+          "beyond_seam_m": 0.01,
+          "positive_overlap_with_nominal_neighbor_plan": true,
+          "positive_overlap_with_nominal_opening_height": false,
+          "overlap_ud_z": [
+            [
+              -1.3,
+              0,
+              3.9180002
+            ],
+            [
+              1.3,
+              0.01,
+              4.118
+            ]
+          ]
+        },
+        {
+          "object": "Ceiling_crossmember",
+          "type": "MESH",
+          "materials": [
+            "structural_coat"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              -1.1999999,
+              0.0,
+              3.6800001
+            ],
+            [
+              -1.08,
+              1.2,
+              3.8999999
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.1999999,
+              -1.2,
+              3.6800001
+            ],
+            [
+              -1.08,
+              0.0,
+              3.8999999
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.6066637,
+              -3.0042834,
+              3.6800001
+            ],
+            [
+              9.8066635,
+              -2.8842835,
+              3.8999999
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_crossmember.001",
+          "type": "MESH",
+          "materials": [
+            "structural_coat"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              0.8,
+              0.0,
+              3.6800001
+            ],
+            [
+              0.92,
+              1.2,
+              3.8999999
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              0.8,
+              -1.2,
+              3.6800001
+            ],
+            [
+              0.92,
+              0.0,
+              3.8999999
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.6066637,
+              -5.0042834,
+              3.6800001
+            ],
+            [
+              9.8066635,
+              -4.8842835,
+              3.8999999
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Recessed_ceiling_panel",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              -1.2909999,
+              0.009,
+              3.8999999
+            ],
+            [
+              -0.009,
+              1.191,
+              3.9300001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.2909999,
+              -1.191,
+              3.8999999
+            ],
+            [
+              -0.009,
+              -0.009,
+              3.9300001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.6156635,
+              -4.0752835,
+              3.8999999
+            ],
+            [
+              9.7976637,
+              -2.7932835,
+              3.9300001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              -1.2477913,
+              0.0530718,
+              3.8940001
+            ],
+            [
+              -1.2322087,
+              0.0669282,
+              3.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.2477913,
+              -0.0669282,
+              3.8940001
+            ],
+            [
+              -1.2322087,
+              -0.0530718,
+              3.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.6597357,
+              -2.8520746,
+              3.8940001
+            ],
+            [
+              8.6735916,
+              -2.8364921,
+              3.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing.002",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              -0.0677913,
+              0.0530718,
+              3.8940001
+            ],
+            [
+              -0.0522087,
+              0.0669282,
+              3.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -0.0677913,
+              -0.0669282,
+              3.8940001
+            ],
+            [
+              -0.0522087,
+              -0.0530718,
+              3.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.6597357,
+              -4.0320745,
+              3.8940001
+            ],
+            [
+              8.6735916,
+              -4.0164919,
+              3.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Recessed_ceiling_panel.001",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              0.009,
+              0.009,
+              3.8999999
+            ],
+            [
+              1.2909999,
+              1.191,
+              3.9300001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              0.009,
+              -1.191,
+              3.8999999
+            ],
+            [
+              1.2909999,
+              -0.009,
+              3.9300001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.6156635,
+              -5.3752832,
+              3.8999999
+            ],
+            [
+              9.7976637,
+              -4.0932832,
+              3.9300001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing.004",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              0.0522087,
+              0.0530718,
+              3.8940001
+            ],
+            [
+              0.0677913,
+              0.0669282,
+              3.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              0.0522087,
+              -0.0669282,
+              3.8940001
+            ],
+            [
+              0.0677913,
+              -0.0530718,
+              3.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.6597357,
+              -4.1520748,
+              3.8940001
+            ],
+            [
+              8.6735916,
+              -4.1364923,
+              3.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing.006",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              1.2322087,
+              0.0530718,
+              3.8940001
+            ],
+            [
+              1.2477913,
+              0.0669282,
+              3.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              1.2322087,
+              -0.0669282,
+              3.8940001
+            ],
+            [
+              1.2477913,
+              -0.0530718,
+              3.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.6597357,
+              -5.3320746,
+              3.8940001
+            ],
+            [
+              8.6735916,
+              -5.3164921,
+              3.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Port_upper_masonry.001",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              -1.3,
+              -0.15,
+              3.0
+            ],
+            [
+              1.3,
+              0.15,
+              3.9000001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.3,
+              -0.15,
+              3.0
+            ],
+            [
+              1.3,
+              0.15,
+              3.9000001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.4566641,
+              -5.3842831,
+              3.0
+            ],
+            [
+              8.7566633,
+              -2.7842834,
+              3.9000001
+            ]
+          ],
+          "beyond_seam_m": 0.15,
+          "positive_overlap_with_nominal_neighbor_plan": true,
+          "positive_overlap_with_nominal_opening_height": false,
+          "overlap_ud_z": [
+            [
+              -1.3,
+              0,
+              3.0
+            ],
+            [
+              1.3,
+              0.15,
+              3.9000001
+            ]
+          ]
+        },
+        {
+          "object": "Wall_W-1.3_0_0_concrete",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              -1.64,
+              -0.0,
+              0.0
+            ],
+            [
+              -1.34,
+              1.2,
+              3.9000001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.64,
+              -1.2,
+              0.0
+            ],
+            [
+              -1.34,
+              0.0,
+              3.9000001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.6066637,
+              -2.7442832,
+              0.0
+            ],
+            [
+              9.8066635,
+              -2.4442835,
+              3.9000001
+            ]
+          ],
+          "beyond_seam_m": 0.0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Wall_E1.3_0_0_concrete",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              1.34,
+              -0.0,
+              0.0
+            ],
+            [
+              1.64,
+              1.2,
+              3.9000001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              1.34,
+              -1.2,
+              0.0
+            ],
+            [
+              1.64,
+              0.0,
+              3.9000001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.6066637,
+              -5.7242832,
+              0.0
+            ],
+            [
+              9.8066635,
+              -5.4242835,
+              3.9000001
+            ]
+          ],
+          "beyond_seam_m": 0.0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        }
+      ],
+      "masonry_beyond_seam_in_nominal_plan_footprint": [
+        {
+          "object": "Port_upper_masonry.001",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              -1.3,
+              -0.15,
+              3.0
+            ],
+            [
+              1.3,
+              0.15,
+              3.9000001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.3,
+              -0.15,
+              3.0
+            ],
+            [
+              1.3,
+              0.15,
+              3.9000001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.4566641,
+              -5.3842831,
+              3.0
+            ],
+            [
+              8.7566633,
+              -2.7842834,
+              3.9000001
+            ]
+          ],
+          "beyond_seam_m": 0.15,
+          "positive_overlap_with_nominal_neighbor_plan": true,
+          "positive_overlap_with_nominal_opening_height": false,
+          "overlap_ud_z": [
+            [
+              -1.3,
+              0,
+              3.0
+            ],
+            [
+              1.3,
+              0.15,
+              3.9000001
+            ]
+          ]
+        }
+      ],
+      "other_shell_beyond_seam_in_nominal_plan_footprint": [
+        {
+          "object": "Ceiling_inlet",
+          "type": "MESH",
+          "materials": [
+            "darksteel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              -1.3099999,
+              -0.01,
+              3.9180002
+            ],
+            [
+              1.3099999,
+              1.21,
+              4.118
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.3099999,
+              -1.21,
+              3.9180002
+            ],
+            [
+              1.3099999,
+              0.01,
+              4.118
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              8.5966635,
+              -5.3942833,
+              3.9180002
+            ],
+            [
+              9.8166637,
+              -2.7742834,
+              4.118
+            ]
+          ],
+          "beyond_seam_m": 0.01,
+          "positive_overlap_with_nominal_neighbor_plan": true,
+          "positive_overlap_with_nominal_opening_height": false,
+          "overlap_ud_z": [
+            [
+              -1.3,
+              0,
+              3.9180002
+            ],
+            [
+              1.3,
+              0.01,
+              4.118
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F02_REACTOR",
+      "nominal_clear_width_height": [
+        5.0,
+        5.0
+      ],
+      "neighbor_owned_length": 3.7,
+      "architecture_near_seam": [
+        {
+          "object": "Floor_reactor_adapter",
+          "type": "MESH",
+          "materials": [
+            "floor"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              11.6999998,
+              21.0,
+              -0.24
+            ],
+            [
+              16.7000008,
+              24.0,
+              0.0
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -2.500001,
+              -3.0,
+              -0.24
+            ],
+            [
+              2.5,
+              0.0,
+              0.0
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -2.500001,
+              14.5,
+              -0.24
+            ],
+            [
+              2.5,
+              17.5,
+              0.0
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_reactor_adapter",
+          "type": "MESH",
+          "materials": [
+            "darksteel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              11.6899996,
+              20.9899998,
+              5.9180002
+            ],
+            [
+              16.7099991,
+              24.0100002,
+              6.118
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -2.5099993,
+              -3.0100002,
+              5.9180002
+            ],
+            [
+              2.5100002,
+              0.0100002,
+              6.118
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -2.5099993,
+              14.4899998,
+              5.9180002
+            ],
+            [
+              2.5100002,
+              17.5100002,
+              6.118
+            ]
+          ],
+          "beyond_seam_m": 0.0100002,
+          "positive_overlap_with_nominal_neighbor_plan": true,
+          "positive_overlap_with_nominal_opening_height": false,
+          "overlap_ud_z": [
+            [
+              -2.5,
+              0,
+              5.9180002
+            ],
+            [
+              2.5,
+              0.0100002,
+              6.118
+            ]
+          ]
+        },
+        {
+          "object": "Ceiling_crossmember.020",
+          "type": "MESH",
+          "materials": [
+            "structural_coat"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              11.7999992,
+              21.0,
+              5.6799998
+            ],
+            [
+              11.9200001,
+              24.0,
+              5.9000001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              2.2799997,
+              -3.0,
+              5.6799998
+            ],
+            [
+              2.4000006,
+              0.0,
+              5.9000001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              2.2799997,
+              14.5,
+              5.6799998
+            ],
+            [
+              2.4000006,
+              17.5,
+              5.9000001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_crossmember.021",
+          "type": "MESH",
+          "materials": [
+            "structural_coat"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              13.7999992,
+              21.0,
+              5.6799998
+            ],
+            [
+              13.9200001,
+              24.0,
+              5.9000001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              0.2799997,
+              -3.0,
+              5.6799998
+            ],
+            [
+              0.4000006,
+              0.0,
+              5.9000001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              0.2799997,
+              14.5,
+              5.6799998
+            ],
+            [
+              0.4000006,
+              17.5,
+              5.9000001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_crossmember.022",
+          "type": "MESH",
+          "materials": [
+            "structural_coat"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              15.7999992,
+              21.0,
+              5.6799998
+            ],
+            [
+              15.9200001,
+              24.0,
+              5.9000001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.7200003,
+              -3.0,
+              5.6799998
+            ],
+            [
+              -1.5999994,
+              0.0,
+              5.9000001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -1.7200003,
+              14.5,
+              5.6799998
+            ],
+            [
+              -1.5999994,
+              17.5,
+              5.9000001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Recessed_ceiling_panel.078",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              11.7089996,
+              22.5090008,
+              5.9000001
+            ],
+            [
+              12.941,
+              23.9909992,
+              5.9299998
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              1.2589998,
+              -1.4909992,
+              5.9000001
+            ],
+            [
+              2.4910002,
+              -0.0090008,
+              5.9299998
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              1.2589998,
+              14.5090008,
+              5.9000001
+            ],
+            [
+              2.4910002,
+              15.9909992,
+              5.9299998
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing.313",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              11.7522087,
+              23.933073,
+              5.8940001
+            ],
+            [
+              11.7677917,
+              23.946928,
+              5.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              2.4322081,
+              -0.066927,
+              5.8940001
+            ],
+            [
+              2.4477911,
+              -0.053072,
+              5.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              2.4322081,
+              14.553072,
+              5.8940001
+            ],
+            [
+              2.4477911,
+              14.566927,
+              5.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing.315",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              12.8822088,
+              23.933073,
+              5.8940001
+            ],
+            [
+              12.8977919,
+              23.946928,
+              5.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              1.3022079,
+              -0.066927,
+              5.8940001
+            ],
+            [
+              1.317791,
+              -0.053072,
+              5.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              1.3022079,
+              14.553072,
+              5.8940001
+            ],
+            [
+              1.317791,
+              14.566927,
+              5.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Recessed_ceiling_panel.080",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              12.9589996,
+              22.5090008,
+              5.9000001
+            ],
+            [
+              14.191,
+              23.9909992,
+              5.9299998
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              0.0089998,
+              -1.4909992,
+              5.9000001
+            ],
+            [
+              1.2410002,
+              -0.0090008,
+              5.9299998
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              0.0089998,
+              14.5090008,
+              5.9000001
+            ],
+            [
+              1.2410002,
+              15.9909992,
+              5.9299998
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing.321",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              13.0022087,
+              23.933073,
+              5.8940001
+            ],
+            [
+              13.0177917,
+              23.946928,
+              5.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              1.1822081,
+              -0.066927,
+              5.8940001
+            ],
+            [
+              1.1977911,
+              -0.053072,
+              5.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              1.1822081,
+              14.553072,
+              5.8940001
+            ],
+            [
+              1.1977911,
+              14.566927,
+              5.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing.323",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              14.1322088,
+              23.933073,
+              5.8940001
+            ],
+            [
+              14.1477919,
+              23.946928,
+              5.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              0.0522079,
+              -0.066927,
+              5.8940001
+            ],
+            [
+              0.067791,
+              -0.053072,
+              5.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              0.0522079,
+              14.553072,
+              5.8940001
+            ],
+            [
+              0.067791,
+              14.566927,
+              5.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Recessed_ceiling_panel.082",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              14.2089996,
+              22.5090008,
+              5.9000001
+            ],
+            [
+              15.441,
+              23.9909992,
+              5.9299998
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.2410002,
+              -1.4909992,
+              5.9000001
+            ],
+            [
+              -0.0089998,
+              -0.0090008,
+              5.9299998
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -1.2410002,
+              14.5090008,
+              5.9000001
+            ],
+            [
+              -0.0089998,
+              15.9909992,
+              5.9299998
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing.329",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              14.2522087,
+              23.933073,
+              5.8940001
+            ],
+            [
+              14.2677917,
+              23.946928,
+              5.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -0.0677919,
+              -0.066927,
+              5.8940001
+            ],
+            [
+              -0.0522089,
+              -0.053072,
+              5.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -0.0677919,
+              14.553072,
+              5.8940001
+            ],
+            [
+              -0.0522089,
+              14.566927,
+              5.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing.331",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              15.3822088,
+              23.933073,
+              5.8940001
+            ],
+            [
+              15.3977919,
+              23.946928,
+              5.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.1977921,
+              -0.066927,
+              5.8940001
+            ],
+            [
+              -1.182209,
+              -0.053072,
+              5.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -1.1977921,
+              14.553072,
+              5.8940001
+            ],
+            [
+              -1.182209,
+              14.566927,
+              5.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Recessed_ceiling_panel.084",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              15.4590006,
+              22.5090008,
+              5.9000001
+            ],
+            [
+              16.691,
+              23.9909992,
+              5.9299998
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -2.4910002,
+              -1.4909992,
+              5.9000001
+            ],
+            [
+              -1.2590008,
+              -0.0090008,
+              5.9299998
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -2.4910002,
+              14.5090008,
+              5.9000001
+            ],
+            [
+              -1.2590008,
+              15.9909992,
+              5.9299998
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing.337",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              15.5022087,
+              23.933073,
+              5.8940001
+            ],
+            [
+              15.5177917,
+              23.946928,
+              5.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -1.3177919,
+              -0.066927,
+              5.8940001
+            ],
+            [
+              -1.3022089,
+              -0.053072,
+              5.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -1.3177919,
+              14.553072,
+              5.8940001
+            ],
+            [
+              -1.3022089,
+              14.566927,
+              5.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Ceiling_panel_fixing.339",
+          "type": "MESH",
+          "materials": [
+            "steel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              16.6322079,
+              23.933073,
+              5.8940001
+            ],
+            [
+              16.6477909,
+              23.946928,
+              5.9060001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -2.4477911,
+              -0.066927,
+              5.8940001
+            ],
+            [
+              -2.4322081,
+              -0.053072,
+              5.9060001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -2.4477911,
+              14.553072,
+              5.8940001
+            ],
+            [
+              -2.4322081,
+              14.566927,
+              5.9060001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Port_upper_masonry.003",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              11.6999998,
+              23.8500004,
+              5.0
+            ],
+            [
+              16.7000008,
+              24.1499996,
+              5.8999996
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -2.500001,
+              -0.1499996,
+              5.0
+            ],
+            [
+              2.5,
+              0.1499996,
+              5.8999996
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -2.500001,
+              14.3500004,
+              5.0
+            ],
+            [
+              2.5,
+              14.6499996,
+              5.8999996
+            ]
+          ],
+          "beyond_seam_m": 0.1499996,
+          "positive_overlap_with_nominal_neighbor_plan": true,
+          "positive_overlap_with_nominal_opening_height": false,
+          "overlap_ud_z": [
+            [
+              -2.5,
+              0,
+              5.0
+            ],
+            [
+              2.5,
+              0.1499996,
+              5.8999996
+            ]
+          ]
+        },
+        {
+          "object": "Wall_W11.7_0_21_concrete",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              11.3600006,
+              21.0,
+              0.0
+            ],
+            [
+              11.6599998,
+              24.0,
+              5.9000001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              2.54,
+              -3.0,
+              0.0
+            ],
+            [
+              2.8399992,
+              0.0,
+              5.9000001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              2.54,
+              14.5,
+              0.0
+            ],
+            [
+              2.8399992,
+              17.5,
+              5.9000001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        },
+        {
+          "object": "Wall_E16.7_0_21_concrete",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              16.7400017,
+              21.0,
+              0.0
+            ],
+            [
+              17.0400009,
+              24.0,
+              5.9000001
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -2.8400011,
+              -3.0,
+              0.0
+            ],
+            [
+              -2.5400019,
+              0.0,
+              5.9000001
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -2.8400011,
+              14.5,
+              0.0
+            ],
+            [
+              -2.5400019,
+              17.5,
+              5.9000001
+            ]
+          ],
+          "beyond_seam_m": 0,
+          "positive_overlap_with_nominal_neighbor_plan": false,
+          "positive_overlap_with_nominal_opening_height": false
+        }
+      ],
+      "masonry_beyond_seam_in_nominal_plan_footprint": [
+        {
+          "object": "Port_upper_masonry.003",
+          "type": "MESH",
+          "materials": [
+            "mineral"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              11.6999998,
+              23.8500004,
+              5.0
+            ],
+            [
+              16.7000008,
+              24.1499996,
+              5.8999996
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -2.500001,
+              -0.1499996,
+              5.0
+            ],
+            [
+              2.5,
+              0.1499996,
+              5.8999996
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -2.500001,
+              14.3500004,
+              5.0
+            ],
+            [
+              2.5,
+              14.6499996,
+              5.8999996
+            ]
+          ],
+          "beyond_seam_m": 0.1499996,
+          "positive_overlap_with_nominal_neighbor_plan": true,
+          "positive_overlap_with_nominal_opening_height": false,
+          "overlap_ud_z": [
+            [
+              -2.5,
+              0,
+              5.0
+            ],
+            [
+              2.5,
+              0.1499996,
+              5.8999996
+            ]
+          ]
+        }
+      ],
+      "other_shell_beyond_seam_in_nominal_plan_footprint": [
+        {
+          "object": "Ceiling_reactor_adapter",
+          "type": "MESH",
+          "materials": [
+            "darksteel"
+          ],
+          "bounds_corridor_xyz": [
+            [
+              11.6899996,
+              20.9899998,
+              5.9180002
+            ],
+            [
+              16.7099991,
+              24.0100002,
+              6.118
+            ]
+          ],
+          "bounds_u_outward_z": [
+            [
+              -2.5099993,
+              -3.0100002,
+              5.9180002
+            ],
+            [
+              2.5100002,
+              0.0100002,
+              6.118
+            ]
+          ],
+          "bounds_neighbor_xyz": [
+            [
+              -2.5099993,
+              14.4899998,
+              5.9180002
+            ],
+            [
+              2.5100002,
+              17.5100002,
+              6.118
+            ]
+          ],
+          "beyond_seam_m": 0.0100002,
+          "positive_overlap_with_nominal_neighbor_plan": true,
+          "positive_overlap_with_nominal_opening_height": false,
+          "overlap_ud_z": [
+            [
+              -2.5,
+              0,
+              5.9180002
+            ],
+            [
+              2.5,
+              0.0100002,
+              6.118
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "saved": false
+}

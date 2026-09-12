@@ -1,0 +1,285 @@
+{
+  "base": "live-before.blend",
+  "corrected": "corrected.blend",
+  "geometry_compared": 809,
+  "changed_original_floor_or_door_meshes": [],
+  "missing_original_floor_or_door_meshes": [],
+  "doors": [
+    {
+      "name": "FREIGHT_GATE",
+      "port": "INTERNAL_FREIGHT_GATE",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "PLANT_PORT",
+      "port": "S01_PLANT",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "CLEAN_PORT",
+      "port": "S02_CLEAN",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "WASTE_PORT",
+      "port": "S03_WASTE",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "REACTOR_BOUNDARY",
+      "port": "F02_REACTOR",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "REFINERY_BOUNDARY",
+      "port": "F01_REFINERY",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "sliding_leaves": [
+    "FREIGHT_GATE_LEFT_CARRIAGE",
+    "FREIGHT_GATE_RIGHT_CARRIAGE",
+    "PLANT_PORT_LEFT_CARRIAGE",
+    "PLANT_PORT_RIGHT_CARRIAGE",
+    "CLEAN_PORT_LEFT_CARRIAGE",
+    "CLEAN_PORT_RIGHT_CARRIAGE",
+    "WASTE_PORT_LEFT_CARRIAGE",
+    "WASTE_PORT_RIGHT_CARRIAGE",
+    "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+    "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+    "REFINERY_BOUNDARY_LEFT_CARRIAGE",
+    "REFINERY_BOUNDARY_RIGHT_CARRIAGE"
+  ],
+  "panels": [
+    {
+      "name": "East_reactor_route",
+      "code": "F02"
+    },
+    {
+      "name": "Bypass_clean_route",
+      "code": "S02"
+    },
+    {
+      "name": "Cross_service_identity",
+      "code": "F02"
+    },
+    {
+      "name": "Plant_branch_identity",
+      "code": "S01"
+    },
+    {
+      "name": "Delivery_reactor_identity",
+      "code": "F02"
+    },
+    {
+      "name": "Clean_leg_identity",
+      "code": "S02"
+    },
+    {
+      "name": "Waste_marker",
+      "code": "S03"
+    },
+    {
+      "name": "Entry_marker",
+      "code": "F01"
+    }
+  ],
+  "consistent_font_sizes_m": {
+    "number": [
+      0.4
+    ],
+    "title": [
+      0.245
+    ],
+    "subtitle": [
+      0.105
+    ]
+  },
+  "mounts": [
+    {
+      "name": "East_reactor_route_mount_foot",
+      "support": "Wall_E16.4_0_7_formed_infill_panel.002",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "East_reactor_route_mount_foot.001",
+      "support": "Wall_E16.4_0_7_formed_infill_panel.002",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "East_reactor_route_mount_foot.002",
+      "support": "Wall_E16.4_0_7_formed_infill_panel.002",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "East_reactor_route_mount_foot.003",
+      "support": "Wall_E16.4_0_7_formed_infill_panel.002",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "Bypass_clean_route_mount_foot",
+      "support": "Wall_N21_0_-1.5_formed_infill_panel.006",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "Bypass_clean_route_mount_foot.001",
+      "support": "Wall_N21_0_-1.5_formed_infill_panel.007",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "Bypass_clean_route_mount_foot.002",
+      "support": "Wall_N21_0_-1.5_vertical_web.003",
+      "front_to_support_m": 0.34399986267089844
+    },
+    {
+      "name": "Bypass_clean_route_mount_foot.003",
+      "support": "Wall_N21_0_-1.5_vertical_web.003",
+      "front_to_support_m": 0.34399986267089844
+    },
+    {
+      "name": "Cross_service_identity_mount_foot",
+      "support": "Wall_N12.2_1_6.78_formed_infill_panel.002",
+      "front_to_support_m": 0.5040000081062317
+    },
+    {
+      "name": "Cross_service_identity_mount_foot.001",
+      "support": "Wall_N12.2_1_6.78_formed_infill_panel.002",
+      "front_to_support_m": 0.5040000081062317
+    },
+    {
+      "name": "Cross_service_identity_mount_foot.002",
+      "support": "Wall_N12.2_1_6.78_formed_infill_panel",
+      "front_to_support_m": 0.5039997696876526
+    },
+    {
+      "name": "Cross_service_identity_mount_foot.003",
+      "support": "Wall_N12.2_1_6.78_formed_infill_panel",
+      "front_to_support_m": 0.5039998292922974
+    },
+    {
+      "name": "Plant_branch_identity_mount_foot",
+      "support": "Wall_N18.6_0_-5.4_concrete",
+      "front_to_support_m": 0.5039999485015869
+    },
+    {
+      "name": "Plant_branch_identity_mount_foot.001",
+      "support": "Wall_W-1.5_0_18.6_formed_infill_panel.003",
+      "front_to_support_m": 0.5039998888969421
+    },
+    {
+      "name": "Plant_branch_identity_mount_foot.002",
+      "support": "Wall_W-1.5_0_18.6_formed_infill_panel",
+      "front_to_support_m": 0.5039999485015869
+    },
+    {
+      "name": "Plant_branch_identity_mount_foot.003",
+      "support": "Service_corner_key_hood",
+      "front_to_support_m": 0.10399997234344482
+    },
+    {
+      "name": "Delivery_reactor_identity_mount_foot",
+      "support": "Wall_W12_0_13.2_formed_infill_panel.002",
+      "front_to_support_m": 0.5040000677108765
+    },
+    {
+      "name": "Delivery_reactor_identity_mount_foot.001",
+      "support": "Wall_W12_0_13.2_formed_infill_panel.002",
+      "front_to_support_m": 0.5040001273155212
+    },
+    {
+      "name": "Delivery_reactor_identity_mount_foot.002",
+      "support": "Wall_W12_0_13.2_formed_infill_panel",
+      "front_to_support_m": 0.5040003061294556
+    },
+    {
+      "name": "Delivery_reactor_identity_mount_foot.003",
+      "support": "Wall_W12_0_13.2_formed_infill_panel",
+      "front_to_support_m": 0.5040003061294556
+    },
+    {
+      "name": "Clean_leg_identity_mount_foot",
+      "support": "Wall_N21_0_7.72_formed_infill_panel.002",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "Clean_leg_identity_mount_foot.001",
+      "support": "Wall_N21_0_7.72_formed_infill_panel.003",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "Clean_leg_identity_mount_foot.002",
+      "support": "Wall_N21_0_7.72_formed_infill_panel",
+      "front_to_support_m": 0.5039997696876526
+    },
+    {
+      "name": "Clean_leg_identity_mount_foot.003",
+      "support": "Service_extract_blade.005",
+      "front_to_support_m": 0.3624904751777649
+    },
+    {
+      "name": "Waste_marker_mount_foot",
+      "support": "Wall_E16.4_0_17.32_formed_infill_panel",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "Waste_marker_mount_foot.001",
+      "support": "Wall_E16.4_0_17.32_formed_infill_panel",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "Waste_marker_mount_foot.002",
+      "support": "Wall_E16.4_0_17.32_formed_infill_panel",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "Waste_marker_mount_foot.003",
+      "support": "Wall_E16.4_0_17.32_formed_infill_panel",
+      "front_to_support_m": 0.5039997100830078
+    },
+    {
+      "name": "Entry_marker_mount_foot",
+      "support": "Wall_W-2.2_0_1.2_formed_infill_panel.010",
+      "front_to_support_m": 0.5039998888969421
+    },
+    {
+      "name": "Entry_marker_mount_foot.001",
+      "support": "Wall_W-2.2_0_1.2_formed_infill_panel.010",
+      "front_to_support_m": 0.5039999485015869
+    },
+    {
+      "name": "Entry_marker_mount_foot.002",
+      "support": "Wall_W-2.2_0_1.2_formed_infill_panel.008",
+      "front_to_support_m": 0.5039999485015869
+    },
+    {
+      "name": "Entry_marker_mount_foot.003",
+      "support": "Wall_W-2.2_0_1.2_formed_infill_panel.008",
+      "front_to_support_m": 0.5039999485015869
+    }
+  ],
+  "pass": true
+}

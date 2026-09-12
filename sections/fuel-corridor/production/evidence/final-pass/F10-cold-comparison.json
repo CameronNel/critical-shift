@@ -1,0 +1,123 @@
+{
+  "source": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\.worktrees\\fuel-corridor-final\\sections\\fuel-corridor\\production\\renders\\review\\final-F10",
+  "cold": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\.worktrees\\fuel-corridor-final\\sections\\fuel-corridor\\production\\renders\\review\\final-F10-cold",
+  "same_saved_blend_sha256": "a8e742a10cf5691098adabc0c2518384db3d82444517637bd67e362af4146403",
+  "views": 16,
+  "threshold": "max <=2/255 and mean <=0.02/255 per camera; no averaging between cameras",
+  "rows": [
+    {
+      "camera": "C01_ENTRY",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.4494598765432097e-05,
+      "changed_pixels": 226,
+      "pass": true
+    },
+    {
+      "camera": "C02_PRIMARY_ROUTE",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.533179012345679e-05,
+      "changed_pixels": 188,
+      "pass": true
+    },
+    {
+      "camera": "C03_HERO",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.991319444444445e-05,
+      "changed_pixels": 207,
+      "pass": true
+    },
+    {
+      "camera": "C04_REVERSE",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 0.00032961998456790124,
+      "changed_pixels": 1286,
+      "pass": true
+    },
+    {
+      "camera": "C05_EAST_TURN",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.6664737654320986e-05,
+      "changed_pixels": 235,
+      "pass": true
+    },
+    {
+      "camera": "C06_REACTOR_THRESHOLD",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 6.17283950617284e-05,
+      "changed_pixels": 256,
+      "pass": true
+    },
+    {
+      "camera": "C07_BYPASS",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.557291666666667e-05,
+      "changed_pixels": 189,
+      "pass": true
+    },
+    {
+      "camera": "C08_SERVICE_JUNCTION",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.677854938271605e-05,
+      "changed_pixels": 194,
+      "pass": true
+    },
+    {
+      "camera": "C09_MATERIALS",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.2565586419753085e-05,
+      "changed_pixels": 218,
+      "pass": true
+    },
+    {
+      "camera": "C10_PLANT_HEADER",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.750192901234568e-05,
+      "changed_pixels": 197,
+      "pass": true
+    },
+    {
+      "camera": "D01_CARRIER_OPERATION",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.280671296296296e-05,
+      "changed_pixels": 219,
+      "pass": true
+    },
+    {
+      "camera": "D02_WORKBENCH",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 6.727430555555556e-05,
+      "changed_pixels": 279,
+      "pass": true
+    },
+    {
+      "camera": "D03_UTILITY",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.835262345679012e-05,
+      "changed_pixels": 242,
+      "pass": true
+    },
+    {
+      "camera": "D04_REACTOR_WIDE",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.425347222222222e-05,
+      "changed_pixels": 225,
+      "pass": true
+    },
+    {
+      "camera": "D05_GATE_MECHANISM",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.943094135802469e-05,
+      "changed_pixels": 205,
+      "pass": true
+    },
+    {
+      "camera": "D06_SERVICE_RECESS",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.0027006172839503e-05,
+      "changed_pixels": 166,
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "limits": "Pixel reproducibility does not replace independent visual quality review or engine validation."
+}

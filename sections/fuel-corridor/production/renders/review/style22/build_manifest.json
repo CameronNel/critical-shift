@@ -1,0 +1,164 @@
+{
+  "revision": "style22",
+  "stage": "slice",
+  "source_sha256": "bc9206a70d1d6d4b9243b8e366eb4cb7199fdeaa1f3e5f400023aa90cf361e25",
+  "detail_source_sha256": "c15cc85e16e18f51ea2d45ae71cc7d1ae995370973e99252ab57c2c24505a1ad",
+  "interface_sha256": "1da71bf0d736d8f1f6de0b923e1a86675cf82adbe45b5fbc4e36f9bed6db5d66",
+  "blend_sha256": "1f50e64d042f5c3f3d1c40b497c239ac5ae28689c5543de13c66563bec947c3a",
+  "objects": 2889,
+  "cameras": [
+    [
+      "C01_ENTRY",
+      [
+        0.0,
+        1.4,
+        1.7
+      ],
+      [
+        0.25,
+        9.9,
+        1.65
+      ],
+      25,
+      "entry / freight readability"
+    ],
+    [
+      "C02_PRIMARY_ROUTE",
+      [
+        3.0,
+        9.0,
+        1.7
+      ],
+      [
+        13.0,
+        10.4,
+        1.7
+      ],
+      27,
+      "cross passage and gate"
+    ],
+    [
+      "C03_HERO",
+      [
+        -1.45,
+        6.0,
+        1.7
+      ],
+      [
+        1.1,
+        11.5,
+        1.8
+      ],
+      22,
+      "whole staging junction / workbench and freight gate; corrected cropped baseline"
+    ],
+    [
+      "C04_REVERSE",
+      [
+        1.0,
+        10.5,
+        1.7
+      ],
+      [
+        -0.15,
+        1.0,
+        1.6
+      ],
+      26,
+      "reverse approach"
+    ],
+    [
+      "C05_EAST_TURN",
+      [
+        11.15,
+        8.45,
+        1.7
+      ],
+      [
+        14.2,
+        17.0,
+        1.65
+      ],
+      25,
+      "freight ninety-degree turn"
+    ],
+    [
+      "C06_REACTOR_THRESHOLD",
+      [
+        13.5,
+        19.4,
+        1.7
+      ],
+      [
+        14.3,
+        24.0,
+        2.1
+      ],
+      26,
+      "outlet / transition"
+    ],
+    [
+      "C07_BYPASS",
+      [
+        0.45,
+        14.0,
+        1.7
+      ],
+      [
+        -0.2,
+        19.7,
+        1.65
+      ],
+      25,
+      "narrow service passage"
+    ],
+    [
+      "C08_SERVICE_JUNCTION",
+      [
+        1.7,
+        19.85,
+        1.7
+      ],
+      [
+        7.6,
+        20.0,
+        1.6
+      ],
+      25,
+      "clean services connection"
+    ],
+    [
+      "C09_MATERIALS",
+      [
+        3.7,
+        9.9,
+        1.6
+      ],
+      [
+        2.65,
+        12.32,
+        0.85
+      ],
+      42,
+      "trolley material and support detail; rebaseline after bypass clearance correction"
+    ],
+    [
+      "C10_PLANT_HEADER",
+      [
+        -0.7,
+        17.2,
+        1.7
+      ],
+      [
+        -5.4,
+        17.4,
+        1.45
+      ],
+      25,
+      "plant branch dead-end / concealed problem areas"
+    ]
+  ],
+  "blend": "C:\\Users\\Camer\\.codex\\worktrees\\3598\\critical-shift\\sections\\fuel-corridor\\blender\\Fuel_Corridor.blend",
+  "samples": 32,
+  "width": 1440
+}

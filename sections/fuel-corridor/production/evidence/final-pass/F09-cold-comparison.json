@@ -1,0 +1,123 @@
+{
+  "source": "sections\\fuel-corridor\\production\\renders\\review\\final-F09",
+  "cold": "sections\\fuel-corridor\\production\\renders\\review\\final-F09-cold",
+  "same_saved_blend_sha256": "50301920c205744213603577145f6afb34fcdaea6d3aabbe846ae69fd2049a42",
+  "views": 16,
+  "threshold": "max <=2/255 and mean <=0.02/255 per camera; no averaging between cameras",
+  "rows": [
+    {
+      "camera": "C01_ENTRY",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.497685185185185e-05,
+      "changed_pixels": 228,
+      "pass": true
+    },
+    {
+      "camera": "C02_PRIMARY_ROUTE",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.846643518518518e-05,
+      "changed_pixels": 201,
+      "pass": true
+    },
+    {
+      "camera": "C03_HERO",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.425347222222222e-05,
+      "changed_pixels": 225,
+      "pass": true
+    },
+    {
+      "camera": "C04_REVERSE",
+      "max_channel_difference_255": 4,
+      "mean_channel_difference_255": 0.0005145640432098766,
+      "changed_pixels": 1866,
+      "pass": false
+    },
+    {
+      "camera": "C05_EAST_TURN",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.2565586419753085e-05,
+      "changed_pixels": 218,
+      "pass": true
+    },
+    {
+      "camera": "C06_REACTOR_THRESHOLD",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.401234567901235e-05,
+      "changed_pixels": 224,
+      "pass": true
+    },
+    {
+      "camera": "C07_BYPASS",
+      "max_channel_difference_255": 31,
+      "mean_channel_difference_255": 0.0011304012345679012,
+      "changed_pixels": 2098,
+      "pass": false
+    },
+    {
+      "camera": "C08_SERVICE_JUNCTION",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.460841049382716e-05,
+      "changed_pixels": 185,
+      "pass": true
+    },
+    {
+      "camera": "C09_MATERIALS",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.690586419753086e-05,
+      "changed_pixels": 236,
+      "pass": true
+    },
+    {
+      "camera": "C10_PLANT_HEADER",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.870756172839506e-05,
+      "changed_pixels": 202,
+      "pass": true
+    },
+    {
+      "camera": "D01_CARRIER_OPERATION",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.570023148148148e-05,
+      "changed_pixels": 231,
+      "pass": true
+    },
+    {
+      "camera": "D02_WORKBENCH",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 6.221064814814815e-05,
+      "changed_pixels": 258,
+      "pass": true
+    },
+    {
+      "camera": "D03_UTILITY",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.714699074074074e-05,
+      "changed_pixels": 237,
+      "pass": true
+    },
+    {
+      "camera": "D04_REACTOR_WIDE",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 5.0395447530864195e-05,
+      "changed_pixels": 209,
+      "pass": true
+    },
+    {
+      "camera": "D05_GATE_MECHANISM",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 4.677854938271605e-05,
+      "changed_pixels": 194,
+      "pass": true
+    },
+    {
+      "camera": "D06_SERVICE_RECESS",
+      "max_channel_difference_255": 1,
+      "mean_channel_difference_255": 0.00012803819444444446,
+      "changed_pixels": 529,
+      "pass": true
+    }
+  ],
+  "pass": false,
+  "limits": "Pixel reproducibility does not replace independent visual quality review or engine validation."
+}

@@ -1,0 +1,184 @@
+{
+  "blend": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\.worktrees\\fuel-corridor-final\\sections\\fuel-corridor\\blender\\Fuel_Corridor.blend",
+  "blend_sha256_before": "a8e742a10cf5691098adabc0c2518384db3d82444517637bd67e362af4146403",
+  "revision": "final-F10",
+  "eye_height_m": 1.7,
+  "resolution": [
+    1200,
+    800
+  ],
+  "samples": 32,
+  "lens_mm": 22,
+  "renders": [
+    {
+      "view": "W01_REFINERY_APPROACH",
+      "position": [
+        0,
+        3.6,
+        1.7
+      ],
+      "target": [
+        0,
+        0,
+        1.7
+      ],
+      "sha256": "1d81cce7d2ffa4b660d474fcc99331b9af2f15617f9a98887452a00e254f806f"
+    },
+    {
+      "view": "W02_SERVICE_ENTRY",
+      "position": [
+        0,
+        9.5,
+        1.7
+      ],
+      "target": [
+        0,
+        16,
+        1.7
+      ],
+      "sha256": "3a51ca636da2b92f4dd50319f9dfec4b1487ff1f6985a2d0bda8d0995fe47100"
+    },
+    {
+      "view": "W03_PLANT_APPROACH",
+      "position": [
+        -1,
+        17.4,
+        1.7
+      ],
+      "target": [
+        -5.4,
+        17.4,
+        1.6
+      ],
+      "sha256": "08ea54b2503155fc2ee7f6011c40c66a3bb6b0b18ab188b93401fc55d1ebcae7"
+    },
+    {
+      "view": "W04_PLANT_RETURN",
+      "position": [
+        -4,
+        17.4,
+        1.7
+      ],
+      "target": [
+        0,
+        17.4,
+        1.6
+      ],
+      "sha256": "3c540e8affdf86e6a346074a4859f5742d3a3fe43c572765836d22345cee000e"
+    },
+    {
+      "view": "W05_CLEAN_APPROACH",
+      "position": [
+        6.6,
+        18.5,
+        1.7
+      ],
+      "target": [
+        6.6,
+        21,
+        1.7
+      ],
+      "sha256": "04ef689ac143e9758e015873c2ec889a7ccdd630ad2773fd0c1fa2982c361c83"
+    },
+    {
+      "view": "W06_WASTE_APPROACH",
+      "position": [
+        12.8,
+        16,
+        1.7
+      ],
+      "target": [
+        16.4,
+        16,
+        1.7
+      ],
+      "sha256": "16ab95117869a821bfc0f07ef78a35299d67d884d849662dcd316814bc65b93a"
+    },
+    {
+      "view": "W07_DELIVERY_RETURN",
+      "position": [
+        14.2,
+        20,
+        1.7
+      ],
+      "target": [
+        14.2,
+        13.4,
+        1.6
+      ],
+      "sha256": "e1bbfda94a7378a902badf5598aad0a2b6261d077efd64783cd37566708d5e82"
+    },
+    {
+      "view": "W08_EAST_TURN_RETURN",
+      "position": [
+        14.2,
+        10,
+        1.7
+      ],
+      "target": [
+        8.5,
+        10,
+        1.6
+      ],
+      "sha256": "0bae5a9233f4f2864606304995357fbd67add0be4729de2fbcdd8b7802f60089"
+    },
+    {
+      "view": "W09_BENCH_ACCESS",
+      "position": [
+        0,
+        10.6,
+        1.7
+      ],
+      "target": [
+        -2.2,
+        10.6,
+        1.3
+      ],
+      "sha256": "bffcf2a4afe82970a97de6dff1bf26c38d7b53981a7107320c3386647c6eeda5"
+    },
+    {
+      "view": "W10_GATE_APPROACH",
+      "position": [
+        3,
+        10,
+        1.7
+      ],
+      "target": [
+        6.35,
+        10,
+        1.85
+      ],
+      "sha256": "d5b9ac9600fd7121399ff5bdb66cc5286f411d47fe549e09d39b9e1ba03c8859"
+    },
+    {
+      "view": "W11_CARRIER_ACCESS",
+      "position": [
+        4,
+        12,
+        1.7
+      ],
+      "target": [
+        2.6,
+        12.3,
+        0.8
+      ],
+      "sha256": "e6eb60bbd50f73d23722e43f4f356b9e0731454c1da0879231eaca3a4662e4e3"
+    },
+    {
+      "view": "W12_CLEAN_TURN",
+      "position": [
+        1,
+        19.2,
+        1.7
+      ],
+      "target": [
+        6.6,
+        20,
+        1.6
+      ],
+      "sha256": "0c7387cec0b241ba52cb88fc9c3d4de90b4b3e97af06c500d32465ea6e8d2ae8"
+    }
+  ],
+  "scene_saved": false,
+  "scope": "Fixed player-eye approach observations, not continuous engine locomotion or runtime validation."
+}

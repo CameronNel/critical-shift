@@ -1,0 +1,122 @@
+00:02.235  blend            | Read blend: "C:\Users\Camer\.codex\worktrees\3598\critical-shift\sections\fuel-corridor\production\checkpoints\eng08\Fuel_Corridor.blend"
+EVALUATED 6795
+GROUP Freight_gate_drive MEMBERS 78 OUTSIDE [('Gate_drive_plate', 'FREIGHT_GATE_lintel_cheek'), ('Gate_drive_plate', 'FREIGHT_GATE_lintel_roof'), ('Gate_drive_plate', 'FREIGHT_GATE_upper_motor_cover'), ('Gate_drive_plate', 'FREIGHT_GATE_drive_access'), ('Gate_drive_plate', 'FREIGHT_GATE_drive_cover_bolt'), ('Gate_drive_plate', 'FREIGHT_GATE_drive_cover_bolt.002'), ('Gate_drive_plate', 'Transfer_gate_key_back'), ('Motor_vertical_mount', 'FREIGHT_GATE_upper_motor_cover'), ('Motor_cable_clamp_back', 'Gate_crown_infill')]
+GROUP Gate_motor_task_lamp MEMBERS 6 OUTSIDE [('Motor_task_back', 'Gate_crown_infill')]
+{
+  "dimensions": {
+    "core_members": [
+      "Gate_motor",
+      "Motor_end_bell",
+      "Motor_end_bell.001"
+    ],
+    "core_bounds_root_m": [
+      [
+        1.2599999904632568,
+        -0.4399999678134918,
+        3.869999885559082
+      ],
+      [
+        1.5600001811981201,
+        -0.2600001096725464,
+        4.050000190734863
+      ]
+    ],
+    "axial_body_length_m": 0.3000001907348633,
+    "endbells": [
+      {
+        "name": "Motor_end_bell",
+        "max_radial_diameter_m": 0.18000294526411229
+      },
+      {
+        "name": "Motor_end_bell.001",
+        "max_radial_diameter_m": 0.18000288616939797
+      }
+    ],
+    "fin_count": 16,
+    "fin_bounds_root_m": [
+      [
+        1.2929999828338623,
+        -0.45000019669532776,
+        3.8612587451934814
+      ],
+      [
+        1.5250003337860107,
+        -0.24999989569187164,
+        4.047452449798584
+      ]
+    ],
+    "fin_y_span_m": 0.20000030100345612,
+    "fin_z_span_m": 0.18619370460510254,
+    "fin_max_radial_diameter_m": 0.20002517261292035
+  },
+  "seam_hits": [],
+  "camera_near": [
+    [
+      "C01_ENTRY",
+      0
+    ],
+    [
+      "C02_PRIMARY_ROUTE",
+      0
+    ],
+    [
+      "C03_HERO",
+      0
+    ],
+    [
+      "C04_REVERSE",
+      0
+    ],
+    [
+      "C05_EAST_TURN",
+      0
+    ],
+    [
+      "C06_REACTOR_THRESHOLD",
+      0
+    ],
+    [
+      "C07_BYPASS",
+      0
+    ],
+    [
+      "C08_SERVICE_JUNCTION",
+      0
+    ],
+    [
+      "C09_MATERIALS",
+      0
+    ],
+    [
+      "C10_PLANT_HEADER",
+      0
+    ],
+    [
+      "D01_CARRIER_OPERATION",
+      0
+    ],
+    [
+      "D02_WORKBENCH",
+      0
+    ],
+    [
+      "D03_UTILITY",
+      0
+    ],
+    [
+      "D04_REACTOR_WIDE",
+      0
+    ],
+    [
+      "D05_GATE_MECHANISM",
+      0
+    ],
+    [
+      "D06_SERVICE_RECESS",
+      0
+    ]
+  ]
+}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

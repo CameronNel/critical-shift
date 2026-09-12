@@ -1,0 +1,182 @@
+{
+  "utc": "2026-09-10T23:09:43.343203+00:00",
+  "scope": "Read-only PNG decode/pixel statistics and frozen-source/manifest comparison. No Blender, geometry probe, render, image edit, or other-frame inspection.",
+  "image": {
+    "path": "C:\\Users\\Camer\\.codex\\worktrees\\3598\\critical-shift\\sections\\fuel-corridor\\production\\renders\\review\\full03\\D05_GATE_MECHANISM.png",
+    "sha256": "698ed4a4a9d20f74de803309812c86db5829b6687f86fc184d50608ac0bc5e26",
+    "bytes": 272996,
+    "format": "PNG",
+    "mode": "RGB",
+    "dimensions": [
+      1440,
+      960
+    ],
+    "pixels": 1382400,
+    "png_verify": "PASS",
+    "full_pixel_decode": "PASS",
+    "rgb_channel_min": [
+      0,
+      0,
+      0
+    ],
+    "rgb_channel_max": [
+      1,
+      1,
+      1
+    ],
+    "rgb_channel_mean": [
+      0.08209780092592593,
+      0.08209780092592593,
+      0.08209780092592593
+    ],
+    "all_channels_zero_fraction": 0.9179021990740741,
+    "all_channels_at_most_1_fraction": 1.0,
+    "all_channels_at_most_5_fraction": 1.0,
+    "encoded_luminance_definition": "0.2126 R + 0.7152 G + 0.0722 B on decoded 8-bit RGB values; encoded-space statistic, not scene-linear luminance",
+    "encoded_luminance_min": 0.0,
+    "encoded_luminance_max": 1.0,
+    "encoded_luminance_mean": 0.08209780092592593,
+    "encoded_luminance_std": 0.27451366452155523,
+    "encoded_luminance_percentiles": {
+      "0": 0.0,
+      "1": 0.0,
+      "50": 0.0,
+      "90": 0.0,
+      "99": 1.0,
+      "99.9": 1.0,
+      "100": 1.0
+    },
+    "encoded_luminance_at_most": {
+      "0": 0.9179021990740741,
+      "1": 1.0,
+      "2": 1.0,
+      "5": 1.0,
+      "10": 1.0
+    },
+    "nonzero_pixel_count": 113492,
+    "hash_unchanged_after_decode": true
+  },
+  "manifests": {
+    "full03_path": "C:\\Users\\Camer\\.codex\\worktrees\\3598\\critical-shift\\sections\\fuel-corridor\\production\\renders\\review\\full03\\build_manifest.json",
+    "full03_sha256": "b84f8ed8fc01a3c46706a3cb488c7e807aa981089a9c082e22e281ffbdd74fed",
+    "eng06_path": "C:\\Users\\Camer\\.codex\\worktrees\\3598\\critical-shift\\sections\\fuel-corridor\\production\\checkpoints\\eng06\\build_manifest.json",
+    "eng06_sha256": "7a536cb785c4ee989b378a5f0bf85c5e6b8e52881407fdbb214907b596df4b79"
+  },
+  "source_identities": {
+    "build.py": {
+      "full03_actual_sha256": "90d006135f88cda5b35fc47f45c8a4844c3003843dcd5344cb1032b7181e37cb",
+      "eng06_actual_sha256": "90d006135f88cda5b35fc47f45c8a4844c3003843dcd5344cb1032b7181e37cb",
+      "same_actual_file_hash": true,
+      "full03_manifest_matches_actual": true,
+      "eng06_manifest_matches_actual": true
+    },
+    "valorant_details.py": {
+      "full03_actual_sha256": "bbac0d7d33904474924d7f5d8843c182b7c81ad3f4f78b8adec62dda21356b59",
+      "eng06_actual_sha256": "bbac0d7d33904474924d7f5d8843c182b7c81ad3f4f78b8adec62dda21356b59",
+      "same_actual_file_hash": true,
+      "full03_manifest_matches_actual": true,
+      "eng06_manifest_matches_actual": true
+    },
+    "interface.json": {
+      "full03_actual_sha256": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e",
+      "eng06_actual_sha256": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e",
+      "same_actual_file_hash": true,
+      "full03_manifest_matches_actual": true,
+      "eng06_manifest_matches_actual": true
+    }
+  },
+  "camera_comparison": {
+    "cameras": {
+      "full03_count": 10,
+      "eng06_count": 10,
+      "exact_table_equal": true,
+      "added": [],
+      "removed": [],
+      "changed": {}
+    },
+    "diagnostic_cameras": {
+      "full03_count": 6,
+      "eng06_count": 6,
+      "exact_table_equal": true,
+      "added": [],
+      "removed": [],
+      "changed": {}
+    },
+    "D05_GATE_MECHANISM": [
+      "D05_GATE_MECHANISM",
+      [
+        5.25,
+        8.1,
+        4.05
+      ],
+      [
+        6.38,
+        8.75,
+        3.92
+      ],
+      35,
+      "supplement: exposed gate motor, bracket and transmission housing; enclosed rollers verified geometrically"
+    ]
+  },
+  "other_manifest_fields": {
+    "authored_handoff_sha256": {
+      "same": false,
+      "eng06": "15b6eaec79e6d20b21820016403fbde9dcd47ba8e3f9c7ac7dbf91404f70f661",
+      "full03": "11f623b5cc619bfe797de19d37e8573dcd35c59ddee64ac0db1ab66043f5317c"
+    },
+    "blend": {
+      "same": true,
+      "eng06": "C:\\Users\\Camer\\.codex\\worktrees\\3598\\critical-shift\\sections\\fuel-corridor\\blender\\Fuel_Corridor.blend",
+      "full03": "C:\\Users\\Camer\\.codex\\worktrees\\3598\\critical-shift\\sections\\fuel-corridor\\blender\\Fuel_Corridor.blend"
+    },
+    "blend_sha256": {
+      "same": false,
+      "eng06": "caf0c11a33347cbd1655c16f06c981b7fb1aad02eb343b3231508488ccf9bb20",
+      "full03": "1faf3c9fa16133081916bc1c9bc235e866e0507b9aa645e997aee340055d146a"
+    },
+    "material_sha256": {
+      "same": true,
+      "eng06": {
+        "floor": "095335ff28ecc34ed2540bfe4f61f8d4b018bf88df60e052b558935231cdbdac",
+        "wall": "21339d8db4ee59de01d555abebbb4c77515a19756e192b2f1dfb2e0666c5b817",
+        "cloth": "436086a28112711372d9b4f36a854dcea0565dfd47d63f7242553211c4dbd1e9"
+      },
+      "full03": {
+        "floor": "095335ff28ecc34ed2540bfe4f61f8d4b018bf88df60e052b558935231cdbdac",
+        "wall": "21339d8db4ee59de01d555abebbb4c77515a19756e192b2f1dfb2e0666c5b817",
+        "cloth": "436086a28112711372d9b4f36a854dcea0565dfd47d63f7242553211c4dbd1e9"
+      }
+    },
+    "objects": {
+      "same": true,
+      "eng06": 7679,
+      "full03": 7679
+    },
+    "revision": {
+      "same": false,
+      "eng06": "eng06",
+      "full03": "full03"
+    },
+    "samples": {
+      "same": true,
+      "eng06": 32,
+      "full03": 32
+    },
+    "stage": {
+      "same": true,
+      "eng06": "full",
+      "full03": "full"
+    },
+    "width": {
+      "same": true,
+      "eng06": 1440,
+      "full03": 1440
+    }
+  },
+  "limitations": [
+    "Raw decoded values establish image content, not why the render is dark.",
+    "No saved full03 Blender scene was opened or hashed; scene hashes below are manifest declarations.",
+    "Other frames are being rendered independently and were not inspected."
+  ],
+  "conclusion": "PNG fully decodes. Near-black content is present in the image pixels, rather than a viewer-only failure."
+}

@@ -1,0 +1,552 @@
+{
+  "schema": "critical-shift-section-interface/1",
+  "section": "fuel-corridor",
+  "revision": "P05",
+  "units": "metres",
+  "axes": "+X right, +Y inward from refinery seam, +Z up",
+  "origin": "Outer face of the refinery-owned east dispatch sill; no existing room relocation implied",
+  "floor_z": 0.0,
+  "status": "P05 local head enclosures and gate pocket corrections, 2026-09-10. External measured seams unchanged; full geometry verification pending. Separate local mappings only; no global assembly or runtime passage verified. Existing reactor fuel doors remain closed.",
+  "ports": [
+    {
+      "id": "F01_REFINERY",
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "outward": [
+        0,
+        -1,
+        0
+      ],
+      "clear_width": 2.6,
+      "clear_height": 3.0,
+      "role": "fuel freight",
+      "adjacent_source_local_face": [
+        8.606663706334526,
+        -4.084283176858165,
+        0
+      ],
+      "status": "source-derived outer sill; upstream bollards reduce width to 2.49 m; existing sampled clearance only 2.40 x 2.20 m; assembled fit unverified"
+    },
+    {
+      "id": "F02_REACTOR",
+      "center": [
+        14.2,
+        24,
+        0
+      ],
+      "outward": [
+        0,
+        1,
+        0
+      ],
+      "clear_width": 5.0,
+      "clear_height": 5.0,
+      "role": "fuel freight",
+      "adjacent_source_local_face": [
+        0,
+        14.5,
+        0
+      ],
+      "status": "source-derived reactor outer stub seam; existing doors occupy Y14.33..14.49 in reactor coordinates and block passage; owner/runtime opening and assembled fit unverified"
+    },
+    {
+      "id": "S01_PLANT",
+      "center": [
+        -5.4,
+        17.4,
+        0
+      ],
+      "outward": [
+        -1,
+        0,
+        0
+      ],
+      "clear_width": 2.0,
+      "clear_height": 2.5,
+      "role": "cooling / turbine / electrical service header",
+      "status": "reserved connector only; destination dimensions unverified"
+    },
+    {
+      "id": "S02_CLEAN",
+      "center": [
+        6.6,
+        21,
+        0
+      ],
+      "outward": [
+        0,
+        1,
+        0
+      ],
+      "clear_width": 2.0,
+      "clear_height": 2.5,
+      "role": "medical / reanimation / compliance clean header",
+      "status": "reserved connector only; destination dimensions unverified"
+    },
+    {
+      "id": "S03_WASTE",
+      "center": [
+        16.4,
+        16,
+        0
+      ],
+      "outward": [
+        1,
+        0,
+        0
+      ],
+      "clear_width": 2.4,
+      "clear_height": 3.0,
+      "role": "waste transfer branch",
+      "status": "reserved connector only; destination dimensions unverified"
+    }
+  ],
+  "floor_cells": [
+    {
+      "id": "inlet",
+      "bounds": [
+        -1.3,
+        1.3,
+        0,
+        1.2
+      ],
+      "height": 3.9
+    },
+    {
+      "id": "entry",
+      "bounds": [
+        -2.2,
+        2.2,
+        1.2,
+        7
+      ],
+      "height": 4.4
+    },
+    {
+      "id": "west_turn",
+      "bounds": [
+        -2.2,
+        4.4,
+        7,
+        13.2
+      ],
+      "height": 4.4
+    },
+    {
+      "id": "crossing",
+      "bounds": [
+        4.4,
+        10,
+        7.8,
+        12.2
+      ],
+      "height": 4.4
+    },
+    {
+      "id": "east_turn",
+      "bounds": [
+        10,
+        16.4,
+        7,
+        13.2
+      ],
+      "height": 4.4
+    },
+    {
+      "id": "delivery",
+      "bounds": [
+        12,
+        16.4,
+        13.2,
+        21
+      ],
+      "height": 4.4
+    },
+    {
+      "id": "reactor_adapter",
+      "bounds": [
+        11.7,
+        16.7,
+        21,
+        24
+      ],
+      "height": 5.9
+    },
+    {
+      "id": "bypass_west",
+      "bounds": [
+        -1.2,
+        1.2,
+        13.2,
+        18.6
+      ],
+      "height": 3.0
+    },
+    {
+      "id": "bypass_turn",
+      "bounds": [
+        -1.2,
+        1.2,
+        18.6,
+        21
+      ],
+      "height": 3.0
+    },
+    {
+      "id": "bypass_north",
+      "bounds": [
+        1.2,
+        12,
+        18.6,
+        21
+      ],
+      "height": 3.0
+    },
+    {
+      "id": "plant_header",
+      "bounds": [
+        -5.4,
+        -1.2,
+        16.2,
+        18.6
+      ],
+      "height": 3.0
+    },
+    {
+      "id": "service_air_recess",
+      "bounds": [
+        -1.65,
+        -1.2,
+        14.3,
+        15.7
+      ],
+      "height": 2.45
+    },
+    {
+      "id": "freight_gate_south_pocket",
+      "bounds": [
+        6.07,
+        6.78,
+        6.15,
+        7.8
+      ],
+      "height": 4.4
+    },
+    {
+      "id": "freight_gate_north_pocket",
+      "bounds": [
+        6.07,
+        6.78,
+        12.2,
+        13.85
+      ],
+      "height": 4.4
+    }
+  ],
+  "route_centerlines": {
+    "freight": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        14.2,
+        10
+      ],
+      [
+        14.2,
+        24
+      ]
+    ],
+    "service_bypass": [
+      [
+        0,
+        10
+      ],
+      [
+        0,
+        19.8
+      ],
+      [
+        14.2,
+        19.8
+      ]
+    ],
+    "plant_header": [
+      [
+        0,
+        17.4
+      ],
+      [
+        -5.4,
+        17.4
+      ]
+    ]
+  },
+  "adjacent_measurements": {
+    "evidence_scope": "Read-only source audit; no existing Blender file imported, no live scene opened. Source-derived dimensions are distinguished from stored measured checks in architecture/CONNECTION_CONTRACTS.md.",
+    "refinery": {
+      "source_root": "C:/Users/Camer/Games/critical-shift/worktrees/refinery-compact/sections/refinery",
+      "source": "blender/architecture.py with layout_expansion.py and config.py S=sqrt(1.15); current spacing050 validated save",
+      "threshold_center": [
+        7.506663706334526,
+        -4.084283176858165,
+        0
+      ],
+      "opening_midheight_center": [
+        7.506663706334526,
+        -4.084283176858165,
+        1.5
+      ],
+      "outward": [
+        1,
+        0,
+        0
+      ],
+      "nominal_opening": [
+        2.6,
+        3.0
+      ],
+      "bollard_clear_width": 2.49,
+      "bollard_height": 1.04,
+      "outer_seam": [
+        8.606663706334526,
+        -4.084283176858165,
+        0
+      ],
+      "owned_sill_length": 1.1,
+      "floor_z": 0,
+      "stored_clearance_evidence": {
+        "source": "production/cold_start_spacing050.json:3319-3325,3672-3674",
+        "sampled_width": 2.4,
+        "sampled_height": 2.2,
+        "rays": 104,
+        "obstructions": 0,
+        "limitation": "104 short .64m rays at Z.18..2.2, not full sill/floor/cart sweep; newer cobalt source not equivalently validated"
+      },
+      "saved_blend_sha256": "7d62a7e609f2abae566f6be364e8a284176e12a722739f780083cb3b91e02cd2"
+    },
+    "reactor": {
+      "source_root": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room",
+      "source": "blender/build_scene.py:755,897-937 plus current machinery/palette passes; see production/critics/astra-interface-recheck.md",
+      "source_sha256": "b4dd705e17c1544f63085dc010e98b96390b4aeadaf73d34d6656a37a6e9160b",
+      "stored_validation": "Active palette-amber-02 geometry-preservation signature 96a85d1f2cbf2dbc26a05f5a1bb9271697776895434006f4a9f91e22c440a135; old art08 validation historical; current fuel closure passage not certified",
+      "threshold_center": [
+        0,
+        10.8,
+        0
+      ],
+      "opening_midheight_center": [
+        0,
+        10.8,
+        2.5
+      ],
+      "outward": [
+        0,
+        1,
+        0
+      ],
+      "nominal_opening": [
+        5,
+        5
+      ],
+      "portal_bumper_clear_width": 4.98,
+      "headlight_underside_z": 4.85,
+      "outer_seam": [
+        0,
+        14.5,
+        0
+      ],
+      "owned_stub_length": 3.7,
+      "floor_z": 0,
+      "closed_door_slab_y": [
+        14.39,
+        14.49
+      ],
+      "visible_leaf_y": [
+        14.33,
+        14.39
+      ],
+      "passability": "BLOCKED in existing authored state; no automatic door animation/controller evidenced",
+      "saved_blend_sha256": "5c62f8f6fbe66322148aec53c9f272d40ca5c6ad13223961465c6bfc86714f52",
+      "closest_hall_door_dressing_y": 14.253
+    },
+    "separate_mating_transforms": {
+      "convention": "p_adjacent = R * p_connector + t; column vectors; these are separate local alignments, not an assembled facility transform",
+      "F01_connector_to_refinery": {
+        "rotation_z_degrees": -90,
+        "translation": [
+          8.606663706334526,
+          -4.084283176858165,
+          0
+        ],
+        "matrix4": [
+          [
+            0,
+            1,
+            0,
+            8.606663706334526
+          ],
+          [
+            -1,
+            0,
+            0,
+            -4.084283176858165
+          ],
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "F02_connector_to_reactor": {
+        "rotation_z_degrees": 180,
+        "translation": [
+          14.2,
+          38.5,
+          0
+        ],
+        "matrix4": [
+          [
+            -1,
+            0,
+            0,
+            14.2
+          ],
+          [
+            0,
+            -1,
+            0,
+            38.5
+          ],
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "assembly_status": "Existing room poses unchanged. No authoritative shared room poses, global collision proof, wall removal, or cross-section runtime path is provided."
+    },
+    "recheck_report": "production/critics/astra-interface-recheck.md"
+  },
+  "handling": {
+    "fuel_caddy_parked_envelope": [
+      1.6,
+      0.9,
+      1.3
+    ],
+    "envelope_axis_order": "length along travel, transverse width, maximum height; handle included",
+    "carrier_type": "Original single-cask transport carrier, current reactor-size payload; no imported geometry",
+    "cartridge_envelope": {
+      "length": 1.245,
+      "body_length": 1.18,
+      "body_diameter": 0.31,
+      "maximum_diameter": 0.34,
+      "saddle_spacing": 0.86,
+      "source": "reactor production/build_machinery_flow.py:35-43; wall passes A/F preserve sizes"
+    },
+    "existing_refinery_trolley": {
+      "deck_world_xy": [
+        0.8,
+        1.2
+      ],
+      "source": "refinery/blender/machines.py:215-220,319-337",
+      "fuel_unit_diameter": 0.184,
+      "fuel_unit_length": 0.48,
+      "current_source_caveat": "Latest cobalt source adds locks nominal opposing span .196m; current validated spacing050 base is .184m; process interchange remains unverified."
+    },
+    "transport_semantics": "Refinery produces small fuel units; reactor displays larger sealed cartridges. Packing, conversion, ownership and interchange between these payloads are unverified. New carrier clearance does not establish process equivalence.",
+    "design_stretcher_envelope": [
+      2.2,
+      0.75,
+      1.1
+    ],
+    "freight_lane_minimum": 2.6,
+    "bypass_nominal_width": 2.4,
+    "bypass_minimum_dressed_width": 2.0,
+    "cart_rotation_sweep_diameter": 2.376973,
+    "cart_turn_operating_diameter": 3.0,
+    "cart_sweep_scope": "Conservative legacy 2.2 x .9 rectangle diagonal retained for corridor planning; current 1.60 x .90 carrier is smaller. 3m operating circles are a design allowance, not steering or operator simulation.",
+    "carrier_route": "Freight centerline only. Bypass is personnel/service/stretcher provision; long-cask trolley turns there are unverified and not claimed passable.",
+    "threshold_max_upstand": 0.005,
+    "legacy_transport_allowance": {
+      "envelope": [
+        2.2,
+        0.9,
+        1.3
+      ],
+      "status": "Retained as conservative corridor route allowance only, not displayed current payload or current cart requirement"
+    },
+    "current_carrier_rotation_sweep_diameter": 1.835756,
+    "parked_pose": {
+      "center": [
+        2.65,
+        12.32,
+        0
+      ],
+      "long_axis": "+X",
+      "status": "Off freight and bypass centerlines; evaluated checks pending"
+    }
+  },
+  "travel": {
+    "freight_centerline_m": 38.2,
+    "assumed_loaded_speed_m_s": 1.5,
+    "derived_connector_only_seconds": 25.47,
+    "game_spec_refinery_to_reactor_target_seconds": [
+      15,
+      30
+    ],
+    "caveat": "Room-internal legs and actual player controller not timed; this is a connector-only planning estimate"
+  },
+  "implementation_decisions": {
+    "service_air_recess": "0.45m deep \u00d71.40m long service utility niche outside the 2.40m bypass, roof2.45m; added to keep hose/valve handles outside the dressed 2.00m circulation envelope. No external port changes.",
+    "port_head_enclosures": "F01 inlet ceiling3.90m and reactor adapter5.90m accommodate3/5m nominal openings plus0.55m head hardware and ceiling steelwork. Frames0.50m inside their unchanged external thresholds, supported by dedicated structural foundation shoes. PLANT/CLEAN service doors use manual heads beneath3.00m ceilings.",
+    "service_air_feed": "Recessed inlet lowered toZ2.14m; continuous ceiling-fed branch remains above2.20m across the bypass, dropping beside its west edge into the recess. Full route and service continuity checks pending."
+  },
+  "freight_gate_pockets": {
+    "purpose": "Enclosed architectural cassettes for paired sliding freight leaves; outside walkable freight envelope",
+    "south_bounds_xy": [
+      6.07,
+      6.78,
+      6.15,
+      7.8
+    ],
+    "north_bounds_xy": [
+      6.07,
+      6.78,
+      12.2,
+      13.85
+    ],
+    "nominal_each_m": [
+      0.71,
+      1.5,
+      4.4
+    ],
+    "external_port_changes": false,
+    "movement_state": "Authored open pose; engine controller and moving sweep verification pending",
+    "status": "P05 enlarged to1.65m pocket length for actual interior lining/steelwork; full evaluated leaf travel verification required."
+  }
+}

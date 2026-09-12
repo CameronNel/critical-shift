@@ -1,0 +1,102 @@
+{
+  "validator_sha256": "f18ced2168b84aa6588bae4d6e822218c508776fdbd5723dbce6ede3a1ffcdfa",
+  "interface_sha256": "df24e4b752e18b5140702bf1dbedb5a8e9bc921333e86fe09a00f10c46ee6a88",
+  "blender_version": "5.2.0 LTS",
+  "tests": [
+    {
+      "name": "full_route_clear_positive_control",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass_expected": true
+    },
+    {
+      "name": "render_hidden_internal_barrier_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass_expected": true,
+      "blocked_checks": [
+        "freight_sampled_straight_clearance"
+      ]
+    },
+    {
+      "name": "carrier_present_positive_control",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass_expected": true
+    },
+    {
+      "name": "core_three_parts_positive_control",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass_expected": true
+    },
+    {
+      "name": "matching_all_three_hashes_positive_control",
+      "expected": true,
+      "actual": true,
+      "pass_expected": true
+    },
+    {
+      "name": "missing_carrier_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass_expected": true,
+      "propagated_to_failed_gates": true
+    },
+    {
+      "name": "empty_carrier_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass_expected": true
+    },
+    {
+      "name": "all_core_missing_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass_expected": true,
+      "propagated_to_failed_gates": true
+    },
+    {
+      "name": "missing_body_with_two_closures_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass_expected": true
+    },
+    {
+      "name": "missing_one_closure_rejected",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass_expected": true
+    },
+    {
+      "name": "build_hash_mismatch_rejected",
+      "expected": false,
+      "actual": false,
+      "pass_expected": true,
+      "propagated_to_failed_gates": true
+    },
+    {
+      "name": "detail_hash_mismatch_rejected",
+      "expected": false,
+      "actual": false,
+      "pass_expected": true,
+      "propagated_to_failed_gates": true
+    },
+    {
+      "name": "interface_hash_mismatch_rejected",
+      "expected": false,
+      "actual": false,
+      "pass_expected": true,
+      "propagated_to_failed_gates": true
+    },
+    {
+      "name": "one_body_two_closure_roles_enforced",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass_expected": true,
+      "issue": "No body-role object exists; combined bounds unchanged with three closure-prefix objects"
+    }
+  ],
+  "all_expectations_met": true,
+  "scope": "Disposable factory scene only; no rendering, production scene load or save. main() tests assert specific gates; unrelated fixture gates intentionally fail."
+}

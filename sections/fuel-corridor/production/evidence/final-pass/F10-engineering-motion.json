@@ -1,0 +1,2459 @@
+{
+  "blend": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\.worktrees\\fuel-corridor-final\\sections\\fuel-corridor\\production\\checkpoints\\final-F10\\blender\\Fuel_Corridor.blend",
+  "blend_sha256": "a8e742a10cf5691098adabc0c2518384db3d82444517637bd67e362af4146403",
+  "revision": "final-F10",
+  "stage": "full",
+  "blender_version": "5.2.0 LTS",
+  "object_count": 7978,
+  "evaluated_selected_mesh_count": 2499,
+  "source_sha256": "3729f3d35460b7f148428f9693bab9b0f18bd7adce18d343f9d6ecd8e63a176b",
+  "detail_source_sha256": "b403db0ef389491c2996a784f2e4ae4b94abb25dd0885fe8157d9b7ad2c61f3d",
+  "interface_sha256": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e",
+  "gate_motion": {
+    "samples": 39,
+    "fraction_semantics": "0=CLOSED, 1=authored OPEN",
+    "maximum_translation_step_m": 0.048684210526315795,
+    "moving_members": {
+      "FREIGHT_GATE_LEFT_CARRIAGE": [
+        "FREIGHT_GATE_sliding_leaf",
+        "FREIGHT_GATE_leaf_stiffener",
+        "FREIGHT_GATE_leaf_stiffener.001",
+        "FREIGHT_GATE_leaf_stiffener.002",
+        "FREIGHT_GATE_folded_return",
+        "FREIGHT_GATE_folded_return.001",
+        "FREIGHT_GATE_kick_plate",
+        "FREIGHT_GATE_leaf_panel_seam",
+        "FREIGHT_GATE_leaf_gusset",
+        "FREIGHT_GATE_gusset_rivet",
+        "FREIGHT_GATE_leaf_gusset.001",
+        "FREIGHT_GATE_gusset_rivet.001",
+        "FREIGHT_GATE_leaf_panel_seam.001",
+        "FREIGHT_GATE_leaf_gusset.002",
+        "FREIGHT_GATE_gusset_rivet.002",
+        "FREIGHT_GATE_leaf_gusset.003",
+        "FREIGHT_GATE_gusset_rivet.003",
+        "FREIGHT_GATE_localized_kick_scuff",
+        "FREIGHT_GATE_localized_kick_scuff.001",
+        "FREIGHT_GATE_localized_kick_scuff.002",
+        "FREIGHT_GATE_localized_kick_scuff.003",
+        "FREIGHT_GATE_localized_kick_scuff.004",
+        "FREIGHT_GATE_localized_kick_scuff.005",
+        "FREIGHT_GATE_localized_kick_scuff.006",
+        "FREIGHT_GATE_leaf_carriage_hanger",
+        "FREIGHT_GATE_leaf_carriage_roller",
+        "FREIGHT_GATE_leaf_carriage_roller.001",
+        "FREIGHT_GATE_leaf_carriage_axle"
+      ],
+      "FREIGHT_GATE_RIGHT_CARRIAGE": [
+        "FREIGHT_GATE_sliding_leaf.001",
+        "FREIGHT_GATE_leaf_stiffener.003",
+        "FREIGHT_GATE_leaf_stiffener.004",
+        "FREIGHT_GATE_leaf_stiffener.005",
+        "FREIGHT_GATE_folded_return.002",
+        "FREIGHT_GATE_folded_return.003",
+        "FREIGHT_GATE_kick_plate.001",
+        "FREIGHT_GATE_leaf_panel_seam.002",
+        "FREIGHT_GATE_leaf_gusset.004",
+        "FREIGHT_GATE_gusset_rivet.004",
+        "FREIGHT_GATE_leaf_gusset.005",
+        "FREIGHT_GATE_gusset_rivet.005",
+        "FREIGHT_GATE_leaf_panel_seam.003",
+        "FREIGHT_GATE_leaf_gusset.006",
+        "FREIGHT_GATE_gusset_rivet.006",
+        "FREIGHT_GATE_leaf_gusset.007",
+        "FREIGHT_GATE_gusset_rivet.007",
+        "FREIGHT_GATE_localized_kick_scuff.007",
+        "FREIGHT_GATE_localized_kick_scuff.008",
+        "FREIGHT_GATE_localized_kick_scuff.009",
+        "FREIGHT_GATE_localized_kick_scuff.010",
+        "FREIGHT_GATE_localized_kick_scuff.011",
+        "FREIGHT_GATE_localized_kick_scuff.012",
+        "FREIGHT_GATE_localized_kick_scuff.013",
+        "FREIGHT_GATE_leaf_carriage_hanger.001",
+        "FREIGHT_GATE_leaf_carriage_roller.002",
+        "FREIGHT_GATE_leaf_carriage_roller.003",
+        "FREIGHT_GATE_leaf_carriage_axle.001"
+      ]
+    },
+    "fixed_member_count": 713,
+    "intersecting_pairs": [
+      {
+        "moving": "FREIGHT_GATE_leaf_carriage_roller",
+        "fixed": "FREIGHT_GATE_running_rail",
+        "states": [
+          0.0,
+          0.026316,
+          0.052632,
+          0.078947,
+          0.105263,
+          0.131579,
+          0.157895,
+          0.184211,
+          0.210526,
+          0.236842,
+          0.263158,
+          0.289474,
+          0.315789,
+          0.342105,
+          0.368421,
+          0.394737,
+          0.421053,
+          0.447368,
+          0.473684,
+          0.5,
+          0.526316,
+          0.552632,
+          0.578947,
+          0.605263,
+          0.631579,
+          0.657895,
+          0.684211,
+          0.710526,
+          0.736842,
+          0.763158,
+          0.789474,
+          0.815789,
+          0.842105,
+          0.868421,
+          0.894737,
+          0.921053,
+          0.947368,
+          0.973684,
+          1.0
+        ],
+        "first_evidence": {
+          "method": "evaluated_triangle_surface_overlap",
+          "triangle_pairs": 11,
+          "aabb_overlap_xyz_m": [
+            0.01399993896484375,
+            0.12000083923339844,
+            0.0
+          ],
+          "a_bounds_world_m": [
+            [
+              6.418000221252441,
+              10.079998970031738,
+              3.4800000190734863
+            ],
+            [
+              6.432000160217285,
+              10.199999809265137,
+              3.5999999046325684
+            ]
+          ],
+          "b_bounds_world_m": [
+            [
+              6.410000324249268,
+              7.940000057220459,
+              3.440000057220459
+            ],
+            [
+              6.440000057220459,
+              12.0600004196167,
+              3.4800000190734863
+            ]
+          ],
+          "aabb_contact_only_within_1um": true,
+          "first_triangle_a": [
+            [
+              6.42080020904541,
+              10.139999389648438,
+              3.4800000190734863
+            ],
+            [
+              6.42080020904541,
+              10.151704788208008,
+              3.4811527729034424
+            ],
+            [
+              6.429200172424316,
+              10.151704788208008,
+              3.4811527729034424
+            ]
+          ],
+          "first_triangle_b": [
+            [
+              6.4110002517700195,
+              12.059000015258789,
+              3.4800000190734863
+            ],
+            [
+              6.4110002517700195,
+              7.940999984741211,
+              3.4800000190734863
+            ],
+            [
+              6.439000129699707,
+              7.940999984741211,
+              3.4800000190734863
+            ]
+          ]
+        }
+      },
+      {
+        "moving": "FREIGHT_GATE_leaf_carriage_roller.001",
+        "fixed": "FREIGHT_GATE_running_rail.001",
+        "states": [
+          0.0,
+          0.026316,
+          0.052632,
+          0.078947,
+          0.105263,
+          0.131579,
+          0.157895,
+          0.184211,
+          0.210526,
+          0.236842,
+          0.263158,
+          0.289474,
+          0.315789,
+          0.342105,
+          0.368421,
+          0.394737,
+          0.421053,
+          0.447368,
+          0.473684,
+          0.5,
+          0.526316,
+          0.552632,
+          0.578947,
+          0.605263,
+          0.631579,
+          0.657895,
+          0.684211,
+          0.710526,
+          0.736842,
+          0.763158,
+          0.789474,
+          0.815789,
+          0.842105,
+          0.868421,
+          0.894737,
+          0.921053,
+          0.947368,
+          0.973684,
+          1.0
+        ],
+        "first_evidence": {
+          "method": "evaluated_triangle_surface_overlap",
+          "triangle_pairs": 11,
+          "aabb_overlap_xyz_m": [
+            0.01399993896484375,
+            0.12000083923339844,
+            0.0
+          ],
+          "a_bounds_world_m": [
+            [
+              6.507999897003174,
+              10.079998970031738,
+              3.4800000190734863
+            ],
+            [
+              6.521999835968018,
+              10.199999809265137,
+              3.5999999046325684
+            ]
+          ],
+          "b_bounds_world_m": [
+            [
+              6.5,
+              7.940000057220459,
+              3.440000057220459
+            ],
+            [
+              6.529999732971191,
+              12.0600004196167,
+              3.4800000190734863
+            ]
+          ],
+          "aabb_contact_only_within_1um": true,
+          "first_triangle_a": [
+            [
+              6.510799884796143,
+              10.139999389648438,
+              3.4800000190734863
+            ],
+            [
+              6.510799884796143,
+              10.151704788208008,
+              3.4811527729034424
+            ],
+            [
+              6.519199848175049,
+              10.151704788208008,
+              3.4811527729034424
+            ]
+          ],
+          "first_triangle_b": [
+            [
+              6.500999927520752,
+              12.059000015258789,
+              3.4800000190734863
+            ],
+            [
+              6.500999927520752,
+              7.940999984741211,
+              3.4800000190734863
+            ],
+            [
+              6.5289998054504395,
+              7.940999984741211,
+              3.4800000190734863
+            ]
+          ]
+        }
+      },
+      {
+        "moving": "FREIGHT_GATE_leaf_carriage_roller.002",
+        "fixed": "FREIGHT_GATE_running_rail",
+        "states": [
+          0.0,
+          0.026316,
+          0.052632,
+          0.078947,
+          0.105263,
+          0.131579,
+          0.157895,
+          0.184211,
+          0.210526,
+          0.236842,
+          0.263158,
+          0.289474,
+          0.315789,
+          0.342105,
+          0.368421,
+          0.394737,
+          0.421053,
+          0.447368,
+          0.473684,
+          0.5,
+          0.526316,
+          0.552632,
+          0.578947,
+          0.605263,
+          0.631579,
+          0.657895,
+          0.684211,
+          0.710526,
+          0.736842,
+          0.763158,
+          0.789474,
+          0.815789,
+          0.842105,
+          0.868421,
+          0.894737,
+          0.921053,
+          0.947368,
+          0.973684,
+          1.0
+        ],
+        "first_evidence": {
+          "method": "evaluated_triangle_surface_overlap",
+          "triangle_pairs": 11,
+          "aabb_overlap_xyz_m": [
+            0.01399993896484375,
+            0.12000083923339844,
+            0.0
+          ],
+          "a_bounds_world_m": [
+            [
+              6.418000221252441,
+              9.800000190734863,
+              3.4800000190734863
+            ],
+            [
+              6.432000160217285,
+              9.920001029968262,
+              3.5999999046325684
+            ]
+          ],
+          "b_bounds_world_m": [
+            [
+              6.410000324249268,
+              7.940000057220459,
+              3.440000057220459
+            ],
+            [
+              6.440000057220459,
+              12.0600004196167,
+              3.4800000190734863
+            ]
+          ],
+          "aabb_contact_only_within_1um": true,
+          "first_triangle_a": [
+            [
+              6.42080020904541,
+              9.860000610351562,
+              3.4800000190734863
+            ],
+            [
+              6.42080020904541,
+              9.871706008911133,
+              3.4811527729034424
+            ],
+            [
+              6.429200172424316,
+              9.871706008911133,
+              3.4811527729034424
+            ]
+          ],
+          "first_triangle_b": [
+            [
+              6.4110002517700195,
+              12.059000015258789,
+              3.4800000190734863
+            ],
+            [
+              6.4110002517700195,
+              7.940999984741211,
+              3.4800000190734863
+            ],
+            [
+              6.439000129699707,
+              7.940999984741211,
+              3.4800000190734863
+            ]
+          ]
+        }
+      },
+      {
+        "moving": "FREIGHT_GATE_leaf_carriage_roller.003",
+        "fixed": "FREIGHT_GATE_running_rail.001",
+        "states": [
+          0.0,
+          0.026316,
+          0.052632,
+          0.078947,
+          0.105263,
+          0.131579,
+          0.157895,
+          0.184211,
+          0.210526,
+          0.236842,
+          0.263158,
+          0.289474,
+          0.315789,
+          0.342105,
+          0.368421,
+          0.394737,
+          0.421053,
+          0.447368,
+          0.473684,
+          0.5,
+          0.526316,
+          0.552632,
+          0.578947,
+          0.605263,
+          0.631579,
+          0.657895,
+          0.684211,
+          0.710526,
+          0.736842,
+          0.763158,
+          0.789474,
+          0.815789,
+          0.842105,
+          0.868421,
+          0.894737,
+          0.921053,
+          0.947368,
+          0.973684,
+          1.0
+        ],
+        "first_evidence": {
+          "method": "evaluated_triangle_surface_overlap",
+          "triangle_pairs": 11,
+          "aabb_overlap_xyz_m": [
+            0.01399993896484375,
+            0.12000083923339844,
+            0.0
+          ],
+          "a_bounds_world_m": [
+            [
+              6.507999897003174,
+              9.800000190734863,
+              3.4800000190734863
+            ],
+            [
+              6.521999835968018,
+              9.920001029968262,
+              3.5999999046325684
+            ]
+          ],
+          "b_bounds_world_m": [
+            [
+              6.5,
+              7.940000057220459,
+              3.440000057220459
+            ],
+            [
+              6.529999732971191,
+              12.0600004196167,
+              3.4800000190734863
+            ]
+          ],
+          "aabb_contact_only_within_1um": true,
+          "first_triangle_a": [
+            [
+              6.510799884796143,
+              9.860000610351562,
+              3.4800000190734863
+            ],
+            [
+              6.510799884796143,
+              9.871706008911133,
+              3.4811527729034424
+            ],
+            [
+              6.519199848175049,
+              9.871706008911133,
+              3.4811527729034424
+            ]
+          ],
+          "first_triangle_b": [
+            [
+              6.500999927520752,
+              12.059000015258789,
+              3.4800000190734863
+            ],
+            [
+              6.500999927520752,
+              7.940999984741211,
+              3.4800000190734863
+            ],
+            [
+              6.5289998054504395,
+              7.940999984741211,
+              3.4800000190734863
+            ]
+          ]
+        }
+      },
+      {
+        "moving": "FREIGHT_GATE_gusset_rivet.002",
+        "fixed": "FREIGHT_GATE_track_wear",
+        "states": [
+          0.842105
+        ],
+        "first_evidence": {
+          "method": "evaluated_triangle_surface_overlap",
+          "triangle_pairs": 12,
+          "aabb_overlap_xyz_m": [
+            0.0,
+            0.019292831420898438,
+            0.020784616470336914
+          ],
+          "a_bounds_world_m": [
+            [
+              6.34499979019165,
+              11.706207275390625,
+              0.16960769891738892
+            ],
+            [
+              6.365000247955322,
+              11.729581832885742,
+              0.19039231538772583
+            ]
+          ],
+          "b_bounds_world_m": [
+            [
+              6.235000133514404,
+              11.70050048828125,
+              0.0
+            ],
+            [
+              6.34499979019165,
+              11.725500106811523,
+              3.4000000953674316
+            ]
+          ],
+          "aabb_contact_only_within_1um": true,
+          "first_triangle_a": [
+            [
+              6.345351219177246,
+              11.722824096679688,
+              0.16999247670173645
+            ],
+            [
+              6.345351219177246,
+              11.71296501159668,
+              0.16999247670173645
+            ],
+            [
+              6.34499979019165,
+              11.712587356567383,
+              0.17080770432949066
+            ]
+          ],
+          "first_triangle_b": [
+            [
+              6.34499979019165,
+              11.721500396728516,
+              0.003999948501586914
+            ],
+            [
+              6.34499979019165,
+              11.704500198364258,
+              3.3960001468658447
+            ],
+            [
+              6.34499979019165,
+              11.704500198364258,
+              0.003999948501586914
+            ]
+          ]
+        }
+      },
+      {
+        "moving": "FREIGHT_GATE_gusset_rivet.003",
+        "fixed": "FREIGHT_GATE_track_wear",
+        "states": [
+          0.842105
+        ],
+        "first_evidence": {
+          "method": "evaluated_triangle_surface_overlap",
+          "triangle_pairs": 12,
+          "aabb_overlap_xyz_m": [
+            0.0,
+            0.019292831420898438,
+            0.020784378051757812
+          ],
+          "a_bounds_world_m": [
+            [
+              6.34499979019165,
+              11.706207275390625,
+              3.2096078395843506
+            ],
+            [
+              6.365000247955322,
+              11.729581832885742,
+              3.2303922176361084
+            ]
+          ],
+          "b_bounds_world_m": [
+            [
+              6.235000133514404,
+              11.70050048828125,
+              0.0
+            ],
+            [
+              6.34499979019165,
+              11.725500106811523,
+              3.4000000953674316
+            ]
+          ],
+          "aabb_contact_only_within_1um": true,
+          "first_triangle_a": [
+            [
+              6.345351219177246,
+              11.722824096679688,
+              3.2099924087524414
+            ],
+            [
+              6.345351219177246,
+              11.71296501159668,
+              3.2099924087524414
+            ],
+            [
+              6.34499979019165,
+              11.712587356567383,
+              3.2108078002929688
+            ]
+          ],
+          "first_triangle_b": [
+            [
+              6.34499979019165,
+              11.721500396728516,
+              0.003999948501586914
+            ],
+            [
+              6.34499979019165,
+              11.721500396728516,
+              3.3960001468658447
+            ],
+            [
+              6.34499979019165,
+              11.704500198364258,
+              3.3960001468658447
+            ]
+          ]
+        }
+      },
+      {
+        "moving": "FREIGHT_GATE_gusset_rivet.004",
+        "fixed": "FREIGHT_GATE_track_wear.001",
+        "states": [
+          0.842105
+        ],
+        "first_evidence": {
+          "method": "evaluated_triangle_surface_overlap",
+          "triangle_pairs": 12,
+          "aabb_overlap_xyz_m": [
+            0.0,
+            0.019292831420898438,
+            0.020784616470336914
+          ],
+          "a_bounds_world_m": [
+            [
+              6.34499979019165,
+              8.270418167114258,
+              0.16960769891738892
+            ],
+            [
+              6.365000247955322,
+              8.293792724609375,
+              0.19039231538772583
+            ]
+          ],
+          "b_bounds_world_m": [
+            [
+              6.235000133514404,
+              8.274499893188477,
+              0.0
+            ],
+            [
+              6.34499979019165,
+              8.29949951171875,
+              3.4000000953674316
+            ]
+          ],
+          "aabb_contact_only_within_1um": true,
+          "first_triangle_a": [
+            [
+              6.34499979019165,
+              8.292719841003418,
+              0.18000000715255737
+            ],
+            [
+              6.345351219177246,
+              8.29323673248291,
+              0.18073485791683197
+            ],
+            [
+              6.3455071449279785,
+              8.293559074401855,
+              0.18000000715255737
+            ]
+          ],
+          "first_triangle_b": [
+            [
+              6.34499979019165,
+              8.295499801635742,
+              0.003999948501586914
+            ],
+            [
+              6.34499979019165,
+              8.278499603271484,
+              3.3960001468658447
+            ],
+            [
+              6.34499979019165,
+              8.278499603271484,
+              0.003999948501586914
+            ]
+          ]
+        }
+      },
+      {
+        "moving": "FREIGHT_GATE_gusset_rivet.005",
+        "fixed": "FREIGHT_GATE_track_wear.001",
+        "states": [
+          0.842105
+        ],
+        "first_evidence": {
+          "method": "evaluated_triangle_surface_overlap",
+          "triangle_pairs": 12,
+          "aabb_overlap_xyz_m": [
+            0.0,
+            0.019292831420898438,
+            0.020784378051757812
+          ],
+          "a_bounds_world_m": [
+            [
+              6.34499979019165,
+              8.270418167114258,
+              3.2096078395843506
+            ],
+            [
+              6.365000247955322,
+              8.293792724609375,
+              3.2303922176361084
+            ]
+          ],
+          "b_bounds_world_m": [
+            [
+              6.235000133514404,
+              8.274499893188477,
+              0.0
+            ],
+            [
+              6.34499979019165,
+              8.29949951171875,
+              3.4000000953674316
+            ]
+          ],
+          "aabb_contact_only_within_1um": true,
+          "first_triangle_a": [
+            [
+              6.34499979019165,
+              8.292719841003418,
+              3.2200000286102295
+            ],
+            [
+              6.345351219177246,
+              8.29323673248291,
+              3.2207348346710205
+            ],
+            [
+              6.3455071449279785,
+              8.293559074401855,
+              3.2200000286102295
+            ]
+          ],
+          "first_triangle_b": [
+            [
+              6.34499979019165,
+              8.295499801635742,
+              0.003999948501586914
+            ],
+            [
+              6.34499979019165,
+              8.295499801635742,
+              3.3960001468658447
+            ],
+            [
+              6.34499979019165,
+              8.278499603271484,
+              3.3960001468658447
+            ]
+          ]
+        }
+      }
+    ],
+    "near_closed_opposing_roller_diagnostic": [
+      {
+        "fraction": 0,
+        "opposing_roller_intersections": []
+      },
+      {
+        "fraction": 0.001,
+        "opposing_roller_intersections": []
+      },
+      {
+        "fraction": 0.002,
+        "opposing_roller_intersections": []
+      },
+      {
+        "fraction": 0.004,
+        "opposing_roller_intersections": []
+      },
+      {
+        "fraction": 0.005,
+        "opposing_roller_intersections": []
+      },
+      {
+        "fraction": 0.0055,
+        "opposing_roller_intersections": []
+      },
+      {
+        "fraction": 0.006,
+        "opposing_roller_intersections": []
+      },
+      {
+        "fraction": 0.01,
+        "opposing_roller_intersections": []
+      }
+    ],
+    "roller_support_contacts": {
+      "FREIGHT_GATE_leaf_carriage_roller": [
+        {
+          "fraction": 0.0,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.026316,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.052632,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.078947,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.105263,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.131579,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.157895,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.236283272506888e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.184211,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.210526,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.236842,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.263158,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.289474,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.315789,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.342105,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.368421,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.394737,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.421053,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.447368,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.473684,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.5,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.526316,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.552632,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.578947,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.605263,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.631579,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.657895,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.684211,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.710526,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.736842,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.763158,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.789474,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.815789,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.842105,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.868421,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.894737,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.921053,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.947368,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.973684,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 1.0,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.236283272506888e-08,
+          "bottom_vertex_count": 2
+        }
+      ],
+      "FREIGHT_GATE_leaf_carriage_roller.001": [
+        {
+          "fraction": 0.0,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.026316,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.052632,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.078947,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.105263,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.131579,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.157895,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.236283272506888e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.184211,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.210526,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.236842,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.263158,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.289474,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.315789,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.342105,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.368421,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.394737,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.421053,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.447368,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.473684,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.5,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.526316,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.552632,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.578947,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.605263,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.631579,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.657895,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.684211,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.710526,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.736842,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.763158,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.789474,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.815789,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.842105,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.868421,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.894737,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.921053,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.947368,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.973684,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 1.0,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.236283272506888e-08,
+          "bottom_vertex_count": 2
+        }
+      ],
+      "FREIGHT_GATE_leaf_carriage_roller.002": [
+        {
+          "fraction": 0.0,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.026316,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.052632,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.078947,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.105263,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.131579,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.157895,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.184211,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.236283272506888e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.210526,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.236842,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.263158,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 6.198883056640625e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.289474,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.00022126066323835403,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.315789,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 6.0174130339873955e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.342105,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 7.915640162536874e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.368421,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.00010591046157060191,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.394737,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.066240292857401e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.421053,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.00010204760474152863,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.447368,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 2.90048719762126e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.473684,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 4.005715891253203e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.5,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 4.019315747427754e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.526316,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 7.864199687901419e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.552632,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 3.43852161677205e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.578947,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 4.396221356728347e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.605263,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.9660499219753547e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.631579,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.719260808386025e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.657895,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 3.43852161677205e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.684211,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.00010874501458602026,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.710526,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 9.381097333971411e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.236283272506888e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.736842,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 6.867945194244385e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.763158,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 3.4332275390625e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.789474,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.3486991292666062e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.815789,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 2.0986253730370663e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.842105,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.8176191588281654e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.868421,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 7.68876816437114e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.894737,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 9.58430791797582e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.921053,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 6.827269317000173e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.947368,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 3.198720833097468e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.973684,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.0662403155947686e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.236283272506888e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 1.0,
+          "rail": "FREIGHT_GATE_running_rail",
+          "minimum_bottom_vertex_to_rail_surface_m": 4.76837158203125e-07,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        }
+      ],
+      "FREIGHT_GATE_leaf_carriage_roller.003": [
+        {
+          "fraction": 0.0,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.026316,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.052632,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.078947,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.105263,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.131579,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.157895,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.184211,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.236283272506888e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.210526,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.236842,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.0,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.263158,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 6.198883056640625e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.289474,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.00022126066323835403,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.315789,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 6.0174130339873955e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.342105,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 7.915640162536874e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.368421,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.00010591046157060191,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.394737,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.066240292857401e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.421053,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.00010204760474152863,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.447368,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 2.90048719762126e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.473684,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 4.005715891253203e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.5,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 4.019315747427754e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.526316,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 7.864199687901419e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.552632,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 3.43852161677205e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.578947,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 4.396221356728347e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.605263,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.9660499219753547e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.631579,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.719260808386025e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.657895,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 3.43852161677205e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.684211,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 0.00010874501458602026,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.710526,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 9.381097333971411e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.236283272506888e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.736842,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 6.867945194244385e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.763158,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 3.4332275390625e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.789474,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.3486991292666062e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.815789,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 2.0986253730370663e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.842105,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.8176191588281654e-05,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.868421,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 7.68876816437114e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.894737,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 9.58430791797582e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.921053,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 6.827269317000173e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.947368,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 3.198720833097468e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 0.973684,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 1.0662403155947686e-06,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.236283272506888e-08,
+          "bottom_vertex_count": 2
+        },
+        {
+          "fraction": 1.0,
+          "rail": "FREIGHT_GATE_running_rail.001",
+          "minimum_bottom_vertex_to_rail_surface_m": 4.76837158203125e-07,
+          "roller_bottom_minus_rail_top_m": 0.0,
+          "vertical_support_ray_signed_gap_m": -7.247924804689582e-08,
+          "bottom_vertex_count": 2
+        }
+      ]
+    },
+    "roller_contact_method": "Closest evaluated rail surface to minimum-Z roller vertices in all39 translated states; positive roller-to-fixed triangle overlaps checked separately."
+  },
+  "gate_fixed_clearances": {
+    "crown_to_gate_overhead": {
+      "pairs_tested": 39,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "Tray_penetration_lower_ledge",
+        "b": "FREIGHT_GATE_upper_motor_cover",
+        "aabb_lower_bound_m": 0.01999974250793457
+      }
+    },
+    "tray_to_gate_overhead": {
+      "pairs_tested": 884,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "Cable_tray_rung.004",
+        "b": "FREIGHT_GATE_upper_motor_cover",
+        "aabb_lower_bound_m": 0.10700011253356934
+      }
+    },
+    "tray_to_crown": {
+      "pairs_tested": 204,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "Power_cable",
+        "b": "Gate_crown_infill",
+        "aabb_lower_bound_m": 0.0
+      }
+    }
+  },
+  "external_door_ceiling_clearances": {
+    "REFINERY_BOUNDARY": {
+      "pairs_tested": 83566,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "REFINERY_BOUNDARY_upper_motor_cover",
+        "b": "Ceiling_crossmember",
+        "aabb_lower_bound_m": 0.12999987602233887
+      }
+    },
+    "REACTOR_BOUNDARY": {
+      "pairs_tested": 103306,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "REACTOR_BOUNDARY_upper_motor_cover",
+        "b": "Ceiling_crossmember.020",
+        "aabb_lower_bound_m": 0.13000011444091797
+      }
+    },
+    "PLANT_PORT": {
+      "pairs_tested": 79618,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "PLANT_PORT_lintel_cheek.001",
+        "b": "Ceiling_crossmember.034",
+        "aabb_lower_bound_m": 0.019999980926513672
+      }
+    },
+    "CLEAN_PORT": {
+      "pairs_tested": 79618,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "CLEAN_PORT_drive_bearing_shim.001",
+        "b": "Ceiling_crossmember.031",
+        "aabb_lower_bound_m": 0.0070002079010009766
+      }
+    },
+    "WASTE_PORT": {
+      "pairs_tested": 83566,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "WASTE_PORT_upper_motor_cover",
+        "b": "Ceiling_crossmember.017",
+        "aabb_lower_bound_m": 0.6299996376037598
+      }
+    }
+  },
+  "external_saved_opposing_roller_pairs": {
+    "REFINERY_BOUNDARY": {
+      "pairs_tested": 4,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "REFINERY_BOUNDARY_leaf_carriage_roller",
+        "b": "REFINERY_BOUNDARY_leaf_carriage_roller.002",
+        "aabb_lower_bound_m": 0.1599999964237213
+      }
+    },
+    "REACTOR_BOUNDARY": {
+      "pairs_tested": 4,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "REACTOR_BOUNDARY_leaf_carriage_roller",
+        "b": "REACTOR_BOUNDARY_leaf_carriage_roller.002",
+        "aabb_lower_bound_m": 0.15999889373779297
+      }
+    },
+    "PLANT_PORT": {
+      "pairs_tested": 4,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "PLANT_PORT_leaf_carriage_roller",
+        "b": "PLANT_PORT_leaf_carriage_roller.002",
+        "aabb_lower_bound_m": 0.1600017547607422
+      }
+    },
+    "CLEAN_PORT": {
+      "pairs_tested": 4,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "CLEAN_PORT_leaf_carriage_roller",
+        "b": "CLEAN_PORT_leaf_carriage_roller.002",
+        "aabb_lower_bound_m": 0.15999984741210938
+      }
+    },
+    "WASTE_PORT": {
+      "pairs_tested": 4,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "WASTE_PORT_leaf_carriage_roller",
+        "b": "WASTE_PORT_leaf_carriage_roller.002",
+        "aabb_lower_bound_m": 0.15999984741210938
+      }
+    }
+  },
+  "recess_clearance": {
+    "station_pipe_to_architecture": {
+      "pairs_tested": 263,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "Service_air_station_service_pipe",
+        "b": "Ceiling_crossmember.036",
+        "aabb_lower_bound_m": 0.09790533397929221
+      }
+    },
+    "branch_to_architecture": {
+      "pairs_tested": 263,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "Recess_air_branch",
+        "b": "Ceiling_service_air_recess",
+        "aabb_lower_bound_m": 0.0
+      }
+    },
+    "station_pipe_to_ceiling": {
+      "pairs_tested": 28,
+      "intersections": [],
+      "minimum_aabb_gap": {
+        "a": "Service_air_station_service_pipe",
+        "b": "Ceiling_crossmember.036",
+        "aabb_lower_bound_m": 0.09790533397929221
+      }
+    }
+  },
+  "feed_continuity": {
+    "branch_world_centerline": [
+      [
+        0.9100000262260437,
+        14.800000190734863,
+        2.6700000762939453
+      ],
+      [
+        -1.059999942779541,
+        14.800000190734863,
+        2.6700000762939453
+      ],
+      [
+        -1.059999942779541,
+        14.800000190734863,
+        2.1600000858306885
+      ],
+      [
+        -1.2899999618530273,
+        14.800000190734863,
+        2.140000104904175
+      ]
+    ],
+    "station_inlet_world": [
+      -1.290000081062317,
+      14.800000190734863,
+      2.140000104904175
+    ],
+    "branch_to_station_endpoint_gap_m": 1.1920928955078125e-07,
+    "branch_to_loop_centerline_gap_m": 0.0,
+    "branch_to_station_surfaces": {
+      "method": "evaluated_triangle_surface_overlap",
+      "triangle_pairs": 13,
+      "aabb_overlap_xyz_m": [
+        0.04200398921966553,
+        0.049999237060546875,
+        0.023687124252319336
+      ],
+      "a_bounds_world_m": [
+        [
+          -1.2920596599578857,
+          14.77500057220459,
+          2.1163129806518555
+        ],
+        [
+          0.9100000262260437,
+          14.824999809265137,
+          2.6937766075134277
+        ]
+      ],
+      "b_bounds_world_m": [
+        [
+          -1.3299444913864136,
+          14.558542251586914,
+          1.5299999713897705
+        ],
+        [
+          -1.2500556707382202,
+          15.432000160217285,
+          2.140000104904175
+        ]
+      ],
+      "aabb_contact_only_within_1um": false,
+      "first_triangle_a": [
+        [
+          -1.042474389076233,
+          14.792274475097656,
+          2.143932342529297
+        ],
+        [
+          -1.287940263748169,
+          14.80772590637207,
+          2.1163129806518555
+        ],
+        [
+          -1.042474389076233,
+          14.80772590637207,
+          2.143932342529297
+        ]
+      ],
+      "first_triangle_b": [
+        [
+          -1.2500556707382202,
+          14.78702163696289,
+          2.140000104904175
+        ],
+        [
+          -1.2500556707382202,
+          14.811039924621582,
+          1.9731767177581787
+        ],
+        [
+          -1.2500556707382202,
+          14.812978744506836,
+          2.140000104904175
+        ]
+      ]
+    },
+    "branch_to_loop_surfaces": {
+      "method": "evaluated_triangle_surface_overlap",
+      "triangle_pairs": 24,
+      "aabb_overlap_xyz_m": [
+        0.05199998617172241,
+        0.049999237060546875,
+        0.07323145866394043
+      ],
+      "a_bounds_world_m": [
+        [
+          -1.2920596599578857,
+          14.77500057220459,
+          2.1163129806518555
+        ],
+        [
+          0.9100000262260437,
+          14.824999809265137,
+          2.6937766075134277
+        ]
+      ],
+      "b_bounds_world_m": [
+        [
+          0.8580000400543213,
+          13.199999809265137,
+          2.6205451488494873
+        ],
+        [
+          11.899999618530273,
+          19.50200080871582,
+          2.7194550037384033
+        ]
+      ],
+      "aabb_contact_only_within_1um": false,
+      "first_triangle_a": [
+        [
+          0.9100000262260437,
+          14.77977466583252,
+          2.684694766998291
+        ],
+        [
+          -1.059999942779541,
+          14.77500057220459,
+          2.6700000762939453
+        ],
+        [
+          0.9100000262260437,
+          14.77500057220459,
+          2.6700000762939453
+        ]
+      ],
+      "first_triangle_b": [
+        [
+          0.8679311275482178,
+          13.199999809265137,
+          2.7005648612976074
+        ],
+        [
+          0.8650566935539246,
+          19.22615623474121,
+          2.6700000762939453
+        ],
+        [
+          0.8580000400543213,
+          13.199999809265137,
+          2.6700000762939453
+        ]
+      ]
+    },
+    "reserved_supply_caps": [
+      "Air_supply_reserved_cap",
+      "Air_supply_reserved_end"
+    ]
+  },
+  "limits": [
+    "Finite 48.7 mm translation samples are not a continuous collision sweep or engine test.",
+    "Surface overlap plus bounded parity containment; no mechanical intent exceptions silently suppressed.",
+    "AABB separation is a conservative lower bound, not exact closest-triangle distance.",
+    "Only selected gate/service regions and external door-versus-ceiling pairs audited; neighbor scenes not imported."
+  ],
+  "provenance": "Builder replay of retained independent eng03 algorithm on final-F10; not a new independent reviewer report",
+  "no_render_no_save_no_scene_transform_mutation": true,
+  "elapsed_seconds": 5.158605100004934
+}

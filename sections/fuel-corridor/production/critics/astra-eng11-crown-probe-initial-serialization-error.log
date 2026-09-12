@@ -1,0 +1,19 @@
+00:02.360  blend            | Read blend: "C:\Users\Camer\.codex\worktrees\3598\critical-shift\sections\fuel-corridor\production\checkpoints\eng11\Fuel_Corridor.blend"
+Traceback (most recent call last):
+  File "C:\Users\Camer\.codex\worktrees\3598\critical-shift\sections\fuel-corridor\production\critics\astra-eng11-crown-probe.py", line 35, in <module>
+    (HERE/'astra-eng11-crown-evidence.json').write_text(json.dumps(report,indent=2))
+                                                        ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\python\Lib\json\__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\python\Lib\json\encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\python\Lib\json\encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\python\Lib\json\encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type IDPropertyArray is not JSON serializable
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

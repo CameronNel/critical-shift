@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "revision": "final-F10",
+  "blend_sha256": "a8e742a10cf5691098adabc0c2518384db3d82444517637bd67e362af4146403",
+  "object_count": 7978,
+  "categories": 17,
+  "minimum_category_score": 91,
+  "fixed_views": 16,
+  "cold_views": 16,
+  "player_views": 12,
+  "review": "production\\critics\\final-pass\\grok-f10-score.json",
+  "verified_files": {
+    "blender\\Fuel_Corridor.blend": "a8e742a10cf5691098adabc0c2518384db3d82444517637bd67e362af4146403",
+    "interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e",
+    "scenery\\handoff.json": "8e5b66ee156887918cdfe1a33d0aaccd3e8e6cdc32cb94062c58544a3681043b",
+    "production\\critics\\final-pass\\grok-f10-score.json": "4ba0d4e0a887e122452c13a830f1441f0eda404506d49fbc5c2d3e15232b9f30",
+    "production\\evidence\\final-pass\\F10-branch-handoff.json": "68da8f7647d233053aa76abf687fe93c59a6f36fc74fd928473355fb796ee292",
+    "production\\evidence\\final-pass\\F10-cold-comparison.json": "c54705f9f22146a9d8deae2afb5afdf82dbb36dbe461cbfe9fabeb21b6b2e5a9",
+    "production\\evidence\\final-pass\\F10-delivery-survey.json": "066bc86f859086b1b901978cddb31304b464894fc0e1839059ed69780e47c8cc",
+    "production\\evidence\\final-pass\\F10-engineering-motion.json": "90fb5fb1bb4b3f3ad48d02b6747e98d22451c61034a843a10af501a1f4c58355",
+    "production\\evidence\\final-pass\\F10-material-replay.json": "ea67fa1ab6b26d0a2189c24fbbad733dfa5aec3584ddd9d926bafd20831da9cc",
+    "production\\evidence\\final-pass\\F10-promotion.json": "54d083c857d35e9b4c12ec9c1f192f972bdfd05b186dd6c63970cb3b579f1c12",
+    "production\\evidence\\final-pass\\F10-source-replay.json": "b5258c59e98bdb32249bea4a699cac5aed4ea588acd577762d044228acd3ac28",
+    "production\\evidence\\final-pass\\F10-technical.json": "a7a30a00af1295320ef26f0c9a7f282171049822871119413f1a1a9583588fdd"
+  },
+  "scope": "Authored Fuel Corridor integration readiness. Neighbor assembly and engine runtime behavior remain unverified."
+}

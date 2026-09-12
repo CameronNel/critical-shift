@@ -1,0 +1,262 @@
+{
+  "revision": "eng03",
+  "stage": "full",
+  "source_sha256": "9bc7eb787e03541f89d329361c7deff4363c9b546111264176db601f5d15a41f",
+  "detail_source_sha256": "568b6ff1d36bdefabfaf6bf5ce3d14a91aa01b0c4857f7ea0064f99bfe4305fd",
+  "interface_sha256": "d410821c4fec77fa8cf49dfc9ba3f7acd7e34ebcd80559cd3513e1b5c731fcb7",
+  "blend_sha256": "bf22ed9f5ef31b52a4cb7031c7055080d111396a515cd145c160126c1d85e31a",
+  "objects": 7619,
+  "cameras": [
+    [
+      "C01_ENTRY",
+      [
+        0.0,
+        1.4,
+        1.7
+      ],
+      [
+        0.25,
+        9.9,
+        1.65
+      ],
+      25,
+      "entry / freight readability"
+    ],
+    [
+      "C02_PRIMARY_ROUTE",
+      [
+        3.0,
+        9.0,
+        1.7
+      ],
+      [
+        13.0,
+        10.4,
+        1.7
+      ],
+      27,
+      "cross passage and gate"
+    ],
+    [
+      "C03_HERO",
+      [
+        -1.45,
+        6.0,
+        1.7
+      ],
+      [
+        1.1,
+        11.5,
+        1.8
+      ],
+      22,
+      "whole staging junction / workbench and freight gate; corrected cropped baseline"
+    ],
+    [
+      "C04_REVERSE",
+      [
+        1.0,
+        10.5,
+        1.7
+      ],
+      [
+        -0.15,
+        1.0,
+        1.6
+      ],
+      26,
+      "reverse approach"
+    ],
+    [
+      "C05_EAST_TURN",
+      [
+        11.15,
+        8.45,
+        1.7
+      ],
+      [
+        14.2,
+        17.0,
+        1.65
+      ],
+      25,
+      "freight ninety-degree turn"
+    ],
+    [
+      "C06_REACTOR_THRESHOLD",
+      [
+        13.5,
+        19.4,
+        1.7
+      ],
+      [
+        14.3,
+        24.0,
+        2.1
+      ],
+      26,
+      "outlet / transition"
+    ],
+    [
+      "C07_BYPASS",
+      [
+        0.45,
+        14.0,
+        1.7
+      ],
+      [
+        -0.2,
+        19.7,
+        1.65
+      ],
+      25,
+      "narrow service passage"
+    ],
+    [
+      "C08_SERVICE_JUNCTION",
+      [
+        1.7,
+        19.85,
+        1.7
+      ],
+      [
+        7.6,
+        20.0,
+        1.6
+      ],
+      25,
+      "clean services connection"
+    ],
+    [
+      "C09_MATERIALS",
+      [
+        3.7,
+        9.9,
+        1.6
+      ],
+      [
+        2.65,
+        12.32,
+        0.85
+      ],
+      42,
+      "trolley material and support detail; rebaseline after bypass clearance correction"
+    ],
+    [
+      "C10_PLANT_HEADER",
+      [
+        -0.7,
+        17.2,
+        1.7
+      ],
+      [
+        -5.4,
+        17.4,
+        1.45
+      ],
+      25,
+      "plant branch dead-end / concealed problem areas"
+    ]
+  ],
+  "diagnostic_cameras": [
+    [
+      "D01_CARRIER_OPERATION",
+      [
+        1.17,
+        10.2,
+        1.24
+      ],
+      [
+        2.38,
+        12.32,
+        0.63
+      ],
+      42,
+      "supplement: brake and restraint operation"
+    ],
+    [
+      "D02_WORKBENCH",
+      [
+        -0.2,
+        8.75,
+        1.65
+      ],
+      [
+        -1.8,
+        10.58,
+        1.26
+      ],
+      40,
+      "supplement: worker equipment and purposeful dressing"
+    ],
+    [
+      "D03_UTILITY",
+      [
+        3.8,
+        11.0,
+        1.72
+      ],
+      [
+        3.8,
+        13.15,
+        1.72
+      ],
+      46,
+      "supplement: isolator, regulator, gauge, hose and support"
+    ],
+    [
+      "D04_REACTOR_WIDE",
+      [
+        13.5,
+        17.1,
+        1.7
+      ],
+      [
+        14.2,
+        23.5,
+        2.45
+      ],
+      19,
+      "supplement: complete five-metre reactor threshold and head"
+    ],
+    [
+      "D05_GATE_MECHANISM",
+      [
+        4.65,
+        9.5,
+        2.75
+      ],
+      [
+        6.35,
+        10,
+        3.5
+      ],
+      24,
+      "supplement: freight track, motor, leaf support and services"
+    ],
+    [
+      "D06_SERVICE_RECESS",
+      [
+        0.7,
+        15.2,
+        1.72
+      ],
+      [
+        -1.49,
+        15.08,
+        1.72
+      ],
+      32,
+      "supplement: recessed air station feed and wall construction"
+    ]
+  ],
+  "blend": "C:\\Users\\Camer\\.codex\\worktrees\\3598\\critical-shift\\sections\\fuel-corridor\\blender\\Fuel_Corridor.blend",
+  "samples": 32,
+  "width": 1440,
+  "material_sha256": {
+    "floor": "095335ff28ecc34ed2540bfe4f61f8d4b018bf88df60e052b558935231cdbdac",
+    "wall": "21339d8db4ee59de01d555abebbb4c77515a19756e192b2f1dfb2e0666c5b817",
+    "cloth": "436086a28112711372d9b4f36a854dcea0565dfd47d63f7242553211c4dbd1e9"
+  },
+  "authored_handoff_sha256": "4f34f3160937c8cfd80b3007668fda16a0757b32c90984ff843d442cd0e53fd8"
+}

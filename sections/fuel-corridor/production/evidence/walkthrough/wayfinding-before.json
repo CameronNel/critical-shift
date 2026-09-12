@@ -1,0 +1,2691 @@
+{
+  "revision": "full04",
+  "objects": 7837,
+  "method": "Evaluated glyph/arrow vertices; backing within80mm, physical obstruction within500mm in normal direction. Does not alone prove viewing-distance legibility.",
+  "rows": [
+    {
+      "name": "East_reactor_route_chevron",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_E16.4_0_7_formed_infill_panel.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "East_reactor_route_chevron.001",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_E16.4_0_7_formed_infill_panel.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "East_reactor_route_number",
+      "text": "04",
+      "font_size": 0.6600000262260437,
+      "samples": 223,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_E16.4_0_7_formed_infill_panel.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "East_reactor_route_subtitle",
+      "text": "FUEL TRANSFER",
+      "font_size": 0.08500000089406967,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_E16.4_0_7_formed_infill_panel.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "East_reactor_route_title",
+      "text": "REACTOR",
+      "font_size": 0.24500000476837158,
+      "samples": 185,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_E16.4_0_7_formed_infill_panel.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Cross_service_identity_chevron",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N12.2_1_6.78_formed_infill_panel.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Cross_service_identity_chevron.001",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N12.2_1_6.78_formed_infill_panel.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Cross_service_identity_chevron.002",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N12.2_1_6.78_formed_infill_panel.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Cross_service_identity_subtitle",
+      "text": "KEEP TURN CLEAR",
+      "font_size": 0.09666666388511658,
+      "samples": 183,
+      "unbacked": 0,
+      "front_blocked": 14,
+      "backing": [
+        "Wall_E6.78_1_12.2_concrete",
+        "Wall_N12.2_1_6.78_formed_infill_panel.002",
+        "Wall_N12.2_1_6.78_vertical_flange.004"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": [
+        {
+          "point": [
+            6.989773273468018,
+            12.197999954223633,
+            1.8085066080093384
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_flange.005",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            6.910216808319092,
+            12.197999954223633,
+            1.8085066080093384
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            6.83491325378418,
+            12.197999954223633,
+            1.8659266233444214
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_flange.005",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            7.011233329772949,
+            12.198400497436523,
+            1.8370232582092285
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_flange.005",
+          "depth_ahead_m": 0.15830400586128235
+        },
+        {
+          "point": [
+            6.988903522491455,
+            12.198400497436523,
+            1.8659266233444214
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_flange.005",
+          "depth_ahead_m": 0.1584005057811737
+        },
+        {
+          "point": [
+            6.90074348449707,
+            12.198400497436523,
+            1.8659266233444214
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_flange.005",
+          "depth_ahead_m": 0.1584005355834961
+        },
+        {
+          "point": [
+            6.883923530578613,
+            12.198400497436523,
+            1.8659266233444214
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_flange.005",
+          "depth_ahead_m": 0.1584005355834961
+        },
+        {
+          "point": [
+            6.83491325378418,
+            12.198400497436523,
+            1.8659266233444214
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_flange.005",
+          "depth_ahead_m": 0.1584005057811737
+        }
+      ]
+    },
+    {
+      "name": "Cross_service_identity_title",
+      "text": "FUEL ROUTE",
+      "font_size": 0.14800000190734863,
+      "samples": 197,
+      "unbacked": 0,
+      "front_blocked": 45,
+      "backing": [
+        "Wall_E6.78_1_12.2_concrete",
+        "Wall_N12.2_1_6.78_formed_infill_panel.002",
+        "Wall_N12.2_1_6.78_vertical_web.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": [
+        {
+          "point": [
+            6.966553688049316,
+            12.197999954223633,
+            1.9965797662734985
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_flange.005",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            6.921347618103027,
+            12.197999954223633,
+            1.9909712076187134
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            6.895294189453125,
+            12.197999954223633,
+            2.0216236114501953
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            6.909931659698486,
+            12.197999954223633,
+            2.0218749046325684
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_web.002",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            6.915445804595947,
+            12.197999954223633,
+            2.0105719566345215
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_web.002",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            6.9289631843566895,
+            12.197999954223633,
+            2.0029308795928955
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_flange.005",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            6.9472551345825195,
+            12.197999954223633,
+            2.0030789375305176
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_flange.005",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            6.960882186889648,
+            12.197999954223633,
+            2.0101280212402344
+          ],
+          "object": "Wall_N12.2_1_6.78_vertical_flange.005",
+          "depth_ahead_m": 0.15799996256828308
+        }
+      ]
+    },
+    {
+      "name": "Bypass_clean_route_chevron",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N21_0_-1.5_formed_infill_panel.007"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Bypass_clean_route_chevron.001",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N21_0_-1.5_formed_infill_panel.007"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Bypass_clean_route_number",
+      "text": "02",
+      "font_size": 0.6600000262260437,
+      "samples": 185,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N21_0_-1.5_concrete",
+        "Wall_N21_0_-1.5_formed_infill_panel.007"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Bypass_clean_route_subtitle",
+      "text": "MEDICAL / CLEAN",
+      "font_size": 0.08500000089406967,
+      "samples": 196,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N21_0_-1.5_formed_infill_panel.006"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Bypass_clean_route_title",
+      "text": "SERVICE",
+      "font_size": 0.24500000476837158,
+      "samples": 201,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N21_0_-1.5_formed_infill_panel.006"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Plant_branch_identity_chevron",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 1,
+      "front_blocked": 2,
+      "backing": [
+        "Wall_N18.6_0_-5.4_vertical_flange",
+        "Wall_W-1.5_0_18.6_vertical_flange.004"
+      ],
+      "unbacked_examples": [
+        [
+          -1.4980000257492065,
+          18.517099380493164,
+          1.899999976158142
+        ]
+      ],
+      "blocker_examples": [
+        {
+          "point": [
+            -1.4980000257492065,
+            18.6471004486084,
+            1.7949999570846558
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_flange.005",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            -1.4980000257492065,
+            18.6471004486084,
+            2.005000114440918
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_flange.005",
+          "depth_ahead_m": 0.15799999237060547
+        }
+      ]
+    },
+    {
+      "name": "Plant_branch_identity_chevron.001",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 6,
+      "front_blocked": 0,
+      "backing": [],
+      "unbacked_examples": [
+        [
+          -1.4980000257492065,
+          18.547100067138672,
+          1.7949999570846558
+        ],
+        [
+          -1.4980000257492065,
+          18.473100662231445,
+          1.899999976158142
+        ],
+        [
+          -1.4980000257492065,
+          18.547100067138672,
+          2.005000114440918
+        ],
+        [
+          -1.4980000257492065,
+          18.491100311279297,
+          2.005000114440918
+        ],
+        [
+          -1.4980000257492065,
+          18.41710090637207,
+          1.899999976158142
+        ],
+        [
+          -1.4980000257492065,
+          18.491100311279297,
+          1.7949999570846558
+        ]
+      ],
+      "blocker_examples": []
+    },
+    {
+      "name": "Plant_branch_identity_chevron.002",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 4,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N18.6_0_-5.4_vertical_flange.001"
+      ],
+      "unbacked_examples": [
+        [
+          -1.4980000257492065,
+          18.37310028076172,
+          1.899999976158142
+        ],
+        [
+          -1.4980000257492065,
+          18.39109992980957,
+          2.005000114440918
+        ],
+        [
+          -1.4980000257492065,
+          18.317100524902344,
+          1.899999976158142
+        ],
+        [
+          -1.4980000257492065,
+          18.39109992980957,
+          1.7949999570846558
+        ]
+      ],
+      "blocker_examples": []
+    },
+    {
+      "name": "Plant_branch_identity_subtitle",
+      "text": "SERVICES",
+      "font_size": 0.10499999672174454,
+      "samples": 189,
+      "unbacked": 0,
+      "front_blocked": 66,
+      "backing": [
+        "Wall_N18.6_0_-5.4_concrete",
+        "Wall_W-1.5_0_18.6_concrete",
+        "Wall_W-1.5_0_18.6_formed_infill_panel.002",
+        "Wall_W-1.5_0_18.6_vertical_flange.004",
+        "Wall_W-1.5_0_18.6_vertical_web.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": [
+        {
+          "point": [
+            -1.497999906539917,
+            18.821626663208008,
+            1.7516099214553833
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_flange.005",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.749134063720703,
+            1.7422610521316528
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.7489013671875,
+            1.7208186388015747
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.745859146118164,
+            1.7089449167251587
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.7574405670166,
+            1.6918853521347046
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.76576805114746,
+            1.6799999475479126
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_flange.005",
+          "depth_ahead_m": 0.1579999327659607
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.730188369750977,
+            1.7100999355316162
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.727336883544922,
+            1.7203199863433838
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        }
+      ]
+    },
+    {
+      "name": "Plant_branch_identity_title",
+      "text": "PLANT",
+      "font_size": 0.19832000136375427,
+      "samples": 182,
+      "unbacked": 32,
+      "front_blocked": 32,
+      "backing": [
+        "Wall_N18.6_0_-5.4_concrete",
+        "Wall_N18.6_0_-5.4_vertical_flange",
+        "Wall_W-1.5_0_18.6_concrete",
+        "Wall_W-1.5_0_18.6_formed_infill_panel.003",
+        "Wall_W-1.5_0_18.6_vertical_flange.004"
+      ],
+      "unbacked_examples": [
+        [
+          -1.497999906539917,
+          18.560993194580078,
+          1.9285043478012085
+        ],
+        [
+          -1.497999906539917,
+          18.5407657623291,
+          1.8700000047683716
+        ],
+        [
+          -1.497999906539917,
+          18.521329879760742,
+          2.0052542686462402
+        ],
+        [
+          -1.497999906539917,
+          18.56277847290039,
+          1.9459565877914429
+        ],
+        [
+          -1.497999906539917,
+          18.569568634033203,
+          1.9465919733047485
+        ],
+        [
+          -1.497999906539917,
+          18.5714054107666,
+          1.986962914466858
+        ],
+        [
+          -1.497999906539917,
+          18.56357192993164,
+          1.9878021478652954
+        ],
+        [
+          -1.497999906539917,
+          18.5407657623291,
+          1.9459565877914429
+        ]
+      ],
+      "blocker_examples": [
+        {
+          "point": [
+            -1.497999906539917,
+            18.8281307220459,
+            1.8700000047683716
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_flange.005",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.75257110595703,
+            1.9098622798919678
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.715682983398438,
+            1.8700000047683716
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.7874755859375,
+            2.006047487258911
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_flange.005",
+          "depth_ahead_m": 0.1579999327659607
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.80215072631836,
+            1.9273145198822021
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_flange.005",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.760107040405273,
+            1.9273145198822021
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_web.002",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.708742141723633,
+            1.8700000047683716
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_web.002",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            -1.497999906539917,
+            18.628223419189453,
+            2.0052542686462402
+          ],
+          "object": "Wall_W-1.5_0_18.6_vertical_flange.005",
+          "depth_ahead_m": 0.15767830610275269
+        }
+      ]
+    },
+    {
+      "name": "Delivery_reactor_identity_chevron",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_W12_0_13.2_formed_infill_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Delivery_reactor_identity_chevron.001",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_W12_0_13.2_formed_infill_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Delivery_reactor_identity_chevron.002",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_W12_0_13.2_formed_infill_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Delivery_reactor_identity_subtitle",
+      "text": "FREIGHT APPROACH",
+      "font_size": 0.09968750178813934,
+      "samples": 181,
+      "unbacked": 0,
+      "front_blocked": 51,
+      "backing": [
+        "Wall_W12_0_13.2_concrete",
+        "Wall_W12_0_13.2_formed_infill_panel",
+        "Wall_W12_0_13.2_formed_infill_panel.002",
+        "Wall_W12_0_13.2_vertical_flange.002",
+        "Wall_W12_0_13.2_vertical_web.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": [
+        {
+          "point": [
+            12.001999855041504,
+            16.498430252075195,
+            1.846840262413025
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.461408615112305,
+            1.8400410413742065
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.475732803344727,
+            1.7989280223846436
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.466053009033203,
+            1.7923940420150757
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.456396102905273,
+            1.848715901374817
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15800002217292786
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.499900817871094,
+            1.855813980102539
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.394428253173828,
+            1.8188096284866333
+          ],
+          "object": "Wall_W12_0_13.2_vertical_web.001",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.36260986328125,
+            1.8108035326004028
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15799999237060547
+        }
+      ]
+    },
+    {
+      "name": "Delivery_reactor_identity_title",
+      "text": "REACTOR",
+      "font_size": 0.23257142305374146,
+      "samples": 184,
+      "unbacked": 0,
+      "front_blocked": 42,
+      "backing": [
+        "Wall_W12_0_13.2_concrete",
+        "Wall_W12_0_13.2_formed_infill_panel",
+        "Wall_W12_0_13.2_formed_infill_panel.002",
+        "Wall_W12_0_13.2_vertical_flange.002",
+        "Wall_W12_0_13.2_vertical_web.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": [
+        {
+          "point": [
+            12.001999855041504,
+            16.462085723876953,
+            2.116577625274658
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.479284286499023,
+            2.0285346508026123
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.399320602416992,
+            1.9779068231582642
+          ],
+          "object": "Wall_W12_0_13.2_vertical_web.001",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.320598602294922,
+            2.0284366607666016
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15799996256828308
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.337949752807617,
+            2.116490364074707
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.424463272094727,
+            2.003413438796997
+          ],
+          "object": "Wall_W12_0_13.2_vertical_web.001",
+          "depth_ahead_m": 0.15799999237060547
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.46164894104004,
+            2.0593068599700928
+          ],
+          "object": "Wall_W12_0_13.2_vertical_flange.003",
+          "depth_ahead_m": 0.15800002217292786
+        },
+        {
+          "point": [
+            12.001999855041504,
+            16.424463272094727,
+            2.1152329444885254
+          ],
+          "object": "Wall_W12_0_13.2_vertical_web.001",
+          "depth_ahead_m": 0.15799999237060547
+        }
+      ]
+    },
+    {
+      "name": "Clean_leg_identity_chevron",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N21_0_7.72_formed_infill_panel.002",
+        "Wall_N21_0_7.72_formed_infill_panel.003"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Clean_leg_identity_chevron.001",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N21_0_7.72_formed_infill_panel.002",
+        "Wall_N21_0_7.72_formed_infill_panel.003"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Clean_leg_identity_chevron.002",
+      "text": null,
+      "font_size": null,
+      "samples": 6,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N21_0_7.72_formed_infill_panel.002",
+        "Wall_N21_0_7.72_formed_infill_panel.003"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Clean_leg_identity_subtitle",
+      "text": "MEDICAL / COMPLIANCE",
+      "font_size": 0.07249999791383743,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N21_0_7.72_formed_infill_panel.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Clean_leg_identity_title",
+      "text": "CLEAN SERVICES",
+      "font_size": 0.10571428388357162,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Wall_N21_0_7.72_formed_infill_panel.003"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Entry_freight_floor_label",
+      "text": "FREIGHT",
+      "font_size": 0.25999999046325684,
+      "samples": 194,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Floor_west_turn",
+        "Slab_joint.007",
+        "Slab_joint.010"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "FREIGHT_GATE_type",
+      "text": "FUEL TRANSFER  /  04",
+      "font_size": 0.11500000208616257,
+      "samples": 194,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "FREIGHT_GATE_direction_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Motor_guard_caution_type",
+      "text": "!",
+      "font_size": 0.02500000037252903,
+      "samples": 244,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Motor_guard_service_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Motor_serial_type",
+      "text": "FCM-01",
+      "font_size": 0.014000000432133675,
+      "samples": 182,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Motor_serial_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Motor_serial_small",
+      "text": "DRV / 030",
+      "font_size": 0.007000000216066837,
+      "samples": 182,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Motor_serial_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Motor_terminal_warning",
+      "text": "!",
+      "font_size": 0.02800000086426735,
+      "samples": 244,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Motor_terminal_box"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "PLANT_PORT_leaf_identity_text",
+      "text": "PLANT",
+      "font_size": 0.23768116533756256,
+      "samples": 182,
+      "unbacked": 0,
+      "front_blocked": 2,
+      "backing": [
+        "PLANT_PORT_leaf_identity_field"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": [
+        {
+          "point": [
+            -4.945300102233887,
+            17.270544052124023,
+            1.0820986032485962
+          ],
+          "object": "PLANT_PORT_leaf_pull_rail.001",
+          "depth_ahead_m": 0.016300201416015625
+        },
+        {
+          "point": [
+            -4.945699691772461,
+            17.270544052124023,
+            1.0820986032485962
+          ],
+          "object": "PLANT_PORT_leaf_pull_rail.001",
+          "depth_ahead_m": 0.016699790954589844
+        }
+      ]
+    },
+    {
+      "name": "PLANT_PORT_leaf_identity_text.001",
+      "text": "AUTHORIZED ACCESS",
+      "font_size": 0.0630769208073616,
+      "samples": 187,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "PLANT_PORT_leaf_identity_field"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "PLANT_PORT_leaf_access_type",
+      "text": "FC / 04",
+      "font_size": 0.07900000363588333,
+      "samples": 223,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "PLANT_PORT_leaf_access_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "PLANT_PORT_leaf_access_type.001",
+      "text": "STAND CLEAR",
+      "font_size": 0.03700000047683716,
+      "samples": 190,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "PLANT_PORT_leaf_access_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "PLANT_PORT_leaf_serial_type",
+      "text": "FC-04 / L\nINSPECT 07-B",
+      "font_size": 0.023000000044703484,
+      "samples": 189,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "PLANT_PORT_leaf_serial_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "PLANT_PORT_leaf_identity_text.002",
+      "text": "SERVICES",
+      "font_size": 0.14855071902275085,
+      "samples": 189,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "PLANT_PORT_leaf_identity_field.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "PLANT_PORT_leaf_identity_text.003",
+      "text": "AUTHORIZED ACCESS",
+      "font_size": 0.0630769208073616,
+      "samples": 187,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "PLANT_PORT_leaf_identity_field.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "PLANT_PORT_leaf_access_type.002",
+      "text": "FC / 04",
+      "font_size": 0.07900000363588333,
+      "samples": 223,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "PLANT_PORT_leaf_access_panel.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "PLANT_PORT_leaf_access_type.003",
+      "text": "STAND CLEAR",
+      "font_size": 0.03700000047683716,
+      "samples": 190,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "PLANT_PORT_leaf_access_panel.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "PLANT_PORT_leaf_serial_type.001",
+      "text": "FC-04 / R\nINSPECT 07-B",
+      "font_size": 0.023000000044703484,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "PLANT_PORT_leaf_serial_plate.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "PLANT_PORT_type",
+      "text": "PLANT SERVICES",
+      "font_size": 0.11500000208616257,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "PLANT_PORT_direction_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "CLEAN_PORT_leaf_identity_text",
+      "text": "CLEAN",
+      "font_size": 0.23768116533756256,
+      "samples": 183,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "CLEAN_PORT_leaf_identity_field"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "CLEAN_PORT_leaf_identity_text.001",
+      "text": "AUTHORIZED ACCESS",
+      "font_size": 0.0630769208073616,
+      "samples": 187,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "CLEAN_PORT_leaf_identity_field"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "CLEAN_PORT_leaf_access_type",
+      "text": "FC / 04",
+      "font_size": 0.07900000363588333,
+      "samples": 223,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "CLEAN_PORT_leaf_access_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "CLEAN_PORT_leaf_access_type.001",
+      "text": "STAND CLEAR",
+      "font_size": 0.03700000047683716,
+      "samples": 190,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "CLEAN_PORT_leaf_access_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "CLEAN_PORT_leaf_serial_type",
+      "text": "FC-04 / L\nINSPECT 07-B",
+      "font_size": 0.023000000044703484,
+      "samples": 189,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "CLEAN_PORT_leaf_serial_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "CLEAN_PORT_leaf_identity_text.002",
+      "text": "MEDICAL",
+      "font_size": 0.16977225244045258,
+      "samples": 200,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "CLEAN_PORT_leaf_identity_field.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "CLEAN_PORT_leaf_identity_text.003",
+      "text": "AUTHORIZED ACCESS",
+      "font_size": 0.0630769208073616,
+      "samples": 187,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "CLEAN_PORT_leaf_identity_field.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "CLEAN_PORT_leaf_access_type.002",
+      "text": "FC / 04",
+      "font_size": 0.07900000363588333,
+      "samples": 223,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "CLEAN_PORT_leaf_access_panel.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "CLEAN_PORT_leaf_access_type.003",
+      "text": "STAND CLEAR",
+      "font_size": 0.03700000047683716,
+      "samples": 190,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "CLEAN_PORT_leaf_access_panel.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "CLEAN_PORT_leaf_serial_type.001",
+      "text": "FC-04 / R\nINSPECT 07-B",
+      "font_size": 0.023000000044703484,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "CLEAN_PORT_leaf_serial_plate.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "CLEAN_PORT_type",
+      "text": "MEDICAL  /  DOCK",
+      "font_size": 0.11500000208616257,
+      "samples": 186,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "CLEAN_PORT_direction_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "WASTE_PORT_leaf_identity_text",
+      "text": "WASTE",
+      "font_size": 0.2956521809101105,
+      "samples": 222,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "WASTE_PORT_leaf_identity_field"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "WASTE_PORT_leaf_identity_text.001",
+      "text": "AUTHORIZED ACCESS",
+      "font_size": 0.07846153527498245,
+      "samples": 187,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "WASTE_PORT_leaf_identity_field"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "WASTE_PORT_leaf_access_type",
+      "text": "FC / 04",
+      "font_size": 0.07900000363588333,
+      "samples": 223,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "WASTE_PORT_leaf_access_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "WASTE_PORT_leaf_access_type.001",
+      "text": "STAND CLEAR",
+      "font_size": 0.03700000047683716,
+      "samples": 190,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "WASTE_PORT_leaf_access_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "WASTE_PORT_leaf_serial_type",
+      "text": "FC-04 / L\nINSPECT 07-B",
+      "font_size": 0.023000000044703484,
+      "samples": 189,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "WASTE_PORT_leaf_serial_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "WASTE_PORT_leaf_identity_text.002",
+      "text": "TRANSFER",
+      "font_size": 0.18478260934352875,
+      "samples": 181,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "WASTE_PORT_leaf_identity_field.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "WASTE_PORT_leaf_identity_text.003",
+      "text": "AUTHORIZED ACCESS",
+      "font_size": 0.07846153527498245,
+      "samples": 187,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "WASTE_PORT_leaf_identity_field.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "WASTE_PORT_leaf_access_type.002",
+      "text": "FC / 04",
+      "font_size": 0.07900000363588333,
+      "samples": 223,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "WASTE_PORT_leaf_access_panel.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "WASTE_PORT_leaf_access_type.003",
+      "text": "STAND CLEAR",
+      "font_size": 0.03700000047683716,
+      "samples": 190,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "WASTE_PORT_leaf_access_panel.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "WASTE_PORT_leaf_serial_type.001",
+      "text": "FC-04 / R\nINSPECT 07-B",
+      "font_size": 0.023000000044703484,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "WASTE_PORT_leaf_serial_plate.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "WASTE_PORT_type",
+      "text": "WASTE TRANSFER",
+      "font_size": 0.11500000208616257,
+      "samples": 192,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "WASTE_PORT_direction_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_identity_text",
+      "text": "FUEL",
+      "font_size": 0.4300000071525574,
+      "samples": 212,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REACTOR_BOUNDARY_leaf_identity_field"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_identity_text.001",
+      "text": "TRANSFER",
+      "font_size": 0.14000000059604645,
+      "samples": 181,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REACTOR_BOUNDARY_leaf_identity_field"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_access_type",
+      "text": "R-01",
+      "font_size": 0.07900000363588333,
+      "samples": 198,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REACTOR_BOUNDARY_leaf_access_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_access_type.001",
+      "text": "STAND CLEAR",
+      "font_size": 0.03700000047683716,
+      "samples": 190,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REACTOR_BOUNDARY_leaf_access_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_serial_type",
+      "text": "FC-04 / L\nINSPECT 07-B",
+      "font_size": 0.023000000044703484,
+      "samples": 189,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REACTOR_BOUNDARY_leaf_serial_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_identity_text.002",
+      "text": "REACTOR",
+      "font_size": 0.3449999988079071,
+      "samples": 185,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REACTOR_BOUNDARY_leaf_identity_field.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_identity_text.003",
+      "text": "TRANSFER",
+      "font_size": 0.14000000059604645,
+      "samples": 181,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REACTOR_BOUNDARY_leaf_identity_field.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_access_type.002",
+      "text": "R-01",
+      "font_size": 0.07900000363588333,
+      "samples": 198,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REACTOR_BOUNDARY_leaf_access_panel.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_access_type.003",
+      "text": "STAND CLEAR",
+      "font_size": 0.03700000047683716,
+      "samples": 190,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REACTOR_BOUNDARY_leaf_access_panel.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_serial_type.001",
+      "text": "FC-04 / R\nINSPECT 07-B",
+      "font_size": 0.023000000044703484,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REACTOR_BOUNDARY_leaf_serial_plate.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REACTOR_BOUNDARY_type",
+      "text": "REACTOR APPROACH",
+      "font_size": 0.11500000208616257,
+      "samples": 189,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REACTOR_BOUNDARY_direction_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_identity_text",
+      "text": "FUEL",
+      "font_size": 0.33000001311302185,
+      "samples": 212,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REFINERY_BOUNDARY_leaf_identity_field"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_identity_text.001",
+      "text": "TRANSFER",
+      "font_size": 0.08615384250879288,
+      "samples": 181,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REFINERY_BOUNDARY_leaf_identity_field"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_access_type",
+      "text": "FC / 04",
+      "font_size": 0.07900000363588333,
+      "samples": 223,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REFINERY_BOUNDARY_leaf_access_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_access_type.001",
+      "text": "STAND CLEAR",
+      "font_size": 0.03700000047683716,
+      "samples": 190,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REFINERY_BOUNDARY_leaf_access_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_serial_type",
+      "text": "FC-04 / L\nINSPECT 07-B",
+      "font_size": 0.023000000044703484,
+      "samples": 189,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REFINERY_BOUNDARY_leaf_serial_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_identity_text.002",
+      "text": "REFINERY",
+      "font_size": 0.2028985470533371,
+      "samples": 196,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REFINERY_BOUNDARY_leaf_identity_field.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_identity_text.003",
+      "text": "TRANSFER",
+      "font_size": 0.08615384250879288,
+      "samples": 181,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REFINERY_BOUNDARY_leaf_identity_field.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_access_type.002",
+      "text": "FC / 04",
+      "font_size": 0.07900000363588333,
+      "samples": 223,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REFINERY_BOUNDARY_leaf_access_panel.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_access_type.003",
+      "text": "STAND CLEAR",
+      "font_size": 0.03700000047683716,
+      "samples": 190,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REFINERY_BOUNDARY_leaf_access_panel.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_serial_type.001",
+      "text": "FC-04 / R\nINSPECT 07-B",
+      "font_size": 0.023000000044703484,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REFINERY_BOUNDARY_leaf_serial_plate.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "REFINERY_BOUNDARY_type",
+      "text": "REFINERY",
+      "font_size": 0.11500000208616257,
+      "samples": 196,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "REFINERY_BOUNDARY_direction_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Card_print",
+      "text": "CHECKED\n07 / SHIFT B",
+      "font_size": 0.01600000075995922,
+      "samples": 190,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Inspection_card"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Cask_identity",
+      "text": "FC-07",
+      "font_size": 0.04800000041723251,
+      "samples": 214,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Current_reactor_cartridge"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Cask_inventory_number",
+      "text": "07 / B",
+      "font_size": 0.02199999988079071,
+      "samples": 212,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Cask_inventory_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Frame_brake_hint",
+      "text": "PARK",
+      "font_size": 0.02500000037252903,
+      "samples": 230,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Carrier_rubber_edge",
+        "Chassis_web_segment",
+        "Frame_corner_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Dispatch_card_heading",
+      "text": "INSPECTION",
+      "font_size": 0.03500000014901161,
+      "samples": 187,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Docket_clipboard"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Staged_floor_type",
+      "text": "STAGED",
+      "font_size": 0.18000000715255737,
+      "samples": 206,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Floor_west_turn"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Bench_tool_case_kit_type",
+      "text": "TOOLS / 04",
+      "font_size": 0.014000000432133675,
+      "samples": 197,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Bench_tool_case_identity_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Spare_parts_case_kit_type",
+      "text": "TOOLS / 04",
+      "font_size": 0.014000000432133675,
+      "samples": 197,
+      "unbacked": 0,
+      "front_blocked": 197,
+      "backing": [
+        "Spare_parts_case_identity_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": [
+        {
+          "point": [
+            -1.7735859155654907,
+            10.609299659729004,
+            0.3292180001735687
+          ],
+          "object": "Consumables_drawer_body",
+          "depth_ahead_m": 0.20929908752441406
+        },
+        {
+          "point": [
+            -1.7746078968048096,
+            10.609299659729004,
+            0.334524005651474
+          ],
+          "object": "Consumables_drawer_body",
+          "depth_ahead_m": 0.20929908752441406
+        },
+        {
+          "point": [
+            -1.7856497764587402,
+            10.609299659729004,
+            0.32534101605415344
+          ],
+          "object": "Consumables_drawer_body",
+          "depth_ahead_m": 0.20929908752441406
+        },
+        {
+          "point": [
+            -1.7870845794677734,
+            10.609299659729004,
+            0.3303380012512207
+          ],
+          "object": "Consumables_drawer_body",
+          "depth_ahead_m": 0.20929908752441406
+        },
+        {
+          "point": [
+            -1.7848997116088867,
+            10.609299659729004,
+            0.33436518907546997
+          ],
+          "object": "Consumables_drawer_body",
+          "depth_ahead_m": 0.20929908752441406
+        },
+        {
+          "point": [
+            -1.7815470695495605,
+            10.609299659729004,
+            0.3327176868915558
+          ],
+          "object": "Consumables_drawer_body",
+          "depth_ahead_m": 0.20929908752441406
+        },
+        {
+          "point": [
+            -1.7813377380371094,
+            10.609299659729004,
+            0.3270469605922699
+          ],
+          "object": "Consumables_drawer_body",
+          "depth_ahead_m": 0.20929908752441406
+        },
+        {
+          "point": [
+            -1.7842870950698853,
+            10.609299659729004,
+            0.33319398760795593
+          ],
+          "object": "Consumables_drawer_body",
+          "depth_ahead_m": 0.20929908752441406
+        }
+      ]
+    },
+    {
+      "name": "Grease_tin_label",
+      "text": "GREASE",
+      "font_size": 0.01899999938905239,
+      "samples": 202,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Grease_paper_label"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Consumables_drawer_kit_type",
+      "text": "TOOLS / 04",
+      "font_size": 0.014000000432133675,
+      "samples": 197,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Consumables_drawer_identity_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Spanner_forged_size",
+      "text": "24",
+      "font_size": 0.012000000104308128,
+      "samples": 208,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Forged_contour_shank",
+        "Spanner_recessed_flute"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Spanner_forged_size.001",
+      "text": "28",
+      "font_size": 0.012000000104308128,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Forged_contour_shank.001",
+        "Spanner_recessed_flute.001"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Spanner_forged_size.002",
+      "text": "32",
+      "font_size": 0.012000000104308128,
+      "samples": 189,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Forged_contour_shank.002",
+        "Spanner_recessed_flute.002"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Spanner_forged_size.003",
+      "text": "36",
+      "font_size": 0.012000000104308128,
+      "samples": 215,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Forged_contour_shank.003",
+        "Spanner_recessed_flute.003"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Toolboard_heading",
+      "text": "TOOLS / RETURN AFTER USE",
+      "font_size": 0.03799999877810478,
+      "samples": 186,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Toolboard_back"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Staging_air_station_regulator_model",
+      "text": "AR-07",
+      "font_size": 0.012000000104308128,
+      "samples": 211,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Staging_air_station_regulator_identity"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale",
+      "text": "0",
+      "font_size": 0.009855000302195549,
+      "samples": 192,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Staging_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale.001",
+      "text": "2",
+      "font_size": 0.009855000302195549,
+      "samples": 356,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Staging_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale.002",
+      "text": "4",
+      "font_size": 0.009855000302195549,
+      "samples": 60,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Staging_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale.003",
+      "text": "6",
+      "font_size": 0.009855000302195549,
+      "samples": 242,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Staging_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale.004",
+      "text": "8",
+      "font_size": 0.009855000302195549,
+      "samples": 192,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Staging_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale.005",
+      "text": "10",
+      "font_size": 0.009855000302195549,
+      "samples": 200,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Staging_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_units",
+      "text": "bar",
+      "font_size": 0.010950000025331974,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Staging_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Staging_air_station_label",
+      "text": "SERVICE AIR",
+      "font_size": 0.07199999690055847,
+      "samples": 184,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Staging_air_station_mounting_frame"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Service_bypass_sign_letters",
+      "text": "SERVICE",
+      "font_size": 0.10499999672174454,
+      "samples": 200,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Service_bypass_sign_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Bay_identity_number",
+      "text": "04",
+      "font_size": 0.2800000011920929,
+      "samples": 222,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Bay_identity_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Service_air_station_regulator_model",
+      "text": "AR-07",
+      "font_size": 0.012000000104308128,
+      "samples": 211,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Service_air_station_regulator_identity"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale",
+      "text": "0",
+      "font_size": 0.009855000302195549,
+      "samples": 192,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Service_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale.001",
+      "text": "2",
+      "font_size": 0.009855000302195549,
+      "samples": 356,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Service_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale.002",
+      "text": "4",
+      "font_size": 0.009855000302195549,
+      "samples": 60,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Service_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale.003",
+      "text": "6",
+      "font_size": 0.009855000302195549,
+      "samples": 242,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Service_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale.004",
+      "text": "8",
+      "font_size": 0.009855000302195549,
+      "samples": 192,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Service_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale.005",
+      "text": "10",
+      "font_size": 0.009855000302195549,
+      "samples": 200,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Service_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_units",
+      "text": "bar",
+      "font_size": 0.010950000025331974,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Service_air_station_pressure_gauge_dial"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Service_air_station_label",
+      "text": "SERVICE AIR",
+      "font_size": 0.07199999690055847,
+      "samples": 184,
+      "unbacked": 0,
+      "front_blocked": 24,
+      "backing": [
+        "Service_air_station_mounting_frame"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": [
+        {
+          "point": [
+            -1.3977999687194824,
+            14.82602596282959,
+            2.1862642765045166
+          ],
+          "object": "Service_branch_union",
+          "depth_ahead_m": 0.21210744976997375
+        },
+        {
+          "point": [
+            -1.3977999687194824,
+            14.818181991577148,
+            2.1703498363494873
+          ],
+          "object": "Service_branch_union",
+          "depth_ahead_m": 0.21599271893501282
+        },
+        {
+          "point": [
+            -1.3977999687194824,
+            14.804240226745605,
+            2.170865058898926
+          ],
+          "object": "Service_branch_union",
+          "depth_ahead_m": 0.21594789624214172
+        },
+        {
+          "point": [
+            -1.3977999687194824,
+            14.802827835083008,
+            2.178920030593872
+          ],
+          "object": "Service_branch_union",
+          "depth_ahead_m": 0.21524745225906372
+        },
+        {
+          "point": [
+            -1.3977999687194824,
+            14.81439208984375,
+            2.1759567260742188
+          ],
+          "object": "Service_branch_union",
+          "depth_ahead_m": 0.2155051827430725
+        },
+        {
+          "point": [
+            -1.3977999687194824,
+            14.819891929626465,
+            2.181879997253418
+          ],
+          "object": "Service_branch_union",
+          "depth_ahead_m": 0.2149900496006012
+        },
+        {
+          "point": [
+            -1.3982000350952148,
+            14.83594799041748,
+            2.1700000762939453
+          ],
+          "object": "Service_branch_union",
+          "depth_ahead_m": 0.2164231836795807
+        },
+        {
+          "point": [
+            -1.3982000350952148,
+            14.826324462890625,
+            2.1807916164398193
+          ],
+          "object": "Service_branch_union",
+          "depth_ahead_m": 0.21548476815223694
+        }
+      ]
+    },
+    {
+      "name": "Entry_marker_number",
+      "text": "04",
+      "font_size": 0.2800000011920929,
+      "samples": 222,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Entry_marker_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Waste_marker_number",
+      "text": "W",
+      "font_size": 0.2800000011920929,
+      "samples": 52,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Waste_marker_plate"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Locker_identity",
+      "text": "SERVICE\nKIT",
+      "font_size": 0.0860000029206276,
+      "samples": 186,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Locker_orange_door"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "East_distribution_identity",
+      "text": "FC / 04",
+      "font_size": 0.04600000008940697,
+      "samples": 223,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "East_distribution_door"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "East_distribution_hazard_mark",
+      "text": "!",
+      "font_size": 0.06300000101327896,
+      "samples": 244,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "East_distribution_door"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "East_distribution_service_type",
+      "text": "CHECKED\n07 / B",
+      "font_size": 0.01899999938905239,
+      "samples": 186,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "East_distribution_service_sticker"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Bypass_isolation_identity",
+      "text": "E-03",
+      "font_size": 0.04600000008940697,
+      "samples": 208,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Bypass_isolation_door"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Bypass_isolation_hazard_mark",
+      "text": "!",
+      "font_size": 0.06300000101327896,
+      "samples": 244,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Bypass_isolation_door"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Bypass_isolation_service_type",
+      "text": "CHECKED\n07 / B",
+      "font_size": 0.01899999938905239,
+      "samples": 186,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Bypass_isolation_service_sticker"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Bypass_first_aid_type",
+      "text": "FIRST AID",
+      "font_size": 0.03099999949336052,
+      "samples": 205,
+      "unbacked": 0,
+      "front_blocked": 205,
+      "backing": [
+        "Bypass_first_aid_seal"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": [
+        {
+          "point": [
+            1.0957999229431152,
+            15.892463684082031,
+            1.7061419486999512
+          ],
+          "object": "Bypass_first_aid_clear_lid",
+          "depth_ahead_m": 0.00829988718032837
+        },
+        {
+          "point": [
+            1.0957999229431152,
+            15.88390827178955,
+            1.702728033065796
+          ],
+          "object": "Bypass_first_aid_clear_lid",
+          "depth_ahead_m": 0.008299976587295532
+        },
+        {
+          "point": [
+            1.0957999229431152,
+            15.881211280822754,
+            1.695570945739746
+          ],
+          "object": "Bypass_first_aid_clear_lid",
+          "depth_ahead_m": 0.008299916982650757
+        },
+        {
+          "point": [
+            1.0957999229431152,
+            15.88420581817627,
+            1.68825101852417
+          ],
+          "object": "Bypass_first_aid_clear_lid",
+          "depth_ahead_m": 0.008299946784973145
+        },
+        {
+          "point": [
+            1.0957999229431152,
+            15.892433166503906,
+            1.684999942779541
+          ],
+          "object": "Bypass_first_aid_clear_lid",
+          "depth_ahead_m": 0.008299946784973145
+        },
+        {
+          "point": [
+            1.0957999229431152,
+            15.888579368591309,
+            1.6885871887207031
+          ],
+          "object": "Bypass_first_aid_clear_lid",
+          "depth_ahead_m": 0.008299976587295532
+        },
+        {
+          "point": [
+            1.0957999229431152,
+            15.884696006774902,
+            1.6932469606399536
+          ],
+          "object": "Bypass_first_aid_clear_lid",
+          "depth_ahead_m": 0.008299946784973145
+        },
+        {
+          "point": [
+            1.0957999229431152,
+            15.884855270385742,
+            1.6985881328582764
+          ],
+          "object": "Bypass_first_aid_clear_lid",
+          "depth_ahead_m": 0.008299946784973145
+        }
+      ]
+    },
+    {
+      "name": "Bypass_work_permit_heading",
+      "text": "WORK PERMIT",
+      "font_size": 0.023000000044703484,
+      "samples": 202,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Bypass_work_permit_card"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Plant_work_permit_heading",
+      "text": "WORK PERMIT",
+      "font_size": 0.023000000044703484,
+      "samples": 202,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Plant_work_permit_card"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Clean_distribution_identity",
+      "text": "E-03",
+      "font_size": 0.04600000008940697,
+      "samples": 208,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Clean_distribution_door"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Clean_distribution_hazard_mark",
+      "text": "!",
+      "font_size": 0.06300000101327896,
+      "samples": 244,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Clean_distribution_door"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Clean_distribution_service_type",
+      "text": "CHECKED\n07 / B",
+      "font_size": 0.01899999938905239,
+      "samples": 186,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Clean_distribution_service_sticker"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Clean_blade_destination",
+      "text": "CLEAN / MEDICAL",
+      "font_size": 0.07999999821186066,
+      "samples": 195,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Clean_blade_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    },
+    {
+      "name": "Plant_blade_destination",
+      "text": "PLANT SERVICES",
+      "font_size": 0.09000000357627869,
+      "samples": 188,
+      "unbacked": 0,
+      "front_blocked": 0,
+      "backing": [
+        "Plant_blade_panel"
+      ],
+      "unbacked_examples": [],
+      "blocker_examples": []
+    }
+  ]
+}

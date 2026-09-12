@@ -1,0 +1,2303 @@
+{
+  "schema": "fuel-corridor-technical-audit/1",
+  "utc": "2026-09-10T20:32:08.798046+00:00",
+  "blend": "C:\\Users\\Camer\\.codex\\worktrees\\3598\\critical-shift\\sections\\fuel-corridor\\production\\checkpoints\\style09\\Fuel_Corridor.blend",
+  "blender_version": "5.2.0 LTS",
+  "fresh_background_process": true,
+  "render_performed": false,
+  "scene_modified": false,
+  "validation_device": "CPU BVH / no Cycles render",
+  "revision": "style09",
+  "stage": "slice",
+  "saved_source_sha256": "3fdbb04ab8181ab5d2591cedcce6bcbf70706e3446663012741ee626358e9ea8",
+  "current_source_sha256": "3fdbb04ab8181ab5d2591cedcce6bcbf70706e3446663012741ee626358e9ea8",
+  "saved_detail_source_sha256": "8deeda809ae9565e70c1f79dc1ab576d4bf5482950aab2e6ec95958c47ce460f",
+  "current_detail_source_sha256": "8deeda809ae9565e70c1f79dc1ab576d4bf5482950aab2e6ec95958c47ce460f",
+  "saved_interface_sha256": "df24e4b752e18b5140702bf1dbedb5a8e9bc921333e86fe09a00f10c46ee6a88",
+  "current_interface_sha256": "df24e4b752e18b5140702bf1dbedb5a8e9bc921333e86fe09a00f10c46ee6a88",
+  "validator_sha256": "f18ced2168b84aa6588bae4d6e822218c508776fdbd5723dbce6ede3a1ffcdfa",
+  "camera_and_render_settings": {
+    "status": "PASS",
+    "cameras": [
+      {
+        "camera": "C01_ENTRY",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C02_PRIMARY_ROUTE",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C03_HERO",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C04_REVERSE",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C05_EAST_TURN",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C06_REACTOR_THRESHOLD",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C07_BYPASS",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C08_SERVICE_JUNCTION",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C09_MATERIALS",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C10_PLANT_HEADER",
+        "status": "PASS",
+        "errors": {}
+      }
+    ],
+    "settings": {
+      "engine": "CYCLES",
+      "resolution": [
+        1440,
+        960,
+        100
+      ],
+      "samples": 32,
+      "seed": 71,
+      "denoising": true,
+      "max_bounces": 8,
+      "format": "PNG",
+      "color_mode": "RGB",
+      "view_transform": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.1,
+      "gamma": 1.0,
+      "pixel_aspect": [
+        1.0,
+        1.0
+      ],
+      "border": false,
+      "units": [
+        "METRIC",
+        1.0
+      ]
+    },
+    "issues": []
+  },
+  "geometry": {
+    "status": "PASS",
+    "mesh_objects": 2410,
+    "evaluated_polygons": 192612,
+    "issues": [],
+    "open_surface_notes": [
+      {
+        "object": "Wall_S1.2_0_-2.2_paint_field",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_S1.2_0_-2.2_paint_field.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_W-2.2_0_1.2_paint_field",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_W-2.2_0_1.2_paint_field.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_W-2.2_0_1.2_paint_field.002",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_W-2.2_0_1.2_paint_field.003",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_W-2.2_0_1.2_paint_field.004",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_W-2.2_0_1.2_paint_field.005",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_N13.2_1_1.2_paint_field",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_N13.2_1_1.2_paint_field.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_E1.2_0_13.2_paint_field",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_E1.2_0_13.2_paint_field.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_N15.6_0_-1.2_paint_field",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_N15.6_0_-1.2_paint_field.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_W-1.2_0_13.2_paint_field",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_W-1.2_0_13.2_paint_field.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_E2.2_0_1.2_paint_field",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_E2.2_0_1.2_paint_field.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_E2.2_0_1.2_paint_field.002",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_S7_0_2.2_paint_field",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_S7.8_0_4.4_paint_field",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_S7.8_0_4.4_paint_field.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_E8.4_0_7.8_paint_field",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_E8.4_0_7.8_paint_field.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_N12.2_0_4.4_paint_field",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Wall_N12.2_0_4.4_paint_field.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Work_bay_diagonal",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Work_bay_diagonal.001",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Bay_air_header",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "FREIGHT_GATE_type",
+        "boundary_edges": 2328,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Orange_push_handle",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Orange_push_handle.001",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Card_tether",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Card_print",
+        "boundary_edges": 2660,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Cask_identity",
+        "boundary_edges": 856,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Cask_inventory_number",
+        "boundary_edges": 848,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Barrel_painted_rub",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Barrel_painted_rub.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Barrel_painted_rub.002",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Cartridge_handling_paint",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Cartridge_handling_paint.001",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Cartridge_handling_paint.002",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Cartridge_handling_paint.003",
+        "boundary_edges": 5,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Frame_brake_hint",
+        "boundary_edges": 688,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Dispatch_card_heading",
+        "boundary_edges": 1680,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Staged_floor_type",
+        "boundary_edges": 1236,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Bench_tool_case_handle",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Spare_parts_case_handle",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Grease_tin_label",
+        "boundary_edges": 1412,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Consumables_drawer_handle",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Toolboard_heading",
+        "boundary_edges": 3900,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Staging_air_station_service_pipe",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Staging_air_station_instrument_stem",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Staging_air_station_dust_cap_tether",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Staging_air_station_label",
+        "boundary_edges": 1832,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Staging_air_station_hose_hook",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Staging_air_station_coiled_hose",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Staging_air_station_coiled_hose.001",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Staging_air_station_coiled_hose.002",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Staging_air_station_hose_tail",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Service_bypass_sign_letters",
+        "boundary_edges": 1396,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Bay_identity_number",
+        "boundary_edges": 444,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Laid_power_cable",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Laid_power_cable.001",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Laid_power_cable.002",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Laid_power_cable.003",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      }
+    ],
+    "exact_duplicates": [],
+    "duplicate_method": "World-space evaluated polygon topology quantized to 1 micrometre; vertex-order independent. Intersections among different assembly members are not exact duplicates."
+  },
+  "dependencies": {
+    "status": "PASS",
+    "resources": [
+      {
+        "type": "image",
+        "name": "T01-floor-albedo-r01.png",
+        "path": "//..\\art\\materials\\T01-floor-albedo-r01.png",
+        "packed": true,
+        "exists": false
+      }
+    ],
+    "issues": []
+  },
+  "support_contact": {
+    "status": "PASS",
+    "assemblies": [
+      {
+        "assembly": "Bay_identity",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              4.4,
+              12.63,
+              1.6
+            ],
+            "toward_support": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_E4.4_1_12.2_formed_infill_panel"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Bay_identity_plate",
+            "target_hit": {
+              "object": "Wall_E4.4_1_12.2_formed_infill_panel",
+              "point": [
+                4.4,
+                12.63,
+                1.6
+              ],
+              "normal": [
+                -1.0,
+                0.0,
+                0.0
+              ],
+              "distance_m": 0.09999989718198776
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 3,
+        "anchor_connected_members": 3,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Bay_steelwork",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -2.026,
+              7.25,
+              3.64
+            ],
+            "toward_support": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_W-2.2_0_1.2_splice_plate.007"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Bearing_plate",
+            "target_hit": {
+              "object": "Wall_W-2.2_0_1.2_splice_plate.007",
+              "point": [
+                -2.026,
+                7.25,
+                3.64
+              ],
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "distance_m": 0.10000026226043701
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              -2.2,
+              12.95,
+              3.64
+            ],
+            "toward_support": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_W-2.2_0_1.2_formed_infill_panel.001"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Bearing_plate.002",
+            "target_hit": {
+              "object": "Wall_W-2.2_0_1.2_formed_infill_panel.001",
+              "point": [
+                -2.2,
+                12.95,
+                3.64
+              ],
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "distance_m": 0.09999990463256836
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 14,
+        "anchor_connected_members": 14,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Bench_worklight",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -2.2,
+              10.58,
+              2.36
+            ],
+            "toward_support": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_W-2.2_0_1.2_formed_infill_panel.002"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Bench_worklight_back",
+            "target_hit": {
+              "object": "Wall_W-2.2_0_1.2_formed_infill_panel.002",
+              "point": [
+                -2.2,
+                10.58,
+                2.36
+              ],
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "distance_m": 0.09999989718198776
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 4,
+        "anchor_connected_members": 4,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Cask_task_light",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              3.08,
+              13.2,
+              2.58
+            ],
+            "toward_support": [
+              -0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_N13.2_1_1.2_formed_infill_panel"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Cask_task_light_back",
+            "target_hit": {
+              "object": "Wall_N13.2_1_1.2_formed_infill_panel",
+              "point": [
+                3.08,
+                13.2,
+                2.58
+              ],
+              "normal": [
+                1e-06,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.10000047832727432
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 4,
+        "anchor_connected_members": 4,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Dispatch_paperwork_station",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              1.55,
+              13.2,
+              1.65
+            ],
+            "toward_support": [
+              -0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_N13.2_1_1.2_formed_infill_panel.002"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Docket_station_back",
+            "target_hit": {
+              "object": "Wall_N13.2_1_1.2_formed_infill_panel.002",
+              "point": [
+                1.55,
+                13.2,
+                1.65
+              ],
+              "normal": [
+                1e-06,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.1000005453824997
+            },
+            "signed_gap_m": 1e-06,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 12,
+        "anchor_connected_members": 12,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "FREIGHT_GATE",
+        "role": "floor",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              6.35,
+              11.79,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_crossing"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "FREIGHT_GATE_impact_boot",
+            "target_hit": {
+              "object": "Floor_crossing",
+              "point": [
+                6.35,
+                11.79,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.09999999403953552
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              6.35,
+              8.21,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_crossing"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "FREIGHT_GATE_impact_boot.001",
+            "target_hit": {
+              "object": "Floor_crossing",
+              "point": [
+                6.35,
+                8.21,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.09999999403953552
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 78,
+        "anchor_connected_members": 78,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Freight_gate_drive",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              6.165,
+              10.0,
+              3.72
+            ],
+            "toward_support": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "intended_targets": [
+              "FREIGHT_GATE_upper_motor_cover"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Gate_drive_plate",
+            "target_hit": {
+              "object": "FREIGHT_GATE_upper_motor_cover",
+              "point": [
+                6.165,
+                10.0,
+                3.72
+              ],
+              "normal": [
+                -1.0,
+                0.0,
+                0.0
+              ],
+              "distance_m": 0.09999991208314896
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 18,
+        "anchor_connected_members": 18,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Gate_cool_fill",
+        "role": "ceiling",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              3.32,
+              7.95,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.028"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Gate_cool_fill_drop",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.028",
+              "point": [
+                3.32,
+                7.95,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999990463256836
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              3.32,
+              8.95,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.029"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Gate_cool_fill_drop.001",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.029",
+              "point": [
+                3.32,
+                8.95,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999991208314896
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 6,
+        "anchor_connected_members": 6,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Long_cask_carrier",
+        "role": "floor",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              2.06,
+              12.0,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_west_turn"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Rubber_tyre",
+            "target_hit": {
+              "object": "Floor_west_turn",
+              "point": [
+                2.06,
+                12.0,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.10000000149011612
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              2.06,
+              12.64,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_west_turn"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Rubber_tyre.001",
+            "target_hit": {
+              "object": "Floor_west_turn",
+              "point": [
+                2.06,
+                12.64,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.10000000149011612
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 2,
+            "issues": [],
+            "world_point": [
+              3.24,
+              12.0,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_west_turn"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Rubber_tyre.002",
+            "target_hit": {
+              "object": "Floor_west_turn",
+              "point": [
+                3.24,
+                12.0,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.09999999403953552
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 3,
+            "issues": [],
+            "world_point": [
+              3.24,
+              12.64,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_west_turn"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Rubber_tyre.003",
+            "target_hit": {
+              "object": "Floor_west_turn",
+              "point": [
+                3.24,
+                12.64,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.10000000149011612
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 216,
+        "anchor_connected_members": 216,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Maintenance_bench",
+        "role": "floor",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -2.0,
+              9.93,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_west_turn"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Bench_foot",
+            "target_hit": {
+              "object": "Floor_west_turn",
+              "point": [
+                -2.0,
+                9.93,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.10000000149011612
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              -2.0,
+              11.23,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_west_turn"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Bench_foot.001",
+            "target_hit": {
+              "object": "Floor_west_turn",
+              "point": [
+                -2.0,
+                11.23,
+                -0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.10000000894069672
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 2,
+            "issues": [],
+            "world_point": [
+              -1.62,
+              9.93,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_west_turn"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Bench_foot.002",
+            "target_hit": {
+              "object": "Floor_west_turn",
+              "point": [
+                -1.62,
+                9.93,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.09999999403953552
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 3,
+            "issues": [],
+            "world_point": [
+              -1.62,
+              11.23,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_west_turn"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Bench_foot.003",
+            "target_hit": {
+              "object": "Floor_west_turn",
+              "point": [
+                -1.62,
+                11.23,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.09999999403953552
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 66,
+        "anchor_connected_members": 66,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Maintenance_tool_board",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -2.2,
+              10.58,
+              1.75
+            ],
+            "toward_support": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_W-2.2_0_1.2_formed_infill_panel.002"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Toolboard_back",
+            "target_hit": {
+              "object": "Wall_W-2.2_0_1.2_formed_infill_panel.002",
+              "point": [
+                -2.2,
+                10.58,
+                1.75
+              ],
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "distance_m": 0.09999990463256836
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 23,
+        "anchor_connected_members": 23,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Service_bypass_sign",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              0.0,
+              13.1,
+              3.37
+            ],
+            "toward_support": [
+              -0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Height_step_masonry"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Service_bypass_sign_panel",
+            "target_hit": {
+              "object": "Height_step_masonry",
+              "point": [
+                0.0,
+                13.099999,
+                3.37
+              ],
+              "normal": [
+                0.0,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.09999942779541016
+            },
+            "signed_gap_m": -1e-06,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 4,
+        "anchor_connected_members": 4,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Slice_cross",
+        "role": "ceiling",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              7.5,
+              9.5,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.039"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Slice_cross_drop",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.039",
+              "point": [
+                7.5,
+                9.5,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999989718198776
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              7.5,
+              10.5,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.039"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Slice_cross_drop.001",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.039",
+              "point": [
+                7.5,
+                10.5,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999990463256836
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 6,
+        "anchor_connected_members": 6,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Slice_entry",
+        "role": "ceiling",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -0.5,
+              4.0,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.005"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Slice_entry_drop",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.005",
+              "point": [
+                -0.5,
+                4.0,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999990463256836
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              0.5,
+              4.0,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.005"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Slice_entry_drop.001",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.005",
+              "point": [
+                0.5,
+                4.0,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999990463256836
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 6,
+        "anchor_connected_members": 6,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Slice_service",
+        "role": "ceiling",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -0.5,
+              14.5,
+              3.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.042"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Slice_service_drop",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.042",
+              "point": [
+                -0.5,
+                14.5,
+                3.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999989718198776
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              0.5,
+              14.5,
+              3.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.044"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Slice_service_drop.001",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.044",
+              "point": [
+                0.5,
+                14.5,
+                3.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999989718198776
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 6,
+        "anchor_connected_members": 6,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Slice_utility_header",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              1.75,
+              13.2,
+              3.24
+            ],
+            "toward_support": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_N13.2_1_1.2_formed_infill_panel.003"
+            ],
+            "distance_to_assembly_surface_m": 1e-06,
+            "anchor_member": "Header_backplate",
+            "target_hit": {
+              "object": "Wall_N13.2_1_1.2_formed_infill_panel.003",
+              "point": [
+                1.75,
+                13.2,
+                3.24
+              ],
+              "normal": [
+                1e-06,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.10000067949295044
+            },
+            "signed_gap_m": 1e-06,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              3.75,
+              13.2,
+              3.24
+            ],
+            "toward_support": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_N13.2_1_1.2_formed_infill_panel.001"
+            ],
+            "distance_to_assembly_surface_m": 1e-06,
+            "anchor_member": "Header_backplate.001",
+            "target_hit": {
+              "object": "Wall_N13.2_1_1.2_formed_infill_panel.001",
+              "point": [
+                3.75,
+                13.200001,
+                3.24
+              ],
+              "normal": [
+                1e-06,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.10000096261501312
+            },
+            "signed_gap_m": 1e-06,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 22,
+        "anchor_connected_members": 22,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Staging_air_station",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              3.8,
+              13.2,
+              1.8
+            ],
+            "toward_support": [
+              -0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_N13.2_1_1.2_formed_infill_panel"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Staging_air_station_mounting_frame",
+            "target_hit": {
+              "object": "Wall_N13.2_1_1.2_formed_infill_panel",
+              "point": [
+                3.8,
+                13.200001,
+                1.8
+              ],
+              "normal": [
+                1e-06,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.10000099241733551
+            },
+            "signed_gap_m": 1e-06,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 65,
+        "anchor_connected_members": 65,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Staging_cable_ladder",
+        "role": "ceiling",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -1.55,
+              8.1,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.012"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Ladder_ceiling_shoe",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.012",
+              "point": [
+                -1.55,
+                8.1,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999991208314896
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              -1.55,
+              11.6,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.014"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Ladder_ceiling_shoe.001",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.014",
+              "point": [
+                -1.55,
+                11.6,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999990463256836
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 38,
+        "anchor_connected_members": 38,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Staging_front_practical",
+        "role": "ceiling",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              0.6,
+              7.65,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.020"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Staging_front_practical_drop",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.020",
+              "point": [
+                0.6,
+                7.65,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999991208314896
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              1.6,
+              7.65,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.020"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Staging_front_practical_drop.001",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.020",
+              "point": [
+                1.6,
+                7.65,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999991208314896
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 6,
+        "anchor_connected_members": 6,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Staging_vent",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              2.16,
+              13.2,
+              3.63
+            ],
+            "toward_support": [
+              -0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_N13.2_1_1.2_formed_infill_panel.003"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Staging_vent_frame",
+            "target_hit": {
+              "object": "Wall_N13.2_1_1.2_formed_infill_panel.003",
+              "point": [
+                2.16,
+                13.200001,
+                3.63
+              ],
+              "normal": [
+                1e-06,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.10000097006559372
+            },
+            "signed_gap_m": 1e-06,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 12,
+        "anchor_connected_members": 12,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Staging_warm_key",
+        "role": "ceiling",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -0.35,
+              11.78,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.019"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Staging_warm_key_drop",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.019",
+              "point": [
+                -0.35,
+                11.78,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999990463256836
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              0.65,
+              11.78,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Recessed_ceiling_panel.023"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Staging_warm_key_drop.001",
+            "target_hit": {
+              "object": "Recessed_ceiling_panel.023",
+              "point": [
+                0.65,
+                11.78,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999990463256836
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 6,
+        "anchor_connected_members": 6,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Transfer_gate_key",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              6.165,
+              10.0,
+              3.93
+            ],
+            "toward_support": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "intended_targets": [
+              "FREIGHT_GATE_upper_motor_cover"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Transfer_gate_key_back",
+            "target_hit": {
+              "object": "FREIGHT_GATE_upper_motor_cover",
+              "point": [
+                6.165,
+                10.0,
+                3.93
+              ],
+              "normal": [
+                -1.0,
+                0.0,
+                0.0
+              ],
+              "distance_m": 0.09999991208314896
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 4,
+        "anchor_connected_members": 4,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      }
+    ],
+    "issues": [],
+    "support_dependency_edges": {
+      "Freight_gate_drive": [
+        "FREIGHT_GATE"
+      ],
+      "Transfer_gate_key": [
+        "FREIGHT_GATE"
+      ]
+    },
+    "architecture_rooted_assemblies": [
+      "Bay_identity",
+      "Bay_steelwork",
+      "Bench_worklight",
+      "Cask_task_light",
+      "Dispatch_paperwork_station",
+      "FREIGHT_GATE",
+      "Freight_gate_drive",
+      "Gate_cool_fill",
+      "Long_cask_carrier",
+      "Maintenance_bench",
+      "Maintenance_tool_board",
+      "Service_bypass_sign",
+      "Slice_cross",
+      "Slice_entry",
+      "Slice_service",
+      "Slice_utility_header",
+      "Staging_air_station",
+      "Staging_cable_ladder",
+      "Staging_front_practical",
+      "Staging_vent",
+      "Staging_warm_key",
+      "Transfer_gate_key"
+    ],
+    "method": "Explicit world-space anchors raycast toward named evaluated support targets. Signed gap from 100 mm prop-side offset; normal must oppose direction. Own-anchor proximity plus a triangle-intersection / <=5 mm sampled surface contact graph checks members reach an anchored member.",
+    "limitations": "Contact graph proves geometric attachment approximatively, not mechanical stress, fastening adequacy, or correct support of every hidden interior component. Intentional different-part assembly intersections are accepted; exact duplicates remain separately checked."
+  },
+  "internal_routes": {
+    "status": "NOT_RUN",
+    "reason": "Style slice does not contain full-route geometry; final acceptance requires --stage full",
+    "excluded_cap_leaf_members": []
+  },
+  "external_presentation_caps": {
+    "state": "NO_CLOSED_CAP_HIT",
+    "through_passage": "NOT_CERTIFIED",
+    "checks": [
+      {
+        "boundary": "REFINERY_BOUNDARY",
+        "state": "ABSENT"
+      },
+      {
+        "boundary": "REACTOR_BOUNDARY",
+        "state": "ABSENT"
+      }
+    ],
+    "neighbor_state": "Neighbor files were neither imported nor modified. Existing reactor-owned doors are independently documented closed in interface.json. Removing these connector caps does not open or certify neighboring paths."
+  },
+  "carrier_actual_envelope": {
+    "bounds_min": [
+      1.85,
+      11.8688,
+      -0.0
+    ],
+    "bounds_max": [
+      3.45,
+      12.77,
+      1.247
+    ],
+    "dimensions_xyz_m": [
+      1.6,
+      0.9012,
+      1.247
+    ],
+    "declared_envelope_lwh_m": [
+      1.6,
+      0.9,
+      1.3
+    ],
+    "status": "PASS",
+    "exceeded_axes": [],
+    "tolerance_m": 0.002
+  },
+  "current_cartridge_core": {
+    "status": "PASS",
+    "dimensions_xyz_m": [
+      1.245,
+      0.34,
+      0.34
+    ],
+    "expected_m": [
+      1.245,
+      0.34,
+      0.34
+    ],
+    "scope": "Bare current compatible body and closures. Transport straps, lifting eyes, latch hardware belong to the original carrier restraint assembly, not the bare cartridge envelope."
+  },
+  "source_matches_saved_scene": true,
+  "failed_gates": [
+    "internal_routes"
+  ],
+  "status": "FAIL",
+  "elapsed_seconds": 5.91,
+  "acceptance_scope": "Technical geometry gates only; closed external caps remain explicit integration blockers. Pixel quality, repeated review cycles and final cold render comparison are separate mandatory acceptance gates."
+}

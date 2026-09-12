@@ -1,0 +1,262 @@
+{
+  "schema": "fuel-corridor-technical-audit/1",
+  "utc": "2026-09-10T20:23:10.424403+00:00",
+  "blend": "",
+  "blender_version": "5.2.0 LTS",
+  "fresh_background_process": true,
+  "render_performed": false,
+  "scene_modified": false,
+  "validation_device": "CPU BVH / no Cycles render",
+  "revision": "astra_disposable_probe",
+  "stage": "slice",
+  "saved_source_sha256": "d632deaba0d200aac993d531c61645b7ab4909eed5ee92313ef53ec286d6a506",
+  "current_source_sha256": "d632deaba0d200aac993d531c61645b7ab4909eed5ee92313ef53ec286d6a506",
+  "saved_detail_source_sha256": "05459963e8601c80bbd5a8fcf0e0a3913e9d50c22eb3a100f4a5df950cae1a98",
+  "current_detail_source_sha256": "05459963e8601c80bbd5a8fcf0e0a3913e9d50c22eb3a100f4a5df950cae1a98",
+  "saved_interface_sha256": "df24e4b752e18b5140702bf1dbedb5a8e9bc921333e86fe09a00f10c46ee6a88",
+  "current_interface_sha256": "df24e4b752e18b5140702bf1dbedb5a8e9bc921333e86fe09a00f10c46ee6a88",
+  "validator_sha256": "947af229ea54958c9fed633fac3ccd7705d3ca938da1fe443e10476d32a37b78",
+  "camera_and_render_settings": {
+    "status": "FAIL",
+    "cameras": [],
+    "settings": {
+      "engine": "BLENDER_EEVEE",
+      "resolution": [
+        1920,
+        1080,
+        100
+      ],
+      "samples": 4096,
+      "seed": 0,
+      "denoising": true,
+      "max_bounces": 12,
+      "format": "PNG",
+      "color_mode": "RGBA",
+      "view_transform": "AgX",
+      "look": "None",
+      "exposure": 0.0,
+      "gamma": 1.0,
+      "pixel_aspect": [
+        1.0,
+        1.0
+      ],
+      "border": false,
+      "units": [
+        "METRIC",
+        1.0
+      ]
+    },
+    "issues": [
+      {
+        "camera_inventory": {
+          "expected": [
+            "C01_ENTRY",
+            "C02_PRIMARY_ROUTE",
+            "C03_HERO",
+            "C04_REVERSE",
+            "C05_EAST_TURN",
+            "C06_REACTOR_THRESHOLD",
+            "C07_BYPASS",
+            "C08_SERVICE_JUNCTION",
+            "C09_MATERIALS",
+            "C10_PLANT_HEADER"
+          ],
+          "actual": []
+        }
+      },
+      {
+        "engine": {
+          "actual": "BLENDER_EEVEE",
+          "expected": "CYCLES"
+        }
+      },
+      {
+        "resolution": {
+          "actual": [
+            1920,
+            1080,
+            100
+          ],
+          "expected": [
+            1440,
+            960,
+            100
+          ]
+        }
+      },
+      {
+        "samples": {
+          "actual": 4096,
+          "expected": 32
+        }
+      },
+      {
+        "seed": {
+          "actual": 0,
+          "expected": 71
+        }
+      },
+      {
+        "max_bounces": {
+          "actual": 12,
+          "expected": 8
+        }
+      },
+      {
+        "color_mode": {
+          "actual": "RGBA",
+          "expected": "RGB"
+        }
+      },
+      {
+        "look": {
+          "actual": "None",
+          "expected": "AgX - Medium High Contrast"
+        }
+      },
+      {
+        "exposure": {
+          "actual": 0.0,
+          "expected": 0.1
+        }
+      }
+    ]
+  },
+  "geometry": {
+    "status": "PASS",
+    "mesh_objects": 3,
+    "evaluated_polygons": 18,
+    "issues": [],
+    "open_surface_notes": [],
+    "exact_duplicates": [],
+    "duplicate_method": "World-space evaluated polygon topology quantized to 1 micrometre; vertex-order independent. Intersections among different assembly members are not exact duplicates."
+  },
+  "dependencies": {
+    "status": "PASS",
+    "resources": [],
+    "issues": []
+  },
+  "support_contact": {
+    "status": "FAIL",
+    "assemblies": [
+      {
+        "assembly": "Long_cask_carrier",
+        "role": "unclassified",
+        "issues": [
+          "Registration requires explicit anchors, direction, and intended support_target or per-anchor support_targets",
+          "Invalid support direction",
+          "Members have no measured contact chain to a support anchor"
+        ],
+        "anchors": [],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 3,
+        "anchor_connected_members": 0,
+        "disconnected_members": [
+          "Current_cask_end_closure",
+          "Current_cask_end_closure.001",
+          "Current_reactor_cartridge"
+        ],
+        "disconnected_components": [
+          {
+            "members": [
+              "Current_cask_end_closure",
+              "Current_cask_end_closure.001",
+              "Current_reactor_cartridge"
+            ],
+            "nearest_grounded_contact": null
+          }
+        ],
+        "status": "FAIL"
+      }
+    ],
+    "issues": [
+      {
+        "assembly": "Long_cask_carrier",
+        "issue": "Failed registration, physical contact, or assembly connectivity"
+      },
+      {
+        "issue": "Support dependency does not reach a registered architectural support surface (possibly missing target or cyclic prop support)",
+        "assemblies": [
+          "Long_cask_carrier"
+        ]
+      }
+    ],
+    "support_dependency_edges": {},
+    "architecture_rooted_assemblies": [],
+    "method": "Explicit world-space anchors raycast toward named evaluated support targets. Signed gap from 100 mm prop-side offset; normal must oppose direction. Own-anchor proximity plus a triangle-intersection / <=5 mm sampled surface contact graph checks members reach an anchored member.",
+    "limitations": "Contact graph proves geometric attachment approximatively, not mechanical stress, fastening adequacy, or correct support of every hidden interior component. Intentional different-part assembly intersections are accepted; exact duplicates remain separately checked."
+  },
+  "internal_routes": {
+    "status": "NOT_RUN",
+    "reason": "Style slice does not contain full-route geometry; final acceptance requires --stage full",
+    "excluded_cap_leaf_members": []
+  },
+  "external_presentation_caps": {
+    "state": "NO_CLOSED_CAP_HIT",
+    "through_passage": "NOT_CERTIFIED",
+    "checks": [
+      {
+        "boundary": "REFINERY_BOUNDARY",
+        "state": "ABSENT"
+      },
+      {
+        "boundary": "REACTOR_BOUNDARY",
+        "state": "ABSENT"
+      }
+    ],
+    "neighbor_state": "Neighbor files were neither imported nor modified. Existing reactor-owned doors are independently documented closed in interface.json. Removing these connector caps does not open or certify neighboring paths."
+  },
+  "carrier_actual_envelope": {
+    "bounds_min": [
+      -0.6225,
+      -0.17,
+      0.43
+    ],
+    "bounds_max": [
+      0.6225,
+      0.17,
+      0.77
+    ],
+    "dimensions_xyz_m": [
+      1.245,
+      0.34,
+      0.34
+    ],
+    "declared_envelope_lwh_m": [
+      1.6,
+      0.9,
+      1.3
+    ],
+    "status": "PASS",
+    "exceeded_axes": [],
+    "tolerance_m": 0.002
+  },
+  "current_cartridge_core": {
+    "status": "PASS",
+    "dimensions_xyz_m": [
+      1.245,
+      0.34,
+      0.34
+    ],
+    "expected_m": [
+      1.245,
+      0.34,
+      0.34
+    ],
+    "scope": "Bare current compatible body and closures. Transport straps, lifting eyes, latch hardware belong to the original carrier restraint assembly, not the bare cartridge envelope."
+  },
+  "source_matches_saved_scene": true,
+  "failed_gates": [
+    "camera_and_render_settings",
+    "support_contact",
+    "internal_routes",
+    "cold_reopen_context"
+  ],
+  "status": "FAIL",
+  "elapsed_seconds": 0.01,
+  "acceptance_scope": "Technical geometry gates only; closed external caps remain explicit integration blockers. Pixel quality, repeated review cycles and final cold render comparison are separate mandatory acceptance gates."
+}

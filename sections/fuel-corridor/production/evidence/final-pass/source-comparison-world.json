@@ -1,0 +1,54 @@
+{
+  "baseline": "C:/Users/Camer/.codex/worktrees/ef37/critical-shift/.worktrees/fuel-corridor-final/sections/fuel-corridor/production/checkpoints/final-F00-inherited/Fuel_Corridor.blend",
+  "reproduction": "C:/Users/Camer/.codex/worktrees/ef37/critical-shift/.worktrees/fuel-corridor-final/sections/fuel-corridor/production/checkpoints/final-source-probe/blender/Fuel_Corridor.blend",
+  "baseline_count": 7939,
+  "reproduction_count": 7939,
+  "missing": [],
+  "added": [],
+  "changed": {
+    "Service_air_station_label": [
+      "matrix"
+    ]
+  },
+  "scope": "Object transforms, base mesh topology/material assignment, fonts, lights, cameras, bevels; material node graphs and UVs require separate verification.",
+  "matrix_differences": {
+    "Service_air_station_label": {
+      "baseline": [
+        -0.0,
+        -0.0,
+        1.0,
+        -1.398,
+        1.0,
+        -0.0,
+        0.0,
+        15.0,
+        0.0,
+        1.0,
+        0.0,
+        2.245,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "reproduction": [
+        -0.0,
+        -1.0,
+        0.0,
+        -1.45,
+        1.0,
+        -0.0,
+        0.0,
+        15.0,
+        0.0,
+        0.0,
+        1.0,
+        2.245,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  }
+}

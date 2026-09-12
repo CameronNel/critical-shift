@@ -1,0 +1,66 @@
+{
+  "revision": "final-F09",
+  "blend_sha256": "50301920c205744213603577145f6afb34fcdaea6d3aabbe846ae69fd2049a42",
+  "disposition": "HOLD",
+  "reviewer": "Luna",
+  "review_scope": "Fuel Corridor only; direct local pixel review of complete F09 fixed pack plus bounded review of supplied technical evidence",
+  "categories": [
+    {"name":"specification coverage","score":94},
+    {"name":"facility/process logic","score":93},
+    {"name":"human scale","score":94},
+    {"name":"player circulation","score":93},
+    {"name":"freight/cart handling","score":94},
+    {"name":"maintenance access","score":94},
+    {"name":"interface consistency","score":93},
+    {"name":"machinery construction","score":95},
+    {"name":"physical support/contact","score":94},
+    {"name":"Valorant shape language","score":94},
+    {"name":"material separation/anti-plastic","score":94},
+    {"name":"lighting/readability","score":93},
+    {"name":"no-teal color discipline","score":95},
+    {"name":"signage/numbering","score":94},
+    {"name":"environmental storytelling","score":93},
+    {"name":"camera coverage","score":94},
+    {"name":"saved-artifact/source/dependency reproducibility","score":92,"status":"conditional"}
+  ],
+  "fixed_views": [
+    {"name":"C01_ENTRY","score":94}, {"name":"C02_PRIMARY_ROUTE","score":94},
+    {"name":"C03_HERO","score":92}, {"name":"C04_REVERSE","score":94},
+    {"name":"C05_EAST_TURN","score":94}, {"name":"C06_REACTOR_THRESHOLD","score":95},
+    {"name":"C07_BYPASS","score":94}, {"name":"C08_SERVICE_JUNCTION","score":94},
+    {"name":"C09_MATERIALS","score":95}, {"name":"C10_PLANT_HEADER","score":95},
+    {"name":"D01_CARRIER_OPERATION","score":95}, {"name":"D02_WORKBENCH","score":93},
+    {"name":"D03_UTILITY","score":95}, {"name":"D04_REACTOR_WIDE","score":95},
+    {"name":"D05_GATE_MECHANISM","score":93}, {"name":"D06_SERVICE_RECESS","score":95}
+  ],
+  "player_views": [
+    {"name":"W01_REFINERY_APPROACH","score":null,"status":"pending canonical player render"},
+    {"name":"W02_SERVICE_ENTRY","score":null,"status":"pending canonical player render"},
+    {"name":"W03_PLANT_APPROACH","score":null,"status":"pending canonical player render"},
+    {"name":"W04_PLANT_RETURN","score":null,"status":"pending canonical player render"},
+    {"name":"W05_CLEAN_APPROACH","score":null,"status":"pending canonical player render"},
+    {"name":"W06_WASTE_APPROACH","score":null,"status":"pending canonical player render"},
+    {"name":"W07_DELIVERY_RETURN","score":null,"status":"pending canonical player render"},
+    {"name":"W08_EAST_TURN_RETURN","score":null,"status":"pending canonical player render"},
+    {"name":"W09_BENCH_ACCESS","score":null,"status":"pending canonical player render"},
+    {"name":"W10_GATE_APPROACH","score":null,"status":"pending canonical player render"},
+    {"name":"W11_CARRIER_ACCESS","score":null,"status":"pending canonical player render"},
+    {"name":"W12_CLEAN_TURN","score":null,"status":"pending canonical player render"}
+  ],
+  "limitations": [
+    "Disposition is HOLD until canonical cold16 pixel comparison and all twelve canonical player-eye images are reviewed.",
+    "F05 canonical cold C08 failed the hard max2/255 threshold; the real coplanar rear-flange/washable-lower construction condition is preserved as historical evidence and F09 is credited only for its corrected current pixels and support audit.",
+    "F09 canonical cold C07 currently has 148 pixels over the hard max2/255 threshold (max31) at the tiny FIRST AID cross; direct scene-scale pixels are visually unchanged, but source diagnosis identifies coplanar cross_v/cross_h surfaces, so this is retained as a real reproducibility/construction evidence failure pending F10.",
+    "F09 technical, source replay, material replay, branch/handoff, and motion files are builder evidence, not a second independent Luna engineering signoff.",
+    "Runtime controller behavior, continuous collision/physics, and assembled neighboring rooms are outside this Fuel Corridor review.",
+    "Wayfinding audit reports only the transparent FIRST AID lid obstruction; it remains a bounded signage caveat."
+  ],
+  "evidence": {
+    "fixed_render_directory":"sections/fuel-corridor/production/renders/review/final-F09",
+    "technical":"sections/fuel-corridor/production/evidence/final-pass/F09-technical.json",
+    "source_replay":"sections/fuel-corridor/production/evidence/final-pass/F09-source-replay.json",
+    "material_replay":"sections/fuel-corridor/production/evidence/final-pass/F09-material-replay.json",
+    "engineering_motion":"sections/fuel-corridor/production/evidence/final-pass/F09-engineering-motion.json",
+    "branch_handoff":"sections/fuel-corridor/production/evidence/final-pass/F09-branch-handoff.json"
+  }
+}

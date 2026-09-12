@@ -1,0 +1,507 @@
+{
+  "blend_sha256": "caf0c11a33347cbd1655c16f06c981b7fb1aad02eb343b3231508488ccf9bb20",
+  "signs": {
+    "plant": {
+      "components": [
+        {
+          "object": "Plant_blade_drop",
+          "type": "MESH",
+          "parent": "Plant_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              -0.469000012,
+              15.991000175,
+              2.579999924
+            ],
+            [
+              -0.451000005,
+              16.009000778,
+              3.0
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Plant_blade_ceiling_foot",
+          "type": "MESH",
+          "parent": "Plant_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              -0.50999999,
+              15.949999809,
+              2.984000206
+            ],
+            [
+              -0.409999996,
+              16.049999237,
+              3.0
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Plant_blade_drop.001",
+          "type": "MESH",
+          "parent": "Plant_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              0.451000005,
+              15.991000175,
+              2.579999924
+            ],
+            [
+              0.469000012,
+              16.009000778,
+              3.0
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Plant_blade_ceiling_foot.001",
+          "type": "MESH",
+          "parent": "Plant_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              0.409999996,
+              15.949999809,
+              2.984000206
+            ],
+            [
+              0.50999999,
+              16.049999237,
+              3.0
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Plant_blade_panel",
+          "type": "MESH",
+          "parent": "Plant_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              -0.649999976,
+              15.987000465,
+              2.340000153
+            ],
+            [
+              0.649999976,
+              16.013000488,
+              2.579999924
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Plant_blade_destination",
+          "type": "FONT",
+          "parent": "Plant_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              -0.301865041,
+              15.984799385,
+              2.444190025
+            ],
+            [
+              0.38528505,
+              15.985199928,
+              2.507189989
+            ]
+          ],
+          "collision_policy": null,
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Plant_blade_left_arrow",
+          "type": "MESH",
+          "parent": "Plant_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              -0.550000012,
+              15.984999657,
+              2.414999962
+            ],
+            [
+              -0.419999987,
+              15.984999657,
+              2.505000114
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        }
+      ],
+      "assembly_bounds_xyz": [
+        [
+          -0.649999976,
+          15.949999809,
+          2.340000153
+        ],
+        [
+          0.649999976,
+          16.049999237,
+          3.0
+        ]
+      ],
+      "bottom_above_operating_height_2p2_m": 0.140000153,
+      "drop_to_panel_axis_gaps_m": [
+        0.0,
+        0.0
+      ]
+    },
+    "clean": {
+      "components": [
+        {
+          "object": "Clean_blade_drop",
+          "type": "MESH",
+          "parent": "Clean_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              4.940999985,
+              19.861000061,
+              2.690000057
+            ],
+            [
+              4.958999634,
+              19.879001617,
+              3.0
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Clean_blade_ceiling_foot",
+          "type": "MESH",
+          "parent": "Clean_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              4.899999619,
+              19.820001602,
+              2.984000206
+            ],
+            [
+              5.0,
+              19.920000076,
+              3.0
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Clean_blade_drop.001",
+          "type": "MESH",
+          "parent": "Clean_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              4.940999985,
+              20.620998383,
+              2.690000057
+            ],
+            [
+              4.958999634,
+              20.638999939,
+              3.0
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Clean_blade_ceiling_foot.001",
+          "type": "MESH",
+          "parent": "Clean_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              4.899999619,
+              20.579999924,
+              2.984000206
+            ],
+            [
+              5.0,
+              20.679998398,
+              3.0
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Clean_blade_panel",
+          "type": "MESH",
+          "parent": "Clean_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              4.936999798,
+              19.690000534,
+              2.450000048
+            ],
+            [
+              4.962999821,
+              20.809999466,
+              2.689999819
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Clean_blade_destination",
+          "type": "FONT",
+          "parent": "Clean_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              4.934800148,
+              19.91626358,
+              2.559226036
+            ],
+            [
+              4.935199738,
+              20.640470505,
+              2.619426012
+            ]
+          ],
+          "collision_policy": null,
+          "external_presentation_cap": false
+        },
+        {
+          "object": "Clean_blade_left_arrow",
+          "type": "MESH",
+          "parent": "Clean_branch_blade_sign",
+          "bounds_xyz": [
+            [
+              4.934999943,
+              20.620000839,
+              2.525000095
+            ],
+            [
+              4.934999943,
+              20.75,
+              2.61500001
+            ]
+          ],
+          "collision_policy": "static_evaluated_geometry",
+          "external_presentation_cap": false
+        }
+      ],
+      "assembly_bounds_xyz": [
+        [
+          4.899999619,
+          19.690000534,
+          2.450000048
+        ],
+        [
+          5.0,
+          20.809999466,
+          3.0
+        ]
+      ],
+      "bottom_above_operating_height_2p2_m": 0.250000048,
+      "drop_to_panel_axis_gaps_m": [
+        2.38e-07,
+        2.38e-07
+      ]
+    }
+  },
+  "reactor_pressed_components": [
+    {
+      "object": "REACTOR_BOUNDARY_leaf_pressed_border",
+      "type": "MESH",
+      "parent": "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+      "bounds_xyz": [
+        [
+          12.050000191,
+          23.547000885,
+          2.559999943
+        ],
+        [
+          13.850000381,
+          23.569999695,
+          4.53000021
+        ]
+      ],
+      "collision_policy": "kinematic_geometry",
+      "external_presentation_cap": true
+    },
+    {
+      "object": "REACTOR_BOUNDARY_leaf_pressed_fastener",
+      "type": "MESH",
+      "parent": "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+      "bounds_xyz": [
+        [
+          12.249287605,
+          23.552999496,
+          2.690473795
+        ],
+        [
+          12.270712852,
+          23.572999954,
+          2.7095263
+        ]
+      ],
+      "collision_policy": "kinematic_geometry",
+      "external_presentation_cap": true
+    },
+    {
+      "object": "REACTOR_BOUNDARY_leaf_pressed_fastener.001",
+      "type": "MESH",
+      "parent": "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+      "bounds_xyz": [
+        [
+          12.249287605,
+          23.552999496,
+          4.380473614
+        ],
+        [
+          12.270712852,
+          23.572999954,
+          4.399526119
+        ]
+      ],
+      "collision_policy": "kinematic_geometry",
+      "external_presentation_cap": true
+    },
+    {
+      "object": "REACTOR_BOUNDARY_leaf_pressed_fastener.002",
+      "type": "MESH",
+      "parent": "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+      "bounds_xyz": [
+        [
+          13.62928772,
+          23.552999496,
+          2.690473795
+        ],
+        [
+          13.650712967,
+          23.572999954,
+          2.7095263
+        ]
+      ],
+      "collision_policy": "kinematic_geometry",
+      "external_presentation_cap": true
+    },
+    {
+      "object": "REACTOR_BOUNDARY_leaf_pressed_fastener.003",
+      "type": "MESH",
+      "parent": "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+      "bounds_xyz": [
+        [
+          13.62928772,
+          23.552999496,
+          4.380473614
+        ],
+        [
+          13.650712967,
+          23.572999954,
+          4.399526119
+        ]
+      ],
+      "collision_policy": "kinematic_geometry",
+      "external_presentation_cap": true
+    },
+    {
+      "object": "REACTOR_BOUNDARY_leaf_pressed_border.001",
+      "type": "MESH",
+      "parent": "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+      "bounds_xyz": [
+        [
+          14.550000191,
+          23.547000885,
+          2.559999943
+        ],
+        [
+          16.350000381,
+          23.569999695,
+          4.53000021
+        ]
+      ],
+      "collision_policy": "kinematic_geometry",
+      "external_presentation_cap": true
+    },
+    {
+      "object": "REACTOR_BOUNDARY_leaf_pressed_fastener.004",
+      "type": "MESH",
+      "parent": "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+      "bounds_xyz": [
+        [
+          14.749287605,
+          23.552999496,
+          2.690473795
+        ],
+        [
+          14.770712852,
+          23.572999954,
+          2.7095263
+        ]
+      ],
+      "collision_policy": "kinematic_geometry",
+      "external_presentation_cap": true
+    },
+    {
+      "object": "REACTOR_BOUNDARY_leaf_pressed_fastener.005",
+      "type": "MESH",
+      "parent": "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+      "bounds_xyz": [
+        [
+          14.749287605,
+          23.552999496,
+          4.380473614
+        ],
+        [
+          14.770712852,
+          23.572999954,
+          4.399526119
+        ]
+      ],
+      "collision_policy": "kinematic_geometry",
+      "external_presentation_cap": true
+    },
+    {
+      "object": "REACTOR_BOUNDARY_leaf_pressed_fastener.006",
+      "type": "MESH",
+      "parent": "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+      "bounds_xyz": [
+        [
+          16.129285812,
+          23.552999496,
+          2.690473795
+        ],
+        [
+          16.150712967,
+          23.572999954,
+          2.7095263
+        ]
+      ],
+      "collision_policy": "kinematic_geometry",
+      "external_presentation_cap": true
+    },
+    {
+      "object": "REACTOR_BOUNDARY_leaf_pressed_fastener.007",
+      "type": "MESH",
+      "parent": "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+      "bounds_xyz": [
+        [
+          16.129285812,
+          23.552999496,
+          4.380473614
+        ],
+        [
+          16.150712967,
+          23.572999954,
+          4.399526119
+        ]
+      ],
+      "collision_policy": "kinematic_geometry",
+      "external_presentation_cap": true
+    }
+  ],
+  "saved": false,
+  "scope": "Evaluated bounds and parent/export identities only. Axis gaps are reported separately as numeric contact diagnostics, not complete triangle support or collision certification."
+}

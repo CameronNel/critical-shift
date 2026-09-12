@@ -1,0 +1,7234 @@
+{
+  "saved_blend": "C:\\Users\\Camer\\.codex\\worktrees\\3598\\critical-shift\\sections\\fuel-corridor\\production\\checkpoints\\full04\\Fuel_Corridor.blend",
+  "blend_sha256": "e2bcb2ddb4e2d6dda969520b2bbbaa7eab4e7f537d52e7b48537404091c24b35",
+  "revision": "full04",
+  "object_count": 7837,
+  "source_hashes": {
+    "source_sha256": "4bc2aa1a1ed9a81cadf37ec55873ca1e1d8ba898db3f8eba2035865684c46d92",
+    "detail_source_sha256": "69245a929ce08a7d0464db2f97e347fb8944d4af1dc638081296e6b5dbb6e012",
+    "interface_sha256": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e"
+  },
+  "doors": [
+    {
+      "root": "FREIGHT_GATE",
+      "properties": {
+        "assembly_role": "floor",
+        "port_id": "INTERNAL_FREIGHT_GATE",
+        "geometry_owner": "fuel-corridor",
+        "presentation_cap": false,
+        "support_anchors": "[[6.2299999999999995, 11.79, 0], [6.2299999999999995, 8.21, 0]]",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_targets": "[\"Floor_crossing\", \"Floor_crossing\"]",
+        "support_angle_tolerance": 12.0
+      },
+      "carriages": [
+        {
+          "name": "FREIGHT_GATE_LEFT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "OPEN",
+            "closed_to_open_translation_m": [
+              -1.1327982892113016e-16,
+              1.8499999999999999,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        },
+        {
+          "name": "FREIGHT_GATE_RIGHT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "OPEN",
+            "closed_to_open_translation_m": [
+              1.1327982892113016e-16,
+              -1.8499999999999999,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        }
+      ],
+      "leaves": [
+        {
+          "name": "FREIGHT_GATE_sliding_leaf",
+          "bounds_m": [
+            [
+              6.419999599456787,
+              11.862500190734863,
+              0.03000009059906006
+            ],
+            [
+              6.519999980926514,
+              13.53749942779541,
+              3.369999885559082
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 1.8499999999999999,
+            "closed_state": false,
+            "collision_handoff": "kinematic_geometry"
+          }
+        },
+        {
+          "name": "FREIGHT_GATE_sliding_leaf.001",
+          "bounds_m": [
+            [
+              6.419999599456787,
+              6.462500095367432,
+              0.03000009059906006
+            ],
+            [
+              6.519999980926514,
+              8.137499809265137,
+              3.369999885559082
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 1.8499999999999999,
+            "closed_state": false,
+            "collision_handoff": "kinematic_geometry"
+          }
+        }
+      ],
+      "texts": [
+        {
+          "name": "FREIGHT_GATE_type",
+          "text": "FUEL TRANSFER  /  04"
+        }
+      ]
+    },
+    {
+      "root": "PLANT_PORT",
+      "properties": {
+        "assembly_role": "floor",
+        "port_id": "S01_PLANT",
+        "geometry_owner": "fuel-corridor",
+        "presentation_cap": false,
+        "interface_threshold": [
+          -5.4,
+          17.4,
+          0.0
+        ],
+        "inboard_frame_offset_m": 0.5,
+        "support_anchors": "[[-4.78, 16.31, 0], [-4.78, 18.49, 0]]",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_targets": "[\"Floor_plant_header\", \"Floor_plant_header\"]",
+        "support_angle_tolerance": 12.0
+      },
+      "carriages": [
+        {
+          "name": "PLANT_PORT_LEFT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "CLOSED",
+            "closed_to_open_translation_m": [
+              -7.04171909509728e-17,
+              -1.15,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        },
+        {
+          "name": "PLANT_PORT_RIGHT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "CLOSED",
+            "closed_to_open_translation_m": [
+              7.04171909509728e-17,
+              1.15,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        }
+      ],
+      "leaves": [
+        {
+          "name": "PLANT_PORT_sliding_leaf",
+          "bounds_m": [
+            [
+              -5.070000171661377,
+              16.412500381469727,
+              0.029999971389770508
+            ],
+            [
+              -4.96999979019165,
+              17.38749885559082,
+              2.4700000286102295
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 1.15,
+            "closed_state": true,
+            "collision_handoff": "kinematic_geometry"
+          }
+        },
+        {
+          "name": "PLANT_PORT_sliding_leaf.001",
+          "bounds_m": [
+            [
+              -5.070000171661377,
+              17.412500381469727,
+              0.029999971389770508
+            ],
+            [
+              -4.96999979019165,
+              18.38749885559082,
+              2.4700000286102295
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 1.15,
+            "closed_state": true,
+            "collision_handoff": "kinematic_geometry"
+          }
+        }
+      ],
+      "texts": [
+        {
+          "name": "PLANT_PORT_leaf_identity_text",
+          "text": "PLANT"
+        },
+        {
+          "name": "PLANT_PORT_leaf_identity_text.001",
+          "text": "AUTHORIZED ACCESS"
+        },
+        {
+          "name": "PLANT_PORT_leaf_access_type",
+          "text": "FC / 04"
+        },
+        {
+          "name": "PLANT_PORT_leaf_access_type.001",
+          "text": "STAND CLEAR"
+        },
+        {
+          "name": "PLANT_PORT_leaf_serial_type",
+          "text": "FC-04 / L\nINSPECT 07-B"
+        },
+        {
+          "name": "PLANT_PORT_leaf_identity_text.002",
+          "text": "SERVICES"
+        },
+        {
+          "name": "PLANT_PORT_leaf_identity_text.003",
+          "text": "AUTHORIZED ACCESS"
+        },
+        {
+          "name": "PLANT_PORT_leaf_access_type.002",
+          "text": "FC / 04"
+        },
+        {
+          "name": "PLANT_PORT_leaf_access_type.003",
+          "text": "STAND CLEAR"
+        },
+        {
+          "name": "PLANT_PORT_leaf_serial_type.001",
+          "text": "FC-04 / R\nINSPECT 07-B"
+        },
+        {
+          "name": "PLANT_PORT_type",
+          "text": "PLANT SERVICES"
+        }
+      ]
+    },
+    {
+      "root": "CLEAN_PORT",
+      "properties": {
+        "assembly_role": "floor",
+        "port_id": "S02_CLEAN",
+        "geometry_owner": "fuel-corridor",
+        "presentation_cap": false,
+        "interface_threshold": [
+          6.6,
+          21.0,
+          0.0
+        ],
+        "inboard_frame_offset_m": 0.5,
+        "support_anchors": "[[5.51, 20.38, 0], [7.6899999999999995, 20.38, 0]]",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_targets": "[\"CLEAN_PORT_frame_foundation\", \"CLEAN_PORT_frame_foundation.001\"]",
+        "support_angle_tolerance": 12.0
+      },
+      "carriages": [
+        {
+          "name": "CLEAN_PORT_LEFT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "CLOSED",
+            "closed_to_open_translation_m": [
+              -1.15,
+              -0.0,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        },
+        {
+          "name": "CLEAN_PORT_RIGHT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "CLOSED",
+            "closed_to_open_translation_m": [
+              1.15,
+              0.0,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        }
+      ],
+      "leaves": [
+        {
+          "name": "CLEAN_PORT_sliding_leaf",
+          "bounds_m": [
+            [
+              5.612499713897705,
+              20.57000160217285,
+              0.029999971389770508
+            ],
+            [
+              6.587500095367432,
+              20.670000076293945,
+              2.4700000286102295
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 1.15,
+            "closed_state": true,
+            "collision_handoff": "kinematic_geometry"
+          }
+        },
+        {
+          "name": "CLEAN_PORT_sliding_leaf.001",
+          "bounds_m": [
+            [
+              6.612499713897705,
+              20.57000160217285,
+              0.029999971389770508
+            ],
+            [
+              7.587500095367432,
+              20.670000076293945,
+              2.4700000286102295
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 1.15,
+            "closed_state": true,
+            "collision_handoff": "kinematic_geometry"
+          }
+        }
+      ],
+      "texts": [
+        {
+          "name": "CLEAN_PORT_leaf_identity_text",
+          "text": "CLEAN"
+        },
+        {
+          "name": "CLEAN_PORT_leaf_identity_text.001",
+          "text": "AUTHORIZED ACCESS"
+        },
+        {
+          "name": "CLEAN_PORT_leaf_access_type",
+          "text": "FC / 04"
+        },
+        {
+          "name": "CLEAN_PORT_leaf_access_type.001",
+          "text": "STAND CLEAR"
+        },
+        {
+          "name": "CLEAN_PORT_leaf_serial_type",
+          "text": "FC-04 / L\nINSPECT 07-B"
+        },
+        {
+          "name": "CLEAN_PORT_leaf_identity_text.002",
+          "text": "MEDICAL"
+        },
+        {
+          "name": "CLEAN_PORT_leaf_identity_text.003",
+          "text": "AUTHORIZED ACCESS"
+        },
+        {
+          "name": "CLEAN_PORT_leaf_access_type.002",
+          "text": "FC / 04"
+        },
+        {
+          "name": "CLEAN_PORT_leaf_access_type.003",
+          "text": "STAND CLEAR"
+        },
+        {
+          "name": "CLEAN_PORT_leaf_serial_type.001",
+          "text": "FC-04 / R\nINSPECT 07-B"
+        },
+        {
+          "name": "CLEAN_PORT_type",
+          "text": "MEDICAL  /  DOCK"
+        }
+      ]
+    },
+    {
+      "root": "WASTE_PORT",
+      "properties": {
+        "assembly_role": "floor",
+        "port_id": "S03_WASTE",
+        "geometry_owner": "fuel-corridor",
+        "presentation_cap": false,
+        "interface_threshold": [
+          16.4,
+          16.0,
+          0.0
+        ],
+        "inboard_frame_offset_m": 0.5,
+        "support_anchors": "[[15.78, 17.29, 0], [15.78, 14.71, 0]]",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_targets": "[\"Floor_delivery\", \"Floor_delivery\"]",
+        "support_angle_tolerance": 12.0
+      },
+      "carriages": [
+        {
+          "name": "WASTE_PORT_LEFT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "CLOSED",
+            "closed_to_open_translation_m": [
+              -8.266365894244633e-17,
+              1.3499999999999999,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        },
+        {
+          "name": "WASTE_PORT_RIGHT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "CLOSED",
+            "closed_to_open_translation_m": [
+              8.266365894244633e-17,
+              -1.3499999999999999,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        }
+      ],
+      "leaves": [
+        {
+          "name": "WASTE_PORT_sliding_leaf",
+          "bounds_m": [
+            [
+              15.970000267028809,
+              16.012500762939453,
+              0.029999971389770508
+            ],
+            [
+              16.06999969482422,
+              17.1875,
+              2.9700000286102295
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 1.3499999999999999,
+            "closed_state": true,
+            "collision_handoff": "kinematic_geometry"
+          }
+        },
+        {
+          "name": "WASTE_PORT_sliding_leaf.001",
+          "bounds_m": [
+            [
+              15.970000267028809,
+              14.8125,
+              0.029999971389770508
+            ],
+            [
+              16.06999969482422,
+              15.987499237060547,
+              2.9700000286102295
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 1.3499999999999999,
+            "closed_state": true,
+            "collision_handoff": "kinematic_geometry"
+          }
+        }
+      ],
+      "texts": [
+        {
+          "name": "WASTE_PORT_leaf_identity_text",
+          "text": "WASTE"
+        },
+        {
+          "name": "WASTE_PORT_leaf_identity_text.001",
+          "text": "AUTHORIZED ACCESS"
+        },
+        {
+          "name": "WASTE_PORT_leaf_access_type",
+          "text": "FC / 04"
+        },
+        {
+          "name": "WASTE_PORT_leaf_access_type.001",
+          "text": "STAND CLEAR"
+        },
+        {
+          "name": "WASTE_PORT_leaf_serial_type",
+          "text": "FC-04 / L\nINSPECT 07-B"
+        },
+        {
+          "name": "WASTE_PORT_leaf_identity_text.002",
+          "text": "TRANSFER"
+        },
+        {
+          "name": "WASTE_PORT_leaf_identity_text.003",
+          "text": "AUTHORIZED ACCESS"
+        },
+        {
+          "name": "WASTE_PORT_leaf_access_type.002",
+          "text": "FC / 04"
+        },
+        {
+          "name": "WASTE_PORT_leaf_access_type.003",
+          "text": "STAND CLEAR"
+        },
+        {
+          "name": "WASTE_PORT_leaf_serial_type.001",
+          "text": "FC-04 / R\nINSPECT 07-B"
+        },
+        {
+          "name": "WASTE_PORT_type",
+          "text": "WASTE TRANSFER"
+        }
+      ]
+    },
+    {
+      "root": "REACTOR_BOUNDARY",
+      "properties": {
+        "assembly_role": "floor",
+        "port_id": "F02_REACTOR",
+        "geometry_owner": "fuel-corridor",
+        "presentation_cap": true,
+        "interface_threshold": [
+          14.2,
+          24.0,
+          0.0
+        ],
+        "inboard_frame_offset_m": 0.5,
+        "support_anchors": "[[11.61, 23.38, 0], [16.79, 23.38, 0]]",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_targets": "[\"REACTOR_BOUNDARY_frame_foundation\", \"REACTOR_BOUNDARY_frame_foundation.001\"]",
+        "support_angle_tolerance": 12.0
+      },
+      "carriages": [
+        {
+          "name": "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "CLOSED",
+            "closed_to_open_translation_m": [
+              -2.65,
+              -0.0,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        },
+        {
+          "name": "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "CLOSED",
+            "closed_to_open_translation_m": [
+              2.65,
+              0.0,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        }
+      ],
+      "leaves": [
+        {
+          "name": "REACTOR_BOUNDARY_sliding_leaf",
+          "bounds_m": [
+            [
+              11.712499618530273,
+              23.57000160217285,
+              0.029999971389770508
+            ],
+            [
+              14.1875,
+              23.670000076293945,
+              4.970000267028809
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 2.65,
+            "closed_state": true,
+            "external_presentation_cap": true,
+            "collision_handoff": "kinematic_geometry"
+          }
+        },
+        {
+          "name": "REACTOR_BOUNDARY_sliding_leaf.001",
+          "bounds_m": [
+            [
+              14.212499618530273,
+              23.57000160217285,
+              0.029999971389770508
+            ],
+            [
+              16.6875,
+              23.670000076293945,
+              4.970000267028809
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 2.65,
+            "closed_state": true,
+            "external_presentation_cap": true,
+            "collision_handoff": "kinematic_geometry"
+          }
+        }
+      ],
+      "texts": [
+        {
+          "name": "REACTOR_BOUNDARY_leaf_identity_text",
+          "text": "FUEL"
+        },
+        {
+          "name": "REACTOR_BOUNDARY_leaf_identity_text.001",
+          "text": "TRANSFER"
+        },
+        {
+          "name": "REACTOR_BOUNDARY_leaf_access_type",
+          "text": "R-01"
+        },
+        {
+          "name": "REACTOR_BOUNDARY_leaf_access_type.001",
+          "text": "STAND CLEAR"
+        },
+        {
+          "name": "REACTOR_BOUNDARY_leaf_serial_type",
+          "text": "FC-04 / L\nINSPECT 07-B"
+        },
+        {
+          "name": "REACTOR_BOUNDARY_leaf_identity_text.002",
+          "text": "REACTOR"
+        },
+        {
+          "name": "REACTOR_BOUNDARY_leaf_identity_text.003",
+          "text": "TRANSFER"
+        },
+        {
+          "name": "REACTOR_BOUNDARY_leaf_access_type.002",
+          "text": "R-01"
+        },
+        {
+          "name": "REACTOR_BOUNDARY_leaf_access_type.003",
+          "text": "STAND CLEAR"
+        },
+        {
+          "name": "REACTOR_BOUNDARY_leaf_serial_type.001",
+          "text": "FC-04 / R\nINSPECT 07-B"
+        },
+        {
+          "name": "REACTOR_BOUNDARY_type",
+          "text": "REACTOR APPROACH"
+        }
+      ]
+    },
+    {
+      "root": "REFINERY_BOUNDARY",
+      "properties": {
+        "assembly_role": "floor",
+        "port_id": "F01_REFINERY",
+        "geometry_owner": "fuel-corridor",
+        "presentation_cap": true,
+        "interface_threshold": [
+          0,
+          0,
+          0
+        ],
+        "inboard_frame_offset_m": 0.5,
+        "support_anchors": "[[1.3900000000000001, 0.6199999999999999, 0], [-1.3900000000000001, 0.6200000000000002, 0]]",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_targets": "[\"Floor_inlet\", \"Floor_inlet\"]",
+        "support_angle_tolerance": 12.0
+      },
+      "carriages": [
+        {
+          "name": "REFINERY_BOUNDARY_LEFT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "CLOSED",
+            "closed_to_open_translation_m": [
+              1.45,
+              -1.7757378587636622e-16,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        },
+        {
+          "name": "REFINERY_BOUNDARY_RIGHT_CARRIAGE",
+          "properties": {
+            "component_role": "sliding_leaf_carriage",
+            "current_pose": "CLOSED",
+            "closed_to_open_translation_m": [
+              -1.45,
+              1.7757378587636622e-16,
+              0.0
+            ],
+            "controller_status": "Editable rigid assembly; engine trigger/controller and moving collision sweep unverified",
+            "translation_coordinate_space": "section metres; parent root has identity transform"
+          }
+        }
+      ],
+      "leaves": [
+        {
+          "name": "REFINERY_BOUNDARY_sliding_leaf",
+          "bounds_m": [
+            [
+              0.012499984353780746,
+              0.3299999535083771,
+              0.029999971389770508
+            ],
+            [
+              1.287500023841858,
+              0.43000003695487976,
+              2.9700000286102295
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 1.45,
+            "closed_state": true,
+            "external_presentation_cap": true,
+            "collision_handoff": "kinematic_geometry"
+          }
+        },
+        {
+          "name": "REFINERY_BOUNDARY_sliding_leaf.001",
+          "bounds_m": [
+            [
+              -1.287500023841858,
+              0.3299999535083771,
+              0.029999971389770508
+            ],
+            [
+              -0.012499984353780746,
+              0.43000003695487976,
+              2.9700000286102295
+            ]
+          ],
+          "properties": {
+            "animation_axis": "carriage vector",
+            "travel_m": 1.45,
+            "closed_state": true,
+            "external_presentation_cap": true,
+            "collision_handoff": "kinematic_geometry"
+          }
+        }
+      ],
+      "texts": [
+        {
+          "name": "REFINERY_BOUNDARY_leaf_identity_text",
+          "text": "FUEL"
+        },
+        {
+          "name": "REFINERY_BOUNDARY_leaf_identity_text.001",
+          "text": "TRANSFER"
+        },
+        {
+          "name": "REFINERY_BOUNDARY_leaf_access_type",
+          "text": "FC / 04"
+        },
+        {
+          "name": "REFINERY_BOUNDARY_leaf_access_type.001",
+          "text": "STAND CLEAR"
+        },
+        {
+          "name": "REFINERY_BOUNDARY_leaf_serial_type",
+          "text": "FC-04 / L\nINSPECT 07-B"
+        },
+        {
+          "name": "REFINERY_BOUNDARY_leaf_identity_text.002",
+          "text": "REFINERY"
+        },
+        {
+          "name": "REFINERY_BOUNDARY_leaf_identity_text.003",
+          "text": "TRANSFER"
+        },
+        {
+          "name": "REFINERY_BOUNDARY_leaf_access_type.002",
+          "text": "FC / 04"
+        },
+        {
+          "name": "REFINERY_BOUNDARY_leaf_access_type.003",
+          "text": "STAND CLEAR"
+        },
+        {
+          "name": "REFINERY_BOUNDARY_leaf_serial_type.001",
+          "text": "FC-04 / R\nINSPECT 07-B"
+        },
+        {
+          "name": "REFINERY_BOUNDARY_type",
+          "text": "REFINERY"
+        }
+      ]
+    }
+  ],
+  "door_count": 6,
+  "leaf_count": 12,
+  "contract_port_count": 5,
+  "contract_ports": [
+    {
+      "id": "F01_REFINERY",
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "outward": [
+        0,
+        -1,
+        0
+      ],
+      "clear_width": 2.6,
+      "clear_height": 3.0,
+      "role": "fuel freight",
+      "adjacent_source_local_face": [
+        8.606663706334526,
+        -4.084283176858165,
+        0
+      ],
+      "status": "source-derived outer sill; upstream bollards reduce width to 2.49 m; existing sampled clearance only 2.40 x 2.20 m; assembled fit unverified"
+    },
+    {
+      "id": "F02_REACTOR",
+      "center": [
+        14.2,
+        24,
+        0
+      ],
+      "outward": [
+        0,
+        1,
+        0
+      ],
+      "clear_width": 5.0,
+      "clear_height": 5.0,
+      "role": "fuel freight",
+      "adjacent_source_local_face": [
+        0,
+        14.5,
+        0
+      ],
+      "status": "source-derived reactor outer stub seam; existing doors occupy Y14.33..14.49 in reactor coordinates and block passage; owner/runtime opening and assembled fit unverified"
+    },
+    {
+      "id": "S01_PLANT",
+      "center": [
+        -5.4,
+        17.4,
+        0
+      ],
+      "outward": [
+        -1,
+        0,
+        0
+      ],
+      "clear_width": 2.0,
+      "clear_height": 2.5,
+      "role": "cooling / turbine / electrical service header",
+      "status": "reserved connector only; destination dimensions unverified"
+    },
+    {
+      "id": "S02_CLEAN",
+      "center": [
+        6.6,
+        21,
+        0
+      ],
+      "outward": [
+        0,
+        1,
+        0
+      ],
+      "clear_width": 2.0,
+      "clear_height": 2.5,
+      "role": "medical / reanimation / compliance clean header",
+      "status": "reserved connector only; destination dimensions unverified"
+    },
+    {
+      "id": "S03_WASTE",
+      "center": [
+        16.4,
+        16,
+        0
+      ],
+      "outward": [
+        1,
+        0,
+        0
+      ],
+      "clear_width": 2.4,
+      "clear_height": 3.0,
+      "role": "waste transfer branch",
+      "status": "reserved connector only; destination dimensions unverified"
+    }
+  ],
+  "floors": [
+    {
+      "id": "inlet",
+      "object": "Floor_inlet",
+      "actual_bounds_m": [
+        [
+          -1.600000023841858,
+          0.0,
+          -0.23999999463558197
+        ],
+        [
+          1.600000023841858,
+          1.2000000476837158,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        -1.6,
+        1.6,
+        0,
+        1.2
+      ],
+      "contract_ceiling_height_m": 3.9,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "entry",
+      "object": "Floor_entry",
+      "actual_bounds_m": [
+        [
+          -2.200000047683716,
+          1.1999998092651367,
+          -0.23999999463558197
+        ],
+        [
+          2.200000047683716,
+          7.0,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        -2.2,
+        2.2,
+        1.2,
+        7
+      ],
+      "contract_ceiling_height_m": 4.4,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "west_turn",
+      "object": "Floor_west_turn",
+      "actual_bounds_m": [
+        [
+          -2.1999998092651367,
+          7.000000476837158,
+          -0.23999999463558197
+        ],
+        [
+          4.400000095367432,
+          13.200000762939453,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        -2.2,
+        4.4,
+        7,
+        13.2
+      ],
+      "contract_ceiling_height_m": 4.4,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "crossing",
+      "object": "Floor_crossing",
+      "actual_bounds_m": [
+        [
+          4.399999618530273,
+          7.800000190734863,
+          -0.23999999463558197
+        ],
+        [
+          10.0,
+          12.199999809265137,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        4.4,
+        10,
+        7.8,
+        12.2
+      ],
+      "contract_ceiling_height_m": 4.4,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "east_turn",
+      "object": "Floor_east_turn",
+      "actual_bounds_m": [
+        [
+          10.0,
+          7.000000476837158,
+          -0.23999999463558197
+        ],
+        [
+          16.399999618530273,
+          13.200000762939453,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        10,
+        16.4,
+        7,
+        13.2
+      ],
+      "contract_ceiling_height_m": 4.4,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "delivery",
+      "object": "Floor_delivery",
+      "actual_bounds_m": [
+        [
+          12.0,
+          13.200000762939453,
+          -0.23999999463558197
+        ],
+        [
+          16.399999618530273,
+          21.0,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        12,
+        16.4,
+        13.2,
+        21
+      ],
+      "contract_ceiling_height_m": 4.4,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "reactor_adapter",
+      "object": "Floor_reactor_adapter",
+      "actual_bounds_m": [
+        [
+          11.399999618530273,
+          21.0,
+          -0.23999999463558197
+        ],
+        [
+          17.0,
+          24.0,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        11.4,
+        17.0,
+        21,
+        24
+      ],
+      "contract_ceiling_height_m": 5.9,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "bypass_west",
+      "object": "Floor_bypass_west",
+      "actual_bounds_m": [
+        [
+          -1.2000000476837158,
+          13.200000762939453,
+          -0.23999999463558197
+        ],
+        [
+          1.2000000476837158,
+          18.0,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        -1.2,
+        1.2,
+        13.2,
+        18.0
+      ],
+      "contract_ceiling_height_m": 3.0,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "bypass_turn",
+      "object": "Floor_bypass_turn",
+      "actual_bounds_m": [
+        [
+          -1.5,
+          18.0,
+          -0.23999999463558197
+        ],
+        [
+          1.2000000476837158,
+          21.0,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        -1.5,
+        1.2,
+        18,
+        21
+      ],
+      "contract_ceiling_height_m": 3.0,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "bypass_north",
+      "object": "Floor_bypass_north",
+      "actual_bounds_m": [
+        [
+          1.1999998092651367,
+          18.0,
+          -0.23999999463558197
+        ],
+        [
+          12.0,
+          21.0,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        1.2,
+        12,
+        18.0,
+        21
+      ],
+      "contract_ceiling_height_m": 3.0,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "plant_header",
+      "object": "Floor_plant_header",
+      "actual_bounds_m": [
+        [
+          -5.399999618530273,
+          16.19999885559082,
+          -0.23999999463558197
+        ],
+        [
+          -1.2000000476837158,
+          18.600000381469727,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        -5.4,
+        -1.2,
+        16.2,
+        18.6
+      ],
+      "contract_ceiling_height_m": 3.0,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "service_air_recess",
+      "object": "Floor_service_air_recess",
+      "actual_bounds_m": [
+        [
+          -1.649999976158142,
+          14.300000190734863,
+          -0.23999999463558197
+        ],
+        [
+          -1.1999999284744263,
+          15.699999809265137,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        -1.65,
+        -1.2,
+        14.3,
+        15.7
+      ],
+      "contract_ceiling_height_m": 2.45,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "freight_gate_south_pocket",
+      "object": "Floor_freight_gate_south_pocket",
+      "actual_bounds_m": [
+        [
+          6.070000171661377,
+          6.150000095367432,
+          -0.23999999463558197
+        ],
+        [
+          6.78000020980835,
+          7.799999713897705,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        6.07,
+        6.78,
+        6.15,
+        7.8
+      ],
+      "contract_ceiling_height_m": 4.4,
+      "floor_top_m": 0.0
+    },
+    {
+      "id": "freight_gate_north_pocket",
+      "object": "Floor_freight_gate_north_pocket",
+      "actual_bounds_m": [
+        [
+          6.070000171661377,
+          12.199999809265137,
+          -0.23999999463558197
+        ],
+        [
+          6.78000020980835,
+          13.84999942779541,
+          0.0
+        ]
+      ],
+      "contract_xy": [
+        6.07,
+        6.78,
+        12.2,
+        13.85
+      ],
+      "contract_ceiling_height_m": 4.4,
+      "floor_top_m": 0.0
+    }
+  ],
+  "overall_floor_bounds_m": [
+    [
+      -5.399999618530273,
+      0.0,
+      -0.23999999463558197
+    ],
+    [
+      17.0,
+      24.0,
+      0.0
+    ]
+  ],
+  "route_centerlines": {
+    "freight": {
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          14.2,
+          10
+        ],
+        [
+          14.2,
+          24
+        ]
+      ],
+      "length_m": 38.2
+    },
+    "service_bypass": {
+      "points": [
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          19.2
+        ],
+        [
+          14.2,
+          19.2
+        ]
+      ],
+      "length_m": 23.4
+    },
+    "plant_header": {
+      "points": [
+        [
+          0,
+          17.4
+        ],
+        [
+          -5.4,
+          17.4
+        ]
+      ],
+      "length_m": 5.4
+    }
+  },
+  "texts": [
+    {
+      "name": "East_reactor_route_number",
+      "text": "04",
+      "font_size_m": 0.6600000262260437,
+      "align": "CENTER",
+      "center_world_m": [
+        16.397998809814453,
+        9.819671630859375,
+        2.3150599002838135
+      ],
+      "bounds_m": [
+        [
+          16.397798538208008,
+          9.4923095703125,
+          2.0754454135894775
+        ],
+        [
+          16.3981990814209,
+          10.147034645080566,
+          2.5546743869781494
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "East_reactor_route_number",
+        "East_reactor_route"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_E16.4_0_7_formed_infill_panel.002",
+        "distance_m": 0.0020008087158203125,
+        "point": [
+          16.399999618530273,
+          9.819671630859375,
+          2.3150599002838135
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "East_reactor_route_subtitle",
+      "text": "FUEL TRANSFER",
+      "font_size_m": 0.08500000089406967,
+      "align": "CENTER",
+      "center_world_m": [
+        16.397998809814453,
+        9.816240310668945,
+        1.648984670639038
+      ],
+      "bounds_m": [
+        [
+          16.397798538208008,
+          9.50197696685791,
+          1.618128776550293
+        ],
+        [
+          16.3981990814209,
+          10.130504608154297,
+          1.6798406839370728
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "East_reactor_route_subtitle",
+        "East_reactor_route"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_E16.4_0_7_formed_infill_panel.002",
+        "distance_m": 0.002000808948650956,
+        "point": [
+          16.399999618530273,
+          9.816240310668945,
+          1.648984670639038
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "East_reactor_route_title",
+      "text": "REACTOR",
+      "font_size_m": 0.24500000476837158,
+      "align": "CENTER",
+      "center_world_m": [
+        16.397998809814453,
+        9.809041976928711,
+        1.8535449504852295
+      ],
+      "bounds_m": [
+        [
+          16.397798538208008,
+          9.242915153503418,
+          1.7646039724349976
+        ],
+        [
+          16.3981990814209,
+          10.37516975402832,
+          1.9424858093261719
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "East_reactor_route_title",
+        "East_reactor_route"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_E16.4_0_7_formed_infill_panel.002",
+        "distance_m": 0.002000808948650956,
+        "point": [
+          16.399999618530273,
+          9.809041976928711,
+          1.8535449504852295
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Cross_service_identity_subtitle",
+      "text": "KEEP TURN CLEAR",
+      "font_size_m": 0.09666666388511658,
+      "align": "CENTER",
+      "center_world_m": [
+        7.25362491607666,
+        12.198200225830078,
+        1.832963228225708
+      ],
+      "bounds_m": [
+        [
+          6.83491325378418,
+          12.197999954223633,
+          1.7991299629211426
+        ],
+        [
+          7.672336578369141,
+          12.198400497436523,
+          1.866796612739563
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Cross_service_identity_subtitle",
+        "Cross_service_identity"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_N12.2_1_6.78_formed_infill_panel.002",
+        "distance_m": 0.0017998305847868323,
+        "point": [
+          7.25362491607666,
+          12.199999809265137,
+          1.832963228225708
+        ],
+        "normal": [
+          6.925737352503347e-07,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Cross_service_identity_title",
+      "text": "FUEL ROUTE",
+      "font_size_m": 0.14800000190734863,
+      "align": "CENTER",
+      "center_world_m": [
+        7.253478050231934,
+        12.198200225830078,
+        2.0404679775238037
+      ],
+      "bounds_m": [
+        [
+          6.823982238769531,
+          12.197999954223633,
+          1.9886679649353027
+        ],
+        [
+          7.682973861694336,
+          12.198400497436523,
+          2.0922679901123047
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Cross_service_identity_title",
+        "Cross_service_identity"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_N12.2_1_6.78_formed_infill_panel.002",
+        "distance_m": 0.001799830817617476,
+        "point": [
+          7.253478050231934,
+          12.199999809265137,
+          2.0404679775238037
+        ],
+        "normal": [
+          6.925737352503347e-07,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Bypass_clean_route_number",
+      "text": "02",
+      "font_size_m": 0.6600000262260437,
+      "align": "CENTER",
+      "center_world_m": [
+        -0.5013226866722107,
+        20.99799919128418,
+        2.0750601291656494
+      ],
+      "bounds_m": [
+        [
+          -0.8270353674888611,
+          20.997798919677734,
+          1.8354456424713135
+        ],
+        [
+          -0.1756100058555603,
+          20.998199462890625,
+          2.3146746158599854
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Bypass_clean_route_number",
+        "Bypass_clean_route"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_N21_0_-1.5_formed_infill_panel.007",
+        "distance_m": 0.0020008087158203125,
+        "point": [
+          -0.5013226866722107,
+          21.0,
+          2.0750601291656494
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Bypass_clean_route_subtitle",
+      "text": "MEDICAL / CLEAN",
+      "font_size_m": 0.08500000089406967,
+      "align": "CENTER",
+      "center_world_m": [
+        -0.5000849962234497,
+        20.99799919128418,
+        1.408984899520874
+      ],
+      "bounds_m": [
+        [
+          -0.8552574515342712,
+          20.997798919677734,
+          1.3781293630599976
+        ],
+        [
+          -0.14491257071495056,
+          20.998199462890625,
+          1.43984055519104
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Bypass_clean_route_subtitle",
+        "Bypass_clean_route"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_N21_0_-1.5_formed_infill_panel.006",
+        "distance_m": 0.0020008087158203125,
+        "point": [
+          -0.5000849962234497,
+          21.0,
+          1.408984899520874
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Bypass_clean_route_title",
+      "text": "SERVICE",
+      "font_size_m": 0.24500000476837158,
+      "align": "CENTER",
+      "center_world_m": [
+        -0.4986591339111328,
+        20.99799919128418,
+        1.6135449409484863
+      ],
+      "bounds_m": [
+        [
+          -0.9557133316993713,
+          20.997798919677734,
+          1.52460777759552
+        ],
+        [
+          -0.04160493612289429,
+          20.998199462890625,
+          1.702481985092163
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Bypass_clean_route_title",
+        "Bypass_clean_route"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_N21_0_-1.5_formed_infill_panel.006",
+        "distance_m": 0.0020008087158203125,
+        "point": [
+          -0.4986591339111328,
+          21.0,
+          1.6135449409484863
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Plant_branch_identity_subtitle",
+      "text": "SERVICES",
+      "font_size_m": 0.10499999672174454,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.4981999397277832,
+        18.820419311523438,
+        1.7158050537109375
+      ],
+      "bounds_m": [
+        [
+          -1.4983999729156494,
+          18.6007080078125,
+          1.6790549755096436
+        ],
+        [
+          -1.497999906539917,
+          19.040132522583008,
+          1.752555012702942
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Plant_branch_identity_subtitle",
+        "Plant_branch_identity"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_W-1.5_0_18.6_vertical_flange.004",
+        "distance_m": 0.0017999474657699466,
+        "point": [
+          -1.4999998807907104,
+          18.820419311523438,
+          1.7158050537109375
+        ],
+        "normal": [
+          -1.0,
+          5.901459871893167e-07,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Plant_branch_identity_title",
+      "text": "PLANT",
+      "font_size_m": 0.19832000136375427,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.4981999397277832,
+        18.82525634765625,
+        1.9380238056182861
+      ],
+      "bounds_m": [
+        [
+          -1.4983999729156494,
+          18.521329879760742,
+          1.8700000047683716
+        ],
+        [
+          -1.497999906539917,
+          19.129180908203125,
+          2.006047487258911
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Plant_branch_identity_title",
+        "Plant_branch_identity"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_W-1.5_0_18.6_vertical_flange.004",
+        "distance_m": 0.001799944438971579,
+        "point": [
+          -1.4999998807907104,
+          18.82525634765625,
+          1.9380238056182861
+        ],
+        "normal": [
+          -1.0,
+          5.901459871893167e-07,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Delivery_reactor_identity_subtitle",
+      "text": "FREIGHT APPROACH",
+      "font_size_m": 0.09968750178813934,
+      "align": "CENTER",
+      "center_world_m": [
+        12.001799583435059,
+        16.100000381469727,
+        1.823993444442749
+      ],
+      "bounds_m": [
+        [
+          12.001599311828613,
+          15.620752334594727,
+          1.7891027927398682
+        ],
+        [
+          12.001999855041504,
+          16.579248428344727,
+          1.8588839769363403
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Delivery_reactor_identity_subtitle",
+        "Delivery_reactor_identity"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_W12_0_13.2_formed_infill_panel.002",
+        "distance_m": 0.0017997114919126034,
+        "point": [
+          12.0,
+          16.100000381469727,
+          1.823993444442749
+        ],
+        "normal": [
+          1.0,
+          -6.97640018643142e-07,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Delivery_reactor_identity_title",
+      "text": "REACTOR",
+      "font_size_m": 0.23257142305374146,
+      "align": "CENTER",
+      "center_world_m": [
+        12.001799583435059,
+        16.10895538330078,
+        2.0593068599700928
+      ],
+      "bounds_m": [
+        [
+          12.001599311828613,
+          15.576017379760742,
+          1.9779068231582642
+        ],
+        [
+          12.001999855041504,
+          16.641891479492188,
+          2.140706777572632
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Delivery_reactor_identity_title",
+        "Delivery_reactor_identity"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_W12_0_13.2_formed_infill_panel.002",
+        "distance_m": 0.0017997052054852247,
+        "point": [
+          12.0,
+          16.10895538330078,
+          2.0593068599700928
+        ],
+        "normal": [
+          1.0,
+          -6.97640018643142e-07,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Clean_leg_identity_subtitle",
+      "text": "MEDICAL / COMPLIANCE",
+      "font_size_m": 0.07249999791383743,
+      "align": "CENTER",
+      "center_world_m": [
+        8.98159408569336,
+        20.998199462890625,
+        1.6947224140167236
+      ],
+      "bounds_m": [
+        [
+          8.562037467956543,
+          20.99799919128418,
+          1.6693474054336548
+        ],
+        [
+          9.401151657104492,
+          20.99839973449707,
+          1.7200974225997925
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Clean_leg_identity_subtitle",
+        "Clean_leg_identity"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_N21_0_7.72_formed_infill_panel.002",
+        "distance_m": 0.0018005372257903218,
+        "point": [
+          8.98159408569336,
+          21.0,
+          1.6947224140167236
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Clean_leg_identity_title",
+      "text": "CLEAN SERVICES",
+      "font_size_m": 0.10571428388357162,
+      "align": "CENTER",
+      "center_world_m": [
+        8.98084545135498,
+        20.998199462890625,
+        1.8960485458374023
+      ],
+      "bounds_m": [
+        [
+          8.571149826049805,
+          20.99799919128418,
+          1.85904860496521
+        ],
+        [
+          9.390541076660156,
+          20.99839973449707,
+          1.9330486059188843
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Clean_leg_identity_title",
+        "Clean_leg_identity"
+      ],
+      "backing_center_ray": {
+        "object": "Wall_N21_0_7.72_formed_infill_panel.003",
+        "distance_m": 0.001800537109375,
+        "point": [
+          8.98084545135498,
+          21.0,
+          1.8960485458374023
+        ],
+        "normal": [
+          0.0,
+          -0.9999999403953552,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Entry_freight_floor_label",
+      "text": "FREIGHT",
+      "font_size_m": 0.25999999046325684,
+      "align": "CENTER",
+      "center_world_m": [
+        0.4576700031757355,
+        8.568658828735352,
+        0.002099999925121665
+      ],
+      "bounds_m": [
+        [
+          -0.05621999502182007,
+          8.477659225463867,
+          0.0018999999156221747
+        ],
+        [
+          0.971560001373291,
+          8.659659385681152,
+          0.0022999998182058334
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ancestors": [
+        "Entry_freight_floor_label",
+        "Route_floor_graphics"
+      ],
+      "backing_center_ray": {
+        "object": "Floor_west_turn",
+        "distance_m": 0.002099999925121665,
+        "point": [
+          0.4576700031757355,
+          8.568658828735352,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "name": "FREIGHT_GATE_type",
+      "text": "FUEL TRANSFER  /  04",
+      "font_size_m": 0.11500000208616257,
+      "align": "CENTER",
+      "center_world_m": [
+        6.098999977111816,
+        9.997297286987305,
+        3.5042147636413574
+      ],
+      "bounds_m": [
+        [
+          6.098800182342529,
+          9.428335189819336,
+          3.4639649391174316
+        ],
+        [
+          6.0991997718811035,
+          10.56626033782959,
+          3.5444648265838623
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "FREIGHT_GATE_type",
+        "FREIGHT_GATE"
+      ],
+      "backing_center_ray": {
+        "object": "FREIGHT_GATE_direction_panel",
+        "distance_m": 0.0009999275207519531,
+        "point": [
+          6.099999904632568,
+          9.997297286987305,
+          3.5042147636413574
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Motor_guard_caution_type",
+      "text": "!",
+      "font_size_m": 0.02500000037252903,
+      "align": "CENTER",
+      "center_world_m": [
+        5.917500019073486,
+        8.814988136291504,
+        3.8935251235961914
+      ],
+      "bounds_m": [
+        [
+          5.917300224304199,
+          8.813488006591797,
+          3.884774923324585
+        ],
+        [
+          5.917699813842773,
+          8.816488265991211,
+          3.9022750854492188
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Motor_guard_caution_type",
+        "Freight_gate_drive"
+      ],
+      "backing_center_ray": {
+        "object": "Motor_guard_service_plate",
+        "distance_m": 0.000500202237162739,
+        "point": [
+          5.918000221252441,
+          8.814988136291504,
+          3.8935251235961914
+        ],
+        "normal": [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Motor_serial_type",
+      "text": "FCM-01",
+      "font_size_m": 0.014000000432133675,
+      "align": "CENTER",
+      "center_world_m": [
+        5.892600059509277,
+        8.58986759185791,
+        3.9637742042541504
+      ],
+      "bounds_m": [
+        [
+          5.89240026473999,
+          8.567957878112793,
+          3.958874225616455
+        ],
+        [
+          5.8927998542785645,
+          8.611777305603027,
+          3.9686741828918457
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Motor_serial_type",
+        "Freight_gate_drive"
+      ],
+      "backing_center_ray": {
+        "object": "Motor_serial_plate",
+        "distance_m": 0.0004000663757324219,
+        "point": [
+          5.89300012588501,
+          8.58986759185791,
+          3.9637742042541504
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Motor_serial_small",
+      "text": "DRV / 030",
+      "font_size_m": 0.007000000216066837,
+      "align": "CENTER",
+      "center_world_m": [
+        5.892600059509277,
+        8.588838577270508,
+        3.945387125015259
+      ],
+      "bounds_m": [
+        [
+          5.89240026473999,
+          8.573476791381836,
+          3.942937135696411
+        ],
+        [
+          5.8927998542785645,
+          8.60420036315918,
+          3.9478371143341064
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Motor_serial_small",
+        "Freight_gate_drive"
+      ],
+      "backing_center_ray": {
+        "object": "Motor_serial_plate",
+        "distance_m": 0.00040006640483625233,
+        "point": [
+          5.89300012588501,
+          8.588838577270508,
+          3.945387125015259
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Motor_terminal_warning",
+      "text": "!",
+      "font_size_m": 0.02800000086426735,
+      "align": "CENTER",
+      "center_world_m": [
+        5.9644999504089355,
+        8.58798599243164,
+        4.07554817199707
+      ],
+      "bounds_m": [
+        [
+          5.964300155639648,
+          8.58630657196045,
+          4.06574821472168
+        ],
+        [
+          5.964699745178223,
+          8.589666366577148,
+          4.085348129272461
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Motor_terminal_warning",
+        "Freight_gate_drive"
+      ],
+      "backing_center_ray": {
+        "object": "Motor_terminal_box",
+        "distance_m": 0.0005002021789550781,
+        "point": [
+          5.965000152587891,
+          8.58798599243164,
+          4.07554817199707
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "PLANT_PORT_leaf_identity_text",
+      "text": "PLANT",
+      "font_size_m": 0.23768116533756256,
+      "align": "CENTER",
+      "center_world_m": [
+        -4.945499897003174,
+        16.90629768371582,
+        1.0015246868133545
+      ],
+      "bounds_m": [
+        [
+          -4.945699691772461,
+          16.542051315307617,
+          0.9200000166893005
+        ],
+        [
+          -4.945300102233887,
+          17.270544052124023,
+          1.0830492973327637
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "PLANT_PORT_leaf_identity_text",
+        "PLANT_PORT_LEFT_CARRIAGE",
+        "PLANT_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "PLANT_PORT_leaf_identity_field",
+        "distance_m": 0.0005002021789550781,
+        "point": [
+          -4.946000099182129,
+          16.90629768371582,
+          1.0015246868133545
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "PLANT_PORT_leaf_identity_text.001",
+      "text": "AUTHORIZED ACCESS",
+      "font_size_m": 0.0630769208073616,
+      "align": "CENTER",
+      "center_world_m": [
+        -4.945499897003174,
+        16.898990631103516,
+        0.7715092301368713
+      ],
+      "bounds_m": [
+        [
+          -4.945699691772461,
+          16.570171356201172,
+          0.7494323253631592
+        ],
+        [
+          -4.945300102233887,
+          17.22780990600586,
+          0.7935861349105835
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "PLANT_PORT_leaf_identity_text.001",
+        "PLANT_PORT_LEFT_CARRIAGE",
+        "PLANT_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "PLANT_PORT_leaf_identity_field",
+        "distance_m": 0.0005002021207474172,
+        "point": [
+          -4.946000099182129,
+          16.898990631103516,
+          0.7715092301368713
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "PLANT_PORT_leaf_access_type",
+      "text": "FC / 04",
+      "font_size_m": 0.07900000363588333,
+      "align": "CENTER",
+      "center_world_m": [
+        -4.939000129699707,
+        16.90185546875,
+        1.966939091682434
+      ],
+      "bounds_m": [
+        [
+          -4.939199924468994,
+          16.781024932861328,
+          1.9392890930175781
+        ],
+        [
+          -4.93880033493042,
+          17.022686004638672,
+          1.99458909034729
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "PLANT_PORT_leaf_access_type",
+        "PLANT_PORT_LEFT_CARRIAGE",
+        "PLANT_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "PLANT_PORT_leaf_access_panel",
+        "distance_m": 0.0009999275207519531,
+        "point": [
+          -4.940000057220459,
+          16.90185546875,
+          1.966939091682434
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "PLANT_PORT_leaf_access_type.001",
+      "text": "STAND CLEAR",
+      "font_size_m": 0.03700000047683716,
+      "align": "CENTER",
+      "center_world_m": [
+        -4.939000129699707,
+        16.900739669799805,
+        1.8176169395446777
+      ],
+      "bounds_m": [
+        [
+          -4.939199924468994,
+          16.77647590637207,
+          1.8046669960021973
+        ],
+        [
+          -4.93880033493042,
+          17.02500343322754,
+          1.8305670022964478
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "PLANT_PORT_leaf_access_type.001",
+        "PLANT_PORT_LEFT_CARRIAGE",
+        "PLANT_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "PLANT_PORT_leaf_access_panel",
+        "distance_m": 0.0009999275207519531,
+        "point": [
+          -4.940000057220459,
+          16.900739669799805,
+          1.8176169395446777
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "PLANT_PORT_leaf_serial_type",
+      "text": "FC-04 / L\nINSPECT 07-B",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        -4.932000160217285,
+        17.10564422607422,
+        0.4663429856300354
+      ],
+      "bounds_m": [
+        [
+          -4.932199954986572,
+          17.03487205505371,
+          0.44679298996925354
+        ],
+        [
+          -4.931800365447998,
+          17.176414489746094,
+          0.48589301109313965
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "PLANT_PORT_leaf_serial_type",
+        "PLANT_PORT_LEFT_CARRIAGE",
+        "PLANT_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "PLANT_PORT_leaf_serial_plate",
+        "distance_m": 0.0009994508000090718,
+        "point": [
+          -4.932999610900879,
+          17.10564422607422,
+          0.4663429856300354
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "PLANT_PORT_leaf_identity_text.002",
+      "text": "SERVICES",
+      "font_size_m": 0.14855071902275085,
+      "align": "CENTER",
+      "center_world_m": [
+        -4.945499897003174,
+        17.900592803955078,
+        0.9706557989120483
+      ],
+      "bounds_m": [
+        [
+          -4.945699691772461,
+          17.589752197265625,
+          0.9186630845069885
+        ],
+        [
+          -4.945300102233887,
+          18.211435317993164,
+          1.022648572921753
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "PLANT_PORT_leaf_identity_text.002",
+        "PLANT_PORT_RIGHT_CARRIAGE",
+        "PLANT_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "PLANT_PORT_leaf_identity_field.001",
+        "distance_m": 0.0005002021789550781,
+        "point": [
+          -4.946000099182129,
+          17.900592803955078,
+          0.9706557989120483
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "PLANT_PORT_leaf_identity_text.003",
+      "text": "AUTHORIZED ACCESS",
+      "font_size_m": 0.0630769208073616,
+      "align": "CENTER",
+      "center_world_m": [
+        -4.945499897003174,
+        17.898990631103516,
+        0.7715092301368713
+      ],
+      "bounds_m": [
+        [
+          -4.945699691772461,
+          17.570171356201172,
+          0.7494323253631592
+        ],
+        [
+          -4.945300102233887,
+          18.22780990600586,
+          0.7935861349105835
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "PLANT_PORT_leaf_identity_text.003",
+        "PLANT_PORT_RIGHT_CARRIAGE",
+        "PLANT_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "PLANT_PORT_leaf_identity_field.001",
+        "distance_m": 0.0005002021207474172,
+        "point": [
+          -4.946000099182129,
+          17.898990631103516,
+          0.7715092301368713
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "PLANT_PORT_leaf_access_type.002",
+      "text": "FC / 04",
+      "font_size_m": 0.07900000363588333,
+      "align": "CENTER",
+      "center_world_m": [
+        -4.939000129699707,
+        17.90185546875,
+        1.966939091682434
+      ],
+      "bounds_m": [
+        [
+          -4.939199924468994,
+          17.781024932861328,
+          1.9392890930175781
+        ],
+        [
+          -4.93880033493042,
+          18.022686004638672,
+          1.99458909034729
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "PLANT_PORT_leaf_access_type.002",
+        "PLANT_PORT_RIGHT_CARRIAGE",
+        "PLANT_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "PLANT_PORT_leaf_access_panel.001",
+        "distance_m": 0.0009999275207519531,
+        "point": [
+          -4.940000057220459,
+          17.90185546875,
+          1.966939091682434
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "PLANT_PORT_leaf_access_type.003",
+      "text": "STAND CLEAR",
+      "font_size_m": 0.03700000047683716,
+      "align": "CENTER",
+      "center_world_m": [
+        -4.939000129699707,
+        17.900739669799805,
+        1.8176169395446777
+      ],
+      "bounds_m": [
+        [
+          -4.939199924468994,
+          17.77647590637207,
+          1.8046669960021973
+        ],
+        [
+          -4.93880033493042,
+          18.02500343322754,
+          1.8305670022964478
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "PLANT_PORT_leaf_access_type.003",
+        "PLANT_PORT_RIGHT_CARRIAGE",
+        "PLANT_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "PLANT_PORT_leaf_access_panel.001",
+        "distance_m": 0.0009999275207519531,
+        "point": [
+          -4.940000057220459,
+          17.900739669799805,
+          1.8176169395446777
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "PLANT_PORT_leaf_serial_type.001",
+      "text": "FC-04 / R\nINSPECT 07-B",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        -4.932000160217285,
+        17.69564437866211,
+        0.4663429856300354
+      ],
+      "bounds_m": [
+        [
+          -4.932199954986572,
+          17.6248722076416,
+          0.44679298996925354
+        ],
+        [
+          -4.931800365447998,
+          17.766414642333984,
+          0.48589301109313965
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "PLANT_PORT_leaf_serial_type.001",
+        "PLANT_PORT_RIGHT_CARRIAGE",
+        "PLANT_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "PLANT_PORT_leaf_serial_plate.001",
+        "distance_m": 0.0009994508000090718,
+        "point": [
+          -4.932999610900879,
+          17.69564437866211,
+          0.4663429856300354
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "PLANT_PORT_type",
+      "text": "PLANT SERVICES",
+      "font_size_m": 0.11500000208616257,
+      "align": "CENTER",
+      "center_world_m": [
+        -4.64900016784668,
+        17.402185440063477,
+        2.604215145111084
+      ],
+      "bounds_m": [
+        [
+          -4.649199962615967,
+          16.963172912597656,
+          2.563965082168579
+        ],
+        [
+          -4.648800373077393,
+          17.841197967529297,
+          2.6444649696350098
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "PLANT_PORT_type",
+        "PLANT_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "PLANT_PORT_direction_panel",
+        "distance_m": 0.0009999275207519531,
+        "point": [
+          -4.650000095367432,
+          17.402185440063477,
+          2.604215145111084
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "CLEAN_PORT_leaf_identity_text",
+      "text": "CLEAN",
+      "font_size_m": 0.23768116533756256,
+      "align": "CENTER",
+      "center_world_m": [
+        6.0967912673950195,
+        20.545499801635742,
+        1.001049280166626
+      ],
+      "bounds_m": [
+        [
+          5.72565221786499,
+          20.545299530029297,
+          0.9178608655929565
+        ],
+        [
+          6.467930316925049,
+          20.545700073242188,
+          1.0842376947402954
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "CLEAN_PORT_leaf_identity_text",
+        "CLEAN_PORT_LEFT_CARRIAGE",
+        "CLEAN_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "CLEAN_PORT_leaf_identity_field",
+        "distance_m": 0.0005016326322220266,
+        "point": [
+          6.0967912673950195,
+          20.546001434326172,
+          1.001049280166626
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "CLEAN_PORT_leaf_identity_text.001",
+      "text": "AUTHORIZED ACCESS",
+      "font_size_m": 0.0630769208073616,
+      "align": "CENTER",
+      "center_world_m": [
+        6.098990440368652,
+        20.545499801635742,
+        0.7715092301368713
+      ],
+      "bounds_m": [
+        [
+          5.77017068862915,
+          20.545299530029297,
+          0.7494323253631592
+        ],
+        [
+          6.4278106689453125,
+          20.545700073242188,
+          0.7935861349105835
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "CLEAN_PORT_leaf_identity_text.001",
+        "CLEAN_PORT_LEFT_CARRIAGE",
+        "CLEAN_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "CLEAN_PORT_leaf_identity_field",
+        "distance_m": 0.0005016326322220266,
+        "point": [
+          6.098990440368652,
+          20.546001434326172,
+          0.7715092301368713
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "CLEAN_PORT_leaf_access_type",
+      "text": "FC / 04",
+      "font_size_m": 0.07900000363588333,
+      "align": "CENTER",
+      "center_world_m": [
+        6.101856231689453,
+        20.538999557495117,
+        1.966939091682434
+      ],
+      "bounds_m": [
+        [
+          5.981025695800781,
+          20.538799285888672,
+          1.9392890930175781
+        ],
+        [
+          6.222686767578125,
+          20.539199829101562,
+          1.99458909034729
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "CLEAN_PORT_leaf_access_type",
+        "CLEAN_PORT_LEFT_CARRIAGE",
+        "CLEAN_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "CLEAN_PORT_leaf_access_panel",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          6.101856231689453,
+          20.540000915527344,
+          1.966939091682434
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "CLEAN_PORT_leaf_access_type.001",
+      "text": "STAND CLEAR",
+      "font_size_m": 0.03700000047683716,
+      "align": "CENTER",
+      "center_world_m": [
+        6.100739479064941,
+        20.538999557495117,
+        1.8176169395446777
+      ],
+      "bounds_m": [
+        [
+          5.976475238800049,
+          20.538799285888672,
+          1.8046669960021973
+        ],
+        [
+          6.225004196166992,
+          20.539199829101562,
+          1.8305670022964478
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "CLEAN_PORT_leaf_access_type.001",
+        "CLEAN_PORT_LEFT_CARRIAGE",
+        "CLEAN_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "CLEAN_PORT_leaf_access_panel",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          6.100739479064941,
+          20.540000915527344,
+          1.8176169395446777
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "CLEAN_PORT_leaf_serial_type",
+      "text": "FC-04 / L\nINSPECT 07-B",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        6.3056440353393555,
+        20.531999588012695,
+        0.4663429856300354
+      ],
+      "bounds_m": [
+        [
+          6.234872817993164,
+          20.53179931640625,
+          0.44679298996925354
+        ],
+        [
+          6.376414775848389,
+          20.53219985961914,
+          0.48589301109313965
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "CLEAN_PORT_leaf_serial_type",
+        "CLEAN_PORT_LEFT_CARRIAGE",
+        "CLEAN_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "CLEAN_PORT_leaf_serial_plate",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          6.3056440353393555,
+          20.533000946044922,
+          0.4663429856300354
+        ],
+        "normal": [
+          -0.0,
+          -0.9999999403953552,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "CLEAN_PORT_leaf_identity_text.002",
+      "text": "MEDICAL",
+      "font_size_m": 0.16977225244045258,
+      "align": "CENTER",
+      "center_world_m": [
+        7.105347633361816,
+        20.545499801635742,
+        0.9778923392295837
+      ],
+      "bounds_m": [
+        [
+          6.747722625732422,
+          20.545299530029297,
+          0.9184720516204834
+        ],
+        [
+          7.462973117828369,
+          20.545700073242188,
+          1.037312626838684
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "CLEAN_PORT_leaf_identity_text.002",
+        "CLEAN_PORT_RIGHT_CARRIAGE",
+        "CLEAN_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "CLEAN_PORT_leaf_identity_field.001",
+        "distance_m": 0.0005016326904296875,
+        "point": [
+          7.105347633361816,
+          20.546001434326172,
+          0.9778923392295837
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "CLEAN_PORT_leaf_identity_text.003",
+      "text": "AUTHORIZED ACCESS",
+      "font_size_m": 0.0630769208073616,
+      "align": "CENTER",
+      "center_world_m": [
+        7.098990440368652,
+        20.545499801635742,
+        0.7715092301368713
+      ],
+      "bounds_m": [
+        [
+          6.77017068862915,
+          20.545299530029297,
+          0.7494323253631592
+        ],
+        [
+          7.4278106689453125,
+          20.545700073242188,
+          0.7935861349105835
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "CLEAN_PORT_leaf_identity_text.003",
+        "CLEAN_PORT_RIGHT_CARRIAGE",
+        "CLEAN_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "CLEAN_PORT_leaf_identity_field.001",
+        "distance_m": 0.0005016326322220266,
+        "point": [
+          7.098990440368652,
+          20.546001434326172,
+          0.7715092301368713
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "CLEAN_PORT_leaf_access_type.002",
+      "text": "FC / 04",
+      "font_size_m": 0.07900000363588333,
+      "align": "CENTER",
+      "center_world_m": [
+        7.101856231689453,
+        20.538999557495117,
+        1.966939091682434
+      ],
+      "bounds_m": [
+        [
+          6.981025695800781,
+          20.538799285888672,
+          1.9392890930175781
+        ],
+        [
+          7.222686767578125,
+          20.539199829101562,
+          1.99458909034729
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "CLEAN_PORT_leaf_access_type.002",
+        "CLEAN_PORT_RIGHT_CARRIAGE",
+        "CLEAN_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "CLEAN_PORT_leaf_access_panel.001",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          7.101856231689453,
+          20.540000915527344,
+          1.966939091682434
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "CLEAN_PORT_leaf_access_type.003",
+      "text": "STAND CLEAR",
+      "font_size_m": 0.03700000047683716,
+      "align": "CENTER",
+      "center_world_m": [
+        7.100739479064941,
+        20.538999557495117,
+        1.8176169395446777
+      ],
+      "bounds_m": [
+        [
+          6.976475238800049,
+          20.538799285888672,
+          1.8046669960021973
+        ],
+        [
+          7.225004196166992,
+          20.539199829101562,
+          1.8305670022964478
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "CLEAN_PORT_leaf_access_type.003",
+        "CLEAN_PORT_RIGHT_CARRIAGE",
+        "CLEAN_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "CLEAN_PORT_leaf_access_panel.001",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          7.100739479064941,
+          20.540000915527344,
+          1.8176169395446777
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "CLEAN_PORT_leaf_serial_type.001",
+      "text": "FC-04 / R\nINSPECT 07-B",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        6.895644187927246,
+        20.531999588012695,
+        0.4663429856300354
+      ],
+      "bounds_m": [
+        [
+          6.824872970581055,
+          20.53179931640625,
+          0.44679298996925354
+        ],
+        [
+          6.966414928436279,
+          20.53219985961914,
+          0.48589301109313965
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "CLEAN_PORT_leaf_serial_type.001",
+        "CLEAN_PORT_RIGHT_CARRIAGE",
+        "CLEAN_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "CLEAN_PORT_leaf_serial_plate.001",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          6.895644187927246,
+          20.533000946044922,
+          0.4663429856300354
+        ],
+        "normal": [
+          -0.0,
+          -0.9999999403953552,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "CLEAN_PORT_type",
+      "text": "MEDICAL  /  DOCK",
+      "font_size_m": 0.11500000208616257,
+      "align": "CENTER",
+      "center_world_m": [
+        6.604140281677246,
+        20.249000549316406,
+        2.604215145111084
+      ],
+      "bounds_m": [
+        [
+          6.099462509155273,
+          20.24880027770996,
+          2.563965082168579
+        ],
+        [
+          7.1088175773620605,
+          20.24920082092285,
+          2.6444649696350098
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "CLEAN_PORT_type",
+        "CLEAN_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "CLEAN_PORT_direction_panel",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          6.604140281677246,
+          20.25,
+          2.604215145111084
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "WASTE_PORT_leaf_identity_text",
+      "text": "WASTE",
+      "font_size_m": 0.2956521809101105,
+      "align": "CENTER",
+      "center_world_m": [
+        15.945500373840332,
+        16.604286193847656,
+        1.0208173990249634
+      ],
+      "bounds_m": [
+        [
+          15.945300102233887,
+          16.110252380371094,
+          0.9173391461372375
+        ],
+        [
+          15.945700645446777,
+          17.09832191467285,
+          1.124295711517334
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "WASTE_PORT_leaf_identity_text",
+        "WASTE_PORT_LEFT_CARRIAGE",
+        "WASTE_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "WASTE_PORT_leaf_identity_field",
+        "distance_m": 0.000499725341796875,
+        "point": [
+          15.946000099182129,
+          16.604286193847656,
+          1.0208173990249634
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "WASTE_PORT_leaf_identity_text.001",
+      "text": "AUTHORIZED ACCESS",
+      "font_size_m": 0.07846153527498245,
+      "align": "CENTER",
+      "center_world_m": [
+        15.945500373840332,
+        16.601255416870117,
+        0.7767553925514221
+      ],
+      "bounds_m": [
+        [
+          15.945300102233887,
+          16.192235946655273,
+          0.749293863773346
+        ],
+        [
+          15.945700645446777,
+          17.01027488708496,
+          0.8042169213294983
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "WASTE_PORT_leaf_identity_text.001",
+        "WASTE_PORT_LEFT_CARRIAGE",
+        "WASTE_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "WASTE_PORT_leaf_identity_field",
+        "distance_m": 0.000499725341796875,
+        "point": [
+          15.946000099182129,
+          16.601255416870117,
+          0.7767553925514221
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "WASTE_PORT_leaf_access_type",
+      "text": "FC / 04",
+      "font_size_m": 0.07900000363588333,
+      "align": "CENTER",
+      "center_world_m": [
+        15.939000129699707,
+        16.59814453125,
+        1.966939091682434
+      ],
+      "bounds_m": [
+        [
+          15.938799858093262,
+          16.477313995361328,
+          1.9392890930175781
+        ],
+        [
+          15.939200401306152,
+          16.718975067138672,
+          1.99458909034729
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "WASTE_PORT_leaf_access_type",
+        "WASTE_PORT_LEFT_CARRIAGE",
+        "WASTE_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "WASTE_PORT_leaf_access_panel",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          15.9399995803833,
+          16.59814453125,
+          1.966939091682434
+        ],
+        "normal": [
+          -0.9999999403953552,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "WASTE_PORT_leaf_access_type.001",
+      "text": "STAND CLEAR",
+      "font_size_m": 0.03700000047683716,
+      "align": "CENTER",
+      "center_world_m": [
+        15.939000129699707,
+        16.599260330200195,
+        1.8176169395446777
+      ],
+      "bounds_m": [
+        [
+          15.938799858093262,
+          16.47499656677246,
+          1.8046669960021973
+        ],
+        [
+          15.939200401306152,
+          16.72352409362793,
+          1.8305670022964478
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "WASTE_PORT_leaf_access_type.001",
+        "WASTE_PORT_LEFT_CARRIAGE",
+        "WASTE_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "WASTE_PORT_leaf_access_panel",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          15.9399995803833,
+          16.599260330200195,
+          1.8176169395446777
+        ],
+        "normal": [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "WASTE_PORT_leaf_serial_type",
+      "text": "FC-04 / L\nINSPECT 07-B",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        15.932000160217285,
+        16.344356536865234,
+        0.4663429856300354
+      ],
+      "bounds_m": [
+        [
+          15.93179988861084,
+          16.273584365844727,
+          0.44679298996925354
+        ],
+        [
+          15.93220043182373,
+          16.41512680053711,
+          0.48589301109313965
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "WASTE_PORT_leaf_serial_type",
+        "WASTE_PORT_LEFT_CARRIAGE",
+        "WASTE_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "WASTE_PORT_leaf_serial_plate",
+        "distance_m": 0.0010004043579101562,
+        "point": [
+          15.933000564575195,
+          16.344356536865234,
+          0.4663429856300354
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "WASTE_PORT_leaf_identity_text.002",
+      "text": "TRANSFER",
+      "font_size_m": 0.18478260934352875,
+      "align": "CENTER",
+      "center_world_m": [
+        15.945500373840332,
+        15.398428916931152,
+        0.9830108880996704
+      ],
+      "bounds_m": [
+        [
+          15.945300102233887,
+          14.950793266296387,
+          0.9183369874954224
+        ],
+        [
+          15.945700645446777,
+          15.846064567565918,
+          1.0476847887039185
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "WASTE_PORT_leaf_identity_text.002",
+        "WASTE_PORT_RIGHT_CARRIAGE",
+        "WASTE_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "WASTE_PORT_leaf_identity_field.001",
+        "distance_m": 0.000499725341796875,
+        "point": [
+          15.946000099182129,
+          15.398428916931152,
+          0.9830108880996704
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "WASTE_PORT_leaf_identity_text.003",
+      "text": "AUTHORIZED ACCESS",
+      "font_size_m": 0.07846153527498245,
+      "align": "CENTER",
+      "center_world_m": [
+        15.945500373840332,
+        15.401254653930664,
+        0.7767553925514221
+      ],
+      "bounds_m": [
+        [
+          15.945300102233887,
+          14.99223518371582,
+          0.749293863773346
+        ],
+        [
+          15.945700645446777,
+          15.810275077819824,
+          0.8042169213294983
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "WASTE_PORT_leaf_identity_text.003",
+        "WASTE_PORT_RIGHT_CARRIAGE",
+        "WASTE_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "WASTE_PORT_leaf_identity_field.001",
+        "distance_m": 0.000499725341796875,
+        "point": [
+          15.946000099182129,
+          15.401254653930664,
+          0.7767553925514221
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "WASTE_PORT_leaf_access_type.002",
+      "text": "FC / 04",
+      "font_size_m": 0.07900000363588333,
+      "align": "CENTER",
+      "center_world_m": [
+        15.939000129699707,
+        15.39814281463623,
+        1.966939091682434
+      ],
+      "bounds_m": [
+        [
+          15.938799858093262,
+          15.277312278747559,
+          1.9392890930175781
+        ],
+        [
+          15.939200401306152,
+          15.518973350524902,
+          1.99458909034729
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "WASTE_PORT_leaf_access_type.002",
+        "WASTE_PORT_RIGHT_CARRIAGE",
+        "WASTE_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "WASTE_PORT_leaf_access_panel.001",
+        "distance_m": 0.0009994505671784282,
+        "point": [
+          15.9399995803833,
+          15.39814281463623,
+          1.966939091682434
+        ],
+        "normal": [
+          -0.9999999403953552,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "WASTE_PORT_leaf_access_type.003",
+      "text": "STAND CLEAR",
+      "font_size_m": 0.03700000047683716,
+      "align": "CENTER",
+      "center_world_m": [
+        15.939000129699707,
+        15.399259567260742,
+        1.8176169395446777
+      ],
+      "bounds_m": [
+        [
+          15.938799858093262,
+          15.274994850158691,
+          1.8046669960021973
+        ],
+        [
+          15.939200401306152,
+          15.523524284362793,
+          1.8305670022964478
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "WASTE_PORT_leaf_access_type.003",
+        "WASTE_PORT_RIGHT_CARRIAGE",
+        "WASTE_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "WASTE_PORT_leaf_access_panel.001",
+        "distance_m": 0.0009994508000090718,
+        "point": [
+          15.9399995803833,
+          15.399259567260742,
+          1.8176169395446777
+        ],
+        "normal": [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "WASTE_PORT_leaf_serial_type.001",
+      "text": "FC-04 / R\nINSPECT 07-B",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        15.932000160217285,
+        15.654356002807617,
+        0.4663429856300354
+      ],
+      "bounds_m": [
+        [
+          15.93179988861084,
+          15.583584785461426,
+          0.44679298996925354
+        ],
+        [
+          15.93220043182373,
+          15.725126266479492,
+          0.48589301109313965
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "WASTE_PORT_leaf_serial_type.001",
+        "WASTE_PORT_RIGHT_CARRIAGE",
+        "WASTE_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "WASTE_PORT_leaf_serial_plate.001",
+        "distance_m": 0.0010004043579101562,
+        "point": [
+          15.933000564575195,
+          15.654356002807617,
+          0.4663429856300354
+        ],
+        "normal": [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "WASTE_PORT_type",
+      "text": "WASTE TRANSFER",
+      "font_size_m": 0.11500000208616257,
+      "align": "CENTER",
+      "center_world_m": [
+        15.64900016784668,
+        16.0,
+        3.104215145111084
+      ],
+      "bounds_m": [
+        [
+          15.648799896240234,
+          15.507742881774902,
+          3.063965082168579
+        ],
+        [
+          15.649200439453125,
+          16.492258071899414,
+          3.1444649696350098
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "WASTE_PORT_type",
+        "WASTE_PORT"
+      ],
+      "backing_center_ray": {
+        "object": "WASTE_PORT_direction_panel",
+        "distance_m": 0.0009999275207519531,
+        "point": [
+          15.649999618530273,
+          16.0,
+          3.104215145111084
+        ],
+        "normal": [
+          -1.0,
+          3.9869306078799127e-07,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_identity_text",
+      "text": "FUEL",
+      "font_size_m": 0.4300000071525574,
+      "align": "CENTER",
+      "center_world_m": [
+        13.154190063476562,
+        23.545499801635742,
+        2.034691095352173
+      ],
+      "bounds_m": [
+        [
+          12.683650016784668,
+          23.545299530029297,
+          1.879122257232666
+        ],
+        [
+          13.624730110168457,
+          23.545700073242188,
+          2.1902599334716797
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REACTOR_BOUNDARY_leaf_identity_text",
+        "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+        "REACTOR_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REACTOR_BOUNDARY_leaf_identity_field",
+        "distance_m": 0.0005016327486373484,
+        "point": [
+          13.154190063476562,
+          23.546001434326172,
+          2.034691095352173
+        ],
+        "normal": [
+          0.0,
+          -0.9999999403953552,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_identity_text.001",
+      "text": "TRANSFER",
+      "font_size_m": 0.14000000059604645,
+      "align": "CENTER",
+      "center_world_m": [
+        13.141189575195312,
+        23.545499801635742,
+        1.727739930152893
+      ],
+      "bounds_m": [
+        [
+          12.802040100097656,
+          23.545299530029297,
+          1.6787399053573608
+        ],
+        [
+          13.480340003967285,
+          23.545700073242188,
+          1.7767399549484253
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REACTOR_BOUNDARY_leaf_identity_text.001",
+        "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+        "REACTOR_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REACTOR_BOUNDARY_leaf_identity_field",
+        "distance_m": 0.0005016326322220266,
+        "point": [
+          13.141189575195312,
+          23.546001434326172,
+          1.727739930152893
+        ],
+        "normal": [
+          -0.0,
+          -0.9999999403953552,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_access_type",
+      "text": "R-01",
+      "font_size_m": 0.07900000363588333,
+      "align": "CENTER",
+      "center_world_m": [
+        12.945140838623047,
+        23.538999557495117,
+        3.3569388389587402
+      ],
+      "bounds_m": [
+        [
+          12.87700366973877,
+          23.538799285888672,
+          3.329288959503174
+        ],
+        [
+          13.01327896118164,
+          23.539199829101562,
+          3.3845889568328857
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REACTOR_BOUNDARY_leaf_access_type",
+        "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+        "REACTOR_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REACTOR_BOUNDARY_leaf_access_panel",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          12.945140838623047,
+          23.540000915527344,
+          3.3569388389587402
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_access_type.001",
+      "text": "STAND CLEAR",
+      "font_size_m": 0.03700000047683716,
+      "align": "CENTER",
+      "center_world_m": [
+        12.950739860534668,
+        23.538999557495117,
+        3.2076168060302734
+      ],
+      "bounds_m": [
+        [
+          12.826475143432617,
+          23.538799285888672,
+          3.194666862487793
+        ],
+        [
+          13.075004577636719,
+          23.539199829101562,
+          3.220566987991333
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REACTOR_BOUNDARY_leaf_access_type.001",
+        "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+        "REACTOR_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REACTOR_BOUNDARY_leaf_access_panel",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          12.950739860534668,
+          23.540000915527344,
+          3.2076168060302734
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_serial_type",
+      "text": "FC-04 / L\nINSPECT 07-B",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        13.530643463134766,
+        23.531999588012695,
+        0.4663429856300354
+      ],
+      "bounds_m": [
+        [
+          13.45987319946289,
+          23.53179931640625,
+          0.44679298996925354
+        ],
+        [
+          13.601414680480957,
+          23.53219985961914,
+          0.48589301109313965
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REACTOR_BOUNDARY_leaf_serial_type",
+        "REACTOR_BOUNDARY_LEFT_CARRIAGE",
+        "REACTOR_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REACTOR_BOUNDARY_leaf_serial_plate",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          13.530643463134766,
+          23.533000946044922,
+          0.4663429856300354
+        ],
+        "normal": [
+          -0.0,
+          -0.9999999403953552,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_identity_text.002",
+      "text": "REACTOR",
+      "font_size_m": 0.3449999988079071,
+      "align": "CENTER",
+      "center_world_m": [
+        15.366634368896484,
+        23.545499801635742,
+        2.0076446533203125
+      ],
+      "bounds_m": [
+        [
+          14.565715789794922,
+          23.545299530029297,
+          1.8798818588256836
+        ],
+        [
+          16.167552947998047,
+          23.545700073242188,
+          2.1354076862335205
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REACTOR_BOUNDARY_leaf_identity_text.002",
+        "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+        "REACTOR_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REACTOR_BOUNDARY_leaf_identity_field.001",
+        "distance_m": 0.0005016326322220266,
+        "point": [
+          15.366634368896484,
+          23.546001434326172,
+          2.0076446533203125
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_identity_text.003",
+      "text": "TRANSFER",
+      "font_size_m": 0.14000000059604645,
+      "align": "CENTER",
+      "center_world_m": [
+        15.351190567016602,
+        23.545499801635742,
+        1.727739930152893
+      ],
+      "bounds_m": [
+        [
+          15.012040138244629,
+          23.545299530029297,
+          1.6787399053573608
+        ],
+        [
+          15.690340042114258,
+          23.545700073242188,
+          1.7767399549484253
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REACTOR_BOUNDARY_leaf_identity_text.003",
+        "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+        "REACTOR_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REACTOR_BOUNDARY_leaf_identity_field.001",
+        "distance_m": 0.0005016326322220266,
+        "point": [
+          15.351190567016602,
+          23.546001434326172,
+          1.727739930152893
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_access_type.002",
+      "text": "R-01",
+      "font_size_m": 0.07900000363588333,
+      "align": "CENTER",
+      "center_world_m": [
+        15.445140838623047,
+        23.538999557495117,
+        3.3569388389587402
+      ],
+      "bounds_m": [
+        [
+          15.37700366973877,
+          23.538799285888672,
+          3.329288959503174
+        ],
+        [
+          15.51327896118164,
+          23.539199829101562,
+          3.3845889568328857
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REACTOR_BOUNDARY_leaf_access_type.002",
+        "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+        "REACTOR_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REACTOR_BOUNDARY_leaf_access_panel.001",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          15.445140838623047,
+          23.540000915527344,
+          3.3569388389587402
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_access_type.003",
+      "text": "STAND CLEAR",
+      "font_size_m": 0.03700000047683716,
+      "align": "CENTER",
+      "center_world_m": [
+        15.450739860534668,
+        23.538999557495117,
+        3.2076168060302734
+      ],
+      "bounds_m": [
+        [
+          15.326475143432617,
+          23.538799285888672,
+          3.194666862487793
+        ],
+        [
+          15.575004577636719,
+          23.539199829101562,
+          3.220566987991333
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REACTOR_BOUNDARY_leaf_access_type.003",
+        "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+        "REACTOR_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REACTOR_BOUNDARY_leaf_access_panel.001",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          15.450739860534668,
+          23.540000915527344,
+          3.2076168060302734
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "REACTOR_BOUNDARY_leaf_serial_type.001",
+      "text": "FC-04 / R\nINSPECT 07-B",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        14.870643615722656,
+        23.531999588012695,
+        0.4663429856300354
+      ],
+      "bounds_m": [
+        [
+          14.799873352050781,
+          23.53179931640625,
+          0.44679298996925354
+        ],
+        [
+          14.941414833068848,
+          23.53219985961914,
+          0.48589301109313965
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REACTOR_BOUNDARY_leaf_serial_type.001",
+        "REACTOR_BOUNDARY_RIGHT_CARRIAGE",
+        "REACTOR_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REACTOR_BOUNDARY_leaf_serial_plate.001",
+        "distance_m": 0.0010013580322265625,
+        "point": [
+          14.870643615722656,
+          23.533000946044922,
+          0.4663429856300354
+        ],
+        "normal": [
+          -0.0,
+          -0.9999999403953552,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "REACTOR_BOUNDARY_type",
+      "text": "REACTOR APPROACH",
+      "font_size_m": 0.11500000208616257,
+      "align": "CENTER",
+      "center_world_m": [
+        14.200057029724121,
+        23.249000549316406,
+        5.104214668273926
+      ],
+      "bounds_m": [
+        [
+          13.611947059631348,
+          23.24880027770996,
+          5.06396484375
+        ],
+        [
+          14.788166999816895,
+          23.24920082092285,
+          5.14446496963501
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REACTOR_BOUNDARY_type",
+        "REACTOR_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REACTOR_BOUNDARY_direction_panel",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          14.200057029724121,
+          23.25,
+          5.104214668273926
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_identity_text",
+      "text": "FUEL",
+      "font_size_m": 0.33000001311302185,
+      "align": "CENTER",
+      "center_world_m": [
+        0.6391100287437439,
+        0.4544999897480011,
+        1.0310450792312622
+      ],
+      "bounds_m": [
+        [
+          0.2833699882030487,
+          0.4542999565601349,
+          0.9170300364494324
+        ],
+        [
+          0.9948500394821167,
+          0.4547000229358673,
+          1.1450600624084473
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REFINERY_BOUNDARY_leaf_identity_text",
+        "REFINERY_BOUNDARY_LEFT_CARRIAGE",
+        "REFINERY_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REFINERY_BOUNDARY_leaf_identity_field",
+        "distance_m": 0.0004999795346520841,
+        "point": [
+          0.6391100287437439,
+          0.45399999618530273,
+          1.0310450792312622
+        ],
+        "normal": [
+          -8.065726575523513e-08,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_identity_text.001",
+      "text": "TRANSFER",
+      "font_size_m": 0.08615384250879288,
+      "align": "CENTER",
+      "center_world_m": [
+        0.6492676734924316,
+        0.4544999897480011,
+        0.7793784141540527
+      ],
+      "bounds_m": [
+        [
+          0.440559983253479,
+          0.4542999565601349,
+          0.7492246031761169
+        ],
+        [
+          0.8579753637313843,
+          0.4547000229358673,
+          0.8095322847366333
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REFINERY_BOUNDARY_leaf_identity_text.001",
+        "REFINERY_BOUNDARY_LEFT_CARRIAGE",
+        "REFINERY_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REFINERY_BOUNDARY_leaf_identity_field",
+        "distance_m": 0.0004999786615371704,
+        "point": [
+          0.6492676734924316,
+          0.45399999618530273,
+          0.7793784141540527
+        ],
+        "normal": [
+          -8.065726575523513e-08,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_access_type",
+      "text": "FC / 04",
+      "font_size_m": 0.07900000363588333,
+      "align": "CENTER",
+      "center_world_m": [
+        0.6481435298919678,
+        0.460999995470047,
+        1.966939091682434
+      ],
+      "bounds_m": [
+        [
+          0.5273129940032959,
+          0.4607999920845032,
+          1.9392890930175781
+        ],
+        [
+          0.7689740061759949,
+          0.4611999988555908,
+          1.99458909034729
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REFINERY_BOUNDARY_leaf_access_type",
+        "REFINERY_BOUNDARY_LEFT_CARRIAGE",
+        "REFINERY_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REFINERY_BOUNDARY_leaf_access_panel",
+        "distance_m": 0.001000002259388566,
+        "point": [
+          0.6481435298919678,
+          0.4599999785423279,
+          1.966939091682434
+        ],
+        "normal": [
+          -1.2628103718270722e-07,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_access_type.001",
+      "text": "STAND CLEAR",
+      "font_size_m": 0.03700000047683716,
+      "align": "CENTER",
+      "center_world_m": [
+        0.6492599248886108,
+        0.460999995470047,
+        1.8176169395446777
+      ],
+      "bounds_m": [
+        [
+          0.5249954462051392,
+          0.4607999920845032,
+          1.8046669960021973
+        ],
+        [
+          0.7735244631767273,
+          0.4611999988555908,
+          1.8305670022964478
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REFINERY_BOUNDARY_leaf_access_type.001",
+        "REFINERY_BOUNDARY_LEFT_CARRIAGE",
+        "REFINERY_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REFINERY_BOUNDARY_leaf_access_panel",
+        "distance_m": 0.0010000021429732442,
+        "point": [
+          0.6492599248886108,
+          0.4599999785423279,
+          1.8176169395446777
+        ],
+        "normal": [
+          -1.2628103718270722e-07,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_serial_type",
+      "text": "FC-04 / L\nINSPECT 07-B",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        0.3693560063838959,
+        0.46799999475479126,
+        0.4663429856300354
+      ],
+      "bounds_m": [
+        [
+          0.2985849976539612,
+          0.46779999136924744,
+          0.44679298996925354
+        ],
+        [
+          0.44012701511383057,
+          0.4681999981403351,
+          0.48589301109313965
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REFINERY_BOUNDARY_leaf_serial_type",
+        "REFINERY_BOUNDARY_LEFT_CARRIAGE",
+        "REFINERY_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REFINERY_BOUNDARY_leaf_serial_plate",
+        "distance_m": 0.0010000021429732442,
+        "point": [
+          0.3693560063838959,
+          0.46699997782707214,
+          0.4663429856300354
+        ],
+        "normal": [
+          -1.445591948368019e-07,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_identity_text.002",
+      "text": "REFINERY",
+      "font_size_m": 0.2028985470533371,
+      "align": "CENTER",
+      "center_world_m": [
+        -0.6578115820884705,
+        0.4544999897480011,
+        0.9891884326934814
+      ],
+      "bounds_m": [
+        [
+          -1.1052029132843018,
+          0.4542999565601349,
+          0.9200000166893005
+        ],
+        [
+          -0.21042025089263916,
+          0.4547000229358673,
+          1.0583767890930176
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REFINERY_BOUNDARY_leaf_identity_text.002",
+        "REFINERY_BOUNDARY_RIGHT_CARRIAGE",
+        "REFINERY_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REFINERY_BOUNDARY_leaf_identity_field.001",
+        "distance_m": 0.0004999793018214405,
+        "point": [
+          -0.6578115820884705,
+          0.45399999618530273,
+          0.9891884326934814
+        ],
+        "normal": [
+          -8.065726575523513e-08,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_identity_text.003",
+      "text": "TRANSFER",
+      "font_size_m": 0.08615384250879288,
+      "align": "CENTER",
+      "center_world_m": [
+        -0.6507322788238525,
+        0.4544999897480011,
+        0.7793784141540527
+      ],
+      "bounds_m": [
+        [
+          -0.8594399690628052,
+          0.4542999565601349,
+          0.7492246031761169
+        ],
+        [
+          -0.4420245885848999,
+          0.4547000229358673,
+          0.8095322847366333
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REFINERY_BOUNDARY_leaf_identity_text.003",
+        "REFINERY_BOUNDARY_RIGHT_CARRIAGE",
+        "REFINERY_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REFINERY_BOUNDARY_leaf_identity_field.001",
+        "distance_m": 0.0004999786615371704,
+        "point": [
+          -0.6507322788238525,
+          0.45399999618530273,
+          0.7793784141540527
+        ],
+        "normal": [
+          -8.065726575523513e-08,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_access_type.002",
+      "text": "FC / 04",
+      "font_size_m": 0.07900000363588333,
+      "align": "CENTER",
+      "center_world_m": [
+        -0.6518564224243164,
+        0.460999995470047,
+        1.966939091682434
+      ],
+      "bounds_m": [
+        [
+          -0.7726869583129883,
+          0.4607999920845032,
+          1.9392890930175781
+        ],
+        [
+          -0.5310259461402893,
+          0.4611999988555908,
+          1.99458909034729
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REFINERY_BOUNDARY_leaf_access_type.002",
+        "REFINERY_BOUNDARY_RIGHT_CARRIAGE",
+        "REFINERY_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REFINERY_BOUNDARY_leaf_access_panel.001",
+        "distance_m": 0.0010000021429732442,
+        "point": [
+          -0.6518564224243164,
+          0.4599999785423279,
+          1.966939091682434
+        ],
+        "normal": [
+          -1.2628103718270722e-07,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_access_type.003",
+      "text": "STAND CLEAR",
+      "font_size_m": 0.03700000047683716,
+      "align": "CENTER",
+      "center_world_m": [
+        -0.6507400274276733,
+        0.460999995470047,
+        1.8176169395446777
+      ],
+      "bounds_m": [
+        [
+          -0.775004506111145,
+          0.4607999920845032,
+          1.8046669960021973
+        ],
+        [
+          -0.5264754891395569,
+          0.4611999988555908,
+          1.8305670022964478
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REFINERY_BOUNDARY_leaf_access_type.003",
+        "REFINERY_BOUNDARY_RIGHT_CARRIAGE",
+        "REFINERY_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REFINERY_BOUNDARY_leaf_access_panel.001",
+        "distance_m": 0.0010000021429732442,
+        "point": [
+          -0.6507400274276733,
+          0.4599999785423279,
+          1.8176169395446777
+        ],
+        "normal": [
+          -1.2628103718270722e-07,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "REFINERY_BOUNDARY_leaf_serial_type.001",
+      "text": "FC-04 / R\nINSPECT 07-B",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        -0.3706440031528473,
+        0.46799999475479126,
+        0.4663429856300354
+      ],
+      "bounds_m": [
+        [
+          -0.441415011882782,
+          0.46779999136924744,
+          0.44679298996925354
+        ],
+        [
+          -0.2998729944229126,
+          0.4681999981403351,
+          0.48589301109313965
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REFINERY_BOUNDARY_leaf_serial_type.001",
+        "REFINERY_BOUNDARY_RIGHT_CARRIAGE",
+        "REFINERY_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REFINERY_BOUNDARY_leaf_serial_plate.001",
+        "distance_m": 0.0010000021429732442,
+        "point": [
+          -0.3706440031528473,
+          0.46699997782707214,
+          0.4663429856300354
+        ],
+        "normal": [
+          -1.445591948368019e-07,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "REFINERY_BOUNDARY_type",
+      "text": "REFINERY",
+      "font_size_m": 0.11500000208616257,
+      "align": "CENTER",
+      "center_world_m": [
+        -0.004427500069141388,
+        0.7509999871253967,
+        3.104215145111084
+      ],
+      "bounds_m": [
+        [
+          -0.25800251960754395,
+          0.7507999539375305,
+          3.065000057220459
+        ],
+        [
+          0.24914751946926117,
+          0.7512000203132629,
+          3.14342999458313
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "REFINERY_BOUNDARY_type",
+        "REFINERY_BOUNDARY"
+      ],
+      "backing_center_ray": {
+        "object": "REFINERY_BOUNDARY_direction_panel",
+        "distance_m": 0.0009999576723203063,
+        "point": [
+          -0.004427500069141388,
+          0.75,
+          3.104215145111084
+        ],
+        "normal": [
+          -7.475498620124199e-08,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Card_print",
+      "text": "CHECKED\n07 / SHIFT B",
+      "font_size_m": 0.01600000075995922,
+      "align": "CENTER",
+      "center_world_m": [
+        1.9060800075531006,
+        12.079000473022461,
+        0.7464560270309448
+      ],
+      "bounds_m": [
+        [
+          1.8627760410308838,
+          12.078800201416016,
+          0.732856035232544
+        ],
+        [
+          1.9493839740753174,
+          12.079200744628906,
+          0.7600560188293457
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Card_print",
+        "Long_cask_carrier"
+      ],
+      "backing_center_ray": {
+        "object": "Inspection_card",
+        "distance_m": 0.0009994505671784282,
+        "point": [
+          1.9060800075531006,
+          12.079999923706055,
+          0.7464560270309448
+        ],
+        "normal": [
+          0.0,
+          -0.9999999403953552,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Cask_identity",
+      "text": "FC-07",
+      "font_size_m": 0.04800000041723251,
+      "align": "CENTER",
+      "center_world_m": [
+        2.5215840339660645,
+        12.16450023651123,
+        0.7493679523468018
+      ],
+      "bounds_m": [
+        [
+          2.4612479209899902,
+          12.164299964904785,
+          0.7325679659843445
+        ],
+        [
+          2.5819199085235596,
+          12.164700508117676,
+          0.7661679983139038
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Cask_identity",
+        "Long_cask_carrier"
+      ],
+      "backing_center_ray": {
+        "object": "Current_reactor_cartridge",
+        "distance_m": 0.0010222967248409986,
+        "point": [
+          2.5215840339660645,
+          12.165522575378418,
+          0.7493679523468018
+        ],
+        "normal": [
+          -0.0,
+          -0.9987943172454834,
+          -0.04909135401248932
+        ]
+      }
+    },
+    {
+      "name": "Cask_inventory_number",
+      "text": "07 / B",
+      "font_size_m": 0.02199999988079071,
+      "align": "CENTER",
+      "center_world_m": [
+        2.8201098442077637,
+        12.163000106811523,
+        0.741502046585083
+      ],
+      "bounds_m": [
+        [
+          2.7928848266601562,
+          12.162799835205078,
+          0.7338020205497742
+        ],
+        [
+          2.847334861755371,
+          12.163200378417969,
+          0.7492020130157471
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Cask_inventory_number",
+        "Long_cask_carrier"
+      ],
+      "backing_center_ray": {
+        "object": "Cask_inventory_plate",
+        "distance_m": 0.000499725341796875,
+        "point": [
+          2.8201098442077637,
+          12.16349983215332,
+          0.741502046585083
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Frame_brake_hint",
+      "text": "PARK",
+      "font_size_m": 0.02500000037252903,
+      "align": "CENTER",
+      "center_world_m": [
+        2.0508623123168945,
+        11.869000434875488,
+        0.37357503175735474
+      ],
+      "bounds_m": [
+        [
+          2.0203499794006348,
+          11.868800163269043,
+          0.36500000953674316
+        ],
+        [
+          2.0813748836517334,
+          11.869200706481934,
+          0.3821500241756439
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Frame_brake_hint",
+        "Long_cask_carrier"
+      ],
+      "backing_center_ray": {
+        "object": "Carrier_rubber_edge",
+        "distance_m": 0.002525801071897149,
+        "point": [
+          2.0508623123168945,
+          11.871525764465332,
+          0.37357503175735474
+        ],
+        "normal": [
+          -0.0,
+          -0.9238806962966919,
+          -0.3826805651187897
+        ]
+      }
+    },
+    {
+      "name": "Dispatch_card_heading",
+      "text": "INSPECTION",
+      "font_size_m": 0.03500000014901161,
+      "align": "CENTER",
+      "center_world_m": [
+        1.5500174760818481,
+        13.120999336242676,
+        1.8119349479675293
+      ],
+      "bounds_m": [
+        [
+          1.4495849609375,
+          13.12079906463623,
+          1.799685001373291
+        ],
+        [
+          1.6504499912261963,
+          13.121199607849121,
+          1.8241850137710571
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Dispatch_card_heading",
+        "Dispatch_paperwork_station"
+      ],
+      "backing_center_ray": {
+        "object": "Docket_clipboard",
+        "distance_m": 0.0020008087158203125,
+        "point": [
+          1.5500174760818481,
+          13.123000144958496,
+          1.8119349479675293
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Staged_floor_type",
+      "text": "STAGED",
+      "font_size_m": 0.18000000715255737,
+      "align": "CENTER",
+      "center_world_m": [
+        2.6494603157043457,
+        11.381380081176758,
+        0.0017000000225380063
+      ],
+      "bounds_m": [
+        [
+          2.3112401962280273,
+          11.318379402160645,
+          0.001500000013038516
+        ],
+        [
+          2.987680196762085,
+          11.444379806518555,
+          0.0019000000320374966
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ancestors": [
+        "Staged_floor_type",
+        "Bay_floor_finish"
+      ],
+      "backing_center_ray": {
+        "object": "Floor_west_turn",
+        "distance_m": 0.0017000000225380063,
+        "point": [
+          2.6494603157043457,
+          11.381380081176758,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "name": "Bench_tool_case_kit_type",
+      "text": "TOOLS / 04",
+      "font_size_m": 0.014000000432133675,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.8100838661193848,
+        10.814499855041504,
+        0.9848240613937378
+      ],
+      "bounds_m": [
+        [
+          -1.8465819358825684,
+          10.814299583435059,
+          0.9799240231513977
+        ],
+        [
+          -1.7735859155654907,
+          10.81470012664795,
+          0.9897240400314331
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Bench_tool_case_kit_type",
+        "Maintenance_bench"
+      ],
+      "backing_center_ray": {
+        "object": "Bench_tool_case_identity_plate",
+        "distance_m": 0.0005006790161132812,
+        "point": [
+          -1.8100838661193848,
+          10.815000534057617,
+          0.9848240613937378
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Spare_parts_case_kit_type",
+      "text": "TOOLS / 04",
+      "font_size_m": 0.014000000432133675,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.8100838661193848,
+        10.60949993133545,
+        0.3296239972114563
+      ],
+      "bounds_m": [
+        [
+          -1.8465819358825684,
+          10.609299659729004,
+          0.3247239887714386
+        ],
+        [
+          -1.7735859155654907,
+          10.609700202941895,
+          0.334524005651474
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Spare_parts_case_kit_type",
+        "Maintenance_bench"
+      ],
+      "backing_center_ray": {
+        "object": "Spare_parts_case_identity_plate",
+        "distance_m": 0.0005006790161132812,
+        "point": [
+          -1.8100838661193848,
+          10.610000610351562,
+          0.3296239972114563
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Grease_tin_label",
+      "text": "GREASE",
+      "font_size_m": 0.01899999938905239,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.747499942779541,
+        10.220199584960938,
+        0.9714789390563965
+      ],
+      "bounds_m": [
+        [
+          -1.7476999759674072,
+          10.186807632446289,
+          0.9648289680480957
+        ],
+        [
+          -1.7472999095916748,
+          10.253592491149902,
+          0.978128969669342
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Grease_tin_label",
+        "Maintenance_bench"
+      ],
+      "backing_center_ray": {
+        "object": "Grease_paper_label",
+        "distance_m": 0.0011130092898383737,
+        "point": [
+          -1.7486129999160767,
+          10.220199584960938,
+          0.9714789390563965
+        ],
+        "normal": [
+          0.9978585839271545,
+          0.06540877372026443,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Consumables_drawer_kit_type",
+      "text": "TOOLS / 04",
+      "font_size_m": 0.014000000432133675,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.8100838661193848,
+        10.034500122070312,
+        0.31382399797439575
+      ],
+      "bounds_m": [
+        [
+          -1.8465819358825684,
+          10.034299850463867,
+          0.30892398953437805
+        ],
+        [
+          -1.7735859155654907,
+          10.034700393676758,
+          0.31872400641441345
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Consumables_drawer_kit_type",
+        "Maintenance_bench"
+      ],
+      "backing_center_ray": {
+        "object": "Consumables_drawer_identity_plate",
+        "distance_m": 0.0005006790743209422,
+        "point": [
+          -1.8100838661193848,
+          10.035000801086426,
+          0.31382399797439575
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Spanner_forged_size",
+      "text": "24",
+      "font_size_m": 0.012000000104308128,
+      "align": "CENTER",
+      "center_world_m": [
+        -2.072999954223633,
+        10.130029678344727,
+        1.7241460084915161
+      ],
+      "bounds_m": [
+        [
+          -2.073199987411499,
+          10.124258041381836,
+          1.7200000286102295
+        ],
+        [
+          -2.0727999210357666,
+          10.135802268981934,
+          1.7282919883728027
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Spanner_forged_size",
+        "Maintenance_tool_board"
+      ],
+      "backing_center_ray": {
+        "object": "Forged_contour_shank",
+        "distance_m": -0.0,
+        "point": [
+          -2.072999954223633,
+          10.130029678344727,
+          1.7241460084915161
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Spanner_forged_size.001",
+      "text": "28",
+      "font_size_m": 0.012000000104308128,
+      "align": "CENTER",
+      "center_world_m": [
+        -2.072999954223633,
+        10.365011215209961,
+        1.7240920066833496
+      ],
+      "bounds_m": [
+        [
+          -2.073199987411499,
+          10.359257698059082,
+          1.7198920249938965
+        ],
+        [
+          -2.0727999210357666,
+          10.370765686035156,
+          1.7282919883728027
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Spanner_forged_size.001",
+        "Maintenance_tool_board"
+      ],
+      "backing_center_ray": {
+        "object": "Forged_contour_shank.001",
+        "distance_m": -0.0,
+        "point": [
+          -2.072999954223633,
+          10.365011215209961,
+          1.7240920066833496
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Spanner_forged_size.002",
+      "text": "32",
+      "font_size_m": 0.012000000104308128,
+      "align": "CENTER",
+      "center_world_m": [
+        -2.072999954223633,
+        10.600180625915527,
+        1.7240920066833496
+      ],
+      "bounds_m": [
+        [
+          -2.073199987411499,
+          10.594618797302246,
+          1.7198920249938965
+        ],
+        [
+          -2.0727999210357666,
+          10.605742454528809,
+          1.7282919883728027
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Spanner_forged_size.002",
+        "Maintenance_tool_board"
+      ],
+      "backing_center_ray": {
+        "object": "Forged_contour_shank.002",
+        "distance_m": -0.0,
+        "point": [
+          -2.072999954223633,
+          10.600180625915527,
+          1.7240920066833496
+        ],
+        "normal": [
+          -0.9999999403953552,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Spanner_forged_size.003",
+      "text": "36",
+      "font_size_m": 0.012000000104308128,
+      "align": "CENTER",
+      "center_world_m": [
+        -2.072999954223633,
+        10.835174560546875,
+        1.7240920066833496
+      ],
+      "bounds_m": [
+        [
+          -2.073199987411499,
+          10.829618453979492,
+          1.7198920249938965
+        ],
+        [
+          -2.0727999210357666,
+          10.840729713439941,
+          1.7282919883728027
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Spanner_forged_size.003",
+        "Maintenance_tool_board"
+      ],
+      "backing_center_ray": {
+        "object": "Forged_contour_shank.003",
+        "distance_m": -0.0,
+        "point": [
+          -2.072999954223633,
+          10.835174560546875,
+          1.7240920066833496
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Toolboard_heading",
+      "text": "TOOLS / RETURN AFTER USE",
+      "font_size_m": 0.03799999877810478,
+      "align": "CENTER",
+      "center_world_m": [
+        -2.1519999504089355,
+        10.579771995544434,
+        2.007957935333252
+      ],
+      "bounds_m": [
+        [
+          -2.1521999835968018,
+          10.324583053588867,
+          1.9946579933166504
+        ],
+        [
+          -2.1517999172210693,
+          10.8349609375,
+          2.0212581157684326
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Toolboard_heading",
+        "Maintenance_tool_board"
+      ],
+      "backing_center_ray": {
+        "object": "Toolboard_back",
+        "distance_m": 0.002000093460083008,
+        "point": [
+          -2.1540000438690186,
+          10.579771995544434,
+          2.007957935333252
+        ],
+        "normal": [
+          0.9999999403953552,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Staging_air_station_regulator_model",
+      "text": "AR-07",
+      "font_size_m": 0.012000000104308128,
+      "align": "CENTER",
+      "center_world_m": [
+        3.8699398040771484,
+        12.96049976348877,
+        1.8360919952392578
+      ],
+      "bounds_m": [
+        [
+          3.8538358211517334,
+          12.960299491882324,
+          1.8318920135498047
+        ],
+        [
+          3.8860437870025635,
+          12.960700035095215,
+          1.840291976928711
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Staging_air_station_regulator_model",
+        "Staging_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Staging_air_station_regulator_identity",
+        "distance_m": 0.0004997254000045359,
+        "point": [
+          3.8699398040771484,
+          12.960999488830566,
+          1.8360919952392578
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale",
+      "text": "0",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        4.024190425872803,
+        12.970000267028809,
+        2.039051055908203
+      ],
+      "bounds_m": [
+        [
+          4.022022247314453,
+          12.969799995422363,
+          2.035601854324341
+        ],
+        [
+          4.026358604431152,
+          12.970200538635254,
+          2.0425002574920654
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Staging_air_station_pressure_gauge_scale",
+        "Staging_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Staging_air_station_pressure_gauge_dial",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          4.024190425872803,
+          12.970999717712402,
+          2.039051055908203
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale.001",
+      "text": "2",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        4.013949394226074,
+        12.970000267028809,
+        2.070614814758301
+      ],
+      "bounds_m": [
+        [
+          4.0118207931518555,
+          12.969799995422363,
+          2.0672099590301514
+        ],
+        [
+          4.016077995300293,
+          12.970200538635254,
+          2.07401967048645
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Staging_air_station_pressure_gauge_scale.001",
+        "Staging_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Staging_air_station_pressure_gauge_dial",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          4.013949394226074,
+          12.970999717712402,
+          2.070614814758301
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale.002",
+      "text": "4",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        4.0333404541015625,
+        12.970000267028809,
+        2.097426652908325
+      ],
+      "bounds_m": [
+        [
+          4.031073570251465,
+          12.969799995422363,
+          2.094021797180176
+        ],
+        [
+          4.03560733795166,
+          12.970200538635254,
+          2.1008315086364746
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Staging_air_station_pressure_gauge_scale.002",
+        "Staging_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Staging_air_station_pressure_gauge_dial",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          4.0333404541015625,
+          12.970999717712402,
+          2.097426652908325
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale.003",
+      "text": "6",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        4.066615104675293,
+        12.970000267028809,
+        2.0973823070526123
+      ],
+      "bounds_m": [
+        [
+          4.064540863037109,
+          12.969799995422363,
+          2.09393310546875
+        ],
+        [
+          4.068689346313477,
+          12.970200538635254,
+          2.1008315086364746
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Staging_air_station_pressure_gauge_scale.003",
+        "Staging_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Staging_air_station_pressure_gauge_dial",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          4.066615104675293,
+          12.970999717712402,
+          2.0973823070526123
+        ],
+        "normal": [
+          0.0,
+          -0.9999999403953552,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale.004",
+      "text": "8",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        4.086050510406494,
+        12.970000267028809,
+        2.070570468902588
+      ],
+      "bounds_m": [
+        [
+          4.083901882171631,
+          12.969799995422363,
+          2.0671212673187256
+        ],
+        [
+          4.088199138641357,
+          12.970200538635254,
+          2.07401967048645
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Staging_air_station_pressure_gauge_scale.004",
+        "Staging_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Staging_air_station_pressure_gauge_dial",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          4.086050510406494,
+          12.970999717712402,
+          2.070570468902588
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_scale.005",
+      "text": "10",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        4.076657295227051,
+        12.970000267028809,
+        2.039051055908203
+      ],
+      "bounds_m": [
+        [
+          4.072749614715576,
+          12.969799995422363,
+          2.035601854324341
+        ],
+        [
+          4.080564498901367,
+          12.970200538635254,
+          2.0425002574920654
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Staging_air_station_pressure_gauge_scale.005",
+        "Staging_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Staging_air_station_pressure_gauge_dial",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          4.076657295227051,
+          12.970999717712402,
+          2.039051055908203
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Staging_air_station_pressure_gauge_units",
+      "text": "bar",
+      "font_size_m": 0.010950000025331974,
+      "align": "CENTER",
+      "center_world_m": [
+        4.050328731536865,
+        12.970000267028809,
+        2.0518946647644043
+      ],
+      "bounds_m": [
+        [
+          4.043128967285156,
+          12.969799995422363,
+          2.0481114387512207
+        ],
+        [
+          4.057528495788574,
+          12.970200538635254,
+          2.055677890777588
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Staging_air_station_pressure_gauge_units",
+        "Staging_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Staging_air_station_pressure_gauge_dial",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          4.050328731536865,
+          12.970999717712402,
+          2.0518946647644043
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Staging_air_station_label",
+      "text": "SERVICE AIR",
+      "font_size_m": 0.07199999690055847,
+      "align": "CENTER",
+      "center_world_m": [
+        3.8014400005340576,
+        13.14799976348877,
+        2.194551944732666
+      ],
+      "bounds_m": [
+        [
+          3.598651885986328,
+          13.147799491882324,
+          2.1693520545959473
+        ],
+        [
+          4.004228115081787,
+          13.148200035095215,
+          2.219752073287964
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Staging_air_station_label",
+        "Staging_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Staging_air_station_mounting_frame",
+        "distance_m": 0.002000808482989669,
+        "point": [
+          3.8014400005340576,
+          13.15000057220459,
+          2.194551944732666
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Service_bypass_sign_letters",
+      "text": "SERVICE",
+      "font_size_m": 0.10499999672174454,
+      "align": "CENTER",
+      "center_world_m": [
+        -0.09942248463630676,
+        13.0600004196167,
+        3.358804941177368
+      ],
+      "bounds_m": [
+        [
+          -0.29393497109413147,
+          13.059800148010254,
+          3.322054862976074
+        ],
+        [
+          0.09508999437093735,
+          13.060200691223145,
+          3.395555019378662
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Service_bypass_sign_letters",
+        "Service_bypass_sign"
+      ],
+      "backing_center_ray": {
+        "object": "Service_bypass_sign_panel",
+        "distance_m": 0.0019998550415039062,
+        "point": [
+          -0.09942248463630676,
+          13.062000274658203,
+          3.358804941177368
+        ],
+        "normal": [
+          0.0,
+          -0.9999999403953552,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Bay_identity_number",
+      "text": "04",
+      "font_size_m": 0.2800000011920929,
+      "align": "CENTER",
+      "center_world_m": [
+        4.378000259399414,
+        12.629859924316406,
+        1.8654799461364746
+      ],
+      "bounds_m": [
+        [
+          4.377800464630127,
+          12.494620323181152,
+          1.7674800157546997
+        ],
+        [
+          4.378200054168701,
+          12.765100479125977,
+          1.963479995727539
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Bay_identity_number",
+        "Bay_identity"
+      ],
+      "backing_center_ray": {
+        "object": "Bay_identity_plate",
+        "distance_m": 0.001999616390094161,
+        "point": [
+          4.37999963760376,
+          12.629859924316406,
+          1.8654799461364746
+        ],
+        "normal": [
+          -0.9999999403953552,
+          1.1078907391492976e-06,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Service_air_station_regulator_model",
+      "text": "AR-07",
+      "font_size_m": 0.012000000104308128,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.2105000019073486,
+        15.069939613342285,
+        1.8360919952392578
+      ],
+      "bounds_m": [
+        [
+          -1.2107000350952148,
+          15.05383586883545,
+          1.8318920135498047
+        ],
+        [
+          -1.2102999687194824,
+          15.086043357849121,
+          1.840291976928711
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Service_air_station_regulator_model",
+        "Service_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Service_air_station_regulator_identity",
+        "distance_m": 0.0004999637603759766,
+        "point": [
+          -1.2109999656677246,
+          15.069939613342285,
+          1.8360919952392578
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale",
+      "text": "0",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.2200000286102295,
+        15.224190711975098,
+        2.039051055908203
+      ],
+      "bounds_m": [
+        [
+          -1.2202000617980957,
+          15.222023010253906,
+          2.035601854324341
+        ],
+        [
+          -1.2197999954223633,
+          15.226358413696289,
+          2.0425002574920654
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Service_air_station_pressure_gauge_scale",
+        "Service_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Service_air_station_pressure_gauge_dial",
+        "distance_m": 0.0010000468464568257,
+        "point": [
+          -1.221000075340271,
+          15.224190711975098,
+          2.039051055908203
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale.001",
+      "text": "2",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.2200000286102295,
+        15.213949203491211,
+        2.070614814758301
+      ],
+      "bounds_m": [
+        [
+          -1.2202000617980957,
+          15.211820602416992,
+          2.0672099590301514
+        ],
+        [
+          -1.2197999954223633,
+          15.21607780456543,
+          2.07401967048645
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Service_air_station_pressure_gauge_scale.001",
+        "Service_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Service_air_station_pressure_gauge_dial",
+        "distance_m": 0.001000046730041504,
+        "point": [
+          -1.221000075340271,
+          15.213949203491211,
+          2.070614814758301
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale.002",
+      "text": "4",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.2200000286102295,
+        15.2333402633667,
+        2.097426652908325
+      ],
+      "bounds_m": [
+        [
+          -1.2202000617980957,
+          15.231073379516602,
+          2.094021797180176
+        ],
+        [
+          -1.2197999954223633,
+          15.235607147216797,
+          2.1008315086364746
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Service_air_station_pressure_gauge_scale.002",
+        "Service_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Service_air_station_pressure_gauge_dial",
+        "distance_m": 0.001000046730041504,
+        "point": [
+          -1.221000075340271,
+          15.2333402633667,
+          2.097426652908325
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale.003",
+      "text": "6",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.2200000286102295,
+        15.26661491394043,
+        2.0973823070526123
+      ],
+      "bounds_m": [
+        [
+          -1.2202000617980957,
+          15.264540672302246,
+          2.09393310546875
+        ],
+        [
+          -1.2197999954223633,
+          15.26869010925293,
+          2.1008315086364746
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Service_air_station_pressure_gauge_scale.003",
+        "Service_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Service_air_station_pressure_gauge_dial",
+        "distance_m": 0.001000046613626182,
+        "point": [
+          -1.221000075340271,
+          15.26661491394043,
+          2.0973823070526123
+        ],
+        "normal": [
+          0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale.004",
+      "text": "8",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.2200000286102295,
+        15.286050796508789,
+        2.070570468902588
+      ],
+      "bounds_m": [
+        [
+          -1.2202000617980957,
+          15.283902168273926,
+          2.0671212673187256
+        ],
+        [
+          -1.2197999954223633,
+          15.288199424743652,
+          2.07401967048645
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Service_air_station_pressure_gauge_scale.004",
+        "Service_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Service_air_station_pressure_gauge_dial",
+        "distance_m": 0.0010000468464568257,
+        "point": [
+          -1.221000075340271,
+          15.286050796508789,
+          2.070570468902588
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_scale.005",
+      "text": "10",
+      "font_size_m": 0.009855000302195549,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.2200000286102295,
+        15.276657104492188,
+        2.039051055908203
+      ],
+      "bounds_m": [
+        [
+          -1.2202000617980957,
+          15.272748947143555,
+          2.035601854324341
+        ],
+        [
+          -1.2197999954223633,
+          15.280564308166504,
+          2.0425002574920654
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Service_air_station_pressure_gauge_scale.005",
+        "Service_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Service_air_station_pressure_gauge_dial",
+        "distance_m": 0.001000046730041504,
+        "point": [
+          -1.221000075340271,
+          15.276657104492188,
+          2.039051055908203
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Service_air_station_pressure_gauge_units",
+      "text": "bar",
+      "font_size_m": 0.010950000025331974,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.2200000286102295,
+        15.250328063964844,
+        2.0518946647644043
+      ],
+      "bounds_m": [
+        [
+          -1.2202000617980957,
+          15.243128776550293,
+          2.0481114387512207
+        ],
+        [
+          -1.2197999954223633,
+          15.257528305053711,
+          2.055677890777588
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Service_air_station_pressure_gauge_units",
+        "Service_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Service_air_station_pressure_gauge_dial",
+        "distance_m": 0.001000046730041504,
+        "point": [
+          -1.221000075340271,
+          15.250328063964844,
+          2.0518946647644043
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Service_air_station_label",
+      "text": "SERVICE AIR",
+      "font_size_m": 0.07199999690055847,
+      "align": "CENTER",
+      "center_world_m": [
+        -1.3980000019073486,
+        15.001440048217773,
+        2.194551944732666
+      ],
+      "bounds_m": [
+        [
+          -1.3982000350952148,
+          14.798651695251465,
+          2.1693520545959473
+        ],
+        [
+          -1.3977999687194824,
+          15.204228401184082,
+          2.219752073287964
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Service_air_station_label",
+        "Service_air_station"
+      ],
+      "backing_center_ray": {
+        "object": "Service_air_station_mounting_frame",
+        "distance_m": 0.002000093227252364,
+        "point": [
+          -1.4000000953674316,
+          15.001440048217773,
+          2.194551944732666
+        ],
+        "normal": [
+          0.9999999403953552,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Entry_marker_number",
+      "text": "04",
+      "font_size_m": 0.2800000011920929,
+      "align": "CENTER",
+      "center_world_m": [
+        -2.177999973297119,
+        2.5001401901245117,
+        1.8654799461364746
+      ],
+      "bounds_m": [
+        [
+          -2.1782000064849854,
+          2.3649001121520996,
+          1.7674800157546997
+        ],
+        [
+          -2.177799940109253,
+          2.6353800296783447,
+          1.963479995727539
+        ]
+      ],
+      "front_normal": [
+        1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Entry_marker_number",
+        "Entry_marker"
+      ],
+      "backing_center_ray": {
+        "object": "Entry_marker_plate",
+        "distance_m": 0.002000093227252364,
+        "point": [
+          -2.180000066757202,
+          2.5001401901245117,
+          1.8654799461364746
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Waste_marker_number",
+      "text": "W",
+      "font_size_m": 0.2800000011920929,
+      "align": "CENTER",
+      "center_world_m": [
+        16.378000259399414,
+        18.100139617919922,
+        1.8646399974822998
+      ],
+      "bounds_m": [
+        [
+          16.37779998779297,
+          17.95440101623535,
+          1.7683199644088745
+        ],
+        [
+          16.37820053100586,
+          18.245880126953125,
+          1.960960030555725
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Waste_marker_number",
+        "Waste_marker"
+      ],
+      "backing_center_ray": {
+        "object": "Waste_marker_plate",
+        "distance_m": 0.0019989011343568563,
+        "point": [
+          16.3799991607666,
+          18.100139617919922,
+          1.8646399974822998
+        ],
+        "normal": [
+          -0.9999999403953552,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Locker_identity",
+      "text": "SERVICE\nKIT",
+      "font_size_m": 0.0860000029206276,
+      "align": "CENTER",
+      "center_world_m": [
+        10.999526977539062,
+        7.302999973297119,
+        1.606713056564331
+      ],
+      "bounds_m": [
+        [
+          10.840211868286133,
+          7.302800178527832,
+          1.534000039100647
+        ],
+        [
+          11.158842086791992,
+          7.303199768066406,
+          1.6794259548187256
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Locker_identity",
+        "East_service_locker"
+      ],
+      "backing_center_ray": {
+        "object": "Locker_orange_door",
+        "distance_m": 0.004499912261962891,
+        "point": [
+          10.999526977539062,
+          7.298500061035156,
+          1.606713056564331
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "East_distribution_identity",
+      "text": "FC / 04",
+      "font_size_m": 0.04600000008940697,
+      "align": "CENTER",
+      "center_world_m": [
+        16.167999267578125,
+        8.129919052124023,
+        1.988785982131958
+      ],
+      "bounds_m": [
+        [
+          16.16779899597168,
+          8.059561729431152,
+          1.9726859331130981
+        ],
+        [
+          16.16819953918457,
+          8.200275421142578,
+          2.0048859119415283
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "East_distribution_identity",
+        "East_distribution"
+      ],
+      "backing_center_ray": {
+        "object": "East_distribution_door",
+        "distance_m": 0.0009994508000090718,
+        "point": [
+          16.16899871826172,
+          8.129919052124023,
+          1.988785982131958
+        ],
+        "normal": [
+          -0.9999999403953552,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "East_distribution_hazard_mark",
+      "text": "!",
+      "font_size_m": 0.06300000101327896,
+      "align": "CENTER",
+      "center_world_m": [
+        16.16699981689453,
+        8.21496868133545,
+        1.5914831161499023
+      ],
+      "bounds_m": [
+        [
+          16.166799545288086,
+          8.211188316345215,
+          1.5694330930709839
+        ],
+        [
+          16.167200088500977,
+          8.218749046325684,
+          1.6135330200195312
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "East_distribution_hazard_mark",
+        "East_distribution"
+      ],
+      "backing_center_ray": {
+        "object": "East_distribution_door",
+        "distance_m": 0.0019989016000181437,
+        "point": [
+          16.16899871826172,
+          8.21496868133545,
+          1.5914831161499023
+        ],
+        "normal": [
+          -0.9999999403953552,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "East_distribution_service_type",
+      "text": "CHECKED\n07 / B",
+      "font_size_m": 0.01899999938905239,
+      "align": "CENTER",
+      "center_world_m": [
+        16.165998458862305,
+        8.09598159790039,
+        1.3280789852142334
+      ],
+      "bounds_m": [
+        [
+          16.16579818725586,
+          8.052214622497559,
+          1.3119289875030518
+        ],
+        [
+          16.16619873046875,
+          8.139747619628906,
+          1.344228982925415
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "East_distribution_service_type",
+        "East_distribution"
+      ],
+      "backing_center_ray": {
+        "object": "East_distribution_service_sticker",
+        "distance_m": 0.0012512205867096782,
+        "point": [
+          16.16724967956543,
+          8.09598159790039,
+          1.3280789852142334
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Bypass_isolation_identity",
+      "text": "E-03",
+      "font_size_m": 0.04600000008940697,
+      "align": "CENTER",
+      "center_world_m": [
+        1.0809999704360962,
+        15.3494234085083,
+        1.777385950088501
+      ],
+      "bounds_m": [
+        [
+          1.08079993724823,
+          15.309242248535156,
+          1.7612860202789307
+        ],
+        [
+          1.0812000036239624,
+          15.389604568481445,
+          1.7934859991073608
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Bypass_isolation_identity",
+        "Bypass_isolation"
+      ],
+      "backing_center_ray": {
+        "object": "Bypass_isolation_door",
+        "distance_m": 0.001000046613626182,
+        "point": [
+          1.0820000171661377,
+          15.3494234085083,
+          1.777385950088501
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Bypass_isolation_hazard_mark",
+      "text": "!",
+      "font_size_m": 0.06300000101327896,
+      "align": "CENTER",
+      "center_world_m": [
+        1.0799999237060547,
+        15.39496898651123,
+        1.5714828968048096
+      ],
+      "bounds_m": [
+        [
+          1.0797998905181885,
+          15.391188621520996,
+          1.5494329929351807
+        ],
+        [
+          1.080199956893921,
+          15.398749351501465,
+          1.593532919883728
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Bypass_isolation_hazard_mark",
+        "Bypass_isolation"
+      ],
+      "backing_center_ray": {
+        "object": "Bypass_isolation_door",
+        "distance_m": 0.002000093460083008,
+        "point": [
+          1.0820000171661377,
+          15.39496898651123,
+          1.5714828968048096
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Bypass_isolation_service_type",
+      "text": "CHECKED\n07 / B",
+      "font_size_m": 0.01899999938905239,
+      "align": "CENTER",
+      "center_world_m": [
+        1.0789999961853027,
+        15.330381393432617,
+        1.4646790027618408
+      ],
+      "bounds_m": [
+        [
+          1.0787999629974365,
+          15.286615371704102,
+          1.4485290050506592
+        ],
+        [
+          1.079200029373169,
+          15.37414836883545,
+          1.4808290004730225
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Bypass_isolation_service_type",
+        "Bypass_isolation"
+      ],
+      "backing_center_ray": {
+        "object": "Bypass_isolation_service_sticker",
+        "distance_m": 0.0012500286102294922,
+        "point": [
+          1.0802500247955322,
+          15.330381393432617,
+          1.4646790027618408
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Bypass_first_aid_type",
+      "text": "FIRST AID",
+      "font_size_m": 0.03099999949336052,
+      "align": "CENTER",
+      "center_world_m": [
+        1.0959999561309814,
+        15.94953441619873,
+        1.695570945739746
+      ],
+      "bounds_m": [
+        [
+          1.0957999229431152,
+          15.881210327148438,
+          1.6847209930419922
+        ],
+        [
+          1.0961999893188477,
+          16.017858505249023,
+          1.7064208984375
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Bypass_first_aid_type",
+        "Bypass_first_aid"
+      ],
+      "backing_center_ray": {
+        "object": "Bypass_first_aid_clear_lid",
+        "distance_m": 0.0005000829696655273,
+        "point": [
+          1.096500039100647,
+          15.94953441619873,
+          1.695570945739746
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Bypass_work_permit_heading",
+      "text": "WORK PERMIT",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        1.1589999198913574,
+        16.730194091796875,
+        1.8948429822921753
+      ],
+      "bounds_m": [
+        [
+          1.1587998867034912,
+          16.651018142700195,
+          1.8867930173873901
+        ],
+        [
+          1.1591999530792236,
+          16.809371948242188,
+          1.9028929471969604
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Bypass_work_permit_heading",
+        "Bypass_work_permit"
+      ],
+      "backing_center_ray": {
+        "object": "Bypass_work_permit_card",
+        "distance_m": 0.001000046613626182,
+        "point": [
+          1.159999966621399,
+          16.730194091796875,
+          1.8948429822921753
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Plant_work_permit_heading",
+      "text": "WORK PERMIT",
+      "font_size_m": 0.023000000044703484,
+      "align": "CENTER",
+      "center_world_m": [
+        -2.849804401397705,
+        16.240999221801758,
+        1.7648429870605469
+      ],
+      "bounds_m": [
+        [
+          -2.9289820194244385,
+          16.240798950195312,
+          1.7567930221557617
+        ],
+        [
+          -2.7706267833709717,
+          16.241199493408203,
+          1.772892951965332
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Plant_work_permit_heading",
+        "Plant_work_permit"
+      ],
+      "backing_center_ray": {
+        "object": "Plant_work_permit_card",
+        "distance_m": 0.0009994508000090718,
+        "point": [
+          -2.849804401397705,
+          16.239999771118164,
+          1.7648429870605469
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Clean_distribution_identity",
+      "text": "E-03",
+      "font_size_m": 0.04600000008940697,
+      "align": "CENTER",
+      "center_world_m": [
+        9.049423217773438,
+        18.118999481201172,
+        1.777385950088501
+      ],
+      "bounds_m": [
+        [
+          9.009242057800293,
+          18.118799209594727,
+          1.7612860202789307
+        ],
+        [
+          9.089604377746582,
+          18.119199752807617,
+          1.7934859991073608
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Clean_distribution_identity",
+        "Clean_distribution"
+      ],
+      "backing_center_ray": {
+        "object": "Clean_distribution_door",
+        "distance_m": 0.00099945068359375,
+        "point": [
+          9.049423217773438,
+          18.118000030517578,
+          1.777385950088501
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Clean_distribution_hazard_mark",
+      "text": "!",
+      "font_size_m": 0.06300000101327896,
+      "align": "CENTER",
+      "center_world_m": [
+        9.094968795776367,
+        18.119998931884766,
+        1.5714828968048096
+      ],
+      "bounds_m": [
+        [
+          9.091188430786133,
+          18.11979866027832,
+          1.5494329929351807
+        ],
+        [
+          9.098749160766602,
+          18.12019920349121,
+          1.593532919883728
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Clean_distribution_hazard_mark",
+        "Clean_distribution"
+      ],
+      "backing_center_ray": {
+        "object": "Clean_distribution_door",
+        "distance_m": 0.0019989016000181437,
+        "point": [
+          9.094968795776367,
+          18.118000030517578,
+          1.5714828968048096
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Clean_distribution_service_type",
+      "text": "CHECKED\n07 / B",
+      "font_size_m": 0.01899999938905239,
+      "align": "CENTER",
+      "center_world_m": [
+        9.03038215637207,
+        18.12099838256836,
+        1.4646790027618408
+      ],
+      "bounds_m": [
+        [
+          8.986615180969238,
+          18.120798110961914,
+          1.4485290050506592
+        ],
+        [
+          9.074148178100586,
+          18.121198654174805,
+          1.4808290004730225
+        ]
+      ],
+      "front_normal": [
+        -8.742277657347586e-08,
+        1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Clean_distribution_service_type",
+        "Clean_distribution"
+      ],
+      "backing_center_ray": {
+        "object": "Clean_distribution_service_sticker",
+        "distance_m": 0.0012493133544921875,
+        "point": [
+          9.03038215637207,
+          18.119749069213867,
+          1.4646790027618408
+        ],
+        "normal": [
+          -0.0,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Clean_blade_destination",
+      "text": "CLEAN / MEDICAL",
+      "font_size_m": 0.07999999821186066,
+      "align": "CENTER",
+      "center_world_m": [
+        4.934999942779541,
+        20.1984806060791,
+        2.587279796600342
+      ],
+      "bounds_m": [
+        [
+          4.934800148010254,
+          19.86164093017578,
+          2.5592799186706543
+        ],
+        [
+          4.935199737548828,
+          20.535320281982422,
+          2.6152799129486084
+        ]
+      ],
+      "front_normal": [
+        -1.0,
+        4.371138828673793e-08,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Clean_blade_destination",
+        "Clean_branch_blade_sign"
+      ],
+      "backing_center_ray": {
+        "object": "Clean_blade_panel",
+        "distance_m": 0.00199985527433455,
+        "point": [
+          4.936999797821045,
+          20.1984806060791,
+          2.587279796600342
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "name": "Plant_blade_destination",
+      "text": "PLANT SERVICES",
+      "font_size_m": 0.09000000357627869,
+      "align": "CENTER",
+      "center_world_m": [
+        0.04171000421047211,
+        15.984999656677246,
+        2.4756898880004883
+      ],
+      "bounds_m": [
+        [
+          -0.3018650412559509,
+          15.9847993850708,
+          2.44419002532959
+        ],
+        [
+          0.38528504967689514,
+          15.985199928283691,
+          2.507189989089966
+        ]
+      ],
+      "front_normal": [
+        0.0,
+        -1.0,
+        -4.371138828673793e-08
+      ],
+      "ancestors": [
+        "Plant_blade_destination",
+        "Plant_branch_blade_sign"
+      ],
+      "backing_center_ray": {
+        "object": "Plant_blade_panel",
+        "distance_m": 0.002000808482989669,
+        "point": [
+          0.04171000421047211,
+          15.987000465393066,
+          2.4756898880004883
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    }
+  ],
+  "method": "Actual saved object/leaf inventory, evaluated floor meshes, contract route lengths and font center backing rays against physical evaluated surfaces.",
+  "limits": [
+    "Portals are not certified safe exits or live-neighbor passage.",
+    "Contract route lengths are planning centerlines, not timed player movement.",
+    "A center backing ray does not prove glyph extents fit their support or rendered readability.",
+    "No live instance, render, source edit, neighbor access or scene save."
+  ],
+  "saved": false
+}

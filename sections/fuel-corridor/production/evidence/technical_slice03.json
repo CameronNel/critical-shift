@@ -1,0 +1,1298 @@
+{
+  "schema": "fuel-corridor-technical-audit/1",
+  "utc": "2026-09-07T22:39:15.994724+00:00",
+  "blend": "C:\\Users\\Camer\\.codex\\worktrees\\3598\\critical-shift\\sections\\fuel-corridor\\blender\\Fuel_Corridor.blend",
+  "blender_version": "5.2.0 LTS",
+  "fresh_background_process": true,
+  "render_performed": false,
+  "scene_modified": false,
+  "validation_device": "CPU BVH / no Cycles render",
+  "revision": "slice03",
+  "stage": "slice",
+  "saved_source_sha256": "94572fdfa0e263a98a003273bf5f407709f6d3c567598764d59a06765c623e1e",
+  "current_source_sha256": "94572fdfa0e263a98a003273bf5f407709f6d3c567598764d59a06765c623e1e",
+  "camera_and_render_settings": {
+    "status": "PASS",
+    "cameras": [
+      {
+        "camera": "C01_ENTRY",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C02_PRIMARY_ROUTE",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C03_HERO",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C04_REVERSE",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C05_EAST_TURN",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C06_REACTOR_THRESHOLD",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C07_BYPASS",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C08_SERVICE_JUNCTION",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C09_MATERIALS",
+        "status": "PASS",
+        "errors": {}
+      },
+      {
+        "camera": "C10_PLANT_HEADER",
+        "status": "PASS",
+        "errors": {}
+      }
+    ],
+    "settings": {
+      "engine": "CYCLES",
+      "resolution": [
+        1200,
+        800,
+        100
+      ],
+      "samples": 24,
+      "seed": 71,
+      "denoising": true,
+      "max_bounces": 8,
+      "format": "PNG",
+      "color_mode": "RGB",
+      "view_transform": "AgX",
+      "look": "AgX - Medium High Contrast",
+      "exposure": 0.1,
+      "gamma": 1.0,
+      "pixel_aspect": [
+        1.0,
+        1.0
+      ],
+      "border": false,
+      "units": [
+        "METRIC",
+        1.0
+      ]
+    },
+    "issues": []
+  },
+  "geometry": {
+    "status": "PASS",
+    "mesh_objects": 403,
+    "evaluated_polygons": 35941,
+    "issues": [],
+    "open_surface_notes": [
+      {
+        "object": "Air_header",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "FREIGHT_GATE_type",
+        "boundary_edges": 2328,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff.001",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff.002",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff.003",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff.004",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff.005",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff.006",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff.007",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff.008",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff.009",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff.010",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flange_handling_scuff.011",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Cartridge_identity",
+        "boundary_edges": 408,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Local_barrel_rub",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Local_barrel_rub.001",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Local_barrel_rub.002",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Local_barrel_rub.003",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Local_barrel_rub.004",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Local_barrel_rub.005",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Local_barrel_rub.006",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Local_barrel_rub.007",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Local_barrel_rub.008",
+        "boundary_edges": 4,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Push_handle",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Push_handle.001",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Docket_type",
+        "boundary_edges": 2036,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Manifest_heading",
+        "boundary_edges": 1444,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Keyhook",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      },
+      {
+        "object": "Flask_handle",
+        "boundary_edges": 20,
+        "note": "Open surface: may be intentional paper/decal/fabric; not automatically a solid collision hull"
+      }
+    ],
+    "exact_duplicates": [],
+    "duplicate_method": "World-space evaluated polygon topology quantized to 1 micrometre; vertex-order independent. Intersections among different assembly members are not exact duplicates."
+  },
+  "dependencies": {
+    "status": "PASS",
+    "resources": [],
+    "issues": []
+  },
+  "support_contact": {
+    "status": "FAIL",
+    "assemblies": [
+      {
+        "assembly": "Bay_steelwork",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -2.2,
+              7.25,
+              3.64
+            ],
+            "toward_support": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_W-2.2_0_7_concrete"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Bearing_plate",
+            "target_hit": {
+              "object": "Wall_W-2.2_0_7_concrete",
+              "point": [
+                -2.2,
+                7.25,
+                3.64
+              ],
+              "normal": [
+                1.0,
+                -0.0,
+                0.0
+              ],
+              "distance_m": 0.10000012814998627
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              -2.2,
+              12.95,
+              3.64
+            ],
+            "toward_support": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_W-2.2_0_7_concrete"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Bearing_plate.002",
+            "target_hit": {
+              "object": "Wall_W-2.2_0_7_concrete",
+              "point": [
+                -2.2,
+                12.95,
+                3.64
+              ],
+              "normal": [
+                1.0,
+                -0.0,
+                0.0
+              ],
+              "distance_m": 0.09999991953372955
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 14,
+        "anchor_connected_members": 14,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Dispatch_paperwork_station",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              3.1,
+              13.172,
+              1.22
+            ],
+            "toward_support": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_N13.2_0_-2.2_washable_lower"
+            ],
+            "distance_to_assembly_surface_m": 1e-06,
+            "anchor_member": "Station_backplate",
+            "target_hit": {
+              "object": "Wall_N13.2_0_-2.2_washable_lower",
+              "point": [
+                3.1,
+                13.172,
+                1.22
+              ],
+              "normal": [
+                0.0,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.10000038146972656
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 18,
+        "anchor_connected_members": 18,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Dispatch_task_sconce",
+        "role": "wall",
+        "issues": [
+          "Members have no measured contact chain to a support anchor"
+        ],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              2.55,
+              13.2,
+              2.38
+            ],
+            "toward_support": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_N13.2_0_-2.2_concrete"
+            ],
+            "distance_to_assembly_surface_m": 1e-06,
+            "anchor_member": "Sconce_backplate",
+            "target_hit": {
+              "object": "Wall_N13.2_0_-2.2_concrete",
+              "point": [
+                2.55,
+                13.2,
+                2.38
+              ],
+              "normal": [
+                0.0,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.10000011324882507
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 4,
+        "anchor_connected_members": 2,
+        "disconnected_members": [
+          "Task_diffuser",
+          "Task_hood"
+        ],
+        "disconnected_components": [
+          {
+            "members": [
+              "Task_diffuser",
+              "Task_hood"
+            ],
+            "nearest_grounded_contact": {
+              "member": "Task_diffuser",
+              "grounded_member": "Sconce_arm",
+              "member_point": [
+                2.55,
+                12.925,
+                2.421
+              ],
+              "grounded_point": [
+                2.55,
+                12.925,
+                2.445
+              ],
+              "sampled_separation_m": 0.024
+            }
+          }
+        ],
+        "status": "FAIL"
+      },
+      {
+        "assembly": "Gate_cool_fill",
+        "role": "ceiling",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              3.32,
+              7.95,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Ceiling_style_bay"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Gate_cool_fill_drop",
+            "target_hit": {
+              "object": "Ceiling_style_bay",
+              "point": [
+                3.32,
+                7.95,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999991953372955
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              3.32,
+              8.95,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Ceiling_style_bay"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Gate_cool_fill_drop.001",
+            "target_hit": {
+              "object": "Ceiling_style_bay",
+              "point": [
+                3.32,
+                8.95,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999991953372955
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 6,
+        "anchor_connected_members": 6,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Handle_wiping_cloth",
+        "role": "prop",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -0.83,
+              12.2,
+              1.244
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Grip"
+            ],
+            "distance_to_assembly_surface_m": 0.000857,
+            "anchor_member": "Draped_wiping_cloth",
+            "target_hit": {
+              "object": "Grip",
+              "point": [
+                -0.83,
+                12.2,
+                1.241
+              ],
+              "normal": [
+                -0.09803,
+                0.0,
+                0.995183
+              ],
+              "distance_m": 0.10299992561340332
+            },
+            "signed_gap_m": 0.003,
+            "support_angle_degrees": 5.626,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 1,
+        "anchor_connected_members": 1,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Long_cask_carrier",
+        "role": "floor",
+        "issues": [
+          "Members have no measured contact chain to a support anchor"
+        ],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -0.59,
+              12.0,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_style_bay"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Rubber_tyre",
+            "target_hit": {
+              "object": "Floor_style_bay",
+              "point": [
+                -0.59,
+                12.0,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.09999999403953552
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              -0.59,
+              12.64,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_style_bay"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Rubber_tyre.001",
+            "target_hit": {
+              "object": "Floor_style_bay",
+              "point": [
+                -0.59,
+                12.64,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.10000000149011612
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 2,
+            "issues": [],
+            "world_point": [
+              0.99,
+              12.0,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_style_bay"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Rubber_tyre.002",
+            "target_hit": {
+              "object": "Floor_style_bay",
+              "point": [
+                0.99,
+                12.0,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.09999999403953552
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 3,
+            "issues": [],
+            "world_point": [
+              0.99,
+              12.64,
+              0.0
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "intended_targets": [
+              "Floor_style_bay"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Rubber_tyre.003",
+            "target_hit": {
+              "object": "Floor_style_bay",
+              "point": [
+                0.99,
+                12.64,
+                -0.0
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "distance_m": 0.10000000894069672
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 156,
+        "anchor_connected_members": 80,
+        "disconnected_members": [
+          "Band_lifting_eye",
+          "Band_lifting_eye.001",
+          "Band_lifting_foot",
+          "Band_lifting_foot.001",
+          "Cap_retention_bolt",
+          "Cap_retention_bolt.001",
+          "Cap_retention_bolt.002",
+          "Cap_retention_bolt.003",
+          "Cap_retention_bolt.004",
+          "Cap_retention_bolt.005",
+          "Cap_retention_bolt.006",
+          "Cap_retention_bolt.007",
+          "Cap_retention_bolt.008",
+          "Cap_retention_bolt.009",
+          "Cap_retention_bolt.010",
+          "Cap_retention_bolt.011",
+          "Cap_retention_bolt.012",
+          "Cap_retention_bolt.013",
+          "Cap_retention_bolt.014",
+          "Cap_retention_bolt.015",
+          "Cartridge_end_cap",
+          "Cartridge_end_cap.001",
+          "Cartridge_end_flange",
+          "Cartridge_end_flange.001",
+          "Cartridge_identity",
+          "Cartridge_outer_sleeve",
+          "Cask_longitudinal_wear_strip",
+          "Cask_longitudinal_wear_strip.001",
+          "Cask_longitudinal_wear_strip.002",
+          "Cask_longitudinal_wear_strip.003",
+          "Center_splice_lip",
+          "Center_splice_lip.001",
+          "Center_splice_seal",
+          "Endplate_gasket",
+          "Endplate_gasket.001",
+          "Endplate_lock",
+          "Endplate_lock.001",
+          "Endplate_recess",
+          "Endplate_recess.001",
+          "Flange_handling_scuff",
+          "Flange_handling_scuff.001",
+          "Flange_handling_scuff.002",
+          "Flange_handling_scuff.003",
+          "Flange_handling_scuff.004",
+          "Flange_handling_scuff.005",
+          "Flange_handling_scuff.006",
+          "Flange_handling_scuff.007",
+          "Flange_handling_scuff.008",
+          "Flange_handling_scuff.009",
+          "Flange_handling_scuff.010",
+          "Flange_handling_scuff.011",
+          "Latch_cheek",
+          "Latch_cheek.001",
+          "Latch_cheek.002",
+          "Latch_cheek.003",
+          "Latch_handle",
+          "Latch_handle.001",
+          "Latch_pivot",
+          "Latch_pivot.001",
+          "Local_barrel_rub",
+          "Local_barrel_rub.001",
+          "Local_barrel_rub.002",
+          "Local_barrel_rub.003",
+          "Local_barrel_rub.004",
+          "Local_barrel_rub.005",
+          "Local_barrel_rub.006",
+          "Local_barrel_rub.007",
+          "Local_barrel_rub.008",
+          "Overcentre_latch",
+          "Overcentre_latch.001",
+          "Pin_pullring",
+          "Pin_pullring.001",
+          "Retained_pin",
+          "Retained_pin.001",
+          "Retaining_band",
+          "Retaining_band.001"
+        ],
+        "disconnected_components": [
+          {
+            "members": [
+              "Band_lifting_eye",
+              "Band_lifting_eye.001",
+              "Band_lifting_foot",
+              "Band_lifting_foot.001",
+              "Cartridge_identity",
+              "Cartridge_outer_sleeve",
+              "Cask_longitudinal_wear_strip",
+              "Cask_longitudinal_wear_strip.001",
+              "Cask_longitudinal_wear_strip.002",
+              "Cask_longitudinal_wear_strip.003",
+              "Center_splice_lip",
+              "Center_splice_lip.001",
+              "Center_splice_seal",
+              "Latch_cheek",
+              "Latch_cheek.001",
+              "Latch_cheek.002",
+              "Latch_cheek.003",
+              "Latch_handle",
+              "Latch_handle.001",
+              "Latch_pivot",
+              "Latch_pivot.001",
+              "Local_barrel_rub",
+              "Local_barrel_rub.001",
+              "Local_barrel_rub.002",
+              "Local_barrel_rub.003",
+              "Local_barrel_rub.004",
+              "Local_barrel_rub.005",
+              "Local_barrel_rub.006",
+              "Local_barrel_rub.007",
+              "Local_barrel_rub.008",
+              "Overcentre_latch",
+              "Overcentre_latch.001",
+              "Pin_pullring",
+              "Pin_pullring.001",
+              "Retained_pin",
+              "Retained_pin.001",
+              "Retaining_band",
+              "Retaining_band.001"
+            ],
+            "nearest_grounded_contact": {
+              "member": "Retaining_band",
+              "grounded_member": "Cut_plate_saddle",
+              "member_point": [
+                -0.4,
+                12.32,
+                0.635
+              ],
+              "grounded_point": [
+                -0.4,
+                12.32,
+                0.61
+              ],
+              "sampled_separation_m": 0.025
+            }
+          },
+          {
+            "members": [
+              "Cap_retention_bolt",
+              "Cap_retention_bolt.001",
+              "Cap_retention_bolt.002",
+              "Cap_retention_bolt.003",
+              "Cap_retention_bolt.004",
+              "Cap_retention_bolt.005",
+              "Cap_retention_bolt.006",
+              "Cap_retention_bolt.007",
+              "Cartridge_end_cap",
+              "Cartridge_end_flange",
+              "Endplate_gasket",
+              "Endplate_lock",
+              "Endplate_recess",
+              "Flange_handling_scuff",
+              "Flange_handling_scuff.001",
+              "Flange_handling_scuff.002",
+              "Flange_handling_scuff.003",
+              "Flange_handling_scuff.004",
+              "Flange_handling_scuff.005"
+            ],
+            "nearest_grounded_contact": {
+              "member": "Cartridge_end_flange",
+              "grounded_member": "Grip",
+              "member_point": [
+                -0.750828,
+                12.32,
+                1.138826
+              ],
+              "grounded_point": [
+                -0.80808,
+                12.32,
+                1.18808
+              ],
+              "sampled_separation_m": 0.075522
+            }
+          },
+          {
+            "members": [
+              "Cap_retention_bolt.008",
+              "Cap_retention_bolt.009",
+              "Cap_retention_bolt.010",
+              "Cap_retention_bolt.011",
+              "Cap_retention_bolt.012",
+              "Cap_retention_bolt.013",
+              "Cap_retention_bolt.014",
+              "Cap_retention_bolt.015",
+              "Cartridge_end_cap.001",
+              "Cartridge_end_flange.001",
+              "Endplate_gasket.001",
+              "Endplate_lock.001",
+              "Endplate_recess.001",
+              "Flange_handling_scuff.006",
+              "Flange_handling_scuff.007",
+              "Flange_handling_scuff.008",
+              "Flange_handling_scuff.009",
+              "Flange_handling_scuff.010",
+              "Flange_handling_scuff.011"
+            ],
+            "nearest_grounded_contact": {
+              "member": "Cartridge_end_flange.001",
+              "grounded_member": "Chassis_crossmember.003",
+              "member_point": [
+                1.148,
+                12.32,
+                0.62
+              ],
+              "grounded_point": [
+                1.148,
+                12.32,
+                0.4605
+              ],
+              "sampled_separation_m": 0.1595
+            }
+          }
+        ],
+        "status": "FAIL"
+      },
+      {
+        "assembly": "Slice_utility_header",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              1.7,
+              13.2,
+              3.24
+            ],
+            "toward_support": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_N13.2_0_-2.2_concrete"
+            ],
+            "distance_to_assembly_surface_m": 1e-06,
+            "anchor_member": "Pipe_backplate",
+            "target_hit": {
+              "object": "Wall_N13.2_0_-2.2_concrete",
+              "point": [
+                1.7,
+                13.2,
+                3.24
+              ],
+              "normal": [
+                0.0,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.09999998658895493
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              3.1,
+              13.2,
+              3.24
+            ],
+            "toward_support": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_N13.2_0_-2.2_concrete"
+            ],
+            "distance_to_assembly_surface_m": 1e-06,
+            "anchor_member": "Pipe_backplate.001",
+            "target_hit": {
+              "object": "Wall_N13.2_0_-2.2_concrete",
+              "point": [
+                3.1,
+                13.2,
+                3.24
+              ],
+              "normal": [
+                0.0,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.10000018775463104
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 46,
+        "anchor_connected_members": 46,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Staging_warm_key",
+        "role": "ceiling",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              -0.35,
+              11.78,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Ceiling_style_bay"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Staging_warm_key_drop",
+            "target_hit": {
+              "object": "Ceiling_style_bay",
+              "point": [
+                -0.35,
+                11.78,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999990463256836
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          },
+          {
+            "index": 1,
+            "issues": [],
+            "world_point": [
+              0.65,
+              11.78,
+              4.4
+            ],
+            "toward_support": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "intended_targets": [
+              "Ceiling_style_bay"
+            ],
+            "distance_to_assembly_surface_m": 0.0,
+            "anchor_member": "Staging_warm_key_drop.001",
+            "target_hit": {
+              "object": "Ceiling_style_bay",
+              "point": [
+                0.65,
+                11.78,
+                4.4
+              ],
+              "normal": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "distance_m": 0.09999990463256836
+            },
+            "signed_gap_m": -0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 6,
+        "anchor_connected_members": 6,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      },
+      {
+        "assembly": "Vacuum_flask_shelf",
+        "role": "wall",
+        "issues": [],
+        "anchors": [
+          {
+            "index": 0,
+            "issues": [],
+            "world_point": [
+              2.28,
+              13.172,
+              1.02
+            ],
+            "toward_support": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "intended_targets": [
+              "Wall_N13.2_0_-2.2_washable_lower"
+            ],
+            "distance_to_assembly_surface_m": 1e-06,
+            "anchor_member": "Shelf_back",
+            "target_hit": {
+              "object": "Wall_N13.2_0_-2.2_washable_lower",
+              "point": [
+                2.28,
+                13.172,
+                1.02
+              ],
+              "normal": [
+                0.0,
+                -1.0,
+                0.0
+              ],
+              "distance_m": 0.10000037401914597
+            },
+            "signed_gap_m": 0.0,
+            "support_angle_degrees": 0.0,
+            "status": "PASS"
+          }
+        ],
+        "tolerances": {
+          "max_gap_m": 0.005,
+          "max_penetration_m": 0.002,
+          "max_angle_degrees": 12.0
+        },
+        "assembly_member_count": 7,
+        "anchor_connected_members": 7,
+        "disconnected_members": [],
+        "disconnected_components": [],
+        "status": "PASS"
+      }
+    ],
+    "issues": [
+      {
+        "assembly": "Dispatch_task_sconce",
+        "issue": "Failed registration, physical contact, or assembly connectivity"
+      },
+      {
+        "assembly": "Long_cask_carrier",
+        "issue": "Failed registration, physical contact, or assembly connectivity"
+      }
+    ],
+    "method": "Explicit world-space anchors raycast toward named evaluated support targets. Signed gap from 100 mm prop-side offset; normal must oppose direction. Own-anchor proximity plus a triangle-intersection / <=5 mm sampled surface contact graph checks members reach an anchored member.",
+    "limitations": "Contact graph proves geometric attachment approximatively, not mechanical stress, fastening adequacy, or correct support of every hidden interior component. Intentional different-part assembly intersections are accepted; exact duplicates remain separately checked."
+  },
+  "internal_routes": {
+    "status": "NOT_RUN",
+    "reason": "Style slice does not contain full-route geometry; final acceptance requires --stage full",
+    "excluded_cap_leaf_members": []
+  },
+  "external_presentation_caps": {
+    "state": "NO_CLOSED_CAP_HIT",
+    "through_passage": "NOT_CERTIFIED",
+    "checks": [
+      {
+        "boundary": "REFINERY_BOUNDARY",
+        "state": "ABSENT"
+      },
+      {
+        "boundary": "REACTOR_BOUNDARY",
+        "state": "ABSENT"
+      }
+    ],
+    "neighbor_state": "Neighbor files were neither imported nor modified. Existing reactor-owned doors are independently documented closed in interface.json. Removing these connector caps does not open or certify neighboring paths."
+  },
+  "carrier_actual_envelope": {
+    "bounds_min": [
+      -0.9,
+      11.855,
+      -0.0
+    ],
+    "bounds_max": [
+      1.3,
+      12.77,
+      1.241
+    ],
+    "dimensions_xyz_m": [
+      2.2,
+      0.915,
+      1.241
+    ],
+    "declared_envelope_lwh_m": [
+      2.2,
+      0.9,
+      1.3
+    ]
+  },
+  "source_matches_saved_scene": true,
+  "failed_gates": [
+    "support_contact",
+    "internal_routes"
+  ],
+  "status": "FAIL",
+  "elapsed_seconds": 2.45,
+  "acceptance_scope": "Technical geometry gates only; closed external caps remain explicit integration blockers. Pixel quality, repeated review cycles and final cold render comparison are separate mandatory acceptance gates."
+}

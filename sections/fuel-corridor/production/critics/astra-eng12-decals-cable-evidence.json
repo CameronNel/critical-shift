@@ -1,0 +1,1029 @@
+{
+  "method": "Independent CPU evaluated surfaces of frozen eng11 and eng12. No checkpoint source executed; no scene transform/save/render. Decal samples are barycentric grids on evaluated triangles. Signed nearest distances use intended-body evaluated face normals. Cable hulls are temporary convex hulls, not replacement scene geometry.",
+  "snapshots": {
+    "eng11": {
+      "hashes": {
+        "Fuel_Corridor.blend": "22cdfe2c2d8bf7c13070686a981118353f7d6c19dc7fbb89797102881cae7ae6",
+        "build.py": "c78a856bfe4142c7df9471a00da37f25c442ded0c148eee24277d898b68dd51c",
+        "valorant_details.py": "b2c597dcccc73b40da6c98ee36741829f467f4a3e4f5fb1070279204b24d7aed",
+        "interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e",
+        "build_manifest.json": "9eb17b6db95d162653f0cbe7994dcedb05aa45bcaaf13aa673854627c1510cd4"
+      },
+      "objects": 7827,
+      "manifest_matches": {
+        "blend": true,
+        "build": true,
+        "details": true,
+        "interface": true,
+        "objects": true
+      },
+      "decals": [
+        {
+          "name": "Motor_fin_edge_wear",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_cooling_fin.004",
+          "bounds_drive_local": [
+            [
+              1.3199998140335083,
+              -0.40134912729263306,
+              4.045938968658447
+            ],
+            [
+              1.3459997177124023,
+              -0.4000500738620758,
+              4.046689033508301
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            9.921666787704453e-05,
+            0.00010032572026830167
+          ],
+          "signed_distance_m": [
+            9.248096102965064e-05,
+            0.00010022121205111034
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_cooling_fin.004": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {}
+        },
+        {
+          "name": "Motor_fin_edge_wear.001",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_cooling_fin.006",
+          "bounds_drive_local": [
+            [
+              1.4039998054504395,
+              -0.44457635283470154,
+              3.9928267002105713
+            ],
+            [
+              1.4299997091293335,
+              -0.44406330585479736,
+              3.9942362308502197
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            9.993265848606825e-05,
+            0.00010152698814636096
+          ],
+          "signed_distance_m": [
+            9.24787369740443e-05,
+            0.0001001822038233513
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_cooling_fin.006": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {}
+        },
+        {
+          "name": "Motor_fin_edge_wear.002",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_cooling_fin.008",
+          "bounds_drive_local": [
+            [
+              1.361999750137329,
+              -0.44406330585479736,
+              3.924354314804077
+            ],
+            [
+              1.3879997730255127,
+              -0.4435502886772156,
+              3.9257638454437256
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            9.996067092288285e-05,
+            0.00010018221655627713
+          ],
+          "signed_distance_m": [
+            9.239463361154776e-05,
+            0.0001001822038233513
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_cooling_fin.008": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {}
+        }
+      ],
+      "cable": {
+        "type": "CURVE",
+        "splines": [
+          "POLY"
+        ],
+        "point_count": 8,
+        "points_drive_local": [
+          [
+            1.4789997339248657,
+            -0.3500000834465027,
+            4.078999996185303
+          ],
+          [
+            1.5019997358322144,
+            -0.3500000834465027,
+            4.078999996185303
+          ],
+          [
+            1.5229997634887695,
+            -0.33500009775161743,
+            4.086999893188477
+          ],
+          [
+            1.5339998006820679,
+            -0.30900007486343384,
+            4.111000061035156
+          ],
+          [
+            1.5339998006820679,
+            -0.2720000743865967,
+            4.1529998779296875
+          ],
+          [
+            1.5339998006820679,
+            -0.2300000786781311,
+            4.177999973297119
+          ],
+          [
+            1.5339998006820679,
+            -0.16700008511543274,
+            4.184000015258789
+          ],
+          [
+            1.5339998006820679,
+            -0.13300009071826935,
+            4.184000015258789
+          ]
+        ],
+        "bevel_depth_m": 0.007000000216066837,
+        "bevel_resolution": 3,
+        "curve_matrix_world": [
+          [
+            -4.371138828673793e-08,
+            1.0,
+            0.0,
+            5.96999979019165
+          ],
+          [
+            -1.0,
+            -4.371138828673793e-08,
+            0.0,
+            10.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "root_matrix_world": [
+          [
+            -4.371138828673793e-08,
+            1.0,
+            0.0,
+            6.349999904632568
+          ],
+          [
+            -1.0,
+            -4.371138828673793e-08,
+            0.0,
+            10.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "evaluated_vertices": 80,
+        "centerline_bounds_drive_local": [
+          [
+            1.4789997339248657,
+            -0.3500000834465027,
+            4.078999996185303
+          ],
+          [
+            1.5339998006820679,
+            -0.13300009071826935,
+            4.184000015258789
+          ]
+        ],
+        "tube_bounds_drive_local": [
+          [
+            1.4789997339248657,
+            -0.35700008273124695,
+            4.072342395782471
+          ],
+          [
+            1.5409941673278809,
+            -0.13300009071826935,
+            4.190739154815674
+          ]
+        ],
+        "surface_decal": false,
+        "saved_collision_handoff": "static_evaluated_geometry",
+        "export_collision_handoff": "static_evaluated_geometry"
+      },
+      "blend_hash_unchanged_after_read": true
+    },
+    "eng12": {
+      "hashes": {
+        "Fuel_Corridor.blend": "57ad7915bf2e939947e57dd2390305ea4e9f64b87442fa2bdd044cfacaf9929d",
+        "build.py": "4bc2aa1a1ed9a81cadf37ec55873ca1e1d8ba898db3f8eba2035865684c46d92",
+        "valorant_details.py": "69245a929ce08a7d0464db2f97e347fb8944d4af1dc638081296e6b5dbb6e012",
+        "interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e",
+        "build_manifest.json": "a0a0b047881319942491ad4a25ef71b7187c5e1184a4cc14ac4f54c7910ebac8"
+      },
+      "objects": 7837,
+      "manifest_matches": {
+        "blend": true,
+        "build": true,
+        "details": true,
+        "interface": true,
+        "objects": true
+      },
+      "decals": [
+        {
+          "name": "Motor_bell_edge_wear",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_end_bell.001",
+          "bounds_drive_local": [
+            [
+              1.530999779701233,
+              -0.4315253496170044,
+              3.9960741996765137
+            ],
+            [
+              1.5389997959136963,
+              -0.4270503520965576,
+              4.001255512237549
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            0.0002558180713094771,
+            0.0003204343665856868
+          ],
+          "signed_distance_m": [
+            0.00025581804038665723,
+            0.00032043428655015305
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_end_bell.001": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {}
+        },
+        {
+          "name": "Motor_bell_edge_wear.001",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_end_bell.001",
+          "bounds_drive_local": [
+            [
+              1.530999779701233,
+              -0.43939951062202454,
+              3.9552409648895264
+            ],
+            [
+              1.5389997959136963,
+              -0.43737971782684326,
+              3.9618871212005615
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            9.995562868425623e-05,
+            0.00032415110035799444
+          ],
+          "signed_distance_m": [
+            9.913857056176312e-05,
+            0.0003241510858060792
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_end_bell.001": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {}
+        },
+        {
+          "name": "Motor_bell_edge_wear.002",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_end_bell.001",
+          "bounds_drive_local": [
+            [
+              1.530999779701233,
+              -0.432808518409729,
+              3.9217529296875
+            ],
+            [
+              1.5389997959136963,
+              -0.4296194314956665,
+              3.9285247325897217
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            9.844100713962689e-05,
+            0.00032105681020766497
+          ],
+          "signed_distance_m": [
+            9.844100304690073e-05,
+            0.000321056837492506
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_end_bell.001": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {}
+        },
+        {
+          "name": "Motor_fin_edge_wear",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_cooling_fin.004",
+          "bounds_drive_local": [
+            [
+              1.3199998140335083,
+              -0.40212854743003845,
+              4.045489311218262
+            ],
+            [
+              1.3629997968673706,
+              -0.4000500738620758,
+              4.046689033508301
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            9.918678551912308e-05,
+            0.0003229058929719031
+          ],
+          "signed_distance_m": [
+            9.243920067092404e-05,
+            0.0002764870077953674
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_cooling_fin.004": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {}
+        },
+        {
+          "name": "Motor_fin_edge_wear.001",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_cooling_fin.006",
+          "bounds_drive_local": [
+            [
+              1.4039998054504395,
+              -0.44488418102264404,
+              3.991981029510498
+            ],
+            [
+              1.4469997882843018,
+              -0.44406330585479736,
+              3.9942362308502197
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            0.00010001670307246968,
+            0.00032275027479045093
+          ],
+          "signed_distance_m": [
+            9.25289300539589e-05,
+            0.00032214399016083917
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_cooling_fin.006": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {}
+        },
+        {
+          "name": "Motor_fin_edge_wear.002",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_cooling_fin.008",
+          "bounds_drive_local": [
+            [
+              1.361999750137329,
+              -0.44406330585479736,
+              3.923508405685425
+            ],
+            [
+              1.4049997329711914,
+              -0.44324246048927307,
+              3.9257638454437256
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            0.0001000447227852419,
+            0.0003227564156986773
+          ],
+          "signed_distance_m": [
+            9.25429594644811e-05,
+            0.0003221815713914111
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_cooling_fin.008": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {}
+        },
+        {
+          "name": "Motor_guard_edge_wear",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_reducer_guard",
+          "bounds_drive_local": [
+            [
+              1.1349997520446777,
+              -0.42715007066726685,
+              3.9800000190734863
+            ],
+            [
+              1.1479997634887695,
+              -0.42715007066726685,
+              3.9839999675750732
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            0.00015026330947875977,
+            0.00015026349865365773
+          ],
+          "signed_distance_m": [
+            0.00015026330947875977,
+            0.00015026330947875977
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_reducer_guard": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {},
+          "orange_band_convex_inside_samples_over_10um": 0,
+          "orange_band_maximum_interior_halfspace_depth_m": 0,
+          "own_surface_samples_over_1mm_gap": 0
+        },
+        {
+          "name": "Motor_guard_edge_wear.001",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_reducer_guard",
+          "bounds_drive_local": [
+            [
+              1.1379997730255127,
+              -0.42715007066726685,
+              3.8949999809265137
+            ],
+            [
+              1.1509997844696045,
+              -0.42715007066726685,
+              3.8989999294281006
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            0.00015026330947875977,
+            0.00015026349865365773
+          ],
+          "signed_distance_m": [
+            0.00015026330947875977,
+            0.00015026330947875977
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_reducer_guard": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {},
+          "orange_band_convex_inside_samples_over_10um": 0,
+          "orange_band_maximum_interior_halfspace_depth_m": 0,
+          "own_surface_samples_over_1mm_gap": 0
+        },
+        {
+          "name": "Motor_guard_edge_wear.002",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_reducer_guard",
+          "bounds_drive_local": [
+            [
+              1.1429997682571411,
+              -0.42715007066726685,
+              3.7809998989105225
+            ],
+            [
+              1.155999779701233,
+              -0.42715007066726685,
+              3.7850000858306885
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            0.00015026330947875977,
+            0.00015026335313450545
+          ],
+          "signed_distance_m": [
+            0.00015026330947875977,
+            0.00015026330947875977
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_reducer_guard": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {},
+          "orange_band_convex_inside_samples_over_10um": 0,
+          "orange_band_maximum_interior_halfspace_depth_m": 0,
+          "own_surface_samples_over_1mm_gap": 0
+        },
+        {
+          "name": "Motor_guard_edge_wear.003",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_reducer_guard",
+          "bounds_drive_local": [
+            [
+              1.2319997549057007,
+              -0.42715007066726685,
+              3.993000030517578
+            ],
+            [
+              1.2449997663497925,
+              -0.42715007066726685,
+              3.996999979019165
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            0.00015026330947875977,
+            0.00015026349865365773
+          ],
+          "signed_distance_m": [
+            0.00015026330947875977,
+            0.00015026330947875977
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_reducer_guard": 449,
+            "Motor_guard_orange_band": 13
+          },
+          "possible_other_body_burial_samples_over_10um": {
+            "Motor_guard_orange_band": 262
+          },
+          "orange_band_convex_inside_samples_over_10um": 262,
+          "orange_band_maximum_interior_halfspace_depth_m": 0.0016501843929290771,
+          "own_surface_samples_over_1mm_gap": 0
+        },
+        {
+          "name": "Motor_guard_edge_wear.004",
+          "parent": "Freight_gate_drive",
+          "surface_decal": true,
+          "saved_collision_handoff": "visual_only",
+          "export_collision_handoff": "visual_only",
+          "intended_surface": "Motor_reducer_guard",
+          "bounds_drive_local": [
+            [
+              1.242999792098999,
+              -0.42715007066726685,
+              3.815999984741211
+            ],
+            [
+              1.2559998035430908,
+              -0.42715007066726685,
+              3.819999933242798
+            ]
+          ],
+          "vertex_count": 4,
+          "samples": 462,
+          "nearest_distance_m": [
+            0.00015026330947875977,
+            0.0016693833749741316
+          ],
+          "signed_distance_m": [
+            0.00015026330947875977,
+            0.0016693832294549793
+          ],
+          "buried_intended_samples_over_10um": 0,
+          "nearest_body_sample_counts": {
+            "Motor_reducer_guard": 462
+          },
+          "possible_other_body_burial_samples_over_10um": {},
+          "orange_band_convex_inside_samples_over_10um": 0,
+          "orange_band_maximum_interior_halfspace_depth_m": 0,
+          "own_surface_samples_over_1mm_gap": 24
+        }
+      ],
+      "cable": {
+        "type": "CURVE",
+        "splines": [
+          "POLY"
+        ],
+        "point_count": 44,
+        "points_drive_local": [
+          [
+            1.4789997339248657,
+            -0.3500000834465027,
+            4.078999996185303
+          ],
+          [
+            1.494333028793335,
+            -0.3500000834465027,
+            4.078999996185303
+          ],
+          [
+            1.4968411922454834,
+            -0.3498818576335907,
+            4.0790629386901855
+          ],
+          [
+            1.4992544651031494,
+            -0.34952715039253235,
+            4.079252243041992
+          ],
+          [
+            1.5015727281570435,
+            -0.34893599152565,
+            4.0795674324035645
+          ],
+          [
+            1.5037963390350342,
+            -0.3481083810329437,
+            4.0800089836120605
+          ],
+          [
+            1.505924940109253,
+            -0.34704428911209106,
+            4.080576419830322
+          ],
+          [
+            1.5079586505889893,
+            -0.34574374556541443,
+            4.081270217895508
+          ],
+          [
+            1.5159997940063477,
+            -0.34000009298324585,
+            4.084333419799805
+          ],
+          [
+            1.5182130336761475,
+            -0.3382967710494995,
+            4.085309982299805
+          ],
+          [
+            1.5201858282089233,
+            -0.33652013540267944,
+            4.08646297454834
+          ],
+          [
+            1.5219182968139648,
+            -0.3346702456474304,
+            4.087791442871094
+          ],
+          [
+            1.5234103202819824,
+            -0.3327470123767853,
+            4.089296340942383
+          ],
+          [
+            1.5246620178222656,
+            -0.3307504951953888,
+            4.090976715087891
+          ],
+          [
+            1.5256733894348145,
+            -0.3286806643009186,
+            4.092833042144775
+          ],
+          [
+            1.5304374694824219,
+            -0.31742018461227417,
+            4.103227615356445
+          ],
+          [
+            1.5315258502960205,
+            -0.3146270513534546,
+            4.1058526039123535
+          ],
+          [
+            1.532416582107544,
+            -0.31186097860336304,
+            4.108546257019043
+          ],
+          [
+            1.533109188079834,
+            -0.3091220259666443,
+            4.1113080978393555
+          ],
+          [
+            1.5336039066314697,
+            -0.30641013383865356,
+            4.114138126373291
+          ],
+          [
+            1.5339008569717407,
+            -0.30372536182403564,
+            4.117036819458008
+          ],
+          [
+            1.5339998006820679,
+            -0.3010677099227905,
+            4.120004177093506
+          ],
+          [
+            1.5339998006820679,
+            -0.2799324691295624,
+            4.143995761871338
+          ],
+          [
+            1.5339998006820679,
+            -0.27722227573394775,
+            4.146917343139648
+          ],
+          [
+            1.5339998006820679,
+            -0.2743798494338989,
+            4.149680137634277
+          ],
+          [
+            1.5339998006820679,
+            -0.27140527963638306,
+            4.152283191680908
+          ],
+          [
+            1.5339996814727783,
+            -0.26829856634140015,
+            4.154727458953857
+          ],
+          [
+            1.5339998006820679,
+            -0.2650596499443054,
+            4.157011985778809
+          ],
+          [
+            1.5339998006820679,
+            -0.26168859004974365,
+            4.159137725830078
+          ],
+          [
+            1.5339998006820679,
+            -0.24031157791614532,
+            4.1718621253967285
+          ],
+          [
+            1.5339998006820679,
+            -0.23682901263237,
+            4.173768997192383
+          ],
+          [
+            1.5339998006820679,
+            -0.23325563967227936,
+            4.175398349761963
+          ],
+          [
+            1.5339998006820679,
+            -0.2295914739370346,
+            4.176750183105469
+          ],
+          [
+            1.5339996814727783,
+            -0.22583648562431335,
+            4.177823543548584
+          ],
+          [
+            1.5339998006820679,
+            -0.22199071943759918,
+            4.178619384765625
+          ],
+          [
+            1.5339998006820679,
+            -0.2180541306734085,
+            4.179137706756592
+          ],
+          [
+            1.5339998006820679,
+            -0.17828236520290375,
+            4.182925701141357
+          ],
+          [
+            1.5339998006820679,
+            -0.17452017962932587,
+            4.183254241943359
+          ],
+          [
+            1.5339998006820679,
+            -0.17075516283512115,
+            4.183522701263428
+          ],
+          [
+            1.5339998006820679,
+            -0.1669873148202896,
+            4.183731555938721
+          ],
+          [
+            1.5339996814727783,
+            -0.16321662068367004,
+            4.183880805969238
+          ],
+          [
+            1.5339998006820679,
+            -0.15944311022758484,
+            4.183969974517822
+          ],
+          [
+            1.5339998006820679,
+            -0.1556667536497116,
+            4.184000015258789
+          ],
+          [
+            1.5339998006820679,
+            -0.13300009071826935,
+            4.184000015258789
+          ]
+        ],
+        "bevel_depth_m": 0.007000000216066837,
+        "bevel_resolution": 3,
+        "curve_matrix_world": [
+          [
+            -4.371138828673793e-08,
+            1.0,
+            0.0,
+            5.96999979019165
+          ],
+          [
+            -1.0,
+            -4.371138828673793e-08,
+            0.0,
+            10.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "root_matrix_world": [
+          [
+            -4.371138828673793e-08,
+            1.0,
+            0.0,
+            6.349999904632568
+          ],
+          [
+            -1.0,
+            -4.371138828673793e-08,
+            0.0,
+            10.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "evaluated_vertices": 440,
+        "centerline_bounds_drive_local": [
+          [
+            1.4789997339248657,
+            -0.3500000834465027,
+            4.078999996185303
+          ],
+          [
+            1.5339998006820679,
+            -0.13300009071826935,
+            4.184000015258789
+          ]
+        ],
+        "tube_bounds_drive_local": [
+          [
+            1.4789997339248657,
+            -0.35700008273124695,
+            4.072342395782471
+          ],
+          [
+            1.5409971475601196,
+            -0.13300009071826935,
+            4.1907148361206055
+          ]
+        ],
+        "surface_decal": false,
+        "saved_collision_handoff": "static_evaluated_geometry",
+        "export_collision_handoff": "static_evaluated_geometry"
+      },
+      "blend_hash_unchanged_after_read": true
+    }
+  },
+  "limits": [
+    "No visual scoring, ray visibility or renderer-depth-bias check.",
+    "Dense sampled decal attachment does not prove every interior point or shader displacement.",
+    "Cable hull containment is not cable-to-hardware collision or endpoint-attachment proof."
+  ],
+  "cable_comparison": {
+    "eng12_centerline_vs_eng11_centerline_hull": {
+      "points": 44,
+      "plane_count": 12,
+      "outside_1um": 0,
+      "maximum_outward_halfspace_distance_m": 3.427267074584961e-07
+    },
+    "eng12_tube_vs_eng11_centerline_hull": {
+      "points": 440,
+      "plane_count": 12,
+      "outside_1um": 381,
+      "maximum_outward_halfspace_distance_m": 0.0069999098777771
+    },
+    "eng12_tube_vs_eng11_tube_hull": {
+      "points": 440,
+      "plane_count": 92,
+      "outside_1um": 121,
+      "maximum_outward_halfspace_distance_m": 0.000363767147064209
+    },
+    "eng11_tube_hull_selftest": {
+      "points": 80,
+      "plane_count": 92,
+      "outside_1um": 3,
+      "maximum_outward_halfspace_distance_m": 2.2649765014648438e-06
+    },
+    "same_first_endpoint": 0.0,
+    "same_last_endpoint": 0.0,
+    "radius_distinction": "A centerline convex hull excludes tube radius. Uniform-radius tube lies in a radius-expanded centerline hull; this does not imply inclusion in the old unexpanded point hull or old evaluated tube hull."
+  }
+}

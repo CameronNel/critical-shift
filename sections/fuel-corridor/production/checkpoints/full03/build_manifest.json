@@ -1,0 +1,281 @@
+{
+  "revision": "full03",
+  "stage": "full",
+  "source_sha256": "90d006135f88cda5b35fc47f45c8a4844c3003843dcd5344cb1032b7181e37cb",
+  "detail_source_sha256": "bbac0d7d33904474924d7f5d8843c182b7c81ad3f4f78b8adec62dda21356b59",
+  "interface_sha256": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e",
+  "blend_sha256": "1faf3c9fa16133081916bc1c9bc235e866e0507b9aa645e997aee340055d146a",
+  "objects": 7679,
+  "cameras": [
+    [
+      "C01_ENTRY",
+      [
+        0.0,
+        1.4,
+        1.7
+      ],
+      [
+        0.25,
+        9.9,
+        1.65
+      ],
+      25,
+      "entry / freight readability"
+    ],
+    [
+      "C02_PRIMARY_ROUTE",
+      [
+        3.0,
+        9.0,
+        1.7
+      ],
+      [
+        13.0,
+        10.4,
+        1.7
+      ],
+      27,
+      "cross passage and gate"
+    ],
+    [
+      "C03_HERO",
+      [
+        -1.45,
+        6.0,
+        1.7
+      ],
+      [
+        1.1,
+        11.5,
+        1.8
+      ],
+      22,
+      "whole staging junction / workbench and freight gate; corrected cropped baseline"
+    ],
+    [
+      "C04_REVERSE",
+      [
+        1.0,
+        10.5,
+        1.7
+      ],
+      [
+        -0.15,
+        1.0,
+        1.6
+      ],
+      26,
+      "reverse approach"
+    ],
+    [
+      "C05_EAST_TURN",
+      [
+        11.15,
+        8.45,
+        1.7
+      ],
+      [
+        14.2,
+        17.0,
+        1.65
+      ],
+      25,
+      "freight ninety-degree turn"
+    ],
+    [
+      "C06_REACTOR_THRESHOLD",
+      [
+        13.5,
+        19.4,
+        1.7
+      ],
+      [
+        14.3,
+        24.0,
+        2.1
+      ],
+      26,
+      "outlet / transition"
+    ],
+    [
+      "C07_BYPASS",
+      [
+        0.45,
+        14.0,
+        1.7
+      ],
+      [
+        -0.2,
+        19.7,
+        1.65
+      ],
+      25,
+      "narrow service passage"
+    ],
+    [
+      "C08_SERVICE_JUNCTION",
+      [
+        1.7,
+        19.85,
+        1.7
+      ],
+      [
+        7.6,
+        20.0,
+        1.6
+      ],
+      25,
+      "clean services connection"
+    ],
+    [
+      "C09_MATERIALS",
+      [
+        3.7,
+        9.9,
+        1.6
+      ],
+      [
+        2.65,
+        12.32,
+        0.85
+      ],
+      42,
+      "trolley material and support detail; rebaseline after bypass clearance correction"
+    ],
+    [
+      "C10_PLANT_HEADER",
+      [
+        -0.7,
+        17.2,
+        1.7
+      ],
+      [
+        -5.4,
+        17.4,
+        1.45
+      ],
+      25,
+      "plant branch dead-end / concealed problem areas"
+    ]
+  ],
+  "diagnostic_cameras": [
+    [
+      "D01_CARRIER_OPERATION",
+      [
+        1.17,
+        10.2,
+        1.24
+      ],
+      [
+        2.38,
+        12.32,
+        0.63
+      ],
+      42,
+      "supplement: brake and restraint operation"
+    ],
+    [
+      "D02_WORKBENCH",
+      [
+        -0.2,
+        8.75,
+        1.65
+      ],
+      [
+        -1.8,
+        10.58,
+        1.26
+      ],
+      40,
+      "supplement: worker equipment and purposeful dressing"
+    ],
+    [
+      "D03_UTILITY",
+      [
+        3.8,
+        11.0,
+        1.72
+      ],
+      [
+        3.8,
+        13.15,
+        1.72
+      ],
+      46,
+      "supplement: isolator, regulator, gauge, hose and support"
+    ],
+    [
+      "D04_REACTOR_WIDE",
+      [
+        13.5,
+        17.1,
+        1.7
+      ],
+      [
+        14.2,
+        23.5,
+        2.45
+      ],
+      19,
+      "supplement: complete five-metre reactor threshold and head"
+    ],
+    [
+      "D05_GATE_MECHANISM",
+      [
+        5.25,
+        8.1,
+        4.05
+      ],
+      [
+        6.38,
+        8.75,
+        3.92
+      ],
+      35,
+      "supplement: exposed gate motor, bracket and transmission housing; enclosed rollers verified geometrically"
+    ],
+    [
+      "D06_SERVICE_RECESS",
+      [
+        0.7,
+        15.2,
+        1.72
+      ],
+      [
+        -1.49,
+        15.08,
+        1.72
+      ],
+      32,
+      "supplement: recessed air station feed and wall construction"
+    ]
+  ],
+  "blend": "C:\\Users\\Camer\\.codex\\worktrees\\3598\\critical-shift\\sections\\fuel-corridor\\blender\\Fuel_Corridor.blend",
+  "samples": 32,
+  "width": 1440,
+  "material_sha256": {
+    "floor": "095335ff28ecc34ed2540bfe4f61f8d4b018bf88df60e052b558935231cdbdac",
+    "wall": "21339d8db4ee59de01d555abebbb4c77515a19756e192b2f1dfb2e0666c5b817",
+    "cloth": "436086a28112711372d9b4f36a854dcea0565dfd47d63f7242553211c4dbd1e9"
+  },
+  "authored_handoff_sha256": "11f623b5cc619bfe797de19d37e8573dcd35c59ddee64ac0db1ab66043f5317c",
+  "completed_render_sha256": {
+    "C02_PRIMARY_ROUTE": "dd9f408d1007610a6e95a457c1921e70f4ea90a82e0156ccb5f6bce8c9a625fd",
+    "C07_BYPASS": "763e62c4ba8f078fca615b775c128e4a72046cac6ff1cfd134c0703f33928743",
+    "C08_SERVICE_JUNCTION": "3812d6fad05f346768824cbeda2ff0bb2f3271f613f6e596edae7a9f29be15d8",
+    "D05_GATE_MECHANISM": "698ed4a4a9d20f74de803309812c86db5829b6687f86fc184d50608ac0bc5e26",
+    "D06_SERVICE_RECESS": "7d7baf8e24f2a9c88f99dc3bee8e75c47ef98432cad14f3b1374d1c9af35ac3d",
+    "C06_REACTOR_THRESHOLD": "a36fa3c0d2333edff94cb30a5de8cc60cdca5070ab4cddc605a8ef8fe412ee71",
+    "D04_REACTOR_WIDE": "c11e5cd6fbe0aa53ec0bff547975982095bfbc10bb7e69ac66457f9b997ecabb",
+    "C01_ENTRY": "2c76ed622f907aeefa67e5be89913ee45b2963f51f0956cf2eb71470bd9a5e3e",
+    "C03_HERO": "e0ac736e88058f44d690c6d9169bf2343b60bffc0599e6af6b410e589d7069ed",
+    "C04_REVERSE": "d218fb0a56e2a9b59eeeae2d9775d1086d95db686f403ebaf7ff0a47ce5a5084",
+    "C05_EAST_TURN": "c8d5fa9f745c63b1401b8598301d8d3b256a181cb4514ec9a87a73a02480b8b3",
+    "C09_MATERIALS": "544c0e0388e1012b8fc1e2ab003c14ae225d8823346c0011d1a189e5a3c482fe",
+    "C10_PLANT_HEADER": "68cc49efbbe0952fcdff8bae34100163b46bfd49a15b60c411b2ec888662dc18",
+    "D01_CARRIER_OPERATION": "0e4379ae74b7d0008c50322f0b9558cdb75066a4cc78b80f4657aee37632926b",
+    "D02_WORKBENCH": "872329603b859fa5e4ad28bb028ac6fa0fab9dd841cb7397b6a6449543bbb231",
+    "D03_UTILITY": "fcaafea020ef856dd04aaaae391c5eddd743822d479ee7636742c3621ca2ee28"
+  },
+  "render_batch_complete": true
+}

@@ -1,0 +1,248 @@
+{
+  "blend_sha256": "50301920c205744213603577145f6afb34fcdaea6d3aabbe846ae69fd2049a42",
+  "walkthrough_source_sha256": "9c4c95e04b5e95b8fea7c997d00d3bd3309f8a1f0be9e236c5ce7d34887876c1",
+  "rows": [
+    {
+      "view": "W01_REFINERY_APPROACH",
+      "position": [
+        0,
+        3.6,
+        1.7
+      ],
+      "target": [
+        0,
+        0,
+        1.7
+      ],
+      "floor": {
+        "object": "Floor_entry",
+        "z": -1.1175870895385742e-07,
+        "eye_above_hit": 1.7000001594424248
+      },
+      "near_hits": [],
+      "pass": true
+    },
+    {
+      "view": "W02_SERVICE_ENTRY",
+      "position": [
+        0,
+        9.5,
+        1.7
+      ],
+      "target": [
+        0,
+        16,
+        1.7
+      ],
+      "floor": {
+        "object": "Floor_west_turn",
+        "z": -1.1175870895385742e-07,
+        "eye_above_hit": 1.7000001594424248
+      },
+      "near_hits": [],
+      "pass": true
+    },
+    {
+      "view": "W03_PLANT_APPROACH",
+      "position": [
+        -1,
+        17.4,
+        1.7
+      ],
+      "target": [
+        -5.4,
+        17.4,
+        1.6
+      ],
+      "floor": {
+        "object": "Floor_bypass_west",
+        "z": 7.450580596923828e-09,
+        "eye_above_hit": 1.7000000402331352
+      },
+      "near_hits": [],
+      "pass": true
+    },
+    {
+      "view": "W04_PLANT_RETURN",
+      "position": [
+        -4,
+        17.4,
+        1.7
+      ],
+      "target": [
+        0,
+        17.4,
+        1.6
+      ],
+      "floor": {
+        "object": "Slab_joint.046",
+        "z": 0.0011999803828075528,
+        "eye_above_hit": 1.6988000673009083
+      },
+      "near_hits": [],
+      "pass": true
+    },
+    {
+      "view": "W05_CLEAN_APPROACH",
+      "position": [
+        6.6,
+        18.5,
+        1.7
+      ],
+      "target": [
+        6.6,
+        21,
+        1.7
+      ],
+      "floor": {
+        "object": "Floor_bypass_north",
+        "z": 1.2665987014770508e-07,
+        "eye_above_hit": 1.6999999210238457
+      },
+      "near_hits": [],
+      "pass": true
+    },
+    {
+      "view": "W06_WASTE_APPROACH",
+      "position": [
+        12.8,
+        16,
+        1.7
+      ],
+      "target": [
+        16.4,
+        16,
+        1.7
+      ],
+      "floor": {
+        "object": "Floor_delivery",
+        "z": 7.450580596923828e-09,
+        "eye_above_hit": 1.7000000402331352
+      },
+      "near_hits": [],
+      "pass": true
+    },
+    {
+      "view": "W07_DELIVERY_RETURN",
+      "position": [
+        14.2,
+        20,
+        1.7
+      ],
+      "target": [
+        14.2,
+        13.4,
+        1.6
+      ],
+      "floor": {
+        "object": "Floor_delivery",
+        "z": 7.450580596923828e-09,
+        "eye_above_hit": 1.7000000402331352
+      },
+      "near_hits": [],
+      "pass": true
+    },
+    {
+      "view": "W08_EAST_TURN_RETURN",
+      "position": [
+        14.2,
+        10,
+        1.7
+      ],
+      "target": [
+        8.5,
+        10,
+        1.6
+      ],
+      "floor": {
+        "object": "Route_turn_arrow_0",
+        "z": 0.001999974250793457,
+        "eye_above_hit": 1.6980000734329224
+      },
+      "near_hits": [],
+      "pass": true
+    },
+    {
+      "view": "W09_BENCH_ACCESS",
+      "position": [
+        0,
+        10.6,
+        1.7
+      ],
+      "target": [
+        -2.2,
+        10.6,
+        1.3
+      ],
+      "floor": {
+        "object": "Floor_west_turn",
+        "z": -1.1175870895385742e-07,
+        "eye_above_hit": 1.7000001594424248
+      },
+      "near_hits": [],
+      "pass": true
+    },
+    {
+      "view": "W10_GATE_APPROACH",
+      "position": [
+        3,
+        10,
+        1.7
+      ],
+      "target": [
+        6.35,
+        10,
+        1.85
+      ],
+      "floor": {
+        "object": "Floor_west_turn",
+        "z": 1.2665987014770508e-07,
+        "eye_above_hit": 1.6999999210238457
+      },
+      "near_hits": [],
+      "pass": true
+    },
+    {
+      "view": "W11_CARRIER_ACCESS",
+      "position": [
+        4,
+        12,
+        1.7
+      ],
+      "target": [
+        2.6,
+        12.3,
+        0.8
+      ],
+      "floor": {
+        "object": "Floor_west_turn",
+        "z": 1.2665987014770508e-07,
+        "eye_above_hit": 1.6999999210238457
+      },
+      "near_hits": [],
+      "pass": true
+    },
+    {
+      "view": "W12_CLEAN_TURN",
+      "position": [
+        1,
+        19.2,
+        1.7
+      ],
+      "target": [
+        6.6,
+        20,
+        1.6
+      ],
+      "floor": {
+        "object": "Route_turn_arrow_1",
+        "z": 0.001999974250793457,
+        "eye_above_hit": 1.6980000734329224
+      },
+      "near_hits": [],
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "scope": "Twelve grounded1.70m eye positions and63 near-field rays each. Not a continuous body/controller simulation or full optical occlusion proof."
+}
