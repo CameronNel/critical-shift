@@ -7,49 +7,80 @@ on:
       - 'tools/image-cleanup/**'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: critical-shift-image-cleanup
   cancel-in-progress: false
 jobs:
-  inventory:
+  verify-and-prune:
+    if: github.ref == 'refs/heads/chore/prune-generated-images-20260914'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
+    env:
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '1'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
+          ref: chore/prune-generated-images-20260914
           lfs: false
           fetch-depth: 1
-      - name: Inventory actual image payload sizes without downloading them
+      - name: Install read-only Blender inspection toolchain
         shell: bash
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import subprocess, re, json, collections
-          paths = subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
-          images, blends, others = [], [], []
-          for name in filter(None, paths):
-              p = Path(name)
-              if not p.is_file():
-                  continue
-              head = p.open('rb').read(1024)
-              m = re.search(rb'^size (\d+)$', head, re.M) if head.startswith(b'version https://git-lfs.github.com/spec/v1') else None
-              oid = re.search(rb'^oid sha256:([0-9a-f]+)$', head, re.M) if m else None
-              row = {'path':name,'bytes':int(m.group(1)) if m else p.stat().st_size,'lfs':bool(m),'oid':oid.group(1).decode() if oid else None}
-              ext = p.suffix.lower()
-              (images if ext in {'.png','.jpg','.jpeg','.webp','.tga','.tif','.tiff','.exr','.hdr','.bmp','.gif'} else blends if ext in {'.blend','.blend1','.blend2'} else others).append(row)
-          print('SUMMARY', json.dumps({k:{'files':len(v),'bytes':sum(x['bytes'] for x in v)} for k,v in [('images',images),('blends',blends),('other',others)]}))
-          groups = collections.defaultdict(list)
-          for row in images:
-              groups[str(Path(row['path']).parent)].append(row)
-          for folder, rows in sorted(groups.items(),key=lambda x:-sum(r['bytes'] for r in x[1])):
-              print('IMAGE_GROUP',json.dumps({'folder':folder,'files':len(rows),'bytes':sum(r['bytes'] for r in rows),'names':[Path(r['path']).name for r in rows]}))
-          for row in sorted(blends,key=lambda r:-r['bytes']):
-              print('BLEND',json.dumps(row))
-          Path('image-inventory.json').write_text(json.dumps({'images':images,'blends':blends},indent=2))
-          PY
-      - uses: actions/upload-artifact@v4
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y libxrender1 libxi6 libxfixes3 libxkbcommon0 libsm6 libgl1
+          mkdir -p /tmp/image-cleanup-blender
+          cd /tmp/image-cleanup-blender
+          V=5.2.1
+          curl -fL --retry 2 --connect-timeout 25 --max-time 300 "https://download.blender.org/release/Blender5.2/blender-${V}-linux-x64.tar.xz" -o blender.tar.xz
+          curl -fL --retry 2 --max-time 60 "https://download.blender.org/release/Blender5.2/blender-${V}.sha256" -o checksums
+          EXPECTED=$(grep "blender-${V}-linux-x64.tar.xz" checksums | awk '{print $1}')
+          test -n "$EXPECTED"
+          echo "$EXPECTED  blender.tar.xz" | sha256sum --check -
+          tar -xf blender.tar.xz
+          echo "/tmp/image-cleanup-blender/blender-${V}-linux-x64" >> "$GITHUB_PATH"
+      - name: Select historical outputs and hydrate only map inputs
+        run: python tools/image-cleanup/cleanup.py prepare
+      - name: Cold-open both canonical scenes before any deletion
+        shell: bash
+        run: |
+          set -euo pipefail
+          i=0
+          while IFS= read -r scene; do
+            blender --background --factory-startup --disable-autoexec --threads 2 --python-exit-code 1 --python tools/image-cleanup/blender_dependencies.py -- "$scene" "image-cleanup-work/before-${i}.json" > "image-cleanup-work/before-${i}.log" 2>&1
+            grep SCENE_AUDIT "image-cleanup-work/before-${i}.log"
+            i=$((i+1))
+          done < image-cleanup-work/scenes.txt
+      - name: Remove only candidates absent from the native dependency graph
+        run: python tools/image-cleanup/cleanup.py apply
+      - name: Cold-open both scenes again and verify unchanged dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          i=0
+          while IFS= read -r scene; do
+            blender --background --factory-startup --disable-autoexec --threads 2 --python-exit-code 1 --python tools/image-cleanup/blender_dependencies.py -- "$scene" "image-cleanup-work/after-${i}.json" > "image-cleanup-work/after-${i}.log" 2>&1
+            grep SCENE_AUDIT "image-cleanup-work/after-${i}.log"
+            i=$((i+1))
+          done < image-cleanup-work/scenes.txt
+          python tools/image-cleanup/cleanup.py verify
+      - name: Publish verified deletions to task branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git branch --show-current)" = 'chore/prune-generated-images-20260914'
+          git config user.name 'Critical Shift Image Cleanup'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Remove superseded review images after native map dependency verification [skip ci]'
+          git push origin HEAD:refs/heads/chore/prune-generated-images-20260914
+      - name: Preserve audit evidence and failure logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: image-cleanup-inventory
-          path: image-inventory.json
-          retention-days: 7
+          name: image-cleanup-native-validation
+          path: |
+            image-cleanup-work
+            maintenance/image-cleanup-20260914
+          retention-days: 14
