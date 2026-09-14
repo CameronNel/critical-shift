@@ -1,0 +1,53 @@
+name: Snapshot cleanup safety audit
+on:
+  push:
+    branches: [chore/prune-generated-images-20260914]
+    paths: ['.github/workflows/snapshot-cleanup.yml', 'tools/snapshot-cleanup/**']
+permissions:
+  contents: read
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          lfs: false
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Inventory consumers without downloading LFS
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess,json,re
+          root=Path('.')
+          files=[Path(p) for p in subprocess.check_output(['git','ls-files','-z']).decode().split('\0') if p]
+          scenes=list((root/'sections/facility-assembly/blender').glob('*.blend'))
+          sources={}
+          for p in files:
+              if p.suffix.lower() in {'.py','.ps1','.sh','.yml','.yaml'} and not p.as_posix().startswith('maintenance/'):
+                  sources[p.as_posix()]=p.read_text(encoding='utf-8-sig')
+          rows=[]
+          for p in scenes:
+              head=p.read_bytes()[:1024]
+              m=re.search(rb'^size (\d+)$',head,re.M)
+              refs=[]
+              for name,text in sources.items():
+                  for i,line in enumerate(text.splitlines(),1):
+                      if p.name.lower() in line.lower(): refs.append({'file':name,'line':i,'text':line})
+              row={'path':p.as_posix(),'bytes':int(m.group(1)) if m else p.stat().st_size,'references':refs}
+              rows.append(row)
+              print('SNAPSHOT',json.dumps(row),flush=True)
+          out=Path('snapshot-audit-work');out.mkdir()
+          (out/'sources.json').write_text(json.dumps(sources,indent=2))
+          (out/'references.json').write_text(json.dumps(rows,indent=2))
+          (out/'paths.json').write_text(json.dumps([str(p) for p in files],indent=2))
+          for name in ['MAP.json','sections/facility-assembly/production/SOURCES.json','sections/facility-assembly/production/spawn-exterior-review/IMPLEMENTATION_CHECKPOINT.md']:
+              (out/Path(name).name).write_bytes(Path(name).read_bytes())
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: snapshot-source-audit
+          path: snapshot-audit-work
+          retention-days: 7
