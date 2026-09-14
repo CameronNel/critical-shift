@@ -2,70 +2,62 @@ name: Mine exterior fixed-camera capture
 on:
   push:
     branches: [art/mine-exterior-camera-match-20260914]
-    paths: ['.github/workflows/mine-camera-match.yml', 'tools/mine-camera-match/**']
+    paths: ['.github/workflows/mine-camera-match.yml', 'sections/facility-assembly/blender/capture_mine_fixed.py']
 permissions:
   contents: read
 concurrency:
   group: mine-exterior-camera-match
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   capture:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     env:
       OMP_NUM_THREADS: '4'
       OPENBLAS_NUM_THREADS: '1'
-      LIBGL_ALWAYS_SOFTWARE: '1'
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           lfs: false
           fetch-depth: 1
           persist-credentials: false
-      - name: Collect actual source context and hydrate current map inputs only
+      - uses: actions/cache@v4
+        with:
+          path: .git/lfs/objects
+          key: critical-shift-R17-mine-inputs-20260914-v1
+      - name: Hydrate current full-map preview and linked inputs, not old snapshots
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p mine-camera-output/context
           python - <<'PY'
           import json,pathlib,subprocess,hashlib,re
-          root=pathlib.Path('.')
-          manifest=json.loads((root/'MAP.json').read_text())
+          root=pathlib.Path('.');manifest=json.loads((root/'MAP.json').read_text())
           paths=[p for p in subprocess.check_output(['git','ls-files','-z']).decode().split('\0') if p]
-          out=root/'mine-camera-output/context'
-          texts={}
+          out=root/'mine-camera-output/context';texts={}
           for name in paths:
               p=root/name
-              if p.suffix.lower() in {'.py','.json','.md','.txt','.pyfrag'} and (name.startswith('design/') or name.startswith('sections/facility-assembly/') or name.startswith('sections/mine/')):
-                  if p.stat().st_size < 180000:
-                      try:texts[name]=p.read_text(encoding='utf-8-sig')
-                      except UnicodeError:pass
-          (out/'source-context.json').write_text(json.dumps(texts))
-          (out/'paths.json').write_text(json.dumps(paths,indent=2))
-          wanted=[]
-          for name in paths:
-              if name in [manifest['authoring_scene'],manifest['inspection_scene']] or re.match(r'^sections/facility-assembly/sources/[^/]+/module\.blend$',name) or (name.startswith('sections/facility-assembly/exteriors/') and name.endswith('.blend')) or '/blender/textures/' in name:
-                  wanted.append(name)
+              if p.suffix.lower() in {'.py','.json','.md','.txt','.pyfrag'} and (name.startswith('design/') or name.startswith('sections/facility-assembly/') or name.startswith('sections/mine/')) and p.stat().st_size<180000:
+                  try:texts[name]=p.read_text(encoding='utf-8-sig')
+                  except UnicodeError:pass
+          (out/'source-context.json').write_text(json.dumps(texts));(out/'paths.json').write_text(json.dumps(paths,indent=2))
+          wanted=[n for n in paths if n==manifest['inspection_scene'] or re.match(r'^sections/facility-assembly/sources/[^/]+/module\.blend$',n) or (n.startswith('sections/facility-assembly/exteriors/') and n.endswith('.blend')) or '/blender/textures/' in n]
           records=[]
-          for name in wanted:
-              p=root/name
-              head=p.read_bytes()[:1024]
-              m=re.search(rb'^oid sha256:([0-9a-f]{64})$',head,re.M)
-              size=re.search(rb'^size (\d+)$',head,re.M)
-              if m:records.append({'path':name,'sha256':m.group(1).decode(),'bytes':int(size.group(1))})
+          for n in wanted:
+              h=(root/n).read_bytes()[:1024];m=re.search(rb'^oid sha256:([0-9a-f]{64})$',h,re.M);z=re.search(rb'^size (\d+)$',h,re.M)
+              if m:records.append({'path':n,'sha256':m.group(1).decode(),'bytes':int(z.group(1))})
           (out/'INPUTS.json').write_text(json.dumps(records,indent=2))
           subprocess.run(['git','lfs','install','--local','--skip-smudge'],check=True)
           subprocess.run(['git','lfs','pull','--include='+','.join(wanted),'--exclude='],check=True)
-          for r in records:
-              assert hashlib.sha256((root/r['path']).read_bytes()).hexdigest()==r['sha256'],r['path']
-          print('HYDRATED_INPUTS',len(records),sum(r['bytes'] for r in records),flush=True)
+          for r in records:assert hashlib.sha256((root/r['path']).read_bytes()).hexdigest()==r['sha256'],r['path']
+          print('HYDRATED',len(records),sum(r['bytes'] for r in records),flush=True)
           PY
-      - name: Install verified native Blender and software OpenGL
+      - name: Install verified Blender CPU toolchain
         shell: bash
         run: |
           set -euo pipefail
           sudo apt-get update -qq
-          sudo apt-get install -y libxrender1 libxi6 libxfixes3 libxkbcommon0 libsm6 libgl1 libegl1 libgl1-mesa-dri xvfb xauth
+          sudo apt-get install -y libxrender1 libxi6 libxfixes3 libxkbcommon0 libsm6 libgl1
           mkdir -p "$RUNNER_TEMP/mine-blender"
           cd "$RUNNER_TEMP/mine-blender"
           V=5.2.1
@@ -76,76 +68,24 @@ jobs:
           echo "$EXPECTED  blender.tar.xz" | sha256sum --check -
           tar -xf blender.tar.xz
           echo "$RUNNER_TEMP/mine-blender/blender-${V}-linux-x64" >> "$GITHUB_PATH"
-      - name: Open full assembled R17 and capture mine exterior viewpoints
+      - name: Survey actual full scene and record camera transforms
+        run: blender --background --factory-startup --disable-autoexec --threads 4 --python-exit-code 1 --python sections/facility-assembly/blender/capture_mine_fixed.py -- --survey-only > mine-camera-output/survey.log 2>&1
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: actual-mine-scene-survey
+          path: mine-camera-output
+          retention-days: 7
+      - name: Render recorded cameras in unchanged full map
         shell: bash
         run: |
           set -euo pipefail
-          cat > mine-camera-output/capture.py <<'PY'
-          import bpy, json, math, hashlib, os
-          from pathlib import Path
-          from mathutils import Vector, Matrix
-          ROOT=Path.cwd();OUT=ROOT/'mine-camera-output'
-          meta=json.loads((ROOT/'MAP.json').read_text())
-          source=ROOT/meta['inspection_scene']
-          original=hashlib.sha256(source.read_bytes()).hexdigest()
-          bpy.ops.wm.open_mainfile(filepath=str(source),load_ui=False,use_scripts=False)
-          scene=bpy.context.scene
-          bpy.context.view_layer.update()
-          libraries=[{'name':x.name,'path':x.filepath,'missing':bool(x.is_missing)} for x in bpy.data.libraries]
-          assert len(libraries)==24 and not any(x['missing'] for x in libraries),libraries
-          images=[{'name':im.name_full,'path':im.filepath,'packed':bool(im.packed_file) or bool(im.packed_files)} for im in bpy.data.images]
-          cameras=[]
-          for ob in bpy.data.objects:
-              if ob.type=='CAMERA':
-                  cameras.append({'name':ob.name_full,'matrix_world':[list(r) for r in ob.matrix_world],'lens':ob.data.lens,'hide_render':ob.hide_render,'library':ob.library.filepath if ob.library else None})
-          collections=[{'name':c.name_full,'objects':len(c.objects),'hide_render':c.hide_render} for c in bpy.data.collections]
-          nearby=[]
-          for ob in bpy.data.objects:
-              if ob.library or ob.type not in {'MESH','EMPTY','LIGHT','FONT'}:continue
-              p=ob.matrix_world.translation
-              if (-55<p.x<8 and -48<p.y<-13) or any(s in ob.name.lower() for s in ['mine','s01 exterior']):
-                  nearby.append({'name':ob.name_full,'type':ob.type,'location':list(p),'dimensions':list(ob.dimensions),'hide_render':ob.hide_render,'collections':[c.name for c in ob.users_collection],'data':ob.data.name if ob.data else None,'materials':[m.name if m else None for m in getattr(ob.data,'materials',[])]})
-          report={'source':meta['inspection_scene'],'source_sha256':original,'blender_version':bpy.app.version_string,'objects':len(bpy.data.objects),'libraries':libraries,'images':images,'existing_cameras':cameras,'collections':collections,'nearby_objects':nearby,'source_engine':scene.render.engine}
-          (OUT/'SCENE_SURVEY.json').write_text(json.dumps(report,indent=2))
-          print('FULL_MAP_OPENED',len(bpy.data.objects),len(libraries),len(images),flush=True)
-          scene.render.engine='BLENDER_EEVEE'
-          scene.eevee.use_raytracing=False
-          scene.eevee.use_fast_gi=False
-          scene.eevee.taa_render_samples=32
-          scene.render.resolution_x=1280;scene.render.resolution_y=720;scene.render.resolution_percentage=100
-          scene.render.pixel_aspect_x=1;scene.render.pixel_aspect_y=1
-          scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGB'
-          scene.render.film_transparent=False
-          scene.render.use_file_extension=True
-          scene.render.use_compositing=False
-          layout=json.loads((ROOT/'sections/facility-assembly/production/LAYOUT_A12.json').read_text())
-          pose=layout['placements']['mine']
-          matrix=Matrix.Translation(Vector(pose['translation'])) @ Matrix.Rotation(math.radians(pose['rotation_z_degrees']),4,'Z')
-          specs=[('MINE_APPROACH',(0,-34,1.72),(0,-20.4,2.15),32),('MINE_OBLIQUE',(-9,-31,2.0),(0,-19.5,2.2),30),('MINE_CONTEXT',(-11,-38,7.0),(0,-15,2.5),35)]
-          fixed=[]
-          for name,loc,target,lens in specs:
-              data=bpy.data.cameras.new(name);ob=bpy.data.objects.new(name,data);scene.collection.objects.link(ob)
-              ob.location=matrix@Vector(loc);aim=matrix@Vector(target)
-              ob.rotation_euler=(aim-ob.location).to_track_quat('-Z','Y').to_euler()
-              data.lens=lens;data.sensor_width=36;data.sensor_fit='HORIZONTAL';data.clip_start=.05;data.clip_end=500;data.dof.use_dof=False
-              scene.camera=ob;bpy.context.view_layer.update()
-              rec={'id':name,'source':'camera placed in actual assembled R17 using mine placement transform','local_position':loc,'local_target':target,'world_position':list(ob.location),'world_target':list(aim),'matrix_world':[list(r) for r in ob.matrix_world],'lens_mm':data.lens,'sensor_width_mm':data.sensor_width,'sensor_fit':data.sensor_fit,'clip_start':data.clip_start,'clip_end':data.clip_end,'resolution':[1280,720],'pixel_aspect':[1,1],'dof':False,'shift_x':data.shift_x,'shift_y':data.shift_y}
-              rec['camera_sha256']=hashlib.sha256(json.dumps(rec,sort_keys=True).encode()).hexdigest();fixed.append(rec)
-              (OUT/'CAMERAS.json').write_text(json.dumps(fixed,indent=2))
-              scene.render.filepath=str(OUT/(name+'.png'))
-              print('RENDER_START',name,flush=True);bpy.ops.render.render(write_still=True)
-              rec['image_sha256']=hashlib.sha256((OUT/(name+'.png')).read_bytes()).hexdigest()
-              (OUT/'CAMERAS.json').write_text(json.dumps(fixed,indent=2))
-              print('RENDER_DONE',name,flush=True)
-          assert hashlib.sha256(source.read_bytes()).hexdigest()==original,'Source changed'
-          (OUT/'RESULT.json').write_text(json.dumps({'actual_full_map_opened':True,'source_unchanged':True,'engine':'EEVEE','raytracing':False,'source':meta['inspection_scene'],'source_sha256':original,'views':fixed,'status':'CAMERA_SELECTION_ONLY_NOT_ART_ACCEPTANCE'},indent=2))
-          PY
-          xvfb-run -a -s '-screen 0 1280x720x24' blender --background --factory-startup --disable-autoexec --threads 4 --python-exit-code 1 --python mine-camera-output/capture.py > mine-camera-output/capture.log 2>&1
+          blender --background --factory-startup --disable-autoexec --threads 4 --python-exit-code 1 --python sections/facility-assembly/blender/capture_mine_fixed.py > mine-camera-output/capture.log 2>&1
           grep -E 'FULL_MAP_OPENED|RENDER_START|RENDER_DONE' mine-camera-output/capture.log
           git diff --exit-code
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: actual-mine-camera-baseline
+          name: actual-mine-camera-baseline-cpu
           path: mine-camera-output
           retention-days: 7
