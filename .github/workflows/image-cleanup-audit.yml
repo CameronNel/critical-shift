@@ -1,0 +1,55 @@
+name: Image cleanup dependency audit
+on:
+  push:
+    branches: [chore/prune-generated-images-20260914]
+    paths:
+      - '.github/workflows/image-cleanup-audit.yml'
+      - 'tools/image-cleanup/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: critical-shift-image-cleanup
+  cancel-in-progress: false
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          fetch-depth: 1
+      - name: Inventory actual image payload sizes without downloading them
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess, re, json, collections
+          paths = subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          images, blends, others = [], [], []
+          for name in filter(None, paths):
+              p = Path(name)
+              if not p.is_file():
+                  continue
+              head = p.open('rb').read(1024)
+              m = re.search(rb'^size (\d+)$', head, re.M) if head.startswith(b'version https://git-lfs.github.com/spec/v1') else None
+              oid = re.search(rb'^oid sha256:([0-9a-f]+)$', head, re.M) if m else None
+              row = {'path':name,'bytes':int(m.group(1)) if m else p.stat().st_size,'lfs':bool(m),'oid':oid.group(1).decode() if oid else None}
+              ext = p.suffix.lower()
+              (images if ext in {'.png','.jpg','.jpeg','.webp','.tga','.tif','.tiff','.exr','.hdr','.bmp','.gif'} else blends if ext in {'.blend','.blend1','.blend2'} else others).append(row)
+          print('SUMMARY', json.dumps({k:{'files':len(v),'bytes':sum(x['bytes'] for x in v)} for k,v in [('images',images),('blends',blends),('other',others)]}))
+          groups = collections.defaultdict(list)
+          for row in images:
+              groups[str(Path(row['path']).parent)].append(row)
+          for folder, rows in sorted(groups.items(),key=lambda x:-sum(r['bytes'] for r in x[1])):
+              print('IMAGE_GROUP',json.dumps({'folder':folder,'files':len(rows),'bytes':sum(r['bytes'] for r in rows),'names':[Path(r['path']).name for r in rows]}))
+          for row in sorted(blends,key=lambda r:-r['bytes']):
+              print('BLEND',json.dumps(row))
+          Path('image-inventory.json').write_text(json.dumps({'images':images,'blends':blends},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: image-cleanup-inventory
+          path: image-inventory.json
+          retention-days: 7
