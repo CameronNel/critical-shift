@@ -1,0 +1,104 @@
+{
+  "status": "LOCAL_VISUAL_ACCEPTED_WITH_DISCLOSED_GPU_VARIANCE",
+  "revision": "R34",
+  "blend_sha256": "26edf558d2e03b16b841940d20973b74017a52e9f8c0c320d5ff5487c9d9ea3b",
+  "accepted_independent_rounds": [
+    "R34",
+    "R34-stability"
+  ],
+  "reviewer": "independent Luna (gpt-5.6-luna), /root/luna_critic",
+  "scores_by_round": {
+    "R34": {
+      "contract_specification_coverage": {
+        "score": 94,
+        "disposition": "PASS"
+      },
+      "scale_layout": {
+        "score": 92,
+        "disposition": "PASS"
+      },
+      "machinery_logic": {
+        "score": 93,
+        "disposition": "PASS"
+      },
+      "circulation_readability": {
+        "score": 91,
+        "disposition": "PASS"
+      },
+      "construction_detail": {
+        "score": 91,
+        "disposition": "PASS"
+      },
+      "materials": {
+        "score": 94,
+        "disposition": "PASS"
+      },
+      "lighting": {
+        "score": 92,
+        "disposition": "PASS"
+      },
+      "palette": {
+        "score": 94,
+        "disposition": "PASS"
+      },
+      "storytelling_environmental_specificity": {
+        "score": 92,
+        "disposition": "PASS"
+      },
+      "valorant_reference_fidelity": {
+        "score": 91,
+        "disposition": "PASS"
+      }
+    },
+    "R34-stability": {
+      "contract_specification_coverage": {
+        "score": 94,
+        "disposition": "PASS"
+      },
+      "scale_layout": {
+        "score": 92,
+        "disposition": "PASS"
+      },
+      "machinery_logic": {
+        "score": 93,
+        "disposition": "PASS"
+      },
+      "circulation_readability": {
+        "score": 91,
+        "disposition": "PASS"
+      },
+      "construction_detail": {
+        "score": 91,
+        "disposition": "PASS"
+      },
+      "materials": {
+        "score": 94,
+        "disposition": "PASS"
+      },
+      "lighting": {
+        "score": 92,
+        "disposition": "PASS"
+      },
+      "palette": {
+        "score": 94,
+        "disposition": "PASS"
+      },
+      "storytelling_environmental_specificity": {
+        "score": 92,
+        "disposition": "PASS"
+      },
+      "valorant_reference_fidelity": {
+        "score": 91,
+        "disposition": "PASS"
+      }
+    }
+  },
+  "cpu_validation": "PASS (six checks)",
+  "cold_comparisons": "PASS (18 main + 7 supplemental in both rounds)",
+  "crossround_main_numeric_screen": "FAIL_RETAINED",
+  "crossround_visual_stability": "Accepted by independent Luna; localized GPU edge variance, no substantive scene regression",
+  "parent_decision": "Accept disclosed visual stability under unchanged policy. Raw numeric failure remains visible; no threshold changed.",
+  "crossround_supplemental_numeric_screen": "PASS",
+  "scope": "Local visual source and integration handoff; remote binds and engine work pending",
+  "handoff": "production/FINAL_HANDOFF.md"
+}

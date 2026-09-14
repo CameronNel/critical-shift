@@ -1,0 +1,41 @@
+{
+  "revision": "R04",
+  "build": "facility_spawn_concept02_R04.blend",
+  "source_sha256": "b0846087369392fcf3289db9c9724a0e45a8cc3a8ebf51d55b9cfee67a860fc8",
+  "views": ["01_COURTYARD", "02_SOUTH", "03_EAST", "04_TOP"],
+  "concept": "Concept02 approved",
+  "decision": "REJECT",
+  "scores": {
+    "reference_fidelity_concept_adherence": 78,
+    "silhouette_massing": 82,
+    "scale_spatial_layout": 84,
+    "circulation_access_rescue_route": 86,
+    "construction_load_support_logic": 84,
+    "utility_service_continuity": 83,
+    "exterior_materials_surface_response": 74,
+    "lighting_palette_readability": 55,
+    "environmental_storytelling_human_use": 79,
+    "terrain_drainage_ground_transitions": 84,
+    "roof_elevated_detail": 78,
+    "view_to_view_consistency": 78,
+    "interface_reservation_integrity": null,
+    "runtime_delivery_readiness": null,
+    "art_direction_veto_professional_finish": 62
+  },
+  "technical_context": {
+    "cold_load": "PASS",
+    "targeted_support_checks": "PASS",
+    "route_audit": "PASS_NO_FINDINGS",
+    "source_preservation": "PASS",
+    "scope_limit": "Targeted new-object support and utility checks; not blanket retained-source structural certification",
+    "unity_runtime": "UNVERIFIED"
+  },
+  "pixel_blockers": [
+    "south view near-black exposure and unreadable entry/walls",
+    "top view washed-out value grouping",
+    "crude faceted background rock/horizon",
+    "repetitive straight grass strips",
+    "broad blank roof/paving/wall fields"
+  ],
+  "notes": "Independent native-pixel review. No final acceptance implied; strict greater-than-93 threshold remains unmet."
+}

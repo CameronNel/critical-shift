@@ -1,0 +1,78 @@
+{
+  "revision": "R09",
+  "engine": "BLENDER_EEVEE",
+  "raytracing": false,
+  "samples": 32,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "cameras": [
+    {
+      "camera": "C04_EXHAUST",
+      "seconds": 2.72,
+      "sha256": "be97ff2b4f892a5c9c96b6ceb9b69bec45ab3b0176d56d152ea555825e583d65",
+      "location": [
+        3.049999952316284,
+        2.180000066757202,
+        5.150000095367432
+      ],
+      "lens": 30.0
+    },
+    {
+      "camera": "C08_MAINT",
+      "seconds": 1.08,
+      "sha256": "e59e8d6865828520e357c301e58141daa8bb50eae90055b103c8ad2da46f637b",
+      "location": [
+        5.75,
+        6.099999904632568,
+        5.5
+      ],
+      "lens": 28.0
+    },
+    {
+      "camera": "C09_ROOF",
+      "seconds": 1.03,
+      "sha256": "fc6ae8e38dafb1202189f4dba30b21f63eeb994179e6cef5674885fbc65b90b0",
+      "location": [
+        7.099999904632568,
+        6.400000095367432,
+        3.25
+      ],
+      "lens": 24.0
+    },
+    {
+      "camera": "W01_ENTRY_CORNER",
+      "seconds": 1.18,
+      "sha256": "7639e9f6e92d27c64d761995a545e7abfed0773babaff1ca8bf6b8d2f3c6b783",
+      "location": [
+        0.20000000298023224,
+        2.450000047683716,
+        1.600000023841858
+      ],
+      "lens": 24.0
+    },
+    {
+      "camera": "C06_COOLING",
+      "seconds": 1.15,
+      "sha256": "c84ed631d3aac69ffc4b07a6264c83c35eaac38498925cabae9fd5d25e908624",
+      "location": [
+        7.150000095367432,
+        5.849999904632568,
+        1.6799999475479126
+      ],
+      "lens": 26.0
+    },
+    {
+      "camera": "C01_ENTRY",
+      "seconds": 1.22,
+      "sha256": "a676c00722689c48b3f60e618a125137d201a82104af59b203e22fccfa8b072e",
+      "location": [
+        0.0,
+        0.14000000059604645,
+        1.6399999856948853
+      ],
+      "lens": 18.0
+    }
+  ]
+}

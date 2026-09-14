@@ -1,0 +1,51 @@
+{
+  "revision": "R24",
+  "engine": "BLENDER_EEVEE",
+  "raytracing": false,
+  "samples": 64,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "cameras": [
+    {
+      "camera": "C04_EXHAUST",
+      "seconds": 6.58,
+      "sha256": "3096a2a884f60854d3ac89182544714b37dfb40ba93af8f2e0c3812c203368f2",
+      "location": [
+        5.820000171661377,
+        4.349999904632568,
+        5.449999809265137
+      ],
+      "lens": 26.0,
+      "process_id": 30324
+    },
+    {
+      "camera": "C09_ROOF",
+      "seconds": 4.16,
+      "sha256": "9f4db45af19a8441ac3f77684efa738bfe5f7db74f828b5fe966cd97e2c1024b",
+      "location": [
+        5.800000190734863,
+        6.0,
+        5.449999809265137
+      ],
+      "lens": 28.0,
+      "process_id": 30324
+    },
+    {
+      "camera": "W08_GALLERY_TURN",
+      "seconds": 4.74,
+      "sha256": "d8bed09b7e09ddab92717a6506437d4a7b27ab470bd5810210de8cb845062474",
+      "location": [
+        5.849999904632568,
+        5.400000095367432,
+        5.449999809265137
+      ],
+      "lens": 28.0,
+      "process_id": 30324
+    }
+  ],
+  "process_id": 30324,
+  "source_revision": "R24",
+  "blend_sha256": "cc8e60bc4a92c417755c54bf5f96427a7dca0993377233cd2b9bf05c2c5af9df"
+}

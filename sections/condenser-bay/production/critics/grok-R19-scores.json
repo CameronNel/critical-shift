@@ -1,0 +1,56 @@
+{
+  "reviewer": "independent grok-4.6 critic subagent",
+  "not": "Luna",
+  "revision": "R19",
+  "date": "2026-09-11",
+  "disposition": "REJECT",
+  "pass_rule": "every category independently > 90; 90 or below is REJECT; unverified cannot pass",
+  "cold_status": "COMPLETE_18; SHA256 differs on every pair vs warm; visual match on C01/C04/C05/C07/C08 (TAA only)",
+  "prior_revision": {
+    "R17": "REJECT 79-89; scores not reused",
+    "R18": "REJECT 80-89; scores not reused"
+  },
+  "evidence": {
+    "warm_dir": "production/renders/review/R19/",
+    "cold_dir": "production/renders/review/cold-R19/",
+    "resolution": [1920, 1080],
+    "engine": "BLENDER_EEVEE",
+    "vs_R18": "all 18 SHA256 NEW; compositions largely R18 language; W05 is a regression (empty wall, stub cropped)",
+    "r18_blocker_verdict": {
+      "U04_sparse_bolts": "NOT_ADDRESSED",
+      "C05_drop": "NOT_ADDRESSED",
+      "W05_ceiling_stub": "REGRESSED: empty wall, stub cropped to NE U02",
+      "C07_C06_stairs_fan": "NOT_ADDRESSED"
+    }
+  },
+  "scores": {
+    "contract_specification_coverage": 88,
+    "scale_layout": 86,
+    "machinery_logic": 85,
+    "circulation_readability": 84,
+    "construction_detail": 86,
+    "materials": 80,
+    "lighting": 80,
+    "palette": 87,
+    "storytelling": 80,
+    "valorant_reference_fidelity": 80
+  },
+  "unverified": [
+    "U04_full_bolt_circle_readable_gasket_measured_slab_jamb",
+    "D01_threshold_sill",
+    "level_glasses_as_glass",
+    "closed_hotwell_nozzle",
+    "gallery_standing_turn_W08",
+    "roof_as_slab_system",
+    "SE_hall_W05",
+    "handoff_as_routed_line_in_readable_room",
+    "numerical_clearances"
+  ],
+  "categories_at_or_below_90": 10,
+  "categories_above_90": 0,
+  "three_most_consequential": [
+    "U04 still labeled 2.5 x 1.5 with sparse cube bolts and a thin-line gasket; C04 is a tight crop",
+    "C05 drop still ends in a grey ring; W05 is now an empty wall with the U02 stub cropped to the corner",
+    "C07 bezels still toy; C06 hangers do not land; stairs/fan still primitives"
+  ]
+}

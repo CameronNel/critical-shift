@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "Synthetic policy regression tests only; no art acceptance credit. Temporary images removed.",
+  "cases": [
+    {
+      "case": "isolated permitted render variance",
+      "expected_pass": true,
+      "actual_exit": 0,
+      "test_pass": true
+    },
+    {
+      "case": "cluster rejected despite low mean difference",
+      "expected_pass": false,
+      "actual_exit": 1,
+      "test_pass": true
+    },
+    {
+      "case": "maximum difference gate rejects isolated excessive change",
+      "expected_pass": false,
+      "actual_exit": 1,
+      "test_pass": true
+    }
+  ]
+}

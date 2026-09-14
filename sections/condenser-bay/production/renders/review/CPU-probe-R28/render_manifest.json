@@ -1,0 +1,66 @@
+{
+  "revision": "CPU-probe-R28",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "cpu_threads": 2,
+  "process_priority": "IDLE",
+  "gpu_denoising": false,
+  "samples": 16,
+  "resolution": [
+    768,
+    432
+  ],
+  "cameras": [
+    {
+      "camera": "C03_REVERSE",
+      "seconds": 44.81,
+      "sha256": "3aff07b92ab00e7957f765e075f699aa3d3149c956fd8efba45b6a8f8f13ccae",
+      "location": [
+        3.049999952316284,
+        9.050000190734863,
+        1.7200000286102295
+      ],
+      "lens": 22.0,
+      "process_id": 13880
+    },
+    {
+      "camera": "C04_EXHAUST",
+      "seconds": 47.99,
+      "sha256": "184462ce53e779b53da9aafae9d93f99d290016e7d036d4e5410f28d70307448",
+      "location": [
+        5.820000171661377,
+        4.349999904632568,
+        5.449999809265137
+      ],
+      "lens": 26.0,
+      "process_id": 13880
+    },
+    {
+      "camera": "C06_COOLING",
+      "seconds": 50.07,
+      "sha256": "de365b2f1603697d13dcc3299033ecf8ea94a1c9e4816e12a467630e007b65c5",
+      "location": [
+        6.550000190734863,
+        2.200000047683716,
+        2.450000047683716
+      ],
+      "lens": 28.0,
+      "process_id": 13880
+    },
+    {
+      "camera": "C09_ROOF",
+      "seconds": 50.37,
+      "sha256": "afcfc30968216d159863a91735e4489ad5f7211b9f13fe9807ea31b7e7b0a729",
+      "location": [
+        5.800000190734863,
+        6.0,
+        5.449999809265137
+      ],
+      "lens": 28.0,
+      "process_id": 13880
+    }
+  ],
+  "process_id": 13880,
+  "source_revision": "R28",
+  "blend_sha256": "f076a9fc974764f26f51779d30c0d4550ed67e1b1569a0ff82638311f11cc5a5"
+}

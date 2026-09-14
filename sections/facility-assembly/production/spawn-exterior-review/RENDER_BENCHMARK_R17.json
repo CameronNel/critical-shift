@@ -1,0 +1,49 @@
+{
+  "revision": "R17",
+  "source_sha256": "0c276d993118d052d1e3177747852e4f22fca91cae1ebabbcedd6f5e38dde9da",
+  "engine": "EEVEE",
+  "raytracing": false,
+  "samples": 256,
+  "frames": [
+    {
+      "view": "01_COURTYARD",
+      "elapsed_process_seconds": 212.86,
+      "resolution": [
+        1600,
+        1100
+      ],
+      "png_sha256": "2af1b3b6b38c17d12f169c6255d401aca8d6a5dab9daade1f8ebd6aa00fb2b87"
+    },
+    {
+      "view": "02_SOUTH",
+      "elapsed_process_seconds": 386.985,
+      "resolution": [
+        1600,
+        1100
+      ],
+      "png_sha256": "ca5304430910373cd7e571e0f256268d89afb7638efd36c6da01907320010df1"
+    },
+    {
+      "view": "03_EAST",
+      "elapsed_process_seconds": 559.141,
+      "resolution": [
+        1600,
+        1100
+      ],
+      "png_sha256": "98fe662bcbd4c43cadf60663f22cd3e63c5f17e86189e1d59f16da0fe8ff7af5"
+    },
+    {
+      "view": "04_TOP",
+      "elapsed_process_seconds": 730.907,
+      "resolution": [
+        1600,
+        1100
+      ],
+      "png_sha256": "a93a46021bffdad607454ad2785a897bb1160fd0ed01d8bf38834bd28048ea14"
+    }
+  ],
+  "four_frame_batch_completed": true,
+  "scope": "Cold Blender load followed by four fixed native-material render frames. First timestamp includes load/setup/shader compilation. This is an offline-render stability and timing benchmark, not viewport FPS or Unity performance.",
+  "preview_fps": "UNVERIFIED",
+  "unity_runtime": "UNVERIFIED"
+}

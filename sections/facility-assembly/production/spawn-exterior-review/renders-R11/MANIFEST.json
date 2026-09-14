@@ -1,0 +1,70 @@
+{
+  "source": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\facility_spawn_concept02_R11.blend",
+  "source_sha256": "395d3dc70c054cc055cb23a091e4821c2a51228eda1750b3d586872b13a9933e",
+  "resolution": [
+    1600,
+    1100
+  ],
+  "views": [
+    {
+      "id": "01_COURTYARD",
+      "eye": [
+        -25,
+        29,
+        6
+      ],
+      "target": [
+        -28,
+        8,
+        2
+      ],
+      "lens": 32
+    },
+    {
+      "id": "02_SOUTH",
+      "eye": [
+        -28,
+        -11,
+        6
+      ],
+      "target": [
+        -28,
+        6,
+        2
+      ],
+      "lens": 30
+    },
+    {
+      "id": "03_EAST",
+      "eye": [
+        -9,
+        7,
+        7
+      ],
+      "target": [
+        -28,
+        8,
+        2
+      ],
+      "lens": 24
+    },
+    {
+      "id": "04_TOP",
+      "eye": [
+        -27,
+        15,
+        90
+      ],
+      "target": [
+        -27,
+        15,
+        0
+      ],
+      "ortho_scale": 52
+    }
+  ],
+  "engine": "EEVEE",
+  "raytracing": false,
+  "approved_concept": "SPAWN_EXTERIOR_CONCEPT_02.png",
+  "rule": "Cameras loaded from locked FIXED_CAMERAS.json."
+}

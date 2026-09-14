@@ -1,0 +1,8 @@
+**/__pycache__/
+**/*.blend1
+production/blender-profile/
+
+# Disposable connection review scenes are reproducible from committed scripts/assets.
+connections/rescue-courtyard/review-*.blend
+
+connections/network/review-*.blend

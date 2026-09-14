@@ -1,0 +1,34 @@
+{
+  "revision": "baseline-fixed-v1",
+  "source": "facility_master_A14_exterior.blend",
+  "source_sha256": "00b371d369b11d242e71daac6a7bd39b8dfe5ce81eb5a81e6823a5d84cc972ef",
+  "views": ["01_COURTYARD", "02_SOUTH", "03_EAST", "04_TOP"],
+  "concept_approval": "UNVERIFIED",
+  "decision": "REJECT",
+  "scores": {
+    "reference_fidelity_concept_adherence": null,
+    "silhouette_massing": 72,
+    "scale_spatial_layout": 78,
+    "circulation_access_rescue_route": 74,
+    "construction_load_support_logic": null,
+    "utility_service_continuity": null,
+    "exterior_materials_surface_response": 63,
+    "lighting_palette_readability": 67,
+    "environmental_storytelling_human_use": 62,
+    "terrain_drainage_ground_transitions": null,
+    "roof_elevated_detail": 64,
+    "view_to_view_consistency": 76,
+    "interface_reservation_integrity": null,
+    "runtime_delivery_readiness": null,
+    "art_direction_veto_professional_finish": 58
+  },
+  "unverified": [
+    "concept approval",
+    "current evaluated support and penetration",
+    "utility endpoint and clearance continuity",
+    "terrain and grade transition probes",
+    "portal and reservation integrity",
+    "runtime cold load, collision, navigation, dependencies and performance"
+  ],
+  "notes": "Numeric values are native-pixel observations from baseline-fixed-v1 only. No historical score or old technical report was treated as current evidence."
+}

@@ -1,0 +1,38 @@
+{
+  "reviewer": "independent grok-4.6 critic subagent",
+  "not": "Luna",
+  "revision": "R20",
+  "date": "2026-09-12",
+  "disposition": "REJECT",
+  "pass_rule": "every category independently > 90; 90 or below is REJECT",
+  "cold_status": "COMPLETE_18",
+  "prior_revision": {
+    "R18": "REJECT 80-89",
+    "R19": "REJECT 80-88; W05 empty wall"
+  },
+  "scores": {
+    "contract_specification_coverage": 89,
+    "scale_layout": 87,
+    "machinery_logic": 86,
+    "circulation_readability": 88,
+    "construction_detail": 85,
+    "materials": 81,
+    "lighting": 81,
+    "palette": 88,
+    "storytelling": 84,
+    "valorant_reference_fidelity": 80
+  },
+  "cleared_vs_R19": [
+    "C04 rectangular slab opening with hex-bolt/washer pitch",
+    "W05 standing SE hall",
+    "C07 industrial rotaries",
+    "W08 standing gallery deck"
+  ],
+  "three_most_consequential": [
+    "C05 HW drop still meets a grey collar; does not seal into the nozzle",
+    "C06 hangers still fail to land; one clamp reads as a floating disc",
+    "C03 level tubes still read as opaque sticks"
+  ],
+  "categories_above_90": 0,
+  "blend_sha256_prefix": "D820FAD75770D3CD"
+}

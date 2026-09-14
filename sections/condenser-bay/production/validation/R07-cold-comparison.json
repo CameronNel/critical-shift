@@ -1,0 +1,9 @@
+{
+  "revision": "R07",
+  "method": "fresh-process reopen of condenser_bay.blend through gpu_gate, EEVEE 32 samples 1920x1080, five cameras",
+  "blend_sha256": "f071969d53940eb509f171918b082246e46186bd3fe9163e01b2d684ab675b23",
+  "note": "PNG bytes are not identical. EEVEE TAA is not bit-stable across processes. Warm vs cold C01_ENTRY was inspected visually and shows the same layout, materials, lettering and camera. Full 18-camera cold set was not completed in this batch.",
+  "cameras_cold": ["C01_ENTRY", "C02_HERO", "C04_EXHAUST", "C07_OPERATOR", "W01_ENTRY_CORNER"],
+  "sha256_identical": false,
+  "visual_stability_builder": "same composition on inspected C01; not a critic pass"
+}

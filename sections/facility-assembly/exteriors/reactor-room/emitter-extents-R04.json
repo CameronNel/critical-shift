@@ -1,0 +1,4023 @@
+[
+  {
+    "light": "RF skylight daylight",
+    "type": "AREA",
+    "location": [
+      -4.199999809265137,
+      -3.5,
+      16.299999237060547
+    ],
+    "energy": 500.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 6.0,
+      "size_y": 5.0,
+      "normal_world": [
+        -0.1716945916414261,
+        -0.17169444262981415,
+        -0.9700731635093689
+      ],
+      "emitter_rectangle_world": [
+        [
+          -0.3638162612915039,
+          -3.90645694732666,
+          15.692967414855957
+        ],
+        [
+          -3.7935428619384766,
+          -7.336183547973633,
+          16.90703010559082
+        ],
+        [
+          -4.606456756591797,
+          0.3361835479736328,
+          15.692967414855957
+        ],
+        [
+          -8.03618335723877,
+          -3.09354305267334,
+          16.907032012939453
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing",
+        "distance_m": 3.110989659368839,
+        "closest_surface_world": [
+          -7.239999771118164,
+          -3.5,
+          15.639199256896973
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member",
+        "distance_m": 3.220019000457516,
+        "closest_surface_world": [
+          -7.400000095367432,
+          -3.4916000366210938,
+          15.94159984588623
+        ]
+      },
+      {
+        "mesh": "Roof hanger",
+        "distance_m": 4.318173536065705,
+        "closest_surface_world": [
+          -7.442460060119629,
+          -0.6775396466255188,
+          15.89159870147705
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing",
+        "distance_m": 3.110989659368839,
+        "closest_surface_world": [
+          -7.239999771118164,
+          -3.5,
+          15.639199256896973
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member",
+        "distance_m": 3.220019000457516,
+        "closest_surface_world": [
+          -7.400000095367432,
+          -3.4916000366210938,
+          15.94159984588623
+        ]
+      }
+    ]
+  },
+  {
+    "light": "RF skylight daylight.001",
+    "type": "AREA",
+    "location": [
+      -4.199999809265137,
+      3.5,
+      16.299999237060547
+    ],
+    "energy": 500.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 6.0,
+      "size_y": 5.0,
+      "normal_world": [
+        -0.1716945916414261,
+        -0.17169444262981415,
+        -0.9700731635093689
+      ],
+      "emitter_rectangle_world": [
+        [
+          -0.3638162612915039,
+          3.09354305267334,
+          15.692967414855957
+        ],
+        [
+          -3.7935428619384766,
+          -0.3361835479736328,
+          16.90703010559082
+        ],
+        [
+          -4.606456756591797,
+          7.336183547973633,
+          15.692967414855957
+        ],
+        [
+          -8.03618335723877,
+          3.90645694732666,
+          16.907032012939453
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.002",
+        "distance_m": 3.110989659368839,
+        "closest_surface_world": [
+          -7.239999771118164,
+          3.5,
+          15.639199256896973
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member",
+        "distance_m": 3.220019000457516,
+        "closest_surface_world": [
+          -7.400000095367432,
+          3.4916000366210938,
+          15.94159984588623
+        ]
+      },
+      {
+        "mesh": "Roof hanger.001",
+        "distance_m": 4.318173536065705,
+        "closest_surface_world": [
+          -7.442460060119629,
+          0.6775396466255188,
+          15.89159870147705
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.002",
+        "distance_m": 3.110989659368839,
+        "closest_surface_world": [
+          -7.239999771118164,
+          3.5,
+          15.639199256896973
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member",
+        "distance_m": 3.220019000457516,
+        "closest_surface_world": [
+          -7.400000095367432,
+          3.4916000366210938,
+          15.94159984588623
+        ]
+      }
+    ]
+  },
+  {
+    "light": "RF skylight daylight.002",
+    "type": "AREA",
+    "location": [
+      4.199999809265137,
+      -3.5,
+      16.299999237060547
+    ],
+    "energy": 500.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 6.0,
+      "size_y": 5.0,
+      "normal_world": [
+        -0.1716945618391037,
+        -0.17169442772865295,
+        -0.9700731635093689
+      ],
+      "emitter_rectangle_world": [
+        [
+          8.03618335723877,
+          -3.90645694732666,
+          15.692967414855957
+        ],
+        [
+          4.606456756591797,
+          -7.336183547973633,
+          16.90703010559082
+        ],
+        [
+          3.7935428619384766,
+          0.3361835479736328,
+          15.692967414855957
+        ],
+        [
+          0.3638162612915039,
+          -3.09354305267334,
+          16.907032012939453
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.003",
+        "distance_m": 3.110989659368839,
+        "closest_surface_world": [
+          7.239999771118164,
+          -3.5,
+          15.639199256896973
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member.001",
+        "distance_m": 3.220019000457516,
+        "closest_surface_world": [
+          7.400000095367432,
+          -3.4916000366210938,
+          15.94159984588623
+        ]
+      },
+      {
+        "mesh": "Roof hanger.002",
+        "distance_m": 4.318173536065705,
+        "closest_surface_world": [
+          7.442460060119629,
+          -0.6775396466255188,
+          15.89159870147705
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.003",
+        "distance_m": 3.110989659368839,
+        "closest_surface_world": [
+          7.239999771118164,
+          -3.5,
+          15.639199256896973
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member.001",
+        "distance_m": 3.220019000457516,
+        "closest_surface_world": [
+          7.400000095367432,
+          -3.4916000366210938,
+          15.94159984588623
+        ]
+      }
+    ]
+  },
+  {
+    "light": "RF skylight daylight.003",
+    "type": "AREA",
+    "location": [
+      4.199999809265137,
+      3.5,
+      16.299999237060547
+    ],
+    "energy": 500.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Gantry roof transfer member.001",
+          "hit_world": [
+            7.399999618530273,
+            2.544565439224243,
+            15.902729988098145
+          ]
+        }
+      ],
+      "shape": "RECTANGLE",
+      "size": 6.0,
+      "size_y": 5.0,
+      "normal_world": [
+        -0.1716945618391037,
+        -0.17169442772865295,
+        -0.9700731635093689
+      ],
+      "emitter_rectangle_world": [
+        [
+          8.03618335723877,
+          3.09354305267334,
+          15.692967414855957
+        ],
+        [
+          4.606456756591797,
+          -0.3361835479736328,
+          16.90703010559082
+        ],
+        [
+          3.7935428619384766,
+          7.336183547973633,
+          15.692967414855957
+        ],
+        [
+          0.3638162612915039,
+          3.90645694732666,
+          16.907032012939453
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.005",
+        "distance_m": 3.110989659368839,
+        "closest_surface_world": [
+          7.239999771118164,
+          3.5,
+          15.639199256896973
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member.001",
+        "distance_m": 3.220019000457516,
+        "closest_surface_world": [
+          7.400000095367432,
+          3.4916000366210938,
+          15.94159984588623
+        ]
+      },
+      {
+        "mesh": "Roof hanger.003",
+        "distance_m": 4.318173536065705,
+        "closest_surface_world": [
+          7.442460060119629,
+          0.6775396466255188,
+          15.89159870147705
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.005",
+        "distance_m": 3.110989659368839,
+        "closest_surface_world": [
+          7.239999771118164,
+          3.5,
+          15.639199256896973
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member.001",
+        "distance_m": 3.220019000457516,
+        "closest_surface_world": [
+          7.400000095367432,
+          3.4916000366210938,
+          15.94159984588623
+        ]
+      }
+    ]
+  },
+  {
+    "light": "RF skylight underside bounce",
+    "type": "AREA",
+    "location": [
+      -6.0,
+      -5.0,
+      12.800000190734863
+    ],
+    "energy": 220.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 6.0,
+      "size_y": 5.0,
+      "normal_world": [
+        0.33699357509613037,
+        0.28082817792892456,
+        0.8986494541168213
+      ],
+      "emitter_rectangle_world": [
+        [
+          -6.194649696350098,
+          -1.2570828199386597,
+          11.703330993652344
+        ],
+        [
+          -9.64645767211914,
+          -4.133589744567871,
+          13.896668434143066
+        ],
+        [
+          -2.3535423278808594,
+          -5.866410255432129,
+          11.70333194732666
+        ],
+        [
+          -5.805350303649902,
+          -8.74291706085205,
+          13.896669387817383
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing",
+        "distance_m": 3.2277188757411532,
+        "closest_surface_world": [
+          -7.244565010070801,
+          -3.8204357624053955,
+          15.534566879272461
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.005",
+        "distance_m": 3.3550735969259744,
+        "closest_surface_world": [
+          -7.691516876220703,
+          -6.691515922546387,
+          15.152459144592285
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member",
+        "distance_m": 3.5175793958594923,
+        "closest_surface_world": [
+          -7.403550624847412,
+          -3.4964497089385986,
+          15.653550148010254
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing",
+        "distance_m": 3.2277188757411532,
+        "closest_surface_world": [
+          -7.244565010070801,
+          -3.8204357624053955,
+          15.534566879272461
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.005",
+        "distance_m": 3.3550735969259744,
+        "closest_surface_world": [
+          -7.691516876220703,
+          -6.691515922546387,
+          15.152459144592285
+        ]
+      }
+    ]
+  },
+  {
+    "light": "RF skylight underside bounce.001",
+    "type": "AREA",
+    "location": [
+      -6.0,
+      5.0,
+      12.800000190734863
+    ],
+    "energy": 220.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 6.0,
+      "size_y": 5.0,
+      "normal_world": [
+        0.336993545293808,
+        -0.2808278203010559,
+        0.8986495733261108
+      ],
+      "emitter_rectangle_world": [
+        [
+          -2.3535423278808594,
+          5.866409778594971,
+          11.70333194732666
+        ],
+        [
+          -5.8053507804870605,
+          8.742918014526367,
+          13.89666748046875
+        ],
+        [
+          -6.1946492195129395,
+          1.257082462310791,
+          11.703332901000977
+        ],
+        [
+          -9.64645767211914,
+          4.133590221405029,
+          13.896668434143066
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.002",
+        "distance_m": 3.227716881359402,
+        "closest_surface_world": [
+          -7.244564056396484,
+          3.8204357624053955,
+          15.534564971923828
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.007",
+        "distance_m": 3.3550735969259744,
+        "closest_surface_world": [
+          -7.691516876220703,
+          6.691515922546387,
+          15.152459144592285
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member",
+        "distance_m": 3.5175793958594923,
+        "closest_surface_world": [
+          -7.403550624847412,
+          3.4964497089385986,
+          15.653550148010254
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.002",
+        "distance_m": 3.227716881359402,
+        "closest_surface_world": [
+          -7.244564056396484,
+          3.8204357624053955,
+          15.534564971923828
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.007",
+        "distance_m": 3.3550735969259744,
+        "closest_surface_world": [
+          -7.691516876220703,
+          6.691515922546387,
+          15.152459144592285
+        ]
+      }
+    ]
+  },
+  {
+    "light": "RF skylight underside bounce.002",
+    "type": "AREA",
+    "location": [
+      6.0,
+      -5.0,
+      12.800000190734863
+    ],
+    "energy": 220.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 6.0,
+      "size_y": 5.0,
+      "normal_world": [
+        -0.33699357509613037,
+        0.28082817792892456,
+        0.8986494541168213
+      ],
+      "emitter_rectangle_world": [
+        [
+          2.3535423278808594,
+          -5.866410255432129,
+          11.70333194732666
+        ],
+        [
+          5.805350303649902,
+          -8.74291706085205,
+          13.896669387817383
+        ],
+        [
+          6.194649696350098,
+          -1.2570828199386597,
+          11.703330993652344
+        ],
+        [
+          9.64645767211914,
+          -4.133589744567871,
+          13.896668434143066
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.003",
+        "distance_m": 3.227716881359402,
+        "closest_surface_world": [
+          7.244564056396484,
+          -3.8204357624053955,
+          15.534564971923828
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.003",
+        "distance_m": 3.3550735969259744,
+        "closest_surface_world": [
+          7.691516399383545,
+          -6.691516399383545,
+          15.152459144592285
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member.001",
+        "distance_m": 3.5175793958594923,
+        "closest_surface_world": [
+          7.403550624847412,
+          -3.4964497089385986,
+          15.653550148010254
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.003",
+        "distance_m": 3.227716881359402,
+        "closest_surface_world": [
+          7.244564056396484,
+          -3.8204357624053955,
+          15.534564971923828
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.003",
+        "distance_m": 3.3550735969259744,
+        "closest_surface_world": [
+          7.691516399383545,
+          -6.691516399383545,
+          15.152459144592285
+        ]
+      }
+    ]
+  },
+  {
+    "light": "RF skylight underside bounce.003",
+    "type": "AREA",
+    "location": [
+      6.0,
+      5.0,
+      12.800000190734863
+    ],
+    "energy": 220.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 6.0,
+      "size_y": 5.0,
+      "normal_world": [
+        -0.336993545293808,
+        -0.2808278203010559,
+        0.8986495733261108
+      ],
+      "emitter_rectangle_world": [
+        [
+          6.1946492195129395,
+          1.257082462310791,
+          11.703332901000977
+        ],
+        [
+          9.64645767211914,
+          4.133590221405029,
+          13.896668434143066
+        ],
+        [
+          2.3535423278808594,
+          5.866409778594971,
+          11.70333194732666
+        ],
+        [
+          5.8053507804870605,
+          8.742918014526367,
+          13.89666748046875
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.005",
+        "distance_m": 3.227716881359402,
+        "closest_surface_world": [
+          7.244564056396484,
+          3.8204357624053955,
+          15.534564971923828
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.001",
+        "distance_m": 3.3550735969259744,
+        "closest_surface_world": [
+          7.691516876220703,
+          6.691515922546387,
+          15.152459144592285
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member.001",
+        "distance_m": 3.5175793958594923,
+        "closest_surface_world": [
+          7.403550624847412,
+          3.4964497089385986,
+          15.653550148010254
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.005",
+        "distance_m": 3.227716881359402,
+        "closest_surface_world": [
+          7.244564056396484,
+          3.8204357624053955,
+          15.534564971923828
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.001",
+        "distance_m": 3.3550735969259744,
+        "closest_surface_world": [
+          7.691516876220703,
+          6.691515922546387,
+          15.152459144592285
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Actuator service key",
+    "type": "AREA",
+    "location": [
+      -3.5,
+      -0.5199999809265137,
+      13.609999656677246
+    ],
+    "energy": 470.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 0.3499999940395355,
+      "size_y": 0.30000001192092896,
+      "normal_world": [
+        0.4989757537841797,
+        0.12355583906173706,
+        -0.85776287317276
+      ],
+      "emitter_rectangle_world": [
+        [
+          -3.6669554710388184,
+          -0.3810560703277588,
+          13.532893180847168
+        ],
+        [
+          -3.417170524597168,
+          -0.31920453906059265,
+          13.687106132507324
+        ],
+        [
+          -3.582829475402832,
+          -0.7207954525947571,
+          13.532893180847168
+        ],
+        [
+          -3.3330445289611816,
+          -0.6589438915252686,
+          13.687106132507324
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof hanger",
+        "distance_m": 3.9851829681966584,
+        "closest_surface_world": [
+          -7.440000057220459,
+          -0.5199999809265137,
+          14.208399772644043
+        ]
+      },
+      {
+        "mesh": "Roof hanger.001",
+        "distance_m": 4.083005973123913,
+        "closest_surface_world": [
+          -7.440000057220459,
+          0.368399977684021,
+          14.208399772644043
+        ]
+      },
+      {
+        "mesh": "A bearing cap socket.004",
+        "distance_m": 4.19700914311998,
+        "closest_surface_world": [
+          -1.9575358629226685,
+          -1.1641532182693481e-10,
+          9.741499900817871
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof hanger",
+        "distance_m": 3.9851829681966584,
+        "closest_surface_world": [
+          -7.440000057220459,
+          -0.5199999809265137,
+          14.208399772644043
+        ]
+      },
+      {
+        "mesh": "Roof hanger.001",
+        "distance_m": 4.083005973123913,
+        "closest_surface_world": [
+          -7.440000057220459,
+          0.368399977684021,
+          14.208399772644043
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Actuator service key.001",
+    "type": "AREA",
+    "location": [
+      3.5,
+      -0.5199999809265137,
+      13.609999656677246
+    ],
+    "energy": 470.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 0.3499999940395355,
+      "size_y": 0.30000001192092896,
+      "normal_world": [
+        -0.4989757537841797,
+        0.12355583906173706,
+        -0.85776287317276
+      ],
+      "emitter_rectangle_world": [
+        [
+          3.582829475402832,
+          -0.7207954525947571,
+          13.532893180847168
+        ],
+        [
+          3.3330445289611816,
+          -0.6589438915252686,
+          13.687106132507324
+        ],
+        [
+          3.6669554710388184,
+          -0.3810560703277588,
+          13.532893180847168
+        ],
+        [
+          3.417170524597168,
+          -0.31920453906059265,
+          13.687106132507324
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof hanger.002",
+        "distance_m": 3.9851829681966584,
+        "closest_surface_world": [
+          7.440000057220459,
+          -0.5199999809265137,
+          14.208399772644043
+        ]
+      },
+      {
+        "mesh": "Roof hanger.003",
+        "distance_m": 4.083005973123913,
+        "closest_surface_world": [
+          7.440000057220459,
+          0.368399977684021,
+          14.208399772644043
+        ]
+      },
+      {
+        "mesh": "B bearing cap socket",
+        "distance_m": 4.19700914311998,
+        "closest_surface_world": [
+          1.9575358629226685,
+          1.1641532182693481e-10,
+          9.741499900817871
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof hanger.002",
+        "distance_m": 3.9851829681966584,
+        "closest_surface_world": [
+          7.440000057220459,
+          -0.5199999809265137,
+          14.208399772644043
+        ]
+      },
+      {
+        "mesh": "Roof hanger.003",
+        "distance_m": 4.083005973123913,
+        "closest_surface_world": [
+          7.440000057220459,
+          0.368399977684021,
+          14.208399772644043
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Bench inspection practical",
+    "type": "AREA",
+    "location": [
+      -10.335000038146973,
+      5.007999897003174,
+      1.3329999446868896
+    ],
+    "energy": 9.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.18000000715255737,
+      "size_y": 0.18000000715255737,
+      "normal_world": [
+        0.46767058968544006,
+        -0.7905866503715515,
+        -0.39529329538345337
+      ],
+      "emitter_rectangle_world": [
+        [
+          -10.275651931762695,
+          5.084442138671875,
+          1.2503299713134766
+        ],
+        [
+          -10.239424705505371,
+          5.023201942443848,
+          1.4156699180603027
+        ],
+        [
+          -10.430575370788574,
+          4.9927978515625,
+          1.2503299713134766
+        ],
+        [
+          -10.39434814453125,
+          4.931557655334473,
+          1.4156699180603027
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Shell 7 field.011",
+        "distance_m": 0.46499919696452924,
+        "closest_surface_world": [
+          -10.799999237060547,
+          5.007999897003174,
+          1.3330000638961792
+        ]
+      },
+      {
+        "mesh": "Reactor exterior Shell 7 field.011",
+        "distance_m": 0.7449989475012392,
+        "closest_surface_world": [
+          -11.079998970031738,
+          5.007999897003174,
+          1.3329999446868896
+        ]
+      },
+      {
+        "mesh": "14 RESERVE POWER.cap",
+        "distance_m": 1.2079422670065934,
+        "closest_surface_world": [
+          -10.335000038146973,
+          3.864000082015991,
+          1.7208000421524048
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "MAIN ACCESS.link roof",
+        "distance_m": 4.65379108717438,
+        "closest_surface_world": [
+          -10.809999465942383,
+          2.997070789337158,
+          5.502929210662842
+        ]
+      },
+      {
+        "mesh": "FUEL HANDLING.link roof",
+        "distance_m": 10.417659564699225,
+        "closest_surface_world": [
+          -2.4957733154296875,
+          10.804226875305176,
+          5.0042266845703125
+        ]
+      }
+    ]
+  },
+  {
+    "light": "COOLING PLANT.link practical",
+    "type": "AREA",
+    "location": [
+      9.602081298828125,
+      -9.602081298828125,
+      4.820000171661377
+    ],
+    "energy": 240.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 2.0,
+      "size_y": 2.0,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          8.602081298828125,
+          -10.602081298828125,
+          4.820000171661377
+        ],
+        [
+          8.602081298828125,
+          -8.602081298828125,
+          4.820000171661377
+        ],
+        [
+          10.602081298828125,
+          -10.602081298828125,
+          4.820000171661377
+        ],
+        [
+          10.602081298828125,
+          -8.602081298828125,
+          4.820000171661377
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "COOLING PLANT.link roof",
+        "distance_m": 0.17999982641794524,
+        "closest_surface_world": [
+          9.602081298828125,
+          -9.602081298828125,
+          5.0
+        ]
+      },
+      {
+        "mesh": "Reactor exterior Shell 4 field.005",
+        "distance_m": 1.4059859584241832,
+        "closest_surface_world": [
+          8.605060577392578,
+          -8.63051700592041,
+          5.017000198364258
+        ]
+      },
+      {
+        "mesh": "Reactor exterior Shell 4 field.004",
+        "distance_m": 1.4059859584241832,
+        "closest_surface_world": [
+          8.63051700592041,
+          -8.605060577392578,
+          5.017000198364258
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "COOLING PLANT.link roof",
+        "distance_m": 0.17999982641794524,
+        "closest_surface_world": [
+          9.602081298828125,
+          -9.602081298828125,
+          5.0
+        ]
+      },
+      {
+        "mesh": "Roof bearing knee.004",
+        "distance_m": 9.508032902002178,
+        "closest_surface_world": [
+          5.839223861694336,
+          -10.270816802978516,
+          13.526111602783203
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Cyan from deep pool",
+    "type": "AREA",
+    "location": [
+      0.0,
+      0.0,
+      -6.079999923706055
+    ],
+    "energy": 1950.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 1.75,
+      "size_y": 1.75,
+      "normal_world": [
+        8.742279078433057e-08,
+        8.74227694680485e-08,
+        1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          0.8749999403953552,
+          -0.8750000596046448,
+          -6.079999923706055
+        ],
+        [
+          0.8750000596046448,
+          0.8749999403953552,
+          -6.079999923706055
+        ],
+        [
+          -0.8750000596046448,
+          -0.8749999403953552,
+          -6.079999923706055
+        ],
+        [
+          -0.8749999403953552,
+          0.8750000596046448,
+          -6.079999923706055
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Intake wall bracket.007",
+        "distance_m": 3.9730999454070166,
+        "closest_surface_world": [
+          2.468268871307373,
+          -1.8124995231628418,
+          -3.548593759536743
+        ]
+      },
+      {
+        "mesh": "Intake wall bracket.003",
+        "distance_m": 3.9730999454070166,
+        "closest_surface_world": [
+          -2.468268871307373,
+          1.8124995231628418,
+          -3.548593759536743
+        ]
+      },
+      {
+        "mesh": "Intake wall bracket.005",
+        "distance_m": 3.9730999454070166,
+        "closest_surface_world": [
+          -2.468268871307373,
+          -1.8124995231628418,
+          -3.548593759536743
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "FUEL HANDLING.link roof",
+        "distance_m": 15.476905352950867,
+        "closest_surface_world": [
+          0.0,
+          10.802928924560547,
+          5.002929210662842
+        ]
+      },
+      {
+        "mesh": "Vestibule roof",
+        "distance_m": 15.816588480119364,
+        "closest_surface_world": [
+          11.165271759033203,
+          1.6180000305175781,
+          5.005271911621094
+        ]
+      }
+    ]
+  },
+  {
+    "light": "FUEL HANDLING.link practical",
+    "type": "AREA",
+    "location": [
+      0.0,
+      12.5,
+      4.820000171661377
+    ],
+    "energy": 240.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 2.0,
+      "size_y": 2.0,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -1.0,
+          11.5,
+          4.820000171661377
+        ],
+        [
+          -1.0,
+          13.5,
+          4.820000171661377
+        ],
+        [
+          1.0,
+          11.5,
+          4.820000171661377
+        ],
+        [
+          1.0,
+          13.5,
+          4.820000171661377
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "FUEL HANDLING.link roof",
+        "distance_m": 0.17999982641794585,
+        "closest_surface_world": [
+          1.4901161193847656e-08,
+          12.5,
+          5.0
+        ]
+      },
+      {
+        "mesh": "Reactor exterior Shell 1 field.005",
+        "distance_m": 1.4059863149910214,
+        "closest_surface_world": [
+          0.018000006675720215,
+          11.107999801635742,
+          5.017000198364258
+        ]
+      },
+      {
+        "mesh": "Reactor exterior Shell 1 field.004",
+        "distance_m": 1.4059863149910214,
+        "closest_surface_world": [
+          -0.018000006675720215,
+          11.107999801635742,
+          5.017000198364258
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "FUEL HANDLING.link roof",
+        "distance_m": 0.17999982641794585,
+        "closest_surface_world": [
+          1.4901161193847656e-08,
+          12.5,
+          5.0
+        ]
+      },
+      {
+        "mesh": "Roof bearing knee",
+        "distance_m": 10.5846356369108,
+        "closest_surface_world": [
+          -5.635632038116455,
+          10.38392448425293,
+          13.526111602783203
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Ground stair working light",
+    "type": "AREA",
+    "location": [
+      13.5,
+      3.5,
+      2.2200000286102295
+    ],
+    "energy": 78.19999694824219,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Stair south lower enclosure",
+          "hit_world": [
+            13.55294132232666,
+            3.4000000953674316,
+            2.2200000286102295
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 0.8500000238418579,
+      "size_y": 0.8500000238418579,
+      "normal_world": [
+        0.6934213638305664,
+        0.3671054542064667,
+        -0.6200003027915955
+      ],
+      "emitter_rectangle_world": [
+        [
+          13.068269729614258,
+          3.752321243286133,
+          1.8865443468093872
+        ],
+        [
+          13.534026145935059,
+          3.9988982677459717,
+          2.5534555912017822
+        ],
+        [
+          13.465973854064941,
+          3.0011017322540283,
+          1.8865443468093872
+        ],
+        [
+          13.931730270385742,
+          3.247678756713867,
+          2.5534558296203613
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Stair south lower enclosure",
+        "distance_m": 0.09999990575011103,
+        "closest_surface_world": [
+          13.5,
+          3.4000000953674316,
+          2.2200000286102295
+        ]
+      },
+      {
+        "mesh": "AW Ground housing orange cap",
+        "distance_m": 0.2519235459604231,
+        "closest_surface_world": [
+          13.2524995803833,
+          3.4529998302459717,
+          2.2200000286102295
+        ]
+      },
+      {
+        "mesh": "Stair dado cap",
+        "distance_m": 1.034529565327763,
+        "closest_surface_world": [
+          13.5,
+          3.4277000427246094,
+          1.187999963760376
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Vestibule roof",
+        "distance_m": 2.9745189430081305,
+        "closest_surface_world": [
+          12.442000389099121,
+          3.499999761581421,
+          5.0
+        ]
+      },
+      {
+        "mesh": "Stair core roof",
+        "distance_m": 10.179999275732108,
+        "closest_surface_world": [
+          13.5,
+          3.5,
+          12.399999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "MAIN ACCESS.link practical",
+    "type": "AREA",
+    "location": [
+      -12.5,
+      1.2834644280701468e-07,
+      5.320000171661377
+    ],
+    "energy": 240.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 2.0,
+      "size_y": 2.0,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -13.5,
+          -0.9999998807907104,
+          5.320000171661377
+        ],
+        [
+          -13.5,
+          1.0000001192092896,
+          5.320000171661377
+        ],
+        [
+          -11.5,
+          -0.9999998807907104,
+          5.320000171661377
+        ],
+        [
+          -11.5,
+          1.0000001192092896,
+          5.320000171661377
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "MAIN ACCESS.link roof",
+        "distance_m": 0.17999982641800208,
+        "closest_surface_world": [
+          -12.5,
+          2.7139756753058464e-07,
+          5.5
+        ]
+      },
+      {
+        "mesh": "Reactor exterior Shell 7 field.006",
+        "distance_m": 1.4059853807403802,
+        "closest_surface_world": [
+          -11.108000755310059,
+          0.018000010401010513,
+          5.517000198364258
+        ]
+      },
+      {
+        "mesh": "Reactor exterior Shell 7 field.005",
+        "distance_m": 1.4059853839385228,
+        "closest_surface_world": [
+          -11.108000755310059,
+          -0.018000002950429916,
+          5.517000198364258
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "MAIN ACCESS.link roof",
+        "distance_m": 0.17999982641800208,
+        "closest_surface_world": [
+          -12.5,
+          2.7139756753058464e-07,
+          5.5
+        ]
+      },
+      {
+        "mesh": "Roof hanger.001",
+        "distance_m": 10.075948748601656,
+        "closest_surface_world": [
+          -7.757538795471191,
+          0.368399977684021,
+          14.202459335327148
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Pool surface scattered cyan",
+    "type": "AREA",
+    "location": [
+      0.0,
+      0.0,
+      -0.4350000023841858
+    ],
+    "energy": 320.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 5.199999809265137,
+      "size_y": 5.199999809265137,
+      "normal_world": [
+        8.742279078433057e-08,
+        8.74227694680485e-08,
+        1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          2.5999996662139893,
+          -2.6000001430511475,
+          -0.4350000023841858
+        ],
+        [
+          2.6000001430511475,
+          2.5999996662139893,
+          -0.4350004494190216
+        ],
+        [
+          -2.6000001430511475,
+          -2.5999996662139893,
+          -0.43499955534935
+        ],
+        [
+          -2.5999996662139893,
+          2.6000001430511475,
+          -0.4350000023841858
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Intake wall bracket.004",
+        "distance_m": 3.2262776505394983,
+        "closest_surface_world": [
+          -2.467040777206421,
+          -1.8117905855178833,
+          -1.454800009727478
+        ]
+      },
+      {
+        "mesh": "Intake wall bracket",
+        "distance_m": 3.2262776505394983,
+        "closest_surface_world": [
+          2.467040777206421,
+          1.8117905855178833,
+          -1.454800009727478
+        ]
+      },
+      {
+        "mesh": "Intake wall bracket.006",
+        "distance_m": 3.2262776505394983,
+        "closest_surface_world": [
+          2.467040777206421,
+          -1.8117905855178833,
+          -1.454800009727478
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "FUEL HANDLING.link roof",
+        "distance_m": 12.094393060034083,
+        "closest_surface_world": [
+          0.0,
+          10.802928924560547,
+          5.002929210662842
+        ]
+      },
+      {
+        "mesh": "MAIN ACCESS.link roof",
+        "distance_m": 12.327297864659823,
+        "closest_surface_world": [
+          -10.802928924560547,
+          1.9079188859905116e-06,
+          5.502929210662842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Recess warm task light",
+    "type": "AREA",
+    "location": [
+      8.368180274963379,
+      8.368180274963379,
+      4.610000133514404
+    ],
+    "energy": 246.5,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.30000001192092896,
+      "size_y": 0.30000001192092896,
+      "normal_world": [
+        0.08124097436666489,
+        0.0812409296631813,
+        -0.9933779835700989
+      ],
+      "emitter_rectangle_world": [
+        [
+          8.156750679016113,
+          8.36888313293457,
+          4.592766284942627
+        ],
+        [
+          8.367478370666504,
+          8.579609870910645,
+          4.627233982086182
+        ],
+        [
+          8.368882179260254,
+          8.156750679016113,
+          4.592766284942627
+        ],
+        [
+          8.579609870910645,
+          8.367477416992188,
+          4.627233982086182
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Shell 2 field.001",
+        "distance_m": 0.3863265572680995,
+        "closest_surface_world": [
+          8.663043022155762,
+          8.617788314819336,
+          4.610000133514404
+        ]
+      },
+      {
+        "mesh": "Shell 2 field",
+        "distance_m": 0.3863265572680995,
+        "closest_surface_world": [
+          8.617788314819336,
+          8.663043022155762,
+          4.610000133514404
+        ]
+      },
+      {
+        "mesh": "Shell 2 field.002",
+        "distance_m": 0.40749233350145236,
+        "closest_surface_world": [
+          8.391514778137207,
+          8.436769485473633,
+          5.011000156402588
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Vestibule roof",
+        "distance_m": 3.9600785996422623,
+        "closest_surface_world": [
+          11.165271759033203,
+          5.594727993011475,
+          5.01800012588501
+        ]
+      },
+      {
+        "mesh": "FUEL HANDLING.link roof",
+        "distance_m": 6.368510195482261,
+        "closest_surface_world": [
+          2.4970710277557373,
+          10.802928924560547,
+          5.010000228881836
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Recess warm task light.001",
+    "type": "AREA",
+    "location": [
+      3.934025105678529e-09,
+      -10.755000114440918,
+      4.610000133514404
+    ],
+    "energy": 246.5,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.30000001192092896,
+      "size_y": 0.30000001192092896,
+      "normal_world": [
+        -1.0092549018736463e-08,
+        -0.11489222943782806,
+        -0.9933779835700989
+      ],
+      "emitter_rectangle_world": [
+        [
+          0.15000003576278687,
+          -10.605993270874023,
+          4.592766284942627
+        ],
+        [
+          0.14999999105930328,
+          -10.904006958007812,
+          4.627233982086182
+        ],
+        [
+          -0.1499999761581421,
+          -10.605993270874023,
+          4.592766284942627
+        ],
+        [
+          -0.15000002086162567,
+          -10.904006958007812,
+          4.627233982086182
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Header bracket wall plate.004",
+        "distance_m": 0.1900026878664141,
+        "closest_surface_world": [
+          1.4901161193847656e-08,
+          -10.755999565124512,
+          4.420000076293945
+        ]
+      },
+      {
+        "mesh": "Header wall bracket.004",
+        "distance_m": 0.26002197837362007,
+        "closest_surface_world": [
+          0.0,
+          -10.75160026550293,
+          4.350000381469727
+        ]
+      },
+      {
+        "mesh": "Shell 5 field.001",
+        "distance_m": 0.38500022513549303,
+        "closest_surface_world": [
+          6.787071527014632e-08,
+          -11.140000343322754,
+          4.609999656677246
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "COOLING PLANT.link roof",
+        "distance_m": 6.674302712508142,
+        "closest_surface_world": [
+          6.6363749504089355,
+          -10.167766571044922,
+          5.010000228881836
+        ]
+      },
+      {
+        "mesh": "Roof bearing knee.004",
+        "distance_m": 10.554386697939897,
+        "closest_surface_world": [
+          5.635632038116455,
+          -10.38392448425293,
+          13.526111602783203
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Recess warm task light.002",
+    "type": "AREA",
+    "location": [
+      -8.368180274963379,
+      8.368180274963379,
+      4.610000133514404
+    ],
+    "energy": 246.5,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.30000001192092896,
+      "size_y": 0.30000001192092896,
+      "normal_world": [
+        -0.08124097436666489,
+        0.0812409296631813,
+        -0.9933779835700989
+      ],
+      "emitter_rectangle_world": [
+        [
+          -8.368882179260254,
+          8.156750679016113,
+          4.592766284942627
+        ],
+        [
+          -8.579609870910645,
+          8.367477416992188,
+          4.627233982086182
+        ],
+        [
+          -8.156750679016113,
+          8.36888313293457,
+          4.592766284942627
+        ],
+        [
+          -8.367478370666504,
+          8.579609870910645,
+          4.627233982086182
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Shell 8 field.001",
+        "distance_m": 0.3863265572680995,
+        "closest_surface_world": [
+          -8.617788314819336,
+          8.663043022155762,
+          4.610000133514404
+        ]
+      },
+      {
+        "mesh": "Shell 8 field",
+        "distance_m": 0.3863265572680995,
+        "closest_surface_world": [
+          -8.663043022155762,
+          8.617788314819336,
+          4.610000133514404
+        ]
+      },
+      {
+        "mesh": "Shell 8 field.003",
+        "distance_m": 0.40749233350145236,
+        "closest_surface_world": [
+          -8.391514778137207,
+          8.436769485473633,
+          5.011000156402588
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "MAIN ACCESS.link roof",
+        "distance_m": 5.965468877924596,
+        "closest_surface_world": [
+          -10.802928924560547,
+          2.997070789337158,
+          5.510000228881836
+        ]
+      },
+      {
+        "mesh": "FUEL HANDLING.link roof",
+        "distance_m": 6.368510494979087,
+        "closest_surface_world": [
+          -2.497070789337158,
+          10.802928924560547,
+          5.010000228881836
+        ]
+      }
+    ]
+  },
+  {
+    "light": "RF practical light",
+    "type": "AREA",
+    "location": [
+      -6.300000190734863,
+      -3.5,
+      14.84000015258789
+    ],
+    "energy": 650.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.100000023841858,
+      "size_y": 0.25,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -6.850000381469727,
+          -3.625,
+          14.84000015258789
+        ],
+        [
+          -6.850000381469727,
+          -3.375,
+          14.84000015258789
+        ],
+        [
+          -5.75,
+          -3.625,
+          14.84000015258789
+        ],
+        [
+          -5.75,
+          -3.375,
+          14.84000015258789
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing",
+        "distance_m": 1.1704838442746313,
+        "closest_surface_world": [
+          -7.243163108825684,
+          -3.4999964237213135,
+          15.533164024353027
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member",
+        "distance_m": 1.3695187946203442,
+        "closest_surface_world": [
+          -7.402461051940918,
+          -3.4916000366210938,
+          15.652460098266602
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.006",
+        "distance_m": 2.9498749047260793,
+        "closest_surface_world": [
+          -9.232641220092773,
+          -3.5,
+          15.15839958190918
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing",
+        "distance_m": 1.1704838442746313,
+        "closest_surface_world": [
+          -7.243163108825684,
+          -3.4999964237213135,
+          15.533164024353027
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member",
+        "distance_m": 1.3695187946203442,
+        "closest_surface_world": [
+          -7.402461051940918,
+          -3.4916000366210938,
+          15.652460098266602
+        ]
+      }
+    ]
+  },
+  {
+    "light": "RF practical light.001",
+    "type": "AREA",
+    "location": [
+      2.0999999046325684,
+      -3.5,
+      14.84000015258789
+    ],
+    "energy": 650.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.100000023841858,
+      "size_y": 0.25,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          1.5499999523162842,
+          -3.625,
+          14.84000015258789
+        ],
+        [
+          1.5499999523162842,
+          -3.375,
+          14.84000015258789
+        ],
+        [
+          2.6499998569488525,
+          -3.625,
+          14.84000015258789
+        ],
+        [
+          2.6499998569488525,
+          -3.375,
+          14.84000015258789
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.003",
+        "distance_m": 5.1875543447888095,
+        "closest_surface_world": [
+          7.239999771118164,
+          -3.5,
+          15.540800094604492
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member.001",
+        "distance_m": 5.36282125385526,
+        "closest_surface_world": [
+          7.400000095367432,
+          -3.4916000366210938,
+          15.658400535583496
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.004",
+        "distance_m": 5.7414765203268345,
+        "closest_surface_world": [
+          2.0999999046325684,
+          -9.232641220092773,
+          15.15839958190918
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.003",
+        "distance_m": 5.1875543447888095,
+        "closest_surface_world": [
+          7.239999771118164,
+          -3.5,
+          15.540800094604492
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member.001",
+        "distance_m": 5.36282125385526,
+        "closest_surface_world": [
+          7.400000095367432,
+          -3.4916000366210938,
+          15.658400535583496
+        ]
+      }
+    ]
+  },
+  {
+    "light": "RF practical light.002",
+    "type": "AREA",
+    "location": [
+      6.300000190734863,
+      3.5,
+      14.84000015258789
+    ],
+    "energy": 650.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.100000023841858,
+      "size_y": 0.25,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          5.75,
+          3.375,
+          14.84000015258789
+        ],
+        [
+          5.75,
+          3.625,
+          14.84000015258789
+        ],
+        [
+          6.850000381469727,
+          3.375,
+          14.84000015258789
+        ],
+        [
+          6.850000381469727,
+          3.625,
+          14.84000015258789
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.005",
+        "distance_m": 1.1704829021917718,
+        "closest_surface_world": [
+          7.243162631988525,
+          3.5,
+          15.533163070678711
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member.001",
+        "distance_m": 1.3695187946203442,
+        "closest_surface_world": [
+          7.402461051940918,
+          3.4916000366210938,
+          15.652460098266602
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.002",
+        "distance_m": 2.9498749047262334,
+        "closest_surface_world": [
+          9.232641220092773,
+          3.4999990463256836,
+          15.15839958190918
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.005",
+        "distance_m": 1.1704829021917718,
+        "closest_surface_world": [
+          7.243162631988525,
+          3.5,
+          15.533163070678711
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member.001",
+        "distance_m": 1.3695187946203442,
+        "closest_surface_world": [
+          7.402461051940918,
+          3.4916000366210938,
+          15.652460098266602
+        ]
+      }
+    ]
+  },
+  {
+    "light": "RF practical light.003",
+    "type": "AREA",
+    "location": [
+      -2.0999999046325684,
+      3.5,
+      14.84000015258789
+    ],
+    "energy": 650.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.100000023841858,
+      "size_y": 0.25,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -2.6499998569488525,
+          3.375,
+          14.84000015258789
+        ],
+        [
+          -2.6499998569488525,
+          3.625,
+          14.84000015258789
+        ],
+        [
+          -1.5499999523162842,
+          3.375,
+          14.84000015258789
+        ],
+        [
+          -1.5499999523162842,
+          3.625,
+          14.84000015258789
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.002",
+        "distance_m": 5.1875543447888095,
+        "closest_surface_world": [
+          -7.239999771118164,
+          3.5,
+          15.540800094604492
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member",
+        "distance_m": 5.36282125385526,
+        "closest_surface_world": [
+          -7.400000095367432,
+          3.4916000366210938,
+          15.658400535583496
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header",
+        "distance_m": 5.7414765203268345,
+        "closest_surface_world": [
+          -2.0999999046325684,
+          9.232641220092773,
+          15.15839958190918
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof transfer bearing.002",
+        "distance_m": 5.1875543447888095,
+        "closest_surface_world": [
+          -7.239999771118164,
+          3.5,
+          15.540800094604492
+        ]
+      },
+      {
+        "mesh": "Gantry roof transfer member",
+        "distance_m": 5.36282125385526,
+        "closest_surface_world": [
+          -7.400000095367432,
+          3.4916000366210938,
+          15.658400535583496
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Stair practical",
+    "type": "AREA",
+    "location": [
+      17.850000381469727,
+      6.079999923706055,
+      2.25
+    ],
+    "energy": 102.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Stair enamel wall protection.003",
+          "hit_world": [
+            17.610782623291016,
+            6.185999870300293,
+            2.5165514945983887
+          ]
+        },
+        {
+          "mesh": "Stair north enclosure",
+          "hit_world": [
+            17.784639358520508,
+            6.199999809265137,
+            2.25
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 1.2000000476837158,
+      "size_y": 1.2000000476837158,
+      "normal_world": [
+        -0.7537280917167664,
+        -0.4105411767959595,
+        -0.5131763219833374
+      ],
+      "emitter_rectangle_world": [
+        [
+          18.407394409179688,
+          5.700371265411377,
+          1.7350300550460815
+        ],
+        [
+          17.866600036621094,
+          5.405811309814453,
+          2.764970064163208
+        ],
+        [
+          17.83340072631836,
+          6.754188537597656,
+          1.7350300550460815
+        ],
+        [
+          17.292606353759766,
+          6.459628582000732,
+          2.764969825744629
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Stair north enclosure",
+        "distance_m": 0.11999988643470837,
+        "closest_surface_world": [
+          17.850000381469727,
+          6.199999809265137,
+          2.250000238418579
+        ]
+      },
+      {
+        "mesh": "AW Bulkhead housing orange cap",
+        "distance_m": 0.26600119566329383,
+        "closest_surface_world": [
+          17.594499588012695,
+          6.1539998054504395,
+          2.25
+        ]
+      },
+      {
+        "mesh": "Stair enamel wall protection.003",
+        "distance_m": 0.2726962584159608,
+        "closest_surface_world": [
+          17.850000381469727,
+          6.186878681182861,
+          2.5008788108825684
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Vestibule roof",
+        "distance_m": 6.078526044819123,
+        "closest_surface_world": [
+          12.454729080200195,
+          5.581999778747559,
+          5.005271911621094
+        ]
+      },
+      {
+        "mesh": "Stair core roof",
+        "distance_m": 10.14999957906788,
+        "closest_surface_world": [
+          17.850000381469727,
+          6.079999923706055,
+          12.399999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Stair practical.001",
+    "type": "AREA",
+    "location": [
+      13.100000381469727,
+      6.079999923706055,
+      4.75
+    ],
+    "energy": 102.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Stair enamel wall protection.005",
+          "hit_world": [
+            13.417916297912598,
+            6.185999870300293,
+            5.1420745849609375
+          ]
+        },
+        {
+          "mesh": "Stair enamel wall protection.003",
+          "hit_world": [
+            13.417916297912598,
+            6.185999870300293,
+            5.1420745849609375
+          ]
+        },
+        {
+          "mesh": "Stair north enclosure",
+          "hit_world": [
+            13.459905624389648,
+            6.199999809265137,
+            5.193857669830322
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 1.2000000476837158,
+      "size_y": 1.2000000476837158,
+      "normal_world": [
+        0.7605302333831787,
+        -0.4056161344051361,
+        -0.5070199966430664
+      ],
+      "emitter_rectangle_world": [
+        [
+          13.113930702209473,
+          6.752570152282715,
+          4.232839584350586
+        ],
+        [
+          13.650775909423828,
+          6.466253280639648,
+          5.267160415649414
+        ],
+        [
+          12.549224853515625,
+          5.693746566772461,
+          4.232839584350586
+        ],
+        [
+          13.08607006072998,
+          5.4074296951293945,
+          5.267160415649414
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Stair north enclosure",
+        "distance_m": 0.11999988643447151,
+        "closest_surface_world": [
+          13.100000381469727,
+          6.199999809265137,
+          4.75
+        ]
+      },
+      {
+        "mesh": "AW Bulkhead housing orange cap.001",
+        "distance_m": 0.26600119566329383,
+        "closest_surface_world": [
+          12.844499588012695,
+          6.1539998054504395,
+          4.75
+        ]
+      },
+      {
+        "mesh": "Stair enamel wall protection.005",
+        "distance_m": 0.27269669556605114,
+        "closest_surface_world": [
+          13.100000381469727,
+          6.186878681182861,
+          5.000879287719727
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Vestibule roof",
+        "distance_m": 0.8505986165657583,
+        "closest_surface_world": [
+          12.452393531799316,
+          5.5923919677734375,
+          5.007607936859131
+        ]
+      },
+      {
+        "mesh": "Stair core roof",
+        "distance_m": 7.649999690834987,
+        "closest_surface_world": [
+          13.100000381469727,
+          6.079999923706055,
+          12.399999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Stair practical.002",
+    "type": "AREA",
+    "location": [
+      17.850000381469727,
+      6.079999923706055,
+      7.25
+    ],
+    "energy": 102.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Stair enamel wall protection.007",
+          "hit_world": [
+            17.610782623291016,
+            6.185999870300293,
+            7.516551494598389
+          ]
+        },
+        {
+          "mesh": "Stair north enclosure",
+          "hit_world": [
+            17.784639358520508,
+            6.199999809265137,
+            7.25
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 1.2000000476837158,
+      "size_y": 1.2000000476837158,
+      "normal_world": [
+        -0.7537280321121216,
+        -0.410541296005249,
+        -0.5131763219833374
+      ],
+      "emitter_rectangle_world": [
+        [
+          18.407394409179688,
+          5.700371265411377,
+          6.735030174255371
+        ],
+        [
+          17.866600036621094,
+          5.405811309814453,
+          7.764969825744629
+        ],
+        [
+          17.83340072631836,
+          6.754188537597656,
+          6.735030174255371
+        ],
+        [
+          17.292606353759766,
+          6.459628582000732,
+          7.764969825744629
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Stair north enclosure",
+        "distance_m": 0.11999988643541891,
+        "closest_surface_world": [
+          17.850000381469727,
+          6.199999809265137,
+          7.250000476837158
+        ]
+      },
+      {
+        "mesh": "AW Bulkhead housing orange cap.002",
+        "distance_m": 0.26600119566329383,
+        "closest_surface_world": [
+          17.594499588012695,
+          6.1539998054504395,
+          7.25
+        ]
+      },
+      {
+        "mesh": "Stair enamel wall protection.007",
+        "distance_m": 0.27269669556605114,
+        "closest_surface_world": [
+          17.850000381469727,
+          6.186878681182861,
+          7.500879287719727
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Stair core roof",
+        "distance_m": 5.149999540754872,
+        "closest_surface_world": [
+          17.850000381469727,
+          6.079999923706055,
+          12.399999618530273
+        ]
+      },
+      {
+        "mesh": "Vestibule roof",
+        "distance_m": 5.794543324324603,
+        "closest_surface_world": [
+          12.460000038146973,
+          5.581999778747559,
+          5.181999683380127
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Stair practical.003",
+    "type": "AREA",
+    "location": [
+      13.100000381469727,
+      6.079999923706055,
+      9.75
+    ],
+    "energy": 102.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Stair enamel wall protection.009",
+          "hit_world": [
+            13.417916297912598,
+            6.185999870300293,
+            10.142074584960938
+          ]
+        },
+        {
+          "mesh": "Stair enamel wall protection.007",
+          "hit_world": [
+            13.417916297912598,
+            6.185999870300293,
+            10.142074584960938
+          ]
+        },
+        {
+          "mesh": "Stair north enclosure",
+          "hit_world": [
+            13.459905624389648,
+            6.199999809265137,
+            10.19385814666748
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 1.2000000476837158,
+      "size_y": 1.2000000476837158,
+      "normal_world": [
+        0.7605301737785339,
+        -0.40561604499816895,
+        -0.5070202350616455
+      ],
+      "emitter_rectangle_world": [
+        [
+          13.113930702209473,
+          6.752570152282715,
+          9.232839584350586
+        ],
+        [
+          13.650775909423828,
+          6.466253280639648,
+          10.267160415649414
+        ],
+        [
+          12.549224853515625,
+          5.693746566772461,
+          9.232839584350586
+        ],
+        [
+          13.08607006072998,
+          5.4074296951293945,
+          10.267160415649414
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Stair north enclosure",
+        "distance_m": 0.11999988643826108,
+        "closest_surface_world": [
+          13.100000381469727,
+          6.199999809265137,
+          9.750000953674316
+        ]
+      },
+      {
+        "mesh": "AW Bulkhead housing orange cap.003",
+        "distance_m": 0.26600119566329383,
+        "closest_surface_world": [
+          12.844499588012695,
+          6.1539998054504395,
+          9.75
+        ]
+      },
+      {
+        "mesh": "Stair enamel wall protection.009",
+        "distance_m": 0.27269582126516967,
+        "closest_surface_world": [
+          13.100000381469727,
+          6.186878681182861,
+          10.00087833404541
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Stair core roof",
+        "distance_m": 2.649999647320418,
+        "closest_surface_world": [
+          13.100000381469727,
+          6.079999923706055,
+          12.399999618530273
+        ]
+      },
+      {
+        "mesh": "Control roof",
+        "distance_m": 4.535603924192821,
+        "closest_surface_world": [
+          13.100000381469727,
+          3.394727945327759,
+          13.405272483825684
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Stair practical.004",
+    "type": "AREA",
+    "location": [
+      17.0,
+      6.079999923706055,
+      12.199999809265137
+    ],
+    "energy": 102.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Stair core roof",
+          "hit_world": [
+            16.56377601623535,
+            6.341198921203613,
+            12.399999618530273
+          ]
+        },
+        {
+          "mesh": "Stair north enclosure",
+          "hit_world": [
+            16.897600173950195,
+            6.199999809265137,
+            12.199999809265137
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 1.2000000476837158,
+      "size_y": 1.2000000476837158,
+      "normal_world": [
+        -0.5906978249549866,
+        -0.504062294960022,
+        -0.6300771832466125
+      ],
+      "emitter_rectangle_world": [
+        [
+          17.677045822143555,
+          5.868985176086426,
+          11.73408031463623
+        ],
+        [
+          17.101896286010742,
+          5.378190994262695,
+          12.665919303894043
+        ],
+        [
+          16.898103713989258,
+          6.781808853149414,
+          11.73408031463623
+        ],
+        [
+          16.322954177856445,
+          6.291014671325684,
+          12.665919303894043
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Stair north enclosure",
+        "distance_m": 0.11999988643826108,
+        "closest_surface_world": [
+          17.0,
+          6.199999809265137,
+          12.19999885559082
+        ]
+      },
+      {
+        "mesh": "Stair core roof",
+        "distance_m": 0.19999981150022206,
+        "closest_surface_world": [
+          17.0,
+          6.079999923706055,
+          12.399999618530273
+        ]
+      },
+      {
+        "mesh": "AW Bulkhead housing orange cap.004",
+        "distance_m": 0.26600119566329383,
+        "closest_surface_world": [
+          16.74449920654297,
+          6.1539998054504395,
+          12.199999809265137
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Stair core roof",
+        "distance_m": 0.19999981150022206,
+        "closest_surface_world": [
+          17.0,
+          6.079999923706055,
+          12.399999618530273
+        ]
+      },
+      {
+        "mesh": "Control roof",
+        "distance_m": 3.5319581967371643,
+        "closest_surface_world": [
+          15.05239200592041,
+          3.39239239692688,
+          13.407608032226562
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Station worklight",
+    "type": "AREA",
+    "location": [
+      8.088872909545898,
+      8.088872909545898,
+      4.519999980926514
+    ],
+    "energy": 450.5,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.44999998807907104,
+      "size_y": 0.44999998807907104,
+      "normal_world": [
+        -0.32832977175712585,
+        -0.3283296227455139,
+        -0.8856631517410278
+      ],
+      "emitter_rectangle_world": [
+        [
+          8.388879776000977,
+          8.07068157196045,
+          4.415525913238525
+        ],
+        [
+          8.107063293457031,
+          7.788865566253662,
+          4.624474048614502
+        ],
+        [
+          8.070682525634766,
+          8.388879776000977,
+          4.415525913238525
+        ],
+        [
+          7.788865566253662,
+          8.107064247131348,
+          4.624474048614502
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Shell 2 field.002",
+        "distance_m": 0.6683420175676263,
+        "closest_surface_world": [
+          8.381514549255371,
+          8.426769256591797,
+          5.016858100891113
+        ]
+      },
+      {
+        "mesh": "Shell 2 field.003",
+        "distance_m": 0.6683420175676263,
+        "closest_surface_world": [
+          8.426769256591797,
+          8.381514549255371,
+          5.016858100891113
+        ]
+      },
+      {
+        "mesh": "Shell 2 field.anchor.012",
+        "distance_m": 0.7162818513648612,
+        "closest_surface_world": [
+          8.465177536010742,
+          8.306785583496094,
+          5.089182376861572
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Vestibule roof",
+        "distance_m": 3.9916152917280794,
+        "closest_surface_world": [
+          11.165271759033203,
+          5.594727993011475,
+          5.01800012588501
+        ]
+      },
+      {
+        "mesh": "FUEL HANDLING.link roof",
+        "distance_m": 6.234937512205853,
+        "closest_surface_world": [
+          2.4970710277557373,
+          10.802928924560547,
+          5.010000228881836
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Station worklight.001",
+    "type": "AREA",
+    "location": [
+      3.8466023255523396e-08,
+      -10.360000610351562,
+      4.519999980926514
+    ],
+    "energy": 450.5,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.44999998807907104,
+      "size_y": 0.44999998807907104,
+      "normal_world": [
+        4.0592890826474104e-08,
+        0.464328408241272,
+        -0.8856630921363831
+      ],
+      "emitter_rectangle_world": [
+        [
+          -0.22499997913837433,
+          -10.559274673461914,
+          4.415525913238525
+        ],
+        [
+          -0.22499993443489075,
+          -10.160726547241211,
+          4.624474048614502
+        ],
+        [
+          0.22500000894069672,
+          -10.559274673461914,
+          4.415525913238525
+        ],
+        [
+          0.2250000536441803,
+          -10.160726547241211,
+          4.624474048614502
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Header wall bracket.004",
+        "distance_m": 0.16999959812397297,
+        "closest_surface_world": [
+          3.725290298461914e-08,
+          -10.360000610351562,
+          4.350000381469727
+        ]
+      },
+      {
+        "mesh": "Header bracket wall plate.004",
+        "distance_m": 0.40414787970114685,
+        "closest_surface_world": [
+          2.9802322387695312e-08,
+          -10.75,
+          4.414000034332275
+        ]
+      },
+      {
+        "mesh": "Header wall bracket.001",
+        "distance_m": 0.5899999045517408,
+        "closest_surface_world": [
+          3.725290298461914e-08,
+          -10.360000610351562,
+          3.930000066757202
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "COOLING PLANT.link roof",
+        "distance_m": 6.657216202318082,
+        "closest_surface_world": [
+          6.6363749504089355,
+          -10.167766571044922,
+          5.010000228881836
+        ]
+      },
+      {
+        "mesh": "Roof bearing knee.004",
+        "distance_m": 10.624074565944305,
+        "closest_surface_world": [
+          5.635632038116455,
+          -10.38392448425293,
+          13.526111602783203
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Station worklight.002",
+    "type": "AREA",
+    "location": [
+      -8.088872909545898,
+      -8.088872909545898,
+      4.519999980926514
+    ],
+    "energy": 450.5,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.44999998807907104,
+      "size_y": 0.44999998807907104,
+      "normal_world": [
+        0.32832977175712585,
+        0.328329861164093,
+        -0.8856630921363831
+      ],
+      "emitter_rectangle_world": [
+        [
+          -8.388879776000977,
+          -8.070682525634766,
+          4.415525913238525
+        ],
+        [
+          -8.107064247131348,
+          -7.788865566253662,
+          4.624474048614502
+        ],
+        [
+          -8.07068157196045,
+          -8.388879776000977,
+          4.415525913238525
+        ],
+        [
+          -7.788865566253662,
+          -8.107063293457031,
+          4.624474048614502
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Shell 6 field.001",
+        "distance_m": 0.44116176315994904,
+        "closest_surface_world": [
+          -8.422627449035645,
+          -8.377371788024902,
+          4.519999980926514
+        ]
+      },
+      {
+        "mesh": "Shell 6 field",
+        "distance_m": 0.44116176315994904,
+        "closest_surface_world": [
+          -8.377371788024902,
+          -8.422627449035645,
+          4.519999980926514
+        ]
+      },
+      {
+        "mesh": "Shell 6 field.anchor.003",
+        "distance_m": 0.556184123054821,
+        "closest_surface_world": [
+          -8.314499855041504,
+          -8.457464218139648,
+          4.870105266571045
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "MAIN ACCESS.link roof",
+        "distance_m": 5.854285132633782,
+        "closest_surface_world": [
+          -10.802929878234863,
+          -2.997070789337158,
+          5.510000228881836
+        ]
+      },
+      {
+        "mesh": "Roof bearing knee.006",
+        "distance_m": 9.53581871222501,
+        "closest_surface_world": [
+          -10.270816802978516,
+          -5.839223861694336,
+          13.526111602783203
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Station worklight.003",
+    "type": "AREA",
+    "location": [
+      -8.088872909545898,
+      8.088872909545898,
+      4.519999980926514
+    ],
+    "energy": 450.5,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.44999998807907104,
+      "size_y": 0.44999998807907104,
+      "normal_world": [
+        0.32832977175712585,
+        -0.3283296227455139,
+        -0.8856631517410278
+      ],
+      "emitter_rectangle_world": [
+        [
+          -8.070682525634766,
+          8.388879776000977,
+          4.415525913238525
+        ],
+        [
+          -7.788865566253662,
+          8.107064247131348,
+          4.624474048614502
+        ],
+        [
+          -8.388879776000977,
+          8.07068157196045,
+          4.415525913238525
+        ],
+        [
+          -8.107063293457031,
+          7.788865566253662,
+          4.624474048614502
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Shell 8 field.003",
+        "distance_m": 0.6683420175676263,
+        "closest_surface_world": [
+          -8.381514549255371,
+          8.426769256591797,
+          5.016858100891113
+        ]
+      },
+      {
+        "mesh": "Shell 8 field.002",
+        "distance_m": 0.6683420175676263,
+        "closest_surface_world": [
+          -8.426769256591797,
+          8.381514549255371,
+          5.016858100891113
+        ]
+      },
+      {
+        "mesh": "Shell 8 field.anchor.012",
+        "distance_m": 0.7162818513648612,
+        "closest_surface_world": [
+          -8.306785583496094,
+          8.465177536010742,
+          5.089182376861572
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "MAIN ACCESS.link roof",
+        "distance_m": 5.8542846846534715,
+        "closest_surface_world": [
+          -10.802928924560547,
+          2.997070789337158,
+          5.510000228881836
+        ]
+      },
+      {
+        "mesh": "FUEL HANDLING.link roof",
+        "distance_m": 6.234937971075383,
+        "closest_surface_world": [
+          -2.497070789337158,
+          10.802928924560547,
+          5.010000228881836
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Vestibule practical",
+    "type": "AREA",
+    "location": [
+      11.800000190734863,
+      3.5999999046325684,
+      4.800000190734863
+    ],
+    "energy": 150.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 1.2999999523162842,
+      "size_y": 1.2999999523162842,
+      "normal_world": [
+        0.0,
+        0.21242962777614594,
+        -0.9771763682365417
+      ],
+      "emitter_rectangle_world": [
+        [
+          11.15000057220459,
+          2.9648351669311523,
+          4.66192102432251
+        ],
+        [
+          11.15000057220459,
+          4.235164642333984,
+          4.938079357147217
+        ],
+        [
+          12.449999809265137,
+          2.9648351669311523,
+          4.66192102432251
+        ],
+        [
+          12.449999809265137,
+          4.235164642333984,
+          4.938079357147217
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Vestibule roof",
+        "distance_m": 0.19999981150022206,
+        "closest_surface_world": [
+          11.800000190734863,
+          3.5999999046325684,
+          5.0
+        ]
+      },
+      {
+        "mesh": "Stair south lower enclosure",
+        "distance_m": 0.6950709828956007,
+        "closest_surface_world": [
+          12.460000038146973,
+          3.382000207901001,
+          4.800000190734863
+        ]
+      },
+      {
+        "mesh": "Reactor exterior Shell 3 field.006",
+        "distance_m": 0.7252265533038628,
+        "closest_surface_world": [
+          11.107999801635742,
+          3.5999999046325684,
+          5.017000198364258
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Vestibule roof",
+        "distance_m": 0.19999981150022206,
+        "closest_surface_world": [
+          11.800000190734863,
+          3.5999999046325684,
+          5.0
+        ]
+      },
+      {
+        "mesh": "Stair core roof",
+        "distance_m": 7.630181781648824,
+        "closest_surface_world": [
+          12.477999687194824,
+          3.5999999046325684,
+          12.399999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Warm control room",
+    "type": "AREA",
+    "location": [
+      12.699999809265137,
+      0.0,
+      13.289999961853027
+    ],
+    "energy": 390.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.7200000286102295,
+      "size_y": 0.8999999761581421,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          11.84000015258789,
+          -0.44999998807907104,
+          13.289999961853027
+        ],
+        [
+          11.84000015258789,
+          0.44999998807907104,
+          13.289999961853027
+        ],
+        [
+          13.559999465942383,
+          -0.44999998807907104,
+          13.289999961853027
+        ],
+        [
+          13.559999465942383,
+          0.44999998807907104,
+          13.289999961853027
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Operator ceiling light",
+        "distance_m": 0.010000228702783266,
+        "closest_surface_world": [
+          12.699999809265137,
+          -2.384185791015625e-07,
+          13.300000190734863
+        ]
+      },
+      {
+        "mesh": "Control roof",
+        "distance_m": 0.10999965680540257,
+        "closest_surface_world": [
+          12.699999809265137,
+          0.0,
+          13.399999618530273
+        ]
+      },
+      {
+        "mesh": "CF ceiling joint.001",
+        "distance_m": 0.23566593546433712,
+        "closest_surface_world": [
+          12.927499771118164,
+          0.0,
+          13.351499557495117
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Control roof",
+        "distance_m": 0.10999965680540257,
+        "closest_surface_world": [
+          12.699999809265137,
+          0.0,
+          13.399999618530273
+        ]
+      },
+      {
+        "mesh": "Stair core roof",
+        "distance_m": 3.2773867071198635,
+        "closest_surface_world": [
+          12.699999809265137,
+          3.200000047683716,
+          12.582000732421875
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Warm wall wash",
+    "type": "SPOT",
+    "location": [
+      -3.5999999046325684,
+      10.170000076293945,
+      12.550000190734863
+    ],
+    "energy": 2150.25,
+    "radius_m": 0.054999999701976776,
+    "area": null,
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Wall light lens",
+        "distance_m": 0.029999732956980427,
+        "closest_surface_world": [
+          -3.5999996662139893,
+          10.199999809265137,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket",
+        "distance_m": 0.05500030464662363,
+        "closest_surface_world": [
+          -3.5999999046325684,
+          10.225000381469727,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light mounting plate",
+        "distance_m": 0.5799999248570361,
+        "closest_surface_world": [
+          -3.5999999046325684,
+          10.75,
+          12.550000190734863
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [
+      {
+        "mesh": "Wall light lens",
+        "distance_m": 0.029999732956980427,
+        "closest_surface_world": [
+          -3.5999996662139893,
+          10.199999809265137,
+          12.550000190734863
+        ]
+      }
+    ],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof bearing knee",
+        "distance_m": 2.2665328196595733,
+        "closest_surface_world": [
+          -5.632955074310303,
+          10.381349563598633,
+          13.529589653015137
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header",
+        "distance_m": 2.6914823490895325,
+        "closest_surface_world": [
+          -3.6000003814697266,
+          9.474241256713867,
+          15.149999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Warm wall wash.001",
+    "type": "SPOT",
+    "location": [
+      3.5999999046325684,
+      10.170000076293945,
+      12.550000190734863
+    ],
+    "energy": 2150.25,
+    "radius_m": 0.054999999701976776,
+    "area": null,
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Wall light lens.001",
+        "distance_m": 0.029999732956980427,
+        "closest_surface_world": [
+          3.6000001430511475,
+          10.199999809265137,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket.001",
+        "distance_m": 0.05500030464662363,
+        "closest_surface_world": [
+          3.5999999046325684,
+          10.225000381469727,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light mounting plate.001",
+        "distance_m": 0.5799999248570361,
+        "closest_surface_world": [
+          3.5999999046325684,
+          10.75,
+          12.550000190734863
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [
+      {
+        "mesh": "Wall light lens.001",
+        "distance_m": 0.029999732956980427,
+        "closest_surface_world": [
+          3.6000001430511475,
+          10.199999809265137,
+          12.550000190734863
+        ]
+      }
+    ],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof bearing knee.001",
+        "distance_m": 2.2665336611864473,
+        "closest_surface_world": [
+          5.632956027984619,
+          10.381349563598633,
+          13.529589653015137
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header",
+        "distance_m": 2.691482349089501,
+        "closest_surface_world": [
+          3.5999996662139893,
+          9.474241256713867,
+          15.149999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Warm wall wash.002",
+    "type": "SPOT",
+    "location": [
+      7.954522132873535,
+      7.954522609710693,
+      12.550000190734863
+    ],
+    "energy": 1551.0,
+    "radius_m": 0.054999999701976776,
+    "area": null,
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Wall light lens.002",
+        "distance_m": 0.029999789223886675,
+        "closest_surface_world": [
+          7.975735187530518,
+          7.975735664367676,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket.002",
+        "distance_m": 0.05499995116819576,
+        "closest_surface_world": [
+          7.993412971496582,
+          7.99341344833374,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light mounting plate.002",
+        "distance_m": 0.5800003102318164,
+        "closest_surface_world": [
+          8.364644050598145,
+          8.364645004272461,
+          12.550000190734863
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [
+      {
+        "mesh": "Wall light lens.002",
+        "distance_m": 0.029999789223886675,
+        "closest_surface_world": [
+          7.975735187530518,
+          7.975735664367676,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket.002",
+        "distance_m": 0.05499995116819576,
+        "closest_surface_world": [
+          7.993412971496582,
+          7.99341344833374,
+          12.550000190734863
+        ]
+      }
+    ],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Continuous octagonal roof header.001",
+        "distance_m": 2.732297658653151,
+        "closest_surface_world": [
+          7.36061429977417,
+          7.36061429977417,
+          15.149999618530273
+        ]
+      },
+      {
+        "mesh": "Roof bearing knee.001",
+        "distance_m": 3.284166955937377,
+        "closest_surface_world": [
+          5.838451862335205,
+          10.267184257507324,
+          13.529589653015137
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Warm wall wash.003",
+    "type": "SPOT",
+    "location": [
+      7.954522132873535,
+      -7.954522132873535,
+      12.550000190734863
+    ],
+    "energy": 1386.0,
+    "radius_m": 0.054999999701976776,
+    "area": null,
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Wall light lens.003",
+        "distance_m": 0.030000463459786117,
+        "closest_surface_world": [
+          7.975735664367676,
+          -7.975735664367676,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket.003",
+        "distance_m": 0.055000626373517277,
+        "closest_surface_world": [
+          7.99341344833374,
+          -7.99341344833374,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light mounting plate.003",
+        "distance_m": 0.5799999762403549,
+        "closest_surface_world": [
+          8.364644050598145,
+          -8.364644050598145,
+          12.550000190734863
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [
+      {
+        "mesh": "Wall light lens.003",
+        "distance_m": 0.030000463459786117,
+        "closest_surface_world": [
+          7.975735664367676,
+          -7.975735664367676,
+          12.550000190734863
+        ]
+      }
+    ],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Continuous octagonal roof header.003",
+        "distance_m": 2.7322975550326443,
+        "closest_surface_world": [
+          7.36061429977417,
+          -7.36061429977417,
+          15.149999618530273
+        ]
+      },
+      {
+        "mesh": "Roof bearing knee.004",
+        "distance_m": 3.28416702853374,
+        "closest_surface_world": [
+          5.8384528160095215,
+          -10.267184257507324,
+          13.529590606689453
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Warm wall wash.004",
+    "type": "SPOT",
+    "location": [
+      3.5999999046325684,
+      -10.170000076293945,
+      12.550000190734863
+    ],
+    "energy": 1921.5,
+    "radius_m": 0.054999999701976776,
+    "area": null,
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Wall light lens.004",
+        "distance_m": 0.03000068658582359,
+        "closest_surface_world": [
+          3.5999996662139893,
+          -10.200000762939453,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket.004",
+        "distance_m": 0.05500030464662363,
+        "closest_surface_world": [
+          3.5999999046325684,
+          -10.225000381469727,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light mounting plate.004",
+        "distance_m": 0.5800008754476977,
+        "closest_surface_world": [
+          3.5999999046325684,
+          -10.750000953674316,
+          12.550000190734863
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [
+      {
+        "mesh": "Wall light lens.004",
+        "distance_m": 0.03000068658582359,
+        "closest_surface_world": [
+          3.5999996662139893,
+          -10.200000762939453,
+          12.550000190734863
+        ]
+      }
+    ],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof bearing knee.004",
+        "distance_m": 2.2665328196595733,
+        "closest_surface_world": [
+          5.632955074310303,
+          -10.381349563598633,
+          13.529589653015137
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.004",
+        "distance_m": 2.6914823490895325,
+        "closest_surface_world": [
+          3.6000003814697266,
+          -9.474241256713867,
+          15.149999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Warm wall wash.005",
+    "type": "SPOT",
+    "location": [
+      -3.5999999046325684,
+      -10.170000076293945,
+      12.550000190734863
+    ],
+    "energy": 1692.75,
+    "radius_m": 0.054999999701976776,
+    "area": null,
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Wall light lens.005",
+        "distance_m": 0.029999732956980427,
+        "closest_surface_world": [
+          -3.6000001430511475,
+          -10.199999809265137,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket.005",
+        "distance_m": 0.0549993521546551,
+        "closest_surface_world": [
+          -3.5999999046325684,
+          -10.22499942779541,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light mounting plate.005",
+        "distance_m": 0.5799999248570361,
+        "closest_surface_world": [
+          -3.5999999046325684,
+          -10.75,
+          12.550000190734863
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [
+      {
+        "mesh": "Wall light lens.005",
+        "distance_m": 0.029999732956980427,
+        "closest_surface_world": [
+          -3.6000001430511475,
+          -10.199999809265137,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket.005",
+        "distance_m": 0.0549993521546551,
+        "closest_surface_world": [
+          -3.5999999046325684,
+          -10.22499942779541,
+          12.550000190734863
+        ]
+      }
+    ],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof bearing knee.005",
+        "distance_m": 2.2665336611864473,
+        "closest_surface_world": [
+          -5.632956027984619,
+          -10.381349563598633,
+          13.529589653015137
+        ]
+      },
+      {
+        "mesh": "Continuous octagonal roof header.004",
+        "distance_m": 2.691482349089501,
+        "closest_surface_world": [
+          -3.5999996662139893,
+          -9.474241256713867,
+          15.149999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Warm wall wash.006",
+    "type": "SPOT",
+    "location": [
+      -7.954522609710693,
+      -7.954522132873535,
+      12.550000190734863
+    ],
+    "energy": 1221.0,
+    "radius_m": 0.054999999701976776,
+    "area": null,
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Wall light lens.006",
+        "distance_m": 0.03000012634373053,
+        "closest_surface_world": [
+          -7.975735664367676,
+          -7.975735664367676,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket.006",
+        "distance_m": 0.05499995116819576,
+        "closest_surface_world": [
+          -7.99341344833374,
+          -7.993412971496582,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light mounting plate.006",
+        "distance_m": 0.579999642248701,
+        "closest_surface_world": [
+          -8.364644050598145,
+          -8.364644050598145,
+          12.550000190734863
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [
+      {
+        "mesh": "Wall light lens.006",
+        "distance_m": 0.03000012634373053,
+        "closest_surface_world": [
+          -7.975735664367676,
+          -7.975735664367676,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket.006",
+        "distance_m": 0.05499995116819576,
+        "closest_surface_world": [
+          -7.99341344833374,
+          -7.993412971496582,
+          12.550000190734863
+        ]
+      }
+    ],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Continuous octagonal roof header.005",
+        "distance_m": 2.732297658653151,
+        "closest_surface_world": [
+          -7.360614776611328,
+          -7.360613822937012,
+          15.149999618530273
+        ]
+      },
+      {
+        "mesh": "Roof bearing knee.006",
+        "distance_m": 3.284166665551909,
+        "closest_surface_world": [
+          -10.267184257507324,
+          -5.8384528160095215,
+          13.529590606689453
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Warm wall wash.007",
+    "type": "SPOT",
+    "location": [
+      -7.954522132873535,
+      7.954522609710693,
+      12.550000190734863
+    ],
+    "energy": 1551.0,
+    "radius_m": 0.054999999701976776,
+    "area": null,
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Wall light lens.007",
+        "distance_m": 0.029999789223886675,
+        "closest_surface_world": [
+          -7.975735187530518,
+          7.975735664367676,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket.007",
+        "distance_m": 0.05499995116819576,
+        "closest_surface_world": [
+          -7.993412971496582,
+          7.99341344833374,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light mounting plate.007",
+        "distance_m": 0.5800003102318164,
+        "closest_surface_world": [
+          -8.364644050598145,
+          8.364645004272461,
+          12.550000190734863
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [
+      {
+        "mesh": "Wall light lens.007",
+        "distance_m": 0.029999789223886675,
+        "closest_surface_world": [
+          -7.975735187530518,
+          7.975735664367676,
+          12.550000190734863
+        ]
+      },
+      {
+        "mesh": "Wall light bracket.007",
+        "distance_m": 0.05499995116819576,
+        "closest_surface_world": [
+          -7.993412971496582,
+          7.99341344833374,
+          12.550000190734863
+        ]
+      }
+    ],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Continuous octagonal roof header.007",
+        "distance_m": 2.732297658653151,
+        "closest_surface_world": [
+          -7.360613822937012,
+          7.360614776611328,
+          15.149999618530273
+        ]
+      },
+      {
+        "mesh": "Roof bearing knee",
+        "distance_m": 3.284166665551909,
+        "closest_surface_world": [
+          -5.8384528160095215,
+          10.267184257507324,
+          13.529590606689453
+        ]
+      }
+    ]
+  }
+]

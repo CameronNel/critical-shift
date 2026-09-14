@@ -1,0 +1,32 @@
+{
+  "selected": "GPU denoising",
+  "scope": "Sequential same-scene/same-camera32-sample GPU renders; observed wall time includes scene synchronization and denoising. Not an exhaustive hardware benchmark.",
+  "results": [
+    {
+      "pack": "R34-bench-gpu-denoise",
+      "device": "GPU",
+      "backend": "HIP",
+      "gpu_denoising": true,
+      "seconds": 52.71,
+      "samples": 32,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "blend_sha256": "26edf558d2e03b16b841940d20973b74017a52e9f8c0c320d5ff5487c9d9ea3b"
+    },
+    {
+      "pack": "R34-bench-cpu-denoise",
+      "device": "GPU",
+      "backend": "HIP",
+      "gpu_denoising": false,
+      "seconds": 62.27,
+      "samples": 32,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "blend_sha256": "26edf558d2e03b16b841940d20973b74017a52e9f8c0c320d5ff5487c9d9ea3b"
+    }
+  ]
+}

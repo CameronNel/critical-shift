@@ -1,0 +1,56 @@
+{
+  "revision": "R14",
+  "engine": "BLENDER_EEVEE",
+  "raytracing": false,
+  "samples": 32,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "cameras": [
+    {
+      "camera": "C04_EXHAUST",
+      "seconds": 3.3,
+      "sha256": "2367f9d4d66d017ae2b8a096c2576b6cc1999f535e46b1954bce9b3515345c9e",
+      "location": [
+        0.7200000286102295,
+        1.4800000190734863,
+        3.25
+      ],
+      "lens": 24.0
+    },
+    {
+      "camera": "C05_RETURN",
+      "seconds": 1.5,
+      "sha256": "dc5b2b6cfbf29efadfd57501bfa06e101dac89fa6be5d41ac19e759bc533f86b",
+      "location": [
+        0.44999998807907104,
+        8.550000190734863,
+        1.5800000429153442
+      ],
+      "lens": 24.0
+    },
+    {
+      "camera": "W05_SE",
+      "seconds": 1.3,
+      "sha256": "780d2ef0e036f61be5148119437b6ad2cc9483017df39cfbffc72738475753df",
+      "location": [
+        8.350000381469727,
+        2.8499999046325684,
+        1.7200000286102295
+      ],
+      "lens": 24.0
+    },
+    {
+      "camera": "W08_GALLERY_TURN",
+      "seconds": 1.26,
+      "sha256": "7d907d51f519defa45293178aa784222f7b766df31a8ad458530e76de33cf8e6",
+      "location": [
+        5.519999980926514,
+        4.880000114440918,
+        5.28000020980835
+      ],
+      "lens": 26.0
+    }
+  ]
+}

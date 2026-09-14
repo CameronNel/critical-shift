@@ -1,0 +1,41 @@
+{
+  "source_sha256": "32cae1283c3485fe5033e46577cf0c9787c18769121bcaa333fb55619c3ee70d",
+  "master_saved": false,
+  "renderer": "Cycles HIP",
+  "samples": 32,
+  "lighting": "Source practical lights plus temporary neutral exterior world and sun; provisional review lighting",
+  "views": [
+    {
+      "id": "J04_REACTOR_TURBINE",
+      "caption": "Reactor to turbine",
+      "location": [
+        34,
+        32,
+        3
+      ],
+      "target": [
+        34,
+        46.5,
+        2
+      ],
+      "lens_mm": 24,
+      "sha256": "d9f831a89642e2eb3ca3d91e9f187c86a5aa7593b9edf7005023c6f2e24dcbcb"
+    },
+    {
+      "id": "E02_FACILITY_EXTERIOR",
+      "caption": "Outside the power wing",
+      "location": [
+        92,
+        -10,
+        15
+      ],
+      "target": [
+        45,
+        36,
+        4
+      ],
+      "lens_mm": 29,
+      "sha256": "49b08131e2d0a10311d1981fe133044ba9ad70b717961948cdf0d0c6ab35be56"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "revision": "R30",
+  "blend_sha256": "0cf079d815fad385d2493cc68c4dc45749df47ead6628067f41e39fe09e86477",
+  "scope": "Twelve vertical contact probes using evaluated saved chest wall bounds and the actual shell surface. A 5mm positive gap is the maximum allowed; this is not a weld strength calculation.",
+  "status": "FAIL",
+  "samples": [
+    {
+      "wall": "CD chest wall Y-",
+      "xy": [
+        1.9199999690055847,
+        3.25
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.259618759155273,
+      "gap_m": 0.3603811264038086,
+      "ok": false
+    },
+    {
+      "wall": "CD chest wall Y-",
+      "xy": [
+        2.9999999403953552,
+        3.25
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.259618282318115,
+      "gap_m": 0.3603816032409668,
+      "ok": false
+    },
+    {
+      "wall": "CD chest wall Y-",
+      "xy": [
+        4.079999911785126,
+        3.25
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.259618282318115,
+      "gap_m": 0.3603816032409668,
+      "ok": false
+    },
+    {
+      "wall": "CD chest wall Y+",
+      "xy": [
+        1.9199999690055847,
+        4.849999904632568
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.259618759155273,
+      "gap_m": 0.3603811264038086,
+      "ok": false
+    },
+    {
+      "wall": "CD chest wall Y+",
+      "xy": [
+        2.9999999403953552,
+        4.849999904632568
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.259618759155273,
+      "gap_m": 0.3603811264038086,
+      "ok": false
+    },
+    {
+      "wall": "CD chest wall Y+",
+      "xy": [
+        4.079999911785126,
+        4.849999904632568
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.259618282318115,
+      "gap_m": 0.3603816032409668,
+      "ok": false
+    },
+    {
+      "wall": "CD chest wall X-",
+      "xy": [
+        1.7000000476837158,
+        3.450000190734863
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.426608562469482,
+      "gap_m": 0.1933913230895996,
+      "ok": false
+    },
+    {
+      "wall": "CD chest wall X-",
+      "xy": [
+        1.7000000476837158,
+        4.050000190734863
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.619999885559082,
+      "gap_m": 0.0,
+      "ok": true
+    },
+    {
+      "wall": "CD chest wall X-",
+      "xy": [
+        1.7000000476837158,
+        4.650000190734863
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.426608562469482,
+      "gap_m": 0.1933913230895996,
+      "ok": false
+    },
+    {
+      "wall": "CD chest wall X+",
+      "xy": [
+        4.300000190734863,
+        3.450000190734863
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.426609039306641,
+      "gap_m": 0.1933908462524414,
+      "ok": false
+    },
+    {
+      "wall": "CD chest wall X+",
+      "xy": [
+        4.300000190734863,
+        4.050000190734863
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.619999885559082,
+      "gap_m": 0.0,
+      "ok": true
+    },
+    {
+      "wall": "CD chest wall X+",
+      "xy": [
+        4.300000190734863,
+        4.650000190734863
+      ],
+      "wall_bottom_z": 4.619999885559082,
+      "shell_surface_z": 4.426608562469482,
+      "gap_m": 0.1933913230895996,
+      "ok": false
+    }
+  ]
+}

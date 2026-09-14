@@ -1,0 +1,12 @@
+GPU acquired: astra-facility-assembly
+00:03.609  blend            | Read blend: "C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\sources\mine\module.blend"
+C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\blender\render_exterior.py:16: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('Baseline neutral daylight');world.use_nodes=True;world.node_tree.nodes.get('Background').inputs[0].default_value=(.65,.72,.8,1);world.node_tree.nodes.get('Background').inputs[1].default_value=.45;scene.world=world
+00:04.375  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:26.203  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\exteriors\mine\baseline\FRONT.png'
+EXTERIOR_RENDER_DONE mine FRONT
+00:50.172  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\exteriors\mine\baseline\OBLIQUE.png'
+EXTERIOR_RENDER_DONE mine OBLIQUE
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

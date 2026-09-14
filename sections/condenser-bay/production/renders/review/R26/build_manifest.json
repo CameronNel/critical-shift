@@ -1,0 +1,29 @@
+{
+  "revision": "R26",
+  "baseline_sha256": "ff361817176958680f4d80c35fcae54a9acb04b5a75ea176148ad51c440c23e2",
+  "blend_sha256": "942eb75589cb2be576e6bbd445ff567c39469299876e3d6356394790c42c2a00",
+  "source_sha256": {
+    "astra_audit.py": "c4a30470a3f08222ef6b01326e22a4f910bcc8f25aa9250e828b8ae64f54e0a5",
+    "astra_continue.py": "dfc4e0688736b7cb22d7d0d5aa37e3784ea7692d52e45d592b7ccbac2fe30507",
+    "astra_evidence.py": "272fa0df5579aa698bee1892bb058d5b4cc897103eed02fbbe80f8068ff38b37",
+    "astra_gallery_probe.py": "3dfc544d5d4675e437437b95eaf8d44859f882fcd1c0eb4d079db4bd5f0fdc9f",
+    "astra_polish.py": "5742b57ab4caea9bfb14d5756ca4ea7badb3d03e5b400d31efb80c316b07f5bb",
+    "astra_primitives.py": "6463d24b4e0556199f2f48e913124abddfceff7cfa0f8f86e384e0e20f1acfa5",
+    "build_condenser.py": "05dbe2beb1882fd43cead315de695820474c902e177aeb11e6f36f18e42435b0",
+    "camera_clearance.py": "2cd216019c8814b38cb1e2a6c7270821ed9a9022fd6ee397b19f26a7284c9f7b",
+    "kit.py": "9b6eddbe25980b1e574c065306d72a52bbed8f2fd689691ad1d37ba0dc0fde23",
+    "layout.py": "4b4634aed553f870947a9b4bb418cad886ba8fc9d0129ec4d8e4ddc0ce5dffb8",
+    "patch_r20_cameras.py": "c7a2235792272433092720c528661f2af306c37cd60a5664ab6dfa443c1b546e",
+    "render.py": "762fcd620acd4c34968ba143c5749a42f9ddda207e8e2229bb67609838f53967",
+    "render_only.py": "3ec40de55afd7b021ab4ae7f97c42e8fc8fc81e96051f847c828dbcc7872ae15",
+    "render_warm_cold.py": "cf955b5051a9130be0944675fc6bb9f04099861c84d67c7107da8b0f4241f9c8",
+    "scene_arch.py": "a58f9753c9472dc3331ad8efaf8cd2c8ba92aaa63f00bb4303af8737eb4d8ff7",
+    "scene_equip.py": "9cd2aac1ddf014c19c36b8efd38ac4f1c05cf10f88364a791ed06d5f2a5c1281",
+    "validate.py": "71378b83300024c446d4b5b585955c799e1cd9cab879efb44c169252ed72b7d6"
+  },
+  "counts": {
+    "objects": 2614,
+    "cameras": 18
+  },
+  "method": "Documented R21 saved-baseline continuation; camera corrections recorded in production/CAMERA_CORRECTIONS.md."
+}

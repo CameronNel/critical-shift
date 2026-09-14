@@ -1,0 +1,914 @@
+{
+  "revision": "A06_CONNECTION_PLAN",
+  "units": "metres",
+  "scope": "Spatial assembly of existing rooms; connecting structures explicitly unbuilt",
+  "placements": {
+    "spawn-room": {
+      "translation": [
+        -28,
+        0,
+        0
+      ],
+      "rotation_z_degrees": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "mine": {
+      "translation": [
+        -38,
+        -29,
+        0
+      ],
+      "rotation_z_degrees": 90,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "refinery": {
+      "translation": [
+        -4.084283176858165,
+        -16.606663706334526,
+        0
+      ],
+      "rotation_z_degrees": 90,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "fuel-corridor": {
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "rotation_z_degrees": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "reactor-room": {
+      "translation": [
+        14.2,
+        46.5,
+        0
+      ],
+      "rotation_z_degrees": 180,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "cooling-plant": {
+      "translation": [
+        -2.5,
+        63.2,
+        0
+      ],
+      "rotation_z_degrees": 45,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "turbine-room": {
+      "translation": [
+        40.9,
+        46.5,
+        0
+      ],
+      "rotation_z_degrees": -90,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "condenser-bay": {
+      "translation": [
+        48.3,
+        44.9,
+        -6
+      ],
+      "rotation_z_degrees": -90,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "electrical-room": {
+      "translation": [
+        66,
+        27,
+        0
+      ],
+      "rotation_z_degrees": 180,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "waste-storage": {
+      "translation": [
+        66,
+        2.6,
+        0
+      ],
+      "rotation_z_degrees": 180,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "medical-reanimation": {
+      "translation": [
+        -18,
+        31,
+        0
+      ],
+      "rotation_z_degrees": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "compliance-dock": {
+      "translation": [
+        -49,
+        16,
+        0
+      ],
+      "rotation_z_degrees": 90,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "ports": {
+    "spawn.exit": [
+      -28.0,
+      12.3,
+      0
+    ],
+    "mine.entry": [
+      -10.49,
+      -29.0,
+      0
+    ],
+    "refinery.intake": [
+      -0.0,
+      -25.21333,
+      0
+    ],
+    "refinery.dispatch": [
+      0.0,
+      -8.0,
+      0
+    ],
+    "refinery.personnel": [
+      2.65,
+      -18.40666,
+      0
+    ],
+    "fuel.entry": [
+      0,
+      0,
+      0
+    ],
+    "fuel.reactor": [
+      14.2,
+      24,
+      0
+    ],
+    "fuel.service": [
+      -5.4,
+      17.4,
+      0
+    ],
+    "fuel.clean": [
+      6.6,
+      21,
+      0
+    ],
+    "fuel.waste": [
+      16.4,
+      16,
+      0
+    ],
+    "reactor.fuel": [
+      14.2,
+      32.0,
+      0
+    ],
+    "reactor.turbine": [
+      28.7,
+      46.5,
+      0
+    ],
+    "reactor.cooling": [
+      3.1837,
+      57.5163,
+      0
+    ],
+    "cooling.entry": [
+      -2.5,
+      63.2,
+      0
+    ],
+    "turbine.entry": [
+      40.9,
+      46.5,
+      0
+    ],
+    "turbine.exit": [
+      66.3,
+      46.5,
+      0
+    ],
+    "condenser.entry": [
+      45.74,
+      44.9,
+      -6
+    ],
+    "electrical.entry": [
+      66.0,
+      27.25,
+      0
+    ],
+    "electrical.exit": [
+      66.0,
+      10.03,
+      0
+    ],
+    "waste.entry": [
+      66.0,
+      2.92,
+      0
+    ],
+    "waste.personnel": [
+      59.7,
+      0.2,
+      0
+    ],
+    "waste.dispatch": [
+      66.0,
+      -17.83,
+      0
+    ],
+    "medical.entry": [
+      -18,
+      30.31,
+      0
+    ],
+    "compliance.entry": [
+      -46.9,
+      16.0,
+      0
+    ],
+    "compliance.arrival": [
+      -65.6,
+      16.0,
+      0
+    ]
+  },
+  "routes": [
+    {
+      "id": "R01",
+      "kind": "freight",
+      "width_m": 5,
+      "height_m": 4.5,
+      "points": [
+        [
+          -10.49,
+          -29.0,
+          0
+        ],
+        [
+          0,
+          -29,
+          0
+        ],
+        [
+          -0.0,
+          -25.21333,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Cart approach; mine descending adit retained, no invented mine lift."
+    },
+    {
+      "id": "R02",
+      "kind": "freight",
+      "width_m": 4.5,
+      "height_m": 4.5,
+      "points": [
+        [
+          0.0,
+          -8.0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Eight metre connector reserve; refinery sill/bollards stay unchanged."
+    },
+    {
+      "id": "R03",
+      "kind": "freight",
+      "width_m": 6,
+      "height_m": 4.5,
+      "points": [
+        [
+          14.2,
+          24,
+          0
+        ],
+        [
+          14.2,
+          32.0,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Eight metre gap; source reactor doors remain closed until integration."
+    },
+    {
+      "id": "R04",
+      "kind": "service",
+      "width_m": 4,
+      "height_m": 3.5,
+      "points": [
+        [
+          28.7,
+          46.5,
+          0
+        ],
+        [
+          40.9,
+          46.5,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "12.2 metre reserve accommodates protruding turbine utilities and condenser access junction."
+    },
+    {
+      "id": "R05",
+      "kind": "service",
+      "width_m": 4,
+      "height_m": 3.5,
+      "points": [
+        [
+          66.3,
+          46.5,
+          0
+        ],
+        [
+          74,
+          46.5,
+          0
+        ],
+        [
+          74,
+          36,
+          0
+        ],
+        [
+          66,
+          36,
+          0
+        ],
+        [
+          66.0,
+          27.25,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "U-shaped power wing, leaving bus adapter and corner pockets."
+    },
+    {
+      "id": "R06",
+      "kind": "freight",
+      "width_m": 4.5,
+      "height_m": 4.5,
+      "points": [
+        [
+          66.0,
+          10.03,
+          0
+        ],
+        [
+          66.0,
+          2.92,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Separated shells; future receiving connector."
+    },
+    {
+      "id": "R07",
+      "kind": "maintenance",
+      "width_m": 4.5,
+      "height_m": 3.5,
+      "points": [
+        [
+          0,
+          -29,
+          0
+        ],
+        [
+          6,
+          -29,
+          0
+        ],
+        [
+          6,
+          -4,
+          0
+        ],
+        [
+          -15,
+          -4,
+          0
+        ],
+        [
+          -15,
+          28,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Alternate north/south route; no doorway cut into any room."
+    },
+    {
+      "id": "R08",
+      "kind": "service",
+      "width_m": 4,
+      "height_m": 3.5,
+      "points": [
+        [
+          -5.4,
+          17.4,
+          0
+        ],
+        [
+          -15,
+          17.4,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": ""
+    },
+    {
+      "id": "R09",
+      "kind": "clean",
+      "width_m": 4.5,
+      "height_m": 3.5,
+      "points": [
+        [
+          -41,
+          28,
+          0
+        ],
+        [
+          34,
+          28,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Clean/recovery header; controlled crossing at maintenance junction, no waste storage access required."
+    },
+    {
+      "id": "R10",
+      "kind": "clean",
+      "width_m": 4.5,
+      "height_m": 3.5,
+      "points": [
+        [
+          -28.0,
+          12.3,
+          0
+        ],
+        [
+          -28,
+          28,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": ""
+    },
+    {
+      "id": "R11",
+      "kind": "clean",
+      "width_m": 4.5,
+      "height_m": 3.5,
+      "points": [
+        [
+          -18,
+          30.31,
+          0
+        ],
+        [
+          -18,
+          28,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Two-person rescue/cart approach."
+    },
+    {
+      "id": "R12",
+      "kind": "controlled",
+      "width_m": 4,
+      "height_m": 3.5,
+      "points": [
+        [
+          -46.9,
+          16.0,
+          0
+        ],
+        [
+          -41,
+          16,
+          0
+        ],
+        [
+          -41,
+          28,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Future lockable compliance approach with a bend before the clean header."
+    },
+    {
+      "id": "R13",
+      "kind": "clean",
+      "width_m": 4,
+      "height_m": 3.5,
+      "points": [
+        [
+          6.6,
+          21,
+          0
+        ],
+        [
+          6.6,
+          28,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": ""
+    },
+    {
+      "id": "R14",
+      "kind": "maintenance",
+      "width_m": 4,
+      "height_m": 3.5,
+      "points": [
+        [
+          34,
+          28,
+          0
+        ],
+        [
+          34,
+          46.5,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Independent rescue access to reactor/turbine junction."
+    },
+    {
+      "id": "R15",
+      "kind": "service",
+      "width_m": 4,
+      "height_m": 3.5,
+      "points": [
+        [
+          -15,
+          28,
+          0
+        ],
+        [
+          -26,
+          28,
+          0
+        ],
+        [
+          -26,
+          55,
+          0
+        ],
+        [
+          -5,
+          55,
+          0
+        ],
+        [
+          -1.7,
+          59.5,
+          0
+        ],
+        [
+          -0.5,
+          61.2,
+          0
+        ],
+        [
+          -2.5,
+          63.2,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Cooling recovery/portable battery route."
+    },
+    {
+      "id": "R16",
+      "kind": "service",
+      "width_m": 6,
+      "height_m": 3.5,
+      "points": [
+        [
+          3.1837,
+          57.5163,
+          0
+        ],
+        [
+          -2.5,
+          63.2,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Offset follows the existing southeast reactor stub; remote door/loop still unbound."
+    },
+    {
+      "id": "R17",
+      "kind": "service",
+      "width_m": 4,
+      "height_m": 3.5,
+      "points": [
+        [
+          34,
+          28,
+          0
+        ],
+        [
+          51,
+          28,
+          0
+        ],
+        [
+          51,
+          31,
+          0
+        ],
+        [
+          74,
+          31,
+          0
+        ],
+        [
+          74,
+          36,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Completes the maintenance loop through turbine and electrical approaches."
+    },
+    {
+      "id": "R18",
+      "kind": "waste",
+      "width_m": 4.5,
+      "height_m": 3.5,
+      "points": [
+        [
+          16.4,
+          16,
+          0
+        ],
+        [
+          49,
+          16,
+          0
+        ],
+        [
+          49,
+          3.2,
+          0
+        ],
+        [
+          59.7,
+          0.2,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Separate waste branch; personnel portal is a bottleneck, bulk loads use receiving/dispatch."
+    },
+    {
+      "id": "R19",
+      "kind": "service",
+      "width_m": 3.5,
+      "height_m": 3.5,
+      "points": [
+        [
+          33,
+          46.5,
+          0
+        ],
+        [
+          33,
+          44.9,
+          0
+        ],
+        [
+          33,
+          44.9,
+          -6
+        ],
+        [
+          45.74,
+          44.9,
+          -6
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Vertical line is a reserved stair/lift link, NOT a built stair or walkable ramp."
+    },
+    {
+      "id": "R20",
+      "kind": "clean",
+      "width_m": 4,
+      "height_m": 3.5,
+      "points": [
+        [
+          2.65,
+          -18.40666,
+          0
+        ],
+        [
+          6,
+          -18.40666,
+          0
+        ],
+        [
+          6,
+          -4,
+          0
+        ],
+        [
+          0,
+          -4,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Refinery personnel approach joins upstream connector; source doorway untouched."
+    },
+    {
+      "id": "R21",
+      "kind": "maintenance",
+      "width_m": 4,
+      "height_m": 3.5,
+      "points": [
+        [
+          6,
+          -4,
+          0
+        ],
+        [
+          49,
+          -4,
+          0
+        ],
+        [
+          49,
+          28,
+          0
+        ]
+      ],
+      "status": "RESERVED_UNBUILT",
+      "note": "Emergency materials/recovery crossover closes the lower maintenance loop; does not bypass required fuel processing."
+    },
+    {
+      "id": "R22",
+      "kind": "clean",
+      "width_m": 4,
+      "height_m": 3.5,
+      "points": [
+        [
+          -15,
+          15,
+          0
+        ],
+        [
+          -18,
+          28,
+          0
+        ]
+      ],
+      "status": "COURTYARD_CANDIDATE",
+      "note": "Open-air diagonal rescue shortcut. Medical assembly moves +11m X, -6m Y; source room unchanged."
+    }
+  ],
+  "reserved_volumes": [
+    {
+      "id": "V01_CONDENSER_ACCESS",
+      "kind": "stair_and_freight_lift",
+      "center": [
+        33,
+        40,
+        -2.75
+      ],
+      "size": [
+        5.5,
+        10,
+        6.5
+      ],
+      "note": "Future two-flight switchback stairs plus cart/lift solution; actual design and headroom pending."
+    },
+    {
+      "id": "U01_UTILITY_GALLERY",
+      "kind": "utility_only",
+      "center": [
+        49,
+        32,
+        5.0
+      ],
+      "size": [
+        26,
+        4,
+        2.4
+      ],
+      "note": "Separate steam/CW/power routing allowance; not an installed utility loop."
+    },
+    {
+      "id": "A01_EXTERNAL_ARRIVAL",
+      "kind": "external_arrival",
+      "center": [
+        -75.6,
+        16,
+        2.5
+      ],
+      "size": [
+        20,
+        12,
+        5
+      ],
+      "note": "Keep clear beyond dock gate; external approach unbuilt."
+    },
+    {
+      "id": "A02_WASTE_DISPATCH",
+      "kind": "dispatch_apron",
+      "center": [
+        66,
+        -24,
+        2.5
+      ],
+      "size": [
+        12,
+        12,
+        5
+      ],
+      "note": "Retain external dispatch turning/loading room."
+    }
+  ],
+  "travel_assumptions": {
+    "normal_walk_m_s": 4.5,
+    "loaded_cart_m_s": 1.5,
+    "note": "4.5 m/s is a disclosed layout assumption, not a verified engine controller. Loaded speed is inherited from fuel-corridor planning."
+  }
+}

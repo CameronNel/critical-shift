@@ -1,0 +1,40 @@
+{
+  "revision": "A02",
+  "room_count": 12,
+  "units": "metres",
+  "room_overlap_screen": [
+    {
+      "modules": [
+        "turbine-room",
+        "condenser-bay"
+      ],
+      "conservative_headheight_overlap_m2": 46.562
+    }
+  ],
+  "reservation_clearance_candidates": [
+    {
+      "route": "R15",
+      "module": "reactor-room",
+      "samples": 2,
+      "first": [
+        0.16,
+        60.18
+      ],
+      "last": [
+        0.34,
+        60.36
+      ]
+    }
+  ],
+  "screen_method": "0.25m conservative projected evaluated object bounds at occupied player height; excludes 4m connector end transitions; candidates need inspection, not exact mesh collision verdicts",
+  "travel": {
+    "normal_speed_assumption_m_s": 4.5,
+    "loaded_speed_assumption_m_s": 1.5,
+    "graph_connected": true,
+    "planned_graph_diameter_m": 252.31,
+    "diameter_normal_walk_seconds": 56.07,
+    "full_crossing_under_60_at_assumed_speed": true,
+    "not_runtime_verified": true,
+    "internal_paths": "Planning centerlines, not fresh collision-certified room sweeps. Mine endpoint represents deep working area, not scenery backdrop."
+  }
+}

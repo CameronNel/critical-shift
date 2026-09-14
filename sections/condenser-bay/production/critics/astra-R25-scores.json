@@ -1,0 +1,23 @@
+{
+  "reviewer": "independent Luna (gpt-5.6-luna) critic subagent",
+  "revision": "R25",
+  "date": "2026-09-12",
+  "disposition": "REJECT",
+  "review_set": {"warm_images": 18, "cold_images": 18, "resolution": "1920x1080", "cold_open": "PASS — same-hash separate-process evidence", "cold_comparison": "worst mean channel delta 0.000004662/255"},
+  "saved_audit": {"path": "production/validation/R25/astra-saved-audit.json", "status": "FAIL", "failures": ["U04 nominal bore blocked at one sample by EJ air suction", "gallery standing route fails four body-footprint samples at approximately 2.02 m above deck"], "passes_credited": ["D01 and sill", "named supports", "straight cart delivery 25 poses", "ground routes", "interface markers", "dependencies"]},
+  "boundary": {"U02": "turbine-owned cap action remains outside local scope", "cooling": "local provisional CW sockets allowed; remote bind not required"},
+  "three_most_consequential_defects": [{"image": "C04_EXHAUST.png", "severity": "blocker", "mismatch": "U04 receive path is not visible and EJ air suction blocks one nominal-bore sample."}, {"image": "W08_GALLERY_TURN.png", "severity": "blocker", "mismatch": "Gallery standing route fails four samples with EJ air suction approximately 2.02 m above deck."}, {"image": "C08_MAINT.png; W02_SW_TURN.png", "severity": "major", "mismatch": "Maintenance deck remains weakly covered and stair-top rail ends visibly lack clean connected landings."}],
+  "scores": {
+    "contract_specification_coverage": {"score": 86, "disposition": "REJECT"},
+    "scale_layout": {"score": 86, "disposition": "REJECT"},
+    "machinery_logic": {"score": 85, "disposition": "REJECT"},
+    "circulation_readability": {"score": 86, "disposition": "REJECT"},
+    "construction_detail": {"score": 88, "disposition": "REJECT"},
+    "materials": {"score": 91, "disposition": "PASS"},
+    "lighting": {"score": 87, "disposition": "REJECT"},
+    "palette": {"score": 92, "disposition": "PASS"},
+    "storytelling_environmental_specificity": {"score": 87, "disposition": "REJECT"},
+    "valorant_reference_fidelity": {"score": 87, "disposition": "REJECT"}
+  },
+  "unverified_or_missing": ["Visible U04 receive flange/neck/seal/support or labelled internal cutaway", "Complete roof supplement", "Full local endpoint and floor/support contact close crops", "Complete gallery standing clearance and stair-top rail landings"]
+}

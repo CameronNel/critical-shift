@@ -1,0 +1,4096 @@
+{
+  "blocker_rays": [
+    {
+      "light": "EEVEE_floor_bounce_BRIEFING",
+      "blocker": "Briefing exterior opaque roof membrane",
+      "upward_ray_hit_world": [
+        -4.599999904632568,
+        3.549999952316284,
+        3.559999704360962
+      ],
+      "roof_shadow_visible": true,
+      "light_use_shadow": false
+    },
+    {
+      "light": "EEVEE_floor_bounce_HALL",
+      "blocker": "Hall exterior opaque roof membrane",
+      "upward_ray_hit_world": [
+        0.0,
+        4.599999904632568,
+        3.559999942779541
+      ],
+      "roof_shadow_visible": true,
+      "light_use_shadow": false
+    },
+    {
+      "light": "EEVEE_floor_bounce_LOCKER",
+      "blocker": "Locker exterior opaque roof membrane",
+      "upward_ray_hit_world": [
+        5.0,
+        4.0,
+        3.9600000381469727
+      ],
+      "roof_shadow_visible": true,
+      "light_use_shadow": false
+    },
+    {
+      "light": "EEVEE_floor_bounce_SERVICE",
+      "blocker": "Service exterior opaque roof membrane",
+      "upward_ray_hit_world": [
+        0.0,
+        10.899999618530273,
+        3.559999704360962
+      ],
+      "roof_shadow_visible": true,
+      "light_use_shadow": false
+    }
+  ],
+  "lights": [
+    {
+      "name": "Review sun",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "type": "SUN",
+      "energy": 2.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 1.0,
+        "shadow_maximum_resolution": 0.0010000000474974513,
+        "use_shadow_jitter": false,
+        "shadow_jitter_overblur": 10.0,
+        "shadow_cascade_max_distance": 200.0,
+        "shadow_cascade_count": 4,
+        "shadow_cascade_exponent": 0.800000011920929,
+        "shadow_cascade_fade": 0.10000000149011612
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "Shift entry pool",
+      "location": [
+        -1.159999966621399,
+        -0.6899999976158142,
+        2.3399999141693115
+      ],
+      "type": "AREA",
+      "energy": 12.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 1.0,
+        "shadow_maximum_resolution": 0.0010000000474974513,
+        "use_shadow_jitter": false,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "Shift entry pool.001",
+      "location": [
+        1.159999966621399,
+        -0.6899999976158142,
+        2.3399999141693115
+      ],
+      "type": "AREA",
+      "energy": 12.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 1.0,
+        "shadow_maximum_resolution": 0.0010000000474974513,
+        "use_shadow_jitter": false,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "BRIEFING_light_00_photometric",
+      "location": [
+        -5.900000095367432,
+        3.5999999046325684,
+        3.2730000019073486
+      ],
+      "type": "AREA",
+      "energy": 162.36000061035156,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 1.884955644607544
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "BRIEFING_light_01_photometric",
+      "location": [
+        -3.0999999046325684,
+        3.5999999046325684,
+        3.2730000019073486
+      ],
+      "type": "AREA",
+      "energy": 42.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 1.7453292608261108
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "EEVEE_floor_bounce_BRIEFING",
+      "location": [
+        -4.599999904632568,
+        3.549999952316284,
+        0.25
+      ],
+      "type": "AREA",
+      "energy": 25.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": false,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "EEVEE_floor_bounce_HALL",
+      "location": [
+        0.0,
+        4.599999904632568,
+        0.25
+      ],
+      "type": "AREA",
+      "energy": 40.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": false,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "EEVEE_floor_bounce_LOCKER",
+      "location": [
+        5.0,
+        4.0,
+        0.25
+      ],
+      "type": "AREA",
+      "energy": 58.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": false,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "EEVEE_floor_bounce_SERVICE",
+      "location": [
+        0.0,
+        10.899999618530273,
+        0.25
+      ],
+      "type": "AREA",
+      "energy": 15.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": false,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "HALL_light_00_photometric",
+      "location": [
+        0.0,
+        1.4500000476837158,
+        3.2730000019073486
+      ],
+      "type": "AREA",
+      "energy": 99.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 1.483529806137085
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "HALL_light_01_photometric",
+      "location": [
+        0.0,
+        4.650000095367432,
+        3.2730000019073486
+      ],
+      "type": "AREA",
+      "energy": 91.08000183105469,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 1.6580628156661987
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "HALL_light_02_photometric",
+      "location": [
+        0.0,
+        8.0,
+        3.2730000019073486
+      ],
+      "type": "AREA",
+      "energy": 110.8800048828125,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 2.5307273864746094
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "LOCKER_light_00_photometric",
+      "location": [
+        5.25,
+        2.200000047683716,
+        3.672999858856201
+      ],
+      "type": "AREA",
+      "energy": 126.2249984741211,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 1.884955644607544
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "LOCKER_light_01_photometric",
+      "location": [
+        5.25,
+        5.800000190734863,
+        3.672999858856201
+      ],
+      "type": "AREA",
+      "energy": 75.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 1.7453292608261108
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "LOCKER_light_02_photometric",
+      "location": [
+        2.700000047683716,
+        4.0,
+        3.672999858856201
+      ],
+      "type": "AREA",
+      "energy": 56.099998474121094,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 1.5707963705062866
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "SERVICE_light_photometric",
+      "location": [
+        0.0,
+        11.0,
+        3.2730000019073486
+      ],
+      "type": "AREA",
+      "energy": 85.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 1.7453292608261108
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "V_LIGHT_BRIEF_ceiling",
+      "location": [
+        -4.599999904632568,
+        3.5,
+        1.100000023841858
+      ],
+      "type": "AREA",
+      "energy": 14.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "V_LIGHT_BRIEF_wall",
+      "location": [
+        -5.900000095367432,
+        3.5999999046325684,
+        3.1500000953674316
+      ],
+      "type": "AREA",
+      "energy": 25.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "V_LIGHT_HALL_info",
+      "location": [
+        0.0,
+        4.650000095367432,
+        3.1500000953674316
+      ],
+      "type": "AREA",
+      "energy": 35.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "V_LIGHT_HALL_staff",
+      "location": [
+        0.0,
+        1.4500000476837158,
+        3.1700000762939453
+      ],
+      "type": "AREA",
+      "energy": 55.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "V_LIGHT_LOCKER_bays",
+      "location": [
+        2.700000047683716,
+        4.0,
+        3.5399999618530273
+      ],
+      "type": "AREA",
+      "energy": 40.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "V_LIGHT_LOCKER_front_fill",
+      "location": [
+        5.400000095367432,
+        3.0,
+        2.299999952316284
+      ],
+      "type": "AREA",
+      "energy": 55.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    },
+    {
+      "name": "V_LIGHT_LOCKER_pod_fill",
+      "location": [
+        5.099999904632568,
+        4.0,
+        2.0999999046325684
+      ],
+      "type": "AREA",
+      "energy": 45.0,
+      "properties": {
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_shadow": true,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 2.5,
+        "shadow_maximum_resolution": 0.006000000052154064,
+        "use_shadow_jitter": true,
+        "shadow_jitter_overblur": 10.0,
+        "spread": 3.1415927410125732
+      },
+      "cycles": {
+        "rna_type": "<bpy_struct, Struct(\"CyclesLightSettings\") at 0x00000225B1899D00>",
+        "name": "",
+        "max_bounces": 1024,
+        "use_multiple_importance_sampling": true,
+        "is_portal": false,
+        "is_caustics_light": false
+      },
+      "linking": {
+        "receiver_collection": "None",
+        "blocker_collection": "None"
+      }
+    }
+  ],
+  "roofs": [
+    {
+      "name": "Briefing exterior opaque roof membrane",
+      "location": [
+        -4.579999923706055,
+        3.549999952316284,
+        3.563999891281128
+      ],
+      "bounds": [
+        [
+          -2.799999952316284,
+          -2.7100000381469727,
+          -0.004000000189989805
+        ],
+        [
+          -2.799999952316284,
+          -2.7100000381469727,
+          0.004000000189989805
+        ],
+        [
+          -2.799999952316284,
+          2.7100000381469727,
+          0.004000000189989805
+        ],
+        [
+          -2.799999952316284,
+          2.7100000381469727,
+          -0.004000000189989805
+        ],
+        [
+          2.799999952316284,
+          -2.7100000381469727,
+          -0.004000000189989805
+        ],
+        [
+          2.799999952316284,
+          -2.7100000381469727,
+          0.004000000189989805
+        ],
+        [
+          2.799999952316284,
+          2.7100000381469727,
+          0.004000000189989805
+        ],
+        [
+          2.799999952316284,
+          2.7100000381469727,
+          -0.004000000189989805
+        ]
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "hide_render": false
+      },
+      "materials": [
+        {
+          "name": "EXT exposed plinth",
+          "nodes": [
+            {
+              "type": "BSDF_PRINCIPLED",
+              "name": "Principled BSDF",
+              "inputs": {
+                "Alpha": "1.0",
+                "Transmission Weight": "0.0",
+                "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+                "Emission Strength": "0.0"
+              }
+            },
+            {
+              "type": "OUTPUT_MATERIAL",
+              "name": "Material Output",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "BUMP",
+              "name": "Bump",
+              "inputs": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hall exterior opaque roof membrane",
+      "location": [
+        0.0,
+        4.400000095367432,
+        3.563999891281128
+      ],
+      "bounds": [
+        [
+          -1.7799999713897705,
+          -4.974999904632568,
+          -0.004000000189989805
+        ],
+        [
+          -1.7799999713897705,
+          -4.974999904632568,
+          0.004000000189989805
+        ],
+        [
+          -1.7799999713897705,
+          4.974999904632568,
+          0.004000000189989805
+        ],
+        [
+          -1.7799999713897705,
+          4.974999904632568,
+          -0.004000000189989805
+        ],
+        [
+          1.7799999713897705,
+          -4.974999904632568,
+          -0.004000000189989805
+        ],
+        [
+          1.7799999713897705,
+          -4.974999904632568,
+          0.004000000189989805
+        ],
+        [
+          1.7799999713897705,
+          4.974999904632568,
+          0.004000000189989805
+        ],
+        [
+          1.7799999713897705,
+          4.974999904632568,
+          -0.004000000189989805
+        ]
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "hide_render": false
+      },
+      "materials": [
+        {
+          "name": "EXT exposed plinth",
+          "nodes": [
+            {
+              "type": "BSDF_PRINCIPLED",
+              "name": "Principled BSDF",
+              "inputs": {
+                "Alpha": "1.0",
+                "Transmission Weight": "0.0",
+                "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+                "Emission Strength": "0.0"
+              }
+            },
+            {
+              "type": "OUTPUT_MATERIAL",
+              "name": "Material Output",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "BUMP",
+              "name": "Bump",
+              "inputs": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Locker exterior opaque roof membrane",
+      "location": [
+        4.980000019073486,
+        4.0,
+        3.9639999866485596
+      ],
+      "bounds": [
+        [
+          -3.2799999713897705,
+          -3.4600000381469727,
+          -0.004000000189989805
+        ],
+        [
+          -3.2799999713897705,
+          -3.4600000381469727,
+          0.004000000189989805
+        ],
+        [
+          -3.2799999713897705,
+          3.4600000381469727,
+          0.004000000189989805
+        ],
+        [
+          -3.2799999713897705,
+          3.4600000381469727,
+          -0.004000000189989805
+        ],
+        [
+          3.2799999713897705,
+          -3.4600000381469727,
+          -0.004000000189989805
+        ],
+        [
+          3.2799999713897705,
+          -3.4600000381469727,
+          0.004000000189989805
+        ],
+        [
+          3.2799999713897705,
+          3.4600000381469727,
+          0.004000000189989805
+        ],
+        [
+          3.2799999713897705,
+          3.4600000381469727,
+          -0.004000000189989805
+        ]
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "hide_render": false
+      },
+      "materials": [
+        {
+          "name": "EXT exposed plinth",
+          "nodes": [
+            {
+              "type": "BSDF_PRINCIPLED",
+              "name": "Principled BSDF",
+              "inputs": {
+                "Alpha": "1.0",
+                "Transmission Weight": "0.0",
+                "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+                "Emission Strength": "0.0"
+              }
+            },
+            {
+              "type": "OUTPUT_MATERIAL",
+              "name": "Material Output",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "BUMP",
+              "name": "Bump",
+              "inputs": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rain leader roof elbow",
+      "location": [
+        -7.139999866485596,
+        0.7639999985694885,
+        3.5
+      ],
+      "bounds": [
+        [
+          -0.05000000074505806,
+          -0.05000000074505806,
+          -0.07499998807907104
+        ],
+        [
+          -0.05000000074505806,
+          -0.05000000074505806,
+          0.07499998807907104
+        ],
+        [
+          -0.05000000074505806,
+          0.05000000074505806,
+          0.07499998807907104
+        ],
+        [
+          -0.05000000074505806,
+          0.05000000074505806,
+          -0.07499998807907104
+        ],
+        [
+          0.05000000074505806,
+          -0.05000000074505806,
+          -0.07499998807907104
+        ],
+        [
+          0.05000000074505806,
+          -0.05000000074505806,
+          0.07499998807907104
+        ],
+        [
+          0.05000000074505806,
+          0.05000000074505806,
+          0.07499998807907104
+        ],
+        [
+          0.05000000074505806,
+          0.05000000074505806,
+          -0.07499998807907104
+        ]
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "hide_render": false
+      },
+      "materials": [
+        {
+          "name": "EXT charcoal coated steel",
+          "nodes": [
+            {
+              "type": "BSDF_PRINCIPLED",
+              "name": "Principled BSDF",
+              "inputs": {
+                "Alpha": "1.0",
+                "Transmission Weight": "0.0",
+                "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+                "Emission Strength": "0.0"
+              }
+            },
+            {
+              "type": "OUTPUT_MATERIAL",
+              "name": "Material Output",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp",
+              "inputs": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rain leader roof elbow.001",
+      "location": [
+        7.940000057220459,
+        0.46399998664855957,
+        3.9000000953674316
+      ],
+      "bounds": [
+        [
+          -0.05000000074505806,
+          -0.05000000074505806,
+          -0.07499998807907104
+        ],
+        [
+          -0.05000000074505806,
+          -0.05000000074505806,
+          0.07499998807907104
+        ],
+        [
+          -0.05000000074505806,
+          0.05000000074505806,
+          0.07499998807907104
+        ],
+        [
+          -0.05000000074505806,
+          0.05000000074505806,
+          -0.07499998807907104
+        ],
+        [
+          0.05000000074505806,
+          -0.05000000074505806,
+          -0.07499998807907104
+        ],
+        [
+          0.05000000074505806,
+          -0.05000000074505806,
+          0.07499998807907104
+        ],
+        [
+          0.05000000074505806,
+          0.05000000074505806,
+          0.07499998807907104
+        ],
+        [
+          0.05000000074505806,
+          0.05000000074505806,
+          -0.07499998807907104
+        ]
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "hide_render": false
+      },
+      "materials": [
+        {
+          "name": "EXT charcoal coated steel",
+          "nodes": [
+            {
+              "type": "BSDF_PRINCIPLED",
+              "name": "Principled BSDF",
+              "inputs": {
+                "Alpha": "1.0",
+                "Transmission Weight": "0.0",
+                "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+                "Emission Strength": "0.0"
+              }
+            },
+            {
+              "type": "OUTPUT_MATERIAL",
+              "name": "Material Output",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp",
+              "inputs": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Service exterior opaque roof membrane",
+      "location": [
+        0.0,
+        10.899999618530273,
+        3.563999891281128
+      ],
+      "bounds": [
+        [
+          -1.75,
+          -1.5,
+          -0.004000000189989805
+        ],
+        [
+          -1.75,
+          -1.5,
+          0.004000000189989805
+        ],
+        [
+          -1.75,
+          1.5,
+          0.004000000189989805
+        ],
+        [
+          -1.75,
+          1.5,
+          -0.004000000189989805
+        ],
+        [
+          1.75,
+          -1.5,
+          -0.004000000189989805
+        ],
+        [
+          1.75,
+          -1.5,
+          0.004000000189989805
+        ],
+        [
+          1.75,
+          1.5,
+          0.004000000189989805
+        ],
+        [
+          1.75,
+          1.5,
+          -0.004000000189989805
+        ]
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "hide_render": false
+      },
+      "materials": [
+        {
+          "name": "EXT exposed plinth",
+          "nodes": [
+            {
+              "type": "BSDF_PRINCIPLED",
+              "name": "Principled BSDF",
+              "inputs": {
+                "Alpha": "1.0",
+                "Transmission Weight": "0.0",
+                "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+                "Emission Strength": "0.0"
+              }
+            },
+            {
+              "type": "OUTPUT_MATERIAL",
+              "name": "Material Output",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "BUMP",
+              "name": "Bump",
+              "inputs": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "BRIEFING_ceiling",
+      "location": [
+        -4.579999923706055,
+        3.549999952316284,
+        3.4800000190734863
+      ],
+      "bounds": [
+        [
+          -2.799999952316284,
+          -2.7100000381469727,
+          -0.07999999821186066
+        ],
+        [
+          -2.799999952316284,
+          -2.7100000381469727,
+          0.07999999821186066
+        ],
+        [
+          -2.799999952316284,
+          2.7100000381469727,
+          0.07999999821186066
+        ],
+        [
+          -2.799999952316284,
+          2.7100000381469727,
+          -0.07999999821186066
+        ],
+        [
+          2.799999952316284,
+          -2.7100000381469727,
+          -0.07999999821186066
+        ],
+        [
+          2.799999952316284,
+          -2.7100000381469727,
+          0.07999999821186066
+        ],
+        [
+          2.799999952316284,
+          2.7100000381469727,
+          0.07999999821186066
+        ],
+        [
+          2.799999952316284,
+          2.7100000381469727,
+          -0.07999999821186066
+        ]
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "hide_render": false
+      },
+      "materials": [
+        {
+          "name": "V_ceiling_mineral",
+          "nodes": [
+            {
+              "type": "BSDF_PRINCIPLED",
+              "name": "Principled BSDF",
+              "inputs": {
+                "Alpha": "1.0",
+                "Transmission Weight": "0.0",
+                "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+                "Emission Strength": "0.0"
+              }
+            },
+            {
+              "type": "OUTPUT_MATERIAL",
+              "name": "Material Output",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.001",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.001",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.004",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.005",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy)",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.001",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.006",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).001",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.002",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.007",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).002",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).003",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).004",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.002",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.002",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.002",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.008",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.009",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.010",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.011",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.012",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.003",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.013",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).005",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.004",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.004",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.014",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).006",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.005",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.005",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.015",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).007",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).008",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).009",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.004",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.003",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.003",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.005",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.016",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.017",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.018",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.019",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.020",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.006",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.006",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.021",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).010",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.007",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.007",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.022",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).011",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.008",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.008",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.023",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).012",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).013",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).014",
+              "inputs": {}
+            },
+            {
+              "type": "RGBTOBW",
+              "name": "RGB to BW",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range",
+              "inputs": {}
+            },
+            {
+              "type": "BUMP",
+              "name": "Bump",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.004",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.006",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.024",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.025",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.026",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range.001",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.027",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.028",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).015",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Reference palette balance",
+              "inputs": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HALL_ceiling",
+      "location": [
+        0.0,
+        4.400000095367432,
+        3.4800000190734863
+      ],
+      "bounds": [
+        [
+          -1.7799999713897705,
+          -4.974999904632568,
+          -0.07999999821186066
+        ],
+        [
+          -1.7799999713897705,
+          -4.974999904632568,
+          0.07999999821186066
+        ],
+        [
+          -1.7799999713897705,
+          4.974999904632568,
+          0.07999999821186066
+        ],
+        [
+          -1.7799999713897705,
+          4.974999904632568,
+          -0.07999999821186066
+        ],
+        [
+          1.7799999713897705,
+          -4.974999904632568,
+          -0.07999999821186066
+        ],
+        [
+          1.7799999713897705,
+          -4.974999904632568,
+          0.07999999821186066
+        ],
+        [
+          1.7799999713897705,
+          4.974999904632568,
+          0.07999999821186066
+        ],
+        [
+          1.7799999713897705,
+          4.974999904632568,
+          -0.07999999821186066
+        ]
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "hide_render": false
+      },
+      "materials": [
+        {
+          "name": "V_ceiling_mineral",
+          "nodes": [
+            {
+              "type": "BSDF_PRINCIPLED",
+              "name": "Principled BSDF",
+              "inputs": {
+                "Alpha": "1.0",
+                "Transmission Weight": "0.0",
+                "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+                "Emission Strength": "0.0"
+              }
+            },
+            {
+              "type": "OUTPUT_MATERIAL",
+              "name": "Material Output",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.001",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.001",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.004",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.005",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy)",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.001",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.006",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).001",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.002",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.007",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).002",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).003",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).004",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.002",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.002",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.002",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.008",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.009",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.010",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.011",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.012",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.003",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.013",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).005",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.004",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.004",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.014",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).006",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.005",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.005",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.015",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).007",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).008",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).009",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.004",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.003",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.003",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.005",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.016",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.017",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.018",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.019",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.020",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.006",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.006",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.021",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).010",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.007",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.007",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.022",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).011",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.008",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.008",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.023",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).012",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).013",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).014",
+              "inputs": {}
+            },
+            {
+              "type": "RGBTOBW",
+              "name": "RGB to BW",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range",
+              "inputs": {}
+            },
+            {
+              "type": "BUMP",
+              "name": "Bump",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.004",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.006",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.024",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.025",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.026",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range.001",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.027",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.028",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).015",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Reference palette balance",
+              "inputs": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HALL_recess_ceiling",
+      "location": [
+        -2.0450000762939453,
+        0.6449999809265137,
+        3.4800000190734863
+      ],
+      "bounds": [
+        [
+          -0.26499998569488525,
+          -0.19499999284744263,
+          -0.07999999821186066
+        ],
+        [
+          -0.26499998569488525,
+          -0.19499999284744263,
+          0.07999999821186066
+        ],
+        [
+          -0.26499998569488525,
+          0.19499999284744263,
+          0.07999999821186066
+        ],
+        [
+          -0.26499998569488525,
+          0.19499999284744263,
+          -0.07999999821186066
+        ],
+        [
+          0.26499998569488525,
+          -0.19499999284744263,
+          -0.07999999821186066
+        ],
+        [
+          0.26499998569488525,
+          -0.19499999284744263,
+          0.07999999821186066
+        ],
+        [
+          0.26499998569488525,
+          0.19499999284744263,
+          0.07999999821186066
+        ],
+        [
+          0.26499998569488525,
+          0.19499999284744263,
+          -0.07999999821186066
+        ]
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "hide_render": false
+      },
+      "materials": [
+        {
+          "name": "V_ceiling_mineral",
+          "nodes": [
+            {
+              "type": "BSDF_PRINCIPLED",
+              "name": "Principled BSDF",
+              "inputs": {
+                "Alpha": "1.0",
+                "Transmission Weight": "0.0",
+                "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+                "Emission Strength": "0.0"
+              }
+            },
+            {
+              "type": "OUTPUT_MATERIAL",
+              "name": "Material Output",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.001",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.001",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.004",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.005",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy)",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.001",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.006",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).001",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.002",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.007",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).002",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).003",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).004",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.002",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.002",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.002",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.008",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.009",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.010",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.011",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.012",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.003",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.013",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).005",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.004",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.004",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.014",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).006",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.005",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.005",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.015",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).007",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).008",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).009",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.004",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.003",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.003",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.005",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.016",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.017",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.018",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.019",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.020",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.006",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.006",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.021",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).010",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.007",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.007",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.022",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).011",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.008",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.008",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.023",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).012",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).013",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).014",
+              "inputs": {}
+            },
+            {
+              "type": "RGBTOBW",
+              "name": "RGB to BW",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range",
+              "inputs": {}
+            },
+            {
+              "type": "BUMP",
+              "name": "Bump",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.004",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.006",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.024",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.025",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.026",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range.001",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.027",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.028",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).015",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Reference palette balance",
+              "inputs": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LOCKER_ceiling",
+      "location": [
+        4.980000019073486,
+        4.0,
+        3.880000114440918
+      ],
+      "bounds": [
+        [
+          -3.2799999713897705,
+          -3.4600000381469727,
+          -0.07999999821186066
+        ],
+        [
+          -3.2799999713897705,
+          -3.4600000381469727,
+          0.07999999821186066
+        ],
+        [
+          -3.2799999713897705,
+          3.4600000381469727,
+          0.07999999821186066
+        ],
+        [
+          -3.2799999713897705,
+          3.4600000381469727,
+          -0.07999999821186066
+        ],
+        [
+          3.2799999713897705,
+          -3.4600000381469727,
+          -0.07999999821186066
+        ],
+        [
+          3.2799999713897705,
+          -3.4600000381469727,
+          0.07999999821186066
+        ],
+        [
+          3.2799999713897705,
+          3.4600000381469727,
+          0.07999999821186066
+        ],
+        [
+          3.2799999713897705,
+          3.4600000381469727,
+          -0.07999999821186066
+        ]
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "hide_render": false
+      },
+      "materials": [
+        {
+          "name": "V13_LOCKER_V_ceiling_mineral",
+          "nodes": [
+            {
+              "type": "BSDF_PRINCIPLED",
+              "name": "Principled BSDF",
+              "inputs": {
+                "Alpha": "1.0",
+                "Transmission Weight": "0.0",
+                "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+                "Emission Strength": "0.0"
+              }
+            },
+            {
+              "type": "OUTPUT_MATERIAL",
+              "name": "Material Output",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.001",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.001",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.004",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.005",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy)",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.001",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.006",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).001",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.002",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.007",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).002",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).003",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).004",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.002",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.002",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.002",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.008",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.009",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.010",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.011",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.012",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.003",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.013",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).005",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.004",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.004",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.014",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).006",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.005",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.005",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.015",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).007",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).008",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).009",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.004",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.003",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.003",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.005",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.016",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.017",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.018",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.019",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.020",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.006",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.006",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.021",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).010",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.007",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.007",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.022",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).011",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.008",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.008",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.023",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).012",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).013",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).014",
+              "inputs": {}
+            },
+            {
+              "type": "RGBTOBW",
+              "name": "RGB to BW",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range",
+              "inputs": {}
+            },
+            {
+              "type": "BUMP",
+              "name": "Bump",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.004",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.006",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.024",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.025",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.026",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range.001",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.027",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.028",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).015",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Reference palette balance",
+              "inputs": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SERVICE_ceiling",
+      "location": [
+        0.0,
+        10.899999618530273,
+        3.4800000190734863
+      ],
+      "bounds": [
+        [
+          -1.75,
+          -1.5,
+          -0.07999999821186066
+        ],
+        [
+          -1.75,
+          -1.5,
+          0.07999999821186066
+        ],
+        [
+          -1.75,
+          1.5,
+          0.07999999821186066
+        ],
+        [
+          -1.75,
+          1.5,
+          -0.07999999821186066
+        ],
+        [
+          1.75,
+          -1.5,
+          -0.07999999821186066
+        ],
+        [
+          1.75,
+          -1.5,
+          0.07999999821186066
+        ],
+        [
+          1.75,
+          1.5,
+          0.07999999821186066
+        ],
+        [
+          1.75,
+          1.5,
+          -0.07999999821186066
+        ]
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "hide_render": false
+      },
+      "materials": [
+        {
+          "name": "wall",
+          "nodes": [
+            {
+              "type": "BSDF_PRINCIPLED",
+              "name": "Principled BSDF",
+              "inputs": {
+                "Alpha": "1.0",
+                "Transmission Weight": "0.0",
+                "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+                "Emission Strength": "0.0"
+              }
+            },
+            {
+              "type": "OUTPUT_MATERIAL",
+              "name": "Material Output",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.001",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.001",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.004",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.005",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy)",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.001",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.006",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).001",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.002",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.007",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).002",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).003",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).004",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.002",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.002",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.002",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.008",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.009",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.010",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.011",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.012",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.003",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.003",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.013",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).005",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.004",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.004",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.014",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).006",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.005",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.005",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.015",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).007",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).008",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).009",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.004",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.003",
+              "inputs": {}
+            },
+            {
+              "type": "VECT_MATH",
+              "name": "Vector Math.003",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.005",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.016",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.017",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.018",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.019",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.020",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.006",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.006",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.021",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).010",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.007",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.007",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.022",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).011",
+              "inputs": {}
+            },
+            {
+              "type": "COMBXYZ",
+              "name": "Combine XYZ.008",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_IMAGE",
+              "name": "Image Texture.008",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.023",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).012",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).013",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).014",
+              "inputs": {}
+            },
+            {
+              "type": "RGBTOBW",
+              "name": "RGB to BW",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range",
+              "inputs": {}
+            },
+            {
+              "type": "BUMP",
+              "name": "Bump",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.004",
+              "inputs": {}
+            },
+            {
+              "type": "SEPXYZ",
+              "name": "Separate XYZ.006",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture.001",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.024",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.025",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.026",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range.001",
+              "inputs": {}
+            },
+            {
+              "type": "MAP_RANGE",
+              "name": "Map Range.002",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.027",
+              "inputs": {}
+            },
+            {
+              "type": "MATH",
+              "name": "Math.028",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).015",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Reference palette balance",
+              "inputs": {}
+            },
+            {
+              "type": "NEW_GEOMETRY",
+              "name": "Geometry.005",
+              "inputs": {}
+            },
+            {
+              "type": "TEX_NOISE",
+              "name": "Noise Texture.002",
+              "inputs": {}
+            },
+            {
+              "type": "VALTORGB",
+              "name": "Color Ramp.001",
+              "inputs": {}
+            },
+            {
+              "type": "MIX_RGB",
+              "name": "Mix (Legacy).016",
+              "inputs": {}
+            },
+            {
+              "type": "BUMP",
+              "name": "Bump.001",
+              "inputs": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

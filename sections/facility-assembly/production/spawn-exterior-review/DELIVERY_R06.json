@@ -1,0 +1,4217 @@
+{
+  "revision": "R06",
+  "sha256": "c5cc6171f8f1b2b62609e0438d712749fe3d68c67fe15f84fde39acb75d3cb6b",
+  "cold_load_seconds": 52.043390400000135,
+  "library_dependencies": [
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\waste-storage\\exterior-R01.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\refinery\\exterior-R01.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\condenser-bay\\exterior-R02.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\fuel-corridor\\exterior-R02.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\mine\\exterior-R02.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\electrical-room\\exterior-R03.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\cooling-plant\\exterior-R03.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\medical-reanimation\\exterior-R04.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\turbine-room\\exterior-R04.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\spawn-room\\exterior-R05.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\reactor-room\\exterior-R05.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\compliance-dock\\exterior-R08.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\spawn-room\\module.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\refinery\\module.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\mine\\module.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\fuel-corridor\\module.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\cooling-plant\\module.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\turbine-room\\module.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\reactor-room\\module.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\condenser-bay\\module.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\electrical-room\\module.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\waste-storage\\module.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\medical-reanimation\\module.blend",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\..\\sources\\compliance-dock\\module.blend",
+      "exists": true
+    }
+  ],
+  "new_object_inventory": [
+    {
+      "name": "Arrival orange jamb inlay",
+      "bounds": [
+        [
+          -29.65999984741211,
+          12.477499961853027,
+          2.4700000286102295
+        ],
+        [
+          -29.5,
+          12.5024995803833,
+          3.069999933242798
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Arrival orange jamb inlay.001",
+      "bounds": [
+        [
+          -26.5,
+          12.477499961853027,
+          2.4700000286102295
+        ],
+        [
+          -26.34000015258789,
+          12.5024995803833,
+          3.069999933242798
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "South canopy orange folded fascia",
+      "bounds": [
+        [
+          -29.475000381469727,
+          -0.9819999933242798,
+          3.130000114440918
+        ],
+        [
+          -26.524999618530273,
+          -0.9500000476837158,
+          3.2699999809265137
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "South service mounting backing",
+      "bounds": [
+        [
+          -34.105003356933594,
+          0.6599999666213989,
+          0.5900000333786011
+        ],
+        [
+          -33.19499969482422,
+          0.7400000095367432,
+          1.6100000143051147
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South service enclosure",
+      "bounds": [
+        [
+          -34.04500198364258,
+          0.38499996066093445,
+          0.6650000214576721
+        ],
+        [
+          -33.255001068115234,
+          0.6949999332427979,
+          1.5350000858306885
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "South service folded door",
+      "bounds": [
+        [
+          -34.01000213623047,
+          0.3584999740123749,
+          0.7000000476837158
+        ],
+        [
+          -33.290000915527344,
+          0.3935000002384186,
+          1.5
+        ]
+      ],
+      "materials": [
+        "S01 warm mineral ivory"
+      ]
+    },
+    {
+      "name": "South service rain hood",
+      "bounds": [
+        [
+          -34.14500045776367,
+          0.2849999666213989,
+          1.5824999809265137
+        ],
+        [
+          -33.15500259399414,
+          0.7549999952316284,
+          1.6375000476837158
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South service door handle",
+      "bounds": [
+        [
+          -33.417503356933594,
+          0.3179999589920044,
+          1.0149999856948853
+        ],
+        [
+          -33.38249969482422,
+          0.3619999885559082,
+          1.1850000619888306
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South service wall fixing",
+      "bounds": [
+        [
+          -34.04800033569336,
+          0.6100000143051147,
+          0.6420000195503235
+        ],
+        [
+          -33.992000579833984,
+          0.8600000143051147,
+          0.6980000138282776
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South service wall fixing.001",
+      "bounds": [
+        [
+          -34.04800033569336,
+          0.6100000143051147,
+          1.5019999742507935
+        ],
+        [
+          -33.992000579833984,
+          0.8600000143051147,
+          1.5579999685287476
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South service wall fixing.002",
+      "bounds": [
+        [
+          -33.30800247192383,
+          0.6100000143051147,
+          0.6420000195503235
+        ],
+        [
+          -33.25200271606445,
+          0.8600000143051147,
+          0.6980000138282776
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South service wall fixing.003",
+      "bounds": [
+        [
+          -33.30800247192383,
+          0.6100000143051147,
+          1.5019999742507935
+        ],
+        [
+          -33.25200271606445,
+          0.8600000143051147,
+          1.5579999685287476
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South service name",
+      "bounds": [
+        [
+          -33.89955520629883,
+          0.3495999872684479,
+          1.3177520036697388
+        ],
+        [
+          -33.39720916748047,
+          0.35040000081062317,
+          1.3681520223617554
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South service caution",
+      "bounds": [
+        [
+          -33.66130828857422,
+          0.3495999872684479,
+          1.0712900161743164
+        ],
+        [
+          -33.63850784301758,
+          0.35040000081062317,
+          1.2042900323867798
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "South service door vent",
+      "bounds": [
+        [
+          -33.775001525878906,
+          0.3489999771118164,
+          0.9745000004768372
+        ],
+        [
+          -33.525001525878906,
+          0.3569999933242798,
+          0.9855000376701355
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South service door vent.001",
+      "bounds": [
+        [
+          -33.775001525878906,
+          0.3489999771118164,
+          0.9345000386238098
+        ],
+        [
+          -33.525001525878906,
+          0.3569999933242798,
+          0.9455000758171082
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South service door vent.002",
+      "bounds": [
+        [
+          -33.775001525878906,
+          0.3489999771118164,
+          0.8945000171661377
+        ],
+        [
+          -33.525001525878906,
+          0.3569999933242798,
+          0.905500054359436
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East service mounting backing",
+      "bounds": [
+        [
+          -19.68000030517578,
+          2.5450000762939453,
+          0.6100000143051147
+        ],
+        [
+          -19.599998474121094,
+          3.4549999237060547,
+          1.6299999952316284
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East service enclosure",
+      "bounds": [
+        [
+          -19.635000228881836,
+          2.6050000190734863,
+          0.6850000023841858
+        ],
+        [
+          -19.32499885559082,
+          3.3949999809265137,
+          1.5550000667572021
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "East service folded door",
+      "bounds": [
+        [
+          -19.333499908447266,
+          2.6399998664855957,
+          0.7200000286102295
+        ],
+        [
+          -19.298500061035156,
+          3.3600001335144043,
+          1.5199999809265137
+        ]
+      ],
+      "materials": [
+        "S01 warm mineral ivory"
+      ]
+    },
+    {
+      "name": "East service rain hood",
+      "bounds": [
+        [
+          -19.69499969482422,
+          2.504999876022339,
+          1.6024999618530273
+        ],
+        [
+          -19.224998474121094,
+          3.495000123977661,
+          1.6575000286102295
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East service door handle",
+      "bounds": [
+        [
+          -19.301998138427734,
+          3.2325000762939453,
+          1.034999966621399
+        ],
+        [
+          -19.257999420166016,
+          3.2674999237060547,
+          1.2050000429153442
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East service wall fixing",
+      "bounds": [
+        [
+          -19.799999237060547,
+          2.6019999980926514,
+          0.6620000004768372
+        ],
+        [
+          -19.549999237060547,
+          2.6580002307891846,
+          0.7179999947547913
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East service wall fixing.001",
+      "bounds": [
+        [
+          -19.799999237060547,
+          2.6019999980926514,
+          1.5219999551773071
+        ],
+        [
+          -19.549999237060547,
+          2.6580002307891846,
+          1.5779999494552612
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East service wall fixing.002",
+      "bounds": [
+        [
+          -19.799999237060547,
+          3.3419997692108154,
+          0.6620000004768372
+        ],
+        [
+          -19.549999237060547,
+          3.3980000019073486,
+          0.7179999947547913
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East service wall fixing.003",
+      "bounds": [
+        [
+          -19.799999237060547,
+          3.3419997692108154,
+          1.5219999551773071
+        ],
+        [
+          -19.549999237060547,
+          3.3980000019073486,
+          1.5779999494552612
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East service name",
+      "bounds": [
+        [
+          -19.2903995513916,
+          2.750447988510132,
+          1.3377519845962524
+        ],
+        [
+          -19.28959846496582,
+          3.2527921199798584,
+          1.388152003288269
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East service caution",
+      "bounds": [
+        [
+          -19.2903995513916,
+          2.988694906234741,
+          1.09128999710083
+        ],
+        [
+          -19.28959846496582,
+          3.0114951133728027,
+          1.2242900133132935
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "East service door vent",
+      "bounds": [
+        [
+          -19.296998977661133,
+          2.875,
+          0.9944999814033508
+        ],
+        [
+          -19.288999557495117,
+          3.125,
+          1.0054999589920044
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East service door vent.001",
+      "bounds": [
+        [
+          -19.296998977661133,
+          2.875,
+          0.9545000195503235
+        ],
+        [
+          -19.288999557495117,
+          3.125,
+          0.9655000567436218
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East service door vent.002",
+      "bounds": [
+        [
+          -19.296998977661133,
+          2.875,
+          0.9144999980926514
+        ],
+        [
+          -19.288999557495117,
+          3.125,
+          0.9255000352859497
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East utility run",
+      "bounds": [
+        [
+          -19.395000457763672,
+          2.0,
+          0.5949997901916504
+        ],
+        [
+          -19.28499984741211,
+          6.25,
+          0.7050001621246338
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East wall return",
+      "bounds": [
+        [
+          -19.84000015258789,
+          1.9449999332427979,
+          0.5949999690055847
+        ],
+        [
+          -19.34000015258789,
+          2.055000066757202,
+          0.7049999833106995
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East wall gland",
+      "bounds": [
+        [
+          -19.858001708984375,
+          1.902999997138977,
+          0.5529999732971191
+        ],
+        [
+          -19.80500030517578,
+          2.0970001220703125,
+          0.746999979019165
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "East wall return.001",
+      "bounds": [
+        [
+          -19.84000015258789,
+          6.195000171661377,
+          0.5949999690055847
+        ],
+        [
+          -19.34000015258789,
+          6.304999828338623,
+          0.7049999833106995
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East wall gland.001",
+      "bounds": [
+        [
+          -19.858001708984375,
+          6.1529998779296875,
+          0.5529999732971191
+        ],
+        [
+          -19.80500030517578,
+          6.3470001220703125,
+          0.746999979019165
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "East saddle",
+      "bounds": [
+        [
+          -19.84000015258789,
+          2.189500093460083,
+          0.6269999742507935
+        ],
+        [
+          -19.34000015258789,
+          2.2355000972747803,
+          0.6729999780654907
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East split collar",
+      "bounds": [
+        [
+          -19.408000946044922,
+          2.1445000171661377,
+          0.6079999804496765
+        ],
+        [
+          -19.27199935913086,
+          2.2805001735687256,
+          0.6919999718666077
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "East saddle.001",
+      "bounds": [
+        [
+          -19.84000015258789,
+          3.3370001316070557,
+          0.6269999742507935
+        ],
+        [
+          -19.34000015258789,
+          3.383000135421753,
+          0.6729999780654907
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East split collar.001",
+      "bounds": [
+        [
+          -19.408000946044922,
+          3.2920000553131104,
+          0.6079999804496765
+        ],
+        [
+          -19.27199935913086,
+          3.4280002117156982,
+          0.6919999718666077
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "East saddle.002",
+      "bounds": [
+        [
+          -19.84000015258789,
+          4.739499568939209,
+          0.6269999742507935
+        ],
+        [
+          -19.34000015258789,
+          4.7855000495910645,
+          0.6729999780654907
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East split collar.002",
+      "bounds": [
+        [
+          -19.408000946044922,
+          4.694499969482422,
+          0.6079999804496765
+        ],
+        [
+          -19.27199935913086,
+          4.830499649047852,
+          0.6919999718666077
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "East saddle.003",
+      "bounds": [
+        [
+          -19.84000015258789,
+          6.014499664306641,
+          0.6269999742507935
+        ],
+        [
+          -19.34000015258789,
+          6.060500144958496,
+          0.6729999780654907
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "East split collar.003",
+      "bounds": [
+        [
+          -19.408000946044922,
+          5.9695000648498535,
+          0.6079999804496765
+        ],
+        [
+          -19.27199935913086,
+          6.105499744415283,
+          0.6919999718666077
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Stowed hose coil",
+      "bounds": [
+        [
+          -32.13842010498047,
+          0.3110000193119049,
+          1.2181388139724731
+        ],
+        [
+          -32.096092224121094,
+          0.3490000069141388,
+          1.2677074670791626
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.001",
+      "bounds": [
+        [
+          -32.15106964111328,
+          0.3110000193119049,
+          1.260330319404602
+        ],
+        [
+          -32.10133361816406,
+          0.3490000069141388,
+          1.3154464960098267
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.002",
+      "bounds": [
+        [
+          -32.17136001586914,
+          0.3110000193119049,
+          1.3009737730026245
+        ],
+        [
+          -32.11613082885742,
+          0.3490000069141388,
+          1.3595157861709595
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.003",
+      "bounds": [
+        [
+          -32.19852066040039,
+          0.3110000193119049,
+          1.338505744934082
+        ],
+        [
+          -32.13991928100586,
+          0.3490000069141388,
+          1.3982234001159668
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.004",
+      "bounds": [
+        [
+          -32.23149490356445,
+          0.3110000193119049,
+          1.3714832067489624
+        ],
+        [
+          -32.17177963256836,
+          0.3490000069141388,
+          1.4300824403762817
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.005",
+      "bounds": [
+        [
+          -32.26902389526367,
+          0.3110000193119049,
+          1.3986387252807617
+        ],
+        [
+          -32.21048355102539,
+          0.3490000069141388,
+          1.4538683891296387
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.006",
+      "bounds": [
+        [
+          -32.309669494628906,
+          0.3110000193119049,
+          1.4189298152923584
+        ],
+        [
+          -32.254554748535156,
+          0.3490000069141388,
+          1.4686663150787354
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.007",
+      "bounds": [
+        [
+          -32.35186004638672,
+          0.3110000193119049,
+          1.4315760135650635
+        ],
+        [
+          -32.30229187011719,
+          0.3490000069141388,
+          1.4739086627960205
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.008",
+      "bounds": [
+        [
+          -32.39771270751953,
+          0.3110000193119049,
+          1.4315760135650635
+        ],
+        [
+          -32.34813690185547,
+          0.3490000069141388,
+          1.4739086627960205
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.009",
+      "bounds": [
+        [
+          -32.4454460144043,
+          0.3110000193119049,
+          1.4189298152923584
+        ],
+        [
+          -32.39033126831055,
+          0.3490000069141388,
+          1.4686663150787354
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.010",
+      "bounds": [
+        [
+          -32.4895133972168,
+          0.3110000193119049,
+          1.3986387252807617
+        ],
+        [
+          -32.430973052978516,
+          0.3490000069141388,
+          1.4538683891296387
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.011",
+      "bounds": [
+        [
+          -32.52822494506836,
+          0.3110000193119049,
+          1.3714832067489624
+        ],
+        [
+          -32.468509674072266,
+          0.3490000069141388,
+          1.4300824403762817
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.012",
+      "bounds": [
+        [
+          -32.56008529663086,
+          0.3110000193119049,
+          1.338505744934082
+        ],
+        [
+          -32.50148391723633,
+          0.3490000069141388,
+          1.3982234001159668
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.013",
+      "bounds": [
+        [
+          -32.583866119384766,
+          0.3110000193119049,
+          1.3009737730026245
+        ],
+        [
+          -32.52863693237305,
+          0.3490000069141388,
+          1.3595157861709595
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.014",
+      "bounds": [
+        [
+          -32.59866714477539,
+          0.3110000193119049,
+          1.260330319404602
+        ],
+        [
+          -32.54893112182617,
+          0.3490000069141388,
+          1.3154464960098267
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.015",
+      "bounds": [
+        [
+          -32.603904724121094,
+          0.3110000193119049,
+          1.2181388139724731
+        ],
+        [
+          -32.56157684326172,
+          0.3490000069141388,
+          1.2677074670791626
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.016",
+      "bounds": [
+        [
+          -32.603904724121094,
+          0.3110000193119049,
+          1.1722925901412964
+        ],
+        [
+          -32.56157684326172,
+          0.3490000069141388,
+          1.2218612432479858
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.017",
+      "bounds": [
+        [
+          -32.59866714477539,
+          0.3110000193119049,
+          1.1245533227920532
+        ],
+        [
+          -32.54893112182617,
+          0.3490000069141388,
+          1.179669737815857
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.018",
+      "bounds": [
+        [
+          -32.583866119384766,
+          0.3110000193119049,
+          1.08048415184021
+        ],
+        [
+          -32.52863693237305,
+          0.3490000069141388,
+          1.139026165008545
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.019",
+      "bounds": [
+        [
+          -32.56008529663086,
+          0.3110000193119049,
+          1.0417766571044922
+        ],
+        [
+          -32.50148391723633,
+          0.3490000069141388,
+          1.101494312286377
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.020",
+      "bounds": [
+        [
+          -32.52822494506836,
+          0.3110000193119049,
+          1.0099176168441772
+        ],
+        [
+          -32.468509674072266,
+          0.3490000069141388,
+          1.0685168504714966
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.021",
+      "bounds": [
+        [
+          -32.4895133972168,
+          0.3110000193119049,
+          0.9861316680908203
+        ],
+        [
+          -32.430973052978516,
+          0.3490000069141388,
+          1.0413613319396973
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.022",
+      "bounds": [
+        [
+          -32.4454460144043,
+          0.3110000193119049,
+          0.9713336229324341
+        ],
+        [
+          -32.39033126831055,
+          0.3490000069141388,
+          1.021070122718811
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.023",
+      "bounds": [
+        [
+          -32.39771270751953,
+          0.3110000193119049,
+          0.9660914540290833
+        ],
+        [
+          -32.34813690185547,
+          0.3490000069141388,
+          1.008423924446106
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.024",
+      "bounds": [
+        [
+          -32.35186004638672,
+          0.3110000193119049,
+          0.9660914540290833
+        ],
+        [
+          -32.30229187011719,
+          0.3490000069141388,
+          1.008423924446106
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.025",
+      "bounds": [
+        [
+          -32.309669494628906,
+          0.3110000193119049,
+          0.9713336229324341
+        ],
+        [
+          -32.254554748535156,
+          0.3490000069141388,
+          1.021070122718811
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.026",
+      "bounds": [
+        [
+          -32.26902389526367,
+          0.3110000193119049,
+          0.9861316680908203
+        ],
+        [
+          -32.21048355102539,
+          0.3490000069141388,
+          1.0413613319396973
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.027",
+      "bounds": [
+        [
+          -32.23149490356445,
+          0.3110000193119049,
+          1.0099176168441772
+        ],
+        [
+          -32.17177963256836,
+          0.3490000069141388,
+          1.0685168504714966
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.028",
+      "bounds": [
+        [
+          -32.19852066040039,
+          0.3110000193119049,
+          1.0417766571044922
+        ],
+        [
+          -32.13991928100586,
+          0.3490000069141388,
+          1.101494312286377
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.029",
+      "bounds": [
+        [
+          -32.17136001586914,
+          0.3110000193119049,
+          1.08048415184021
+        ],
+        [
+          -32.11613082885742,
+          0.3490000069141388,
+          1.139026165008545
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.030",
+      "bounds": [
+        [
+          -32.15106964111328,
+          0.3110000193119049,
+          1.1245533227920532
+        ],
+        [
+          -32.10133361816406,
+          0.3490000069141388,
+          1.179669737815857
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.031",
+      "bounds": [
+        [
+          -32.13842010498047,
+          0.3110000193119049,
+          1.1722925901412964
+        ],
+        [
+          -32.096092224121094,
+          0.3490000069141388,
+          1.2218612432479858
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.032",
+      "bounds": [
+        [
+          -32.172752380371094,
+          0.29899999499320984,
+          1.2181384563446045
+        ],
+        [
+          -32.13109588623047,
+          0.3369999825954437,
+          1.2608797550201416
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.033",
+      "bounds": [
+        [
+          -32.183406829833984,
+          0.29899999499320984,
+          1.2535018920898438
+        ],
+        [
+          -32.13566207885742,
+          0.3369999825954437,
+          1.3020529747009277
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.034",
+      "bounds": [
+        [
+          -32.200462341308594,
+          0.29899999499320984,
+          1.287581443786621
+        ],
+        [
+          -32.148468017578125,
+          0.3369999825954437,
+          1.34006929397583
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.035",
+      "bounds": [
+        [
+          -32.2232666015625,
+          0.29899999499320984,
+          1.3190597295761108
+        ],
+        [
+          -32.16902160644531,
+          0.3369999825954437,
+          1.3734756708145142
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.036",
+      "bounds": [
+        [
+          -32.250938415527344,
+          0.29899999499320984,
+          1.3467340469360352
+        ],
+        [
+          -32.19652557373047,
+          0.3369999825954437,
+          1.4009811878204346
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.037",
+      "bounds": [
+        [
+          -32.28242111206055,
+          0.29899999499320984,
+          1.3695374727249146
+        ],
+        [
+          -32.22993087768555,
+          0.3369999825954437,
+          1.4215322732925415
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.038",
+      "bounds": [
+        [
+          -32.31649398803711,
+          0.29899999499320984,
+          1.3865940570831299
+        ],
+        [
+          -32.267948150634766,
+          0.3369999825954437,
+          1.4343388080596924
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.039",
+      "bounds": [
+        [
+          -32.35186004638672,
+          0.29899999499320984,
+          1.397248387336731
+        ],
+        [
+          -32.309120178222656,
+          0.3369999825954437,
+          1.4389084577560425
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.040",
+      "bounds": [
+        [
+          -32.3908805847168,
+          0.29899999499320984,
+          1.397248387336731
+        ],
+        [
+          -32.3481330871582,
+          0.3369999825954437,
+          1.4389084577560425
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.041",
+      "bounds": [
+        [
+          -32.43204879760742,
+          0.29899999499320984,
+          1.3865940570831299
+        ],
+        [
+          -32.38350296020508,
+          0.3369999825954437,
+          1.4343388080596924
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.042",
+      "bounds": [
+        [
+          -32.470069885253906,
+          0.29899999499320984,
+          1.3695374727249146
+        ],
+        [
+          -32.417579650878906,
+          0.3369999825954437,
+          1.4215322732925415
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.043",
+      "bounds": [
+        [
+          -32.50347137451172,
+          0.29899999499320984,
+          1.3467340469360352
+        ],
+        [
+          -32.449058532714844,
+          0.3369999825954437,
+          1.4009811878204346
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.044",
+      "bounds": [
+        [
+          -32.53097915649414,
+          0.29899999499320984,
+          1.3190608024597168
+        ],
+        [
+          -32.47673416137695,
+          0.3369999825954437,
+          1.3734745979309082
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.045",
+      "bounds": [
+        [
+          -32.55153274536133,
+          0.29899999499320984,
+          1.2875800132751465
+        ],
+        [
+          -32.49953842163086,
+          0.3369999825954437,
+          1.3400707244873047
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.046",
+      "bounds": [
+        [
+          -32.56433868408203,
+          0.29899999499320984,
+          1.2535018920898438
+        ],
+        [
+          -32.51659393310547,
+          0.3369999825954437,
+          1.3020529747009277
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.047",
+      "bounds": [
+        [
+          -32.56890869140625,
+          0.29899999499320984,
+          1.2181384563446045
+        ],
+        [
+          -32.527252197265625,
+          0.3369999825954437,
+          1.2608797550201416
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.048",
+      "bounds": [
+        [
+          -32.56890869140625,
+          0.29899999499320984,
+          1.1791203022003174
+        ],
+        [
+          -32.527252197265625,
+          0.3369999825954437,
+          1.2218616008758545
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.049",
+      "bounds": [
+        [
+          -32.56433868408203,
+          0.29899999499320984,
+          1.1379469633102417
+        ],
+        [
+          -32.51659393310547,
+          0.3369999825954437,
+          1.1864982843399048
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.050",
+      "bounds": [
+        [
+          -32.55153274536133,
+          0.29899999499320984,
+          1.0999294519424438
+        ],
+        [
+          -32.49953842163086,
+          0.3369999825954437,
+          1.152419924736023
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.051",
+      "bounds": [
+        [
+          -32.53097915649414,
+          0.29899999499320984,
+          1.0665254592895508
+        ],
+        [
+          -32.47673416137695,
+          0.3369999825954437,
+          1.1209392547607422
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.052",
+      "bounds": [
+        [
+          -32.50347137451172,
+          0.29899999499320984,
+          1.0390187501907349
+        ],
+        [
+          -32.449058532714844,
+          0.3369999825954437,
+          1.0932658910751343
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.053",
+      "bounds": [
+        [
+          -32.470069885253906,
+          0.29899999499320984,
+          1.018467664718628
+        ],
+        [
+          -32.417579650878906,
+          0.3369999825954437,
+          1.0704624652862549
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.054",
+      "bounds": [
+        [
+          -32.43204879760742,
+          0.29899999499320984,
+          1.005661129951477
+        ],
+        [
+          -32.38350296020508,
+          0.3369999825954437,
+          1.0534058809280396
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.055",
+      "bounds": [
+        [
+          -32.3908805847168,
+          0.29899999499320984,
+          1.0010913610458374
+        ],
+        [
+          -32.3481330871582,
+          0.3369999825954437,
+          1.042751431465149
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.056",
+      "bounds": [
+        [
+          -32.35186004638672,
+          0.29899999499320984,
+          1.0010913610458374
+        ],
+        [
+          -32.309120178222656,
+          0.3369999825954437,
+          1.042751431465149
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.057",
+      "bounds": [
+        [
+          -32.31649398803711,
+          0.29899999499320984,
+          1.005661129951477
+        ],
+        [
+          -32.267948150634766,
+          0.3369999825954437,
+          1.0534058809280396
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.058",
+      "bounds": [
+        [
+          -32.28242111206055,
+          0.29899999499320984,
+          1.018467664718628
+        ],
+        [
+          -32.22993087768555,
+          0.3369999825954437,
+          1.0704624652862549
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.059",
+      "bounds": [
+        [
+          -32.250938415527344,
+          0.29899999499320984,
+          1.0390187501907349
+        ],
+        [
+          -32.19652557373047,
+          0.3369999825954437,
+          1.0932658910751343
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.060",
+      "bounds": [
+        [
+          -32.2232666015625,
+          0.29899999499320984,
+          1.0665242671966553
+        ],
+        [
+          -32.16902160644531,
+          0.3369999825954437,
+          1.1209404468536377
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.061",
+      "bounds": [
+        [
+          -32.200462341308594,
+          0.29899999499320984,
+          1.0999308824539185
+        ],
+        [
+          -32.148468017578125,
+          0.3369999825954437,
+          1.1524184942245483
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.062",
+      "bounds": [
+        [
+          -32.183406829833984,
+          0.29899999499320984,
+          1.1379469633102417
+        ],
+        [
+          -32.13566207885742,
+          0.3369999825954437,
+          1.1864982843399048
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.063",
+      "bounds": [
+        [
+          -32.172752380371094,
+          0.29899999499320984,
+          1.1791203022003174
+        ],
+        [
+          -32.13109588623047,
+          0.3369999825954437,
+          1.2218616008758545
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.064",
+      "bounds": [
+        [
+          -32.20707702636719,
+          0.28700000047683716,
+          1.2181379795074463
+        ],
+        [
+          -32.16609191894531,
+          0.32499998807907104,
+          1.254051923751831
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.065",
+      "bounds": [
+        [
+          -32.21574020385742,
+          0.28700000047683716,
+          1.2466752529144287
+        ],
+        [
+          -32.169986724853516,
+          0.32499998807907104,
+          1.2886574268341064
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.066",
+      "bounds": [
+        [
+          -32.22956466674805,
+          0.28700000047683716,
+          1.274186372756958
+        ],
+        [
+          -32.18080520629883,
+          0.32499998807907104,
+          1.3206255435943604
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.067",
+      "bounds": [
+        [
+          -32.248016357421875,
+          0.28700000047683716,
+          1.299615740776062
+        ],
+        [
+          -32.1981201171875,
+          0.32499998807907104,
+          1.3487259149551392
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.068",
+      "bounds": [
+        [
+          -32.270381927490234,
+          0.28700000047683716,
+          1.321985125541687
+        ],
+        [
+          -32.22127151489258,
+          0.32499998807907104,
+          1.3718801736831665
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.069",
+      "bounds": [
+        [
+          -32.295814514160156,
+          0.28700000047683716,
+          1.3404359817504883
+        ],
+        [
+          -32.24937438964844,
+          0.32499998807907104,
+          1.3891966342926025
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.070",
+      "bounds": [
+        [
+          -32.323326110839844,
+          0.28700000047683716,
+          1.3542581796646118
+        ],
+        [
+          -32.281341552734375,
+          0.32499998807907104,
+          1.400011420249939
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.071",
+      "bounds": [
+        [
+          -32.35186004638672,
+          0.28700000047683716,
+          1.3629209995269775
+        ],
+        [
+          -32.315948486328125,
+          0.32499998807907104,
+          1.4039084911346436
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.072",
+      "bounds": [
+        [
+          -32.384056091308594,
+          0.28700000047683716,
+          1.3629209995269775
+        ],
+        [
+          -32.34813690185547,
+          0.32499998807907104,
+          1.4039084911346436
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.073",
+      "bounds": [
+        [
+          -32.41865921020508,
+          0.28700000047683716,
+          1.3542581796646118
+        ],
+        [
+          -32.37667465209961,
+          0.32499998807907104,
+          1.400011420249939
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.074",
+      "bounds": [
+        [
+          -32.450626373291016,
+          0.28700000047683716,
+          1.3404359817504883
+        ],
+        [
+          -32.4041862487793,
+          0.32499998807907104,
+          1.3891966342926025
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.075",
+      "bounds": [
+        [
+          -32.47872543334961,
+          0.28700000047683716,
+          1.3219859600067139
+        ],
+        [
+          -32.42961502075195,
+          0.32499998807907104,
+          1.3718793392181396
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.076",
+      "bounds": [
+        [
+          -32.50188064575195,
+          0.28700000047683716,
+          1.299614429473877
+        ],
+        [
+          -32.45198440551758,
+          0.32499998807907104,
+          1.3487272262573242
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.077",
+      "bounds": [
+        [
+          -32.51919937133789,
+          0.28700000047683716,
+          1.274186372756958
+        ],
+        [
+          -32.47043991088867,
+          0.32499998807907104,
+          1.3206255435943604
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.078",
+      "bounds": [
+        [
+          -32.53001022338867,
+          0.28700000047683716,
+          1.2466752529144287
+        ],
+        [
+          -32.484256744384766,
+          0.32499998807907104,
+          1.2886574268341064
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.079",
+      "bounds": [
+        [
+          -32.533905029296875,
+          0.28700000047683716,
+          1.2181379795074463
+        ],
+        [
+          -32.492919921875,
+          0.32499998807907104,
+          1.254051923751831
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.080",
+      "bounds": [
+        [
+          -32.533905029296875,
+          0.28700000047683716,
+          1.1859480142593384
+        ],
+        [
+          -32.492919921875,
+          0.32499998807907104,
+          1.2218621969223022
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.081",
+      "bounds": [
+        [
+          -32.53001022338867,
+          0.28700000047683716,
+          1.1513426303863525
+        ],
+        [
+          -32.484256744384766,
+          0.32499998807907104,
+          1.1933248043060303
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.082",
+      "bounds": [
+        [
+          -32.51919937133789,
+          0.28700000047683716,
+          1.1193745136260986
+        ],
+        [
+          -32.47043991088867,
+          0.32499998807907104,
+          1.165813684463501
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.083",
+      "bounds": [
+        [
+          -32.50188064575195,
+          0.28700000047683716,
+          1.0912728309631348
+        ],
+        [
+          -32.45198440551758,
+          0.32499998807907104,
+          1.140385627746582
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.084",
+      "bounds": [
+        [
+          -32.47872543334961,
+          0.28700000047683716,
+          1.0681207180023193
+        ],
+        [
+          -32.42961502075195,
+          0.32499998807907104,
+          1.1180140972137451
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.085",
+      "bounds": [
+        [
+          -32.450626373291016,
+          0.28700000047683716,
+          1.050803303718567
+        ],
+        [
+          -32.4041862487793,
+          0.32499998807907104,
+          1.0995639562606812
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.086",
+      "bounds": [
+        [
+          -32.41865921020508,
+          0.28700000047683716,
+          1.03998863697052
+        ],
+        [
+          -32.37667465209961,
+          0.32499998807907104,
+          1.085741639137268
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.087",
+      "bounds": [
+        [
+          -32.384056091308594,
+          0.28700000047683716,
+          1.0360914468765259
+        ],
+        [
+          -32.34813690185547,
+          0.32499998807907104,
+          1.077078938484192
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.088",
+      "bounds": [
+        [
+          -32.35186004638672,
+          0.28700000047683716,
+          1.0360914468765259
+        ],
+        [
+          -32.315948486328125,
+          0.32499998807907104,
+          1.077078938484192
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.089",
+      "bounds": [
+        [
+          -32.323326110839844,
+          0.28700000047683716,
+          1.03998863697052
+        ],
+        [
+          -32.281341552734375,
+          0.32499998807907104,
+          1.085741639137268
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.090",
+      "bounds": [
+        [
+          -32.295814514160156,
+          0.28700000047683716,
+          1.050803303718567
+        ],
+        [
+          -32.24937438964844,
+          0.32499998807907104,
+          1.0995639562606812
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.091",
+      "bounds": [
+        [
+          -32.270381927490234,
+          0.28700000047683716,
+          1.0681198835372925
+        ],
+        [
+          -32.22127151489258,
+          0.32499998807907104,
+          1.118014931678772
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.092",
+      "bounds": [
+        [
+          -32.248016357421875,
+          0.28700000047683716,
+          1.0912741422653198
+        ],
+        [
+          -32.1981201171875,
+          0.32499998807907104,
+          1.140384316444397
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.093",
+      "bounds": [
+        [
+          -32.22956466674805,
+          0.28700000047683716,
+          1.1193745136260986
+        ],
+        [
+          -32.18080520629883,
+          0.32499998807907104,
+          1.165813684463501
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.094",
+      "bounds": [
+        [
+          -32.21574020385742,
+          0.28700000047683716,
+          1.1513426303863525
+        ],
+        [
+          -32.169986724853516,
+          0.32499998807907104,
+          1.1933248043060303
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.095",
+      "bounds": [
+        [
+          -32.20707702636719,
+          0.28700000047683716,
+          1.1859480142593384
+        ],
+        [
+          -32.16609191894531,
+          0.32499998807907104,
+          1.2218621969223022
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.096",
+      "bounds": [
+        [
+          -32.24140548706055,
+          0.2750000059604645,
+          1.218139886856079
+        ],
+        [
+          -32.20109176635742,
+          0.31299999356269836,
+          1.2472217082977295
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.097",
+      "bounds": [
+        [
+          -32.248077392578125,
+          0.2750000059604645,
+          1.2398444414138794
+        ],
+        [
+          -32.204315185546875,
+          0.31299999356269836,
+          1.2752660512924194
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.098",
+      "bounds": [
+        [
+          -32.258663177490234,
+          0.2750000059604645,
+          1.260792851448059
+        ],
+        [
+          -32.213138580322266,
+          0.31299999356269836,
+          1.3011802434921265
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.099",
+      "bounds": [
+        [
+          -32.272762298583984,
+          0.2750000059604645,
+          1.2801707983016968
+        ],
+        [
+          -32.22722244262695,
+          0.31299999356269836,
+          1.3239771127700806
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.100",
+      "bounds": [
+        [
+          -32.28982925415039,
+          0.2750000059604645,
+          1.2972368001937866
+        ],
+        [
+          -32.24602127075195,
+          0.31299999356269836,
+          1.3427780866622925
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.101",
+      "bounds": [
+        [
+          -32.309207916259766,
+          0.2750000059604645,
+          1.3113343715667725
+        ],
+        [
+          -32.26881790161133,
+          0.31299999356269836,
+          1.356860876083374
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.102",
+      "bounds": [
+        [
+          -32.33015441894531,
+          0.2750000059604645,
+          1.3219224214553833
+        ],
+        [
+          -32.29473876953125,
+          0.31299999356269836,
+          1.365683913230896
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.103",
+      "bounds": [
+        [
+          -32.35186004638672,
+          0.2750000059604645,
+          1.3285936117172241
+        ],
+        [
+          -32.322776794433594,
+          0.31299999356269836,
+          1.3689085245132446
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.104",
+      "bounds": [
+        [
+          -32.37722396850586,
+          0.2750000059604645,
+          1.3285936117172241
+        ],
+        [
+          -32.3481330871582,
+          0.31299999356269836,
+          1.3689085245132446
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.105",
+      "bounds": [
+        [
+          -32.40526580810547,
+          0.2750000059604645,
+          1.3219224214553833
+        ],
+        [
+          -32.369850158691406,
+          0.31299999356269836,
+          1.365683913230896
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.106",
+      "bounds": [
+        [
+          -32.431182861328125,
+          0.2750000059604645,
+          1.3113343715667725
+        ],
+        [
+          -32.39079284667969,
+          0.31299999356269836,
+          1.356860876083374
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.107",
+      "bounds": [
+        [
+          -32.4539794921875,
+          0.2750000059604645,
+          1.2972368001937866
+        ],
+        [
+          -32.41017150878906,
+          0.31299999356269836,
+          1.3427780866622925
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.108",
+      "bounds": [
+        [
+          -32.4727783203125,
+          0.2750000059604645,
+          1.2801707983016968
+        ],
+        [
+          -32.42723846435547,
+          0.31299999356269836,
+          1.3239771127700806
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.109",
+      "bounds": [
+        [
+          -32.48685836791992,
+          0.2750000059604645,
+          1.260792851448059
+        ],
+        [
+          -32.44133377075195,
+          0.31299999356269836,
+          1.3011802434921265
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.110",
+      "bounds": [
+        [
+          -32.49568176269531,
+          0.2750000059604645,
+          1.23984694480896
+        ],
+        [
+          -32.45191955566406,
+          0.31299999356269836,
+          1.2752635478973389
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.111",
+      "bounds": [
+        [
+          -32.49890899658203,
+          0.2749999761581421,
+          1.2181371450424194
+        ],
+        [
+          -32.458595275878906,
+          0.31300002336502075,
+          1.2472244501113892
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.112",
+      "bounds": [
+        [
+          -32.49890899658203,
+          0.2750000059604645,
+          1.1927753686904907
+        ],
+        [
+          -32.458595275878906,
+          0.31299999356269836,
+          1.2218629121780396
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.113",
+      "bounds": [
+        [
+          -32.49568176269531,
+          0.2750000059604645,
+          1.1647363901138306
+        ],
+        [
+          -32.45191955566406,
+          0.31299999356269836,
+          1.2001529932022095
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.114",
+      "bounds": [
+        [
+          -32.48685836791992,
+          0.2750000059604645,
+          1.1388198137283325
+        ],
+        [
+          -32.44133377075195,
+          0.31299999356269836,
+          1.1792072057724
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.115",
+      "bounds": [
+        [
+          -32.4727783203125,
+          0.2750000059604645,
+          1.1160228252410889
+        ],
+        [
+          -32.42723846435547,
+          0.31299999356269836,
+          1.1598291397094727
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.116",
+      "bounds": [
+        [
+          -32.4539794921875,
+          0.2750000059604645,
+          1.097221851348877
+        ],
+        [
+          -32.41017150878906,
+          0.31299999356269836,
+          1.1427631378173828
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.117",
+      "bounds": [
+        [
+          -32.431182861328125,
+          0.2750000059604645,
+          1.0831390619277954
+        ],
+        [
+          -32.39079284667969,
+          0.31299999356269836,
+          1.128665566444397
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.118",
+      "bounds": [
+        [
+          -32.40526580810547,
+          0.2750000059604645,
+          1.074316143989563
+        ],
+        [
+          -32.369850158691406,
+          0.31299999356269836,
+          1.1180776357650757
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.119",
+      "bounds": [
+        [
+          -32.37722396850586,
+          0.2750000059604645,
+          1.0710915327072144
+        ],
+        [
+          -32.3481330871582,
+          0.31299999356269836,
+          1.1114064455032349
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.120",
+      "bounds": [
+        [
+          -32.35186004638672,
+          0.2750000059604645,
+          1.0710915327072144
+        ],
+        [
+          -32.322776794433594,
+          0.31299999356269836,
+          1.1114064455032349
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.121",
+      "bounds": [
+        [
+          -32.33015441894531,
+          0.2750000059604645,
+          1.074316143989563
+        ],
+        [
+          -32.29473876953125,
+          0.31299999356269836,
+          1.1180776357650757
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.122",
+      "bounds": [
+        [
+          -32.309207916259766,
+          0.2750000059604645,
+          1.0831390619277954
+        ],
+        [
+          -32.26881790161133,
+          0.31299999356269836,
+          1.128665566444397
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.123",
+      "bounds": [
+        [
+          -32.28982925415039,
+          0.2750000059604645,
+          1.097221851348877
+        ],
+        [
+          -32.24602127075195,
+          0.31299999356269836,
+          1.1427631378173828
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.124",
+      "bounds": [
+        [
+          -32.272762298583984,
+          0.2750000059604645,
+          1.1160228252410889
+        ],
+        [
+          -32.22722244262695,
+          0.31299999356269836,
+          1.1598291397094727
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.125",
+      "bounds": [
+        [
+          -32.258663177490234,
+          0.2750000059604645,
+          1.1388198137283325
+        ],
+        [
+          -32.213138580322266,
+          0.31299999356269836,
+          1.1792072057724
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.126",
+      "bounds": [
+        [
+          -32.248077392578125,
+          0.2750000059604645,
+          1.16473388671875
+        ],
+        [
+          -32.204315185546875,
+          0.31299999356269836,
+          1.20015549659729
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Stowed hose coil.127",
+      "bounds": [
+        [
+          -32.24140548706055,
+          0.2750000059604645,
+          1.19277822971344
+        ],
+        [
+          -32.20109176635742,
+          0.31299999356269836,
+          1.2218600511550903
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Hose reel mounting",
+      "bounds": [
+        [
+          -32.439998626708984,
+          0.4699999690055847,
+          1.0950000286102295
+        ],
+        [
+          -32.2599983215332,
+          0.8100000023841858,
+          1.3450000286102295
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "Spare pipe rack foot",
+      "bounds": [
+        [
+          -19.510000228881836,
+          4.389999866485596,
+          -0.06499999761581421
+        ],
+        [
+          -19.030000686645508,
+          4.509999752044678,
+          0.15000000596046448
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "Spare pipe rack cradle",
+      "bounds": [
+        [
+          -19.4950008392334,
+          4.389999866485596,
+          0.12999999523162842
+        ],
+        [
+          -19.045000076293945,
+          4.509999752044678,
+          0.25
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Spare pipe rack foot.001",
+      "bounds": [
+        [
+          -19.510000228881836,
+          5.990000247955322,
+          -0.06499999761581421
+        ],
+        [
+          -19.030000686645508,
+          6.110000133514404,
+          0.15000000596046448
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "Spare pipe rack cradle.001",
+      "bounds": [
+        [
+          -19.4950008392334,
+          5.990000247955322,
+          0.12999999523162842
+        ],
+        [
+          -19.045000076293945,
+          6.110000133514404,
+          0.25
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Capped spare pipe",
+      "bounds": [
+        [
+          -19.464998245239258,
+          4.199999809265137,
+          0.24499991536140442
+        ],
+        [
+          -19.295000076293945,
+          6.300000190734863,
+          0.4150001108646393
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Spare pipe end cap",
+      "bounds": [
+        [
+          -19.4739990234375,
+          4.195000171661377,
+          0.23600000143051147
+        ],
+        [
+          -19.285999298095703,
+          4.224999904632568,
+          0.4240000247955322
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "Spare pipe end cap.001",
+      "bounds": [
+        [
+          -19.4739990234375,
+          6.275000095367432,
+          0.23600000143051147
+        ],
+        [
+          -19.285999298095703,
+          6.304999828338623,
+          0.4240000247955322
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "Capped spare pipe.001",
+      "bounds": [
+        [
+          -19.244998931884766,
+          4.199999809265137,
+          0.24499991536140442
+        ],
+        [
+          -19.075000762939453,
+          6.300000190734863,
+          0.4150001108646393
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Spare pipe end cap.002",
+      "bounds": [
+        [
+          -19.253999710083008,
+          4.195000171661377,
+          0.23600000143051147
+        ],
+        [
+          -19.06599998474121,
+          4.224999904632568,
+          0.4240000247955322
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "Spare pipe end cap.003",
+      "bounds": [
+        [
+          -19.253999710083008,
+          6.275000095367432,
+          0.23600000143051147
+        ],
+        [
+          -19.06599998474121,
+          6.304999828338623,
+          0.4240000247955322
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "Capped spare pipe.002",
+      "bounds": [
+        [
+          -19.354999542236328,
+          4.199999809265137,
+          0.41499990224838257
+        ],
+        [
+          -19.185001373291016,
+          6.300000190734863,
+          0.5850000977516174
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "Spare pipe end cap.004",
+      "bounds": [
+        [
+          -19.36400032043457,
+          4.195000171661377,
+          0.4059999883174896
+        ],
+        [
+          -19.176000595092773,
+          4.224999904632568,
+          0.5940000414848328
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "Spare pipe end cap.005",
+      "bounds": [
+        [
+          -19.36400032043457,
+          6.275000095367432,
+          0.4059999883174896
+        ],
+        [
+          -19.176000595092773,
+          6.304999828338623,
+          0.5940000414848328
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "Pipe storage strap",
+      "bounds": [
+        [
+          -19.479999542236328,
+          4.50600004196167,
+          0.24000000953674316
+        ],
+        [
+          -19.060001373291016,
+          4.554000377655029,
+          0.5600000023841858
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "Pipe storage strap.001",
+      "bounds": [
+        [
+          -19.479999542236328,
+          5.915999889373779,
+          0.24000000953674316
+        ],
+        [
+          -19.060001373291016,
+          5.964000225067139,
+          0.5600000023841858
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "Wall planting bed",
+      "bounds": [
+        [
+          -25.399999618530273,
+          0.07000000774860382,
+          0.0
+        ],
+        [
+          -20.100000381469727,
+          0.4700000286102295,
+          0.20000000298023224
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Bed inset earth",
+      "bounds": [
+        [
+          -25.364999771118164,
+          0.10500000417232513,
+          0.19499999284744263
+        ],
+        [
+          -20.135000228881836,
+          0.4350000023841858,
+          0.2150000035762787
+        ]
+      ],
+      "materials": [
+        "S01 dark earth"
+      ]
+    },
+    {
+      "name": "Wall planting bed.001",
+      "bounds": [
+        [
+          -35.275001525878906,
+          0.4000000059604645,
+          0.0
+        ],
+        [
+          -32.025001525878906,
+          0.7200000286102295,
+          0.20000000298023224
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Bed inset earth.001",
+      "bounds": [
+        [
+          -35.2400016784668,
+          0.4350000023841858,
+          0.19499999284744263
+        ],
+        [
+          -32.060001373291016,
+          0.6850000023841858,
+          0.2150000035762787
+        ]
+      ],
+      "materials": [
+        "S01 dark earth"
+      ]
+    },
+    {
+      "name": "Wall planting bed.002",
+      "bounds": [
+        [
+          -19.6299991607666,
+          6.639999866485596,
+          -0.0650000050663948
+        ],
+        [
+          -19.28999900817871,
+          7.360000133514404,
+          0.20000001788139343
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Bed inset earth.002",
+      "bounds": [
+        [
+          -19.594999313354492,
+          6.675000190734863,
+          0.19499999284744263
+        ],
+        [
+          -19.32499885559082,
+          7.324999809265137,
+          0.2150000035762787
+        ]
+      ],
+      "materials": [
+        "S01 dark earth"
+      ]
+    },
+    {
+      "name": "Wall planting bed.003",
+      "bounds": [
+        [
+          -25.975000381469727,
+          7.450000286102295,
+          0.0
+        ],
+        [
+          -20.524999618530273,
+          7.809999942779541,
+          0.20000000298023224
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Bed inset earth.003",
+      "bounds": [
+        [
+          -25.940000534057617,
+          7.485000133514404,
+          0.19499999284744263
+        ],
+        [
+          -20.559999465942383,
+          7.775000095367432,
+          0.2150000035762787
+        ]
+      ],
+      "materials": [
+        "S01 dark earth"
+      ]
+    },
+    {
+      "name": "Wall planting bed.004",
+      "bounds": [
+        [
+          -35.099998474121094,
+          6.289999961853027,
+          0.0
+        ],
+        [
+          -31.599998474121094,
+          6.609999656677246,
+          0.20000000298023224
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Bed inset earth.004",
+      "bounds": [
+        [
+          -35.064998626708984,
+          6.324999809265137,
+          0.19499999284744263
+        ],
+        [
+          -31.634998321533203,
+          6.574999809265137,
+          0.2150000035762787
+        ]
+      ],
+      "materials": [
+        "S01 dark earth"
+      ]
+    },
+    {
+      "name": "S01 grouped broad leaf foliage",
+      "bounds": [
+        [
+          -34.008602142333984,
+          15.981203079223633,
+          1.537144422531128
+        ],
+        [
+          -7.5837788581848145,
+          31.83864974975586,
+          2.9592723846435547
+        ]
+      ],
+      "materials": [
+        "S01 leaf mass 0",
+        "S01 leaf mass 1",
+        "S01 leaf mass 2",
+        "S01 leaf mass 3"
+      ]
+    },
+    {
+      "name": "Roof membrane lap seam",
+      "bounds": [
+        [
+          -34.00699996948242,
+          1.0999999046325684,
+          3.5779998302459717
+        ],
+        [
+          -33.99300003051758,
+          6.099999904632568,
+          3.5820000171661377
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Roof membrane lap seam.001",
+      "bounds": [
+        [
+          -32.50699996948242,
+          1.0999999046325684,
+          3.5779998302459717
+        ],
+        [
+          -32.49300003051758,
+          6.099999904632568,
+          3.5820000171661377
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Roof membrane lap seam.002",
+      "bounds": [
+        [
+          -25.707000732421875,
+          1.0999999046325684,
+          3.9779999256134033
+        ],
+        [
+          -25.69300079345703,
+          6.099999904632568,
+          3.9820001125335693
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Roof membrane lap seam.003",
+      "bounds": [
+        [
+          -24.207000732421875,
+          1.0999999046325684,
+          3.9779999256134033
+        ],
+        [
+          -24.19300079345703,
+          6.099999904632568,
+          3.9820001125335693
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Roof membrane lap seam.004",
+      "bounds": [
+        [
+          -22.707000732421875,
+          1.0999999046325684,
+          3.9779999256134033
+        ],
+        [
+          -22.69300079345703,
+          6.099999904632568,
+          3.9820001125335693
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "Roof membrane lap seam.005",
+      "bounds": [
+        [
+          -21.207000732421875,
+          1.0999999046325684,
+          3.9779999256134033
+        ],
+        [
+          -21.19300079345703,
+          6.099999904632568,
+          3.9820001125335693
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "South utility run",
+      "bounds": [
+        [
+          -34.79999923706055,
+          0.2949999272823334,
+          0.3949999213218689
+        ],
+        [
+          -31.450000762939453,
+          0.40500006079673767,
+          0.5050000548362732
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South wall return",
+      "bounds": [
+        [
+          -34.85499954223633,
+          0.3500000238418579,
+          0.3949999511241913
+        ],
+        [
+          -34.744998931884766,
+          0.8500000238418579,
+          0.5049999952316284
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South wall gland",
+      "bounds": [
+        [
+          -34.89699935913086,
+          0.8149999976158142,
+          0.3529999852180481
+        ],
+        [
+          -34.702999114990234,
+          0.8680000901222229,
+          0.546999990940094
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "South wall return.001",
+      "bounds": [
+        [
+          -31.505001068115234,
+          0.3500000238418579,
+          0.3949999511241913
+        ],
+        [
+          -31.395000457763672,
+          0.8500000238418579,
+          0.5049999952316284
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South wall gland.001",
+      "bounds": [
+        [
+          -31.547000885009766,
+          0.8149999976158142,
+          0.3529999852180481
+        ],
+        [
+          -31.35300064086914,
+          0.8680000901222229,
+          0.546999990940094
+        ]
+      ],
+      "materials": [
+        "S01 burnt orange identification"
+      ]
+    },
+    {
+      "name": "South saddle",
+      "bounds": [
+        [
+          -34.65549850463867,
+          0.3500000238418579,
+          0.4269999563694
+        ],
+        [
+          -34.609500885009766,
+          0.8500000238418579,
+          0.47300001978874207
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South split collar",
+      "bounds": [
+        [
+          -34.70050048828125,
+          0.28199997544288635,
+          0.40799999237060547
+        ],
+        [
+          -34.56449890136719,
+          0.4180000126361847,
+          0.4919999837875366
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "South saddle.001",
+      "bounds": [
+        [
+          -33.750999450683594,
+          0.3500000238418579,
+          0.4269999563694
+        ],
+        [
+          -33.70500183105469,
+          0.8500000238418579,
+          0.47300001978874207
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South split collar.001",
+      "bounds": [
+        [
+          -33.79600143432617,
+          0.28199997544288635,
+          0.40799999237060547
+        ],
+        [
+          -33.65999984741211,
+          0.4180000126361847,
+          0.4919999837875366
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "South saddle.002",
+      "bounds": [
+        [
+          -32.6454963684082,
+          0.3500000238418579,
+          0.4269999563694
+        ],
+        [
+          -32.5994987487793,
+          0.8500000238418579,
+          0.47300001978874207
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South split collar.002",
+      "bounds": [
+        [
+          -32.69049835205078,
+          0.28199997544288635,
+          0.40799999237060547
+        ],
+        [
+          -32.55449676513672,
+          0.4180000126361847,
+          0.4919999837875366
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "South saddle.003",
+      "bounds": [
+        [
+          -31.640501022338867,
+          0.3500000238418579,
+          0.4269999563694
+        ],
+        [
+          -31.594499588012695,
+          0.8500000238418579,
+          0.47300001978874207
+        ]
+      ],
+      "materials": [
+        "S01 graphite folded steel"
+      ]
+    },
+    {
+      "name": "South split collar.003",
+      "bounds": [
+        [
+          -31.685501098632812,
+          0.28199997544288635,
+          0.40799999237060547
+        ],
+        [
+          -31.54949951171875,
+          0.4180000126361847,
+          0.4919999837875366
+        ]
+      ],
+      "materials": [
+        "S01 plinth stone"
+      ]
+    },
+    {
+      "name": "S01 curved planted grasses",
+      "bounds": [
+        [
+          -35.32419204711914,
+          -0.050840526819229126,
+          0.2199999988079071
+        ],
+        [
+          -7.747780799865723,
+          31.191362380981445,
+          1.1197826862335205
+        ]
+      ],
+      "materials": [
+        "S01 leaf mass 0",
+        "S01 leaf mass 1",
+        "S01 leaf mass 2",
+        "S01 leaf mass 3"
+      ]
+    }
+  ],
+  "reserved_volume_intersections": [],
+  "reservation_check_pass": true,
+  "visibility": [
+    {
+      "collection": "01_LINKED_ROOMS",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "02_UNBUILT_CONNECTION_RESERVATIONS",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "03_RESERVED_VOLUMES",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "04_PLANNING_LABELS",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "05_ASSEMBLY_CAMERAS",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "06_LINKED_EXTERIORS",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "07_FAST_WALKTHROUGH_PROXIES",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "CONNECTION_C01_RESCUE_COURTYARD",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "CONNECTIONS_ALL_ROUTES_GREYBOX",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "08_WHOLE_MAP_FLOOR",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "09_FINISHED_HORIZONTAL_CONNECTIONS",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "10_NETWORK_VIEWPORT_CACHE",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "11_ACCESS_ARCHITECTURE",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "12_ACCESS_MOVING_PARTS",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "13_FINISHED_ACCESS_SCENERY",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "14_ACCESS_FINISH_VIEWPORT_CACHE",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "15_FINISHED_NETWORK_SCENERY",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "16_NETWORK_FINISH_VIEWPORT_CACHE",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "17_REACTOR_EXTERIOR_FINISH",
+      "hide_render": false,
+      "hide_viewport": true
+    },
+    {
+      "collection": "18_REACTOR_FINISH_VIEWPORT_CACHE",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "19_MAP_COMPLETION",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "20_ROOF_SERVICE_GEOMETRY",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "21_ROOF_SERVICE_VIEWPORT_CACHE",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "22_EXTERIOR_FINISH_GEOMETRY",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "24_EXTERIOR_PRACTICAL_LIGHTS",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "23_EXTERIOR_FINISH_VIEWPORT_CACHE",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "25_MINE_REFINERY_IDENTITIES",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "26_FINE_PLANTING",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "29_SPAWN_APPROVED_EXTERIOR",
+      "hide_render": false,
+      "hide_viewport": false
+    },
+    {
+      "collection": "30_RETAINED_INTERIOR_LIGHTING",
+      "hide_render": true,
+      "hide_viewport": true
+    },
+    {
+      "collection": "31_DISTANT_EXTERIOR_BACKDROP",
+      "hide_render": false,
+      "hide_viewport": false
+    }
+  ],
+  "lighting_mode": "EXTERIOR_REVIEW",
+  "blender_version": "5.2.0 LTS",
+  "runtime_scope": "Cold Blender assembly load benchmark only. No FPS, collision, navmesh or Unity readiness claim.",
+  "interior_lights": "Retained in collection30; intentionally disabled for exterior review.",
+  "interface_scope": "New exterior geometry vs all named reservation boxes. Existing apertures unchanged by build scripts; traversal geometry is separately tested by route audit."
+}

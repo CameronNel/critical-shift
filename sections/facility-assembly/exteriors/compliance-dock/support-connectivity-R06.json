@@ -1,0 +1,4386 @@
+{
+  "revision": "R06",
+  "scope": "Evaluated world-AABB connectivity broadphase, not raycast/anchor/support-angle validation. Original render-visible mesh objects are root candidates; physical/collision suitability is not independently classified. AABB overlap can be empty space, contact does not imply load-bearing support, and deep penetration is accepted by this connectivity graph. Text/curves excluded. Model is not saved.",
+  "threshold_m": 0.005,
+  "numerical_epsilon_m": 1e-06,
+  "additive_mesh_count": 211,
+  "original_root_candidate_count": 847,
+  "root_connected_additive_count": 193,
+  "detached_components": [
+    {
+      "objects": [
+        "Localized hand wear"
+      ],
+      "nearest_root_connected_candidates": [
+        {
+          "object": "Localized hand wear",
+          "candidate_support": "Intercom mounting block",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.006500244140625,
+          "axis_gaps_m": [
+            0,
+            0.006500244140625,
+            0
+          ]
+        },
+        {
+          "object": "Localized hand wear",
+          "candidate_support": "Intercom push button",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.03265380580261094,
+          "axis_gaps_m": [
+            0.03200030326843262,
+            0,
+            0.006500124931335449
+          ]
+        },
+        {
+          "object": "Localized hand wear",
+          "candidate_support": "Intercom speaker slot",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.0419999361038208,
+          "axis_gaps_m": [
+            0,
+            0,
+            0.0419999361038208
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Localized hand wear.001"
+      ],
+      "nearest_root_connected_candidates": [
+        {
+          "object": "Localized hand wear.001",
+          "candidate_support": "Intercom mounting block",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.006500244140625,
+          "axis_gaps_m": [
+            0,
+            0.006500244140625,
+            0
+          ]
+        },
+        {
+          "object": "Localized hand wear.001",
+          "candidate_support": "Intercom speaker slot.002",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.10199987888336182,
+          "axis_gaps_m": [
+            0,
+            0,
+            0.10199987888336182
+          ]
+        },
+        {
+          "object": "Localized hand wear.001",
+          "candidate_support": "Precast facade panel.003",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.11200141906738281,
+          "axis_gaps_m": [
+            0,
+            0.11200141906738281,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Service cabinet bolt"
+      ],
+      "nearest_root_connected_candidates": [
+        {
+          "object": "Service cabinet bolt",
+          "candidate_support": "Service cabinet inset door",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.012499809265136719,
+          "axis_gaps_m": [
+            0.012499809265136719,
+            0,
+            0
+          ]
+        },
+        {
+          "object": "Service cabinet bolt",
+          "candidate_support": "Exterior services cabinet",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.04500007629394531,
+          "axis_gaps_m": [
+            0.04500007629394531,
+            0,
+            0
+          ]
+        },
+        {
+          "object": "Service cabinet bolt",
+          "candidate_support": "Side mineral panel.008",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.23750019073486328,
+          "axis_gaps_m": [
+            0.23750019073486328,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Service cabinet bolt.001"
+      ],
+      "nearest_root_connected_candidates": [
+        {
+          "object": "Service cabinet bolt.001",
+          "candidate_support": "Service cabinet inset door",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.012499809265136719,
+          "axis_gaps_m": [
+            0.012499809265136719,
+            0,
+            0
+          ]
+        },
+        {
+          "object": "Service cabinet bolt.001",
+          "candidate_support": "Exterior services cabinet",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.04500007629394531,
+          "axis_gaps_m": [
+            0.04500007629394531,
+            0,
+            0
+          ]
+        },
+        {
+          "object": "Service cabinet bolt.001",
+          "candidate_support": "Side mineral panel.008",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.23750019073486328,
+          "axis_gaps_m": [
+            0.23750019073486328,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Service cabinet bolt.002"
+      ],
+      "nearest_root_connected_candidates": [
+        {
+          "object": "Service cabinet bolt.002",
+          "candidate_support": "Service cabinet inset door",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.012499809265136719,
+          "axis_gaps_m": [
+            0.012499809265136719,
+            0,
+            0
+          ]
+        },
+        {
+          "object": "Service cabinet bolt.002",
+          "candidate_support": "Exterior services cabinet",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.04500007629394531,
+          "axis_gaps_m": [
+            0.04500007629394531,
+            0,
+            0
+          ]
+        },
+        {
+          "object": "Service cabinet bolt.002",
+          "candidate_support": "Side mineral panel.008",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.23750019073486328,
+          "axis_gaps_m": [
+            0.23750019073486328,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Service cabinet bolt.003"
+      ],
+      "nearest_root_connected_candidates": [
+        {
+          "object": "Service cabinet bolt.003",
+          "candidate_support": "Service cabinet inset door",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.012499809265136719,
+          "axis_gaps_m": [
+            0.012499809265136719,
+            0,
+            0
+          ]
+        },
+        {
+          "object": "Service cabinet bolt.003",
+          "candidate_support": "Exterior services cabinet",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.04500007629394531,
+          "axis_gaps_m": [
+            0.04500007629394531,
+            0,
+            0
+          ]
+        },
+        {
+          "object": "Service cabinet bolt.003",
+          "candidate_support": "Side mineral panel.008",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.23750019073486328,
+          "axis_gaps_m": [
+            0.23750019073486328,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Localized hand wear.002"
+      ],
+      "nearest_root_connected_candidates": [
+        {
+          "object": "Localized hand wear.002",
+          "candidate_support": "Permit stamp shelf",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.010595021041876936,
+          "axis_gaps_m": [
+            0.010000228881835938,
+            0.0034999847412109375,
+            0
+          ]
+        },
+        {
+          "object": "Localized hand wear.002",
+          "candidate_support": "Station anchor",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.27206232408636166,
+          "axis_gaps_m": [
+            0,
+            0.2624988555908203,
+            0.07150006294250488
+          ]
+        },
+        {
+          "object": "Localized hand wear.002",
+          "candidate_support": "Inspection station backing",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.2810020446777344,
+          "axis_gaps_m": [
+            0,
+            0.2810020446777344,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Compliance sign backing"
+      ],
+      "nearest_root_connected_candidates": [
+        {
+          "object": "Compliance sign backing",
+          "candidate_support": "Gate lintel concrete skin",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.013002395629882812,
+          "axis_gaps_m": [
+            0,
+            0.013002395629882812,
+            0
+          ]
+        },
+        {
+          "object": "Compliance sign backing",
+          "candidate_support": "North lintel P2",
+          "candidate_is_original": true,
+          "aabb_distance_m": 0.07750129699707031,
+          "axis_gaps_m": [
+            0,
+            0.07750129699707031,
+            0
+          ]
+        },
+        {
+          "object": "Compliance sign backing",
+          "candidate_support": "P2 frame head lintel",
+          "candidate_is_original": true,
+          "aabb_distance_m": 0.07750129699707031,
+          "axis_gaps_m": [
+            0,
+            0.07750129699707031,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Shielded dock task light",
+        "Recessed luminaire lens"
+      ],
+      "nearest_root_connected_candidates": [
+        {
+          "object": "Shielded dock task light",
+          "candidate_support": "Canopy front folded fascia",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.022500991821289062,
+          "axis_gaps_m": [
+            0,
+            0.022500991821289062,
+            0
+          ]
+        },
+        {
+          "object": "Shielded dock task light",
+          "candidate_support": "Folded canopy roof",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.039999961853027344,
+          "axis_gaps_m": [
+            0,
+            0,
+            0.039999961853027344
+          ]
+        },
+        {
+          "object": "Recessed luminaire lens",
+          "candidate_support": "Canopy front folded fascia",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.052501678466796875,
+          "axis_gaps_m": [
+            0,
+            0.052501678466796875,
+            0
+          ]
+        },
+        {
+          "object": "Shielded dock task light",
+          "candidate_support": "Gate lintel concrete skin",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.12549972534179688,
+          "axis_gaps_m": [
+            0,
+            0.12549972534179688,
+            0
+          ]
+        },
+        {
+          "object": "Recessed luminaire lens",
+          "candidate_support": "Folded canopy roof",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.13000011444091797,
+          "axis_gaps_m": [
+            0,
+            0,
+            0.13000011444091797
+          ]
+        },
+        {
+          "object": "Recessed luminaire lens",
+          "candidate_support": "Gate lintel concrete skin",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.1555004119873047,
+          "axis_gaps_m": [
+            0,
+            0.1555004119873047,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Shielded dock task light.001",
+        "Recessed luminaire lens.001"
+      ],
+      "nearest_root_connected_candidates": [
+        {
+          "object": "Shielded dock task light.001",
+          "candidate_support": "Canopy front folded fascia",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.022500991821289062,
+          "axis_gaps_m": [
+            0,
+            0.022500991821289062,
+            0
+          ]
+        },
+        {
+          "object": "Shielded dock task light.001",
+          "candidate_support": "Folded canopy roof",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.039999961853027344,
+          "axis_gaps_m": [
+            0,
+            0,
+            0.039999961853027344
+          ]
+        },
+        {
+          "object": "Recessed luminaire lens.001",
+          "candidate_support": "Canopy front folded fascia",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.052501678466796875,
+          "axis_gaps_m": [
+            0,
+            0.052501678466796875,
+            0
+          ]
+        },
+        {
+          "object": "Shielded dock task light.001",
+          "candidate_support": "Gate lintel concrete skin",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.12549972534179688,
+          "axis_gaps_m": [
+            0,
+            0.12549972534179688,
+            0
+          ]
+        },
+        {
+          "object": "Recessed luminaire lens.001",
+          "candidate_support": "Folded canopy roof",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.13000011444091797,
+          "axis_gaps_m": [
+            0,
+            0,
+            0.13000011444091797
+          ]
+        },
+        {
+          "object": "Recessed luminaire lens.001",
+          "candidate_support": "Gate lintel concrete skin",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.1555004119873047,
+          "axis_gaps_m": [
+            0,
+            0.1555004119873047,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Clipboard fibre board",
+        "Inspection sheet",
+        "Clipboard spring clip",
+        "Inspection ruled line",
+        "Inspection ruled line.001",
+        "Inspection ruled line.002"
+      ],
+      "nearest_root_connected_candidates": [
+        {
+          "object": "Clipboard fibre board",
+          "candidate_support": "Inspection station backing",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.005001068115234375,
+          "axis_gaps_m": [
+            0,
+            0.005001068115234375,
+            0
+          ]
+        },
+        {
+          "object": "Inspection sheet",
+          "candidate_support": "Inspection station backing",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.04150199890136719,
+          "axis_gaps_m": [
+            0,
+            0.04150199890136719,
+            0
+          ]
+        },
+        {
+          "object": "Inspection ruled line",
+          "candidate_support": "Inspection station backing",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.04800224304199219,
+          "axis_gaps_m": [
+            0,
+            0.04800224304199219,
+            0
+          ]
+        },
+        {
+          "object": "Inspection ruled line.001",
+          "candidate_support": "Inspection station backing",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.04800224304199219,
+          "axis_gaps_m": [
+            0,
+            0.04800224304199219,
+            0
+          ]
+        },
+        {
+          "object": "Inspection ruled line.002",
+          "candidate_support": "Inspection station backing",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.04800224304199219,
+          "axis_gaps_m": [
+            0,
+            0.04800224304199219,
+            0
+          ]
+        },
+        {
+          "object": "Clipboard spring clip",
+          "candidate_support": "Inspection station backing",
+          "candidate_is_original": false,
+          "aabb_distance_m": 0.05000114440917969,
+          "axis_gaps_m": [
+            0,
+            0.05000114440917969,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "direct_original_candidates": [
+    {
+      "object": "Precast facade panel",
+      "original_candidates": [
+        "North wall west"
+      ]
+    },
+    {
+      "object": "Precast facade panel.001",
+      "original_candidates": [
+        "North wall west"
+      ]
+    },
+    {
+      "object": "Precast facade panel.002",
+      "original_candidates": [
+        "North wall west",
+        "P2 frame jamb -1",
+        "P2 frame head lintel"
+      ]
+    },
+    {
+      "object": "Precast facade panel.003",
+      "original_candidates": [
+        "North wall east",
+        "P2 frame jamb 1",
+        "P2 frame head lintel"
+      ]
+    },
+    {
+      "object": "Precast facade panel.004",
+      "original_candidates": [
+        "North wall east"
+      ]
+    },
+    {
+      "object": "Precast facade panel.005",
+      "original_candidates": [
+        "North wall east"
+      ]
+    },
+    {
+      "object": "Gate lintel concrete skin",
+      "original_candidates": [
+        "North wall west",
+        "North wall east",
+        "North lintel P2",
+        "P2 frame jamb -1",
+        "P2 frame jamb 1",
+        "P2 frame head lintel"
+      ]
+    },
+    {
+      "object": "Continuous top coping",
+      "original_candidates": [
+        "North wall west",
+        "North wall east",
+        "North lintel P2"
+      ]
+    },
+    {
+      "object": "Side mineral panel",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.001",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.001",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.002",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.002",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.003",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.003",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.004",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.004",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.005",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.005",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.006",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.006",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.007",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.007",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.008",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.008",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.009",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.009",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.010",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.010",
+      "original_candidates": [
+        "Floor slab",
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side coping",
+      "original_candidates": [
+        "West perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.011",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.011",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.012",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.012",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.013",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.013",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.014",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.014",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.015",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.015",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.016",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.016",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.017",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.017",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.018",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.018",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.019",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.019",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.020",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.020",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side mineral panel.021",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side concrete plinth.021",
+      "original_candidates": [
+        "Floor slab",
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Side coping.001",
+      "original_candidates": [
+        "East perimeter wall"
+      ]
+    },
+    {
+      "object": "Roof waterproof cap",
+      "original_candidates": [
+        "Roof deck ceiling slab"
+      ]
+    },
+    {
+      "object": "Precast facade panel.006",
+      "original_candidates": [
+        "South wall west"
+      ]
+    },
+    {
+      "object": "Precast facade panel.007",
+      "original_candidates": [
+        "South wall west"
+      ]
+    },
+    {
+      "object": "Precast facade panel.008",
+      "original_candidates": [
+        "South wall west"
+      ]
+    },
+    {
+      "object": "Precast facade panel.009",
+      "original_candidates": [
+        "South wall west"
+      ]
+    },
+    {
+      "object": "Precast facade panel.010",
+      "original_candidates": [
+        "South wall east"
+      ]
+    },
+    {
+      "object": "Precast facade panel.011",
+      "original_candidates": [
+        "South wall east"
+      ]
+    },
+    {
+      "object": "Precast facade panel.012",
+      "original_candidates": [
+        "South wall east"
+      ]
+    },
+    {
+      "object": "Precast facade panel.013",
+      "original_candidates": [
+        "South wall east"
+      ]
+    },
+    {
+      "object": "Rear coping",
+      "original_candidates": [
+        "South wall west",
+        "South wall east",
+        "South lintel P1"
+      ]
+    },
+    {
+      "object": "Gate edge exposed metal",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate edge exposed metal.001",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate edge exposed metal.002",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate edge exposed metal.003",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate edge exposed metal.004",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate edge exposed metal.005",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Rear sleeve side jacket",
+      "original_candidates": [
+        "Floor slab",
+        "South wall west",
+        "P1 corridor wall W",
+        "P1 deep back wall"
+      ]
+    },
+    {
+      "object": "Rear sleeve side jacket.001",
+      "original_candidates": [
+        "Floor slab",
+        "South wall east",
+        "P1 corridor wall E",
+        "P1 deep back wall"
+      ]
+    },
+    {
+      "object": "Rear sleeve top flashing",
+      "original_candidates": [
+        "South wall west",
+        "South wall east",
+        "South lintel P1",
+        "P1 corridor ceiling"
+      ]
+    },
+    {
+      "object": "Rear cap vertical frame",
+      "original_candidates": [
+        "P1 deep back wall"
+      ]
+    },
+    {
+      "object": "Rear cap vertical frame.001",
+      "original_candidates": [
+        "P1 deep back wall"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west.001",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west.002",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west.003",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west.004",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west.005",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west.006",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west.007",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west.008",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west.009",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west.010",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib west.011",
+      "original_candidates": [
+        "P2 blast leaf west"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east.001",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east.002",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east.003",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east.004",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east.005",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east.006",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east.007",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east.008",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east.009",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east.010",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    },
+    {
+      "object": "Gate exterior pressed rib east.011",
+      "original_candidates": [
+        "P2 blast leaf east"
+      ]
+    }
+  ],
+  "additive_bounds": [
+    {
+      "name": "Precast facade panel",
+      "bounds": [
+        [
+          -6.7910003662109375,
+          16.079500198364258,
+          0.0
+        ],
+        [
+          -5.309000015258789,
+          16.144498825073242,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth",
+      "bounds": [
+        [
+          -6.7910003662109375,
+          16.091999053955078,
+          0.0
+        ],
+        [
+          -5.309000015258789,
+          16.18199920654297,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip",
+      "bounds": [
+        [
+          -6.789000034332275,
+          16.140501022338867,
+          1.159999966621399
+        ],
+        [
+          -5.311000347137451,
+          16.155500411987305,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.001",
+      "bounds": [
+        [
+          -5.2910003662109375,
+          16.079500198364258,
+          0.0
+        ],
+        [
+          -3.809000253677368,
+          16.144498825073242,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.001",
+      "bounds": [
+        [
+          -5.2910003662109375,
+          16.091999053955078,
+          0.0
+        ],
+        [
+          -3.809000253677368,
+          16.18199920654297,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.001",
+      "bounds": [
+        [
+          -5.289000034332275,
+          16.140501022338867,
+          1.159999966621399
+        ],
+        [
+          -3.811000108718872,
+          16.155500411987305,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.002",
+      "bounds": [
+        [
+          -3.7909998893737793,
+          16.079500198364258,
+          0.0
+        ],
+        [
+          -2.309000015258789,
+          16.144498825073242,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.002",
+      "bounds": [
+        [
+          -3.7909998893737793,
+          16.091999053955078,
+          0.0
+        ],
+        [
+          -2.309000015258789,
+          16.18199920654297,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.002",
+      "bounds": [
+        [
+          -3.7890000343322754,
+          16.140501022338867,
+          1.159999966621399
+        ],
+        [
+          -2.310999870300293,
+          16.155500411987305,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.003",
+      "bounds": [
+        [
+          2.309000015258789,
+          16.079500198364258,
+          0.0
+        ],
+        [
+          3.7909998893737793,
+          16.144498825073242,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.003",
+      "bounds": [
+        [
+          2.309000015258789,
+          16.091999053955078,
+          0.0
+        ],
+        [
+          3.7909998893737793,
+          16.18199920654297,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.003",
+      "bounds": [
+        [
+          2.310999870300293,
+          16.140501022338867,
+          1.159999966621399
+        ],
+        [
+          3.7890000343322754,
+          16.155500411987305,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.004",
+      "bounds": [
+        [
+          3.809000253677368,
+          16.079500198364258,
+          0.0
+        ],
+        [
+          5.2910003662109375,
+          16.144498825073242,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.004",
+      "bounds": [
+        [
+          3.809000253677368,
+          16.091999053955078,
+          0.0
+        ],
+        [
+          5.2910003662109375,
+          16.18199920654297,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.004",
+      "bounds": [
+        [
+          3.811000108718872,
+          16.140501022338867,
+          1.159999966621399
+        ],
+        [
+          5.289000034332275,
+          16.155500411987305,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.005",
+      "bounds": [
+        [
+          5.309000015258789,
+          16.079500198364258,
+          0.0
+        ],
+        [
+          6.7910003662109375,
+          16.144498825073242,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.005",
+      "bounds": [
+        [
+          5.309000015258789,
+          16.091999053955078,
+          0.0
+        ],
+        [
+          6.7910003662109375,
+          16.18199920654297,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.005",
+      "bounds": [
+        [
+          5.311000347137451,
+          16.140501022338867,
+          1.159999966621399
+        ],
+        [
+          6.789000034332275,
+          16.155500411987305,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Gate lintel concrete skin",
+      "bounds": [
+        [
+          -2.299999952316284,
+          16.079500198364258,
+          3.5
+        ],
+        [
+          2.299999952316284,
+          16.144498825073242,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Continuous top coping",
+      "bounds": [
+        [
+          -7.090000152587891,
+          15.890000343322754,
+          4.380000114440918
+        ],
+        [
+          7.090000152587891,
+          16.309999465942383,
+          4.539999961853027
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel",
+      "bounds": [
+        [
+          -7.132499694824219,
+          0.10900002717971802,
+          0.0
+        ],
+        [
+          -7.067500114440918,
+          1.5091817378997803,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth",
+      "bounds": [
+        [
+          -7.144999980926514,
+          0.10900002717971802,
+          0.0
+        ],
+        [
+          -7.054999828338623,
+          1.5091817378997803,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.001",
+      "bounds": [
+        [
+          -7.132499694824219,
+          1.52718186378479,
+          0.0
+        ],
+        [
+          -7.067500114440918,
+          2.927363634109497,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.001",
+      "bounds": [
+        [
+          -7.144999980926514,
+          1.52718186378479,
+          0.0
+        ],
+        [
+          -7.054999828338623,
+          2.927363634109497,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.002",
+      "bounds": [
+        [
+          -7.132499694824219,
+          2.945363759994507,
+          0.0
+        ],
+        [
+          -7.067500114440918,
+          4.345545768737793,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.002",
+      "bounds": [
+        [
+          -7.144999980926514,
+          2.945363759994507,
+          0.0
+        ],
+        [
+          -7.054999828338623,
+          4.345545768737793,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.003",
+      "bounds": [
+        [
+          -7.132499694824219,
+          4.3635454177856445,
+          0.0
+        ],
+        [
+          -7.067500114440918,
+          5.763727188110352,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.003",
+      "bounds": [
+        [
+          -7.144999980926514,
+          4.3635454177856445,
+          0.0
+        ],
+        [
+          -7.054999828338623,
+          5.763727188110352,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.004",
+      "bounds": [
+        [
+          -7.132499694824219,
+          5.781727313995361,
+          0.0
+        ],
+        [
+          -7.067500114440918,
+          7.181909084320068,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.004",
+      "bounds": [
+        [
+          -7.144999980926514,
+          5.781727313995361,
+          0.0
+        ],
+        [
+          -7.054999828338623,
+          7.181909084320068,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.005",
+      "bounds": [
+        [
+          -7.132499694824219,
+          7.199909210205078,
+          0.0
+        ],
+        [
+          -7.067500114440918,
+          8.600090980529785,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.005",
+      "bounds": [
+        [
+          -7.144999980926514,
+          7.199909210205078,
+          0.0
+        ],
+        [
+          -7.054999828338623,
+          8.600090980529785,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.006",
+      "bounds": [
+        [
+          -7.132499694824219,
+          8.618091583251953,
+          0.0
+        ],
+        [
+          -7.067500114440918,
+          10.018272399902344,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.006",
+      "bounds": [
+        [
+          -7.144999980926514,
+          8.618091583251953,
+          0.0
+        ],
+        [
+          -7.054999828338623,
+          10.018272399902344,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.007",
+      "bounds": [
+        [
+          -7.132499694824219,
+          10.036272048950195,
+          0.0
+        ],
+        [
+          -7.067500114440918,
+          11.436454772949219,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.007",
+      "bounds": [
+        [
+          -7.144999980926514,
+          10.036272048950195,
+          0.0
+        ],
+        [
+          -7.054999828338623,
+          11.436454772949219,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.008",
+      "bounds": [
+        [
+          -7.132499694824219,
+          11.45445442199707,
+          0.0
+        ],
+        [
+          -7.067500114440918,
+          12.854637145996094,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.008",
+      "bounds": [
+        [
+          -7.144999980926514,
+          11.45445442199707,
+          0.0
+        ],
+        [
+          -7.054999828338623,
+          12.854637145996094,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.009",
+      "bounds": [
+        [
+          -7.132499694824219,
+          12.872636795043945,
+          0.0
+        ],
+        [
+          -7.067500114440918,
+          14.272817611694336,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.009",
+      "bounds": [
+        [
+          -7.144999980926514,
+          12.872636795043945,
+          0.0
+        ],
+        [
+          -7.054999828338623,
+          14.272817611694336,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.010",
+      "bounds": [
+        [
+          -7.132499694824219,
+          14.290817260742188,
+          0.0
+        ],
+        [
+          -7.067500114440918,
+          15.690999984741211,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.010",
+      "bounds": [
+        [
+          -7.144999980926514,
+          14.290817260742188,
+          0.0
+        ],
+        [
+          -7.054999828338623,
+          15.690999984741211,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side coping",
+      "bounds": [
+        [
+          -7.275000095367432,
+          -0.09999990463256836,
+          4.380000114440918
+        ],
+        [
+          -6.924999713897705,
+          15.899999618530273,
+          4.539999961853027
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.011",
+      "bounds": [
+        [
+          7.067500114440918,
+          0.10900002717971802,
+          0.0
+        ],
+        [
+          7.132499694824219,
+          1.5091817378997803,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.011",
+      "bounds": [
+        [
+          7.054999828338623,
+          0.10900002717971802,
+          0.0
+        ],
+        [
+          7.144999980926514,
+          1.5091817378997803,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.012",
+      "bounds": [
+        [
+          7.067500114440918,
+          1.52718186378479,
+          0.0
+        ],
+        [
+          7.132499694824219,
+          2.927363634109497,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.012",
+      "bounds": [
+        [
+          7.054999828338623,
+          1.52718186378479,
+          0.0
+        ],
+        [
+          7.144999980926514,
+          2.927363634109497,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.013",
+      "bounds": [
+        [
+          7.067500114440918,
+          2.945363759994507,
+          0.0
+        ],
+        [
+          7.132499694824219,
+          4.345545768737793,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.013",
+      "bounds": [
+        [
+          7.054999828338623,
+          2.945363759994507,
+          0.0
+        ],
+        [
+          7.144999980926514,
+          4.345545768737793,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.014",
+      "bounds": [
+        [
+          7.067500114440918,
+          4.3635454177856445,
+          0.0
+        ],
+        [
+          7.132499694824219,
+          5.763727188110352,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.014",
+      "bounds": [
+        [
+          7.054999828338623,
+          4.3635454177856445,
+          0.0
+        ],
+        [
+          7.144999980926514,
+          5.763727188110352,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.015",
+      "bounds": [
+        [
+          7.067500114440918,
+          5.781727313995361,
+          0.0
+        ],
+        [
+          7.132499694824219,
+          7.181909084320068,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.015",
+      "bounds": [
+        [
+          7.054999828338623,
+          5.781727313995361,
+          0.0
+        ],
+        [
+          7.144999980926514,
+          7.181909084320068,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.016",
+      "bounds": [
+        [
+          7.067500114440918,
+          7.199909210205078,
+          0.0
+        ],
+        [
+          7.132499694824219,
+          8.600090980529785,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.016",
+      "bounds": [
+        [
+          7.054999828338623,
+          7.199909210205078,
+          0.0
+        ],
+        [
+          7.144999980926514,
+          8.600090980529785,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.017",
+      "bounds": [
+        [
+          7.067500114440918,
+          8.618091583251953,
+          0.0
+        ],
+        [
+          7.132499694824219,
+          10.018272399902344,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.017",
+      "bounds": [
+        [
+          7.054999828338623,
+          8.618091583251953,
+          0.0
+        ],
+        [
+          7.144999980926514,
+          10.018272399902344,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.018",
+      "bounds": [
+        [
+          7.067500114440918,
+          10.036272048950195,
+          0.0
+        ],
+        [
+          7.132499694824219,
+          11.436454772949219,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.018",
+      "bounds": [
+        [
+          7.054999828338623,
+          10.036272048950195,
+          0.0
+        ],
+        [
+          7.144999980926514,
+          11.436454772949219,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.019",
+      "bounds": [
+        [
+          7.067500114440918,
+          11.45445442199707,
+          0.0
+        ],
+        [
+          7.132499694824219,
+          12.854637145996094,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.019",
+      "bounds": [
+        [
+          7.054999828338623,
+          11.45445442199707,
+          0.0
+        ],
+        [
+          7.144999980926514,
+          12.854637145996094,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.020",
+      "bounds": [
+        [
+          7.067500114440918,
+          12.872636795043945,
+          0.0
+        ],
+        [
+          7.132499694824219,
+          14.272817611694336,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.020",
+      "bounds": [
+        [
+          7.054999828338623,
+          12.872636795043945,
+          0.0
+        ],
+        [
+          7.144999980926514,
+          14.272817611694336,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side mineral panel.021",
+      "bounds": [
+        [
+          7.067500114440918,
+          14.290817260742188,
+          0.0
+        ],
+        [
+          7.132499694824219,
+          15.690999984741211,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Side concrete plinth.021",
+      "bounds": [
+        [
+          7.054999828338623,
+          14.290817260742188,
+          0.0
+        ],
+        [
+          7.144999980926514,
+          15.690999984741211,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Side coping.001",
+      "bounds": [
+        [
+          6.924999713897705,
+          -0.09999990463256836,
+          4.380000114440918
+        ],
+        [
+          7.275000095367432,
+          15.899999618530273,
+          4.539999961853027
+        ]
+      ]
+    },
+    {
+      "name": "Folded canopy roof",
+      "bounds": [
+        [
+          -2.825000047683716,
+          16.100000381469727,
+          4.275000095367432
+        ],
+        [
+          2.825000047683716,
+          16.579999923706055,
+          4.365000247955322
+        ]
+      ]
+    },
+    {
+      "name": "Canopy front folded fascia",
+      "bounds": [
+        [
+          -2.825000047683716,
+          16.532501220703125,
+          4.130000114440918
+        ],
+        [
+          2.825000047683716,
+          16.577499389648438,
+          4.329999923706055
+        ]
+      ]
+    },
+    {
+      "name": "Canopy wall bearing plate",
+      "bounds": [
+        [
+          -2.7300000190734863,
+          16.145000457763672,
+          3.5199999809265137
+        ],
+        [
+          -2.5900001525878906,
+          16.235000610351562,
+          4.260000228881836
+        ]
+      ]
+    },
+    {
+      "name": "Triangular canopy strut",
+      "bounds": [
+        [
+          -2.695000171661377,
+          16.198331832885742,
+          3.5550968647003174
+        ],
+        [
+          -2.625,
+          16.581666946411133,
+          4.264902591705322
+        ]
+      ]
+    },
+    {
+      "name": "Canopy anchor bolt",
+      "bounds": [
+        [
+          -2.692000150680542,
+          16.229999542236328,
+          3.5980000495910645
+        ],
+        [
+          -2.628000020980835,
+          16.255001068115234,
+          3.6620001792907715
+        ]
+      ]
+    },
+    {
+      "name": "Canopy anchor bolt.001",
+      "bounds": [
+        [
+          -2.692000150680542,
+          16.229999542236328,
+          4.107999801635742
+        ],
+        [
+          -2.628000020980835,
+          16.255001068115234,
+          4.171999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Canopy wall bearing plate.001",
+      "bounds": [
+        [
+          2.5900001525878906,
+          16.145000457763672,
+          3.5199999809265137
+        ],
+        [
+          2.7300000190734863,
+          16.235000610351562,
+          4.260000228881836
+        ]
+      ]
+    },
+    {
+      "name": "Triangular canopy strut.001",
+      "bounds": [
+        [
+          2.625,
+          16.198331832885742,
+          3.5550968647003174
+        ],
+        [
+          2.695000171661377,
+          16.581666946411133,
+          4.264902591705322
+        ]
+      ]
+    },
+    {
+      "name": "Canopy anchor bolt.002",
+      "bounds": [
+        [
+          2.628000020980835,
+          16.229999542236328,
+          3.5980000495910645
+        ],
+        [
+          2.692000150680542,
+          16.255001068115234,
+          3.6620001792907715
+        ]
+      ]
+    },
+    {
+      "name": "Canopy anchor bolt.003",
+      "bounds": [
+        [
+          2.628000020980835,
+          16.229999542236328,
+          4.107999801635742
+        ],
+        [
+          2.692000150680542,
+          16.255001068115234,
+          4.171999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Compliance sign backing",
+      "bounds": [
+        [
+          -1.4249999523162842,
+          16.157501220703125,
+          3.6750001907348633
+        ],
+        [
+          1.4249999523162842,
+          16.24250030517578,
+          4.105000019073486
+        ]
+      ]
+    },
+    {
+      "name": "Shielded dock task light",
+      "bounds": [
+        [
+          -2.190000057220459,
+          16.26999855041504,
+          4.144999980926514
+        ],
+        [
+          -1.7699999809265137,
+          16.510000228881836,
+          4.235000133514404
+        ]
+      ]
+    },
+    {
+      "name": "Recessed luminaire lens",
+      "bounds": [
+        [
+          -2.1500000953674316,
+          16.299999237060547,
+          4.129000186920166
+        ],
+        [
+          -1.8100000619888306,
+          16.479999542236328,
+          4.144999980926514
+        ]
+      ]
+    },
+    {
+      "name": "Shielded dock task light.001",
+      "bounds": [
+        [
+          1.7699999809265137,
+          16.26999855041504,
+          4.144999980926514
+        ],
+        [
+          2.190000057220459,
+          16.510000228881836,
+          4.235000133514404
+        ]
+      ]
+    },
+    {
+      "name": "Recessed luminaire lens.001",
+      "bounds": [
+        [
+          1.8100000619888306,
+          16.299999237060547,
+          4.129000186920166
+        ],
+        [
+          2.1500000953674316,
+          16.479999542236328,
+          4.144999980926514
+        ]
+      ]
+    },
+    {
+      "name": "Intercom mounting block",
+      "bounds": [
+        [
+          2.5400002002716064,
+          16.130001068115234,
+          1.2200000286102295
+        ],
+        [
+          2.7799999713897705,
+          16.25,
+          1.7000000476837158
+        ]
+      ]
+    },
+    {
+      "name": "Intercom speaker slot",
+      "bounds": [
+        [
+          2.5850000381469727,
+          16.253000259399414,
+          1.375499963760376
+        ],
+        [
+          2.7350001335144043,
+          16.259000778198242,
+          1.3845000267028809
+        ]
+      ]
+    },
+    {
+      "name": "Intercom speaker slot.001",
+      "bounds": [
+        [
+          2.5850000381469727,
+          16.253000259399414,
+          1.4054999351501465
+        ],
+        [
+          2.7350001335144043,
+          16.259000778198242,
+          1.4144999980926514
+        ]
+      ]
+    },
+    {
+      "name": "Intercom speaker slot.002",
+      "bounds": [
+        [
+          2.5850000381469727,
+          16.253000259399414,
+          1.4355000257492065
+        ],
+        [
+          2.7350001335144043,
+          16.259000778198242,
+          1.4445000886917114
+        ]
+      ]
+    },
+    {
+      "name": "Intercom push button",
+      "bounds": [
+        [
+          2.630000114440918,
+          16.253000259399414,
+          1.2599999904632568
+        ],
+        [
+          2.690000057220459,
+          16.270002365112305,
+          1.3199999332427979
+        ]
+      ]
+    },
+    {
+      "name": "Rainwater downpipe",
+      "bounds": [
+        [
+          -6.564000129699707,
+          16.196001052856445,
+          0.15999984741210938
+        ],
+        [
+          -6.435999870300293,
+          16.323999404907227,
+          4.429999828338623
+        ]
+      ]
+    },
+    {
+      "name": "Downpipe wall shoe",
+      "bounds": [
+        [
+          -6.599999904632568,
+          16.110000610351562,
+          0.3700000047683716
+        ],
+        [
+          -6.400000095367432,
+          16.270000457763672,
+          0.4300000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Downpipe wall shoe.001",
+      "bounds": [
+        [
+          -6.599999904632568,
+          16.110000610351562,
+          1.9700000286102295
+        ],
+        [
+          -6.400000095367432,
+          16.270000457763672,
+          2.0299999713897705
+        ]
+      ]
+    },
+    {
+      "name": "Downpipe wall shoe.002",
+      "bounds": [
+        [
+          -6.599999904632568,
+          16.110000610351562,
+          3.870000123977661
+        ],
+        [
+          -6.400000095367432,
+          16.270000457763672,
+          3.930000066757202
+        ]
+      ]
+    },
+    {
+      "name": "Downpipe discharge elbow",
+      "bounds": [
+        [
+          -6.564000129699707,
+          16.240726470947266,
+          0.03897068277001381
+        ],
+        [
+          -6.435999870300293,
+          16.46927261352539,
+          0.22102931141853333
+        ]
+      ]
+    },
+    {
+      "name": "Roof waterproof cap",
+      "bounds": [
+        [
+          -6.800000190734863,
+          0.0,
+          4.442500114440918
+        ],
+        [
+          6.800000190734863,
+          15.800000190734863,
+          4.477499961853027
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.006",
+      "bounds": [
+        [
+          -6.7910003662109375,
+          -0.34450000524520874,
+          0.0
+        ],
+        [
+          -5.434000015258789,
+          -0.27950000762939453,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.006",
+      "bounds": [
+        [
+          -6.7910003662109375,
+          -0.38200002908706665,
+          0.0
+        ],
+        [
+          -5.434000015258789,
+          -0.2919999957084656,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.006",
+      "bounds": [
+        [
+          -6.789000034332275,
+          -0.3554999828338623,
+          1.159999966621399
+        ],
+        [
+          -5.436000347137451,
+          -0.34049999713897705,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.007",
+      "bounds": [
+        [
+          -5.4160003662109375,
+          -0.34450000524520874,
+          0.0
+        ],
+        [
+          -4.059000015258789,
+          -0.27950000762939453,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.007",
+      "bounds": [
+        [
+          -5.4160003662109375,
+          -0.38200002908706665,
+          0.0
+        ],
+        [
+          -4.059000015258789,
+          -0.2919999957084656,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.007",
+      "bounds": [
+        [
+          -5.414000034332275,
+          -0.3554999828338623,
+          1.159999966621399
+        ],
+        [
+          -4.061000347137451,
+          -0.34049999713897705,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.008",
+      "bounds": [
+        [
+          -4.040999889373779,
+          -0.34450000524520874,
+          0.0
+        ],
+        [
+          -2.684000015258789,
+          -0.27950000762939453,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.008",
+      "bounds": [
+        [
+          -4.040999889373779,
+          -0.38200002908706665,
+          0.0
+        ],
+        [
+          -2.684000015258789,
+          -0.2919999957084656,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.008",
+      "bounds": [
+        [
+          -4.039000034332275,
+          -0.3554999828338623,
+          1.159999966621399
+        ],
+        [
+          -2.685999870300293,
+          -0.34049999713897705,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.009",
+      "bounds": [
+        [
+          -2.6659998893737793,
+          -0.34450000524520874,
+          0.0
+        ],
+        [
+          -1.309000015258789,
+          -0.27950000762939453,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.009",
+      "bounds": [
+        [
+          -2.6659998893737793,
+          -0.38200002908706665,
+          0.0
+        ],
+        [
+          -1.309000015258789,
+          -0.2919999957084656,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.009",
+      "bounds": [
+        [
+          -2.6640000343322754,
+          -0.3554999828338623,
+          1.159999966621399
+        ],
+        [
+          -1.310999870300293,
+          -0.34049999713897705,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.010",
+      "bounds": [
+        [
+          1.309000015258789,
+          -0.34450000524520874,
+          0.0
+        ],
+        [
+          2.6659998893737793,
+          -0.27950000762939453,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.010",
+      "bounds": [
+        [
+          1.309000015258789,
+          -0.38200002908706665,
+          0.0
+        ],
+        [
+          2.6659998893737793,
+          -0.2919999957084656,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.010",
+      "bounds": [
+        [
+          1.310999870300293,
+          -0.3554999828338623,
+          1.159999966621399
+        ],
+        [
+          2.6640000343322754,
+          -0.34049999713897705,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.011",
+      "bounds": [
+        [
+          2.684000015258789,
+          -0.34450000524520874,
+          0.0
+        ],
+        [
+          4.040999889373779,
+          -0.27950000762939453,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.011",
+      "bounds": [
+        [
+          2.684000015258789,
+          -0.38200002908706665,
+          0.0
+        ],
+        [
+          4.040999889373779,
+          -0.2919999957084656,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.011",
+      "bounds": [
+        [
+          2.685999870300293,
+          -0.3554999828338623,
+          1.159999966621399
+        ],
+        [
+          4.039000034332275,
+          -0.34049999713897705,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.012",
+      "bounds": [
+        [
+          4.059000015258789,
+          -0.34450000524520874,
+          0.0
+        ],
+        [
+          5.4160003662109375,
+          -0.27950000762939453,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.012",
+      "bounds": [
+        [
+          4.059000015258789,
+          -0.38200002908706665,
+          0.0
+        ],
+        [
+          5.4160003662109375,
+          -0.2919999957084656,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.012",
+      "bounds": [
+        [
+          4.061000347137451,
+          -0.3554999828338623,
+          1.159999966621399
+        ],
+        [
+          5.414000034332275,
+          -0.34049999713897705,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Precast facade panel.013",
+      "bounds": [
+        [
+          5.434000015258789,
+          -0.34450000524520874,
+          0.0
+        ],
+        [
+          6.7910003662109375,
+          -0.27950000762939453,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Concrete kick plinth.013",
+      "bounds": [
+        [
+          5.434000015258789,
+          -0.38200002908706665,
+          0.0
+        ],
+        [
+          6.7910003662109375,
+          -0.2919999957084656,
+          0.6800000071525574
+        ]
+      ]
+    },
+    {
+      "name": "Department paint strip.013",
+      "bounds": [
+        [
+          5.436000347137451,
+          -0.3554999828338623,
+          1.159999966621399
+        ],
+        [
+          6.789000034332275,
+          -0.34049999713897705,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Rear coping",
+      "bounds": [
+        [
+          -7.090000152587891,
+          -0.49000000953674316,
+          4.380000114440918
+        ],
+        [
+          7.090000152587891,
+          -0.07000000774860382,
+          4.539999961853027
+        ]
+      ]
+    },
+    {
+      "name": "Corner sheet flashing",
+      "bounds": [
+        [
+          -7.19249963760376,
+          -0.05000000074505806,
+          0.0
+        ],
+        [
+          -7.127500057220459,
+          0.17000000178813934,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Corner sheet flashing.001",
+      "bounds": [
+        [
+          -7.19249963760376,
+          15.730000495910645,
+          0.0
+        ],
+        [
+          -7.127500057220459,
+          15.949999809265137,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Corner sheet flashing.002",
+      "bounds": [
+        [
+          7.127500057220459,
+          -0.05000000074505806,
+          0.0
+        ],
+        [
+          7.19249963760376,
+          0.17000000178813934,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Corner sheet flashing.003",
+      "bounds": [
+        [
+          7.127500057220459,
+          15.730000495910645,
+          0.0
+        ],
+        [
+          7.19249963760376,
+          15.949999809265137,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Roof end flashing",
+      "bounds": [
+        [
+          -6.800000190734863,
+          -0.05999999865889549,
+          4.46999979019165
+        ],
+        [
+          6.800000190734863,
+          0.05999999865889549,
+          4.509999752044678
+        ]
+      ]
+    },
+    {
+      "name": "Roof end flashing.001",
+      "bounds": [
+        [
+          -6.800000190734863,
+          15.739999771118164,
+          4.46999979019165
+        ],
+        [
+          6.800000190734863,
+          15.860000610351562,
+          4.509999752044678
+        ]
+      ]
+    },
+    {
+      "name": "Roof membrane lap",
+      "bounds": [
+        [
+          -6.699999809265137,
+          0.987500011920929,
+          4.478000164031982
+        ],
+        [
+          6.699999809265137,
+          1.0125000476837158,
+          4.483999729156494
+        ]
+      ]
+    },
+    {
+      "name": "Roof membrane lap.001",
+      "bounds": [
+        [
+          -6.699999809265137,
+          2.8374998569488525,
+          4.478000164031982
+        ],
+        [
+          6.699999809265137,
+          2.862499952316284,
+          4.483999729156494
+        ]
+      ]
+    },
+    {
+      "name": "Roof membrane lap.002",
+      "bounds": [
+        [
+          -6.699999809265137,
+          4.6875,
+          4.478000164031982
+        ],
+        [
+          6.699999809265137,
+          4.712499618530273,
+          4.483999729156494
+        ]
+      ]
+    },
+    {
+      "name": "Roof membrane lap.003",
+      "bounds": [
+        [
+          -6.699999809265137,
+          6.537500381469727,
+          4.478000164031982
+        ],
+        [
+          6.699999809265137,
+          6.5625,
+          4.483999729156494
+        ]
+      ]
+    },
+    {
+      "name": "Roof membrane lap.004",
+      "bounds": [
+        [
+          -6.699999809265137,
+          8.387499809265137,
+          4.478000164031982
+        ],
+        [
+          6.699999809265137,
+          8.41249942779541,
+          4.483999729156494
+        ]
+      ]
+    },
+    {
+      "name": "Roof membrane lap.005",
+      "bounds": [
+        [
+          -6.699999809265137,
+          10.237500190734863,
+          4.478000164031982
+        ],
+        [
+          6.699999809265137,
+          10.262499809265137,
+          4.483999729156494
+        ]
+      ]
+    },
+    {
+      "name": "Roof membrane lap.006",
+      "bounds": [
+        [
+          -6.699999809265137,
+          12.08750057220459,
+          4.478000164031982
+        ],
+        [
+          6.699999809265137,
+          12.112500190734863,
+          4.483999729156494
+        ]
+      ]
+    },
+    {
+      "name": "Roof membrane lap.007",
+      "bounds": [
+        [
+          -6.699999809265137,
+          13.9375,
+          4.478000164031982
+        ],
+        [
+          6.699999809265137,
+          13.962499618530273,
+          4.483999729156494
+        ]
+      ]
+    },
+    {
+      "name": "Exterior services cabinet",
+      "bounds": [
+        [
+          -7.324999809265137,
+          12.074999809265137,
+          1.0499999523162842
+        ],
+        [
+          -7.114999771118164,
+          12.925000190734863,
+          2.1500000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Service cabinet inset door",
+      "bounds": [
+        [
+          -7.357500076293945,
+          12.125,
+          1.1050000190734863
+        ],
+        [
+          -7.322500228881836,
+          12.875,
+          2.0950000286102295
+        ]
+      ]
+    },
+    {
+      "name": "Service cabinet bolt",
+      "bounds": [
+        [
+          -7.390000343322754,
+          12.149999618530273,
+          1.1299999952316284
+        ],
+        [
+          -7.369999885559082,
+          12.190000534057617,
+          1.1699999570846558
+        ]
+      ]
+    },
+    {
+      "name": "Service cabinet bolt.001",
+      "bounds": [
+        [
+          -7.390000343322754,
+          12.149999618530273,
+          2.0299999713897705
+        ],
+        [
+          -7.369999885559082,
+          12.190000534057617,
+          2.069999933242798
+        ]
+      ]
+    },
+    {
+      "name": "Service cabinet bolt.002",
+      "bounds": [
+        [
+          -7.390000343322754,
+          12.809999465942383,
+          1.1299999952316284
+        ],
+        [
+          -7.369999885559082,
+          12.850000381469727,
+          1.1699999570846558
+        ]
+      ]
+    },
+    {
+      "name": "Service cabinet bolt.003",
+      "bounds": [
+        [
+          -7.390000343322754,
+          12.809999465942383,
+          2.0299999713897705
+        ],
+        [
+          -7.369999885559082,
+          12.850000381469727,
+          2.069999933242798
+        ]
+      ]
+    },
+    {
+      "name": "Sealed service conduit",
+      "bounds": [
+        [
+          -7.264999866485596,
+          12.475000381469727,
+          2.1500000953674316
+        ],
+        [
+          -7.214999675750732,
+          12.524999618530273,
+          4.380000114440918
+        ]
+      ]
+    },
+    {
+      "name": "Conduit saddle",
+      "bounds": [
+        [
+          -7.259999752044678,
+          12.449999809265137,
+          2.4725000858306885
+        ],
+        [
+          -7.139999866485596,
+          12.550000190734863,
+          2.5274999141693115
+        ]
+      ]
+    },
+    {
+      "name": "Conduit saddle.001",
+      "bounds": [
+        [
+          -7.259999752044678,
+          12.449999809265137,
+          3.37250018119812
+        ],
+        [
+          -7.139999866485596,
+          12.550000190734863,
+          3.427500009536743
+        ]
+      ]
+    },
+    {
+      "name": "Conduit saddle.002",
+      "bounds": [
+        [
+          -7.259999752044678,
+          12.449999809265137,
+          4.172499656677246
+        ],
+        [
+          -7.139999866485596,
+          12.550000190734863,
+          4.227499961853027
+        ]
+      ]
+    },
+    {
+      "name": "Conduit weather termination",
+      "bounds": [
+        [
+          -7.299999713897705,
+          12.40999984741211,
+          4.289999961853027
+        ],
+        [
+          -7.139999866485596,
+          12.59000015258789,
+          4.449999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Inspection station backing",
+      "bounds": [
+        [
+          3.2950000762939453,
+          16.142499923706055,
+          1.0399999618530273
+        ],
+        [
+          4.744999885559082,
+          16.20749855041504,
+          2.1600000858306885
+        ]
+      ]
+    },
+    {
+      "name": "Station anchor",
+      "bounds": [
+        [
+          3.375,
+          16.200000762939453,
+          1.1150000095367432
+        ],
+        [
+          3.4250001907348633,
+          16.226001739501953,
+          1.1649999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Station anchor.001",
+      "bounds": [
+        [
+          3.375,
+          16.200000762939453,
+          2.0349998474121094
+        ],
+        [
+          3.4250001907348633,
+          16.226001739501953,
+          2.0850000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Station anchor.002",
+      "bounds": [
+        [
+          4.614999771118164,
+          16.200000762939453,
+          1.1150000095367432
+        ],
+        [
+          4.664999961853027,
+          16.226001739501953,
+          1.1649999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Station anchor.003",
+      "bounds": [
+        [
+          4.614999771118164,
+          16.200000762939453,
+          2.0349998474121094
+        ],
+        [
+          4.664999961853027,
+          16.226001739501953,
+          2.0850000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Manifest weather hood",
+      "bounds": [
+        [
+          3.244999885559082,
+          16.10999870300293,
+          2.1649999618530273
+        ],
+        [
+          4.795000076293945,
+          16.510000228881836,
+          2.2150001525878906
+        ]
+      ]
+    },
+    {
+      "name": "Clipboard fibre board",
+      "bounds": [
+        [
+          3.424999952316284,
+          16.212499618530273,
+          1.4600000381469727
+        ],
+        [
+          3.7749998569488525,
+          16.247499465942383,
+          1.940000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Inspection sheet",
+      "bounds": [
+        [
+          3.4549999237060547,
+          16.249000549316406,
+          1.5
+        ],
+        [
+          3.744999885559082,
+          16.255001068115234,
+          1.9000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Clipboard spring clip",
+      "bounds": [
+        [
+          3.5199999809265137,
+          16.25749969482422,
+          1.8849999904632568
+        ],
+        [
+          3.679999828338623,
+          16.282501220703125,
+          1.9549999237060547
+        ]
+      ]
+    },
+    {
+      "name": "Inspection ruled line",
+      "bounds": [
+        [
+          3.484999895095825,
+          16.25550079345703,
+          1.7285000085830688
+        ],
+        [
+          3.7149999141693115,
+          16.258499145507812,
+          1.7315000295639038
+        ]
+      ]
+    },
+    {
+      "name": "Inspection ruled line.001",
+      "bounds": [
+        [
+          3.484999895095825,
+          16.25550079345703,
+          1.6684999465942383
+        ],
+        [
+          3.7149999141693115,
+          16.258499145507812,
+          1.6714999675750732
+        ]
+      ]
+    },
+    {
+      "name": "Inspection ruled line.002",
+      "bounds": [
+        [
+          3.484999895095825,
+          16.25550079345703,
+          1.6085000038146973
+        ],
+        [
+          3.7149999141693115,
+          16.258499145507812,
+          1.6115000247955322
+        ]
+      ]
+    },
+    {
+      "name": "Visitor document pocket",
+      "bounds": [
+        [
+          3.940000057220459,
+          16.200000762939453,
+          1.465000033378601
+        ],
+        [
+          4.360000133514404,
+          16.380001068115234,
+          1.7549999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Document stack",
+      "bounds": [
+        [
+          3.995000123977661,
+          16.264999389648438,
+          1.6549999713897705
+        ],
+        [
+          4.305000305175781,
+          16.30500030517578,
+          1.9249999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Permit stamp shelf",
+      "bounds": [
+        [
+          3.450000286102295,
+          16.19499969482422,
+          1.212499976158142
+        ],
+        [
+          4.650000095367432,
+          16.485000610351562,
+          1.2475000619888306
+        ]
+      ]
+    },
+    {
+      "name": "Stamp handle",
+      "bounds": [
+        [
+          4.3420000076293945,
+          16.302000045776367,
+          1.2899999618530273
+        ],
+        [
+          4.418000221252441,
+          16.378000259399414,
+          1.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Stamp rubber base",
+      "bounds": [
+        [
+          4.320000171661377,
+          16.295000076293945,
+          1.247499942779541
+        ],
+        [
+          4.440000057220459,
+          16.385000228881836,
+          1.2925000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Marker holder",
+      "bounds": [
+        [
+          4.59499979019165,
+          16.2450008392334,
+          1.5499999523162842
+        ],
+        [
+          4.644999980926514,
+          16.295000076293945,
+          1.7400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Marker holder attachment",
+      "bounds": [
+        [
+          4.585000038146973,
+          16.204999923706055,
+          1.5625
+        ],
+        [
+          4.654999732971191,
+          16.2710018157959,
+          1.5975000858306885
+        ]
+      ]
+    },
+    {
+      "name": "Marker holder attachment.001",
+      "bounds": [
+        [
+          4.585000038146973,
+          16.204999923706055,
+          1.6924999952316284
+        ],
+        [
+          4.654999732971191,
+          16.2710018157959,
+          1.727500081062317
+        ]
+      ]
+    },
+    {
+      "name": "Marker pen",
+      "bounds": [
+        [
+          4.607999801635742,
+          16.25800132751465,
+          1.659999966621399
+        ],
+        [
+          4.631999969482422,
+          16.281999588012695,
+          1.8899999856948853
+        ]
+      ]
+    },
+    {
+      "name": "Localized hand wear",
+      "bounds": [
+        [
+          2.562000036239624,
+          16.256500244140625,
+          1.3265000581741333
+        ],
+        [
+          2.5979998111724854,
+          16.259498596191406,
+          1.3335000276565552
+        ]
+      ]
+    },
+    {
+      "name": "Localized hand wear.001",
+      "bounds": [
+        [
+          2.697499990463257,
+          16.256500244140625,
+          1.5464999675750732
+        ],
+        [
+          2.7225000858306885,
+          16.259498596191406,
+          1.5534999370574951
+        ]
+      ]
+    },
+    {
+      "name": "Localized hand wear.002",
+      "bounds": [
+        [
+          3.3600001335144043,
+          16.488500595092773,
+          1.2365000247955322
+        ],
+        [
+          3.440000057220459,
+          16.491498947143555,
+          1.243499994277954
+        ]
+      ]
+    },
+    {
+      "name": "Localized hand wear.003",
+      "bounds": [
+        [
+          4.285000324249268,
+          16.488500595092773,
+          1.2365000247955322
+        ],
+        [
+          4.394999980926514,
+          16.491498947143555,
+          1.243499994277954
+        ]
+      ]
+    },
+    {
+      "name": "Gate edge exposed metal",
+      "bounds": [
+        [
+          -2.257999897003174,
+          15.89050006866455,
+          0.1574999988079071
+        ],
+        [
+          -2.242000102996826,
+          15.895499229431152,
+          0.2224999964237213
+        ]
+      ]
+    },
+    {
+      "name": "Gate edge exposed metal.001",
+      "bounds": [
+        [
+          -2.257999897003174,
+          15.89050006866455,
+          0.38749998807907104
+        ],
+        [
+          -2.242000102996826,
+          15.895499229431152,
+          0.45249998569488525
+        ]
+      ]
+    },
+    {
+      "name": "Gate edge exposed metal.002",
+      "bounds": [
+        [
+          -2.257999897003174,
+          15.89050006866455,
+          0.6174999475479126
+        ],
+        [
+          -2.242000102996826,
+          15.895499229431152,
+          0.6825000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Gate edge exposed metal.003",
+      "bounds": [
+        [
+          2.242000102996826,
+          15.89050006866455,
+          0.1574999988079071
+        ],
+        [
+          2.257999897003174,
+          15.895499229431152,
+          0.2224999964237213
+        ]
+      ]
+    },
+    {
+      "name": "Gate edge exposed metal.004",
+      "bounds": [
+        [
+          2.242000102996826,
+          15.89050006866455,
+          0.38749998807907104
+        ],
+        [
+          2.257999897003174,
+          15.895499229431152,
+          0.45249998569488525
+        ]
+      ]
+    },
+    {
+      "name": "Gate edge exposed metal.005",
+      "bounds": [
+        [
+          2.242000102996826,
+          15.89050006866455,
+          0.6174999475479126
+        ],
+        [
+          2.257999897003174,
+          15.895499229431152,
+          0.6825000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Rear sleeve side jacket",
+      "bounds": [
+        [
+          -1.3325001001358032,
+          -2.115000009536743,
+          0.0
+        ],
+        [
+          -1.2975000143051147,
+          -0.16499996185302734,
+          2.5999999046325684
+        ]
+      ]
+    },
+    {
+      "name": "Rear sleeve side jacket.001",
+      "bounds": [
+        [
+          1.2975000143051147,
+          -2.115000009536743,
+          0.0
+        ],
+        [
+          1.3325001001358032,
+          -0.16499996185302734,
+          2.5999999046325684
+        ]
+      ]
+    },
+    {
+      "name": "Rear sleeve top flashing",
+      "bounds": [
+        [
+          -1.340000033378601,
+          -2.1599998474121094,
+          2.6100001335144043
+        ],
+        [
+          1.340000033378601,
+          -0.13999998569488525,
+          2.6700000762939453
+        ]
+      ]
+    },
+    {
+      "name": "Rear cap vertical frame",
+      "bounds": [
+        [
+          -1.277500033378601,
+          -2.1474997997283936,
+          0.0
+        ],
+        [
+          -1.2024999856948853,
+          -2.0924999713897705,
+          2.5999999046325684
+        ]
+      ]
+    },
+    {
+      "name": "Rear cap vertical frame.001",
+      "bounds": [
+        [
+          1.2024999856948853,
+          -2.1474997997283936,
+          0.0
+        ],
+        [
+          1.277500033378601,
+          -2.0924999713897705,
+          2.5999999046325684
+        ]
+      ]
+    },
+    {
+      "name": "Rear cap head flashing",
+      "bounds": [
+        [
+          -1.274999976158142,
+          -2.1474997997283936,
+          2.62250018119812
+        ],
+        [
+          1.274999976158142,
+          -2.0924999713897705,
+          2.697499990463257
+        ]
+      ]
+    },
+    {
+      "name": "Rear cap fixing",
+      "bounds": [
+        [
+          -1.2660000324249268,
+          -2.1700000762939453,
+          0.17399999499320984
+        ],
+        [
+          -1.2139999866485596,
+          -2.1500000953674316,
+          0.22600001096725464
+        ]
+      ]
+    },
+    {
+      "name": "Rear cap fixing.001",
+      "bounds": [
+        [
+          -1.2660000324249268,
+          -2.1700000762939453,
+          0.9039999842643738
+        ],
+        [
+          -1.2139999866485596,
+          -2.1500000953674316,
+          0.956000030040741
+        ]
+      ]
+    },
+    {
+      "name": "Rear cap fixing.002",
+      "bounds": [
+        [
+          -1.2660000324249268,
+          -2.1700000762939453,
+          1.6339999437332153
+        ],
+        [
+          -1.2139999866485596,
+          -2.1500000953674316,
+          1.6859999895095825
+        ]
+      ]
+    },
+    {
+      "name": "Rear cap fixing.003",
+      "bounds": [
+        [
+          -1.2660000324249268,
+          -2.1700000762939453,
+          2.374000072479248
+        ],
+        [
+          -1.2139999866485596,
+          -2.1500000953674316,
+          2.4260001182556152
+        ]
+      ]
+    },
+    {
+      "name": "Rear cap fixing.004",
+      "bounds": [
+        [
+          1.2139999866485596,
+          -2.1700000762939453,
+          0.17399999499320984
+        ],
+        [
+          1.2660000324249268,
+          -2.1500000953674316,
+          0.22600001096725464
+        ]
+      ]
+    },
+    {
+      "name": "Rear cap fixing.005",
+      "bounds": [
+        [
+          1.2139999866485596,
+          -2.1700000762939453,
+          0.9039999842643738
+        ],
+        [
+          1.2660000324249268,
+          -2.1500000953674316,
+          0.956000030040741
+        ]
+      ]
+    },
+    {
+      "name": "Rear cap fixing.006",
+      "bounds": [
+        [
+          1.2139999866485596,
+          -2.1700000762939453,
+          1.6339999437332153
+        ],
+        [
+          1.2660000324249268,
+          -2.1500000953674316,
+          1.6859999895095825
+        ]
+      ]
+    },
+    {
+      "name": "Rear cap fixing.007",
+      "bounds": [
+        [
+          1.2139999866485596,
+          -2.1700000762939453,
+          2.374000072479248
+        ],
+        [
+          1.2660000324249268,
+          -2.1500000953674316,
+          2.4260001182556152
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west",
+      "bounds": [
+        [
+          -2.1575000286102295,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -2.12250018119812,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west.001",
+      "bounds": [
+        [
+          -1.977500081062317,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -1.9424999952316284,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west.002",
+      "bounds": [
+        [
+          -1.7975000143051147,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -1.7624999284744263,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west.003",
+      "bounds": [
+        [
+          -1.6175000667572021,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -1.5824999809265137,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west.004",
+      "bounds": [
+        [
+          -1.4375,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -1.4024999141693115,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west.005",
+      "bounds": [
+        [
+          -1.2575000524520874,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -1.222499966621399,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west.006",
+      "bounds": [
+        [
+          -1.0774999856948853,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -1.0424998998641968,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west.007",
+      "bounds": [
+        [
+          -0.8974999785423279,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -0.862500011920929,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west.008",
+      "bounds": [
+        [
+          -0.7174999713897705,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -0.6825000047683716,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west.009",
+      "bounds": [
+        [
+          -0.5374999642372131,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -0.5024999976158142,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west.010",
+      "bounds": [
+        [
+          -0.35750001668930054,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -0.32249999046325684,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib west.011",
+      "bounds": [
+        [
+          -0.17749999463558197,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          -0.14249999821186066,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east",
+      "bounds": [
+        [
+          0.14249999821186066,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          0.17749999463558197,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east.001",
+      "bounds": [
+        [
+          0.32249999046325684,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          0.35750001668930054,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east.002",
+      "bounds": [
+        [
+          0.5024999976158142,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          0.5374999642372131,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east.003",
+      "bounds": [
+        [
+          0.6825000047683716,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          0.7174999713897705,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east.004",
+      "bounds": [
+        [
+          0.862500011920929,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          0.8974999785423279,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east.005",
+      "bounds": [
+        [
+          1.0424998998641968,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          1.0774999856948853,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east.006",
+      "bounds": [
+        [
+          1.222499966621399,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          1.2575000524520874,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east.007",
+      "bounds": [
+        [
+          1.4024999141693115,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          1.4375,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east.008",
+      "bounds": [
+        [
+          1.5824999809265137,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          1.6175000667572021,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east.009",
+      "bounds": [
+        [
+          1.7624999284744263,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          1.7975000143051147,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east.010",
+      "bounds": [
+        [
+          1.9424999952316284,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          1.977500081062317,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Gate exterior pressed rib east.011",
+      "bounds": [
+        [
+          2.12250018119812,
+          15.889999389648438,
+          0.10000002384185791
+        ],
+        [
+          2.1575000286102295,
+          15.937999725341797,
+          3.4000000953674316
+        ]
+      ]
+    }
+  ]
+}

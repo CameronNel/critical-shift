@@ -1,0 +1,57 @@
+{
+  "revision": "R30",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "cpu_threads": 2,
+  "process_priority": "IDLE",
+  "gpu_denoising": false,
+  "samples": 16,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "render_settings": {
+    "max_bounces": 10,
+    "diffuse_bounces": 3,
+    "glossy_bounces": 3,
+    "transmission_bounces": 8,
+    "transparent_max_bounces": 8,
+    "sample_clamp_indirect": 3.0,
+    "adaptive_threshold": 0.03999999910593033,
+    "seed": 0,
+    "denoiser": "OPENIMAGEDENOISE"
+  },
+  "renderer_source_sha256": {
+    "render.py": "a0745da4a98a826c4a02d3604bf1f6e227ed7bac719f8f9b9298507246c6ecb5",
+    "resource_guard.py": "06d771f58cdfefb71a23bd0e15ca2baef098185f0e64f6850169faf471ecbd2f"
+  },
+  "cameras": [
+    {
+      "camera": "C01_ENTRY",
+      "seconds": 329.04,
+      "sha256": "4b9bc2696b01fb7798e3820e237857dcac6286b02c873feaae6172b9e57bd669",
+      "location": [
+        0.0,
+        -1.1200000047683716,
+        1.5499999523162842
+      ],
+      "lens": 22.0,
+      "process_id": 35368
+    },
+    {
+      "camera": "C02_HERO",
+      "seconds": 284.46,
+      "sha256": "33da4a85e5a217003d45b7bf9077f41a704766fbb23b041c19958ca2dedc946e",
+      "location": [
+        -1.350000023841858,
+        1.2000000476837158,
+        1.7000000476837158
+      ],
+      "lens": 22.0,
+      "process_id": 35368
+    }
+  ],
+  "process_id": 35368,
+  "source_revision": "R30",
+  "blend_sha256": "0cf079d815fad385d2493cc68c4dc45749df47ead6628067f41e39fe09e86477"
+}

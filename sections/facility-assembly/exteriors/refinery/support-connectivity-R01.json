@@ -1,0 +1,2623 @@
+{
+  "mesh_defects": [],
+  "revision": "R01",
+  "scope": "Evaluated world-AABB connectivity broadphase, not raycast/anchor/support-angle validation. Original render-visible mesh objects are root candidates; physical/collision suitability is not independently classified. AABB overlap can be empty space, contact does not imply load-bearing support, and deep penetration is accepted by this connectivity graph. Text/curves excluded. Model is not saved.",
+  "threshold_m": 0.005,
+  "numerical_epsilon_m": 1e-06,
+  "additive_mesh_count": 124,
+  "original_root_candidate_count": 1714,
+  "root_connected_additive_count": 124,
+  "detached_components": [],
+  "direct_original_candidates": [
+    {
+      "object": "Refinery exterior panel",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.001",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.002",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.003",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.004",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.005",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.006",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.007",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.008",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.009",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.010",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.011",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.012",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.013",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.014",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.015",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.016",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.017",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.018",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.019",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.020",
+      "original_candidates": [
+        "Ceiling",
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.021",
+      "original_candidates": [
+        "Ceiling",
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.022",
+      "original_candidates": [
+        "Ceiling",
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.023",
+      "original_candidates": [
+        "Ceiling",
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.024",
+      "original_candidates": [
+        "Ceiling",
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.025",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.026",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.027",
+      "original_candidates": [
+        "Ceiling",
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.028",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.029",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.030",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.031",
+      "original_candidates": [
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.032",
+      "original_candidates": [
+        "Ceiling",
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery wall weather cap",
+      "original_candidates": [
+        "Ceiling",
+        "North_wall"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.033",
+      "original_candidates": [
+        "West_front_pier",
+        "MINE_threshold_return"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.034",
+      "original_candidates": [
+        "West_front_pier",
+        "MINE_threshold_return",
+        "MINE_threshold_soffit"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.035",
+      "original_candidates": [
+        "Ceiling",
+        "West_front_pier"
+      ]
+    },
+    {
+      "object": "Refinery wall weather cap.001",
+      "original_candidates": [
+        "Ceiling",
+        "West_front_pier"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.036",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.037",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.038",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.039",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.040",
+      "original_candidates": [
+        "Ceiling",
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.041",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.042",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.043",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.044",
+      "original_candidates": [
+        "Ceiling",
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.045",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.046",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.047",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.048",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.049",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.050",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.051",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.052",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.053",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.054",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.055",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.056",
+      "original_candidates": [
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.057",
+      "original_candidates": [
+        "Ceiling",
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.058",
+      "original_candidates": [
+        "Ceiling",
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.059",
+      "original_candidates": [
+        "Ceiling",
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery wall weather cap.002",
+      "original_candidates": [
+        "Ceiling",
+        "North_wall",
+        "West_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.060",
+      "original_candidates": [
+        "West_header",
+        "MINE_threshold_soffit"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.061",
+      "original_candidates": [
+        "Ceiling",
+        "West_header"
+      ]
+    },
+    {
+      "object": "Refinery wall weather cap.003",
+      "original_candidates": [
+        "Ceiling",
+        "West_header"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.062",
+      "original_candidates": [
+        "East_front_pier",
+        "REACTOR_threshold_return"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.063",
+      "original_candidates": [
+        "East_front_pier",
+        "REACTOR_threshold_return",
+        "REACTOR_threshold_soffit"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.064",
+      "original_candidates": [
+        "Ceiling",
+        "East_front_pier"
+      ]
+    },
+    {
+      "object": "Refinery wall weather cap.004",
+      "original_candidates": [
+        "Ceiling",
+        "East_front_pier",
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.065",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.066",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.067",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.068",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.069",
+      "original_candidates": [
+        "Ceiling",
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.070",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.071",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.072",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.073",
+      "original_candidates": [
+        "Ceiling",
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.074",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.075",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.076",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.077",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.078",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.079",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.080",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.081",
+      "original_candidates": [
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.082",
+      "original_candidates": [
+        "Ceiling",
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.083",
+      "original_candidates": [
+        "Ceiling",
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery wall weather cap.005",
+      "original_candidates": [
+        "Ceiling",
+        "North_wall",
+        "East_main"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.084",
+      "original_candidates": [
+        "East_header",
+        "REACTOR_threshold_soffit"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.085",
+      "original_candidates": [
+        "Ceiling",
+        "East_header"
+      ]
+    },
+    {
+      "object": "Refinery wall weather cap.006",
+      "original_candidates": [
+        "Ceiling",
+        "East_header"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.086",
+      "original_candidates": [
+        "South_left"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.087",
+      "original_candidates": [
+        "South_left"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.088",
+      "original_candidates": [
+        "South_left"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.089",
+      "original_candidates": [
+        "South_left"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.090",
+      "original_candidates": [
+        "Ceiling",
+        "South_left"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.091",
+      "original_candidates": [
+        "Ceiling",
+        "South_left"
+      ]
+    },
+    {
+      "object": "Refinery wall weather cap.007",
+      "original_candidates": [
+        "Ceiling",
+        "South_left",
+        "South_header"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.092",
+      "original_candidates": [
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.093",
+      "original_candidates": [
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.094",
+      "original_candidates": [
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.095",
+      "original_candidates": [
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.096",
+      "original_candidates": [
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.097",
+      "original_candidates": [
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.098",
+      "original_candidates": [
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.099",
+      "original_candidates": [
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.100",
+      "original_candidates": [
+        "Ceiling",
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.101",
+      "original_candidates": [
+        "Ceiling",
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.102",
+      "original_candidates": [
+        "Ceiling",
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.103",
+      "original_candidates": [
+        "Ceiling",
+        "South_right"
+      ]
+    },
+    {
+      "object": "Refinery wall weather cap.008",
+      "original_candidates": [
+        "Ceiling",
+        "South_right",
+        "South_header"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.104",
+      "original_candidates": [
+        "South_header"
+      ]
+    },
+    {
+      "object": "Refinery exterior panel.105",
+      "original_candidates": [
+        "Ceiling",
+        "South_header"
+      ]
+    },
+    {
+      "object": "Refinery wall weather cap.009",
+      "original_candidates": [
+        "Ceiling",
+        "South_left",
+        "South_right",
+        "South_header"
+      ]
+    }
+  ],
+  "additive_bounds": [
+    {
+      "name": "Refinery exterior panel",
+      "bounds": [
+        [
+          -7.80066442489624,
+          6.734283447265625,
+          0.0029999911785125732
+        ],
+        [
+          -5.4813313484191895,
+          6.784283638000488,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.001",
+      "bounds": [
+        [
+          -5.469331741333008,
+          6.734283447265625,
+          0.0029999911785125732
+        ],
+        [
+          -3.149998664855957,
+          6.784283638000488,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.002",
+      "bounds": [
+        [
+          -3.137998580932617,
+          6.734283447265625,
+          0.0029999911785125732
+        ],
+        [
+          -0.8186658620834351,
+          6.784283638000488,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.003",
+      "bounds": [
+        [
+          -0.8066657781600952,
+          6.734283447265625,
+          0.0029999911785125732
+        ],
+        [
+          1.5126670598983765,
+          6.784283638000488,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.004",
+      "bounds": [
+        [
+          1.5246671438217163,
+          6.734283447265625,
+          0.0029999911785125732
+        ],
+        [
+          3.8439998626708984,
+          6.784283638000488,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.005",
+      "bounds": [
+        [
+          -7.80066442489624,
+          6.734283447265625,
+          0.45299994945526123
+        ],
+        [
+          -5.4813313484191895,
+          6.784283638000488,
+          3.117000102996826
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.006",
+      "bounds": [
+        [
+          -5.469331741333008,
+          6.734283447265625,
+          0.45299994945526123
+        ],
+        [
+          -3.149998664855957,
+          6.784283638000488,
+          3.117000102996826
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.007",
+      "bounds": [
+        [
+          -3.137998580932617,
+          6.734283447265625,
+          0.45299994945526123
+        ],
+        [
+          -0.8186658620834351,
+          6.784283638000488,
+          3.117000102996826
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.008",
+      "bounds": [
+        [
+          -0.8066657781600952,
+          6.734283447265625,
+          0.45299994945526123
+        ],
+        [
+          1.5126670598983765,
+          6.784283638000488,
+          3.117000102996826
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.009",
+      "bounds": [
+        [
+          1.5246671438217163,
+          6.734283447265625,
+          0.45299994945526123
+        ],
+        [
+          3.8439998626708984,
+          6.784283638000488,
+          3.117000102996826
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.010",
+      "bounds": [
+        [
+          -7.80066442489624,
+          6.734283447265625,
+          3.123000144958496
+        ],
+        [
+          -5.4813313484191895,
+          6.784283638000488,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.011",
+      "bounds": [
+        [
+          -5.469331741333008,
+          6.734283447265625,
+          3.123000144958496
+        ],
+        [
+          -3.149998664855957,
+          6.784283638000488,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.012",
+      "bounds": [
+        [
+          -3.137998580932617,
+          6.734283447265625,
+          3.123000144958496
+        ],
+        [
+          -0.8186658620834351,
+          6.784283638000488,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.013",
+      "bounds": [
+        [
+          -0.8066657781600952,
+          6.734283447265625,
+          3.123000144958496
+        ],
+        [
+          1.5126670598983765,
+          6.784283638000488,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.014",
+      "bounds": [
+        [
+          1.5246671438217163,
+          6.734283447265625,
+          3.123000144958496
+        ],
+        [
+          3.8439998626708984,
+          6.784283638000488,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.015",
+      "bounds": [
+        [
+          -7.80066442489624,
+          6.734283447265625,
+          3.4529998302459717
+        ],
+        [
+          -5.4813313484191895,
+          6.784283638000488,
+          3.746999979019165
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.016",
+      "bounds": [
+        [
+          -5.469331741333008,
+          6.734283447265625,
+          3.4529998302459717
+        ],
+        [
+          -3.149998664855957,
+          6.784283638000488,
+          3.746999979019165
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.017",
+      "bounds": [
+        [
+          -3.137998580932617,
+          6.734283447265625,
+          3.4529998302459717
+        ],
+        [
+          -0.8186658620834351,
+          6.784283638000488,
+          3.746999979019165
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.018",
+      "bounds": [
+        [
+          -0.8066657781600952,
+          6.734283447265625,
+          3.4529998302459717
+        ],
+        [
+          1.5126670598983765,
+          6.784283638000488,
+          3.746999979019165
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.019",
+      "bounds": [
+        [
+          1.5246671438217163,
+          6.734283447265625,
+          3.4529998302459717
+        ],
+        [
+          3.8439998626708984,
+          6.784283638000488,
+          3.746999979019165
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.020",
+      "bounds": [
+        [
+          -7.80066442489624,
+          6.734283447265625,
+          3.753000020980835
+        ],
+        [
+          -5.4813313484191895,
+          6.784283638000488,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.021",
+      "bounds": [
+        [
+          -5.469331741333008,
+          6.734283447265625,
+          3.753000020980835
+        ],
+        [
+          -3.149998664855957,
+          6.784283638000488,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.022",
+      "bounds": [
+        [
+          -3.137998580932617,
+          6.734283447265625,
+          3.753000020980835
+        ],
+        [
+          -0.8186658620834351,
+          6.784283638000488,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.023",
+      "bounds": [
+        [
+          -0.8066657781600952,
+          6.734283447265625,
+          3.753000020980835
+        ],
+        [
+          1.5126670598983765,
+          6.784283638000488,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.024",
+      "bounds": [
+        [
+          1.5246671438217163,
+          6.734283447265625,
+          3.753000020980835
+        ],
+        [
+          3.8439998626708984,
+          6.784283638000488,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.025",
+      "bounds": [
+        [
+          3.8560001850128174,
+          6.734283447265625,
+          0.0029999911785125732
+        ],
+        [
+          4.453999996185303,
+          6.784283638000488,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.026",
+      "bounds": [
+        [
+          3.8560001850128174,
+          6.734283447265625,
+          0.45299994945526123
+        ],
+        [
+          4.453999996185303,
+          6.784283638000488,
+          3.117000102996826
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.027",
+      "bounds": [
+        [
+          3.8560001850128174,
+          6.734283447265625,
+          3.753000020980835
+        ],
+        [
+          4.453999996185303,
+          6.784283638000488,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.028",
+      "bounds": [
+        [
+          4.466000080108643,
+          6.734283447265625,
+          0.0029999911785125732
+        ],
+        [
+          7.80066442489624,
+          6.784283638000488,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.029",
+      "bounds": [
+        [
+          4.466000080108643,
+          6.734283447265625,
+          0.45299994945526123
+        ],
+        [
+          7.80066442489624,
+          6.784283638000488,
+          3.117000102996826
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.030",
+      "bounds": [
+        [
+          4.466000080108643,
+          6.734283447265625,
+          3.123000144958496
+        ],
+        [
+          7.80066442489624,
+          6.784283638000488,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.031",
+      "bounds": [
+        [
+          4.466000080108643,
+          6.734283447265625,
+          3.4529998302459717
+        ],
+        [
+          7.80066442489624,
+          6.784283638000488,
+          3.746999979019165
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.032",
+      "bounds": [
+        [
+          4.466000080108643,
+          6.734283447265625,
+          3.753000020980835
+        ],
+        [
+          7.80066442489624,
+          6.784283638000488,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery wall weather cap",
+      "bounds": [
+        [
+          -7.80666446685791,
+          6.679283618927002,
+          4.710000038146973
+        ],
+        [
+          7.80666446685791,
+          6.829283237457275,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.033",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -6.428283214569092,
+          0.0029999911785125732
+        ],
+        [
+          -7.806663990020752,
+          -5.540283679962158,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.034",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -6.428283214569092,
+          0.4530000686645508
+        ],
+        [
+          -7.806663990020752,
+          -5.540283679962158,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.035",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -6.428283214569092,
+          3.4529998302459717
+        ],
+        [
+          -7.806663990020752,
+          -5.540283679962158,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery wall weather cap.001",
+      "bounds": [
+        [
+          -7.901663780212402,
+          -6.434283256530762,
+          4.710000038146973
+        ],
+        [
+          -7.751664161682129,
+          -5.534283638000488,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.036",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -2.578282594680786,
+          0.0029999911785125732
+        ],
+        [
+          -7.806663990020752,
+          -1.6559998989105225,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.037",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -2.578282594680786,
+          0.4530000686645508
+        ],
+        [
+          -7.806663990020752,
+          -1.6559998989105225,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.038",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -2.578282594680786,
+          3.453000068664551
+        ],
+        [
+          -7.806663990020752,
+          -1.6559998989105225,
+          3.697000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.039",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -2.578282594680786,
+          3.703000068664551
+        ],
+        [
+          -7.806663990020752,
+          -1.6559998989105225,
+          4.2170000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.040",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -2.578282594680786,
+          4.2230000495910645
+        ],
+        [
+          -7.806663990020752,
+          -1.6559998989105225,
+          4.797000408172607
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.041",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -1.6439999341964722,
+          0.0029999911785125732
+        ],
+        [
+          -7.806663990020752,
+          -1.1460000276565552,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.042",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -1.6439999341964722,
+          0.4530000686645508
+        ],
+        [
+          -7.806663990020752,
+          -1.1460000276565552,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.043",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -1.6439999341964722,
+          3.453000068664551
+        ],
+        [
+          -7.806663990020752,
+          -1.1460000276565552,
+          3.697000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.044",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -1.6439999341964722,
+          4.2230000495910645
+        ],
+        [
+          -7.806663990020752,
+          -1.1460000276565552,
+          4.797000408172607
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.045",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -1.1340000629425049,
+          0.0029999911785125732
+        ],
+        [
+          -7.806663990020752,
+          1.378760814666748,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.046",
+      "bounds": [
+        [
+          -7.856664180755615,
+          1.3907607793807983,
+          0.0029999911785125732
+        ],
+        [
+          -7.806663990020752,
+          3.9035215377807617,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.047",
+      "bounds": [
+        [
+          -7.856664180755615,
+          3.9155211448669434,
+          0.0029999911785125732
+        ],
+        [
+          -7.806663990020752,
+          6.428282260894775,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.048",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -1.1340000629425049,
+          0.4530000686645508
+        ],
+        [
+          -7.806663990020752,
+          1.378760814666748,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.049",
+      "bounds": [
+        [
+          -7.856664180755615,
+          1.3907607793807983,
+          0.4530000686645508
+        ],
+        [
+          -7.806663990020752,
+          3.9035215377807617,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.050",
+      "bounds": [
+        [
+          -7.856664180755615,
+          3.9155211448669434,
+          0.4530000686645508
+        ],
+        [
+          -7.806663990020752,
+          6.428282260894775,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.051",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -1.1340000629425049,
+          3.453000068664551
+        ],
+        [
+          -7.806663990020752,
+          1.378760814666748,
+          3.697000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.052",
+      "bounds": [
+        [
+          -7.856664180755615,
+          1.3907607793807983,
+          3.453000068664551
+        ],
+        [
+          -7.806663990020752,
+          3.9035215377807617,
+          3.697000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.053",
+      "bounds": [
+        [
+          -7.856664180755615,
+          3.9155211448669434,
+          3.453000068664551
+        ],
+        [
+          -7.806663990020752,
+          6.428282260894775,
+          3.697000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.054",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -1.1340000629425049,
+          3.703000068664551
+        ],
+        [
+          -7.806663990020752,
+          1.378760814666748,
+          4.2170000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.055",
+      "bounds": [
+        [
+          -7.856664180755615,
+          1.3907607793807983,
+          3.703000068664551
+        ],
+        [
+          -7.806663990020752,
+          3.9035215377807617,
+          4.2170000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.056",
+      "bounds": [
+        [
+          -7.856664180755615,
+          3.9155211448669434,
+          3.703000068664551
+        ],
+        [
+          -7.806663990020752,
+          6.428282260894775,
+          4.2170000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.057",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -1.1340000629425049,
+          4.2230000495910645
+        ],
+        [
+          -7.806663990020752,
+          1.378760814666748,
+          4.797000408172607
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.058",
+      "bounds": [
+        [
+          -7.856664180755615,
+          1.3907607793807983,
+          4.2230000495910645
+        ],
+        [
+          -7.806663990020752,
+          3.9035215377807617,
+          4.797000408172607
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.059",
+      "bounds": [
+        [
+          -7.856664180755615,
+          3.9155211448669434,
+          4.2230000495910645
+        ],
+        [
+          -7.806663990020752,
+          6.428282260894775,
+          4.797000408172607
+        ]
+      ]
+    },
+    {
+      "name": "Refinery wall weather cap.002",
+      "bounds": [
+        [
+          -7.901663780212402,
+          -2.584282875061035,
+          4.710000038146973
+        ],
+        [
+          -7.751664161682129,
+          6.434282302856445,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.060",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -5.478283405303955,
+          3.123000144958496
+        ],
+        [
+          -7.806663990020752,
+          -2.6902832984924316,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.061",
+      "bounds": [
+        [
+          -7.856664180755615,
+          -5.478283405303955,
+          3.4529998302459717
+        ],
+        [
+          -7.806663990020752,
+          -2.6902832984924316,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery wall weather cap.003",
+      "bounds": [
+        [
+          -7.901663780212402,
+          -5.484283447265625,
+          4.710000038146973
+        ],
+        [
+          -7.751664161682129,
+          -2.6842832565307617,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.062",
+      "bounds": [
+        [
+          7.806663990020752,
+          -6.428283214569092,
+          0.0029999911785125732
+        ],
+        [
+          7.856664180755615,
+          -5.540283679962158,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.063",
+      "bounds": [
+        [
+          7.806663990020752,
+          -6.428283214569092,
+          0.4530000686645508
+        ],
+        [
+          7.856664180755615,
+          -5.540283679962158,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.064",
+      "bounds": [
+        [
+          7.806663990020752,
+          -6.428283214569092,
+          3.4529998302459717
+        ],
+        [
+          7.856664180755615,
+          -5.540283679962158,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery wall weather cap.004",
+      "bounds": [
+        [
+          7.751664161682129,
+          -6.434283256530762,
+          4.710000038146973
+        ],
+        [
+          7.901663780212402,
+          -5.534283638000488,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.065",
+      "bounds": [
+        [
+          7.806663990020752,
+          -2.578282594680786,
+          0.0029999911785125732
+        ],
+        [
+          7.856664180755615,
+          0.1640000343322754,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.066",
+      "bounds": [
+        [
+          7.806663990020752,
+          -2.578282594680786,
+          0.4530000686645508
+        ],
+        [
+          7.856664180755615,
+          0.1640000343322754,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.067",
+      "bounds": [
+        [
+          7.806663990020752,
+          -2.578282594680786,
+          3.453000068664551
+        ],
+        [
+          7.856664180755615,
+          0.1640000343322754,
+          3.697000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.068",
+      "bounds": [
+        [
+          7.806663990020752,
+          -2.578282594680786,
+          3.703000068664551
+        ],
+        [
+          7.856664180755615,
+          0.1640000343322754,
+          4.2170000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.069",
+      "bounds": [
+        [
+          7.806663990020752,
+          -2.578282594680786,
+          4.2230000495910645
+        ],
+        [
+          7.856664180755615,
+          0.1640000343322754,
+          4.797000408172607
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.070",
+      "bounds": [
+        [
+          7.806663990020752,
+          0.17599999904632568,
+          0.0029999911785125732
+        ],
+        [
+          7.856664180755615,
+          0.6840000152587891,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.071",
+      "bounds": [
+        [
+          7.806663990020752,
+          0.17599999904632568,
+          0.4530000686645508
+        ],
+        [
+          7.856664180755615,
+          0.6840000152587891,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.072",
+      "bounds": [
+        [
+          7.806663990020752,
+          0.17599999904632568,
+          3.453000068664551
+        ],
+        [
+          7.856664180755615,
+          0.6840000152587891,
+          3.697000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.073",
+      "bounds": [
+        [
+          7.806663990020752,
+          0.17599999904632568,
+          4.2230000495910645
+        ],
+        [
+          7.856664180755615,
+          0.6840000152587891,
+          4.797000408172607
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.074",
+      "bounds": [
+        [
+          7.806663990020752,
+          0.6959999799728394,
+          0.0029999911785125732
+        ],
+        [
+          7.856664180755615,
+          3.556140899658203,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.075",
+      "bounds": [
+        [
+          7.806663990020752,
+          3.568141460418701,
+          0.0029999911785125732
+        ],
+        [
+          7.856664180755615,
+          6.428282260894775,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.076",
+      "bounds": [
+        [
+          7.806663990020752,
+          0.6959999799728394,
+          0.4530000686645508
+        ],
+        [
+          7.856664180755615,
+          3.556140899658203,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.077",
+      "bounds": [
+        [
+          7.806663990020752,
+          3.568141460418701,
+          0.4530000686645508
+        ],
+        [
+          7.856664180755615,
+          6.428282260894775,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.078",
+      "bounds": [
+        [
+          7.806663990020752,
+          0.6959999799728394,
+          3.453000068664551
+        ],
+        [
+          7.856664180755615,
+          3.556140899658203,
+          3.697000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.079",
+      "bounds": [
+        [
+          7.806663990020752,
+          3.568141460418701,
+          3.453000068664551
+        ],
+        [
+          7.856664180755615,
+          6.428282260894775,
+          3.697000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.080",
+      "bounds": [
+        [
+          7.806663990020752,
+          0.6959999799728394,
+          3.703000068664551
+        ],
+        [
+          7.856664180755615,
+          3.556140899658203,
+          4.2170000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.081",
+      "bounds": [
+        [
+          7.806663990020752,
+          3.568141460418701,
+          3.703000068664551
+        ],
+        [
+          7.856664180755615,
+          6.428282260894775,
+          4.2170000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.082",
+      "bounds": [
+        [
+          7.806663990020752,
+          0.6959999799728394,
+          4.2230000495910645
+        ],
+        [
+          7.856664180755615,
+          3.556140899658203,
+          4.797000408172607
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.083",
+      "bounds": [
+        [
+          7.806663990020752,
+          3.568141460418701,
+          4.2230000495910645
+        ],
+        [
+          7.856664180755615,
+          6.428282260894775,
+          4.797000408172607
+        ]
+      ]
+    },
+    {
+      "name": "Refinery wall weather cap.005",
+      "bounds": [
+        [
+          7.751664161682129,
+          -2.584282875061035,
+          4.710000038146973
+        ],
+        [
+          7.901663780212402,
+          6.434282302856445,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.084",
+      "bounds": [
+        [
+          7.806663990020752,
+          -5.478283405303955,
+          3.123000144958496
+        ],
+        [
+          7.856664180755615,
+          -2.6902832984924316,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.085",
+      "bounds": [
+        [
+          7.806663990020752,
+          -5.478283405303955,
+          3.4529998302459717
+        ],
+        [
+          7.856664180755615,
+          -2.6902832984924316,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery wall weather cap.006",
+      "bounds": [
+        [
+          7.751664161682129,
+          -5.484283447265625,
+          4.710000038146973
+        ],
+        [
+          7.901663780212402,
+          -2.6842832565307617,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.086",
+      "bounds": [
+        [
+          -7.650662899017334,
+          -6.784283638000488,
+          0.0029999911785125732
+        ],
+        [
+          -5.334331035614014,
+          -6.734283447265625,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.087",
+      "bounds": [
+        [
+          -5.322331428527832,
+          -6.784283638000488,
+          0.0029999911785125732
+        ],
+        [
+          -3.0059995651245117,
+          -6.734283447265625,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.088",
+      "bounds": [
+        [
+          -7.650662899017334,
+          -6.784283638000488,
+          0.4530000686645508
+        ],
+        [
+          -5.334331035614014,
+          -6.734283447265625,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.089",
+      "bounds": [
+        [
+          -5.322331428527832,
+          -6.784283638000488,
+          0.4530000686645508
+        ],
+        [
+          -3.0059995651245117,
+          -6.734283447265625,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.090",
+      "bounds": [
+        [
+          -7.650662899017334,
+          -6.784283638000488,
+          3.4529998302459717
+        ],
+        [
+          -5.334331035614014,
+          -6.734283447265625,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.091",
+      "bounds": [
+        [
+          -5.322331428527832,
+          -6.784283638000488,
+          3.4529998302459717
+        ],
+        [
+          -3.0059995651245117,
+          -6.734283447265625,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery wall weather cap.007",
+      "bounds": [
+        [
+          -7.656662940979004,
+          -6.829283237457275,
+          4.710000038146973
+        ],
+        [
+          -3.0,
+          -6.679283618927002,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.092",
+      "bounds": [
+        [
+          -0.5940003395080566,
+          -6.784283638000488,
+          0.0029999911785125732
+        ],
+        [
+          1.533165693283081,
+          -6.734283447265625,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.093",
+      "bounds": [
+        [
+          1.5451658964157104,
+          -6.784283638000488,
+          0.0029999911785125732
+        ],
+        [
+          3.6723318099975586,
+          -6.734283447265625,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.094",
+      "bounds": [
+        [
+          3.6843318939208984,
+          -6.784283638000488,
+          0.0029999911785125732
+        ],
+        [
+          5.811497688293457,
+          -6.734283447265625,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.095",
+      "bounds": [
+        [
+          5.823498249053955,
+          -6.784283638000488,
+          0.0029999911785125732
+        ],
+        [
+          7.950664043426514,
+          -6.734283447265625,
+          0.44699999690055847
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.096",
+      "bounds": [
+        [
+          -0.5940003395080566,
+          -6.784283638000488,
+          0.4530000686645508
+        ],
+        [
+          1.533165693283081,
+          -6.734283447265625,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.097",
+      "bounds": [
+        [
+          1.5451658964157104,
+          -6.784283638000488,
+          0.4530000686645508
+        ],
+        [
+          3.6723318099975586,
+          -6.734283447265625,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.098",
+      "bounds": [
+        [
+          3.6843318939208984,
+          -6.784283638000488,
+          0.4530000686645508
+        ],
+        [
+          5.811497688293457,
+          -6.734283447265625,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.099",
+      "bounds": [
+        [
+          5.823498249053955,
+          -6.784283638000488,
+          0.4530000686645508
+        ],
+        [
+          7.950664043426514,
+          -6.734283447265625,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.100",
+      "bounds": [
+        [
+          -0.5940003395080566,
+          -6.784283638000488,
+          3.4529998302459717
+        ],
+        [
+          1.533165693283081,
+          -6.734283447265625,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.101",
+      "bounds": [
+        [
+          1.5451658964157104,
+          -6.784283638000488,
+          3.4529998302459717
+        ],
+        [
+          3.6723318099975586,
+          -6.734283447265625,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.102",
+      "bounds": [
+        [
+          3.6843318939208984,
+          -6.784283638000488,
+          3.4529998302459717
+        ],
+        [
+          5.811497688293457,
+          -6.734283447265625,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.103",
+      "bounds": [
+        [
+          5.823498249053955,
+          -6.784283638000488,
+          3.4529998302459717
+        ],
+        [
+          7.950664043426514,
+          -6.734283447265625,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery wall weather cap.008",
+      "bounds": [
+        [
+          -0.6000003814697266,
+          -6.829283237457275,
+          4.710000038146973
+        ],
+        [
+          7.956664085388184,
+          -6.679283618927002,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.104",
+      "bounds": [
+        [
+          -2.99399995803833,
+          -6.784283638000488,
+          2.6429996490478516
+        ],
+        [
+          -0.6059999465942383,
+          -6.734283447265625,
+          3.447000026702881
+        ]
+      ]
+    },
+    {
+      "name": "Refinery exterior panel.105",
+      "bounds": [
+        [
+          -2.99399995803833,
+          -6.784283638000488,
+          3.4529998302459717
+        ],
+        [
+          -0.6059999465942383,
+          -6.734283447265625,
+          4.796999931335449
+        ]
+      ]
+    },
+    {
+      "name": "Refinery wall weather cap.009",
+      "bounds": [
+        [
+          -3.0,
+          -6.829283237457275,
+          4.710000038146973
+        ],
+        [
+          -0.5999999046325684,
+          -6.679283618927002,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Refinery record mount",
+      "bounds": [
+        [
+          -0.15000000596046448,
+          -6.853999614715576,
+          1.2750000953674316
+        ],
+        [
+          0.3499999940395355,
+          -6.783999919891357,
+          1.9249999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Refinery receiving card",
+      "bounds": [
+        [
+          -0.08999999612569809,
+          -6.861499786376953,
+          1.434999942779541
+        ],
+        [
+          0.28999999165534973,
+          -6.854499816894531,
+          1.8650000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Refinery retaining clip",
+      "bounds": [
+        [
+          0.04000000283122063,
+          -6.883499622344971,
+          1.8424999713897705
+        ],
+        [
+          0.1599999964237213,
+          -6.858500003814697,
+          1.8975000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Refinery pocket back",
+      "bounds": [
+        [
+          -0.11999999731779099,
+          -6.875499725341797,
+          1.21999990940094
+        ],
+        [
+          0.3199999928474426,
+          -6.850500106811523,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Refinery pocket floor",
+      "bounds": [
+        [
+          -0.11999999731779099,
+          -6.993000030517578,
+          1.2174999713897705
+        ],
+        [
+          0.3199999928474426,
+          -6.852999687194824,
+          1.2425000667572021
+        ]
+      ]
+    },
+    {
+      "name": "Refinery pocket lip",
+      "bounds": [
+        [
+          -0.11999999731779099,
+          -7.005499839782715,
+          1.2200000286102295
+        ],
+        [
+          0.3199999928474426,
+          -6.980500221252441,
+          1.3399999141693115
+        ]
+      ]
+    },
+    {
+      "name": "Refinery pocket cheek",
+      "bounds": [
+        [
+          -0.13249999284744263,
+          -6.993000030517578,
+          1.21999990940094
+        ],
+        [
+          -0.10749999433755875,
+          -6.852999687194824,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Refinery pocket cheek.001",
+      "bounds": [
+        [
+          0.3075000047683716,
+          -6.993000030517578,
+          1.21999990940094
+        ],
+        [
+          0.33249998092651367,
+          -6.852999687194824,
+          1.399999976158142
+        ]
+      ]
+    }
+  ]
+}

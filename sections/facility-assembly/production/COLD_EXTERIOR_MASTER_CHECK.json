@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "revision": "A05",
+  "rooms": [
+    {
+      "section": "spawn-room",
+      "exterior_revision": "R05",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    },
+    {
+      "section": "mine",
+      "exterior_revision": "R02",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    },
+    {
+      "section": "refinery",
+      "exterior_revision": "R01",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    },
+    {
+      "section": "reactor-room",
+      "exterior_revision": "R05",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    },
+    {
+      "section": "cooling-plant",
+      "exterior_revision": "R03",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    },
+    {
+      "section": "turbine-room",
+      "exterior_revision": "R04",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    },
+    {
+      "section": "electrical-room",
+      "exterior_revision": "R03",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    },
+    {
+      "section": "waste-storage",
+      "exterior_revision": "R01",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    },
+    {
+      "section": "medical-reanimation",
+      "exterior_revision": "R04",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    },
+    {
+      "section": "fuel-corridor",
+      "exterior_revision": "R02",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    },
+    {
+      "section": "compliance-dock",
+      "exterior_revision": "R08",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    },
+    {
+      "section": "condenser-bay",
+      "exterior_revision": "R02",
+      "source_hash_match": true,
+      "pose_and_unit_scale": true,
+      "portal_and_reservation_check": "PASS",
+      "mesh_and_support_broadphase": "PASS"
+    }
+  ],
+  "U04_centres_delta_m": 5.3947966093944364e-06,
+  "missing_images": [],
+  "connector_count_unbuilt": 21,
+  "scope": "Fresh process linked libraries, exact A04 poses, frozen source hashes, exterior mesh/support broadphase and reserved gap checks. No art-score, runtime navigation or finished connector acceptance implied."
+}

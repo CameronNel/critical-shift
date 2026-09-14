@@ -1,0 +1,1629 @@
+{
+  "revision": "R25",
+  "blend_sha256": "c582aaacd1850df646c34f3029865367cc9d93edebdb221a30108c4442ecfc01",
+  "process_id": 30932,
+  "scope": "Local saved geometry; no engineering rating or engine/navmesh claim.",
+  "checks": {
+    "U04_nominal_bore": {
+      "samples": 121,
+      "blocked": 1,
+      "blockers": [
+        "EJ air suction"
+      ],
+      "ok": false
+    },
+    "D01": {
+      "samples": 81,
+      "blocked": 0,
+      "blockers": [],
+      "ok": true,
+      "foot_clearance_start_m": 0.08,
+      "note": "Clear passage above the authored sill; sill height checked separately."
+    },
+    "D01_sill": {
+      "ok": true,
+      "maximum_height_m": 0.04399999976158142
+    },
+    "named_support_targets": {
+      "ok": true,
+      "items": [
+        {
+          "anchor": "SUPPORT_floor slab",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 9.5367431640625e-07
+        },
+        {
+          "anchor": "SUPPORT_column -1.4_2.1",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 1.1920928955078125e-07
+        },
+        {
+          "anchor": "SUPPORT_column -1.4_6.5",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 1.1920928955078125e-07
+        },
+        {
+          "anchor": "SUPPORT_column 5.5_2.1",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 2.384185791015625e-07
+        },
+        {
+          "anchor": "SUPPORT_column 5.5_6.5",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 2.1324806311895372e-06
+        },
+        {
+          "anchor": "SUPPORT_column 9.2_2.1",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 0.0
+        },
+        {
+          "anchor": "SUPPORT_column 9.2_8.2",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 0.0
+        },
+        {
+          "anchor": "SUPPORT_stair foot",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 7.372687491624674e-07
+        },
+        {
+          "anchor": "SUPPORT_tray 1.5",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_tray 4.05",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_tray 7.2",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_tray 8.9",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_batten0",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_batten1",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_batten2",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_batten3",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_batten4",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_batten5",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_batten6",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_batten7",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_batten8",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_CD pier 0",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 7.177349743869854e-06
+        },
+        {
+          "anchor": "SUPPORT_CD pier 1",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 4.76837158203125e-07
+        },
+        {
+          "anchor": "SUPPORT_CEP-A ft-0.72",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 1.1920928955078125e-07
+        },
+        {
+          "anchor": "SUPPORT_CEP-A ft-0.001",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 0.0
+        },
+        {
+          "anchor": "SUPPORT_CEP-A ft0.7",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 0.0
+        },
+        {
+          "anchor": "SUPPORT_CEP-A ft0.001",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 0.0
+        },
+        {
+          "anchor": "SUPPORT_CEP-B ft-0.72",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 0.0
+        },
+        {
+          "anchor": "SUPPORT_CEP-B ft-0.001",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 9.5367431640625e-07
+        },
+        {
+          "anchor": "SUPPORT_CEP-B ft0.7",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 1.9073486328125e-06
+        },
+        {
+          "anchor": "SUPPORT_CEP-B ft0.001",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 4.76837158203125e-07
+        },
+        {
+          "anchor": "SUPPORT_riser hang A",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_riser hang B",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_CW hang 8.6_3.6",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_CW hang 8.6_4.4",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_CW hang 8.6_5.5",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_CW hang 5.1_5.4",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_CW hang 0.9_5.4",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_EJ skid",
+          "target": "Structural floor",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "max_gap": 0.008,
+          "max_penetration": 0.003,
+          "ok": true,
+          "surface_distance_m": 2.980232238769531e-07
+        },
+        {
+          "anchor": "SUPPORT_hoist L",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_hoist R",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.02,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.014999866485595703
+        },
+        {
+          "anchor": "SUPPORT_Astra gallery (6.35, 4.1)",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.006,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.0019998550415039062
+        },
+        {
+          "anchor": "SUPPORT_Astra gallery (6.35, 6.25)",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.006,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.0019998550415039062
+        },
+        {
+          "anchor": "SUPPORT_Astra gallery (-0.3, 2.1)",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.006,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.0019998550415039062
+        },
+        {
+          "anchor": "SUPPORT_Astra gallery (-0.3, 5.9)",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.006,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.0019998550415039062
+        },
+        {
+          "anchor": "SUPPORT_Astra gallery (3.2, 6.295)",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.006,
+          "max_penetration": 0.006,
+          "ok": true,
+          "surface_distance_m": 0.0019998550415039062
+        }
+      ]
+    },
+    "route_headroom": {
+      "ok": true,
+      "routes": [
+        {
+          "route": "west cart lane",
+          "bounds_xy": [
+            -0.35,
+            0.45,
+            0.05,
+            6.25
+          ],
+          "samples": 234,
+          "ok": true,
+          "failures": []
+        },
+        {
+          "route": "south crossover",
+          "bounds_xy": [
+            0.75,
+            5.1,
+            1.4,
+            2.15
+          ],
+          "samples": 140,
+          "ok": true,
+          "failures": []
+        },
+        {
+          "route": "north pump approach",
+          "bounds_xy": [
+            0.75,
+            5.0,
+            5.72,
+            6.42
+          ],
+          "samples": 135,
+          "ok": true,
+          "failures": []
+        },
+        {
+          "route": "east pull approach",
+          "bounds_xy": [
+            6.65,
+            8.55,
+            2.0,
+            6.8
+          ],
+          "samples": 372,
+          "ok": true,
+          "failures": []
+        }
+      ],
+      "limits": "Sampled straight standing volumes; does not certify carried-body turns or engine movement."
+    },
+    "gallery_standing_route": {
+      "ok": false,
+      "samples": 560,
+      "deck_z": 3.9,
+      "failures": [
+        {
+          "xy": [
+            0.15,
+            4.430555555555555
+          ],
+          "object": "EJ air suction",
+          "height_above_deck": 2.020971393585205
+        },
+        {
+          "xy": [
+            0.39,
+            4.430555555555555
+          ],
+          "object": "EJ air suction",
+          "height_above_deck": 2.020867919921875
+        },
+        {
+          "xy": [
+            -0.09,
+            4.430555555555555
+          ],
+          "object": "EJ air suction",
+          "height_above_deck": 2.0210748672485352
+        },
+        {
+          "xy": [
+            0.15,
+            4.467777777777778
+          ],
+          "object": "EJ air suction",
+          "height_above_deck": 2.0204277992248536
+        }
+      ],
+      "scope": "2.0m upward volume from .08m above deck, five-point 0.48m body footprint along U route."
+    },
+    "cart_straight_delivery_sweep": {
+      "ok": true,
+      "poses": [
+        {
+          "centre": [
+            0.05,
+            0.4
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            0.5958333333333333
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            0.7916666666666667
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            0.9875
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            1.1833333333333333
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            1.3791666666666667
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            1.5750000000000002
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            1.7708333333333335
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            1.9666666666666668
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            2.1625
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            2.3583333333333334
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            2.5541666666666667
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            2.75
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            2.9458333333333333
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            3.1416666666666666
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            3.3375
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            3.533333333333333
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            3.729166666666667
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            3.9250000000000003
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            4.120833333333334
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            4.316666666666666
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            4.5125
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            4.708333333333334
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            4.904166666666668
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        },
+        {
+          "centre": [
+            0.05,
+            5.1000000000000005
+          ],
+          "size": [
+            0.8,
+            2.2,
+            1.6
+          ],
+          "ok": true,
+          "objects": []
+        }
+      ],
+      "scope": "Actual 0.8x2.2x1.6m cart volume, 25 poses from D01 through west delivery lane; reverses to exit. No 90-degree turn claimed."
+    },
+    "interface_markers": {
+      "ok": true,
+      "items": [
+        {
+          "marker": "IF_PORTAL_D01_SERVICE",
+          "position_error_m": 0.0,
+          "ok": true
+        },
+        {
+          "marker": "IF_LP_EXHAUST_CONDENSER",
+          "position_error_m": 0.0,
+          "ok": true
+        },
+        {
+          "marker": "IF_CONDENSATE_HANDOFF",
+          "position_error_m": 0.0,
+          "ok": true
+        },
+        {
+          "marker": "IF_CW_SUPPLY",
+          "position_error_m": 0.0,
+          "ok": true
+        },
+        {
+          "marker": "IF_CW_RETURN",
+          "position_error_m": 0.0,
+          "ok": true
+        },
+        {
+          "marker": "IF_DRAIN_OUT",
+          "position_error_m": 0.0,
+          "ok": true
+        },
+        {
+          "marker": "IF_VENT_OUT",
+          "position_error_m": 0.0,
+          "ok": true
+        }
+      ]
+    },
+    "dependencies": {
+      "ok": true,
+      "missing_images": [],
+      "linked_libraries": []
+    },
+    "fixed_cameras": {
+      "ok": true,
+      "cameras": {
+        "C01_ENTRY": {
+          "matrix": [
+            [
+              0.9083574414253235,
+              -0.04847658425569534,
+              -0.41537541151046753,
+              0.0
+            ],
+            [
+              -0.41819459199905396,
+              -0.10529572516679764,
+              -0.9022339582443237,
+              -1.1200000047683716
+            ],
+            [
+              -3.367388146102712e-08,
+              0.9932587146759033,
+              -0.11591880023479462,
+              1.5499999523162842
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 22.0
+        },
+        "C02_HERO": {
+          "matrix": [
+            [
+              0.5752706527709961,
+              -0.13064336776733398,
+              -0.8074626922607422,
+              -1.350000023841858
+            ],
+            [
+              -0.8179631233215332,
+              -0.09188114106655121,
+              -0.5678857564926147,
+              1.2000000476837158
+            ],
+            [
+              -8.652660454799843e-08,
+              0.987162709236145,
+              -0.15971799194812775,
+              1.7000000476837158
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 22.0
+        },
+        "C03_REVERSE": {
+          "matrix": [
+            [
+              -0.9999468922615051,
+              0.00101514533162117,
+              0.010258613154292107,
+              3.049999952316284
+            ],
+            [
+              0.01030871830880642,
+              0.09847765415906906,
+              0.9950858950614929,
+              9.050000190734863
+            ],
+            [
+              -8.742277657347586e-08,
+              0.9951387643814087,
+              -0.0984828844666481,
+              1.7200000286102295
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 22.0
+        },
+        "C04_EXHAUST": {
+          "matrix": [
+            [
+              -0.10578607022762299,
+              0.12864725291728973,
+              0.9860320687294006,
+              5.820000171661377
+            ],
+            [
+              0.9943889379501343,
+              0.013685946352779865,
+              0.10489702969789505,
+              4.349999904632568
+            ],
+            [
+              -6.609794667156166e-08,
+              0.991595983505249,
+              -0.12937317788600922,
+              5.449999809265137
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 26.0
+        },
+        "C05_RETURN": {
+          "matrix": [
+            [
+              -0.71368408203125,
+              0.060869306325912476,
+              -0.6978179812431335,
+              0.44999998807907104
+            ],
+            [
+              -0.7004677057266235,
+              -0.06201779469847679,
+              0.7109843492507935,
+              8.550000190734863
+            ],
+            [
+              -6.555636922200847e-09,
+              0.9962171912193298,
+              0.08689809590578079,
+              1.5800000429153442
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 24.0
+        },
+        "C06_COOLING": {
+          "matrix": [
+            [
+              0.6981000304222107,
+              -0.43025925755500793,
+              -0.5723052620887756,
+              6.550000190734863
+            ],
+            [
+              -0.7160002589225769,
+              -0.4195026457309723,
+              -0.557997465133667,
+              2.200000047683716
+            ],
+            [
+              -5.140293524164008e-09,
+              0.7993087768554688,
+              -0.600920557975769,
+              2.450000047683716
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 28.0
+        },
+        "C07_OPERATOR": {
+          "matrix": [
+            [
+              7.549790126404332e-08,
+              0.06850813329219818,
+              0.9976505637168884,
+              1.1799999475479126
+            ],
+            [
+              1.0,
+              -6.256378526359185e-08,
+              -7.13794747753127e-08,
+              4.050000190734863
+            ],
+            [
+              5.752672294079275e-08,
+              0.9976505637168884,
+              -0.06850813329219818,
+              1.5199999809265137
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 26.0
+        },
+        "C08_MAINT": {
+          "matrix": [
+            [
+              0.997199296951294,
+              -0.012857269495725632,
+              0.07367654889822006,
+              5.900000095367432
+            ],
+            [
+              0.07478999346494675,
+              0.17143027484416962,
+              -0.9823533296585083,
+              4.199999809265137
+            ],
+            [
+              -9.32082233617848e-09,
+              0.9851123690605164,
+              0.17191174626350403,
+              5.449999809265137
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 28.0
+        },
+        "C09_ROOF": {
+          "matrix": [
+            [
+              -0.5714938640594482,
+              0.09554524719715118,
+              0.8150250315666199,
+              5.800000190734863
+            ],
+            [
+              0.8206063508987427,
+              0.06654033809900284,
+              0.5676069259643555,
+              6.0
+            ],
+            [
+              9.911374831972353e-08,
+              0.9931986331939697,
+              -0.11643242835998535,
+              5.449999809265137
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 28.0
+        },
+        "C10_MATERIALS": {
+          "matrix": [
+            [
+              0.9961071014404297,
+              -0.013064147904515266,
+              0.087177574634552,
+              2.5
+            ],
+            [
+              0.08815101534128189,
+              0.14762502908706665,
+              -0.9851072430610657,
+              5.920000076293945
+            ],
+            [
+              -5.06496800056766e-09,
+              0.9889571070671082,
+              0.14820195734500885,
+              1.1200000047683716
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 32.0
+        },
+        "W01_ENTRY_CORNER": {
+          "matrix": [
+            [
+              -0.9889797568321228,
+              -0.014829980209469795,
+              0.14730627834796906,
+              0.25
+            ],
+            [
+              0.14805088937282562,
+              -0.09906411916017532,
+              0.9840056896209717,
+              1.5499999523162842
+            ],
+            [
+              -1.8844227511749523e-08,
+              0.9949705600738525,
+              0.10016799718141556,
+              1.5199999809265137
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 22.0
+        },
+        "W02_SW_TURN": {
+          "matrix": [
+            [
+              -0.10872671008110046,
+              -0.0983332172036171,
+              -0.9891961812973022,
+              0.5
+            ],
+            [
+              -0.9940716624259949,
+              0.010755203664302826,
+              0.10819344967603683,
+              1.7000000476837158
+            ],
+            [
+              -3.749121901819308e-09,
+              0.995095431804657,
+              -0.09891964495182037,
+              1.5800000429153442
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 24.0
+        },
+        "W03_NW": {
+          "matrix": [
+            [
+              -0.5128551721572876,
+              0.038246795535087585,
+              -0.8576227426528931,
+              -1.350000023841858
+            ],
+            [
+              -0.8584751486778259,
+              -0.022848619148135185,
+              0.5123459696769714,
+              8.899999618530273
+            ],
+            [
+              9.524110566871968e-08,
+              0.9990070462226868,
+              0.04455195367336273,
+              1.600000023841858
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 24.0
+        },
+        "W04_NE": {
+          "matrix": [
+            [
+              -0.8734809160232544,
+              0.0996299460530281,
+              0.47655534744262695,
+              8.550000190734863
+            ],
+            [
+              0.48685842752456665,
+              0.1787474900484085,
+              0.8549960255622864,
+              7.150000095367432
+            ],
+            [
+              1.3552580924169888e-07,
+              0.9788376688957214,
+              -0.20463819801807404,
+              1.6200000047683716
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 24.0
+        },
+        "W05_SE": {
+          "matrix": [
+            [
+              0.8421463966369629,
+              0.05295110493898392,
+              0.5366429686546326,
+              8.5
+            ],
+            [
+              0.5392490029335022,
+              -0.08269393444061279,
+              -0.8380765318870544,
+              1.5800000429153442
+            ],
+            [
+              3.94247585688845e-08,
+              0.9951672554016113,
+              -0.09819422662258148,
+              1.6200000047683716
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 24.0
+        },
+        "W06_WEST_AISLE": {
+          "matrix": [
+            [
+              -0.9999914765357971,
+              -0.00012738538498524576,
+              0.004121620673686266,
+              0.11999999731779099
+            ],
+            [
+              0.0041235885582864285,
+              -0.030912650749087334,
+              0.999513566493988,
+              6.849999904632568
+            ],
+            [
+              8.680017060669343e-08,
+              0.9995220899581909,
+              0.030912913382053375,
+              1.5499999523162842
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 24.0
+        },
+        "W07_EAST_PULL": {
+          "matrix": [
+            [
+              0.9773231744766235,
+              -0.048991791903972626,
+              0.20600786805152893,
+              8.199999809265137
+            ],
+            [
+              0.211753249168396,
+              0.2261161208152771,
+              -0.9508060216903687,
+              2.3499999046325684
+            ],
+            [
+              -8.194342981937552e-09,
+              0.9728675484657288,
+              0.23136268556118011,
+              1.5800000429153442
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 26.0
+        },
+        "W08_GALLERY_TURN": {
+          "matrix": [
+            [
+              -1.0,
+              -1.309461481469043e-07,
+              1.1078687833787626e-07,
+              5.849999904632568
+            ],
+            [
+              1.5099580252808664e-07,
+              -0.3656521141529083,
+              0.930751621723175,
+              5.400000095367432
+            ],
+            [
+              -8.136888141052623e-08,
+              0.930751621723175,
+              0.3656521141529083,
+              5.449999809265137
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "lens": 28.0
+        }
+      }
+    }
+  },
+  "status": "FAIL"
+}

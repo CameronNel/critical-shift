@@ -1,0 +1,31 @@
+{
+  "revision": "R21",
+  "checks": {
+    "d01_opening": {
+      "samples": 16,
+      "blocked": 0,
+      "blockers": [],
+      "ok": true
+    },
+    "u04_opening": {
+      "samples": 25,
+      "blocked": 0,
+      "blockers": [],
+      "ok": true
+    },
+    "supports": {
+      "count": 46,
+      "failed": 0,
+      "failures": []
+    },
+    "no_teal_material_names": {
+      "ok": true,
+      "hits": []
+    }
+  },
+  "counts": {
+    "objects": 2325,
+    "cameras": 18,
+    "materials": 25
+  }
+}

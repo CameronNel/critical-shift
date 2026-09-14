@@ -1,0 +1,129 @@
+[
+  {
+    "light": "exchanger side wall shaping",
+    "type": "AREA",
+    "location": [
+      4.900000095367432,
+      8.5,
+      4.900000095367432
+    ],
+    "energy": 220.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Cooling side mineral bay.012",
+          "hit_world": [
+            5.813612937927246,
+            8.142499923706055,
+            4.900000095367432
+          ]
+        },
+        {
+          "mesh": "EastWall",
+          "hit_world": [
+            5.5,
+            7.779234886169434,
+            5.210489273071289
+          ]
+        },
+        {
+          "mesh": "Cooling folded upper field.001",
+          "hit_world": [
+            5.846999645233154,
+            8.215391159057617,
+            4.845083713531494
+          ]
+        },
+        {
+          "mesh": "Cooling side mineral bay.013",
+          "hit_world": [
+            5.799999713897705,
+            8.22951602935791,
+            4.847809314727783
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 2.0,
+      "size_y": 2.0,
+      "normal_world": [
+        -0.20614895224571228,
+        -0.5268250107765198,
+        -0.8245956301689148
+      ],
+      "emitter_rectangle_world": [
+        [
+          6.131724834442139,
+          8.903499603271484,
+          4.334277629852295
+        ],
+        [
+          5.530760765075684,
+          7.367702007293701,
+          5.465722560882568
+        ],
+        [
+          4.26923942565918,
+          9.632298469543457,
+          4.334277629852295
+        ],
+        [
+          3.6682753562927246,
+          8.096500396728516,
+          5.465722560882568
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "EastWall",
+        "distance_m": 0.5999999125800375,
+        "closest_surface_world": [
+          5.5,
+          8.5,
+          4.899999618530273
+        ]
+      },
+      {
+        "mesh": "wall control joint.011",
+        "distance_m": 0.7659405622418678,
+        "closest_surface_world": [
+          5.484499931335449,
+          8.994999885559082,
+          4.90000057220459
+        ]
+      },
+      {
+        "mesh": "Cooling side mineral bay.013",
+        "distance_m": 0.899999603960162,
+        "closest_surface_world": [
+          5.799999713897705,
+          8.5,
+          4.900000095367432
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "roof girder lower flange.002",
+        "distance_m": 1.2830780003130857,
+        "closest_surface_world": [
+          4.899999618530273,
+          9.685111045837402,
+          5.391732692718506
+        ]
+      },
+      {
+        "mesh": "Cooling roof edge flashing.001",
+        "distance_m": 1.366638858248631,
+        "closest_surface_world": [
+          5.761171817779541,
+          8.5,
+          5.961171627044678
+        ]
+      }
+    ]
+  }
+]

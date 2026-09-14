@@ -1,0 +1,24 @@
+{
+  "resolution": [
+    1920,
+    1080
+  ],
+  "engine": "BLENDER_EEVEE",
+  "raytracing": false,
+  "samples": 8,
+  "results": [
+    {
+      "view": "courtyard",
+      "moving_redraw_fps": 117.2221400581913
+    },
+    {
+      "view": "power",
+      "moving_redraw_fps": 152.12225761556545
+    },
+    {
+      "view": "reactor",
+      "moving_redraw_fps": 150.40055427663214
+    }
+  ],
+  "scope": "Scripted short moving viewport redraw tests, not full gameplay frame-time validation"
+}

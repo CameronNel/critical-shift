@@ -1,0 +1,419 @@
+{
+  "schema": "critical-shift.section-interface.design.v1",
+  "section_id": "condenser-bay",
+  "revision": "R34",
+  "date": "2026-09-12",
+  "status": "local_visual_accepted_integration_pending",
+  "units": "metres",
+  "dimensions_are_implementation_decisions": true,
+  "frame": {
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "origin_meaning": "D01 service threshold centre at finished bay floor",
+    "inward_axis": "+Y",
+    "up_axis": "+Z",
+    "right_axis": "+X",
+    "origin_in_turbine_local": [
+      1.6,
+      7.4,
+      -6.0
+    ],
+    "transform_note": "turbine_xyz = condenser_xyz + origin_in_turbine_local",
+    "neighbor_alignment_verified": false
+  },
+  "envelopes": {
+    "main_clear": {
+      "min": [
+        -1.8,
+        0.0,
+        0.0
+      ],
+      "max": [
+        9.6,
+        9.4,
+        6.0
+      ]
+    },
+    "wall_thickness_m": 0.28,
+    "floor_z": 0,
+    "ceiling_z": 6.0,
+    "justification": "Preserved R21 11.4 x 9.4 x 6.0 m room around condenser, west service space, east staging reserve and south stairs. Saved audits sample 2.2 m floor routes and approximately 2.0 m gallery/stair standing height; broad planning zones are not certified clear volumes."
+  },
+  "portals": [
+    {
+      "id": "D01",
+      "marker": "IF_PORTAL_D01_SERVICE",
+      "centre": [
+        0,
+        0,
+        0
+      ],
+      "outward_normal": [
+        0,
+        -1,
+        0
+      ],
+      "clear_width_m": 2.0,
+      "clear_height_m": 2.4,
+      "type": "two_opposed_sliding_leaves_parked_open",
+      "adjacent_section": null,
+      "binding_status": "unbound_receiving_service_connector",
+      "traversable_design_intent": true
+    }
+  ],
+  "utilities": [
+    {
+      "id": "U04_RECEIVE",
+      "marker": "IF_LP_EXHAUST_CONDENSER",
+      "kind": "LP_steam_exhaust_receive",
+      "centre": [
+        3.0,
+        4.05,
+        6.0
+      ],
+      "centre_in_turbine_local": [
+        4.6,
+        11.45,
+        0.0
+      ],
+      "outward_normal": [
+        0,
+        0,
+        1
+      ],
+      "cross_section_m": [
+        2.5,
+        1.5
+      ],
+      "adjacent_section": "turbine-room",
+      "adjacent_marker": "IF_LP_EXHAUST_CONDENSER",
+      "binding_status": "geometric_receive_of_accepted_U04_opening_not_assembled"
+    },
+    {
+      "id": "U02_HANDOFF",
+      "marker": "IF_CONDENSATE_HANDOFF",
+      "kind": "condensate_return_stub",
+      "centre": [
+        7.9,
+        0.0,
+        5.42
+      ],
+      "outward_normal": [
+        0,
+        -1,
+        0
+      ],
+      "diameter_design_m": 0.2,
+      "adjacent_section": "turbine-room",
+      "adjacent_marker": "IF_CONDENSATE_RETURN",
+      "binding_status": "local_stub_only; turbine U02 cap remains turbine-owned; integrator must route south then up to turbine (9.5,0,0.45)"
+    },
+    {
+      "id": "CW_S",
+      "marker": "IF_CW_SUPPLY",
+      "centre": [
+        9.6,
+        3.2,
+        3.15
+      ],
+      "outward_normal": [
+        1,
+        0,
+        0
+      ],
+      "diameter_design_m": 0.3,
+      "binding_status": "provisional_unbound"
+    },
+    {
+      "id": "CW_R",
+      "marker": "IF_CW_RETURN",
+      "centre": [
+        9.6,
+        4.9,
+        3.15
+      ],
+      "outward_normal": [
+        1,
+        0,
+        0
+      ],
+      "diameter_design_m": 0.3,
+      "binding_status": "provisional_unbound"
+    },
+    {
+      "id": "DRAIN",
+      "marker": "IF_DRAIN_OUT",
+      "centre": [
+        9.6,
+        8.55,
+        -0.08
+      ],
+      "binding_status": "provisional_unbound"
+    },
+    {
+      "id": "VENT",
+      "marker": "IF_VENT_OUT",
+      "centre": [
+        3.0,
+        9.4,
+        5.55
+      ],
+      "binding_status": "provisional_unbound"
+    }
+  ],
+  "equipment_zones": [
+    {
+      "id": "CD-01",
+      "purpose": "surface condenser under U04",
+      "centre": [
+        3.0,
+        4.05,
+        3.15
+      ]
+    },
+    {
+      "id": "CEP-A",
+      "purpose": "condensate extraction pump A",
+      "centre": [
+        2.35,
+        7.05,
+        0.0
+      ]
+    },
+    {
+      "id": "CEP-B",
+      "purpose": "condensate extraction pump B",
+      "centre": [
+        4.05,
+        8.2,
+        0.0
+      ]
+    },
+    {
+      "id": "EJ-01",
+      "purpose": "two-stage air ejector",
+      "centre": [
+        -0.55,
+        7.55,
+        1.55
+      ]
+    },
+    {
+      "id": "OP",
+      "purpose": "operator station",
+      "centre": [
+        -1.18,
+        4.05,
+        1.35
+      ]
+    }
+  ],
+  "circulation": {
+    "west_aisle": {
+      "min": [
+        -1.8,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.9,
+        9.4,
+        2.4
+      ]
+    },
+    "south_walk": {
+      "min": [
+        0.85,
+        1.15,
+        0.0
+      ],
+      "max": [
+        5.2,
+        2.55,
+        2.4
+      ]
+    },
+    "east_pull": {
+      "min": [
+        6.2,
+        1.2,
+        0.0
+      ],
+      "max": [
+        9.45,
+        7.2,
+        2.7
+      ]
+    },
+    "north_pump_apron": {
+      "min": [
+        1.2,
+        5.55,
+        0.0
+      ],
+      "max": [
+        5.2,
+        6.55,
+        2.4
+      ]
+    },
+    "stretcher_cart_test_envelope_m": [
+      0.8,
+      2.2,
+      1.6
+    ],
+    "navigation_mesh": "not_built",
+    "west_cart_lane": {
+      "min": [
+        -0.35,
+        0.05,
+        0
+      ],
+      "max": [
+        0.45,
+        6.25,
+        2.2
+      ],
+      "note": "Measured usable strip within broader equipment aisle; straight approach only."
+    },
+    "gallery_deck_z": 3.9
+  },
+  "interaction_hooks": [
+    {
+      "id": "INTERACT_D01",
+      "centre": [
+        0.85,
+        0.35,
+        1.05
+      ],
+      "action": "slide_leaf",
+      "equipment": "D01",
+      "status": "design_contract_not_runtime"
+    },
+    {
+      "id": "INTERACT_CD_ISOLATE",
+      "centre": [
+        0.7999999999999999,
+        4.05,
+        3.17
+      ],
+      "action": "isolate_cooling_waterbox",
+      "equipment": "CD-01",
+      "status": "design_contract_not_runtime"
+    },
+    {
+      "id": "INTERACT_CEP-A",
+      "centre": [
+        2.5700000000000003,
+        6.6,
+        1.15
+      ],
+      "action": "start_stop_cep",
+      "equipment": "CEP-A",
+      "status": "design_contract_not_runtime"
+    },
+    {
+      "id": "INTERACT_CEP-B",
+      "centre": [
+        4.27,
+        7.749999999999999,
+        1.15
+      ],
+      "action": "start_stop_cep",
+      "equipment": "CEP-B",
+      "status": "design_contract_not_runtime"
+    },
+    {
+      "id": "INTERACT_CW_ISOL_S",
+      "centre": [
+        8.55,
+        3.2,
+        3.55
+      ],
+      "action": "isolate_cw_supply",
+      "equipment": "CW",
+      "status": "design_contract_not_runtime"
+    },
+    {
+      "id": "INTERACT_CW_ISOL_R",
+      "centre": [
+        8.55,
+        4.9,
+        3.55
+      ],
+      "action": "isolate_cw_return",
+      "equipment": "CW",
+      "status": "design_contract_not_runtime"
+    },
+    {
+      "id": "INTERACT_EJ",
+      "centre": [
+        -1.1,
+        7.55,
+        2.15
+      ],
+      "action": "isolate_ejector_steam",
+      "equipment": "EJ-01",
+      "status": "design_contract_not_runtime"
+    },
+    {
+      "id": "INTERACT_CSB_VACUUM",
+      "centre": [
+        -1.28,
+        4.37,
+        1.38
+      ],
+      "action": "set_vacuum_mode",
+      "equipment": "OP",
+      "status": "design_contract_not_runtime"
+    },
+    {
+      "id": "INTERACT_CSB_TRIP",
+      "centre": [
+        -1.28,
+        4.05,
+        1.12
+      ],
+      "action": "vacuum_trip",
+      "equipment": "OP",
+      "status": "design_contract_not_runtime"
+    },
+    {
+      "id": "INTERACT_CSB_CEP",
+      "centre": [
+        -1.28,
+        3.9299999999999997,
+        1.38
+      ],
+      "action": "cep_select",
+      "equipment": "OP",
+      "status": "design_contract_not_runtime"
+    },
+    {
+      "id": "INTERACT_HOIST",
+      "centre": [
+        6.4,
+        3.55,
+        1.2
+      ],
+      "action": "position_bundle_hoist",
+      "equipment": "HOIST",
+      "status": "design_contract_not_runtime"
+    }
+  ],
+  "engine_handoff": {
+    "runtime_collision": "engine_owned_pending",
+    "navigation": "engine_owned_pending",
+    "thermodynamics": "not_simulated_scenic_only",
+    "whole_facility_travel_validation": "pending"
+  },
+  "known_issues": [
+    "Turbine U02 blind cap is not removed; required integrator action is documented, not performed.",
+    "Cooling-water wall flanges are local and capped; they do not prove a facility loop to the cooling plant.",
+    "D01 has no constructed remote corridor. Door opening is real inside this module.",
+    "No engineering ratings are certified."
+  ]
+}

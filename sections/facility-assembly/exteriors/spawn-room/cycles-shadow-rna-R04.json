@@ -1,0 +1,374 @@
+{
+  "section": "spawn-room",
+  "revision": "R04",
+  "engine": "CYCLES",
+  "lights": [
+    {
+      "object": "EEVEE_floor_bounce_BRIEFING",
+      "library": null,
+      "data_library": null,
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "EEVEE_floor_bounce_HALL",
+      "library": null,
+      "data_library": null,
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "EEVEE_floor_bounce_LOCKER",
+      "library": null,
+      "data_library": null,
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "EEVEE_floor_bounce_SERVICE",
+      "library": null,
+      "data_library": null,
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Review sun",
+      "library": null,
+      "data_library": null,
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Shift entry pool",
+      "library": null,
+      "data_library": null,
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Shift entry pool.001",
+      "library": null,
+      "data_library": null,
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "BRIEFING_light_00_photometric",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "BRIEFING_light_01_photometric",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "HALL_light_00_photometric",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "HALL_light_01_photometric",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "HALL_light_02_photometric",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "LOCKER_light_00_photometric",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "LOCKER_light_01_photometric",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "LOCKER_light_02_photometric",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "SERVICE_light_photometric",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "V_LIGHT_BRIEF_ceiling",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "V_LIGHT_BRIEF_wall",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "V_LIGHT_HALL_info",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "V_LIGHT_HALL_staff",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "V_LIGHT_LOCKER_bays",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "V_LIGHT_LOCKER_front_fill",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "V_LIGHT_LOCKER_pod_fill",
+      "library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "data_library": "//..\\..\\sources\\spawn-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    }
+  ],
+  "relevant_mesh_visibility": [
+    {
+      "name": "Briefing exterior opaque roof membrane",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Hall exterior opaque roof membrane",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Locker exterior opaque roof membrane",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Rain leader roof elbow",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Rain leader roof elbow.001",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Service exterior opaque roof membrane",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "BRIEFING_ceiling",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "HALL_ceiling",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "HALL_recess_ceiling",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "LOCKER_ceiling",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "SERVICE_ceiling",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    }
+  ]
+}

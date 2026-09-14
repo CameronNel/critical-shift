@@ -1,0 +1,109 @@
+{
+  "revision": "CPU-probe-R32",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "cpu_threads": 2,
+  "process_priority": "IDLE",
+  "gpu_denoising": false,
+  "samples": 16,
+  "resolution": [
+    768,
+    432
+  ],
+  "render_settings": {
+    "max_bounces": 10,
+    "diffuse_bounces": 3,
+    "glossy_bounces": 3,
+    "transmission_bounces": 8,
+    "transparent_max_bounces": 8,
+    "sample_clamp_indirect": 3.0,
+    "adaptive_threshold": 0.03999999910593033,
+    "seed": 0,
+    "denoiser": "OPENIMAGEDENOISE"
+  },
+  "renderer_source_sha256": {
+    "render.py": "f837b4474efe2a86e27618a8981f7471f6fa6d0a5b72b1754bb114f4213b783d",
+    "resource_guard.py": "06d771f58cdfefb71a23bd0e15ca2baef098185f0e64f6850169faf471ecbd2f"
+  },
+  "cameras": [
+    {
+      "camera": "C02_HERO",
+      "seconds": 53.46,
+      "sha256": "6abbaf425d056d910f374767b6eb40d09c5f12e060a211db47b9e88d0b7441f2",
+      "location": [
+        -1.350000023841858,
+        1.2000000476837158,
+        1.7000000476837158
+      ],
+      "lens": 22.0,
+      "matrix_world": [
+        [
+          0.5752706527709961,
+          -0.13064336776733398,
+          -0.8074626922607422,
+          -1.350000023841858
+        ],
+        [
+          -0.8179631233215332,
+          -0.09188114106655121,
+          -0.5678857564926147,
+          1.2000000476837158
+        ],
+        [
+          -8.652660454799843e-08,
+          0.987162709236145,
+          -0.15971799194812775,
+          1.7000000476837158
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "process_id": 9308
+    },
+    {
+      "camera": "C04_EXHAUST",
+      "seconds": 37.8,
+      "sha256": "4fdedf6e4f71ff5db78ceb89d40eeb8edf102988600af726444d37516758bd86",
+      "location": [
+        5.820000171661377,
+        4.349999904632568,
+        5.449999809265137
+      ],
+      "lens": 26.0,
+      "matrix_world": [
+        [
+          -0.10578607022762299,
+          0.12864725291728973,
+          0.9860320687294006,
+          5.820000171661377
+        ],
+        [
+          0.9943889379501343,
+          0.013685946352779865,
+          0.10489702969789505,
+          4.349999904632568
+        ],
+        [
+          -6.609794667156166e-08,
+          0.991595983505249,
+          -0.12937317788600922,
+          5.449999809265137
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "process_id": 9308
+    }
+  ],
+  "process_id": 9308,
+  "source_revision": "R32",
+  "blend_sha256": "6a32b262b4b3e40011b0208f6719f5f1b37f3101789511cdcea155c032007b30"
+}

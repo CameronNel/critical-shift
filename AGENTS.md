@@ -1,5 +1,10 @@
 # Critical Shift Agent Entry Rules
 
+## Existing assembled map
+
+When asked to "build on this map" or continue map/environment work, start with [MAP.md](MAP.md) and [MAP.json](MAP.json). Use their current full-map authoring scene and portable source modules. Do not start from an older standalone room branch or the historical A04 master. Run `git lfs pull` before opening Blender assets. This is an in-progress authoring map, not final art acceptance or a Unity build.
+
+
 ## Start here
 
 Respect the current task's scope. A planning-only task changes documentation, not runtime/test code, Unity projects, packages, workflows, scenes/assets or repository settings. Proposed file paths and test names in a plan are not permission to implement them.

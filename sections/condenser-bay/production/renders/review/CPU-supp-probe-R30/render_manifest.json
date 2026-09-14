@@ -1,0 +1,57 @@
+{
+  "revision": "CPU-supp-probe-R30",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "cpu_threads": 2,
+  "process_priority": "IDLE",
+  "gpu_denoising": false,
+  "samples": 16,
+  "resolution": [
+    768,
+    432
+  ],
+  "render_settings": {
+    "max_bounces": 10,
+    "diffuse_bounces": 3,
+    "glossy_bounces": 3,
+    "transmission_bounces": 8,
+    "transparent_max_bounces": 8,
+    "sample_clamp_indirect": 3.0,
+    "adaptive_threshold": 0.03999999910593033,
+    "seed": 0,
+    "denoiser": "OPENIMAGEDENOISE"
+  },
+  "renderer_source_sha256": {
+    "render.py": "a0745da4a98a826c4a02d3604bf1f6e227ed7bac719f8f9b9298507246c6ecb5",
+    "resource_guard.py": "06d771f58cdfefb71a23bd0e15ca2baef098185f0e64f6850169faf471ecbd2f"
+  },
+  "cameras": [
+    {
+      "camera": "S04_GLASS",
+      "seconds": 56.03,
+      "sha256": "617f383d6f07e77e06c4f29247024716ca1b86af767c32072a247d7519f99437",
+      "location": [
+        2.049999952316284,
+        1.850000023841858,
+        1.600000023841858
+      ],
+      "lens": 46.0,
+      "process_id": 7268
+    },
+    {
+      "camera": "S06_OPERATOR_WORK",
+      "seconds": 37.32,
+      "sha256": "be6935d546929008950b4e73546e1e46e95cadfeaab4738d00a41b29c713a7fc",
+      "location": [
+        0.10000000149011612,
+        3.0999999046325684,
+        1.399999976158142
+      ],
+      "lens": 40.0,
+      "process_id": 7268
+    }
+  ],
+  "process_id": 7268,
+  "source_revision": "R30",
+  "blend_sha256": "0cf079d815fad385d2493cc68c4dc45749df47ead6628067f41e39fe09e86477"
+}

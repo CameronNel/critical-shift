@@ -1,0 +1,43 @@
+{
+  "revision": "R16",
+  "build_sha256": "bc87737a25bea91f1a276570ccb33358d40d982f39ac756005caaf4375317dcf",
+  "views": ["01_COURTYARD", "02_SOUTH", "03_EAST", "04_TOP"],
+  "concept": "Concept02 approved",
+  "decision": "REJECT",
+  "scores": {
+    "reference_fidelity_concept_adherence": 88,
+    "silhouette_massing": 90,
+    "scale_spatial_layout": 92,
+    "circulation_access_rescue_route": 95,
+    "construction_load_support_logic": 95,
+    "utility_service_continuity": 94,
+    "exterior_materials_surface_response": 84,
+    "lighting_palette_readability": 70,
+    "environmental_storytelling_human_use": 87,
+    "terrain_drainage_ground_transitions": 95,
+    "roof_elevated_detail": 90,
+    "view_to_view_consistency": 84,
+    "interface_reservation_integrity": 95,
+    "runtime_delivery_readiness": 95,
+    "art_direction_veto_professional_finish": 74
+  },
+  "fresh_evidence": {
+    "technical_support_contacts": "PASS_EXPANDED_TARGETED_CHECKS",
+    "source_preservation": "PASS",
+    "delivery": "PASS_DEPENDENCIES_RESERVATIONS_VISIBILITY",
+    "route_audit": "PASS_ZERO_FINDINGS_WITH_FLOOR_HEIGHT_SAMPLES",
+    "max_adjacent_floor_change_m": 0.015000022947788239,
+    "preview_validation": "PASS_BAKED_GI_256_RENDER_64_VIEWPORT",
+    "native_render_benchmark": "PASS_OFFLINE_TIMING_STABILITY_ONLY",
+    "interactive_viewport_fps": "UNVERIFIED",
+    "unity_runtime": "UNVERIFIED"
+  },
+  "pixel_blockers": [
+    "hard contrast/shadow blocks and dark south entry",
+    "top-view value compression",
+    "coarse faceted background rock",
+    "broad quiet roof/wall/paving fields",
+    "repetitive planting and bench rhythm"
+  ],
+  "notes": "Independent native-pixel review of R16 only. Requirement-specific technical passes are not globally art-penalized. Strict greater-than-93 threshold remains unmet by visual categories."
+}

@@ -1,0 +1,1630 @@
+{
+  "hashes": {
+    "exterior": "8061cd001d5b7ac268574de6d3541e37897f77bced17e056cd77b0c7410fe833",
+    "accepted": "e803c7da17dc60b7f7f8c3983d6414eb18c9adc86329ca86112d2d3358fb974f",
+    "module": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+    "original": "e803c7da17dc60b7f7f8c3983d6414eb18c9adc86329ca86112d2d3358fb974f"
+  },
+  "accepted_manifest_match": true,
+  "original_manifest_match": true,
+  "module_sha_recorded_in_source_manifest": false,
+  "unit_scale": 1.0,
+  "libraries": [
+    {
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\exteriors\\compliance-dock\\..\\..\\sources\\compliance-dock\\module.blend",
+      "exists": true,
+      "sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947"
+    }
+  ],
+  "images": [],
+  "cameras": [
+    {
+      "name": "FRONT",
+      "location": [
+        0.0,
+        32.0,
+        2.5
+      ],
+      "rotation": [
+        1.5520484447479248,
+        8.740740042867401e-08,
+        3.1415927410125732
+      ],
+      "lens": 32.0,
+      "type": "PERSP",
+      "clip": [
+        0.10000000149011612,
+        300.0
+      ]
+    },
+    {
+      "name": "OBLIQUE",
+      "location": [
+        -19.0,
+        31.0,
+        9.0
+      ],
+      "rotation": [
+        1.3508083820343018,
+        2.3437522145286493e-08,
+        -2.4292349815368652
+      ],
+      "lens": 32.0,
+      "type": "PERSP",
+      "clip": [
+        0.10000000149011612,
+        300.0
+      ]
+    },
+    {
+      "name": "REVERSE",
+      "location": [
+        17.0,
+        -14.0,
+        8.0
+      ],
+      "rotation": [
+        1.375496745109558,
+        -5.513044953886492e-08,
+        0.657888650894165
+      ],
+      "lens": 32.0,
+      "type": "PERSP",
+      "clip": [
+        0.10000000149011612,
+        300.0
+      ]
+    },
+    {
+      "name": "DETAIL",
+      "location": [
+        5.5,
+        21.0,
+        1.649999976158142
+      ],
+      "rotation": [
+        1.5802921056747437,
+        -4.5182840580082484e-08,
+        2.7416884899139404
+      ],
+      "lens": 32.0,
+      "type": "PERSP",
+      "clip": [
+        0.10000000149011612,
+        300.0
+      ]
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Precast facade panel",
+      "signed_volume": 0.42285247481090976,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth",
+      "signed_volume": 0.09032225186531695,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip",
+      "signed_volume": 0.005312695995068714,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.001",
+      "signed_volume": 0.42285247481090976,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.001",
+      "signed_volume": 0.09032225186531695,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.001",
+      "signed_volume": 0.005312695995068714,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.002",
+      "signed_volume": 0.42285247481090976,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.002",
+      "signed_volume": 0.09032225186531695,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.002",
+      "signed_volume": 0.005312695995068714,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.003",
+      "signed_volume": 0.42285247481090976,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.003",
+      "signed_volume": 0.09032225186531695,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.003",
+      "signed_volume": 0.005312695995068714,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.004",
+      "signed_volume": 0.42285247481090976,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.004",
+      "signed_volume": 0.09032225186531695,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.004",
+      "signed_volume": 0.005312695995068714,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.005",
+      "signed_volume": 0.42285247481090976,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.005",
+      "signed_volume": 0.09032225186531695,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.005",
+      "signed_volume": 0.005312695995068714,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate lintel concrete skin",
+      "signed_volume": 0.2681648942117025,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Continuous top coping",
+      "signed_volume": 0.9504096379385039,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.001",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.001",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.002",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.002",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.003",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.003",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.004",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.004",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.005",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.005",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.006",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.006",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.007",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.007",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.008",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.008",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.009",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.009",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.010",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.010",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side coping",
+      "signed_volume": 0.8932183858675917,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.011",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.011",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.012",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.012",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.013",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.013",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.014",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.014",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.015",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.015",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.016",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.016",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.017",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.017",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.018",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.018",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.019",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.019",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.020",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.020",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side mineral panel.021",
+      "signed_volume": 0.3994662599684603,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side concrete plinth.021",
+      "signed_volume": 0.08532877853534597,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Side coping.001",
+      "signed_volume": 0.8932183858675917,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Folded canopy roof",
+      "signed_volume": 0.24303442801341152,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Canopy front folded fascia",
+      "signed_volume": 0.049859254210107035,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Canopy wall bearing plate",
+      "signed_volume": 0.00916412932711524,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Triangular canopy strut",
+      "signed_volume": 0.0027618791356137946,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Canopy anchor bolt",
+      "signed_volume": 7.679883101376574e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Canopy anchor bolt.001",
+      "signed_volume": 7.679883101376574e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Canopy wall bearing plate.001",
+      "signed_volume": 0.00916412932711524,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Triangular canopy strut.001",
+      "signed_volume": 0.0027618791356137946,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Canopy anchor bolt.002",
+      "signed_volume": 7.679883101376574e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Canopy anchor bolt.003",
+      "signed_volume": 7.679883101376574e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Compliance sign backing",
+      "signed_volume": 0.10360357674235011,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Shielded dock task light",
+      "signed_volume": 0.008949244174702322,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Recessed luminaire lens",
+      "signed_volume": 0.0009767056890745975,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Shielded dock task light.001",
+      "signed_volume": 0.008949244174702322,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Recessed luminaire lens.001",
+      "signed_volume": 0.0009767056890745975,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Intercom mounting block",
+      "signed_volume": 0.013686059452561392,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Intercom speaker slot",
+      "signed_volume": 7.908874547163711e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Intercom speaker slot.001",
+      "signed_volume": 7.908874547163711e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Intercom speaker slot.002",
+      "signed_volume": 7.908874547163711e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Intercom push button",
+      "signed_volume": 4.5900533075554094e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rainwater downpipe",
+      "signed_volume": 0.052469761739259844,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Downpipe wall shoe",
+      "signed_volume": 0.001852917402398809,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Downpipe wall shoe.001",
+      "signed_volume": 0.001852917402398809,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Downpipe wall shoe.002",
+      "signed_volume": 0.001852917402398809,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Downpipe discharge elbow",
+      "signed_volume": 0.0024483728948292106,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Roof waterproof cap",
+      "signed_volume": 7.520662438342055,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.006",
+      "signed_volume": 0.3871235631632098,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.006",
+      "signed_volume": 0.0826933397538354,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.006",
+      "signed_volume": 0.00486328180143299,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.007",
+      "signed_volume": 0.3871235631632098,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.007",
+      "signed_volume": 0.0826933397538354,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.007",
+      "signed_volume": 0.00486328180143299,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.008",
+      "signed_volume": 0.3871235631632098,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.008",
+      "signed_volume": 0.0826933397538354,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.008",
+      "signed_volume": 0.00486328180143299,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.009",
+      "signed_volume": 0.3871235631632098,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.009",
+      "signed_volume": 0.0826933397538354,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.009",
+      "signed_volume": 0.00486328180143299,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.010",
+      "signed_volume": 0.3871235631632098,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.010",
+      "signed_volume": 0.0826933397538354,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.010",
+      "signed_volume": 0.00486328180143299,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.011",
+      "signed_volume": 0.3871235631632098,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.011",
+      "signed_volume": 0.0826933397538354,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.011",
+      "signed_volume": 0.00486328180143299,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.012",
+      "signed_volume": 0.3871235631632098,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.012",
+      "signed_volume": 0.0826933397538354,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.012",
+      "signed_volume": 0.00486328180143299,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Precast facade panel.013",
+      "signed_volume": 0.3871235631632098,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Concrete kick plinth.013",
+      "signed_volume": 0.0826933397538354,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Department paint strip.013",
+      "signed_volume": 0.00486328180143299,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear coping",
+      "signed_volume": 0.9504096379385039,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Corner sheet flashing",
+      "signed_volume": 0.06287065864751323,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Corner sheet flashing.001",
+      "signed_volume": 0.06287065864751323,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Corner sheet flashing.002",
+      "signed_volume": 0.06287065864751323,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Corner sheet flashing.003",
+      "signed_volume": 0.06287065864751323,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Roof end flashing",
+      "signed_volume": 0.0651349698133364,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Roof end flashing.001",
+      "signed_volume": 0.0651349698133364,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Roof membrane lap",
+      "signed_volume": 0.001994266803729626,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Roof membrane lap.001",
+      "signed_volume": 0.001994266803729626,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Roof membrane lap.002",
+      "signed_volume": 0.001994266803729626,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Roof membrane lap.003",
+      "signed_volume": 0.001994266803729626,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Roof membrane lap.004",
+      "signed_volume": 0.001994266803729626,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Roof membrane lap.005",
+      "signed_volume": 0.001994266803729626,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Roof membrane lap.006",
+      "signed_volume": 0.001994266803729626,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Roof membrane lap.007",
+      "signed_volume": 0.001994266803729626,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Exterior services cabinet",
+      "signed_volume": 0.1959893724607513,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Service cabinet inset door",
+      "signed_volume": 0.025691821545323214,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Service cabinet bolt",
+      "signed_volume": 2.3999976660808846e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Service cabinet bolt.001",
+      "signed_volume": 2.3999976660808846e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Service cabinet bolt.002",
+      "signed_volume": 2.3999976660808846e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Service cabinet bolt.003",
+      "signed_volume": 2.3999976660808846e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Sealed service conduit",
+      "signed_volume": 0.004181250023022225,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Conduit saddle",
+      "signed_volume": 0.000657159318770536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Conduit saddle.001",
+      "signed_volume": 0.000657159318770536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Conduit saddle.002",
+      "signed_volume": 0.000657159318770536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Conduit weather termination",
+      "signed_volume": 0.004527420925941048,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Inspection station backing",
+      "signed_volume": 0.10511923275925855,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Station anchor",
+      "signed_volume": 4.874825462746162e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Station anchor.001",
+      "signed_volume": 4.874825462746162e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Station anchor.002",
+      "signed_volume": 4.874825462746162e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Station anchor.003",
+      "signed_volume": 4.874825462746162e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Manifest weather hood",
+      "signed_volume": 0.030666361706529848,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Clipboard fibre board",
+      "signed_volume": 0.005737842532933586,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Inspection sheet",
+      "signed_volume": 0.0006951867592598091,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Clipboard spring clip",
+      "signed_volume": 0.0002619982086519377,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Inspection ruled line",
+      "signed_volume": 2.0011501895070407e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Inspection ruled line.001",
+      "signed_volume": 2.0011501895070407e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Inspection ruled line.002",
+      "signed_volume": 2.0011501895070407e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Visitor document pocket",
+      "signed_volume": 0.02177762544619326,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Document stack",
+      "signed_volume": 0.003345112051482011,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Permit stamp shelf",
+      "signed_volume": 0.011926497408390723,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Stamp handle",
+      "signed_volume": 0.0006498003835168171,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Stamp rubber base",
+      "signed_volume": 0.0004813597892932314,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Marker holder",
+      "signed_volume": 0.00035625010620284156,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Marker holder attachment",
+      "signed_volume": 0.0001599559240558633,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Marker holder attachment.001",
+      "signed_volume": 0.0001599559240558633,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Marker pen",
+      "signed_volume": 9.936000589539281e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Localized hand wear",
+      "signed_volume": 7.042917588757686e-07,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Localized hand wear.001",
+      "signed_volume": 4.861791328393619e-07,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Localized hand wear.002",
+      "signed_volume": 1.5767426265045194e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Localized hand wear.003",
+      "signed_volume": 2.1715954933620017e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate edge exposed metal",
+      "signed_volume": 5.101428736309461e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate edge exposed metal.001",
+      "signed_volume": 5.101428736309461e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate edge exposed metal.002",
+      "signed_volume": 5.101428736309461e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate edge exposed metal.003",
+      "signed_volume": 5.101428736309461e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate edge exposed metal.004",
+      "signed_volume": 5.101428736309461e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate edge exposed metal.005",
+      "signed_volume": 5.101428736309461e-06,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear sleeve side jacket",
+      "signed_volume": 0.17668025208236793,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear sleeve side jacket.001",
+      "signed_volume": 0.17668025208236793,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear sleeve top flashing",
+      "signed_volume": 0.3240167244584374,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear cap vertical frame",
+      "signed_volume": 0.010268205252456667,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear cap vertical frame.001",
+      "signed_volume": 0.010268205252456667,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear cap head flashing",
+      "signed_volume": 0.010070391030279258,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear cap fixing",
+      "signed_volume": 4.055996196467708e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear cap fixing.001",
+      "signed_volume": 4.055996196467708e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear cap fixing.002",
+      "signed_volume": 4.055996196467708e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear cap fixing.003",
+      "signed_volume": 4.055996196467708e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear cap fixing.004",
+      "signed_volume": 4.055996196467708e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear cap fixing.005",
+      "signed_volume": 4.055996196467708e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear cap fixing.006",
+      "signed_volume": 4.055996196467708e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Rear cap fixing.007",
+      "signed_volume": 4.055996196467708e-05,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west.001",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west.002",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west.003",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west.004",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west.005",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west.006",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west.007",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west.008",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west.009",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west.010",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib west.011",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east.001",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east.002",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east.003",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east.004",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east.005",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east.006",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east.007",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east.008",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east.009",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east.010",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    },
+    {
+      "name": "Gate exterior pressed rib east.011",
+      "signed_volume": 0.00544518726370536,
+      "nonmanifold_edges": 0,
+      "noncontiguous_edges": 0,
+      "degenerate_faces": 0
+    }
+  ],
+  "render": {
+    "size": [
+      1600,
+      900,
+      100
+    ],
+    "engine": "CYCLES",
+    "samples": 32,
+    "view": "AgX"
+  },
+  "source_instance": {
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "collection": "MODULE_compliance-dock",
+    "linked": true,
+    "objects": 1077
+  },
+  "non_unit_additive_scales": [],
+  "interior_core_aabb_intrusions": [],
+  "support_metadata_count": 0,
+  "rerun_audit": "PASS",
+  "linked_object_geometry_or_transform_differences": [],
+  "linked_objects_compared": 1077,
+  "files_unchanged": {
+    "exterior": true,
+    "accepted": true,
+    "module": true,
+    "original": true
+  }
+}

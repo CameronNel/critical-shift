@@ -1,0 +1,58 @@
+{
+  "reviewer": "independent Luna (gpt-5.6-luna) critic subagent",
+  "revision": "R34",
+  "date": "2026-09-12",
+  "disposition": "PASS_ROUND_1_OF_2",
+  "review_set": {
+    "warm_images": 18,
+    "cold_images": 18,
+    "warm_supplemental_images": 7,
+    "cold_supplemental_images": 7,
+    "resolution": "1920x1080",
+    "cold_open": "PASS — separate-process comparisons",
+    "main_worst_mean_delta_255": 0.027900430812757202,
+    "supplemental_worst_mean_delta_255": 0.02248971193415638
+  },
+  "saved_audit": {
+    "path": "production/validation/R34/astra-saved-audit.json",
+    "status": "PASS"
+  },
+  "boundary": {
+    "U02": "turbine-owned cap action remains outside local scope; local flange evidence inspected",
+    "cooling": "local provisional CW sockets are accepted as local evidence; remote bind is not claimed"
+  },
+  "three_most_consequential_defects": [
+    {
+      "image": "C04_EXHAUST.png; S07_U04_CUTAWAY.png",
+      "severity": "major",
+      "mismatch": "The primary exhaust crop is a very tight, low-separation layered underside; the labelled cutaway is needed to make the coherent U04 throat and shell context legible.",
+      "consequence": "Machinery and construction readability depend on the supplement."
+    },
+    {
+      "image": "C06_COOLING.png; S02_LOCAL_CW.png",
+      "severity": "major",
+      "mismatch": "The primary cooling crop shows mostly overhead services and only part of the endpoints; the local CW supplement carries the complete endpoint story.",
+      "consequence": "Cooling logic is evidenced but not immediate from the named camera."
+    },
+    {
+      "image": "C08_MAINT.png; W08_GALLERY_TURN.png",
+      "severity": "major",
+      "mismatch": "Foreground rail, service pipe, and structural framing compress the maintenance deck and gallery route; the gallery destination is visually dark.",
+      "consequence": "Circulation and maintenance readability remain the weakest passing categories."
+    }
+  ],
+  "scores": {
+    "contract_specification_coverage": {"score": 94, "disposition": "PASS"},
+    "scale_layout": {"score": 92, "disposition": "PASS"},
+    "machinery_logic": {"score": 93, "disposition": "PASS"},
+    "circulation_readability": {"score": 91, "disposition": "PASS"},
+    "construction_detail": {"score": 91, "disposition": "PASS"},
+    "materials": {"score": 94, "disposition": "PASS"},
+    "lighting": {"score": 92, "disposition": "PASS"},
+    "palette": {"score": 94, "disposition": "PASS"},
+    "storytelling_environmental_specificity": {"score": 92, "disposition": "PASS"},
+    "valorant_reference_fidelity": {"score": 91, "disposition": "PASS"}
+  },
+  "unverified_or_missing": [],
+  "two_round_requirement": "R34 is the first stable passing round; a second complete independent round above 90 in every category is still required."
+}

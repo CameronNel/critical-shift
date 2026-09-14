@@ -1,0 +1,21 @@
+{
+  "blender": "5.2.0 LTS",
+  "compute_device_type": "HIP",
+  "devices": [
+    {
+      "name": "AMD Ryzen 7 5800X 8-Core Processor",
+      "type": "CPU",
+      "id": "CPU",
+      "use": false
+    },
+    {
+      "name": "AMD Radeon RX 9070 XT",
+      "type": "HIP",
+      "id": "HIP_AMD Radeon RX 9070 XT_0000:0a:00",
+      "use": true
+    }
+  ],
+  "backend_properties": {
+    "use_hiprt": "True"
+  }
+}

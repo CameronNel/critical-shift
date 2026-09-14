@@ -1,0 +1,201 @@
+{
+  "source_sha256": "32cae1283c3485fe5033e46577cf0c9787c18769121bcaa333fb55619c3ee70d",
+  "master_saved": false,
+  "geometry_hidden": false,
+  "planning_labels_hidden": true,
+  "mode": "Workbench solid/material-color layout preview; not final room lighting",
+  "views": [
+    {
+      "id": "J01_MINE_REFINERY",
+      "caption": "Mine to refinery",
+      "location": [
+        -5,
+        -39,
+        3
+      ],
+      "target": [
+        -5,
+        -27,
+        1.5
+      ],
+      "lens_mm": 24,
+      "sha256": "33914a4fe6fb001caf74b0b185d156b2b6a915f971e9a648e6b711181fb0a177"
+    },
+    {
+      "id": "J02_REFINERY_FUEL",
+      "caption": "Refinery to fuel corridor",
+      "location": [
+        12,
+        -4,
+        3
+      ],
+      "target": [
+        0,
+        -4,
+        1.6
+      ],
+      "lens_mm": 24,
+      "sha256": "0a08cabfbb7a8cfdfca380e41ca206fd147b68d9a1ee4a67c3d3dfbf40d0a52e"
+    },
+    {
+      "id": "J03_FUEL_REACTOR",
+      "caption": "Fuel corridor to reactor",
+      "location": [
+        27,
+        28,
+        3
+      ],
+      "target": [
+        14.2,
+        28,
+        2
+      ],
+      "lens_mm": 24,
+      "sha256": "0bdede760aa93cdcf0f1bbea9f78c964a91cf606c465a65c981079b4dea254ea"
+    },
+    {
+      "id": "J04_REACTOR_TURBINE",
+      "caption": "Reactor to turbine",
+      "location": [
+        34,
+        32,
+        3
+      ],
+      "target": [
+        34,
+        46.5,
+        2
+      ],
+      "lens_mm": 24,
+      "sha256": "bb69c3d8f5e33591240e46731e9aaaa0095f4df265892ec5388fa74063d1d5ce"
+    },
+    {
+      "id": "J05_TURBINE_ELECTRICAL",
+      "caption": "Turbine to electrical",
+      "location": [
+        80,
+        37,
+        3
+      ],
+      "target": [
+        66,
+        37,
+        2
+      ],
+      "lens_mm": 23,
+      "sha256": "4f58bc564f029cb188cfd520e908712483a037c1f7f118824ff7640a9a54d6b7"
+    },
+    {
+      "id": "J06_ELECTRICAL_WASTE",
+      "caption": "Electrical to waste",
+      "location": [
+        80,
+        6.5,
+        3
+      ],
+      "target": [
+        66,
+        6.5,
+        1.6
+      ],
+      "lens_mm": 24,
+      "sha256": "1bad1b2dae7fe2955abe2d9df542a4998e840d1c10486686ccad19b55eaf698e"
+    },
+    {
+      "id": "J07_COOLING_REACTOR",
+      "caption": "Cooling to reactor",
+      "location": [
+        -12,
+        53,
+        3
+      ],
+      "target": [
+        0.1,
+        60.3,
+        2
+      ],
+      "lens_mm": 24,
+      "sha256": "f1035a747e6c4f62141e486d6eec3b4bd66a5da3843f23811f6c12dec1960355"
+    },
+    {
+      "id": "J08_CLEAN_HEADER",
+      "caption": "Spawn / medical clean header",
+      "location": [
+        -42,
+        28,
+        2.2
+      ],
+      "target": [
+        -21,
+        28,
+        1.8
+      ],
+      "lens_mm": 24,
+      "sha256": "57fba02e4c9d7864096142b575254bd3c5851cb298c4185c958085acaa8ed10c"
+    },
+    {
+      "id": "J09_CONDENSER_ACCESS",
+      "caption": "Reserved condenser stair / lift",
+      "location": [
+        26,
+        36,
+        3
+      ],
+      "target": [
+        40,
+        43,
+        -2
+      ],
+      "lens_mm": 23,
+      "sha256": "b140a947bbceb9308f1c99f77674f2aba079e6d941db8119890a23495c437952"
+    },
+    {
+      "id": "J10_COMPLIANCE_HEADER",
+      "caption": "Compliance to clean header",
+      "location": [
+        -41,
+        8,
+        2.5
+      ],
+      "target": [
+        -41,
+        23,
+        1.7
+      ],
+      "lens_mm": 24,
+      "sha256": "fc18af57b26e863d82d58a664f4b18dff599ac8f48d6d35178cf15e3f5cf36d6"
+    },
+    {
+      "id": "E01_DOCK_EXTERIOR",
+      "caption": "Outside compliance arrival",
+      "location": [
+        -82,
+        16,
+        2.2
+      ],
+      "target": [
+        -64,
+        16,
+        2
+      ],
+      "lens_mm": 28,
+      "sha256": "f385d62eefd48d8f12733621d9d442bcb197c318f12958ae097f6b45bdc47fe3"
+    },
+    {
+      "id": "E02_FACILITY_EXTERIOR",
+      "caption": "Outside the power wing",
+      "location": [
+        92,
+        -10,
+        15
+      ],
+      "target": [
+        45,
+        36,
+        4
+      ],
+      "lens_mm": 29,
+      "sha256": "78045f930c62a80e56837adcbe3f5b77f671765cd8da311017165b3beeb149ef"
+    }
+  ]
+}

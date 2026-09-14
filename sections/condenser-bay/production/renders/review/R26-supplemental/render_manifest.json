@@ -1,0 +1,99 @@
+{
+  "revision": "R26-supplemental",
+  "engine": "BLENDER_EEVEE",
+  "raytracing": false,
+  "samples": 64,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "cameras": [
+    {
+      "camera": "S01_LOCAL_U02",
+      "seconds": 8.69,
+      "sha256": "8602c23ec39665004ffd34c4695de41f455ed786fca16aaf53baa2a1f5f543f0",
+      "location": [
+        7.449999809265137,
+        2.0,
+        5.0
+      ],
+      "lens": 32.0,
+      "process_id": 18612
+    },
+    {
+      "camera": "S02_LOCAL_CW",
+      "seconds": 4.99,
+      "sha256": "ad96686f34233430e224523802e04cc159c339e526b20aa5f35f444189876e55",
+      "location": [
+        7.5,
+        6.25,
+        3.5
+      ],
+      "lens": 26.0,
+      "process_id": 18612
+    },
+    {
+      "camera": "S03_FULL_ROOF",
+      "seconds": 5.31,
+      "sha256": "3533a29ea51020481f911e64adf1f5d892db615e1bc9d0d1a3295ab5ae634f89",
+      "location": [
+        8.800000190734863,
+        8.800000190734863,
+        4.449999809265137
+      ],
+      "lens": 20.0,
+      "process_id": 18612
+    },
+    {
+      "camera": "S04_GLASS",
+      "seconds": 6.82,
+      "sha256": "f6ea2701107b90113baaebcb1c89435c75a9d1f7126a5b7518452efbb2bb5743",
+      "location": [
+        2.049999952316284,
+        1.850000023841858,
+        1.600000023841858
+      ],
+      "lens": 46.0,
+      "process_id": 34184
+    },
+    {
+      "camera": "S05_FEET",
+      "seconds": 5.29,
+      "sha256": "3a39f7ff8a793f729232709171bd05ec14bddc664c79c113c8759e6b60577625",
+      "location": [
+        4.699999809265137,
+        6.150000095367432,
+        0.75
+      ],
+      "lens": 28.0,
+      "process_id": 34184
+    },
+    {
+      "camera": "S06_OPERATOR_WORK",
+      "seconds": 4.27,
+      "sha256": "0df04a80e10ef518080fc25cd22f98c047bf08ac94f89f895b98841fa21e85a5",
+      "location": [
+        0.05000000074505806,
+        4.5,
+        1.399999976158142
+      ],
+      "lens": 45.0,
+      "process_id": 34184
+    },
+    {
+      "camera": "S07_U04_CUTAWAY",
+      "seconds": 2.68,
+      "sha256": "b98361b0058c0c16882f3b9f299ba58cd24e82c4afd1efb99fa7ed24bf8c57fe",
+      "location": [
+        7.5,
+        0.800000011920929,
+        7.099999904632568
+      ],
+      "lens": 36.0,
+      "process_id": 31108
+    }
+  ],
+  "process_id": 31108,
+  "source_revision": "R26",
+  "blend_sha256": "942eb75589cb2be576e6bbd445ff567c39469299876e3d6356394790c42c2a00"
+}

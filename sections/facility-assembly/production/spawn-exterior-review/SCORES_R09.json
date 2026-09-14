@@ -1,0 +1,38 @@
+{
+  "revision": "R09",
+  "build_sha256": "c905e728b6a6dc9f2cce328ba636f16a3b9b36bb4482edb9d2025be1b87b2bd7",
+  "views": ["01_COURTYARD", "02_SOUTH", "03_EAST", "04_TOP"],
+  "concept": "Concept02 approved",
+  "decision": "REJECT",
+  "scores": {
+    "reference_fidelity_concept_adherence": 85,
+    "silhouette_massing": 86,
+    "scale_spatial_layout": 87,
+    "circulation_access_rescue_route": 88,
+    "construction_load_support_logic": 87,
+    "utility_service_continuity": 86,
+    "exterior_materials_surface_response": 82,
+    "lighting_palette_readability": 78,
+    "environmental_storytelling_human_use": 84,
+    "terrain_drainage_ground_transitions": 88,
+    "roof_elevated_detail": 84,
+    "view_to_view_consistency": 85,
+    "interface_reservation_integrity": 88,
+    "runtime_delivery_readiness": null,
+    "art_direction_veto_professional_finish": 72
+  },
+  "fresh_evidence": {
+    "technical_r09": "PASS_SCOPED_TARGETED_CHECKS",
+    "delivery_r09": "PASS_COLD_LOAD_DEPENDENCIES_INVENTORY_VISIBILITY",
+    "route_audit_r09": "PASS_ZERO_FINDINGS",
+    "unity_runtime": "UNVERIFIED"
+  },
+  "pixel_blockers": [
+    "washed-out top view",
+    "faceted background rock/terrain response",
+    "procedural repeated narrow planting strips",
+    "broad low-information roof and paving fields",
+    "foreground rail competing with south entry route"
+  ],
+  "notes": "Independent native-pixel review of R09 only. R08 material preview receives no score credit. Strict greater-than-93 threshold remains unmet."
+}

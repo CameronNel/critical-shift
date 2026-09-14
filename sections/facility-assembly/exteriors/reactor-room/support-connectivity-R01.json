@@ -1,0 +1,3260 @@
+{
+  "mesh_defects": [],
+  "revision": "R01",
+  "scope": "Evaluated world-AABB connectivity broadphase, not raycast/anchor/support-angle validation. Original render-visible mesh objects are root candidates; physical/collision suitability is not independently classified. AABB overlap can be empty space, contact does not imply load-bearing support, and deep penetration is accepted by this connectivity graph. Text/curves excluded. Model is not saved.",
+  "threshold_m": 0.005,
+  "numerical_epsilon_m": 1e-06,
+  "additive_mesh_count": 130,
+  "original_root_candidate_count": 11823,
+  "root_connected_additive_count": 130,
+  "detached_components": [],
+  "direct_original_candidates": [
+    {
+      "object": "Reactor exterior Shell 1 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.002",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.003",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.004",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.005",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.006",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.007",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.008",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.009",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.002",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.010",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.011",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.012",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.013",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.003",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.002",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.003",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.004",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.005",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.006",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.004",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.007",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.005",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.002",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.003",
+      "original_candidates": [
+        "Service outer inlay"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.004",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.005",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.006",
+      "original_candidates": [
+        "Service outer inlay"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.006",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.007",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.008",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.009",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.010",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.007",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.011",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.012",
+      "original_candidates": [
+        "Service outer inlay"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.013",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.008",
+      "original_candidates": [
+        "Service outer inlay"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.014",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.015",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.016",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.017",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.009",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.018",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.019",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.020",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.021",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.022",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.023",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.010",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.002",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.003",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.011",
+      "original_candidates": [
+        "Service outer inlay"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.004",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.005",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.006",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.007",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.008",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.012",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.009",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.013",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.010",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.011",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.012",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.013",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.014",
+      "original_candidates": [
+        "Service outer inlay"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.002",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.003",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.004",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.005",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.006",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.007",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.008",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.009",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.015",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.010",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.016",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.011",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.017",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.002",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.003",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.004",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.005",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.006",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.018",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.007",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.019",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.002",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.003",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.004",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.020",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.005",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.006",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.007",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.008",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.009",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.021",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.010",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.022",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.011",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.012",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.013",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.014",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.015",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.023",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.002",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.003",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.004",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.005",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.006",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.024",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.007",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb",
+        "Water surface",
+        "Deep water medium",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.025",
+      "original_candidates": [
+        "Service outer inlay",
+        "BANK_A_DRIVE_COLUMN",
+        "BANK_B_DRIVE_COLUMN"
+      ]
+    }
+  ],
+  "additive_bounds": [
+    {
+      "name": "Reactor exterior Shell 1 field",
+      "bounds": [
+        [
+          -1.7359999418258667,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.7359999418258667,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.001",
+      "bounds": [
+        [
+          -1.7359999418258667,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.7359999418258667,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.002",
+      "bounds": [
+        [
+          -1.7359999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.7359999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.003",
+      "bounds": [
+        [
+          -1.7359999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.7359999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap",
+      "bounds": [
+        [
+          -1.7379999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.7379999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.004",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.005",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.006",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.007",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.008",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.001",
+      "bounds": [
+        [
+          -1.2379999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.2379999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.009",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.002",
+      "bounds": [
+        [
+          -1.2379999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.2379999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.010",
+      "bounds": [
+        [
+          -1.7359999418258667,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.7359999418258667,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.011",
+      "bounds": [
+        [
+          -1.7359999418258667,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.7359999418258667,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.012",
+      "bounds": [
+        [
+          -1.7359999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.7359999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.013",
+      "bounds": [
+        [
+          -1.7359999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.7359999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.003",
+      "bounds": [
+        [
+          -1.7379999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.7379999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.001",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.002",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.003",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.004",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.005",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.006",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.004",
+      "bounds": [
+        [
+          -1.685056209564209,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.685056209564209,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.007",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.005",
+      "bounds": [
+        [
+          -1.685056209564209,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.685056209564209,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field",
+      "bounds": [
+        [
+          -0.18599995970726013,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          0.18599995970726013,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.001",
+      "bounds": [
+        [
+          -0.18599995970726013,
+          -0.014000000432133675,
+          -1.4869998693466187
+        ],
+        [
+          0.18599995970726013,
+          0.014000000432133675,
+          1.4869998693466187
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.002",
+      "bounds": [
+        [
+          -0.18599995970726013,
+          -0.014000000432133675,
+          -1.0870002508163452
+        ],
+        [
+          0.18599995970726013,
+          0.014000000432133675,
+          1.0870002508163452
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.003",
+      "bounds": [
+        [
+          -0.18599995970726013,
+          -0.014000000432133675,
+          -0.03699955716729164
+        ],
+        [
+          0.18599995970726013,
+          0.014000000432133675,
+          0.03699955716729164
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.004",
+      "bounds": [
+        [
+          -0.18599995970726013,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          0.18599995970726013,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.005",
+      "bounds": [
+        [
+          -0.18599995970726013,
+          -0.014000000432133675,
+          -1.537000060081482
+        ],
+        [
+          0.18599995970726013,
+          0.014000000432133675,
+          1.537000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.006",
+      "bounds": [
+        [
+          -0.18799996376037598,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          0.18799996376037598,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.006",
+      "bounds": [
+        [
+          -1.4359999895095825,
+          -0.014000000432133675,
+          -1.4869998693466187
+        ],
+        [
+          1.4359999895095825,
+          0.014000000432133675,
+          1.4869998693466187
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.007",
+      "bounds": [
+        [
+          -1.4359999895095825,
+          -0.014000000432133675,
+          -1.0870002508163452
+        ],
+        [
+          1.4359999895095825,
+          0.014000000432133675,
+          1.0870002508163452
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.008",
+      "bounds": [
+        [
+          -1.4359999895095825,
+          -0.014000000432133675,
+          -0.03699955716729164
+        ],
+        [
+          1.4359999895095825,
+          0.014000000432133675,
+          0.03699955716729164
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.009",
+      "bounds": [
+        [
+          -1.4359999895095825,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.4359999895095825,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.010",
+      "bounds": [
+        [
+          -1.4359999895095825,
+          -0.014000000432133675,
+          -1.537000060081482
+        ],
+        [
+          1.4359999895095825,
+          0.014000000432133675,
+          1.537000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.007",
+      "bounds": [
+        [
+          -1.437999963760376,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.437999963760376,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.011",
+      "bounds": [
+        [
+          -0.5360000133514404,
+          -0.014000000432133675,
+          -1.4869998693466187
+        ],
+        [
+          0.5360000133514404,
+          0.014000000432133675,
+          1.4869998693466187
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.012",
+      "bounds": [
+        [
+          -0.5360000133514404,
+          -0.014000000432133675,
+          -0.03699955716729164
+        ],
+        [
+          0.5360000133514404,
+          0.014000000432133675,
+          0.03699955716729164
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.013",
+      "bounds": [
+        [
+          -0.5360000133514404,
+          -0.014000000432133675,
+          -1.537000060081482
+        ],
+        [
+          0.5360000133514404,
+          0.014000000432133675,
+          1.537000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.008",
+      "bounds": [
+        [
+          -0.5379999876022339,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          0.5379999876022339,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.014",
+      "bounds": [
+        [
+          -2.135999917984009,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          2.135999917984009,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.015",
+      "bounds": [
+        [
+          -2.135999917984009,
+          -0.014000000432133675,
+          -1.4869998693466187
+        ],
+        [
+          2.135999917984009,
+          0.014000000432133675,
+          1.4869998693466187
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.016",
+      "bounds": [
+        [
+          -2.135999917984009,
+          -0.014000000432133675,
+          -0.03699955716729164
+        ],
+        [
+          2.135999917984009,
+          0.014000000432133675,
+          0.03699955716729164
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.017",
+      "bounds": [
+        [
+          -2.135999917984009,
+          -0.014000000432133675,
+          -1.537000060081482
+        ],
+        [
+          2.135999917984009,
+          0.014000000432133675,
+          1.537000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.009",
+      "bounds": [
+        [
+          -2.138000011444092,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          2.138000011444092,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.018",
+      "bounds": [
+        [
+          -1.6360000371932983,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.6360000371932983,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.019",
+      "bounds": [
+        [
+          -1.6360000371932983,
+          -0.014000000432133675,
+          -1.4869998693466187
+        ],
+        [
+          1.6360000371932983,
+          0.014000000432133675,
+          1.4869998693466187
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.020",
+      "bounds": [
+        [
+          -1.6360000371932983,
+          -0.014000000432133675,
+          -1.0870002508163452
+        ],
+        [
+          1.6360000371932983,
+          0.014000000432133675,
+          1.0870002508163452
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.021",
+      "bounds": [
+        [
+          -1.6360000371932983,
+          -0.014000000432133675,
+          -0.03699955716729164
+        ],
+        [
+          1.6360000371932983,
+          0.014000000432133675,
+          0.03699955716729164
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.022",
+      "bounds": [
+        [
+          -1.6360000371932983,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.6360000371932983,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.023",
+      "bounds": [
+        [
+          -1.6360000371932983,
+          -0.014000000432133675,
+          -1.537000060081482
+        ],
+        [
+          1.6360000371932983,
+          0.014000000432133675,
+          1.537000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.010",
+      "bounds": [
+        [
+          -1.6380000114440918,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.6380000114440918,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field",
+      "bounds": [
+        [
+          -0.43305620551109314,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          0.43305620551109314,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.001",
+      "bounds": [
+        [
+          -0.43305620551109314,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          0.43305620551109314,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.002",
+      "bounds": [
+        [
+          -0.43305620551109314,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          0.43305620551109314,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.003",
+      "bounds": [
+        [
+          -0.43305620551109314,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          0.43305620551109314,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.011",
+      "bounds": [
+        [
+          -0.435056209564209,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          0.435056209564209,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.004",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.005",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.006",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.007",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.008",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.012",
+      "bounds": [
+        [
+          -1.2379999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.2379999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.009",
+      "bounds": [
+        [
+          -1.2359999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.2359999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.013",
+      "bounds": [
+        [
+          -1.2379999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.2379999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.010",
+      "bounds": [
+        [
+          -0.43305620551109314,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          0.43305620551109314,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.011",
+      "bounds": [
+        [
+          -0.43305620551109314,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          0.43305620551109314,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.012",
+      "bounds": [
+        [
+          -0.43305620551109314,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          0.43305620551109314,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.013",
+      "bounds": [
+        [
+          -0.43305620551109314,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          0.43305620551109314,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.014",
+      "bounds": [
+        [
+          -0.435056209564209,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          0.435056209564209,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field",
+      "bounds": [
+        [
+          -1.9859999418258667,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.9859999418258667,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.001",
+      "bounds": [
+        [
+          -1.9860000610351562,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.9860000610351562,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.002",
+      "bounds": [
+        [
+          -1.9859999418258667,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.9859999418258667,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.003",
+      "bounds": [
+        [
+          -1.9859999418258667,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.9859999418258667,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.004",
+      "bounds": [
+        [
+          -1.9860000610351562,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.9860000610351562,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.005",
+      "bounds": [
+        [
+          -1.9859999418258667,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.9859999418258667,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.006",
+      "bounds": [
+        [
+          -1.9859999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.9859999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.007",
+      "bounds": [
+        [
+          -1.9860000610351562,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.9860000610351562,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.008",
+      "bounds": [
+        [
+          -1.9859999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.9859999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.009",
+      "bounds": [
+        [
+          -1.9859999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.9859999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.015",
+      "bounds": [
+        [
+          -1.9879999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.9879999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.010",
+      "bounds": [
+        [
+          -1.9860000610351562,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.9860000610351562,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.016",
+      "bounds": [
+        [
+          -1.9880000352859497,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.9880000352859497,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.011",
+      "bounds": [
+        [
+          -1.9859999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.9859999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.017",
+      "bounds": [
+        [
+          -1.9879999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.9879999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.001",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.002",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.003",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.004",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.005",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.006",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.018",
+      "bounds": [
+        [
+          -1.685056209564209,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.685056209564209,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.007",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.019",
+      "bounds": [
+        [
+          -1.685056209564209,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.685056209564209,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.3619999885559082
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.3619999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.001",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.3619999885559082
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.3619999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.002",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -2.0369997024536133
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          2.0369997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.003",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.004",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.020",
+      "bounds": [
+        [
+          -1.4879999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.4879999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.005",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -2.0369997024536133
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          2.0369997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.006",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -2.0369997024536133
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          2.0369997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.007",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.008",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.009",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.021",
+      "bounds": [
+        [
+          -1.4879999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.4879999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.010",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.022",
+      "bounds": [
+        [
+          -1.4879999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.4879999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.011",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.3619999885559082
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.3619999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.012",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.3619999885559082
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.3619999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.013",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -2.0369997024536133
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          2.0369997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.014",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.015",
+      "bounds": [
+        [
+          -1.4859999418258667,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.4859999418258667,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.023",
+      "bounds": [
+        [
+          -1.4879999160766602,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.4879999160766602,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.001",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.486999988555908
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.002",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.003",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -2.2869997024536133
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          2.2869997024536133
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.004",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.005",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.8869999647140503
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.8869999647140503
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.006",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.024",
+      "bounds": [
+        [
+          -1.685056209564209,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.685056209564209,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.007",
+      "bounds": [
+        [
+          -1.6830562353134155,
+          -0.014000000432133675,
+          -1.287000060081482
+        ],
+        [
+          1.6830562353134155,
+          0.014000000432133675,
+          1.287000060081482
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.025",
+      "bounds": [
+        [
+          -1.685056209564209,
+          -0.06499999761581421,
+          -0.03999999910593033
+        ],
+        [
+          1.685056209564209,
+          0.06499999761581421,
+          0.03999999910593033
+        ]
+      ]
+    }
+  ]
+}

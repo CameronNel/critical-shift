@@ -1,0 +1,353 @@
+{
+  "revision": "R07",
+  "file": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\facility_spawn_concept02_R07.blend",
+  "sha256": "536f0a3655eeb95488ca78a9ae2ee8f9bf4a942e7afc5c3fe050acf296cf6f9b",
+  "cold_load": "PASS",
+  "new_object_count": 223,
+  "new_mesh_faces": 39777,
+  "ground_contacts": [
+    {
+      "object": "Spare pipe rack foot",
+      "support": "Whole map continuous concrete floor",
+      "ground_z": -0.06499996781349182,
+      "base_z": -0.06499999761581421,
+      "signed_gap_m": -2.9802322387695312e-08,
+      "pass": true
+    },
+    {
+      "object": "Spare pipe rack foot.001",
+      "support": "Whole map continuous concrete floor",
+      "ground_z": -0.0650000274181366,
+      "base_z": -0.06499999761581421,
+      "signed_gap_m": 2.9802322387695312e-08,
+      "pass": true
+    },
+    {
+      "object": "Wall planting bed",
+      "support": "FACILITY_floor",
+      "ground_z": -0.00012165307998657227,
+      "base_z": 0.0,
+      "signed_gap_m": 0.00012165307998657227,
+      "pass": true
+    },
+    {
+      "object": "Wall planting bed.001",
+      "support": "FACILITY_floor",
+      "ground_z": -0.0003094673156738281,
+      "base_z": 0.0,
+      "signed_gap_m": 0.0003094673156738281,
+      "pass": true
+    },
+    {
+      "object": "Wall planting bed.002",
+      "support": "Whole map continuous concrete floor",
+      "ground_z": -0.06499996781349182,
+      "base_z": -0.0650000050663948,
+      "signed_gap_m": -3.725290298461914e-08,
+      "pass": true
+    },
+    {
+      "object": "Wall planting bed.003",
+      "support": "FACILITY_floor",
+      "ground_z": -2.5540590286254883e-05,
+      "base_z": 0.0,
+      "signed_gap_m": 2.5540590286254883e-05,
+      "pass": true
+    },
+    {
+      "object": "Wall planting bed.004",
+      "support": "FACILITY_floor",
+      "ground_z": -6.794929504394531e-05,
+      "base_z": 0.0,
+      "signed_gap_m": 6.794929504394531e-05,
+      "pass": true
+    }
+  ],
+  "wall_anchor_contacts": [
+    {
+      "fixture": "South service",
+      "point": [
+        -34.02000045776367,
+        0.6100000143051147,
+        0.6700000166893005
+      ],
+      "hit": true,
+      "distance_m": 0.1790000161738461,
+      "support": "Spawn mineral wall panel.127",
+      "pass": true
+    },
+    {
+      "fixture": "South service",
+      "point": [
+        -34.02000045776367,
+        0.6100000143051147,
+        1.5299999713897705
+      ],
+      "hit": true,
+      "distance_m": 0.17900001617383618,
+      "support": "Spawn mineral wall panel.127",
+      "pass": true
+    },
+    {
+      "fixture": "South service",
+      "point": [
+        -33.28000259399414,
+        0.6100000143051147,
+        0.6700000166893005
+      ],
+      "hit": true,
+      "distance_m": 0.1790000161738461,
+      "support": "Spawn mineral wall panel.128",
+      "pass": true
+    },
+    {
+      "fixture": "South service",
+      "point": [
+        -33.28000259399414,
+        0.6100000143051147,
+        1.5299999713897705
+      ],
+      "hit": true,
+      "distance_m": 0.17900001617383618,
+      "support": "Spawn mineral wall panel.128",
+      "pass": true
+    },
+    {
+      "fixture": "East service",
+      "point": [
+        -19.549999237060547,
+        2.630000114440918,
+        0.6899999976158142
+      ],
+      "hit": true,
+      "distance_m": 0.13800239814743875,
+      "support": "Spawn mineral wall panel.142",
+      "pass": true
+    },
+    {
+      "fixture": "East service",
+      "point": [
+        -19.549999237060547,
+        2.630000114440918,
+        1.5499999523162842
+      ],
+      "hit": true,
+      "distance_m": 0.11100196744972998,
+      "support": "Locker folded metal panel.017",
+      "pass": true
+    },
+    {
+      "fixture": "East service",
+      "point": [
+        -19.549999237060547,
+        3.369999885559082,
+        0.6899999976158142
+      ],
+      "hit": true,
+      "distance_m": 0.13800239814743875,
+      "support": "Spawn mineral wall panel.142",
+      "pass": true
+    },
+    {
+      "fixture": "East service",
+      "point": [
+        -19.549999237060547,
+        3.369999885559082,
+        1.5499999523162842
+      ],
+      "hit": true,
+      "distance_m": 0.11100196744972998,
+      "support": "Locker folded metal panel.017",
+      "pass": true
+    }
+  ],
+  "utility_wall_returns": [
+    {
+      "run": "South",
+      "start": [
+        -34.8,
+        0.35,
+        0.45
+      ],
+      "hit": true,
+      "wall_distance_m": 0.43899997659696605,
+      "support": "Spawn mineral wall panel.127",
+      "pass": true
+    },
+    {
+      "run": "South",
+      "start": [
+        -31.45,
+        0.35,
+        0.45
+      ],
+      "hit": true,
+      "wall_distance_m": 0.4390000444838036,
+      "support": "Spawn mineral wall panel.129",
+      "pass": true
+    },
+    {
+      "run": "East",
+      "start": [
+        -19.34,
+        2,
+        0.65
+      ],
+      "hit": true,
+      "wall_distance_m": 0.3480014801391278,
+      "support": "Spawn mineral wall panel.141",
+      "pass": true
+    },
+    {
+      "run": "East",
+      "start": [
+        -19.34,
+        6.25,
+        0.65
+      ],
+      "hit": true,
+      "wall_distance_m": 0.3480014801391278,
+      "support": "Spawn mineral wall panel.144",
+      "pass": true
+    }
+  ],
+  "source_preservation": [
+    {
+      "section": "spawn-room",
+      "frozen_sha256": "b04d6d77ce62811a5759f38371cbabff64ecc5cb3060bedcaec86a061be19ecb",
+      "pass": true
+    },
+    {
+      "section": "mine",
+      "frozen_sha256": "1cfa3923bb4c4b82fac99563dfe5a27747f5eb97155a3161726d4746ed973a31",
+      "pass": true
+    },
+    {
+      "section": "refinery",
+      "frozen_sha256": "890460de55c331bba30abc80da3eb71f29d11f9f8ada6bca465cd178b43d71d8",
+      "pass": true
+    },
+    {
+      "section": "reactor-room",
+      "frozen_sha256": "5c62f8f6fbe66322148aec53c9f272d40ca5c6ad13223961465c6bfc86714f52",
+      "pass": true
+    },
+    {
+      "section": "cooling-plant",
+      "frozen_sha256": "cdc0b48a5af6cb11bae6a4511074cc4b9aacf4dce687503e55d3891a49bb2693",
+      "pass": true
+    },
+    {
+      "section": "turbine-room",
+      "frozen_sha256": "4f6a1f0d3869933f4922f5d4012bc84671150f39270ebde938042ebaafc78f3f",
+      "pass": true
+    },
+    {
+      "section": "electrical-room",
+      "frozen_sha256": "01447dce65a406afa84448e440176aefd37cdda702dc0a4cd51cee366c298dfd",
+      "pass": true
+    },
+    {
+      "section": "waste-storage",
+      "frozen_sha256": "8ab458f9da2199a147cbb9d140a3eefb7b903eee68fb23e00a29c844770c7cf7",
+      "pass": true
+    },
+    {
+      "section": "medical-reanimation",
+      "frozen_sha256": "35d278c93cf8f385258da9e5b93ab6709d8166552ef204aca41b97231c04eb9a",
+      "pass": true
+    },
+    {
+      "section": "fuel-corridor",
+      "frozen_sha256": "a8e742a10cf5691098adabc0c2518384db3d82444517637bd67e362af4146403",
+      "pass": true
+    },
+    {
+      "section": "compliance-dock",
+      "frozen_sha256": "e803c7da17dc60b7f7f8c3983d6414eb18c9adc86329ca86112d2d3358fb974f",
+      "pass": true
+    },
+    {
+      "section": "condenser-bay",
+      "frozen_sha256": "26edf558d2e03b16b841940d20973b74017a52e9f8c0c320d5ff5487c9d9ea3b",
+      "pass": true
+    }
+  ],
+  "placements": [
+    {
+      "section": "spawn-room",
+      "translation_error": 0.0,
+      "rotation_error": 0.0,
+      "pass": true
+    },
+    {
+      "section": "mine",
+      "translation_error": 0.0,
+      "rotation_error": 2.5044781608585254e-06,
+      "pass": true
+    },
+    {
+      "section": "refinery",
+      "translation_error": 0.0,
+      "rotation_error": 2.5044781608585254e-06,
+      "pass": true
+    },
+    {
+      "section": "fuel-corridor",
+      "translation_error": 0.0,
+      "rotation_error": 0.0,
+      "pass": true
+    },
+    {
+      "section": "reactor-room",
+      "translation_error": 0.0,
+      "rotation_error": 5.008956321717051e-06,
+      "pass": true
+    },
+    {
+      "section": "cooling-plant",
+      "translation_error": 0.0,
+      "rotation_error": 1.2522390804292627e-06,
+      "pass": true
+    },
+    {
+      "section": "turbine-room",
+      "translation_error": 0.0,
+      "rotation_error": 2.5044781608585254e-06,
+      "pass": true
+    },
+    {
+      "section": "condenser-bay",
+      "translation_error": 0.0,
+      "rotation_error": 2.5044781608585254e-06,
+      "pass": true
+    },
+    {
+      "section": "electrical-room",
+      "translation_error": 0.0,
+      "rotation_error": 5.008956321717051e-06,
+      "pass": true
+    },
+    {
+      "section": "waste-storage",
+      "translation_error": 0.0,
+      "rotation_error": 5.008956321717051e-06,
+      "pass": true
+    },
+    {
+      "section": "medical-reanimation",
+      "translation_error": 0.0,
+      "rotation_error": 0.0,
+      "pass": true
+    },
+    {
+      "section": "compliance-dock",
+      "translation_error": 0.0,
+      "rotation_error": 2.5044781608585254e-06,
+      "pass": true
+    }
+  ],
+  "missing_used_images": [],
+  "scope": "Exact targeted ray intersections for new bed/rack bases and wall anchors/returns, not blanket structural certification of every retained source object. Leaf geometry and illustrative finish marks are decorative.",
+  "targeted_checks_pass": true
+}

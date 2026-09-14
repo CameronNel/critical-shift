@@ -1,0 +1,5458 @@
+{
+  "mesh_defects": [],
+  "revision": "R02",
+  "scope": "Evaluated world-AABB connectivity broadphase, not raycast/anchor/support-angle validation. Original render-visible mesh objects are root candidates; physical/collision suitability is not independently classified. AABB overlap can be empty space, contact does not imply load-bearing support, and deep penetration is accepted by this connectivity graph. Text/curves excluded. Model is not saved.",
+  "threshold_m": 0.005,
+  "numerical_epsilon_m": 1e-06,
+  "additive_mesh_count": 262,
+  "original_root_candidate_count": 7503,
+  "root_connected_additive_count": 262,
+  "detached_components": [],
+  "direct_original_candidates": [
+    {
+      "object": "Fuel mineral exterior bay",
+      "original_candidates": [
+        "Wall_S16.2_0_-5.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.001",
+      "original_candidates": [
+        "Wall_S16.2_0_-5.4_concrete",
+        "Wall_N15.7_0_-1.65_concrete",
+        "Wall_W-1.2_1_15.7_concrete",
+        "Wall_W-1.2_1_15.7_formed_infill_panel",
+        "Wall_W-1.2_1_15.7_panel_fastener.002",
+        "Wall_W-1.2_1_15.7_panel_fastener.003",
+        "Wall_W-1.2_1_15.7_formed_infill_panel.001",
+        "Wall_W-1.2_1_15.7_panel_fastener.006",
+        "Wall_W-1.2_1_15.7_panel_fastener.007"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.001",
+      "original_candidates": [
+        "Wall_N15.7_0_-1.65_concrete",
+        "Wall_W-1.2_1_15.7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.001",
+      "original_candidates": [
+        "Wall_N15.7_0_-1.65_concrete",
+        "Wall_W-1.2_1_15.7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap",
+      "original_candidates": [
+        "Wall_S16.2_0_-5.4_concrete",
+        "Wall_W-1.2_1_15.7_concrete",
+        "Wall_W-1.2_1_15.7_vertical_web.001",
+        "Wall_W-1.2_1_15.7_vertical_flange.002"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.002",
+      "original_candidates": [
+        "Wall_W-5.4_0_16.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.001",
+      "original_candidates": [
+        "Wall_W-5.4_0_16.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.003",
+      "original_candidates": [
+        "Wall_W-5.4_0_18.52_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.002",
+      "original_candidates": [
+        "Wall_W-5.4_0_18.52_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.004",
+      "original_candidates": [
+        "Wall_N18.6_0_-5.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.005",
+      "original_candidates": [
+        "Wall_N18.6_0_-5.4_concrete",
+        "Wall_W-1.5_0_18.6_concrete",
+        "Wall_W-1.5_0_18.6_formed_infill_panel.002",
+        "Wall_W-1.5_0_18.6_formed_infill_panel.003",
+        "Wall_W-1.5_0_18.6_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.005",
+      "original_candidates": [
+        "Wall_W-1.5_0_18.6_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.005",
+      "original_candidates": [
+        "Wall_W-1.5_0_18.6_concrete",
+        "Wall_W-1.5_0_18.6_formed_infill_panel.002"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.003",
+      "original_candidates": [
+        "Wall_N18.6_0_-5.4_concrete",
+        "Wall_W-1.5_0_18.6_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.006",
+      "original_candidates": [
+        "Ceiling_inlet",
+        "Wall_S1.2_0_-2.2_concrete",
+        "Wall_W-1.6_0_0_concrete",
+        "Wall_W-1.6_0_0_formed_infill_panel",
+        "Wall_W-1.6_0_0_formed_infill_panel.001"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.006",
+      "original_candidates": [
+        "Wall_W-1.6_0_0_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.006",
+      "original_candidates": [
+        "Wall_W-1.6_0_0_concrete",
+        "Wall_W-1.6_0_0_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.004",
+      "original_candidates": [
+        "Wall_S1.2_0_-2.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.007",
+      "original_candidates": [
+        "Ceiling_inlet",
+        "Wall_S1.2_1_1.6_concrete",
+        "Wall_E1.6_0_0_concrete",
+        "Wall_E1.6_0_0_formed_infill_panel",
+        "Wall_E1.6_0_0_formed_infill_panel.001"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.007",
+      "original_candidates": [
+        "Wall_E1.6_0_0_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.007",
+      "original_candidates": [
+        "Wall_E1.6_0_0_concrete",
+        "Wall_E1.6_0_0_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.005",
+      "original_candidates": [
+        "Wall_S1.2_1_1.6_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.008",
+      "original_candidates": [
+        "Wall_W-2.2_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.009",
+      "original_candidates": [
+        "Wall_W-2.2_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.010",
+      "original_candidates": [
+        "Wall_W-2.2_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.011",
+      "original_candidates": [
+        "Wall_W-2.2_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.012",
+      "original_candidates": [
+        "Wall_W-2.2_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.006",
+      "original_candidates": [
+        "Wall_W-2.2_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.013",
+      "original_candidates": [
+        "Ceiling_bypass_west",
+        "Wall_N13.2_0_-2.2_concrete",
+        "Wall_W-1.2_0_13.2_concrete",
+        "Wall_W-1.2_0_13.2_formed_infill_panel",
+        "Wall_W-1.2_0_13.2_formed_infill_panel.001"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.013",
+      "original_candidates": [
+        "Wall_W-1.2_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.013",
+      "original_candidates": [
+        "Wall_W-1.2_0_13.2_concrete",
+        "Wall_W-1.2_0_13.2_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.007",
+      "original_candidates": [
+        "Wall_N13.2_0_-2.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.014",
+      "original_candidates": [
+        "Ceiling_bypass_west",
+        "Wall_N13.2_1_1.2_concrete",
+        "Wall_E1.2_0_13.2_concrete",
+        "Wall_E1.2_0_13.2_formed_infill_panel",
+        "Wall_E1.2_0_13.2_formed_infill_panel.001",
+        "Wall_E1.2_0_13.2_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.014",
+      "original_candidates": [
+        "Wall_E1.2_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.014",
+      "original_candidates": [
+        "Wall_E1.2_0_13.2_concrete",
+        "Wall_E1.2_0_13.2_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.008",
+      "original_candidates": [
+        "Wall_N13.2_1_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.015",
+      "original_candidates": [
+        "Wall_N13.2_2_10_concrete",
+        "Wall_W12_0_13.2_concrete",
+        "Wall_W12_0_13.2_formed_infill_panel.004",
+        "Wall_W12_0_13.2_formed_infill_panel.005",
+        "Wall_W12_0_13.2_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.015",
+      "original_candidates": [
+        "Wall_W12_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.015",
+      "original_candidates": [
+        "Wall_W12_0_13.2_concrete",
+        "Wall_W12_0_13.2_formed_infill_panel.004"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.009",
+      "original_candidates": [
+        "Wall_N13.2_2_10_concrete",
+        "Wall_W12_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.016",
+      "original_candidates": [
+        "Wall_S14.3_0_-1.65_concrete",
+        "Wall_W-1.2_0_13.2_concrete",
+        "Wall_W-1.2_0_13.2_formed_infill_panel",
+        "Wall_W-1.2_0_13.2_formed_infill_panel.001"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.016",
+      "original_candidates": [
+        "Wall_W-1.2_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.016",
+      "original_candidates": [
+        "Wall_W-1.2_0_13.2_concrete",
+        "Wall_W-1.2_0_13.2_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.010",
+      "original_candidates": [
+        "Wall_S14.3_0_-1.65_concrete",
+        "Wall_W-1.2_0_13.2_concrete",
+        "Wall_W-1.2_0_13.2_formed_infill_panel.001"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.017",
+      "original_candidates": [
+        "Wall_S16.2_0_-5.4_concrete",
+        "Wall_N15.7_0_-1.65_concrete",
+        "Wall_W-1.2_1_15.7_concrete",
+        "Wall_W-1.2_1_15.7_formed_infill_panel",
+        "Wall_W-1.2_1_15.7_panel_fastener",
+        "Wall_W-1.2_1_15.7_panel_fastener.001",
+        "Wall_W-1.2_1_15.7_formed_infill_panel.001",
+        "Wall_W-1.2_1_15.7_panel_fastener.004"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.017",
+      "original_candidates": [
+        "Wall_S16.2_0_-5.4_concrete",
+        "Wall_W-1.2_1_15.7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.017",
+      "original_candidates": [
+        "Wall_S16.2_0_-5.4_concrete",
+        "Wall_W-1.2_1_15.7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.011",
+      "original_candidates": [
+        "Wall_S16.2_0_-5.4_concrete",
+        "Wall_N15.7_0_-1.65_concrete",
+        "Wall_W-1.2_1_15.7_concrete",
+        "Wall_W-1.2_1_15.7_formed_infill_panel.001",
+        "Wall_W-1.2_1_15.7_vertical_web",
+        "Wall_W-1.2_1_15.7_vertical_flange"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.018",
+      "original_candidates": [
+        "Wall_W-1.65_0_14.3_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.012",
+      "original_candidates": [
+        "Wall_W-1.65_0_14.3_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.019",
+      "original_candidates": [
+        "Floor_inlet",
+        "Ceiling_crossmember",
+        "Wall_S0_0_-1.6_concrete",
+        "Wall_W-1.6_0_0_washable_lower",
+        "Wall_W-1.6_0_0_skirt",
+        "Wall_W-1.6_0_0_capping",
+        "Wall_W-1.6_0_0_upper_rail",
+        "Wall_W-1.6_0_0_utility_band"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.013",
+      "original_candidates": [
+        "Ceiling_crossmember",
+        "Recessed_ceiling_panel",
+        "Ceiling_panel_fixing",
+        "Port_upper_masonry.001",
+        "Wall_S0_0_-1.6_concrete",
+        "Wall_W-1.6_0_0_vertical_flange.002",
+        "Wall_W-1.6_0_0_vertical_flange.003"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.020",
+      "original_candidates": [
+        "Floor_inlet",
+        "Wall_S0_0_1.42_concrete",
+        "Wall_E1.6_0_0_washable_lower",
+        "Wall_E1.6_0_0_skirt",
+        "Wall_E1.6_0_0_capping",
+        "Wall_E1.6_0_0_upper_rail",
+        "Wall_E1.6_0_0_utility_band"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.014",
+      "original_candidates": [
+        "Recessed_ceiling_panel.001",
+        "Ceiling_panel_fixing.006",
+        "Port_upper_masonry.001",
+        "Wall_S0_0_1.42_concrete",
+        "Wall_E1.6_0_0_vertical_flange",
+        "Wall_E1.6_0_0_vertical_flange.001"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.021",
+      "original_candidates": [
+        "Wall_S1.2_0_-2.2_concrete",
+        "Wall_S1.2_0_-2.2_formed_infill_panel",
+        "Wall_S1.2_0_-2.2_formed_infill_panel.001",
+        "Wall_W-1.6_0_0_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.021",
+      "original_candidates": [
+        "Wall_S1.2_0_-2.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.021",
+      "original_candidates": [
+        "Wall_S1.2_0_-2.2_concrete",
+        "Wall_S1.2_0_-2.2_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.015",
+      "original_candidates": [
+        "Wall_S1.2_0_-2.2_concrete",
+        "Wall_S1.2_0_-2.2_formed_infill_panel.001",
+        "Wall_S1.2_0_-2.2_vertical_web",
+        "Wall_S1.2_0_-2.2_vertical_flange",
+        "Wall_W-1.6_0_0_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.022",
+      "original_candidates": [
+        "Wall_N21_0_-1.5_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.023",
+      "original_candidates": [
+        "Wall_N21_0_-1.5_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.024",
+      "original_candidates": [
+        "Wall_N21_0_-1.5_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.016",
+      "original_candidates": [
+        "Wall_N21_0_-1.5_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.025",
+      "original_candidates": [
+        "Wall_N21_0_7.72_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.026",
+      "original_candidates": [
+        "Wall_N21_0_7.72_concrete",
+        "Wall_W11.4_0_21_concrete",
+        "Wall_W11.4_0_21_formed_infill_panel.002"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.026",
+      "original_candidates": [
+        "Wall_W11.4_0_21_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.026",
+      "original_candidates": [
+        "Wall_W11.4_0_21_concrete",
+        "Wall_W11.4_0_21_formed_infill_panel.002"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.017",
+      "original_candidates": [
+        "Wall_N21_0_7.72_concrete",
+        "Wall_W11.4_0_21_concrete",
+        "Wall_W11.4_0_21_formed_infill_panel.002"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.027",
+      "original_candidates": [
+        "Wall_N18.6_0_-5.4_concrete",
+        "Wall_N18.6_0_-5.4_formed_infill_panel",
+        "Wall_N18.6_0_-5.4_formed_infill_panel.001",
+        "Wall_N18.6_0_-5.4_panel_cross_seam",
+        "Wall_W-1.5_0_18.6_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.027",
+      "original_candidates": [
+        "Wall_N18.6_0_-5.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.027",
+      "original_candidates": [
+        "Wall_N18.6_0_-5.4_concrete",
+        "Wall_N18.6_0_-5.4_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.018",
+      "original_candidates": [
+        "Wall_N18.6_0_-5.4_concrete",
+        "Wall_W-1.5_0_18.6_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.028",
+      "original_candidates": [
+        "Wall_N13.2_1_1.2_concrete",
+        "Wall_N13.2_1_1.2_formed_infill_panel.002",
+        "Wall_N13.2_1_1.2_formed_infill_panel.003",
+        "Wall_N13.2_1_1.2_panel_cross_seam",
+        "Wall_E1.2_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.028",
+      "original_candidates": [
+        "Wall_N13.2_1_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.028",
+      "original_candidates": [
+        "Wall_N13.2_1_1.2_concrete",
+        "Wall_N13.2_1_1.2_formed_infill_panel.002"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.029",
+      "original_candidates": [
+        "Wall_E1.2_0_13.2_concrete",
+        "Wall_S18.0_0_1.2_concrete",
+        "Wall_S18.0_0_1.2_formed_infill_panel",
+        "Wall_S18.0_0_1.2_formed_infill_panel.001",
+        "Wall_S18.0_0_1.2_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.029",
+      "original_candidates": [
+        "Wall_S18.0_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.029",
+      "original_candidates": [
+        "Wall_S18.0_0_1.2_concrete",
+        "Wall_S18.0_0_1.2_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.019",
+      "original_candidates": [
+        "Wall_N13.2_1_1.2_concrete",
+        "Wall_N13.2_1_1.2_formed_infill_panel.003",
+        "Wall_E1.2_0_13.2_concrete",
+        "Wall_S18.0_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.030",
+      "original_candidates": [
+        "Ceiling_service_air_recess",
+        "Wall_N13.2_0_-2.2_concrete",
+        "Wall_N13.2_0_-2.2_formed_infill_panel",
+        "Wall_N13.2_0_-2.2_formed_infill_panel.001",
+        "Wall_S14.3_0_-1.65_concrete",
+        "Wall_S14.3_0_-1.65_formed_infill_panel",
+        "Wall_S14.3_0_-1.65_formed_infill_panel.001",
+        "Wall_W-1.2_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.030",
+      "original_candidates": [
+        "Wall_N13.2_0_-2.2_concrete",
+        "Wall_S14.3_0_-1.65_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.030",
+      "original_candidates": [
+        "Wall_N13.2_0_-2.2_concrete",
+        "Wall_N13.2_0_-2.2_formed_infill_panel",
+        "Wall_S14.3_0_-1.65_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.020",
+      "original_candidates": [
+        "Wall_N13.2_0_-2.2_concrete",
+        "Wall_N13.2_0_-2.2_formed_infill_panel.001",
+        "Wall_W-1.2_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.031",
+      "original_candidates": [
+        "Ceiling_service_air_recess",
+        "Wall_S16.2_0_-5.4_concrete",
+        "Wall_S16.2_0_-5.4_formed_infill_panel.002",
+        "Wall_S16.2_0_-5.4_formed_infill_panel.003",
+        "Wall_S16.2_0_-5.4_panel_cross_seam",
+        "Wall_N15.7_0_-1.65_concrete",
+        "Wall_N15.7_0_-1.65_formed_infill_panel",
+        "Wall_N15.7_0_-1.65_formed_infill_panel.001",
+        "Wall_W-1.2_1_15.7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.031",
+      "original_candidates": [
+        "Wall_S16.2_0_-5.4_concrete",
+        "Wall_N15.7_0_-1.65_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.031",
+      "original_candidates": [
+        "Wall_S16.2_0_-5.4_concrete",
+        "Wall_S16.2_0_-5.4_formed_infill_panel.002",
+        "Wall_N15.7_0_-1.65_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.021",
+      "original_candidates": [
+        "Wall_S16.2_0_-5.4_concrete",
+        "Wall_W-1.2_1_15.7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.032",
+      "original_candidates": [
+        "Wall_S1.2_1_1.6_concrete",
+        "Wall_S1.2_1_1.6_formed_infill_panel",
+        "Wall_S1.2_1_1.6_formed_infill_panel.001",
+        "Wall_E1.6_0_0_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.032",
+      "original_candidates": [
+        "Wall_S1.2_1_1.6_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.032",
+      "original_candidates": [
+        "Wall_S1.2_1_1.6_concrete",
+        "Wall_S1.2_1_1.6_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.022",
+      "original_candidates": [
+        "Wall_S1.2_1_1.6_concrete",
+        "Wall_S1.2_1_1.6_formed_infill_panel.001",
+        "Wall_S1.2_1_1.6_vertical_web.001",
+        "Wall_S1.2_1_1.6_vertical_flange.002",
+        "Wall_E1.6_0_0_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.033",
+      "original_candidates": [
+        "Wall_E1.2_0_13.2_concrete",
+        "Wall_E1.2_0_13.2_formed_infill_panel.004",
+        "Wall_E1.2_0_13.2_formed_infill_panel.005",
+        "Wall_E1.2_0_13.2_panel_cross_seam",
+        "Wall_S18.0_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.033",
+      "original_candidates": [
+        "Wall_E1.2_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.033",
+      "original_candidates": [
+        "Wall_E1.2_0_13.2_concrete",
+        "Wall_E1.2_0_13.2_formed_infill_panel.004"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.034",
+      "original_candidates": [
+        "Wall_S18.0_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.035",
+      "original_candidates": [
+        "Wall_S18.0_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.036",
+      "original_candidates": [
+        "Wall_S18.0_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.037",
+      "original_candidates": [
+        "Wall_S18.0_0_1.2_concrete",
+        "Wall_W12_0_13.2_concrete",
+        "Wall_W12_0_13.2_formed_infill_panel",
+        "Wall_W12_0_13.2_formed_infill_panel.001",
+        "Wall_W12_0_13.2_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.037",
+      "original_candidates": [
+        "Wall_W12_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.037",
+      "original_candidates": [
+        "Wall_W12_0_13.2_concrete",
+        "Wall_W12_0_13.2_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.023",
+      "original_candidates": [
+        "Wall_E1.2_0_13.2_concrete",
+        "Wall_S18.0_0_1.2_concrete",
+        "Wall_W12_0_13.2_concrete",
+        "Wall_W12_0_13.2_formed_infill_panel.001"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.038",
+      "original_candidates": [
+        "Wall_E2.2_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.039",
+      "original_candidates": [
+        "Wall_E2.2_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.040",
+      "original_candidates": [
+        "Wall_E2.2_0_1.2_concrete",
+        "Wall_S7_0_2.2_concrete",
+        "Wall_S7_0_2.2_formed_infill_panel",
+        "Wall_S7_0_2.2_formed_infill_panel.001",
+        "Wall_S7_0_2.2_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.040",
+      "original_candidates": [
+        "Wall_S7_0_2.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.040",
+      "original_candidates": [
+        "Wall_S7_0_2.2_concrete",
+        "Wall_S7_0_2.2_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.024",
+      "original_candidates": [
+        "Wall_E2.2_0_1.2_concrete",
+        "Wall_S7_0_2.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.041",
+      "original_candidates": [
+        "Wall_E2.2_0_1.2_concrete",
+        "Wall_E2.2_0_1.2_formed_infill_panel.004",
+        "Wall_E2.2_0_1.2_formed_infill_panel.005",
+        "Wall_E2.2_0_1.2_panel_cross_seam",
+        "Wall_S7_0_2.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.041",
+      "original_candidates": [
+        "Wall_E2.2_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.041",
+      "original_candidates": [
+        "Wall_E2.2_0_1.2_concrete",
+        "Wall_E2.2_0_1.2_formed_infill_panel.004"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.025",
+      "original_candidates": [
+        "Wall_E2.2_0_1.2_concrete",
+        "Wall_S7_0_2.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.042",
+      "original_candidates": [
+        "Wall_S7_1_10_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.043",
+      "original_candidates": [
+        "Wall_S7_1_10_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.044",
+      "original_candidates": [
+        "Wall_S7_1_10_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.026",
+      "original_candidates": [
+        "Wall_S7_1_10_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.045",
+      "original_candidates": [
+        "Wall_E4.4_0_7_concrete",
+        "Wall_S7.8_0_4.4_concrete",
+        "Wall_S7.8_0_4.4_formed_infill_panel",
+        "Wall_S7.8_0_4.4_formed_infill_panel.001",
+        "Wall_S7.8_0_4.4_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.045",
+      "original_candidates": [
+        "Wall_S7.8_0_4.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.045",
+      "original_candidates": [
+        "Wall_S7.8_0_4.4_concrete",
+        "Wall_S7.8_0_4.4_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.027",
+      "original_candidates": [
+        "Wall_E4.4_0_7_concrete",
+        "Wall_S7.8_0_4.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.046",
+      "original_candidates": [
+        "Wall_E4.4_1_12.2_concrete",
+        "Wall_N12.2_0_4.4_concrete",
+        "Wall_N12.2_0_4.4_formed_infill_panel",
+        "Wall_N12.2_0_4.4_formed_infill_panel.001",
+        "Wall_N12.2_0_4.4_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.046",
+      "original_candidates": [
+        "Wall_N12.2_0_4.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.046",
+      "original_candidates": [
+        "Wall_N12.2_0_4.4_concrete",
+        "Wall_N12.2_0_4.4_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.028",
+      "original_candidates": [
+        "Wall_E4.4_1_12.2_concrete",
+        "Wall_N12.2_0_4.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.047",
+      "original_candidates": [
+        "Wall_E4.4_0_7_concrete",
+        "Wall_E4.4_0_7_formed_infill_panel",
+        "Wall_E4.4_0_7_formed_infill_panel.001",
+        "Wall_S7.8_0_4.4_concrete",
+        "Wall_W6.07_0_6.15_concrete",
+        "Wall_W6.07_0_6.15_formed_infill_panel",
+        "Wall_W6.07_0_6.15_formed_infill_panel.001",
+        "Wall_W6.07_0_6.15_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.047",
+      "original_candidates": [
+        "Wall_E4.4_0_7_concrete",
+        "Wall_W6.07_0_6.15_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.047",
+      "original_candidates": [
+        "Wall_E4.4_0_7_concrete",
+        "Wall_E4.4_0_7_formed_infill_panel",
+        "Wall_W6.07_0_6.15_concrete",
+        "Wall_W6.07_0_6.15_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.029",
+      "original_candidates": [
+        "Wall_E4.4_0_7_concrete",
+        "Wall_S7.8_0_4.4_concrete",
+        "Wall_W6.07_0_6.15_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.048",
+      "original_candidates": [
+        "Wall_S7.8_1_6.78_concrete",
+        "Wall_E6.78_0_6.15_concrete",
+        "Wall_E6.78_0_6.15_formed_infill_panel",
+        "Wall_E6.78_0_6.15_formed_infill_panel.001",
+        "Wall_E6.78_0_6.15_panel_cross_seam",
+        "Wall_W10_0_7_concrete",
+        "Wall_W10_0_7_formed_infill_panel",
+        "Wall_W10_0_7_formed_infill_panel.001"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.048",
+      "original_candidates": [
+        "Wall_E6.78_0_6.15_concrete",
+        "Wall_W10_0_7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.048",
+      "original_candidates": [
+        "Wall_E6.78_0_6.15_concrete",
+        "Wall_E6.78_0_6.15_formed_infill_panel",
+        "Wall_W10_0_7_concrete",
+        "Wall_W10_0_7_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.030",
+      "original_candidates": [
+        "Wall_S7.8_1_6.78_concrete",
+        "Wall_E6.78_0_6.15_concrete",
+        "Wall_W10_0_7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.049",
+      "original_candidates": [
+        "Wall_E4.4_1_12.2_concrete",
+        "Wall_E4.4_1_12.2_formed_infill_panel",
+        "Wall_E4.4_1_12.2_formed_infill_panel.001",
+        "Wall_N12.2_0_4.4_concrete",
+        "Wall_W6.07_1_12.2_concrete",
+        "Wall_W6.07_1_12.2_formed_infill_panel",
+        "Wall_W6.07_1_12.2_formed_infill_panel.001",
+        "Wall_W6.07_1_12.2_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.049",
+      "original_candidates": [
+        "Wall_E4.4_1_12.2_concrete",
+        "Wall_W6.07_1_12.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.049",
+      "original_candidates": [
+        "Wall_E4.4_1_12.2_concrete",
+        "Wall_E4.4_1_12.2_formed_infill_panel",
+        "Wall_W6.07_1_12.2_concrete",
+        "Wall_W6.07_1_12.2_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.031",
+      "original_candidates": [
+        "Wall_E4.4_1_12.2_concrete",
+        "Wall_N12.2_0_4.4_concrete",
+        "Wall_W6.07_1_12.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.050",
+      "original_candidates": [
+        "Wall_N12.2_1_6.78_concrete",
+        "Wall_E6.78_1_12.2_concrete",
+        "Wall_E6.78_1_12.2_formed_infill_panel",
+        "Wall_E6.78_1_12.2_formed_infill_panel.001",
+        "Wall_E6.78_1_12.2_panel_cross_seam",
+        "Wall_W10_1_12.2_concrete",
+        "Wall_W10_1_12.2_formed_infill_panel",
+        "Wall_W10_1_12.2_formed_infill_panel.001"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.050",
+      "original_candidates": [
+        "Wall_E6.78_1_12.2_concrete",
+        "Wall_W10_1_12.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.050",
+      "original_candidates": [
+        "Wall_E6.78_1_12.2_concrete",
+        "Wall_E6.78_1_12.2_formed_infill_panel",
+        "Wall_W10_1_12.2_concrete",
+        "Wall_W10_1_12.2_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.032",
+      "original_candidates": [
+        "Wall_N12.2_1_6.78_concrete",
+        "Wall_E6.78_1_12.2_concrete",
+        "Wall_W10_1_12.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.051",
+      "original_candidates": [
+        "Wall_S6.15_0_6.07_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.033",
+      "original_candidates": [
+        "Wall_S6.15_0_6.07_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.052",
+      "original_candidates": [
+        "Wall_S7.8_1_6.78_concrete",
+        "Wall_S7.8_1_6.78_formed_infill_panel",
+        "Wall_S7.8_1_6.78_formed_infill_panel.001",
+        "Wall_S7.8_1_6.78_panel_cross_seam",
+        "Wall_E6.78_0_6.15_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.052",
+      "original_candidates": [
+        "Wall_S7.8_1_6.78_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.052",
+      "original_candidates": [
+        "Wall_S7.8_1_6.78_concrete",
+        "Wall_S7.8_1_6.78_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.034",
+      "original_candidates": [
+        "Wall_S7.8_1_6.78_concrete",
+        "Wall_E6.78_0_6.15_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.053",
+      "original_candidates": [
+        "Wall_N12.2_1_6.78_concrete",
+        "Wall_N12.2_1_6.78_formed_infill_panel.002",
+        "Wall_N12.2_1_6.78_formed_infill_panel.003",
+        "Wall_N12.2_1_6.78_panel_cross_seam",
+        "Wall_E6.78_1_12.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.053",
+      "original_candidates": [
+        "Wall_N12.2_1_6.78_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.053",
+      "original_candidates": [
+        "Wall_N12.2_1_6.78_concrete",
+        "Wall_N12.2_1_6.78_formed_infill_panel.002"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.035",
+      "original_candidates": [
+        "Wall_N12.2_1_6.78_concrete",
+        "Wall_E6.78_1_12.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.054",
+      "original_candidates": [
+        "Wall_S7.8_0_4.4_concrete",
+        "Wall_S7.8_0_4.4_formed_infill_panel",
+        "Wall_S7.8_0_4.4_formed_infill_panel.001",
+        "Wall_S7.8_0_4.4_panel_cross_seam",
+        "Wall_W6.07_0_6.15_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.054",
+      "original_candidates": [
+        "Wall_S7.8_0_4.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.054",
+      "original_candidates": [
+        "Wall_S7.8_0_4.4_concrete",
+        "Wall_S7.8_0_4.4_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.036",
+      "original_candidates": [
+        "Wall_S7.8_0_4.4_concrete",
+        "Wall_W6.07_0_6.15_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.055",
+      "original_candidates": [
+        "Wall_N12.2_0_4.4_concrete",
+        "Wall_N12.2_0_4.4_formed_infill_panel",
+        "Wall_N12.2_0_4.4_formed_infill_panel.001",
+        "Wall_N12.2_0_4.4_panel_cross_seam",
+        "Wall_W6.07_1_12.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.055",
+      "original_candidates": [
+        "Wall_N12.2_0_4.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.055",
+      "original_candidates": [
+        "Wall_N12.2_0_4.4_concrete",
+        "Wall_N12.2_0_4.4_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.037",
+      "original_candidates": [
+        "Wall_N12.2_0_4.4_concrete",
+        "Wall_W6.07_1_12.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.056",
+      "original_candidates": [
+        "Wall_N13.85_0_6.07_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.038",
+      "original_candidates": [
+        "Wall_N13.85_0_6.07_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.057",
+      "original_candidates": [
+        "Wall_S7.8_1_6.78_concrete",
+        "Wall_S7.8_1_6.78_formed_infill_panel.002",
+        "Wall_S7.8_1_6.78_formed_infill_panel.003",
+        "Wall_S7.8_1_6.78_panel_cross_seam",
+        "Wall_W10_0_7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.057",
+      "original_candidates": [
+        "Wall_S7.8_1_6.78_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.057",
+      "original_candidates": [
+        "Wall_S7.8_1_6.78_concrete",
+        "Wall_S7.8_1_6.78_formed_infill_panel.002"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.039",
+      "original_candidates": [
+        "Wall_S7.8_1_6.78_concrete",
+        "Wall_W10_0_7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.058",
+      "original_candidates": [
+        "Wall_N12.2_1_6.78_concrete",
+        "Wall_N12.2_1_6.78_formed_infill_panel",
+        "Wall_N12.2_1_6.78_formed_infill_panel.001",
+        "Wall_N12.2_1_6.78_panel_cross_seam",
+        "Wall_W10_1_12.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.058",
+      "original_candidates": [
+        "Wall_N12.2_1_6.78_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.058",
+      "original_candidates": [
+        "Wall_N12.2_1_6.78_concrete",
+        "Wall_N12.2_1_6.78_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.040",
+      "original_candidates": [
+        "Wall_N12.2_1_6.78_concrete",
+        "Wall_W10_1_12.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.059",
+      "original_candidates": [
+        "Floor_reactor_adapter",
+        "Ceiling_crossmember.020",
+        "Wall_N24_0_11.4_concrete",
+        "Wall_W11.4_0_21_washable_lower",
+        "Wall_W11.4_0_21_skirt",
+        "Wall_W11.4_0_21_capping",
+        "Wall_W11.4_0_21_upper_rail",
+        "Wall_W11.4_0_21_utility_band",
+        "Wall_W11.4_0_21_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.041",
+      "original_candidates": [
+        "Ceiling_crossmember.020",
+        "Recessed_ceiling_panel.078",
+        "Ceiling_panel_fixing.313",
+        "Port_upper_masonry.003",
+        "Wall_N24_0_11.4_concrete",
+        "Wall_W11.4_0_21_vertical_flange",
+        "Wall_W11.4_0_21_vertical_flange.001"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.060",
+      "original_candidates": [
+        "Floor_reactor_adapter",
+        "Wall_N24_0_16.82_concrete",
+        "Wall_E17.0_0_21_washable_lower",
+        "Wall_E17.0_0_21_skirt",
+        "Wall_E17.0_0_21_capping",
+        "Wall_E17.0_0_21_upper_rail",
+        "Wall_E17.0_0_21_utility_band",
+        "Wall_E17.0_0_21_panel_cross_seam"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.042",
+      "original_candidates": [
+        "Recessed_ceiling_panel.084",
+        "Ceiling_panel_fixing.339",
+        "Port_upper_masonry.003",
+        "Wall_N24_0_16.82_concrete",
+        "Wall_E17.0_0_21_vertical_flange.004",
+        "Wall_E17.0_0_21_vertical_flange.005"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.061",
+      "original_candidates": [
+        "Ceiling_bypass_north",
+        "Wall_N21_0_7.72_concrete",
+        "Wall_N21_0_7.72_formed_infill_panel",
+        "Wall_N21_0_7.72_formed_infill_panel.001",
+        "Wall_N21_0_7.72_panel_cross_seam",
+        "Wall_W11.4_0_21_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.061",
+      "original_candidates": [
+        "Wall_N21_0_7.72_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.061",
+      "original_candidates": [
+        "Wall_N21_0_7.72_concrete",
+        "Wall_N21_0_7.72_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.043",
+      "original_candidates": [
+        "Wall_W11.4_0_21_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.062",
+      "original_candidates": [
+        "Wall_E16.4_0_7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.063",
+      "original_candidates": [
+        "Wall_E16.4_0_7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.064",
+      "original_candidates": [
+        "Wall_E16.4_0_7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.044",
+      "original_candidates": [
+        "Wall_E16.4_0_7_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.065",
+      "original_candidates": [
+        "Wall_E16.4_0_17.32_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.066",
+      "original_candidates": [
+        "Wall_E16.4_0_17.32_concrete",
+        "Wall_S21_0_16.4_concrete",
+        "Wall_S21_0_16.4_formed_infill_panel",
+        "Wall_S21_0_16.4_formed_infill_panel.001"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.066",
+      "original_candidates": [
+        "Wall_S21_0_16.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.066",
+      "original_candidates": [
+        "Wall_S21_0_16.4_concrete",
+        "Wall_S21_0_16.4_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.045",
+      "original_candidates": [
+        "Wall_E16.4_0_17.32_concrete",
+        "Wall_S21_0_16.4_concrete",
+        "Wall_S21_0_16.4_formed_infill_panel.001",
+        "Wall_S21_0_16.4_vertical_web.001",
+        "Wall_S21_0_16.4_vertical_flange.002"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.067",
+      "original_candidates": [
+        "Wall_N13.2_2_10_concrete",
+        "Wall_N13.2_2_10_formed_infill_panel",
+        "Wall_N13.2_2_10_formed_infill_panel.001",
+        "Wall_N13.2_2_10_panel_cross_seam",
+        "Wall_W12_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.067",
+      "original_candidates": [
+        "Wall_N13.2_2_10_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.067",
+      "original_candidates": [
+        "Wall_N13.2_2_10_concrete",
+        "Wall_N13.2_2_10_formed_infill_panel"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.068",
+      "original_candidates": [
+        "Ceiling_bypass_north",
+        "Wall_S18.0_0_1.2_concrete",
+        "Wall_S18.0_0_1.2_formed_infill_panel.008",
+        "Wall_S18.0_0_1.2_formed_infill_panel.009",
+        "Wall_S18.0_0_1.2_panel_cross_seam",
+        "Wall_W12_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.068",
+      "original_candidates": [
+        "Wall_S18.0_0_1.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.068",
+      "original_candidates": [
+        "Wall_S18.0_0_1.2_concrete",
+        "Wall_S18.0_0_1.2_formed_infill_panel.008"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.046",
+      "original_candidates": [
+        "Wall_N13.2_2_10_concrete",
+        "Wall_W12_0_13.2_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.069",
+      "original_candidates": [
+        "Ceiling_delivery",
+        "Wall_E16.4_0_17.32_concrete",
+        "Wall_E16.4_0_17.32_formed_infill_panel.002",
+        "Wall_E16.4_0_17.32_formed_infill_panel.003",
+        "Wall_E16.4_0_17.32_panel_cross_seam",
+        "Wall_S21_0_16.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior impact base.069",
+      "original_candidates": [
+        "Wall_E16.4_0_17.32_concrete"
+      ]
+    },
+    {
+      "object": "Fuel exterior route stripe.069",
+      "original_candidates": [
+        "Wall_E16.4_0_17.32_concrete",
+        "Wall_E16.4_0_17.32_formed_infill_panel.002"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.047",
+      "original_candidates": [
+        "Wall_S21_0_16.4_concrete"
+      ]
+    },
+    {
+      "object": "Fuel mineral exterior bay.070",
+      "original_candidates": [
+        "Wall_E17.0_0_21_concrete"
+      ]
+    },
+    {
+      "object": "Fuel folded wall top cap.048",
+      "original_candidates": [
+        "Wall_E17.0_0_21_concrete"
+      ]
+    }
+  ],
+  "additive_bounds": [
+    {
+      "name": "Fuel mineral exterior bay",
+      "bounds": [
+        [
+          -5.394000053405762,
+          15.810001373291016,
+          0.0
+        ],
+        [
+          -3.3060004711151123,
+          15.860000610351562,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base",
+      "bounds": [
+        [
+          -5.394000053405762,
+          15.77500057220459,
+          0.0
+        ],
+        [
+          -3.3060004711151123,
+          15.835000038146973,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe",
+      "bounds": [
+        [
+          -5.394000053405762,
+          15.804000854492188,
+          1.1799999475479126
+        ],
+        [
+          -3.3060004711151123,
+          15.812000274658203,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.001",
+      "bounds": [
+        [
+          -3.2940001487731934,
+          15.810001373291016,
+          0.0
+        ],
+        [
+          -1.2060003280639648,
+          15.860000610351562,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.001",
+      "bounds": [
+        [
+          -3.2940001487731934,
+          15.77500057220459,
+          0.0
+        ],
+        [
+          -1.2060003280639648,
+          15.835000038146973,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.001",
+      "bounds": [
+        [
+          -3.2940001487731934,
+          15.804000854492188,
+          1.1799999475479126
+        ],
+        [
+          -1.2060003280639648,
+          15.812000274658203,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap",
+      "bounds": [
+        [
+          -5.400000095367432,
+          15.750000953674316,
+          2.9200000762939453
+        ],
+        [
+          -1.200000286102295,
+          15.910000801086426,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.002",
+      "bounds": [
+        [
+          -5.7900004386901855,
+          16.20600128173828,
+          0.0
+        ],
+        [
+          -5.740000247955322,
+          16.274002075195312,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.002",
+      "bounds": [
+        [
+          -5.825000286102295,
+          16.20600128173828,
+          0.0
+        ],
+        [
+          -5.764999866485596,
+          16.274002075195312,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.002",
+      "bounds": [
+        [
+          -5.7960004806518555,
+          16.20600128173828,
+          1.1799999475479126
+        ],
+        [
+          -5.788000106811523,
+          16.274002075195312,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.001",
+      "bounds": [
+        [
+          -5.850000381469727,
+          16.200000762939453,
+          2.9200000762939453
+        ],
+        [
+          -5.690000534057617,
+          16.28000259399414,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.003",
+      "bounds": [
+        [
+          -5.7900004386901855,
+          18.5260009765625,
+          0.0
+        ],
+        [
+          -5.740000247955322,
+          18.59400177001953,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.003",
+      "bounds": [
+        [
+          -5.825000286102295,
+          18.5260009765625,
+          0.0
+        ],
+        [
+          -5.764999866485596,
+          18.59400177001953,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.003",
+      "bounds": [
+        [
+          -5.7960004806518555,
+          18.5260009765625,
+          1.1799999475479126
+        ],
+        [
+          -5.788000106811523,
+          18.59400177001953,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.002",
+      "bounds": [
+        [
+          -5.850000381469727,
+          18.520000457763672,
+          2.9200000762939453
+        ],
+        [
+          -5.690000534057617,
+          18.60000228881836,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.004",
+      "bounds": [
+        [
+          -5.394000053405762,
+          18.940000534057617,
+          0.0
+        ],
+        [
+          -3.4560000896453857,
+          18.989999771118164,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.004",
+      "bounds": [
+        [
+          -5.394000053405762,
+          18.96500015258789,
+          0.0
+        ],
+        [
+          -3.4560000896453857,
+          19.025001525878906,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.004",
+      "bounds": [
+        [
+          -5.394000053405762,
+          18.988000869750977,
+          1.1799999475479126
+        ],
+        [
+          -3.4560000896453857,
+          18.996000289916992,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.005",
+      "bounds": [
+        [
+          -3.444000005722046,
+          18.940000534057617,
+          0.0
+        ],
+        [
+          -1.5059998035430908,
+          18.989999771118164,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.005",
+      "bounds": [
+        [
+          -3.444000005722046,
+          18.96500015258789,
+          0.0
+        ],
+        [
+          -1.5059998035430908,
+          19.025001525878906,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.005",
+      "bounds": [
+        [
+          -3.444000005722046,
+          18.988000869750977,
+          1.1799999475479126
+        ],
+        [
+          -1.5059998035430908,
+          18.996000289916992,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.003",
+      "bounds": [
+        [
+          -5.400000095367432,
+          18.89000129699707,
+          2.9200000762939453
+        ],
+        [
+          -1.5,
+          19.05000114440918,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.006",
+      "bounds": [
+        [
+          -2.194000005722046,
+          0.8100000619888306,
+          0.0
+        ],
+        [
+          -1.6060001850128174,
+          0.8600000143051147,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.006",
+      "bounds": [
+        [
+          -2.194000005722046,
+          0.7750000357627869,
+          0.0
+        ],
+        [
+          -1.6060001850128174,
+          0.8349999785423279,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.006",
+      "bounds": [
+        [
+          -2.194000005722046,
+          0.8040000200271606,
+          1.1799999475479126
+        ],
+        [
+          -1.6060001850128174,
+          0.812000036239624,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.004",
+      "bounds": [
+        [
+          -2.200000047683716,
+          0.7500000596046448,
+          4.320000171661377
+        ],
+        [
+          -1.6000001430511475,
+          0.9100000262260437,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.007",
+      "bounds": [
+        [
+          1.6060001850128174,
+          0.8100000619888306,
+          0.0
+        ],
+        [
+          2.194000005722046,
+          0.8600000143051147,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.007",
+      "bounds": [
+        [
+          1.6060001850128174,
+          0.7750000357627869,
+          0.0
+        ],
+        [
+          2.194000005722046,
+          0.8349999785423279,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.007",
+      "bounds": [
+        [
+          1.6060001850128174,
+          0.8040000200271606,
+          1.1799999475479126
+        ],
+        [
+          2.194000005722046,
+          0.812000036239624,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.005",
+      "bounds": [
+        [
+          1.6000001430511475,
+          0.7500000596046448,
+          4.320000171661377
+        ],
+        [
+          2.200000047683716,
+          0.9100000262260437,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.008",
+      "bounds": [
+        [
+          -2.590000629425049,
+          1.2059998512268066,
+          0.0
+        ],
+        [
+          -2.5400004386901855,
+          3.5939998626708984,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.008",
+      "bounds": [
+        [
+          -2.625000476837158,
+          1.2059998512268066,
+          0.0
+        ],
+        [
+          -2.565000534057617,
+          3.5939998626708984,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.008",
+      "bounds": [
+        [
+          -2.5960004329681396,
+          1.2059998512268066,
+          1.1799999475479126
+        ],
+        [
+          -2.588000535964966,
+          3.5939998626708984,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.009",
+      "bounds": [
+        [
+          -2.590000629425049,
+          3.605999708175659,
+          0.0
+        ],
+        [
+          -2.5400004386901855,
+          5.993999481201172,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.009",
+      "bounds": [
+        [
+          -2.625000476837158,
+          3.605999708175659,
+          0.0
+        ],
+        [
+          -2.565000534057617,
+          5.993999481201172,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.009",
+      "bounds": [
+        [
+          -2.5960004329681396,
+          3.605999708175659,
+          1.1799999475479126
+        ],
+        [
+          -2.588000535964966,
+          5.993999481201172,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.010",
+      "bounds": [
+        [
+          -2.590000629425049,
+          6.005999565124512,
+          0.0
+        ],
+        [
+          -2.5400004386901855,
+          8.394000053405762,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.010",
+      "bounds": [
+        [
+          -2.625000476837158,
+          6.005999565124512,
+          0.0
+        ],
+        [
+          -2.565000534057617,
+          8.394000053405762,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.010",
+      "bounds": [
+        [
+          -2.5960004329681396,
+          6.005999565124512,
+          1.1799999475479126
+        ],
+        [
+          -2.588000535964966,
+          8.394000053405762,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.011",
+      "bounds": [
+        [
+          -2.590000629425049,
+          8.405999183654785,
+          0.0
+        ],
+        [
+          -2.5400004386901855,
+          10.793999671936035,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.011",
+      "bounds": [
+        [
+          -2.625000476837158,
+          8.405999183654785,
+          0.0
+        ],
+        [
+          -2.565000534057617,
+          10.793999671936035,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.011",
+      "bounds": [
+        [
+          -2.5960004329681396,
+          8.405999183654785,
+          1.1799999475479126
+        ],
+        [
+          -2.588000535964966,
+          10.793999671936035,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.012",
+      "bounds": [
+        [
+          -2.590000629425049,
+          10.805999755859375,
+          0.0
+        ],
+        [
+          -2.5400004386901855,
+          13.194000244140625,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.012",
+      "bounds": [
+        [
+          -2.625000476837158,
+          10.805999755859375,
+          0.0
+        ],
+        [
+          -2.565000534057617,
+          13.194000244140625,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.012",
+      "bounds": [
+        [
+          -2.5960004329681396,
+          10.805999755859375,
+          1.1799999475479126
+        ],
+        [
+          -2.588000535964966,
+          13.194000244140625,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.006",
+      "bounds": [
+        [
+          -2.6500003337860107,
+          1.1999998092651367,
+          4.320000171661377
+        ],
+        [
+          -2.4900004863739014,
+          13.199999809265137,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.013",
+      "bounds": [
+        [
+          -2.194000005722046,
+          13.539999008178711,
+          0.0
+        ],
+        [
+          -1.2060000896453857,
+          13.589998245239258,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.013",
+      "bounds": [
+        [
+          -2.194000005722046,
+          13.5649995803833,
+          0.0
+        ],
+        [
+          -1.2060000896453857,
+          13.624999046325684,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.013",
+      "bounds": [
+        [
+          -2.194000005722046,
+          13.58799934387207,
+          1.1799999475479126
+        ],
+        [
+          -1.2060000896453857,
+          13.595998764038086,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.007",
+      "bounds": [
+        [
+          -2.200000047683716,
+          13.489998817443848,
+          4.320000171661377
+        ],
+        [
+          -1.2000000476837158,
+          13.649998664855957,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.014",
+      "bounds": [
+        [
+          1.2060002088546753,
+          13.539999961853027,
+          0.0
+        ],
+        [
+          4.394000053405762,
+          13.589999198913574,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.014",
+      "bounds": [
+        [
+          1.2060002088546753,
+          13.565000534057617,
+          0.0
+        ],
+        [
+          4.394000053405762,
+          13.625,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.014",
+      "bounds": [
+        [
+          1.2060002088546753,
+          13.588000297546387,
+          1.1799999475479126
+        ],
+        [
+          4.394000053405762,
+          13.595999717712402,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.008",
+      "bounds": [
+        [
+          1.200000286102295,
+          13.489999771118164,
+          4.320000171661377
+        ],
+        [
+          4.400000095367432,
+          13.649999618530273,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.015",
+      "bounds": [
+        [
+          10.005999565124512,
+          13.539999008178711,
+          0.0
+        ],
+        [
+          11.994000434875488,
+          13.589998245239258,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.015",
+      "bounds": [
+        [
+          10.005999565124512,
+          13.5649995803833,
+          0.0
+        ],
+        [
+          11.994000434875488,
+          13.624999046325684,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.015",
+      "bounds": [
+        [
+          10.005999565124512,
+          13.58799934387207,
+          1.1799999475479126
+        ],
+        [
+          11.994000434875488,
+          13.595998764038086,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.009",
+      "bounds": [
+        [
+          10.0,
+          13.489998817443848,
+          4.320000171661377
+        ],
+        [
+          12.0,
+          13.649998664855957,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.016",
+      "bounds": [
+        [
+          -1.6439998149871826,
+          13.910001754760742,
+          0.0
+        ],
+        [
+          -1.2060000896453857,
+          13.960000991821289,
+          2.450000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.016",
+      "bounds": [
+        [
+          -1.6439998149871826,
+          13.875000953674316,
+          0.0
+        ],
+        [
+          -1.2060000896453857,
+          13.9350004196167,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.016",
+      "bounds": [
+        [
+          -1.6439998149871826,
+          13.904001235961914,
+          1.1799999475479126
+        ],
+        [
+          -1.2060000896453857,
+          13.91200065612793,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.010",
+      "bounds": [
+        [
+          -1.6499998569488525,
+          13.850001335144043,
+          2.370000123977661
+        ],
+        [
+          -1.2000000476837158,
+          14.010001182556152,
+          2.450000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.017",
+      "bounds": [
+        [
+          -1.6439999341964722,
+          16.03999900817871,
+          0.0
+        ],
+        [
+          -1.2059999704360962,
+          16.089998245239258,
+          2.450000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.017",
+      "bounds": [
+        [
+          -1.6439999341964722,
+          16.064998626708984,
+          0.0
+        ],
+        [
+          -1.2059999704360962,
+          16.125,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.017",
+      "bounds": [
+        [
+          -1.6439999341964722,
+          16.08799934387207,
+          1.1799999475479126
+        ],
+        [
+          -1.2059999704360962,
+          16.095998764038086,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.011",
+      "bounds": [
+        [
+          -1.649999976158142,
+          15.989999771118164,
+          2.370000123977661
+        ],
+        [
+          -1.1999999284744263,
+          16.149999618530273,
+          2.450000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.018",
+      "bounds": [
+        [
+          -2.0400002002716064,
+          14.305999755859375,
+          0.0
+        ],
+        [
+          -1.9900001287460327,
+          15.694000244140625,
+          2.450000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.018",
+      "bounds": [
+        [
+          -2.075000047683716,
+          14.305999755859375,
+          0.0
+        ],
+        [
+          -2.015000104904175,
+          15.694000244140625,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.018",
+      "bounds": [
+        [
+          -2.0460000038146973,
+          14.305999755859375,
+          1.1799999475479126
+        ],
+        [
+          -2.0380001068115234,
+          15.694000244140625,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.012",
+      "bounds": [
+        [
+          -2.0999999046325684,
+          14.300000190734863,
+          2.370000123977661
+        ],
+        [
+          -1.9399999380111694,
+          15.699999809265137,
+          2.450000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.019",
+      "bounds": [
+        [
+          -1.593999981880188,
+          -0.05000000074505806,
+          0.0
+        ],
+        [
+          -1.4259999990463257,
+          0.0,
+          3.9000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.019",
+      "bounds": [
+        [
+          -1.593999981880188,
+          -0.08500000089406967,
+          0.0
+        ],
+        [
+          -1.4259999990463257,
+          -0.02500000037252903,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.019",
+      "bounds": [
+        [
+          -1.593999981880188,
+          -0.0560000017285347,
+          1.1799999475479126
+        ],
+        [
+          -1.4259999990463257,
+          -0.04800000041723251,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.013",
+      "bounds": [
+        [
+          -1.600000023841858,
+          -0.10999999940395355,
+          3.820000171661377
+        ],
+        [
+          -1.4199999570846558,
+          0.04999999701976776,
+          3.9000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.020",
+      "bounds": [
+        [
+          1.4259999990463257,
+          -0.05000000074505806,
+          0.0
+        ],
+        [
+          1.593999981880188,
+          0.0,
+          3.9000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.020",
+      "bounds": [
+        [
+          1.4259999990463257,
+          -0.08500000089406967,
+          0.0
+        ],
+        [
+          1.593999981880188,
+          -0.02500000037252903,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.020",
+      "bounds": [
+        [
+          1.4259999990463257,
+          -0.0560000017285347,
+          1.1799999475479126
+        ],
+        [
+          1.593999981880188,
+          -0.04800000041723251,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.014",
+      "bounds": [
+        [
+          1.4199999570846558,
+          -0.10999999940395355,
+          3.820000171661377
+        ],
+        [
+          1.600000023841858,
+          0.04999999701976776,
+          3.9000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.021",
+      "bounds": [
+        [
+          -1.9899998903274536,
+          0.0059999823570251465,
+          0.0
+        ],
+        [
+          -1.9399999380111694,
+          1.194000005722046,
+          3.9000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.021",
+      "bounds": [
+        [
+          -2.0249998569488525,
+          0.0059999823570251465,
+          0.0
+        ],
+        [
+          -1.9649999141693115,
+          1.194000005722046,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.021",
+      "bounds": [
+        [
+          -1.9959999322891235,
+          0.0059999823570251465,
+          1.1799999475479126
+        ],
+        [
+          -1.9880000352859497,
+          1.194000005722046,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.015",
+      "bounds": [
+        [
+          -2.049999952316284,
+          0.0,
+          3.820000171661377
+        ],
+        [
+          -1.8899998664855957,
+          1.2000000476837158,
+          3.9000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.022",
+      "bounds": [
+        [
+          -1.4940000772476196,
+          21.34000015258789,
+          0.0
+        ],
+        [
+          0.8206666707992554,
+          21.389999389648438,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.022",
+      "bounds": [
+        [
+          -1.4940000772476196,
+          21.364999771118164,
+          0.0
+        ],
+        [
+          0.8206666707992554,
+          21.42500114440918,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.022",
+      "bounds": [
+        [
+          -1.4940000772476196,
+          21.38800048828125,
+          1.1799999475479126
+        ],
+        [
+          0.8206666707992554,
+          21.395999908447266,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.023",
+      "bounds": [
+        [
+          0.8326666355133057,
+          21.34000015258789,
+          0.0
+        ],
+        [
+          3.1473333835601807,
+          21.389999389648438,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.023",
+      "bounds": [
+        [
+          0.8326666355133057,
+          21.364999771118164,
+          0.0
+        ],
+        [
+          3.1473333835601807,
+          21.42500114440918,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.023",
+      "bounds": [
+        [
+          0.8326666355133057,
+          21.38800048828125,
+          1.1799999475479126
+        ],
+        [
+          3.1473333835601807,
+          21.395999908447266,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.024",
+      "bounds": [
+        [
+          3.1593332290649414,
+          21.34000015258789,
+          0.0
+        ],
+        [
+          5.473999977111816,
+          21.389999389648438,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.024",
+      "bounds": [
+        [
+          3.1593332290649414,
+          21.364999771118164,
+          0.0
+        ],
+        [
+          5.473999977111816,
+          21.42500114440918,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.024",
+      "bounds": [
+        [
+          3.1593332290649414,
+          21.38800048828125,
+          1.1799999475479126
+        ],
+        [
+          5.473999977111816,
+          21.395999908447266,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.016",
+      "bounds": [
+        [
+          -1.5,
+          21.290000915527344,
+          2.9200000762939453
+        ],
+        [
+          5.480000019073486,
+          21.450000762939453,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.025",
+      "bounds": [
+        [
+          7.725999355316162,
+          21.34000015258789,
+          0.0
+        ],
+        [
+          9.553999900817871,
+          21.389999389648438,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.025",
+      "bounds": [
+        [
+          7.725999355316162,
+          21.364999771118164,
+          0.0
+        ],
+        [
+          9.553999900817871,
+          21.42500114440918,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.025",
+      "bounds": [
+        [
+          7.725999355316162,
+          21.38800048828125,
+          1.1799999475479126
+        ],
+        [
+          9.553999900817871,
+          21.395999908447266,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.026",
+      "bounds": [
+        [
+          9.565999031066895,
+          21.34000015258789,
+          0.0
+        ],
+        [
+          11.394000053405762,
+          21.389999389648438,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.026",
+      "bounds": [
+        [
+          9.565999031066895,
+          21.364999771118164,
+          0.0
+        ],
+        [
+          11.394000053405762,
+          21.42500114440918,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.026",
+      "bounds": [
+        [
+          9.565999031066895,
+          21.38800048828125,
+          1.1799999475479126
+        ],
+        [
+          11.394000053405762,
+          21.395999908447266,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.017",
+      "bounds": [
+        [
+          7.719999313354492,
+          21.290000915527344,
+          2.9200000762939453
+        ],
+        [
+          11.399999618530273,
+          21.450000762939453,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.027",
+      "bounds": [
+        [
+          -1.8900001049041748,
+          18.605998992919922,
+          0.0
+        ],
+        [
+          -1.8400001525878906,
+          20.993999481201172,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.027",
+      "bounds": [
+        [
+          -1.9250000715255737,
+          18.605998992919922,
+          0.0
+        ],
+        [
+          -1.8650001287460327,
+          20.993999481201172,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.027",
+      "bounds": [
+        [
+          -1.8960001468658447,
+          18.605998992919922,
+          1.1799999475479126
+        ],
+        [
+          -1.888000249862671,
+          20.993999481201172,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.018",
+      "bounds": [
+        [
+          -1.9500001668930054,
+          18.599998474121094,
+          2.9200000762939453
+        ],
+        [
+          -1.790000081062317,
+          21.0,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.028",
+      "bounds": [
+        [
+          1.5400002002716064,
+          13.205999374389648,
+          0.0
+        ],
+        [
+          1.5900001525878906,
+          15.593999862670898,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.028",
+      "bounds": [
+        [
+          1.5650001764297485,
+          13.205999374389648,
+          0.0
+        ],
+        [
+          1.6250001192092896,
+          15.593999862670898,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.028",
+      "bounds": [
+        [
+          1.5880002975463867,
+          13.205999374389648,
+          1.1799999475479126
+        ],
+        [
+          1.5960001945495605,
+          15.593999862670898,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.029",
+      "bounds": [
+        [
+          1.5400002002716064,
+          15.605998992919922,
+          0.0
+        ],
+        [
+          1.5900001525878906,
+          17.993999481201172,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.029",
+      "bounds": [
+        [
+          1.5650001764297485,
+          15.605998992919922,
+          0.0
+        ],
+        [
+          1.6250001192092896,
+          17.993999481201172,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.029",
+      "bounds": [
+        [
+          1.5880002975463867,
+          15.605998992919922,
+          1.1799999475479126
+        ],
+        [
+          1.5960001945495605,
+          17.993999481201172,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.019",
+      "bounds": [
+        [
+          1.4900001287460327,
+          13.200000762939453,
+          2.9200000762939453
+        ],
+        [
+          1.6500002145767212,
+          18.0,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.030",
+      "bounds": [
+        [
+          -1.590000033378601,
+          13.205999374389648,
+          0.0
+        ],
+        [
+          -1.540000081062317,
+          14.294000625610352,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.030",
+      "bounds": [
+        [
+          -1.625,
+          13.205999374389648,
+          0.0
+        ],
+        [
+          -1.565000057220459,
+          14.294000625610352,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.030",
+      "bounds": [
+        [
+          -1.596000075340271,
+          13.205999374389648,
+          1.1799999475479126
+        ],
+        [
+          -1.5880001783370972,
+          14.294000625610352,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.020",
+      "bounds": [
+        [
+          -1.6500000953674316,
+          13.199999809265137,
+          2.9200000762939453
+        ],
+        [
+          -1.4900000095367432,
+          14.300000190734863,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.031",
+      "bounds": [
+        [
+          -1.590000033378601,
+          15.706000328063965,
+          0.0
+        ],
+        [
+          -1.540000081062317,
+          16.194002151489258,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.031",
+      "bounds": [
+        [
+          -1.625,
+          15.706000328063965,
+          0.0
+        ],
+        [
+          -1.565000057220459,
+          16.194002151489258,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.031",
+      "bounds": [
+        [
+          -1.596000075340271,
+          15.706000328063965,
+          1.1799999475479126
+        ],
+        [
+          -1.5880001783370972,
+          16.194002151489258,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.021",
+      "bounds": [
+        [
+          -1.6500000953674316,
+          15.700000762939453,
+          2.9200000762939453
+        ],
+        [
+          -1.4900000095367432,
+          16.200000762939453,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.032",
+      "bounds": [
+        [
+          1.9399999380111694,
+          0.0059999823570251465,
+          0.0
+        ],
+        [
+          1.9899998903274536,
+          1.194000005722046,
+          3.9000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.032",
+      "bounds": [
+        [
+          1.9649999141693115,
+          0.0059999823570251465,
+          0.0
+        ],
+        [
+          2.0249998569488525,
+          1.194000005722046,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.032",
+      "bounds": [
+        [
+          1.9880000352859497,
+          0.0059999823570251465,
+          1.1799999475479126
+        ],
+        [
+          1.9959999322891235,
+          1.194000005722046,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.022",
+      "bounds": [
+        [
+          1.8899998664855957,
+          0.0,
+          3.820000171661377
+        ],
+        [
+          2.049999952316284,
+          1.2000000476837158,
+          3.9000000953674316
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.033",
+      "bounds": [
+        [
+          1.205999732017517,
+          17.610000610351562,
+          0.0
+        ],
+        [
+          3.353999614715576,
+          17.65999984741211,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.033",
+      "bounds": [
+        [
+          1.205999732017517,
+          17.57499885559082,
+          0.0
+        ],
+        [
+          3.353999614715576,
+          17.635000228881836,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.033",
+      "bounds": [
+        [
+          1.205999732017517,
+          17.604000091552734,
+          1.1799999475479126
+        ],
+        [
+          3.353999614715576,
+          17.61199951171875,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.034",
+      "bounds": [
+        [
+          3.366000175476074,
+          17.610000610351562,
+          0.0
+        ],
+        [
+          5.513999938964844,
+          17.65999984741211,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.034",
+      "bounds": [
+        [
+          3.366000175476074,
+          17.57499885559082,
+          0.0
+        ],
+        [
+          5.513999938964844,
+          17.635000228881836,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.034",
+      "bounds": [
+        [
+          3.366000175476074,
+          17.604000091552734,
+          1.1799999475479126
+        ],
+        [
+          5.513999938964844,
+          17.61199951171875,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.035",
+      "bounds": [
+        [
+          5.526000022888184,
+          17.610000610351562,
+          0.0
+        ],
+        [
+          7.673999786376953,
+          17.65999984741211,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.035",
+      "bounds": [
+        [
+          5.526000022888184,
+          17.57499885559082,
+          0.0
+        ],
+        [
+          7.673999786376953,
+          17.635000228881836,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.035",
+      "bounds": [
+        [
+          5.526000022888184,
+          17.604000091552734,
+          1.1799999475479126
+        ],
+        [
+          7.673999786376953,
+          17.61199951171875,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.036",
+      "bounds": [
+        [
+          7.686000347137451,
+          17.610000610351562,
+          0.0
+        ],
+        [
+          9.834000587463379,
+          17.65999984741211,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.036",
+      "bounds": [
+        [
+          7.686000347137451,
+          17.57499885559082,
+          0.0
+        ],
+        [
+          9.834000587463379,
+          17.635000228881836,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.036",
+      "bounds": [
+        [
+          7.686000347137451,
+          17.604000091552734,
+          1.1799999475479126
+        ],
+        [
+          9.834000587463379,
+          17.61199951171875,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.037",
+      "bounds": [
+        [
+          9.845999717712402,
+          17.610000610351562,
+          0.0
+        ],
+        [
+          11.994000434875488,
+          17.65999984741211,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.037",
+      "bounds": [
+        [
+          9.845999717712402,
+          17.57499885559082,
+          0.0
+        ],
+        [
+          11.994000434875488,
+          17.635000228881836,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.037",
+      "bounds": [
+        [
+          9.845999717712402,
+          17.604000091552734,
+          1.1799999475479126
+        ],
+        [
+          11.994000434875488,
+          17.61199951171875,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.023",
+      "bounds": [
+        [
+          1.1999998092651367,
+          17.549999237060547,
+          2.9200000762939453
+        ],
+        [
+          12.0,
+          17.709999084472656,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.038",
+      "bounds": [
+        [
+          2.5400002002716064,
+          1.2059998512268066,
+          0.0
+        ],
+        [
+          2.5900003910064697,
+          3.127333164215088,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.038",
+      "bounds": [
+        [
+          2.565000295639038,
+          1.2059998512268066,
+          0.0
+        ],
+        [
+          2.625000238418579,
+          3.127333164215088,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.038",
+      "bounds": [
+        [
+          2.5880002975463867,
+          1.2059998512268066,
+          1.1799999475479126
+        ],
+        [
+          2.5960001945495605,
+          3.127333164215088,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.039",
+      "bounds": [
+        [
+          2.5400002002716064,
+          3.1393332481384277,
+          0.0
+        ],
+        [
+          2.5900003910064697,
+          5.060666561126709,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.039",
+      "bounds": [
+        [
+          2.565000295639038,
+          3.1393332481384277,
+          0.0
+        ],
+        [
+          2.625000238418579,
+          5.060666561126709,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.039",
+      "bounds": [
+        [
+          2.5880002975463867,
+          3.1393332481384277,
+          1.1799999475479126
+        ],
+        [
+          2.5960001945495605,
+          5.060666561126709,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.040",
+      "bounds": [
+        [
+          2.5400002002716064,
+          5.072666645050049,
+          0.0
+        ],
+        [
+          2.5900003910064697,
+          6.99399995803833,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.040",
+      "bounds": [
+        [
+          2.565000295639038,
+          5.072666645050049,
+          0.0
+        ],
+        [
+          2.625000238418579,
+          6.99399995803833,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.040",
+      "bounds": [
+        [
+          2.5880002975463867,
+          5.072666645050049,
+          1.1799999475479126
+        ],
+        [
+          2.5960001945495605,
+          6.99399995803833,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.024",
+      "bounds": [
+        [
+          2.4900002479553223,
+          1.1999998092651367,
+          4.320000171661377
+        ],
+        [
+          2.6500000953674316,
+          7.0,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.041",
+      "bounds": [
+        [
+          2.206000328063965,
+          6.609999656677246,
+          0.0
+        ],
+        [
+          4.394000053405762,
+          6.659999847412109,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.041",
+      "bounds": [
+        [
+          2.206000328063965,
+          6.574999809265137,
+          0.0
+        ],
+        [
+          4.394000053405762,
+          6.635000228881836,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.041",
+      "bounds": [
+        [
+          2.206000328063965,
+          6.603999614715576,
+          1.1799999475479126
+        ],
+        [
+          4.394000053405762,
+          6.611999988555908,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.025",
+      "bounds": [
+        [
+          2.200000286102295,
+          6.549999713897705,
+          4.320000171661377
+        ],
+        [
+          4.400000095367432,
+          6.7099995613098145,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.042",
+      "bounds": [
+        [
+          10.006000518798828,
+          6.609999656677246,
+          0.0
+        ],
+        [
+          12.12733268737793,
+          6.659999847412109,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.042",
+      "bounds": [
+        [
+          10.006000518798828,
+          6.574999809265137,
+          0.0
+        ],
+        [
+          12.12733268737793,
+          6.635000228881836,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.042",
+      "bounds": [
+        [
+          10.006000518798828,
+          6.603999614715576,
+          1.1799999475479126
+        ],
+        [
+          12.12733268737793,
+          6.611999988555908,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.043",
+      "bounds": [
+        [
+          12.139333724975586,
+          6.609999656677246,
+          0.0
+        ],
+        [
+          14.260665893554688,
+          6.659999847412109,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.043",
+      "bounds": [
+        [
+          12.139333724975586,
+          6.574999809265137,
+          0.0
+        ],
+        [
+          14.260665893554688,
+          6.635000228881836,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.043",
+      "bounds": [
+        [
+          12.139333724975586,
+          6.603999614715576,
+          1.1799999475479126
+        ],
+        [
+          14.260665893554688,
+          6.611999988555908,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.044",
+      "bounds": [
+        [
+          14.272666931152344,
+          6.609999656677246,
+          0.0
+        ],
+        [
+          16.393999099731445,
+          6.659999847412109,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.044",
+      "bounds": [
+        [
+          14.272666931152344,
+          6.574999809265137,
+          0.0
+        ],
+        [
+          16.393999099731445,
+          6.635000228881836,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.044",
+      "bounds": [
+        [
+          14.272666931152344,
+          6.603999614715576,
+          1.1799999475479126
+        ],
+        [
+          16.393999099731445,
+          6.611999988555908,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.026",
+      "bounds": [
+        [
+          10.0,
+          6.549999713897705,
+          4.320000171661377
+        ],
+        [
+          16.399999618530273,
+          6.7099995613098145,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.045",
+      "bounds": [
+        [
+          4.740000247955322,
+          7.00600004196167,
+          0.0
+        ],
+        [
+          4.7900004386901855,
+          7.794000148773193,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.045",
+      "bounds": [
+        [
+          4.764999866485596,
+          7.00600004196167,
+          0.0
+        ],
+        [
+          4.825000286102295,
+          7.794000148773193,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.045",
+      "bounds": [
+        [
+          4.788000106811523,
+          7.00600004196167,
+          1.1799999475479126
+        ],
+        [
+          4.7960004806518555,
+          7.794000148773193,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.027",
+      "bounds": [
+        [
+          4.690000534057617,
+          7.0,
+          4.320000171661377
+        ],
+        [
+          4.850000381469727,
+          7.800000190734863,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.046",
+      "bounds": [
+        [
+          4.740000247955322,
+          12.205999374389648,
+          0.0
+        ],
+        [
+          4.7900004386901855,
+          13.194000244140625,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.046",
+      "bounds": [
+        [
+          4.764999866485596,
+          12.205999374389648,
+          0.0
+        ],
+        [
+          4.825000286102295,
+          13.194000244140625,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.046",
+      "bounds": [
+        [
+          4.788000106811523,
+          12.205999374389648,
+          1.1799999475479126
+        ],
+        [
+          4.7960004806518555,
+          13.194000244140625,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.028",
+      "bounds": [
+        [
+          4.690000534057617,
+          12.199999809265137,
+          4.320000171661377
+        ],
+        [
+          4.850000381469727,
+          13.199999809265137,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.047",
+      "bounds": [
+        [
+          4.406000137329102,
+          7.409999847412109,
+          0.0
+        ],
+        [
+          6.064000129699707,
+          7.460000038146973,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.047",
+      "bounds": [
+        [
+          4.406000137329102,
+          7.375,
+          0.0
+        ],
+        [
+          6.064000129699707,
+          7.435000419616699,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.047",
+      "bounds": [
+        [
+          4.406000137329102,
+          7.4039998054504395,
+          1.1799999475479126
+        ],
+        [
+          6.064000129699707,
+          7.4120001792907715,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.029",
+      "bounds": [
+        [
+          4.400000095367432,
+          7.349999904632568,
+          4.320000171661377
+        ],
+        [
+          6.070000171661377,
+          7.509999752044678,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.048",
+      "bounds": [
+        [
+          6.786000728607178,
+          7.409999847412109,
+          0.0
+        ],
+        [
+          9.993999481201172,
+          7.460000038146973,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.048",
+      "bounds": [
+        [
+          6.786000728607178,
+          7.375,
+          0.0
+        ],
+        [
+          9.993999481201172,
+          7.435000419616699,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.048",
+      "bounds": [
+        [
+          6.786000728607178,
+          7.4039998054504395,
+          1.1799999475479126
+        ],
+        [
+          9.993999481201172,
+          7.4120001792907715,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.030",
+      "bounds": [
+        [
+          6.780000686645508,
+          7.349999904632568,
+          4.320000171661377
+        ],
+        [
+          10.0,
+          7.509999752044678,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.049",
+      "bounds": [
+        [
+          4.406000137329102,
+          12.539999008178711,
+          0.0
+        ],
+        [
+          6.064000129699707,
+          12.589998245239258,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.049",
+      "bounds": [
+        [
+          4.406000137329102,
+          12.5649995803833,
+          0.0
+        ],
+        [
+          6.064000129699707,
+          12.624999046325684,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.049",
+      "bounds": [
+        [
+          4.406000137329102,
+          12.58799934387207,
+          1.1799999475479126
+        ],
+        [
+          6.064000129699707,
+          12.595998764038086,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.031",
+      "bounds": [
+        [
+          4.400000095367432,
+          12.489998817443848,
+          4.320000171661377
+        ],
+        [
+          6.070000171661377,
+          12.649998664855957,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.050",
+      "bounds": [
+        [
+          6.7860002517700195,
+          12.539999961853027,
+          0.0
+        ],
+        [
+          9.994000434875488,
+          12.589999198913574,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.050",
+      "bounds": [
+        [
+          6.7860002517700195,
+          12.565000534057617,
+          0.0
+        ],
+        [
+          9.994000434875488,
+          12.625,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.050",
+      "bounds": [
+        [
+          6.7860002517700195,
+          12.588000297546387,
+          1.1799999475479126
+        ],
+        [
+          9.994000434875488,
+          12.595999717712402,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.032",
+      "bounds": [
+        [
+          6.780000686645508,
+          12.489999771118164,
+          4.320000171661377
+        ],
+        [
+          10.0,
+          12.649999618530273,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.051",
+      "bounds": [
+        [
+          6.076000213623047,
+          5.759999752044678,
+          0.0
+        ],
+        [
+          6.77400016784668,
+          5.809999942779541,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.051",
+      "bounds": [
+        [
+          6.076000213623047,
+          5.724999904632568,
+          0.0
+        ],
+        [
+          6.77400016784668,
+          5.785000324249268,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.051",
+      "bounds": [
+        [
+          6.076000213623047,
+          5.753999710083008,
+          1.1799999475479126
+        ],
+        [
+          6.77400016784668,
+          5.76200008392334,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.033",
+      "bounds": [
+        [
+          6.070000171661377,
+          5.699999809265137,
+          4.320000171661377
+        ],
+        [
+          6.78000020980835,
+          5.859999656677246,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.052",
+      "bounds": [
+        [
+          7.12000036239624,
+          6.156000137329102,
+          0.0
+        ],
+        [
+          7.1700005531311035,
+          7.794000625610352,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.052",
+      "bounds": [
+        [
+          7.144999980926514,
+          6.156000137329102,
+          0.0
+        ],
+        [
+          7.205000400543213,
+          7.794000625610352,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.052",
+      "bounds": [
+        [
+          7.168000221252441,
+          6.156000137329102,
+          1.1799999475479126
+        ],
+        [
+          7.176000595092773,
+          7.794000625610352,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.034",
+      "bounds": [
+        [
+          7.070000648498535,
+          6.150000095367432,
+          4.320000171661377
+        ],
+        [
+          7.2300004959106445,
+          7.8000006675720215,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.053",
+      "bounds": [
+        [
+          7.12000036239624,
+          12.205998420715332,
+          0.0
+        ],
+        [
+          7.1700005531311035,
+          13.844000816345215,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.053",
+      "bounds": [
+        [
+          7.144999980926514,
+          12.205998420715332,
+          0.0
+        ],
+        [
+          7.205000400543213,
+          13.844000816345215,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.053",
+      "bounds": [
+        [
+          7.168000221252441,
+          12.205998420715332,
+          1.1799999475479126
+        ],
+        [
+          7.176000595092773,
+          13.844000816345215,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.035",
+      "bounds": [
+        [
+          7.070000648498535,
+          12.19999885559082,
+          4.320000171661377
+        ],
+        [
+          7.2300004959106445,
+          13.850000381469727,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.054",
+      "bounds": [
+        [
+          5.679999828338623,
+          6.156000137329102,
+          0.0
+        ],
+        [
+          5.730000019073486,
+          7.794000625610352,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.054",
+      "bounds": [
+        [
+          5.644999980926514,
+          6.156000137329102,
+          0.0
+        ],
+        [
+          5.705000400543213,
+          7.794000625610352,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.054",
+      "bounds": [
+        [
+          5.673999786376953,
+          6.156000137329102,
+          1.1799999475479126
+        ],
+        [
+          5.682000160217285,
+          7.794000625610352,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.036",
+      "bounds": [
+        [
+          5.619999885559082,
+          6.150000095367432,
+          4.320000171661377
+        ],
+        [
+          5.779999732971191,
+          7.8000006675720215,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.055",
+      "bounds": [
+        [
+          5.679999828338623,
+          12.205998420715332,
+          0.0
+        ],
+        [
+          5.730000019073486,
+          13.844000816345215,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.055",
+      "bounds": [
+        [
+          5.644999980926514,
+          12.205998420715332,
+          0.0
+        ],
+        [
+          5.705000400543213,
+          13.844000816345215,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.055",
+      "bounds": [
+        [
+          5.673999786376953,
+          12.205998420715332,
+          1.1799999475479126
+        ],
+        [
+          5.682000160217285,
+          13.844000816345215,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.037",
+      "bounds": [
+        [
+          5.619999885559082,
+          12.19999885559082,
+          4.320000171661377
+        ],
+        [
+          5.779999732971191,
+          13.850000381469727,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.056",
+      "bounds": [
+        [
+          6.076000213623047,
+          14.1899995803833,
+          0.0
+        ],
+        [
+          6.77400016784668,
+          14.239998817443848,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.056",
+      "bounds": [
+        [
+          6.076000213623047,
+          14.21500015258789,
+          0.0
+        ],
+        [
+          6.77400016784668,
+          14.274999618530273,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.056",
+      "bounds": [
+        [
+          6.076000213623047,
+          14.23799991607666,
+          1.1799999475479126
+        ],
+        [
+          6.77400016784668,
+          14.245999336242676,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.038",
+      "bounds": [
+        [
+          6.070000171661377,
+          14.139999389648438,
+          4.320000171661377
+        ],
+        [
+          6.78000020980835,
+          14.299999237060547,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.057",
+      "bounds": [
+        [
+          9.610001564025879,
+          7.00600004196167,
+          0.0
+        ],
+        [
+          9.660000801086426,
+          7.794000148773193,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.057",
+      "bounds": [
+        [
+          9.575000762939453,
+          7.00600004196167,
+          0.0
+        ],
+        [
+          9.635000228881836,
+          7.794000148773193,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.057",
+      "bounds": [
+        [
+          9.60400104522705,
+          7.00600004196167,
+          1.1799999475479126
+        ],
+        [
+          9.612000465393066,
+          7.794000148773193,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.039",
+      "bounds": [
+        [
+          9.55000114440918,
+          7.0,
+          4.320000171661377
+        ],
+        [
+          9.710000991821289,
+          7.800000190734863,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.058",
+      "bounds": [
+        [
+          9.610001564025879,
+          12.205999374389648,
+          0.0
+        ],
+        [
+          9.660000801086426,
+          13.194000244140625,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.058",
+      "bounds": [
+        [
+          9.575000762939453,
+          12.205999374389648,
+          0.0
+        ],
+        [
+          9.635000228881836,
+          13.194000244140625,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.058",
+      "bounds": [
+        [
+          9.60400104522705,
+          12.205999374389648,
+          1.1799999475479126
+        ],
+        [
+          9.612000465393066,
+          13.194000244140625,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.040",
+      "bounds": [
+        [
+          9.55000114440918,
+          12.199999809265137,
+          4.320000171661377
+        ],
+        [
+          9.710000991821289,
+          13.199999809265137,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.059",
+      "bounds": [
+        [
+          11.405999183654785,
+          24.0,
+          0.0
+        ],
+        [
+          11.574000358581543,
+          24.049999237060547,
+          5.900000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.059",
+      "bounds": [
+        [
+          11.405999183654785,
+          24.024999618530273,
+          0.0
+        ],
+        [
+          11.574000358581543,
+          24.08500099182129,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.059",
+      "bounds": [
+        [
+          11.405999183654785,
+          24.04800033569336,
+          1.1799999475479126
+        ],
+        [
+          11.574000358581543,
+          24.055999755859375,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.041",
+      "bounds": [
+        [
+          11.399999618530273,
+          23.950000762939453,
+          5.820000171661377
+        ],
+        [
+          11.579999923706055,
+          24.110000610351562,
+          5.900000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.060",
+      "bounds": [
+        [
+          16.826000213623047,
+          24.0,
+          0.0
+        ],
+        [
+          16.993999481201172,
+          24.049999237060547,
+          5.900000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.060",
+      "bounds": [
+        [
+          16.826000213623047,
+          24.024999618530273,
+          0.0
+        ],
+        [
+          16.993999481201172,
+          24.08500099182129,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.060",
+      "bounds": [
+        [
+          16.826000213623047,
+          24.04800033569336,
+          1.1799999475479126
+        ],
+        [
+          16.993999481201172,
+          24.055999755859375,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.042",
+      "bounds": [
+        [
+          16.81999969482422,
+          23.950000762939453,
+          5.820000171661377
+        ],
+        [
+          17.0,
+          24.110000610351562,
+          5.900000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.061",
+      "bounds": [
+        [
+          11.010001182556152,
+          21.006000518798828,
+          0.0
+        ],
+        [
+          11.0600004196167,
+          23.993999481201172,
+          5.900000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.061",
+      "bounds": [
+        [
+          10.975000381469727,
+          21.006000518798828,
+          0.0
+        ],
+        [
+          11.03499984741211,
+          23.993999481201172,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.061",
+      "bounds": [
+        [
+          11.004000663757324,
+          21.006000518798828,
+          1.1799999475479126
+        ],
+        [
+          11.01200008392334,
+          23.993999481201172,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.043",
+      "bounds": [
+        [
+          10.950000762939453,
+          21.0,
+          5.820000171661377
+        ],
+        [
+          11.110000610351562,
+          24.0,
+          5.900000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.062",
+      "bounds": [
+        [
+          16.739999771118164,
+          7.005999565124512,
+          0.0
+        ],
+        [
+          16.78999900817871,
+          9.553999900817871,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.062",
+      "bounds": [
+        [
+          16.764999389648438,
+          7.005999565124512,
+          0.0
+        ],
+        [
+          16.825000762939453,
+          9.553999900817871,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.062",
+      "bounds": [
+        [
+          16.788000106811523,
+          7.005999565124512,
+          1.1799999475479126
+        ],
+        [
+          16.79599952697754,
+          9.553999900817871,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.063",
+      "bounds": [
+        [
+          16.739999771118164,
+          9.565999984741211,
+          0.0
+        ],
+        [
+          16.78999900817871,
+          12.11400032043457,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.063",
+      "bounds": [
+        [
+          16.764999389648438,
+          9.565999984741211,
+          0.0
+        ],
+        [
+          16.825000762939453,
+          12.11400032043457,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.063",
+      "bounds": [
+        [
+          16.788000106811523,
+          9.565999984741211,
+          1.1799999475479126
+        ],
+        [
+          16.79599952697754,
+          12.11400032043457,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.064",
+      "bounds": [
+        [
+          16.739999771118164,
+          12.12600040435791,
+          0.0
+        ],
+        [
+          16.78999900817871,
+          14.67400074005127,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.064",
+      "bounds": [
+        [
+          16.764999389648438,
+          12.12600040435791,
+          0.0
+        ],
+        [
+          16.825000762939453,
+          14.67400074005127,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.064",
+      "bounds": [
+        [
+          16.788000106811523,
+          12.12600040435791,
+          1.1799999475479126
+        ],
+        [
+          16.79599952697754,
+          14.67400074005127,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.044",
+      "bounds": [
+        [
+          16.690000534057617,
+          7.0,
+          4.320000171661377
+        ],
+        [
+          16.850000381469727,
+          14.680000305175781,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.065",
+      "bounds": [
+        [
+          16.739999771118164,
+          17.326000213623047,
+          0.0
+        ],
+        [
+          16.78999900817871,
+          19.15399932861328,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.065",
+      "bounds": [
+        [
+          16.764999389648438,
+          17.326000213623047,
+          0.0
+        ],
+        [
+          16.825000762939453,
+          19.15399932861328,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.065",
+      "bounds": [
+        [
+          16.788000106811523,
+          17.326000213623047,
+          1.1799999475479126
+        ],
+        [
+          16.79599952697754,
+          19.15399932861328,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.066",
+      "bounds": [
+        [
+          16.739999771118164,
+          19.166000366210938,
+          0.0
+        ],
+        [
+          16.78999900817871,
+          20.993999481201172,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.066",
+      "bounds": [
+        [
+          16.764999389648438,
+          19.166000366210938,
+          0.0
+        ],
+        [
+          16.825000762939453,
+          20.993999481201172,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.066",
+      "bounds": [
+        [
+          16.788000106811523,
+          19.166000366210938,
+          1.1799999475479126
+        ],
+        [
+          16.79599952697754,
+          20.993999481201172,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.045",
+      "bounds": [
+        [
+          16.690000534057617,
+          17.31999969482422,
+          4.320000171661377
+        ],
+        [
+          16.850000381469727,
+          21.0,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.067",
+      "bounds": [
+        [
+          11.610000610351562,
+          13.205999374389648,
+          0.0
+        ],
+        [
+          11.65999984741211,
+          15.593999862670898,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.067",
+      "bounds": [
+        [
+          11.574999809265137,
+          13.205999374389648,
+          0.0
+        ],
+        [
+          11.63499927520752,
+          15.593999862670898,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.067",
+      "bounds": [
+        [
+          11.604000091552734,
+          13.205999374389648,
+          1.1799999475479126
+        ],
+        [
+          11.61199951171875,
+          15.593999862670898,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.068",
+      "bounds": [
+        [
+          11.610000610351562,
+          15.605998992919922,
+          0.0
+        ],
+        [
+          11.65999984741211,
+          17.993999481201172,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.068",
+      "bounds": [
+        [
+          11.574999809265137,
+          15.605998992919922,
+          0.0
+        ],
+        [
+          11.63499927520752,
+          17.993999481201172,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.068",
+      "bounds": [
+        [
+          11.604000091552734,
+          15.605998992919922,
+          1.1799999475479126
+        ],
+        [
+          11.61199951171875,
+          17.993999481201172,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.046",
+      "bounds": [
+        [
+          11.550000190734863,
+          13.200000762939453,
+          4.320000171661377
+        ],
+        [
+          11.710000038146973,
+          18.0,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.069",
+      "bounds": [
+        [
+          16.406002044677734,
+          20.610000610351562,
+          0.0
+        ],
+        [
+          16.993999481201172,
+          20.65999984741211,
+          5.900000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.069",
+      "bounds": [
+        [
+          16.406002044677734,
+          20.57499885559082,
+          0.0
+        ],
+        [
+          16.993999481201172,
+          20.635000228881836,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.069",
+      "bounds": [
+        [
+          16.406002044677734,
+          20.604000091552734,
+          1.1799999475479126
+        ],
+        [
+          16.993999481201172,
+          20.61199951171875,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.047",
+      "bounds": [
+        [
+          16.400001525878906,
+          20.549999237060547,
+          5.820000171661377
+        ],
+        [
+          17.0,
+          20.709999084472656,
+          5.900000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel mineral exterior bay.070",
+      "bounds": [
+        [
+          17.34000015258789,
+          21.006000518798828,
+          0.0
+        ],
+        [
+          17.389999389648438,
+          23.993999481201172,
+          5.900000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior impact base.070",
+      "bounds": [
+        [
+          17.364999771118164,
+          21.006000518798828,
+          0.0
+        ],
+        [
+          17.42500114440918,
+          23.993999481201172,
+          0.699999988079071
+        ]
+      ]
+    },
+    {
+      "name": "Fuel exterior route stripe.070",
+      "bounds": [
+        [
+          17.38800048828125,
+          21.006000518798828,
+          1.1799999475479126
+        ],
+        [
+          17.395999908447266,
+          23.993999481201172,
+          1.3200000524520874
+        ]
+      ]
+    },
+    {
+      "name": "Fuel folded wall top cap.048",
+      "bounds": [
+        [
+          17.290000915527344,
+          21.0,
+          5.820000171661377
+        ],
+        [
+          17.450000762939453,
+          24.0,
+          5.900000095367432
+        ]
+      ]
+    }
+  ]
+}

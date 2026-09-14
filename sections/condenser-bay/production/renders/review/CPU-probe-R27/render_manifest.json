@@ -1,0 +1,30 @@
+{
+  "revision": "CPU-probe-R27",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "cpu_threads": 2,
+  "process_priority": "IDLE",
+  "gpu_denoising": false,
+  "samples": 16,
+  "resolution": [
+    768,
+    432
+  ],
+  "cameras": [
+    {
+      "camera": "C02_HERO",
+      "seconds": 49.19,
+      "sha256": "be826e136fbe703fd98ddd43930daa11db8ece8bf23eb2c93f7ee6473cebf6d9",
+      "location": [
+        -1.350000023841858,
+        1.2000000476837158,
+        1.7000000476837158
+      ],
+      "lens": 22.0,
+      "process_id": 33452
+    }
+  ],
+  "process_id": 33452,
+  "source_revision": "R27",
+  "blend_sha256": "55aa812104fc606e9a259ac6caf35015fa093700efd8502c266db1cf27bbac1d"
+}

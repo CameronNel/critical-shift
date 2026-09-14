@@ -1,0 +1,43 @@
+{
+  "revision": "R06",
+  "build_sha256": "c5cc6171f8f1b2b62609e0438d712749fe3d68c67fe15f84fde39acb75d3cb6b",
+  "views": ["01_COURTYARD", "02_SOUTH", "03_EAST", "04_TOP"],
+  "concept": "Concept02 approved",
+  "decision": "REJECT",
+  "scores": {
+    "reference_fidelity_concept_adherence": 82,
+    "silhouette_massing": 84,
+    "scale_spatial_layout": 85,
+    "circulation_access_rescue_route": null,
+    "construction_load_support_logic": 86,
+    "utility_service_continuity": 85,
+    "exterior_materials_surface_response": 76,
+    "lighting_palette_readability": 68,
+    "environmental_storytelling_human_use": 81,
+    "terrain_drainage_ground_transitions": null,
+    "roof_elevated_detail": 80,
+    "view_to_view_consistency": 80,
+    "interface_reservation_integrity": 86,
+    "runtime_delivery_readiness": null,
+    "art_direction_veto_professional_finish": 68
+  },
+  "fresh_evidence": {
+    "technical_support_contacts": "PASS",
+    "cold_load_seconds": 52.043390400000135,
+    "library_dependencies": "ALL_LISTED_EXIST",
+    "new_object_bounds_materials": "INVENTORIED",
+    "collection_visibility": "INVENTORIED",
+    "named_reservation_intersections": 0,
+    "r06_route_audit": "UNVERIFIED",
+    "r06_transition_probe": "UNVERIFIED",
+    "unity_runtime": "UNVERIFIED"
+  },
+  "pixel_blockers": [
+    "washed-out top view",
+    "crude faceted background terrain band",
+    "cool flat fill versus approved warm hierarchy",
+    "repeated thin grass rows",
+    "broad under-authored roof and paving fields"
+  ],
+  "notes": "Independent native-pixel review. Historical R04 route evidence was not reused as R06 proof. Strict greater-than-93 threshold remains unmet."
+}

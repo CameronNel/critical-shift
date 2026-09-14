@@ -1,0 +1,9 @@
+# Reactor R01 independent bounded technical audit
+
+**HOLD R01: all 104 source-panel skins are misplaced.** Actual first skin has world location (0,0,0); Shell 1 field is translated to Y=10.8. In source-local space its skin lies around Y=-10.8 rather than exterior Y=.28, with centered X/Z instead of the original panel range. The immediate box.matrix_world multiplication loses unevaluated placement. Builder confirmed and patched R02 to explicit original.matrix_world @ Matrix.Translation(center), including caps; R02 repair remains pending verification in this report.
+
+All skin source names resolve, but R01 binding coverage fails for all 104. Positive volumes/manifold checks and portal PASS do not compensate: misplaced geometry can miss the portal audit while occupying the wrong place. Reactor portal audit covers only fuel/main/control boxes; **diagonal cooling portal is absent**, and panel caps have no source binding property. Add an oriented cooling-port clearance or source-local portal-span test and verify actual cap placement before acceptance. Roof remains original apart from intended individual panel caps, but R01 placements prevent a clear retention claim.
+
+Source accepted SHA and inspected file hashes are unchanged. The source instance uses a local light-override wrapper around linked content. Raw comparison finds 279 transform differences versus accepted state; follow-up confirms exterior frame 1 versus accepted/module frame 293 (BANK_A_MOVING Z8.6 versus Z6.8). These are state-dependent and must not be mislabeled destructive geometry changes. Preservation requires same-frame comparison. Dependencies/images resolve, materials assigned, units/scales correct; full node/animation equivalence unverified.
+
+Read-only CPU, no source edits/rendering. Evidence independent-technical-R01.json, source-state-comparison-R01.json and scripts. R02 verification is a separate next check.

@@ -1,0 +1,554 @@
+{
+  "section": "turbine-room",
+  "revision": "R01",
+  "engine": "CYCLES",
+  "lights": [
+    {
+      "object": "Review sun",
+      "library": null,
+      "data_library": null,
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Turbine entrance pool",
+      "library": null,
+      "data_library": null,
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Bench fluorescent pool",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Clerestory broad fill",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Clerestory broad fill.001",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Clerestory broad fill.002",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "D02 electrical threshold light",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Door downlight pool",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Entry broad fill",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Hall broad daylight",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Practical pool",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Practical pool.001",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Practical pool.002",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Practical pool.003",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Practical pool.004",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Practical pool.005",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Practical pool.006",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Practical pool.007",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Wall light pool",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Wall light pool.001",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Wall light pool.002",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Wall light pool.003",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    },
+    {
+      "object": "Wall light pool.004",
+      "library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "data_library": "//..\\..\\sources\\turbine-room\\module.blend",
+      "use_shadow": true,
+      "use_shadow_description": "",
+      "cycles_shadow": {
+        "cast_shadow_direct": {
+          "error": "'CyclesLightSettings' object has no attribute 'cast_shadow'"
+        }
+      },
+      "cycles_keys": []
+    }
+  ],
+  "relevant_mesh_visibility": [
+    {
+      "name": "Turbine end roof coping",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Turbine end roof coping.001",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Generator roof cooling fin",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Generator roof cooling fin.001",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Generator roof cooling fin.002",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Generator roof cooling fin.003",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Generator roof cooling fin.004",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Generator roof cooling fin.005",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Generator roof cooling fin.006",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Generator roof cooling fin.007",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Generator roof cooling fin.008",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Hoist roof hanger",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Hoist roof hanger.001",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Hoist roof hanger.002",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Hoist roof hanger.003",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Hoist roof hanger.004",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Hoist roof hanger.005",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Hoist roof hanger.006",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Hoist roof hanger.007",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof deck",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange.001",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange.002",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange.003",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange.004",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange.005",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange.006",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange.007",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange.008",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange.009",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange.010",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder flange.011",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder web",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder web.001",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder web.002",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder web.003",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder web.004",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof girder web.005",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof purlin",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof purlin.001",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    },
+    {
+      "name": "Roof purlin.002",
+      "visible_shadow": true,
+      "is_holdout": false,
+      "hide_render": false
+    }
+  ]
+}

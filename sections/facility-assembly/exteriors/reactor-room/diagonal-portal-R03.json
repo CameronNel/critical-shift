@@ -1,0 +1,92 @@
+{
+  "revision": "R03",
+  "portal_frame": "T(8.4,-8.4,0) Rz(-135deg)",
+  "box": [
+    [
+      -2.5,
+      0,
+      0
+    ],
+    [
+      2.5,
+      3.7,
+      5
+    ]
+  ],
+  "inset_tolerance_m": 0.003,
+  "bound_candidates": [],
+  "surface_intrusions": [],
+  "scope": "Evaluated polygon clipping to inset portal box; no solid-containment test. All additive meshes/fonts/curves included.",
+  "samples": [
+    {
+      "name": "Reactor exterior Shell 1 field",
+      "location": [
+        -4.25,
+        11.093999862670898,
+        2.5
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -4.25
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          11.093999862670898
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent": null
+    },
+    {
+      "name": "Shell 1 field",
+      "location": [
+        0.0,
+        10.800000190734863,
+        0.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          10.800000190734863
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent": null
+    }
+  ]
+}

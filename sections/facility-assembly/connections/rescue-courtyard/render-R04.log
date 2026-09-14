@@ -1,0 +1,40 @@
+GPU acquired: astra-facility-assembly
+00:02.125  blend            | Read blend: "C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\connections\rescue-courtyard\review-R04.blend"
+00:02.766  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:14.984  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\connections\rescue-courtyard\renders-R04\TOP.png'
+Add-on not loaded: "bl_ext.user_default.mcp", cause: No module named 'bl_ext.user_default.mcp'
+[MCP] Registering Blender MCP add-on 1.0.0...
+[MCP] Loading handlers...
+[MCP] Successfully loaded 69 handlers
+register_class(...):
+Info: Registering panel class: 'BLENDERMCP_PT_Panel', bl_idname 'BLENDERMCP_PT_Panel' has been registered before, unregistering previous
+register_class(...):
+Info: Registering operator class: 'BLENDERMCP_OT_StartServer', bl_idname 'blendermcp.start_server' has been registered before, unregistering previous
+register_class(...):
+Info: Registering operator class: 'BLENDERMCP_OT_StopServer', bl_idname 'blendermcp.stop_server' has been registered before, unregistering previous
+register_class(...):
+Info: Registering operator class: 'BLENDERMCP_OT_OpenTerms', bl_idname 'blendermcp.open_terms' has been registered before, unregistering previous
+BlenderMCP addon registered (auto-connect: on)
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+BlenderMCP: cannot start server in background mode (blender -b) - commands would never execute
+BlenderMCP: run Blender with a GUI, or use a virtual display: xvfb-run -a blender
+Info: Read library: 'C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\exteriors\mine\exterior-R02.blend', '//..\..\exteriors\mine\exterior-R02.blend', parent '<direct>'
+COURTYARD_RENDER R04 TOP
+00:28.813  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\connections\rescue-courtyard\renders-R04\COURT.png'
+COURTYARD_RENDER R04 COURT
+00:43.297  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\connections\rescue-courtyard\renders-R04\EYE.png'
+COURTYARD_RENDER R04 EYE
+Traceback (most recent call last):
+  File "C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\modules\addon_utils.py", line 594, in disable
+    mod.unregister()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Camer\AppData\Roaming\Blender Foundation\Blender\5.2\extensions\user_default\blender_mcp\ui.py", line 439, in unregister
+    del bpy.types.Scene.blendermcp_server_running
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'Scene' has no attribute 'blendermcp_server_running'
+BlenderMCP server stopped
+Exception in module unregister(): 'C:\\Users\\Camer\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\user_default\\blender_mcp\\__init__.py'
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

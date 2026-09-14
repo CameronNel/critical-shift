@@ -1,0 +1,24 @@
+{
+  "pixels": [
+    1920,
+    1080
+  ],
+  "raytracing": false,
+  "engine": "EEVEE",
+  "results": [
+    {
+      "view": "courtyard",
+      "moving_redraw_fps": 69.61302236884413
+    },
+    {
+      "view": "power",
+      "moving_redraw_fps": 88.20758655803074
+    },
+    {
+      "view": "medical",
+      "moving_redraw_fps": 64.41192715653077
+    }
+  ],
+  "scope": "Short scripted moving redraw tests; not Unity gameplay benchmarking",
+  "materials": "Actual source material datablocks, UV-preserving geometry"
+}

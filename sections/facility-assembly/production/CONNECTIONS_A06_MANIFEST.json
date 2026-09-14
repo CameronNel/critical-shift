@@ -1,0 +1,29 @@
+{
+  "revision": "A06_C01_R04",
+  "source_preservation": {
+    "facility_master_A05_exteriors.blend": "d83aa7d4bc18c57ba6f14df9abc51b58b94af62f3f37103759357bb6ecfe7d5a",
+    "facility_walkthrough.blend": "75ea54a55079e3cb95ef73517db07bd270379f7daedc38abcadca02d2e7c01d2"
+  },
+  "files": [
+    {
+      "mode": "master",
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\facility_master_A06_connections.blend",
+      "moved": [
+        "medical-reanimation",
+        "EXTERIOR_INSTANCE_medical-reanimation"
+      ],
+      "sha256": "7b4357482f24a186eec027690be19037c557a7cc9b3c2f28c2d967081d3c3b86"
+    },
+    {
+      "mode": "walk",
+      "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\facility_walkthrough_A06_connections.blend",
+      "moved": [
+        "medical-reanimation",
+        "EXTERIOR_INSTANCE_medical-reanimation",
+        "WALK_PROXY_medical-reanimation",
+        "WALK_PROXY_EXTERIOR_INSTANCE_medical-reanimation"
+      ],
+      "sha256": "6a457fb8c51eb58abe2b74d32baff1275158de11bb52db8a053157fd711b4048"
+    }
+  ]
+}

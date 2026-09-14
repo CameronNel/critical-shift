@@ -1,0 +1,55 @@
+{
+  "reviewer": "independent grok-4.6 critic subagent",
+  "not": "Luna",
+  "revision": "R16",
+  "date": "2026-09-11",
+  "disposition": "REJECT",
+  "pass_rule": "every category independently > 90; 90 or below is REJECT; unverified cannot pass",
+  "cold_status": "COMPLETE_18; SHA256 differs on every pair vs warm; visual match on C01/C04/C05/C07/C08 (TAA only)",
+  "prior_revision": {
+    "R14": "REJECT 77-87; scores not reused",
+    "R15": "REJECT 77-87; scores not reused"
+  },
+  "evidence": {
+    "warm_dir": "production/renders/review/R16/",
+    "cold_dir": "production/renders/review/cold-R16/",
+    "resolution": [1920, 1080],
+    "engine": "BLENDER_EEVEE",
+    "vs_R15": "all 18 SHA256 NEW; C04/C09/W08 zigzag corrugation; C07 lamp off bezel",
+    "r15_blocker_verdict": {
+      "U04_nested_frames": "PARTIAL: zigzag sleeve; grate still in bore; no gasket/bolt circle/slab landing",
+      "C05_drop_W05_stub": "NOT_ADDRESSED",
+      "C07_C06_stairs_fan": "LAMP_ONLY; bezels/hangers/stairs/fan unchanged"
+    }
+  },
+  "scores": {
+    "contract_specification_coverage": 88,
+    "scale_layout": 86,
+    "machinery_logic": 84,
+    "circulation_readability": 85,
+    "construction_detail": 84,
+    "materials": 80,
+    "lighting": 79,
+    "palette": 87,
+    "storytelling": 80,
+    "valorant_reference_fidelity": 78
+  },
+  "unverified": [
+    "U04_gasket_bolt_circle_slab_seal",
+    "D01_threshold_sill",
+    "level_glasses_as_glass",
+    "closed_hotwell_nozzle",
+    "gallery_standing_turn_W08",
+    "roof_as_slab_system_C09",
+    "SE_hall_W05",
+    "handoff_as_routed_line_in_readable_room",
+    "numerical_clearances"
+  ],
+  "categories_at_or_below_90": 10,
+  "categories_above_90": 0,
+  "three_most_consequential": [
+    "U04 zigzag sleeve still has a grate in the bore and no gasket/bolt circle/slab landing; C09 duplicates C04",
+    "C05 drop still ends in a grey ring; W05 is still a ceiling U02 collar, not an SE hall",
+    "C07 bezels still toy; C06 hangers do not land; stairs/fan still primitives"
+  ]
+}

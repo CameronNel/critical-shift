@@ -1,0 +1,89 @@
+{
+  "revision": "R31",
+  "blend_sha256": "31a6b56762ff347cc60fcc10c881f7665adf8160ccea3b1c03845bd55e1ae53c",
+  "scope": "Nine saved-scene downward rays from z5.50 to z3.00 inside the local inlet. Verifies an open path into the vessel volume, not thermodynamics or a remote facility loop.",
+  "status": "FAIL",
+  "samples": [
+    {
+      "xy": [
+        2.15,
+        3.6
+      ],
+      "ok": false,
+      "blocker": "CD shell",
+      "hit_z": 4.34499979019165
+    },
+    {
+      "xy": [
+        2.15,
+        4.05
+      ],
+      "ok": false,
+      "blocker": "CD shell",
+      "hit_z": 4.34499979019165
+    },
+    {
+      "xy": [
+        2.15,
+        4.5
+      ],
+      "ok": false,
+      "blocker": "CD shell",
+      "hit_z": 4.34499979019165
+    },
+    {
+      "xy": [
+        3,
+        3.6
+      ],
+      "ok": false,
+      "blocker": "CD shell",
+      "hit_z": 4.34499979019165
+    },
+    {
+      "xy": [
+        3,
+        4.05
+      ],
+      "ok": false,
+      "blocker": "CD shell",
+      "hit_z": 4.34499979019165
+    },
+    {
+      "xy": [
+        3,
+        4.5
+      ],
+      "ok": false,
+      "blocker": "CD shell",
+      "hit_z": 4.34499979019165
+    },
+    {
+      "xy": [
+        3.85,
+        3.6
+      ],
+      "ok": false,
+      "blocker": "CD shell",
+      "hit_z": 4.34499979019165
+    },
+    {
+      "xy": [
+        3.85,
+        4.05
+      ],
+      "ok": false,
+      "blocker": "CD shell",
+      "hit_z": 4.34499979019165
+    },
+    {
+      "xy": [
+        3.85,
+        4.5
+      ],
+      "ok": false,
+      "blocker": "CD shell",
+      "hit_z": 4.34499979019165
+    }
+  ]
+}

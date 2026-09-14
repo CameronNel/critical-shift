@@ -1,0 +1,506 @@
+{
+  "Whole map continuous concrete floor": {
+    "bounds": [
+      [
+        -111.0,
+        83.0
+      ],
+      [
+        -68.0,
+        87.0
+      ],
+      [
+        -0.06499999761581421,
+        -0.06499999761581421
+      ]
+    ],
+    "verts": 540,
+    "faces": 135
+  },
+  "WALK_PROXY_reactor-room": {
+    "bounds": [
+      [
+        -4.5099992752075195,
+        28.700000762939453
+      ],
+      [
+        32.0,
+        59.50204849243164
+      ],
+      [
+        -6.659999847412109,
+        16.260000228881836
+      ]
+    ],
+    "verts": 1422308,
+    "faces": 1238727
+  },
+  "WALK_PROXY_mine": {
+    "bounds": [
+      [
+        -101.0,
+        -10.49000072479248
+      ],
+      [
+        -58.0,
+        0.0
+      ],
+      [
+        -1.679999828338623,
+        26.730228424072266
+      ]
+    ],
+    "verts": 344788,
+    "faces": 618388
+  },
+  "WALK_PROXY_turbine-room": {
+    "bounds": [
+      [
+        40.53950119018555,
+        66.30000305175781
+      ],
+      [
+        36.25,
+        51.02000045776367
+      ],
+      [
+        -2.0,
+        7.440000057220459
+      ]
+    ],
+    "verts": 273475,
+    "faces": 230780
+  },
+  "WALK_PROXY_condenser-bay": {
+    "bounds": [
+      [
+        45.79999923706055,
+        57.97999954223633
+      ],
+      [
+        35.02000045776367,
+        47.0
+      ],
+      [
+        -6.319999694824219,
+        1.2000000476837158
+      ]
+    ],
+    "verts": 466158,
+    "faces": 393779
+  },
+  "access": [
+    {
+      "name": "Upper landing",
+      "pos": [
+        31.100000381469727,
+        45.45000076293945,
+        -0.10000000149011612
+      ],
+      "size": [
+        1.7000000476837158,
+        2.0999999046325684,
+        0.20000000298023224
+      ]
+    },
+    {
+      "name": "Half landing",
+      "pos": [
+        31.924999237060547,
+        38.79499816894531,
+        -3.0999999046325684
+      ],
+      "size": [
+        3.3499999046325684,
+        1.690000057220459,
+        0.20000000298023224
+      ]
+    },
+    {
+      "name": "Half landing south rail",
+      "pos": [
+        31.924999237060547,
+        37.95000076293945,
+        -2.450000047683716
+      ],
+      "size": [
+        0.05000000074505806,
+        0.05000000074505806,
+        3.3499984741210938
+      ]
+    },
+    {
+      "name": "Half landing south rail.001",
+      "pos": [
+        31.924999237060547,
+        37.95000076293945,
+        -1.9500000476837158
+      ],
+      "size": [
+        0.05000000074505806,
+        0.05000000074505806,
+        3.3499984741210938
+      ]
+    },
+    {
+      "name": "Half landing south post",
+      "pos": [
+        30.25,
+        37.95000076293945,
+        -2.4600000381469727
+      ],
+      "size": [
+        0.05000000074505806,
+        0.05000000074505806,
+        1.0800000429153442
+      ]
+    },
+    {
+      "name": "Half landing south post.001",
+      "pos": [
+        31.366666793823242,
+        37.95000076293945,
+        -2.4600000381469727
+      ],
+      "size": [
+        0.05000000074505806,
+        0.05000000074505806,
+        1.0800000429153442
+      ]
+    },
+    {
+      "name": "Half landing south post.002",
+      "pos": [
+        32.483333587646484,
+        37.95000076293945,
+        -2.4600000381469727
+      ],
+      "size": [
+        0.05000000074505806,
+        0.05000000074505806,
+        1.0800000429153442
+      ]
+    },
+    {
+      "name": "Half landing south post.003",
+      "pos": [
+        33.599998474121094,
+        37.95000076293945,
+        -2.4600000381469727
+      ],
+      "size": [
+        0.05000000074505806,
+        0.05000000074505806,
+        1.0800000429153442
+      ]
+    },
+    {
+      "name": "Lower landing west rail",
+      "pos": [
+        30.25,
+        45.525001525878906,
+        -5.449999809265137
+      ],
+      "size": [
+        0.05000000074505806,
+        0.05000000074505806,
+        2.25
+      ]
+    },
+    {
+      "name": "Lower landing west rail.001",
+      "pos": [
+        30.25,
+        45.525001525878906,
+        -4.949999809265137
+      ],
+      "size": [
+        0.05000000074505806,
+        0.05000000074505806,
+        2.25
+      ]
+    },
+    {
+      "name": "Lower landing west post",
+      "pos": [
+        30.25,
+        44.400001525878906,
+        -5.460000038146973
+      ],
+      "size": [
+        0.05000000074505806,
+        0.05000000074505806,
+        1.0799999237060547
+      ]
+    },
+    {
+      "name": "Lower landing west post.001",
+      "pos": [
+        30.25,
+        45.525001525878906,
+        -5.460000038146973
+      ],
+      "size": [
+        0.05000000074505806,
+        0.05000000074505806,
+        1.0799999237060547
+      ]
+    },
+    {
+      "name": "Lower landing west post.002",
+      "pos": [
+        30.25,
+        46.650001525878906,
+        -5.460000038146973
+      ],
+      "size": [
+        0.05000000074505806,
+        0.05000000074505806,
+        1.0799999237060547
+      ]
+    },
+    {
+      "name": "Lower passage retaining wall",
+      "pos": [
+        41.25,
+        43.040000915527344,
+        -4.5
+      ],
+      "size": [
+        13.5,
+        0.2199999988079071,
+        3.0
+      ]
+    },
+    {
+      "name": "Lower passage retaining wall.001",
+      "pos": [
+        41.25,
+        46.7599983215332,
+        -4.5
+      ],
+      "size": [
+        13.5,
+        0.2199999988079071,
+        3.0
+      ]
+    },
+    {
+      "name": "Lift branch east retaining wall",
+      "pos": [
+        35.619998931884766,
+        39.29999923706055,
+        -4.5
+      ],
+      "size": [
+        0.23999999463558197,
+        8.5,
+        3.0
+      ]
+    },
+    {
+      "name": "Lift approach retaining wall",
+      "pos": [
+        32.29999923706055,
+        33.18000030517578,
+        -4.5
+      ],
+      "size": [
+        2.299999952316284,
+        0.23999999463558197,
+        3.0
+      ]
+    },
+    {
+      "name": "Lift approach retaining wall.001",
+      "pos": [
+        32.29999923706055,
+        36.619998931884766,
+        -4.5
+      ],
+      "size": [
+        2.299999952316284,
+        0.23999999463558197,
+        3.0
+      ]
+    },
+    {
+      "name": "Lift branch west retaining wall",
+      "pos": [
+        33.68000030517578,
+        40.0,
+        -4.5
+      ],
+      "size": [
+        0.20000000298023224,
+        6.599999904632568,
+        3.0
+      ]
+    },
+    {
+      "name": "Compliance open portal wall return",
+      "pos": [
+        -46.95000076293945,
+        14.944999694824219,
+        1.2999999523162842
+      ],
+      "size": [
+        0.49000000953674316,
+        0.10000000149011612,
+        2.5999999046325684
+      ]
+    },
+    {
+      "name": "Compliance open portal wall return.001",
+      "pos": [
+        -46.95000076293945,
+        17.05500030517578,
+        1.2999999523162842
+      ],
+      "size": [
+        0.49000000953674316,
+        0.10000000149011612,
+        2.5999999046325684
+      ]
+    },
+    {
+      "name": "R04 stair portal wall return",
+      "pos": [
+        29.94700050354004,
+        43.70000076293945,
+        1.75
+      ],
+      "size": [
+        0.6019999980926514,
+        0.2199999988079071,
+        3.5
+      ]
+    },
+    {
+      "name": "Stair shaft west retaining wall",
+      "pos": [
+        30.100000381469727,
+        42.279998779296875,
+        -3.0
+      ],
+      "size": [
+        0.20000000298023224,
+        8.960000038146973,
+        6.0
+      ]
+    },
+    {
+      "name": "Stair shaft south retaining wall",
+      "pos": [
+        31.829999923706055,
+        37.79999923706055,
+        -3.0
+      ],
+      "size": [
+        3.6600000858306885,
+        0.20000000298023224,
+        6.0
+      ]
+    },
+    {
+      "name": "Stair shaft north retaining wall",
+      "pos": [
+        32.25,
+        46.7599983215332,
+        -3.0
+      ],
+      "size": [
+        4.300000190734863,
+        0.20000000298023224,
+        6.0
+      ]
+    },
+    {
+      "name": "Stair shaft east upper retaining wall",
+      "pos": [
+        33.68000030517578,
+        40.650001525878906,
+        -1.5
+      ],
+      "size": [
+        0.20000000298023224,
+        5.5,
+        3.0
+      ]
+    },
+    {
+      "name": "Continuous lower access floor",
+      "pos": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size": [
+        18.049999237060547,
+        13.35000228881836,
+        0.19999980926513672
+      ]
+    }
+  ],
+  "exterior_collections": [
+    "17_REACTOR_EXTERIOR_FINISH",
+    "18_REACTOR_FINISH_VIEWPORT_CACHE",
+    "A08_OPEN_10 Condenser CD-01",
+    "A08_OPEN_MODULE_condenser-bay",
+    "A08_SOURCE_REVIEW_reactor-room",
+    "A08_SOURCE_TREE_reactor-room_01 ARCHITECTURE",
+    "A08_SOURCE_TREE_reactor-room_02 ROOF STRUCTURE",
+    "A08_SOURCE_TREE_reactor-room_03 POOL AND RAIL",
+    "A08_SOURCE_TREE_reactor-room_04 BANK MECHANISMS",
+    "A08_SOURCE_TREE_reactor-room_05 PERIMETER EQUIPMENT",
+    "A08_SOURCE_TREE_reactor-room_06 UTILITIES",
+    "A08_SOURCE_TREE_reactor-room_07 EAST CONTROL ROOM",
+    "A08_SOURCE_TREE_reactor-room_08 COMPACT EAST STAIR",
+    "A08_SOURCE_TREE_reactor-room_09 AUTHORED FINISH",
+    "A08_SOURCE_TREE_reactor-room_10 CAMERAS",
+    "A08_SOURCE_TREE_reactor-room_10 CONNECTED STRUCTURE AND SERVICES",
+    "A08_SOURCE_TREE_reactor-room_11 FLOOR SERVICE DETAILS",
+    "A08_SOURCE_TREE_reactor-room_12 A05 HALL GRAPHICS",
+    "A08_SOURCE_TREE_reactor-room_13 A05 ROOF LIGHT WELLS",
+    "A08_SOURCE_TREE_reactor-room_14 H01 WALL REFERENCE PASS",
+    "A08_SOURCE_TREE_reactor-room_15 REMAINING HALL WALLS",
+    "A08_SOURCE_TREE_reactor-room_16 ANNEX WALL FINISH",
+    "A08_SOURCE_TREE_reactor-room_17 CONTROL PROPAGANDA",
+    "A08_SOURCE_TREE_reactor-room_18 CONTROL ROOM DRESSING",
+    "A08_SOURCE_TREE_reactor-room_19 CONTROL FIDELITY",
+    "A08_SOURCE_TREE_reactor-room_GROK GT_Desk",
+    "A08_SOURCE_TREE_reactor-room_GROK GT_Hero",
+    "A08_SOURCE_TREE_reactor-room_MF PLAYER WALKTHROUGH",
+    "A08_SOURCE_TREE_reactor-room_MF WORKFLOW MACHINERY",
+    "A08_SOURCE_TREE_reactor-room_QA FLOOR MACHINE LABELS",
+    "A08_SOURCE_TREE_reactor-room_RF APPROVED SKYLIGHT ROOF",
+    "A08_SOURCE_TREE_reactor-room_WA A FUEL BAY",
+    "A08_SOURCE_TREE_reactor-room_WB B WASTE VENT",
+    "A08_SOURCE_TREE_reactor-room_WC C POWER WALL",
+    "A08_SOURCE_TREE_reactor-room_WD D COOLING WALL",
+    "A08_SOURCE_TREE_reactor-room_WE E BACKUP REPAIR WALL",
+    "A08_SOURCE_TREE_reactor-room_WF F RIM SERVICE HANDLING",
+    "EXTERIOR_condenser-bay",
+    "EXTERIOR_mine",
+    "SOURCE_REVIEW_mine",
+    "SOURCE_TREE_mine_15_VALORANT_DRESSING",
+    "SOURCE_TREE_mine_CSM_00_SITE",
+    "SOURCE_TREE_mine_CSM_01_ARCHITECTURE",
+    "SOURCE_TREE_mine_CSM_02_GEOLOGY",
+    "SOURCE_TREE_mine_CSM_03_HAULAGE",
+    "SOURCE_TREE_mine_CSM_04_STRUCTURE",
+    "SOURCE_TREE_mine_CSM_05_SERVICES",
+    "SOURCE_TREE_mine_CSM_06_WORKSTATIONS",
+    "SOURCE_TREE_mine_CSM_07_STORY",
+    "SOURCE_TREE_mine_CSM_08_SECTOR_A",
+    "SOURCE_TREE_mine_CSM_09_SECTOR_B",
+    "SOURCE_TREE_mine_CSM_10_SECTOR_C",
+    "SOURCE_TREE_mine_CSM_11_LIGHTS",
+    "SOURCE_TREE_mine_CSM_12_CAMERAS",
+    "SOURCE_TREE_mine_CSM_13_INTERFACES",
+    "SOURCE_TREE_mine_CSM_14_COLLISION",
+    "EXTERIOR_turbine-room",
+    "SOURCE_REVIEW_turbine-room",
+    "EXTERIOR_reactor-room"
+  ]
+}

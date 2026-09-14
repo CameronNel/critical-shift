@@ -1,0 +1,48 @@
+{
+  "reviewer": "independent Luna (gpt-5.6-luna) critic subagent",
+  "revision": "R23",
+  "date": "2026-09-12",
+  "disposition": "REJECT",
+  "review_set": {
+    "warm_directory": "production/renders/review/R23",
+    "cold_directory": "production/renders/review/cold-R23",
+    "warm_images": 18,
+    "cold_images": 18,
+    "resolution": "1920x1080",
+    "cold_open": "PASS — same-hash separate-process evidence supplied",
+    "cold_comparison": "worst mean channel delta 0.000006109/255"
+  },
+  "saved_audit": {
+    "path": "production/validation/R23/astra-saved-audit.json",
+    "status": "PASS",
+    "scope": "disclosed sampled local geometry scope"
+  },
+  "boundary": {
+    "U02": "turbine-owned cap change is outside local acceptance scope",
+    "cooling": "local provisional CW sockets permitted; remote neighbor bind not required for local acceptance"
+  },
+  "three_most_consequential_defects": [
+    {"image": "C04_EXHAUST.png", "severity": "blocker", "mismatch": "U04 receive opening, neck, flange, seal, and support remain invisible."},
+    {"image": "W04_NE.png; W06_WEST_AISLE.png", "severity": "blocker", "mismatch": "Named corner/aisle cameras mainly show floor markings or a blank wall/shift log and do not prove route or clearance."},
+    {"image": "W08_GALLERY_TURN.png", "severity": "major", "mismatch": "Approximately 1.795 m headroom, columns across the deck, and rail ends without clean landings remain visible."}
+  ],
+  "scores": {
+    "contract_specification_coverage": {"score": 86, "disposition": "REJECT"},
+    "scale_layout": {"score": 87, "disposition": "REJECT"},
+    "machinery_logic": {"score": 87, "disposition": "REJECT"},
+    "circulation_readability": {"score": 82, "disposition": "REJECT"},
+    "construction_detail": {"score": 85, "disposition": "REJECT"},
+    "materials": {"score": 91, "disposition": "PASS"},
+    "lighting": {"score": 86, "disposition": "REJECT"},
+    "palette": {"score": 92, "disposition": "PASS"},
+    "storytelling_environmental_specificity": {"score": 87, "disposition": "REJECT"},
+    "valorant_reference_fidelity": {"score": 86, "disposition": "REJECT"}
+  },
+  "unverified_or_missing": [
+    "Visible U04 flange/neck/slab landing",
+    "Complete roof/services envelope",
+    "Full local CW endpoint continuation and support contacts",
+    "Gallery headroom and clean rail landing usability",
+    "Meaningful player-height coverage in W04_NE and W06_WEST_AISLE"
+  ]
+}

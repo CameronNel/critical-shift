@@ -1,0 +1,45 @@
+{
+  "revision": "CPU-supp-probe-R31",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "cpu_threads": 2,
+  "process_priority": "IDLE",
+  "gpu_denoising": false,
+  "samples": 16,
+  "resolution": [
+    768,
+    432
+  ],
+  "render_settings": {
+    "max_bounces": 10,
+    "diffuse_bounces": 3,
+    "glossy_bounces": 3,
+    "transmission_bounces": 8,
+    "transparent_max_bounces": 8,
+    "sample_clamp_indirect": 3.0,
+    "adaptive_threshold": 0.03999999910593033,
+    "seed": 0,
+    "denoiser": "OPENIMAGEDENOISE"
+  },
+  "renderer_source_sha256": {
+    "render.py": "a0745da4a98a826c4a02d3604bf1f6e227ed7bac719f8f9b9298507246c6ecb5",
+    "resource_guard.py": "06d771f58cdfefb71a23bd0e15ca2baef098185f0e64f6850169faf471ecbd2f"
+  },
+  "cameras": [
+    {
+      "camera": "S07_U04_CUTAWAY",
+      "seconds": 23.21,
+      "sha256": "29ad014938cb2a7fa4fb3036823e143690ff477ce49d954c50c51b7f9871a9e4",
+      "location": [
+        7.5,
+        0.800000011920929,
+        7.099999904632568
+      ],
+      "lens": 36.0,
+      "process_id": 10728
+    }
+  ],
+  "process_id": 10728,
+  "source_revision": "R31",
+  "blend_sha256": "31a6b56762ff347cc60fcc10c881f7665adf8160ccea3b1c03845bd55e1ae53c"
+}

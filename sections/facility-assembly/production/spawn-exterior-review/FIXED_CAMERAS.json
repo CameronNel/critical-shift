@@ -1,0 +1,67 @@
+{
+  "baseline": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\facility_master_A14_exterior.blend",
+  "source_sha256": "00b371d369b11d242e71daac6a7bd39b8dfe5ce81eb5a81e6823a5d84cc972ef",
+  "resolution": [
+    1600,
+    1100
+  ],
+  "views": [
+    {
+      "id": "01_COURTYARD",
+      "eye": [
+        -25,
+        29,
+        6
+      ],
+      "target": [
+        -28,
+        8,
+        2
+      ],
+      "lens": 32
+    },
+    {
+      "id": "02_SOUTH",
+      "eye": [
+        -28,
+        -11,
+        6
+      ],
+      "target": [
+        -28,
+        6,
+        2
+      ],
+      "lens": 30
+    },
+    {
+      "id": "03_EAST",
+      "eye": [
+        -9,
+        7,
+        7
+      ],
+      "target": [
+        -28,
+        8,
+        2
+      ],
+      "lens": 24
+    },
+    {
+      "id": "04_TOP",
+      "eye": [
+        -27,
+        15,
+        90
+      ],
+      "target": [
+        -27,
+        15,
+        0
+      ],
+      "ortho_scale": 52
+    }
+  ],
+  "rule": "Do not move cameras between baseline, concept and builder review."
+}

@@ -1,0 +1,30 @@
+{
+  "revision": "R28",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "cpu_threads": 2,
+  "process_priority": "IDLE",
+  "gpu_denoising": false,
+  "samples": 16,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "cameras": [
+    {
+      "camera": "C08_MAINT",
+      "seconds": 296.43,
+      "sha256": "54af529f7f6a9d71ec2b29794c43fd862f08091377708d914b47d35f42212dd2",
+      "location": [
+        5.900000095367432,
+        4.199999809265137,
+        5.449999809265137
+      ],
+      "lens": 28.0,
+      "process_id": 23268
+    }
+  ],
+  "process_id": 23268,
+  "source_revision": "R28",
+  "blend_sha256": "f076a9fc974764f26f51779d30c0d4550ed67e1b1569a0ff82638311f11cc5a5"
+}

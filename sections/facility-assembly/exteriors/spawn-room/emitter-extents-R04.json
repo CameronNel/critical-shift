@@ -1,0 +1,2156 @@
+[
+  {
+    "light": "EEVEE_floor_bounce_BRIEFING",
+    "type": "AREA",
+    "location": [
+      -4.599999904632568,
+      3.549999952316284,
+      0.25
+    ],
+    "energy": 25.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 3.700000047683716,
+      "size_y": 3.700000047683716,
+      "normal_world": [
+        0.0,
+        -8.742277657347586e-08,
+        1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -6.449999809265137,
+          5.400000095367432,
+          0.25000014901161194
+        ],
+        [
+          -6.449999809265137,
+          1.6999999284744263,
+          0.24999983608722687
+        ],
+        [
+          -2.75,
+          5.400000095367432,
+          0.25000014901161194
+        ],
+        [
+          -2.75,
+          1.6999999284744263,
+          0.24999983608722687
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.001",
+        "distance_m": 2.7109999415877137,
+        "closest_surface_world": [
+          -4.599999904632568,
+          0.8389999866485596,
+          0.25000011920928955
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.011",
+        "distance_m": 2.712000130155484,
+        "closest_surface_world": [
+          -4.600000381469727,
+          6.26200008392334,
+          0.25
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.012",
+        "distance_m": 2.712295098785516,
+        "closest_surface_world": [
+          -4.559999942779541,
+          6.26200008392334,
+          0.24999988079071045
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 3.309999926011041,
+        "closest_surface_world": [
+          -4.59999942779541,
+          3.549999952316284,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Spawn coping",
+        "distance_m": 4.134996381617373,
+        "closest_surface_world": [
+          -4.599999904632568,
+          0.9354852437973022,
+          3.453514814376831
+        ]
+      }
+    ]
+  },
+  {
+    "light": "EEVEE_floor_bounce_HALL",
+    "type": "AREA",
+    "location": [
+      0.0,
+      4.599999904632568,
+      0.25
+    ],
+    "energy": 40.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 3.0,
+      "size_y": 3.0,
+      "normal_world": [
+        0.0,
+        -8.742277657347586e-08,
+        1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -1.5,
+          6.099999904632568,
+          0.25000011920928955
+        ],
+        [
+          -1.5,
+          3.0999999046325684,
+          0.24999986588954926
+        ],
+        [
+          1.5,
+          6.099999904632568,
+          0.25000011920928955
+        ],
+        [
+          1.5,
+          3.0999999046325684,
+          0.24999986588954926
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.024",
+        "distance_m": 2.5048167556470307,
+        "closest_surface_world": [
+          -1.8655146360397339,
+          6.271514892578125,
+          0.25
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.013",
+        "distance_m": 2.5052958662849636,
+        "closest_surface_world": [
+          -1.8715146780014038,
+          6.265514850616455,
+          0.24999988079071045
+        ]
+      },
+      {
+        "mesh": "Spawn low concrete skirt.013",
+        "distance_m": 2.5213145487687583,
+        "closest_surface_world": [
+          -1.8715146780014038,
+          6.289514541625977,
+          0.25
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 3.30999992601105,
+        "closest_surface_world": [
+          2.384185791015625e-07,
+          4.59999942779541,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 3.7586542086990775,
+        "closest_surface_world": [
+          -1.7802929878234863,
+          4.599999904632568,
+          3.5602927207946777
+        ]
+      }
+    ]
+  },
+  {
+    "light": "EEVEE_floor_bounce_LOCKER",
+    "type": "AREA",
+    "location": [
+      5.0,
+      4.0,
+      0.25
+    ],
+    "energy": 58.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 4.800000190734863,
+      "size_y": 4.800000190734863,
+      "normal_world": [
+        0.0,
+        -8.742277657347586e-08,
+        1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          2.5999999046325684,
+          6.400000095367432,
+          0.2500002086162567
+        ],
+        [
+          2.5999999046325684,
+          1.5999999046325684,
+          0.2499997913837433
+        ],
+        [
+          7.400000095367432,
+          6.400000095367432,
+          0.2500002086162567
+        ],
+        [
+          7.400000095367432,
+          1.5999999046325684,
+          0.2499997913837433
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.016",
+        "distance_m": 3.2620613226485395,
+        "closest_surface_world": [
+          8.26200008392334,
+          4.019999980926514,
+          0.25000011920928955
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.015",
+        "distance_m": 3.2620613226485395,
+        "closest_surface_world": [
+          8.26200008392334,
+          3.9800000190734863,
+          0.25000011920928955
+        ]
+      },
+      {
+        "mesh": "Spawn low concrete skirt.015",
+        "distance_m": 3.2860610466479714,
+        "closest_surface_world": [
+          8.28600025177002,
+          3.9800000190734863,
+          0.2499999850988388
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 3.7100000100765587,
+        "closest_surface_world": [
+          5.0,
+          4.0,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 4.618259983111245,
+        "closest_surface_world": [
+          1.7797070741653442,
+          4.000000476837158,
+          3.5602927207946777
+        ]
+      }
+    ]
+  },
+  {
+    "light": "EEVEE_floor_bounce_SERVICE",
+    "type": "AREA",
+    "location": [
+      0.0,
+      10.899999618530273,
+      0.25
+    ],
+    "energy": 15.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 2.299999952316284,
+      "size_y": 2.299999952316284,
+      "normal_world": [
+        0.0,
+        -8.742277657347586e-08,
+        1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -1.149999976158142,
+          12.049999237060547,
+          0.25000008940696716
+        ],
+        [
+          -1.149999976158142,
+          9.75,
+          0.24999989569187164
+        ],
+        [
+          1.149999976158142,
+          12.049999237060547,
+          0.25000008940696716
+        ],
+        [
+          1.149999976158142,
+          9.75,
+          0.24999989569187164
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.027",
+        "distance_m": 1.861999966876463,
+        "closest_surface_world": [
+          -1.8619999885559082,
+          10.899999618530273,
+          0.25
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.030",
+        "distance_m": 1.8619999668764973,
+        "closest_surface_world": [
+          1.8619999885559082,
+          10.899999618530273,
+          0.24999964237213135
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.026",
+        "distance_m": 1.8665325889684787,
+        "closest_surface_world": [
+          -1.8619999885559082,
+          10.769999504089355,
+          0.25
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Service exterior opaque roof membrane",
+        "distance_m": 3.309999926011007,
+        "closest_surface_world": [
+          0.0,
+          10.899999618530273,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Service rear top coping",
+        "distance_m": 3.5219858566749713,
+        "closest_surface_world": [
+          0.0,
+          12.36351490020752,
+          3.453514814376831
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Shift entry pool",
+    "type": "AREA",
+    "location": [
+      -1.159999966621399,
+      -0.6899999976158142,
+      2.3399999141693115
+    ],
+    "energy": 12.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Entry sconce glass",
+          "hit_world": [
+            -1.1151018142700195,
+            -0.6600000262260437,
+            2.3399999141693115
+          ]
+        }
+      ],
+      "shape": "SQUARE",
+      "size": 0.18000000715255737,
+      "size_y": 0.18000000715255737,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -1.25,
+          -0.7799999713897705,
+          2.3399999141693115
+        ],
+        [
+          -1.25,
+          -0.6000000238418579,
+          2.3399999141693115
+        ],
+        [
+          -1.0699999332427979,
+          -0.7799999713897705,
+          2.3399999141693115
+        ],
+        [
+          -1.0699999332427979,
+          -0.6000000238418579,
+          2.3399999141693115
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Entry sconce glass",
+        "distance_m": 0.02999997160861788,
+        "closest_surface_world": [
+          -1.159999966621399,
+          -0.6600000262260437,
+          2.3399999141693115
+        ]
+      },
+      {
+        "mesh": "Entry sconce guard",
+        "distance_m": 0.04396593517296428,
+        "closest_surface_world": [
+          -1.159999966621399,
+          -0.6770000457763672,
+          2.297999858856201
+        ]
+      },
+      {
+        "mesh": "Entry sconce guard.001",
+        "distance_m": 0.04396616288771004,
+        "closest_surface_world": [
+          -1.159999966621399,
+          -0.6770000457763672,
+          2.382000207901001
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Entry top continuous coping",
+        "distance_m": 1.113024820526421,
+        "closest_surface_world": [
+          -1.159999966621399,
+          -0.6079999804496765,
+          3.450000047683716
+        ]
+      },
+      {
+        "mesh": "Spawn coping.006",
+        "distance_m": 1.114585685718214,
+        "closest_surface_world": [
+          -1.159999966621399,
+          -0.5889999866485596,
+          3.450000047683716
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Shift entry pool.001",
+    "type": "AREA",
+    "location": [
+      1.159999966621399,
+      -0.6899999976158142,
+      2.3399999141693115
+    ],
+    "energy": 12.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Entry sconce glass.001",
+          "hit_world": [
+            1.2048981189727783,
+            -0.6600000262260437,
+            2.3399999141693115
+          ]
+        }
+      ],
+      "shape": "SQUARE",
+      "size": 0.18000000715255737,
+      "size_y": 0.18000000715255737,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          1.0699999332427979,
+          -0.7799999713897705,
+          2.3399999141693115
+        ],
+        [
+          1.0699999332427979,
+          -0.6000000238418579,
+          2.3399999141693115
+        ],
+        [
+          1.25,
+          -0.7799999713897705,
+          2.3399999141693115
+        ],
+        [
+          1.25,
+          -0.6000000238418579,
+          2.3399999141693115
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Entry sconce glass.001",
+        "distance_m": 0.02999997160861788,
+        "closest_surface_world": [
+          1.159999966621399,
+          -0.6600000262260437,
+          2.3399999141693115
+        ]
+      },
+      {
+        "mesh": "Entry sconce guard.003",
+        "distance_m": 0.04396593517296428,
+        "closest_surface_world": [
+          1.159999966621399,
+          -0.6770000457763672,
+          2.297999858856201
+        ]
+      },
+      {
+        "mesh": "Entry sconce guard.004",
+        "distance_m": 0.04396616288771004,
+        "closest_surface_world": [
+          1.159999966621399,
+          -0.6770000457763672,
+          2.382000207901001
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Entry top continuous coping",
+        "distance_m": 1.1130248205264273,
+        "closest_surface_world": [
+          1.1600000858306885,
+          -0.6079999804496765,
+          3.450000047683716
+        ]
+      },
+      {
+        "mesh": "Spawn coping.007",
+        "distance_m": 1.114585685718214,
+        "closest_surface_world": [
+          1.159999966621399,
+          -0.5889999866485596,
+          3.450000047683716
+        ]
+      }
+    ]
+  },
+  {
+    "light": "BRIEFING_light_00_photometric",
+    "type": "AREA",
+    "location": [
+      -5.900000095367432,
+      3.5999999046325684,
+      3.2730000019073486
+    ],
+    "energy": 162.36000061035156,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.2699999809265137,
+      "size_y": 0.23000000417232513,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -6.534999847412109,
+          3.484999895095825,
+          3.2730000019073486
+        ],
+        [
+          -6.534999847412109,
+          3.7149999141693115,
+          3.2730000019073486
+        ],
+        [
+          -5.265000343322754,
+          3.484999895095825,
+          3.2730000019073486
+        ],
+        [
+          -5.265000343322754,
+          3.7149999141693115,
+          3.2730000019073486
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "BRIEFING_ceiling",
+        "distance_m": 0.12700009577477214,
+        "closest_surface_world": [
+          -5.900000095367432,
+          3.5999999046325684,
+          3.4000000953674316
+        ]
+      },
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 0.2869999346109974,
+        "closest_surface_world": [
+          -5.900000095367432,
+          3.5999999046325684,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Spawn coping.002",
+        "distance_m": 1.4741657777213562,
+        "closest_surface_world": [
+          -7.361999988555908,
+          3.5999999046325684,
+          3.4619998931884766
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 0.2869999346109974,
+        "closest_surface_world": [
+          -5.900000095367432,
+          3.5999999046325684,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Spawn coping.002",
+        "distance_m": 1.4741657777213562,
+        "closest_surface_world": [
+          -7.361999988555908,
+          3.5999999046325684,
+          3.4619998931884766
+        ]
+      }
+    ]
+  },
+  {
+    "light": "BRIEFING_light_01_photometric",
+    "type": "AREA",
+    "location": [
+      -3.0999999046325684,
+      3.5999999046325684,
+      3.2730000019073486
+    ],
+    "energy": 42.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.2699999809265137,
+      "size_y": 0.23000000417232513,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -3.734999895095825,
+          3.484999895095825,
+          3.2730000019073486
+        ],
+        [
+          -3.734999895095825,
+          3.7149999141693115,
+          3.2730000019073486
+        ],
+        [
+          -2.4649999141693115,
+          3.484999895095825,
+          3.2730000019073486
+        ],
+        [
+          -2.4649999141693115,
+          3.7149999141693115,
+          3.2730000019073486
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "BRIEFING_ceiling",
+        "distance_m": 0.12700009577566732,
+        "closest_surface_world": [
+          -3.09999942779541,
+          3.5999999046325684,
+          3.4000000953674316
+        ]
+      },
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 0.2869999346113935,
+        "closest_surface_world": [
+          -3.09999942779541,
+          3.5999999046325684,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "HALL_ceiling",
+        "distance_m": 1.3261914708259464,
+        "closest_surface_world": [
+          -1.7799999713897705,
+          3.6000003814697266,
+          3.4010000228881836
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 0.2869999346113935,
+        "closest_surface_world": [
+          -3.09999942779541,
+          3.5999999046325684,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 1.351052824843018,
+        "closest_surface_world": [
+          -1.7799999713897705,
+          3.59999942779541,
+          3.560999870300293
+        ]
+      }
+    ]
+  },
+  {
+    "light": "HALL_light_00_photometric",
+    "type": "AREA",
+    "location": [
+      0.0,
+      1.4500000476837158,
+      3.2730000019073486
+    ],
+    "energy": 99.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.1399999856948853,
+      "size_y": 0.23000000417232513,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          0.11500002443790436,
+          0.8800000548362732,
+          3.2730000019073486
+        ],
+        [
+          -0.11499997973442078,
+          0.8800000548362732,
+          3.2730000019073486
+        ],
+        [
+          0.11499997973442078,
+          2.0199999809265137,
+          3.2730000019073486
+        ],
+        [
+          -0.11500002443790436,
+          2.0199999809265137,
+          3.2730000019073486
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "HALL_ceiling",
+        "distance_m": 0.12700009577499594,
+        "closest_surface_world": [
+          0.0,
+          1.450000286102295,
+          3.4000000953674316
+        ]
+      },
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.2869999346110964,
+        "closest_surface_world": [
+          0.0,
+          1.450000286102295,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "LOCKER_ceiling",
+        "distance_m": 1.7801079267694682,
+        "closest_surface_world": [
+          1.7000000476837158,
+          1.4500000476837158,
+          3.8010001182556152
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.2869999346110964,
+        "closest_surface_world": [
+          0.0,
+          1.450000286102295,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 1.8031482841303976,
+        "closest_surface_world": [
+          -1.7799999713897705,
+          1.4500000476837158,
+          3.560999870300293
+        ]
+      }
+    ]
+  },
+  {
+    "light": "HALL_light_01_photometric",
+    "type": "AREA",
+    "location": [
+      0.0,
+      4.650000095367432,
+      3.2730000019073486
+    ],
+    "energy": 91.08000183105469,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.1399999856948853,
+      "size_y": 0.23000000417232513,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          0.11500002443790436,
+          4.079999923706055,
+          3.2730000019073486
+        ],
+        [
+          -0.11499997973442078,
+          4.079999923706055,
+          3.2730000019073486
+        ],
+        [
+          0.11499997973442078,
+          5.220000267028809,
+          3.2730000019073486
+        ],
+        [
+          -0.11500002443790436,
+          5.220000267028809,
+          3.2730000019073486
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "HALL_ceiling",
+        "distance_m": 0.12700009577477214,
+        "closest_surface_world": [
+          0.0,
+          4.650000095367432,
+          3.4000000953674316
+        ]
+      },
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.2869999346109974,
+        "closest_surface_world": [
+          0.0,
+          4.650000095367432,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "LOCKER_ceiling",
+        "distance_m": 1.7801079267694682,
+        "closest_surface_world": [
+          1.7000000476837158,
+          4.650000095367432,
+          3.8010001182556152
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.2869999346109974,
+        "closest_surface_world": [
+          0.0,
+          4.650000095367432,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 1.8031482841303976,
+        "closest_surface_world": [
+          -1.7799999713897705,
+          4.650000095367432,
+          3.560999870300293
+        ]
+      }
+    ]
+  },
+  {
+    "light": "HALL_light_02_photometric",
+    "type": "AREA",
+    "location": [
+      0.0,
+      8.0,
+      3.2730000019073486
+    ],
+    "energy": 110.8800048828125,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.1399999856948853,
+      "size_y": 0.23000000417232513,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          0.11500002443790436,
+          7.429999828338623,
+          3.2730000019073486
+        ],
+        [
+          -0.11499997973442078,
+          7.429999828338623,
+          3.2730000019073486
+        ],
+        [
+          0.11499997973442078,
+          8.569999694824219,
+          3.2730000019073486
+        ],
+        [
+          -0.11500002443790436,
+          8.569999694824219,
+          3.2730000019073486
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "HALL_ceiling",
+        "distance_m": 0.1270000957748281,
+        "closest_surface_world": [
+          1.1920928955078125e-07,
+          8.0,
+          3.4000000953674316
+        ]
+      },
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.28699993461102213,
+        "closest_surface_world": [
+          1.1920928955078125e-07,
+          8.0,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "SERVICE_ceiling",
+        "distance_m": 1.4058388850824801,
+        "closest_surface_world": [
+          1.1920928955078125e-07,
+          9.399999618530273,
+          3.4010000228881836
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.28699993461102213,
+        "closest_surface_world": [
+          1.1920928955078125e-07,
+          8.0,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Service exterior opaque roof membrane",
+        "distance_m": 1.4293155316565906,
+        "closest_surface_world": [
+          1.1920928955078125e-07,
+          9.399999618530273,
+          3.560999870300293
+        ]
+      }
+    ]
+  },
+  {
+    "light": "LOCKER_light_00_photometric",
+    "type": "AREA",
+    "location": [
+      5.25,
+      2.200000047683716,
+      3.672999858856201
+    ],
+    "energy": 126.2249984741211,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.4700000286102295,
+      "size_y": 0.23000000417232513,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          4.514999866485596,
+          2.0850000381469727,
+          3.672999858856201
+        ],
+        [
+          4.514999866485596,
+          2.315000057220459,
+          3.672999858856201
+        ],
+        [
+          5.985000133514404,
+          2.0850000381469727,
+          3.672999858856201
+        ],
+        [
+          5.985000133514404,
+          2.315000057220459,
+          3.672999858856201
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "LOCKER_ceiling",
+        "distance_m": 0.12700033043945316,
+        "closest_surface_world": [
+          5.249999523162842,
+          2.200000286102295,
+          3.8000001907348633
+        ]
+      },
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 0.28700018123344856,
+        "closest_surface_world": [
+          5.249999523162842,
+          2.200000286102295,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Spawn coping.001",
+        "distance_m": 1.5724001951263504,
+        "closest_surface_world": [
+          5.25,
+          0.6389999985694885,
+          3.861999988555908
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 0.28700018123344856,
+        "closest_surface_world": [
+          5.249999523162842,
+          2.200000286102295,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Spawn coping.001",
+        "distance_m": 1.5724001951263504,
+        "closest_surface_world": [
+          5.25,
+          0.6389999985694885,
+          3.861999988555908
+        ]
+      }
+    ]
+  },
+  {
+    "light": "LOCKER_light_01_photometric",
+    "type": "AREA",
+    "location": [
+      5.25,
+      5.800000190734863,
+      3.672999858856201
+    ],
+    "energy": 75.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.4700000286102295,
+      "size_y": 0.23000000417232513,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          4.514999866485596,
+          5.685000419616699,
+          3.672999858856201
+        ],
+        [
+          4.514999866485596,
+          5.914999961853027,
+          3.672999858856201
+        ],
+        [
+          5.985000133514404,
+          5.685000419616699,
+          3.672999858856201
+        ],
+        [
+          5.985000133514404,
+          5.914999961853027,
+          3.672999858856201
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "LOCKER_ceiling",
+        "distance_m": 0.1270003304383342,
+        "closest_surface_world": [
+          5.25,
+          5.800000190734863,
+          3.8000001907348633
+        ]
+      },
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 0.2870001812329534,
+        "closest_surface_world": [
+          5.25,
+          5.800000190734863,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Spawn coping.005",
+        "distance_m": 1.5733926607578668,
+        "closest_surface_world": [
+          5.25,
+          7.361999988555908,
+          3.861999988555908
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 0.2870001812329534,
+        "closest_surface_world": [
+          5.25,
+          5.800000190734863,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Spawn coping.005",
+        "distance_m": 1.5733926607578668,
+        "closest_surface_world": [
+          5.25,
+          7.361999988555908,
+          3.861999988555908
+        ]
+      }
+    ]
+  },
+  {
+    "light": "LOCKER_light_02_photometric",
+    "type": "AREA",
+    "location": [
+      2.700000047683716,
+      4.0,
+      3.672999858856201
+    ],
+    "energy": 56.099998474121094,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.4700000286102295,
+      "size_y": 0.23000000417232513,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          1.965000033378601,
+          3.884999990463257,
+          3.672999858856201
+        ],
+        [
+          1.965000033378601,
+          4.114999771118164,
+          3.672999858856201
+        ],
+        [
+          3.434999942779541,
+          3.884999990463257,
+          3.672999858856201
+        ],
+        [
+          3.434999942779541,
+          4.114999771118164,
+          3.672999858856201
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "LOCKER_ceiling",
+        "distance_m": 0.12700033043922937,
+        "closest_surface_world": [
+          2.700000047683716,
+          4.000000476837158,
+          3.8000001907348633
+        ]
+      },
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 0.2870001812333495,
+        "closest_surface_world": [
+          2.700000047683716,
+          4.000000476837158,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.9260864594707832,
+        "closest_surface_world": [
+          1.7799999713897705,
+          4.000000476837158,
+          3.566999912261963
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 0.2870001812333495,
+        "closest_surface_world": [
+          2.700000047683716,
+          4.000000476837158,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.9260864594707832,
+        "closest_surface_world": [
+          1.7799999713897705,
+          4.000000476837158,
+          3.566999912261963
+        ]
+      }
+    ]
+  },
+  {
+    "light": "SERVICE_light_photometric",
+    "type": "AREA",
+    "location": [
+      0.0,
+      11.0,
+      3.2730000019073486
+    ],
+    "energy": 85.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.0199999809265137,
+      "size_y": 0.23000000417232513,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -0.5099999904632568,
+          10.885000228881836,
+          3.2730000019073486
+        ],
+        [
+          -0.5099999904632568,
+          11.114999771118164,
+          3.2730000019073486
+        ],
+        [
+          0.5099999904632568,
+          10.885000228881836,
+          3.2730000019073486
+        ],
+        [
+          0.5099999904632568,
+          11.114999771118164,
+          3.2730000019073486
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "SERVICE_ceiling",
+        "distance_m": 0.1270000957748281,
+        "closest_surface_world": [
+          1.1920928955078125e-07,
+          11.0,
+          3.4000000953674316
+        ]
+      },
+      {
+        "mesh": "Service exterior opaque roof membrane",
+        "distance_m": 0.28699993461102213,
+        "closest_surface_world": [
+          1.1920928955078125e-07,
+          11.0,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Service rear top coping",
+        "distance_m": 1.3730704955325281,
+        "closest_surface_world": [
+          0.0,
+          12.360000610351562,
+          3.4619998931884766
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Service exterior opaque roof membrane",
+        "distance_m": 0.28699993461102213,
+        "closest_surface_world": [
+          1.1920928955078125e-07,
+          11.0,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Service rear top coping",
+        "distance_m": 1.3730704955325281,
+        "closest_surface_world": [
+          0.0,
+          12.360000610351562,
+          3.4619998931884766
+        ]
+      }
+    ]
+  },
+  {
+    "light": "V_LIGHT_BRIEF_ceiling",
+    "type": "AREA",
+    "location": [
+      -4.599999904632568,
+      3.5,
+      1.100000023841858
+    ],
+    "energy": 14.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 3.799999952316284,
+      "size_y": 3.799999952316284,
+      "normal_world": [
+        8.742279078433057e-08,
+        8.74227694680485e-08,
+        1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -2.700000047683716,
+          1.5999999046325684,
+          1.100000023841858
+        ],
+        [
+          -2.6999998092651367,
+          5.399999618530273,
+          1.0999996662139893
+        ],
+        [
+          -6.5,
+          1.6000001430511475,
+          1.1000003814697266
+        ],
+        [
+          -6.499999523162842,
+          5.400000095367432,
+          1.100000023841858
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "BRIEFING_ceiling",
+        "distance_m": 2.300000199027687,
+        "closest_surface_world": [
+          -4.599999904632568,
+          3.500000238418579,
+          3.4000000953674316
+        ]
+      },
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 2.4599999958131487,
+        "closest_surface_world": [
+          -4.599999904632568,
+          3.500000238418579,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.001",
+        "distance_m": 2.6610000325245613,
+        "closest_surface_world": [
+          -4.599999904632568,
+          0.8389999866485596,
+          1.0999999046325684
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 2.4599999958131487,
+        "closest_surface_world": [
+          -4.599999904632568,
+          3.500000238418579,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Spawn coping",
+        "distance_m": 3.4807710355761285,
+        "closest_surface_world": [
+          -4.599999904632568,
+          0.9354852437973022,
+          3.453514814376831
+        ]
+      }
+    ]
+  },
+  {
+    "light": "V_LIGHT_BRIEF_wall",
+    "type": "AREA",
+    "location": [
+      -5.900000095367432,
+      3.5999999046325684,
+      3.1500000953674316
+    ],
+    "energy": 25.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Briefing exterior opaque roof membrane",
+          "hit_world": [
+            -5.275068283081055,
+            3.7042160034179688,
+            3.559999942779541
+          ]
+        },
+        {
+          "mesh": "BRIEFING_ceiling",
+          "hit_world": [
+            -5.179532527923584,
+            3.582087516784668,
+            3.4000000953674316
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 1.7000000476837158,
+      "size_y": 1.7000000476837158,
+      "normal_world": [
+        0.1998613029718399,
+        0.8327553272247314,
+        -0.5163080096244812
+      ],
+      "emitter_rectangle_world": [
+        [
+          -6.828948020935059,
+          3.3716232776641846,
+          2.422057628631592
+        ],
+        [
+          -6.624110698699951,
+          4.2251105308532715,
+          3.8779425621032715
+        ],
+        [
+          -5.175889492034912,
+          2.9748892784118652,
+          2.422057628631592
+        ],
+        [
+          -4.971052169799805,
+          3.828376531600952,
+          3.8779425621032715
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "BRIEFING_ceiling",
+        "distance_m": 0.25,
+        "closest_surface_world": [
+          -5.900000095367432,
+          3.5999999046325684,
+          3.4000000953674316
+        ]
+      },
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 0.4099998539249811,
+        "closest_surface_world": [
+          -5.900000095367432,
+          3.5999999046325684,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Spawn coping.002",
+        "distance_m": 1.4949206192493771,
+        "closest_surface_world": [
+          -7.361999988555908,
+          3.5999999046325684,
+          3.4619998931884766
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 0.4099998539249811,
+        "closest_surface_world": [
+          -5.900000095367432,
+          3.5999999046325684,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Spawn coping.002",
+        "distance_m": 1.4949206192493771,
+        "closest_surface_world": [
+          -7.361999988555908,
+          3.5999999046325684,
+          3.4619998931884766
+        ]
+      }
+    ]
+  },
+  {
+    "light": "V_LIGHT_HALL_info",
+    "type": "AREA",
+    "location": [
+      0.0,
+      4.650000095367432,
+      3.1500000953674316
+    ],
+    "energy": 35.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "HALL_ceiling",
+          "hit_world": [
+            0.3920593857765198,
+            4.2592291831970215,
+            3.4000000953674316
+          ]
+        },
+        {
+          "mesh": "Hall exterior opaque roof membrane",
+          "hit_world": [
+            0.4792448878288269,
+            4.437358379364014,
+            3.559999942779541
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 1.399999976158142,
+      "size_y": 1.399999976158142,
+      "normal_world": [
+        0.6920067667961121,
+        0.26459071040153503,
+        -0.6716534495353699
+      ],
+      "emitter_rectangle_world": [
+        [
+          -0.6891475915908813,
+          5.135925769805908,
+          2.631394386291504
+        ],
+        [
+          0.18915531039237976,
+          5.471747398376465,
+          3.6686060428619385
+        ],
+        [
+          -0.18915531039237976,
+          3.8282530307769775,
+          2.631394147872925
+        ],
+        [
+          0.6891475915908813,
+          4.164074420928955,
+          3.6686058044433594
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "HALL_ceiling",
+        "distance_m": 0.25,
+        "closest_surface_world": [
+          0.0,
+          4.650000095367432,
+          3.4000000953674316
+        ]
+      },
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.4099998539249811,
+        "closest_surface_world": [
+          0.0,
+          4.650000095367432,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "BRIEFING_ceiling",
+        "distance_m": 1.7976097387723486,
+        "closest_surface_world": [
+          -1.7799999713897705,
+          4.650000095367432,
+          3.4010000228881836
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.4099998539249811,
+        "closest_surface_world": [
+          0.0,
+          4.650000095367432,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 1.826833497005683,
+        "closest_surface_world": [
+          -1.7799999713897705,
+          4.650000095367432,
+          3.560999870300293
+        ]
+      }
+    ]
+  },
+  {
+    "light": "V_LIGHT_HALL_staff",
+    "type": "AREA",
+    "location": [
+      0.0,
+      1.4500000476837158,
+      3.1700000762939453
+    ],
+    "energy": 55.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "HALL_ceiling",
+          "hit_world": [
+            -0.5258812308311462,
+            1.2884101867675781,
+            3.4000000953674316
+          ]
+        },
+        {
+          "mesh": "Hall exterior opaque roof membrane",
+          "hit_world": [
+            -0.3184736967086792,
+            1.1760001182556152,
+            3.559999942779541
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 1.2000000476837158,
+      "size_y": 1.2000000476837158,
+      "normal_world": [
+        -8.242927407309253e-08,
+        -0.8182450532913208,
+        -0.5748695731163025
+      ],
+      "emitter_rectangle_world": [
+        [
+          0.6000000834465027,
+          1.7949217557907104,
+          2.6790530681610107
+        ],
+        [
+          0.5999999642372131,
+          1.1050782203674316,
+          3.66094708442688
+        ],
+        [
+          -0.5999999642372131,
+          1.794921875,
+          2.6790530681610107
+        ],
+        [
+          -0.6000000834465027,
+          1.1050783395767212,
+          3.66094708442688
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "HALL_ceiling",
+        "distance_m": 0.23000001925501454,
+        "closest_surface_world": [
+          0.0,
+          1.450000286102295,
+          3.4000000953674316
+        ]
+      },
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.38999986217576993,
+        "closest_surface_world": [
+          0.0,
+          1.450000286102295,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "BRIEFING_ceiling",
+        "distance_m": 1.794926401574671,
+        "closest_surface_world": [
+          -1.7799999713897705,
+          1.4500000476837158,
+          3.4010000228881836
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.38999986217576993,
+        "closest_surface_world": [
+          0.0,
+          1.450000286102295,
+          3.559999942779541
+        ]
+      },
+      {
+        "mesh": "Briefing exterior opaque roof membrane",
+        "distance_m": 1.822438104118745,
+        "closest_surface_world": [
+          -1.7799999713897705,
+          1.4500000476837158,
+          3.560999870300293
+        ]
+      }
+    ]
+  },
+  {
+    "light": "V_LIGHT_LOCKER_bays",
+    "type": "AREA",
+    "location": [
+      2.700000047683716,
+      4.0,
+      3.5399999618530273
+    ],
+    "energy": 40.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "LOCKER_ceiling",
+          "hit_world": [
+            3.527954578399658,
+            4.0458760261535645,
+            3.8000001907348633
+          ]
+        },
+        {
+          "mesh": "Locker exterior opaque roof membrane",
+          "hit_world": [
+            3.4075818061828613,
+            4.2000837326049805,
+            3.9600000381469727
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 1.7999999523162842,
+      "size_y": 1.7999999523162842,
+      "normal_world": [
+        0.15332482755184174,
+        0.7666242718696594,
+        -0.6235212087631226
+      ],
+      "emitter_rectangle_world": [
+        [
+          1.707423210144043,
+          3.6262331008911133,
+          2.836374282836914
+        ],
+        [
+          1.9275317192077637,
+          4.726776123046875,
+          4.243625640869141
+        ],
+        [
+          3.472468376159668,
+          3.273223876953125,
+          2.836374282836914
+        ],
+        [
+          3.6925768852233887,
+          4.373766899108887,
+          4.243625640869141
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "LOCKER_ceiling",
+        "distance_m": 0.26000022333436035,
+        "closest_surface_world": [
+          2.700000047683716,
+          4.000000476837158,
+          3.8000001907348633
+        ]
+      },
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 0.42000007788366595,
+        "closest_surface_world": [
+          2.700000047683716,
+          4.000000476837158,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "HALL_ceiling",
+        "distance_m": 0.9200000770195639,
+        "closest_surface_world": [
+          1.7799999713897705,
+          4.0,
+          3.5399999618530273
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 0.42000007788366595,
+        "closest_surface_world": [
+          2.700000047683716,
+          4.000000476837158,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Hall exterior opaque roof membrane",
+        "distance_m": 0.9202397176043167,
+        "closest_surface_world": [
+          1.7799999713897705,
+          4.000000476837158,
+          3.560999870300293
+        ]
+      }
+    ]
+  },
+  {
+    "light": "V_LIGHT_LOCKER_front_fill",
+    "type": "AREA",
+    "location": [
+      5.400000095367432,
+      3.0,
+      2.299999952316284
+    ],
+    "energy": 55.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 2.5,
+      "size_y": 2.5,
+      "normal_world": [
+        -0.5228396058082581,
+        -0.7469136714935303,
+        -0.41080260276794434
+      ],
+      "emitter_rectangle_world": [
+        [
+          6.718514919281006,
+          2.703850269317627,
+          1.1603447198867798
+        ],
+        [
+          6.129565238952637,
+          1.8624937534332275,
+          3.439655303955078
+        ],
+        [
+          4.670434951782227,
+          4.137506484985352,
+          1.1603444814682007
+        ],
+        [
+          4.081485271453857,
+          3.296149730682373,
+          3.439655303955078
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "LOCKER_ceiling",
+        "distance_m": 1.500000238418636,
+        "closest_surface_world": [
+          5.400000095367432,
+          2.999999523162842,
+          3.8000001907348633
+        ]
+      },
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 1.660000064459259,
+        "closest_surface_world": [
+          5.400000095367432,
+          2.999999523162842,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.005",
+        "distance_m": 2.4609999875809323,
+        "closest_surface_world": [
+          5.400000095367432,
+          0.5389999747276306,
+          2.3000001907348633
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 1.660000064459259,
+        "closest_surface_world": [
+          5.400000095367432,
+          2.999999523162842,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Spawn coping.001",
+        "distance_m": 2.829194093401803,
+        "closest_surface_world": [
+          5.400000095367432,
+          0.6354852914810181,
+          3.8535149097442627
+        ]
+      }
+    ]
+  },
+  {
+    "light": "V_LIGHT_LOCKER_pod_fill",
+    "type": "AREA",
+    "location": [
+      5.099999904632568,
+      4.0,
+      2.0999999046325684
+    ],
+    "energy": 45.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 1.7999999523162842,
+      "size_y": 1.7999999523162842,
+      "normal_world": [
+        0.820127010345459,
+        -3.5848891855039255e-08,
+        -0.5721815824508667
+      ],
+      "emitter_rectangle_world": [
+        [
+          4.585036754608154,
+          4.900000095367432,
+          1.3618855476379395
+        ],
+        [
+          5.614963531494141,
+          4.900000095367432,
+          2.8381142616271973
+        ],
+        [
+          4.585036277770996,
+          3.1000001430511475,
+          1.3618855476379395
+        ],
+        [
+          5.614963054656982,
+          3.0999999046325684,
+          2.8381142616271973
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "LOCKER_ceiling",
+        "distance_m": 1.7000003113465865,
+        "closest_surface_world": [
+          5.099999904632568,
+          4.0,
+          3.8000001907348633
+        ]
+      },
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 1.8600001205936516,
+        "closest_surface_world": [
+          5.099999904632568,
+          4.0,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.016",
+        "distance_m": 3.1620634463101793,
+        "closest_surface_world": [
+          8.26200008392334,
+          4.019999980926514,
+          2.0999999046325684
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Locker exterior opaque roof membrane",
+        "distance_m": 1.8600001205936516,
+        "closest_surface_world": [
+          5.099999904632568,
+          4.0,
+          3.9600000381469727
+        ]
+      },
+      {
+        "mesh": "Spawn coping.004",
+        "distance_m": 3.531599854549466,
+        "closest_surface_world": [
+          8.165514945983887,
+          4.0,
+          3.8535149097442627
+        ]
+      }
+    ]
+  }
+]

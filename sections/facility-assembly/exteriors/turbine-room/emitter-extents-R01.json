@@ -1,0 +1,2228 @@
+[
+  {
+    "light": "Turbine entrance pool",
+    "type": "AREA",
+    "location": [
+      0.0,
+      -0.15000000596046448,
+      4.099999904632568
+    ],
+    "energy": 25.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Turbine door overwall skin",
+          "hit_world": [
+            0.1496606022119522,
+            -0.049999989569187164,
+            4.099999904632568
+          ]
+        },
+        {
+          "mesh": "Turbine external identity",
+          "hit_world": [
+            0.1309700757265091,
+            -0.13710057735443115,
+            4.099999904632568
+          ]
+        }
+      ],
+      "shape": "SQUARE",
+      "size": 0.30000001192092896,
+      "size_y": 0.30000001192092896,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -0.15000000596046448,
+          -0.30000001192092896,
+          4.099999904632568
+        ],
+        [
+          -0.15000000596046448,
+          0.0,
+          4.099999904632568
+        ],
+        [
+          0.15000000596046448,
+          -0.30000001192092896,
+          4.099999904632568
+        ],
+        [
+          0.15000000596046448,
+          0.0,
+          4.099999904632568
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Turbine task light lens",
+        "distance_m": 0.00499963758102075,
+        "closest_surface_world": [
+          0.0,
+          -0.15000000596046448,
+          4.104999542236328
+        ]
+      },
+      {
+        "mesh": "Turbine external identity",
+        "distance_m": 0.011917574983038281,
+        "closest_surface_world": [
+          5.960464477539063e-08,
+          -0.13898341357707977,
+          4.095454216003418
+        ]
+      },
+      {
+        "mesh": "Turbine identity task light",
+        "distance_m": 0.03155499984906144,
+        "closest_surface_world": [
+          0.0,
+          -0.1364852786064148,
+          4.128514289855957
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange",
+        "distance_m": 2.4396122559077225,
+        "closest_surface_world": [
+          2.384185791015625e-07,
+          0.7908786535263062,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web",
+        "distance_m": 2.546381452048436,
+        "closest_surface_world": [
+          2.384185791015625e-07,
+          0.940878689289093,
+          6.400878429412842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Bench fluorescent pool",
+    "type": "AREA",
+    "location": [
+      -3.119999885559082,
+      21.299999237060547,
+      2.299999952316284
+    ],
+    "energy": 135.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.25,
+      "size_y": 0.18000000715255737,
+      "normal_world": [
+        0.29706645011901855,
+        3.8894693688007465e-08,
+        -0.954856812953949
+      ],
+      "emitter_rectangle_world": [
+        [
+          -3.205936908721924,
+          21.924999237060547,
+          2.273263931274414
+        ],
+        [
+          -3.034062623977661,
+          21.924999237060547,
+          2.3267359733581543
+        ],
+        [
+          -3.205937147140503,
+          20.674999237060547,
+          2.273263931274414
+        ],
+        [
+          -3.0340628623962402,
+          20.674999237060547,
+          2.3267359733581543
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.010",
+        "distance_m": 1.1310000422721977,
+        "closest_surface_world": [
+          -4.250999927520752,
+          21.299999237060547,
+          2.3000006675720215
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.011",
+        "distance_m": 1.1322568324988027,
+        "closest_surface_world": [
+          -4.250999927520752,
+          21.35333251953125,
+          2.299999713897705
+        ]
+      },
+      {
+        "mesh": "Turbine structural exterior pilaster.004",
+        "distance_m": 1.149347599930974,
+        "closest_surface_world": [
+          -4.25,
+          21.09000015258789,
+          2.3000001907348633
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.008",
+        "distance_m": 4.051067856928313,
+        "closest_surface_world": [
+          -3.119999885559082,
+          21.207000732421875,
+          6.349999904632568
+        ]
+      },
+      {
+        "mesh": "Roof girder web.004",
+        "distance_m": 4.107194257062503,
+        "closest_surface_world": [
+          -3.119999885559082,
+          21.05699920654297,
+          6.399999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Clerestory broad fill",
+    "type": "AREA",
+    "location": [
+      9.770000457763672,
+      5.0,
+      5.300000190734863
+    ],
+    "energy": 260.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Spawn mineral wall panel.013",
+          "hit_world": [
+            10.25100040435791,
+            3.673187494277954,
+            4.739407539367676
+          ]
+        }
+      ],
+      "shape": "RECTANGLE",
+      "size": 2.799999952316284,
+      "size_y": 1.2999999523162842,
+      "normal_world": [
+        -0.8694577217102051,
+        -0.11189953982830048,
+        -0.4811670482158661
+      ],
+      "emitter_rectangle_world": [
+        [
+          10.258907318115234,
+          3.6513752937316895,
+          4.730191707611084
+        ],
+        [
+          9.638506889343262,
+          3.5715298652648926,
+          5.869809150695801
+        ],
+        [
+          9.901494026184082,
+          6.428470134735107,
+          4.730191230773926
+        ],
+        [
+          9.28109359741211,
+          6.3486247062683105,
+          5.869808673858643
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.013",
+        "distance_m": 0.4809999398392067,
+        "closest_surface_world": [
+          10.25100040435791,
+          5.0,
+          5.300000190734863
+        ]
+      },
+      {
+        "mesh": "Turbine side band sill.001",
+        "distance_m": 0.5172313873788235,
+        "closest_surface_world": [
+          10.28499984741211,
+          5.0,
+          5.347999572753906
+        ]
+      },
+      {
+        "mesh": "Turbine side upper rainscreen.001",
+        "distance_m": 0.5334771713157979,
+        "closest_surface_world": [
+          10.296500205993652,
+          5.000000953674316,
+          5.38599967956543
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.002",
+        "distance_m": 1.315231886097451,
+        "closest_surface_world": [
+          9.770000457763672,
+          5.790878772735596,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web.001",
+        "distance_m": 1.4481664163184844,
+        "closest_surface_world": [
+          9.770000457763672,
+          5.940878868103027,
+          6.400878429412842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Clerestory broad fill.001",
+    "type": "AREA",
+    "location": [
+      9.770000457763672,
+      12.5,
+      5.300000190734863
+    ],
+    "energy": 260.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Spawn mineral wall panel.016",
+          "hit_world": [
+            10.25100040435791,
+            11.173185348510742,
+            4.739406585693359
+          ]
+        }
+      ],
+      "shape": "RECTANGLE",
+      "size": 2.799999952316284,
+      "size_y": 1.2999999523162842,
+      "normal_world": [
+        -0.8694577217102051,
+        -0.11189953982830048,
+        -0.4811670482158661
+      ],
+      "emitter_rectangle_world": [
+        [
+          10.258907318115234,
+          11.151375770568848,
+          4.730191707611084
+        ],
+        [
+          9.638506889343262,
+          11.071529388427734,
+          5.869809150695801
+        ],
+        [
+          9.901494026184082,
+          13.928470611572266,
+          4.730191230773926
+        ],
+        [
+          9.28109359741211,
+          13.848624229431152,
+          5.869808673858643
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.016",
+        "distance_m": 0.4809999398392067,
+        "closest_surface_world": [
+          10.25100040435791,
+          12.5,
+          5.300000190734863
+        ]
+      },
+      {
+        "mesh": "Turbine side band sill.001",
+        "distance_m": 0.5172313873797026,
+        "closest_surface_world": [
+          10.28499984741211,
+          12.499999046325684,
+          5.347999572753906
+        ]
+      },
+      {
+        "mesh": "Turbine side upper rainscreen.001",
+        "distance_m": 0.5334771713149454,
+        "closest_surface_world": [
+          10.296500205993652,
+          12.5,
+          5.38599967956543
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.004",
+        "distance_m": 1.6645457322795787,
+        "closest_surface_world": [
+          9.770000457763672,
+          11.209121704101562,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web.002",
+        "distance_m": 1.8133021585622349,
+        "closest_surface_world": [
+          9.770000457763672,
+          11.059121131896973,
+          6.400878429412842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Clerestory broad fill.002",
+    "type": "AREA",
+    "location": [
+      9.770000457763672,
+      20.0,
+      5.300000190734863
+    ],
+    "energy": 260.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Spawn mineral wall panel.018",
+          "hit_world": [
+            10.257143020629883,
+            18.656240463256836,
+            4.732247829437256
+          ]
+        }
+      ],
+      "shape": "RECTANGLE",
+      "size": 2.799999952316284,
+      "size_y": 1.2999999523162842,
+      "normal_world": [
+        -0.8694577217102051,
+        -0.11189953982830048,
+        -0.4811670482158661
+      ],
+      "emitter_rectangle_world": [
+        [
+          10.258907318115234,
+          18.65137481689453,
+          4.730191707611084
+        ],
+        [
+          9.638506889343262,
+          18.571529388427734,
+          5.869809150695801
+        ],
+        [
+          9.901494026184082,
+          21.428470611572266,
+          4.730191230773926
+        ],
+        [
+          9.28109359741211,
+          21.34862518310547,
+          5.869808673858643
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.019",
+        "distance_m": 0.4809999398392067,
+        "closest_surface_world": [
+          10.25100040435791,
+          20.0,
+          5.300000190734863
+        ]
+      },
+      {
+        "mesh": "Turbine side band sill.001",
+        "distance_m": 0.5172313873788235,
+        "closest_surface_world": [
+          10.28499984741211,
+          20.0,
+          5.347999572753906
+        ]
+      },
+      {
+        "mesh": "Turbine side upper rainscreen.001",
+        "distance_m": 0.5334771713149454,
+        "closest_surface_world": [
+          10.296500205993652,
+          20.0,
+          5.38599967956543
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.008",
+        "distance_m": 1.3152315915256432,
+        "closest_surface_world": [
+          9.770000457763672,
+          20.790878295898438,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web.004",
+        "distance_m": 1.4481657783585187,
+        "closest_surface_world": [
+          9.770000457763672,
+          20.94087791442871,
+          6.400878429412842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "D02 electrical threshold light",
+    "type": "AREA",
+    "location": [
+      0.0,
+      24.549999237060547,
+      2.5999999046325684
+    ],
+    "energy": 100.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 1.0,
+      "size_y": 1.0,
+      "normal_world": [
+        -1.2227842072221051e-09,
+        -0.019227979704737663,
+        -0.9998151063919067
+      ],
+      "emitter_rectangle_world": [
+        [
+          0.5000000596046448,
+          25.04990577697754,
+          2.590385913848877
+        ],
+        [
+          0.49999991059303284,
+          24.050090789794922,
+          2.6096138954162598
+        ],
+        [
+          -0.49999991059303284,
+          25.049907684326172,
+          2.590385913848877
+        ],
+        [
+          -0.5000000596046448,
+          24.050092697143555,
+          2.6096138954162598
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Turbine exit overwall skin",
+        "distance_m": 0.3649717498487471,
+        "closest_surface_world": [
+          0.0,
+          24.297483444213867,
+          2.8635149002075195
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.022",
+        "distance_m": 1.2456503022251841,
+        "closest_surface_world": [
+          1.2179999351501465,
+          24.288999557495117,
+          2.5999996662139893
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.021",
+        "distance_m": 1.2456503979256037,
+        "closest_surface_world": [
+          -1.218000054359436,
+          24.288999557495117,
+          2.5999999046325684
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.010",
+        "distance_m": 3.822897623449538,
+        "closest_surface_world": [
+          2.384185791015625e-07,
+          23.8070011138916,
+          6.349999904632568
+        ]
+      },
+      {
+        "mesh": "Roof girder web.005",
+        "distance_m": 3.9035171409534586,
+        "closest_surface_world": [
+          2.384185791015625e-07,
+          23.656999588012695,
+          6.399999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Door downlight pool",
+    "type": "AREA",
+    "location": [
+      0.0,
+      23.68000030517578,
+      3.3399999141693115
+    ],
+    "energy": 90.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.44999998807907104,
+      "size_y": 0.44999998807907104,
+      "normal_world": [
+        -5.677162739914365e-09,
+        -0.08881931751966476,
+        -0.9960477352142334
+      ],
+      "emitter_rectangle_world": [
+        [
+          0.2250000238418579,
+          23.904111862182617,
+          3.3200156688690186
+        ],
+        [
+          0.22499996423721313,
+          23.455888748168945,
+          3.3599841594696045
+        ],
+        [
+          -0.22499996423721313,
+          23.904111862182617,
+          3.3200156688690186
+        ],
+        [
+          -0.2250000238418579,
+          23.455888748168945,
+          3.3599841594696045
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Turbine exit overwall skin",
+        "distance_m": 0.5709991501970563,
+        "closest_surface_world": [
+          -5.960464477539063e-08,
+          24.250999450683594,
+          3.3399999141693115
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.022",
+        "distance_m": 1.349875913762948,
+        "closest_surface_world": [
+          1.2215147018432617,
+          24.254514694213867,
+          3.3399996757507324
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.021",
+        "distance_m": 1.3498760020742187,
+        "closest_surface_world": [
+          -1.2215148210525513,
+          24.254514694213867,
+          3.3399999141693115
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.010",
+        "distance_m": 3.0099999338447936,
+        "closest_surface_world": [
+          -2.384185791015625e-07,
+          23.68000030517578,
+          6.349999904632568
+        ]
+      },
+      {
+        "mesh": "Roof girder web.005",
+        "distance_m": 3.060086094032092,
+        "closest_surface_world": [
+          2.384185791015625e-07,
+          23.656999588012695,
+          6.399999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Entry broad fill",
+    "type": "AREA",
+    "location": [
+      1.0,
+      1.0,
+      5.599999904632568
+    ],
+    "energy": 600.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Roof girder web",
+          "hit_world": [
+            1.824960470199585,
+            1.010020136833191,
+            6.399999618530273
+          ]
+        },
+        {
+          "mesh": "Spawn mineral wall panel.001",
+          "hit_world": [
+            1.2942848205566406,
+            -2.421438694000244e-08,
+            4.0366902351379395
+          ]
+        },
+        {
+          "mesh": "Roof deck",
+          "hit_world": [
+            2.007711887359619,
+            1.3503198623657227,
+            7.200000286102295
+          ]
+        },
+        {
+          "mesh": "Turbine door overwall skin",
+          "hit_world": [
+            1.1350178718566895,
+            -2.421438694000244e-08,
+            3.885805606842041
+          ]
+        },
+        {
+          "mesh": "Roof girder flange.001",
+          "hit_world": [
+            2.241657257080078,
+            1.1268614530563354,
+            7.009999752044678
+          ]
+        },
+        {
+          "mesh": "Turbine external identity",
+          "hit_world": [
+            1.3089990615844727,
+            -0.05000004172325134,
+            3.9585249423980713
+          ]
+        },
+        {
+          "mesh": "Roof girder flange",
+          "hit_world": [
+            2.0680363178253174,
+            0.857866644859314,
+            6.349999904632568
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 4.0,
+      "size_y": 4.0,
+      "normal_world": [
+        0.4118659496307373,
+        0.8008503913879395,
+        -0.43474718928337097
+      ],
+      "emitter_rectangle_world": [
+        [
+          -1.1762371063232422,
+          1.141465425491333,
+          3.7988948822021484
+        ],
+        [
+          -0.38091397285461426,
+          2.687926769256592,
+          7.401104927062988
+        ],
+        [
+          2.3809139728546143,
+          -0.6879268288612366,
+          3.7988948822021484
+        ],
+        [
+          3.176237106323242,
+          0.8585346341133118,
+          7.401104927062988
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof girder flange",
+        "distance_m": 0.75,
+        "closest_surface_world": [
+          1.0,
+          1.0,
+          6.349999904632568
+        ]
+      },
+      {
+        "mesh": "Roof girder web",
+        "distance_m": 0.7999997302889369,
+        "closest_surface_world": [
+          1.0,
+          1.0,
+          6.399999618530273
+        ]
+      },
+      {
+        "mesh": "Turbine door overwall skin",
+        "distance_m": 1.0000000000000018,
+        "closest_surface_world": [
+          0.9999999403953552,
+          0.0,
+          5.599999904632568
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange",
+        "distance_m": 0.75,
+        "closest_surface_world": [
+          1.0,
+          1.0,
+          6.349999904632568
+        ]
+      },
+      {
+        "mesh": "Roof girder web",
+        "distance_m": 0.7999997302889369,
+        "closest_surface_world": [
+          1.0,
+          1.0,
+          6.399999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Hall broad daylight",
+    "type": "AREA",
+    "location": [
+      9.550000190734863,
+      10.5,
+      5.400000095367432
+    ],
+    "energy": 1250.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [
+        {
+          "mesh": "Spawn mineral wall panel.015",
+          "hit_world": [
+            10.25100040435791,
+            8.255682945251465,
+            4.611503601074219
+          ]
+        },
+        {
+          "mesh": "Roof deck",
+          "hit_world": [
+            8.25970458984375,
+            11.56287670135498,
+            7.200000286102295
+          ]
+        },
+        {
+          "mesh": "Roof girder flange.004",
+          "hit_world": [
+            8.869010925292969,
+            11.060962677001953,
+            6.349999904632568
+          ]
+        },
+        {
+          "mesh": "Roof girder web.002",
+          "hit_world": [
+            8.844189643859863,
+            10.946117401123047,
+            6.399999618530273
+          ]
+        },
+        {
+          "mesh": "Roof girder flange.005",
+          "hit_world": [
+            8.429998397827148,
+            11.004034996032715,
+            7.010000228881836
+          ]
+        },
+        {
+          "mesh": "Turbine structural exterior pilaster.008",
+          "hit_world": [
+            10.25,
+            10.953886032104492,
+            4.306375980377197
+          ]
+        },
+        {
+          "mesh": "Spawn mineral wall panel.016",
+          "hit_world": [
+            10.253497123718262,
+            10.680648803710938,
+            4.332219123840332
+          ]
+        }
+      ],
+      "shape": "DISK",
+      "size": 5.0,
+      "size_y": 5.0,
+      "normal_world": [
+        -0.8284339308738708,
+        -0.06323937326669693,
+        -0.5565051436424255
+      ],
+      "emitter_rectangle_world": [
+        [
+          11.127513885498047,
+          8.113147735595703,
+          3.322890043258667
+        ],
+        [
+          8.353059768676758,
+          7.901357173919678,
+          7.477110385894775
+        ],
+        [
+          10.746940612792969,
+          13.09864330291748,
+          3.322889566421509
+        ],
+        [
+          7.972486972808838,
+          12.886852264404297,
+          7.477110385894775
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.015",
+        "distance_m": 0.701000203234084,
+        "closest_surface_world": [
+          10.25100040435791,
+          10.499999046325684,
+          5.40000057220459
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.016",
+        "distance_m": 0.7254279158399431,
+        "closest_surface_world": [
+          10.25100040435791,
+          10.686666488647461,
+          5.400000095367432
+        ]
+      },
+      {
+        "mesh": "Turbine side band sill.001",
+        "distance_m": 0.7352200331080241,
+        "closest_surface_world": [
+          10.28499984741211,
+          10.5,
+          5.381999969482422
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.004",
+        "distance_m": 0.9941573038556965,
+        "closest_surface_world": [
+          9.550000190734863,
+          10.793000221252441,
+          6.349999904632568
+        ]
+      },
+      {
+        "mesh": "Roof girder web.002",
+        "distance_m": 1.0936779952193838,
+        "closest_surface_world": [
+          9.549999237060547,
+          10.940878868103027,
+          6.400878429412842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Practical pool",
+    "type": "AREA",
+    "location": [
+      0.5,
+      3.5,
+      5.920000076293945
+    ],
+    "energy": 170.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.399999976158142,
+      "size_y": 0.2199999988079071,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -0.19999998807907104,
+          3.390000104904175,
+          5.920000076293945
+        ],
+        [
+          -0.19999998807907104,
+          3.609999895095825,
+          5.920000076293945
+        ],
+        [
+          1.2000000476837158,
+          3.390000104904175,
+          5.920000076293945
+        ],
+        [
+          1.2000000476837158,
+          3.609999895095825,
+          5.920000076293945
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.2800002166633095,
+        "closest_surface_world": [
+          0.4999995231628418,
+          3.5000009536743164,
+          7.200000286102295
+        ]
+      },
+      {
+        "mesh": "Roof purlin",
+        "distance_m": 1.7748629517099623,
+        "closest_surface_world": [
+          -0.9514644742012024,
+          3.5,
+          6.941464424133301
+        ]
+      },
+      {
+        "mesh": "Roof girder flange.002",
+        "distance_m": 2.3305769016390485,
+        "closest_surface_world": [
+          0.4999995231628418,
+          5.789999961853027,
+          6.353000164031982
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.2800002166633095,
+        "closest_surface_world": [
+          0.4999995231628418,
+          3.5000009536743164,
+          7.200000286102295
+        ]
+      },
+      {
+        "mesh": "Roof purlin",
+        "distance_m": 1.7748629517099623,
+        "closest_surface_world": [
+          -0.9514644742012024,
+          3.5,
+          6.941464424133301
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Practical pool.001",
+    "type": "AREA",
+    "location": [
+      7.800000190734863,
+      3.5,
+      5.920000076293945
+    ],
+    "energy": 170.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.399999976158142,
+      "size_y": 0.2199999988079071,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          7.100000381469727,
+          3.390000104904175,
+          5.920000076293945
+        ],
+        [
+          7.100000381469727,
+          3.609999895095825,
+          5.920000076293945
+        ],
+        [
+          8.5,
+          3.390000104904175,
+          5.920000076293945
+        ],
+        [
+          8.5,
+          3.609999895095825,
+          5.920000076293945
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof purlin.002",
+        "distance_m": 1.2681044322038453,
+        "closest_surface_world": [
+          7.048535346984863,
+          3.5,
+          6.941464424133301
+        ]
+      },
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.280000216663576,
+        "closest_surface_world": [
+          7.799999237060547,
+          3.5000009536743164,
+          7.200000286102295
+        ]
+      },
+      {
+        "mesh": "Roof girder flange.002",
+        "distance_m": 2.3305769016389997,
+        "closest_surface_world": [
+          7.800000190734863,
+          5.789999961853027,
+          6.353000164031982
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof purlin.002",
+        "distance_m": 1.2681044322038453,
+        "closest_surface_world": [
+          7.048535346984863,
+          3.5,
+          6.941464424133301
+        ]
+      },
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.280000216663576,
+        "closest_surface_world": [
+          7.799999237060547,
+          3.5000009536743164,
+          7.200000286102295
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Practical pool.002",
+    "type": "AREA",
+    "location": [
+      0.5,
+      9.0,
+      5.920000076293945
+    ],
+    "energy": 170.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.399999976158142,
+      "size_y": 0.2199999988079071,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -0.19999998807907104,
+          8.890000343322754,
+          5.920000076293945
+        ],
+        [
+          -0.19999998807907104,
+          9.109999656677246,
+          5.920000076293945
+        ],
+        [
+          1.2000000476837158,
+          8.890000343322754,
+          5.920000076293945
+        ],
+        [
+          1.2000000476837158,
+          9.109999656677246,
+          5.920000076293945
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.2800002166643754,
+        "closest_surface_world": [
+          0.5000004768371582,
+          9.000001907348633,
+          7.200000286102295
+        ]
+      },
+      {
+        "mesh": "Roof purlin",
+        "distance_m": 1.7748629517102186,
+        "closest_surface_world": [
+          -0.9514644742012024,
+          8.999999046325684,
+          6.941464424133301
+        ]
+      },
+      {
+        "mesh": "Roof girder flange.004",
+        "distance_m": 1.841626718697092,
+        "closest_surface_world": [
+          0.4999995231628418,
+          10.789999961853027,
+          6.353000164031982
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.2800002166643754,
+        "closest_surface_world": [
+          0.5000004768371582,
+          9.000001907348633,
+          7.200000286102295
+        ]
+      },
+      {
+        "mesh": "Roof purlin",
+        "distance_m": 1.7748629517102186,
+        "closest_surface_world": [
+          -0.9514644742012024,
+          8.999999046325684,
+          6.941464424133301
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Practical pool.003",
+    "type": "AREA",
+    "location": [
+      7.800000190734863,
+      9.0,
+      5.920000076293945
+    ],
+    "energy": 170.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.399999976158142,
+      "size_y": 0.2199999988079071,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          7.100000381469727,
+          8.890000343322754,
+          5.920000076293945
+        ],
+        [
+          7.100000381469727,
+          9.109999656677246,
+          5.920000076293945
+        ],
+        [
+          8.5,
+          8.890000343322754,
+          5.920000076293945
+        ],
+        [
+          8.5,
+          9.109999656677246,
+          5.920000076293945
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof purlin.002",
+        "distance_m": 1.2681044322042039,
+        "closest_surface_world": [
+          7.048535346984863,
+          8.999999046325684,
+          6.941464424133301
+        ]
+      },
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.280000216663576,
+        "closest_surface_world": [
+          7.799999237060547,
+          9.000000953674316,
+          7.200000286102295
+        ]
+      },
+      {
+        "mesh": "Roof girder flange.004",
+        "distance_m": 1.8416267186970303,
+        "closest_surface_world": [
+          7.800000190734863,
+          10.789999961853027,
+          6.353000164031982
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof purlin.002",
+        "distance_m": 1.2681044322042039,
+        "closest_surface_world": [
+          7.048535346984863,
+          8.999999046325684,
+          6.941464424133301
+        ]
+      },
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.280000216663576,
+        "closest_surface_world": [
+          7.799999237060547,
+          9.000000953674316,
+          7.200000286102295
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Practical pool.004",
+    "type": "AREA",
+    "location": [
+      0.5,
+      14.5,
+      5.920000076293945
+    ],
+    "energy": 170.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.399999976158142,
+      "size_y": 0.2199999988079071,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -0.19999998807907104,
+          14.390000343322754,
+          5.920000076293945
+        ],
+        [
+          -0.19999998807907104,
+          14.609999656677246,
+          5.920000076293945
+        ],
+        [
+          1.2000000476837158,
+          14.390000343322754,
+          5.920000076293945
+        ],
+        [
+          1.2000000476837158,
+          14.609999656677246,
+          5.920000076293945
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.2800002166629543,
+        "closest_surface_world": [
+          0.5000004768371582,
+          14.5,
+          7.200000286102295
+        ]
+      },
+      {
+        "mesh": "Roof girder flange.006",
+        "distance_m": 1.360731056883024,
+        "closest_surface_world": [
+          0.5000004768371582,
+          15.789999961853027,
+          6.353000164031982
+        ]
+      },
+      {
+        "mesh": "Roof girder web.003",
+        "distance_m": 1.5188441892938394,
+        "closest_surface_world": [
+          0.4999995231628418,
+          15.9399995803833,
+          6.4029998779296875
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.2800002166629543,
+        "closest_surface_world": [
+          0.5000004768371582,
+          14.5,
+          7.200000286102295
+        ]
+      },
+      {
+        "mesh": "Roof girder flange.006",
+        "distance_m": 1.360731056883024,
+        "closest_surface_world": [
+          0.5000004768371582,
+          15.789999961853027,
+          6.353000164031982
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Practical pool.005",
+    "type": "AREA",
+    "location": [
+      7.800000190734863,
+      14.5,
+      5.920000076293945
+    ],
+    "energy": 170.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.399999976158142,
+      "size_y": 0.2199999988079071,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          7.100000381469727,
+          14.390000343322754,
+          5.920000076293945
+        ],
+        [
+          7.100000381469727,
+          14.609999656677246,
+          5.920000076293945
+        ],
+        [
+          8.5,
+          14.390000343322754,
+          5.920000076293945
+        ],
+        [
+          8.5,
+          14.609999656677246,
+          5.920000076293945
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof purlin.002",
+        "distance_m": 1.2681044322038453,
+        "closest_surface_world": [
+          7.048535346984863,
+          14.5,
+          6.941464424133301
+        ]
+      },
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.2800002166632207,
+        "closest_surface_world": [
+          7.800000190734863,
+          14.499999046325684,
+          7.200000286102295
+        ]
+      },
+      {
+        "mesh": "Roof girder flange.006",
+        "distance_m": 1.3607310568829403,
+        "closest_surface_world": [
+          7.800000190734863,
+          15.789999961853027,
+          6.353000164031982
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof purlin.002",
+        "distance_m": 1.2681044322038453,
+        "closest_surface_world": [
+          7.048535346984863,
+          14.5,
+          6.941464424133301
+        ]
+      },
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.2800002166632207,
+        "closest_surface_world": [
+          7.800000190734863,
+          14.499999046325684,
+          7.200000286102295
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Practical pool.006",
+    "type": "AREA",
+    "location": [
+      0.5,
+      20.0,
+      5.920000076293945
+    ],
+    "energy": 170.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.399999976158142,
+      "size_y": 0.2199999988079071,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          -0.19999998807907104,
+          19.889999389648438,
+          5.920000076293945
+        ],
+        [
+          -0.19999998807907104,
+          20.110000610351562,
+          5.920000076293945
+        ],
+        [
+          1.2000000476837158,
+          19.889999389648438,
+          5.920000076293945
+        ],
+        [
+          1.2000000476837158,
+          20.110000610351562,
+          5.920000076293945
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof girder flange.008",
+        "distance_m": 0.900635807970645,
+        "closest_surface_world": [
+          0.4999995231628418,
+          20.790878295898438,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web.004",
+        "distance_m": 1.0566433749631348,
+        "closest_surface_world": [
+          0.4999995231628418,
+          20.94087791442871,
+          6.400878429412842
+        ]
+      },
+      {
+        "mesh": "Roof deck",
+        "distance_m": 1.2800002166630653,
+        "closest_surface_world": [
+          0.5000007152557373,
+          20.0,
+          7.200000286102295
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.008",
+        "distance_m": 0.900635807970645,
+        "closest_surface_world": [
+          0.4999995231628418,
+          20.790878295898438,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web.004",
+        "distance_m": 1.0566433749631348,
+        "closest_surface_world": [
+          0.4999995231628418,
+          20.94087791442871,
+          6.400878429412842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Practical pool.007",
+    "type": "AREA",
+    "location": [
+      7.800000190734863,
+      20.0,
+      5.920000076293945
+    ],
+    "energy": 170.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "RECTANGLE",
+      "size": 1.399999976158142,
+      "size_y": 0.2199999988079071,
+      "normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "emitter_rectangle_world": [
+        [
+          7.100000381469727,
+          19.889999389648438,
+          5.920000076293945
+        ],
+        [
+          7.100000381469727,
+          20.110000610351562,
+          5.920000076293945
+        ],
+        [
+          8.5,
+          19.889999389648438,
+          5.920000076293945
+        ],
+        [
+          8.5,
+          20.110000610351562,
+          5.920000076293945
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Roof girder flange.008",
+        "distance_m": 0.900635807970645,
+        "closest_surface_world": [
+          7.8000006675720215,
+          20.790878295898438,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web.004",
+        "distance_m": 1.0566433749631348,
+        "closest_surface_world": [
+          7.8000006675720215,
+          20.94087791442871,
+          6.400878429412842
+        ]
+      },
+      {
+        "mesh": "Roof purlin.002",
+        "distance_m": 1.2681044322038453,
+        "closest_surface_world": [
+          7.048535346984863,
+          20.0,
+          6.941464424133301
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.008",
+        "distance_m": 0.900635807970645,
+        "closest_surface_world": [
+          7.8000006675720215,
+          20.790878295898438,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web.004",
+        "distance_m": 1.0566433749631348,
+        "closest_surface_world": [
+          7.8000006675720215,
+          20.94087791442871,
+          6.400878429412842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Wall light pool",
+    "type": "AREA",
+    "location": [
+      -3.759999990463257,
+      3.0,
+      4.050000190734863
+    ],
+    "energy": 130.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.5,
+      "size_y": 0.5,
+      "normal_world": [
+        0.45536816120147705,
+        5.239089162500932e-08,
+        -0.8903032541275024
+      ],
+      "emitter_rectangle_world": [
+        [
+          -3.9825758934020996,
+          3.25,
+          3.9361581802368164
+        ],
+        [
+          -3.537424087524414,
+          3.25,
+          4.16384220123291
+        ],
+        [
+          -3.9825758934020996,
+          2.75,
+          3.9361581802368164
+        ],
+        [
+          -3.537424087524414,
+          2.75,
+          4.16384220123291
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.004",
+        "distance_m": 0.49099993866601355,
+        "closest_surface_world": [
+          -4.250999927520752,
+          3.000000238418579,
+          4.049999713897705
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.003",
+        "distance_m": 0.602880483188328,
+        "closest_surface_world": [
+          -4.254514694213867,
+          2.6551520824432373,
+          4.050000190734863
+        ]
+      },
+      {
+        "mesh": "Turbine side band sill",
+        "distance_m": 1.3985021032829685,
+        "closest_surface_world": [
+          -4.288000106811523,
+          3.0,
+          5.34499979019165
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange",
+        "distance_m": 2.9156969002284034,
+        "closest_surface_world": [
+          -3.760000228881836,
+          1.2091213464736938,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web",
+        "distance_m": 3.0485469436747654,
+        "closest_surface_world": [
+          -3.760000228881836,
+          1.0591213703155518,
+          6.400878429412842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Wall light pool.001",
+    "type": "AREA",
+    "location": [
+      -3.759999990463257,
+      8.0,
+      4.050000190734863
+    ],
+    "energy": 130.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.5,
+      "size_y": 0.5,
+      "normal_world": [
+        0.45536816120147705,
+        5.239089162500932e-08,
+        -0.8903032541275024
+      ],
+      "emitter_rectangle_world": [
+        [
+          -3.9825758934020996,
+          8.25,
+          3.9361581802368164
+        ],
+        [
+          -3.537424087524414,
+          8.25,
+          4.16384220123291
+        ],
+        [
+          -3.9825758934020996,
+          7.75,
+          3.9361581802368164
+        ],
+        [
+          -3.537424087524414,
+          7.75,
+          4.16384220123291
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.006",
+        "distance_m": 0.49140708169493397,
+        "closest_surface_world": [
+          -4.250999927520752,
+          8.019999504089355,
+          4.050000190734863
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.005",
+        "distance_m": 0.49140710109151636,
+        "closest_surface_world": [
+          -4.250999927520752,
+          7.980000019073486,
+          4.049999713897705
+        ]
+      },
+      {
+        "mesh": "Turbine side band sill",
+        "distance_m": 1.3985021032832936,
+        "closest_surface_world": [
+          -4.288000106811523,
+          8.000000953674316,
+          5.34499979019165
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.002",
+        "distance_m": 2.9156969819991034,
+        "closest_surface_world": [
+          -3.760000228881836,
+          6.209121227264404,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web.001",
+        "distance_m": 3.0485470609856904,
+        "closest_surface_world": [
+          -3.760000228881836,
+          6.059121131896973,
+          6.400878429412842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Wall light pool.002",
+    "type": "AREA",
+    "location": [
+      -3.759999990463257,
+      13.0,
+      4.050000190734863
+    ],
+    "energy": 130.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.5,
+      "size_y": 0.5,
+      "normal_world": [
+        0.45536816120147705,
+        5.239089162500932e-08,
+        -0.8903032541275024
+      ],
+      "emitter_rectangle_world": [
+        [
+          -3.9825758934020996,
+          13.25,
+          3.9361581802368164
+        ],
+        [
+          -3.537424087524414,
+          13.25,
+          4.16384220123291
+        ],
+        [
+          -3.9825758934020996,
+          12.75,
+          3.9361581802368164
+        ],
+        [
+          -3.537424087524414,
+          12.75,
+          4.16384220123291
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.007",
+        "distance_m": 0.4909999386659557,
+        "closest_surface_world": [
+          -4.250999927520752,
+          13.0,
+          4.049999713897705
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.008",
+        "distance_m": 0.602880891012239,
+        "closest_surface_world": [
+          -4.254514694213867,
+          13.3448486328125,
+          4.050000190734863
+        ]
+      },
+      {
+        "mesh": "Turbine side band sill",
+        "distance_m": 1.3985021032832936,
+        "closest_surface_world": [
+          -4.288000106811523,
+          13.000000953674316,
+          5.34499979019165
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.004",
+        "distance_m": 2.9156966958016444,
+        "closest_surface_world": [
+          -3.760000228881836,
+          11.209121704101562,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web.002",
+        "distance_m": 3.0485470609856904,
+        "closest_surface_world": [
+          -3.760000228881836,
+          11.059121131896973,
+          6.400878429412842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Wall light pool.003",
+    "type": "AREA",
+    "location": [
+      -3.759999990463257,
+      18.0,
+      4.050000190734863
+    ],
+    "energy": 130.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.5,
+      "size_y": 0.5,
+      "normal_world": [
+        0.45536816120147705,
+        5.239089162500932e-08,
+        -0.8903032541275024
+      ],
+      "emitter_rectangle_world": [
+        [
+          -3.9825758934020996,
+          18.25,
+          3.9361581802368164
+        ],
+        [
+          -3.537424087524414,
+          18.25,
+          4.16384220123291
+        ],
+        [
+          -3.9825758934020996,
+          17.75,
+          3.9361581802368164
+        ],
+        [
+          -3.537424087524414,
+          17.75,
+          4.16384220123291
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.009",
+        "distance_m": 0.49099993866572417,
+        "closest_surface_world": [
+          -4.250999927520752,
+          18.0,
+          4.050000190734863
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.010",
+        "distance_m": 0.8393293979184251,
+        "closest_surface_world": [
+          -4.254514694213867,
+          18.678180694580078,
+          4.050000190734863
+        ]
+      },
+      {
+        "mesh": "Turbine side band sill",
+        "distance_m": 1.3985021032829685,
+        "closest_surface_world": [
+          -4.288000106811523,
+          18.0,
+          5.34499979019165
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.006",
+        "distance_m": 2.9156966958016444,
+        "closest_surface_world": [
+          -3.760000228881836,
+          16.209121704101562,
+          6.350878715515137
+        ]
+      },
+      {
+        "mesh": "Roof girder web.003",
+        "distance_m": 3.0485464744310202,
+        "closest_surface_world": [
+          -3.760000228881836,
+          16.05912208557129,
+          6.400878429412842
+        ]
+      }
+    ]
+  },
+  {
+    "light": "Wall light pool.004",
+    "type": "AREA",
+    "location": [
+      -3.759999990463257,
+      23.0,
+      4.050000190734863
+    ],
+    "energy": 130.0,
+    "radius_m": null,
+    "area": {
+      "surface_crossings": [],
+      "shape": "DISK",
+      "size": 0.5,
+      "size_y": 0.5,
+      "normal_world": [
+        0.45536816120147705,
+        5.239089162500932e-08,
+        -0.8903032541275024
+      ],
+      "emitter_rectangle_world": [
+        [
+          -3.9825758934020996,
+          23.25,
+          3.9361581802368164
+        ],
+        [
+          -3.537424087524414,
+          23.25,
+          4.16384220123291
+        ],
+        [
+          -3.9825758934020996,
+          22.75,
+          3.9361581802368164
+        ],
+        [
+          -3.537424087524414,
+          22.75,
+          4.16384220123291
+        ]
+      ]
+    },
+    "nearest_exterior_surfaces": [
+      {
+        "mesh": "Spawn mineral wall panel.011",
+        "distance_m": 0.49099993866572417,
+        "closest_surface_world": [
+          -4.250999927520752,
+          23.0,
+          4.050000190734863
+        ]
+      },
+      {
+        "mesh": "Turbine structural exterior pilaster.005",
+        "distance_m": 0.7027221267251964,
+        "closest_surface_world": [
+          -4.254393100738525,
+          23.499393463134766,
+          4.050000190734863
+        ]
+      },
+      {
+        "mesh": "Spawn mineral wall panel.021",
+        "distance_m": 1.2509994326072194,
+        "closest_surface_world": [
+          -3.7599997520446777,
+          24.250999450683594,
+          4.049999713897705
+        ]
+      }
+    ],
+    "sphere_reaches_exterior": [],
+    "nearest_roof_surfaces": [
+      {
+        "mesh": "Roof girder flange.010",
+        "distance_m": 2.333333934346867,
+        "closest_surface_world": [
+          -3.760000705718994,
+          23.39299964904785,
+          6.349999904632568
+        ]
+      },
+      {
+        "mesh": "Roof girder web.005",
+        "distance_m": 2.4119177985466584,
+        "closest_surface_world": [
+          -3.760000705718994,
+          23.543001174926758,
+          6.399999618530273
+        ]
+      }
+    ]
+  }
+]

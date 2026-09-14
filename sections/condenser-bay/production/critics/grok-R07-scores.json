@@ -1,0 +1,92 @@
+{
+  "reviewer": "independent grok-4.6 critic subagent",
+  "not": "Luna",
+  "revision": "R07",
+  "date": "2026-09-11",
+  "disposition": "REJECT",
+  "pass_rule": "every category independently > 90; 90 or below is REJECT; unverified cannot pass",
+  "prior_revision": {
+    "R02": "REJECT 22-61; scores not reused",
+    "R04": "REJECT 47-73; scores not reused"
+  },
+  "evidence": {
+    "warm_renders": [
+      "C01_ENTRY.png",
+      "C02_HERO.png",
+      "C03_REVERSE.png",
+      "C04_EXHAUST.png",
+      "C05_RETURN.png",
+      "C06_COOLING.png",
+      "C07_OPERATOR.png",
+      "C08_MAINT.png",
+      "C09_ROOF.png",
+      "C10_MATERIALS.png",
+      "W01_ENTRY_CORNER.png",
+      "W02_SW_TURN.png",
+      "W03_NW.png",
+      "W04_NE.png",
+      "W05_SE.png",
+      "W06_WEST_AISLE.png",
+      "W07_EAST_PULL.png",
+      "W08_GALLERY_TURN.png"
+    ],
+    "cold_renders": [
+      "C01_ENTRY.png",
+      "C02_HERO.png",
+      "C04_EXHAUST.png",
+      "C07_OPERATOR.png",
+      "W01_ENTRY_CORNER.png"
+    ],
+    "cold_status": "PARTIAL_5_of_18; five match warm visually; remaining thirteen UNVERIFIED",
+    "resolution": [1920, 1080],
+    "engine": "BLENDER_EEVEE",
+    "raytracing": false,
+    "continuity": [
+      "turbine-room/production/renders/final/R07/C02_hero.png",
+      "cooling-plant/production/renders/final/C02_HERO.png",
+      "cooling-plant/production/renders/final/C05_PUMP_A.png"
+    ]
+  },
+  "scores": {
+    "contract_specification_coverage": 63,
+    "scale_layout": 73,
+    "machinery_logic": 55,
+    "circulation_readability": 72,
+    "construction_detail": 52,
+    "materials": 58,
+    "lighting": 62,
+    "palette": 74,
+    "storytelling": 55,
+    "valorant_reference_fidelity": 48
+  },
+  "disposition_by_category": {
+    "contract_specification_coverage": "REJECT",
+    "scale_layout": "REJECT",
+    "machinery_logic": "REJECT",
+    "circulation_readability": "REJECT",
+    "construction_detail": "REJECT",
+    "materials": "REJECT_COLD_INCOMPLETE",
+    "lighting": "REJECT_COLD_INCOMPLETE",
+    "palette": "REJECT",
+    "storytelling": "REJECT",
+    "valorant_reference_fidelity": "REJECT"
+  },
+  "unverified": [
+    "cold_open_full_18_cameras",
+    "U04_2.5x1.5_receive_neck_flange_seal",
+    "D01_clear_parked_open_opening_and_threshold",
+    "CW_capped_wall_flanges_and_isolators",
+    "IF_CONDENSATE_HANDOFF_stub",
+    "hotwell_level_glasses",
+    "gallery_standing_view",
+    "pull_bay_keep_clear_from_readable_camera",
+    "numerical_clearances"
+  ],
+  "categories_at_or_below_90": 10,
+  "categories_above_90": 0,
+  "three_most_consequential": [
+    "U04 receive still unproven: C04 is gallery steel; C08/C09/W08 do not show opening/flange/seal",
+    "greybox machinery: C02/C06 hollow waterbox nozzle, orange-box waterboxes, yellow-stick coupling, toy operator guards",
+    "C06/W07/C08/W08/C09 still fail CW caps, gallery standing, pull bay, and roof hole"
+  ]
+}

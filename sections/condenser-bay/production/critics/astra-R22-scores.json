@@ -1,0 +1,49 @@
+{
+  "reviewer": "independent Luna (gpt-5.6-luna) critic subagent",
+  "revision": "R22",
+  "date": "2026-09-12",
+  "disposition": "REJECT",
+  "review_set": {
+    "warm_directory": "production/renders/review/R22",
+    "cold_directory": "production/renders/review/cold-R22",
+    "warm_images": 18,
+    "cold_images": 18,
+    "resolution": "1920x1080",
+    "cold_open": "PASS — separately reopened process/PID evidence supplied for all 18 cameras",
+    "cold_comparison": "worst mean channel delta 0.000004501/255"
+  },
+  "saved_audit": {
+    "path": "production/validation/R22/astra-saved-audit.json",
+    "status": "FAIL",
+    "findings": [
+      "U04 reveal lining intrudes into nominal 2.5x1.5 opening",
+      "D01 extinguisher/sill sampled check fails",
+      "west designated cartlane touches waterbox",
+      "suction lines cross pump approach"
+    ]
+  },
+  "three_most_consequential_defects": [
+    {"image": "C04_EXHAUST.png", "severity": "blocker", "mismatch": "U04 receive opening, neck, flange, seal, and support are not visible."},
+    {"image": "C01_ENTRY.png; W03_NW.png; W07_EAST_PULL.png", "severity": "blocker", "mismatch": "Saved audit fails U04 reveal, sill, cartlane/waterbox, and suction/pump approach checks."},
+    {"image": "C06_COOLING.png", "severity": "major", "mismatch": "Gauge/isolator rods disappear into the dark ceiling without clearly evidenced structural landings or deliberate terminations."}
+  ],
+  "scores": {
+    "contract_specification_coverage": {"score": 82, "disposition": "REJECT"},
+    "scale_layout": {"score": 86, "disposition": "REJECT"},
+    "machinery_logic": {"score": 84, "disposition": "REJECT"},
+    "circulation_readability": {"score": 82, "disposition": "REJECT"},
+    "construction_detail": {"score": 84, "disposition": "REJECT"},
+    "materials": {"score": 88, "disposition": "REJECT"},
+    "lighting": {"score": 84, "disposition": "REJECT"},
+    "palette": {"score": 91, "disposition": "PASS"},
+    "storytelling_environmental_specificity": {"score": 86, "disposition": "REJECT"},
+    "valorant_reference_fidelity": {"score": 84, "disposition": "REJECT"}
+  },
+  "unverified_or_missing": [
+    "Visible U04 exhaust flange/neck/slab landing",
+    "Complete U02 cap-side return handoff",
+    "Cooling remote endpoints and support landings",
+    "Complete roof/services envelope",
+    "Several required close crops: exhaust flange, floor/support contacts, door/access reveals, and glass edges"
+  ]
+}

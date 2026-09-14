@@ -1,0 +1,66 @@
+{
+  "reviewer": "independent Luna (gpt-5.6-luna) critic subagent",
+  "revision": "R34-stability",
+  "date": "2026-09-12",
+  "disposition": "PASS_ROUND_2_OF_2_WITH_DISCLOSED_CROSSROUND_PIXEL_VARIANCE",
+  "review_set": {
+    "warm_images": 18,
+    "cold_images": 18,
+    "warm_supplemental_images": 7,
+    "cold_supplemental_images": 7,
+    "resolution": "1920x1080",
+    "cold_open": "PASS — separate-process comparisons",
+    "main_cold_worst_mean_delta_255": 0.02087127057613169,
+    "supplemental_cold_worst_mean_delta_255": 0.021063850308641975,
+    "supplemental_crossround_worst_mean_delta_255": 0.02296264146090535
+  },
+  "saved_audit": {
+    "status": "PASS",
+    "note": "Six saved R34 audits remain PASS"
+  },
+  "boundary": {
+    "U02": "turbine-owned cap action remains outside local scope; local flange evidence inspected",
+    "cooling": "local provisional CW sockets are accepted as local evidence; remote bind is not claimed"
+  },
+  "three_most_consequential_defects": [
+    {
+      "image": "C04_EXHAUST.png; S07_U04_CUTAWAY.png",
+      "severity": "major",
+      "mismatch": "The primary exhaust crop remains a tight, low-separation layered underside; the labelled cutaway is needed to make coherent U04 throat and shell context legible.",
+      "consequence": "Machinery and construction readability depend on the supplement."
+    },
+    {
+      "image": "C06_COOLING.png; S02_LOCAL_CW.png",
+      "severity": "major",
+      "mismatch": "The primary cooling crop shows mostly overhead services and only part of the endpoints; the local CW supplement carries the complete endpoint story.",
+      "consequence": "Cooling logic is evidenced but not immediate from the named camera."
+    },
+    {
+      "image": "C08_MAINT.png; W08_GALLERY_TURN.png",
+      "severity": "major",
+      "mismatch": "Foreground rail, service pipe, and structural framing compress the maintenance deck and gallery route; the gallery destination is visually dark.",
+      "consequence": "Circulation and maintenance readability remain the weakest passing areas."
+    }
+  ],
+  "scores": {
+    "contract_specification_coverage": {"score": 94, "disposition": "PASS"},
+    "scale_layout": {"score": 92, "disposition": "PASS"},
+    "machinery_logic": {"score": 93, "disposition": "PASS"},
+    "circulation_readability": {"score": 91, "disposition": "PASS"},
+    "construction_detail": {"score": 91, "disposition": "PASS"},
+    "materials": {"score": 94, "disposition": "PASS"},
+    "lighting": {"score": 92, "disposition": "PASS"},
+    "palette": {"score": 94, "disposition": "PASS"},
+    "storytelling_environmental_specificity": {"score": 92, "disposition": "PASS"},
+    "valorant_reference_fidelity": {"score": 91, "disposition": "PASS"}
+  },
+  "crossround_main_stability_screen": {
+    "status": "FAIL_RETAINED",
+    "worst_mean_delta_255": 0.038089634773662555,
+    "C02_HERO": {"max_channel_delta_255": 35, "pixels_over_32": 1, "pixels_over_8": 66, "visual_judgment": "honest localized GPU edge variance; no substantive visual regression"},
+    "C08_MAINT": {"max_channel_delta_255": 61, "pixels_over_32": 18, "pixels_over_8": 213, "visual_judgment": "honest localized GPU edge variance; no substantive visual regression"},
+    "decision": "Raw maximum failure is disclosed and not relabelled numeric PASS; visual review accepts the unchanged art result."
+  },
+  "unverified_or_missing": [],
+  "two_round_requirement": "Two complete independent rounds above 90 in every art category are now present; cross-round main pixel maximum failure remains a disclosed technical screen for the parent acceptance decision."
+}

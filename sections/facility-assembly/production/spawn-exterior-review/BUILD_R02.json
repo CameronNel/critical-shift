@@ -1,0 +1,119 @@
+{
+  "revision": "R02",
+  "approved_concept": "SPAWN_EXTERIOR_CONCEPT_02.png",
+  "approval": "Cameron: Implement that",
+  "file": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\facility_spawn_concept02_R02.blend",
+  "new_objects": 233,
+  "new_faces": 34089,
+  "spawn_exterior_overrides": 162,
+  "planted_beds": [
+    [
+      -22.75,
+      0.27,
+      5.3,
+      0.4
+    ],
+    [
+      -33.65,
+      0.56,
+      3.25,
+      0.32
+    ],
+    [
+      -19.46,
+      7.0,
+      0.34,
+      0.72
+    ],
+    [
+      -23.25,
+      7.63,
+      5.45,
+      0.36
+    ],
+    [
+      -33.35,
+      6.45,
+      3.5,
+      0.32
+    ]
+  ],
+  "fixture_ledger": [
+    {
+      "object": "Arrival orange jamb inlay",
+      "purpose": "entry identification",
+      "support": "existing rear pier"
+    },
+    {
+      "object": "Arrival orange jamb inlay.001",
+      "purpose": "entry identification",
+      "support": "existing rear pier"
+    },
+    {
+      "object": "South canopy orange folded fascia",
+      "purpose": "shift entry accent",
+      "support": "existing south canopy fascia"
+    },
+    {
+      "object": "South service enclosure",
+      "purpose": "local exterior service disconnect",
+      "support": "backing plate and four wall anchors"
+    },
+    {
+      "object": "East service enclosure",
+      "purpose": "local exterior service disconnect",
+      "support": "backing plate and four wall anchors"
+    },
+    {
+      "object": "South utility run",
+      "purpose": "local service conduit",
+      "support": "wall saddles; wall glands at both ends"
+    },
+    {
+      "object": "East utility run",
+      "purpose": "local service conduit",
+      "support": "wall saddles; wall glands at both ends"
+    },
+    {
+      "object": "Hose reel mounting",
+      "purpose": "stowed maintenance hose",
+      "support": "south wall"
+    },
+    {
+      "object": "Spare pipe rack foot",
+      "purpose": "stored spare pipe rack",
+      "support": "east apron ground"
+    },
+    {
+      "object": "Spare pipe rack foot.001",
+      "purpose": "stored spare pipe rack",
+      "support": "east apron ground"
+    },
+    {
+      "object": "Wall planting bed",
+      "purpose": "maintained planted wall margin",
+      "support": "existing exterior apron"
+    },
+    {
+      "object": "Wall planting bed.001",
+      "purpose": "maintained planted wall margin",
+      "support": "existing exterior apron"
+    },
+    {
+      "object": "Wall planting bed.002",
+      "purpose": "maintained planted wall margin",
+      "support": "existing exterior apron"
+    },
+    {
+      "object": "Wall planting bed.003",
+      "purpose": "maintained planted wall margin",
+      "support": "existing exterior apron"
+    },
+    {
+      "object": "Wall planting bed.004",
+      "purpose": "maintained planted wall margin",
+      "support": "existing exterior apron"
+    }
+  ],
+  "scope": "Spawn exterior + adjoining courtyard. Source room libraries unchanged. Neighbor mine rock and distant landscape remain separate-section work."
+}

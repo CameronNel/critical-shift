@@ -1,0 +1,76 @@
+{
+  "revision": "R34-bench-gpu-denoise",
+  "engine": "CYCLES",
+  "device": "GPU",
+  "cpu_threads": 16,
+  "threads_mode": "AUTO",
+  "process_priority": "NORMAL",
+  "gpu_denoising": true,
+  "gpu_backend": "HIP",
+  "gpu_devices": "AMD Radeon RX 9070 XT",
+  "hardware_raytracing": true,
+  "persistent_data": true,
+  "samples": 32,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "render_settings": {
+    "max_bounces": 10,
+    "diffuse_bounces": 3,
+    "glossy_bounces": 3,
+    "transmission_bounces": 8,
+    "transparent_max_bounces": 8,
+    "sample_clamp_indirect": 3.0,
+    "adaptive_threshold": 0.03999999910593033,
+    "seed": 0,
+    "denoiser": "OPENIMAGEDENOISE"
+  },
+  "renderer_source_sha256": {
+    "render.py": "e72afd806e3e8864c4fee6a4a1377a76074132fa3916fec5e7af2e9c45b96a9d",
+    "resource_guard.py": "f034c6172cae782787b9cb3c497be0364f69a8220a6b89981b47192ad2a332af"
+  },
+  "cameras": [
+    {
+      "camera": "C09_ROOF",
+      "seconds": 52.71,
+      "sha256": "b59ffcc8b8f3448f537ec04b4331c3d00c8a1071d200406520979e474703f0ee",
+      "location": [
+        5.800000190734863,
+        6.0,
+        5.449999809265137
+      ],
+      "lens": 28.0,
+      "matrix_world": [
+        [
+          -0.5714938640594482,
+          0.09554524719715118,
+          0.8150250315666199,
+          5.800000190734863
+        ],
+        [
+          0.8206063508987427,
+          0.06654033809900284,
+          0.5676069259643555,
+          6.0
+        ],
+        [
+          9.911374831972353e-08,
+          0.9931986331939697,
+          -0.11643242835998535,
+          5.449999809265137
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "process_id": 29532
+    }
+  ],
+  "process_id": 29532,
+  "source_revision": "R34",
+  "blend_sha256": "26edf558d2e03b16b841940d20973b74017a52e9f8c0c320d5ff5487c9d9ea3b"
+}

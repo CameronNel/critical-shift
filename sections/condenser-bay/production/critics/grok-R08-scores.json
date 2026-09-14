@@ -1,0 +1,91 @@
+{
+  "reviewer": "independent grok-4.6 critic subagent",
+  "not": "Luna",
+  "revision": "R08",
+  "date": "2026-09-11",
+  "disposition": "REJECT",
+  "pass_rule": "every category independently > 90; 90 or below is REJECT; unverified cannot pass",
+  "prior_revision": {
+    "R02": "REJECT 22-61; scores not reused",
+    "R04": "REJECT 47-73; scores not reused",
+    "R07": "REJECT 48-74; scores not reused"
+  },
+  "evidence": {
+    "warm_renders": [
+      "C01_ENTRY.png",
+      "C02_HERO.png",
+      "C03_REVERSE.png",
+      "C04_EXHAUST.png",
+      "C05_RETURN.png",
+      "C06_COOLING.png",
+      "C07_OPERATOR.png",
+      "C08_MAINT.png",
+      "C09_ROOF.png",
+      "C10_MATERIALS.png",
+      "W01_ENTRY_CORNER.png",
+      "W02_SW_TURN.png",
+      "W03_NW.png",
+      "W04_NE.png",
+      "W05_SE.png",
+      "W06_WEST_AISLE.png",
+      "W07_EAST_PULL.png",
+      "W08_GALLERY_TURN.png"
+    ],
+    "cold_renders": [],
+    "cold_status": "R08_COLD_MISSING; cold-R07 five-camera set is not this revision",
+    "resolution": [1920, 1080],
+    "engine": "BLENDER_EEVEE",
+    "raytracing": false,
+    "continuity": [
+      "turbine-room/production/renders/final/R07/C02_hero.png",
+      "cooling-plant/production/renders/final/C02_HERO.png",
+      "cooling-plant/production/renders/final/C05_PUMP_A.png"
+    ],
+    "observed_progress_vs_R07": [
+      "W01 looks through D01 into owned unbound stub with floor, walls, dado, UNBOUND CONNECTOR lettering",
+      "C06 shows labeled east-wall CW SUPPLY and CW RETURN sockets"
+    ]
+  },
+  "scores": {
+    "contract_specification_coverage": 67,
+    "scale_layout": 74,
+    "machinery_logic": 58,
+    "circulation_readability": 76,
+    "construction_detail": 53,
+    "materials": 58,
+    "lighting": 63,
+    "palette": 75,
+    "storytelling": 56,
+    "valorant_reference_fidelity": 49
+  },
+  "disposition_by_category": {
+    "contract_specification_coverage": "REJECT",
+    "scale_layout": "REJECT",
+    "machinery_logic": "REJECT",
+    "circulation_readability": "REJECT",
+    "construction_detail": "REJECT",
+    "materials": "REJECT_COLD_UNVERIFIED",
+    "lighting": "REJECT_COLD_UNVERIFIED",
+    "palette": "REJECT",
+    "storytelling": "REJECT",
+    "valorant_reference_fidelity": "REJECT"
+  },
+  "unverified": [
+    "R08_cold_open_18_cameras",
+    "U04_2.5x1.5_receive_neck_flange_seal",
+    "D01_threshold_sill_and_uncropped_identity",
+    "CW_blind_caps_bolt_rings_isolators_on_pipe",
+    "IF_CONDENSATE_HANDOFF_stub",
+    "hotwell_level_glasses",
+    "gallery_standing_view",
+    "pull_bay_keep_clear_from_readable_camera",
+    "numerical_clearances"
+  ],
+  "categories_at_or_below_90": 10,
+  "categories_above_90": 0,
+  "three_most_consequential": [
+    "U04 receive still unproven: C04/C08/C09/W08 do not show opening/flange/seal",
+    "greybox machinery: C02 hollow waterbox nozzle, orange-box waterboxes, yellow-stick coupling, toy operator guards",
+    "C08/W08/W07/C06 still fail standing gallery, pull bay, and isolators that actually sit on the pipe"
+  ]
+}

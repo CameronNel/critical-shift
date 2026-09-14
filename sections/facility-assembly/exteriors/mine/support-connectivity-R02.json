@@ -1,0 +1,2273 @@
+{
+  "mesh_defects": [],
+  "revision": "R02",
+  "scope": "Evaluated world-AABB connectivity broadphase, not raycast/anchor/support-angle validation. Original render-visible mesh objects are root candidates; physical/collision suitability is not independently classified. AABB overlap can be empty space, contact does not imply load-bearing support, and deep penetration is accepted by this connectivity graph. Text/curves excluded. Model is not saved.",
+  "threshold_m": 0.005,
+  "numerical_epsilon_m": 1e-06,
+  "additive_mesh_count": 132,
+  "original_root_candidate_count": 2575,
+  "root_connected_additive_count": 132,
+  "detached_components": [],
+  "direct_original_candidates": [
+    {
+      "object": "Mine handoff mineral panel",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0922"
+      ]
+    },
+    {
+      "object": "Mine handoff slate panel",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0922"
+      ]
+    },
+    {
+      "object": "Mine handoff mineral panel.001",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0922"
+      ]
+    },
+    {
+      "object": "Mine handoff slate panel.001",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0922"
+      ]
+    },
+    {
+      "object": "Mine handoff mineral panel.002",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0922"
+      ]
+    },
+    {
+      "object": "Mine handoff slate panel.002",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0922"
+      ]
+    },
+    {
+      "object": "Mine handoff mineral panel.003",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0922"
+      ]
+    },
+    {
+      "object": "Mine handoff slate panel.003",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0922"
+      ]
+    },
+    {
+      "object": "Mine handoff folded top",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0922"
+      ]
+    },
+    {
+      "object": "Mine handoff mineral panel.004",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0932"
+      ]
+    },
+    {
+      "object": "Mine handoff slate panel.004",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0932"
+      ]
+    },
+    {
+      "object": "Mine handoff mineral panel.005",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0932"
+      ]
+    },
+    {
+      "object": "Mine handoff slate panel.005",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0932"
+      ]
+    },
+    {
+      "object": "Mine handoff mineral panel.006",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0932"
+      ]
+    },
+    {
+      "object": "Mine handoff slate panel.006",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0932"
+      ]
+    },
+    {
+      "object": "Mine handoff mineral panel.007",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0932"
+      ]
+    },
+    {
+      "object": "Mine handoff slate panel.007",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0932"
+      ]
+    },
+    {
+      "object": "Mine handoff folded top.001",
+      "original_candidates": [
+        "CSMV_Handoff side wall_0932"
+      ]
+    },
+    {
+      "object": "Mine transition mineral lower",
+      "original_candidates": [
+        "CSM_Facility_transition_wall"
+      ]
+    },
+    {
+      "object": "Mine transition slate upper",
+      "original_candidates": [
+        "CSM_Facility_transition_wall"
+      ]
+    },
+    {
+      "object": "Mine transition top edge",
+      "original_candidates": [
+        "CSM_Facility_transition_wall"
+      ]
+    },
+    {
+      "object": "Mine transition mineral lower.001",
+      "original_candidates": [
+        "CSM_Facility_transition_wall",
+        "CSMV_Handoff cladding_0923",
+        "CSMV_Handoff base_0931"
+      ]
+    },
+    {
+      "object": "Mine transition slate upper.001",
+      "original_candidates": [
+        "CSM_Facility_transition_wall",
+        "CSMV_Handoff cladding_0923",
+        "CSMV_Handoff orange datum_0924"
+      ]
+    },
+    {
+      "object": "Mine transition orange datum.001",
+      "original_candidates": [
+        "CSMV_Handoff cladding_0923"
+      ]
+    },
+    {
+      "object": "Mine transition mineral lower.002",
+      "original_candidates": [
+        "CSM_Facility_transition_wall"
+      ]
+    },
+    {
+      "object": "Mine transition slate upper.002",
+      "original_candidates": [
+        "CSM_Facility_transition_wall",
+        "CSM_Facility_supply_riser"
+      ]
+    },
+    {
+      "object": "Mine transition mineral lower.003",
+      "original_candidates": [
+        "CSM_Facility_transition_wall"
+      ]
+    },
+    {
+      "object": "Mine transition slate upper.003",
+      "original_candidates": [
+        "CSM_Facility_transition_wall",
+        "CSM_Facility_supply_riser"
+      ]
+    },
+    {
+      "object": "Mine transition mineral lower.004",
+      "original_candidates": [
+        "CSM_Facility_transition_wall"
+      ]
+    },
+    {
+      "object": "Mine transition slate upper.004",
+      "original_candidates": [
+        "CSM_Facility_transition_wall",
+        "CSM_Facility_supply_riser"
+      ]
+    },
+    {
+      "object": "Mine transition top edge.001",
+      "original_candidates": [
+        "CSM_Facility_transition_wall",
+        "CSM_Facility_supply_riser",
+        "CSMV_Handoff cladding_0923"
+      ]
+    },
+    {
+      "object": "Mine transition mineral lower.005",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002"
+      ]
+    },
+    {
+      "object": "Mine transition slate upper.005",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002"
+      ]
+    },
+    {
+      "object": "Mine transition top edge.002",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002"
+      ]
+    },
+    {
+      "object": "Mine transition mineral lower.006",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002",
+        "CSMV_Handoff cladding_0933",
+        "CSMV_Handoff base_0941"
+      ]
+    },
+    {
+      "object": "Mine transition slate upper.006",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002",
+        "CSMV_Handoff cladding_0933",
+        "CSMV_Handoff orange datum_0934"
+      ]
+    },
+    {
+      "object": "Mine transition orange datum.006",
+      "original_candidates": [
+        "CSMV_Handoff cladding_0933"
+      ]
+    },
+    {
+      "object": "Mine transition mineral lower.007",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002"
+      ]
+    },
+    {
+      "object": "Mine transition slate upper.007",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002"
+      ]
+    },
+    {
+      "object": "Mine transition mineral lower.008",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002"
+      ]
+    },
+    {
+      "object": "Mine transition slate upper.008",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002"
+      ]
+    },
+    {
+      "object": "Mine transition mineral lower.009",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002"
+      ]
+    },
+    {
+      "object": "Mine transition slate upper.009",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002"
+      ]
+    },
+    {
+      "object": "Mine transition top edge.003",
+      "original_candidates": [
+        "CSM_Facility_transition_wall.002",
+        "CSMV_Handoff cladding_0933"
+      ]
+    }
+  ],
+  "additive_bounds": [
+    {
+      "name": "Mine handoff mineral panel",
+      "bounds": [
+        [
+          -7.89300012588501,
+          -20.420000076293945,
+          0.0
+        ],
+        [
+          -6.5894999504089355,
+          -20.3700008392334,
+          2.299999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff slate panel",
+      "bounds": [
+        [
+          -7.89300012588501,
+          -20.420000076293945,
+          2.3000001907348633
+        ],
+        [
+          -6.5894999504089355,
+          -20.3700008392334,
+          5.0
+        ]
+      ]
+    },
+    {
+      "name": "Mine orange exterior datum",
+      "bounds": [
+        [
+          -7.89300012588501,
+          -20.42799949645996,
+          2.3600001335144043
+        ],
+        [
+          -6.5894999504089355,
+          -20.420000076293945,
+          2.5399999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt",
+      "bounds": [
+        [
+          -7.841000080108643,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          -7.804999828338623,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.001",
+      "bounds": [
+        [
+          -7.841000080108643,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          -7.804999828338623,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.002",
+      "bounds": [
+        [
+          -7.841000080108643,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          -7.804999828338623,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.003",
+      "bounds": [
+        [
+          -7.841000080108643,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          -7.804999828338623,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.004",
+      "bounds": [
+        [
+          -6.677500247955322,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          -6.641499996185303,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.005",
+      "bounds": [
+        [
+          -6.677500247955322,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          -6.641499996185303,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.006",
+      "bounds": [
+        [
+          -6.677500247955322,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          -6.641499996185303,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.007",
+      "bounds": [
+        [
+          -6.677500247955322,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          -6.641499996185303,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff mineral panel.001",
+      "bounds": [
+        [
+          -6.575500011444092,
+          -20.420000076293945,
+          0.0
+        ],
+        [
+          -5.271999835968018,
+          -20.3700008392334,
+          2.299999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff slate panel.001",
+      "bounds": [
+        [
+          -6.575500011444092,
+          -20.420000076293945,
+          2.3000001907348633
+        ],
+        [
+          -5.271999835968018,
+          -20.3700008392334,
+          5.0
+        ]
+      ]
+    },
+    {
+      "name": "Mine orange exterior datum.001",
+      "bounds": [
+        [
+          -6.575500011444092,
+          -20.42799949645996,
+          2.3600001335144043
+        ],
+        [
+          -5.271999835968018,
+          -20.420000076293945,
+          2.5399999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.008",
+      "bounds": [
+        [
+          -6.523499965667725,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          -6.487499713897705,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.009",
+      "bounds": [
+        [
+          -6.523499965667725,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          -6.487499713897705,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.010",
+      "bounds": [
+        [
+          -6.523499965667725,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          -6.487499713897705,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.011",
+      "bounds": [
+        [
+          -6.523499965667725,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          -6.487499713897705,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.012",
+      "bounds": [
+        [
+          -5.360000133514404,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          -5.323999881744385,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.013",
+      "bounds": [
+        [
+          -5.360000133514404,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          -5.323999881744385,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.014",
+      "bounds": [
+        [
+          -5.360000133514404,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          -5.323999881744385,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.015",
+      "bounds": [
+        [
+          -5.360000133514404,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          -5.323999881744385,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff mineral panel.002",
+      "bounds": [
+        [
+          -5.257999897003174,
+          -20.420000076293945,
+          0.0
+        ],
+        [
+          -3.9544997215270996,
+          -20.3700008392334,
+          2.299999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff slate panel.002",
+      "bounds": [
+        [
+          -5.257999897003174,
+          -20.420000076293945,
+          2.3000001907348633
+        ],
+        [
+          -3.9544997215270996,
+          -20.3700008392334,
+          5.0
+        ]
+      ]
+    },
+    {
+      "name": "Mine orange exterior datum.002",
+      "bounds": [
+        [
+          -5.257999897003174,
+          -20.42799949645996,
+          2.3600001335144043
+        ],
+        [
+          -3.9544997215270996,
+          -20.420000076293945,
+          2.5399999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.016",
+      "bounds": [
+        [
+          -5.206000328063965,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          -5.170000076293945,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.017",
+      "bounds": [
+        [
+          -5.206000328063965,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          -5.170000076293945,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.018",
+      "bounds": [
+        [
+          -5.206000328063965,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          -5.170000076293945,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.019",
+      "bounds": [
+        [
+          -5.206000328063965,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          -5.170000076293945,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.020",
+      "bounds": [
+        [
+          -4.042500019073486,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          -4.006499767303467,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.021",
+      "bounds": [
+        [
+          -4.042500019073486,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          -4.006499767303467,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.022",
+      "bounds": [
+        [
+          -4.042500019073486,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          -4.006499767303467,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.023",
+      "bounds": [
+        [
+          -4.042500019073486,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          -4.006499767303467,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff mineral panel.003",
+      "bounds": [
+        [
+          -3.940500020980835,
+          -20.420000076293945,
+          0.0
+        ],
+        [
+          -2.6369998455047607,
+          -20.3700008392334,
+          2.299999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff slate panel.003",
+      "bounds": [
+        [
+          -3.940500020980835,
+          -20.420000076293945,
+          2.3000001907348633
+        ],
+        [
+          -2.6369998455047607,
+          -20.3700008392334,
+          5.0
+        ]
+      ]
+    },
+    {
+      "name": "Mine orange exterior datum.003",
+      "bounds": [
+        [
+          -3.940500020980835,
+          -20.42799949645996,
+          2.3600001335144043
+        ],
+        [
+          -2.6369998455047607,
+          -20.420000076293945,
+          2.5399999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.024",
+      "bounds": [
+        [
+          -3.8884999752044678,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          -3.8525002002716064,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.025",
+      "bounds": [
+        [
+          -3.8884999752044678,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          -3.8525002002716064,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.026",
+      "bounds": [
+        [
+          -3.8884999752044678,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          -3.8525002002716064,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.027",
+      "bounds": [
+        [
+          -3.8884999752044678,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          -3.8525002002716064,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.028",
+      "bounds": [
+        [
+          -2.7249999046325684,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          -2.689000129699707,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.029",
+      "bounds": [
+        [
+          -2.7249999046325684,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          -2.689000129699707,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.030",
+      "bounds": [
+        [
+          -2.7249999046325684,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          -2.689000129699707,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.031",
+      "bounds": [
+        [
+          -2.7249999046325684,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          -2.689000129699707,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff folded top",
+      "bounds": [
+        [
+          -7.899999618530273,
+          -20.48000144958496,
+          4.920000076293945
+        ],
+        [
+          -2.629999876022339,
+          -20.260000228881836,
+          5.0
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff mineral panel.004",
+      "bounds": [
+        [
+          2.6369998455047607,
+          -20.420000076293945,
+          0.0
+        ],
+        [
+          3.940500020980835,
+          -20.3700008392334,
+          2.299999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff slate panel.004",
+      "bounds": [
+        [
+          2.6369998455047607,
+          -20.420000076293945,
+          2.3000001907348633
+        ],
+        [
+          3.940500020980835,
+          -20.3700008392334,
+          5.0
+        ]
+      ]
+    },
+    {
+      "name": "Mine orange exterior datum.004",
+      "bounds": [
+        [
+          2.6369998455047607,
+          -20.42799949645996,
+          2.3600001335144043
+        ],
+        [
+          3.940500020980835,
+          -20.420000076293945,
+          2.5399999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.032",
+      "bounds": [
+        [
+          2.689000129699707,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          2.7249999046325684,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.033",
+      "bounds": [
+        [
+          2.689000129699707,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          2.7249999046325684,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.034",
+      "bounds": [
+        [
+          2.689000129699707,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          2.7249999046325684,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.035",
+      "bounds": [
+        [
+          2.689000129699707,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          2.7249999046325684,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.036",
+      "bounds": [
+        [
+          3.8525002002716064,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          3.8884999752044678,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.037",
+      "bounds": [
+        [
+          3.8525002002716064,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          3.8884999752044678,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.038",
+      "bounds": [
+        [
+          3.8525002002716064,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          3.8884999752044678,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.039",
+      "bounds": [
+        [
+          3.8525002002716064,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          3.8884999752044678,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff mineral panel.005",
+      "bounds": [
+        [
+          3.9544997215270996,
+          -20.420000076293945,
+          0.0
+        ],
+        [
+          5.257999897003174,
+          -20.3700008392334,
+          2.299999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff slate panel.005",
+      "bounds": [
+        [
+          3.9544997215270996,
+          -20.420000076293945,
+          2.3000001907348633
+        ],
+        [
+          5.257999897003174,
+          -20.3700008392334,
+          5.0
+        ]
+      ]
+    },
+    {
+      "name": "Mine orange exterior datum.005",
+      "bounds": [
+        [
+          3.9544997215270996,
+          -20.42799949645996,
+          2.3600001335144043
+        ],
+        [
+          5.257999897003174,
+          -20.420000076293945,
+          2.5399999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.040",
+      "bounds": [
+        [
+          4.006499767303467,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          4.042500019073486,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.041",
+      "bounds": [
+        [
+          4.006499767303467,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          4.042500019073486,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.042",
+      "bounds": [
+        [
+          4.006499767303467,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          4.042500019073486,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.043",
+      "bounds": [
+        [
+          4.006499767303467,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          4.042500019073486,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.044",
+      "bounds": [
+        [
+          5.170000076293945,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          5.206000328063965,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.045",
+      "bounds": [
+        [
+          5.170000076293945,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          5.206000328063965,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.046",
+      "bounds": [
+        [
+          5.170000076293945,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          5.206000328063965,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.047",
+      "bounds": [
+        [
+          5.170000076293945,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          5.206000328063965,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff mineral panel.006",
+      "bounds": [
+        [
+          5.271999835968018,
+          -20.420000076293945,
+          0.0
+        ],
+        [
+          6.575500011444092,
+          -20.3700008392334,
+          2.299999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff slate panel.006",
+      "bounds": [
+        [
+          5.271999835968018,
+          -20.420000076293945,
+          2.3000001907348633
+        ],
+        [
+          6.575500011444092,
+          -20.3700008392334,
+          5.0
+        ]
+      ]
+    },
+    {
+      "name": "Mine orange exterior datum.006",
+      "bounds": [
+        [
+          5.271999835968018,
+          -20.42799949645996,
+          2.3600001335144043
+        ],
+        [
+          6.575500011444092,
+          -20.420000076293945,
+          2.5399999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.048",
+      "bounds": [
+        [
+          5.323999881744385,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          5.360000133514404,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.049",
+      "bounds": [
+        [
+          5.323999881744385,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          5.360000133514404,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.050",
+      "bounds": [
+        [
+          5.323999881744385,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          5.360000133514404,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.051",
+      "bounds": [
+        [
+          5.323999881744385,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          5.360000133514404,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.052",
+      "bounds": [
+        [
+          6.487499713897705,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          6.523499965667725,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.053",
+      "bounds": [
+        [
+          6.487499713897705,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          6.523499965667725,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.054",
+      "bounds": [
+        [
+          6.487499713897705,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          6.523499965667725,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.055",
+      "bounds": [
+        [
+          6.487499713897705,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          6.523499965667725,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff mineral panel.007",
+      "bounds": [
+        [
+          6.5894999504089355,
+          -20.420000076293945,
+          0.0
+        ],
+        [
+          7.89300012588501,
+          -20.3700008392334,
+          2.299999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff slate panel.007",
+      "bounds": [
+        [
+          6.5894999504089355,
+          -20.420000076293945,
+          2.3000001907348633
+        ],
+        [
+          7.89300012588501,
+          -20.3700008392334,
+          5.0
+        ]
+      ]
+    },
+    {
+      "name": "Mine orange exterior datum.007",
+      "bounds": [
+        [
+          6.5894999504089355,
+          -20.42799949645996,
+          2.3600001335144043
+        ],
+        [
+          7.89300012588501,
+          -20.420000076293945,
+          2.5399999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.056",
+      "bounds": [
+        [
+          6.641499996185303,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          6.677500247955322,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.057",
+      "bounds": [
+        [
+          6.641499996185303,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          6.677500247955322,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.058",
+      "bounds": [
+        [
+          6.641499996185303,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          6.677500247955322,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.059",
+      "bounds": [
+        [
+          6.641499996185303,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          6.677500247955322,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.060",
+      "bounds": [
+        [
+          7.804999828338623,
+          -20.43400001525879,
+          0.16200000047683716
+        ],
+        [
+          7.841000080108643,
+          -20.420000076293945,
+          0.1980000138282776
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.061",
+      "bounds": [
+        [
+          7.804999828338623,
+          -20.43400001525879,
+          2.1019999980926514
+        ],
+        [
+          7.841000080108643,
+          -20.420000076293945,
+          2.1379997730255127
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.062",
+      "bounds": [
+        [
+          7.804999828338623,
+          -20.43400001525879,
+          2.76200008392334
+        ],
+        [
+          7.841000080108643,
+          -20.420000076293945,
+          2.797999858856201
+        ]
+      ]
+    },
+    {
+      "name": "Mine exterior panel bolt.063",
+      "bounds": [
+        [
+          7.804999828338623,
+          -20.43400001525879,
+          4.822000026702881
+        ],
+        [
+          7.841000080108643,
+          -20.420000076293945,
+          4.8580002784729
+        ]
+      ]
+    },
+    {
+      "name": "Mine handoff folded top.001",
+      "bounds": [
+        [
+          2.629999876022339,
+          -20.48000144958496,
+          4.920000076293945
+        ],
+        [
+          7.899999618530273,
+          -20.260000228881836,
+          5.0
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition mineral lower",
+      "bounds": [
+        [
+          -2.6700000762939453,
+          -21.99250030517578,
+          0.0
+        ],
+        [
+          -2.619999885559082,
+          -20.487499237060547,
+          1.2999999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition slate upper",
+      "bounds": [
+        [
+          -2.6700000762939453,
+          -21.99250030517578,
+          1.2999999523162842
+        ],
+        [
+          -2.619999885559082,
+          -20.487499237060547,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition orange datum",
+      "bounds": [
+        [
+          -2.677999973297119,
+          -21.99250030517578,
+          1.3399999141693115
+        ],
+        [
+          -2.6700000762939453,
+          -20.487499237060547,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition top edge",
+      "bounds": [
+        [
+          -2.7300000190734863,
+          -22.0,
+          3.7200000286102295
+        ],
+        [
+          -2.570000171661377,
+          -20.479999542236328,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition mineral lower.001",
+      "bounds": [
+        [
+          -2.6700000762939453,
+          -20.072500228881836,
+          0.0
+        ],
+        [
+          -2.619999885559082,
+          -18.5674991607666,
+          1.2999999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition slate upper.001",
+      "bounds": [
+        [
+          -2.6700000762939453,
+          -20.072500228881836,
+          1.2999999523162842
+        ],
+        [
+          -2.619999885559082,
+          -18.5674991607666,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition orange datum.001",
+      "bounds": [
+        [
+          -2.677999973297119,
+          -20.072500228881836,
+          1.3399999141693115
+        ],
+        [
+          -2.6700000762939453,
+          -18.5674991607666,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition mineral lower.002",
+      "bounds": [
+        [
+          -2.6700000762939453,
+          -18.552499771118164,
+          0.0
+        ],
+        [
+          -2.619999885559082,
+          -17.04749870300293,
+          1.2999999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition slate upper.002",
+      "bounds": [
+        [
+          -2.6700000762939453,
+          -18.552499771118164,
+          1.2999999523162842
+        ],
+        [
+          -2.619999885559082,
+          -17.04749870300293,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition orange datum.002",
+      "bounds": [
+        [
+          -2.677999973297119,
+          -18.552499771118164,
+          1.3399999141693115
+        ],
+        [
+          -2.6700000762939453,
+          -17.04749870300293,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition mineral lower.003",
+      "bounds": [
+        [
+          -2.6700000762939453,
+          -17.032501220703125,
+          0.0
+        ],
+        [
+          -2.619999885559082,
+          -15.527501106262207,
+          1.2999999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition slate upper.003",
+      "bounds": [
+        [
+          -2.6700000762939453,
+          -17.032501220703125,
+          1.2999999523162842
+        ],
+        [
+          -2.619999885559082,
+          -15.527501106262207,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition orange datum.003",
+      "bounds": [
+        [
+          -2.677999973297119,
+          -17.032501220703125,
+          1.3399999141693115
+        ],
+        [
+          -2.6700000762939453,
+          -15.527501106262207,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition mineral lower.004",
+      "bounds": [
+        [
+          -2.6700000762939453,
+          -15.512499809265137,
+          0.0
+        ],
+        [
+          -2.619999885559082,
+          -14.007500648498535,
+          1.2999999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition slate upper.004",
+      "bounds": [
+        [
+          -2.6700000762939453,
+          -15.512499809265137,
+          1.2999999523162842
+        ],
+        [
+          -2.619999885559082,
+          -14.007500648498535,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition orange datum.004",
+      "bounds": [
+        [
+          -2.677999973297119,
+          -15.512499809265137,
+          1.3399999141693115
+        ],
+        [
+          -2.6700000762939453,
+          -14.007500648498535,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition top edge.001",
+      "bounds": [
+        [
+          -2.7300000190734863,
+          -20.080001831054688,
+          3.7200000286102295
+        ],
+        [
+          -2.570000171661377,
+          -14.000000953674316,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition mineral lower.005",
+      "bounds": [
+        [
+          2.619999885559082,
+          -21.99250030517578,
+          0.0
+        ],
+        [
+          2.6700000762939453,
+          -20.487499237060547,
+          1.2999999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition slate upper.005",
+      "bounds": [
+        [
+          2.619999885559082,
+          -21.99250030517578,
+          1.2999999523162842
+        ],
+        [
+          2.6700000762939453,
+          -20.487499237060547,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition orange datum.005",
+      "bounds": [
+        [
+          2.6700000762939453,
+          -21.99250030517578,
+          1.3399999141693115
+        ],
+        [
+          2.677999973297119,
+          -20.487499237060547,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition top edge.002",
+      "bounds": [
+        [
+          2.570000171661377,
+          -22.0,
+          3.7200000286102295
+        ],
+        [
+          2.7300000190734863,
+          -20.479999542236328,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition mineral lower.006",
+      "bounds": [
+        [
+          2.619999885559082,
+          -20.072500228881836,
+          0.0
+        ],
+        [
+          2.6700000762939453,
+          -18.5674991607666,
+          1.2999999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition slate upper.006",
+      "bounds": [
+        [
+          2.619999885559082,
+          -20.072500228881836,
+          1.2999999523162842
+        ],
+        [
+          2.6700000762939453,
+          -18.5674991607666,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition orange datum.006",
+      "bounds": [
+        [
+          2.6700000762939453,
+          -20.072500228881836,
+          1.3399999141693115
+        ],
+        [
+          2.677999973297119,
+          -18.5674991607666,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition mineral lower.007",
+      "bounds": [
+        [
+          2.619999885559082,
+          -18.552499771118164,
+          0.0
+        ],
+        [
+          2.6700000762939453,
+          -17.04749870300293,
+          1.2999999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition slate upper.007",
+      "bounds": [
+        [
+          2.619999885559082,
+          -18.552499771118164,
+          1.2999999523162842
+        ],
+        [
+          2.6700000762939453,
+          -17.04749870300293,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition orange datum.007",
+      "bounds": [
+        [
+          2.6700000762939453,
+          -18.552499771118164,
+          1.3399999141693115
+        ],
+        [
+          2.677999973297119,
+          -17.04749870300293,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition mineral lower.008",
+      "bounds": [
+        [
+          2.619999885559082,
+          -17.032501220703125,
+          0.0
+        ],
+        [
+          2.6700000762939453,
+          -15.527501106262207,
+          1.2999999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition slate upper.008",
+      "bounds": [
+        [
+          2.619999885559082,
+          -17.032501220703125,
+          1.2999999523162842
+        ],
+        [
+          2.6700000762939453,
+          -15.527501106262207,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition orange datum.008",
+      "bounds": [
+        [
+          2.6700000762939453,
+          -17.032501220703125,
+          1.3399999141693115
+        ],
+        [
+          2.677999973297119,
+          -15.527501106262207,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition mineral lower.009",
+      "bounds": [
+        [
+          2.619999885559082,
+          -15.512499809265137,
+          0.0
+        ],
+        [
+          2.6700000762939453,
+          -14.007500648498535,
+          1.2999999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition slate upper.009",
+      "bounds": [
+        [
+          2.619999885559082,
+          -15.512499809265137,
+          1.2999999523162842
+        ],
+        [
+          2.6700000762939453,
+          -14.007500648498535,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition orange datum.009",
+      "bounds": [
+        [
+          2.6700000762939453,
+          -15.512499809265137,
+          1.3399999141693115
+        ],
+        [
+          2.677999973297119,
+          -14.007500648498535,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "Mine transition top edge.003",
+      "bounds": [
+        [
+          2.570000171661377,
+          -20.080001831054688,
+          3.7200000286102295
+        ],
+        [
+          2.7300000190734863,
+          -14.000000953674316,
+          3.799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Mine shift record case",
+      "bounds": [
+        [
+          6.490000247955322,
+          -20.530000686645508,
+          1.2799999713897705
+        ],
+        [
+          7.110000133514404,
+          -20.420000076293945,
+          2.0199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Mine shift record face",
+      "bounds": [
+        [
+          6.535000324249268,
+          -20.541000366210938,
+          1.3350000381469727
+        ],
+        [
+          7.065000057220459,
+          -20.52899932861328,
+          1.9649999141693115
+        ]
+      ]
+    },
+    {
+      "name": "Mine shift card",
+      "bounds": [
+        [
+          6.605000019073486,
+          -20.545000076293945,
+          1.4449999332427979
+        ],
+        [
+          6.99500036239624,
+          -20.540998458862305,
+          1.9149999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Mine case retaining screw",
+      "bounds": [
+        [
+          6.534999847412109,
+          -20.55500030517578,
+          1.3600000143051147
+        ],
+        [
+          6.574999809265137,
+          -20.54199981689453,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Mine case retaining screw.001",
+      "bounds": [
+        [
+          6.534999847412109,
+          -20.55500030517578,
+          1.899999976158142
+        ],
+        [
+          6.574999809265137,
+          -20.54199981689453,
+          1.9399999380111694
+        ]
+      ]
+    },
+    {
+      "name": "Mine case retaining screw.002",
+      "bounds": [
+        [
+          7.025000095367432,
+          -20.55500030517578,
+          1.3600000143051147
+        ],
+        [
+          7.065000057220459,
+          -20.54199981689453,
+          1.399999976158142
+        ]
+      ]
+    },
+    {
+      "name": "Mine case retaining screw.003",
+      "bounds": [
+        [
+          7.025000095367432,
+          -20.55500030517578,
+          1.899999976158142
+        ],
+        [
+          7.065000057220459,
+          -20.54199981689453,
+          1.9399999380111694
+        ]
+      ]
+    },
+    {
+      "name": "Mine record lower retaining lip",
+      "bounds": [
+        [
+          6.590000152587891,
+          -20.560001373291016,
+          1.3949999809265137
+        ],
+        [
+          7.010000228881836,
+          -20.54199981689453,
+          1.4649999141693115
+        ]
+      ]
+    }
+  ]
+}

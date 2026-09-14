@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "revision": "R33",
+  "blend_sha256": "a1151868fb3ef3dddd3cb36403e788fd681fdd9735f30b49694db61090bf2e19",
+  "checks": [
+    "validate.py",
+    "astra_audit.py",
+    "astra_inlet_audit.py",
+    "astra_joint_audit.py",
+    "astra_measure.py"
+  ],
+  "process_id": 34692,
+  "scope": "CPU saved-geometry and dependency checks; no render, game-engine or remote integration certification."
+}

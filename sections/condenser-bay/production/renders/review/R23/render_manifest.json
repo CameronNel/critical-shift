@@ -1,0 +1,231 @@
+{
+  "revision": "R23",
+  "engine": "BLENDER_EEVEE",
+  "raytracing": false,
+  "samples": 64,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "cameras": [
+    {
+      "camera": "C01_ENTRY",
+      "seconds": 10.28,
+      "sha256": "950147b3ae3c27171385833c7d014850194837d7ef86c9f9257098c3ca2fa0a3",
+      "location": [
+        0.0,
+        -1.1200000047683716,
+        1.5499999523162842
+      ],
+      "lens": 22.0,
+      "process_id": 27736
+    },
+    {
+      "camera": "C02_HERO",
+      "seconds": 9.45,
+      "sha256": "e39ee5600e73c4afd8cd4fcf9ae1419a26f5872305c670d755565ba448b333a2",
+      "location": [
+        -1.350000023841858,
+        1.2000000476837158,
+        1.7000000476837158
+      ],
+      "lens": 22.0,
+      "process_id": 27736
+    },
+    {
+      "camera": "C03_REVERSE",
+      "seconds": 8.25,
+      "sha256": "d55c60c0089d0c0310a1e978be2a6c2bfab1d6dd9b4550d16628944688700ecf",
+      "location": [
+        3.049999952316284,
+        9.050000190734863,
+        1.7200000286102295
+      ],
+      "lens": 22.0,
+      "process_id": 27736
+    },
+    {
+      "camera": "C04_EXHAUST",
+      "seconds": 7.43,
+      "sha256": "cc677ddaed57e7a692302608351448918fdf5204c3baaf10a018daba4d68adee",
+      "location": [
+        5.820000171661377,
+        4.050000190734863,
+        5.119999885559082
+      ],
+      "lens": 26.0,
+      "process_id": 33884
+    },
+    {
+      "camera": "C05_RETURN",
+      "seconds": 8.43,
+      "sha256": "fa16232c56a1deb6366b6762dfebd21f53a59d0e079f2ecf1ae67232d9e604c5",
+      "location": [
+        0.44999998807907104,
+        8.550000190734863,
+        1.5800000429153442
+      ],
+      "lens": 24.0,
+      "process_id": 33884
+    },
+    {
+      "camera": "C06_COOLING",
+      "seconds": 4.25,
+      "sha256": "6ea966ca436cb0dfcdf67c337ae98aa22f9c055536706efbed88b76dd36a7754",
+      "location": [
+        6.550000190734863,
+        2.200000047683716,
+        2.450000047683716
+      ],
+      "lens": 28.0,
+      "process_id": 33884
+    },
+    {
+      "camera": "C07_OPERATOR",
+      "seconds": 7.95,
+      "sha256": "cb5574dfc44b2cf9c43448ede78915d7cf1835ef0f249b42682a8e93ab7d653d",
+      "location": [
+        1.1799999475479126,
+        4.050000190734863,
+        1.5199999809265137
+      ],
+      "lens": 26.0,
+      "process_id": 15788
+    },
+    {
+      "camera": "C08_MAINT",
+      "seconds": 5.03,
+      "sha256": "bc373cb7ca77fa722e6e15d4b1e2fed2bc2453185a9611dede1a8b1a6be4d892",
+      "location": [
+        5.550000190734863,
+        3.450000047683716,
+        5.28000020980835
+      ],
+      "lens": 28.0,
+      "process_id": 15788
+    },
+    {
+      "camera": "C09_ROOF",
+      "seconds": 4.87,
+      "sha256": "53705ac8583fdd2c48db2a65d15db78518241faabcce5109f15278023f57bbe8",
+      "location": [
+        5.449999809265137,
+        5.900000095367432,
+        4.949999809265137
+      ],
+      "lens": 28.0,
+      "process_id": 15788
+    },
+    {
+      "camera": "C10_MATERIALS",
+      "seconds": 8.06,
+      "sha256": "e1388bcba55120f62dec1d4177f7b4f37588c1fb94e07c6f246c577f3847818f",
+      "location": [
+        2.5,
+        5.920000076293945,
+        1.1200000047683716
+      ],
+      "lens": 32.0,
+      "process_id": 33752
+    },
+    {
+      "camera": "W01_ENTRY_CORNER",
+      "seconds": 4.67,
+      "sha256": "d29dee07f211ad004aafa20ce0531554bb47a98c4c205c6dd05495df189ade40",
+      "location": [
+        0.25,
+        1.5499999523162842,
+        1.5199999809265137
+      ],
+      "lens": 22.0,
+      "process_id": 33752
+    },
+    {
+      "camera": "W02_SW_TURN",
+      "seconds": 8.35,
+      "sha256": "2f71f3cc73f744a7b068b35c072e4a558d47307d7be008b6cff261568287a6e9",
+      "location": [
+        0.5,
+        1.7000000476837158,
+        1.5800000429153442
+      ],
+      "lens": 24.0,
+      "process_id": 33752
+    },
+    {
+      "camera": "W03_NW",
+      "seconds": 10.96,
+      "sha256": "f6feaeee2d08651b99cac2c54ba2663ba1e99fa7bbc434157a083f315c841ae5",
+      "location": [
+        -1.350000023841858,
+        8.899999618530273,
+        1.600000023841858
+      ],
+      "lens": 24.0,
+      "process_id": 18964
+    },
+    {
+      "camera": "W04_NE",
+      "seconds": 7.63,
+      "sha256": "7e82e390afc3cbf0acd1c69fcc96952d279f7903d28a6ffc96839d87ca9c00b6",
+      "location": [
+        8.550000190734863,
+        7.150000095367432,
+        1.6200000047683716
+      ],
+      "lens": 24.0,
+      "process_id": 18964
+    },
+    {
+      "camera": "W05_SE",
+      "seconds": 7.99,
+      "sha256": "84c4a802111c59060a9f86c0ff073d4b2508d5837d677b78fbbbd5ac4804319c",
+      "location": [
+        8.5,
+        1.5800000429153442,
+        1.6200000047683716
+      ],
+      "lens": 24.0,
+      "process_id": 18964
+    },
+    {
+      "camera": "W06_WEST_AISLE",
+      "seconds": 7.84,
+      "sha256": "2dcfabf1bb6d4a6e37c58e48e07fb038fc3b7b03a6f8d8e36a51a312445dad8d",
+      "location": [
+        0.11999999731779099,
+        6.849999904632568,
+        1.5499999523162842
+      ],
+      "lens": 24.0,
+      "process_id": 34192
+    },
+    {
+      "camera": "W07_EAST_PULL",
+      "seconds": 5.43,
+      "sha256": "224b00238de597466f1854f250fedef868cf897a4490bf65589b864fe79dbf7f",
+      "location": [
+        8.199999809265137,
+        2.3499999046325684,
+        1.5800000429153442
+      ],
+      "lens": 26.0,
+      "process_id": 34192
+    },
+    {
+      "camera": "W08_GALLERY_TURN",
+      "seconds": 4.82,
+      "sha256": "4cf51ad398eb7134ed6d99c0798f94d6554fb15d0ff370dce633d84897ee6876",
+      "location": [
+        5.849999904632568,
+        5.400000095367432,
+        5.119999885559082
+      ],
+      "lens": 28.0,
+      "process_id": 34192
+    }
+  ],
+  "process_id": 34192,
+  "source_revision": "R23",
+  "blend_sha256": "275f778bc9db09961d80ba3f4a67fc857d3ad3f6a8fc7a42c2189b5b8ae662f9"
+}

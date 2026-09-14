@@ -1,0 +1,41 @@
+{
+  "revision": "R02",
+  "build": "facility_spawn_concept02_R02.blend",
+  "source_sha256": "03e931f2b24dd68349e2b337668efa327e24e99d8e5b7094a1a167758dc10c7a",
+  "views": ["01_COURTYARD", "02_SOUTH", "03_EAST", "04_TOP"],
+  "concept": "Concept02 approved",
+  "decision": "REJECT",
+  "scores": {
+    "reference_fidelity_concept_adherence": 72,
+    "silhouette_massing": 78,
+    "scale_spatial_layout": 81,
+    "circulation_access_rescue_route": 80,
+    "construction_load_support_logic": null,
+    "utility_service_continuity": null,
+    "exterior_materials_surface_response": 68,
+    "lighting_palette_readability": 58,
+    "environmental_storytelling_human_use": 74,
+    "terrain_drainage_ground_transitions": null,
+    "roof_elevated_detail": 72,
+    "view_to_view_consistency": 79,
+    "interface_reservation_integrity": null,
+    "runtime_delivery_readiness": null,
+    "art_direction_veto_professional_finish": 60
+  },
+  "unverified": [
+    "construction and support",
+    "utility continuity",
+    "terrain and transitions",
+    "interface and reservations",
+    "Blender assembly runtime readiness",
+    "Unity runtime readiness"
+  ],
+  "pixel_blockers": [
+    "cold flat lighting and weak contact hierarchy",
+    "regular repeated grass rows",
+    "pale irregular wall blotches",
+    "under-authored east/service wall",
+    "tight south camera with dominant foreground rail"
+  ],
+  "notes": "Independent native-pixel review. BUILD_R02 and MANIFEST were read; pending technical and route reports were not treated as evidence. No final acceptance implied."
+}

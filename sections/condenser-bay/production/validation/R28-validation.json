@@ -1,0 +1,33 @@
+{
+  "revision": "R28",
+  "checks": {
+    "d01_opening": {
+      "samples": 16,
+      "blocked": 0,
+      "blockers": [],
+      "ok": true
+    },
+    "u04_opening": {
+      "samples": 25,
+      "blocked": 0,
+      "blockers": [],
+      "ok": true
+    },
+    "supports": {
+      "count": 46,
+      "failed": 0,
+      "failures": []
+    },
+    "no_teal_material_names": {
+      "ok": true,
+      "hits": []
+    }
+  },
+  "counts": {
+    "objects": 2693,
+    "cameras": 18,
+    "materials": 31
+  },
+  "status": "PASS",
+  "scope": "Legacy sampled door/bore and registered anchor checks only; extended audit required for route and physical support acceptance."
+}

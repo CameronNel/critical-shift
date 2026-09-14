@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "name": "Critical Shift complete assembled map",
+  "status": "in-progress authoring map; approximately 75% complete is the owner's estimate, not measured acceptance",
+  "authoring_scene": "sections/facility-assembly/blender/facility_spawn_concept02_R17.blend",
+  "inspection_scene": "sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend",
+  "section_root": "sections/facility-assembly",
+  "guide": "MAP.md",
+  "source_registry": "sections/facility-assembly/production/SOURCES.json",
+  "layout": "sections/facility-assembly/production/LAYOUT_A12.json",
+  "latest_review": "sections/facility-assembly/production/spawn-exterior-review/SCORES_R17.json",
+  "sections": ["spawn-room", "mine", "refinery", "reactor-room", "fuel-corridor", "cooling-plant", "turbine-room", "condenser-bay", "electrical-room", "waste-storage", "medical-reanimation", "compliance-dock"],
+  "blender_version": "5.2 LTS",
+  "raytracing": false,
+  "art_acceptance": "REJECT: exterior categories still below strictly greater than 93",
+  "unity_runtime": "not integrated or verified by this map delivery"
+}

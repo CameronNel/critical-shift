@@ -1,0 +1,79 @@
+{
+  "source": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\facility_spawn_concept02_R16.blend",
+  "source_sha256": "bc87737a25bea91f1a276570ccb33358d40d982f39ac756005caaf4375317dcf",
+  "resolution": [
+    1600,
+    1100
+  ],
+  "views": [
+    {
+      "id": "01_COURTYARD",
+      "eye": [
+        -25,
+        29,
+        6
+      ],
+      "target": [
+        -28,
+        8,
+        2
+      ],
+      "lens": 32
+    },
+    {
+      "id": "02_SOUTH",
+      "eye": [
+        -28,
+        -11,
+        6
+      ],
+      "target": [
+        -28,
+        6,
+        2
+      ],
+      "lens": 30
+    },
+    {
+      "id": "03_EAST",
+      "eye": [
+        -9,
+        7,
+        7
+      ],
+      "target": [
+        -28,
+        8,
+        2
+      ],
+      "lens": 24
+    },
+    {
+      "id": "04_TOP",
+      "eye": [
+        -27,
+        15,
+        90
+      ],
+      "target": [
+        -27,
+        15,
+        0
+      ],
+      "ortho_scale": 52
+    }
+  ],
+  "engine": "EEVEE",
+  "raytracing": false,
+  "approved_concept": "SPAWN_EXTERIOR_CONCEPT_02.png",
+  "rule": "Cameras loaded from locked FIXED_CAMERAS.json.",
+  "render_samples": 256,
+  "shadow_ray_count": 4,
+  "shadow_step_count": 12,
+  "exposure": -0.25,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "baked_probe_objects": [
+    "Spawn courtyard baked indirect"
+  ]
+}

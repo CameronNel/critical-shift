@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "revision": "A04",
+  "room_count": 12,
+  "rooms": [
+    {
+      "room": "spawn-room",
+      "linked_objects": 3263,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    },
+    {
+      "room": "mine",
+      "linked_objects": 3263,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    },
+    {
+      "room": "refinery",
+      "linked_objects": 2133,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    },
+    {
+      "room": "reactor-room",
+      "linked_objects": 13044,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    },
+    {
+      "room": "cooling-plant",
+      "linked_objects": 1653,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    },
+    {
+      "room": "turbine-room",
+      "linked_objects": 1661,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    },
+    {
+      "room": "electrical-room",
+      "linked_objects": 2206,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    },
+    {
+      "room": "waste-storage",
+      "linked_objects": 2341,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    },
+    {
+      "room": "medical-reanimation",
+      "linked_objects": 1203,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    },
+    {
+      "room": "fuel-corridor",
+      "linked_objects": 7978,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    },
+    {
+      "room": "compliance-dock",
+      "linked_objects": 1077,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    },
+    {
+      "room": "condenser-bay",
+      "linked_objects": 2724,
+      "unit_scale": true,
+      "pose_match": true,
+      "frozen_source_hash_match": true
+    }
+  ],
+  "missing_images": [],
+  "U04_centres_delta_m": 5.3947966093944364e-06,
+  "U04_world": [
+    52.35000228881836,
+    41.89999771118164,
+    0.0
+  ],
+  "scope": "Fresh-process linked-library/transform/unit-scale/dependency verification. U04 centres match; surrounding mating hardware and utility caps remain integration work. No corridor or engine traversal claimed."
+}

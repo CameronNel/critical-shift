@@ -1,0 +1,16 @@
+GPU acquired: astra-facility-assembly
+00:03.844  blend            | Read blend: "C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\sources\waste-storage\module.blend"
+C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\blender\render_exterior.py:16: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('Baseline neutral daylight');world.use_nodes=True;world.node_tree.nodes.get('Background').inputs[0].default_value=(.65,.72,.8,1);world.node_tree.nodes.get('Background').inputs[1].default_value=.45;scene.world=world
+00:04.484  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:23.578  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\exteriors\waste-storage\baseline\FRONT.png'
+EXTERIOR_RENDER_DONE waste-storage FRONT
+00:41.219  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\exteriors\waste-storage\baseline\OBLIQUE.png'
+EXTERIOR_RENDER_DONE waste-storage OBLIQUE
+00:59.281  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\exteriors\waste-storage\baseline\REVERSE.png'
+EXTERIOR_RENDER_DONE waste-storage REVERSE
+01:19.406  render           | Saved: 'C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\exteriors\waste-storage\baseline\DETAIL.png'
+EXTERIOR_RENDER_DONE waste-storage DETAIL
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

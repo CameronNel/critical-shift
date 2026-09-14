@@ -1,0 +1,30 @@
+{
+  "method": "Conservative world AABB vs route strip SAT projections, 0.08 to 2.25m obstacle band. Floors and overhead canopy omitted. Source rooms separately checked by planning audit.",
+  "candidates": [
+    {
+      "object": "Wayfinding post.003",
+      "route": "R07"
+    },
+    {
+      "object": "Wayfinding post.003",
+      "route": "R20"
+    },
+    {
+      "object": "Wayfinding board.001",
+      "route": "R07"
+    },
+    {
+      "object": "Wayfinding board.001",
+      "route": "R20"
+    },
+    {
+      "object": "Rescue wayfinding -6.7",
+      "route": "R07"
+    },
+    {
+      "object": "Rescue wayfinding -6.7",
+      "route": "R20"
+    }
+  ],
+  "pass": false
+}

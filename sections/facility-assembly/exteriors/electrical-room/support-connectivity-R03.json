@@ -1,0 +1,2271 @@
+{
+  "mesh_defects": [],
+  "revision": "R03",
+  "scope": "Evaluated world-AABB connectivity broadphase, not raycast/anchor/support-angle validation. Original render-visible mesh objects are root candidates; physical/collision suitability is not independently classified. AABB overlap can be empty space, contact does not imply load-bearing support, and deep penetration is accepted by this connectivity graph. Text/curves excluded. Model is not saved.",
+  "threshold_m": 0.005,
+  "numerical_epsilon_m": 1e-06,
+  "additive_mesh_count": 128,
+  "original_root_candidate_count": 2055,
+  "root_connected_additive_count": 128,
+  "detached_components": [],
+  "direct_original_candidates": [
+    {
+      "object": "Spawn mineral wall panel",
+      "original_candidates": [
+        "Portal wall return"
+      ]
+    },
+    {
+      "object": "Spawn coping",
+      "original_candidates": [
+        "Portal wall return"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.001",
+      "original_candidates": [
+        "Portal wall return",
+        "Entry seam slab"
+      ]
+    },
+    {
+      "object": "Spawn coping.001",
+      "original_candidates": [
+        "Portal wall return",
+        "Portal wall head"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.002",
+      "original_candidates": [
+        "Portal wall return.001",
+        "Entry seam slab"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.003",
+      "original_candidates": [
+        "Portal wall return.001"
+      ]
+    },
+    {
+      "object": "Spawn coping.002",
+      "original_candidates": [
+        "Portal wall return.001",
+        "Portal wall head"
+      ]
+    },
+    {
+      "object": "Bus lower facade field",
+      "original_candidates": [
+        "Portal wall return"
+      ]
+    },
+    {
+      "object": "Bus upper facade field",
+      "original_candidates": [
+        "Portal wall return"
+      ]
+    },
+    {
+      "object": "Electrical portal lintel",
+      "original_candidates": [
+        "Portal wall return",
+        "Portal wall return.001",
+        "Portal wall head"
+      ]
+    },
+    {
+      "object": "Electrical end coping",
+      "original_candidates": [
+        "Portal wall return",
+        "Portal wall return.001",
+        "Portal wall head"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.004",
+      "original_candidates": [
+        "Portal wall return.002"
+      ]
+    },
+    {
+      "object": "Spawn coping.003",
+      "original_candidates": [
+        "Portal wall return.002"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.005",
+      "original_candidates": [
+        "Portal wall return.002",
+        "Waste seam slab"
+      ]
+    },
+    {
+      "object": "Spawn low concrete skirt.005",
+      "original_candidates": [
+        "Waste seam slab"
+      ]
+    },
+    {
+      "object": "Spawn coping.004",
+      "original_candidates": [
+        "Portal wall return.002",
+        "Portal wall head.001"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.006",
+      "original_candidates": [
+        "Portal wall return.003",
+        "Waste seam slab"
+      ]
+    },
+    {
+      "object": "Spawn low concrete skirt.006",
+      "original_candidates": [
+        "Waste seam slab"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.007",
+      "original_candidates": [
+        "Portal wall return.003"
+      ]
+    },
+    {
+      "object": "Spawn coping.005",
+      "original_candidates": [
+        "Portal wall return.003",
+        "Portal wall head.001"
+      ]
+    },
+    {
+      "object": "Bus lower facade field.001",
+      "original_candidates": [
+        "Portal wall return.002"
+      ]
+    },
+    {
+      "object": "Bus upper facade field.001",
+      "original_candidates": [
+        "Portal wall return.002"
+      ]
+    },
+    {
+      "object": "Electrical portal lintel.001",
+      "original_candidates": [
+        "Portal wall return.002",
+        "Portal wall return.003",
+        "Portal wall head.001"
+      ]
+    },
+    {
+      "object": "Electrical end coping.001",
+      "original_candidates": [
+        "Portal wall return.002",
+        "Portal wall return.003",
+        "Portal wall head.001"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.008",
+      "original_candidates": [
+        "West wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.009",
+      "original_candidates": [
+        "West wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.010",
+      "original_candidates": [
+        "West wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.011",
+      "original_candidates": [
+        "West wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.012",
+      "original_candidates": [
+        "West wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.013",
+      "original_candidates": [
+        "West wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.014",
+      "original_candidates": [
+        "West wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.015",
+      "original_candidates": [
+        "West wall"
+      ]
+    },
+    {
+      "object": "Spawn coping.006",
+      "original_candidates": [
+        "West wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.016",
+      "original_candidates": [
+        "East structural wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.017",
+      "original_candidates": [
+        "East structural wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.018",
+      "original_candidates": [
+        "East structural wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.019",
+      "original_candidates": [
+        "East structural wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.020",
+      "original_candidates": [
+        "East structural wall"
+      ]
+    },
+    {
+      "object": "Spawn coping.007",
+      "original_candidates": [
+        "East structural wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.021",
+      "original_candidates": [
+        "East structural wall.001"
+      ]
+    },
+    {
+      "object": "Spawn coping.008",
+      "original_candidates": [
+        "East structural wall.001"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.022",
+      "original_candidates": [
+        "Reserve east wall",
+        "Reserve south wall"
+      ]
+    },
+    {
+      "object": "Spawn coping.009",
+      "original_candidates": [
+        "East structural wall",
+        "Reserve east wall",
+        "Reserve south wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.023",
+      "original_candidates": [
+        "Reserve east wall",
+        "Reserve north wall"
+      ]
+    },
+    {
+      "object": "Spawn coping.010",
+      "original_candidates": [
+        "East structural wall.001",
+        "Reserve east wall",
+        "Reserve north wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.024",
+      "original_candidates": [
+        "Reserve east wall"
+      ]
+    },
+    {
+      "object": "Spawn coping.011",
+      "original_candidates": [
+        "Reserve east wall"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.025",
+      "original_candidates": [
+        "Reserve east wall"
+      ]
+    },
+    {
+      "object": "Spawn coping.012",
+      "original_candidates": [
+        "Reserve east wall"
+      ]
+    },
+    {
+      "object": "Essential socket lower facade",
+      "original_candidates": [
+        "Reserve east wall"
+      ]
+    },
+    {
+      "object": "Essential socket upper facade",
+      "original_candidates": [
+        "Reserve east wall"
+      ]
+    },
+    {
+      "object": "Electrical lintel weather lip",
+      "original_candidates": [
+        "Portal wall return",
+        "Portal wall return.001",
+        "Portal wall head"
+      ]
+    }
+  ],
+  "additive_bounds": [
+    {
+      "name": "Spawn mineral wall panel",
+      "bounds": [
+        [
+          -5.492000102996826,
+          -0.3009999990463257,
+          0.0
+        ],
+        [
+          -4.728000164031982,
+          -0.25099998712539673,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt",
+      "bounds": [
+        [
+          -5.492000102996826,
+          -0.33500000834465027,
+          0.0
+        ],
+        [
+          -4.728000164031982,
+          -0.2750000059604645,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping",
+      "bounds": [
+        [
+          -5.550000190734863,
+          -0.35099998116493225,
+          4.800000190734863
+        ],
+        [
+          -4.670000076293945,
+          -0.1509999930858612,
+          4.920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.001",
+      "bounds": [
+        [
+          -3.9120001792907715,
+          -0.3009999990463257,
+          0.0
+        ],
+        [
+          -1.218000054359436,
+          -0.25099998712539673,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.001",
+      "bounds": [
+        [
+          -3.9120001792907715,
+          -0.33500000834465027,
+          0.0
+        ],
+        [
+          -1.218000054359436,
+          -0.2750000059604645,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.001",
+      "bounds": [
+        [
+          -3.9700000286102295,
+          -0.35099998116493225,
+          4.800000190734863
+        ],
+        [
+          -1.1600000858306885,
+          -0.1509999930858612,
+          4.920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.002",
+      "bounds": [
+        [
+          1.218000054359436,
+          -0.3009999990463257,
+          0.0
+        ],
+        [
+          3.3470001220703125,
+          -0.25099998712539673,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.002",
+      "bounds": [
+        [
+          1.218000054359436,
+          -0.33500000834465027,
+          0.0
+        ],
+        [
+          3.3470001220703125,
+          -0.2750000059604645,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.003",
+      "bounds": [
+        [
+          3.36299991607666,
+          -0.3009999990463257,
+          0.0
+        ],
+        [
+          5.491999626159668,
+          -0.25099998712539673,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.003",
+      "bounds": [
+        [
+          3.36299991607666,
+          -0.33500000834465027,
+          0.0
+        ],
+        [
+          5.491999626159668,
+          -0.2750000059604645,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.002",
+      "bounds": [
+        [
+          1.1600000858306885,
+          -0.35099998116493225,
+          4.800000190734863
+        ],
+        [
+          5.550000190734863,
+          -0.1509999930858612,
+          4.920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Bus lower facade field",
+      "bounds": [
+        [
+          -4.720000267028809,
+          -0.3009999990463257,
+          0.0
+        ],
+        [
+          -3.9200000762939453,
+          -0.25099998712539673,
+          3.5799999237060547
+        ]
+      ]
+    },
+    {
+      "name": "Bus upper facade field",
+      "bounds": [
+        [
+          -4.720000267028809,
+          -0.3009999990463257,
+          4.179999828338623
+        ],
+        [
+          -3.9200000762939453,
+          -0.25099998712539673,
+          4.799999713897705
+        ]
+      ]
+    },
+    {
+      "name": "Electrical portal lintel",
+      "bounds": [
+        [
+          -1.2100000381469727,
+          -0.3009999990463257,
+          2.700000047683716
+        ],
+        [
+          1.2100000381469727,
+          -0.25099998712539673,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar vertical",
+      "bounds": [
+        [
+          -4.804999828338623,
+          -0.3710000216960907,
+          3.5500001907348633
+        ],
+        [
+          -4.735000133514404,
+          -0.2709999978542328,
+          4.210000038146973
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar vertical.001",
+      "bounds": [
+        [
+          -3.9049999713897705,
+          -0.3710000216960907,
+          3.5500001907348633
+        ],
+        [
+          -3.8349997997283936,
+          -0.2709999978542328,
+          4.210000038146973
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar horizontal",
+      "bounds": [
+        [
+          -4.805000305175781,
+          -0.3710000216960907,
+          3.5149998664855957
+        ],
+        [
+          -3.8350000381469727,
+          -0.2709999978542328,
+          3.5850000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar horizontal.001",
+      "bounds": [
+        [
+          -4.805000305175781,
+          -0.3710000216960907,
+          4.175000190734863
+        ],
+        [
+          -3.8350000381469727,
+          -0.2709999978542328,
+          4.244999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar fastener",
+      "bounds": [
+        [
+          -4.789999961853027,
+          -0.38100001215934753,
+          3.5799999237060547
+        ],
+        [
+          -4.75,
+          -0.367000013589859,
+          3.619999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar fastener.001",
+      "bounds": [
+        [
+          -4.789999961853027,
+          -0.38100001215934753,
+          4.139999866485596
+        ],
+        [
+          -4.75,
+          -0.367000013589859,
+          4.179999828338623
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar fastener.002",
+      "bounds": [
+        [
+          -3.8899998664855957,
+          -0.38100001215934753,
+          3.5799999237060547
+        ],
+        [
+          -3.8499999046325684,
+          -0.367000013589859,
+          3.619999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar fastener.003",
+      "bounds": [
+        [
+          -3.8899998664855957,
+          -0.38100001215934753,
+          4.139999866485596
+        ],
+        [
+          -3.8499999046325684,
+          -0.367000013589859,
+          4.179999828338623
+        ]
+      ]
+    },
+    {
+      "name": "Electrical end coping",
+      "bounds": [
+        [
+          -5.860000133514404,
+          -0.3610000014305115,
+          4.800000190734863
+        ],
+        [
+          5.860000133514404,
+          -0.14099998772144318,
+          4.920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.004",
+      "bounds": [
+        [
+          -5.492000102996826,
+          16.6510009765625,
+          0.0
+        ],
+        [
+          -4.728000164031982,
+          16.701000213623047,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.004",
+      "bounds": [
+        [
+          -5.492000102996826,
+          16.674999237060547,
+          0.0
+        ],
+        [
+          -4.728000164031982,
+          16.735000610351562,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.003",
+      "bounds": [
+        [
+          -5.550000190734863,
+          16.55099868774414,
+          4.800000190734863
+        ],
+        [
+          -4.670000076293945,
+          16.750999450683594,
+          4.920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.005",
+      "bounds": [
+        [
+          -3.9120001792907715,
+          16.6510009765625,
+          0.0
+        ],
+        [
+          -1.218000054359436,
+          16.701000213623047,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.005",
+      "bounds": [
+        [
+          -3.9120001792907715,
+          16.674999237060547,
+          0.0
+        ],
+        [
+          -1.218000054359436,
+          16.735000610351562,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.004",
+      "bounds": [
+        [
+          -3.9700000286102295,
+          16.55099868774414,
+          4.800000190734863
+        ],
+        [
+          -1.1600000858306885,
+          16.750999450683594,
+          4.920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.006",
+      "bounds": [
+        [
+          1.218000054359436,
+          16.6510009765625,
+          0.0
+        ],
+        [
+          3.3470001220703125,
+          16.701000213623047,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.006",
+      "bounds": [
+        [
+          1.218000054359436,
+          16.674999237060547,
+          0.0
+        ],
+        [
+          3.3470001220703125,
+          16.735000610351562,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.007",
+      "bounds": [
+        [
+          3.36299991607666,
+          16.6510009765625,
+          0.0
+        ],
+        [
+          5.491999626159668,
+          16.701000213623047,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.007",
+      "bounds": [
+        [
+          3.36299991607666,
+          16.674999237060547,
+          0.0
+        ],
+        [
+          5.491999626159668,
+          16.735000610351562,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.005",
+      "bounds": [
+        [
+          1.1600000858306885,
+          16.55099868774414,
+          4.800000190734863
+        ],
+        [
+          5.550000190734863,
+          16.750999450683594,
+          4.920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Bus lower facade field.001",
+      "bounds": [
+        [
+          -4.720000267028809,
+          16.6510009765625,
+          0.0
+        ],
+        [
+          -3.9200000762939453,
+          16.701000213623047,
+          3.5799999237060547
+        ]
+      ]
+    },
+    {
+      "name": "Bus upper facade field.001",
+      "bounds": [
+        [
+          -4.720000267028809,
+          16.6510009765625,
+          4.179999828338623
+        ],
+        [
+          -3.9200000762939453,
+          16.701000213623047,
+          4.799999713897705
+        ]
+      ]
+    },
+    {
+      "name": "Electrical portal lintel.001",
+      "bounds": [
+        [
+          -1.2100000381469727,
+          16.6510009765625,
+          2.700000047683716
+        ],
+        [
+          1.2100000381469727,
+          16.701000213623047,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar vertical.002",
+      "bounds": [
+        [
+          -4.804999828338623,
+          16.671001434326172,
+          3.5500001907348633
+        ],
+        [
+          -4.735000133514404,
+          16.770999908447266,
+          4.210000038146973
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar vertical.003",
+      "bounds": [
+        [
+          -3.9049999713897705,
+          16.671001434326172,
+          3.5500001907348633
+        ],
+        [
+          -3.8349997997283936,
+          16.770999908447266,
+          4.210000038146973
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar horizontal.002",
+      "bounds": [
+        [
+          -4.805000305175781,
+          16.671001434326172,
+          3.5149998664855957
+        ],
+        [
+          -3.8350000381469727,
+          16.770999908447266,
+          3.5850000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar horizontal.003",
+      "bounds": [
+        [
+          -4.805000305175781,
+          16.671001434326172,
+          4.175000190734863
+        ],
+        [
+          -3.8350000381469727,
+          16.770999908447266,
+          4.244999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar fastener.004",
+      "bounds": [
+        [
+          -4.789999961853027,
+          16.767000198364258,
+          3.5799999237060547
+        ],
+        [
+          -4.75,
+          16.7810001373291,
+          3.619999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar fastener.005",
+      "bounds": [
+        [
+          -4.789999961853027,
+          16.767000198364258,
+          4.139999866485596
+        ],
+        [
+          -4.75,
+          16.7810001373291,
+          4.179999828338623
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar fastener.006",
+      "bounds": [
+        [
+          -3.8899998664855957,
+          16.767000198364258,
+          3.5799999237060547
+        ],
+        [
+          -3.8499999046325684,
+          16.7810001373291,
+          3.619999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Bus collar fastener.007",
+      "bounds": [
+        [
+          -3.8899998664855957,
+          16.767000198364258,
+          4.139999866485596
+        ],
+        [
+          -3.8499999046325684,
+          16.7810001373291,
+          4.179999828338623
+        ]
+      ]
+    },
+    {
+      "name": "Electrical end coping.001",
+      "bounds": [
+        [
+          -5.860000133514404,
+          16.540998458862305,
+          4.800000190734863
+        ],
+        [
+          5.860000133514404,
+          16.76099967956543,
+          4.920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.008",
+      "bounds": [
+        [
+          -5.801000118255615,
+          0.008000015281140804,
+          0.0
+        ],
+        [
+          -5.750999927520752,
+          2.0420000553131104,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.008",
+      "bounds": [
+        [
+          -5.835000038146973,
+          0.008000015281140804,
+          0.0
+        ],
+        [
+          -5.774999618530273,
+          2.0420000553131104,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.009",
+      "bounds": [
+        [
+          -5.801000118255615,
+          2.058000087738037,
+          0.0
+        ],
+        [
+          -5.750999927520752,
+          4.0920000076293945,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.009",
+      "bounds": [
+        [
+          -5.835000038146973,
+          2.058000087738037,
+          0.0
+        ],
+        [
+          -5.774999618530273,
+          4.0920000076293945,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.010",
+      "bounds": [
+        [
+          -5.801000118255615,
+          4.107999801635742,
+          0.0
+        ],
+        [
+          -5.750999927520752,
+          6.142000198364258,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.010",
+      "bounds": [
+        [
+          -5.835000038146973,
+          4.107999801635742,
+          0.0
+        ],
+        [
+          -5.774999618530273,
+          6.142000198364258,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.011",
+      "bounds": [
+        [
+          -5.801000118255615,
+          6.1579999923706055,
+          0.0
+        ],
+        [
+          -5.750999927520752,
+          8.192000389099121,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.011",
+      "bounds": [
+        [
+          -5.835000038146973,
+          6.1579999923706055,
+          0.0
+        ],
+        [
+          -5.774999618530273,
+          8.192000389099121,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.012",
+      "bounds": [
+        [
+          -5.801000118255615,
+          8.208000183105469,
+          0.0
+        ],
+        [
+          -5.750999927520752,
+          10.242000579833984,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.012",
+      "bounds": [
+        [
+          -5.835000038146973,
+          8.208000183105469,
+          0.0
+        ],
+        [
+          -5.774999618530273,
+          10.242000579833984,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.013",
+      "bounds": [
+        [
+          -5.801000118255615,
+          10.257999420166016,
+          0.0
+        ],
+        [
+          -5.750999927520752,
+          12.291999816894531,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.013",
+      "bounds": [
+        [
+          -5.835000038146973,
+          10.257999420166016,
+          0.0
+        ],
+        [
+          -5.774999618530273,
+          12.291999816894531,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.014",
+      "bounds": [
+        [
+          -5.801000118255615,
+          12.307999610900879,
+          0.0
+        ],
+        [
+          -5.750999927520752,
+          14.342000007629395,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.014",
+      "bounds": [
+        [
+          -5.835000038146973,
+          12.307999610900879,
+          0.0
+        ],
+        [
+          -5.774999618530273,
+          14.342000007629395,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.015",
+      "bounds": [
+        [
+          -5.801000118255615,
+          14.357999801635742,
+          0.0
+        ],
+        [
+          -5.750999927520752,
+          16.392000198364258,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.015",
+      "bounds": [
+        [
+          -5.835000038146973,
+          14.357999801635742,
+          0.0
+        ],
+        [
+          -5.774999618530273,
+          16.392000198364258,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.006",
+      "bounds": [
+        [
+          -5.8510003089904785,
+          -0.05000019446015358,
+          4.800000190734863
+        ],
+        [
+          -5.650999546051025,
+          16.450000762939453,
+          4.920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.016",
+      "bounds": [
+        [
+          5.750999927520752,
+          0.008000015281140804,
+          0.0
+        ],
+        [
+          5.801000118255615,
+          2.142000198364258,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.016",
+      "bounds": [
+        [
+          5.774999618530273,
+          0.008000015281140804,
+          0.0
+        ],
+        [
+          5.835000038146973,
+          2.142000198364258,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.017",
+      "bounds": [
+        [
+          5.750999927520752,
+          2.1579997539520264,
+          0.0
+        ],
+        [
+          5.801000118255615,
+          4.291999816894531,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.017",
+      "bounds": [
+        [
+          5.774999618530273,
+          2.1579997539520264,
+          0.0
+        ],
+        [
+          5.835000038146973,
+          4.291999816894531,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.018",
+      "bounds": [
+        [
+          5.750999927520752,
+          4.308000087738037,
+          0.0
+        ],
+        [
+          5.801000118255615,
+          6.441999912261963,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.018",
+      "bounds": [
+        [
+          5.774999618530273,
+          4.308000087738037,
+          0.0
+        ],
+        [
+          5.835000038146973,
+          6.441999912261963,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.019",
+      "bounds": [
+        [
+          5.750999927520752,
+          6.458000183105469,
+          0.0
+        ],
+        [
+          5.801000118255615,
+          8.592000007629395,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.019",
+      "bounds": [
+        [
+          5.774999618530273,
+          6.458000183105469,
+          0.0
+        ],
+        [
+          5.835000038146973,
+          8.592000007629395,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.020",
+      "bounds": [
+        [
+          5.750999927520752,
+          8.607999801635742,
+          0.0
+        ],
+        [
+          5.801000118255615,
+          10.742000579833984,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.020",
+      "bounds": [
+        [
+          5.774999618530273,
+          8.607999801635742,
+          0.0
+        ],
+        [
+          5.835000038146973,
+          10.742000579833984,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.007",
+      "bounds": [
+        [
+          5.650999546051025,
+          -0.05000019446015358,
+          4.800000190734863
+        ],
+        [
+          5.8510003089904785,
+          10.800000190734863,
+          4.920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.021",
+      "bounds": [
+        [
+          5.750999927520752,
+          15.657999992370605,
+          0.0
+        ],
+        [
+          5.801000118255615,
+          16.392000198364258,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.021",
+      "bounds": [
+        [
+          5.774999618530273,
+          15.657999992370605,
+          0.0
+        ],
+        [
+          5.835000038146973,
+          16.392000198364258,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.008",
+      "bounds": [
+        [
+          5.651000022888184,
+          15.59999942779541,
+          4.800000190734863
+        ],
+        [
+          5.85099983215332,
+          16.44999885559082,
+          4.920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.022",
+      "bounds": [
+        [
+          5.758000373840332,
+          10.699000358581543,
+          0.0
+        ],
+        [
+          8.541999816894531,
+          10.74899959564209,
+          3.5999999046325684
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.022",
+      "bounds": [
+        [
+          5.758000373840332,
+          10.664999961853027,
+          0.0
+        ],
+        [
+          8.541999816894531,
+          10.72499942779541,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.009",
+      "bounds": [
+        [
+          5.699999809265137,
+          10.648999214172363,
+          3.6000001430511475
+        ],
+        [
+          8.600000381469727,
+          10.848999977111816,
+          3.7200000286102295
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.023",
+      "bounds": [
+        [
+          5.758000373840332,
+          15.651000022888184,
+          0.0
+        ],
+        [
+          8.541999816894531,
+          15.70099925994873,
+          3.5999999046325684
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.023",
+      "bounds": [
+        [
+          5.758000373840332,
+          15.675000190734863,
+          0.0
+        ],
+        [
+          8.541999816894531,
+          15.734999656677246,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.010",
+      "bounds": [
+        [
+          5.699999809265137,
+          15.550999641418457,
+          3.6000001430511475
+        ],
+        [
+          8.600000381469727,
+          15.75100040435791,
+          3.7200000286102295
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.024",
+      "bounds": [
+        [
+          8.551000595092773,
+          10.757999420166016,
+          0.0
+        ],
+        [
+          8.60099983215332,
+          13.631999969482422,
+          3.5999999046325684
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.024",
+      "bounds": [
+        [
+          8.574999809265137,
+          10.757999420166016,
+          0.0
+        ],
+        [
+          8.63499927520752,
+          13.631999969482422,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.011",
+      "bounds": [
+        [
+          8.45099925994873,
+          10.699999809265137,
+          3.6000001430511475
+        ],
+        [
+          8.651000022888184,
+          13.6899995803833,
+          3.7200000286102295
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.025",
+      "bounds": [
+        [
+          8.551000595092773,
+          14.368000030517578,
+          0.0
+        ],
+        [
+          8.60099983215332,
+          15.642000198364258,
+          3.5999999046325684
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.025",
+      "bounds": [
+        [
+          8.574999809265137,
+          14.368000030517578,
+          0.0
+        ],
+        [
+          8.63499927520752,
+          15.642000198364258,
+          0.30000001192092896
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.012",
+      "bounds": [
+        [
+          8.45099925994873,
+          14.3100004196167,
+          3.6000001430511475
+        ],
+        [
+          8.651000022888184,
+          15.699999809265137,
+          3.7200000286102295
+        ]
+      ]
+    },
+    {
+      "name": "Essential socket lower facade",
+      "bounds": [
+        [
+          8.551000595092773,
+          13.640000343322754,
+          0.0
+        ],
+        [
+          8.60099983215332,
+          14.359999656677246,
+          2.4200000762939453
+        ]
+      ]
+    },
+    {
+      "name": "Essential socket upper facade",
+      "bounds": [
+        [
+          8.551000595092773,
+          13.640000343322754,
+          3.240000009536743
+        ],
+        [
+          8.60099983215332,
+          14.359999656677246,
+          3.6000001430511475
+        ]
+      ]
+    },
+    {
+      "name": "Essential socket vertical rim",
+      "bounds": [
+        [
+          8.5649995803833,
+          13.595000267028809,
+          2.3999998569488525
+        ],
+        [
+          8.654999732971191,
+          13.644999504089355,
+          3.200000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Essential socket vertical rim.001",
+      "bounds": [
+        [
+          8.5649995803833,
+          14.355000495910645,
+          2.3999998569488525
+        ],
+        [
+          8.654999732971191,
+          14.404999732971191,
+          3.200000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Essential socket horizontal rim",
+      "bounds": [
+        [
+          8.5649995803833,
+          13.595000267028809,
+          2.375
+        ],
+        [
+          8.654999732971191,
+          14.404999732971191,
+          2.4250001907348633
+        ]
+      ]
+    },
+    {
+      "name": "Essential socket horizontal rim.001",
+      "bounds": [
+        [
+          8.5649995803833,
+          13.595000267028809,
+          3.174999952316284
+        ],
+        [
+          8.654999732971191,
+          14.404999732971191,
+          3.2250001430511475
+        ]
+      ]
+    },
+    {
+      "name": "Electrical entry vertical steel spine",
+      "bounds": [
+        [
+          -1.7050000429153442,
+          -0.33000001311302185,
+          0.0
+        ],
+        [
+          -1.215000033378601,
+          -0.27000001072883606,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Electrical entry vertical steel spine.001",
+      "bounds": [
+        [
+          1.215000033378601,
+          -0.33000001311302185,
+          0.0
+        ],
+        [
+          1.7050000429153442,
+          -0.27000001072883606,
+          4.800000190734863
+        ]
+      ]
+    },
+    {
+      "name": "Electrical upper department plate",
+      "bounds": [
+        [
+          -1.2100000381469727,
+          -0.3295000195503235,
+          3.2899999618530273
+        ],
+        [
+          1.2100000381469727,
+          -0.2944999933242798,
+          4.670000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Electrical lintel weather lip",
+      "bounds": [
+        [
+          -1.4700000286102295,
+          -0.4150000214576721,
+          2.757499933242798
+        ],
+        [
+          1.4700000286102295,
+          -0.2549999952316284,
+          2.802500009536743
+        ]
+      ]
+    },
+    {
+      "name": "Electrical upper folded seam",
+      "bounds": [
+        [
+          -5.448999881744385,
+          -0.35500001907348633,
+          3.8350000381469727
+        ],
+        [
+          -5.431000232696533,
+          -0.26499998569488525,
+          4.744999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Electrical upper folded seam.001",
+      "bounds": [
+        [
+          -5.348999977111816,
+          -0.35500001907348633,
+          3.8350000381469727
+        ],
+        [
+          -5.331000328063965,
+          -0.26499998569488525,
+          4.744999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Electrical upper folded seam.002",
+      "bounds": [
+        [
+          -5.24899959564209,
+          -0.35500001907348633,
+          3.8350000381469727
+        ],
+        [
+          -5.230999946594238,
+          -0.26499998569488525,
+          4.744999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Electrical upper folded seam.003",
+      "bounds": [
+        [
+          5.230999946594238,
+          -0.35500001907348633,
+          3.8350000381469727
+        ],
+        [
+          5.24899959564209,
+          -0.26499998569488525,
+          4.744999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Electrical upper folded seam.004",
+      "bounds": [
+        [
+          5.331000328063965,
+          -0.35500001907348633,
+          3.8350000381469727
+        ],
+        [
+          5.348999977111816,
+          -0.26499998569488525,
+          4.744999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Electrical upper folded seam.005",
+      "bounds": [
+        [
+          5.431000232696533,
+          -0.35500001907348633,
+          3.8350000381469727
+        ],
+        [
+          5.448999881744385,
+          -0.26499998569488525,
+          4.744999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Electrical entry shielded light",
+      "bounds": [
+        [
+          -1.5750000476837158,
+          -0.40549999475479126,
+          2.7049999237060547
+        ],
+        [
+          -1.3450000286102295,
+          -0.3305000066757202,
+          2.994999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Electrical downlight lens",
+      "bounds": [
+        [
+          -1.540000081062317,
+          -0.4320000112056732,
+          2.68149995803833
+        ],
+        [
+          -1.3799999952316284,
+          -0.3720000088214874,
+          2.7065000534057617
+        ]
+      ]
+    },
+    {
+      "name": "Electrical entry shielded light.001",
+      "bounds": [
+        [
+          1.3450000286102295,
+          -0.40549999475479126,
+          2.7049999237060547
+        ],
+        [
+          1.5750000476837158,
+          -0.3305000066757202,
+          2.994999885559082
+        ]
+      ]
+    },
+    {
+      "name": "Electrical downlight lens.001",
+      "bounds": [
+        [
+          1.3799999952316284,
+          -0.4320000112056732,
+          2.68149995803833
+        ],
+        [
+          1.540000081062317,
+          -0.3720000088214874,
+          2.7065000534057617
+        ]
+      ]
+    },
+    {
+      "name": "Electrical permit case",
+      "bounds": [
+        [
+          1.5899999141693115,
+          -0.40700000524520874,
+          1.3250000476837158
+        ],
+        [
+          2.009999990463257,
+          -0.2770000100135803,
+          1.9549999237060547
+        ]
+      ]
+    },
+    {
+      "name": "Permit card",
+      "bounds": [
+        [
+          1.6299999952316284,
+          -0.41450002789497375,
+          1.3700000047683716
+        ],
+        [
+          1.96999990940094,
+          -0.4074999988079071,
+          1.909999966621399
+        ]
+      ]
+    },
+    {
+      "name": "Permit weather hood",
+      "bounds": [
+        [
+          1.5549999475479126,
+          -0.4749999940395355,
+          1.9574999809265137
+        ],
+        [
+          2.0450000762939453,
+          -0.26500001549720764,
+          2.002500057220459
+        ]
+      ]
+    },
+    {
+      "name": "Permit printed rule",
+      "bounds": [
+        [
+          1.6649999618530273,
+          -0.4169999957084656,
+          1.7085000276565552
+        ],
+        [
+          1.934999942779541,
+          -0.4150000214576721,
+          1.7115000486373901
+        ]
+      ]
+    },
+    {
+      "name": "Permit printed rule.001",
+      "bounds": [
+        [
+          1.6649999618530273,
+          -0.4169999957084656,
+          1.6085000038146973
+        ],
+        [
+          1.934999942779541,
+          -0.4150000214576721,
+          1.6115000247955322
+        ]
+      ]
+    },
+    {
+      "name": "Permit printed rule.002",
+      "bounds": [
+        [
+          1.6649999618530273,
+          -0.4169999957084656,
+          1.5084999799728394
+        ],
+        [
+          1.934999942779541,
+          -0.4150000214576721,
+          1.5115000009536743
+        ]
+      ]
+    },
+    {
+      "name": "Lock hanger backplate",
+      "bounds": [
+        [
+          2.1399998664855957,
+          -0.33399999141693115,
+          1.5
+        ],
+        [
+          2.4200000762939453,
+          -0.27399998903274536,
+          1.7999999523162842
+        ]
+      ]
+    },
+    {
+      "name": "Lock hanger hook",
+      "bounds": [
+        [
+          2.187000036239624,
+          -0.39500001072883606,
+          1.6469999551773071
+        ],
+        [
+          2.2130000591278076,
+          -0.33000001311302185,
+          1.6729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Lockout padlock body",
+      "bounds": [
+        [
+          2.1584999561309814,
+          -0.4104999899864197,
+          1.4574999809265137
+        ],
+        [
+          2.24150013923645,
+          -0.3675000071525574,
+          1.5625
+        ]
+      ]
+    },
+    {
+      "name": "Padlock shackle leg L",
+      "bounds": [
+        [
+          2.1629998683929443,
+          -0.39800000190734863,
+          1.559999942779541
+        ],
+        [
+          2.180999994277954,
+          -0.3799999952316284,
+          1.6399998664855957
+        ]
+      ]
+    },
+    {
+      "name": "Padlock shackle top",
+      "bounds": [
+        [
+          2.17199969291687,
+          -0.39800000190734863,
+          1.63100004196167
+        ],
+        [
+          2.2279999256134033,
+          -0.3799999952316284,
+          1.6489999294281006
+        ]
+      ]
+    },
+    {
+      "name": "Padlock shackle leg R",
+      "bounds": [
+        [
+          2.2189998626708984,
+          -0.39800000190734863,
+          1.5599998235702515
+        ],
+        [
+          2.236999988555908,
+          -0.3799999952316284,
+          1.6399999856948853
+        ]
+      ]
+    },
+    {
+      "name": "Lock hanger hook.001",
+      "bounds": [
+        [
+          2.3469998836517334,
+          -0.39500001072883606,
+          1.6469999551773071
+        ],
+        [
+          2.372999906539917,
+          -0.33000001311302185,
+          1.6729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Lockout padlock body.001",
+      "bounds": [
+        [
+          2.318499803543091,
+          -0.4104999899864197,
+          1.4574999809265137
+        ],
+        [
+          2.4014999866485596,
+          -0.3675000071525574,
+          1.5625
+        ]
+      ]
+    },
+    {
+      "name": "Padlock shackle leg L.001",
+      "bounds": [
+        [
+          2.322999954223633,
+          -0.39800000190734863,
+          1.559999942779541
+        ],
+        [
+          2.3410000801086426,
+          -0.3799999952316284,
+          1.6399998664855957
+        ]
+      ]
+    },
+    {
+      "name": "Padlock shackle top.001",
+      "bounds": [
+        [
+          2.3320000171661377,
+          -0.39800000190734863,
+          1.63100004196167
+        ],
+        [
+          2.388000249862671,
+          -0.3799999952316284,
+          1.6489999294281006
+        ]
+      ]
+    },
+    {
+      "name": "Padlock shackle leg R.001",
+      "bounds": [
+        [
+          2.378999948501587,
+          -0.39800000190734863,
+          1.5599998235702515
+        ],
+        [
+          2.3970000743865967,
+          -0.3799999952316284,
+          1.6399999856948853
+        ]
+      ]
+    },
+    {
+      "name": "Entry service junction",
+      "bounds": [
+        [
+          1.7000000476837158,
+          -0.36500000953674316,
+          0.5999999642372131
+        ],
+        [
+          1.940000057220459,
+          -0.26499998569488525,
+          0.8199999928474426
+        ]
+      ]
+    },
+    {
+      "name": "Permit station conduit",
+      "bounds": [
+        [
+          1.8020000457763672,
+          -0.33799999952316284,
+          0.8200000524520874
+        ],
+        [
+          1.8380000591278076,
+          -0.3019999861717224,
+          1.3200000524520874
+        ]
+      ]
+    }
+  ]
+}

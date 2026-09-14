@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "scope": "Synthetic comparator integrity fixtures only; no condenser visual acceptance credit. Temporary fixture images deleted.",
+  "cases": [
+    {
+      "case": "separate-process identical pixels",
+      "expected_pass": true,
+      "observed_exit": 0,
+      "test_pass": true
+    },
+    {
+      "case": "changed camera rejected",
+      "expected_pass": false,
+      "observed_exit": 1,
+      "test_pass": true
+    },
+    {
+      "case": "same process rejected",
+      "expected_pass": false,
+      "observed_exit": 1,
+      "test_pass": true
+    },
+    {
+      "case": "image hash tamper rejected",
+      "expected_pass": false,
+      "observed_exit": 1,
+      "test_pass": true
+    },
+    {
+      "case": "pixel change despite valid hash rejected",
+      "expected_pass": false,
+      "observed_exit": 1,
+      "test_pass": true
+    },
+    {
+      "case": "missing camera rejected",
+      "expected_pass": false,
+      "observed_exit": 1,
+      "test_pass": true
+    }
+  ]
+}

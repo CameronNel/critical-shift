@@ -1,0 +1,3443 @@
+{
+  "mesh_defects": [],
+  "revision": "R02",
+  "scope": "Evaluated world-AABB connectivity broadphase, not raycast/anchor/support-angle validation. Original render-visible mesh objects are root candidates; physical/collision suitability is not independently classified. AABB overlap can be empty space, contact does not imply load-bearing support, and deep penetration is accepted by this connectivity graph. Text/curves excluded. Model is not saved.",
+  "threshold_m": 0.005,
+  "numerical_epsilon_m": 1e-06,
+  "additive_mesh_count": 130,
+  "original_root_candidate_count": 11823,
+  "root_connected_additive_count": 130,
+  "detached_components": [],
+  "direct_original_candidates": [
+    {
+      "object": "Reactor exterior Shell 1 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone.015",
+        "Steel aperture curb",
+        "Rail foot.012",
+        "Rail anchors.049",
+        "Rail anchors.051"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.003",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.004",
+      "original_candidates": [
+        "BANK_A_CARRIAGE",
+        "A moving flange",
+        "A moving flange.001",
+        "A carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.005",
+      "original_candidates": [
+        "BANK_B_CARRIAGE",
+        "B moving flange",
+        "B moving flange.001",
+        "B carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.006",
+      "original_candidates": [
+        "Bank A fixed neck",
+        "Bank A neck flange",
+        "BANK_A_FIXED_HOUSING",
+        "A actuator collar",
+        "A actuator collar.001",
+        "A actuator collar.002",
+        "A actuator collar.003",
+        "A cast stiffener.002",
+        "A housing fasteners.005",
+        "A housing fasteners.006",
+        "A cast stiffener.005",
+        "A housing fasteners.011",
+        "A housing fasteners.012",
+        "A lower bearing retaining ring",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "Hydraulic pressure accumulator",
+        "Umbilical rigid bracket",
+        "Umbilical rigid bracket.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.007",
+      "original_candidates": [
+        "Bank B fixed neck",
+        "Bank B neck flange",
+        "BANK_B_FIXED_HOUSING",
+        "B actuator collar",
+        "B actuator collar.001",
+        "B actuator collar.002",
+        "B actuator collar.003",
+        "B cast stiffener.002",
+        "B housing fasteners.005",
+        "B housing fasteners.006",
+        "B cast stiffener.005",
+        "B housing fasteners.011",
+        "B housing fasteners.012",
+        "B lower bearing retaining ring",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "Hydraulic pressure accumulator.001",
+        "Umbilical rigid bracket.002",
+        "Umbilical rigid bracket.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.008",
+      "original_candidates": [
+        "Bank A mounting saddle",
+        "Bank A fixed neck",
+        "Bank A neck flange.001",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.001",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.009",
+      "original_candidates": [
+        "Bank B mounting saddle",
+        "Bank B fixed neck",
+        "Bank B neck flange.001",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.002",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.010",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone",
+        "Steel aperture curb",
+        "Rail foot.004",
+        "Rail anchors.017",
+        "Rail anchors.019"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.013",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.003",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone.015",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.002",
+      "original_candidates": [
+        "BANK_A_CARRIAGE",
+        "A moving flange",
+        "A moving flange.001",
+        "A carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.003",
+      "original_candidates": [
+        "BANK_B_CARRIAGE",
+        "B moving flange",
+        "B moving flange.001",
+        "B carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.004",
+      "original_candidates": [
+        "Bank A fixed neck",
+        "Bank A neck flange",
+        "BANK_A_FIXED_HOUSING",
+        "A actuator collar",
+        "A actuator collar.001",
+        "A actuator collar.002",
+        "A actuator collar.003",
+        "A cast stiffener.002",
+        "A housing fasteners.005",
+        "A housing fasteners.006",
+        "A cast stiffener.005",
+        "A housing fasteners.011",
+        "A housing fasteners.012",
+        "A lower bearing retaining ring",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "Hydraulic pressure accumulator",
+        "Umbilical rigid bracket",
+        "Umbilical rigid bracket.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.005",
+      "original_candidates": [
+        "Bank B fixed neck",
+        "Bank B neck flange",
+        "BANK_B_FIXED_HOUSING",
+        "B actuator collar",
+        "B actuator collar.001",
+        "B actuator collar.002",
+        "B actuator collar.003",
+        "B cast stiffener.002",
+        "B housing fasteners.005",
+        "B housing fasteners.006",
+        "B cast stiffener.005",
+        "B housing fasteners.011",
+        "B housing fasteners.012",
+        "B lower bearing retaining ring",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "Hydraulic pressure accumulator.001",
+        "Umbilical rigid bracket.002",
+        "Umbilical rigid bracket.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.006",
+      "original_candidates": [
+        "Bank A mounting saddle",
+        "Bank A fixed neck",
+        "Bank A neck flange.001",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.004",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.007",
+      "original_candidates": [
+        "Bank B mounting saddle",
+        "Bank B fixed neck",
+        "Bank B neck flange.001",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.005",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.005",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.006",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.010",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.007",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.011",
+      "original_candidates": [
+        "BANK_A_CARRIAGE",
+        "A moving flange",
+        "A carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.012",
+      "original_candidates": [
+        "BANK_A_FIXED_HOUSING",
+        "A cast stiffener.005",
+        "A housing fasteners.011"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.013",
+      "original_candidates": [
+        "Bank A mounting saddle",
+        "Bank A fixed neck",
+        "Bank A neck flange.001",
+        "Actuator saddle cheek.002",
+        "Umbilical rigid bracket.001",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.008",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.014",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.015",
+      "original_candidates": [
+        "BANK_A_CARRIAGE",
+        "A moving flange",
+        "A carriage gland",
+        "BANK_B_CARRIAGE",
+        "B moving flange",
+        "B carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.016",
+      "original_candidates": [
+        "BANK_A_FIXED_HOUSING",
+        "A cast stiffener.002",
+        "A housing fasteners.005",
+        "BANK_B_FIXED_HOUSING",
+        "B cast stiffener.002",
+        "B housing fasteners.005",
+        "B cast stiffener.005",
+        "B housing fasteners.011"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.017",
+      "original_candidates": [
+        "Bank A mounting saddle",
+        "Bank A fixed neck",
+        "Bank A neck flange.001",
+        "Bank B mounting saddle",
+        "Bank B fixed neck",
+        "Bank B neck flange.001",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "Umbilical rigid bracket.003",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.009",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.018",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone",
+        "Steel aperture curb",
+        "Rail foot.004",
+        "Rail anchors.017",
+        "Rail anchors.019"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.023",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.010",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone.015",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.003",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.011",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.004",
+      "original_candidates": [
+        "BANK_A_CARRIAGE",
+        "A moving flange",
+        "A moving flange.001",
+        "A carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.005",
+      "original_candidates": [
+        "BANK_B_CARRIAGE",
+        "B moving flange",
+        "B moving flange.001",
+        "B carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.006",
+      "original_candidates": [
+        "Bank A fixed neck",
+        "Bank A neck flange",
+        "BANK_A_FIXED_HOUSING",
+        "A actuator collar",
+        "A actuator collar.001",
+        "A actuator collar.002",
+        "A actuator collar.003",
+        "A cast stiffener.002",
+        "A housing fasteners.005",
+        "A housing fasteners.006",
+        "A cast stiffener.005",
+        "A housing fasteners.011",
+        "A housing fasteners.012",
+        "A lower bearing retaining ring",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "Hydraulic pressure accumulator",
+        "Umbilical rigid bracket",
+        "Umbilical rigid bracket.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.007",
+      "original_candidates": [
+        "Bank B fixed neck",
+        "Bank B neck flange",
+        "BANK_B_FIXED_HOUSING",
+        "B actuator collar",
+        "B actuator collar.001",
+        "B actuator collar.002",
+        "B actuator collar.003",
+        "B cast stiffener.002",
+        "B housing fasteners.005",
+        "B housing fasteners.006",
+        "B cast stiffener.005",
+        "B housing fasteners.011",
+        "B housing fasteners.012",
+        "B lower bearing retaining ring",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "Hydraulic pressure accumulator.001",
+        "Umbilical rigid bracket.002",
+        "Umbilical rigid bracket.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.008",
+      "original_candidates": [
+        "Bank A mounting saddle",
+        "Bank A fixed neck",
+        "Bank A neck flange.001",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.012",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.009",
+      "original_candidates": [
+        "Bank B mounting saddle",
+        "Bank B fixed neck",
+        "Bank B neck flange.001",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.013",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.010",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.013",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.014",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone.015",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.002",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.003",
+      "original_candidates": [
+        "BANK_A_CARRIAGE",
+        "A moving flange",
+        "A moving flange.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.004",
+      "original_candidates": [
+        "BANK_A_CARRIAGE",
+        "A moving flange",
+        "A moving flange.001",
+        "A carriage gland",
+        "BANK_B_CARRIAGE",
+        "B moving flange",
+        "B moving flange.001",
+        "B carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.005",
+      "original_candidates": [
+        "BANK_B_CARRIAGE",
+        "B moving flange",
+        "B moving flange.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.006",
+      "original_candidates": [
+        "Bank A neck flange",
+        "BANK_A_FIXED_HOUSING",
+        "A actuator collar",
+        "A actuator collar.001",
+        "A actuator collar.002",
+        "A actuator collar.003",
+        "A cast stiffener.005",
+        "A housing fasteners.011",
+        "A housing fasteners.012",
+        "A lower bearing retaining ring",
+        "Hydraulic pressure accumulator",
+        "Umbilical rigid bracket",
+        "Umbilical rigid bracket.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.007",
+      "original_candidates": [
+        "Bank A fixed neck",
+        "Bank A neck flange",
+        "BANK_A_FIXED_HOUSING",
+        "A actuator collar",
+        "A actuator collar.001",
+        "A actuator collar.002",
+        "A actuator collar.003",
+        "A cast stiffener.002",
+        "A housing fasteners.005",
+        "A housing fasteners.006",
+        "A lower bearing retaining ring",
+        "Bank B fixed neck",
+        "Bank B neck flange",
+        "BANK_B_FIXED_HOUSING",
+        "B actuator collar",
+        "B actuator collar.001",
+        "B actuator collar.002",
+        "B actuator collar.003",
+        "B cast stiffener.005",
+        "B housing fasteners.011",
+        "B housing fasteners.012",
+        "B lower bearing retaining ring",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "Hydraulic pressure accumulator",
+        "Hydraulic pressure accumulator.001",
+        "Umbilical rigid bracket",
+        "Umbilical rigid bracket.001",
+        "Umbilical rigid bracket.002",
+        "Umbilical rigid bracket.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.008",
+      "original_candidates": [
+        "Bank B neck flange",
+        "BANK_B_FIXED_HOUSING",
+        "B actuator collar",
+        "B actuator collar.001",
+        "B actuator collar.002",
+        "B actuator collar.003",
+        "B cast stiffener.002",
+        "B housing fasteners.005",
+        "B housing fasteners.006",
+        "B lower bearing retaining ring",
+        "Actuator saddle cheek.005"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.009",
+      "original_candidates": [
+        "Bank A mounting saddle",
+        "Bank A neck flange.001",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.015",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.010",
+      "original_candidates": [
+        "Bank A mounting saddle",
+        "Bank A fixed neck",
+        "Bank A neck flange.001",
+        "Bank B mounting saddle",
+        "Bank B fixed neck",
+        "Bank B neck flange.001",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.016",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.011",
+      "original_candidates": [
+        "Bank B mounting saddle",
+        "Bank B neck flange.001",
+        "Actuator saddle cheek.005",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.017",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone.015",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.002",
+      "original_candidates": [
+        "BANK_A_CARRIAGE",
+        "A moving flange",
+        "A moving flange.001",
+        "A carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.003",
+      "original_candidates": [
+        "BANK_B_CARRIAGE",
+        "B moving flange",
+        "B moving flange.001",
+        "B carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.004",
+      "original_candidates": [
+        "Bank A fixed neck",
+        "Bank A neck flange",
+        "BANK_A_FIXED_HOUSING",
+        "A actuator collar",
+        "A actuator collar.001",
+        "A actuator collar.002",
+        "A actuator collar.003",
+        "A cast stiffener.002",
+        "A housing fasteners.005",
+        "A housing fasteners.006",
+        "A cast stiffener.005",
+        "A housing fasteners.011",
+        "A housing fasteners.012",
+        "A lower bearing retaining ring",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "Hydraulic pressure accumulator",
+        "Umbilical rigid bracket",
+        "Umbilical rigid bracket.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.005",
+      "original_candidates": [
+        "Bank B fixed neck",
+        "Bank B neck flange",
+        "BANK_B_FIXED_HOUSING",
+        "B actuator collar",
+        "B actuator collar.001",
+        "B actuator collar.002",
+        "B actuator collar.003",
+        "B cast stiffener.002",
+        "B housing fasteners.005",
+        "B housing fasteners.006",
+        "B cast stiffener.005",
+        "B housing fasteners.011",
+        "B housing fasteners.012",
+        "B lower bearing retaining ring",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "Hydraulic pressure accumulator.001",
+        "Umbilical rigid bracket.002",
+        "Umbilical rigid bracket.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.006",
+      "original_candidates": [
+        "Bank A mounting saddle",
+        "Bank A fixed neck",
+        "Bank A neck flange.001",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.018",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.007",
+      "original_candidates": [
+        "Bank B mounting saddle",
+        "Bank B fixed neck",
+        "Bank B neck flange.001",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.019",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone.015",
+        "Steel aperture curb",
+        "Rail foot.012",
+        "Rail anchors.049",
+        "Rail anchors.051"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.004",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.020",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.005",
+      "original_candidates": [
+        "BANK_A_CARRIAGE",
+        "A moving flange",
+        "A moving flange.001",
+        "A carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.006",
+      "original_candidates": [
+        "BANK_B_CARRIAGE",
+        "B moving flange",
+        "B moving flange.001",
+        "B carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.007",
+      "original_candidates": [
+        "Bank A fixed neck",
+        "Bank A neck flange",
+        "BANK_A_FIXED_HOUSING",
+        "A actuator collar",
+        "A actuator collar.001",
+        "A actuator collar.002",
+        "A actuator collar.003",
+        "A cast stiffener.002",
+        "A housing fasteners.005",
+        "A housing fasteners.006",
+        "A cast stiffener.005",
+        "A housing fasteners.011",
+        "A housing fasteners.012",
+        "A lower bearing retaining ring",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "Hydraulic pressure accumulator",
+        "Umbilical rigid bracket",
+        "Umbilical rigid bracket.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.008",
+      "original_candidates": [
+        "Bank B fixed neck",
+        "Bank B neck flange",
+        "BANK_B_FIXED_HOUSING",
+        "B actuator collar",
+        "B actuator collar.001",
+        "B actuator collar.002",
+        "B actuator collar.003",
+        "B cast stiffener.002",
+        "B housing fasteners.005",
+        "B housing fasteners.006",
+        "B cast stiffener.005",
+        "B housing fasteners.011",
+        "B housing fasteners.012",
+        "B lower bearing retaining ring",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "Hydraulic pressure accumulator.001",
+        "Umbilical rigid bracket.002",
+        "Umbilical rigid bracket.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.009",
+      "original_candidates": [
+        "Bank A mounting saddle",
+        "Bank A fixed neck",
+        "Bank A neck flange.001",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.021",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.010",
+      "original_candidates": [
+        "Bank B mounting saddle",
+        "Bank B fixed neck",
+        "Bank B neck flange.001",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.022",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.011",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone",
+        "Steel aperture curb",
+        "Rail foot.004",
+        "Rail anchors.017",
+        "Rail anchors.019"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.015",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.023",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone.015",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.001",
+      "original_candidates": [
+        "Service outer inlay",
+        "Precast rim stone",
+        "Steel aperture curb"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.002",
+      "original_candidates": [
+        "BANK_A_CARRIAGE",
+        "A moving flange",
+        "A moving flange.001",
+        "A carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.003",
+      "original_candidates": [
+        "BANK_B_CARRIAGE",
+        "B moving flange",
+        "B moving flange.001",
+        "B carriage gland"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.004",
+      "original_candidates": [
+        "Bank A fixed neck",
+        "Bank A neck flange",
+        "BANK_A_FIXED_HOUSING",
+        "A actuator collar",
+        "A actuator collar.001",
+        "A actuator collar.002",
+        "A actuator collar.003",
+        "A cast stiffener.002",
+        "A housing fasteners.005",
+        "A housing fasteners.006",
+        "A cast stiffener.005",
+        "A housing fasteners.011",
+        "A housing fasteners.012",
+        "A lower bearing retaining ring",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "Hydraulic pressure accumulator",
+        "Umbilical rigid bracket",
+        "Umbilical rigid bracket.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.005",
+      "original_candidates": [
+        "Bank B fixed neck",
+        "Bank B neck flange",
+        "BANK_B_FIXED_HOUSING",
+        "B actuator collar",
+        "B actuator collar.001",
+        "B actuator collar.002",
+        "B actuator collar.003",
+        "B cast stiffener.002",
+        "B housing fasteners.005",
+        "B housing fasteners.006",
+        "B cast stiffener.005",
+        "B housing fasteners.011",
+        "B housing fasteners.012",
+        "B lower bearing retaining ring",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "Hydraulic pressure accumulator.001",
+        "Umbilical rigid bracket.002",
+        "Umbilical rigid bracket.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.006",
+      "original_candidates": [
+        "Bank A mounting saddle",
+        "Bank A fixed neck",
+        "Bank A neck flange.001",
+        "Actuator saddle cheek.001",
+        "Actuator saddle cheek.002",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.024",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.007",
+      "original_candidates": [
+        "Bank B mounting saddle",
+        "Bank B fixed neck",
+        "Bank B neck flange.001",
+        "Actuator saddle cheek.005",
+        "Actuator saddle cheek.006",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal",
+        "RF BATCH services RF lens"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.025",
+      "original_candidates": [
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH skylights RF white",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    }
+  ],
+  "additive_bounds": [
+    {
+      "name": "Reactor exterior Shell 1 field",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          0.013000011444091797
+        ],
+        [
+          -2.5139999389648438,
+          0.30799999833106995,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.001",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          -2.5139999389648438,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.002",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          -2.5139999389648438,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.003",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          -2.5139999389648438,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap",
+      "bounds": [
+        [
+          -5.98799991607666,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -2.51200008392334,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.004",
+      "bounds": [
+        [
+          -2.4860000610351562,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.005",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          2.4860000610351562,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.006",
+      "bounds": [
+        [
+          -2.4860000610351562,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.007",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          2.4860000610351562,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.008",
+      "bounds": [
+        [
+          -2.4860000610351562,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.001",
+      "bounds": [
+        [
+          -2.48799991607666,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -0.012000083923339844,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.009",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          2.4860000610351562,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.002",
+      "bounds": [
+        [
+          0.012000083923339844,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          2.48799991607666,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.010",
+      "bounds": [
+        [
+          2.5139999389648438,
+          0.2800000011920929,
+          0.013000011444091797
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.011",
+      "bounds": [
+        [
+          2.5139999389648438,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.012",
+      "bounds": [
+        [
+          2.5139999389648438,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.013",
+      "bounds": [
+        [
+          2.5139999389648438,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.003",
+      "bounds": [
+        [
+          2.51200008392334,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          5.98799991607666,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.6200000047683716,
+          0.013000011444091797
+        ],
+        [
+          -0.0140000581741333,
+          0.6480000019073486,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.001",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.6200000047683716,
+          0.013000011444091797
+        ],
+        [
+          3.380112648010254,
+          0.6480000019073486,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.002",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.003",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          3.380112648010254,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.004",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.005",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          3.380112648010254,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.006",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.004",
+      "bounds": [
+        [
+          -3.382112503051758,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -0.012000083923339844,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.007",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          3.380112648010254,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.005",
+      "bounds": [
+        [
+          0.012000083923339844,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          3.382112503051758,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          0.013000011444091797
+        ],
+        [
+          -5.61400032043457,
+          0.30799999833106995,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.001",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          5.013000011444092
+        ],
+        [
+          -5.61400032043457,
+          0.30799999833106995,
+          7.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.002",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          8.01300048828125
+        ],
+        [
+          -5.61400032043457,
+          0.30799999833106995,
+          10.187000274658203
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.003",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          10.213000297546387
+        ],
+        [
+          -5.61400032043457,
+          0.30799999833106995,
+          10.286999702453613
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.004",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          10.313000679016113
+        ],
+        [
+          -5.61400032043457,
+          0.30799999833106995,
+          12.88700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.005",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          12.91300106048584
+        ],
+        [
+          -5.61400032043457,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.006",
+      "bounds": [
+        [
+          -5.98799991607666,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -5.612000465393066,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.006",
+      "bounds": [
+        [
+          -5.585999488830566,
+          0.2800000011920929,
+          5.013000011444092
+        ],
+        [
+          -2.7139997482299805,
+          0.30799999833106995,
+          7.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.007",
+      "bounds": [
+        [
+          -5.585999488830566,
+          0.2800000011920929,
+          8.01300048828125
+        ],
+        [
+          -2.7139997482299805,
+          0.30799999833106995,
+          10.187000274658203
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.008",
+      "bounds": [
+        [
+          -5.585999488830566,
+          0.2800000011920929,
+          10.213000297546387
+        ],
+        [
+          -2.7139997482299805,
+          0.30799999833106995,
+          10.286999702453613
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.009",
+      "bounds": [
+        [
+          -5.585999488830566,
+          0.2800000011920929,
+          10.313000679016113
+        ],
+        [
+          -2.7139997482299805,
+          0.30799999833106995,
+          12.88700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.010",
+      "bounds": [
+        [
+          -5.585999488830566,
+          0.2800000011920929,
+          12.91300106048584
+        ],
+        [
+          -2.7139997482299805,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.007",
+      "bounds": [
+        [
+          -5.58799934387207,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -2.7119996547698975,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.011",
+      "bounds": [
+        [
+          -2.686000108718872,
+          0.2800000011920929,
+          5.013000011444092
+        ],
+        [
+          -1.6140000820159912,
+          0.30799999833106995,
+          7.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.012",
+      "bounds": [
+        [
+          -2.686000108718872,
+          0.2800000011920929,
+          10.213000297546387
+        ],
+        [
+          -1.6140000820159912,
+          0.30799999833106995,
+          10.286999702453613
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.013",
+      "bounds": [
+        [
+          -2.686000108718872,
+          0.2800000011920929,
+          12.91300106048584
+        ],
+        [
+          -1.6140000820159912,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.008",
+      "bounds": [
+        [
+          -2.688000202178955,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -1.6120001077651978,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.014",
+      "bounds": [
+        [
+          -1.5859999656677246,
+          0.2800000011920929,
+          0.013000011444091797
+        ],
+        [
+          2.685999870300293,
+          0.30799999833106995,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.015",
+      "bounds": [
+        [
+          -1.5859999656677246,
+          0.2800000011920929,
+          5.013000011444092
+        ],
+        [
+          2.685999870300293,
+          0.30799999833106995,
+          7.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.016",
+      "bounds": [
+        [
+          -1.5859999656677246,
+          0.2800000011920929,
+          10.213000297546387
+        ],
+        [
+          2.685999870300293,
+          0.30799999833106995,
+          10.286999702453613
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.017",
+      "bounds": [
+        [
+          -1.5859999656677246,
+          0.2800000011920929,
+          12.91300106048584
+        ],
+        [
+          2.685999870300293,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.009",
+      "bounds": [
+        [
+          -1.5880000591278076,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          2.687999963760376,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.018",
+      "bounds": [
+        [
+          2.7139997482299805,
+          0.2800000011920929,
+          0.013000011444091797
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.019",
+      "bounds": [
+        [
+          2.7139997482299805,
+          0.2800000011920929,
+          5.013000011444092
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          7.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.020",
+      "bounds": [
+        [
+          2.7139997482299805,
+          0.2800000011920929,
+          8.01300048828125
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          10.187000274658203
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.021",
+      "bounds": [
+        [
+          2.7139997482299805,
+          0.2800000011920929,
+          10.213000297546387
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          10.286999702453613
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.022",
+      "bounds": [
+        [
+          2.7139997482299805,
+          0.2800000011920929,
+          10.313000679016113
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          12.88700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.023",
+      "bounds": [
+        [
+          2.7139997482299805,
+          0.2800000011920929,
+          12.91300106048584
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.010",
+      "bounds": [
+        [
+          2.7119998931884766,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          5.98799991607666,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field",
+      "bounds": [
+        [
+          -3.380112409591675,
+          0.2800000011920929,
+          0.013000011444091797
+        ],
+        [
+          -2.514000177383423,
+          0.30799999833106995,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.001",
+      "bounds": [
+        [
+          -3.380112409591675,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          -2.514000177383423,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.002",
+      "bounds": [
+        [
+          -3.380112409591675,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          -2.514000177383423,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.003",
+      "bounds": [
+        [
+          -3.380112409591675,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          -2.514000177383423,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.011",
+      "bounds": [
+        [
+          -3.382112503051758,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -2.51200008392334,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.004",
+      "bounds": [
+        [
+          -2.4860000610351562,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.005",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          2.4860000610351562,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.006",
+      "bounds": [
+        [
+          -2.4860000610351562,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.007",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          2.4860000610351562,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.008",
+      "bounds": [
+        [
+          -2.4860000610351562,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.012",
+      "bounds": [
+        [
+          -2.48799991607666,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -0.012000083923339844,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.009",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          2.4860000610351562,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.013",
+      "bounds": [
+        [
+          0.012000083923339844,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          2.48799991607666,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.010",
+      "bounds": [
+        [
+          2.514000177383423,
+          0.2800000011920929,
+          0.013000011444091797
+        ],
+        [
+          3.380112409591675,
+          0.30799999833106995,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.011",
+      "bounds": [
+        [
+          2.514000177383423,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          3.380112409591675,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.012",
+      "bounds": [
+        [
+          2.514000177383423,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          3.380112409591675,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.013",
+      "bounds": [
+        [
+          2.514000177383423,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          3.380112409591675,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.014",
+      "bounds": [
+        [
+          2.51200008392334,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          3.382112503051758,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.6200000047683716,
+          0.013000011444091797
+        ],
+        [
+          -2.0139999389648438,
+          0.6480000019073486,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.001",
+      "bounds": [
+        [
+          -1.9860000610351562,
+          0.6200000047683716,
+          0.013000011444091797
+        ],
+        [
+          1.9860000610351562,
+          0.6480000019073486,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.002",
+      "bounds": [
+        [
+          2.0139999389648438,
+          0.6200000047683716,
+          0.013000011444091797
+        ],
+        [
+          5.986000061035156,
+          0.6480000019073486,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.003",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          -2.0139999389648438,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.004",
+      "bounds": [
+        [
+          -1.9860000610351562,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          1.9860000610351562,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.005",
+      "bounds": [
+        [
+          2.0139999389648438,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.006",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          -2.0139999389648438,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.007",
+      "bounds": [
+        [
+          -1.9860000610351562,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          1.9860000610351562,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.008",
+      "bounds": [
+        [
+          2.0139999389648438,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.009",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          -2.0139999389648438,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.015",
+      "bounds": [
+        [
+          -5.98799991607666,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -2.01200008392334,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.010",
+      "bounds": [
+        [
+          -1.9860000610351562,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          1.9860000610351562,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.016",
+      "bounds": [
+        [
+          -1.9880000352859497,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          1.9880000352859497,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.011",
+      "bounds": [
+        [
+          2.0139999389648438,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.017",
+      "bounds": [
+        [
+          2.01200008392334,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          5.98799991607666,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.2800000011920929,
+          0.013000011444091797
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.001",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          0.013000011444091797
+        ],
+        [
+          3.380112648010254,
+          0.30799999833106995,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.002",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.003",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          3.380112648010254,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.004",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.005",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          3.380112648010254,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.006",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.018",
+      "bounds": [
+        [
+          -3.382112503051758,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -0.012000083923339844,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.007",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          3.380112648010254,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.019",
+      "bounds": [
+        [
+          0.012000083923339844,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          3.382112503051758,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          0.013000011444091797
+        ],
+        [
+          -3.0139999389648438,
+          0.30799999833106995,
+          2.736999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.001",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          2.763000011444092
+        ],
+        [
+          -3.0139999389648438,
+          0.30799999833106995,
+          5.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.002",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          5.51300048828125
+        ],
+        [
+          -3.0139999389648438,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.003",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          -3.0139999389648438,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.004",
+      "bounds": [
+        [
+          -5.986000061035156,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          -3.0139999389648438,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.020",
+      "bounds": [
+        [
+          -5.98799991607666,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -3.01200008392334,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.005",
+      "bounds": [
+        [
+          -2.9860000610351562,
+          0.2800000011920929,
+          5.51300048828125
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.006",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          5.51300048828125
+        ],
+        [
+          2.9860000610351562,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.007",
+      "bounds": [
+        [
+          -2.9860000610351562,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.008",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          2.9860000610351562,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.009",
+      "bounds": [
+        [
+          -2.9860000610351562,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.021",
+      "bounds": [
+        [
+          -2.98799991607666,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -0.012000083923339844,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.010",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          2.9860000610351562,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.022",
+      "bounds": [
+        [
+          0.012000083923339844,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          2.98799991607666,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.011",
+      "bounds": [
+        [
+          3.0139999389648438,
+          0.2800000011920929,
+          0.013000011444091797
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          2.736999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.012",
+      "bounds": [
+        [
+          3.0139999389648438,
+          0.2800000011920929,
+          2.763000011444092
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          5.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.013",
+      "bounds": [
+        [
+          3.0139999389648438,
+          0.2800000011920929,
+          5.51300048828125
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.014",
+      "bounds": [
+        [
+          3.0139999389648438,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.015",
+      "bounds": [
+        [
+          3.0139999389648438,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          5.986000061035156,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.023",
+      "bounds": [
+        [
+          3.01200008392334,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          5.98799991607666,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.6200000047683716,
+          0.013000011444091797
+        ],
+        [
+          -0.0140000581741333,
+          0.6480000019073486,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.001",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.6200000047683716,
+          0.013000011444091797
+        ],
+        [
+          3.380112648010254,
+          0.6480000019073486,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.002",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.003",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          5.01300048828125
+        ],
+        [
+          3.380112648010254,
+          0.30799999833106995,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.004",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.005",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          9.61299991607666
+        ],
+        [
+          3.380112648010254,
+          0.30799999833106995,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.006",
+      "bounds": [
+        [
+          -3.380112648010254,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          -0.0140000581741333,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.024",
+      "bounds": [
+        [
+          -3.382112503051758,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          -0.012000083923339844,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.007",
+      "bounds": [
+        [
+          0.0140000581741333,
+          0.2800000011920929,
+          13.41300106048584
+        ],
+        [
+          3.380112648010254,
+          0.30799999833106995,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.025",
+      "bounds": [
+        [
+          0.012000083923339844,
+          0.2199999988079071,
+          15.909000396728516
+        ],
+        [
+          3.382112503051758,
+          0.3499999940395355,
+          15.98900032043457
+        ]
+      ]
+    }
+  ]
+}

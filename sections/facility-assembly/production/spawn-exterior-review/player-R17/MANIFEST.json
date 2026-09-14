@@ -1,0 +1,37 @@
+{
+  "source": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\facility_spawn_concept02_R17.blend",
+  "source_sha256": "0c276d993118d052d1e3177747852e4f22fca91cae1ebabbcedd6f5e38dde9da",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "views": [
+    {
+      "id": "PLAYER_1080P",
+      "eye": [
+        -25.0,
+        24.0,
+        1.7000000476837158
+      ],
+      "target": [
+        -28.0,
+        12.5,
+        1.649999976158142
+      ],
+      "lens": 24
+    }
+  ],
+  "engine": "EEVEE",
+  "raytracing": false,
+  "approved_concept": "SPAWN_EXTERIOR_CONCEPT_02.png",
+  "rule": "Additional player-height view; four locked review cameras unchanged.",
+  "render_samples": 256,
+  "shadow_ray_count": 4,
+  "shadow_step_count": 12,
+  "exposure": -0.25,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "baked_probe_objects": [
+    "Spawn courtyard baked indirect"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "reviewer": "independent grok-4.6 critic subagent",
+  "not": "Luna",
+  "revision": "R14",
+  "date": "2026-09-11",
+  "disposition": "REJECT",
+  "pass_rule": "every category independently > 90; 90 or below is REJECT; unverified cannot pass",
+  "cold_status": "COMPLETE_18; SHA256 differs on every pair vs warm; visual match on C04/C07 (TAA only)",
+  "prior_revision": {
+    "R13": "REJECT 73-86; scores not reused"
+  },
+  "evidence": {
+    "warm_renders": [
+      "C01_ENTRY.png",
+      "C02_HERO.png",
+      "C03_REVERSE.png",
+      "C04_EXHAUST.png",
+      "C05_RETURN.png",
+      "C06_COOLING.png",
+      "C07_OPERATOR.png",
+      "C08_MAINT.png",
+      "C09_ROOF.png",
+      "C10_MATERIALS.png",
+      "W01_ENTRY_CORNER.png",
+      "W02_SW_TURN.png",
+      "W03_NW.png",
+      "W04_NE.png",
+      "W05_SE.png",
+      "W06_WEST_AISLE.png",
+      "W07_EAST_PULL.png",
+      "W08_GALLERY_TURN.png"
+    ],
+    "cold_renders": "all 18 under review/cold-R14/",
+    "resolution": [1920, 1080],
+    "engine": "BLENDER_EEVEE",
+    "raytracing": false,
+    "r13_blocker_verdict": {
+      "U04_grate_hole": "PARTIAL: cream duct into stacked frames in C04; flange/gasket/bolt circle still unseen; C09 worse",
+      "C07_cube_switches": "PARTIAL: round bezels; still faceted discs; lamp collision",
+      "C05_motors_only": "PARTIAL: hotwell+suction elbow in frame; takeoff unclosed; U02 stub gone from W05",
+      "gallery_standing": "PARTIAL: C08 rail/fan/grate/hoist; camera jammed; W08 still grate",
+      "no_cold": "ADDRESSED: 18/18 cold, hashes differ"
+    }
+  },
+  "scores": {
+    "contract_specification_coverage": 86,
+    "scale_layout": 86,
+    "machinery_logic": 83,
+    "circulation_readability": 85,
+    "construction_detail": 82,
+    "materials": 80,
+    "lighting": 78,
+    "palette": 87,
+    "storytelling": 80,
+    "valorant_reference_fidelity": 77
+  },
+  "disposition_by_category": {
+    "contract_specification_coverage": "REJECT",
+    "scale_layout": "REJECT",
+    "machinery_logic": "REJECT",
+    "circulation_readability": "REJECT",
+    "construction_detail": "REJECT",
+    "materials": "REJECT",
+    "lighting": "REJECT",
+    "palette": "REJECT",
+    "storytelling": "REJECT",
+    "valorant_reference_fidelity": "REJECT"
+  },
+  "unverified": [
+    "U04_flange_gasket_bolt_circle_slab_seal",
+    "IF_CONDENSATE_HANDOFF_labeled_stub",
+    "D01_threshold_sill_and_uncropped_identity",
+    "level_glasses_as_glass",
+    "closed_hotwell_nozzle",
+    "gallery_standing_turn_W08",
+    "roof_as_slab_system_C09",
+    "numerical_clearances"
+  ],
+  "categories_at_or_below_90": 10,
+  "categories_above_90": 0,
+  "three_most_consequential": [
+    "U04 still nested frames over a grate, not a flange/gasket/seal landing; C09 is a blown bar crop",
+    "W05 is empty wall; condensate handoff stub left the set; C05 suction does not enter a nozzle",
+    "C07 bezels still toy; C06 hangers do not land; stairs/fan still primitives vs turbine/cooling"
+  ]
+}

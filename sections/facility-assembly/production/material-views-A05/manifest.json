@@ -1,0 +1,41 @@
+{
+  "source_sha256": "d83aa7d4bc18c57ba6f14df9abc51b58b94af62f3f37103759357bb6ecfe7d5a",
+  "master_saved": false,
+  "renderer": "Cycles HIP",
+  "samples": 16,
+  "lighting": "Source practical lights plus temporary neutral exterior world and sun; provisional review lighting",
+  "views": [
+    {
+      "id": "E03_COMPLETE_EXTERIOR",
+      "caption": "All twelve assembled sections with connecting space reserved",
+      "location": [
+        -155,
+        -170,
+        185
+      ],
+      "target": [
+        -9,
+        10,
+        0
+      ],
+      "lens_mm": 45,
+      "sha256": "5a945c8adcda188f87b337da64d59c44f04632961fcf83b1ae1b559c7da8e1d8"
+    },
+    {
+      "id": "E02_FACILITY_EXTERIOR",
+      "caption": "Outside the power wing",
+      "location": [
+        92,
+        -10,
+        15
+      ],
+      "target": [
+        45,
+        36,
+        4
+      ],
+      "lens_mm": 29,
+      "sha256": "8de4f924dc51aaf0448e77e4f766c6fcd915684e13cf48012bddffdfd9180812"
+    }
+  ]
+}

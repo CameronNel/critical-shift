@@ -1,0 +1,7 @@
+# Reactor room R04 independent visual review
+
+All four FRONT/OBLIQUE/REVERSE/DETAIL pixels reviewed. Faceted skins now visibly follow the octagonal source shell, with coherent orange upper band and individually stepped lower panels. No QA cards, pointers or diagnostic text overlays are visible in these cameras; this supports the hierarchy visibility correction without proving every hidden object flag. Source connector closures and roof interfaces remain visibly present; do not remove them merely for a cleaner silhouette.
+
+Visual score: route16/20, art/silhouette17/20, focal13/15, materials12/15, lighting5/10, dressing6/10 = **69/90**. Technical10 unscored. Hold clean visual presentation: REVERSE tall dark connector face has five conspicuous white wedges plus a small bright roof fleck. FRONT has intermittent bright white/orange streaks along the mid-height horizontal joint and central vertical joint; the lower cylindrical source structure also shows bright slivers. Diagnose source light/emitter or seam geometry contributions before another repair; pixels alone do not establish cause.
+
+The construction alignment repair is visible, but these artifacts prevent final visual sign-off. Secondary polish: identification crosses panel seams through both end letters, and surface finish remains uniformly clean with little service detail. Existing accepted interiors/source massing receive no new authoring credit. Separate R03 source-local and diagonal-portal audits do not certify R04 lighting or full-section acceptance. No GPU/model edits in this review.

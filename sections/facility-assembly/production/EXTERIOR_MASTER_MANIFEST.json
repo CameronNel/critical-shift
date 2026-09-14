@@ -1,0 +1,105 @@
+{
+  "revision": "A05",
+  "base_sha256": "32cae1283c3485fe5033e46577cf0c9787c18769121bcaa333fb55619c3ee70d",
+  "master_sha256": "d83aa7d4bc18c57ba6f14df9abc51b58b94af62f3f37103759357bb6ecfe7d5a",
+  "exteriors": [
+    {
+      "section": "compliance-dock",
+      "revision": "R08",
+      "asset": "exteriors\\compliance-dock\\exterior-R08.blend",
+      "sha256": "a2a2a57c6531cd6a4bf6a6d5b92d07b81d1630a4b5ab553ff762771127bb2ccb",
+      "meshes": 213,
+      "source_light_wrapper": false
+    },
+    {
+      "section": "spawn-room",
+      "revision": "R05",
+      "asset": "exteriors\\spawn-room\\exterior-R05.blend",
+      "sha256": "5c236b25f3fef0243c5d086f71eb33d006a77cedfe05bfd91848d1ff1a245b5a",
+      "meshes": 162,
+      "source_light_wrapper": true
+    },
+    {
+      "section": "medical-reanimation",
+      "revision": "R04",
+      "asset": "exteriors\\medical-reanimation\\exterior-R04.blend",
+      "sha256": "a123a72256b3f920e28bcdeaf942d3277bd2513fb14267c5686f9a7d9a8a9787",
+      "meshes": 114,
+      "source_light_wrapper": false
+    },
+    {
+      "section": "waste-storage",
+      "revision": "R01",
+      "asset": "exteriors\\waste-storage\\exterior-R01.blend",
+      "sha256": "c3cacb97088899afbf8202e1d44da0ec3d79d39b1c71408cbb629e8cf4ad2db8",
+      "meshes": 93,
+      "source_light_wrapper": false
+    },
+    {
+      "section": "electrical-room",
+      "revision": "R03",
+      "asset": "exteriors\\electrical-room\\exterior-R03.blend",
+      "sha256": "cf7ed65234a618ae957f4d5254dd0b008761da7a7d3e77cb85da095467b03551",
+      "meshes": 128,
+      "source_light_wrapper": false
+    },
+    {
+      "section": "turbine-room",
+      "revision": "R04",
+      "asset": "exteriors\\turbine-room\\exterior-R04.blend",
+      "sha256": "7483c0eebaacfb479a7a1c65e1da7430079c4332eb5dab836b5ad9259563e40d",
+      "meshes": 186,
+      "source_light_wrapper": true
+    },
+    {
+      "section": "condenser-bay",
+      "revision": "R02",
+      "asset": "exteriors\\condenser-bay\\exterior-R02.blend",
+      "sha256": "48abbe1061e038749aab76e1fb1217a329abdd40592da7fba21d578842c75ade",
+      "meshes": 140,
+      "source_light_wrapper": false
+    },
+    {
+      "section": "cooling-plant",
+      "revision": "R03",
+      "asset": "exteriors\\cooling-plant\\exterior-R03.blend",
+      "sha256": "29241944814b0eb02bd87c627448c2a9a05bfb4832efb786294e1752c722a92e",
+      "meshes": 74,
+      "source_light_wrapper": true
+    },
+    {
+      "section": "reactor-room",
+      "revision": "R05",
+      "asset": "exteriors\\reactor-room\\exterior-R05.blend",
+      "sha256": "19e2808ff7edfd0415be7f66322568d992a0e67bd02a9e4f7907dfb6ac7a6385",
+      "meshes": 130,
+      "source_light_wrapper": true
+    },
+    {
+      "section": "fuel-corridor",
+      "revision": "R02",
+      "asset": "exteriors\\fuel-corridor\\exterior-R02.blend",
+      "sha256": "2ecbdb89cf46e6b8b745f7b54d24714e77731fbb5544470ea2102ccbb74f1b29",
+      "meshes": 262,
+      "source_light_wrapper": false
+    },
+    {
+      "section": "refinery",
+      "revision": "R01",
+      "asset": "exteriors\\refinery\\exterior-R01.blend",
+      "sha256": "91dc6d076ef5b0a74f9b4931b253e14692081c1d9ec605dfa6ea0d0fd452710c",
+      "meshes": 124,
+      "source_light_wrapper": true
+    },
+    {
+      "section": "mine",
+      "revision": "R02",
+      "asset": "exteriors\\mine\\exterior-R02.blend",
+      "sha256": "7c7a0784e3bc6e19f1f5674830d37e946eae1bd030c3fb875176d319803b37d1",
+      "meshes": 132,
+      "source_light_wrapper": true
+    }
+  ],
+  "routes_unbuilt": 21,
+  "source_geometry_unchanged": true
+}

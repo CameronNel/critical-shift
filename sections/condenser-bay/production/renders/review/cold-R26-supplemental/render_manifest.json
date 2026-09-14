@@ -1,0 +1,99 @@
+{
+  "revision": "cold-R26-supplemental",
+  "engine": "BLENDER_EEVEE",
+  "raytracing": false,
+  "samples": 64,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "cameras": [
+    {
+      "camera": "S01_LOCAL_U02",
+      "seconds": 5.34,
+      "sha256": "15ffd5b5bfc3581606076de32d184b8fcfee165f5c0384de7d2d7f75043d0221",
+      "location": [
+        7.449999809265137,
+        2.0,
+        5.0
+      ],
+      "lens": 32.0,
+      "process_id": 12548
+    },
+    {
+      "camera": "S02_LOCAL_CW",
+      "seconds": 3.65,
+      "sha256": "592afb77a58f44df0eb6ce04d8aa865a371622cd8b4a10dc799d822ff27666d8",
+      "location": [
+        7.5,
+        6.25,
+        3.5
+      ],
+      "lens": 26.0,
+      "process_id": 12548
+    },
+    {
+      "camera": "S03_FULL_ROOF",
+      "seconds": 4.76,
+      "sha256": "ca7a04ee35942dec1f7941ade4bd9f36c7172564996503e6d9fab78892c65566",
+      "location": [
+        8.800000190734863,
+        8.800000190734863,
+        4.449999809265137
+      ],
+      "lens": 20.0,
+      "process_id": 12548
+    },
+    {
+      "camera": "S04_GLASS",
+      "seconds": 7.7,
+      "sha256": "abde8030417fe1e942a9254a8f02562a8f307c2d403802d9ff606d28292ac5fa",
+      "location": [
+        2.049999952316284,
+        1.850000023841858,
+        1.600000023841858
+      ],
+      "lens": 46.0,
+      "process_id": 33584
+    },
+    {
+      "camera": "S05_FEET",
+      "seconds": 5.34,
+      "sha256": "3a055c52d2ded41e2efe5810af5e05fdfddee28fc097b2be70a8f97f324f1a82",
+      "location": [
+        4.699999809265137,
+        6.150000095367432,
+        0.75
+      ],
+      "lens": 28.0,
+      "process_id": 33584
+    },
+    {
+      "camera": "S06_OPERATOR_WORK",
+      "seconds": 3.98,
+      "sha256": "af2507a14e26353b9a3fe5c700a753b0261a2ba7564aabdd2adbae5c316ca62d",
+      "location": [
+        0.05000000074505806,
+        4.5,
+        1.399999976158142
+      ],
+      "lens": 45.0,
+      "process_id": 33584
+    },
+    {
+      "camera": "S07_U04_CUTAWAY",
+      "seconds": 2.71,
+      "sha256": "7e406bd57f1d1c527a66bffe44b4d7f5baf85e510219b635ee1476d687498a66",
+      "location": [
+        7.5,
+        0.800000011920929,
+        7.099999904632568
+      ],
+      "lens": 36.0,
+      "process_id": 2396
+    }
+  ],
+  "process_id": 2396,
+  "source_revision": "R26",
+  "blend_sha256": "942eb75589cb2be576e6bbd445ff567c39469299876e3d6356394790c42c2a00"
+}

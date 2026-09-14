@@ -1,0 +1,42 @@
+{
+  "revision": "R15",
+  "build_sha256": "72c71cb39a04243e9e514a6766177e7e15e78434f0c2793ad77ec0a7c2e0b3a8",
+  "views": ["01_COURTYARD", "02_SOUTH", "03_EAST", "04_TOP"],
+  "concept": "Concept02 approved",
+  "decision": "REJECT",
+  "scores": {
+    "reference_fidelity_concept_adherence": 89,
+    "silhouette_massing": 90,
+    "scale_spatial_layout": 92,
+    "circulation_access_rescue_route": 95,
+    "construction_load_support_logic": 95,
+    "utility_service_continuity": 94,
+    "exterior_materials_surface_response": 86,
+    "lighting_palette_readability": 86,
+    "environmental_storytelling_human_use": 88,
+    "terrain_drainage_ground_transitions": 95,
+    "roof_elevated_detail": 90,
+    "view_to_view_consistency": 89,
+    "interface_reservation_integrity": 95,
+    "runtime_delivery_readiness": 95,
+    "art_direction_veto_professional_finish": 80
+  },
+  "fresh_evidence": {
+    "technical_support_contacts": "PASS_67_ROOF_BASE_CONTACTS_PLUS_ANCHORS_RETURNS",
+    "source_preservation": "PASS_12_HASHES_AND_2444_PROTECTED_VERTICES_ZERO_ERROR",
+    "delivery": "PASS_DEPENDENCIES_RESERVATIONS_SOURCE_VISIBILITY",
+    "route_audit": "PASS_ZERO_FINDINGS_WITH_FLOOR_HEIGHT_SAMPLES",
+    "max_adjacent_floor_change_m": 0.015000022947788239,
+    "native_render_benchmark": "PASS_OFFLINE_TIMING_STABILITY_ONLY",
+    "interactive_viewport_fps": "UNVERIFIED",
+    "unity_runtime": "UNVERIFIED"
+  },
+  "pixel_blockers": [
+    "faceted contextual rock treatment",
+    "top-view value compression",
+    "broad quiet roof/wall/paving fields",
+    "repetitive planting and bench rhythm",
+    "south foreground rail competing with entry route"
+  ],
+  "notes": "Independent native-pixel review of R15 only. Requirement-specific technical passes are scoped and not globally art-penalized. Strict greater-than-93 threshold remains unmet by visual categories."
+}

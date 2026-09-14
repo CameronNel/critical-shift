@@ -1,0 +1,3420 @@
+{
+  "mesh_defects": [],
+  "revision": "R04",
+  "scope": "Evaluated world-AABB connectivity broadphase, not raycast/anchor/support-angle validation. Original render-visible mesh objects are root candidates; physical/collision suitability is not independently classified. AABB overlap can be empty space, contact does not imply load-bearing support, and deep penetration is accepted by this connectivity graph. Text/curves excluded. Model is not saved.",
+  "threshold_m": 0.005,
+  "numerical_epsilon_m": 1e-06,
+  "additive_mesh_count": 186,
+  "original_root_candidate_count": 1505,
+  "root_connected_additive_count": 186,
+  "detached_components": [],
+  "direct_original_candidates": [
+    {
+      "object": "Spawn mineral wall panel",
+      "original_candidates": [
+        "Structural floor",
+        "Floor expansion joint",
+        "Floor longitudinal joint",
+        "Concrete impact plinth",
+        "Impact cap",
+        "End wall",
+        "D01 reactor jamb",
+        "D01 reactor lintel",
+        "D01 reactor leaf inset",
+        "D01 reactor kick plate",
+        "D01 reactor pull pocket",
+        "D01 reactor leaf fastener",
+        "D01 reactor leaf fastener.001",
+        "D01 reactor leaf fastener.002",
+        "D01 reactor leaf fastener.003",
+        "Roof deck",
+        "Clear route margin"
+      ]
+    },
+    {
+      "object": "Spawn low concrete skirt",
+      "original_candidates": [
+        "Structural floor",
+        "D01 reactor jamb"
+      ]
+    },
+    {
+      "object": "Spawn coping",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.001",
+      "original_candidates": [
+        "Structural floor",
+        "Floor expansion joint",
+        "Floor longitudinal joint.002",
+        "End wall.001",
+        "D01 reactor jamb.001",
+        "D01 reactor lintel",
+        "D01 reactor leaf inset.001",
+        "D01 reactor kick plate.001",
+        "D01 reactor pull pocket.001",
+        "D01 reactor leaf fastener.004",
+        "D01 reactor leaf fastener.005",
+        "D01 reactor leaf fastener.006",
+        "D01 reactor leaf fastener.007",
+        "Roof deck",
+        "Roof purlin.001",
+        "Clear route margin.001"
+      ]
+    },
+    {
+      "object": "Spawn low concrete skirt.001",
+      "original_candidates": [
+        "Structural floor",
+        "D01 reactor jamb.001"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.002",
+      "original_candidates": [
+        "Structural floor",
+        "Floor expansion joint",
+        "Floor longitudinal joint.003",
+        "End wall.001",
+        "Roof deck",
+        "Roof purlin.002"
+      ]
+    },
+    {
+      "object": "Spawn low concrete skirt.002",
+      "original_candidates": [
+        "Structural floor"
+      ]
+    },
+    {
+      "object": "Spawn coping.001",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine door overwall skin",
+      "original_candidates": [
+        "End wall",
+        "End wall.001",
+        "Overdoor wall",
+        "D01 reactor lintel",
+        "D01 reactor sign bracket",
+        "Roof deck",
+        "Roof purlin"
+      ]
+    },
+    {
+      "object": "Turbine utility-clear facade",
+      "original_candidates": [
+        "Structural floor",
+        "Floor expansion joint",
+        "Floor longitudinal joint.004",
+        "End wall.001"
+      ]
+    },
+    {
+      "object": "Turbine utility-clear facade.001",
+      "original_candidates": [
+        "End wall.001",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine utility-clear facade.002",
+      "original_candidates": [
+        "Structural floor",
+        "Floor expansion joint",
+        "End wall.001",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine utility-clear facade.003",
+      "original_candidates": [
+        "End wall.001",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine utility-clear facade.004",
+      "original_candidates": [
+        "Structural floor",
+        "Floor expansion joint",
+        "Floor longitudinal joint.005",
+        "East wall",
+        "Concrete impact plinth.001",
+        "Impact cap.001",
+        "End wall.001",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.003",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.004",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.005",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.006",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.007",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.008",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.009",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.010",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.011",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn coping.002",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.012",
+      "original_candidates": [
+        "Structural floor",
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.013",
+      "original_candidates": [
+        "Structural floor",
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.014",
+      "original_candidates": [
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.015",
+      "original_candidates": [
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.016",
+      "original_candidates": [
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.017",
+      "original_candidates": [
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.018",
+      "original_candidates": [
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.019",
+      "original_candidates": [
+        "Structural floor",
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.020",
+      "original_candidates": [
+        "Structural floor",
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn coping.003",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.021",
+      "original_candidates": [
+        "Structural floor",
+        "End wall.002",
+        "D02 electrical portal return",
+        "D02 electrical return soffit",
+        "D02 electrical return floor",
+        "Roof deck",
+        "Return wall bumper",
+        "Bus north"
+      ]
+    },
+    {
+      "object": "Spawn low concrete skirt.021",
+      "original_candidates": [
+        "D02 electrical portal return",
+        "D02 electrical return floor"
+      ]
+    },
+    {
+      "object": "Spawn coping.004",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.022",
+      "original_candidates": [
+        "Structural floor",
+        "End wall.003",
+        "D02 electrical portal return.001",
+        "D02 electrical return soffit",
+        "D02 electrical return floor",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn low concrete skirt.022",
+      "original_candidates": [
+        "D02 electrical portal return.001",
+        "D02 electrical return floor"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.023",
+      "original_candidates": [
+        "Structural floor",
+        "End wall.003",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn mineral wall panel.024",
+      "original_candidates": [
+        "Structural floor",
+        "End wall.003",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Spawn coping.005",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine exit overwall skin",
+      "original_candidates": [
+        "End wall.002",
+        "End wall.003",
+        "Overdoor wall.001",
+        "D02 electrical portal return",
+        "D02 electrical portal return.001",
+        "D02 electrical return soffit",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine end roof coping",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine end roof coping.001",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper rainscreen field",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.001",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.002",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.003",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.004",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.005",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.006",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.007",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.008",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.009",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.010",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.011",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.012",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.013",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.014",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.015",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.016",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.017",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.018",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.019",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine upper standing seam.020",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster.001",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster.002",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster.003",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster.004",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster.005",
+      "original_candidates": [
+        "Structural floor",
+        "West wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster.006",
+      "original_candidates": [
+        "Structural floor",
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster.007",
+      "original_candidates": [
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster.008",
+      "original_candidates": [
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster.009",
+      "original_candidates": [
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster.010",
+      "original_candidates": [
+        "Structural floor",
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine structural exterior pilaster.011",
+      "original_candidates": [
+        "Structural floor",
+        "East wall",
+        "Roof deck"
+      ]
+    },
+    {
+      "object": "Turbine rain leader",
+      "original_candidates": [
+        "Roof deck"
+      ]
+    }
+  ],
+  "additive_bounds": [
+    {
+      "name": "Spawn mineral wall panel",
+      "bounds": [
+        [
+          -3.992000102996826,
+          -0.05000000074505806,
+          0.0
+        ],
+        [
+          -1.218000054359436,
+          0.0,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt",
+      "bounds": [
+        [
+          -3.992000102996826,
+          -0.08399999886751175,
+          0.0
+        ],
+        [
+          -1.218000054359436,
+          -0.024000002071261406,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping",
+      "bounds": [
+        [
+          -4.050000190734863,
+          -0.10000000149011612,
+          7.440000057220459
+        ],
+        [
+          -1.159999966621399,
+          0.10000000149011612,
+          7.559999942779541
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.001",
+      "bounds": [
+        [
+          1.2179999351501465,
+          -0.05000000074505806,
+          0.0
+        ],
+        [
+          4.5920000076293945,
+          0.0,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.001",
+      "bounds": [
+        [
+          1.2179999351501465,
+          -0.08399999886751175,
+          0.0
+        ],
+        [
+          4.5920000076293945,
+          -0.024000002071261406,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.002",
+      "bounds": [
+        [
+          4.607999801635742,
+          -0.05000000074505806,
+          0.0
+        ],
+        [
+          7.982000350952148,
+          0.0,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.002",
+      "bounds": [
+        [
+          4.607999801635742,
+          -0.08399999886751175,
+          0.0
+        ],
+        [
+          7.982000350952148,
+          -0.024000002071261406,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.001",
+      "bounds": [
+        [
+          1.1599998474121094,
+          -0.10000000149011612,
+          7.440000057220459
+        ],
+        [
+          8.039999961853027,
+          0.10000000149011612,
+          7.559999942779541
+        ]
+      ]
+    },
+    {
+      "name": "Turbine door overwall skin",
+      "bounds": [
+        [
+          -1.2100000381469727,
+          -0.05000000074505806,
+          2.8600001335144043
+        ],
+        [
+          1.2100000381469727,
+          0.0,
+          7.200000286102295
+        ]
+      ]
+    },
+    {
+      "name": "Turbine utility-clear facade",
+      "bounds": [
+        [
+          7.989999771118164,
+          -0.05000000074505806,
+          0.0
+        ],
+        [
+          8.809999465942383,
+          0.0,
+          4.480000019073486
+        ]
+      ]
+    },
+    {
+      "name": "Turbine utility-clear facade.001",
+      "bounds": [
+        [
+          7.989999771118164,
+          -0.05000000074505806,
+          5.320000171661377
+        ],
+        [
+          8.809999465942383,
+          0.0,
+          7.200000286102295
+        ]
+      ]
+    },
+    {
+      "name": "Turbine utility-clear facade.002",
+      "bounds": [
+        [
+          8.809999465942383,
+          -0.05000000074505806,
+          0.0
+        ],
+        [
+          9.180000305175781,
+          0.0,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine utility-clear facade.003",
+      "bounds": [
+        [
+          9.180000305175781,
+          -0.05000000074505806,
+          0.7799999713897705
+        ],
+        [
+          9.819999694824219,
+          0.0,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine utility-clear facade.004",
+      "bounds": [
+        [
+          9.819999694824219,
+          -0.05000000074505806,
+          0.0
+        ],
+        [
+          10.0,
+          0.0,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.003",
+      "bounds": [
+        [
+          -4.301000118255615,
+          0.008000015281140804,
+          0.0
+        ],
+        [
+          -4.250999927520752,
+          2.6586668491363525,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.003",
+      "bounds": [
+        [
+          -4.335000038146973,
+          0.008000015281140804,
+          0.0
+        ],
+        [
+          -4.274999618530273,
+          2.6586668491363525,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.004",
+      "bounds": [
+        [
+          -4.301000118255615,
+          2.6746666431427,
+          0.0
+        ],
+        [
+          -4.250999927520752,
+          5.325333595275879,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.004",
+      "bounds": [
+        [
+          -4.335000038146973,
+          2.6746666431427,
+          0.0
+        ],
+        [
+          -4.274999618530273,
+          5.325333595275879,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.005",
+      "bounds": [
+        [
+          -4.301000118255615,
+          5.341332912445068,
+          0.0
+        ],
+        [
+          -4.250999927520752,
+          7.992000102996826,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.005",
+      "bounds": [
+        [
+          -4.335000038146973,
+          5.341332912445068,
+          0.0
+        ],
+        [
+          -4.274999618530273,
+          7.992000102996826,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.006",
+      "bounds": [
+        [
+          -4.301000118255615,
+          8.007999420166016,
+          0.0
+        ],
+        [
+          -4.250999927520752,
+          10.658666610717773,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.006",
+      "bounds": [
+        [
+          -4.335000038146973,
+          8.007999420166016,
+          0.0
+        ],
+        [
+          -4.274999618530273,
+          10.658666610717773,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.007",
+      "bounds": [
+        [
+          -4.301000118255615,
+          10.674666404724121,
+          0.0
+        ],
+        [
+          -4.250999927520752,
+          13.325333595275879,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.007",
+      "bounds": [
+        [
+          -4.335000038146973,
+          10.674666404724121,
+          0.0
+        ],
+        [
+          -4.274999618530273,
+          13.325333595275879,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.008",
+      "bounds": [
+        [
+          -4.301000118255615,
+          13.341333389282227,
+          0.0
+        ],
+        [
+          -4.250999927520752,
+          15.992000579833984,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.008",
+      "bounds": [
+        [
+          -4.335000038146973,
+          13.341333389282227,
+          0.0
+        ],
+        [
+          -4.274999618530273,
+          15.992000579833984,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.009",
+      "bounds": [
+        [
+          -4.301000118255615,
+          16.00800132751465,
+          0.0
+        ],
+        [
+          -4.250999927520752,
+          18.658666610717773,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.009",
+      "bounds": [
+        [
+          -4.335000038146973,
+          16.00800132751465,
+          0.0
+        ],
+        [
+          -4.274999618530273,
+          18.658666610717773,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.010",
+      "bounds": [
+        [
+          -4.301000118255615,
+          18.674667358398438,
+          0.0
+        ],
+        [
+          -4.250999927520752,
+          21.325332641601562,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.010",
+      "bounds": [
+        [
+          -4.335000038146973,
+          18.674667358398438,
+          0.0
+        ],
+        [
+          -4.274999618530273,
+          21.325332641601562,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.011",
+      "bounds": [
+        [
+          -4.301000118255615,
+          21.341333389282227,
+          0.0
+        ],
+        [
+          -4.250999927520752,
+          23.99199867248535,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.011",
+      "bounds": [
+        [
+          -4.335000038146973,
+          21.341333389282227,
+          0.0
+        ],
+        [
+          -4.274999618530273,
+          23.99199867248535,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.002",
+      "bounds": [
+        [
+          -4.3510003089904785,
+          -0.05000019446015358,
+          7.440000057220459
+        ],
+        [
+          -4.150999546051025,
+          24.05000114440918,
+          7.559999942779541
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.012",
+      "bounds": [
+        [
+          10.25100040435791,
+          0.008000015281140804,
+          0.0
+        ],
+        [
+          10.300999641418457,
+          2.6586668491363525,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.012",
+      "bounds": [
+        [
+          10.27500057220459,
+          0.008000015281140804,
+          0.0
+        ],
+        [
+          10.335000038146973,
+          2.6586668491363525,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.013",
+      "bounds": [
+        [
+          10.25100040435791,
+          2.6746666431427,
+          0.0
+        ],
+        [
+          10.300999641418457,
+          5.325333595275879,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.013",
+      "bounds": [
+        [
+          10.27500057220459,
+          2.6746666431427,
+          0.0
+        ],
+        [
+          10.335000038146973,
+          5.325333595275879,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.014",
+      "bounds": [
+        [
+          10.25100040435791,
+          5.341332912445068,
+          0.30500006675720215
+        ],
+        [
+          10.300999641418457,
+          7.992000102996826,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.015",
+      "bounds": [
+        [
+          10.25100040435791,
+          8.007999420166016,
+          0.30500006675720215
+        ],
+        [
+          10.300999641418457,
+          10.658666610717773,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.016",
+      "bounds": [
+        [
+          10.25100040435791,
+          10.674666404724121,
+          0.30500006675720215
+        ],
+        [
+          10.300999641418457,
+          13.325333595275879,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.017",
+      "bounds": [
+        [
+          10.25100040435791,
+          13.341333389282227,
+          0.30500006675720215
+        ],
+        [
+          10.300999641418457,
+          15.992000579833984,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.018",
+      "bounds": [
+        [
+          10.25100040435791,
+          16.00800132751465,
+          0.30500006675720215
+        ],
+        [
+          10.300999641418457,
+          18.658666610717773,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.019",
+      "bounds": [
+        [
+          10.25100040435791,
+          18.674667358398438,
+          0.0
+        ],
+        [
+          10.300999641418457,
+          21.325332641601562,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.019",
+      "bounds": [
+        [
+          10.27500057220459,
+          18.674667358398438,
+          0.0
+        ],
+        [
+          10.335000038146973,
+          21.325332641601562,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.020",
+      "bounds": [
+        [
+          10.25100040435791,
+          21.341333389282227,
+          0.0
+        ],
+        [
+          10.300999641418457,
+          23.99199867248535,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.020",
+      "bounds": [
+        [
+          10.27500057220459,
+          21.341333389282227,
+          0.0
+        ],
+        [
+          10.335000038146973,
+          23.99199867248535,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.003",
+      "bounds": [
+        [
+          10.151000022888184,
+          -0.05000019446015358,
+          7.440000057220459
+        ],
+        [
+          10.351000785827637,
+          24.05000114440918,
+          7.559999942779541
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.021",
+      "bounds": [
+        [
+          -3.992000102996826,
+          24.250999450683594,
+          0.0
+        ],
+        [
+          -1.218000054359436,
+          24.30099868774414,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.021",
+      "bounds": [
+        [
+          -3.992000102996826,
+          24.274999618530273,
+          0.0
+        ],
+        [
+          -1.218000054359436,
+          24.33500099182129,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.004",
+      "bounds": [
+        [
+          -4.050000190734863,
+          24.150999069213867,
+          7.440000057220459
+        ],
+        [
+          -1.159999966621399,
+          24.35099983215332,
+          7.559999942779541
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.022",
+      "bounds": [
+        [
+          1.2179999351501465,
+          24.250999450683594,
+          0.0
+        ],
+        [
+          4.131999969482422,
+          24.30099868774414,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.022",
+      "bounds": [
+        [
+          1.2179999351501465,
+          24.274999618530273,
+          0.0
+        ],
+        [
+          4.131999969482422,
+          24.33500099182129,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.023",
+      "bounds": [
+        [
+          4.1479997634887695,
+          24.250999450683594,
+          0.0
+        ],
+        [
+          7.062000274658203,
+          24.30099868774414,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.023",
+      "bounds": [
+        [
+          4.1479997634887695,
+          24.274999618530273,
+          0.0
+        ],
+        [
+          7.062000274658203,
+          24.33500099182129,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn mineral wall panel.024",
+      "bounds": [
+        [
+          7.078000068664551,
+          24.250999450683594,
+          0.0
+        ],
+        [
+          9.991999626159668,
+          24.30099868774414,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spawn low concrete skirt.024",
+      "bounds": [
+        [
+          7.078000068664551,
+          24.274999618530273,
+          0.0
+        ],
+        [
+          9.991999626159668,
+          24.33500099182129,
+          0.2800000011920929
+        ]
+      ]
+    },
+    {
+      "name": "Spawn coping.005",
+      "bounds": [
+        [
+          1.1599998474121094,
+          24.150999069213867,
+          7.440000057220459
+        ],
+        [
+          10.050000190734863,
+          24.35099983215332,
+          7.559999942779541
+        ]
+      ]
+    },
+    {
+      "name": "Turbine exit overwall skin",
+      "bounds": [
+        [
+          -1.2100000381469727,
+          24.250999450683594,
+          2.8600001335144043
+        ],
+        [
+          1.2100000381469727,
+          24.30099868774414,
+          7.200000286102295
+        ]
+      ]
+    },
+    {
+      "name": "Turbine end roof coping",
+      "bounds": [
+        [
+          -4.300000190734863,
+          -0.11999999731779099,
+          7.440000057220459
+        ],
+        [
+          10.300000190734863,
+          0.11999999731779099,
+          7.559999942779541
+        ]
+      ]
+    },
+    {
+      "name": "Turbine end roof coping.001",
+      "bounds": [
+        [
+          -4.300000190734863,
+          24.1299991607666,
+          7.440000057220459
+        ],
+        [
+          10.300000190734863,
+          24.3700008392334,
+          7.559999942779541
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper rainscreen field",
+      "bounds": [
+        [
+          -4.0,
+          -0.09149999916553497,
+          5.380000114440918
+        ],
+        [
+          10.0,
+          -0.04649999737739563,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam",
+      "bounds": [
+        [
+          -3.8125,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          -3.7874999046325684,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.001",
+      "bounds": [
+        [
+          -3.132499933242798,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          -3.107499837875366,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.002",
+      "bounds": [
+        [
+          -2.452500104904175,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          -2.427500009536743,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.003",
+      "bounds": [
+        [
+          -1.7725000381469727,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          -1.747499942779541,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.004",
+      "bounds": [
+        [
+          -1.09250009059906,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          -1.0674999952316284,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.005",
+      "bounds": [
+        [
+          -0.4124999940395355,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          -0.38750001788139343,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.006",
+      "bounds": [
+        [
+          0.26750001311302185,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          0.29249998927116394,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.007",
+      "bounds": [
+        [
+          0.9474999904632568,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          0.9724999666213989,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.008",
+      "bounds": [
+        [
+          1.6274999380111694,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          1.652500033378601,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.009",
+      "bounds": [
+        [
+          2.307499885559082,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          2.3324999809265137,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.010",
+      "bounds": [
+        [
+          2.987499952316284,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          3.012500047683716,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.011",
+      "bounds": [
+        [
+          3.6675000190734863,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          3.692500114440918,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.012",
+      "bounds": [
+        [
+          4.347500324249268,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          4.372499942779541,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.013",
+      "bounds": [
+        [
+          5.027500152587891,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          5.052499771118164,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.014",
+      "bounds": [
+        [
+          5.707499980926514,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          5.732499599456787,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.015",
+      "bounds": [
+        [
+          6.387500286102295,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          6.412499904632568,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.016",
+      "bounds": [
+        [
+          7.067500114440918,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          7.092499732971191,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.017",
+      "bounds": [
+        [
+          7.747500419616699,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          7.772500038146973,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.018",
+      "bounds": [
+        [
+          8.427499771118164,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          8.452499389648438,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.019",
+      "bounds": [
+        [
+          9.107500076293945,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          9.132499694824219,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.020",
+      "bounds": [
+        [
+          9.787500381469727,
+          -0.11500000208616257,
+          5.380000114440918
+        ],
+        [
+          9.8125,
+          -0.09099999815225601,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper band folded sill",
+      "bounds": [
+        [
+          -4.025000095367432,
+          -0.14500001072883606,
+          5.34499979019165
+        ],
+        [
+          10.024999618530273,
+          -0.03500000387430191,
+          5.384999752044678
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper rainscreen field.001",
+      "bounds": [
+        [
+          -4.0,
+          24.29650115966797,
+          5.380000114440918
+        ],
+        [
+          10.0,
+          24.34149932861328,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.021",
+      "bounds": [
+        [
+          -3.8125,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          -3.7874999046325684,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.022",
+      "bounds": [
+        [
+          -3.132499933242798,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          -3.107499837875366,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.023",
+      "bounds": [
+        [
+          -2.452500104904175,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          -2.427500009536743,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.024",
+      "bounds": [
+        [
+          -1.7725000381469727,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          -1.747499942779541,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.025",
+      "bounds": [
+        [
+          -1.09250009059906,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          -1.0674999952316284,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.026",
+      "bounds": [
+        [
+          -0.4124999940395355,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          -0.38750001788139343,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.027",
+      "bounds": [
+        [
+          0.26750001311302185,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          0.29249998927116394,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.028",
+      "bounds": [
+        [
+          0.9474999904632568,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          0.9724999666213989,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.029",
+      "bounds": [
+        [
+          1.6274999380111694,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          1.652500033378601,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.030",
+      "bounds": [
+        [
+          2.307499885559082,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          2.3324999809265137,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.031",
+      "bounds": [
+        [
+          2.987499952316284,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          3.012500047683716,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.032",
+      "bounds": [
+        [
+          3.6675000190734863,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          3.692500114440918,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.033",
+      "bounds": [
+        [
+          4.347500324249268,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          4.372499942779541,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.034",
+      "bounds": [
+        [
+          5.027500152587891,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          5.052499771118164,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.035",
+      "bounds": [
+        [
+          5.707499980926514,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          5.732499599456787,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.036",
+      "bounds": [
+        [
+          6.387500286102295,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          6.412499904632568,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.037",
+      "bounds": [
+        [
+          7.067500114440918,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          7.092499732971191,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.038",
+      "bounds": [
+        [
+          7.747500419616699,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          7.772500038146973,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.039",
+      "bounds": [
+        [
+          8.427499771118164,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          8.452499389648438,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.040",
+      "bounds": [
+        [
+          9.107500076293945,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          9.132499694824219,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper standing seam.041",
+      "bounds": [
+        [
+          9.787500381469727,
+          24.341001510620117,
+          5.380000114440918
+        ],
+        [
+          9.8125,
+          24.364999771118164,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine upper band folded sill.001",
+      "bounds": [
+        [
+          -4.025000095367432,
+          24.28499984741211,
+          5.34499979019165
+        ],
+        [
+          10.024999618530273,
+          24.395000457763672,
+          5.384999752044678
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side upper rainscreen",
+      "bounds": [
+        [
+          -4.3414998054504395,
+          0.0,
+          5.380000114440918
+        ],
+        [
+          -4.296499729156494,
+          24.0,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam",
+      "bounds": [
+        [
+          -4.365000247955322,
+          0.48750001192092896,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          0.512499988079071,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.001",
+      "bounds": [
+        [
+          -4.365000247955322,
+          1.6875,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          1.7125000953674316,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.002",
+      "bounds": [
+        [
+          -4.365000247955322,
+          2.887500047683716,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          2.9125001430511475,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.003",
+      "bounds": [
+        [
+          -4.365000247955322,
+          4.087500095367432,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          4.112499713897705,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.004",
+      "bounds": [
+        [
+          -4.365000247955322,
+          5.287500381469727,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          5.3125,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.005",
+      "bounds": [
+        [
+          -4.365000247955322,
+          6.487500190734863,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          6.512499809265137,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.006",
+      "bounds": [
+        [
+          -4.365000247955322,
+          7.6875,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          7.712499618530273,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.007",
+      "bounds": [
+        [
+          -4.365000247955322,
+          8.887499809265137,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          8.91249942779541,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.008",
+      "bounds": [
+        [
+          -4.365000247955322,
+          10.08750057220459,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          10.112500190734863,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.009",
+      "bounds": [
+        [
+          -4.365000247955322,
+          11.287500381469727,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          11.3125,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.010",
+      "bounds": [
+        [
+          -4.365000247955322,
+          12.487500190734863,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          12.512499809265137,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.011",
+      "bounds": [
+        [
+          -4.365000247955322,
+          13.6875,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          13.712499618530273,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.012",
+      "bounds": [
+        [
+          -4.365000247955322,
+          14.887499809265137,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          14.91249942779541,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.013",
+      "bounds": [
+        [
+          -4.365000247955322,
+          16.087499618530273,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          16.11250114440918,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.014",
+      "bounds": [
+        [
+          -4.365000247955322,
+          17.287498474121094,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          17.3125,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.015",
+      "bounds": [
+        [
+          -4.365000247955322,
+          18.487499237060547,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          18.512500762939453,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.016",
+      "bounds": [
+        [
+          -4.365000247955322,
+          19.6875,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          19.712501525878906,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.017",
+      "bounds": [
+        [
+          -4.365000247955322,
+          20.88749885559082,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          20.912500381469727,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.018",
+      "bounds": [
+        [
+          -4.365000247955322,
+          22.087499618530273,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          22.11250114440918,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.019",
+      "bounds": [
+        [
+          -4.365000247955322,
+          23.287498474121094,
+          5.380000114440918
+        ],
+        [
+          -4.341000080108643,
+          23.3125,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster",
+      "bounds": [
+        [
+          -4.409999847412109,
+          0.8949999809265137,
+          0.0
+        ],
+        [
+          -4.25,
+          1.1050000190734863,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster.001",
+      "bounds": [
+        [
+          -4.409999847412109,
+          5.894999980926514,
+          0.0
+        ],
+        [
+          -4.25,
+          6.105000019073486,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster.002",
+      "bounds": [
+        [
+          -4.409999847412109,
+          10.895000457763672,
+          0.0
+        ],
+        [
+          -4.25,
+          11.104999542236328,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster.003",
+      "bounds": [
+        [
+          -4.409999847412109,
+          15.895000457763672,
+          0.0
+        ],
+        [
+          -4.25,
+          16.104999542236328,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster.004",
+      "bounds": [
+        [
+          -4.409999847412109,
+          20.895000457763672,
+          0.0
+        ],
+        [
+          -4.25,
+          21.104999542236328,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster.005",
+      "bounds": [
+        [
+          -4.409999847412109,
+          23.4950008392334,
+          0.0
+        ],
+        [
+          -4.25,
+          23.704999923706055,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side band sill",
+      "bounds": [
+        [
+          -4.394999980926514,
+          0.0,
+          5.34499979019165
+        ],
+        [
+          -4.285000324249268,
+          24.0,
+          5.384999752044678
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side upper rainscreen.001",
+      "bounds": [
+        [
+          10.296500205993652,
+          0.0,
+          5.380000114440918
+        ],
+        [
+          10.341500282287598,
+          24.0,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.020",
+      "bounds": [
+        [
+          10.340999603271484,
+          0.48750001192092896,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          0.512499988079071,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.021",
+      "bounds": [
+        [
+          10.340999603271484,
+          1.6875,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          1.7125000953674316,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.022",
+      "bounds": [
+        [
+          10.340999603271484,
+          2.887500047683716,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          2.9125001430511475,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.023",
+      "bounds": [
+        [
+          10.340999603271484,
+          4.087500095367432,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          4.112499713897705,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.024",
+      "bounds": [
+        [
+          10.340999603271484,
+          5.287500381469727,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          5.3125,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.025",
+      "bounds": [
+        [
+          10.340999603271484,
+          6.487500190734863,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          6.512499809265137,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.026",
+      "bounds": [
+        [
+          10.340999603271484,
+          7.6875,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          7.712499618530273,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.027",
+      "bounds": [
+        [
+          10.340999603271484,
+          8.887499809265137,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          8.91249942779541,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.028",
+      "bounds": [
+        [
+          10.340999603271484,
+          10.08750057220459,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          10.112500190734863,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.029",
+      "bounds": [
+        [
+          10.340999603271484,
+          11.287500381469727,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          11.3125,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.030",
+      "bounds": [
+        [
+          10.340999603271484,
+          12.487500190734863,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          12.512499809265137,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.031",
+      "bounds": [
+        [
+          10.340999603271484,
+          13.6875,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          13.712499618530273,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.032",
+      "bounds": [
+        [
+          10.340999603271484,
+          14.887499809265137,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          14.91249942779541,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.033",
+      "bounds": [
+        [
+          10.340999603271484,
+          16.087499618530273,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          16.11250114440918,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.034",
+      "bounds": [
+        [
+          10.340999603271484,
+          17.287498474121094,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          17.3125,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.035",
+      "bounds": [
+        [
+          10.340999603271484,
+          18.487499237060547,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          18.512500762939453,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.036",
+      "bounds": [
+        [
+          10.340999603271484,
+          19.6875,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          19.712501525878906,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.037",
+      "bounds": [
+        [
+          10.340999603271484,
+          20.88749885559082,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          20.912500381469727,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.038",
+      "bounds": [
+        [
+          10.340999603271484,
+          22.087499618530273,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          22.11250114440918,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side standing seam.039",
+      "bounds": [
+        [
+          10.340999603271484,
+          23.287498474121094,
+          5.380000114440918
+        ],
+        [
+          10.364999771118164,
+          23.3125,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster.006",
+      "bounds": [
+        [
+          10.25,
+          0.8949999809265137,
+          0.0
+        ],
+        [
+          10.40999984741211,
+          1.1050000190734863,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster.007",
+      "bounds": [
+        [
+          10.25,
+          5.894999980926514,
+          0.30500006675720215
+        ],
+        [
+          10.40999984741211,
+          6.105000019073486,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster.008",
+      "bounds": [
+        [
+          10.25,
+          10.895000457763672,
+          0.30500006675720215
+        ],
+        [
+          10.40999984741211,
+          11.104999542236328,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster.009",
+      "bounds": [
+        [
+          10.25,
+          15.895000457763672,
+          0.30500006675720215
+        ],
+        [
+          10.40999984741211,
+          16.104999542236328,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster.010",
+      "bounds": [
+        [
+          10.25,
+          20.895000457763672,
+          0.0
+        ],
+        [
+          10.40999984741211,
+          21.104999542236328,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine structural exterior pilaster.011",
+      "bounds": [
+        [
+          10.25,
+          23.4950008392334,
+          0.0
+        ],
+        [
+          10.40999984741211,
+          23.704999923706055,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "name": "Turbine side band sill.001",
+      "bounds": [
+        [
+          10.28499984741211,
+          0.0,
+          5.34499979019165
+        ],
+        [
+          10.395000457763672,
+          24.0,
+          5.384999752044678
+        ]
+      ]
+    },
+    {
+      "name": "Turbine rain leader",
+      "bounds": [
+        [
+          -3.705000162124634,
+          -0.1850000023841858,
+          0.09999990463256836
+        ],
+        [
+          -3.5950000286102295,
+          -0.07499998807907104,
+          7.46999979019165
+        ]
+      ]
+    },
+    {
+      "name": "Turbine rain leader bearing",
+      "bounds": [
+        [
+          -3.7300000190734863,
+          -0.10350000113248825,
+          0.3199999928474426
+        ],
+        [
+          -3.570000171661377,
+          -0.028499998152256012,
+          0.3799999952316284
+        ]
+      ]
+    },
+    {
+      "name": "Turbine rain leader bearing.001",
+      "bounds": [
+        [
+          -3.7300000190734863,
+          -0.10350000113248825,
+          2.4700000286102295
+        ],
+        [
+          -3.570000171661377,
+          -0.028499998152256012,
+          2.5299999713897705
+        ]
+      ]
+    },
+    {
+      "name": "Turbine rain leader bearing.002",
+      "bounds": [
+        [
+          -3.7300000190734863,
+          -0.10350000113248825,
+          4.769999980926514
+        ],
+        [
+          -3.570000171661377,
+          -0.028499998152256012,
+          4.830000400543213
+        ]
+      ]
+    },
+    {
+      "name": "Turbine rain leader bearing.003",
+      "bounds": [
+        [
+          -3.7300000190734863,
+          -0.10350000113248825,
+          7.069999694824219
+        ],
+        [
+          -3.570000171661377,
+          -0.028499998152256012,
+          7.130000114440918
+        ]
+      ]
+    },
+    {
+      "name": "Turbine drain shoe",
+      "bounds": [
+        [
+          -3.705000162124634,
+          -0.29078638553619385,
+          0.016068071126937866
+        ],
+        [
+          -3.5950000286102295,
+          -0.11921361088752747,
+          0.15393193066120148
+        ]
+      ]
+    },
+    {
+      "name": "Turbine external identity",
+      "bounds": [
+        [
+          -1.600000023841858,
+          -0.14000000059604645,
+          3.7150001525878906
+        ],
+        [
+          1.600000023841858,
+          -0.04999999701976776,
+          4.105000019073486
+        ]
+      ]
+    },
+    {
+      "name": "Turbine identity task light",
+      "bounds": [
+        [
+          -0.2199999988079071,
+          -0.14000000059604645,
+          4.125
+        ],
+        [
+          0.2199999988079071,
+          -0.04999999701976776,
+          4.274999618530273
+        ]
+      ]
+    },
+    {
+      "name": "Turbine task light lens",
+      "bounds": [
+        [
+          -0.17499999701976776,
+          -0.16699999570846558,
+          4.104999542236328
+        ],
+        [
+          0.17499999701976776,
+          -0.09700000286102295,
+          4.125
+        ]
+      ]
+    },
+    {
+      "name": "Turbine handover mounting board",
+      "bounds": [
+        [
+          2.7799999713897705,
+          -0.11549999564886093,
+          1.3300000429153442
+        ],
+        [
+          3.419999837875366,
+          -0.05049999803304672,
+          2.130000114440918
+        ]
+      ]
+    },
+    {
+      "name": "Handover card backing",
+      "bounds": [
+        [
+          2.809999942779541,
+          -0.14749999344348907,
+          1.5700000524520874
+        ],
+        [
+          3.190000057220459,
+          -0.11249999701976776,
+          2.0900001525878906
+        ]
+      ]
+    },
+    {
+      "name": "Handover card",
+      "bounds": [
+        [
+          2.8399999141693115,
+          -0.15449999272823334,
+          1.600000023841858
+        ],
+        [
+          3.1600000858306885,
+          -0.14749999344348907,
+          2.059999942779541
+        ]
+      ]
+    },
+    {
+      "name": "Handover retaining clip",
+      "bounds": [
+        [
+          2.934999942779541,
+          -0.17249999940395355,
+          2.047499895095825
+        ],
+        [
+          3.065000057220459,
+          -0.14749999344348907,
+          2.0924999713897705
+        ]
+      ]
+    },
+    {
+      "name": "Handover ruled line",
+      "bounds": [
+        [
+          2.875,
+          -0.15700000524520874,
+          1.8585000038146973
+        ],
+        [
+          3.125,
+          -0.1550000011920929,
+          1.8615000247955322
+        ]
+      ]
+    },
+    {
+      "name": "Handover ruled line.001",
+      "bounds": [
+        [
+          2.875,
+          -0.15700000524520874,
+          1.778499960899353
+        ],
+        [
+          3.125,
+          -0.1550000011920929,
+          1.781499981880188
+        ]
+      ]
+    },
+    {
+      "name": "Handover ruled line.002",
+      "bounds": [
+        [
+          2.875,
+          -0.15700000524520874,
+          1.6985000371932983
+        ],
+        [
+          3.125,
+          -0.1550000011920929,
+          1.7015000581741333
+        ]
+      ]
+    },
+    {
+      "name": "Inspection key hook shoe",
+      "bounds": [
+        [
+          3.240000009536743,
+          -0.14749999344348907,
+          1.5250000953674316
+        ],
+        [
+          3.3399999141693115,
+          -0.11249999701976776,
+          1.6150000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Inspection key hook",
+      "bounds": [
+        [
+          3.2779998779296875,
+          -0.20000000298023224,
+          1.568000078201294
+        ],
+        [
+          3.302000045776367,
+          -0.14000000059604645,
+          1.5920000076293945
+        ]
+      ]
+    },
+    {
+      "name": "Inspection key bow",
+      "bounds": [
+        [
+          3.2699999809265137,
+          -0.21400000154972076,
+          1.5159999132156372
+        ],
+        [
+          3.309999942779541,
+          -0.1860000044107437,
+          1.5440000295639038
+        ]
+      ]
+    },
+    {
+      "name": "Inspection key neck",
+      "bounds": [
+        [
+          3.2779998779296875,
+          -0.2120000123977661,
+          1.429999828338623
+        ],
+        [
+          3.302000045776367,
+          -0.18799999356269836,
+          1.5199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Inspection key tooth",
+      "bounds": [
+        [
+          3.2799999713897705,
+          -0.21000000834465027,
+          1.4310001134872437
+        ],
+        [
+          3.319999933242798,
+          -0.1899999976158142,
+          1.4490000009536743
+        ]
+      ]
+    },
+    {
+      "name": "Key retaining tether",
+      "bounds": [
+        [
+          3.2860000133514404,
+          -0.20400001108646393,
+          1.5399999618530273
+        ],
+        [
+          3.2939999103546143,
+          -0.19599999487400055,
+          1.5900001525878906
+        ]
+      ]
+    },
+    {
+      "name": "Handover pencil holder",
+      "bounds": [
+        [
+          3.254999876022339,
+          -0.14749999344348907,
+          1.7899999618530273
+        ],
+        [
+          3.325000047683716,
+          -0.11249999701976776,
+          1.9900000095367432
+        ]
+      ]
+    },
+    {
+      "name": "Handover pencil",
+      "bounds": [
+        [
+          3.2820000648498535,
+          -0.16300000250339508,
+          1.9100000858306885
+        ],
+        [
+          3.297999858856201,
+          -0.1469999998807907,
+          2.1600000858306885
+        ]
+      ]
+    }
+  ]
+}

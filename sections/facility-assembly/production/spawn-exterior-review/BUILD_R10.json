@@ -1,0 +1,155 @@
+{
+  "revision": "R10",
+  "approved_concept": "SPAWN_EXTERIOR_CONCEPT_02.png",
+  "approval": "Cameron: Implement that",
+  "file": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\facility_spawn_concept02_R10.blend",
+  "new_objects": 233,
+  "new_faces": 34089,
+  "spawn_exterior_overrides": 162,
+  "planted_beds": [
+    [
+      -22.75,
+      0.27,
+      5.3,
+      0.4
+    ],
+    [
+      -33.65,
+      0.56,
+      3.25,
+      0.32
+    ],
+    [
+      -19.46,
+      7.0,
+      0.34,
+      0.72
+    ],
+    [
+      -23.25,
+      7.63,
+      5.45,
+      0.36
+    ],
+    [
+      -33.35,
+      6.45,
+      3.5,
+      0.32
+    ]
+  ],
+  "fixture_ledger": [
+    {
+      "object": "Arrival orange jamb inlay",
+      "purpose": "entry identification",
+      "support": "existing rear pier"
+    },
+    {
+      "object": "Arrival orange jamb inlay.001",
+      "purpose": "entry identification",
+      "support": "existing rear pier"
+    },
+    {
+      "object": "South canopy orange folded fascia",
+      "purpose": "shift entry accent",
+      "support": "existing south canopy fascia"
+    },
+    {
+      "object": "South service enclosure",
+      "purpose": "local exterior service disconnect",
+      "support": "backing plate and four wall anchors"
+    },
+    {
+      "object": "East service enclosure",
+      "purpose": "local exterior service disconnect",
+      "support": "backing plate and four wall anchors"
+    },
+    {
+      "object": "South utility run",
+      "purpose": "local service conduit",
+      "support": "wall saddles; wall glands at both ends"
+    },
+    {
+      "object": "East utility run",
+      "purpose": "local service conduit",
+      "support": "wall saddles; wall glands at both ends"
+    },
+    {
+      "object": "Hose reel mounting",
+      "purpose": "stowed maintenance hose",
+      "support": "south wall"
+    },
+    {
+      "object": "Spare pipe rack foot",
+      "purpose": "stored spare pipe rack",
+      "support": "east apron ground"
+    },
+    {
+      "object": "Spare pipe rack foot.001",
+      "purpose": "stored spare pipe rack",
+      "support": "east apron ground"
+    },
+    {
+      "object": "Wall planting bed",
+      "purpose": "maintained planted wall margin",
+      "support": "existing exterior apron"
+    },
+    {
+      "object": "Wall planting bed.001",
+      "purpose": "maintained planted wall margin",
+      "support": "existing exterior apron"
+    },
+    {
+      "object": "Wall planting bed.002",
+      "purpose": "maintained planted wall margin",
+      "support": "existing exterior apron"
+    },
+    {
+      "object": "Wall planting bed.003",
+      "purpose": "maintained planted wall margin",
+      "support": "existing exterior apron"
+    },
+    {
+      "object": "Wall planting bed.004",
+      "purpose": "maintained planted wall margin",
+      "support": "existing exterior apron"
+    }
+  ],
+  "scope": "Spawn exterior + adjoining courtyard. Source room libraries unchanged. Neighbor mine rock and distant landscape remain separate-section work.",
+  "retained_interior_lights": 300,
+  "lighting_mode": "ASSEMBLY_INTERIOR_LIGHTS_AVAILABLE",
+  "background_min_radius_m": 142,
+  "repairs": [
+    "Rack and east bed bases extended to actual -0.065m apron",
+    "South return moved clear of downpipe",
+    "Curved irregular planting replaces even grass rows",
+    "Removed arbitrary pale wall patches"
+  ],
+  "lighting_note": "Warm diagonal sun, restrained broad fill, blue sky and lowered background silhouettes",
+  "exterior_skylight_fill": "Three broad area sources for sky illumination on shaded exterior walls",
+  "repairs_R07": [
+    "Reduced cool fill",
+    "Broader planting in retained beds",
+    "Removed old needle foliage only inside courtyard",
+    "Clear local conduit identification",
+    "Warmer paving variation"
+  ],
+  "roof_fields": 60,
+  "context_material_only": [
+    "S01 exterior upper mountain material override"
+  ],
+  "context_note": "Upper exterior mountain material only, as shown in approved concept. Original geometry, footprint and source library preserved; mine interior surfaces untouched.",
+  "painted_texture": {
+    "file": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\textures\\spawn_painted_mineral_01.png",
+    "sha256": "bb280aeacaa118e40c2650be56bded0d3a89331ef4f6a45ae3a6e7c6ee10132a",
+    "packed": true,
+    "materials": [
+      "S01 warm mineral ivory",
+      "S01 deep olive painted sheet",
+      "S01 courtyard limestone concrete",
+      "S01 plinth stone"
+    ],
+    "generator": "Built-in ChatGPT image_gen",
+    "purpose": "Subtle broad painted surface variation based on approved art direction"
+  }
+}

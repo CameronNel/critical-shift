@@ -1,0 +1,200 @@
+{
+  "revision": "R02",
+  "checks": {
+    "d01_opening": {
+      "samples": 16,
+      "blocked": 0,
+      "blockers": [],
+      "ok": true
+    },
+    "u04_opening": {
+      "samples": 25,
+      "blocked": 0,
+      "blockers": [],
+      "ok": true
+    },
+    "supports": {
+      "count": 45,
+      "failed": 13,
+      "failures": [
+        {
+          "anchor": "SUPPORT_batten0",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        },
+        {
+          "anchor": "SUPPORT_batten1",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        },
+        {
+          "anchor": "SUPPORT_batten2",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        },
+        {
+          "anchor": "SUPPORT_batten3",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        },
+        {
+          "anchor": "SUPPORT_batten4",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        },
+        {
+          "anchor": "SUPPORT_batten5",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        },
+        {
+          "anchor": "SUPPORT_batten6",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        },
+        {
+          "anchor": "SUPPORT_batten7",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        },
+        {
+          "anchor": "SUPPORT_batten8",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        },
+        {
+          "anchor": "SUPPORT_CW hang 8.6_3.2",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        },
+        {
+          "anchor": "SUPPORT_CW hang 8.6_4.9",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        },
+        {
+          "anchor": "SUPPORT_CW hang 5.5_3.2",
+          "target": "Ceiling slab",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "max_gap": 0.012,
+          "max_penetration": 0.006,
+          "hit": false,
+          "blocker": null,
+          "gap": 99
+        }
+      ]
+    },
+    "no_teal_material_names": {
+      "ok": true,
+      "hits": []
+    }
+  },
+  "counts": {
+    "objects": 936,
+    "cameras": 18,
+    "materials": 23
+  }
+}

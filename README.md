@@ -1,5 +1,8 @@
 # Critical Shift
 
+> **Current map: [Build on this map](MAP.md).** The assembled twelve-section Blender map, connection network, exterior work and latest inspection scene are in this repository. Start with [MAP.json](MAP.json); download Git LFS assets first. The owner estimates about 75% completion; art acceptance and Unity runtime remain unfinished.
+
+
 <!-- ART_DIRECTION_RESET_2026_09 -->
 > [!IMPORTANT]
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
@@ -7,9 +10,9 @@
 > [!IMPORTANT]
 > **Engineering start here:** [Runtime Architecture and Code Health](design/code-architecture/README.md) is the canonical planning section for Unity/C# work. It contains the dependency allowlist, state ownership and failure contracts, safe-deletion policy, test acceptance cases, staged delivery and open decisions. Read [AGENTS.md](AGENTS.md) before changes. **These are planning documents, not evidence that runtime safeguards or CI are already implemented.**
 
-Critical Shift is currently a planning-first game repository.
+Critical Shift currently contains the design foundation and an in-progress assembled Blender map.
 
-The previous prototype implementation, maps, generated assets, and engine project files were deliberately removed so the production build can be reconstructed cleanly from the design foundation.
+The previous runtime prototype was removed so production runtime work can be reconstructed from the design foundation. The current authoring map is available through [MAP.md](MAP.md); its presence does not establish a playable Unity build.
 
 ## Repository layout
 

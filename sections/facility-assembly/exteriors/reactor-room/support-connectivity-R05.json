@@ -1,0 +1,4303 @@
+{
+  "mesh_defects": [],
+  "revision": "R05",
+  "scope": "Evaluated world-AABB connectivity broadphase, not raycast/anchor/support-angle validation. Original render-visible mesh objects are root candidates; physical/collision suitability is not independently classified. AABB overlap can be empty space, contact does not imply load-bearing support, and deep penetration is accepted by this connectivity graph. Text/curves excluded. Model is not saved.",
+  "threshold_m": 0.005,
+  "numerical_epsilon_m": 1e-06,
+  "additive_mesh_count": 130,
+  "original_root_candidate_count": 11823,
+  "root_connected_additive_count": 130,
+  "detached_components": [],
+  "direct_original_candidates": [
+    {
+      "object": "Reactor exterior Shell 1 field",
+      "original_candidates": [
+        "Shell 1 field",
+        "FUEL HANDLING.link wall",
+        "Column foot"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.001",
+      "original_candidates": [
+        "Shell 1 field.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.002",
+      "original_candidates": [
+        "Shell 1 field.002"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.003",
+      "original_candidates": [
+        "Shell 1 field.003"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap",
+      "original_candidates": [
+        "Shell 1 field.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.004",
+      "original_candidates": [
+        "Shell 1 field.004",
+        "FUEL HANDLING.link roof"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.005",
+      "original_candidates": [
+        "Shell 1 field.005",
+        "FUEL HANDLING.link roof"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.006",
+      "original_candidates": [
+        "Shell 1 field.006"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.007",
+      "original_candidates": [
+        "Shell 1 field.007"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.008",
+      "original_candidates": [
+        "Shell 1 field.008"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.001",
+      "original_candidates": [
+        "Shell 1 field.008"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.009",
+      "original_candidates": [
+        "Shell 1 field.009"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.002",
+      "original_candidates": [
+        "Shell 1 field.009"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.010",
+      "original_candidates": [
+        "Shell 1 field.010",
+        "FUEL HANDLING.link wall.001",
+        "Column foot.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.011",
+      "original_candidates": [
+        "Shell 1 field.011"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.012",
+      "original_candidates": [
+        "Shell 1 field.012"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 1 field.013",
+      "original_candidates": [
+        "Shell 1 field.013"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.003",
+      "original_candidates": [
+        "Shell 1 field.013"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field",
+      "original_candidates": [
+        "Shell 2 field",
+        "Service bay folded reveal",
+        "Service bay folded reveal.001",
+        "04 Waste circular plinth",
+        "04 WASTE.base",
+        "04 WASTE.pressure vessel",
+        "04 WASTE.shell band",
+        "04 WASTE.shell band.001",
+        "04 WASTE.shell band.002",
+        "04 WASTE.pressed shoulder",
+        "04 WASTE.skirt hold-down.002",
+        "04 WASTE.skirt hold-down.003",
+        "Waste lock pedestal",
+        "Lower wall protection.002",
+        "Lower inset boot.002",
+        "Recessed service access frame",
+        "Recessed service access frame.rivet.1",
+        "Recessed service access frame.rivet.2",
+        "Recessed service access frame.rivet.3",
+        "Recessed service access frame.rivet.4",
+        "Recessed access door.compression gasket",
+        "Recessed access door",
+        "Recessed access door.rivet.1",
+        "Recessed access door.rivet.2",
+        "Recessed access door.rivet.3",
+        "Recessed access door.rivet.4",
+        "Recessed access door.hinge",
+        "Recessed access door.hinge.001",
+        "Recessed access door.contact_wear",
+        "Recessed access door.contact_wear.001",
+        "Recessed access door.contact_wear.002",
+        "Recessed access door.edge chip",
+        "Recessed access door.edge chip.001",
+        "Recessed access door.edge chip.002",
+        "Recessed access door.edge chip.003",
+        "Recessed access door.edge chip.004",
+        "Recessed access door.latch seat",
+        "Recess ventilation louvre",
+        "Recess ventilation louvre.001",
+        "Recess ventilation louvre.002",
+        "Recess ventilation louvre.003",
+        "WP enclosure fastener washer.004",
+        "WP enclosure screw drive.004",
+        "WP enclosure fastener washer.005",
+        "WP enclosure screw drive.005",
+        "WP enclosure fastener washer.006",
+        "WP enclosure screw drive.006",
+        "WP enclosure fastener washer.007",
+        "WP enclosure screw drive.007",
+        "WP enclosure fastener washer.012",
+        "WP enclosure screw drive.012",
+        "WP enclosure fastener washer.013",
+        "WP enclosure screw drive.013",
+        "WP enclosure fastener washer.014",
+        "WP enclosure screw drive.014",
+        "WP enclosure fastener washer.015",
+        "WP enclosure screw drive.015",
+        "WB B transfer pod shoe",
+        "WB B sealed spares body",
+        "WB B spares sole",
+        "WB B sealed door",
+        "WB B sealed door.rivet.1",
+        "WB B sealed door.rivet.2",
+        "WB B sealed door.rivet.3",
+        "WB B sealed door.rivet.4",
+        "WB B case latch",
+        "WB B sealed door.001",
+        "WB B sealed door.rivet.005",
+        "WB B sealed door.rivet.006",
+        "WB B sealed door.rivet.007",
+        "WB B sealed door.rivet.008",
+        "WB B case latch.001",
+        "WB B top case",
+        "WB B top lid",
+        "WB B top latch",
+        "WB B vessel rear mount",
+        "WB B vessel rear mount.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.001",
+      "original_candidates": [
+        "Shell 2 field.001",
+        "Service bay folded reveal.002",
+        "Service bay folded reveal.003",
+        "04 Waste circular plinth",
+        "05 vent foot",
+        "Vent flange",
+        "Vent flange.bolt",
+        "Vent flange.bolt.001",
+        "Vent flange.bolt.002",
+        "Vent flange.bolt.003",
+        "Vent flange.bolt.004",
+        "Vent flange.bolt.005",
+        "Vent flange.bolt.006",
+        "Vent flange.bolt.007",
+        "Vent flange.001",
+        "Vent flange.bolt.008",
+        "Vent flange.bolt.009",
+        "Vent flange.bolt.010",
+        "Vent flange.bolt.011",
+        "Vent flange.bolt.012",
+        "Vent flange.bolt.013",
+        "Vent flange.bolt.014",
+        "Vent flange.bolt.015",
+        "Vent flange.002",
+        "Vent flange.bolt.016",
+        "Vent flange.bolt.017",
+        "Vent flange.bolt.018",
+        "Vent flange.bolt.019",
+        "Vent flange.bolt.020",
+        "Vent flange.bolt.021",
+        "Vent flange.bolt.022",
+        "Vent flange.bolt.023",
+        "Vent valve bonnet",
+        "VENT CONTROL.valve stem",
+        "VENT CONTROL.stem packing",
+        "VENT CONTROL.hub",
+        "Vent label",
+        "Vent label.rivet.1",
+        "Vent label.rivet.2",
+        "Lower wall protection.003",
+        "Lower inset boot.003",
+        "Recessed service access frame.001",
+        "Recessed service access frame.rivet.005",
+        "Recessed service access frame.rivet.006",
+        "Recessed service access frame.rivet.007",
+        "Recessed service access frame.rivet.008",
+        "Recessed access door.compression gasket.001",
+        "Recessed access door.001",
+        "Recessed access door.rivet.005",
+        "Recessed access door.rivet.006",
+        "Recessed access door.rivet.007",
+        "Recessed access door.rivet.008",
+        "Recessed access door.hinge.002",
+        "Recessed access door.hinge.003",
+        "Recessed access door.contact_wear.003",
+        "Recessed access door.contact_wear.004",
+        "Recessed access door.contact_wear.005",
+        "Recessed access door.edge chip.005",
+        "Recessed access door.edge chip.006",
+        "Recessed access door.edge chip.007",
+        "Recessed access door.edge chip.008",
+        "Recessed access door.edge chip.009",
+        "Recessed access door.latch seat.001",
+        "Recess ventilation louvre.004",
+        "Recess ventilation louvre.005",
+        "Recess ventilation louvre.006",
+        "Recess ventilation louvre.007",
+        "Bay local control enclosure",
+        "Bay local control enclosure.rivet.1",
+        "Bay local control enclosure.rivet.2",
+        "Bay local control enclosure.rivet.3",
+        "Bay local control enclosure.rivet.4",
+        "Bay pressure witness.bezel",
+        "Bay pressure witness.dial",
+        "Bay pressure witness.hub",
+        "Bay pressure witness.safety crystal",
+        "Bay isolated status.collar",
+        "Bay isolated status",
+        "Bay instrument hardline socket",
+        "WP enclosure fastener washer",
+        "WP enclosure screw drive",
+        "WP enclosure fastener washer.001",
+        "WP enclosure screw drive.001",
+        "WP enclosure fastener washer.002",
+        "WP enclosure screw drive.002",
+        "WP enclosure fastener washer.003",
+        "WP enclosure screw drive.003",
+        "WP enclosure fastener washer.008",
+        "WP enclosure screw drive.008",
+        "WP enclosure fastener washer.009",
+        "WP enclosure screw drive.009",
+        "WP enclosure fastener washer.010",
+        "WP enclosure screw drive.010",
+        "WP enclosure fastener washer.011",
+        "WP enclosure screw drive.011",
+        "WB B vent wall shoe",
+        "WB B vent stand-off",
+        "WB B vent wall shoe.001",
+        "WB B vent stand-off.001",
+        "WB B vent electrical",
+        "WB B vent electrical.rivet.1",
+        "WB B vent electrical.rivet.2",
+        "WB B vent electrical.rivet.3",
+        "WB B vent electrical.rivet.4",
+        "WB B waste junction",
+        "WB B waste junction.rivet.3",
+        "WB B waste junction.rivet.4",
+        "WB B service anchor",
+        "WB B service anchor.001",
+        "WB B service anchor.002"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.002",
+      "original_candidates": [
+        "Shell 2 field.002",
+        "Column flange.002",
+        "Column splice.003",
+        "Column splice.004",
+        "Cable ladder rail.006",
+        "Cable ladder rail.007",
+        "Cable ladder rung.066",
+        "Cable ladder rung.067",
+        "Cable ladder rung.068",
+        "Cable tray wall outrigger.013",
+        "Cable tray anchor plate.013",
+        "Cable tray wall outrigger.014",
+        "Cable tray anchor plate.014",
+        "Sealed riser chamfer panel",
+        "Sealed riser chamfer panel.001",
+        "Riser panel dog",
+        "Riser panel dog.001",
+        "Connected perimeter service girt.001",
+        "Conduit mounting rail.003",
+        "Conduit saddle standoff.009",
+        "Conduit saddle standoff.010",
+        "Conduit saddle standoff.011",
+        "Conduit rail anchor.007",
+        "Conduit rail anchor.008",
+        "Girt triangular bearing gusset.002",
+        "Girt gusset locking hardware.008",
+        "Vertical service chase back.002",
+        "Service chase folded cheek.004",
+        "Service chase folded cheek.005",
+        "Service chase keeper.008",
+        "Chase keeper fixing.017",
+        "Chase keeper fixing.018",
+        "Perimeter girt rolled flange.002",
+        "Perimeter girt rolled flange.003",
+        "Column splice tension nut.024",
+        "Column splice tension nut.025",
+        "WP lower service saddle cap",
+        "WP lower saddle screw",
+        "WP lower service saddle cap.001",
+        "WP lower saddle screw.001",
+        "WP lower service saddle cap.002",
+        "WP lower saddle screw.002",
+        "WP orange datum backing",
+        "WP orange datum inlay",
+        "WP datum support tab"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.003",
+      "original_candidates": [
+        "Shell 2 field.003",
+        "Column flange.004",
+        "Column splice.006",
+        "Column splice.007",
+        "Cable ladder rail.006",
+        "Cable ladder rail.007",
+        "Cable ladder rung.074",
+        "Cable ladder rung.075",
+        "Cable tray wall outrigger.015",
+        "Cable tray anchor plate.015",
+        "Sealed riser chamfer panel.002",
+        "Sealed riser chamfer panel.003",
+        "Riser panel dog.002",
+        "Riser panel dog.rivet.009",
+        "Riser panel dog.rivet.010",
+        "Riser panel dog.rivet.011",
+        "Riser panel dog.rivet.012",
+        "Riser panel dog.003",
+        "Riser panel dog.rivet.013",
+        "Riser panel dog.rivet.014",
+        "Riser panel dog.rivet.015",
+        "Riser panel dog.rivet.016",
+        "Service extraction return.wall flange",
+        "Service extraction return.dark filter bed",
+        "Service extraction return.folded side rim",
+        "Service extraction return.folded side rim.001",
+        "Service extraction return.folded head sill",
+        "Service extraction return.folded head sill.001",
+        "Service extraction return.pitched blade",
+        "Service extraction return.pitched blade.001",
+        "Service extraction return.pitched blade.002",
+        "Service extraction return.pitched blade.003",
+        "Service extraction return.pitched blade.004",
+        "Service extraction return.captive fixing.002",
+        "Service extraction return.captive fixing.003",
+        "Connected perimeter service girt.001",
+        "Conduit mounting rail.005",
+        "Conduit saddle standoff.015",
+        "Conduit saddle standoff.016",
+        "Conduit saddle standoff.017",
+        "Conduit rail anchor.011",
+        "Conduit rail anchor.012",
+        "Girt triangular bearing gusset.003",
+        "Girt gusset locking hardware.011",
+        "Vertical service chase back.003",
+        "Service chase folded cheek.006",
+        "Service chase folded cheek.007",
+        "Service chase keeper.012",
+        "Chase keeper fixing.025",
+        "Chase keeper fixing.026",
+        "Vertical circuit clamp.009",
+        "Vertical conduit gland.003",
+        "Vertical circuit clamp.012",
+        "Vertical conduit gland.004",
+        "Vertical circuit clamp.015",
+        "Vertical conduit gland.005",
+        "Upper circuit junction",
+        "Upper circuit junction.rivet.1",
+        "Upper circuit junction.rivet.2",
+        "Upper circuit junction.rivet.3",
+        "Upper circuit junction.rivet.4",
+        "Perimeter girt rolled flange.002",
+        "Perimeter girt rolled flange.003",
+        "Column splice tension nut.045",
+        "Column splice tension nut.046",
+        "Electrical circuit legend.001",
+        "Electrical circuit legend.rivet.005",
+        "Electrical circuit legend.rivet.006",
+        "Electrical circuit legend.rivet.007",
+        "Electrical circuit legend.rivet.008",
+        "Electrical caution triangle.001",
+        "WP enclosure fastener washer.016",
+        "WP enclosure screw drive.016",
+        "WP enclosure fastener washer.017",
+        "WP enclosure screw drive.017",
+        "WP enclosure fastener washer.018",
+        "WP enclosure screw drive.018",
+        "WP enclosure fastener washer.019",
+        "WP enclosure screw drive.019",
+        "WP lower service saddle cap.006",
+        "WP lower saddle screw.006",
+        "WP lower service saddle cap.007",
+        "WP lower saddle screw.007",
+        "WP lower service saddle cap.008",
+        "WP lower saddle screw.008",
+        "WP orange datum backing",
+        "WP orange datum inlay",
+        "WP datum support tab.002",
+        "WP vertical clamp cap",
+        "WP vertical clamp screw",
+        "WP vertical clamp cap.001",
+        "WP vertical clamp screw.001",
+        "WP vertical clamp cap.002",
+        "WP vertical clamp screw.002",
+        "WP inlet gland locknut",
+        "WP inlet ferrule",
+        "WP inlet gland locknut.001",
+        "WP inlet ferrule.001",
+        "WP inlet gland locknut.002",
+        "WP inlet ferrule.002",
+        "WP filter screw washer.002",
+        "WP filter screw drive.002",
+        "WP filter screw washer.003",
+        "WP filter screw drive.003",
+        "WP hazard outline knockout",
+        "WP circuit box hinge cap",
+        "WP circuit box hinge cap.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.004",
+      "original_candidates": [
+        "Shell 2 field.004",
+        "Column flange.002",
+        "Column splice.004",
+        "Vertical service chase back.002",
+        "Service chase folded cheek.004",
+        "Service chase folded cheek.005",
+        "Service chase keeper.009",
+        "Chase keeper fixing.019",
+        "Chase keeper fixing.020",
+        "Service chase keeper.010",
+        "Chase keeper fixing.021",
+        "Chase keeper fixing.022",
+        "Column splice tension nut.025",
+        "Column splice tension nut.026",
+        "Upper ventilation plenum.wall flange",
+        "Upper ventilation plenum.dark filter bed",
+        "Upper ventilation plenum.folded side rim",
+        "Upper ventilation plenum.folded head sill",
+        "Upper ventilation plenum.folded head sill.001",
+        "Upper ventilation plenum.pitched blade",
+        "Upper ventilation plenum.pitched blade.001",
+        "Upper ventilation plenum.pitched blade.002",
+        "Upper ventilation plenum.pitched blade.003",
+        "Upper ventilation plenum.pitched blade.004",
+        "Upper ventilation plenum.pitched blade.005",
+        "Upper ventilation plenum.pitched blade.006",
+        "Upper ventilation plenum.captive fixing",
+        "Upper ventilation plenum.captive fixing.001",
+        "Plenum folded weather cap",
+        "WP filter screw washer.004",
+        "WP filter screw drive.004",
+        "WP filter screw washer.005",
+        "WP filter screw drive.005"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.005",
+      "original_candidates": [
+        "Shell 2 field.005",
+        "Column flange.004",
+        "Column splice.007",
+        "Vertical service chase back.003",
+        "Service chase folded cheek.006",
+        "Service chase folded cheek.007",
+        "Service chase keeper.013",
+        "Chase keeper fixing.027",
+        "Chase keeper fixing.028",
+        "Service chase keeper.014",
+        "Chase keeper fixing.029",
+        "Chase keeper fixing.030",
+        "Vertical circuit clamp.010",
+        "Vertical circuit clamp.013",
+        "Vertical circuit clamp.016",
+        "Column splice tension nut.046",
+        "Column splice tension nut.047",
+        "Upper ventilation plenum.wall flange",
+        "Upper ventilation plenum.dark filter bed",
+        "Upper ventilation plenum.folded side rim.001",
+        "Upper ventilation plenum.folded head sill",
+        "Upper ventilation plenum.folded head sill.001",
+        "Upper ventilation plenum.pitched blade",
+        "Upper ventilation plenum.pitched blade.001",
+        "Upper ventilation plenum.pitched blade.002",
+        "Upper ventilation plenum.pitched blade.003",
+        "Upper ventilation plenum.pitched blade.004",
+        "Upper ventilation plenum.pitched blade.005",
+        "Upper ventilation plenum.pitched blade.006",
+        "Upper ventilation plenum.captive fixing.002",
+        "Upper ventilation plenum.captive fixing.003",
+        "Plenum folded weather cap",
+        "WP vertical clamp cap.003",
+        "WP vertical clamp screw.003",
+        "WP vertical clamp cap.004",
+        "WP vertical clamp screw.004",
+        "WP vertical clamp cap.005",
+        "WP vertical clamp screw.005",
+        "WP filter screw washer.006",
+        "WP filter screw drive.006",
+        "WP filter screw washer.007",
+        "WP filter screw drive.007"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.006",
+      "original_candidates": [
+        "Shell 2 field.006",
+        "Upper structural ledger.001",
+        "Wall cornice.001",
+        "Column flange.002",
+        "Column splice.005",
+        "Continuous octagonal roof header.001",
+        "Vertical service chase back.002",
+        "Service chase folded cheek.004",
+        "Service chase folded cheek.005",
+        "Service chase keeper.011",
+        "Chase keeper fixing.023",
+        "Chase keeper fixing.024",
+        "Column splice tension nut.030",
+        "Column splice tension nut.031",
+        "Column splice tension nut.032",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH services RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.004",
+      "original_candidates": [
+        "Shell 2 field.006",
+        "Shell 2 field.007",
+        "Wall cornice.001",
+        "Column flange.002",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH services RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 2 field.007",
+      "original_candidates": [
+        "Shell 2 field.007",
+        "Upper structural ledger.001",
+        "Wall cornice.001",
+        "Column flange.004",
+        "Column splice.008",
+        "Continuous octagonal roof header.001",
+        "Vertical service chase back.003",
+        "Service chase folded cheek.006",
+        "Service chase folded cheek.007",
+        "Service chase keeper.015",
+        "Chase keeper fixing.031",
+        "Chase keeper fixing.032",
+        "Vertical circuit clamp.011",
+        "Vertical circuit clamp.014",
+        "Vertical circuit clamp.017",
+        "Column splice tension nut.051",
+        "Column splice tension nut.052",
+        "Column splice tension nut.053",
+        "WP vertical clamp cap.006",
+        "WP vertical clamp screw.006",
+        "WP vertical clamp cap.007",
+        "WP vertical clamp screw.007",
+        "WP vertical clamp cap.008",
+        "WP vertical clamp screw.008",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.005",
+      "original_candidates": [
+        "Shell 2 field.006",
+        "Shell 2 field.007",
+        "Wall cornice.001",
+        "Column flange.004",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field",
+      "original_candidates": [
+        "Shell 3 field",
+        "Column foot.002"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.001",
+      "original_candidates": [
+        "Shell 3 field.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.002",
+      "original_candidates": [
+        "Shell 3 field.002"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.003",
+      "original_candidates": [
+        "Shell 3 field.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.004",
+      "original_candidates": [
+        "Shell 3 field.004"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.005",
+      "original_candidates": [
+        "Shell 3 field.005"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.006",
+      "original_candidates": [
+        "Shell 3 field.005"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.006",
+      "original_candidates": [
+        "Shell 3 field.006"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.007",
+      "original_candidates": [
+        "Shell 3 field.007",
+        "Control north west return",
+        "AW Control north left mineral panel",
+        "CF opaque window-side floor"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.008",
+      "original_candidates": [
+        "Shell 3 field.008",
+        "Control north west return",
+        "AW Control north left mineral panel"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.009",
+      "original_candidates": [
+        "Shell 3 field.009",
+        "Control north west return",
+        "AW Control north left mineral panel",
+        "AW Control north left mineral panel.001",
+        "AW Control west side mineral panel.002",
+        "AW Control west side washer.008",
+        "AW Control west side screw.008",
+        "AW Control west side drive.008",
+        "AW Control west side washer.009",
+        "AW Control west side screw.009",
+        "AW Control west side drive.009",
+        "AW Control west side washer.010",
+        "AW Control west side screw.010",
+        "AW Control west side drive.010",
+        "AW Control west side washer.011",
+        "AW Control west side screw.011",
+        "AW Control west side drive.011",
+        "AW Control west side mineral panel.003",
+        "AW Control west side washer.012",
+        "AW Control west side screw.012",
+        "AW Control west side drive.012",
+        "AW Control west side washer.014",
+        "AW Control west side screw.014",
+        "AW Control west side drive.014",
+        "AW Control glazing side trim.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.010",
+      "original_candidates": [
+        "Shell 3 field.010",
+        "Control north west return",
+        "Control roof",
+        "AW Control north left mineral panel.001",
+        "AW Control north left upper trim",
+        "AW Control north left orange stripe",
+        "AW Control west head mineral panel.002",
+        "AW Control west head mineral panel.003",
+        "AW Control west head washer.012",
+        "AW Control west head screw.012",
+        "AW Control west head drive.012",
+        "AW Control west head washer.013",
+        "AW Control west head screw.013",
+        "AW Control west head drive.013",
+        "AW Control west head washer.014",
+        "AW Control west head screw.014",
+        "AW Control west head drive.014",
+        "AW Control west head washer.015",
+        "AW Control west head screw.015",
+        "AW Control west head drive.015",
+        "AW Control west side mineral panel.003",
+        "AW Control west side washer.013",
+        "AW Control west side screw.013",
+        "AW Control west side drive.013",
+        "AW Control west side washer.015",
+        "AW Control west side screw.015",
+        "AW Control west side drive.015",
+        "AW Control glazing head trim",
+        "AW Control glazing head orange",
+        "AW Control glazing side trim.001"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.007",
+      "original_candidates": [
+        "Shell 3 field.010"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.011",
+      "original_candidates": [
+        "Shell 3 field.011"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.012",
+      "original_candidates": [
+        "Shell 3 field.012"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.013",
+      "original_candidates": [
+        "Shell 3 field.013",
+        "Control roof",
+        "AW Control west head mineral panel.002",
+        "AW Control west head washer.010",
+        "AW Control west head screw.010",
+        "AW Control west head drive.010",
+        "AW Control west head washer.011",
+        "AW Control west head screw.011",
+        "AW Control west head drive.011",
+        "AW Control glazing head trim",
+        "AW Control glazing head orange"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.008",
+      "original_candidates": [
+        "Shell 3 field.013"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.014",
+      "original_candidates": [
+        "Shell 3 field.014"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.015",
+      "original_candidates": [
+        "Shell 3 field.015"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.016",
+      "original_candidates": [
+        "Shell 3 field.016"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.017",
+      "original_candidates": [
+        "Shell 3 field.017",
+        "Control roof",
+        "AW Control west head mineral panel.001",
+        "AW Control west head washer.004",
+        "AW Control west head screw.004",
+        "AW Control west head drive.004",
+        "AW Control west head washer.005",
+        "AW Control west head screw.005",
+        "AW Control west head drive.005",
+        "AW Control west head washer.006",
+        "AW Control west head screw.006",
+        "AW Control west head drive.006",
+        "AW Control west head washer.007",
+        "AW Control west head screw.007",
+        "AW Control west head drive.007",
+        "AW Control west head mineral panel.002",
+        "AW Control west head washer.008",
+        "AW Control west head screw.008",
+        "AW Control west head drive.008",
+        "AW Control west head washer.009",
+        "AW Control west head screw.009",
+        "AW Control west head drive.009",
+        "AW Control glazing head trim",
+        "AW Control glazing head orange"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.009",
+      "original_candidates": [
+        "Shell 3 field.017"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.018",
+      "original_candidates": [
+        "Shell 3 field.018",
+        "Column foot.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.019",
+      "original_candidates": [
+        "Shell 3 field.019"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.020",
+      "original_candidates": [
+        "Shell 3 field.020",
+        "Control south wall",
+        "AW Control south mineral panel.006",
+        "CF opaque window-side floor"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.021",
+      "original_candidates": [
+        "Shell 3 field.021",
+        "Control south wall",
+        "AW Control south mineral panel.006"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.022",
+      "original_candidates": [
+        "Shell 3 field.022",
+        "Control south wall",
+        "AW Control south mineral panel.006",
+        "AW Control south mineral panel.007",
+        "AW Control south mineral panel.008",
+        "AW Control west side mineral panel",
+        "AW Control west side washer",
+        "AW Control west side screw",
+        "AW Control west side drive",
+        "AW Control west side washer.001",
+        "AW Control west side screw.001",
+        "AW Control west side drive.001",
+        "AW Control west side washer.002",
+        "AW Control west side screw.002",
+        "AW Control west side drive.002",
+        "AW Control west side washer.003",
+        "AW Control west side screw.003",
+        "AW Control west side drive.003",
+        "AW Control west side mineral panel.001",
+        "AW Control west side washer.004",
+        "AW Control west side screw.004",
+        "AW Control west side drive.004",
+        "AW Control west side washer.006",
+        "AW Control west side screw.006",
+        "AW Control west side drive.006",
+        "AW Control glazing side trim"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 3 field.023",
+      "original_candidates": [
+        "Shell 3 field.023",
+        "Control south wall",
+        "Control roof",
+        "AW Control south mineral panel.008",
+        "AW Control south upper trim",
+        "AW Control south orange stripe",
+        "AW Control west head mineral panel",
+        "AW Control west head washer",
+        "AW Control west head screw",
+        "AW Control west head drive",
+        "AW Control west head washer.001",
+        "AW Control west head screw.001",
+        "AW Control west head drive.001",
+        "AW Control west head washer.002",
+        "AW Control west head screw.002",
+        "AW Control west head drive.002",
+        "AW Control west head washer.003",
+        "AW Control west head screw.003",
+        "AW Control west head drive.003",
+        "AW Control west head mineral panel.001",
+        "AW Control west side mineral panel.001",
+        "AW Control west side washer.005",
+        "AW Control west side screw.005",
+        "AW Control west side drive.005",
+        "AW Control west side washer.007",
+        "AW Control west side screw.007",
+        "AW Control west side drive.007",
+        "AW Control glazing head trim",
+        "AW Control glazing head orange",
+        "AW Control glazing side trim"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.010",
+      "original_candidates": [
+        "Shell 3 field.023"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field",
+      "original_candidates": [
+        "Shell 4 field",
+        "COOLING PLANT.jamb",
+        "COOLING PLANT.link wall",
+        "Column flange.006",
+        "Column foot.003",
+        "Column anchor.013",
+        "Column splice.009",
+        "Lower wall protection.004",
+        "Lower inset boot.004",
+        "Column splice tension nut.054",
+        "Column splice tension nut.055",
+        "Column splice tension nut.056"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.001",
+      "original_candidates": [
+        "Shell 4 field.001",
+        "COOLING PLANT.jamb",
+        "COOLING PLANT.lintel",
+        "COOLING PLANT.link roof",
+        "Column flange.006",
+        "Column splice.009",
+        "Column splice.010",
+        "Connected perimeter service girt.003",
+        "Girt triangular bearing gusset.006",
+        "Perimeter girt rolled flange.006",
+        "Perimeter girt rolled flange.007",
+        "Column splice tension nut.060",
+        "Column splice tension nut.061"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.002",
+      "original_candidates": [
+        "Shell 4 field.002",
+        "Column flange.006",
+        "Column splice.010",
+        "Column splice tension nut.061",
+        "Column splice tension nut.062"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.003",
+      "original_candidates": [
+        "Shell 4 field.003",
+        "Upper structural ledger.003",
+        "Wall cornice.003",
+        "Column flange.006",
+        "Column splice.011",
+        "Column splice tension nut.066",
+        "Column splice tension nut.067",
+        "Column splice tension nut.068",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF white",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.011",
+      "original_candidates": [
+        "Shell 4 field.003",
+        "Shell 4 field.008",
+        "Wall cornice.003",
+        "Column flange.006",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.004",
+      "original_candidates": [
+        "Shell 4 field.004",
+        "COOLING PLANT.lintel",
+        "COOLING PLANT.route sign",
+        "COOLING PLANT.route sign.rivet.1",
+        "COOLING PLANT.route sign.rivet.2",
+        "COOLING PLANT.link roof",
+        "Connected perimeter service girt.003",
+        "Wall service distribution box.001",
+        "Wall service distribution box.rivet.005",
+        "Wall service distribution box.rivet.006",
+        "Wall service distribution box.rivet.007",
+        "Wall service distribution box.rivet.008",
+        "Distribution removable lid.compression gasket.001",
+        "Distribution removable lid.001",
+        "Distribution removable lid.rivet.005",
+        "Distribution removable lid.rivet.006",
+        "Distribution removable lid.rivet.007",
+        "Distribution removable lid.rivet.008",
+        "Distribution removable lid.hinge.002",
+        "Distribution removable lid.hinge.003",
+        "Distribution removable lid.contact_wear.003",
+        "Distribution removable lid.contact_wear.004",
+        "Distribution removable lid.contact_wear.005",
+        "Distribution removable lid.edge chip.005",
+        "Distribution removable lid.edge chip.006",
+        "Distribution removable lid.edge chip.007",
+        "Distribution removable lid.edge chip.008",
+        "Distribution removable lid.edge chip.009",
+        "Distribution removable lid.latch seat.001",
+        "Circuit compression gland.003",
+        "Circuit compression gland.004",
+        "Circuit compression gland.005",
+        "Vertical circuit clamp.018",
+        "Vertical conduit gland.006",
+        "Vertical circuit clamp.021",
+        "Vertical conduit gland.007",
+        "Vertical circuit clamp.024",
+        "Vertical conduit gland.008",
+        "Perimeter girt rolled flange.006",
+        "Perimeter girt rolled flange.007",
+        "Electrical circuit legend.002",
+        "Electrical circuit legend.rivet.009",
+        "Electrical circuit legend.rivet.010",
+        "Electrical circuit legend.rivet.011",
+        "Electrical circuit legend.rivet.012",
+        "Electrical caution triangle.002",
+        "Route sign orange corner.002",
+        "WP enclosure fastener washer.020",
+        "WP enclosure screw drive.020",
+        "WP enclosure fastener washer.021",
+        "WP enclosure screw drive.021",
+        "WP enclosure fastener washer.022",
+        "WP enclosure screw drive.022",
+        "WP enclosure fastener washer.023",
+        "WP enclosure screw drive.023",
+        "WP orange datum backing.002",
+        "WP orange datum inlay.002",
+        "WP vertical clamp cap.009",
+        "WP vertical clamp screw.009",
+        "WP vertical clamp cap.010",
+        "WP vertical clamp screw.010",
+        "WP vertical clamp cap.011",
+        "WP vertical clamp screw.011",
+        "WP inlet gland locknut.003",
+        "WP inlet ferrule.003",
+        "WP inlet gland locknut.004",
+        "WP inlet ferrule.004",
+        "WP inlet gland locknut.005",
+        "WP inlet ferrule.005",
+        "WP hazard outline knockout.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.005",
+      "original_candidates": [
+        "Shell 4 field.005",
+        "COOLING PLANT.lintel",
+        "COOLING PLANT.route sign",
+        "COOLING PLANT.route sign.rivet.3",
+        "COOLING PLANT.route sign.rivet.4",
+        "COOLING PLANT.link roof",
+        "Connected perimeter service girt.003",
+        "Perimeter girt rolled flange.006",
+        "Perimeter girt rolled flange.007",
+        "Route sign orange corner.003",
+        "WP orange datum backing.002",
+        "WP orange datum inlay.002"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.006",
+      "original_candidates": [
+        "Shell 4 field.006",
+        "Vertical circuit clamp.019",
+        "Vertical circuit clamp.022",
+        "Vertical circuit clamp.025",
+        "WP vertical clamp cap.012",
+        "WP vertical clamp screw.012",
+        "WP vertical clamp cap.013",
+        "WP vertical clamp screw.013",
+        "WP vertical clamp cap.014",
+        "WP vertical clamp screw.014"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.007",
+      "original_candidates": [
+        "Shell 4 field.007"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.008",
+      "original_candidates": [
+        "Shell 4 field.008",
+        "Upper structural ledger.003",
+        "Wall cornice.003",
+        "Continuous octagonal roof header.003",
+        "Vertical circuit clamp.020",
+        "Vertical circuit clamp.023",
+        "Vertical circuit clamp.026",
+        "WP vertical clamp cap.015",
+        "WP vertical clamp screw.015",
+        "WP vertical clamp cap.016",
+        "WP vertical clamp screw.016",
+        "WP vertical clamp cap.017",
+        "WP vertical clamp screw.017",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.012",
+      "original_candidates": [
+        "Shell 4 field.003",
+        "Shell 4 field.008",
+        "Shell 4 field.009",
+        "Wall cornice.003",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.009",
+      "original_candidates": [
+        "Shell 4 field.009",
+        "Upper structural ledger.003",
+        "Wall cornice.003",
+        "Continuous octagonal roof header.003",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH services RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.013",
+      "original_candidates": [
+        "Shell 4 field.008",
+        "Shell 4 field.009",
+        "Shell 4 field.013",
+        "Wall cornice.003",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH services RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.010",
+      "original_candidates": [
+        "Shell 4 field.010",
+        "COOLING PLANT.jamb.001",
+        "COOLING PLANT.link wall.001",
+        "Column flange.008",
+        "Column foot.004",
+        "Column anchor.019",
+        "Column splice.012",
+        "Lower wall protection.005",
+        "Lower inset boot.005",
+        "Column splice tension nut.075",
+        "Column splice tension nut.076",
+        "Column splice tension nut.077"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.011",
+      "original_candidates": [
+        "Shell 4 field.011",
+        "COOLING PLANT.jamb.001",
+        "COOLING PLANT.lintel",
+        "COOLING PLANT.link roof",
+        "Column flange.008",
+        "Column splice.012",
+        "Column splice.013",
+        "Connected perimeter service girt.003",
+        "Girt triangular bearing gusset.007",
+        "Perimeter girt rolled flange.006",
+        "Perimeter girt rolled flange.007",
+        "Column splice tension nut.081",
+        "Column splice tension nut.082"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.012",
+      "original_candidates": [
+        "Shell 4 field.012",
+        "Column flange.008",
+        "Column splice.013",
+        "Column splice tension nut.082",
+        "Column splice tension nut.083"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 4 field.013",
+      "original_candidates": [
+        "Shell 4 field.013",
+        "Upper structural ledger.003",
+        "Wall cornice.003",
+        "Column flange.008",
+        "Column splice.014",
+        "Column splice tension nut.087",
+        "Column splice tension nut.088",
+        "Column splice tension nut.089",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF white",
+        "RF BATCH services RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.014",
+      "original_candidates": [
+        "Shell 4 field.009",
+        "Shell 4 field.013",
+        "Wall cornice.003",
+        "Column flange.008",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH services RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field",
+      "original_candidates": [
+        "Shell 5 field"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.001",
+      "original_candidates": [
+        "Shell 5 field.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.002",
+      "original_candidates": [
+        "Shell 5 field.002"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.003",
+      "original_candidates": [
+        "Shell 5 field.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.004",
+      "original_candidates": [
+        "Shell 5 field.004"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.005",
+      "original_candidates": [
+        "Shell 5 field.005"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.006",
+      "original_candidates": [
+        "Shell 5 field.006"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.007",
+      "original_candidates": [
+        "Shell 5 field.007"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.008",
+      "original_candidates": [
+        "Shell 5 field.008"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.009",
+      "original_candidates": [
+        "Shell 5 field.009"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.015",
+      "original_candidates": [
+        "Shell 5 field.009"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.010",
+      "original_candidates": [
+        "Shell 5 field.010"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.016",
+      "original_candidates": [
+        "Shell 5 field.010"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 5 field.011",
+      "original_candidates": [
+        "Shell 5 field.011"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.017",
+      "original_candidates": [
+        "Shell 5 field.011"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field",
+      "original_candidates": [
+        "Shell 6 field",
+        "Station lamp mounting plate.002",
+        "Station lamp bracket.002",
+        "Column flange.010",
+        "Column foot.005",
+        "Column anchor.021",
+        "Column splice.015",
+        "Lower wall protection.008",
+        "Lower inset boot.008",
+        "Dado anchors.017",
+        "Dado anchors.018",
+        "Column splice tension nut.090",
+        "Column splice tension nut.091",
+        "Column splice tension nut.092"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.001",
+      "original_candidates": [
+        "Shell 6 field.001",
+        "Station lamp mounting plate.002",
+        "Station lamp bracket.002",
+        "Column flange.012",
+        "Column foot.006",
+        "Column anchor.027",
+        "Column splice.018",
+        "Lower wall protection.009",
+        "Lower inset boot.009",
+        "Dado anchors.019",
+        "Dado anchors.020",
+        "Column splice tension nut.111",
+        "Column splice tension nut.112",
+        "Column splice tension nut.113",
+        "QA 14B plate"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.002",
+      "original_candidates": [
+        "Shell 6 field.002",
+        "Column flange.010",
+        "Column splice.015",
+        "Column splice.016",
+        "Sealed riser chamfer panel.008",
+        "Sealed riser chamfer panel.009",
+        "Riser panel dog.008",
+        "Riser panel dog.009",
+        "Connected perimeter service girt.005",
+        "Conduit mounting rail.015",
+        "Conduit saddle standoff.045",
+        "Conduit saddle standoff.046",
+        "Conduit saddle standoff.047",
+        "Conduit rail anchor.031",
+        "Conduit rail anchor.032",
+        "Girt triangular bearing gusset.010",
+        "Girt gusset locking hardware.032",
+        "Vertical service chase back.008",
+        "Service chase folded cheek.016",
+        "Service chase folded cheek.017",
+        "Service chase keeper.032",
+        "Chase keeper fixing.065",
+        "Chase keeper fixing.066",
+        "Perimeter girt rolled flange.010",
+        "Perimeter girt rolled flange.011",
+        "Column splice tension nut.096",
+        "Column splice tension nut.097",
+        "WP lower service saddle cap.036",
+        "WP lower saddle screw.036",
+        "WP lower service saddle cap.037",
+        "WP lower saddle screw.037",
+        "WP lower service saddle cap.038",
+        "WP lower saddle screw.038",
+        "WP orange datum backing.003",
+        "WP orange datum inlay.003",
+        "WP datum support tab.009"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.003",
+      "original_candidates": [
+        "Shell 6 field.003",
+        "Column flange.012",
+        "Column splice.018",
+        "Column splice.019",
+        "Sealed riser chamfer panel.010",
+        "Sealed riser chamfer panel.011",
+        "Riser panel dog.010",
+        "Riser panel dog.rivet.041",
+        "Riser panel dog.rivet.042",
+        "Riser panel dog.rivet.043",
+        "Riser panel dog.rivet.044",
+        "Riser panel dog.011",
+        "Riser panel dog.rivet.045",
+        "Riser panel dog.rivet.046",
+        "Riser panel dog.rivet.047",
+        "Riser panel dog.rivet.048",
+        "Service extraction return.wall flange.002",
+        "Service extraction return.dark filter bed.002",
+        "Service extraction return.folded side rim.004",
+        "Service extraction return.folded side rim.005",
+        "Service extraction return.folded head sill.004",
+        "Service extraction return.folded head sill.005",
+        "Service extraction return.pitched blade.010",
+        "Service extraction return.pitched blade.011",
+        "Service extraction return.pitched blade.012",
+        "Service extraction return.pitched blade.013",
+        "Service extraction return.pitched blade.014",
+        "Service extraction return.captive fixing.010",
+        "Service extraction return.captive fixing.011",
+        "Connected perimeter service girt.005",
+        "Conduit mounting rail.017",
+        "Conduit saddle standoff.051",
+        "Conduit saddle standoff.052",
+        "Conduit saddle standoff.053",
+        "Conduit rail anchor.035",
+        "Conduit rail anchor.036",
+        "Girt triangular bearing gusset.011",
+        "Girt gusset locking hardware.035",
+        "Vertical service chase back.009",
+        "Service chase folded cheek.018",
+        "Service chase folded cheek.019",
+        "Service chase keeper.036",
+        "Chase keeper fixing.073",
+        "Chase keeper fixing.074",
+        "Vertical circuit clamp.036",
+        "Vertical conduit gland.012",
+        "Vertical circuit clamp.039",
+        "Vertical conduit gland.013",
+        "Vertical circuit clamp.042",
+        "Vertical conduit gland.014",
+        "Upper circuit junction.001",
+        "Upper circuit junction.rivet.005",
+        "Upper circuit junction.rivet.006",
+        "Upper circuit junction.rivet.007",
+        "Upper circuit junction.rivet.008",
+        "Perimeter girt rolled flange.010",
+        "Perimeter girt rolled flange.011",
+        "Column splice tension nut.117",
+        "Column splice tension nut.118",
+        "Electrical circuit legend.004",
+        "Electrical circuit legend.rivet.017",
+        "Electrical circuit legend.rivet.018",
+        "Electrical circuit legend.rivet.019",
+        "Electrical circuit legend.rivet.020",
+        "Electrical caution triangle.004",
+        "WP enclosure fastener washer.044",
+        "WP enclosure screw drive.044",
+        "WP enclosure fastener washer.045",
+        "WP enclosure screw drive.045",
+        "WP enclosure fastener washer.046",
+        "WP enclosure screw drive.046",
+        "WP enclosure fastener washer.047",
+        "WP enclosure screw drive.047",
+        "WP lower service saddle cap.042",
+        "WP lower saddle screw.042",
+        "WP lower service saddle cap.043",
+        "WP lower saddle screw.043",
+        "WP lower service saddle cap.044",
+        "WP lower saddle screw.044",
+        "WP orange datum backing.003",
+        "WP orange datum inlay.003",
+        "WP datum support tab.011",
+        "WP vertical clamp cap.027",
+        "WP vertical clamp screw.027",
+        "WP vertical clamp cap.028",
+        "WP vertical clamp screw.028",
+        "WP vertical clamp cap.029",
+        "WP vertical clamp screw.029",
+        "WP inlet gland locknut.009",
+        "WP inlet ferrule.009",
+        "WP inlet gland locknut.010",
+        "WP inlet ferrule.010",
+        "WP inlet gland locknut.011",
+        "WP inlet ferrule.011",
+        "WP filter screw washer.014",
+        "WP filter screw drive.014",
+        "WP filter screw washer.015",
+        "WP filter screw drive.015",
+        "WP hazard outline knockout.003",
+        "WP circuit box hinge cap.002",
+        "WP circuit box hinge cap.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.004",
+      "original_candidates": [
+        "Shell 6 field.004",
+        "Column flange.010",
+        "Column splice.016",
+        "Vertical service chase back.008",
+        "Service chase folded cheek.016",
+        "Service chase folded cheek.017",
+        "Service chase keeper.033",
+        "Chase keeper fixing.067",
+        "Chase keeper fixing.068",
+        "Service chase keeper.034",
+        "Chase keeper fixing.069",
+        "Chase keeper fixing.070",
+        "Column splice tension nut.097",
+        "Column splice tension nut.098",
+        "Upper ventilation plenum.wall flange.001",
+        "Upper ventilation plenum.dark filter bed.001",
+        "Upper ventilation plenum.folded side rim.002",
+        "Upper ventilation plenum.folded head sill.002",
+        "Upper ventilation plenum.folded head sill.003",
+        "Upper ventilation plenum.pitched blade.007",
+        "Upper ventilation plenum.pitched blade.008",
+        "Upper ventilation plenum.pitched blade.009",
+        "Upper ventilation plenum.pitched blade.010",
+        "Upper ventilation plenum.pitched blade.011",
+        "Upper ventilation plenum.pitched blade.012",
+        "Upper ventilation plenum.pitched blade.013",
+        "Upper ventilation plenum.captive fixing.004",
+        "Upper ventilation plenum.captive fixing.005",
+        "Plenum folded weather cap.001",
+        "WP filter screw washer.016",
+        "WP filter screw drive.016",
+        "WP filter screw washer.017",
+        "WP filter screw drive.017"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.005",
+      "original_candidates": [
+        "Shell 6 field.005",
+        "Column flange.012",
+        "Column splice.019",
+        "Vertical service chase back.009",
+        "Service chase folded cheek.018",
+        "Service chase folded cheek.019",
+        "Service chase keeper.037",
+        "Chase keeper fixing.075",
+        "Chase keeper fixing.076",
+        "Service chase keeper.038",
+        "Chase keeper fixing.077",
+        "Chase keeper fixing.078",
+        "Vertical circuit clamp.037",
+        "Vertical circuit clamp.040",
+        "Vertical circuit clamp.043",
+        "Column splice tension nut.118",
+        "Column splice tension nut.119",
+        "Upper ventilation plenum.wall flange.001",
+        "Upper ventilation plenum.dark filter bed.001",
+        "Upper ventilation plenum.folded side rim.003",
+        "Upper ventilation plenum.folded head sill.002",
+        "Upper ventilation plenum.folded head sill.003",
+        "Upper ventilation plenum.pitched blade.007",
+        "Upper ventilation plenum.pitched blade.008",
+        "Upper ventilation plenum.pitched blade.009",
+        "Upper ventilation plenum.pitched blade.010",
+        "Upper ventilation plenum.pitched blade.011",
+        "Upper ventilation plenum.pitched blade.012",
+        "Upper ventilation plenum.pitched blade.013",
+        "Upper ventilation plenum.captive fixing.006",
+        "Upper ventilation plenum.captive fixing.007",
+        "Plenum folded weather cap.001",
+        "WP vertical clamp cap.030",
+        "WP vertical clamp screw.030",
+        "WP vertical clamp cap.031",
+        "WP vertical clamp screw.031",
+        "WP vertical clamp cap.032",
+        "WP vertical clamp screw.032",
+        "WP filter screw washer.018",
+        "WP filter screw drive.018",
+        "WP filter screw washer.019",
+        "WP filter screw drive.019"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.006",
+      "original_candidates": [
+        "Shell 6 field.006",
+        "Upper structural ledger.005",
+        "Wall cornice.005",
+        "Column flange.010",
+        "Column splice.017",
+        "Continuous octagonal roof header.005",
+        "Vertical service chase back.008",
+        "Service chase folded cheek.016",
+        "Service chase folded cheek.017",
+        "Service chase keeper.035",
+        "Chase keeper fixing.071",
+        "Chase keeper fixing.072",
+        "Column splice tension nut.102",
+        "Column splice tension nut.103",
+        "Column splice tension nut.104",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH services RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.018",
+      "original_candidates": [
+        "Shell 6 field.006",
+        "Shell 6 field.007",
+        "Wall cornice.005",
+        "Column flange.010",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH services RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 6 field.007",
+      "original_candidates": [
+        "Shell 6 field.007",
+        "Upper structural ledger.005",
+        "Wall cornice.005",
+        "Column flange.012",
+        "Column splice.020",
+        "Continuous octagonal roof header.005",
+        "Vertical service chase back.009",
+        "Service chase folded cheek.018",
+        "Service chase folded cheek.019",
+        "Service chase keeper.039",
+        "Chase keeper fixing.079",
+        "Chase keeper fixing.080",
+        "Vertical circuit clamp.038",
+        "Vertical circuit clamp.041",
+        "Vertical circuit clamp.044",
+        "Column splice tension nut.123",
+        "Column splice tension nut.124",
+        "Column splice tension nut.125",
+        "WP vertical clamp cap.033",
+        "WP vertical clamp screw.033",
+        "WP vertical clamp cap.034",
+        "WP vertical clamp screw.034",
+        "WP vertical clamp cap.035",
+        "WP vertical clamp screw.035",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.019",
+      "original_candidates": [
+        "Shell 6 field.006",
+        "Shell 6 field.007",
+        "Wall cornice.005",
+        "Column flange.012",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field",
+      "original_candidates": [
+        "Shell 7 field",
+        "MAIN ACCESS.link wall",
+        "Column foot.006"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.001",
+      "original_candidates": [
+        "Shell 7 field.001",
+        "MAIN ACCESS.link wall"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.002",
+      "original_candidates": [
+        "Shell 7 field.002"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.003",
+      "original_candidates": [
+        "Shell 7 field.003"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.004",
+      "original_candidates": [
+        "Shell 7 field.004"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.020",
+      "original_candidates": [
+        "Shell 7 field.004"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.005",
+      "original_candidates": [
+        "Shell 7 field.005",
+        "MAIN ACCESS.link roof"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.006",
+      "original_candidates": [
+        "Shell 7 field.006",
+        "MAIN ACCESS.link roof"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.007",
+      "original_candidates": [
+        "Shell 7 field.007"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.008",
+      "original_candidates": [
+        "Shell 7 field.008"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.009",
+      "original_candidates": [
+        "Shell 7 field.009"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.021",
+      "original_candidates": [
+        "Shell 7 field.009"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.010",
+      "original_candidates": [
+        "Shell 7 field.010"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.022",
+      "original_candidates": [
+        "Shell 7 field.010"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.011",
+      "original_candidates": [
+        "Shell 7 field.011",
+        "MAIN ACCESS.link wall.001",
+        "Column foot.007"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.012",
+      "original_candidates": [
+        "Shell 7 field.012",
+        "MAIN ACCESS.link wall.001"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.013",
+      "original_candidates": [
+        "Shell 7 field.013"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.014",
+      "original_candidates": [
+        "Shell 7 field.014"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 7 field.015",
+      "original_candidates": [
+        "Shell 7 field.015"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.023",
+      "original_candidates": [
+        "Shell 7 field.015"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field",
+      "original_candidates": [
+        "Shell 8 field",
+        "Service bay folded reveal.010",
+        "Service bay folded reveal.011",
+        "Lower wall protection.010",
+        "Lower inset boot.010",
+        "Recessed service access frame.004",
+        "Recessed service access frame.rivet.017",
+        "Recessed service access frame.rivet.018",
+        "Recessed service access frame.rivet.019",
+        "Recessed service access frame.rivet.020",
+        "Recessed access door.compression gasket.004",
+        "Recessed access door.004",
+        "Recessed access door.rivet.017",
+        "Recessed access door.rivet.018",
+        "Recessed access door.rivet.019",
+        "Recessed access door.rivet.020",
+        "Recessed access door.hinge.008",
+        "Recessed access door.hinge.009",
+        "Recessed access door.contact_wear.012",
+        "Recessed access door.contact_wear.013",
+        "Recessed access door.contact_wear.014",
+        "Recessed access door.edge chip.020",
+        "Recessed access door.edge chip.021",
+        "Recessed access door.edge chip.022",
+        "Recessed access door.edge chip.023",
+        "Recessed access door.edge chip.024",
+        "Recessed access door.latch seat.004",
+        "Recess ventilation louvre.016",
+        "Recess ventilation louvre.017",
+        "Recess ventilation louvre.018",
+        "Recess ventilation louvre.019",
+        "WP enclosure fastener washer.052",
+        "WP enclosure screw drive.052",
+        "WP enclosure fastener washer.053",
+        "WP enclosure screw drive.053",
+        "WP enclosure fastener washer.054",
+        "WP enclosure screw drive.054",
+        "WP enclosure fastener washer.055",
+        "WP enclosure screw drive.055",
+        "WP enclosure fastener washer.060",
+        "WP enclosure screw drive.060",
+        "WP enclosure fastener washer.061",
+        "WP enclosure screw drive.061",
+        "WP enclosure fastener washer.062",
+        "WP enclosure screw drive.062",
+        "WP enclosure fastener washer.063",
+        "WP enclosure screw drive.063",
+        "MF19 caster",
+        "MF19 caster yoke",
+        "MF19 caster.001",
+        "MF19 caster yoke.001",
+        "MF19 caster.003",
+        "MF19 caster yoke.003",
+        "MF19 cart tray",
+        "MF19 payload cradle",
+        "MF19 FUEL.sealed body",
+        "MF19 FUEL.closure.001",
+        "MF19 FUEL.orange band.001",
+        "MF19 payload cradle.002",
+        "MF19 payload cradle.003",
+        "MF19 FUEL.sealed body.001",
+        "MF19 FUEL.orange band.002",
+        "MF19 FUEL.closure.003",
+        "MF19 FUEL.orange band.003",
+        "MF19 retainer latch",
+        "MF19 identity",
+        "MF19 identity.rivet.1",
+        "MF19 identity.rivet.2",
+        "WF F dock rear stop",
+        "WF F dock anchor",
+        "WF F dock bolt.1",
+        "WF F dock rear stop.001",
+        "WF F dock anchor.001",
+        "WF F dock bolt.002",
+        "WF F wall dock identity",
+        "WF F wall dock identity.rivet.1",
+        "WF F wall dock identity.rivet.2",
+        "WF F wall dock identity.rivet.3",
+        "WF F wall dock identity.rivet.4",
+        "WF F dock sign wall fixing"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.001",
+      "original_candidates": [
+        "Shell 8 field.001",
+        "Service bay folded reveal.012",
+        "Service bay folded reveal.013",
+        "Lower wall protection.011",
+        "Lower inset boot.011",
+        "Recessed service access frame.005",
+        "Recessed service access frame.rivet.021",
+        "Recessed service access frame.rivet.022",
+        "Recessed service access frame.rivet.023",
+        "Recessed service access frame.rivet.024",
+        "Recessed access door.compression gasket.005",
+        "Recessed access door.005",
+        "Recessed access door.rivet.021",
+        "Recessed access door.rivet.022",
+        "Recessed access door.rivet.023",
+        "Recessed access door.rivet.024",
+        "Recessed access door.hinge.010",
+        "Recessed access door.hinge.011",
+        "Recessed access door.contact_wear.015",
+        "Recessed access door.contact_wear.016",
+        "Recessed access door.contact_wear.017",
+        "Recessed access door.edge chip.025",
+        "Recessed access door.edge chip.026",
+        "Recessed access door.edge chip.027",
+        "Recessed access door.edge chip.028",
+        "Recessed access door.edge chip.029",
+        "Recessed access door.latch seat.005",
+        "Recess ventilation louvre.020",
+        "Recess ventilation louvre.021",
+        "Recess ventilation louvre.022",
+        "Recess ventilation louvre.023",
+        "Bay local control enclosure.002",
+        "Bay local control enclosure.rivet.009",
+        "Bay local control enclosure.rivet.010",
+        "Bay local control enclosure.rivet.011",
+        "Bay local control enclosure.rivet.012",
+        "Bay pressure witness.bezel.002",
+        "Bay pressure witness.dial.002",
+        "Bay pressure witness.hub.002",
+        "Bay pressure witness.safety crystal.002",
+        "Bay isolated status.collar.002",
+        "Bay isolated status.002",
+        "Bay instrument hardline socket.002",
+        "WP enclosure fastener washer.056",
+        "WP enclosure screw drive.056",
+        "WP enclosure fastener washer.057",
+        "WP enclosure screw drive.057",
+        "WP enclosure fastener washer.058",
+        "WP enclosure screw drive.058",
+        "WP enclosure fastener washer.059",
+        "WP enclosure screw drive.059",
+        "WP enclosure fastener washer.064",
+        "WP enclosure screw drive.064",
+        "WP enclosure fastener washer.065",
+        "WP enclosure screw drive.065",
+        "WP enclosure fastener washer.066",
+        "WP enclosure screw drive.066",
+        "WP enclosure fastener washer.067",
+        "WP enclosure screw drive.067"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.002",
+      "original_candidates": [
+        "Shell 8 field.002",
+        "Column flange.014",
+        "Column splice.021",
+        "Column splice.022",
+        "Cable ladder rail.002",
+        "Cable ladder rail.003",
+        "Cable ladder rung.027",
+        "Cable ladder rung.028",
+        "Cable ladder rung.029",
+        "Cable tray wall outrigger.005",
+        "Cable tray anchor plate.005",
+        "Cable tray wall outrigger.006",
+        "Cable tray anchor plate.006",
+        "Sealed riser chamfer panel.012",
+        "Sealed riser chamfer panel.013",
+        "Riser panel dog.012",
+        "Riser panel dog.013",
+        "Connected perimeter service girt.007",
+        "Conduit mounting rail.021",
+        "Conduit saddle standoff.063",
+        "Conduit saddle standoff.064",
+        "Conduit saddle standoff.065",
+        "Conduit rail anchor.043",
+        "Conduit rail anchor.044",
+        "Girt triangular bearing gusset.014",
+        "Girt gusset locking hardware.044",
+        "Vertical service chase back.012",
+        "Service chase folded cheek.024",
+        "Service chase folded cheek.025",
+        "Service chase keeper.048",
+        "Chase keeper fixing.097",
+        "Chase keeper fixing.098",
+        "Perimeter girt rolled flange.014",
+        "Perimeter girt rolled flange.015",
+        "Column splice tension nut.132",
+        "Column splice tension nut.133",
+        "WP lower service saddle cap.054",
+        "WP lower saddle screw.054",
+        "WP lower service saddle cap.055",
+        "WP lower saddle screw.055",
+        "WP lower service saddle cap.056",
+        "WP lower saddle screw.056",
+        "WP orange datum backing.005",
+        "WP orange datum inlay.005",
+        "WP datum support tab.015"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.003",
+      "original_candidates": [
+        "Shell 8 field.003",
+        "Column flange",
+        "Column splice",
+        "Column splice.001",
+        "Cable ladder rail.002",
+        "Cable ladder rail.003",
+        "Cable ladder rung.035",
+        "Cable ladder rung.036",
+        "Cable tray wall outrigger.007",
+        "Cable tray anchor plate.007",
+        "Sealed riser chamfer panel.014",
+        "Sealed riser chamfer panel.015",
+        "Riser panel dog.014",
+        "Riser panel dog.rivet.057",
+        "Riser panel dog.rivet.058",
+        "Riser panel dog.rivet.059",
+        "Riser panel dog.rivet.060",
+        "Riser panel dog.015",
+        "Riser panel dog.rivet.061",
+        "Riser panel dog.rivet.062",
+        "Riser panel dog.rivet.063",
+        "Riser panel dog.rivet.064",
+        "Service extraction return.wall flange.003",
+        "Service extraction return.dark filter bed.003",
+        "Service extraction return.folded side rim.006",
+        "Service extraction return.folded side rim.007",
+        "Service extraction return.folded head sill.006",
+        "Service extraction return.folded head sill.007",
+        "Service extraction return.pitched blade.015",
+        "Service extraction return.pitched blade.016",
+        "Service extraction return.pitched blade.017",
+        "Service extraction return.pitched blade.018",
+        "Service extraction return.pitched blade.019",
+        "Service extraction return.captive fixing.014",
+        "Service extraction return.captive fixing.015",
+        "Connected perimeter service girt.007",
+        "Conduit mounting rail.023",
+        "Conduit saddle standoff.069",
+        "Conduit saddle standoff.070",
+        "Conduit saddle standoff.071",
+        "Conduit rail anchor.047",
+        "Conduit rail anchor.048",
+        "Girt triangular bearing gusset.015",
+        "Girt gusset locking hardware.047",
+        "Vertical service chase back.013",
+        "Service chase folded cheek.026",
+        "Service chase folded cheek.027",
+        "Service chase keeper.052",
+        "Chase keeper fixing.105",
+        "Chase keeper fixing.106",
+        "Vertical circuit clamp.054",
+        "Vertical conduit gland.018",
+        "Vertical circuit clamp.057",
+        "Vertical conduit gland.019",
+        "Vertical circuit clamp.060",
+        "Vertical conduit gland.020",
+        "Upper circuit junction.002",
+        "Upper circuit junction.rivet.009",
+        "Upper circuit junction.rivet.010",
+        "Upper circuit junction.rivet.011",
+        "Upper circuit junction.rivet.012",
+        "Column splice tension nut.009",
+        "Column splice tension nut.010",
+        "Perimeter girt rolled flange.014",
+        "Perimeter girt rolled flange.015",
+        "Electrical circuit legend.006",
+        "Electrical circuit legend.rivet.025",
+        "Electrical circuit legend.rivet.026",
+        "Electrical circuit legend.rivet.027",
+        "Electrical circuit legend.rivet.028",
+        "Electrical caution triangle.006",
+        "WP enclosure fastener washer.068",
+        "WP enclosure screw drive.068",
+        "WP enclosure fastener washer.069",
+        "WP enclosure screw drive.069",
+        "WP enclosure fastener washer.070",
+        "WP enclosure screw drive.070",
+        "WP enclosure fastener washer.071",
+        "WP enclosure screw drive.071",
+        "WP lower service saddle cap.060",
+        "WP lower saddle screw.060",
+        "WP lower service saddle cap.061",
+        "WP lower saddle screw.061",
+        "WP lower service saddle cap.062",
+        "WP lower saddle screw.062",
+        "WP orange datum backing.005",
+        "WP orange datum inlay.005",
+        "WP datum support tab.017",
+        "WP vertical clamp cap.045",
+        "WP vertical clamp screw.045",
+        "WP vertical clamp cap.046",
+        "WP vertical clamp screw.046",
+        "WP vertical clamp cap.047",
+        "WP vertical clamp screw.047",
+        "WP inlet gland locknut.015",
+        "WP inlet ferrule.015",
+        "WP inlet gland locknut.016",
+        "WP inlet ferrule.016",
+        "WP inlet gland locknut.017",
+        "WP inlet ferrule.017",
+        "WP filter screw washer.022",
+        "WP filter screw drive.022",
+        "WP filter screw washer.023",
+        "WP filter screw drive.023",
+        "WP hazard outline knockout.005",
+        "WP circuit box hinge cap.004",
+        "WP circuit box hinge cap.005"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.004",
+      "original_candidates": [
+        "Shell 8 field.004",
+        "Column flange.014",
+        "Column splice.022",
+        "Vertical service chase back.012",
+        "Service chase folded cheek.024",
+        "Service chase folded cheek.025",
+        "Service chase keeper.049",
+        "Chase keeper fixing.099",
+        "Chase keeper fixing.100",
+        "Service chase keeper.050",
+        "Chase keeper fixing.101",
+        "Chase keeper fixing.102",
+        "Column splice tension nut.133",
+        "Column splice tension nut.134"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.005",
+      "original_candidates": [
+        "Shell 8 field.005",
+        "Column flange",
+        "Column splice.001",
+        "Vertical service chase back.013",
+        "Service chase folded cheek.026",
+        "Service chase folded cheek.027",
+        "Service chase keeper.053",
+        "Chase keeper fixing.107",
+        "Chase keeper fixing.108",
+        "Service chase keeper.054",
+        "Chase keeper fixing.109",
+        "Chase keeper fixing.110",
+        "Vertical circuit clamp.055",
+        "Vertical circuit clamp.058",
+        "Vertical circuit clamp.061",
+        "Column splice tension nut.010",
+        "Column splice tension nut.011",
+        "WP vertical clamp cap.048",
+        "WP vertical clamp screw.048",
+        "WP vertical clamp cap.049",
+        "WP vertical clamp screw.049",
+        "WP vertical clamp cap.050",
+        "WP vertical clamp screw.050"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.006",
+      "original_candidates": [
+        "Shell 8 field.006",
+        "Upper structural ledger.007",
+        "Wall cornice.007",
+        "Column flange.014",
+        "Column splice.023",
+        "Continuous octagonal roof header.007",
+        "Vertical service chase back.012",
+        "Service chase folded cheek.024",
+        "Service chase folded cheek.025",
+        "Service chase keeper.051",
+        "Chase keeper fixing.103",
+        "Chase keeper fixing.104",
+        "Column splice tension nut.138",
+        "Column splice tension nut.139",
+        "Column splice tension nut.140",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.024",
+      "original_candidates": [
+        "Shell 8 field.006",
+        "Shell 8 field.007",
+        "Wall cornice.007",
+        "Column flange.014",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH structure RF edge",
+        "RF BATCH services RF gunmetal",
+        "RF BATCH structure RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor exterior Shell 8 field.007",
+      "original_candidates": [
+        "Shell 8 field.007",
+        "Upper structural ledger.007",
+        "Wall cornice.007",
+        "Column flange",
+        "Column splice.002",
+        "Continuous octagonal roof header.007",
+        "Vertical service chase back.013",
+        "Service chase folded cheek.026",
+        "Service chase folded cheek.027",
+        "Service chase keeper.055",
+        "Chase keeper fixing.111",
+        "Chase keeper fixing.112",
+        "Vertical circuit clamp.056",
+        "Vertical circuit clamp.059",
+        "Vertical circuit clamp.062",
+        "Column splice tension nut.015",
+        "Column splice tension nut.016",
+        "Column splice tension nut.017",
+        "WP vertical clamp cap.051",
+        "WP vertical clamp screw.051",
+        "WP vertical clamp cap.052",
+        "WP vertical clamp screw.052",
+        "WP vertical clamp cap.053",
+        "WP vertical clamp screw.053",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH services RF gunmetal"
+      ]
+    },
+    {
+      "object": "Reactor individual panel weather cap.025",
+      "original_candidates": [
+        "Shell 8 field.006",
+        "Shell 8 field.007",
+        "Wall cornice.007",
+        "Column flange",
+        "RF BATCH services RF edge",
+        "RF BATCH services RF orange",
+        "RF BATCH services RF white",
+        "RF BATCH services RF dark",
+        "RF BATCH services RF gunmetal"
+      ]
+    }
+  ],
+  "additive_bounds": [
+    {
+      "name": "Reactor exterior Shell 1 field",
+      "bounds": [
+        [
+          -5.986000061035156,
+          11.079999923706055,
+          0.013000011444091797
+        ],
+        [
+          -2.5139999389648438,
+          11.107999801635742,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.001",
+      "bounds": [
+        [
+          -5.986000061035156,
+          11.079999923706055,
+          5.01300048828125
+        ],
+        [
+          -2.5139999389648438,
+          11.107999801635742,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.002",
+      "bounds": [
+        [
+          -5.986000061035156,
+          11.079999923706055,
+          9.61299991607666
+        ],
+        [
+          -2.5139999389648438,
+          11.107999801635742,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.003",
+      "bounds": [
+        [
+          -5.986000061035156,
+          11.079999923706055,
+          13.41300106048584
+        ],
+        [
+          -2.5139999389648438,
+          11.107999801635742,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap",
+      "bounds": [
+        [
+          -5.98799991607666,
+          11.020000457763672,
+          15.909000396728516
+        ],
+        [
+          -2.51200008392334,
+          11.149999618530273,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.004",
+      "bounds": [
+        [
+          -2.4860000610351562,
+          11.079999923706055,
+          5.01300048828125
+        ],
+        [
+          -0.0140000581741333,
+          11.107999801635742,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.005",
+      "bounds": [
+        [
+          0.0140000581741333,
+          11.079999923706055,
+          5.01300048828125
+        ],
+        [
+          2.4860000610351562,
+          11.107999801635742,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.006",
+      "bounds": [
+        [
+          -2.4860000610351562,
+          11.079999923706055,
+          9.61299991607666
+        ],
+        [
+          -0.0140000581741333,
+          11.107999801635742,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.007",
+      "bounds": [
+        [
+          0.0140000581741333,
+          11.079999923706055,
+          9.61299991607666
+        ],
+        [
+          2.4860000610351562,
+          11.107999801635742,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.008",
+      "bounds": [
+        [
+          -2.4860000610351562,
+          11.079999923706055,
+          13.41300106048584
+        ],
+        [
+          -0.0140000581741333,
+          11.107999801635742,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.001",
+      "bounds": [
+        [
+          -2.48799991607666,
+          11.020000457763672,
+          15.909000396728516
+        ],
+        [
+          -0.012000083923339844,
+          11.149999618530273,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.009",
+      "bounds": [
+        [
+          0.0140000581741333,
+          11.079999923706055,
+          13.41300106048584
+        ],
+        [
+          2.4860000610351562,
+          11.107999801635742,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.002",
+      "bounds": [
+        [
+          0.012000083923339844,
+          11.020000457763672,
+          15.909000396728516
+        ],
+        [
+          2.48799991607666,
+          11.149999618530273,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.010",
+      "bounds": [
+        [
+          2.5139999389648438,
+          11.079999923706055,
+          0.013000011444091797
+        ],
+        [
+          5.986000061035156,
+          11.107999801635742,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.011",
+      "bounds": [
+        [
+          2.5139999389648438,
+          11.079999923706055,
+          5.01300048828125
+        ],
+        [
+          5.986000061035156,
+          11.107999801635742,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.012",
+      "bounds": [
+        [
+          2.5139999389648438,
+          11.079999923706055,
+          9.61299991607666
+        ],
+        [
+          5.986000061035156,
+          11.107999801635742,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 1 field.013",
+      "bounds": [
+        [
+          2.5139999389648438,
+          11.079999923706055,
+          13.41300106048584
+        ],
+        [
+          5.986000061035156,
+          11.107999801635742,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.003",
+      "bounds": [
+        [
+          2.51200008392334,
+          11.020000457763672,
+          15.909000396728516
+        ],
+        [
+          5.98799991607666,
+          11.149999618530273,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field",
+      "bounds": [
+        [
+          6.448305606842041,
+          8.848305702209473,
+          0.013000011444091797
+        ],
+        [
+          8.848304748535156,
+          11.248305320739746,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.001",
+      "bounds": [
+        [
+          8.848305702209473,
+          6.448305606842041,
+          0.013000011444091797
+        ],
+        [
+          11.248305320739746,
+          8.848304748535156,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.002",
+      "bounds": [
+        [
+          6.207889080047607,
+          8.607889175415039,
+          5.01300048828125
+        ],
+        [
+          8.607888221740723,
+          11.007888793945312,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.003",
+      "bounds": [
+        [
+          8.607889175415039,
+          6.207889080047607,
+          5.01300048828125
+        ],
+        [
+          11.007888793945312,
+          8.607888221740723,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.004",
+      "bounds": [
+        [
+          6.207889080047607,
+          8.607889175415039,
+          9.61299991607666
+        ],
+        [
+          8.607888221740723,
+          11.007888793945312,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.005",
+      "bounds": [
+        [
+          8.607889175415039,
+          6.207889080047607,
+          9.61299991607666
+        ],
+        [
+          11.007888793945312,
+          8.607888221740723,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.006",
+      "bounds": [
+        [
+          6.207889080047607,
+          8.607889175415039,
+          13.41300106048584
+        ],
+        [
+          8.607888221740723,
+          11.007888793945312,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.004",
+      "bounds": [
+        [
+          6.164048671722412,
+          8.564048767089844,
+          15.909000396728516
+        ],
+        [
+          8.639001846313477,
+          11.03900146484375,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 2 field.007",
+      "bounds": [
+        [
+          8.607889175415039,
+          6.207889080047607,
+          13.41300106048584
+        ],
+        [
+          11.007888793945312,
+          8.607888221740723,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.005",
+      "bounds": [
+        [
+          8.564048767089844,
+          6.164048671722412,
+          15.909000396728516
+        ],
+        [
+          11.03900146484375,
+          8.639001846313477,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field",
+      "bounds": [
+        [
+          11.079999923706055,
+          5.61400032043457,
+          0.013000011444091797
+        ],
+        [
+          11.107999801635742,
+          5.986000061035156,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.001",
+      "bounds": [
+        [
+          11.079999923706055,
+          5.61400032043457,
+          5.013000011444092
+        ],
+        [
+          11.107999801635742,
+          5.986000061035156,
+          7.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.002",
+      "bounds": [
+        [
+          11.079999923706055,
+          5.61400032043457,
+          8.01300048828125
+        ],
+        [
+          11.107999801635742,
+          5.986000061035156,
+          10.187000274658203
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.003",
+      "bounds": [
+        [
+          11.079999923706055,
+          5.61400032043457,
+          10.213000297546387
+        ],
+        [
+          11.107999801635742,
+          5.986000061035156,
+          10.286999702453613
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.004",
+      "bounds": [
+        [
+          11.079999923706055,
+          5.61400032043457,
+          10.313000679016113
+        ],
+        [
+          11.107999801635742,
+          5.986000061035156,
+          12.88700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.005",
+      "bounds": [
+        [
+          11.079999923706055,
+          5.61400032043457,
+          12.91300106048584
+        ],
+        [
+          11.107999801635742,
+          5.986000061035156,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.006",
+      "bounds": [
+        [
+          11.020000457763672,
+          5.611999988555908,
+          15.909000396728516
+        ],
+        [
+          11.149999618530273,
+          5.988000392913818,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.006",
+      "bounds": [
+        [
+          11.079999923706055,
+          2.7139995098114014,
+          5.013000011444092
+        ],
+        [
+          11.107999801635742,
+          5.585999488830566,
+          7.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.007",
+      "bounds": [
+        [
+          11.079999923706055,
+          2.7139995098114014,
+          8.01300048828125
+        ],
+        [
+          11.107999801635742,
+          5.585999488830566,
+          10.187000274658203
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.008",
+      "bounds": [
+        [
+          11.079999923706055,
+          2.7139995098114014,
+          10.213000297546387
+        ],
+        [
+          11.107999801635742,
+          5.585999488830566,
+          10.286999702453613
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.009",
+      "bounds": [
+        [
+          11.079999923706055,
+          2.7139995098114014,
+          10.313000679016113
+        ],
+        [
+          11.107999801635742,
+          5.585999488830566,
+          12.88700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.010",
+      "bounds": [
+        [
+          11.079999923706055,
+          2.7139995098114014,
+          12.91300106048584
+        ],
+        [
+          11.107999801635742,
+          5.585999488830566,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.007",
+      "bounds": [
+        [
+          11.019999504089355,
+          2.7119996547698975,
+          15.909000396728516
+        ],
+        [
+          11.15000057220459,
+          5.5879998207092285,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.011",
+      "bounds": [
+        [
+          11.079999923706055,
+          1.6140000820159912,
+          5.013000011444092
+        ],
+        [
+          11.107999801635742,
+          2.686000108718872,
+          7.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.012",
+      "bounds": [
+        [
+          11.079999923706055,
+          1.6140000820159912,
+          10.213000297546387
+        ],
+        [
+          11.107999801635742,
+          2.686000108718872,
+          10.286999702453613
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.013",
+      "bounds": [
+        [
+          11.079999923706055,
+          1.6140000820159912,
+          12.91300106048584
+        ],
+        [
+          11.107999801635742,
+          2.686000108718872,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.008",
+      "bounds": [
+        [
+          11.019999504089355,
+          1.6120001077651978,
+          15.909000396728516
+        ],
+        [
+          11.15000057220459,
+          2.688000202178955,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.014",
+      "bounds": [
+        [
+          11.079998970031738,
+          -2.685999870300293,
+          0.013000011444091797
+        ],
+        [
+          11.108000755310059,
+          1.5859999656677246,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.015",
+      "bounds": [
+        [
+          11.079998970031738,
+          -2.685999870300293,
+          5.013000011444092
+        ],
+        [
+          11.108000755310059,
+          1.5859999656677246,
+          7.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.016",
+      "bounds": [
+        [
+          11.079998970031738,
+          -2.685999870300293,
+          10.213000297546387
+        ],
+        [
+          11.108000755310059,
+          1.5859999656677246,
+          10.286999702453613
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.017",
+      "bounds": [
+        [
+          11.079998970031738,
+          -2.685999870300293,
+          12.91300106048584
+        ],
+        [
+          11.108000755310059,
+          1.5859999656677246,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.009",
+      "bounds": [
+        [
+          11.019999504089355,
+          -2.687999963760376,
+          15.909000396728516
+        ],
+        [
+          11.15000057220459,
+          1.5880000591278076,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.018",
+      "bounds": [
+        [
+          11.080000877380371,
+          -5.986000061035156,
+          0.013000011444091797
+        ],
+        [
+          11.108000755310059,
+          -2.7139997482299805,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.019",
+      "bounds": [
+        [
+          11.080000877380371,
+          -5.986000061035156,
+          5.013000011444092
+        ],
+        [
+          11.108000755310059,
+          -2.7139997482299805,
+          7.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.020",
+      "bounds": [
+        [
+          11.080000877380371,
+          -5.986000061035156,
+          8.01300048828125
+        ],
+        [
+          11.108000755310059,
+          -2.7139997482299805,
+          10.187000274658203
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.021",
+      "bounds": [
+        [
+          11.080000877380371,
+          -5.986000061035156,
+          10.213000297546387
+        ],
+        [
+          11.108000755310059,
+          -2.7139997482299805,
+          10.286999702453613
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.022",
+      "bounds": [
+        [
+          11.080000877380371,
+          -5.986000061035156,
+          10.313000679016113
+        ],
+        [
+          11.108000755310059,
+          -2.7139997482299805,
+          12.88700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 3 field.023",
+      "bounds": [
+        [
+          11.080000877380371,
+          -5.986000061035156,
+          12.91300106048584
+        ],
+        [
+          11.108000755310059,
+          -2.7139997482299805,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.010",
+      "bounds": [
+        [
+          11.020000457763672,
+          -5.98799991607666,
+          15.909000396728516
+        ],
+        [
+          11.150001525878906,
+          -2.7119998931884766,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field",
+      "bounds": [
+        [
+          10.375656127929688,
+          -6.840122222900391,
+          0.013000011444091797
+        ],
+        [
+          11.007888793945312,
+          -6.207889556884766,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.001",
+      "bounds": [
+        [
+          10.375656127929688,
+          -6.840122222900391,
+          5.01300048828125
+        ],
+        [
+          11.007888793945312,
+          -6.207889556884766,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.002",
+      "bounds": [
+        [
+          10.375656127929688,
+          -6.840122222900391,
+          9.61299991607666
+        ],
+        [
+          11.007888793945312,
+          -6.207889556884766,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.003",
+      "bounds": [
+        [
+          10.375656127929688,
+          -6.840122222900391,
+          13.41300106048584
+        ],
+        [
+          11.007888793945312,
+          -6.207889556884766,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.011",
+      "bounds": [
+        [
+          10.331815719604492,
+          -6.87123441696167,
+          15.909000396728516
+        ],
+        [
+          11.03900146484375,
+          -6.164048671722412,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.004",
+      "bounds": [
+        [
+          8.607889175415039,
+          -8.607889175415039,
+          5.01300048828125
+        ],
+        [
+          10.375656127929688,
+          -6.840122222900391,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.005",
+      "bounds": [
+        [
+          6.840122222900391,
+          -10.375656127929688,
+          5.01300048828125
+        ],
+        [
+          8.607889175415039,
+          -8.607889175415039,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.006",
+      "bounds": [
+        [
+          8.607889175415039,
+          -8.607889175415039,
+          9.61299991607666
+        ],
+        [
+          10.375656127929688,
+          -6.840122222900391,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.007",
+      "bounds": [
+        [
+          6.840122222900391,
+          -10.375656127929688,
+          9.61299991607666
+        ],
+        [
+          8.607889175415039,
+          -8.607889175415039,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.008",
+      "bounds": [
+        [
+          8.607889175415039,
+          -8.607889175415039,
+          13.41300106048584
+        ],
+        [
+          10.375656127929688,
+          -6.840122222900391,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.012",
+      "bounds": [
+        [
+          8.564048767089844,
+          -8.639001846313477,
+          15.909000396728516
+        ],
+        [
+          10.406768798828125,
+          -6.796281814575195,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.009",
+      "bounds": [
+        [
+          6.840122222900391,
+          -10.375656127929688,
+          13.41300106048584
+        ],
+        [
+          8.607889175415039,
+          -8.607889175415039,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.013",
+      "bounds": [
+        [
+          6.796281814575195,
+          -10.406768798828125,
+          15.909000396728516
+        ],
+        [
+          8.639001846313477,
+          -8.564048767089844,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.010",
+      "bounds": [
+        [
+          6.207889556884766,
+          -11.007888793945312,
+          0.013000011444091797
+        ],
+        [
+          6.840122222900391,
+          -10.375656127929688,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.011",
+      "bounds": [
+        [
+          6.207889556884766,
+          -11.007888793945312,
+          5.01300048828125
+        ],
+        [
+          6.840122222900391,
+          -10.375656127929688,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.012",
+      "bounds": [
+        [
+          6.207889556884766,
+          -11.007888793945312,
+          9.61299991607666
+        ],
+        [
+          6.840122222900391,
+          -10.375656127929688,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 4 field.013",
+      "bounds": [
+        [
+          6.207889556884766,
+          -11.007888793945312,
+          13.41300106048584
+        ],
+        [
+          6.840122222900391,
+          -10.375656127929688,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.014",
+      "bounds": [
+        [
+          6.164048671722412,
+          -11.03900146484375,
+          15.909000396728516
+        ],
+        [
+          6.87123441696167,
+          -10.331815719604492,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field",
+      "bounds": [
+        [
+          2.0139999389648438,
+          -11.44800090789795,
+          0.013000011444091797
+        ],
+        [
+          5.986000061035156,
+          -11.420001029968262,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.001",
+      "bounds": [
+        [
+          -1.9860001802444458,
+          -11.447999954223633,
+          0.013000011444091797
+        ],
+        [
+          1.9859999418258667,
+          -11.420000076293945,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.002",
+      "bounds": [
+        [
+          -5.986000061035156,
+          -11.447999954223633,
+          0.013000011444091797
+        ],
+        [
+          -2.0139999389648438,
+          -11.420000076293945,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.003",
+      "bounds": [
+        [
+          2.0139999389648438,
+          -11.108000755310059,
+          5.01300048828125
+        ],
+        [
+          5.986000061035156,
+          -11.080000877380371,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.004",
+      "bounds": [
+        [
+          -1.9860000610351562,
+          -11.107999801635742,
+          5.01300048828125
+        ],
+        [
+          1.9860000610351562,
+          -11.079999923706055,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.005",
+      "bounds": [
+        [
+          -5.986000061035156,
+          -11.107999801635742,
+          5.01300048828125
+        ],
+        [
+          -2.0139999389648438,
+          -11.079999923706055,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.006",
+      "bounds": [
+        [
+          2.0139999389648438,
+          -11.108000755310059,
+          9.61299991607666
+        ],
+        [
+          5.986000061035156,
+          -11.080000877380371,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.007",
+      "bounds": [
+        [
+          -1.9860000610351562,
+          -11.107999801635742,
+          9.61299991607666
+        ],
+        [
+          1.9860000610351562,
+          -11.079999923706055,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.008",
+      "bounds": [
+        [
+          -5.986000061035156,
+          -11.107999801635742,
+          9.61299991607666
+        ],
+        [
+          -2.0139999389648438,
+          -11.079999923706055,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.009",
+      "bounds": [
+        [
+          2.0139999389648438,
+          -11.108000755310059,
+          13.41300106048584
+        ],
+        [
+          5.986000061035156,
+          -11.080000877380371,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.015",
+      "bounds": [
+        [
+          2.01200008392334,
+          -11.150001525878906,
+          15.909000396728516
+        ],
+        [
+          5.98799991607666,
+          -11.020000457763672,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.010",
+      "bounds": [
+        [
+          -1.9860000610351562,
+          -11.107999801635742,
+          13.41300106048584
+        ],
+        [
+          1.9860000610351562,
+          -11.079999923706055,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.016",
+      "bounds": [
+        [
+          -1.9880000352859497,
+          -11.15000057220459,
+          15.909000396728516
+        ],
+        [
+          1.9880000352859497,
+          -11.019999504089355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 5 field.011",
+      "bounds": [
+        [
+          -5.986000061035156,
+          -11.107999801635742,
+          13.41300106048584
+        ],
+        [
+          -2.0139999389648438,
+          -11.079999923706055,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.017",
+      "bounds": [
+        [
+          -5.98799991607666,
+          -11.15000057220459,
+          15.909000396728516
+        ],
+        [
+          -2.01200008392334,
+          -11.019999504089355,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field",
+      "bounds": [
+        [
+          -8.607889175415039,
+          -11.007888793945312,
+          0.013000011444091797
+        ],
+        [
+          -6.207888603210449,
+          -8.607889175415039,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.001",
+      "bounds": [
+        [
+          -11.007888793945312,
+          -8.607889175415039,
+          0.013000011444091797
+        ],
+        [
+          -8.607889175415039,
+          -6.207889556884766,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.002",
+      "bounds": [
+        [
+          -8.607889175415039,
+          -11.007888793945312,
+          5.01300048828125
+        ],
+        [
+          -6.207888603210449,
+          -8.607889175415039,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.003",
+      "bounds": [
+        [
+          -11.007888793945312,
+          -8.607889175415039,
+          5.01300048828125
+        ],
+        [
+          -8.607889175415039,
+          -6.207889556884766,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.004",
+      "bounds": [
+        [
+          -8.607889175415039,
+          -11.007888793945312,
+          9.61299991607666
+        ],
+        [
+          -6.207888603210449,
+          -8.607889175415039,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.005",
+      "bounds": [
+        [
+          -11.007888793945312,
+          -8.607889175415039,
+          9.61299991607666
+        ],
+        [
+          -8.607889175415039,
+          -6.207889556884766,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.006",
+      "bounds": [
+        [
+          -8.607889175415039,
+          -11.007888793945312,
+          13.41300106048584
+        ],
+        [
+          -6.207888603210449,
+          -8.607889175415039,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.018",
+      "bounds": [
+        [
+          -8.639001846313477,
+          -11.03900146484375,
+          15.909000396728516
+        ],
+        [
+          -6.164047718048096,
+          -8.564048767089844,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 6 field.007",
+      "bounds": [
+        [
+          -11.007888793945312,
+          -8.607889175415039,
+          13.41300106048584
+        ],
+        [
+          -8.607889175415039,
+          -6.207889556884766,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.019",
+      "bounds": [
+        [
+          -11.039002418518066,
+          -8.639001846313477,
+          15.909000396728516
+        ],
+        [
+          -8.564047813415527,
+          -6.16404914855957,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field",
+      "bounds": [
+        [
+          -11.108001708984375,
+          -5.986000061035156,
+          0.013000011444091797
+        ],
+        [
+          -11.079999923706055,
+          -3.0139999389648438,
+          2.736999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.001",
+      "bounds": [
+        [
+          -11.108001708984375,
+          -5.986000061035156,
+          2.763000011444092
+        ],
+        [
+          -11.079999923706055,
+          -3.0139999389648438,
+          5.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.002",
+      "bounds": [
+        [
+          -11.108001708984375,
+          -5.986000061035156,
+          5.51300048828125
+        ],
+        [
+          -11.079999923706055,
+          -3.0139999389648438,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.003",
+      "bounds": [
+        [
+          -11.108001708984375,
+          -5.986000061035156,
+          9.61299991607666
+        ],
+        [
+          -11.079999923706055,
+          -3.0139999389648438,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.004",
+      "bounds": [
+        [
+          -11.108001708984375,
+          -5.986000061035156,
+          13.41300106048584
+        ],
+        [
+          -11.079999923706055,
+          -3.0139999389648438,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.020",
+      "bounds": [
+        [
+          -11.150001525878906,
+          -5.98799991607666,
+          15.909000396728516
+        ],
+        [
+          -11.020000457763672,
+          -3.01200008392334,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.005",
+      "bounds": [
+        [
+          -11.108001708984375,
+          -2.9860000610351562,
+          5.51300048828125
+        ],
+        [
+          -11.079999923706055,
+          -0.014000053517520428,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.006",
+      "bounds": [
+        [
+          -11.108000755310059,
+          0.014000053517520428,
+          5.51300048828125
+        ],
+        [
+          -11.079998970031738,
+          2.9860000610351562,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.007",
+      "bounds": [
+        [
+          -11.108001708984375,
+          -2.9860000610351562,
+          9.61299991607666
+        ],
+        [
+          -11.079999923706055,
+          -0.014000053517520428,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.008",
+      "bounds": [
+        [
+          -11.108000755310059,
+          0.014000053517520428,
+          9.61299991607666
+        ],
+        [
+          -11.079998970031738,
+          2.9860000610351562,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.009",
+      "bounds": [
+        [
+          -11.108001708984375,
+          -2.9860000610351562,
+          13.41300106048584
+        ],
+        [
+          -11.079999923706055,
+          -0.014000053517520428,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.021",
+      "bounds": [
+        [
+          -11.15000057220459,
+          -2.98799991607666,
+          15.909000396728516
+        ],
+        [
+          -11.019999504089355,
+          -0.012000063434243202,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.010",
+      "bounds": [
+        [
+          -11.108000755310059,
+          0.014000053517520428,
+          13.41300106048584
+        ],
+        [
+          -11.079998970031738,
+          2.9860000610351562,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.022",
+      "bounds": [
+        [
+          -11.15000057220459,
+          0.012000063434243202,
+          15.909000396728516
+        ],
+        [
+          -11.019999504089355,
+          2.98799991607666,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.011",
+      "bounds": [
+        [
+          -11.107999801635742,
+          3.0139999389648438,
+          0.013000011444091797
+        ],
+        [
+          -11.079998016357422,
+          5.986000061035156,
+          2.736999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.012",
+      "bounds": [
+        [
+          -11.107999801635742,
+          3.0139999389648438,
+          2.763000011444092
+        ],
+        [
+          -11.079998016357422,
+          5.986000061035156,
+          5.486999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.013",
+      "bounds": [
+        [
+          -11.107999801635742,
+          3.0139999389648438,
+          5.51300048828125
+        ],
+        [
+          -11.079998016357422,
+          5.986000061035156,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.014",
+      "bounds": [
+        [
+          -11.107999801635742,
+          3.0139999389648438,
+          9.61299991607666
+        ],
+        [
+          -11.079998016357422,
+          5.986000061035156,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 7 field.015",
+      "bounds": [
+        [
+          -11.107999801635742,
+          3.0139999389648438,
+          13.41300106048584
+        ],
+        [
+          -11.079998016357422,
+          5.986000061035156,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.023",
+      "bounds": [
+        [
+          -11.149999618530273,
+          3.01200008392334,
+          15.909000396728516
+        ],
+        [
+          -11.019998550415039,
+          5.98799991607666,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field",
+      "bounds": [
+        [
+          -11.248305320739746,
+          6.448305606842041,
+          0.013000011444091797
+        ],
+        [
+          -8.848305702209473,
+          8.848304748535156,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.001",
+      "bounds": [
+        [
+          -8.848304748535156,
+          8.848305702209473,
+          0.013000011444091797
+        ],
+        [
+          -6.448305606842041,
+          11.248305320739746,
+          4.986999988555908
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.002",
+      "bounds": [
+        [
+          -11.007888793945312,
+          6.207889080047607,
+          5.01300048828125
+        ],
+        [
+          -8.607889175415039,
+          8.607888221740723,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.003",
+      "bounds": [
+        [
+          -8.607888221740723,
+          8.607889175415039,
+          5.01300048828125
+        ],
+        [
+          -6.207889080047607,
+          11.007888793945312,
+          9.586999893188477
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.004",
+      "bounds": [
+        [
+          -11.007888793945312,
+          6.207889080047607,
+          9.61299991607666
+        ],
+        [
+          -8.607889175415039,
+          8.607888221740723,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.005",
+      "bounds": [
+        [
+          -8.607888221740723,
+          8.607889175415039,
+          9.61299991607666
+        ],
+        [
+          -6.207889080047607,
+          11.007888793945312,
+          13.38700008392334
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.006",
+      "bounds": [
+        [
+          -11.007888793945312,
+          6.207889080047607,
+          13.41300106048584
+        ],
+        [
+          -8.607889175415039,
+          8.607888221740723,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.024",
+      "bounds": [
+        [
+          -11.03900146484375,
+          6.164048671722412,
+          15.909000396728516
+        ],
+        [
+          -8.564048767089844,
+          8.639001846313477,
+          15.98900032043457
+        ]
+      ]
+    },
+    {
+      "name": "Reactor exterior Shell 8 field.007",
+      "bounds": [
+        [
+          -8.607888221740723,
+          8.607889175415039,
+          13.41300106048584
+        ],
+        [
+          -6.207889080047607,
+          11.007888793945312,
+          15.987000465393066
+        ]
+      ]
+    },
+    {
+      "name": "Reactor individual panel weather cap.025",
+      "bounds": [
+        [
+          -8.639001846313477,
+          8.564048767089844,
+          15.909000396728516
+        ],
+        [
+          -6.164048671722412,
+          11.03900146484375,
+          15.98900032043457
+        ]
+      ]
+    }
+  ]
+}

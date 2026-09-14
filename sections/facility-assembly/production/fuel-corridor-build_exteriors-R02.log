@@ -1,0 +1,9 @@
+C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\blender\build_exteriors.py:14: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True
+C:\Users\Camer\Games\critical-shift\worktrees\facility-assembly-astra\sections\facility-assembly\blender\build_exteriors.py:184: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('Neutral exterior review daylight');world.use_nodes=True;world.node_tree.nodes.get('Background').inputs[0].default_value=(.65,.72,.8,1);world.node_tree.nodes.get('Background').inputs[1].default_value=.45;scene.world=world
+Info: Saved as "exterior-R02.blend"
+EXTERIOR_BUILD_DONE fuel-corridor 263
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

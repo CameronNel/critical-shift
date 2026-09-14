@@ -1,0 +1,49 @@
+{
+  "revision": "R15",
+  "blend": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\condenser-bay-grok\\sections\\condenser-bay\\blender\\condenser_bay.blend",
+  "blend_sha256": "4507100031cd47b2f0a67ce032d7d6f8e833d1897d5ce0f53f29a1470db077fc",
+  "source_sha256": {
+    "build_condenser.py": "3d6b53f244a299f75af0ff41b6cf5c0f7a0193464d39858231fbf9812d880b0e",
+    "camera_clearance.py": "2cd216019c8814b38cb1e2a6c7270821ed9a9022fd6ee397b19f26a7284c9f7b",
+    "kit.py": "ce752cf51e545a5ccfe7690026aecbb82f1c4fc22c0718c39fb4b6d6747f6c4a",
+    "layout.py": "4b4634aed553f870947a9b4bb418cad886ba8fc9d0129ec4d8e4ddc0ce5dffb8",
+    "render.py": "71c1ecbe6739e4883352de345717363ebdcbec74899355e7f14a24832f5bd52c",
+    "render_only.py": "3ec40de55afd7b021ab4ae7f97c42e8fc8fc81e96051f847c828dbcc7872ae15",
+    "render_warm_cold.py": "35296c83f312cdf216495998d8b6f44fde1cc572263eb3c6da943297dcdbc167",
+    "scene_arch.py": "4f5352126be9073c5dfc605cbcb583a533924f822fde3cdeb8327301d2fb91d8",
+    "scene_equip.py": "b92f2f451dcb28ba865ab774fcbba379fcb61fc2b2e5c5644db8372aa3219332",
+    "validate.py": "a00c71964d9777aa7b8290168f35d93983eb838ca87baf5dceded6a2b26bbc39"
+  },
+  "counts": {
+    "objects": 1618,
+    "meshes": 1441,
+    "materials": 25,
+    "cameras": 18,
+    "lights": 21,
+    "collections": [
+      "01 Architecture",
+      "02 Access D01",
+      "03 Stairs and gallery",
+      "04 Ceiling services",
+      "05 Lighting",
+      "06 Signage",
+      "10 Condenser CD-01",
+      "11 Condensate pumps",
+      "12 Cooling water",
+      "13 Vacuum ejectors",
+      "14 Operator station",
+      "15 Drainage and hoist",
+      "16 Maintenance dressing",
+      "90 Evidence cameras"
+    ]
+  },
+  "support_anchors": 46,
+  "hooks": 11,
+  "render_engine": "BLENDER_EEVEE",
+  "eevee_raytracing": false,
+  "origin_in_turbine_local": [
+    1.6,
+    7.4,
+    -6.0
+  ]
+}

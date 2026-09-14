@@ -1,0 +1,281 @@
+{
+  "revision": "R25",
+  "count": 18,
+  "same_saved_blend": true,
+  "all_separate_process": true,
+  "all_1920x1080": true,
+  "worst_mean_delta_255": 4.661779835390946e-06,
+  "visual_acceptance": "independent pixel review required",
+  "cameras": [
+    {
+      "camera": "C01_ENTRY",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "0e25f5adfb748328bf12bb10dde4dc6fdb89da6a973e58b3249c08da6ad63676",
+      "cold_sha256": "88f5f17d2f77a94c07bdf7acd762ed01710778e3cb96b75ef75b7672c7541d6f",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "warm_process_id": 7340,
+      "cold_process_id": 18152,
+      "separate_process": true
+    },
+    {
+      "camera": "C02_HERO",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "58d0e219c80fd6740ac645c2c7a9f45b833667299ad658678776fe596bd0b8e6",
+      "cold_sha256": "f4a14643be77ba391074167d8b86e781d44f9aa3f1f24fbc9380c57166b46814",
+      "max_channel_delta_255": 1,
+      "mean_channel_delta_255": 1.4467592592592592e-06,
+      "changed_pixel_fraction": 3.858024691358025e-06,
+      "warm_process_id": 7340,
+      "cold_process_id": 18152,
+      "separate_process": true
+    },
+    {
+      "camera": "C03_REVERSE",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "23fc0edb511bcda3b1d03691b14d44c35b62bb3a63fabb937517741638c1e4f0",
+      "cold_sha256": "69ad176be1b9a5091bc98c6beaa3d8baf237861ac333f462b9475da1a9f87dc5",
+      "max_channel_delta_255": 1,
+      "mean_channel_delta_255": 1.6075102880658437e-07,
+      "changed_pixel_fraction": 4.822530864197531e-07,
+      "warm_process_id": 7340,
+      "cold_process_id": 18152,
+      "separate_process": true
+    },
+    {
+      "camera": "C04_EXHAUST",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "d76203e2fe29f72c30548ec734f49710219ae514ce31bcde178631a1c3ae695f",
+      "cold_sha256": "9f3bce49108f06c8f2edc3452b2dd8df16349dabd0d6f9033f4a66891a32af36",
+      "max_channel_delta_255": 1,
+      "mean_channel_delta_255": 1.6075102880658437e-07,
+      "changed_pixel_fraction": 4.822530864197531e-07,
+      "warm_process_id": 12416,
+      "cold_process_id": 29380,
+      "separate_process": true
+    },
+    {
+      "camera": "C05_RETURN",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "4cc44fc15831144b854fc81577ae48e22d8316b0176a7e15d682929251346321",
+      "cold_sha256": "deb3c7ca405b2c13bca47bd8646c4a4a92217febc59bedcd743b6d723686d649",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "warm_process_id": 12416,
+      "cold_process_id": 29380,
+      "separate_process": true
+    },
+    {
+      "camera": "C06_COOLING",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "766289d2badc04ed377c4a609fa10be88a17001965ea0b566c471aa3ab2d8891",
+      "cold_sha256": "b59ec3823f207948769f10d1de1ac1c911e45fe215382bd2bd6a068be9fce2db",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "warm_process_id": 12416,
+      "cold_process_id": 29380,
+      "separate_process": true
+    },
+    {
+      "camera": "C07_OPERATOR",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "4ecdd6b8ef61e960a0ee8215447cb79409525180dac53fc47adfecbdc6461fe2",
+      "cold_sha256": "84e8e394647be68544498c4c41e4bc76eac5174a1bb13fd1b9d4a790646c1a29",
+      "max_channel_delta_255": 1,
+      "mean_channel_delta_255": 1.6075102880658437e-07,
+      "changed_pixel_fraction": 4.822530864197531e-07,
+      "warm_process_id": 29780,
+      "cold_process_id": 35092,
+      "separate_process": true
+    },
+    {
+      "camera": "C08_MAINT",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "29952dd708a68c25f06be084b91a89aecf010abb9340135343b0c345105295fd",
+      "cold_sha256": "baeef0e86fa0d6344cf84aabbf180e638ed76aed3393f8377886c75761d4cb1e",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "warm_process_id": 29780,
+      "cold_process_id": 35092,
+      "separate_process": true
+    },
+    {
+      "camera": "C09_ROOF",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "5d51e5dd04755f426f6f1f7d3e944705af19b1f01b8cab4a01fd3252f9ace4e5",
+      "cold_sha256": "7d92064c604be4d0dd6b3adc979b6c5618920d6f375d9720bf0b1a66087e60a3",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "warm_process_id": 29780,
+      "cold_process_id": 35092,
+      "separate_process": true
+    },
+    {
+      "camera": "C10_MATERIALS",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "189e91293764ce610164c2ce6398bd9ed86e29bfb6bcef0a464b734a4e94e0a8",
+      "cold_sha256": "acfb49db45319daf812a43b89f5bfae4a421c9ccf0472b83a1cbe46863a85b09",
+      "max_channel_delta_255": 1,
+      "mean_channel_delta_255": 4.661779835390946e-06,
+      "changed_pixel_fraction": 1.398533950617284e-05,
+      "warm_process_id": 27336,
+      "cold_process_id": 17696,
+      "separate_process": true
+    },
+    {
+      "camera": "W01_ENTRY_CORNER",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "110fc6a0b0ac1ef9fa0775b31073eb65ac569fd3d454f9dd1d6eee164fb5bc78",
+      "cold_sha256": "75f8b7aa6ca8b6e7047c988e1dd885bb5c8474c6062d5c28411e7160b2b57ff2",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "warm_process_id": 27336,
+      "cold_process_id": 17696,
+      "separate_process": true
+    },
+    {
+      "camera": "W02_SW_TURN",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "3e7f665e5ae7de1e355efc7bbe25421d5eb6052a0e5779a80fa59ce65130ffe3",
+      "cold_sha256": "7c9b5043a6b36bdcb08b22e837d0942a252781339a732b818ec4a526d442fdb0",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "warm_process_id": 27336,
+      "cold_process_id": 17696,
+      "separate_process": true
+    },
+    {
+      "camera": "W03_NW",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "4d560b4d88c6e69803e11f90ae6a69f7169bd620311bf0e2f02578fa50ae5ced",
+      "cold_sha256": "fb2e34fc6905d2179bcde2ad34d381e26973036c2f7c34c9ab197b03ec5ba981",
+      "max_channel_delta_255": 1,
+      "mean_channel_delta_255": 3.536522633744856e-06,
+      "changed_pixel_fraction": 9.645061728395062e-06,
+      "warm_process_id": 13656,
+      "cold_process_id": 19932,
+      "separate_process": true
+    },
+    {
+      "camera": "W04_NE",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "778232decb523fe705b42a3a9b72053a8ed82b09e2d2c3d12e0a273f6fb809c7",
+      "cold_sha256": "c36b0f3e563b9fd3fe3edab1f4c48a88c059efbf76e062aa928e58c4d78b7310",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "warm_process_id": 13656,
+      "cold_process_id": 19932,
+      "separate_process": true
+    },
+    {
+      "camera": "W05_SE",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "42542792140a3a467f4f0979aa83130abf56851ec5448722794e1b05e5a3638d",
+      "cold_sha256": "ab3c431a1d156da99ceb5f9ee1a47e1fe1e790fc75ea2a24f4edc243e949d2f6",
+      "max_channel_delta_255": 1,
+      "mean_channel_delta_255": 3.2150205761316875e-07,
+      "changed_pixel_fraction": 9.645061728395062e-07,
+      "warm_process_id": 13656,
+      "cold_process_id": 19932,
+      "separate_process": true
+    },
+    {
+      "camera": "W06_WEST_AISLE",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "c1a6f8f1990a191e31d49886c2084eae51b6211285ececcc6c1dcde1989fed8a",
+      "cold_sha256": "7e5a31bb41b56a611900799c5dbff164cb04f5fb1a6ff6fe1e9da50d01101518",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "warm_process_id": 31920,
+      "cold_process_id": 11100,
+      "separate_process": true
+    },
+    {
+      "camera": "W07_EAST_PULL",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "e4be580335bd27ed2b0da74eee9164493143fe1adfe4a4eae30469dfa3d0b402",
+      "cold_sha256": "f071108ce38b54656e86bbe83688d89772460b082eb9b27714fbd08423419571",
+      "max_channel_delta_255": 1,
+      "mean_channel_delta_255": 2.732767489711934e-06,
+      "changed_pixel_fraction": 7.2337962962962966e-06,
+      "warm_process_id": 31920,
+      "cold_process_id": 11100,
+      "separate_process": true
+    },
+    {
+      "camera": "W08_GALLERY_TURN",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "fb0feeb5fab708e7ea7cbd446e6d339ce640ce5c70d5471fcae6e24712237788",
+      "cold_sha256": "fda2051dc7c111d72319f547fa1f36a77795aecccc7f131e0bb6a04d8c5ec3f4",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "warm_process_id": 31920,
+      "cold_process_id": 11100,
+      "separate_process": true
+    }
+  ]
+}

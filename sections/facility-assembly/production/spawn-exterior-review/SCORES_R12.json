@@ -1,0 +1,41 @@
+{
+  "revision": "R12",
+  "build_sha256": "215a425377c54d325e8bb8b224e51e172d916b5db8623b09a68c2a4481218bd3",
+  "views": ["01_COURTYARD", "02_SOUTH", "03_EAST", "04_TOP"],
+  "concept": "Concept02 approved",
+  "decision": "REJECT",
+  "scores": {
+    "reference_fidelity_concept_adherence": 88,
+    "silhouette_massing": 87,
+    "scale_spatial_layout": 89,
+    "circulation_access_rescue_route": 89,
+    "construction_load_support_logic": 89,
+    "utility_service_continuity": 88,
+    "exterior_materials_surface_response": 84,
+    "lighting_palette_readability": 82,
+    "environmental_storytelling_human_use": 86,
+    "terrain_drainage_ground_transitions": 89,
+    "roof_elevated_detail": 86,
+    "view_to_view_consistency": 87,
+    "interface_reservation_integrity": 90,
+    "runtime_delivery_readiness": 90,
+    "art_direction_veto_professional_finish": 75
+  },
+  "fresh_evidence": {
+    "technical_support_contacts": "PASS_EXPANDED_TARGETED_CHECKS",
+    "delivery": "PASS_COLD_LOAD_DEPENDENCIES_RESERVATIONS_SOURCE_VISIBILITY_INVENTORY",
+    "route_audit": "PASS_ZERO_FINDINGS_WITH_FLOOR_HEIGHT_SAMPLES",
+    "max_adjacent_floor_change_m": 0.015000022947788239,
+    "native_render_benchmark": "PASS_OFFLINE_TIMING_STABILITY_ONLY",
+    "interactive_viewport_fps": "UNVERIFIED",
+    "unity_runtime": "UNVERIFIED"
+  },
+  "pixel_blockers": [
+    "soft clay-like rock/background shading",
+    "washed-out top-view value grouping",
+    "broad low-information roof, wall and paving fields",
+    "repeated planting rhythm",
+    "south foreground rail competing with entry readability"
+  ],
+  "notes": "Independent native-pixel review of R12 only. Material preview R12 is separate and receives no score credit. Strict greater-than-93 threshold remains unmet."
+}

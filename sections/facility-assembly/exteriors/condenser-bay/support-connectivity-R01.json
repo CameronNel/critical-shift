@@ -1,0 +1,2414 @@
+{
+  "mesh_defects": [],
+  "revision": "R01",
+  "scope": "Evaluated world-AABB connectivity broadphase, not raycast/anchor/support-angle validation. Original render-visible mesh objects are root candidates; physical/collision suitability is not independently classified. AABB overlap can be empty space, contact does not imply load-bearing support, and deep penetration is accepted by this connectivity graph. Text/curves excluded. Model is not saved.",
+  "threshold_m": 0.005,
+  "numerical_epsilon_m": 1e-06,
+  "additive_mesh_count": 140,
+  "original_root_candidate_count": 2522,
+  "root_connected_additive_count": 140,
+  "detached_components": [],
+  "direct_original_candidates": [
+    {
+      "object": "Condenser formed concrete lift",
+      "original_candidates": [
+        "SouthWall west"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.001",
+      "original_candidates": [
+        "SouthWall west"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.002",
+      "original_candidates": [
+        "SouthWall east"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.003",
+      "original_candidates": [
+        "SouthWall east"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.004",
+      "original_candidates": [
+        "SouthWall east"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.005",
+      "original_candidates": [
+        "SouthWall east"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.006",
+      "original_candidates": [
+        "SouthWall east"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.007",
+      "original_candidates": [
+        "SouthWall east"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.008",
+      "original_candidates": [
+        "SouthWall west",
+        "SouthWall east",
+        "SouthWall header"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.009",
+      "original_candidates": [
+        "Structural floor",
+        "WestWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.010",
+      "original_candidates": [
+        "WestWall",
+        "D01 track"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.011",
+      "original_candidates": [
+        "Structural floor",
+        "WestWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.012",
+      "original_candidates": [
+        "WestWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.013",
+      "original_candidates": [
+        "Structural floor",
+        "WestWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.014",
+      "original_candidates": [
+        "WestWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.015",
+      "original_candidates": [
+        "Structural floor",
+        "WestWall",
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.016",
+      "original_candidates": [
+        "WestWall",
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.017",
+      "original_candidates": [
+        "Structural floor",
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.018",
+      "original_candidates": [
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.019",
+      "original_candidates": [
+        "Structural floor",
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.020",
+      "original_candidates": [
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.021",
+      "original_candidates": [
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.022",
+      "original_candidates": [
+        "Structural floor",
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.023",
+      "original_candidates": [
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.024",
+      "original_candidates": [
+        "Structural floor",
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.025",
+      "original_candidates": [
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.026",
+      "original_candidates": [
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.027",
+      "original_candidates": [
+        "Structural floor",
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.028",
+      "original_candidates": [
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.029",
+      "original_candidates": [
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.030",
+      "original_candidates": [
+        "EastWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.031",
+      "original_candidates": [
+        "Structural floor",
+        "EastWall",
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.032",
+      "original_candidates": [
+        "EastWall",
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.033",
+      "original_candidates": [
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.034",
+      "original_candidates": [
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.035",
+      "original_candidates": [
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.036",
+      "original_candidates": [
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.037",
+      "original_candidates": [
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.038",
+      "original_candidates": [
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.039",
+      "original_candidates": [
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.040",
+      "original_candidates": [
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.041",
+      "original_candidates": [
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.042",
+      "original_candidates": [
+        "NorthWall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.043",
+      "original_candidates": [
+        "D01 stub west wall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.044",
+      "original_candidates": [
+        "D01 stub west wall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.045",
+      "original_candidates": [
+        "D01 stub east wall"
+      ]
+    },
+    {
+      "object": "Condenser formed concrete lift.046",
+      "original_candidates": [
+        "D01 stub east wall"
+      ]
+    }
+  ],
+  "additive_bounds": [
+    {
+      "name": "Condenser formed concrete lift",
+      "bounds": [
+        [
+          -1.7940000295639038,
+          -0.32600000500679016,
+          0.0
+        ],
+        [
+          -1.4759999513626099,
+          -0.2800000011920929,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.001",
+      "bounds": [
+        [
+          -1.7940000295639038,
+          -0.32600000500679016,
+          0.6619999408721924
+        ],
+        [
+          -1.4759999513626099,
+          -0.2800000011920929,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug",
+      "bounds": [
+        [
+          -1.7661199569702148,
+          -0.32899999618530273,
+          1.1269999742507935
+        ],
+        [
+          -1.7201199531555176,
+          -0.3230000138282776,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.001",
+      "bounds": [
+        [
+          -1.549880027770996,
+          -0.32899999618530273,
+          1.1269999742507935
+        ],
+        [
+          -1.5038800239562988,
+          -0.3230000138282776,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.002",
+      "bounds": [
+        [
+          -1.7661199569702148,
+          -0.32899999618530273,
+          3.7769999504089355
+        ],
+        [
+          -1.7201199531555176,
+          -0.3230000138282776,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.003",
+      "bounds": [
+        [
+          -1.549880027770996,
+          -0.32899999618530273,
+          3.7769999504089355
+        ],
+        [
+          -1.5038800239562988,
+          -0.3230000138282776,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.002",
+      "bounds": [
+        [
+          1.4760000705718994,
+          -0.32600000500679016,
+          0.0
+        ],
+        [
+          4.173999786376953,
+          -0.2800000011920929,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.003",
+      "bounds": [
+        [
+          1.4760000705718994,
+          -0.32600000500679016,
+          0.6619999408721924
+        ],
+        [
+          4.173999786376953,
+          -0.2800000011920929,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.004",
+      "bounds": [
+        [
+          1.8846800327301025,
+          -0.32899999618530273,
+          1.1269999742507935
+        ],
+        [
+          1.9306800365447998,
+          -0.3230000138282776,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.005",
+      "bounds": [
+        [
+          3.719320058822632,
+          -0.32899999618530273,
+          1.1269999742507935
+        ],
+        [
+          3.765320062637329,
+          -0.3230000138282776,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.006",
+      "bounds": [
+        [
+          1.8846800327301025,
+          -0.32899999618530273,
+          3.7769999504089355
+        ],
+        [
+          1.9306800365447998,
+          -0.3230000138282776,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.007",
+      "bounds": [
+        [
+          3.719320058822632,
+          -0.32899999618530273,
+          3.7769999504089355
+        ],
+        [
+          3.765320062637329,
+          -0.3230000138282776,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.004",
+      "bounds": [
+        [
+          4.185999870300293,
+          -0.32600000500679016,
+          0.0
+        ],
+        [
+          6.883999824523926,
+          -0.2800000011920929,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.005",
+      "bounds": [
+        [
+          4.185999870300293,
+          -0.32600000500679016,
+          0.6619999408721924
+        ],
+        [
+          6.883999824523926,
+          -0.2800000011920929,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.008",
+      "bounds": [
+        [
+          4.594680309295654,
+          -0.32899999618530273,
+          1.1269999742507935
+        ],
+        [
+          4.640679836273193,
+          -0.3230000138282776,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.009",
+      "bounds": [
+        [
+          6.429320335388184,
+          -0.32899999618530273,
+          1.1269999742507935
+        ],
+        [
+          6.475319862365723,
+          -0.3230000138282776,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.010",
+      "bounds": [
+        [
+          4.594680309295654,
+          -0.32899999618530273,
+          3.7769999504089355
+        ],
+        [
+          4.640679836273193,
+          -0.3230000138282776,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.011",
+      "bounds": [
+        [
+          6.429320335388184,
+          -0.32899999618530273,
+          3.7769999504089355
+        ],
+        [
+          6.475319862365723,
+          -0.3230000138282776,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.006",
+      "bounds": [
+        [
+          6.895999908447266,
+          -0.32600000500679016,
+          0.0
+        ],
+        [
+          9.593999862670898,
+          -0.2800000011920929,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.007",
+      "bounds": [
+        [
+          6.895999908447266,
+          -0.32600000500679016,
+          0.6619999408721924
+        ],
+        [
+          9.593999862670898,
+          -0.2800000011920929,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.012",
+      "bounds": [
+        [
+          7.304680347442627,
+          -0.32899999618530273,
+          1.1269999742507935
+        ],
+        [
+          7.350679874420166,
+          -0.3230000138282776,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.013",
+      "bounds": [
+        [
+          9.139320373535156,
+          -0.32899999618530273,
+          1.1269999742507935
+        ],
+        [
+          9.185319900512695,
+          -0.3230000138282776,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.014",
+      "bounds": [
+        [
+          7.304680347442627,
+          -0.32899999618530273,
+          3.7769999504089355
+        ],
+        [
+          7.350679874420166,
+          -0.3230000138282776,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.015",
+      "bounds": [
+        [
+          9.139320373535156,
+          -0.32899999618530273,
+          3.7769999504089355
+        ],
+        [
+          9.185319900512695,
+          -0.3230000138282776,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.008",
+      "bounds": [
+        [
+          -1.4639999866485596,
+          -0.32600000500679016,
+          2.950000047683716
+        ],
+        [
+          1.4639999866485596,
+          -0.2800000011920929,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.016",
+      "bounds": [
+        [
+          -1.0185199975967407,
+          -0.32899999618530273,
+          3.7769999504089355
+        ],
+        [
+          -0.9725199937820435,
+          -0.3230000138282776,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.017",
+      "bounds": [
+        [
+          0.9725199937820435,
+          -0.32899999618530273,
+          3.7769999504089355
+        ],
+        [
+          1.0185199975967407,
+          -0.3230000138282776,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.009",
+      "bounds": [
+        [
+          -2.125999927520752,
+          -0.13399994373321533,
+          0.0
+        ],
+        [
+          -2.0799999237060547,
+          2.2740001678466797,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.010",
+      "bounds": [
+        [
+          -2.125999927520752,
+          -0.13399994373321533,
+          0.6619999408721924
+        ],
+        [
+          -2.0799999237060547,
+          2.2740001678466797,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.018",
+      "bounds": [
+        [
+          -2.128999948501587,
+          0.22828000783920288,
+          1.1269999742507935
+        ],
+        [
+          -2.122999906539917,
+          0.27428001165390015,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.019",
+      "bounds": [
+        [
+          -2.128999948501587,
+          1.8657200336456299,
+          1.1269999742507935
+        ],
+        [
+          -2.122999906539917,
+          1.9117200374603271,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.020",
+      "bounds": [
+        [
+          -2.128999948501587,
+          0.22828000783920288,
+          3.7769999504089355
+        ],
+        [
+          -2.122999906539917,
+          0.27428001165390015,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.021",
+      "bounds": [
+        [
+          -2.128999948501587,
+          1.8657200336456299,
+          3.7769999504089355
+        ],
+        [
+          -2.122999906539917,
+          1.9117200374603271,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.011",
+      "bounds": [
+        [
+          -2.125999927520752,
+          2.2860000133514404,
+          0.0
+        ],
+        [
+          -2.0799999237060547,
+          4.694000244140625,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.012",
+      "bounds": [
+        [
+          -2.125999927520752,
+          2.2860000133514404,
+          0.6619999408721924
+        ],
+        [
+          -2.0799999237060547,
+          4.694000244140625,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.022",
+      "bounds": [
+        [
+          -2.128999948501587,
+          2.648279905319214,
+          1.1269999742507935
+        ],
+        [
+          -2.122999906539917,
+          2.694279909133911,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.023",
+      "bounds": [
+        [
+          -2.128999948501587,
+          4.285720348358154,
+          1.1269999742507935
+        ],
+        [
+          -2.122999906539917,
+          4.331719875335693,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.024",
+      "bounds": [
+        [
+          -2.128999948501587,
+          2.648279905319214,
+          3.7769999504089355
+        ],
+        [
+          -2.122999906539917,
+          2.694279909133911,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.025",
+      "bounds": [
+        [
+          -2.128999948501587,
+          4.285720348358154,
+          3.7769999504089355
+        ],
+        [
+          -2.122999906539917,
+          4.331719875335693,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.013",
+      "bounds": [
+        [
+          -2.125999927520752,
+          4.705999851226807,
+          0.0
+        ],
+        [
+          -2.0799999237060547,
+          7.113999843597412,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.014",
+      "bounds": [
+        [
+          -2.125999927520752,
+          4.705999851226807,
+          0.6619999408721924
+        ],
+        [
+          -2.0799999237060547,
+          7.113999843597412,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.026",
+      "bounds": [
+        [
+          -2.128999948501587,
+          5.068280220031738,
+          1.1269999742507935
+        ],
+        [
+          -2.122999906539917,
+          5.114279747009277,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.027",
+      "bounds": [
+        [
+          -2.128999948501587,
+          6.7057204246521,
+          1.1269999742507935
+        ],
+        [
+          -2.122999906539917,
+          6.751719951629639,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.028",
+      "bounds": [
+        [
+          -2.128999948501587,
+          5.068280220031738,
+          3.7769999504089355
+        ],
+        [
+          -2.122999906539917,
+          5.114279747009277,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.029",
+      "bounds": [
+        [
+          -2.128999948501587,
+          6.7057204246521,
+          3.7769999504089355
+        ],
+        [
+          -2.122999906539917,
+          6.751719951629639,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.015",
+      "bounds": [
+        [
+          -2.125999927520752,
+          7.125999927520752,
+          0.0
+        ],
+        [
+          -2.0799999237060547,
+          9.534000396728516,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.016",
+      "bounds": [
+        [
+          -2.125999927520752,
+          7.125999927520752,
+          0.6619999408721924
+        ],
+        [
+          -2.0799999237060547,
+          9.534000396728516,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.030",
+      "bounds": [
+        [
+          -2.128999948501587,
+          7.488280296325684,
+          1.1269999742507935
+        ],
+        [
+          -2.122999906539917,
+          7.534279823303223,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.031",
+      "bounds": [
+        [
+          -2.128999948501587,
+          9.125720024108887,
+          1.1269999742507935
+        ],
+        [
+          -2.122999906539917,
+          9.171719551086426,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.032",
+      "bounds": [
+        [
+          -2.128999948501587,
+          7.488280296325684,
+          3.7769999504089355
+        ],
+        [
+          -2.122999906539917,
+          7.534279823303223,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.033",
+      "bounds": [
+        [
+          -2.128999948501587,
+          9.125720024108887,
+          3.7769999504089355
+        ],
+        [
+          -2.122999906539917,
+          9.171719551086426,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.017",
+      "bounds": [
+        [
+          9.880000114440918,
+          -0.13399994373321533,
+          0.0
+        ],
+        [
+          9.925999641418457,
+          2.7940001487731934,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.018",
+      "bounds": [
+        [
+          9.880000114440918,
+          -0.13399994373321533,
+          0.6619999408721924
+        ],
+        [
+          9.925999641418457,
+          2.7940001487731934,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.034",
+      "bounds": [
+        [
+          9.92300033569336,
+          0.31147998571395874,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          0.357479989528656,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.035",
+      "bounds": [
+        [
+          9.92300033569336,
+          2.3025200366973877,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          2.348520040512085,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.036",
+      "bounds": [
+        [
+          9.92300033569336,
+          0.31147998571395874,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          0.357479989528656,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.037",
+      "bounds": [
+        [
+          9.92300033569336,
+          2.3025200366973877,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          2.348520040512085,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.019",
+      "bounds": [
+        [
+          9.880000114440918,
+          2.805999994277954,
+          0.0
+        ],
+        [
+          9.925999641418457,
+          3.5940001010894775,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.020",
+      "bounds": [
+        [
+          9.880000114440918,
+          2.805999994277954,
+          0.6619999408721924
+        ],
+        [
+          9.925999641418457,
+          3.5940001010894775,
+          2.75
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.038",
+      "bounds": [
+        [
+          9.92300033569336,
+          2.9090800285339355,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          2.955080032348633,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.039",
+      "bounds": [
+        [
+          9.92300033569336,
+          3.444920063018799,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          3.490920066833496,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.021",
+      "bounds": [
+        [
+          9.880000114440918,
+          2.805999994277954,
+          3.549999713897705
+        ],
+        [
+          9.925999641418457,
+          3.5940001010894775,
+          5.099999904632568
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.040",
+      "bounds": [
+        [
+          9.92300033569336,
+          2.9090800285339355,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          2.955080032348633,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.041",
+      "bounds": [
+        [
+          9.92300033569336,
+          3.444920063018799,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          3.490920066833496,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.022",
+      "bounds": [
+        [
+          9.880000114440918,
+          3.6060001850128174,
+          0.0
+        ],
+        [
+          9.925999641418457,
+          4.494000434875488,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.023",
+      "bounds": [
+        [
+          9.880000114440918,
+          3.6060001850128174,
+          0.6619999408721924
+        ],
+        [
+          9.925999641418457,
+          4.494000434875488,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.042",
+      "bounds": [
+        [
+          9.92300033569336,
+          3.7250800132751465,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          3.7710800170898438,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.043",
+      "bounds": [
+        [
+          9.92300033569336,
+          4.328920364379883,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          4.374919891357422,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.044",
+      "bounds": [
+        [
+          9.92300033569336,
+          3.7250800132751465,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          3.7710800170898438,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.045",
+      "bounds": [
+        [
+          9.92300033569336,
+          4.328920364379883,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          4.374919891357422,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.024",
+      "bounds": [
+        [
+          9.880000114440918,
+          4.50600004196167,
+          0.0
+        ],
+        [
+          9.925999641418457,
+          5.294000148773193,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.025",
+      "bounds": [
+        [
+          9.880000114440918,
+          4.50600004196167,
+          0.6619999408721924
+        ],
+        [
+          9.925999641418457,
+          5.294000148773193,
+          2.75
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.046",
+      "bounds": [
+        [
+          9.92300033569336,
+          4.6090803146362305,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          4.6550798416137695,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.047",
+      "bounds": [
+        [
+          9.92300033569336,
+          5.144920349121094,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          5.190919876098633,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.026",
+      "bounds": [
+        [
+          9.880000114440918,
+          4.50600004196167,
+          3.549999713897705
+        ],
+        [
+          9.925999641418457,
+          5.294000148773193,
+          5.099999904632568
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.048",
+      "bounds": [
+        [
+          9.92300033569336,
+          4.6090803146362305,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          4.6550798416137695,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.049",
+      "bounds": [
+        [
+          9.92300033569336,
+          5.144920349121094,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          5.190919876098633,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.027",
+      "bounds": [
+        [
+          9.880000114440918,
+          5.305999755859375,
+          0.0
+        ],
+        [
+          9.925999641418457,
+          8.194000244140625,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.028",
+      "bounds": [
+        [
+          9.880000114440918,
+          5.305999755859375,
+          0.6619999408721924
+        ],
+        [
+          9.925999641418457,
+          8.194000244140625,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.050",
+      "bounds": [
+        [
+          9.92300033569336,
+          5.745080471038818,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          5.791079998016357,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.051",
+      "bounds": [
+        [
+          9.92300033569336,
+          7.708920001983643,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          7.754919528961182,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.052",
+      "bounds": [
+        [
+          9.92300033569336,
+          5.745080471038818,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          5.791079998016357,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.053",
+      "bounds": [
+        [
+          9.92300033569336,
+          7.708920001983643,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          7.754919528961182,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.029",
+      "bounds": [
+        [
+          9.880000114440918,
+          8.206000328063965,
+          0.30000001192092896
+        ],
+        [
+          9.925999641418457,
+          8.894000053405762,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.030",
+      "bounds": [
+        [
+          9.880000114440918,
+          8.206000328063965,
+          0.6619999408721924
+        ],
+        [
+          9.925999641418457,
+          8.894000053405762,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.054",
+      "bounds": [
+        [
+          9.92300033569336,
+          8.29308032989502,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          8.339079856872559,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.055",
+      "bounds": [
+        [
+          9.92300033569336,
+          8.760920524597168,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          8.806920051574707,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.056",
+      "bounds": [
+        [
+          9.92300033569336,
+          8.29308032989502,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          8.339079856872559,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.057",
+      "bounds": [
+        [
+          9.92300033569336,
+          8.760920524597168,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          8.806920051574707,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.031",
+      "bounds": [
+        [
+          9.880000114440918,
+          8.906000137329102,
+          0.0
+        ],
+        [
+          9.925999641418457,
+          9.534000396728516,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.032",
+      "bounds": [
+        [
+          9.880000114440918,
+          8.906000137329102,
+          0.6619999408721924
+        ],
+        [
+          9.925999641418457,
+          9.534000396728516,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.058",
+      "bounds": [
+        [
+          9.92300033569336,
+          8.983480453491211,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          9.02947998046875,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.059",
+      "bounds": [
+        [
+          9.92300033569336,
+          9.410520553588867,
+          1.1269999742507935
+        ],
+        [
+          9.929000854492188,
+          9.456520080566406,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.060",
+      "bounds": [
+        [
+          9.92300033569336,
+          8.983480453491211,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          9.02947998046875,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.061",
+      "bounds": [
+        [
+          9.92300033569336,
+          9.410520553588867,
+          3.7769999504089355
+        ],
+        [
+          9.929000854492188,
+          9.456520080566406,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.033",
+      "bounds": [
+        [
+          -2.074000120162964,
+          9.680000305175781,
+          0.0
+        ],
+        [
+          0.3060000538825989,
+          9.72599983215332,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.034",
+      "bounds": [
+        [
+          -2.074000120162964,
+          9.680000305175781,
+          0.6619999408721924
+        ],
+        [
+          0.3060000538825989,
+          9.72599983215332,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.062",
+      "bounds": [
+        [
+          -1.7161999940872192,
+          9.722999572753906,
+          1.1269999742507935
+        ],
+        [
+          -1.670199990272522,
+          9.729000091552734,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.063",
+      "bounds": [
+        [
+          -0.09780000150203705,
+          9.722999572753906,
+          1.1269999742507935
+        ],
+        [
+          -0.05179999768733978,
+          9.729000091552734,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.064",
+      "bounds": [
+        [
+          -1.7161999940872192,
+          9.722999572753906,
+          3.7769999504089355
+        ],
+        [
+          -1.670199990272522,
+          9.729000091552734,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.065",
+      "bounds": [
+        [
+          -0.09780000150203705,
+          9.722999572753906,
+          3.7769999504089355
+        ],
+        [
+          -0.05179999768733978,
+          9.729000091552734,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.035",
+      "bounds": [
+        [
+          0.3179999589920044,
+          9.680000305175781,
+          0.0
+        ],
+        [
+          2.697999954223633,
+          9.72599983215332,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.036",
+      "bounds": [
+        [
+          0.3179999589920044,
+          9.680000305175781,
+          0.6619999408721924
+        ],
+        [
+          2.697999954223633,
+          9.72599983215332,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.066",
+      "bounds": [
+        [
+          0.6758000254631042,
+          9.722999572753906,
+          1.1269999742507935
+        ],
+        [
+          0.7218000292778015,
+          9.729000091552734,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.067",
+      "bounds": [
+        [
+          2.2941999435424805,
+          9.722999572753906,
+          1.1269999742507935
+        ],
+        [
+          2.3401999473571777,
+          9.729000091552734,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.068",
+      "bounds": [
+        [
+          0.6758000254631042,
+          9.722999572753906,
+          3.7769999504089355
+        ],
+        [
+          0.7218000292778015,
+          9.729000091552734,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.069",
+      "bounds": [
+        [
+          2.2941999435424805,
+          9.722999572753906,
+          3.7769999504089355
+        ],
+        [
+          2.3401999473571777,
+          9.729000091552734,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.037",
+      "bounds": [
+        [
+          2.7100000381469727,
+          9.680000305175781,
+          0.0
+        ],
+        [
+          5.090000152587891,
+          9.72599983215332,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.038",
+      "bounds": [
+        [
+          2.7100000381469727,
+          9.680000305175781,
+          0.6619999408721924
+        ],
+        [
+          5.090000152587891,
+          9.72599983215332,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.070",
+      "bounds": [
+        [
+          3.0678000450134277,
+          9.722999572753906,
+          1.1269999742507935
+        ],
+        [
+          3.113800048828125,
+          9.729000091552734,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.071",
+      "bounds": [
+        [
+          4.68619966506958,
+          9.722999572753906,
+          1.1269999742507935
+        ],
+        [
+          4.7322001457214355,
+          9.729000091552734,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.072",
+      "bounds": [
+        [
+          3.0678000450134277,
+          9.722999572753906,
+          3.7769999504089355
+        ],
+        [
+          3.113800048828125,
+          9.729000091552734,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.073",
+      "bounds": [
+        [
+          4.68619966506958,
+          9.722999572753906,
+          3.7769999504089355
+        ],
+        [
+          4.7322001457214355,
+          9.729000091552734,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.039",
+      "bounds": [
+        [
+          5.101999759674072,
+          9.680000305175781,
+          0.0
+        ],
+        [
+          7.48199987411499,
+          9.72599983215332,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.040",
+      "bounds": [
+        [
+          5.101999759674072,
+          9.680000305175781,
+          0.6619999408721924
+        ],
+        [
+          7.48199987411499,
+          9.72599983215332,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.074",
+      "bounds": [
+        [
+          5.459799766540527,
+          9.722999572753906,
+          1.1269999742507935
+        ],
+        [
+          5.505800247192383,
+          9.729000091552734,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.075",
+      "bounds": [
+        [
+          7.078199863433838,
+          9.722999572753906,
+          1.1269999742507935
+        ],
+        [
+          7.124200344085693,
+          9.729000091552734,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.076",
+      "bounds": [
+        [
+          5.459799766540527,
+          9.722999572753906,
+          3.7769999504089355
+        ],
+        [
+          5.505800247192383,
+          9.729000091552734,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.077",
+      "bounds": [
+        [
+          7.078199863433838,
+          9.722999572753906,
+          3.7769999504089355
+        ],
+        [
+          7.124200344085693,
+          9.729000091552734,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.041",
+      "bounds": [
+        [
+          7.49399995803833,
+          9.680000305175781,
+          0.0
+        ],
+        [
+          9.874000549316406,
+          9.72599983215332,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.042",
+      "bounds": [
+        [
+          7.49399995803833,
+          9.680000305175781,
+          0.6619999408721924
+        ],
+        [
+          9.874000549316406,
+          9.72599983215332,
+          5.100000381469727
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.078",
+      "bounds": [
+        [
+          7.851799964904785,
+          9.722999572753906,
+          1.1269999742507935
+        ],
+        [
+          7.897800445556641,
+          9.729000091552734,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.079",
+      "bounds": [
+        [
+          9.470200538635254,
+          9.722999572753906,
+          1.1269999742507935
+        ],
+        [
+          9.516200065612793,
+          9.729000091552734,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.080",
+      "bounds": [
+        [
+          7.851799964904785,
+          9.722999572753906,
+          3.7769999504089355
+        ],
+        [
+          7.897800445556641,
+          9.729000091552734,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.081",
+      "bounds": [
+        [
+          9.470200538635254,
+          9.722999572753906,
+          3.7769999504089355
+        ],
+        [
+          9.516200065612793,
+          9.729000091552734,
+          3.822999954223633
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.043",
+      "bounds": [
+        [
+          -1.50600004196167,
+          -2.49399995803833,
+          0.0
+        ],
+        [
+          -1.4600000381469727,
+          -0.3059999942779541,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.044",
+      "bounds": [
+        [
+          -1.50600004196167,
+          -2.49399995803833,
+          0.6619999408721924
+        ],
+        [
+          -1.4600000381469727,
+          -0.3059999942779541,
+          2.700000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.082",
+      "bounds": [
+        [
+          -1.5090000629425049,
+          -2.1669199466705322,
+          1.1269999742507935
+        ],
+        [
+          -1.503000020980835,
+          -2.120919942855835,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.083",
+      "bounds": [
+        [
+          -1.5090000629425049,
+          -0.6790800094604492,
+          1.1269999742507935
+        ],
+        [
+          -1.503000020980835,
+          -0.633080005645752,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.045",
+      "bounds": [
+        [
+          1.4600000381469727,
+          -2.49399995803833,
+          0.0
+        ],
+        [
+          1.50600004196167,
+          -0.3059999942779541,
+          0.6499999761581421
+        ]
+      ]
+    },
+    {
+      "name": "Condenser formed concrete lift.046",
+      "bounds": [
+        [
+          1.4600000381469727,
+          -2.49399995803833,
+          0.6619999408721924
+        ],
+        [
+          1.50600004196167,
+          -0.3059999942779541,
+          2.700000047683716
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.084",
+      "bounds": [
+        [
+          1.503000020980835,
+          -2.1669199466705322,
+          1.1269999742507935
+        ],
+        [
+          1.5090000629425049,
+          -2.120919942855835,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser flush form tie plug.085",
+      "bounds": [
+        [
+          1.503000020980835,
+          -0.6790800094604492,
+          1.1269999742507935
+        ],
+        [
+          1.5090000629425049,
+          -0.633080005645752,
+          1.1729999780654907
+        ]
+      ]
+    },
+    {
+      "name": "Condenser maintenance board",
+      "bounds": [
+        [
+          1.9200000762939453,
+          -0.3969999849796295,
+          1.3299999237060547
+        ],
+        [
+          2.4800000190734863,
+          -0.30300000309944153,
+          1.9700000286102295
+        ]
+      ]
+    },
+    {
+      "name": "Condenser card",
+      "bounds": [
+        [
+          1.9800000190734863,
+          -0.40700000524520874,
+          1.5149999856948853
+        ],
+        [
+          2.4200000762939453,
+          -0.3970000147819519,
+          1.9250000715255737
+        ]
+      ]
+    },
+    {
+      "name": "Condenser card lower pocket",
+      "bounds": [
+        [
+          1.9600000381469727,
+          -0.43299999833106995,
+          1.3700000047683716
+        ],
+        [
+          2.440000057220459,
+          -0.40300002694129944,
+          1.5500000715255737
+        ]
+      ]
+    },
+    {
+      "name": "Condenser retaining clip",
+      "bounds": [
+        [
+          2.134999990463257,
+          -0.42899999022483826,
+          1.90749990940094
+        ],
+        [
+          2.265000104904175,
+          -0.39900001883506775,
+          1.962499976158142
+        ]
+      ]
+    },
+    {
+      "name": "Condenser ruled record",
+      "bounds": [
+        [
+          2.0299999713897705,
+          -0.41050001978874207,
+          1.818000078201294
+        ],
+        [
+          2.370000123977661,
+          -0.4074999988079071,
+          1.8220000267028809
+        ]
+      ]
+    },
+    {
+      "name": "Condenser ruled record.001",
+      "bounds": [
+        [
+          2.0299999713897705,
+          -0.41050001978874207,
+          1.7380000352859497
+        ],
+        [
+          2.370000123977661,
+          -0.4074999988079071,
+          1.7419999837875366
+        ]
+      ]
+    },
+    {
+      "name": "Condenser ruled record.002",
+      "bounds": [
+        [
+          2.0299999713897705,
+          -0.41050001978874207,
+          1.6579999923706055
+        ],
+        [
+          2.370000123977661,
+          -0.4074999988079071,
+          1.6619999408721924
+        ]
+      ]
+    }
+  ]
+}
