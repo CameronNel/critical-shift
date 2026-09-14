@@ -1,0 +1,420 @@
+{
+  "scope": "Cold native/preview load, dependency containment and bundled-control registration. No renders or Unity/FPS certification.",
+  "scenes": [
+    {
+      "kind": "authoring_scene",
+      "file": "sections/facility-assembly/blender/facility_spawn_concept02_R17.blend",
+      "sha256": "0d7964b9813004958fde705ede471fd7b654694d03967f5c3534eb0d72f8ca92",
+      "cold_load_seconds": 49.90111859999979,
+      "libraries": [
+        {
+          "stored": "//..\\exteriors\\waste-storage\\exterior-R01.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\waste-storage\\exterior-R01.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\refinery\\exterior-R01.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\refinery\\exterior-R01.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\condenser-bay\\exterior-R02.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\condenser-bay\\exterior-R02.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\fuel-corridor\\exterior-R02.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\fuel-corridor\\exterior-R02.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\mine\\exterior-R02.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\mine\\exterior-R02.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\electrical-room\\exterior-R03.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\electrical-room\\exterior-R03.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\cooling-plant\\exterior-R03.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\cooling-plant\\exterior-R03.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\medical-reanimation\\exterior-R04.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\medical-reanimation\\exterior-R04.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\turbine-room\\exterior-R04.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\turbine-room\\exterior-R04.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\spawn-room\\exterior-R05.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\spawn-room\\exterior-R05.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\reactor-room\\exterior-R05.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\reactor-room\\exterior-R05.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\compliance-dock\\exterior-R08.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\compliance-dock\\exterior-R08.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\spawn-room\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\spawn-room\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\refinery\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\refinery\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\mine\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\mine\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\fuel-corridor\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\fuel-corridor\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\cooling-plant\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\cooling-plant\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\turbine-room\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\turbine-room\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\reactor-room\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\reactor-room\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\condenser-bay\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\condenser-bay\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\electrical-room\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\electrical-room\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\waste-storage\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\waste-storage\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\medical-reanimation\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\medical-reanimation\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\compliance-dock\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\compliance-dock\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        }
+      ],
+      "sources": [
+        {
+          "section": "spawn-room",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "mine",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "refinery",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "reactor-room",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "cooling-plant",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "turbine-room",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "electrical-room",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "waste-storage",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "medical-reanimation",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "fuel-corridor",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "compliance-dock",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "condenser-bay",
+          "frozen_hash_pass": true
+        }
+      ],
+      "objects": 11693,
+      "raytracing": false,
+      "bundled_controls_pass": true,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "kind": "inspection_scene",
+      "file": "sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937",
+      "cold_load_seconds": 50.03700110000045,
+      "libraries": [
+        {
+          "stored": "//..\\exteriors\\waste-storage\\exterior-R01.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\waste-storage\\exterior-R01.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\refinery\\exterior-R01.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\refinery\\exterior-R01.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\condenser-bay\\exterior-R02.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\condenser-bay\\exterior-R02.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\fuel-corridor\\exterior-R02.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\fuel-corridor\\exterior-R02.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\mine\\exterior-R02.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\mine\\exterior-R02.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\electrical-room\\exterior-R03.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\electrical-room\\exterior-R03.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\cooling-plant\\exterior-R03.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\cooling-plant\\exterior-R03.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\medical-reanimation\\exterior-R04.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\medical-reanimation\\exterior-R04.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\turbine-room\\exterior-R04.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\turbine-room\\exterior-R04.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\spawn-room\\exterior-R05.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\spawn-room\\exterior-R05.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\reactor-room\\exterior-R05.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\reactor-room\\exterior-R05.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\exteriors\\compliance-dock\\exterior-R08.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\exteriors\\compliance-dock\\exterior-R08.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\spawn-room\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\spawn-room\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\refinery\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\refinery\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\mine\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\mine\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\fuel-corridor\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\fuel-corridor\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\cooling-plant\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\cooling-plant\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\turbine-room\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\turbine-room\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\reactor-room\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\reactor-room\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\condenser-bay\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\condenser-bay\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\electrical-room\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\electrical-room\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\waste-storage\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\waste-storage\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\medical-reanimation\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\medical-reanimation\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        },
+        {
+          "stored": "//..\\sources\\compliance-dock\\module.blend",
+          "relative_to_checkout": "sections\\facility-assembly\\sources\\compliance-dock\\module.blend",
+          "exists": true,
+          "inside_checkout": true
+        }
+      ],
+      "sources": [
+        {
+          "section": "spawn-room",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "mine",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "refinery",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "reactor-room",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "cooling-plant",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "turbine-room",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "electrical-room",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "waste-storage",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "medical-reanimation",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "fuel-corridor",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "compliance-dock",
+          "frozen_hash_pass": true
+        },
+        {
+          "section": "condenser-bay",
+          "frozen_hash_pass": true
+        }
+      ],
+      "objects": 12067,
+      "raytracing": false,
+      "bundled_controls_pass": true,
+      "failures": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}
