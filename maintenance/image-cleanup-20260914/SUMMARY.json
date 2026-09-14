@@ -1,0 +1,42 @@
+{
+  "base_commit": "a82c7d9b80456153a0c65ca4897044a7f62c7d1c",
+  "audit_commit": "6c790ddc2f71bde3347370fb48a47223c7c4ea8d",
+  "branch": "chore/prune-generated-images-20260914",
+  "image_files_before": 1192,
+  "image_bytes_before": 2278684563,
+  "removed_image_files": 810,
+  "removed_image_bytes": 1603515639,
+  "image_files_after": 382,
+  "image_bytes_after": 675168924,
+  "blend_files_changed": 0,
+  "map_manifest_changed": false,
+  "native_before_after_match": true,
+  "protected_input_hashes_match": true,
+  "protected_input_files": 55,
+  "protected_candidates": [],
+  "scenes": [
+    {
+      "path": "sections/facility-assembly/blender/facility_spawn_concept02_R17.blend",
+      "sha256": "0d7964b9813004958fde705ede471fd7b654694d03967f5c3534eb0d72f8ca92",
+      "objects": 55016,
+      "image_datablocks": 105,
+      "packed_image_payloads": 105,
+      "linked_libraries": 24,
+      "missing_libraries": 0
+    },
+    {
+      "path": "sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937",
+      "objects": 55390,
+      "image_datablocks": 105,
+      "packed_image_payloads": 105,
+      "linked_libraries": 24,
+      "missing_libraries": 0
+    }
+  ],
+  "limitations": [
+    "Dependency and file-integrity audit, not a rendered visual or Unity runtime test.",
+    "Removed images remain recoverable in Git history; remote Git LFS quota is not reclaimed.",
+    "Main branch remains unchanged pending independent review."
+  ]
+}
