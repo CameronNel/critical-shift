@@ -1,0 +1,81 @@
+name: Map environment recheck
+on:
+  push:
+    branches: [chore/prune-generated-images-20260914]
+    paths: ['.github/workflows/map-environment-recheck.yml']
+permissions:
+  contents: read
+jobs:
+  read-only-smoke-test:
+    if: github.ref == 'refs/heads/chore/prune-generated-images-20260914'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          lfs: false
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Verify current map pointers and preserved cleanup tooling
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import ast, json, pathlib, re, subprocess
+          root = pathlib.Path('.')
+          manifest = json.loads((root / 'MAP.json').read_text())
+          before = json.loads((root / 'maintenance/image-cleanup-20260914/DEPENDENCIES_BEFORE.json').read_text())
+          after = json.loads((root / 'maintenance/image-cleanup-20260914/DEPENDENCIES_AFTER.json').read_text())
+          assert before == after, 'Preserved audit reports differ'
+          expected = {x['scene']: x['scene_sha256'] for x in before}
+          scenes = [manifest['authoring_scene'], manifest['inspection_scene']]
+          checked = []
+          for scene in scenes:
+              data = (root / scene).read_text()
+              assert data.startswith('version https://git-lfs.github.com/spec/v1\n'), scene
+              oid = re.search(r'^oid sha256:([a-f0-9]{64})$', data, re.M).group(1)
+              assert oid == expected[scene], 'Canonical map pointer changed'
+              checked.append({'path': scene, 'sha256': oid})
+          for path in ['tools/image-cleanup/blender_dependencies.py', 'tools/image-cleanup/cleanup.py', 'open_map.py']:
+              ast.parse((root / path).read_text(), filename=path)
+          report = {'checked_out_commit': subprocess.check_output(['git','rev-parse','HEAD'], text=True).strip(), 'map_pointers_match_previous_audit': True, 'preserved_audit_reports_equal': True, 'helper_syntax_valid': True, 'lfs_payloads_downloaded': False, 'map_scenes_opened': False, 'assets_modified': False, 'scenes': checked}
+          (root / 'environment-recheck.json').write_text(json.dumps(report, indent=2))
+          print('WORKSPACE_RECHECK', json.dumps(report), flush=True)
+          PY
+      - name: Restore the previously verified Blender toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y libxrender1 libxi6 libxfixes3 libxkbcommon0 libsm6 libgl1
+          mkdir -p "$RUNNER_TEMP/map-environment-blender"
+          cd "$RUNNER_TEMP/map-environment-blender"
+          V=5.2.1
+          curl -fL --retry 2 --connect-timeout 25 --max-time 240 "https://download.blender.org/release/Blender5.2/blender-${V}-linux-x64.tar.xz" -o blender.tar.xz
+          curl -fL --retry 2 --max-time 60 "https://download.blender.org/release/Blender5.2/blender-${V}.sha256" -o checksums
+          EXPECTED=$(grep "blender-${V}-linux-x64.tar.xz" checksums | awk '{print $1}')
+          test -n "$EXPECTED"
+          echo "$EXPECTED  blender.tar.xz" | sha256sum --check -
+          tar -xf blender.tar.xz
+          echo "$RUNNER_TEMP/map-environment-blender/blender-${V}-linux-x64" >> "$GITHUB_PATH"
+      - name: Execute Blender and prove no tracked content changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          blender --background --factory-startup --disable-autoexec --threads 2 --python-exit-code 1 --python-expr "import bpy; assert bpy.app.version[:2] == (5, 2); print('BLENDER_ENVIRONMENT_READY', bpy.app.version_string)"
+          git diff --exit-code
+          git diff --cached --exit-code
+          python - <<'PY'
+          import json, pathlib
+          p = pathlib.Path('environment-recheck.json')
+          report = json.loads(p.read_text())
+          report.update({'blender_execution_passed': True, 'blender_version': '5.2.1', 'tracked_worktree_unchanged': True})
+          p.write_text(json.dumps(report, indent=2))
+          print('ENVIRONMENT_RECHECK_PASS', json.dumps(report), flush=True)
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: map-environment-recheck
+          path: environment-recheck.json
+          retention-days: 7
