@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "source_commit": "a82c7d9b80456153a0c65ca4897044a7f62c7d1c",
+  "capture_commit": "f8e9f1ecfcd3faf9bc19669fb36e9dda331cbe71",
+  "source_scene": "sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend",
+  "source_sha256": "4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937",
+  "artifact_id": 10367026638,
+  "artifact_sha256": "0ab98b125dbfe9a19405881c2c9328a600ce4875dfded15147a7ed33037aa321",
+  "render_engine": "Cycles CPU for offline captures; original EEVEE scene never saved",
+  "resolution": [1280,720],
+  "pixel_aspect": [1,1],
+  "sensor_width_mm": 36,
+  "sensor_fit": "HORIZONTAL",
+  "shift": [0,0],
+  "dof": false,
+  "clip": [0.05000000074505806,500.0],
+  "selected_primary": "MINE_CONTEXT",
+  "selection_notes": "The wide contextual frame shows the real canopy, wings and approach. The two lower views reveal a large opaque foreground approach structure and are retained as obstruction witnesses, not presented as flattering entrance art. No generated reference has passed alignment review.",
+  "cameras": [
+    {
+      "id": "MINE_APPROACH",
+      "lens_mm":32,
+      "matrix_world":[[-4.371138828673793e-08,0.031601931899785995,0.9995005130767822,-4.0],[1.0,-2.6990168322527097e-08,4.458659930151043e-08,-29.000001907348633],[2.8385709782696722e-08,0.9995005130767822,-0.031601931899785995,1.7200000286102295],[0.0,0.0,0.0,1.0]],
+      "capture_camera_sha256":"2aea423104859172215b05875afd8bdd46905dd560887774e90792ad41250112",
+      "image_sha256":"bd8a56341364ce45283a5d3d65e4df89c68c6ebcd992729b88da696ed4737138"
+    },
+    {
+      "id":"MINE_OBLIQUE",
+      "lens_mm":30,
+      "matrix_world":[[0.6163083910942078,0.010784433223307133,0.787431001663208,-7.000000476837158],[0.7875048518180847,-0.008440099656581879,-0.6162506341934204,-38.000003814697266],[8.25520345415498e-08,0.9999062418937683,-0.013694497756659985,2.0],[0.0,0.0,0.0,1.0]],
+      "capture_camera_sha256":"86cb516cb4a5856168190a71c0c6ad2e461f0bab637f94bbb6d033bc33e1c260",
+      "image_sha256":"9037c538bb801699e142d081ee62c958ad30f3c4203dd2e3976504ef55fd1c7a"
+    },
+    {
+      "id":"MINE_CONTEXT",
+      "lens_mm":35,
+      "matrix_world":[[0.4314552843570709,-0.15680678188800812,0.8884019255638123,-8.304768925881945e-07],[0.9021342992782593,0.07499439269304276,-0.42488762736320496,-40.000003814697266],[9.986192850419684e-08,0.9847778677940369,0.1738175004720688,7.0],[0.0,0.0,0.0,1.0]],
+      "capture_camera_sha256":"22083a05fc57c82c35b4db6d6d9eaf76396050dd0ec9ae87696c860090119405",
+      "image_sha256":"2d92a0580087dc6ec65f5f281e487e795f05bffad1c396cbe8e781420af81d65"
+    }
+  ],
+  "camera_hash_definition":"The hashes above refer to each original pre-image-hash camera record in the artifact CAMERAS.json. The records here are a normalized subset; do not hash this subset and expect the original hashes.",
+  "reference_status":"REJECTED_GENERATOR_OUTPUTS_DO_NOT_MATCH_SOURCE",
+  "art_acceptance":false
+}
