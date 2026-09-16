@@ -1,0 +1,105 @@
+name: Mine exterior five screenshots
+on:
+  push:
+    branches: [capture/mine-exterior-five-shots-20260916]
+    paths:
+      - '.github/workflows/mine-exterior-five-shots.yml'
+      - 'tools/capture_mine_exterior.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: mine-exterior-five-shots-20260916
+  cancel-in-progress: true
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GIT_LFS_SKIP_SMUDGE: '1'
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      GALLIUM_DRIVER: llvmpipe
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 3
+          lfs: false
+      - name: Prepare desktop and dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p capture-output
+          echo "SOURCE_COMMIT=$(git rev-parse HEAD~2)" >> "$GITHUB_ENV"
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb xauth libxrender1 libxi6 libxfixes3 libxkbcommon0 libsm6 libgl1 libegl1 libopengl0 mesa-utils python3-pil
+          df -h .
+      - name: Download and verify the repository Blender version
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/mine-capture-toolchain
+          cd /tmp/mine-capture-toolchain
+          V=5.2.1
+          curl -fL --retry 2 --connect-timeout 25 --max-time 300 "https://download.blender.org/release/Blender5.2/blender-${V}-linux-x64.tar.xz" -o "blender-${V}-linux-x64.tar.xz"
+          curl -fL --retry 2 --max-time 60 "https://download.blender.org/release/Blender5.2/blender-${V}.sha256" -o "blender-${V}.sha256"
+          grep "blender-${V}-linux-x64.tar.xz" "blender-${V}.sha256" | sha256sum --check -
+          tar -xf "blender-${V}-linux-x64.tar.xz"
+          echo "/tmp/mine-capture-toolchain/blender-${V}-linux-x64" >> "$GITHUB_PATH"
+          "./blender-${V}-linux-x64/blender" --background --factory-startup --python-expr "import bpy; print('VERIFIED_BLENDER', bpy.app.version_string)"
+      - name: Hydrate canonical full-map scene and portable dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          SCENE=$(python3 -c "import json; print(json.load(open('MAP.json'))['inspection_scene'])")
+          git lfs install --local
+          git lfs pull --include="$SCENE,sections/facility-assembly/sources/**,sections/facility-assembly/exteriors/**,sections/facility-assembly/connections/**,sections/*/assets/**" --exclude=""
+          git lfs fsck --pointers HEAD
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          manifest = json.loads(Path('MAP.json').read_text())
+          scene = Path(manifest['inspection_scene'])
+          assert scene.stat().st_size > 1024, 'Full-map scene is not hydrated'
+          for path in Path('sections/facility-assembly/sources').glob('*/module.blend'):
+              assert path.stat().st_size > 1024, f'Unhydrated linked room: {path}'
+          Path('capture-output/source_MAP.json').write_text(json.dumps(manifest, indent=2))
+          print('CANONICAL_FULL_MAP', scene, scene.stat().st_size)
+          PY
+          df -h .
+      - name: Launch Blender desktop and capture five exterior shots
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 1500s xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' blender --factory-startup --disable-autoexec --threads 4 -p 0 0 1920 1080 --python-exit-code 1 --python tools/capture_mine_exterior.py 2>&1 | tee capture-output/blender_capture.log
+      - name: Verify actual images and unchanged source scene
+        shell: bash
+        run: |
+          set -euo pipefail
+          /usr/bin/python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image, ImageStat
+          out = Path('capture-output')
+          report = json.loads((out/'capture_manifest.json').read_text())
+          assert report.get('completed'), report.get('error', 'Capture incomplete')
+          assert report['source_sha256_before'] == report['source_sha256_after']
+          for directory in ['screenshots', 'renders']:
+              files = sorted((out/directory).glob('*.png'))
+              assert len(files) == 5, (directory, len(files))
+              for file in files:
+                  with Image.open(file) as image:
+                      image.load()
+                      assert min(image.size) >= 700, (file, image.size)
+                      assert max(ImageStat.Stat(image.convert('RGB')).stddev) > 2, f'Blank image: {file}'
+                      print('VERIFIED_IMAGE', file, image.size)
+          PY
+      - name: Preserve screenshots, clean renders, and provenance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: critical-shift-mine-exterior-five-shots
+          path: capture-output/
+          if-no-files-found: error
+          retention-days: 14
