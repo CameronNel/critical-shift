@@ -12,6 +12,12 @@ concurrency:
   group: mine-exterior-five-shots-20260916
   cancel-in-progress: true
 jobs:
+  automatic_run_stopped:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - run: echo 'Automatic shaded capture stopped; use manual dispatch for another bounded attempt.'
   capture:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
