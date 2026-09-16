@@ -7,6 +7,7 @@ import os
 import sys
 import time
 import traceback
+import subprocess
 from pathlib import Path
 from mathutils import Matrix, Vector
 
@@ -34,7 +35,10 @@ s = bpy.context.scene
 s.render.engine = 'BLENDER_EEVEE'
 s.eevee.use_raytracing = False
 if hasattr(s.eevee, 'taa_render_samples'):
-    s.eevee.taa_render_samples = 32
+    s.eevee.taa_render_samples = 8
+s.eevee.taa_samples = 8
+s.eevee.use_shadow_jitter_viewport = False
+s.eevee.shadow_resolution_scale = 0.5
 s.render.resolution_x = 1600
 s.render.resolution_y = 900
 s.render.resolution_percentage = 100
@@ -132,21 +136,52 @@ report = {
     'source_scene': manifest['inspection_scene'], 'source_sha256_before': source_hash,
     'source_commit': os.environ.get('SOURCE_COMMIT'), 'capture_commit': os.environ.get('GITHUB_SHA'),
     'blender_version': bpy.app.version_string, 'engine': s.render.engine, 'raytracing': False,
-    'resolution': [1600,900], 'full_map_groups': preview_sources,
+    'render_resolution_setting': [1600,900], 'full_map_groups': preview_sources,
     'missing_images': missing_images, 'image_path_repairs': repaired_images,
-    'geometry_materials_and_lighting_edited': False,
-    'note': 'Canonical full-map material preview. Render settings/camera only; source scene never saved. Screenshots show the Blender window displaying each rendered camera image.',
+    'source_assets_edited': False, 'visible_geometry_changed': False,
+    'note': 'Direct rendered-viewport screenshots of the canonical full map. Existing materials, sun/world lighting and geometry retained. The 28m preview-light culling matches facility_material_preview.py. The renders folder holds lossless viewport crops, not offline renders. Source scene never saved.',
     'shots': []
 }
-state = {'index': 0, 'phase': 'render'}
+
+# Unload only hidden authoring/solid-cache duplicates already represented by
+# the complete material preview; do not remove any visible map geometry.
+preview_object_names = {o.name for o in preview.all_objects}
+unloaded = []
+duplicate_collections = [
+    '01_LINKED_ROOMS', '06_LINKED_EXTERIORS', 'CONNECTION_C01_RESCUE_COURTYARD',
+    '09_FINISHED_HORIZONTAL_CONNECTIONS', '13_FINISHED_ACCESS_SCENERY',
+    '15_FINISHED_NETWORK_SCENERY', '17_REACTOR_EXTERIOR_FINISH',
+    '20_ROOF_SERVICE_GEOMETRY', '22_EXTERIOR_FINISH_GEOMETRY',
+    '29_SPAWN_APPROVED_EXTERIOR', '30_RETAINED_INTERIOR_LIGHTING',
+    '07_FAST_WALKTHROUGH_PROXIES', '10_NETWORK_VIEWPORT_CACHE',
+    '14_ACCESS_FINISH_VIEWPORT_CACHE', '16_NETWORK_FINISH_VIEWPORT_CACHE',
+    '18_REACTOR_FINISH_VIEWPORT_CACHE', '21_ROOF_SERVICE_VIEWPORT_CACHE',
+    '23_EXTERIOR_FINISH_VIEWPORT_CACHE'
+]
+for name in duplicate_collections:
+    collection = bpy.data.collections.get(name)
+    if collection and collection.hide_render and collection.hide_viewport:
+        bpy.data.collections.remove(collection)
+        unloaded.append(name)
+if hasattr(bpy.data, 'orphans_purge'):
+    bpy.data.orphans_purge(do_local_ids=True, do_linked_ids=True, do_recursive=True)
+assert preview_object_names == {o.name for o in preview.all_objects}
+report['hidden_authoring_duplicates_unloaded_in_memory'] = unloaded
+report['visible_full_map_preview_objects_preserved'] = len(preview_object_names)
+state = {'index': 0, 'phase': 'view', 'maximized': False}
+report['method'] = 'Blender rendered 3D viewport screenshot'
+report['viewport_samples'] = 8
+report['viewport_shadow_resolution_scale'] = 0.5
+report['light_culling_m'] = 28
 
 def write_report():
     (OUT / 'capture_manifest.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
 
-def image_area():
+def area_context():
     window = bpy.context.window_manager.windows[0]
     area = max(window.screen.areas, key=lambda a: a.width * a.height)
-    return window, area
+    region = next(r for r in area.regions if r.type == 'WINDOW')
+    return window, area, region
 
 def advance():
     try:
@@ -157,47 +192,68 @@ def advance():
             report['completed'] = True
             write_report()
             print('CAPTURE_COMPLETE', json.dumps(report), flush=True)
-            bpy.ops.wm.quit_blender()
-            return None
+            sys.stdout.flush()
+            os._exit(0)
         slug, title, eye_local, target_local, lens = shots[index]
-        if state['phase'] == 'render':
-            eye, target = world(eye_local), world(target_local)
-            camera.location = eye
-            camera.rotation_euler = (target - eye).to_track_quat('-Z', 'Y').to_euler()
-            camera_data.lens = lens
-            bpy.context.view_layer.update()
-            path = OUT / 'renders' / (slug + '.png')
-            s.render.filepath = str(path)
-            print('CAPTURE_RENDER_BEGIN', slug, tuple(eye), tuple(target), flush=True)
-            began = time.time()
-            bpy.ops.render.render(write_still=True)
-            report['shots'].append({'name': title, 'slug': slug, 'camera_world': list(eye), 'target_world': list(target), 'lens_mm': lens, 'render_seconds': round(time.time()-began, 2), 'render': str(path.relative_to(OUT))})
-            window, area = image_area()
-            area.type = 'IMAGE_EDITOR'
-            area.spaces.active.image = bpy.data.images.load(str(path), check_existing=True)
-            area.spaces.active.show_region_ui = False
-            area.spaces.active.show_region_toolbar = False
-            if index == 0:
-                region = next(r for r in area.regions if r.type == 'WINDOW')
+        window, area, region = area_context()
+        if state['phase'] == 'view':
+            area.type = 'VIEW_3D'
+            if not state['maximized']:
                 with bpy.context.temp_override(window=window, area=area, region=region):
                     bpy.ops.screen.screen_full_area(use_hide_panels=True)
-            state['phase'] = 'fit'
+                state['maximized'] = True
+                window, area, region = area_context()
+            space = area.spaces.active
+            eye, target = world(eye_local), world(target_local)
+            quat = (target - eye).to_track_quat('-Z', 'Y')
+            space.lens = lens
+            space.clip_start = 0.05
+            space.clip_end = 1000
+            space.show_gizmo = False
+            space.overlay.show_overlays = False
+            space.show_region_ui = False
+            space.show_region_toolbar = False
+            space.shading.type = 'RENDERED'
+            for setting in ('use_scene_world_render', 'use_scene_lights_render'):
+                if hasattr(space.shading, setting):
+                    setattr(space.shading, setting, True)
+            space.region_3d.view_perspective = 'PERSP'
+            space.region_3d.view_rotation = quat
+            space.region_3d.view_distance = 1
+            space.region_3d.view_location = eye + quat @ Vector((0, 0, -1))
+            # Preserve all map geometry. Use the repository's standard preview
+            # radius for local artificial lights; sun/world illumination stays.
+            lights = bpy.data.collections.get('28_MATERIAL_PREVIEW_LIGHTS')
+            if lights:
+                for obj in lights.all_objects:
+                    if obj.type == 'LIGHT' and obj.data.type != 'SUN':
+                        obj.hide_set((obj.matrix_world.translation - eye).length > 28)
+            bpy.context.view_layer.update()
+            report['shots'].append({'name': title, 'slug': slug, 'camera_world': list(eye), 'target_world': list(target), 'lens_mm': lens})
+            state['phase'] = 'settle'
+            state['began'] = time.time()
             write_report()
-            return 1.5
-        if state['phase'] == 'fit':
-            window, area = image_area()
-            region = next(r for r in area.regions if r.type == 'WINDOW')
-            with bpy.context.temp_override(window=window, area=area, region=region):
-                bpy.ops.image.view_all(fit_view=True)
-            state['phase'] = 'screenshot'
-            return 1.5
+            area.tag_redraw()
+            print('VIEWPORT_SHOT_BEGIN', slug, tuple(eye), tuple(target), flush=True)
+            return 30.0 if index == 0 else 12.0
+        if state['phase'] == 'settle':
+            # A second UI cycle allows deferred shader compilation and TAA.
+            area.tag_redraw()
+            state['phase'] = 'capture'
+            return 20.0 if index == 0 else 8.0
         path = OUT / 'screenshots' / (slug + '.png')
-        bpy.ops.screen.screenshot(filepath=str(path))
-        report['shots'][-1]['screenshot'] = str(path.relative_to(OUT))
+        with bpy.context.temp_override(window=window, area=area, region=region):
+            bpy.ops.screen.screenshot(filepath=str(path))
+        crop = OUT / 'renders' / (slug + '.png')
+        left, top = region.x, window.height - (region.y + region.height)
+        box = [left, top, left + region.width, top + region.height]
+        code = 'from PIL import Image; import sys,json; im=Image.open(sys.argv[1]); im.crop(tuple(json.loads(sys.argv[3]))).save(sys.argv[2])'
+        subprocess.run(['/usr/bin/python3', '-c', code, str(path), str(crop), json.dumps(box)], check=True)
+        report['shots'][-1].update({'screenshot': str(path.relative_to(OUT)), 'render': str(crop.relative_to(OUT)), 'viewport_crop_box': box, 'capture_seconds': round(time.time()-state['began'], 2)})
         write_report()
-        print('CAPTURE_SCREENSHOT_SAVED', path.name, flush=True)
+        print('VIEWPORT_SCREENSHOT_SAVED', path.name, flush=True)
         state['index'] += 1
-        state['phase'] = 'render'
+        state['phase'] = 'view'
         return 0.5
     except Exception:
         report['error'] = traceback.format_exc()
