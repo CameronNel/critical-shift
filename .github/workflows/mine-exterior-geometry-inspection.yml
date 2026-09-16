@@ -13,7 +13,7 @@ concurrency:
 jobs:
   inspect:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     env:
       GIT_LFS_SKIP_SMUDGE: '1'
       LIBGL_ALWAYS_SOFTWARE: '1'
@@ -30,9 +30,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p capture-output /tmp/mine-inspection
+          mkdir -p capture-output/diagnostics /tmp/mine-inspection
           sudo apt-get update -qq
-          sudo apt-get install -y xvfb xauth libxrender1 libxi6 libxfixes3 libxkbcommon0 libsm6 libgl1 libegl1 libopengl0 python3-pil
+          sudo apt-get install -y xvfb xauth libxrender1 libxi6 libxfixes3 libxkbcommon0 libsm6 libgl1 libegl1 libopengl0 python3-pil mesa-utils
           cd /tmp/mine-inspection
           V=5.2.1
           curl -fsSL --retry 2 --max-time 180 "https://download.blender.org/release/Blender5.2/blender-${V}-linux-x64.tar.xz" -o blender.tar.xz
@@ -41,6 +41,32 @@ jobs:
           echo "$EXPECTED  blender.tar.xz" | sha256sum --check -
           tar -xf blender.tar.xz
           echo "/tmp/mine-inspection/blender-${V}-linux-x64" >> "$GITHUB_PATH"
+      - name: Verify X11 screenshot capture before loading the map
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/mine-inspection/preflight.py <<'PY'
+          import bpy, os, subprocess, traceback
+          from pathlib import Path
+          target=Path(os.environ['GITHUB_WORKSPACE'])/'capture-output/diagnostics/default_cube_x11.png'
+          def capture():
+              try:
+                  for w in bpy.context.window_manager.windows:
+                      for a in w.screen.areas:
+                          if a.type=='VIEW_3D':
+                              r=next(r for r in a.regions if r.type=='WINDOW')
+                              with bpy.context.temp_override(window=w,area=a,region=r):
+                                  bpy.ops.wm.redraw_timer(type='DRAW_WIN_SWAP',iterations=1)
+                  code='from PIL import ImageGrab,ImageStat; import os,sys; im=ImageGrab.grab(xdisplay=os.environ["DISPLAY"]); im.save(sys.argv[1]); sd=ImageStat.Stat(im.convert("RGB")).stddev; print("X11_PREFLIGHT",im.size,sd,flush=True); assert max(sd)>2, "X11 pixels are blank"'
+                  subprocess.run(['/usr/bin/python3','-c',code,str(target)],check=True)
+                  import gpu
+                  print('CAPTURE_BACKEND',gpu.platform.backend_type_get(),flush=True)
+                  os._exit(0)
+              except Exception:
+                  traceback.print_exc(); os._exit(1)
+          bpy.app.timers.register(capture,first_interval=3)
+          PY
+          timeout 90s xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' blender --factory-startup --disable-autoexec --gpu-backend opengl --gpu-vsync off --threads 4 -noaudio -p 0 0 1920 1080 --python-exit-code 1 --python /tmp/mine-inspection/preflight.py 2>&1 | tee capture-output/diagnostics/preflight.log
       - name: Hydrate canonical full-map dependencies
         shell: bash
         run: |
@@ -50,7 +76,7 @@ jobs:
           git lfs pull --include="$SCENE,sections/facility-assembly/sources/**,sections/facility-assembly/exteriors/**,sections/facility-assembly/connections/**,sections/*/assets/**" --exclude=""
           git lfs fsck --pointers HEAD
           cp MAP.json capture-output/source_MAP.json
-      - name: Capture actual material-color geometry inspection views
+      - name: Capture actual OpenGL viewport pixels through X11
         shell: bash
         run: |
           set -euo pipefail
@@ -59,14 +85,20 @@ jobs:
           src = Path('tools/capture_mine_exterior.py').read_text()
           assert "space.shading.type = 'RENDERED'" in src
           src = src.replace("space.shading.type = 'RENDERED'", "space.shading.type = 'SOLID'\n            space.shading.light = 'STUDIO'\n            space.shading.color_type = 'MATERIAL'\n            space.shading.show_shadows = True\n            space.shading.show_cavity = True\n            space.shading.cavity_type = 'BOTH'\n            space.shading.show_specular_highlight = True")
-          src = src.replace('return 30.0 if index == 0 else 12.0', 'return 5.0').replace('return 20.0 if index == 0 else 8.0', 'return 3.0')
-          src = src.replace("report['method'] = 'Blender rendered 3D viewport screenshot'", "report['method'] = 'Blender solid material-color 3D viewport screenshot; studio inspection lighting, not authored rendered shading'")
-          src = src.replace("write_report()\nbpy.app.timers.register", "report['note'] = 'Actual full-map geometry inspection screenshots using Blender SOLID material-color shading and studio lighting. The renders folder contains lossless viewport crops, not offline renders. Source scene never saved.'\nwrite_report()\nbpy.app.timers.register")
+          src = src.replace('use_hide_panels=True','use_hide_panels=False')
+          src = src.replace('return 30.0 if index == 0 else 12.0', 'return 2.0').replace('return 20.0 if index == 0 else 8.0', 'return 1.0')
+          old='            # A second UI cycle allows deferred shader compilation and TAA.\n            area.tag_redraw()'
+          assert old in src
+          src=src.replace(old,"            with bpy.context.temp_override(window=window, area=area, region=region):\n                bpy.ops.wm.redraw_timer(type='DRAW_WIN_SWAP', iterations=1)\n            area.tag_redraw()")
+          src=src.replace('bpy.ops.screen.screenshot(filepath=str(path))', 'subprocess.run([\'/usr/bin/python3\', \'-c\', \'from PIL import ImageGrab; import os,sys; ImageGrab.grab(xdisplay=os.environ["DISPLAY"]).save(sys.argv[1])\', str(path)], check=True)')
+          src=src.replace('from PIL import Image; import sys,json; im=Image.open(sys.argv[1]);', 'from PIL import Image,ImageStat; import sys,json; im=Image.open(sys.argv[1]); assert max(ImageStat.Stat(im.convert("RGB")).stddev)>2, "Blank X11 screenshot";')
+          src = src.replace("report['method'] = 'Blender rendered 3D viewport screenshot'", "report['method'] = 'Blender solid material-color viewport; OpenGL; X11 screen capture; studio inspection lighting'")
+          src = src.replace("write_report()\nbpy.app.timers.register", "report['note'] = 'Actual full-map geometry inspection screenshots captured from X11 using Blender SOLID material-color shading and studio lighting. The renders folder contains lossless viewport crops, not offline renders. Source scene never saved.'\nwrite_report()\nbpy.app.timers.register")
           compile(src, 'capture_geometry.py', 'exec')
           Path('/tmp/mine-inspection/capture_geometry.py').write_text(src)
           PY
-          timeout 360s xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' blender --factory-startup --disable-autoexec --threads 4 -noaudio -p 0 0 1920 1080 --python-exit-code 1 --python /tmp/mine-inspection/capture_geometry.py 2>&1 | tee capture-output/blender_capture.log
-      - name: Verify five distinct captured images and unchanged scene
+          timeout 420s xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' blender --factory-startup --disable-autoexec --gpu-backend opengl --gpu-vsync off --threads 4 -noaudio -p 0 0 1920 1080 --python-exit-code 1 --python /tmp/mine-inspection/capture_geometry.py 2>&1 | tee capture-output/blender_capture.log
+      - name: Verify five distinct nonblank images and unchanged scene
         run: |
           /usr/bin/python3 - <<'PY'
           from pathlib import Path
