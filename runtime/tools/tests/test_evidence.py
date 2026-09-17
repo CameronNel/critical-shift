@@ -7,7 +7,7 @@ from xml.etree import ElementTree as ET
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from evidence import EvidenceError, validate_log, validate_player, validate_results
-from run_foundation import execute, fingerprint, run
+from run_foundation import RUNTIME, execute, fingerprint, run
 
 
 class ResultEvidenceTests(unittest.TestCase):
@@ -144,12 +144,25 @@ class PlayerEvidenceTests(unittest.TestCase):
 
 
 class RunnerSafetyTests(unittest.TestCase):
+    def test_output_inside_source_is_rejected_before_creation(self):
+        forbidden = RUNTIME / "unity/Assets/forbidden-output"
+        self.assertFalse(forbidden.exists())
+        with self.assertRaises(EvidenceError):
+            run(None, forbidden, "Linux64")
+        self.assertFalse(forbidden.exists())
+
+    def test_output_inside_art_is_rejected_before_creation(self):
+        forbidden = RUNTIME.parent / "sections/forbidden-wp01-output"
+        self.assertFalse(forbidden.exists())
+        with self.assertRaises(EvidenceError):
+            run(None, forbidden, "Linux64")
+        self.assertFalse(forbidden.exists())
+
     def test_timed_out_process_cannot_return_success(self):
         with tempfile.TemporaryDirectory() as temp:
             code, _ = execute([sys.executable, "-c", "import time; time.sleep(30)"],
                               Path(temp) / "timeout.log", 1)
             self.assertEqual(code, 124)
-
 
     def test_missing_editor_is_blocked_and_source_is_unchanged(self):
         with tempfile.TemporaryDirectory() as temp:

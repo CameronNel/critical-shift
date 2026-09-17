@@ -76,6 +76,9 @@ def execute(command: list[str], log: Path, timeout: int) -> tuple[int, str]:
 
 
 def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]:
+    output_parent = output_parent.resolve()
+    if output_parent.is_relative_to(RUNTIME.parent) and not output_parent.is_relative_to(RUNTIME / "out"):
+        raise EvidenceError("Inside the repository, evidence must stay under runtime/out, never source or art directories.")
     output_parent.mkdir(parents=True, exist_ok=True)
     out = Path(tempfile.mkdtemp(prefix="wp01-", dir=output_parent))
     profile = json.loads((RUNTIME / "toolchain.json").read_text())

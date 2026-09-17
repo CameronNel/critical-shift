@@ -59,7 +59,7 @@ namespace CriticalShift.Bootstrap.Editor
             EditorSettings.enterPlayModeOptionsEnabled = false;
             if (GraphicsSettings.defaultRenderPipeline != null)
                 throw new BuildFailedException("An SRP asset is configured; WP-01 requires Built-in rendering.");
-            if (!File.Exists(ScenePath))
+            if (!File.Exists(Path.Combine(UnityApplication.dataPath, "CriticalShift/Bootstrap/Foundation.unity")))
             {
                 var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
                 var root = new GameObject("Critical Shift Foundation");
@@ -79,9 +79,12 @@ namespace CriticalShift.Bootstrap.Editor
         public static void Validate()
         {
             var profile = ReadProfile();
-            if (PlayerSettings.GetApiCompatibilityLevel(NamedBuildTarget.Standalone).ToString() != profile.apiCompatibility ||
-                PlayerSettings.GetScriptingBackend(NamedBuildTarget.Standalone).ToString() != profile.backend ||
-                PlayerSettings.GetManagedStrippingLevel(NamedBuildTarget.Standalone).ToString() != profile.stripping)
+            if (PlayerSettings.GetApiCompatibilityLevel(NamedBuildTarget.Standalone) !=
+                    (ApiCompatibilityLevel)Enum.Parse(typeof(ApiCompatibilityLevel), profile.apiCompatibility) ||
+                PlayerSettings.GetScriptingBackend(NamedBuildTarget.Standalone) !=
+                    (ScriptingImplementation)Enum.Parse(typeof(ScriptingImplementation), profile.backend) ||
+                PlayerSettings.GetManagedStrippingLevel(NamedBuildTarget.Standalone) !=
+                    (ManagedStrippingLevel)Enum.Parse(typeof(ManagedStrippingLevel), profile.stripping))
                 throw new BuildFailedException("Standalone API/backend/stripping differs from the declared profile.");
             if (EditorSettings.enterPlayModeOptionsEnabled || EditorSettings.serializationMode != SerializationMode.ForceText)
                 throw new BuildFailedException("Reload/serialization defaults differ from the declared profile.");
