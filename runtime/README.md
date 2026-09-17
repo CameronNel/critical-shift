@@ -9,6 +9,10 @@ See [the task and gate record](validation/WP01.md) and the existing
 ## Open and run
 
 Use Unity **6000.4.3f1**, revision **39d1a88d4dd1**, with an activated license.
+The installation also needs Mono desktop build support for the chosen target.
+Use Windows64 on Windows or Linux64 on Linux for the end-to-end Player check;
+add the matching module through Unity Hub when it is not already installed.
+Native package resolution and target support have not yet been validated here.
 Add `runtime/unity/` as the project in Unity Hub. After import, choose
 **Critical Shift > Foundation > Prepare project**. This native editor command
 creates the one-camera diagnostic startup scene and serializes the standalone
@@ -51,7 +55,10 @@ WP-02 and the rest of Gate 0 are not automatically satisfied.
 No Unity account details or license files belong in Git or chat. Use your normal
 Unity Hub activation on your own machine. The hosted workflow does not invent a
 license or silently skip the native requirement. A license failure leaves that
-job non-green and the gate blocked while preserving the report.
+job non-green and the gate blocked while preserving the report. This workflow
+does not contain an activation step, so adding a secret alone will not activate
+it. The completion route is an already activated Editor or a separately
+configured licensed runner.
 
 ## Source and supplementary checks
 
@@ -65,7 +72,7 @@ version consistency and the one pure assembly. It is not WP-02's resolved-graph
 checker. Negative-control tests verify result gating, build-identity matching,
 source-copy safety and zero-test/skip/error rejection.
 
-The optional hosted check downloads the official pinned editor and NUnit package,
+The supplementary hosted check downloads the official pinned editor and NUnit package,
 verifies their published integrity metadata, and uses .NET SDK **8.0.423** to compile
 five source files against the **real Unity references**, with warnings as errors.
 It also executes the eight synchronous process-lifetime tests using the actual
@@ -85,5 +92,14 @@ catalogue is introduced. No networking, input/UI framework, Steam, voice, save,
 reactor or mine integration is selected. IMGUI is used solely for the diagnostic
 fixture and is already a Test Framework dependency.
 
-Only the foundation scene is registered for builds. Existing source art, logical
-mine IDs, section bindings and `MAP.json` remain outside the runtime import scope.
+The preparation command registers only the foundation scene for builds. Existing
+source art, logical mine IDs, section bindings and `MAP.json` remain outside the
+runtime import scope.
+
+## Current execution status
+
+Use [execution-summary.json](validation/execution-summary.json) for the exact
+tested revision and downloaded evidence identities. The source is not merge-ready
+until the native import, test, serialization and Player checks run successfully
+and an independent reviewer accepts the result. An observed licensing blocker
+does not prove there are no additional native integration defects.

@@ -1,0 +1,153 @@
+{
+  "work_package": "WP-01",
+  "status": "Source implementation delivered; native acceptance Blocked; not merge-ready",
+  "tested_commit": "e27bc1fd9a361eb38356c7485fe785d29f45750a",
+  "tested_runtime_tree": "d028136593fb1f3545727fd488d714b7d326c405",
+  "workflow_run_id": 35264028130,
+  "workflow_url": "https://github.com/CameronNel/critical-shift/actions/runs/35264028130",
+  "pull_request": 46,
+  "checks": {
+    "source_static": {
+      "status": "Passed",
+      "check": "static-source-only",
+      "metadata_guids": 18,
+      "asmdefs": 5,
+      "csharp_files": 6,
+      "limits": "Not a resolved Unity graph, native import, gameplay or art review."
+    },
+    "python_tooling": {
+      "status": "Passed",
+      "executed": 40,
+      "passed": 40,
+      "failed": 0,
+      "skipped": 0
+    },
+    "pure_csharp": {
+      "runner": "Standalone .NET 8 assertion harness; NOT Unity EditMode",
+      "nunit": "nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb",
+      "discovered": 8,
+      "executed": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0
+    },
+    "unity_api_compile": {
+      "status": "Passed",
+      "checks": [
+        {
+          "assembly": "CriticalShift.Application",
+          "source_files": 1,
+          "exit_code": 0,
+          "status": "Passed"
+        },
+        {
+          "assembly": "CriticalShift.Bootstrap",
+          "source_files": 1,
+          "exit_code": 0,
+          "status": "Passed"
+        },
+        {
+          "assembly": "CriticalShift.Bootstrap.Editor",
+          "source_files": 1,
+          "exit_code": 0,
+          "status": "Passed"
+        },
+        {
+          "assembly": "CriticalShift.Tests.EditMode",
+          "source_files": 2,
+          "exit_code": 0,
+          "status": "Passed"
+        }
+      ],
+      "source_files": 5,
+      "native_unity_execution": false,
+      "reference_policy": "Modular APIs grouped by assembly name, including Editor modules in the shared UnityEngine directory; legacy combined DLLs excluded; real Framework-to-Standard facades included",
+      "note": "Supplementary compiler against real Editor references; PlayMode assembly excluded, not a Unity import."
+    }
+  },
+  "native": {
+    "status": "Blocked",
+    "editor": "6000.4.3f1",
+    "revision": "39d1a88d4dd1",
+    "import_exit_code": 198,
+    "reason": "Unity could not obtain a valid Editor license on this runner.",
+    "log_excerpt": "No valid Unity Editor license found. Please activate your license.",
+    "phases": {
+      "import": "Blocked",
+      "EditMode": "NotRun",
+      "PlayMode": "NotRun",
+      "build": "NotRun",
+      "player": "NotRun"
+    },
+    "expected_editmode_tests": 12,
+    "expected_playmode_tests": 2,
+    "source_sha256": "7aca09ca032173548f2d9758e19c049de486b565c442c88d0df897417ea8b2e1",
+    "source_unchanged": true,
+    "ended_utc": "2026-09-17T19:23:21.530881+00:00"
+  },
+  "toolchain_download": {
+    "editor_sha256": "9599a58ac8f98170bfe9fc6b96ed48fa374032b67e9eaef4cc7e93b10acfcaf0",
+    "editor_bytes": 4140156068,
+    "editor_revision": "39d1a88d4dd1",
+    "nunit_package": {
+      "package": "com.unity.ext.nunit",
+      "version": "2.0.3",
+      "dist": {
+        "shasum": "e9d0d64aaa514a9ed29680de4c7e3c323717bbac",
+        "tarball": "https://download.packages.unity.com/com.unity.ext.nunit/-/com.unity.ext.nunit-2.0.3.tgz"
+      },
+      "sha256": "80098e09f4d83d3a92c81de2f8bc1abea033428bca4101180ad8520dc7cc1d5e"
+    }
+  },
+  "preservation": {
+    "base_main_commit": "a82c7d9b80456153a0c65ca4897044a7f62c7d1c",
+    "sections_git_tree_unchanged": "06a41745022bcaee48d7ca3291b19f5febfcb673",
+    "map_json_blob_unchanged": "72d615811f75c788266e0163d24789bdd114ea7c",
+    "map_md_blob_unchanged": "859efcf8ac17b86f0914ab096926c166285838a6",
+    "existing_authoring_workflow_unchanged": "9101f4fe664bba2de7c53c51f102453295c43ac7",
+    "tracked_source_unchanged_in_runner": true,
+    "main_written": false,
+    "self_merged": false
+  },
+  "artifacts": [
+    {
+      "name": "wp01-source-checks-35264028130",
+      "id": 10516151055,
+      "zip_sha256": "c6e7edd6a3307e5cd7e07423d83f29b6cb3713608b316d214c9555f96fb332f7"
+    },
+    {
+      "name": "wp01-runtime-evidence-35264028130",
+      "id": 10515728976,
+      "zip_sha256": "d3f98e47be7ad297b18084b8c80d99de121677ac0a786ef6017f6eaf2b722b5b"
+    }
+  ],
+  "earlier_attempts": [
+    {
+      "run": 35257770839,
+      "result": "Cancelled during a slow full checkout; replaced with sparse runtime checkout."
+    },
+    {
+      "run": 35258664201,
+      "result": "Pure 8 tests passed; native Editor licensing blocked. Supplementary API check found duplicate combined/modular references, corrected and rerun."
+    },
+    {
+      "run": 35260199843,
+      "result": "Pure 8 tests passed; native licensing blocked. The API helper did not look in the shared directory for Editor modules; fixed in f6f94baa."
+    },
+    {
+      "run": 35262136821,
+      "result": "Three production assemblies compiled cleanly and eight pure C# tests passed. The supplementary NUnit compile needed the Editor-provided Framework compatibility facades; added in e27bc1fd."
+    }
+  ],
+  "remaining": [
+    "Activated native Editor import and package resolution",
+    "Native generated scene and settings validation",
+    "12 EditMode and 2 PlayMode tests in Unity",
+    "Build and launch/stop matching Player",
+    "Independent review and D-01 acceptance"
+  ],
+  "licensing_route": "The hosted workflow does not activate licenses. Run the provided command on an already activated matching Editor; native CI activation/self-hosted licensing setup is not supplied.",
+  "gate_0": "Not passed; WP-02 also remains outstanding.",
+  "limitations": "Native activation is the observed blocker, not proof it is the only remaining defect. Unity package resolution, serialization, test discovery, target support and execution still need native validation.",
+  "evidence_note": "Final documentation-only commits may follow this tested executable revision; compare tools, unity source and workflow blobs before reusing evidence."
+}
