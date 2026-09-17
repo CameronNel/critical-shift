@@ -33,6 +33,28 @@ def modular_references(managed: Path, family: str) -> list[Path]:
     return [selected[name] for name in sorted(selected)]
 
 
+def system_references(data: Path) -> list[Path]:
+    """Use the Editor's Standard API plus its real Framework compatibility facades.
+
+    The Unity-supplied NUnit binary targets Framework mscorlib. A Standard
+    reference alone is insufficient, and a full Framework core would conflict.
+    """
+    standard = data / "NetStandard/ref/2.1.0"
+    compatibility = data / "NetStandard/compat/2.1.0/shims"
+    if not (standard / "netstandard.dll").is_file():
+        raise ValueError("The pinned editor's .NET Standard 2.1 reference is missing.")
+    if not (compatibility / "netfx/mscorlib.dll").is_file():
+        raise ValueError("The pinned editor's Framework-to-Standard mscorlib facade is missing.")
+    directories = (standard, compatibility / "netstandard", compatibility / "netfx")
+    selected = {}
+    for directory in directories:
+        for path in sorted(directory.glob("*.dll")):
+            if path.name in selected and selected[path.name].read_bytes() != path.read_bytes():
+                raise ValueError("Conflicting system reference copies: " + path.name)
+            selected[path.name] = path
+    return [selected[name] for name in sorted(selected)]
+
+
 def compile_sources(editor: Path, nunit: Path, output: Path):
     output.mkdir(parents=True, exist_ok=True)
     data = editor / "Editor/Data"
@@ -40,7 +62,7 @@ def compile_sources(editor: Path, nunit: Path, output: Path):
     checks = []
     report = {"runner": "Supplementary .NET SDK compiler against official Unity 6000.4.3f1 reference assemblies",
               "native_unity_execution": False, "checks": checks, "status": "NotRun",
-              "reference_policy": "Modular APIs grouped by assembly name, including Editor modules in the shared UnityEngine directory; legacy combined DLLs excluded",
+              "reference_policy": "Modular APIs grouped by assembly name, including Editor modules in the shared UnityEngine directory; legacy combined DLLs excluded; real Framework-to-Standard facades included",
               "references": []}
     inventory = [{"path": str(p.relative_to(data)), "bytes": p.stat().st_size}
                  for p in sorted((data / "Managed").rglob("Unity*.dll"))]
@@ -76,7 +98,7 @@ def compile_sources(editor: Path, nunit: Path, output: Path):
             raise ValueError("The supplementary check requires .NET SDK 8.0.423.")
         sdkroot = Path(rows[0].split("[", 1)[1].rstrip("]"))
         compiler = sdkroot / "8.0.423/Roslyn/bincore/csc.dll"
-        base = sorted(net.glob("*.dll"))
+        base = system_references(data)
         engine = modular_references(data / "Managed", "UnityEngine")
         editor_refs = modular_references(data / "Managed", "UnityEditor")
         report["references"] = [{"path": str(p.relative_to(data)),

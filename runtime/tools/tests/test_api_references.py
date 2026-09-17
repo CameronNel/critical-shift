@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from api_compile import compile_sources, modular_references
+from api_compile import compile_sources, modular_references, system_references
 
 
 class ModularReferenceTests(unittest.TestCase):
@@ -68,6 +68,33 @@ class ModularReferenceTests(unittest.TestCase):
             self.assertEqual(report["status"], "Failed")
             self.assertEqual(report["checks"], [])
             self.assertFalse(report["native_unity_execution"])
+
+
+class SystemReferenceTests(unittest.TestCase):
+    def test_real_standard_and_framework_facade_paths_are_selected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            data = Path(temporary)
+            standard = data / "NetStandard/ref/2.1.0/netstandard.dll"
+            facade = data / "NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll"
+            for path in (standard, facade):
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b"path-selection fixture, not a loadable DLL")
+            self.assertEqual({p.name for p in system_references(data)},
+                             {"netstandard.dll", "mscorlib.dll"})
+
+    def test_missing_framework_facade_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            data = Path(temporary)
+            path = data / "NetStandard/ref/2.1.0/netstandard.dll"
+            path.parent.mkdir(parents=True)
+            path.write_bytes(b"path fixture")
+            with self.assertRaisesRegex(ValueError, "facade"):
+                system_references(data)
+
+    def test_missing_standard_reference_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            with self.assertRaisesRegex(ValueError, "Standard 2.1"):
+                system_references(Path(temporary))
 
 
 if __name__ == "__main__":
