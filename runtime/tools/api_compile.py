@@ -4,11 +4,29 @@ This supplementary check is NOT Unity's import pipeline or Unity Test Runner.
 PlayMode tests need package assemblies produced by native Unity import.
 """
 import argparse
+import hashlib
 import json
 import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def modular_references(managed: Path, family: str) -> list[Path]:
+    """Select modular APIs, never the duplicate combined IntelliSense assembly."""
+    if family not in ("UnityEngine", "UnityEditor"):
+        raise ValueError("Unknown Unity reference family.")
+    candidates = [*(managed / family).glob("*.dll"), *managed.glob(family + ".*Module.dll")]
+    selected = {}
+    for path in sorted(candidates):
+        if path.name == family + ".dll":
+            continue
+        if path.name in selected and selected[path.name].read_bytes() != path.read_bytes():
+            raise ValueError("Conflicting reference copies: " + path.name)
+        selected[path.name] = path
+    if family + ".CoreModule.dll" not in selected:
+        raise ValueError("The pinned Editor's modular " + family + " API is missing.")
+    return [selected[name] for name in sorted(selected)]
 
 
 def compile_sources(editor: Path, nunit: Path, output: Path):
@@ -24,11 +42,8 @@ def compile_sources(editor: Path, nunit: Path, output: Path):
     sdkroot = Path(rows[0].split("[", 1)[1].rstrip("]"))
     compiler = sdkroot / "8.0.423/Roslyn/bincore/csc.dll"
     base = sorted(net.glob("*.dll"))
-    engine = sorted((data / "Managed/UnityEngine").glob("*.dll"))
-    if (data / "Managed/UnityEngine.dll").exists():
-        engine.append(data / "Managed/UnityEngine.dll")
-    editor_refs = sorted((data / "Managed").glob("UnityEditor*.dll"))
-    editor_refs += sorted((data / "Managed/UnityEditor").glob("*.dll"))
+    engine = modular_references(data / "Managed", "UnityEngine")
+    editor_refs = modular_references(data / "Managed", "UnityEditor")
     source = ROOT / "unity/Assets/CriticalShift"
     checks = []
 
@@ -48,7 +63,10 @@ def compile_sources(editor: Path, nunit: Path, output: Path):
         return destination
 
     report = {"runner": "Supplementary .NET SDK compiler against official Unity 6000.4.3f1 reference assemblies",
-              "native_unity_execution": False, "checks": checks, "status": "NotRun"}
+              "native_unity_execution": False, "checks": checks, "status": "NotRun",
+              "reference_policy": "Modular engine/editor APIs only; combined UnityEngine.dll and UnityEditor.dll excluded",
+              "references": [{"path": str(p.relative_to(data)), "sha256": hashlib.sha256(p.read_bytes()).hexdigest()}
+                             for p in dict.fromkeys(base + engine + editor_refs)]}
     try:
         application = build("CriticalShift.Application", list((source / "Application").glob("*.cs")), base)
         bootstrap = build("CriticalShift.Bootstrap", list((source / "Bootstrap").glob("*.cs")), base + engine + [application])
