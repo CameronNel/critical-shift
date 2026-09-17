@@ -1,0 +1,20 @@
+{
+  "EditMode": [
+    "CriticalShift.Tests.EditMode.FoundationProjectTests.PreparedSceneAndPackageAreValid",
+    "CriticalShift.Tests.EditMode.FoundationProjectTests.BuildContainsOnlyTheFoundationScene",
+    "CriticalShift.Tests.EditMode.FoundationProjectTests.BuiltInPipelineIsPreserved",
+    "CriticalShift.Tests.EditMode.FoundationProjectTests.DomainReloadRemainsEnabled",
+    "CriticalShift.Tests.EditMode.ProcessLifetimeTests.NewProcessStartsCreated",
+    "CriticalShift.Tests.EditMode.ProcessLifetimeTests.ReadyIsExplicit",
+    "CriticalShift.Tests.EditMode.ProcessLifetimeTests.DuplicateReadyIsRejected",
+    "CriticalShift.Tests.EditMode.ProcessLifetimeTests.StopBeforeReadyIsSafe",
+    "CriticalShift.Tests.EditMode.ProcessLifetimeTests.StopAfterReadyIsSafe",
+    "CriticalShift.Tests.EditMode.ProcessLifetimeTests.StopIsIdempotent",
+    "CriticalShift.Tests.EditMode.ProcessLifetimeTests.StoppedProcessCannotBecomeReady",
+    "CriticalShift.Tests.EditMode.ProcessLifetimeTests.RepeatedFreshProcessesDoNotShareState"
+  ],
+  "PlayMode": [
+    "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.SceneStartsAndStopsCleanly",
+    "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.ReloadGetsAFreshProcess"
+  ]
+}

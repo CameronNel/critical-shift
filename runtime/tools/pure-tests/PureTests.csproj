@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="../../unity/Assets/CriticalShift/Application/ProcessLifetime.cs" />
+    <Compile Include="../../unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs" />
+    <Reference Include="nunit.framework"><HintPath>$(NUnitAssembly)</HintPath></Reference>
+  </ItemGroup>
+  <Target Name="CheckNUnit" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(NUnitAssembly)')" Text="Pass the real Unity ext.nunit 2.0.3 framework DLL; no stubs are supported." />
+  </Target>
+</Project>

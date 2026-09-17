@@ -1,0 +1,25 @@
+{
+  "name": "CriticalShift.Tests.EditMode",
+  "rootNamespace": "CriticalShift.Tests.EditMode",
+  "references": [
+    "CriticalShift.Application",
+    "CriticalShift.Bootstrap",
+    "CriticalShift.Bootstrap.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "nunit.framework.dll"
+  ],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}
