@@ -1,0 +1,20 @@
+{
+  "name": "reactor-cooling-recovery", "seed": 42, "duration": 20000, "traceCapacity": 128, "pause": true,
+  "reactor": {"id": 900},
+  "production": {"machines": [], "batches": [{"container": 600, "id": 610, "origin": 620, "cause": 630, "kind": "Fuel", "units": 10}]},
+  "steps": [
+    {"op":"grab","entity":600,"seq":1,"revision":0,"expect":"Applied"},
+    {"op":"reactor","seq":2,"action":"Insert","reactorRevision":0,"container":600,"objectRevision":1,"lease":1,"expect":"Applied"},
+    {"op":"reactor","seq":3,"action":"SetCooling","reactorRevision":1,"cooling":true,"expect":"Applied"},
+    {"op":"reactor","seq":4,"action":"Start","reactorRevision":2,"expect":"Applied"},
+    {"op":"reactor","seq":5,"action":"SetCooling","reactorRevision":3,"expect":"Applied"},
+    {"op":"advance","time":800,"expect":"Running","assert":{"reactorMode":"Tripped","reactorWork":800,"generatedPower":40,"reserve":15,"lastReactorEvent":"Tripped","lastReactorRisk":"CoolingLost","lastReactorAt":800}},
+    {"op":"reactor","seq":6,"action":"EmergencyCooling","reactorRevision":5,"expect":"Applied","assert":{"reactorCooling":true,"reactorInstability":400,"spentPower":7,"reactorMode":"Tripped"}},
+    {"op":"reactor","seq":6,"action":"EmergencyCooling","reactorRevision":5,"expect":"Applied","assert":{"spentPower":7,"lastReactorEvent":null}},
+    {"op":"advance","time":1100,"expect":"Running","assert":{"reactorInstability":100,"reactorMode":"Tripped","reactorWork":800}},
+    {"op":"reactor","seq":7,"action":"ResetTrip","reactorRevision":7,"expect":"Applied"},
+    {"op":"reactor","seq":8,"action":"Start","reactorRevision":8,"expect":"Applied"},
+    {"op":"advance","time":1300,"expect":"Running","assert":{"reactorMode":"Exhausted","reactorWork":1000,"reactorRemaining":0,"generatedPower":50,"deliveredPower":40,"reserve":10,"batchKind":"SpentFuel","completedCycles":1}},
+    {"op":"reactor","seq":9,"action":"Eject","reactorRevision":10,"objectRevision":2,"expect":"Applied","assert":{"lastReactorCyclePresent":true,"lastReactorCause":630,"reactorMode":"Empty","lastReactorEvent":"Ejected"}}
+  ]
+}

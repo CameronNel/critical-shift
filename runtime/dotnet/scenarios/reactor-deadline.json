@@ -1,0 +1,13 @@
+{
+ "name":"reactor-deadline","seed":42,"duration":1000,"traceCapacity":128,"pause":true,
+ "reactor":{"id":900},"production":{"machines":[],"batches":[{"container":600,"id":610,"origin":620,"cause":630,"kind":"Fuel","units":10}]},
+ "steps":[
+  {"op":"grab","entity":600,"seq":1,"revision":0,"expect":"Applied"},
+  {"op":"reactor","seq":2,"action":"Insert","reactorRevision":0,"container":600,"objectRevision":1,"lease":1,"expect":"Applied"},
+  {"op":"reactor","seq":3,"action":"SetCooling","reactorRevision":1,"cooling":true,"expect":"Applied"},
+  {"op":"reactor","seq":4,"action":"Start","reactorRevision":2,"expect":"Applied"},
+  {"op":"advance","time":5000,"expect":"Ended","assert":{"reactorPresent":false,"generatedPower":50,"deliveredPower":40,"reserve":17,"completedCycles":1,"pendingCycles":0,"lastReactorEvent":"FuelExhausted","lastReactorAt":1000}},
+  {"op":"restart","expect":"Running","assert":{"reactorMode":"Empty","reserve":10,"generatedPower":0,"batchKind":"Fuel","completedCycles":0}},
+  {"op":"reactor","seq":5,"epoch":"previous","action":"Start","reactorRevision":3,"expect":"WrongEpoch"}
+ ]
+}

@@ -1,0 +1,69 @@
+name: Apply bounded offline source migration once
+on:
+  push:
+    branches: [feat/offline-reactor-power-20260918]
+    paths: ['runtime/tools/apply_offline005.py', '.github/workflows/apply-offline005.yml']
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      GIT_LFS_SKIP_SMUDGE: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          filter: blob:none
+          sparse-checkout: |
+            runtime
+            design/code-architecture
+            .github/workflows
+          lfs: false
+      - name: Apply source migration and validate static inputs
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = refs/heads/feat/offline-reactor-power-20260918
+          test "$(git rev-parse HEAD:sections)" = 06a41745022bcaee48d7ca3291b19f5febfcb673
+          python runtime/tools/apply_offline005.py
+          python runtime/tools/check_source.py
+          python -m unittest discover -s runtime/tools/tests -v
+          python runtime/dotnet/tools/check_boundaries.py
+          python runtime/dotnet/tools/test_guards.py
+      - name: Commit only bounded source changes and remove this one-time writer
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('.github/workflows/offline-runtime.yml')
+          line="    if: ${{ !contains(github.event.head_commit.message, '[offline005-migration]') }}\n"
+          s=p.read_text(); assert s.count(line)==1;p.write_text(s.replace(line,''))
+          Path('runtime/tools/apply_offline005.py').unlink()
+          Path('.github/workflows/apply-offline005.yml').unlink()
+          PY
+          git add runtime .github/workflows/offline-runtime.yml .github/workflows/apply-offline005.yml
+          python - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines()
+          assert paths
+          assert all(p.startswith('runtime/') or p in ['.github/workflows/offline-runtime.yml','.github/workflows/apply-offline005.yml'] for p in paths), paths
+          PY
+          test "$(git ls-remote origin refs/heads/feat/offline-reactor-power-20260918 | cut -f1)" = "$GITHUB_SHA"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Reconcile process assembly and connect reactor commands to canonical runtime'
+          test "$(git rev-parse HEAD:sections)" = 06a41745022bcaee48d7ca3291b19f5febfcb673
+          git push origin HEAD:refs/heads/feat/offline-reactor-power-20260918
+          git rev-parse HEAD > migrated-commit.txt
+      - name: Package committed source for inspection
+        run: git archive --format=tar -o migrated-source.tar HEAD runtime design/code-architecture design/GAME_SPEC.md design/ENGINE_DECISION.md AGENTS.md README.md .github/workflows/offline-runtime.yml
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: offline005-source-migration
+          path: |
+            migrated-source.tar
+            migrated-commit.txt
+          if-no-files-found: warn
+          retention-days: 30

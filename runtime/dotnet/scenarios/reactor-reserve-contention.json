@@ -1,0 +1,17 @@
+{
+ "name":"reactor-reserve-contention","seed":42,"duration":20000,"traceCapacity":128,"pause":true,
+ "reactor":{"id":900},"production":{"machines":[],"batches":[]},
+ "steps":[
+  {"op":"reactor","seq":1,"action":"AuxiliaryPower","reactorRevision":0,"expect":"Applied","assert":{"reserve":4,"spentPower":6}},
+  {"op":"reactor","seq":1,"actor":2,"action":"AuxiliaryPower","reactorRevision":0,"expect":"RevisionConflict"},
+  {"op":"reactor","seq":2,"actor":2,"action":"AuxiliaryPower","reactorRevision":1,"expect":"InsufficientReserve"},
+  {"op":"reactor","seq":1,"action":"AuxiliaryPower","reactorRevision":0,"expect":"Applied","assert":{"reserve":4,"spentPower":6,"lastReactorEvent":null}},
+  {"op":"reactor","seq":2,"action":"Start","reactorRevision":1,"expect":"InvalidState"},
+  {"op":"reactor","seq":3,"action":"SetCooling","reactorRevision":1,"cooling":true,"expect":"Applied"},
+  {"op":"pause","expect":"Applied"},
+  {"op":"advance","time":500,"expect":"Paused"},
+  {"op":"reactor","seq":4,"action":"AuxiliaryPower","reactorRevision":2,"expect":"ActorUnavailable"},
+  {"op":"resume","expect":"Applied"},
+  {"op":"reactor","seq":5,"action":"AuxiliaryPower","reactorRevision":2,"expect":"InsufficientReserve","assert":{"reserve":4,"spentPower":6,"generatedPower":0}}
+ ]
+}
