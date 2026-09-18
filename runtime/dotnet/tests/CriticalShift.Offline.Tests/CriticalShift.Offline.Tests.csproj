@@ -14,5 +14,9 @@
     <ProjectReference Include="../../src/CriticalShift.Features.Workers.Domain/CriticalShift.Features.Workers.Domain.csproj" />
     <ProjectReference Include="../../src/CriticalShift.Features.Materials.Domain/CriticalShift.Features.Materials.Domain.csproj" />
     <ProjectReference Include="../../src/CriticalShift.Features.Production.Domain/CriticalShift.Features.Production.Domain.csproj" />
+    <ProjectReference Include="../../src/CriticalShift.Features.Reactor.Domain/CriticalShift.Features.Reactor.Domain.csproj" />
+    <ProjectReference Include="../../src/CriticalShift.Features.Power.Domain/CriticalShift.Features.Power.Domain.csproj" />
+    <ProjectReference Include="../../src/CriticalShift.ProcessLifetime/CriticalShift.ProcessLifetime.csproj" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs" Link="ProcessLifetimeTests.cs" />
   </ItemGroup>
 </Project>

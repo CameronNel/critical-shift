@@ -7,18 +7,21 @@ namespace CriticalShift.Application
     {
         Started, Advanced, Interaction, Impact, Aid, Environment,
         RecoveryRequested, RecoveryResolved, RecoveryCancelled, RecoveryExpired,
-        Disconnected, Ended, Stopped, Faulted, Production
+        Disconnected, Ended, Stopped, Faulted, Production, Reactor
     }
 
     /// <summary>Bounded typed diagnostic data. No arbitrary message, exception text, credential or callback.</summary>
     public sealed class SessionTraceRecord
     {
         internal SessionTraceRecord(long sequence, WorldSessionView world, Guid requestEpoch, SessionTraceKind kind,
-            Guid actorId, Guid entityId, long inputSequence, bool changed, WorkerReply? worker, InteractionReply? interaction, long? previousWorkerRevision, Guid hazardId, Guid causeId, WorkerImpact? severity, ProductionChange? production)
+            Guid actorId, Guid entityId, long inputSequence, bool changed, WorkerReply? worker, InteractionReply? interaction, long? previousWorkerRevision, Guid hazardId, Guid causeId, WorkerImpact? severity, ProductionChange? production, ReactorChange? reactor)
         {
             HazardId = hazardId != Guid.Empty ? hazardId : worker?.Worker?.LastHazardId ?? Guid.Empty;
             CauseId = causeId != Guid.Empty ? causeId : worker?.Worker?.LastCauseId ?? Guid.Empty;
             ImpactSeverity = severity;
+            ReactorChange = reactor ?? interaction?.Reactor?.Change;
+            ReactorEvent = changed ? ReactorChange?.Kind : null;
+            ReactorResult = interaction?.Reactor?.Status;
             var change = production ?? interaction?.Production?.Change;
             ProductionResult = interaction?.Production?.Status;
             // Replays retain historical attribution, but cannot publish a second committed event.
@@ -47,6 +50,9 @@ namespace CriticalShift.Application
         public Guid CauseId { get; }
         public WorkerImpact? ImpactSeverity { get; }
         public ProductionStatus? ProductionResult { get; }
+        public ReactorChange? ReactorChange { get; }
+        public ReactorEvent? ReactorEvent { get; }
+        public ReactorStatus? ReactorResult { get; }
         public ProductionEvent? ProductionEvent { get; }
         public Guid CycleId { get; }
         public Guid RecipeId { get; }
@@ -104,12 +110,12 @@ namespace CriticalShift.Application
         }
         internal void Append(WorldSessionView world, Guid requestEpoch, SessionTraceKind kind,
             Guid actor = default, Guid entity = default, long input = 0, bool changed = false,
-            WorkerReply? worker = null, InteractionReply? interaction = null, long? previousWorkerRevision = null, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null, ProductionChange? production = null)
+            WorkerReply? worker = null, InteractionReply? interaction = null, long? previousWorkerRevision = null, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null, ProductionChange? production = null, ReactorChange? reactor = null)
         {
             // Exhausting diagnostics must not overflow and replay or reject a gameplay transaction.
             if (_sequence == long.MaxValue) { if (_dropped < long.MaxValue) _dropped++; return; }
             var record = new SessionTraceRecord(++_sequence, world, requestEpoch, kind,
-                actor, entity, input, changed, worker, interaction, previousWorkerRevision, hazardId, causeId, severity, production);
+                actor, entity, input, changed, worker, interaction, previousWorkerRevision, hazardId, causeId, severity, production, reactor);
             if (_count == Capacity)
             {
                 _records[_first] = record; _first = (_first + 1) % Capacity;

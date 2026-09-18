@@ -44,7 +44,7 @@ namespace CriticalShift.Features.Power.Domain
             long stored = Math.Min(reserve, Capacity - Available);
             return new PowerAccount(Capacity, Initial, Available + stored,
                 checked(Generated + checked(reserve + grid)), Spent,
-                checked(Delivered + grid), checked(Spilled + reserve - stored));
+                checked(Delivered + grid), checked(Spilled + (reserve - stored)));
         }
     }
 }

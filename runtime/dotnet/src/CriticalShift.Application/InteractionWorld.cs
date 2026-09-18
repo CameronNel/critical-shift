@@ -17,6 +17,7 @@ namespace CriticalShift.Application
         private readonly int _maxConnectionIdentities;
         private readonly int _receiptCapacity;
         private ProductionOperations? _production;
+        private ReactorOperations? _reactor;
         private bool _started;
         private bool _stopped;
         private bool _faulted;
@@ -74,6 +75,7 @@ namespace CriticalShift.Application
         }
 
         internal void BindProduction(ProductionOperations production) { RequireSetup(); _production = production; }
+        internal void BindReactor(ReactorOperations reactor) { RequireSetup(); _reactor = reactor; }
         internal void RegisterProductionSlot(Guid slot) { RequireSetup(); _claims.RegisterSlot(slot); }
         internal Guid? SlotOccupant(Guid slot) => _claims.GetSlotOccupant(slot);
         // Internal commit operations execute inside the already guarded/authorized command workflow.
@@ -194,6 +196,7 @@ namespace CriticalShift.Application
             }
             switch (command.Kind)
             {
+                case InteractionKind.Reactor: return _reactor?.Apply(actorId, command.EntityId, command.Reactor!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Production: return _production?.Apply(actorId, command.EntityId, command.Production!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Grab: return Map(_claims.TryGrab(command.EntityId, actorId, command.ExpectedRevision), true);
                 case InteractionKind.Release: return Map(_claims.TryRelease(command.EntityId, actorId, command.LeaseGeneration), true);

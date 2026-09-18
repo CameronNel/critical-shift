@@ -31,7 +31,7 @@ def check() -> dict:
         owner = next((p for p in [path.parent, *path.parents] if p.is_relative_to(assets) and list(p.glob("*.asmdef"))), None)
         if owner is None:
             raise ValueError("Unowned first-party C# file: " + str(path))
-    pure = definitions["CriticalShift.Application"]
+    pure = definitions["CriticalShift.ProcessLifetime"]
     if not pure["noEngineReferences"] or pure["references"]:
         raise ValueError("The WP-01 process-lifetime assembly must remain engine-independent.")
     profile = json.loads((RUNTIME / "toolchain.json").read_text())

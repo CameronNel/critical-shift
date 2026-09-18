@@ -38,5 +38,25 @@
     "runs": 2,
     "steps_per_run": 11,
     "assertions_per_run": 39
+  },
+  "reactor-cooling-recovery": {
+    "runs": 2,
+    "steps_per_run": 13,
+    "assertions_per_run": 43
+  },
+  "reactor-reserve-contention": {
+    "runs": 2,
+    "steps_per_run": 11,
+    "assertions_per_run": 21
+  },
+  "reactor-deadline": {
+    "runs": 2,
+    "steps_per_run": 7,
+    "assertions_per_run": 22
+  },
+  "reactor-full-production-chain": {
+    "runs": 2,
+    "steps_per_run": 26,
+    "assertions_per_run": 63
   }
 }

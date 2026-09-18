@@ -11,9 +11,16 @@ PRODUCTION = "src/CriticalShift.Features.Production.Domain/CriticalShift.Feature
 RUNNER = "tools/CriticalShift.Scenarios/CriticalShift.Scenarios.csproj"
 APPLICATION = "src/CriticalShift.Application/CriticalShift.Application.csproj"
 TESTS = "tests/CriticalShift.Offline.Tests/CriticalShift.Offline.Tests.csproj"
-ALLOWED = {DOMAIN: set(), SESSION: set(), WORKERS: set(), MATERIALS: set(), PRODUCTION: set(),
-           APPLICATION: {DOMAIN, SESSION, WORKERS, MATERIALS, PRODUCTION},
-           TESTS: {DOMAIN, SESSION, WORKERS, MATERIALS, PRODUCTION, APPLICATION}, RUNNER: {APPLICATION}}
+REACTOR = "src/CriticalShift.Features.Reactor.Domain/CriticalShift.Features.Reactor.Domain.csproj"
+POWER = "src/CriticalShift.Features.Power.Domain/CriticalShift.Features.Power.Domain.csproj"
+PROCESS = "src/CriticalShift.ProcessLifetime/CriticalShift.ProcessLifetime.csproj"
+LINKS = {
+    PROCESS: [{"Include": "../../../unity/Assets/CriticalShift/Application/ProcessLifetime.cs", "Link": "ProcessLifetime.cs"}],
+    TESTS: [{"Include": "../../../unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs", "Link": "ProcessLifetimeTests.cs"}],
+}
+ALLOWED = {REACTOR: set(), POWER: set(), PROCESS: set(), DOMAIN: set(), SESSION: set(), WORKERS: set(), MATERIALS: set(), PRODUCTION: set(),
+           APPLICATION: {DOMAIN, SESSION, WORKERS, MATERIALS, PRODUCTION, REACTOR, POWER},
+           TESTS: {DOMAIN, SESSION, WORKERS, MATERIALS, PRODUCTION, APPLICATION, REACTOR, POWER, PROCESS}, RUNNER: {APPLICATION}}
 TEST_PACKAGES = {"Microsoft.NET.Test.Sdk": "17.11.1", "NUnit": "3.14.0", "NUnit3TestAdapter": "4.6.0"}
 
 
@@ -49,7 +56,16 @@ def validate(root: Path) -> list[str]:
         packages = {p.attrib.get("Include"): p.attrib.get("Version") for p in xml.findall(".//PackageReference")}
         if packages != (TEST_PACKAGES if relative == TESTS else {}):
             problems.append(f"Unapproved package/version: {relative}: {packages}")
-        for tag in ("Reference", "Compile", "Import", "Target", "EnableDefaultCompileItems", "TargetFrameworks"):
+        links = [element.attrib for element in xml.findall(".//Compile")]
+        if links != LINKS.get(relative, []):
+            problems.append(f"Unapproved external Compile link: {relative}")
+        for link in links:
+            if link in LINKS.get(relative, []) and not (project.parent / link["Include"]).is_file():
+                problems.append(f"Missing canonical linked source: {relative}")
+        defaults = xml.findall(".//EnableDefaultCompileItems")
+        if (relative == PROCESS and (len(defaults) != 1 or defaults[0].text != "false" or defaults[0].attrib)) or (relative != PROCESS and defaults):
+            problems.append(f"Unapproved default source discovery: {relative}")
+        for tag in ("Reference", "Import", "Target", "TargetFrameworks"):
             if xml.findall(f".//{tag}"):
                 problems.append(f"Explicit build escape requires review: {relative}: {tag}")
     for source in root.rglob("*.cs"):

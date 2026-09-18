@@ -3,7 +3,7 @@ using System;
 namespace CriticalShift.Features.Materials.Domain
 {
     // Quantities and properties are fictional game units, not nuclear process data.
-    public enum BatchKind { Ore, CrushedOre, Fuel }
+    public enum BatchKind { Ore, CrushedOre, Fuel, SpentFuel }
     [Flags] public enum BatchFlags { None = 0, BypassedInspection = 1 }
     public enum ConversionStatus { Completed, Cancelled }
 

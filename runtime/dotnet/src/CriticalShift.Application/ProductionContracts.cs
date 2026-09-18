@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CriticalShift.Application
 {
-    public enum MaterialKind { Ore, CrushedOre, Fuel }
+    public enum MaterialKind { Ore, CrushedOre, Fuel, SpentFuel }
     [Flags] public enum MaterialFlags { None = 0, BypassedInspection = 1 }
     public enum ProductionAction { Insert, Eject, Start, SetPower, Repair, Resume, CancelCycle }
     public enum ProductionMode { Idle, Processing, PowerPaused, Jammed, OutputReady }

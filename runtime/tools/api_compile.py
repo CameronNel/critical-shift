@@ -104,7 +104,7 @@ def compile_sources(editor: Path, nunit: Path, output: Path):
         report["references"] = [{"path": str(p.relative_to(data)),
                                  "sha256": hashlib.sha256(p.read_bytes()).hexdigest()}
                                 for p in dict.fromkeys(base + engine + editor_refs)]
-        application = build("CriticalShift.Application", list((source / "Application").glob("*.cs")), base, compiler)
+        application = build("CriticalShift.ProcessLifetime", list((source / "Application").glob("*.cs")), base, compiler)
         bootstrap = build("CriticalShift.Bootstrap", list((source / "Bootstrap").glob("*.cs")),
                           base + engine + [application], compiler)
         build_editor = build("CriticalShift.Bootstrap.Editor", list((source / "Bootstrap/Editor").glob("*.cs")),

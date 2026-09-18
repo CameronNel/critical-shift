@@ -75,7 +75,7 @@ namespace CriticalShift.Features.Reactor.Domain
         public bool CanStart => (Mode == CoreMode.Loaded || Mode == CoreMode.Shutdown) && Cooling &&
             RemainingFuelMilliseconds > 0 && InstabilityMilliseconds < _rules.WarningMilliseconds;
         public bool CanReset => Mode == CoreMode.Tripped && Cooling && InstabilityMilliseconds <= _rules.ResetMilliseconds;
-        public bool CanEject => Mode == CoreMode.Loaded || Mode == CoreMode.Exhausted;
+        public bool CanEject => Mode == CoreMode.Loaded || (Mode == CoreMode.Exhausted && InstabilityMilliseconds <= _rules.ResetMilliseconds);
 
         private ReactorCore Copy(CoreMode? mode = null, bool? cooling = null, long? instability = null) =>
             new ReactorCore(_rules, mode ?? Mode, cooling ?? Cooling, SuspectFuel,

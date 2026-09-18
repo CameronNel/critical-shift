@@ -5,7 +5,7 @@ import shutil
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
-from check_boundaries import validate as check, DOMAIN, SESSION, WORKERS, APPLICATION, MATERIALS, PRODUCTION
+from check_boundaries import validate as check, DOMAIN, SESSION, WORKERS, APPLICATION, MATERIALS, PRODUCTION, REACTOR, POWER, PROCESS, TESTS
 from verify_results import validate as results
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,7 +15,12 @@ class GuardTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name) / "dotnet"
+        self.root.mkdir()
+        for relative in ("Application/ProcessLifetime.cs", "Tests/EditMode/ProcessLifetimeTests.cs"):
+            source = ROOT.parent / "unity/Assets/CriticalShift" / relative
+            target = self.root.parent / "unity/Assets/CriticalShift" / relative
+            target.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(source, target)
         shutil.copytree(ROOT / "src", self.root / "src", ignore=shutil.ignore_patterns("bin", "obj"))
         shutil.copytree(ROOT / "tools" / "CriticalShift.Scenarios", self.root / "tools" / "CriticalShift.Scenarios", ignore=shutil.ignore_patterns("bin", "obj"))
         shutil.copytree(ROOT / "tests", self.root / "tests", ignore=shutil.ignore_patterns("bin", "obj"))
@@ -33,6 +38,47 @@ class GuardTests(unittest.TestCase):
                       Include="../CriticalShift.Features.Production.Domain/CriticalShift.Features.Production.Domain.csproj")
         tree.write(path)
         self.assertTrue(any("dependency" in x for x in check(self.root)))
+
+    def test_reactor_cannot_reference_power_peer(self):
+        path = self.root / REACTOR; tree = ET.parse(path)
+        ET.SubElement(ET.SubElement(tree.getroot(), "ItemGroup"), "ProjectReference",
+                      Include="../CriticalShift.Features.Power.Domain/CriticalShift.Features.Power.Domain.csproj")
+        tree.write(path)
+        self.assertTrue(any("dependency" in x for x in check(self.root)))
+
+    def test_power_cannot_reference_reactor_peer(self):
+        path = self.root / POWER; tree = ET.parse(path)
+        ET.SubElement(ET.SubElement(tree.getroot(), "ItemGroup"), "ProjectReference",
+                      Include="../CriticalShift.Features.Reactor.Domain/CriticalShift.Features.Reactor.Domain.csproj")
+        tree.write(path)
+        self.assertTrue(any("dependency" in x for x in check(self.root)))
+
+    def test_external_link_cannot_be_changed_or_duplicated(self):
+        for mode in ("replace", "duplicate", "conditional"):
+            with self.subTest(mode=mode):
+                path = self.root / PROCESS; original = path.read_bytes(); tree = ET.parse(path)
+                item = tree.find(".//Compile")
+                if mode == "replace": item.set("Include", "../../../arbitrary.cs")
+                elif mode == "conditional": item.set("Condition", "'$(Configuration)' == 'Release'")
+                else: tree.find("ItemGroup").append(copy.deepcopy(item))
+                tree.write(path)
+                self.assertTrue(any("Compile" in x for x in check(self.root)))
+                path.write_bytes(original)
+
+    def test_external_source_must_exist(self):
+        (self.root.parent / "unity/Assets/CriticalShift/Application/ProcessLifetime.cs").unlink()
+        self.assertTrue(any("canonical linked source" in x for x in check(self.root)))
+
+    def test_process_project_cannot_discover_duplicate_sources(self):
+        path = self.root / PROCESS; tree = ET.parse(path)
+        tree.find(".//EnableDefaultCompileItems").text = "true"; tree.write(path)
+        self.assertTrue(any("source discovery" in x for x in check(self.root)))
+
+    def test_tests_cannot_link_second_process_copy(self):
+        path = self.root / TESTS; tree = ET.parse(path)
+        ET.SubElement(tree.find("ItemGroup"), "Compile", Include="../../copy.cs")
+        tree.write(path)
+        self.assertTrue(any("Compile" in x for x in check(self.root)))
 
     def test_clean_graph(self):
         self.assertEqual(check(self.root), [])

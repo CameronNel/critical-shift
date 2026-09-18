@@ -109,11 +109,12 @@ namespace CriticalShift.Application
     {
         internal WorldAdvanceResult(WorldSessionView world, IReadOnlyList<WorldTimerSignal> signals,
             IReadOnlyList<ObjectClaimView> releasedClaims, bool endedThisAdvance,
-            IReadOnlyList<WorkerReply>? workerChanges = null, IReadOnlyList<ProductionChange>? productionChanges = null)
+            IReadOnlyList<WorkerReply>? workerChanges = null, IReadOnlyList<ProductionChange>? productionChanges = null, IReadOnlyList<ReactorChange>? reactorChanges = null)
         {
             World = world; Signals = signals; ReleasedClaims = releasedClaims;
             EndedThisAdvance = endedThisAdvance; WorkerChanges = workerChanges ?? Array.Empty<WorkerReply>();
             ProductionChanges = productionChanges ?? Array.Empty<ProductionChange>();
+            ReactorChanges = reactorChanges ?? Array.Empty<ReactorChange>();
         }
         public WorldSessionView World { get; }
         public IReadOnlyList<WorldTimerSignal> Signals { get; }
@@ -121,5 +122,6 @@ namespace CriticalShift.Application
         public bool EndedThisAdvance { get; }
         public IReadOnlyList<WorkerReply> WorkerChanges { get; }
         public IReadOnlyList<ProductionChange> ProductionChanges { get; }
+        public IReadOnlyList<ReactorChange> ReactorChanges { get; }
     }
 }

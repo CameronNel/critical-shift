@@ -119,7 +119,7 @@ namespace CriticalShift.Scenarios
 
         private ScenarioReport Report(string status, int completedRuns, string? error) =>
             new ScenarioReport(_name, status, completedRuns, _completed, _assertions, _step,
-                error, _world?.View, _world?.Trace, _world?.Production.Summary);
+                error, _world?.View, _world?.Trace, _world?.Production.Summary, _world?.Reactor.PowerSummary);
 
         private string Execute(JsonElement s)
         {
@@ -147,6 +147,7 @@ namespace CriticalShift.Scenarios
                     return _world.ExecuteInteraction(Id(100 + actor), new InteractionCommand(epoch,
                         Number(s, "seq"), _operation == "grab" ? InteractionKind.Grab : InteractionKind.Release,
                         Id(checked((int)Number(s, "entity", 500))), Number(s, "revision", 0), Number(s, "lease", 0))).Status.ToString();
+                case "reactor": return ReactorScenarioSteps.Execute(s, _world, epoch, Id(100 + actor));
                 case "production": return ProductionScenarioSteps.Execute(s, _world, epoch, Id(100 + actor));
                 case "disconnect":
                     int count = _world.View.ConnectedPlayerCount;
@@ -189,7 +190,8 @@ namespace CriticalShift.Scenarios
                     case "workerPresent": Expect(worker != null, a.Value.GetBoolean(), a.Name); break;
                     case "traceDropped": Expect(_world.Trace.DroppedRecords > 0, a.Value.GetBoolean(), a.Name); break;
                     default:
-                        if (!ProductionScenarioSteps.TryRead(a, assertions, _world, out var actual, out var expected))
+                        if (!ProductionScenarioSteps.TryRead(a, assertions, _world, out var actual, out var expected) &&
+                            !ReactorScenarioSteps.TryRead(a, _world, out actual, out expected))
                             throw new ArgumentException("Unknown assertion: " + a.Name);
                         if (a.Name != "machine" && a.Name != "batch") Expect(actual, expected, a.Name);
                         break;
@@ -215,7 +217,7 @@ namespace CriticalShift.Scenarios
         private void Bind(WorldSession world)
         {
             for (int i = 1; i <= 4; i++) world.RegisterConnection(Id(100 + i), Id(i));
-            world.RegisterObject(Id(500)); ProductionScenarioSteps.Bind(_spec, world); world.Start();
+            world.RegisterObject(Id(500)); ProductionScenarioSteps.Bind(_spec, world); ReactorScenarioSteps.Bind(_spec, world); world.Start();
         }
         // Synthetic observations live only in this tool, never in runtime/Application/Domain.
         private sealed class ScriptedPolicies : IInteractionAccessPolicy, IWorkerRecoveryPolicy
@@ -229,9 +231,9 @@ namespace CriticalShift.Scenarios
     internal sealed class ScenarioReport
     {
         internal ScenarioReport(string name, string status, int runs, int steps, int assertions, int lastStep,
-            string? error, WorldSessionView? world, SessionTraceView? trace, ProductionSummary? production)
+            string? error, WorldSessionView? world, SessionTraceView? trace, ProductionSummary? production, PowerView? power)
         { Name = name; Status = status; CompletedRuns = runs; CompletedSteps = steps; Assertions = assertions;
-          LastStep = lastStep; Error = error; FinalWorld = world; Trace = trace; Production = production; }
+          LastStep = lastStep; Error = error; FinalWorld = world; Trace = trace; Production = production; Power = power; }
         public string Scope => "Offline logical execution; synthetic access/clearance; no physics or network";
         public string Name { get; }
         public string Status { get; }
@@ -243,5 +245,6 @@ namespace CriticalShift.Scenarios
         public WorldSessionView? FinalWorld { get; }
         public SessionTraceView? Trace { get; }
         public ProductionSummary? Production { get; }
+        public PowerView? Power { get; }
     }
 }

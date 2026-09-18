@@ -44,9 +44,12 @@ namespace CriticalShift.Application
                 configuration.ReceiptCapacity, configuration.LeaseMilliseconds);
             Production = new ProductionOperations(this, _interaction, configuration.MaxObjects, maxMachines, maxProductionCycles);
             _interaction.BindProduction(Production);
+            Reactor = new ReactorOperations(this, _interaction);
+            _interaction.BindReactor(Reactor);
         }
 
         public ProductionOperations Production { get; }
+        public ReactorOperations Reactor { get; }
 
         // Bounded setup transaction; public callers cannot submit arbitrary mutation delegates.
         internal void RegisterProduction(Action registration)
@@ -112,6 +115,13 @@ namespace CriticalShift.Application
                 // Required process outcomes are evaluated up to the exact deadline BEFORE terminal teardown.
                 // Advisory notifications retain their existing discard-on-end contract.
                 var productionChanges = Production.AdvanceTo(_timeline.ElapsedMilliseconds);
+                var reactorChanges = Reactor.AdvanceTo(_timeline.ElapsedMilliseconds);
+                if (reactorChanges.Count != 0)
+                {
+                    _revision = next;
+                    foreach (var change in reactorChanges)
+                        _diagnostics.Append(View, Epoch, SessionTraceKind.Reactor, entity: change.State.Id, changed: true, reactor: change);
+                }
                 if (productionChanges.Count != 0)
                 {
                     _revision = next;
@@ -125,7 +135,7 @@ namespace CriticalShift.Application
                     StopOwnedResources(); _revision = next;
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Ended, changed: true);
                     return new WorldAdvanceResult(View, Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), true,
-                        productionChanges: productionChanges);
+                        productionChanges: productionChanges, reactorChanges: reactorChanges);
                 }
                 var released = _interaction.AdvanceTo(hostMilliseconds);
                 var workerChanges = _workers.ExpireRecovery(_timeline.ElapsedMilliseconds);
@@ -142,7 +152,7 @@ namespace CriticalShift.Application
                         previousWorkerRevision: change.Worker.Revision - 1);
                 if (timeChanged || released.Count != 0 || due.Count != 0)
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Advanced, changed: true);
-                return new WorldAdvanceResult(View, signals.AsReadOnly(), released, false, workerChanges, productionChanges);
+                return new WorldAdvanceResult(View, signals.AsReadOnly(), released, false, workerChanges, productionChanges, reactorChanges);
             }
             catch { FailClosed(); throw; }
         }
@@ -328,7 +338,7 @@ namespace CriticalShift.Application
         private WorldAdvanceResult EmptyAdvance(bool ended) => new WorldAdvanceResult(View,
             Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), ended);
         private long NextRevision() => checked(_revision + 1);
-        private void StopOwnedResources() { Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
+        private void StopOwnedResources() { Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
         private void FailClosed()
         {
             _timeline.Fault(); StopOwnedResources();
@@ -381,7 +391,7 @@ namespace CriticalShift.Application
                 // Rejections use the existing receipt stream; pause cannot create a sequence gap.
                 // Release and host-approved renewal remain possible while simulation is paused.
                 return !_workers.CanInteract(actorId) ||
-                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production) && _timeline.Phase != TimelinePhase.Running) ?
+                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production || kind == InteractionKind.Reactor) && _timeline.Phase != TimelinePhase.Running) ?
                     AccessDecision.ActorUnavailable : _inner.Evaluate(actorId, entityId, kind);
             }
         }
