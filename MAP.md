@@ -16,11 +16,23 @@ Blender and image files are stored in Git LFS. A text pointer is not a Blender s
 
 ## Open the current map
 
-- **Editable entire map:** [facility_spawn_concept02_R17.blend](sections/facility-assembly/blender/facility_spawn_concept02_R17.blend).
+- **Editable entire map:** [facility_spawn_concept02_R18.blend](sections/facility-assembly/blender/facility_spawn_concept02_R18.blend) (with Fast Authoring system; R17 preserved as immutable baseline).
 - **Batched visual/walkthrough preview:** [facility_spawn_material_preview_R17.blend](sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend).
 - **Machine-readable entrypoints:** [MAP.json](MAP.json).
 
-Despite `spawn` in the revision filename, **both scenes contain the entire assembled map**, including all twelve room modules, connector floors/halls, courtyard, vertical access, perimeter/terrain, exterior work and roof services. R17 adds the latest spawn/courtyard exterior and non-RT lighting work to the whole-map A14 baseline. The preview is a derived inspection cache; make geometry changes in the editable scene and its linked modules, then regenerate the preview.
+Despite `spawn` in the revision filename, **both scenes contain the entire assembled map**, including all twelve room modules, connector floors/halls, courtyard, vertical access, perimeter/terrain, exterior work and roof services. R17 adds the latest spawn/courtyard exterior and non-RT lighting work to the whole-map A14 baseline. R18 integrates the production Fast Authoring system directly into the map scene.
+
+### Fast Authoring System
+
+Open `facility_spawn_concept02_R18.blend` directly or run `python open_map.py`. Access the control panel in 3D Viewport > Sidebar (`N` key) > **Critical Shift Authoring**.
+
+The authoring system provides four distinct workflows:
+1. **Overview / Fast**: Real-time 60+ FPS whole-map navigation. Displays the entire facility via lightweight consolidated proxies and viewport caches (~33 objects, solid shading). Canonical heavy geometry is unlinked from evaluation.
+2. **Focus Edit**: Select any of the 17 areas (12 rooms + Connections, Vertical Access, Exterior/Terrain, Roof Services, Facility Network). Exactly the focused area's full canonical geometry is loaded and editable; all other areas remain lightweight proxies. The active proxy is automatically hidden to prevent double-draw, and distant lights are suppressed to maintain high interactivity.
+3. **Material Review**: Evaluates material preview geometry with lightweight EEVEE shading (TAA 8 samples, shadow scale 0.5, ray tracing off), dynamic distance culling for distant rooms and lights.
+4. **Full Quality**: Unhides all 12 canonical rooms, exteriors, connectors, roof services, and full EEVEE settings for canonical render verification.
+
+Operators in the panel allow quick cache rebuilding (`Reload Linked Sources`, `Rebuild Focus Proxy`), walk navigation (`Shift+F` with gravity disabled), and one-click return to Overview.
 
 Use Blender **5.2 LTS**. Open the editable file directly, or run `blender --python open_map.py`. For the rendered walkthrough use `blender --python open_map.py -- --preview`. Windows users can run `./OPEN_MAP.ps1` or `./OPEN_MAP.ps1 -Preview`; set `BLENDER_EXECUTABLE` if Blender is not on PATH or in its standard installation location. Preview controls are bundled: Shift+F walking, WASD movement, E/Q elevation. Gravity is disabled; this is Blender navigation, not game collision. Blender MCP is optional, enabled only by `MAP_ENABLE_MCP=1` when installed.
 
