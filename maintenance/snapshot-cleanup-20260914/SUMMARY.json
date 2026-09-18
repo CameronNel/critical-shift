@@ -1,0 +1,37 @@
+{
+  "validated_commit": "42e29618621d1234ba98a077963273df81dbdbbb",
+  "baseline_main_commit": "a82c7d9b80456153a0c65ca4897044a7f62c7d1c",
+  "validation_run": "https://github.com/CameronNel/critical-shift/actions/runs/34888430517",
+  "artifact_id": 10365952130,
+  "artifact_sha256": "bdf94b38af73853977aa188d9c9ada8c546b885fa1f9865fb5f9f894d4a5241b",
+  "removed_files": [
+    {"path":"sections/facility-assembly/blender/facility_master_A08_access.blend","blob":"6d5a691b4f4514779f71df0c47d66220c5546f89","bytes":163364998,"oid":"346209c437385f6ad2726f37992cab853ee5e7ce2fa4264a55eccf157b968150"},
+    {"path":"sections/facility-assembly/blender/facility_master_A11_map_finish.blend","blob":"2769f0f55f538146614cd32a55be3008349c01b6","bytes":170436320,"oid":"7dd42cc72c7a3fdb46db9d66c6b1701e93b80b3c2bae9e98223a5582ee04a799"},
+    {"path":"sections/facility-assembly/blender/facility_master_A12_complete.blend","blob":"bd3e4cd6dc389415413bffdfcb8bb11ad508666f","bytes":171384190,"oid":"751f524666cc8837d0646b7e8544da582b3074f3b8958f86b9beeeaadb6d2f04"},
+    {"path":"sections/facility-assembly/blender/facility_master_A13_roof_services.blend","blob":"9649098e1528f67d5bbae19b1c9f2a64069af7c5","bytes":171903416,"oid":"172cf77bc9f44fafc12909dc93c285b5199c6a01aa37fca861ec92fa18e8cef6"},
+    {"path":"sections/facility-assembly/blender/facility_material_preview_A14.blend","blob":"e713aad145dd52d33c19ae09a2a19146c113aff9","bytes":351172588,"oid":"3a5a3d6a1fb8746581c7d04d67fa96ccaf6385512f3c98301fd2a240637f1beb"}
+  ],
+  "removed_bytes":1028261512,
+  "retained_blend_files":111,
+  "retained_file_count_in_runner_comparison":2375,
+  "all_retained_files_byte_identical_in_runner":true,
+  "executable_source_digest":"938a5883b454642239c15bfb090bb9274bafb013b53e2bf6b8b54142a94c0b0b",
+  "native_before_after_equal":true,
+  "native_matches_previous_R17_audit":true,
+  "hydrated_input_bytes":716505803,
+  "working_file_bytes_before_including_temporary_workflow":5136648666,
+  "working_file_bytes_after_before_documentation_and_workflow_retirement":4108387154,
+  "scenes":[
+    {"path":"sections/facility-assembly/blender/facility_spawn_concept02_R17.blend","file_sha256":"0d7964b9813004958fde705ede471fd7b654694d03967f5c3534eb0d72f8ca92","geometry_digest":"6cad96ae9bd764ae4c6c3a9190775b3bf3e8e67173a0ba129568aa4becf1e0f8","objects":55016,"libraries":24,"missing_libraries":0,"images":105,"packed_images":105,"before_report_sha256":"09e8975c8cfbb281b3f7b67a9977d367ca02ad15a3c5d1f33030d7ed7b1e8afe","after_report_sha256":"09e8975c8cfbb281b3f7b67a9977d367ca02ad15a3c5d1f33030d7ed7b1e8afe"},
+    {"path":"sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend","file_sha256":"4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937","geometry_digest":"1e81950b8921239f9e62e301443e293d375f7097d4e82af297d3e9dfb5fa47a1","objects":55390,"libraries":24,"missing_libraries":0,"images":105,"packed_images":105,"before_report_sha256":"08ed6870bf3340e645520974cff0e02dc865ab026bf4238cd511da5488033a23","after_report_sha256":"08ed6870bf3340e645520974cff0e02dc865ab026bf4238cd511da5488033a23"}
+  ],
+  "previous_image_removal_bytes":1603515639,
+  "combined_removed_payload_bytes":2631777151,
+  "limitations":[
+    "Native-load, dependency and file-integrity checks; no rendered visual, interactive, Unity or FPS test.",
+    "No history rewrite or remote LFS quota reclamation.",
+    "Five explicitly reviewed output-only snapshots removed; rebuild inputs retained conservatively.",
+    "Historical reports can reference intentionally pruned outputs; restore them from the recorded pre-deletion commit when needed.",
+    "Independent review and merge into main remain pending."
+  ]
+}

@@ -1,0 +1,3692 @@
+[
+  {
+    "scene": "sections/facility-assembly/blender/facility_spawn_concept02_R17.blend",
+    "blender": "5.2.1 LTS",
+    "scene_sha256": "0d7964b9813004958fde705ede471fd7b654694d03967f5c3534eb0d72f8ca92",
+    "object_count": 55016,
+    "geometry_digest": "6cad96ae9bd764ae4c6c3a9190775b3bf3e8e67173a0ba129568aa4becf1e0f8",
+    "libraries": [
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend",
+        "missing": false,
+        "sha256": "a2a2a57c6531cd6a4bf6a6d5b92d07b81d1630a4b5ab553ff762771127bb2ccb"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend",
+        "missing": false,
+        "sha256": "48abbe1061e038749aab76e1fb1217a329abdd40592da7fba21d578842c75ade"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend",
+        "missing": false,
+        "sha256": "29241944814b0eb02bd87c627448c2a9a05bfb4832efb786294e1752c722a92e"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend",
+        "missing": false,
+        "sha256": "cf7ed65234a618ae957f4d5254dd0b008761da7a7d3e77cb85da095467b03551"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend",
+        "missing": false,
+        "sha256": "2ecbdb89cf46e6b8b745f7b54d24714e77731fbb5544470ea2102ccbb74f1b29"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+        "missing": false,
+        "sha256": "a123a72256b3f920e28bcdeaf942d3277bd2513fb14267c5686f9a7d9a8a9787"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/mine/exterior-R02.blend",
+        "missing": false,
+        "sha256": "7c7a0784e3bc6e19f1f5674830d37e946eae1bd030c3fb875176d319803b37d1"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend",
+        "missing": false,
+        "sha256": "19e2808ff7edfd0415be7f66322568d992a0e67bd02a9e4f7907dfb6ac7a6385"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+        "missing": false,
+        "sha256": "91dc6d076ef5b0a74f9b4931b253e14692081c1d9ec605dfa6ea0d0fd452710c"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+        "missing": false,
+        "sha256": "5c236b25f3fef0243c5d086f71eb33d006a77cedfe05bfd91848d1ff1a245b5a"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend",
+        "missing": false,
+        "sha256": "7483c0eebaacfb479a7a1c65e1da7430079c4332eb5dab836b5ad9259563e40d"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend",
+        "missing": false,
+        "sha256": "c3cacb97088899afbf8202e1d44da0ec3d79d39b1c71408cbb629e8cf4ad2db8"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend",
+        "missing": false,
+        "sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/condenser-bay/module.blend",
+        "missing": false,
+        "sha256": "7a58204e39fd0a4f7a3dde05632caa6f001a30611ad8d00b7fc29e1452a7a2d0"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/cooling-plant/module.blend",
+        "missing": false,
+        "sha256": "253d60c86c70a239637d39193c2a8a888ddcddb1246eef1450332d76a5b56bcb"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/electrical-room/module.blend",
+        "missing": false,
+        "sha256": "10b37b1ca5c5abee8a3f781205327edcc8fb1ff23e9d41632e3c5579b0f08476"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/fuel-corridor/module.blend",
+        "missing": false,
+        "sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/medical-reanimation/module.blend",
+        "missing": false,
+        "sha256": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/mine/module.blend",
+        "missing": false,
+        "sha256": "10f50d0593bf4924f945d90e0fd2a7c512efe66ff8e5306aeaae20dd81c26445"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/reactor-room/module.blend",
+        "missing": false,
+        "sha256": "27100e235b26b874a5206671bdb8934c3726a22bd3d7c75514606b2e8f686278"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/refinery/module.blend",
+        "missing": false,
+        "sha256": "de064242c534a12e69e7aac3c46c7118a285024626fdd423bb20eef339079ff8"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend",
+        "missing": false,
+        "sha256": "b1d26fb9ed706a9d21fa354bcb8cfe982f2977dfaa0146421d590fa3571e68c2"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/turbine-room/module.blend",
+        "missing": false,
+        "sha256": "841646bdecd9699c26ff463afcb7eee231d17b64f9e7cc379c3a05137ecd6110"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/waste-storage/module.blend",
+        "missing": false,
+        "sha256": "8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d4449caecedf"
+      }
+    ],
+    "images": [
+      {
+        "name": "A04 original painted material atlas [module.blend.006]",
+        "path": "//../production/revisions/production/revisions/art/materials/a04-painted-material-atlas.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/materials/a04-painted-material-atlas.png",
+        "source": "FILE",
+        "users": 84,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\art\\materials\\a04-painted-material-atlas.png",
+            "bytes": 2078976,
+            "sha256": "c8bb969bc888e628a13401bcfa11b3e4e75163694373cc9058dba1556589bed2"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "A05 main-hall painted material atlas [module.blend.006]",
+        "path": "//../production/revisions/production/revisions/art/materials/a05-painted-material-atlas.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/materials/a05-painted-material-atlas.png",
+        "source": "FILE",
+        "users": 81,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\art\\materials\\a05-painted-material-atlas.png",
+            "bytes": 1952657,
+            "sha256": "dccf3b4d20c6b646e24c77f1b042719f1fd2a971fcc29e92ef9204589cca8d9e"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "Gullet Damp Slate Albedo [module.blend.002]",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-damp-albedo.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-damp-albedo.png",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\mine\\assets\\valorant\\slate-damp-albedo.png",
+            "bytes": 2490132,
+            "sha256": "a23cdcf1e6f2741669754dc68d8807df0917feee0caff3165ac71945d2cd0cf4"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "Gullet Fresh Slate Albedo [module.blend.002]",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-fresh-albedo.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-fresh-albedo.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\mine\\assets\\valorant\\slate-fresh-albedo.png",
+            "bytes": 2447170,
+            "sha256": "fc2924b9d42b2020cb051404dc0c31953cc5521cf9d2214a0070453c6dfc7c96"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "Gullet Slate Painted Albedo [module.blend.002]",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-painted-albedo.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-painted-albedo.png",
+        "source": "FILE",
+        "users": 11,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\mine\\assets\\valorant\\slate-painted-albedo.png",
+            "bytes": 2423274,
+            "sha256": "702f923c85c94833fa085555d9fec289fbadb5931d443140bf2f1247795807fe"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "PAINTED floor use map \u2014 original Art09 [module.blend.006]",
+        "path": "",
+        "absolute": "",
+        "source": "FILE",
+        "users": 4,
+        "packed": [
+          {
+            "path": "",
+            "bytes": 247387,
+            "sha256": "c1728b517851cb3309ae523fce14c16bd4865393eaaf98a470575c5110eaa35c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "T01-floor-albedo-r01.png [module.blend.003]",
+        "path": "//../art/materials/T01-floor-albedo-r01.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T01-floor-albedo-r01.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\.worktrees\\fuel-corridor-final\\sections\\fuel-corridor\\production\\checkpoints\\final-F10\\art\\materials\\T01-floor-albedo-r01.png",
+            "bytes": 2238716,
+            "sha256": "095335ff28ecc34ed2540bfe4f61f8d4b018bf88df60e052b558935231cdbdac"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "T02-wall-albedo-r01.png [module.blend.003]",
+        "path": "//../art/materials/T02-wall-albedo-r01.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T02-wall-albedo-r01.png",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\.worktrees\\fuel-corridor-final\\sections\\fuel-corridor\\production\\checkpoints\\final-F10\\art\\materials\\T02-wall-albedo-r01.png",
+            "bytes": 1913168,
+            "sha256": "21339d8db4ee59de01d555abebbb4c77515a19756e192b2f1dfb2e0666c5b817"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "T03-cloth-albedo-r01.png [module.blend.003]",
+        "path": "//../art/materials/T03-cloth-albedo-r01.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T03-cloth-albedo-r01.png",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\.worktrees\\fuel-corridor-final\\sections\\fuel-corridor\\production\\checkpoints\\final-F10\\art\\materials\\T03-cloth-albedo-r01.png",
+            "bytes": 3252245,
+            "sha256": "436086a28112711372d9b4f36a854dcea0565dfd47d63f7242553211c4dbd1e9"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "color.jpg.001 [module.blend.001]",
+        "path": "//../production/assets/textures/concrete/color.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/color.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\refinery-compact\\sections\\refinery\\assets\\textures\\concrete\\color.jpg",
+            "bytes": 4547901,
+            "sha256": "49111877b98409fbc6c39be7e1c42ceda95311d5ed68807f78e48f8346d75d91"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "color.jpg.003 [module.blend.002]",
+        "path": "//../../assets/pbr/gravel_ground_01/color.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/color.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/gravel_ground_01/color.jpg",
+            "bytes": 3823037,
+            "sha256": "b626c16301208b67eba976ad71860d98fd6fe82ae1c87d9d27692e70c1089cd2"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "color.jpg.004 [module.blend.002]",
+        "path": "//../../assets/pbr/Concrete046/color.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/color.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Concrete046/color.jpg",
+            "bytes": 4547901,
+            "sha256": "49111877b98409fbc6c39be7e1c42ceda95311d5ed68807f78e48f8346d75d91"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "color.jpg.005 [module.blend.002]",
+        "path": "//../../assets/pbr/Metal046B/color.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/color.jpg",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Metal046B/color.jpg",
+            "bytes": 2737143,
+            "sha256": "8263145285430210a6867010abeb09402aad5b9195366e18817a07ab5badc6fe"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "commissioning_crew.png [module.blend]",
+        "path": "//../assets/portraits/commissioning_crew.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/portraits/commissioning_crew.png",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\portraits\\commissioning_crew.png",
+            "bytes": 2574788,
+            "sha256": "572ba67c04e85849f8ddddf0f43ef51c36c3247f8bcca41d0d316a901d460805"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/concrete_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/concrete_basecolor.png",
+            "bytes": 113468,
+            "sha256": "edb04d2c2cd1a9743ea9705de2e4f8273122a45d60515a0f61ca41960393c3e8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_floor_worn_001_diff_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/concrete_floor_worn_001_diff_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_diff_2k.jpg",
+        "source": "FILE",
+        "users": 5,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\concrete_floor_worn_001_diff_2k.jpg",
+            "bytes": 482906,
+            "sha256": "e29b45cdcd6d02fae3c087c456196ffa750779a9b62e7071aa3831dc322a0cc4"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_floor_worn_001_disp_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/concrete_floor_worn_001_disp_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_disp_2k.jpg",
+        "source": "FILE",
+        "users": 5,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\concrete_floor_worn_001_disp_2k.jpg",
+            "bytes": 666150,
+            "sha256": "793a833047c28b17344ca7543c32de39fb5d86d17e33ab380cf8639040d3a637"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_floor_worn_001_rough_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/concrete_floor_worn_001_rough_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_rough_2k.jpg",
+        "source": "FILE",
+        "users": 5,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\concrete_floor_worn_001_rough_2k.jpg",
+            "bytes": 735249,
+            "sha256": "b904992f0d75da2c41edf832bbb838622cca076f48f7913065a152c3b640690e"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/concrete_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/concrete_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/concrete_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/concrete_roughness.png",
+            "bytes": 63547,
+            "sha256": "2645d6aee0f600809800ac3dbfbec1f1ba61f2dd81058e283262682211e54d35"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "crt_rx_core.png [module.blend.006]",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_rx_core.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_rx_core.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\blender\\assets\\grok-terminal\\textures\\crt_rx_core.png",
+            "bytes": 165308,
+            "sha256": "9e0f17470b268c0dd22bc4259c50538bd61fb3ef13654dcf5a3844b56366e706"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "crt_trend.png [module.blend.006]",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_trend.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_trend.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\blender\\assets\\grok-terminal\\textures\\crt_trend.png",
+            "bytes": 131430,
+            "sha256": "b232d27a31629702ec6cc8225bb14d859135973ea7897d98db1afab0285b4b91"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "dark_steel_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/dark_steel_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/dark_steel_basecolor.png",
+            "bytes": 48766,
+            "sha256": "6dd6442ebbefec462b156b6fddc529fd4638de7fdefef58cac13dda681d165e1"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "dark_steel_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/dark_steel_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/dark_steel_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "dark_steel_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/dark_steel_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/dark_steel_roughness.png",
+            "bytes": 84767,
+            "sha256": "3679ff47db06741f4539f2e40bf6330933ab31539151022087de0ea2979ec489"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "fabric_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/fabric_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/fabric_basecolor.png",
+            "bytes": 90145,
+            "sha256": "3f24dfe2c9ab0a53de6ce00dc6cc057633f6ee9afbf1f15c3f33965488533164"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "fabric_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/fabric_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/fabric_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "fabric_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/fabric_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/fabric_roughness.png",
+            "bytes": 63362,
+            "sha256": "207eacdf4c381745b50874cfc6a73b6caf9e5816450c07b65a65fe69abaa2777"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ground_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ground_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ground_basecolor.png",
+            "bytes": 66898,
+            "sha256": "c618672b8403bea7589c7228ce9ff6118f82137fed43e6576f472426d6fb4729"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ground_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ground_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ground_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ground_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ground_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ground_roughness.png",
+            "bytes": 63509,
+            "sha256": "52c62a9fa030dc305a6d7df9b5974fb239d525a4c2f7cf43ce871900b9d56675"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "height.jpg.001 [module.blend.001]",
+        "path": "//../production/assets/textures/concrete/height.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/height.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\refinery-compact\\sections\\refinery\\assets\\textures\\concrete\\height.jpg",
+            "bytes": 2920966,
+            "sha256": "9c69622e1b5b9e47dcc05d64be126c2d43b32d5cde6c95e8d173728af671d99c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "height.jpg.003 [module.blend.002]",
+        "path": "//../../assets/pbr/gravel_ground_01/height.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/height.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/gravel_ground_01/height.jpg",
+            "bytes": 980768,
+            "sha256": "f8d2b099b9212b649e88fe17d1cad042e70409d28c6ae05ef174a6ac772c7016"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "height.jpg.004 [module.blend.002]",
+        "path": "//../../assets/pbr/Concrete046/height.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/height.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Concrete046/height.jpg",
+            "bytes": 2920966,
+            "sha256": "9c69622e1b5b9e47dcc05d64be126c2d43b32d5cde6c95e8d173728af671d99c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "height.jpg.005 [module.blend.002]",
+        "path": "//../../assets/pbr/Metal046B/height.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/height.jpg",
+        "source": "FILE",
+        "users": 14,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Metal046B/height.jpg",
+            "bytes": 2283113,
+            "sha256": "4f3ec47de077cc98f6d73b46c9d73d68f6cd5093f4b854626d21d877017f1e93"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "human_contribution.png [module.blend]",
+        "path": "//../assets/portraits/human_contribution.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/portraits/human_contribution.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\portraits\\human_contribution.png",
+            "bytes": 2890430,
+            "sha256": "28ad4377ba81918f7b25ac4fdccf93e4428d70ed0f74cb748519489c664d0b5b"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "keycap_atlas.png [module.blend.006]",
+        "path": "//../production/revisions/production/revisions/control-dressing-03/assets/grok-terminal/textures/keycap_atlas.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/control-dressing-03/assets/grok-terminal/textures/keycap_atlas.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\blender\\assets\\grok-terminal\\textures\\keycap_atlas.png",
+            "bytes": 46993,
+            "sha256": "a7c99061a899f30b7e072c152c671e5d83321ffdf8043fc5ee86f21550772c7b"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_cart.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_cart.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_cart.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_cart.png",
+            "bytes": 10166,
+            "sha256": "bed7e44be44a01c47980f77e5c82b4a90764e52d07d13a977ed5f3d603ce5990"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_door.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_door.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_door.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_door.png",
+            "bytes": 9250,
+            "sha256": "d87588a5fdf2e6310b56c2df41ff1d1deb78c2c1b34a0eb0c63ac5e93dc6ca71"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_magazine.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_magazine.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_magazine.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_magazine.png",
+            "bytes": 9147,
+            "sha256": "7bc22afb60fc3e0a09acad31d9af82f8a0c3aa443ffb1f895fa9402b02207f1c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_portal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_portal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_portal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_portal.png",
+            "bytes": 6606,
+            "sha256": "a589b55ce071bc603c374dc3b2d2159b9953a8d3e9ad2f4f52d041356f983047"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_pump.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_pump.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_pump.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_pump.png",
+            "bytes": 10530,
+            "sha256": "619e0ccc1fdaec2275a99adf0ae6e92b43f93136c142bef4454f2f1c6a6794d1"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_return.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_return.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_return.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_return.png",
+            "bytes": 8352,
+            "sha256": "5ad662f2a246a67e883b53e5ade5d822d82cb95759465b0fc8b5efb885efae93"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_sector_a.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_sector_a.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_a.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_sector_a.png",
+            "bytes": 9615,
+            "sha256": "60e2bf8505b8e990640d63b7d6687533014de7f7d42dce90d736f28527c9adba"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_sector_b.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_sector_b.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_b.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_sector_b.png",
+            "bytes": 9333,
+            "sha256": "29b030b5b354f1b13e87bad7a026c411efff68865858398b9049e7604bf24878"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_sector_c.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_sector_c.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_c.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_sector_c.png",
+            "bytes": 6728,
+            "sha256": "dfb817359144832be435ba11608e1f7742632c9b41981f2b20b1176bf0d75a24"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "localized_scuff.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/localized_scuff.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/localized_scuff.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/localized_scuff.png",
+            "bytes": 43640,
+            "sha256": "639d4d119d85f102264a174d537973483feba31d6f94d68fa4aea54456004dac"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "metal_plate_diff_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/metal_plate_diff_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_diff_2k.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\metal_plate_diff_2k.jpg",
+            "bytes": 2670774,
+            "sha256": "864c9a653acd1f5034c9bbe7f955b18cc9687a81bbdfa805e7a2319939676910"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "metal_plate_disp_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/metal_plate_disp_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_disp_2k.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\metal_plate_disp_2k.jpg",
+            "bytes": 1067841,
+            "sha256": "c4ba1bc602d25bdd4725d856bbe5713373fa08456543d4d0168d9ff4e37c5f52"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "metal_plate_rough_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/metal_plate_rough_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_rough_2k.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\metal_plate_rough_2k.jpg",
+            "bytes": 3045988,
+            "sha256": "3cdc139df4ec5b304dd986278c1fb026c67c42e6623f0ee5caa7f373d51c7bef"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ore_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ore_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ore_basecolor.png",
+            "bytes": 58736,
+            "sha256": "d6404d6bceddaa0c398591d0b135758ee677d4aa8012873225cd306fc32a9b84"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ore_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ore_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ore_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ore_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ore_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ore_roughness.png",
+            "bytes": 63509,
+            "sha256": "39be8b8f6ec70596bb123caf2329b026e55f7f2137228c09a19008a8594abbf4"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_cream_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_cream_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_cream_basecolor.png",
+            "bytes": 133586,
+            "sha256": "b770adbd8d877e5c0738d6c1ca24f9d155065db9b9318f1d1129d6b23f7d4ecd"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_cream_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_cream_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_cream_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_cream_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_cream_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_cream_roughness.png",
+            "bytes": 63547,
+            "sha256": "1886e24394fd3248e2668da4ef9c3b0f4f69da76b8da7096d36505f0caec3b06"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_ochre_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_ochre_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_ochre_basecolor.png",
+            "bytes": 96239,
+            "sha256": "013de85f46cce4a2be4fcd9ec31329ccb438a871600e7010845e002a9f95d567"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_ochre_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_ochre_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_ochre_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_ochre_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_ochre_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_ochre_roughness.png",
+            "bytes": 63547,
+            "sha256": "1886e24394fd3248e2668da4ef9c3b0f4f69da76b8da7096d36505f0caec3b06"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_red_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_red_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_red_basecolor.png",
+            "bytes": 69641,
+            "sha256": "4933a28fd9bb03c086c391c0a8abf83bc19b63c82738a1668494da40c5fed248"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_red_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_red_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_red_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_red_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_red_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_red_roughness.png",
+            "bytes": 63313,
+            "sha256": "9104dab3969422f8676de0e19b1af817906bce598fa9d355ffe584c20504df75"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_teal_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_teal_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_teal_basecolor.png",
+            "bytes": 77681,
+            "sha256": "73d88ec5bbf7ec70ee9d7c469e03a8bb8af7d406bfc61edf2107e685c455a4cc"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_teal_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_teal_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_teal_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_teal_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_teal_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_teal_roughness.png",
+            "bytes": 63571,
+            "sha256": "a9021eae8a936bca386d9528a59f226465b1e9f46c36271c68534d23bdc9b271"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "painted_plaster_wall_diff_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/painted_plaster_wall_diff_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_diff_2k.jpg",
+        "source": "FILE",
+        "users": 30,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\painted_plaster_wall_diff_2k.jpg",
+            "bytes": 3132937,
+            "sha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "painted_plaster_wall_disp_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/painted_plaster_wall_disp_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_disp_2k.jpg",
+        "source": "FILE",
+        "users": 30,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\painted_plaster_wall_disp_2k.jpg",
+            "bytes": 1565195,
+            "sha256": "80859875e00fde2c883d37a4eb47728bece60f9eb7c8a907ce40b20d8faf5ed1"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "painted_plaster_wall_rough_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/painted_plaster_wall_rough_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_rough_2k.jpg",
+        "source": "FILE",
+        "users": 30,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\painted_plaster_wall_rough_2k.jpg",
+            "bytes": 1595466,
+            "sha256": "35aad595469533cc3b7cc209cc6c7e065d660211f02c867f4492d3b371b1fee1"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paper_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paper_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paper_basecolor.png",
+            "bytes": 140582,
+            "sha256": "e6a22794c24d077a7b38050347eb3d12fce6943f4d69badde793c398993c8d1c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paper_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paper_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paper_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paper_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paper_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paper_roughness.png",
+            "bytes": 63408,
+            "sha256": "414e17d6a59c7b6d58e74890e7f58cf499181004460ecdd5befb7bc57d3b954c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "plastered_wall_diff_2k.jpg [module.blend]",
+        "path": "//../production/assets/textures/cc0/plastered_wall_diff_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_diff_2k.jpg",
+        "source": "FILE",
+        "users": 12,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\plastered_wall_diff_2k.jpg",
+            "bytes": 2434531,
+            "sha256": "c9f3235d6b28b249dd3c7e6346483f1f6ae11e62b4a81d0397936ff756dfcb1f"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "plastered_wall_disp_2k.jpg [module.blend]",
+        "path": "//../production/assets/textures/cc0/plastered_wall_disp_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_disp_2k.jpg",
+        "source": "FILE",
+        "users": 12,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\plastered_wall_disp_2k.jpg",
+            "bytes": 2759435,
+            "sha256": "c4b5c1bad7a0842ad56b0b65e451872429fb19502a3a8719a6955a4fe26ec765"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "plastered_wall_rough_2k.jpg [module.blend]",
+        "path": "//../production/assets/textures/cc0/plastered_wall_rough_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_rough_2k.jpg",
+        "source": "FILE",
+        "users": 12,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\plastered_wall_rough_2k.jpg",
+            "bytes": 1475662,
+            "sha256": "be5c23b7d473bf1dea6d3a39b3e0537d5cf9eb990b4148566d20a35dc0902e54"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_basecolor.png",
+            "bytes": 121898,
+            "sha256": "5f51345c5a3bd013cf6702a09e4fa95dfac6f9b2d7c2e43ecb4e20c451fc0f73"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_dark_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_dark_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_dark_basecolor.png",
+            "bytes": 97742,
+            "sha256": "64033cf32529c1435bac9bbcbfeb1b6c9825b07b1e2eda0c129be551a5859177"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_dark_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_dark_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_dark_normal.png",
+            "bytes": 227254,
+            "sha256": "ba14a1c52eecd6161d355e33ffc515a31f541d341cd2744544004485a1efc9f5"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_dark_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_dark_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_dark_roughness.png",
+            "bytes": 63656,
+            "sha256": "1e7049b82261f20287fae5fd721d7a520104cc6ad3f30fe483e2767a47dd8aac"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_fresh_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_fresh_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_fresh_basecolor.png",
+            "bytes": 146669,
+            "sha256": "0461e463d6b9bf81ec72f2dd16cff883cdc86065ce344c9882c776ff8d3ce622"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_fresh_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_fresh_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_fresh_normal.png",
+            "bytes": 227254,
+            "sha256": "ba14a1c52eecd6161d355e33ffc515a31f541d341cd2744544004485a1efc9f5"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_fresh_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_fresh_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_fresh_roughness.png",
+            "bytes": 63289,
+            "sha256": "e9fe5028b6fdaf7345cd14779aad5459729ada5573eea469ad6c8533bc0d043a"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_normal.png",
+            "bytes": 227254,
+            "sha256": "ba14a1c52eecd6161d355e33ffc515a31f541d341cd2744544004485a1efc9f5"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_roughness.png",
+            "bytes": 63313,
+            "sha256": "094f07248a216f6460fe1bdaf2f1066d769c8ce90b8e448e064e3d7069ce39fe"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg [module.blend.002]",
+        "path": "//../../assets/pbr/rock_face_03/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/rock_face_03/roughness.jpg",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/rock_face_03/roughness.jpg",
+            "bytes": 2601552,
+            "sha256": "9ca3e9e196685f702328f24d66f039b72f5330fc35cf2a2c265cfa50a7916301"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.001 [module.blend.001]",
+        "path": "//../production/assets/textures/concrete/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/roughness.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\refinery-compact\\sections\\refinery\\assets\\textures\\concrete\\roughness.jpg",
+            "bytes": 2861968,
+            "sha256": "1014509505bf57d0c0c07a3f5b0f89e995727a6695b72e4c2d11ac77ea70df71"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.001 [module.blend.002]",
+        "path": "//../../assets/pbr/rock_surface/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/rock_surface/roughness.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/rock_surface/roughness.jpg",
+            "bytes": 2442707,
+            "sha256": "d64d3cda42beeea104d72d3b7b47f19968bd3deec021b17b80b65af015b9c4db"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.002 [module.blend.002]",
+        "path": "//../../assets/pbr/quarry_wall/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/quarry_wall/roughness.jpg",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/quarry_wall/roughness.jpg",
+            "bytes": 2016430,
+            "sha256": "a347097712c75d29af388be88fe3c5a29525ae3d449f051dbde3ad1f8d1c4e21"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.003 [module.blend.002]",
+        "path": "//../../assets/pbr/gravel_ground_01/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/roughness.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/gravel_ground_01/roughness.jpg",
+            "bytes": 1582667,
+            "sha256": "18d0214f0b5b916d2439a24eef32ac82574f3fc34d1bef02fc92abfbf3d69fce"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.004 [module.blend.002]",
+        "path": "//../../assets/pbr/Concrete046/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/roughness.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Concrete046/roughness.jpg",
+            "bytes": 2861968,
+            "sha256": "1014509505bf57d0c0c07a3f5b0f89e995727a6695b72e4c2d11ac77ea70df71"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.005 [module.blend.002]",
+        "path": "//../../assets/pbr/Metal046B/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/roughness.jpg",
+        "source": "FILE",
+        "users": 14,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Metal046B/roughness.jpg",
+            "bytes": 1770723,
+            "sha256": "82cf613070e28568613b8ed71093c04664015da4f925f13e91928c692edd958a"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rubber_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rubber_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rubber_basecolor.png",
+            "bytes": 25178,
+            "sha256": "ae3b7c659188fd4aebe2a74a034d1f692d6b63be4563d9565123ce238bd53323"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rubber_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rubber_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rubber_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rubber_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rubber_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rubber_roughness.png",
+            "bytes": 63571,
+            "sha256": "9a0f7604c0da448c9635ccd94c2d15f895947a0aa57570e9ac97e0f36ebb6f12"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "shift_card.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/shift_card.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/shift_card.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/shift_card.png",
+            "bytes": 119930,
+            "sha256": "3163dd39e9c16f5a306f4025fbda2386c229f5379a95c544b845f7ab7b6b4378"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "spawn_painted_mineral_01.png",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/blender/textures/spawn_painted_mineral_01.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/blender/textures/spawn_painted_mineral_01.png",
+        "source": "FILE",
+        "users": 4,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\textures\\spawn_painted_mineral_01.png",
+            "bytes": 1586307,
+            "sha256": "bb280aeacaa118e40c2650be56bded0d3a89331ef4f6a45ae3a6e7c6ee10132a"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "steel_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/steel_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/steel_basecolor.png",
+            "bytes": 76415,
+            "sha256": "a61f0e116f89313ff54da18ac3c4583cc25ebd5d77bbe883b01e72ffb57f81fa"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "steel_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/steel_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/steel_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "steel_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/steel_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/steel_roughness.png",
+            "bytes": 84532,
+            "sha256": "23f8357813a6034dabdd66789897ad604d7b86eb08c435c9c86caeafcb2e1a61"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "timber_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/timber_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/timber_basecolor.png",
+            "bytes": 216580,
+            "sha256": "c35dbfb0be9296c033129499f826abaaf22fc9a35cde1a3f93e8f8728a67ba29"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "timber_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/timber_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/timber_normal.png",
+            "bytes": 218271,
+            "sha256": "ab7d7377f8bda3be7fe425f1e16a058641513b7187263ac8d6927fdd42742929"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "timber_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/timber_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/timber_roughness.png",
+            "bytes": 63313,
+            "sha256": "094f07248a216f6460fe1bdaf2f1066d769c8ce90b8e448e064e3d7069ce39fe"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "wood_table_worn_diff_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/wood_table_worn_diff_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_diff_2k.jpg",
+        "source": "FILE",
+        "users": 7,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\wood_table_worn_diff_2k.jpg",
+            "bytes": 3108339,
+            "sha256": "165cdba449d56ea8e9675116622b95d7af372b7d7c47b8a98a03fcc630f1d51c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "wood_table_worn_disp_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/wood_table_worn_disp_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_disp_2k.jpg",
+        "source": "FILE",
+        "users": 7,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\wood_table_worn_disp_2k.jpg",
+            "bytes": 1925141,
+            "sha256": "6cd07277b91fcbe6567d72b1a86f581ae26765f810ffabe4a4d1451e22c3c901"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "wood_table_worn_rough_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/wood_table_worn_rough_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_rough_2k.jpg",
+        "source": "FILE",
+        "users": 7,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\wood_table_worn_rough_2k.jpg",
+            "bytes": 2890891,
+            "sha256": "4263780c4b7737b8714eefcbda1b43c28f8e1e0ee2b797c125521cbe6e3889dd"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "your-shift-their-tomorrow.png [module.blend.006]",
+        "path": "//../production/revisions/production/revisions/art/propaganda/your-shift-their-tomorrow.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/propaganda/your-shift-their-tomorrow.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\art\\propaganda\\your-shift-their-tomorrow.png",
+            "bytes": 713796,
+            "sha256": "014c66571f721ec669eb2a24c2148e4217b7138a439749c97c0d33b6b190fd63"
+          }
+        ],
+        "external_exists": false
+      }
+    ],
+    "all_paths": [
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/blender/textures/spawn_painted_mineral_01.png",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/blender/walkthrough_proxy_meshes.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/access/access-A08.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/map-finish/access-finish-A09.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/map-finish/network-finish-A10.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/map-finish/reactor-finish-A11.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/network/network-R03.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/rescue-courtyard/all-routes-greybox.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/rescue-courtyard/courtyard-R04.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-damp-albedo.png",
+      "/c/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-fresh-albedo.png",
+      "/c/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-painted-albedo.png",
+      "/c/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_rx_core.png",
+      "/c/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_trend.png",
+      "/home/runner/work/critical-shift/Windows/Fonts/arialbd.ttf",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/color.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/height.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/color.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/height.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/color.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/height.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/quarry_wall/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/rock_face_03/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/rock_surface/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_cart.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_door.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_magazine.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_portal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_pump.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_return.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_a.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_b.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_c.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/localized_scuff.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/shift_card.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/mine/exterior-R02.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T01-floor-albedo-r01.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T02-wall-albedo-r01.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T03-cloth-albedo-r01.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/portraits/commissioning_crew.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/portraits/human_contribution.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_diff_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_disp_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_rough_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_diff_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_disp_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_rough_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_diff_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_disp_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_rough_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_diff_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_disp_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_rough_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/condenser-bay/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/cooling-plant/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/electrical-room/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/fuel-corridor/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/medical-reanimation/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/mine/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_diff_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_disp_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_rough_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/color.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/height.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/materials/a04-painted-material-atlas.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/materials/a05-painted-material-atlas.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/propaganda/your-shift-their-tomorrow.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/control-dressing-03/assets/grok-terminal/textures/keycap_atlas.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/reactor-room/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/refinery/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/turbine-room/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/waste-storage/module.blend"
+    ]
+  },
+  {
+    "scene": "sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend",
+    "blender": "5.2.1 LTS",
+    "scene_sha256": "4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937",
+    "object_count": 55390,
+    "geometry_digest": "1e81950b8921239f9e62e301443e293d375f7097d4e82af297d3e9dfb5fa47a1",
+    "libraries": [
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend",
+        "missing": false,
+        "sha256": "a2a2a57c6531cd6a4bf6a6d5b92d07b81d1630a4b5ab553ff762771127bb2ccb"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend",
+        "missing": false,
+        "sha256": "48abbe1061e038749aab76e1fb1217a329abdd40592da7fba21d578842c75ade"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend",
+        "missing": false,
+        "sha256": "29241944814b0eb02bd87c627448c2a9a05bfb4832efb786294e1752c722a92e"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend",
+        "missing": false,
+        "sha256": "cf7ed65234a618ae957f4d5254dd0b008761da7a7d3e77cb85da095467b03551"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend",
+        "missing": false,
+        "sha256": "2ecbdb89cf46e6b8b745f7b54d24714e77731fbb5544470ea2102ccbb74f1b29"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+        "missing": false,
+        "sha256": "a123a72256b3f920e28bcdeaf942d3277bd2513fb14267c5686f9a7d9a8a9787"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/mine/exterior-R02.blend",
+        "missing": false,
+        "sha256": "7c7a0784e3bc6e19f1f5674830d37e946eae1bd030c3fb875176d319803b37d1"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend",
+        "missing": false,
+        "sha256": "19e2808ff7edfd0415be7f66322568d992a0e67bd02a9e4f7907dfb6ac7a6385"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+        "missing": false,
+        "sha256": "91dc6d076ef5b0a74f9b4931b253e14692081c1d9ec605dfa6ea0d0fd452710c"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+        "missing": false,
+        "sha256": "5c236b25f3fef0243c5d086f71eb33d006a77cedfe05bfd91848d1ff1a245b5a"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend",
+        "missing": false,
+        "sha256": "7483c0eebaacfb479a7a1c65e1da7430079c4332eb5dab836b5ad9259563e40d"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend",
+        "missing": false,
+        "sha256": "c3cacb97088899afbf8202e1d44da0ec3d79d39b1c71408cbb629e8cf4ad2db8"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend",
+        "missing": false,
+        "sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/condenser-bay/module.blend",
+        "missing": false,
+        "sha256": "7a58204e39fd0a4f7a3dde05632caa6f001a30611ad8d00b7fc29e1452a7a2d0"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/cooling-plant/module.blend",
+        "missing": false,
+        "sha256": "253d60c86c70a239637d39193c2a8a888ddcddb1246eef1450332d76a5b56bcb"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/electrical-room/module.blend",
+        "missing": false,
+        "sha256": "10b37b1ca5c5abee8a3f781205327edcc8fb1ff23e9d41632e3c5579b0f08476"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/fuel-corridor/module.blend",
+        "missing": false,
+        "sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/medical-reanimation/module.blend",
+        "missing": false,
+        "sha256": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/mine/module.blend",
+        "missing": false,
+        "sha256": "10f50d0593bf4924f945d90e0fd2a7c512efe66ff8e5306aeaae20dd81c26445"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/reactor-room/module.blend",
+        "missing": false,
+        "sha256": "27100e235b26b874a5206671bdb8934c3726a22bd3d7c75514606b2e8f686278"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/refinery/module.blend",
+        "missing": false,
+        "sha256": "de064242c534a12e69e7aac3c46c7118a285024626fdd423bb20eef339079ff8"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend",
+        "missing": false,
+        "sha256": "b1d26fb9ed706a9d21fa354bcb8cfe982f2977dfaa0146421d590fa3571e68c2"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/turbine-room/module.blend",
+        "missing": false,
+        "sha256": "841646bdecd9699c26ff463afcb7eee231d17b64f9e7cc379c3a05137ecd6110"
+      },
+      {
+        "path": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/waste-storage/module.blend",
+        "missing": false,
+        "sha256": "8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d4449caecedf"
+      }
+    ],
+    "images": [
+      {
+        "name": "A04 original painted material atlas [module.blend.006]",
+        "path": "//../production/revisions/production/revisions/art/materials/a04-painted-material-atlas.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/materials/a04-painted-material-atlas.png",
+        "source": "FILE",
+        "users": 84,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\art\\materials\\a04-painted-material-atlas.png",
+            "bytes": 2078976,
+            "sha256": "c8bb969bc888e628a13401bcfa11b3e4e75163694373cc9058dba1556589bed2"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "A05 main-hall painted material atlas [module.blend.006]",
+        "path": "//../production/revisions/production/revisions/art/materials/a05-painted-material-atlas.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/materials/a05-painted-material-atlas.png",
+        "source": "FILE",
+        "users": 81,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\art\\materials\\a05-painted-material-atlas.png",
+            "bytes": 1952657,
+            "sha256": "dccf3b4d20c6b646e24c77f1b042719f1fd2a971fcc29e92ef9204589cca8d9e"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "Gullet Damp Slate Albedo [module.blend.002]",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-damp-albedo.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-damp-albedo.png",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\mine\\assets\\valorant\\slate-damp-albedo.png",
+            "bytes": 2490132,
+            "sha256": "a23cdcf1e6f2741669754dc68d8807df0917feee0caff3165ac71945d2cd0cf4"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "Gullet Fresh Slate Albedo [module.blend.002]",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-fresh-albedo.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-fresh-albedo.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\mine\\assets\\valorant\\slate-fresh-albedo.png",
+            "bytes": 2447170,
+            "sha256": "fc2924b9d42b2020cb051404dc0c31953cc5521cf9d2214a0070453c6dfc7c96"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "Gullet Slate Painted Albedo [module.blend.002]",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-painted-albedo.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-painted-albedo.png",
+        "source": "FILE",
+        "users": 11,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\mine\\assets\\valorant\\slate-painted-albedo.png",
+            "bytes": 2423274,
+            "sha256": "702f923c85c94833fa085555d9fec289fbadb5931d443140bf2f1247795807fe"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "PAINTED floor use map \u2014 original Art09 [module.blend.006]",
+        "path": "",
+        "absolute": "",
+        "source": "FILE",
+        "users": 4,
+        "packed": [
+          {
+            "path": "",
+            "bytes": 247387,
+            "sha256": "c1728b517851cb3309ae523fce14c16bd4865393eaaf98a470575c5110eaa35c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "T01-floor-albedo-r01.png [module.blend.003]",
+        "path": "//../art/materials/T01-floor-albedo-r01.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T01-floor-albedo-r01.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\.worktrees\\fuel-corridor-final\\sections\\fuel-corridor\\production\\checkpoints\\final-F10\\art\\materials\\T01-floor-albedo-r01.png",
+            "bytes": 2238716,
+            "sha256": "095335ff28ecc34ed2540bfe4f61f8d4b018bf88df60e052b558935231cdbdac"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "T02-wall-albedo-r01.png [module.blend.003]",
+        "path": "//../art/materials/T02-wall-albedo-r01.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T02-wall-albedo-r01.png",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\.worktrees\\fuel-corridor-final\\sections\\fuel-corridor\\production\\checkpoints\\final-F10\\art\\materials\\T02-wall-albedo-r01.png",
+            "bytes": 1913168,
+            "sha256": "21339d8db4ee59de01d555abebbb4c77515a19756e192b2f1dfb2e0666c5b817"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "T03-cloth-albedo-r01.png [module.blend.003]",
+        "path": "//../art/materials/T03-cloth-albedo-r01.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T03-cloth-albedo-r01.png",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\.codex\\worktrees\\ef37\\critical-shift\\.worktrees\\fuel-corridor-final\\sections\\fuel-corridor\\production\\checkpoints\\final-F10\\art\\materials\\T03-cloth-albedo-r01.png",
+            "bytes": 3252245,
+            "sha256": "436086a28112711372d9b4f36a854dcea0565dfd47d63f7242553211c4dbd1e9"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "color.jpg.001 [module.blend.001]",
+        "path": "//../production/assets/textures/concrete/color.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/color.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\refinery-compact\\sections\\refinery\\assets\\textures\\concrete\\color.jpg",
+            "bytes": 4547901,
+            "sha256": "49111877b98409fbc6c39be7e1c42ceda95311d5ed68807f78e48f8346d75d91"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "color.jpg.003 [module.blend.002]",
+        "path": "//../../assets/pbr/gravel_ground_01/color.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/color.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/gravel_ground_01/color.jpg",
+            "bytes": 3823037,
+            "sha256": "b626c16301208b67eba976ad71860d98fd6fe82ae1c87d9d27692e70c1089cd2"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "color.jpg.004 [module.blend.002]",
+        "path": "//../../assets/pbr/Concrete046/color.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/color.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Concrete046/color.jpg",
+            "bytes": 4547901,
+            "sha256": "49111877b98409fbc6c39be7e1c42ceda95311d5ed68807f78e48f8346d75d91"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "color.jpg.005 [module.blend.002]",
+        "path": "//../../assets/pbr/Metal046B/color.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/color.jpg",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Metal046B/color.jpg",
+            "bytes": 2737143,
+            "sha256": "8263145285430210a6867010abeb09402aad5b9195366e18817a07ab5badc6fe"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "commissioning_crew.png [module.blend]",
+        "path": "//../assets/portraits/commissioning_crew.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/portraits/commissioning_crew.png",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\portraits\\commissioning_crew.png",
+            "bytes": 2574788,
+            "sha256": "572ba67c04e85849f8ddddf0f43ef51c36c3247f8bcca41d0d316a901d460805"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/concrete_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/concrete_basecolor.png",
+            "bytes": 113468,
+            "sha256": "edb04d2c2cd1a9743ea9705de2e4f8273122a45d60515a0f61ca41960393c3e8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_floor_worn_001_diff_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/concrete_floor_worn_001_diff_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_diff_2k.jpg",
+        "source": "FILE",
+        "users": 5,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\concrete_floor_worn_001_diff_2k.jpg",
+            "bytes": 482906,
+            "sha256": "e29b45cdcd6d02fae3c087c456196ffa750779a9b62e7071aa3831dc322a0cc4"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_floor_worn_001_disp_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/concrete_floor_worn_001_disp_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_disp_2k.jpg",
+        "source": "FILE",
+        "users": 5,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\concrete_floor_worn_001_disp_2k.jpg",
+            "bytes": 666150,
+            "sha256": "793a833047c28b17344ca7543c32de39fb5d86d17e33ab380cf8639040d3a637"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_floor_worn_001_rough_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/concrete_floor_worn_001_rough_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_rough_2k.jpg",
+        "source": "FILE",
+        "users": 5,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\concrete_floor_worn_001_rough_2k.jpg",
+            "bytes": 735249,
+            "sha256": "b904992f0d75da2c41edf832bbb838622cca076f48f7913065a152c3b640690e"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/concrete_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/concrete_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "concrete_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/concrete_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/concrete_roughness.png",
+            "bytes": 63547,
+            "sha256": "2645d6aee0f600809800ac3dbfbec1f1ba61f2dd81058e283262682211e54d35"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "crt_rx_core.png [module.blend.006]",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_rx_core.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_rx_core.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\blender\\assets\\grok-terminal\\textures\\crt_rx_core.png",
+            "bytes": 165308,
+            "sha256": "9e0f17470b268c0dd22bc4259c50538bd61fb3ef13654dcf5a3844b56366e706"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "crt_trend.png [module.blend.006]",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_trend.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_trend.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\blender\\assets\\grok-terminal\\textures\\crt_trend.png",
+            "bytes": 131430,
+            "sha256": "b232d27a31629702ec6cc8225bb14d859135973ea7897d98db1afab0285b4b91"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "dark_steel_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/dark_steel_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/dark_steel_basecolor.png",
+            "bytes": 48766,
+            "sha256": "6dd6442ebbefec462b156b6fddc529fd4638de7fdefef58cac13dda681d165e1"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "dark_steel_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/dark_steel_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/dark_steel_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "dark_steel_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/dark_steel_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/dark_steel_roughness.png",
+            "bytes": 84767,
+            "sha256": "3679ff47db06741f4539f2e40bf6330933ab31539151022087de0ea2979ec489"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "fabric_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/fabric_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/fabric_basecolor.png",
+            "bytes": 90145,
+            "sha256": "3f24dfe2c9ab0a53de6ce00dc6cc057633f6ee9afbf1f15c3f33965488533164"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "fabric_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/fabric_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/fabric_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "fabric_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/fabric_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/fabric_roughness.png",
+            "bytes": 63362,
+            "sha256": "207eacdf4c381745b50874cfc6a73b6caf9e5816450c07b65a65fe69abaa2777"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ground_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ground_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ground_basecolor.png",
+            "bytes": 66898,
+            "sha256": "c618672b8403bea7589c7228ce9ff6118f82137fed43e6576f472426d6fb4729"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ground_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ground_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ground_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ground_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ground_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ground_roughness.png",
+            "bytes": 63509,
+            "sha256": "52c62a9fa030dc305a6d7df9b5974fb239d525a4c2f7cf43ce871900b9d56675"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "height.jpg.001 [module.blend.001]",
+        "path": "//../production/assets/textures/concrete/height.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/height.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\refinery-compact\\sections\\refinery\\assets\\textures\\concrete\\height.jpg",
+            "bytes": 2920966,
+            "sha256": "9c69622e1b5b9e47dcc05d64be126c2d43b32d5cde6c95e8d173728af671d99c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "height.jpg.003 [module.blend.002]",
+        "path": "//../../assets/pbr/gravel_ground_01/height.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/height.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/gravel_ground_01/height.jpg",
+            "bytes": 980768,
+            "sha256": "f8d2b099b9212b649e88fe17d1cad042e70409d28c6ae05ef174a6ac772c7016"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "height.jpg.004 [module.blend.002]",
+        "path": "//../../assets/pbr/Concrete046/height.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/height.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Concrete046/height.jpg",
+            "bytes": 2920966,
+            "sha256": "9c69622e1b5b9e47dcc05d64be126c2d43b32d5cde6c95e8d173728af671d99c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "height.jpg.005 [module.blend.002]",
+        "path": "//../../assets/pbr/Metal046B/height.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/height.jpg",
+        "source": "FILE",
+        "users": 14,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Metal046B/height.jpg",
+            "bytes": 2283113,
+            "sha256": "4f3ec47de077cc98f6d73b46c9d73d68f6cd5093f4b854626d21d877017f1e93"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "human_contribution.png [module.blend]",
+        "path": "//../assets/portraits/human_contribution.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/portraits/human_contribution.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\portraits\\human_contribution.png",
+            "bytes": 2890430,
+            "sha256": "28ad4377ba81918f7b25ac4fdccf93e4428d70ed0f74cb748519489c664d0b5b"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "keycap_atlas.png [module.blend.006]",
+        "path": "//../production/revisions/production/revisions/control-dressing-03/assets/grok-terminal/textures/keycap_atlas.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/control-dressing-03/assets/grok-terminal/textures/keycap_atlas.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\blender\\assets\\grok-terminal\\textures\\keycap_atlas.png",
+            "bytes": 46993,
+            "sha256": "a7c99061a899f30b7e072c152c671e5d83321ffdf8043fc5ee86f21550772c7b"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_cart.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_cart.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_cart.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_cart.png",
+            "bytes": 10166,
+            "sha256": "bed7e44be44a01c47980f77e5c82b4a90764e52d07d13a977ed5f3d603ce5990"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_door.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_door.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_door.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_door.png",
+            "bytes": 9250,
+            "sha256": "d87588a5fdf2e6310b56c2df41ff1d1deb78c2c1b34a0eb0c63ac5e93dc6ca71"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_magazine.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_magazine.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_magazine.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_magazine.png",
+            "bytes": 9147,
+            "sha256": "7bc22afb60fc3e0a09acad31d9af82f8a0c3aa443ffb1f895fa9402b02207f1c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_portal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_portal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_portal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_portal.png",
+            "bytes": 6606,
+            "sha256": "a589b55ce071bc603c374dc3b2d2159b9953a8d3e9ad2f4f52d041356f983047"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_pump.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_pump.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_pump.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_pump.png",
+            "bytes": 10530,
+            "sha256": "619e0ccc1fdaec2275a99adf0ae6e92b43f93136c142bef4454f2f1c6a6794d1"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_return.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_return.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_return.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_return.png",
+            "bytes": 8352,
+            "sha256": "5ad662f2a246a67e883b53e5ade5d822d82cb95759465b0fc8b5efb885efae93"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_sector_a.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_sector_a.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_a.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_sector_a.png",
+            "bytes": 9615,
+            "sha256": "60e2bf8505b8e990640d63b7d6687533014de7f7d42dce90d736f28527c9adba"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_sector_b.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_sector_b.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_b.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_sector_b.png",
+            "bytes": 9333,
+            "sha256": "29b030b5b354f1b13e87bad7a026c411efff68865858398b9049e7604bf24878"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "label_sector_c.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/label_sector_c.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_c.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/label_sector_c.png",
+            "bytes": 6728,
+            "sha256": "dfb817359144832be435ba11608e1f7742632c9b41981f2b20b1176bf0d75a24"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "localized_scuff.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/localized_scuff.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/localized_scuff.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/localized_scuff.png",
+            "bytes": 43640,
+            "sha256": "639d4d119d85f102264a174d537973483feba31d6f94d68fa4aea54456004dac"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "metal_plate_diff_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/metal_plate_diff_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_diff_2k.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\metal_plate_diff_2k.jpg",
+            "bytes": 2670774,
+            "sha256": "864c9a653acd1f5034c9bbe7f955b18cc9687a81bbdfa805e7a2319939676910"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "metal_plate_disp_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/metal_plate_disp_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_disp_2k.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\metal_plate_disp_2k.jpg",
+            "bytes": 1067841,
+            "sha256": "c4ba1bc602d25bdd4725d856bbe5713373fa08456543d4d0168d9ff4e37c5f52"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "metal_plate_rough_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/metal_plate_rough_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_rough_2k.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\metal_plate_rough_2k.jpg",
+            "bytes": 3045988,
+            "sha256": "3cdc139df4ec5b304dd986278c1fb026c67c42e6623f0ee5caa7f373d51c7bef"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ore_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ore_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ore_basecolor.png",
+            "bytes": 58736,
+            "sha256": "d6404d6bceddaa0c398591d0b135758ee677d4aa8012873225cd306fc32a9b84"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ore_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ore_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ore_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "ore_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/ore_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/ore_roughness.png",
+            "bytes": 63509,
+            "sha256": "39be8b8f6ec70596bb123caf2329b026e55f7f2137228c09a19008a8594abbf4"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_cream_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_cream_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_cream_basecolor.png",
+            "bytes": 133586,
+            "sha256": "b770adbd8d877e5c0738d6c1ca24f9d155065db9b9318f1d1129d6b23f7d4ecd"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_cream_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_cream_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_cream_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_cream_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_cream_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_cream_roughness.png",
+            "bytes": 63547,
+            "sha256": "1886e24394fd3248e2668da4ef9c3b0f4f69da76b8da7096d36505f0caec3b06"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_ochre_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_ochre_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_ochre_basecolor.png",
+            "bytes": 96239,
+            "sha256": "013de85f46cce4a2be4fcd9ec31329ccb438a871600e7010845e002a9f95d567"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_ochre_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_ochre_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_ochre_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_ochre_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_ochre_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_ochre_roughness.png",
+            "bytes": 63547,
+            "sha256": "1886e24394fd3248e2668da4ef9c3b0f4f69da76b8da7096d36505f0caec3b06"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_red_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_red_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_red_basecolor.png",
+            "bytes": 69641,
+            "sha256": "4933a28fd9bb03c086c391c0a8abf83bc19b63c82738a1668494da40c5fed248"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_red_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_red_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_red_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_red_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_red_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_red_roughness.png",
+            "bytes": 63313,
+            "sha256": "9104dab3969422f8676de0e19b1af817906bce598fa9d355ffe584c20504df75"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_teal_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_teal_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_teal_basecolor.png",
+            "bytes": 77681,
+            "sha256": "73d88ec5bbf7ec70ee9d7c469e03a8bb8af7d406bfc61edf2107e685c455a4cc"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_teal_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_teal_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_teal_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paint_teal_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paint_teal_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paint_teal_roughness.png",
+            "bytes": 63571,
+            "sha256": "a9021eae8a936bca386d9528a59f226465b1e9f46c36271c68534d23bdc9b271"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "painted_plaster_wall_diff_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/painted_plaster_wall_diff_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_diff_2k.jpg",
+        "source": "FILE",
+        "users": 30,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\painted_plaster_wall_diff_2k.jpg",
+            "bytes": 3132937,
+            "sha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "painted_plaster_wall_disp_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/painted_plaster_wall_disp_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_disp_2k.jpg",
+        "source": "FILE",
+        "users": 30,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\painted_plaster_wall_disp_2k.jpg",
+            "bytes": 1565195,
+            "sha256": "80859875e00fde2c883d37a4eb47728bece60f9eb7c8a907ce40b20d8faf5ed1"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "painted_plaster_wall_rough_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/painted_plaster_wall_rough_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_rough_2k.jpg",
+        "source": "FILE",
+        "users": 30,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\painted_plaster_wall_rough_2k.jpg",
+            "bytes": 1595466,
+            "sha256": "35aad595469533cc3b7cc209cc6c7e065d660211f02c867f4492d3b371b1fee1"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paper_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paper_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paper_basecolor.png",
+            "bytes": 140582,
+            "sha256": "e6a22794c24d077a7b38050347eb3d12fce6943f4d69badde793c398993c8d1c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paper_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paper_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paper_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "paper_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/paper_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/paper_roughness.png",
+            "bytes": 63408,
+            "sha256": "414e17d6a59c7b6d58e74890e7f58cf499181004460ecdd5befb7bc57d3b954c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "plastered_wall_diff_2k.jpg [module.blend]",
+        "path": "//../production/assets/textures/cc0/plastered_wall_diff_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_diff_2k.jpg",
+        "source": "FILE",
+        "users": 12,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\plastered_wall_diff_2k.jpg",
+            "bytes": 2434531,
+            "sha256": "c9f3235d6b28b249dd3c7e6346483f1f6ae11e62b4a81d0397936ff756dfcb1f"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "plastered_wall_disp_2k.jpg [module.blend]",
+        "path": "//../production/assets/textures/cc0/plastered_wall_disp_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_disp_2k.jpg",
+        "source": "FILE",
+        "users": 12,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\plastered_wall_disp_2k.jpg",
+            "bytes": 2759435,
+            "sha256": "c4b5c1bad7a0842ad56b0b65e451872429fb19502a3a8719a6955a4fe26ec765"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "plastered_wall_rough_2k.jpg [module.blend]",
+        "path": "//../production/assets/textures/cc0/plastered_wall_rough_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_rough_2k.jpg",
+        "source": "FILE",
+        "users": 12,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\plastered_wall_rough_2k.jpg",
+            "bytes": 1475662,
+            "sha256": "be5c23b7d473bf1dea6d3a39b3e0537d5cf9eb990b4148566d20a35dc0902e54"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_basecolor.png",
+            "bytes": 121898,
+            "sha256": "5f51345c5a3bd013cf6702a09e4fa95dfac6f9b2d7c2e43ecb4e20c451fc0f73"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_dark_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_dark_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_dark_basecolor.png",
+            "bytes": 97742,
+            "sha256": "64033cf32529c1435bac9bbcbfeb1b6c9825b07b1e2eda0c129be551a5859177"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_dark_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_dark_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_dark_normal.png",
+            "bytes": 227254,
+            "sha256": "ba14a1c52eecd6161d355e33ffc515a31f541d341cd2744544004485a1efc9f5"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_dark_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_dark_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_dark_roughness.png",
+            "bytes": 63656,
+            "sha256": "1e7049b82261f20287fae5fd721d7a520104cc6ad3f30fe483e2767a47dd8aac"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_fresh_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_fresh_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_fresh_basecolor.png",
+            "bytes": 146669,
+            "sha256": "0461e463d6b9bf81ec72f2dd16cff883cdc86065ce344c9882c776ff8d3ce622"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_fresh_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_fresh_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_fresh_normal.png",
+            "bytes": 227254,
+            "sha256": "ba14a1c52eecd6161d355e33ffc515a31f541d341cd2744544004485a1efc9f5"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_fresh_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_fresh_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_fresh_roughness.png",
+            "bytes": 63289,
+            "sha256": "e9fe5028b6fdaf7345cd14779aad5459729ada5573eea469ad6c8533bc0d043a"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_normal.png",
+            "bytes": 227254,
+            "sha256": "ba14a1c52eecd6161d355e33ffc515a31f541d341cd2744544004485a1efc9f5"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rock_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rock_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rock_roughness.png",
+            "bytes": 63313,
+            "sha256": "094f07248a216f6460fe1bdaf2f1066d769c8ce90b8e448e064e3d7069ce39fe"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg [module.blend.002]",
+        "path": "//../../assets/pbr/rock_face_03/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/rock_face_03/roughness.jpg",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/rock_face_03/roughness.jpg",
+            "bytes": 2601552,
+            "sha256": "9ca3e9e196685f702328f24d66f039b72f5330fc35cf2a2c265cfa50a7916301"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.001 [module.blend.001]",
+        "path": "//../production/assets/textures/concrete/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/roughness.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\refinery-compact\\sections\\refinery\\assets\\textures\\concrete\\roughness.jpg",
+            "bytes": 2861968,
+            "sha256": "1014509505bf57d0c0c07a3f5b0f89e995727a6695b72e4c2d11ac77ea70df71"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.001 [module.blend.002]",
+        "path": "//../../assets/pbr/rock_surface/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/rock_surface/roughness.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/rock_surface/roughness.jpg",
+            "bytes": 2442707,
+            "sha256": "d64d3cda42beeea104d72d3b7b47f19968bd3deec021b17b80b65af015b9c4db"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.002 [module.blend.002]",
+        "path": "//../../assets/pbr/quarry_wall/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/quarry_wall/roughness.jpg",
+        "source": "FILE",
+        "users": 2,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/quarry_wall/roughness.jpg",
+            "bytes": 2016430,
+            "sha256": "a347097712c75d29af388be88fe3c5a29525ae3d449f051dbde3ad1f8d1c4e21"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.003 [module.blend.002]",
+        "path": "//../../assets/pbr/gravel_ground_01/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/roughness.jpg",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/gravel_ground_01/roughness.jpg",
+            "bytes": 1582667,
+            "sha256": "18d0214f0b5b916d2439a24eef32ac82574f3fc34d1bef02fc92abfbf3d69fce"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.004 [module.blend.002]",
+        "path": "//../../assets/pbr/Concrete046/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/roughness.jpg",
+        "source": "FILE",
+        "users": 3,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Concrete046/roughness.jpg",
+            "bytes": 2861968,
+            "sha256": "1014509505bf57d0c0c07a3f5b0f89e995727a6695b72e4c2d11ac77ea70df71"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "roughness.jpg.005 [module.blend.002]",
+        "path": "//../../assets/pbr/Metal046B/roughness.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/roughness.jpg",
+        "source": "FILE",
+        "users": 14,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/assets/pbr/Metal046B/roughness.jpg",
+            "bytes": 1770723,
+            "sha256": "82cf613070e28568613b8ed71093c04664015da4f925f13e91928c692edd958a"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rubber_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rubber_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rubber_basecolor.png",
+            "bytes": 25178,
+            "sha256": "ae3b7c659188fd4aebe2a74a034d1f692d6b63be4563d9565123ce238bd53323"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rubber_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rubber_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rubber_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "rubber_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/rubber_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/rubber_roughness.png",
+            "bytes": 63571,
+            "sha256": "9a0f7604c0da448c9635ccd94c2d15f895947a0aa57570e9ac97e0f36ebb6f12"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "shift_card.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/shift_card.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/shift_card.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/shift_card.png",
+            "bytes": 119930,
+            "sha256": "3163dd39e9c16f5a306f4025fbda2386c229f5379a95c544b845f7ab7b6b4378"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "spawn_painted_mineral_01.png",
+        "path": "C:/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/blender/textures/spawn_painted_mineral_01.png",
+        "absolute": "C:/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/blender/textures/spawn_painted_mineral_01.png",
+        "source": "FILE",
+        "users": 4,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\facility-assembly-astra\\sections\\facility-assembly\\blender\\textures\\spawn_painted_mineral_01.png",
+            "bytes": 1586307,
+            "sha256": "bb280aeacaa118e40c2650be56bded0d3a89331ef4f6a45ae3a6e7c6ee10132a"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "steel_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/steel_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/steel_basecolor.png",
+            "bytes": 76415,
+            "sha256": "a61f0e116f89313ff54da18ac3c4583cc25ebd5d77bbe883b01e72ffb57f81fa"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "steel_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/steel_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/steel_normal.png",
+            "bytes": 106435,
+            "sha256": "1c567fdc277093d1c13738d84cf2b0110cf710ec367517dc3cb3fbcc354df7f8"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "steel_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/steel_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/steel_roughness.png",
+            "bytes": 84532,
+            "sha256": "23f8357813a6034dabdd66789897ad604d7b86eb08c435c9c86caeafcb2e1a61"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "timber_basecolor.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/timber_basecolor.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_basecolor.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/timber_basecolor.png",
+            "bytes": 216580,
+            "sha256": "c35dbfb0be9296c033129499f826abaaf22fc9a35cde1a3f93e8f8728a67ba29"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "timber_normal.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/timber_normal.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_normal.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/timber_normal.png",
+            "bytes": 218271,
+            "sha256": "ab7d7377f8bda3be7fe425f1e16a058641513b7187263ac8d6927fdd42742929"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "timber_roughness.png [module.blend.002]",
+        "path": "//../../blender/gullet/textures/timber_roughness.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_roughness.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "/home/runner/work/critical-shift/critical-shift/sections/mine/blender/gullet/textures/timber_roughness.png",
+            "bytes": 63313,
+            "sha256": "094f07248a216f6460fe1bdaf2f1066d769c8ce90b8e448e064e3d7069ce39fe"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "wood_table_worn_diff_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/wood_table_worn_diff_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_diff_2k.jpg",
+        "source": "FILE",
+        "users": 7,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\wood_table_worn_diff_2k.jpg",
+            "bytes": 3108339,
+            "sha256": "165cdba449d56ea8e9675116622b95d7af372b7d7c47b8a98a03fcc630f1d51c"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "wood_table_worn_disp_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/wood_table_worn_disp_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_disp_2k.jpg",
+        "source": "FILE",
+        "users": 7,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\wood_table_worn_disp_2k.jpg",
+            "bytes": 1925141,
+            "sha256": "6cd07277b91fcbe6567d72b1a86f581ae26765f810ffabe4a4d1451e22c3c901"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "wood_table_worn_rough_2k.jpg [module.blend]",
+        "path": "//../assets/textures/cc0/wood_table_worn_rough_2k.jpg",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_rough_2k.jpg",
+        "source": "FILE",
+        "users": 7,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\spawn-reference-rebuild\\sections\\spawn-room\\assets\\textures\\cc0\\wood_table_worn_rough_2k.jpg",
+            "bytes": 2890891,
+            "sha256": "4263780c4b7737b8714eefcbda1b43c28f8e1e0ee2b797c125521cbe6e3889dd"
+          }
+        ],
+        "external_exists": false
+      },
+      {
+        "name": "your-shift-their-tomorrow.png [module.blend.006]",
+        "path": "//../production/revisions/production/revisions/art/propaganda/your-shift-their-tomorrow.png",
+        "absolute": "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/propaganda/your-shift-their-tomorrow.png",
+        "source": "FILE",
+        "users": 1,
+        "packed": [
+          {
+            "path": "C:\\Users\\Camer\\Games\\critical-shift\\worktrees\\reactor-valorant\\sections\\reactor-room\\art\\propaganda\\your-shift-their-tomorrow.png",
+            "bytes": 713796,
+            "sha256": "014c66571f721ec669eb2a24c2148e4217b7138a439749c97c0d33b6b190fd63"
+          }
+        ],
+        "external_exists": false
+      }
+    ],
+    "all_paths": [
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/blender/textures/spawn_painted_mineral_01.png",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/blender/walkthrough_proxy_meshes.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/access/access-A08.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/map-finish/access-finish-A09.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/map-finish/network-finish-A10.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/map-finish/reactor-finish-A11.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/network/network-R03.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/rescue-courtyard/all-routes-greybox.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/connections/rescue-courtyard/courtyard-R04.blend",
+      "/c/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-damp-albedo.png",
+      "/c/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-fresh-albedo.png",
+      "/c/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-painted-albedo.png",
+      "/c/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_rx_core.png",
+      "/c/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_trend.png",
+      "/home/runner/work/critical-shift/Windows/Fonts/arialbd.ttf",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/color.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/height.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/color.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/height.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/color.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/height.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/quarry_wall/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/rock_face_03/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/assets/pbr/rock_surface/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/concrete_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/dark_steel_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/fabric_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ground_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_cart.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_door.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_magazine.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_portal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_pump.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_return.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_a.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_b.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_c.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/localized_scuff.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/ore_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_cream_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_ochre_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_red_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paint_teal_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_dark_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_fresh_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rock_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/rubber_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/shift_card.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/steel_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_basecolor.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_normal.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_roughness.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/mine/exterior-R02.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T01-floor-albedo-r01.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T02-wall-albedo-r01.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/art/materials/T03-cloth-albedo-r01.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/portraits/commissioning_crew.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/portraits/human_contribution.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_diff_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_disp_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/concrete_floor_worn_001_rough_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_diff_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_disp_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/metal_plate_rough_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_diff_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_disp_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/painted_plaster_wall_rough_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_diff_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_disp_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/assets/textures/cc0/wood_table_worn_rough_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/condenser-bay/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/cooling-plant/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/electrical-room/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/fuel-corridor/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/medical-reanimation/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/mine/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_diff_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_disp_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/cc0/plastered_wall_rough_2k.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/color.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/height.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/roughness.jpg",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/materials/a04-painted-material-atlas.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/materials/a05-painted-material-atlas.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/propaganda/your-shift-their-tomorrow.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/control-dressing-03/assets/grok-terminal/textures/keycap_atlas.png",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/reactor-room/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/refinery/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/turbine-room/module.blend",
+      "/home/runner/work/critical-shift/critical-shift/sections/facility-assembly/sources/waste-storage/module.blend"
+    ]
+  }
+]
