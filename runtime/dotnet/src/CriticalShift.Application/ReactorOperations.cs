@@ -130,6 +130,19 @@ namespace CriticalShift.Application
             if (_core == null) return Array.Empty<ReactorChange>();
             var step = _core.AdvanceTo(shiftMilliseconds);
             if (ReferenceEquals(step.State, _core)) return Array.Empty<ReactorChange>();
+            // Sampling an idle core advances its private clock, not the public command revision.
+            // Compare projected state, not event count: sub-quantum work and cooldown are visible
+            // changes even when no generated-power, warning or stop event is emitted.
+            bool projectionChanged = step.State.Mode != _core.Mode || step.State.Cooling != _core.Cooling ||
+                step.State.SuspectFuel != _core.SuspectFuel || step.State.WorkMilliseconds != _core.WorkMilliseconds ||
+                step.State.RemainingFuelMilliseconds != _core.RemainingFuelMilliseconds ||
+                step.State.InstabilityMilliseconds != _core.InstabilityMilliseconds || step.Quanta != 0 ||
+                step.WarningAt.HasValue || step.StoppedAt.HasValue;
+            if (!projectionChanged)
+            {
+                _core = step.State;
+                return Array.Empty<ReactorChange>();
+            }
             long reserve = checked(step.Quanta * _definition!.Rules.ReservePerQuantum);
             long grid = checked(step.Quanta * _definition.Rules.GridPerQuantum);
             var power = _power!.Credit(reserve, grid);

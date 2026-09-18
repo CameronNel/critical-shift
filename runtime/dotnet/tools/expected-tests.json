@@ -59,10 +59,10 @@
   "TimerBatchHasStableClockDeadlineAndSequenceOrder": 1,
   "TimerDoesNotEmitTwice": 1,
   "CancellationReusesCapacityNotIdentity": 1,
+  "TimerOverflowIsNonMutating": 1,
   "OwnerCancellationIsScoped": 1,
   "TimerCancellationRejectsOtherEpoch": 1,
   "TimerCapacityRejectsWithoutEvicting": 1,
-  "TimerOverflowIsNonMutating": 1,
   "TimerInvalidRequestIsNonMutating": 1,
   "TimerBackwardsEitherClockIsAtomic": 2,
   "TimerStopIsTerminalAndClears": 1,
@@ -237,5 +237,9 @@
   "CoreSafeMatchesIndependentClockModel": 100,
   "CoreTripTimingIndependentOfClockPartition": 2,
   "DeadlineCountsOnlyEnergyUpToCutoff": 3,
-  "FuelValidationPreservesCustody": 3
+  "FuelValidationPreservesCustody": 3,
+  "IdleSamplesPreserveReactorRevisionAndPendingCommand": 5,
+  "IdleSamplesStillAdvanceTheInternalClockBeforeStarting": 2,
+  "ObservableTickChangesStillInvalidateStaleCommands": 5,
+  "RepeatedSameClockSampleNeverChangesReactorRevision": 1
 }
