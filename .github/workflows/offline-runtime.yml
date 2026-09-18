@@ -44,6 +44,39 @@ jobs:
       - name: Offline gameplay verification
         working-directory: runtime/dotnet
         run: python tools/verify.py
+      - name: Package the verified first-party scenario executable
+        shell: bash
+        run: |
+          python - <<'PY_PACKAGE'
+          from pathlib import Path
+          import hashlib, json, zipfile
+          root = Path('runtime/dotnet')
+          summary = json.loads((root/'artifacts/summary.json').read_text())
+          assert summary['status'] == 'Passed'
+          for name, digest in summary['source_sha256'].items():
+              assert hashlib.sha256((root/name).read_bytes()).hexdigest() == digest, name
+          names = ['CriticalShift.Application', 'CriticalShift.Scenarios'] + [
+              'CriticalShift.Features.' + feature + '.Domain'
+              for feature in ['Interaction', 'Session', 'Workers', 'Materials', 'Production', 'Reactor', 'Power']]
+          folder = root/'tools/CriticalShift.Scenarios/bin/Release/net8.0'
+          assert {p.stem for p in folder.glob('*.dll')} == set(names)
+          files = [folder/(name+'.dll') for name in names] + [
+              folder/'CriticalShift.Scenarios.runtimeconfig.json', folder/'CriticalShift.Scenarios.deps.json']
+          files += sorted((root/'scenarios').glob('*.json'))
+          contents = {(('scenarios/' if p.suffix == '.json' and p.parent.name == 'scenarios' else '') + p.name): p.read_bytes() for p in files}
+          note = ('CRITICAL SHIFT: OFFLINE SCENARIO RUNNER\n'
+                  'Requires the .NET 8 runtime. This is NOT a Unity Player or graphical game.\n'
+                  'Run: dotnet CriticalShift.Scenarios.dll --scenario scenarios/reactor-cooling-recovery.json --report reports/new-run.json --repeat 2\n'
+                  'Use a fresh report filename for each invocation; existing files are never overwritten.\n'
+                  'All gameplay libraries are first-party outputs. No Unity, Blender, NUnit, font or licensed artwork is included.\n'
+                  'Source and native-integration limitations are documented in runtime/README.md and runtime/dotnet/REACTOR_AND_POWER.md in the matching repository commit.\n')
+          contents['README.txt'] = note.encode()
+          manifest = {'tested_commit': summary['commit'], 'sdk': summary['sdk'], 'scope': 'Offline logical simulation only; native engine checks NotRun',
+                      'files': {k: hashlib.sha256(v).hexdigest() for k,v in contents.items()}, 'source_sha256': summary['source_sha256']}
+          contents['manifest.json'] = (json.dumps(manifest,indent=2)+'\n').encode()
+          with zipfile.ZipFile(root/'artifacts/offline-scenario-runner.zip', 'x', zipfile.ZIP_DEFLATED) as z:
+              for name,data in contents.items(): z.writestr(name,data)
+          PY_PACKAGE
       - name: Preserve actual offline evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

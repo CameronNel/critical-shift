@@ -1,69 +1,70 @@
-# Offline runtime: interaction, world, workers and production
+# Offline runtime: interaction, world, workers, production and reactor/power
 
-**Start here for real C# code.** Planning remains in [design/code-architecture/](../../design/code-architecture/README.md). This directory contains engine-independent runtime libraries and executable tests, not a Unity project.
+**Start here for executable C# gameplay rules.** Planning remains in [design/code-architecture/](../../design/code-architecture/README.md). Current source integration and provenance are in [runtime/README.md](../README.md). This directory contains engine-independent libraries and executable tests, not a Unity project or physical simulation.
 
 ## Active modules and ownership
 
 | Source | Responsibility | Allowed project references |
 | --- | --- | --- |
-| `src/CriticalShift.Features.Interaction.Domain/` | Exclusive object claims, versions, lease generations, expiry and retirement | None |
-| `src/CriticalShift.Features.Session.Domain/` | Shift lifecycle, separate host/shift clocks and bounded one-shot timers | None |
-| `src/CriticalShift.Features.Workers.Domain/` | Independent worker conditions, guarded recovery and completion deadlines | None |
-| `src/CriticalShift.Features.Materials.Domain/` | Material quantities, batch ancestry and bounded conversion accounting | None |
+| `src/CriticalShift.Features.Interaction.Domain/` | Exclusive object claims, versions, leases, slots and retirement | None |
+| `src/CriticalShift.Features.Session.Domain/` | Shift lifecycle, separate host/shift clocks and one-shot timers | None |
+| `src/CriticalShift.Features.Workers.Domain/` | Worker conditions, guarded recovery and deadlines | None |
+| `src/CriticalShift.Features.Materials.Domain/` | Quantities, batch ancestry and conversion accounting | None |
 | `src/CriticalShift.Features.Production.Domain/` | Recipe-cycle state, work, power and jam transitions | None |
-| `src/CriticalShift.Application/` | Interaction command admission/receipts and WorldSession composition; detached public views | The domains above |
-| `tests/CriticalShift.Offline.Tests/` | Contract, lifecycle, seeded model and compiled-boundary checks | Declared runtime subjects only |
-| `tools/` | Scoped dependency/result validation and build/test entrypoint | Not runtime code |
+| `src/CriticalShift.Features.Reactor.Domain/` | Fictional finite fuel work, cooling, instability and trip state | None |
+| `src/CriticalShift.Features.Power.Domain/` | Reserve, generation, spending, delivery and spill accounting | None |
+| `src/CriticalShift.Application/` | Command admission/receipts, WorldSession composition and cross-owner workflows | The seven domains above |
+| `src/CriticalShift.ProcessLifetime/` | Builds the one canonical foundation process-lifetime source by an exact file link | None |
+| `tests/CriticalShift.Offline.Tests/` | Contract, lifecycle, model and compiled-boundary tests; eight linked original foundation assertions | Declared runtime subjects only |
+| `tools/` | Scoped dependency/result checks, verifier and scenario executable | Not runtime code |
 
-The Session domain does not reference the Interaction domain. WorldSession privately composes the existing interaction owner; it does not duplicate custody, expose live domain objects or create a generic GameManager. There is no Core assembly, event bus, DI framework or repository abstraction without a present consumer.
+Domains do not reference peer domains or engine APIs. Application coordinates the existing owners instead of duplicating custody, time, quantities or power. There is no new Core assembly, event bus, DI framework or transport abstraction. The pure process library is distinct from gameplay Application; the source-integration guide records its retained metadata identity and future Unity boundary.
 
-## Run without Unity
+## Run without either editor
 
-Prerequisites: stable .NET 8 SDK, Python 3.10+ and network access for initial test-package restore. No Unity editor, GPU, Unity license or local game installation is needed.
+Prerequisites: stable .NET 8 SDK, Python 3.10+ and network access for initial test-package restore. No Unity, Blender, GPU, editor license or local game installation is needed.
 
 ```sh
 cd runtime/dotnet
 python tools/verify.py
 ```
 
-The existing GitHub workflow `Offline interaction contracts` runs this same verification on Linux and Windows, including world, worker and production tests. It has read-only repository permissions and no game deployment step. No repository protection setting is changed.
+The current `Editor-free runtime verification` workflow runs this on Windows and Linux with read-only repository permissions. It also runs the foundation's static/Python checks, packages the actual scenario executable and retains exact source inputs. It performs no game deployment, editor launch, automatic commit or merge. It does not change repository protection settings.
 
-Verification checks project/source boundaries, negative Python fixtures, C# compilation, the exact expected NUnit test manifest, real TRX results, and a separate intentionally failing NUnit control. Missing/empty results, incorrect discovery, failure/skip rows, inconsistent totals and a false-green negative control fail validation. `artifacts/` contains actual logs, result files, source hashes and environment; test declarations alone are not passing evidence. Follow the current PR for run status.
+Verification checks project/source boundaries, negative Python fixtures, C# compilation, the exact expected NUnit manifest, actual TRX rows, and a separate deliberately failing NUnit control. Missing/empty results, incorrect discovery, failure/skip rows, inconsistent totals and a false-green negative control fail validation. Every scenario is executed twice and checked against its expected steps/assertions. Reports refuse existing paths, including filesystem aliases. Logs, results, source hashes and exact SDK/OS are in ignored `artifacts/`; declarations alone are not passing evidence.
 
-Runtime libraries target **.NET Standard 2.1 / C# 8.0**, with no third-party runtime package dependencies. .NET 8 is the offline compiler/test host, not the eventual engine runtime. The SDK follows the existing stable 8.0 roll-forward policy and exact versions are recorded. Test-only packages remain Microsoft.NET.Test.Sdk 17.11.1, NUnit 3.14.0 and NUnit3TestAdapter 4.6.0. This work adds no new package selection.
+Runtime libraries target .NET Standard 2.1 / C# 8.0, with no third-party runtime package dependencies. .NET 8 is the offline compiler/test host, not a replacement game engine. The existing stable 8.0 roll-forward policy records the exact SDK used in every run. Test-only packages remain Microsoft.NET.Test.Sdk 17.11.1, NUnit 3.14.0 and NUnit3TestAdapter 4.6.0. No new runtime package is selected by OFFLINE-005.
 
-## Workers and executable scenarios
+## Feature contracts and scenarios
 
-See [WORKERS_AND_SCENARIOS.md](WORKERS_AND_SCENARIOS.md) for current worker APIs, recovery clearance, possession cleanup, bounded diagnostics and scenario commands. The same verifier now runs the versioned worker and production scenarios and deliberate failure controls. They use production rules with explicitly synthetic access/clearance observations, not Unity or network simulation.
+[WORLD_AND_TIME.md](WORLD_AND_TIME.md) covers clocks, pause, timers, teardown and restart. [WORKERS_AND_SCENARIOS.md](WORKERS_AND_SCENARIOS.md) covers worker condition/recovery, possession cleanup and synthetic clearance. [PRODUCTION.md](PRODUCTION.md) retains production custody, accounting, cancellation and its prior review repairs. [REACTOR_AND_POWER.md](REACTOR_AND_POWER.md) extends the existing production chain through one finite fuel cycle and reserve account, including its explicit fixture limits.
 
-## Production chain
+Use fresh report names for manual scenarios:
 
-See [PRODUCTION.md](PRODUCTION.md) for safe machine transfers, shared command sequencing, recipe cycles, material/waste accounting, power/jam recovery and deadline semantics. The same guide records the hazard-attribution and report-overwrite review fixes.
+```sh
+dotnet run --project tools/CriticalShift.Scenarios --configuration Release -- --scenario scenarios/reactor-full-production-chain.json --report artifacts/manual-reactor-new.json --repeat 2
+```
+
+The 12 current scenarios include all eight inherited inputs plus four reactor/power inputs. See the manifests and actual task/PR evidence for exact counts and results. The optional successful workflow package can run the same first-party scenario executable with a .NET 8 runtime; it is not a Unity Player or graphical game.
 
 ## Interaction calling contract
 
-A trusted composition point creates an InteractionWorld (or the enclosing WorldSession), registers stable entities and already-authenticated connection-to-actor mappings, then starts it. There is no permissive production access policy; a caller must provide host-observed access decisions. TestAccess exists only in tests. Never accept registration or binding-failure callbacks directly from untrusted network payloads.
+A trusted composition point creates InteractionWorld or the enclosing WorldSession, registers stable entities and already-authenticated connection-to-actor mappings, then starts it. There is no permissive production access policy. Never accept setup registration or binding-failure callbacks directly from untrusted network payloads.
 
-All operations belong to one host simulation thread. Advance the monotonic unscaled host clock explicitly before processing a tick's commands. Claims do not expire through hidden threads. Input authentication, time sampling, rate limits and real reach/line-of-sight checks remain adapter responsibilities, not features implemented here.
+All operations belong to one host simulation thread. Advance the monotonic host clock explicitly before a tick's commands. Shift time pauses independently. Input authentication, rate limits and real reach/line-of-sight checks remain adapter responsibilities.
 
-Commands start at sequence 1 per connection. Grab uses the expected object revision; Release/Renew require the exact lease generation. Both accepted and well-formed gameplay-rejected next commands finalize their sequence. A matching retry returns its historical receipt without rerunning mutation. Changed payload, forward gap, wrong epoch and too-old evicted commands do not execute. Receipt storage is bounded; the high-water mark survives eviction.
+Commands start at sequence 1 per connection. Grab uses the object revision; Release/Renew require the exact lease generation. Production and Reactor requests share that same stream and add their target revisions and bounded typed payloads. Admitted well-formed gameplay rejections also finalize their sequences. A matching retained retry returns its historical receipt without another mutation. Changed payloads, gaps, wrong epochs and too-old evicted requests do not execute. Receipt storage is bounded; its high-water mark survives eviction.
 
-**Accepted does not mean a new physical effect.** Only HasNewCommit identifies a new logical change. A replayed accepted receipt may describe an object already released. Compare current epoch/revision and never reattach from historical state. Physical binding must later acknowledge/fail the exact epoch/entity/lease with a separately tested adapter.
+**Accepted does not mean a new physical effect.** Only HasNewCommit identifies a new logical change. A replayed accepted receipt can describe an object already released; compare current epoch/revision and never reattach from historical state. Physical binding must later acknowledge/fail the exact epoch/entity/lease with its own tested adapter.
 
-Release remains possible when access/reach changes. Unexpected access-policy or integrity errors fault the workflow rather than silently continuing. Stop is idempotent and clears owned state. Retired entity IDs cannot be registered again within the world.
+Release remains possible when reach changes. Unexpected access-policy or integrity errors fault the workflow rather than silently continuing. Stop is idempotent and clears owned state. Retired entity IDs cannot be registered again within the world. Setup roster capacity counts live connections while keeping a separate bounded history of retired identities; in-world joining/reconnect remains unsupported.
 
-Setup roster changes now count only live connections toward player capacity. Disconnected connection identities remain invalid, but retained identity history has a separate bounded budget (default 256, max 4096). Rejoining setup needs a fresh connection identity. In-world joining/reconnect remains unsupported. This fixes the setup-capacity review finding on PR #40.
+## Authorization, integration and evidence scope
 
-## World and timer calling contract
+OFFLINE-001 through OFFLINE-004 supplied interaction, world/time, workers and production in consolidated PR #43. OFFLINE-005 imports that exact candidate into the WP-01 source branch, resolves its assembly collision, and adds this bounded reactor/power slice at Cameron's explicit request without either editor. Original branches/PRs are provenance, not separate active implementations to copy or independently merge over this candidate.
 
-See [WORLD_AND_TIME.md](WORLD_AND_TIME.md) for phase transitions, timeout policy, explicit ticking, pause, cancellation, snapshot revisions, teardown and restart. These are logical session services, not terrain, rooms, scene loading, weather or a playable character controller.
+Native Unity import, AOT/stripping, PlayMode, physical simulation and Player compatibility remain unverified. No roadmap gate or complete WP-01/WP-02 is declared passed. A seed in world configuration does not establish deterministic physics. The fixture is not full reactor/meltdown, power-distribution or demand-contract implementation.
 
-## Authorization, integration and gate status
+Not implemented here: physical controllers/carrying/loading, world geometry, network authentication/transport, input/UI, Steam, voice, persistence or checkpoint schemas. Current Blender sources, textures, licensed materials and art evidence are outside runtime cleanup and unchanged.
 
-OFFLINE-001 introduced interaction prework; OFFLINE-002 extends it with world/session/time; OFFLINE-003 adds worker conditions/recovery, possession cleanup and executable scenarios at Cameron's explicit request while Unity is unavailable. OFFLINE-004 adds the bounded production chain and review repairs. OFFLINE-002 is stacked on the implementation from PR #40, not a copied replacement. The scoped offline-prework exception in DELIVERY_PLAN remains applicable; no Roadmap Gate 0/1 or complete WP-01/02/03 is declared passed.
-
-Later Unity integration must consume these libraries/the same source or move them atomically. Do not copy them into competing Unity implementations. The exact editor import, C# profile, AOT/stripping, PlayMode, physical simulation and Player compatibility have not been validated. World configuration seed metadata does not imply deterministic physics or a generated world.
-
-Not implemented: Unity projects/assets/controllers, network transport/authentication, physical carrying, runtime geometry, a general inventory UI, physical machines, reactor/mining integration, persistence, UI/input, Steam or voice. Existing Blender sources, textures, licensing/provenance and art evidence are unchanged. No serialized Unity migration is performed.
-
-Evidence scope: offline domain/application tests are partial evidence for CMD, HOLD, LIFE, SHIFT, TX, CAUSE, ARCH and CI cases in the plan, not their complete Unity/multiplayer gate acceptance. Model-action totals are operations exercised inside seeded tests, not thousands of separate test methods or a code-coverage percentage. Static checks and review cannot prove absence of every dead path or design mistake.
+Offline domain/application evidence partially addresses CMD, HOLD, LIFE, SHIFT, TX, POWER, CAUSE, ARCH and CI concerns. It does not replace their native/multiplayer acceptance scopes, measure supported FPS, or prove that every defect/dead path is absent. The final task/PR identifies the exact executed commit and independent-review status.
