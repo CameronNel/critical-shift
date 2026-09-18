@@ -1,0 +1,42 @@
+{
+  "cleanup-and-trace": {
+    "runs": 2,
+    "steps_per_run": 15,
+    "assertions_per_run": 30
+  },
+  "pause-and-expired-recovery": {
+    "runs": 2,
+    "steps_per_run": 16,
+    "assertions_per_run": 30
+  },
+  "worker-recovery": {
+    "runs": 2,
+    "steps_per_run": 25,
+    "assertions_per_run": 56
+  },
+  "production-chain": {
+    "runs": 2,
+    "steps_per_run": 16,
+    "assertions_per_run": 37
+  },
+  "production-cancel": {
+    "runs": 2,
+    "steps_per_run": 11,
+    "assertions_per_run": 24
+  },
+  "production-deadline": {
+    "runs": 2,
+    "steps_per_run": 5,
+    "assertions_per_run": 16
+  },
+  "production-wet-jam": {
+    "runs": 2,
+    "steps_per_run": 12,
+    "assertions_per_run": 26
+  },
+  "production-cancel-attribution": {
+    "runs": 2,
+    "steps_per_run": 11,
+    "assertions_per_run": 39
+  }
+}
