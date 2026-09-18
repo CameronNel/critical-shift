@@ -10,11 +10,17 @@
 > [!IMPORTANT]
 > **Engineering start here:** [Runtime Architecture and Code Health](design/code-architecture/README.md) is the canonical planning section for Unity/C# work. It contains the dependency allowlist, state ownership and failure contracts, safe-deletion policy, test acceptance cases, staged delivery and open decisions. Read [AGENTS.md](AGENTS.md) before changes. **These are planning documents, not evidence that runtime safeguards or CI are already implemented.**
 
-Critical Shift currently contains the design foundation and an in-progress assembled Blender map.
+> [!IMPORTANT]
+> **Editor-free runtime integration candidate:** [Run and review the actual C# rules](runtime/README.md). The candidate combines the existing offline gameplay with WP-01 foundation source and adds bounded fictional reactor/power rules. [The task record](runtime/validation/OFFLINE_REACTOR_POWER.md) identifies actual tests, scenarios, provenance and limits. **This is not an accepted Unity foundation, Gate 0/1 pass or playable game.** It does not import or modify the Blender map. Independent review and maintainer merge remain separate.
+
+Critical Shift currently contains the design foundation, an in-progress assembled Blender map, offline gameplay rules and WP-01 runtime bootstrap source.
 
 The previous runtime prototype was removed so production runtime work can be reconstructed from the design foundation. The current authoring map is available through [MAP.md](MAP.md); its presence does not establish a playable Unity build.
 
 ## Repository layout
+
+### runtime/
+Canonical offline C# rules, executable scenarios and verification tooling, reconciled with the minimal WP-01 bootstrap source. Start at [runtime/README.md](runtime/README.md); editor-free evidence and native acceptance are explicitly separate.
 
 ### design/
 Global rules that apply to the entire game:

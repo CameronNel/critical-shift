@@ -1,0 +1,306 @@
+{
+  "name": "reactor-full-production-chain",
+  "seed": 42,
+  "duration": 20000,
+  "traceCapacity": 128,
+  "production": {
+    "machines": [
+      {
+        "id": 700,
+        "recipe": 701,
+        "input": "Ore",
+        "output": "CrushedOre",
+        "duration": 1000,
+        "bypassDuration": 500,
+        "jamAfter": 200,
+        "capacity": 1000,
+        "yield": 800
+      },
+      {
+        "id": 702,
+        "recipe": 703,
+        "input": "CrushedOre",
+        "output": "Fuel",
+        "duration": 1000,
+        "bypassDuration": 500,
+        "jamAfter": 200,
+        "capacity": 1000,
+        "yield": 750
+      }
+    ],
+    "batches": [
+      {
+        "container": 600,
+        "id": 610,
+        "origin": 620,
+        "cause": 630,
+        "kind": "Ore",
+        "units": 100,
+        "moisture": 0,
+        "contamination": 35
+      }
+    ]
+  },
+  "steps": [
+    {
+      "op": "grab",
+      "entity": 600,
+      "seq": 1,
+      "revision": 0,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 2,
+      "action": "Insert",
+      "machine": 700,
+      "machineRevision": 0,
+      "expect": "Applied",
+      "container": 600,
+      "objectRevision": 1,
+      "lease": 1
+    },
+    {
+      "op": "production",
+      "seq": 3,
+      "action": "Start",
+      "machine": 700,
+      "machineRevision": 1,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 3,
+      "action": "Start",
+      "machine": 700,
+      "machineRevision": 1,
+      "expect": "Applied",
+      "assert": {
+        "pendingCycles": 1
+      }
+    },
+    {
+      "op": "advance",
+      "time": 400,
+      "expect": "Running",
+      "assert": {
+        "machineWork": 400,
+        "machineRevision": 3
+      }
+    },
+    {
+      "op": "production",
+      "seq": 4,
+      "action": "SetPower",
+      "machine": 700,
+      "machineRevision": 3,
+      "expect": "Applied",
+      "powered": false
+    },
+    {
+      "op": "advance",
+      "time": 9000,
+      "expect": "Running",
+      "assert": {
+        "machineWork": 400,
+        "machineMode": "PowerPaused"
+      }
+    },
+    {
+      "op": "production",
+      "seq": 5,
+      "action": "SetPower",
+      "machine": 700,
+      "machineRevision": 4,
+      "expect": "Applied",
+      "powered": true
+    },
+    {
+      "op": "production",
+      "seq": 6,
+      "action": "Resume",
+      "machine": 700,
+      "machineRevision": 5,
+      "expect": "Applied"
+    },
+    {
+      "op": "advance",
+      "time": 9600,
+      "expect": "Running",
+      "assert": {
+        "batchUnits": 80,
+        "wasteUnits": 20,
+        "completedCycles": 1,
+        "machineRevision": 7
+      }
+    },
+    {
+      "op": "production",
+      "seq": 7,
+      "action": "Eject",
+      "machine": 700,
+      "machineRevision": 7,
+      "expect": "Applied",
+      "objectRevision": 2
+    },
+    {
+      "op": "grab",
+      "entity": 600,
+      "seq": 8,
+      "revision": 3,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 9,
+      "action": "Insert",
+      "machine": 702,
+      "machineRevision": 0,
+      "expect": "Applied",
+      "container": 600,
+      "objectRevision": 4,
+      "batchRevision": 1,
+      "lease": 2
+    },
+    {
+      "op": "production",
+      "seq": 10,
+      "action": "Start",
+      "machine": 702,
+      "machineRevision": 1,
+      "expect": "Applied",
+      "batchRevision": 1
+    },
+    {
+      "op": "advance",
+      "time": 10600,
+      "expect": "Running",
+      "assert": {
+        "machine": 702,
+        "batchKind": "Fuel",
+        "batchUnits": 60,
+        "wasteUnits": 40,
+        "completedCycles": 2,
+        "machineMode": "OutputReady",
+        "reactorRevision": 0
+      }
+    },
+    {
+      "op": "production",
+      "seq": 11,
+      "action": "Eject",
+      "machine": 702,
+      "machineRevision": 3,
+      "objectRevision": 5,
+      "expect": "Applied"
+    },
+    {
+      "op": "grab",
+      "entity": 600,
+      "seq": 12,
+      "revision": 6,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "seq": 13,
+      "action": "Insert",
+      "reactorRevision": 0,
+      "expect": "Applied",
+      "container": 600,
+      "objectRevision": 7,
+      "batchRevision": 2,
+      "lease": 3
+    },
+    {
+      "op": "reactor",
+      "seq": 14,
+      "action": "SetCooling",
+      "reactorRevision": 1,
+      "expect": "Applied",
+      "cooling": true
+    },
+    {
+      "op": "reactor",
+      "seq": 15,
+      "action": "Start",
+      "reactorRevision": 2,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "seq": 15,
+      "action": "Start",
+      "reactorRevision": 2,
+      "expect": "Applied",
+      "assert": {
+        "spentPower": 3,
+        "pendingCycles": 1,
+        "lastReactorEvent": null
+      }
+    },
+    {
+      "op": "advance",
+      "time": 16600,
+      "expect": "Running",
+      "assert": {
+        "reactorMode": "Exhausted",
+        "reactorWork": 6000,
+        "generatedPower": 300,
+        "deliveredPower": 240,
+        "reserve": 67,
+        "batchKind": "SpentFuel",
+        "batchUnits": 60,
+        "wasteUnits": 40,
+        "completedCycles": 3,
+        "reactorRevision": 4
+      }
+    },
+    {
+      "op": "reactor",
+      "seq": 16,
+      "action": "Eject",
+      "reactorRevision": 4,
+      "expect": "Applied",
+      "objectRevision": 8
+    },
+    {
+      "op": "grab",
+      "entity": 600,
+      "seq": 17,
+      "revision": 9,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "seq": 18,
+      "action": "Insert",
+      "reactorRevision": 5,
+      "expect": "WrongFuel",
+      "container": 600,
+      "objectRevision": 10,
+      "batchRevision": 3,
+      "lease": 4,
+      "assert": {
+        "reactorMode": "Empty",
+        "generatedPower": 300,
+        "claims": 1
+      }
+    },
+    {
+      "op": "restart",
+      "expect": "Running",
+      "assert": {
+        "reactorMode": "Empty",
+        "reserve": 10,
+        "generatedPower": 0,
+        "batchKind": "Ore",
+        "batchUnits": 100,
+        "completedCycles": 0
+      }
+    }
+  ],
+  "reactor": {
+    "id": 900
+  }
+}

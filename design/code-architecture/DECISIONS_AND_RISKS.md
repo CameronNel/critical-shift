@@ -71,6 +71,14 @@ Owners below are accountable roles; individual implementation/review assignments
 
 A later-stage open decision does not block unrelated earlier work. It does block a feature that would quietly commit that choice. Defer unused implementation rather than adding placeholder services.
 
+### D-01 implementation progress, 17 September 2026
+
+Cameron authorized the bounded WP-01 implementation. Its source and commands are now in [runtime/](../../runtime/README.md), on `feat/wp01-unity-foundation-20260917`; the [task/evidence record](../../runtime/validation/WP01.md) distinguishes every executed check from native acceptance. This does not close D-01 or independently accept ADR-CA-001 through ADR-CA-004.
+
+Working profile: `runtime/unity/`, Unity 6000.4.3f1 revision 39d1a88d4dd1, Built-in rendering, Mono, .NET Standard 2.1, managed stripping Disabled and default domain/scene reload. Test Framework 1.4.6 and ext.nunit 2.0.3 are pinned from official registry metadata; actual native package resolution remains an acceptance requirement. The engine's bundled compiler remains authoritative. A separately pinned .NET SDK 8.0.423 is used only for supplementary API compilation and synchronous pure-code assertions, never as evidence that Unity itself imported, tested or built the project.
+
+The prerequisite probe found no standard Unity CI activation secrets, and the connected workstation was offline. Native import/test/Player proof, native generated scene/settings and independent review therefore remain required. The official Unity release API reported support ending on 22 June 2026 for the selected editor; this task preserves the recorded selection instead of silently upgrading it. Record any later version change through D-01. No networking, gameplay UI/input, Steam, voice, persistence or physics-fixture package choice is made here; D-02 through D-09 remain open at their existing deadlines.
+
 ## 4. Risk register
 
 Impact describes consequence if the risk occurs. Likelihood is not quantified: no current runtime evidence exists in this revision from which to derive probabilities.
