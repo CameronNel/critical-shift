@@ -114,7 +114,7 @@ namespace CriticalShift.Offline.Tests
 
         private static object?[] VisibleFields(ReactorView view) => new object?[]
         {
-            view.Epoch, view.ReactorId, view.DefinitionId, view.Mode, view.Cooling, view.SuspectFuel,
+            view.Epoch, view.Id, view.DefinitionId, view.Mode, view.Cooling, view.SuspectFuel,
             view.WorkMilliseconds, view.RemainingFuelMilliseconds, view.InstabilityMilliseconds,
             view.CycleId, view.Fuel?.BatchId, view.Fuel?.Revision, view.Fuel?.Kind, view.Fuel?.Units,
             view.Power.Initial, view.Power.Capacity, view.Power.Available, view.Power.Generated,
