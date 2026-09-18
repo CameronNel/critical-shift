@@ -181,7 +181,8 @@
         "batchUnits": 60,
         "wasteUnits": 40,
         "completedCycles": 2,
-        "machineMode": "OutputReady"
+        "machineMode": "OutputReady",
+        "reactorRevision": 0
       }
     },
     {
@@ -204,7 +205,7 @@
       "op": "reactor",
       "seq": 13,
       "action": "Insert",
-      "reactorRevision": 4,
+      "reactorRevision": 0,
       "expect": "Applied",
       "container": 600,
       "objectRevision": 7,
@@ -215,7 +216,7 @@
       "op": "reactor",
       "seq": 14,
       "action": "SetCooling",
-      "reactorRevision": 5,
+      "reactorRevision": 1,
       "expect": "Applied",
       "cooling": true
     },
@@ -223,14 +224,14 @@
       "op": "reactor",
       "seq": 15,
       "action": "Start",
-      "reactorRevision": 6,
+      "reactorRevision": 2,
       "expect": "Applied"
     },
     {
       "op": "reactor",
       "seq": 15,
       "action": "Start",
-      "reactorRevision": 6,
+      "reactorRevision": 2,
       "expect": "Applied",
       "assert": {
         "spentPower": 3,
@@ -251,14 +252,15 @@
         "batchKind": "SpentFuel",
         "batchUnits": 60,
         "wasteUnits": 40,
-        "completedCycles": 3
+        "completedCycles": 3,
+        "reactorRevision": 4
       }
     },
     {
       "op": "reactor",
       "seq": 16,
       "action": "Eject",
-      "reactorRevision": 8,
+      "reactorRevision": 4,
       "expect": "Applied",
       "objectRevision": 8
     },
@@ -273,7 +275,7 @@
       "op": "reactor",
       "seq": 18,
       "action": "Insert",
-      "reactorRevision": 9,
+      "reactorRevision": 5,
       "expect": "WrongFuel",
       "container": 600,
       "objectRevision": 10,
