@@ -37,8 +37,9 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           p=Path('.github/workflows/offline-runtime.yml')
-          line="    if: ${{ !contains(github.event.head_commit.message, '[offline005-migration]') }}\n"
-          s=p.read_text(); assert s.count(line)==1;p.write_text(s.replace(line,''))
+          s=p.read_text(); lines=[line for line in s.splitlines(keepends=True) if '[offline005-migration]' in line]
+          assert len(lines)==1 and lines[0].startswith('    if: ')
+          p.write_text(s.replace(lines[0],''))
           Path('runtime/tools/apply_offline005.py').unlink()
           Path('.github/workflows/apply-offline005.yml').unlink()
           PY
