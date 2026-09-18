@@ -1,6 +1,26 @@
 {
   "blender_version": "5.2.0 LTS",
   "authoring_scene": "facility_spawn_concept02_R18.blend",
+  "proxy_mesh_optimization": {
+    "method": "Planar Dissolve (2.5 deg, Delimit Normal/Material/Seam/Sharp) + High-Density Sub-mesh Collapse (0.25) + Weighted Normal (keep_sharp=True, weight=50)",
+    "visual_degradation": "Zero (coplanar faces dissolved, silhouette edges and material/seam boundaries preserved, weighted normals eliminate shading artifacts)",
+    "authoritative_sources_touched": false,
+    "total_original_proxy_triangles": 10171742,
+    "total_optimized_proxy_triangles": 2523011,
+    "reduction_triangles": 7648731,
+    "reduction_percentage": 75.2,
+    "key_areas": [
+      { "area": "spawn-room", "original": 1600489, "optimized": 334867, "reduction_pct": 79.1 },
+      { "area": "reactor-room", "original": 2435602, "optimized": 594185, "reduction_pct": 75.6 },
+      { "area": "fuel-corridor", "original": 1144232, "optimized": 277573, "reduction_pct": 75.7 },
+      { "area": "condenser-bay", "original": 754854, "optimized": 173043, "reduction_pct": 77.1 },
+      { "area": "mine", "original": 651851, "optimized": 133725, "reduction_pct": 79.5 },
+      { "area": "cooling-plant", "original": 643329, "optimized": 135746, "reduction_pct": 78.9 },
+      { "area": "electrical-room", "original": 621540, "optimized": 136373, "reduction_pct": 78.1 },
+      { "area": "refinery", "original": 438090, "optimized": 108435, "reduction_pct": 75.2 },
+      { "area": "turbine-room", "original": 418553, "optimized": 99668, "reduction_pct": 76.2 }
+    ]
+  },
   "benchmarks": [
     {
       "test_id": "A",

@@ -17,7 +17,7 @@ bl_info = {
     'category': '3D View',
 }
 
-import bpy
+import bpy, math
 from mathutils import Vector
 from bpy.app.handlers import persistent
 import numpy as np
@@ -720,6 +720,31 @@ def rebuild_single_proxy(scene, section_name):
     mesh.update(calc_edges=True)
     existing_ob.hide_render = True
     existing_ob['source_instance'] = section_name
+
+    # Apply lossless planar decimation & weighted normals to maintain optimized proxy standard
+    try:
+        orig_tris = sum(len(p.vertices) - 2 for p in mesh.polygons)
+        m1 = existing_ob.modifiers.new('Planar', 'DECIMATE')
+        m1.decimate_type = 'DISSOLVE'
+        m1.angle_limit = math.radians(2.5)
+        m1.delimit = {'NORMAL', 'MATERIAL', 'SEAM', 'SHARP'}
+        if orig_tris > 30000:
+            m2 = existing_ob.modifiers.new('Collapse', 'DECIMATE')
+            m2.decimate_type = 'COLLAPSE'
+            m2.ratio = 0.25
+            m2.delimit = {'MATERIAL', 'SEAM'}
+        m3 = existing_ob.modifiers.new('WeightedNormal', 'WEIGHTED_NORMAL')
+        m3.keep_sharp = True
+        m3.weight = 50
+
+        eval_ob = existing_ob.evaluated_get(bpy.context.evaluated_depsgraph_get())
+        opt_mesh = bpy.data.meshes.new_from_object(eval_ob)
+        existing_ob.data = opt_mesh
+        existing_ob.modifiers.clear()
+        bpy.data.meshes.remove(mesh)
+    except Exception as e:
+        print(f"Proxy decimation error: {e}")
+
     return True
 
 # ---------------------------------------------------------------------------
