@@ -1,4 +1,6 @@
-import bpy,sys,re,collections; sys.path.insert(0,"."); from lib import *
+import bpy,sys,re,collections; sys.path.insert(0,"."); import lib
+from lib import *
+lib.SEGCAP=8
 S=sys.argv[sys.argv.index("--")+1]
 bpy.ops.wm.open_mainfile(filepath=S+"/w8.blend")
 ENAM=mat("hall_teal"); INK=mat("hall_steel"); MUST=mat("hall_yellow"); IVORY=mat("hall_pipe"); RUB=mat("hall_rubber"); CHR=mat("GT_Chrome"); LAMP=mat("lamp"); PLATE=mat("hall_ink")

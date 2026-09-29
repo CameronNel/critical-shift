@@ -1,4 +1,6 @@
-import bpy,sys,re; sys.path.insert(0,"."); from lib import *
+import bpy,sys,re; sys.path.insert(0,"."); import lib
+from lib import *
+lib.SEGCAP=8
 S=sys.argv[sys.argv.index("--")+1]
 bpy.ops.wm.open_mainfile(filepath=S+"/w9.blend")
 ENAM=mat("hall_teal"); INK=mat("hall_steel"); MUST=mat("hall_yellow"); IVORY=mat("hall_pipe"); CHR=mat("GT_Chrome"); K="22 ASSET KIT 1"

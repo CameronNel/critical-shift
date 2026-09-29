@@ -11,7 +11,7 @@ Additive candidate: `sections/facility-assembly/sources/reactor-room/module_over
 | Access | External stair core (about 700 objects) and a floor-level door to it | Traction elevator in the hall's south-west corner zone (x -8.0 to -5.6, y -8.0 to -5.6): glazed shaft, car, guide rails, counterweight, ropes, sheave and motor, with a railed upper landing and a door into the control room's west wall |
 | East wall | Door and window openings | Patched panels; old "REACTOR CONTROL / 10" sign removed |
 | Motion | Single 200-frame bank descent | 480-frame loop (16 s at 30 fps): banks A and B move out of phase between 7.0 and 8.5 m, pool glow pulses, elevator cycles ground and upper landing with ropes and counterweight following |
-| Palette | White, grey and orange with an amber pool | Putty walls, petrol/ink steel, mustard trim, coral emergency red, warm clay floor, cyan pool (pool lights and volume restored to cyan) |
+| Palette / mood | White, grey and orange with an amber pool | "Dead shift": dark and gloomy. Soot-iron, bruise-grey walls, mildew-olive lower walls, oxblood machines, rust-orange trim, wet dark floor; no teal, no cream. Dim violet-white practicals, some failing, some dead; thin haze; the reactor pool is the main light |
 | Review cameras | `01_HERO` and `09_BANK_MECHANISMS` sat inside the new room | Moved to clear positions |
 
 Interior contents of the old control room (1,493 objects from desks, screens and mimic panel) were rotated -90 degrees about Z and translated (x0 = -1.4, y +5.0, z -4.6) onto the mezzanine. Nothing else in the hall was moved.
@@ -41,3 +41,20 @@ Interior contents of the old control room (1,493 objects from desks, screens and
 ## Reproduce
 
 `scripts/` holds the Blender Python steps in order: `b1.py` (relocate/delete), `b2.py` (wall patches, mezzanine, elevator), `b3.py` (palette via `palette.py`, pool lights, animation), `b4.py` (cameras, cleanup), `b5.py` (moves the elevator to the free south-west zone, rebuilds the landing and the door, patches the rest of the old east window). `render_final.py` makes the PR renders. They read and write `w1..w5.blend` from a scratch directory and need `bpy` 5.2.x (`pip install bpy==5.2.2` on Python 3.13). Renders in `../renders/overhaul-R1/` were Cycles CPU, 24 samples, frame 180. Before images in `before/` are 960x540, 12 samples.
+
+
+## Dead-shift theme (owner brief)
+
+Players leave a suspiciously cozy spawn room, pass the haunted mine and a barely operating refinery, then reach the sketchiest reactor room: dark, gloomy, spooky, with an eerie light from the reactor that changes color with reactor stability (unscientifically).
+
+- `REACTOR_STATE` empty, custom property `stability` (1 stable, 0.5 warning, 0 critical). Drivers on the pool materials, pool volume, pool lights and the state key light turn it into: sickly green (stable), amber (warning), red (critical), with a pulse that speeds up and strengthens as it drops. The game side should drive this one value.
+- Equipment from Asset Kit 1 is now faceted (8-sided forms, flat shaded) for the angular Valorant-style silhouette; smooth shading was dropped.
+- Renders: `renders/overhaul-R1/dead_shift_*.png` (same camera at all three states, plus control room and emergency-cooling views).
+- Scripts: `palette2.py` (palette), `d3.py` (state drivers, lights, world), `r12.py` (renders).
+
+### Known gaps in the theme
+
+- **Spec conflict:** `scenery/reactorroom.md` section 1 still calls the room a clean, sterile, bright working environment, and the art-direction canon says the same. This theme contradicts it and needs an owner-approved update; not edited here.
+- Stylization is only partly there: forms are angular, but textures are still the old ones under a tint, not hand-painted stylized textures, and lighting is not yet stylized (no authored rim/shadow color language).
+- The critical state reads orange-red rather than deep red and the pool core clips toward white.
+- The spawn room's warm terracotta/blue is deliberately not used; the reactor room is meant to be the dark twin of it.

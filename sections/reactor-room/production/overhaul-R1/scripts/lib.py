@@ -6,6 +6,7 @@ def mat(name):
     m=bpy.data.materials.get(name); 
     if not m: raise KeyError(name)
     return m
+SEGCAP=None
 _col={}
 def col(name):
     if name not in _col:
@@ -23,6 +24,7 @@ def box(name,x0,x1,y0,y1,z0,z1,m,c="20 REDESIGN"):
     if m: o.data.materials.append(m if not isinstance(m,str) else mat(m))
     return o
 def cyl(name,x,y,z0,z1,r,m,c="20 REDESIGN",seg=16,axis='Z'):
+    if SEGCAP: seg=min(seg,SEGCAP)
     me=bpy.data.meshes.new(name); bm=bmesh.new()
     bmesh.ops.create_cone(bm,cap_ends=True,segments=seg,radius1=r,radius2=r,depth=1.0)
     for v in bm.verts: v.co.z=(v.co.z+.5)*(z1-z0)+z0
@@ -31,6 +33,7 @@ def cyl(name,x,y,z0,z1,r,m,c="20 REDESIGN",seg=16,axis='Z'):
     if m: o.data.materials.append(m if not isinstance(m,str) else mat(m))
     return o
 def cyl_between(name,p0,p1,r,m,c="20 REDESIGN",seg=12):
+    if SEGCAP: seg=min(seg,SEGCAP)
     p0=Vector(p0);p1=Vector(p1);d=p1-p0
     me=bpy.data.meshes.new(name); bm=bmesh.new()
     bmesh.ops.create_cone(bm,cap_ends=True,segments=seg,radius1=r,radius2=r,depth=d.length)
@@ -41,6 +44,7 @@ def cyl_between(name,p0,p1,r,m,c="20 REDESIGN",seg=12):
     return o
 
 def dome(name,cx,cy,zbase,r,h,up,m,c="22 ASSET KIT 1",seg=20,rings=6):
+    if SEGCAP: seg=min(seg,SEGCAP); rings=min(rings,2)
     me=bpy.data.meshes.new(name); bm=bmesh.new()
     bmesh.ops.create_uvsphere(bm,u_segments=seg,v_segments=rings*2,radius=1.0)
     bm.verts.ensure_lookup_table()
