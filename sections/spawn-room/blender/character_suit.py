@@ -38,30 +38,36 @@ HAND_REGIONS = ["HAND_L", "HAND_R"]
 FOOT_REGIONS = ["FOOT_L", "FOOT_R"]
 
 
-LODF = 1                                   # 1 = full detail, 2 = reduced (fewer segments, no bevels on small parts)
+LODF = 1                                   # 1 = full detail, 2 = medium (smooth, lighter kit), 3 = far (coarse, distance only)
 
 
 def _ktube(kit, path, r, m, seg=8, caps=True):
     path = list(path)
-    if LODF > 1 and len(path) > 6:
+    if LODF >= 3 and len(path) > 6:
         path = path[::2] + ([path[-1]] if (len(path) - 1) % 2 else [])
         seg = max(3, seg - 2)
+    elif LODF == 2:
+        seg = max(4, seg - 1)
     kit.tube(path, r, m, seg=seg, caps=caps)
 
 
 def _kbox(kit, size, pos, m, bevel=0.004, rot=None, seg=2, taper_top=0.0):
-    if LODF > 1:
+    if LODF >= 3:
         bevel, seg = (0.0 if min(size) < 0.03 else min(bevel, 0.006)), 1
+    elif LODF == 2:
+        bevel, seg = (bevel if min(size) >= 0.02 else 0.0), 1
     kit.box(size, pos, m, bevel=bevel, rot=rot, seg=seg, taper_top=taper_top)
 
 
 def _kcyl(kit, r, h, pos, m, r2=None, seg=16, axis="Z"):
-    kit.cyl(r, h, pos, m, r2=r2, seg=max(6, seg // 2) if LODF > 1 else seg, axis=axis)
+    kit.cyl(r, h, pos, m, r2=r2, seg=(max(6, seg // 2) if LODF >= 3 else max(8, seg * 3 // 4) if LODF == 2 else seg), axis=axis)
 
 
 def _ksph(kit, r, pos, m, scale=(1, 1, 1), seg=12, ring=8):
-    if LODF > 1:
+    if LODF >= 3:
         seg, ring = max(6, seg // 2), max(4, ring // 2)
+    elif LODF == 2:
+        seg, ring = max(8, seg * 3 // 4), max(5, ring * 3 // 4)
     kit.sph(r, pos, m, scale=scale, seg=seg, ring=ring)
 
 
@@ -104,7 +110,7 @@ def _fabric_body(root, coll, fabric):
         ax = abs(x)
         leg = 1.0 - _smoothstep(0.55, 0.78, z)
         arm = _smoothstep(0.20, 0.27, ax) * _smoothstep(0.62, 0.72, z)
-        d = 0.020 + 0.006 * leg + 0.002 * arm + (0.007 if LODF > 1 else 0.0)   # coarser body: sit a bit further out
+        d = 0.020 + 0.006 * leg + 0.002 * arm + (0.007 if LODF >= 3 else 0.0)   # coarser body: sit a bit further out
         # broad folds: knee, elbow, waist gather, hem bunching above the boots (diagonal creases)
         fold = 0.0
         fold += 0.012 * math.exp(-((z - 0.40) / 0.09) ** 2) * (0.5 + 0.5 * math.sin(38 * z + 7 * x + 3 * y)) * leg
@@ -166,7 +172,7 @@ def _hood(root, pivot, coll, fabric, glass, rim_mat):
     ox, oz0, oh = 0.245, SC.HZ + 0.015, 0.215          # opening: half-width, centre height, half-height
     made = []
     b = B()
-    b.sph(1.0, (0, 0, SC.HZ), fabric, scale=(rx, ry, rz), seg=28 if LODF == 1 else 20, ring=18 if LODF == 1 else 13)
+    b.sph(1.0, (0, 0, SC.HZ), fabric, scale=(rx, ry, rz), seg=28 if LODF < 3 else 20, ring=18 if LODF < 3 else 13)
     def rho(v):
         return math.hypot(v.x / ox, (v.z - oz0) / oh)
 
@@ -190,7 +196,7 @@ def _hood(root, pivot, coll, fabric, glass, rim_mat):
     made.append(o)
     # glass: polar grid over the opening (smooth outline), slightly larger than the hole so it tucks under the hood edge
     g = B()
-    nr, na = (5, 32) if LODF == 1 else (3, 20)
+    nr, na = (5, 32) if LODF < 3 else (3, 20)
     rows = []
     for i in range(nr + 1):
         rr = 1.06 * i / nr
@@ -216,8 +222,8 @@ def _hood(root, pivot, coll, fabric, glass, rim_mat):
     # rim tube hides the hole edge and gives the visor visible thickness
     rim = B()
     pts = []
-    for i in range(49 if LODF == 1 else 33):
-        a = i / (48 if LODF == 1 else 32) * 2 * math.pi
+    for i in range(49 if LODF < 3 else 33):
+        a = i / (48 if LODF < 3 else 32) * 2 * math.pi
         x, z = ox * 1.0 * math.cos(a), oz0 + oh * 1.0 * math.sin(a)
         pts.append((x, surf_y(x, z) + 0.006, z))
     _ktube(rim, pts, 0.016, rim_mat, seg=8)
@@ -349,7 +355,7 @@ def _hood_details(pivot, coll, trim, accent, dark):
 def build_hazmat(root, coll=None, colors=None, lod=0):
     """Add the hazmat suit pieces to a crew worker built with regions=True. Returns (pieces, triangles)."""
     global LODF
-    LODF = 2 if lod else 1
+    LODF = 1 + int(lod)
     coll = coll or bpy.context.scene.collection
     pivot = next(c for c in root.children if c.name.endswith("_HEAD_PIVOT"))
     c = dict(DEFAULT_COLORS)
@@ -374,13 +380,13 @@ def build_hazmat(root, coll=None, colors=None, lod=0):
     for s in (-1, 1):
         x = s * 0.098 * 1.06
         # boot shaft, sole and hem ring over the suit trouser
-        _kcyl(kit, 0.098 if LODF == 1 else 0.086, 0.15, (x, 0.016, 0.175), boot_m, r2=0.094 if LODF == 1 else 0.082, seg=16)
+        _kcyl(kit, 0.098 if LODF < 3 else 0.086, 0.15, (x, 0.016, 0.175), boot_m, r2=0.094 if LODF < 3 else 0.082, seg=16)
         _ktube(kit, [(x + 0.122 * math.cos(a), 0.016 + 0.122 * math.sin(a), 0.205) for a in [i / 20 * 2 * math.pi for i in range(21)]],
                  0.014, fabric, seg=6)
         _kbox(kit, (0.19, 0.34, 0.03), (x, 0.06, 0.016), boot_m, bevel=0.012, seg=3)
         # glove cuff
         hx = s * 0.345
-        _kcyl(kit, 0.094 if LODF == 1 else 0.086, 0.10, (hx, 0.065, zs - 0.355), dark, r2=0.098 if LODF == 1 else 0.090, seg=18)
+        _kcyl(kit, 0.094 if LODF < 3 else 0.086, 0.10, (hx, 0.065, zs - 0.355), dark, r2=0.098 if LODF < 3 else 0.090, seg=18)
         _ktube(kit, [(hx + 0.10 * math.cos(a), 0.065 + 0.10 * math.sin(a), zs - 0.305) for a in [i / 20 * 2 * math.pi for i in range(21)]],
                  0.011, fabric, seg=6)
     # belt and buckle
