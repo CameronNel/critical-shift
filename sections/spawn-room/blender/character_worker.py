@@ -21,7 +21,7 @@ import character_scout as SC
 from cozy_geo import B, mat, tri_count
 
 H_SCALE = 0.90                        # head scale relative to the Scout head
-HEAD_CENTRE_Z = 1.27                  # world height of the head centre
+HEAD_CENTRE_Z = 1.295                 # world height of the head centre (raised a touch so a slim neck shows)
 PIVOT_Z = HEAD_CENTRE_Z - SC.HZ * H_SCALE
 
 
@@ -30,8 +30,9 @@ def part_worker_raw():
     b = B()
     skin = mat("sc_skin", 0.8)
     # wide egg torso; the top tucks into the head so there is almost no neck
-    b.lathe([(0, 0.55), (0.14, 0.55), (0.22, 0.60), (0.27, 0.72), (0.285, 0.84), (0.26, 0.96), (0.20, 1.04),
-             (0.11, 1.09), (0, 1.11)], (0, 0, 0), skin, seg=24, scale=(1.0, 0.86, 1.0))
+    b.lathe([(0, 0.55), (0.14, 0.55), (0.22, 0.60), (0.27, 0.72), (0.285, 0.84), (0.255, 0.95), (0.19, 1.00),
+             (0.12, 1.035), (0.075, 1.07), (0, 1.09)], (0, 0, 0), skin, seg=24, scale=(1.0, 0.86, 1.0))
+    b.cyl(0.062, 0.14, (0, 0, 1.00), skin, seg=14)                                   # slim neck, tucked into the head
     for s in (-1, 1):
         x = s * 0.11
         # short, thick legs
@@ -44,7 +45,7 @@ def part_worker_raw():
         b.sph(1.0, (xf - s * 0.042, 0.208, 0.050), skin, scale=(0.042, 0.062, 0.046), seg=10, ring=8)
         b.sph(1.0, (xf + s * 0.036, 0.174, 0.037), skin, scale=(0.042, 0.044, 0.032), seg=10, ring=8)
         # thick arm flowing out of the upper chest (starts inside the torso, no shoulder corner) and tapering to the wrist
-        b.tube([(s * 0.15, 0.0, 0.97), (s * 0.255, 0.0, 0.935), (s * 0.335, 0.02, 0.80), (s * 0.37, 0.05, 0.62),
+        b.tube([(s * 0.15, 0.0, 0.94), (s * 0.255, 0.0, 0.915), (s * 0.335, 0.02, 0.79), (s * 0.37, 0.05, 0.62),
                 (s * 0.385, 0.07, 0.52)], lambda u: 0.078 - 0.034 * u, skin, seg=12)
         # big oven-mitten hand: fused fingers plus a distinct, chunky thumb
         hx, hy, hz = s * 0.385, 0.078, 0.462
