@@ -11,5 +11,11 @@ with scene.open('rb') as stream:
 if preview:
  os.environ['PREVIEW_SOURCE']=scene.name
  runpy.run_path(str(root/manifest['section_root']/'blender/open_material_preview.py'),run_name='__main__')
-else:bpy.ops.wm.open_mainfile(filepath=str(scene),load_ui=True)
+else:
+ bpy.ops.wm.open_mainfile(filepath=str(scene),load_ui=True)
+ fast_auth = root/manifest['section_root']/'blender/facility_fast_authoring.py'
+ if fast_auth.exists():
+  sys.path.insert(0, str(fast_auth.parent))
+  import facility_fast_authoring
+  facility_fast_authoring.register()
 print('CURRENT_MAP_OPENED',scene,flush=True)

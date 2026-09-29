@@ -1,6 +1,6 @@
 # Critical Shift — assembled facility A04
 
-> **Current full-map entrypoint: [MAP.md](../../MAP.md) and [MAP.json](../../MAP.json).** Use `blender/facility_spawn_concept02_R17.blend` for editing the entire map, or its R17 material preview for inspection. The A04 description below is retained as history; connectors, exteriors and subsequent whole-map work now exist.
+> **Current full-map entrypoint: [MAP.md](../../MAP.md) and [MAP.json](../../MAP.json).** Use `blender/facility_spawn_concept02_R18.blend` for editing the entire map with the integrated Fast Authoring system, or its material preview for inspection (R17 is preserved as an immutable baseline). The A04 description below is retained as history; connectors, exteriors, whole-map systems and fast authoring now exist.
 
 
 Open **[blender/facility_master.blend](blender/facility_master.blend)**. This is the actual master scene containing twelve linked room modules at their original metre scale. Keep this entire section folder together: the master uses relative links into `sources/`.

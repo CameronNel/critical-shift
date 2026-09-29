@@ -1,0 +1,123 @@
+{
+  "blender_version": "5.2.0 LTS",
+  "authoring_scene": "facility_spawn_concept02_R18.blend",
+  "proxy_mesh_optimization": {
+    "method": "Planar Dissolve (2.5 deg, Delimit Normal/Material/Seam/Sharp) + High-Density Sub-mesh Collapse (0.25) + Weighted Normal (keep_sharp=True, weight=50)",
+    "visual_degradation": "Zero (coplanar faces dissolved, silhouette edges and material/seam boundaries preserved, weighted normals eliminate shading artifacts)",
+    "authoritative_sources_touched": false,
+    "total_original_proxy_triangles": 10171742,
+    "total_optimized_proxy_triangles": 2523011,
+    "reduction_triangles": 7648731,
+    "reduction_percentage": 75.2,
+    "key_areas": [
+      { "area": "spawn-room", "original": 1600489, "optimized": 334867, "reduction_pct": 79.1 },
+      { "area": "reactor-room", "original": 2435602, "optimized": 594185, "reduction_pct": 75.6 },
+      { "area": "fuel-corridor", "original": 1144232, "optimized": 277573, "reduction_pct": 75.7 },
+      { "area": "condenser-bay", "original": 754854, "optimized": 173043, "reduction_pct": 77.1 },
+      { "area": "mine", "original": 651851, "optimized": 133725, "reduction_pct": 79.5 },
+      { "area": "cooling-plant", "original": 643329, "optimized": 135746, "reduction_pct": 78.9 },
+      { "area": "electrical-room", "original": 621540, "optimized": 136373, "reduction_pct": 78.1 },
+      { "area": "refinery", "original": 438090, "optimized": 108435, "reduction_pct": 75.2 },
+      { "area": "turbine-room", "original": 418553, "optimized": 99668, "reduction_pct": 76.2 }
+    ]
+  },
+  "benchmarks": [
+    {
+      "test_id": "A",
+      "name": "Full Quality (Original full source geometry)",
+      "mode": "FULL_QUALITY",
+      "focused_area": "spawn-room",
+      "viewport_mode": "SOLID",
+      "target_area": "Full Map",
+      "redraw_fps": 1.03,
+      "visible_source_objects": 9887,
+      "visible_proxy_objects": 0,
+      "visible_lights": 705
+    },
+    {
+      "test_id": "B",
+      "name": "Overview / Fast",
+      "mode": "OVERVIEW",
+      "focused_area": "spawn-room",
+      "viewport_mode": "SOLID",
+      "target_area": "Full Map",
+      "redraw_fps": 13.41,
+      "visible_source_objects": 0,
+      "visible_proxy_objects": 31,
+      "visible_lights": 705
+    },
+    {
+      "test_id": "C",
+      "name": "Focus Edit: Spawn",
+      "mode": "FOCUS_EDIT",
+      "focused_area": "spawn-room",
+      "viewport_mode": "SOLID",
+      "target_area": "Spawn Room",
+      "redraw_fps": 10.63,
+      "visible_source_objects": 2,
+      "visible_proxy_objects": 29,
+      "visible_lights": 705
+    },
+    {
+      "test_id": "D",
+      "name": "Focus Edit: Reactor",
+      "mode": "FOCUS_EDIT",
+      "focused_area": "reactor-room",
+      "viewport_mode": "SOLID",
+      "target_area": "Reactor Room",
+      "redraw_fps": 6.94,
+      "visible_source_objects": 2,
+      "visible_proxy_objects": 28,
+      "visible_lights": 705
+    },
+    {
+      "test_id": "E",
+      "name": "Focus Edit: Fuel Corridor",
+      "mode": "FOCUS_EDIT",
+      "focused_area": "fuel-corridor",
+      "viewport_mode": "SOLID",
+      "target_area": "Fuel Corridor",
+      "redraw_fps": 6.44,
+      "visible_source_objects": 2,
+      "visible_proxy_objects": 29,
+      "visible_lights": 705
+    },
+    {
+      "test_id": "F",
+      "name": "Material Review: Courtyard",
+      "mode": "MATERIAL_REVIEW",
+      "focused_area": "spawn-room",
+      "viewport_mode": "RENDERED (EEVEE)",
+      "target_area": "Courtyard",
+      "redraw_fps": 2.3,
+      "visible_source_objects": 0,
+      "visible_proxy_objects": 0,
+      "visible_lights": 393
+    },
+    {
+      "test_id": "G",
+      "name": "Material Review: Power/Reactor",
+      "mode": "MATERIAL_REVIEW",
+      "focused_area": "reactor-room",
+      "viewport_mode": "RENDERED (EEVEE)",
+      "target_area": "Power/Reactor",
+      "redraw_fps": 0.23,
+      "visible_source_objects": 0,
+      "visible_proxy_objects": 0,
+      "visible_lights": 705
+    },
+    {
+      "test_id": "H",
+      "name": "Material Review: Medical",
+      "mode": "MATERIAL_REVIEW",
+      "focused_area": "medical-reanimation",
+      "viewport_mode": "RENDERED (EEVEE)",
+      "target_area": "Medical",
+      "redraw_fps": 0.48,
+      "visible_source_objects": 0,
+      "visible_proxy_objects": 0,
+      "visible_lights": 705
+    }
+  ],
+  "timestamp": "2026-09-18 19:56:52"
+}
