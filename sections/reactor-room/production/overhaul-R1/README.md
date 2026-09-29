@@ -16,6 +16,13 @@ Additive candidate: `sections/facility-assembly/sources/reactor-room/module_over
 
 Interior contents of the old control room (1,493 objects from desks, screens and mimic panel) were rotated -90 degrees about Z and translated (x0 = -1.4, y +5.0, z -4.6) onto the mezzanine. Nothing else in the hall was moved.
 
+## Asset Kit 1 and cleanup (after the layout work)
+
+- Removed about 1,760 leftover stair-finish objects and about 4,900 modeled fasteners/grating bars (see `BUDGET.md`).
+- New low-poly equipment at the existing station footprints, with `PORT_*` empties (medium, nominal diameter) for the piping pass: emergency-cooling accumulators EC-1/EC-2, coolant pump P-10, waste cask W-04, turbine set T-06. Named gameplay controls (`COOLANT_VALVE`, `EMERGENCY_COOLING`, `TURBINE_THROTTLE`, ...) were kept untouched.
+- Scripts: `c1.py`/`c2.py` (cleanup), `c3.py`/`c4.py` (assets), `c5.py` (smooth shading).
+- Piping and cables are deliberately last, so old pipes still end at the old positions and do not yet connect to the `PORT_*` empties.
+
 ## Placement constraints found
 
 - The -Y wall is fully occupied at floor level (coolant pumps x -5.3 to -2.5, coolant valve x -1.7 to 0.7, emergency cooling EC-1/EC-2 x 1.1 to 3.9, storage x 4.3 to 5.1). The elevator therefore stands in the free south-west zone; the mezzanine only covers the emergency-cooling and pump area overhead (underside at +4.9 m, tallest equipment 2.8 m, coolant header at 4.7 m).

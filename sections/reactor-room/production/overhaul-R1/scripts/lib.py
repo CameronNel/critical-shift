@@ -39,3 +39,22 @@ def cyl_between(name,p0,p1,r,m,c="20 REDESIGN",seg=12):
     o.location=(p0+p1)/2; o.rotation_euler=d.to_track_quat('Z','Y').to_euler()
     if m: o.data.materials.append(m if not isinstance(m,str) else mat(m))
     return o
+
+def dome(name,cx,cy,zbase,r,h,up,m,c="22 ASSET KIT 1",seg=20,rings=6):
+    me=bpy.data.meshes.new(name); bm=bmesh.new()
+    bmesh.ops.create_uvsphere(bm,u_segments=seg,v_segments=rings*2,radius=1.0)
+    bm.verts.ensure_lookup_table()
+    dele=[v for v in bm.verts if (v.co.z< -1e-4 if up else v.co.z>1e-4)]
+    bmesh.ops.delete(bm,geom=dele,context='VERTS')
+    for v in bm.verts: v.co=Vector((v.co.x*r,v.co.y*r,v.co.z*h))
+    bm.to_mesh(me); bm.free()
+    o=bpy.data.objects.new(name,me); o.location=(cx,cy,zbase); col(c).objects.link(o)
+    o.data.materials.append(m if not isinstance(m,str) else mat(m)); return o
+def port(name,loc,medium,dn,direction=(0,0,1),c="23 ASSET PORTS"):
+    e=bpy.data.objects.new(name,None); e.empty_display_type='ARROWS'; e.empty_display_size=0.12
+    e.location=loc; e.rotation_euler=Vector(direction).to_track_quat('Z','Y').to_euler(); col(c).objects.link(e)
+    e["medium"]=medium; e["nominal_dn_mm"]=dn; e["connected"]=False; return e
+def label(name,text,loc,size,rot=(math.pi/2,0,0),m="hall_ink",c="22 ASSET KIT 1"):
+    cu=bpy.data.curves.new(name,'FONT'); cu.body=text; cu.size=size; cu.align_x='CENTER'; cu.align_y='CENTER'; cu.extrude=0.0
+    o=bpy.data.objects.new(name,cu); o.location=loc; o.rotation_euler=rot; col(c).objects.link(o)
+    o.data.materials.append(mat("QA label white") if m=="white" else mat("QA label charcoal")); return o
