@@ -171,3 +171,13 @@ contract are in the module docstring; the built-in library (`python character_fa
 sleepy/wide` and mouths `smile/grin/o/flat/smirk`. `face="3d"` keeps the older modelled eyes. The decals are two
 layers (eyes, mouth), about 560 triangles in total, and map onto a cutout/transparent material with one texture
 slot per layer in Unity. Not yet tested in a Unity build.
+
+## Crew worker body regions
+
+`character_regions.py` cuts the worker body into nine skin regions (`TORSO`, `ARM_L/R`, `HAND_L/R`, `LEG_L/R`,
+`FOOT_L/R`) with straight edge loops at the hips, ankles, wrists and shoulders; the head is its own object. Outfits
+hide the regions they cover with `set_hidden(root, [...])` (render + viewport) so no skin pokes through a suit and
+those triangles are not drawn. Shading matches the uncut body until a region is hidden. `render_regions.py` renders
+a seam check and a hidden-regions test. The cuts add about 500 triangles (6,788 total with the face decals). Known
+limits: the arm cut is a vertical plane at |x| = 0.24 m, so the outer flank of the chest belongs to the arm region;
+not yet skinned to a skeleton or merged per outfit for Unity.

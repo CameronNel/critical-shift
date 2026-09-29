@@ -120,7 +120,7 @@ def part_worker_face():
 
 
 def build_worker(name="WORKER", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None, face="neutral", accessories=False,
-                 eyes="round", mouth="smile"):
+                 eyes="round", mouth="smile", regions=True):
     scene = bpy.context.scene
     coll = collection or scene.collection
     root = bpy.data.objects.new(name, None)
@@ -132,12 +132,19 @@ def build_worker(name="WORKER", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None
     tris = 0
     body = SC.smooth_body_object("%s_BODY" % name, target_tris=BODY_TRIS, voxel=0.0055, builder=part_worker_raw,
                                  smooth1=9, smooth2=3, quad=True)
-    if body.name not in coll.objects:
-        coll.objects.link(body)
-    if coll is not scene.collection and body.name in scene.collection.objects:
-        scene.collection.objects.unlink(body)
-    body.parent = root
-    tris += tri_count(body)
+    if regions:
+        import character_regions as CR
+        for o in CR.split_body(body, coll, name).values():
+            o.parent = root
+            tris += tri_count(o)
+        bpy.data.objects.remove(body, do_unlink=True)
+    else:
+        if body.name not in coll.objects:
+            coll.objects.link(body)
+        if coll is not scene.collection and body.name in scene.collection.objects:
+            scene.collection.objects.unlink(body)
+        body.parent = root
+        tris += tri_count(body)
     pivot = bpy.data.objects.new(name + "_HEAD_PIVOT", None)
     pivot.empty_display_size = 0.06
     coll.objects.link(pivot)
