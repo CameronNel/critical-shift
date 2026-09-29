@@ -18,8 +18,9 @@ def main():
     from PIL import Image
     s, cam = studio((640, 900), 48)
     backdrop(s)
-    root, tris = CW.build_worker()
-    pieces, suit_tris = CS.build_hazmat(root)
+    lod = int(os.environ.get('LOD', '0'))
+    root, tris = CW.build_worker(lod=lod)
+    pieces, suit_tris = CS.build_hazmat(root, lod=lod)
     hidden = CS.equip(root)
     visible = sum(len(o.data.polygons) * 2 for o in root.children_recursive if o.type == "MESH" and not o.hide_render)
     print("SUIT hidden regions:", sorted(hidden))

@@ -20,6 +20,7 @@ from mathutils import Vector
 import character_scout as SC
 from cozy_geo import B, mat, tri_count
 
+BODY_TRIS_LOD = 3300                  # lower-detail body for mid/far use
 BODY_TRIS = 5200                      # refined: enough triangles to keep curves smooth and silhouettes round
 H_SCALE = 0.94                        # head kept close to the previous size (slightly trimmed so the taller body reads ~3.1 heads)
 LEG_DROP = -0.11                      # negative: the hips sit higher (0.66 m) so the legs are ~35% longer
@@ -120,7 +121,7 @@ def part_worker_face():
 
 
 def build_worker(name="WORKER", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None, face="neutral", accessories=False,
-                 eyes="round", mouth="smile", regions=True):
+                 eyes="round", mouth="smile", regions=True, lod=0):
     scene = bpy.context.scene
     coll = collection or scene.collection
     root = bpy.data.objects.new(name, None)
@@ -130,7 +131,7 @@ def build_worker(name="WORKER", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None
     root.location = origin
     root.rotation_euler = (0, 0, yaw)
     tris = 0
-    body = SC.smooth_body_object("%s_BODY" % name, target_tris=BODY_TRIS, voxel=0.0055, builder=part_worker_raw,
+    body = SC.smooth_body_object("%s_BODY" % name, target_tris=BODY_TRIS if not lod else BODY_TRIS_LOD, voxel=0.0055, builder=part_worker_raw,
                                  smooth1=9, smooth2=3, quad=True)
     if regions:
         import character_regions as CR
@@ -153,7 +154,7 @@ def build_worker(name="WORKER", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None
     pivot.scale = (H_SCALE, H_SCALE, H_SCALE)
     SC.EYE_SEG = (20, 12)
     flat_face = face == "neutral"
-    parts = [("HEAD", SC.part_head(seg=32, ring=22))]
+    parts = [("HEAD", SC.part_head(seg=32, ring=22) if not lod else SC.part_head(seg=22, ring=14))]
     if not flat_face:
         parts.append(("FACE", SC.part_face(face) if face != "3d" else part_worker_face()))
     if accessories:
@@ -165,6 +166,6 @@ def build_worker(name="WORKER", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None
         tris += tri_count(o)
     if flat_face:
         import character_face as CF
-        _, _, ft = CF.build_face(coll, pivot, eyes=eyes, mouth=mouth)
+        _, _, ft = CF.build_face(coll, pivot, eyes=eyes, mouth=mouth, lod=lod)
         tris += ft
     return root, tris

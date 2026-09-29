@@ -192,3 +192,11 @@ and visor tint (any `#RRGGBB`). `render_suit.py` renders the turnaround, close-u
 Design test only: about 12.8k triangles of suit on top of the 6.8k skin (roughly 19.6k drawn with the skin regions
 hidden), so it needs a lower-detail pass, and it is not yet skinned to a rig or tested in Unity. The wrist and ankle
 hems and the shoulder straps are approximations that need a look under animation.
+
+### Lower-detail crew worker (lod=1)
+
+`build_worker(lod=1)` and `build_hazmat(root, lod=1)` build the mid/far version: body remesh target 3,300 (was 5,200),
+smaller head and face decal grids, and a suit kit with fewer segments and no bevels on small parts. Counted per mesh
+(faces split into triangles): bare worker 3,958 (was 6,788); suit pieces 6,406 (was 12,826); drawn with the suit on
+(skin regions hidden) 7,182 (was 14,666). Same silhouette and details at normal viewing distance. Not yet measured on
+a 3050 or in Unity; a far/crowd LOD below this has not been made.

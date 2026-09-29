@@ -198,12 +198,14 @@ def set_face_texture(obj, path):
     node.image = bpy.data.images.load(path, check_existing=True)
 
 
-def build_face(collection, parent, eyes="round", mouth="smile"):
+def build_face(collection, parent, eyes="round", mouth="smile", lod=0):
     """Add the eyes and mouth decal layers under `parent` (the head pivot). Returns (eyes_obj, mouth_obj, tris)."""
     global coll
     coll = collection
-    e = _patch("FACE_EYES", EYES, os.path.join(DIR, "eyes_%s.png" % eyes), "eyes", coll)
-    m = _patch("FACE_MOUTH", MOUTH, os.path.join(DIR, "mouth_%s.png" % mouth), "mouth", coll)
+    eyes_ext = dict(EYES, nx=14, nz=5) if lod else EYES
+    mouth_ext = dict(MOUTH, nx=8, nz=4) if lod else MOUTH
+    e = _patch("FACE_EYES", eyes_ext, os.path.join(DIR, "eyes_%s.png" % eyes), "eyes", coll)
+    m = _patch("FACE_MOUTH", mouth_ext, os.path.join(DIR, "mouth_%s.png" % mouth), "mouth", coll)
     for o in (e, m):
         o.parent = parent
     return e, m, sum(len(o.data.polygons) * 2 for o in (e, m))
