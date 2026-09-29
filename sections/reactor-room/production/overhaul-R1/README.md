@@ -58,3 +58,21 @@ Players leave a suspiciously cozy spawn room, pass the haunted mine and a barely
 - Stylization is only partly there: forms are angular, but textures are still the old ones under a tint, not hand-painted stylized textures, and lighting is not yet stylized (no authored rim/shadow color language).
 - The critical state reads orange-red rather than deep red and the pool core clips toward white.
 - The spawn room's warm terracotta/blue is deliberately not used; the reactor room is meant to be the dark twin of it.
+
+
+## Lighting pass 1
+
+`scripts/e1_lighting.py` (from the dead-shift file). Goal: readable but spooky, carried by light: pools of light with real dark between them, complementary hues (toxic reactor light against sodium amber and cold lavender).
+
+- Reactor: state-coloured beam rising from the pool, low fill, stronger pool emission; all driven by `REACTOR_STATE.stability`.
+- Hall: 34 practicals rebuilt (2/3 sodium amber, 1/3 cold lavender; a quarter with broken-tube flicker, some dead); 3 cold roof shafts; 3 rotating red emergency beacons that wake as stability drops.
+- Rooms and stations: flickering control-room lamp and state-coloured screens seen through the window, flickering elevator lamps, small colour glows at emergency cooling, turbine exhaust, waste hatch, generator and fuel bay; two low violet rim lights.
+- Look: a thin haze volume for the shafts, dark plum world, AgX Punchy at -0.4 EV.
+- Renders: `lighting_pass1_*` (stable, low stability, control room view, and four frames three apart showing the flicker).
+
+### Known gaps
+
+- Walls still read flat grey; the palette needs more colour contrast against the lighting.
+- Light shafts and the beacon sweep barely show in stills; they need a visual check in motion.
+- Low stability (0.25) reads orange-amber; red only near 0.
+- About 45 lights were added. That is fine for Cycles, but a real-time build cannot run that many dynamic lights: most must be baked or faked with emissives, and only a handful realtime. Not evaluated in an engine.
