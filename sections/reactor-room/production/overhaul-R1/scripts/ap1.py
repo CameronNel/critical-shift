@@ -1,8 +1,13 @@
-import bpy,sys,math
+import bpy,sys,math,os
 from mathutils import Vector
-S=sys.argv[sys.argv.index("--")+1]; src=sys.argv[sys.argv.index("--")+2]; dst=sys.argv[sys.argv.index("--")+3]
+# usage: blender/python ap1.py -- <scene dir> <src.blend> <dst.blend> [module.blend]
+# module.blend defaults to the repo-relative sources/reactor-room/module.blend
+A=sys.argv[sys.argv.index("--")+1:]
+S,src,dst=A[0],A[1],A[2]
 bpy.ops.wm.open_mainfile(filepath=S+"/"+src); sc=bpy.context.scene
-ORIG="/home/user/critical-shift/sections/facility-assembly/sources/reactor-room/module.blend"
+REPO=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),*([".."]*5)))   # scripts -> overhaul-R1 -> production -> reactor-room -> sections -> repo
+ORIG=A[3] if len(A)>3 else os.path.join(REPO,"sections","facility-assembly","sources","reactor-room","module.blend")
+if not os.path.isfile(ORIG): sys.exit("module.blend not found: "+ORIG+" (pass it as the 4th argument)")
 pre=("MAIN ACCESS.","FUEL HANDLING.","COOLING PLANT.")
 with bpy.data.libraries.load(ORIG,link=False) as (a,b):
     names=[n for n in a.objects if n.startswith(pre)]

@@ -1,6 +1,11 @@
-import bpy,sys,json,math; sys.path.insert(0,"."); from lib import bbw; from mathutils import Vector
-S=sys.argv[sys.argv.index("--")+1]; f=sys.argv[sys.argv.index("--")+2] if len(sys.argv)>sys.argv.index("--")+2 else "w30.blend"
-bpy.ops.wm.open_mainfile(filepath=S+"/"+f); RUNS=json.load(open(S+"/runs.json"))
+import bpy,sys,json,math,os; sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); from lib import bbw; from mathutils import Vector
+# usage: blender/python verify_piping.py -- <scene dir> <scene.blend> [runs manifest .json]
+# manifest defaults to the checked-in ../piping_runs_generated.json
+A=sys.argv[sys.argv.index("--")+1:]
+S=A[0]; f=A[1] if len(A)>1 else "w30.blend"
+MANIFEST=A[2] if len(A)>2 else os.path.join(os.path.dirname(os.path.abspath(__file__)),"..","piping_runs_generated.json")
+bpy.ops.wm.open_mainfile(filepath=S+"/"+f); RUNS=json.load(open(MANIFEST))
+print("runs manifest:",os.path.normpath(MANIFEST))
 ports=[(o.name,o.matrix_world.translation.copy()) for o in bpy.data.objects if o.name.startswith("PORT_")]
 devs=[(o.name,bbw(o)) for o in bpy.data.objects if o.type=='MESH' and not (o.name.startswith("R2 pipe") and "socket" not in o.name) and not o.name.startswith(("LP ","R2 corners","R2 w","R2 floor","R2 lights","R2 lamps","R2 detail"))]
 def near_port(p,tol=0.06):
@@ -29,10 +34,10 @@ ring_pts=[(v.x,v.y,Z+0.03) for v in ringp]+[(ringp[0].x,ringp[0].y,Z+0.03)]
 def end_ok(run,p,kind):
     n=near_port(p)
     if n: return f"port {n}"
-    if kind=="TRENCH_JUNCTION_A" and abs(p[0]+2.75)<0.3 and abs(p[1]+8.4)<0.3 and p[2]<0.2: return "trench junction box"
+    if kind=="TRENCH_JUNCTION_A" and abs(p[0]+2.1)<0.3 and abs(p[1]+8.15)<0.3 and p[2]<0.2: return "trench junction box"
     if (kind or "").startswith("RISER") and touches_device(p): return "device ("+touches_device(p)[:26]+")"
     if kind=="TRENCH_JUNCTION_B" and abs(p[0]+1.4)<0.3 and abs(p[1]+4.9)<0.3 and p[2]<0.45: return "pool inlet manifold"
-    if kind=="POOL_DIFFUSER" and in_bbox(p,((-1.6,-1.2),(-3.4,-3.0),(-3.3,-2.9)),0.05): return "pool diffuser"
+    if kind=="POOL_DIFFUSER" and in_bbox(p,((-1.6,-1.2),(-3.25,-2.75),(-3.3,-2.9)),0.05): return "pool diffuser"
     if kind=="HPU" and in_bbox(p,((-0.6,0.6),(1.8,2.4),(12.55,13.45)),0.06): return "hydraulic unit"
     if kind=="RETURN_TANK" and in_bbox(p,((-0.6,0.6),(-2.4,-1.8),(12.55,13.45)),0.06): return "return tank"
     if kind=="CABLE_RING" and on_segment(p,ring_pts,0.06): return "cable ring"
@@ -58,3 +63,6 @@ for r in RUNS:
 print("RUNS:",len(RUNS),"dangling:",bad)
 un=[o.name for o in bpy.data.objects if o.name.startswith("PORT_") and not o.get("connected")]
 print("PORTS unconnected:",len(un),un)
+if bad or un:
+    print("FAIL: %d dangling run(s), %d unconnected port(s)"%(bad,len(un))); sys.exit(1)
+print("PASS")

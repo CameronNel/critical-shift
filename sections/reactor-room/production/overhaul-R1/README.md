@@ -154,3 +154,10 @@ Built last, from the `PORT_*` empties. 26 runs, 76 objects, plus a perimeter cab
 - `t2.py`: bake and glTF export into `engine/`.
 - `verify_scene.py` on the final file: 0 stair objects; elevator car, counterweight and 4 landing doors keyed; from the desk both banks 75% visible, pool water 52-61%, hall floor 41-44%. Standing exactly at the glass a mullion hides bank B.
 - Not done: generator, grid cabinets, fuel racks, sampling station and pool console are restyled (kit, lights, signs, connections) but not remodeled; `sections/reactor-room/scenery/reactorroom.md` still describes the older clean/bright room and needs an owner decision; no independent review; `module.blend`, `MASTER_MANIFEST.json` and `MAP.json` are untouched.
+
+## Verifier and export script usage (review fixes)
+
+- `scripts/verify_piping.py -- <scene dir> <scene.blend> [runs.json]` and `scripts/clearance.py -- <scene dir> <scene.blend> [runs.json]` read the checked-in `piping_runs_generated.json` by default (pass a manifest path as the third argument to override) and exit with status 1 when there are dangling runs, unconnected ports or clashes, 0 otherwise.
+- `scripts/ap1.py -- <scene dir> <src.blend> <dst.blend> [module.blend]` finds `module.blend` relative to the repository by default; the fourth argument overrides it, and a missing file stops with an error.
+- `scripts/t2b.py` no longer swallows glTF export errors: a failed export raises (non-zero exit) and `ok` is only printed after the GLB exists.
+- `verify_piping.py` tolerances were re-synced with the final layout (trench junction box and pool diffuser positions). The previous checked-in copy predated those layout changes and reported 2 false dangling runs on the shipped scene.

@@ -55,8 +55,10 @@ for o in bpy.data.objects:
 for o in bpy.data.objects:
     if o.name.startswith(("LP haze","Water surface","Deep water")) or (o.type=='MESH' and any(s.material and s.material.name in("ENG RF outdoor sky","ENG pool_medium") for s in o.material_slots)): o.hide_viewport=True; o.hide_render=True
 for o in bpy.data.objects: o.select_set(False)
-try:
-    bpy.ops.export_scene.gltf(filepath=OUT+"/reactor_room_R1.glb",export_format='GLB',use_visible=True,export_apply=True,export_animations=True,export_lights=False,export_cameras=False,export_image_format='AUTO')
-    print("GLB exported",os.path.getsize(OUT+"/reactor_room_R1.glb")//1024,"KB")
-except Exception as e: print("GLB export failed:",e)
+GLB=OUT+"/reactor_room_R1.glb"
+if os.path.exists(GLB): os.remove(GLB)   # a stale file must not pass for a fresh export
+res=bpy.ops.export_scene.gltf(filepath=GLB,export_format='GLB',use_visible=True,export_apply=True,export_animations=True,export_lights=False,export_cameras=False,export_image_format='AUTO')   # exceptions propagate: non-zero exit, no "ok"
+if 'FINISHED' not in res: sys.exit("GLB export did not finish: %s"%(res,))
+if not os.path.isfile(GLB) or os.path.getsize(GLB)==0: sys.exit("GLB export produced no file: "+GLB)
+print("GLB exported",os.path.getsize(GLB)//1024,"KB")
 print("ok")
