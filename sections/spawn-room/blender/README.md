@@ -140,3 +140,14 @@ python add_cozy_trinkets.py  -- <stage2.blend> <module.blend>
 Scene total went from about 1,331,000 to about 250,000 triangles (tile floor 449k -> 2, jackets 170k -> 4k, plants ~100k -> ~38k, wall skins ~130k flattened, boots/bags/clock ~110k replaced). The remaining cost is mostly suit-bay hardware (about 15k per bay) and the integrity pod. Measured on the final file: 249,708 triangles, 1,220 mesh objects, 188 materials, 14 lights. The object and material counts are still high for draw calls and are unmeasured on target hardware.
 
 Last validation: `validate_contacts.py` reported PASS with no failures. Not run: Unity export, in-engine frame time on a 3050, formal rubric scoring.
+
+## Crew character kit (concept stage)
+
+`character_kit.py` builds a chunky, big-headed, mitten-handed worker from cheap primitives (about 4k triangles assembled, well under a 5k budget). `render_character_sheet.py` renders the turnaround, a four-player crew and an option sheet headlessly; `character_options.json` is the machine-readable option list for a future customisation UI.
+
+**Locked for every player:** body shape, head shape, proportions, art style.
+**Choosable per player:** skin (7), outfit colour (8), glove colour (5), eyes (6), mouth (7), eyewear (7), hat (8) and hat colour (8), torso wear (5), pack (4), accessory (3). Every part is its own object under one root empty, with socket empties for head, hat, back and hands.
+
+This **deliberately overrides** the "believable adult proportions, not chibi/mascot" rule in `design/ART_DIRECTION.md` section 13, by owner decision, for characters only. That document has not been updated. PEAK and R.E.P.O. are style references only: the designs here are original and nothing is copied.
+
+Not done: rigging, animation, UVs/texture baking, any Unity export, or in-engine cost measurement.
