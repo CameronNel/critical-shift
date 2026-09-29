@@ -84,3 +84,10 @@ Players leave a suspiciously cozy spawn room, pass the haunted mine and a barely
 - **Elevator:** 42 objects; car and counterweight keyed; car floor 0.0 to 5.4 m while the counterweight goes 7.45 to 2.05 m.
 - **Control room sight** (`verify_control_room_sight.py`, ray casts through the glass, haze volume ignored): the original 5.4 x 2.4 m window with a 0.7 m sill saw 0% of the pool and 6 to 16% of the hall floor. The window is now near-floor-to-ceiling (sill 0.25 m, 6.4 m wide, 2.85 m tall). From the centre desk: both drive columns 75% of sample points (the base below the pool rim is hidden), pool water 61%, hall floor 43%. Standing at the glass: pool 86%, floor 49%. The north half of the hall is mostly visible; the south half beside and under the mezzanine is not, and the left end of the room sees none of the pool.
 - Renders: `control_room_eye_a_from_the_desk.png`, `control_room_eye_b_standing_at_the_glass.png`.
+
+
+## Overhaul stage 1: stylised material look (`g1_stylise_stage1.py`)
+
+Reference: the spawn room screenshots (bold colour blocking, crisp painted trim, clean edges, high-fidelity stylised finish), translated to the reactor room's dark theme. 58 existing materials got procedural nodes (no image textures): painted navy dado with a rust trim line on wall materials, worn bright edges from a bevel-normal mask (rust on iron, oxblood-orange on machines, violet on walls), and grime rising from the floor with noise. Render: `stage1_stylised_hero.png`.
+
+Gaps: walls still read grey-olive rather than plum under the current light mix; these are Cycles procedural nodes and must be baked to textures for an engine build (bevel and world-position nodes do not exist there); no new modelled detail, decals or signage yet.
