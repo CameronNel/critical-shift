@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-"Scout" character built from the owner's concept image (big round head, round glasses, buck-toothed grin,
-short-sleeved khaki shirt, olive shorts, white socks, brown shoes), made taller and goofier.
+"Scout" character built from the owner's concept image (big round head, buck-toothed grin, mismatched eyes),
+made taller and goofier, in a plain unisex crew-neck t-shirt and straight-leg jeans with brown shoes.
+Glasses and hat exist but are off by default (accessories come later).
 
 Blender 5.2 / bpy. Every group is its own object under one root so parts can be swapped later:
-BODY (legs, shorts, shirt, arms, hands), HEAD, FACE, GLASSES, HAT. The head group hangs off a pivot empty
+LEGS (shoes + jeans), TORSO (t-shirt, arms, hands), HEAD, FACE, and opt-in GLASSES / HAT (off by default). The head group hangs off a pivot empty
 at the neck, tilted for personality. Original model: nothing here is copied from another game.
 Local frame: origin at the feet, +y is the front, total height about 1.85 m with the hat.
 """
@@ -21,6 +22,8 @@ HEX.update({
     "sc_sleeve": "#D9A63A", "sc_shorts": "#7E9038", "sc_shorts_dk": "#5F6B25", "sc_sock": "#F2EEE4",
     "sc_shoe": "#6B2B14", "sc_sole": "#2A1208", "sc_hat": "#E8C45A", "sc_leaf": "#7FA84A",
     "sc_iris": "#141C4A", "sc_mouth": "#2A0F12", "sc_black": "#101014",
+    "sc_tee": "#E8C45A", "sc_tee_dk": "#D2AB40", "sc_denim": "#4F70A8", "sc_denim_dk": "#3B5687", "sc_denim_lt": "#6E8FC4",
+    "sc_stitch": "#E6C46A",
 })
 
 LIFT = 0.10                          # extra leg length; the upper body group is raised by this
@@ -36,58 +39,65 @@ def _fy(dx, dz):
 
 
 def part_legs():
+    """Shoes and straight-leg jeans (unisex cut). Jeans run from the hip down to a turned-up cuff."""
     b = B()
-    skin = mat("sc_skin", 0.8)
-    sock = mat("sc_sock", 0.9)
     shoe = mat("sc_shoe", 0.55)
     sole = mat("sc_sole", 0.7)
+    denim = mat("sc_denim", 0.92)
+    denim_dk = mat("sc_denim_dk", 0.92)
+    denim_lt = mat("sc_denim_lt", 0.9)
+    stitch = mat("sc_stitch", 0.8)
     for s in (-1, 1):
         x = s * 0.115
         b.lathe([(0, 0.025), (0.078, 0.025), (0.092, 0.05), (0.092, 0.085), (0.072, 0.118), (0.032, 0.14), (0, 0.145)],
                 (x, 0.045, 0.0), shoe, seg=14, scale=(1.0, 1.95, 1.0))
         b.lathe([(0, 0), (0.08, 0), (0.094, 0.012), (0.094, 0.03), (0, 0.03)], (x, 0.045, 0.0), sole, seg=14,
                 scale=(1.0, 1.95, 1.0))
-        b.box((0.07, 0.05, 0.02), (x, 0.13, 0.135), mat("sc_shoe", 0.6), bevel=0.008, seg=1)
-        b.cyl(0.062, 0.16, (x, 0.0, 0.12), sock, seg=12)
-        b.tube([(x, 0, 0.275), (x, 0, 0.285)], 0.068, sock, seg=12)
-        b.tube([(x, 0, 0.27), (x, 0, 0.40 + LIFT / 2), (x, 0, 0.53 + LIFT)], 0.05, skin, seg=10)
+        b.box((0.07, 0.05, 0.02), (x, 0.13, 0.135), shoe, bevel=0.008, seg=1)
+        # jeans leg: straight cut, slightly wider at the thigh, cuffed at the ankle
+        b.cyl(0.098, 0.72, (x * 1.02, 0.0, 0.135), denim, r2=0.122, seg=16)
+        b.tube([(x * 1.02, 0.0, 0.135), (x * 1.02, 0.0, 0.16)], 0.106, denim_lt, seg=16)               # turned-up cuff
+        b.tube([(x * 1.02, 0.0, 0.16), (x * 1.02, 0.0, 0.165)], 0.100, denim_dk, seg=16)
+        # outer-seam stitching
+        ox = x * 1.02 + s * 0.108
+        b.tube([(ox, 0.0, 0.18), (ox + s * 0.006, 0.0, 0.5), (ox + s * 0.012, 0.0, 0.84)], 0.0032, stitch, seg=4)
+        # front pocket edge
+        b.tube(arc(x * 1.02 + s * 0.05, 0.118, 0.82, 0.07, 200 if s > 0 else -20, 340 if s > 0 else 120, 8, plane="XZ"),
+               0.0032, stitch, seg=4)
+    # hips, waistband and fly
+    b.box((0.31, 0.225, 0.11), (0, 0, 0.80), denim, bevel=0.03, seg=2)
+    b.tube([(0.16 * math.cos(a), 0.118 * math.sin(a), 0.855) for a in [i * 2 * math.pi / 20 for i in range(21)]],
+           0.014, denim_dk, seg=5, caps=False)
+    b.sph(0.013, (0.0, 0.122, 0.855), mat("brass", 0.3, 0.9), scale=(1.0, 0.5, 1.0), seg=8, ring=5)  # button
+    b.tube([(0.0, 0.118, 0.85), (0.0, 0.121, 0.74), (-0.014, 0.121, 0.73)], 0.0028, stitch, seg=4)      # fly stitch
+    for s in (-1, 1):                                                                                # back pockets
+        b.box((0.075, 0.01, 0.075), (s * 0.075, -0.12, 0.79), denim_dk, bevel=0.004, seg=1)
     return b
 
 
 def part_torso():
-    """Shorts, shirt, arms and neck. Built low and raised by LIFT as one object."""
+    """Plain crew-neck t-shirt, arms and neck. Built low and raised by LIFT as one object."""
     b = B()
     skin = mat("sc_skin", 0.8)
-    shirt = mat("sc_shirt", 0.9)
-    shirt_dk = mat("sc_shirt_dk", 0.9)
-    sleeve = mat("sc_sleeve", 0.9)
-    shorts = mat("sc_shorts", 0.9)
+    tee = mat("sc_tee", 0.92)
+    tee_dk = mat("sc_tee_dk", 0.92)
     for s in (-1, 1):
-        x = s * 0.115
-        b.cyl(0.128, 0.26, (x * 1.02, 0.0, 0.47), shorts, r2=0.112, seg=14)
         sx = s * 0.285
-        b.tube([(sx - s * 0.02, 0.0, 1.08), (sx + s * 0.02, 0.005, 0.99)], 0.088, sleeve, seg=12)
-        b.tube([(sx + s * 0.022, 0.006, 0.985), (sx + s * 0.026, 0.008, 0.965)], 0.093, mat("sc_hat", 0.9), seg=12)
+        # short tee sleeve with a hem, then bare arm and a simple mitt hand
+        b.tube([(sx - s * 0.02, 0.0, 1.08), (sx + s * 0.02, 0.005, 0.99)], 0.088, tee, seg=12)
+        b.tube([(sx + s * 0.022, 0.006, 0.985), (sx + s * 0.026, 0.008, 0.968)], 0.091, tee_dk, seg=12)
         b.tube([(sx + s * 0.03, 0.01, 0.98), (sx + s * 0.075, 0.03, 0.78), (sx + s * 0.088, 0.06, 0.56)], 0.045, skin, seg=10)
         hx, hy, hz = sx + s * 0.092, 0.075, 0.50
         b.sph(0.068, (hx, hy, hz), skin, scale=(1.0, 1.0, 1.1), seg=12, ring=8)
         b.sph(0.03, (hx - s * 0.05, hy + 0.045, hz + 0.02), skin, seg=8, ring=6)
-    b.box((0.30, 0.22, 0.10), (0, 0, 0.70), shorts, bevel=0.03, seg=2)
-    b.tube([(-0.15, 0.1, 0.735), (0.15, 0.1, 0.735)], 0.012, mat("sc_shorts_dk", 0.9), seg=5)
-    b.box((0.50, 0.30, 0.44), (0, 0, 0.935), shirt, bevel=0.03, seg=2)
-    b.box((0.52, 0.315, 0.05), (0, 0, 0.745), shirt, bevel=0.015, seg=2)
-    for s in (-1, 1):
-        b.box((0.10, 0.02, 0.11), (s * 0.115, 0.153, 0.99), shirt_dk, bevel=0.006, seg=1)
-        b.box((0.11, 0.024, 0.04), (s * 0.115, 0.157, 1.035), shirt_dk, bevel=0.006, seg=1)
-        b.box((0.11, 0.008, 0.008), (s * 0.115, 0.164, 0.99), shirt, bevel=0, seg=1)
-    b.box((0.022, 0.012, 0.40), (0, 0.153, 0.93), shirt_dk, bevel=0.004, seg=1)
-    collar = mat("sc_shorts_dk", 0.9)
-    for s in (-1, 1):
-        b.box((0.13, 0.014, 0.085), (s * 0.075, 0.148, 1.12), collar, bevel=0.006, seg=1,
-              rot=Matrix.Rotation(s * math.radians(-28), 3, "Y"))
-    b.tube([(0.11 * math.cos(a), 0.09 * math.sin(a), 1.145) for a in [i * 2 * math.pi / 16 for i in range(17)]],
-           0.03, collar, seg=6, caps=False)
-    b.cyl(0.075, 0.09, (0, 0, 1.10), skin, seg=12)
+    b.box((0.50, 0.30, 0.44), (0, 0, 0.935), tee, bevel=0.03, seg=2)
+    b.box((0.51, 0.31, 0.04), (0, 0, 0.745), tee, bevel=0.015, seg=2)
+    b.tube([(0.512 * math.cos(a) * 0.5, 0.31 * math.sin(a) * 0.5 + 0.0, 0.727) for a in [i * 2 * math.pi / 20 for i in range(21)]],
+           0.006, tee_dk, seg=4, caps=False)                                                          # hem stitch
+    # ribbed crew neckline and neck
+    b.tube([(0.105 * math.cos(a), 0.085 * math.sin(a), 1.152) for a in [i * 2 * math.pi / 18 for i in range(19)]],
+           0.026, tee_dk, seg=6, caps=False)
+    b.cyl(0.072, 0.10, (0, 0, 1.10), skin, seg=12)
     return b
 
 
@@ -167,7 +177,7 @@ def part_hat():
     return b
 
 
-def build_scout(name="SCOUT", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None, tilt=8.0, turn=7.0):
+def build_scout(name="SCOUT", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None, tilt=8.0, turn=7.0, accessories=False):
     coll = collection or bpy.context.scene.collection
     root = bpy.data.objects.new(name, None)
     root.empty_display_type = "PLAIN_AXES"
@@ -188,7 +198,10 @@ def build_scout(name="SCOUT", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None, 
     pivot.parent = root
     pivot.location = (0, 0, PIVOT_Z)
     pivot.rotation_euler = (0, math.radians(tilt), math.radians(turn))        # goofy head tilt
-    for label, builder in (("HEAD", part_head()), ("FACE", part_face()), ("GLASSES", part_glasses()), ("HAT", part_hat())):
+    heads = [("HEAD", part_head()), ("FACE", part_face())]
+    if accessories:                      # glasses and hat are kept for later, off by default
+        heads += [("GLASSES", part_glasses()), ("HAT", part_hat())]
+    for label, builder in heads:
         o = builder.build("%s_%s" % (name, label), floor_normalize=False)
         coll.objects.link(o)
         o.parent = pivot
