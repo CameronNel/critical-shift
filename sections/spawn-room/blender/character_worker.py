@@ -119,7 +119,8 @@ def part_worker_face():
     return b
 
 
-def build_worker(name="WORKER", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None, face="neutral", accessories=False):
+def build_worker(name="WORKER", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None, face="neutral", accessories=False,
+                 eyes="round", mouth="smile"):
     scene = bpy.context.scene
     coll = collection or scene.collection
     root = bpy.data.objects.new(name, None)
@@ -144,7 +145,10 @@ def build_worker(name="WORKER", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None
     pivot.location = (0, 0, PIVOT_Z)
     pivot.scale = (H_SCALE, H_SCALE, H_SCALE)
     SC.EYE_SEG = (20, 12)
-    parts = [("HEAD", SC.part_head(seg=32, ring=22)), ("FACE", part_worker_face() if face == "neutral" else SC.part_face(face))]
+    flat_face = face == "neutral"
+    parts = [("HEAD", SC.part_head(seg=32, ring=22))]
+    if not flat_face:
+        parts.append(("FACE", SC.part_face(face) if face != "3d" else part_worker_face()))
     if accessories:
         parts += [("GLASSES", SC.part_glasses()), ("HAT", SC.part_hat())]
     for label, builder in parts:
@@ -152,4 +156,8 @@ def build_worker(name="WORKER", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None
         coll.objects.link(o)
         o.parent = pivot
         tris += tri_count(o)
+    if flat_face:
+        import character_face as CF
+        _, _, ft = CF.build_face(coll, pivot, eyes=eyes, mouth=mouth)
+        tris += ft
     return root, tris

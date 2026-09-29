@@ -161,3 +161,13 @@ Not done: rigging, animation, UVs/texture baking, any Unity export, or in-engine
 `character_worker.py` shapes the Scout base into a character built for this game, chosen by design reasoning rather than copied from anything: a wide egg torso, short thick legs, a big round head with almost no neck, big oven-mitten hands and chunky feet, about 1.5 m tall so it fits the facility's rooms. The intent is a strong silhouette at distance for four players sharing a room, and a simple solid volume for the hazmat suit, gloves and boots to layer on. The body is one blended surface (overlapping closed primitives, voxel remesh, smooth, decimate); the head and neutral face reuse the Scout's parts on a scaled neck pivot, so faces, hats and accessories stay swappable. Refined pass: limbs follow smooth curved centre-lines with a soft calf, deltoid and defined wrist and ankle; the body surface is rebuilt with QuadriFlow (clean, evenly flowing quads with no decimation facets); the head and eyes are higher resolution. About 8.5k triangles, well above the 5k target; a lower-detail LOD is still to be made. `render_worker.py` renders the turnaround, a head close-up, a hand close-up and a Scout-versus-worker size comparison. The Scout is kept unchanged as a separate preset.
 
 Not done: outline shader, rig, poses, UVs, suit/clothes layers for this body, engine export, and in-engine cost measurement.
+
+## Crew worker face layers (2D decals)
+
+The worker's eyes and mouth are flat transparent PNG decals on thin curved patches that follow the head
+(`character_face.py`, textures in `character_faces/`). A custom eye or mouth is just another PNG: drop it in and call
+`character_face.set_face_texture(obj, path)`, or pass `eyes=` / `mouth=` to `build_worker`. Sizes and the layout
+contract are in the module docstring; the built-in library (`python character_face.py`) has eyes `round/dot/happy/
+sleepy/wide` and mouths `smile/grin/o/flat/smirk`. `face="3d"` keeps the older modelled eyes. The decals are two
+layers (eyes, mouth), about 560 triangles in total, and map onto a cutout/transparent material with one texture
+slot per layer in Unity. Not yet tested in a Unity build.
