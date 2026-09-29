@@ -1,5 +1,12 @@
 # Reactor room overhaul R1 (draft, needs review)
 
+## Status at a glance
+
+Rebuilt: architecture shell, doors, floor graphics, materials, fixture lighting, banks, control room interior, pool lining and rim glow, elevator with landing doors, station lamps, dressing, piping and cables (26 runs, connectivity-checked), one `REACTOR_STATE.stability` value driving the reactor light. Verified on the final file with `scripts/verify_scene.py` and `scripts/verify_piping.py`: 0 stair objects; elevator car, counterweight and landing doors keyed; both banks visible from the control room desk positions (75% of sample points each), 52-61% of the pool water and 41-44% of the hall floor.
+
+Not done: baking and UVs for an engine build; material consolidation (77 in use, target 40); the remaining draw-call merge (station objects kept separate on purpose); the generator, grid cabinets, fuel racks, sampling station and pool-side console are legacy models with new materials, lights and connections, not redesigned; collision-clearance check for the new pipes; spec and art-direction documents still say clean and bright; no independent review; nothing measured in an engine.
+
+
 Additive candidate: `sections/facility-assembly/sources/reactor-room/module_overhaul_R1.blend` (**not in this commit**: the Git LFS upload was blocked by the session's network policy for `lfs.github.com`; it will be added once that host is allowed. Until then the file can be rebuilt from `module.blend` with `scripts/`).
 `module.blend` is untouched because `MASTER_MANIFEST.json` pins its SHA-256, and the assembled map still links it. The map shows none of this until the revision is reviewed and promoted (manifest hash, MAP.json and the derived preview regenerated).
 
