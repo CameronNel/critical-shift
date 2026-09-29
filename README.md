@@ -1,5 +1,7 @@
 # Critical Shift
 
+Environment backup: see [saved-scene provenance and limitations](sections/facility-assembly/ENVIRONMENT_BACKUP.md). For the approved non-flat construction method, read [Non-flat environments](design/NON_FLAT_ENVIRONMENTS.md). `MAP.json` selects `facility_environment.blend`; R18 is retained separately as historical work.
+
 > **Current map: [Build on this map](MAP.md).** The assembled twelve-section Blender map, connection network, exterior work and latest inspection scene are in this repository. Start with [MAP.json](MAP.json); download Git LFS assets first. The owner estimates about 75% completion; art acceptance and Unity runtime remain unfinished.
 
 
