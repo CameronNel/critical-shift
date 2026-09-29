@@ -139,3 +139,12 @@ Built last, from the `PORT_*` empties. 26 runs, 76 objects, plus a perimeter cab
 - About 36 old dangling pipe and feed curves were deleted because the layers they connected to no longer exist.
 
 `verify_piping.py` result on this file: 26 runs, 0 dangling ends (every end is a port, a device, a tee on another run, the trench, the diffuser, the pressure unit or the cable ring), 0 unconnected `PORT_*` empties. It checks connectivity only, not clearance or collisions with walkways or equipment.
+
+## Final pass: station kit, piping rebuild, engine hand-off
+
+- `s1.py`: hazard-stripe stencils, bollards, wall sign plates with emissive text, waste ring and hood at stations.
+- `pipes2.py`: piping rebuild with clashes fixed (26 runs). `clearance.py` ray-casts every run: 0 clashes. Run data in `piping_runs_generated.json`.
+- `t1.py` / `t0.py`: material consolidation (48 in use), UVs on all meshes, gauge ticks removed, text/curves merged or converted to meshes.
+- `t2.py`: bake and glTF export into `engine/`.
+- `verify_scene.py` on the final file: 0 stair objects; elevator car, counterweight and 4 landing doors keyed; from the desk both banks 75% visible, pool water 52-61%, hall floor 41-44%. Standing exactly at the glass a mullion hides bank B.
+- Not done: generator, grid cabinets, fuel racks, sampling station and pool console are restyled (kit, lights, signs, connections) but not remodeled; `sections/reactor-room/scenery/reactorroom.md` still describes the older clean/bright room and needs an owner decision; no independent review; `module.blend`, `MASTER_MANIFEST.json` and `MAP.json` are untouched.

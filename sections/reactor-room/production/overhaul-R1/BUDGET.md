@@ -33,14 +33,20 @@ What produced the drop: about 1,760 orphaned stair-finish objects left over from
 
 The rebuilt architecture is 23.5k triangles (176 objects); the legacy walls, structure and services it replaced were several hundred thousand. Triangles are inside the 400k target only if the roof proxy is excluded and are still slightly over it (412k). Draw calls are about twice the 800 target: the remaining objects are the gameplay-addressable stations, bank mechanisms and controls, which the merge pass deliberately leaves alone (all-caps interaction names, animated or parented objects, `MF WORKFLOW MACHINERY`, `04 BANK MECHANISMS`, `05 PERIMETER EQUIPMENT`). About 45 lights were also added, which a real-time build cannot run dynamically. None of this is engine-measured.
 
-## Final state of this revision (same measuring method)
+## Final state of this revision (all geometry counted: meshes, curves and text)
 
-| State | Triangles | Objects | Draw-call estimate | Materials in use |
-|---|---:|---:|---:|---:|
-| `module.blend` (original) | 1,981,445 | 11,795 | 11,797 | 107 |
-| This revision (`module_overhaul_R1.blend`) | 260,074 | 1,271 | 1,271 | 77 |
+An earlier version of this table counted meshes only and understated curve and text objects (260,074 triangles / 1,271 objects). `scripts/stats2.py` counts everything.
 
-Triangles are inside the 400k target (the roof/sky proxy, 53,780, is excluded as before). Draw calls are still about 1.6x the 800 target: roughly 675 of the objects are the gameplay-addressable stations and controls (`05 PERIMETER EQUIPMENT`, `MF WORKFLOW MACHINERY`), which were deliberately not merged so each interaction stays separately addressable. Materials are 77 against a target of 40. There are 50 lights: fine for Cycles, but a real-time build can only run a handful dynamically. The Cycles procedural materials (bevel and world-position nodes) must be baked to textures with UVs for an engine build; nothing is UV-unwrapped or baked yet. None of this is engine-measured.
+| State | Triangles | Objects | Materials in use |
+|---|---:|---:|---:|
+| `module.blend` (original) | 2,191,850 | 12,936 | 107 |
+| This revision (`module_overhaul_R1.blend`) | 287,719 (mesh 282,658, curve 2,356, text 2,705) | 1,495 | 48 |
+
+- Triangles are inside the 400k target (the roof/sky proxy, 53,780, is excluded as before; the glTF re-import counts 340,599 including it and the export's own triangulation).
+- Draw calls: about 1,495 estimated, against the 800 target. Roughly 675 of the objects are gameplay-addressable stations and controls that were deliberately not merged. Not engine-measured.
+- Materials: 48 against a target of 40. Every mesh has world-scale box-projected UVs.
+- Lights: about 50. A real-time build can only run a handful dynamically; the rest need baking or emissive-only treatment.
+- Engine hand-off: `engine/reactor_room_R1.glb` (27 MB, 12 animations) plus 29 baked 512 px tileable albedo textures. Bakes carry base colour and mottling only; edge wear and grime are Cycles-only. No lightmap UVs. The glb was re-imported to confirm counts; it has not been opened in an engine.
 
 ## Still to do to reach the targets
 
