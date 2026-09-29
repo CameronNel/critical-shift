@@ -73,10 +73,10 @@ def part_body_base():
     return b
 
 
-def smooth_body_object(name, target_tris=3400, voxel=0.0075):
+def smooth_body_object(name, target_tris=3400, voxel=0.0075, builder=None):
     """Merge the overlapping primitives into one continuous surface: voxel remesh, smooth, then decimate."""
     scene = bpy.context.scene
-    obj = part_body_base().build(name, floor_normalize=False)
+    obj = (builder or part_body_base)().build(name, floor_normalize=False)
     scene.collection.objects.link(obj)
 
     def bake(obj):
