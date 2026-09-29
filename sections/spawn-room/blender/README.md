@@ -99,7 +99,7 @@ Do not build from the scenery text alone. The reference library exists specifica
 
 ## Cozy-modern restyle (user-directed palette + performance pass)
 
-> **Status of `module.blend`:** this commit ships the *generator scripts only*. The restyled `module.blend` was not committed because the authoring environment could not reach the Git LFS host. `module.blend` here is still the original; run the pipeline below against it to reproduce the restyled module (Blender 5.2 `bpy` + Pillow), then commit the result through normal LFS.
+> **Status of `module.blend`:** the committed module is the output of this pipeline (regenerated headlessly and validated with `validate_contacts.py`). To reproduce it, run the three commands below against the original module (the version before this work) with Blender 5.2 `bpy` + Pillow.
 
 The working module `../../facility-assembly/sources/spawn-room/module.blend` was restyled from the earlier teal/cream palette to a highly stylized, modern but cozy look. `accepted.blend` is untouched and remains the frozen baseline that `build_master.py` hashes.
 
