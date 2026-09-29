@@ -16,15 +16,16 @@ Blender and image files are stored in Git LFS. A text pointer is not a Blender s
 
 ## Open the current map
 
-- **Editable entire map:** [facility_spawn_concept02_R18.blend](sections/facility-assembly/blender/facility_spawn_concept02_R18.blend) (with Fast Authoring system; R17 preserved as immutable baseline).
-- **Batched visual/walkthrough preview:** [facility_spawn_material_preview_R17.blend](sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend).
+- **Current editable entire map:** [facility_environment.blend](sections/facility-assembly/blender/facility_environment.blend), including the approved exterior work and directly linked PR #48 spawn art.
+- **Historical Fast Authoring revision:** [facility_spawn_concept02_R18.blend](sections/facility-assembly/blender/facility_spawn_concept02_R18.blend), retained separately; it is not the current environment checkpoint.
+- **Immutable batched baseline/dependency:** [facility_spawn_material_preview_R17.blend](sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend). Do not regenerate it. Its cached spawn predates PR #48.
 - **Machine-readable entrypoints:** [MAP.json](MAP.json).
 
-Despite `spawn` in the revision filename, **both scenes contain the entire assembled map**, including all twelve room modules, connector floors/halls, courtyard, vertical access, perimeter/terrain, exterior work and roof services. R17 adds the latest spawn/courtyard exterior and non-RT lighting work to the whole-map A14 baseline. R18 integrates the production Fast Authoring system directly into the map scene.
+Despite `spawn` in the historical filenames, these are whole-map scenes. The current environment retains the R17 dependencies for unaffected areas but replaces the old spawn render cache with a relative link to `sources/spawn-room/module.blend`. A local membership wrapper preserves the established airlock and service-exit openings without editing the source. See [environment provenance and verification](sections/facility-assembly/ENVIRONMENT_BACKUP.md).
 
 ### Fast Authoring System
 
-Open `facility_spawn_concept02_R18.blend` directly or run `python open_map.py`. Access the control panel in 3D Viewport > Sidebar (`N` key) > **Critical Shift Authoring**.
+The following describes the historical R18 workflow, not a verified rebuild path for `facility_environment.blend`. Open R18 directly only when intentionally inspecting that revision; `open_map.py` follows MAP.json's current entrypoint. Do not run cache-rebuild operators over the current R17 dependency. In R18, access the control panel in 3D Viewport > Sidebar (`N` key) > **Critical Shift Authoring**.
 
 The authoring system provides four distinct workflows:
 1. **Overview / Fast**: Real-time 60+ FPS whole-map navigation. Displays the entire facility via lightweight consolidated proxies and viewport caches (~33 objects, solid shading). Canonical heavy geometry is unlinked from evaluation.
