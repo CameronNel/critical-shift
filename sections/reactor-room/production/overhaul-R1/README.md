@@ -107,3 +107,9 @@ Not yet: floor inlays and stencils, wall graphics, dressing, ceiling detail, rem
 - `m1_floor_graphics_dressing.py`: floor inlays (orange safety ring round the pool; route lanes with chevrons from the three doors to the pool; drain grates), painted wall graphics (sector numerals, company and safety stencils), angular drums and crates.
 - `n2_station_lamps_palette5.py`: task lamps (modelled hood plus spot) for the generator, reserve power, grid cabinets, turbine, fuel bay, fuel racks, waste cask and pool console; equipment materials lifted; edge-wear masks thinned.
 - `n4_fixture_shadow_fix.py`: **bug fix.** Every fixture's light sat inside its own closed housing, so the housing blocked the light. This is why the cornice washers, beacons and (at first) the task lamps lit almost nothing. Housings no longer cast shadows.
+
+
+## Rebuild C: banks and control room interior
+
+- `o1_banks.py`, `o3_bank_lighting_labels.py`: both control banks rebuilt as angular octagonal housings with hazard bands, hydraulic cassettes (with `PORT_BANK_*_hyd_*` empties), state-glow rings, and moving drive columns with banded state-glow scale marks, parented to the original `BANK_A_MOVING` / `BANK_B_MOVING` empties so the animation is unchanged. Gameplay names `BANK_x_FIXED_HOUSING`, `BANK_x_CARRIAGE`, `BANK_x_DRIVE_COLUMN` are kept. Uplights and gantry lamps added.
+- `p1_control_room_interior.py`: the legacy control-room dressing (297 objects) is replaced by a rebuilt interior: low console desk with five monitors (kept below eye height so the window sight line stays clear), mimic wall panel with state-coloured nodes, chairs, shelving with binders, cabinets, a cot in the corner, papers and mugs, ceiling panels and a desk lamp. The room shell (floor, back wall, roof) is regenerated as well.
