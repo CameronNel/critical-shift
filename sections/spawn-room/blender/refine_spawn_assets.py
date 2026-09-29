@@ -812,6 +812,13 @@ def replace_ai_images():
         log("removed AI-generated images; %d texture slots now use generated flat poster art" % done)
 
 
+def remove_floor_patch():
+    """The 1 m grey 'replacement floor panel' clashed with the clay tiles; the owner asked for it gone."""
+    n = delete_prefix("FLOOR_replacement")
+    if n:
+        log("removed %d grey replacement floor patch object(s)" % n)
+
+
 def remove_plain_mugs():
     """The original white mugs are plain cylinders; the trinket pass adds properly shaped ones."""
     n = delete_prefix("BRIEFING_mug", "V_BRIEF_mug_", "V_BRIEF_manual_", "V_BRIEF_refreshment_tray",
@@ -838,6 +845,7 @@ def main():
     rebuild_lighting()
     remove_seat_clutter()
     remove_plain_mugs()
+    remove_floor_patch()
     remove_extra_plants()
     replace_props()
     pegboard_shader()
