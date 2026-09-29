@@ -51,20 +51,44 @@ def part_body_base():
     for s in (-1, 1):
         x = s * 0.095
         # leg: thick at the hip, tapering to the ankle, buried in the pelvis at the top and in the foot at the bottom
-        b.tube([(x * 0.6, 0, 0.90), (x, 0, 0.78), (x * 1.05, 0.005, 0.48), (x * 1.05, 0.01, 0.09)],
+        b.tube([(x * 0.6, 0, 0.90), (x, 0, 0.78), (x * 1.05, 0.005, 0.48), (x * 1.05, 0.01, 0.06)],
                lambda u: 0.095 - 0.05 * u, skin, seg=14)
-        b.lathe([(0, 0.0), (0.06, 0.0), (0.082, 0.022), (0.078, 0.055), (0.052, 0.088), (0.02, 0.102), (0, 0.105)],
-                (x * 1.05, 0.05, 0.0), skin, seg=14, scale=(1.0, 1.9, 1.0))
         # arm: leaves the upper chest and flows down (no shoulder ball), thicker at the top
         b.tube([(s * 0.14, 0.0, 1.19), (s * 0.24, 0.0, 1.15), (s * 0.31, 0.015, 0.98), (s * 0.345, 0.04, 0.78),
                 (s * 0.355, 0.07, 0.62)], lambda u: 0.066 - 0.026 * u, skin, seg=12)
-        hx, hy, hz = s * 0.355, 0.075, 0.585
-        b.sph(0.066, (hx, hy, hz), skin, scale=(1.0, 1.0, 1.15), seg=12, ring=8)         # mitten hand
-        b.sph(0.03, (hx - s * 0.048, hy + 0.045, hz + 0.02), skin, seg=8, ring=6)       # thumb
     return b
 
 
-def smooth_body_object(name, target_tris=2300, voxel=0.013):
+def part_extremities():
+    """Cute chubby hands (palm, four short fingers, a thumb) and little feet (five toes) as overlapping smooth
+    capsules in the skin material. Fine detail like this would be erased by the body remesh, so it stays separate."""
+    b = B()
+    skin = mat("sc_skin", 0.8)
+    for s in (-1, 1):
+        hx, hy, hz = s * 0.355, 0.075, 0.585
+        b.sph(0.058, (hx, hy, hz), skin, scale=(0.86, 0.95, 1.0), seg=10, ring=7)                    # palm, a touch wider than the wrist
+        # four short chubby fingers hanging from the palm, curling slightly inward and forward
+        for k, (yo, ln) in enumerate(((0.037, 0.058), (0.012, 0.064), (-0.013, 0.059), (-0.038, 0.046))):
+            base = Vector((hx - s * 0.004, hy + yo, hz - 0.042))
+            path = [base, base + Vector((-s * 0.003, 0.004, -ln * 0.5)), base + Vector((-s * 0.011, 0.010, -ln))]
+            b.tube(path, lambda u: 0.0145 - 0.0025 * u, skin, seg=6, caps=False)
+            b.sph(0.0122, path[-1], skin, seg=6, ring=4)
+        # thumb: shorter and fatter, pointing forward and down
+        tb = Vector((hx - s * 0.018, hy + 0.038, hz - 0.012))
+        tp = [tb, tb + Vector((-s * 0.010, 0.030, -0.012)), tb + Vector((-s * 0.013, 0.052, -0.036))]
+        b.tube(tp, lambda u: 0.0175 - 0.0035 * u, skin, seg=7, caps=False)
+        b.sph(0.0142, tp[-1], skin, seg=7, ring=4)
+        # foot: short chubby lump with five round toes along the front
+        xf = s * 0.09975
+        b.lathe([(0, 0.0), (0.05, 0.0), (0.066, 0.018), (0.064, 0.045), (0.052, 0.07), (0.045, 0.088), (0, 0.10)],
+                (xf, 0.035, 0.0), skin, seg=12, scale=(1.0, 1.5, 1.0))
+        toes = ((-0.053, 0.140, 0.022), (-0.028, 0.141, 0.0165), (-0.005, 0.138, 0.0155), (0.017, 0.134, 0.014), (0.037, 0.127, 0.0125))
+        for dx, ty, r in toes:
+            b.sph(r, (xf + s * dx, ty, r * 0.95), skin, scale=(1.0, 1.05, 0.95), seg=7, ring=4)
+    return b
+
+
+def smooth_body_object(name, target_tris=1900, voxel=0.013):
     """Merge the overlapping primitives into one continuous surface: voxel remesh, smooth, then decimate."""
     scene = bpy.context.scene
     obj = part_body_base().build(name, floor_normalize=False)
@@ -148,7 +172,7 @@ def part_tee():
 def part_head():
     """Big round head (local frame: pivot at the neck, head centre at z = HZ)."""
     b = B()
-    b.sph(1.0, (0, 0, HZ), mat("sc_skin", 0.8), scale=(HRX, HRY, HRZ), seg=28, ring=18)
+    b.sph(1.0, (0, 0, HZ), mat("sc_skin", 0.8), scale=(HRX, HRY, HRZ), seg=24, ring=16)
     return b
 
 
@@ -266,6 +290,10 @@ def build_scout(name="SCOUT", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None, 
         bpy.context.scene.collection.objects.unlink(body)
     body.parent = root
     tris += tri_count(body)
+    ext_obj = part_extremities().build("%s_HANDS_FEET" % name, floor_normalize=False)
+    coll.objects.link(ext_obj)
+    ext_obj.parent = root
+    tris += tri_count(ext_obj)
     if clothes:
         for label, builder, lift in (("JEANS_SHOES", part_jeans_shoes(), 0.0), ("TEE", part_tee(), LIFT)):
             o = builder.build("%s_%s" % (name, label), floor_normalize=False)

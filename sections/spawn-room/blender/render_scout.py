@@ -43,6 +43,8 @@ def main():
     d.text((2150, 8), "SCOUT  %d tris" % tris, font=font, fill=(226, 162, 47))
     sheet.save(os.path.join(out, "scout_turnaround.png"))
     shoot(cam, (0.9, 1.9, 1.72), (0, 0, 1.65), 85, os.path.join(out, "scout_face.png"))
+    shoot(cam, (1.15, 1.1, 0.62), (0.32, 0.06, 0.58), 85, os.path.join(out, "scout_hand.png"))
+    shoot(cam, (0.75, 1.15, 0.30), (0.10, 0.06, 0.06), 90, os.path.join(out, "scout_feet.png"))
     print("SCOUT done")
 
 
