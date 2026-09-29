@@ -181,3 +181,14 @@ those triangles are not drawn. Shading matches the uncut body until a region is 
 a seam check and a hidden-regions test. The cuts add about 500 triangles (6,788 total with the face decals). Known
 limits: the arm cut is a vertical plane at |x| = 0.24 m, so the outer flank of the chest belongs to the arm region;
 not yet skinned to a skeleton or merged per outfit for Unity.
+
+## Crew worker hazmat suit (outfit test)
+
+`character_suit.py` builds a cute hazmat suit as pieces that each list the skin regions they cover (`cs_covers`);
+`equip(root)` hides those regions. Pieces: coverall (soft folds, waist gather, hem bunching), gloves, boots, hood with a
+big open face and a clear glass visor so the face decals show through, plus belt, zipper, straps, pack and tank, hose,
+rescue handle, dosimeter and ID patch. `build_hazmat(root, colors={...})` swaps the suit, gloves, boots, accent, pack
+and visor tint (any `#RRGGBB`). `render_suit.py` renders the turnaround, close-ups and a colour-variant sheet.
+Design test only: about 9.8k triangles of suit on top of the 6.8k skin (roughly 16.6k drawn with the skin regions
+hidden), so it needs a lower-detail pass, and it is not yet skinned to a rig or tested in Unity. The wrist and ankle
+hems and the shoulder straps are approximations that need a look under animation.
