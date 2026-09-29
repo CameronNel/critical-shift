@@ -76,3 +76,11 @@ Players leave a suspiciously cozy spawn room, pass the haunted mine and a barely
 - Light shafts and the beacon sweep barely show in stills; they need a visual check in motion.
 - Low stability (0.25) reads orange-amber; red only near 0.
 - About 45 lights were added. That is fine for Cycles, but a real-time build cannot run that many dynamic lights: most must be baked or faked with emissives, and only a handful realtime. Not evaluated in an engine.
+
+
+## Verification of the control room, stairs and elevator (measured on the file)
+
+- **Stairs:** 0 objects or collections with "stair" in the name and 0 meshes using stair/tread materials after `f1_window_and_stair_cleanup.py`. 16 stair wall-finish panels had been carried onto the mezzanine when the room was relocated; they are deleted.
+- **Elevator:** 42 objects; car and counterweight keyed; car floor 0.0 to 5.4 m while the counterweight goes 7.45 to 2.05 m.
+- **Control room sight** (`verify_control_room_sight.py`, ray casts through the glass, haze volume ignored): the original 5.4 x 2.4 m window with a 0.7 m sill saw 0% of the pool and 6 to 16% of the hall floor. The window is now near-floor-to-ceiling (sill 0.25 m, 6.4 m wide, 2.85 m tall). From the centre desk: both drive columns 75% of sample points (the base below the pool rim is hidden), pool water 61%, hall floor 43%. Standing at the glass: pool 86%, floor 49%. The north half of the hall is mostly visible; the south half beside and under the mezzanine is not, and the left end of the room sees none of the pool.
+- Renders: `control_room_eye_a_from_the_desk.png`, `control_room_eye_b_standing_at_the_glass.png`.
