@@ -61,10 +61,12 @@ def part_worker_raw():
     prof = [(0, 0.55), (0.17, 0.55), (0.25, 0.60), (0.30, 0.70), (0.297, 0.80), (0.245, 0.90), (0.18, 0.96),
             (0.115, 1.00), (0.075, 1.04), (0, 1.06)]
     b.lathe([(r * 0.90, T(z)) for r, z in prof], (0, 0, 0), skin, seg=24, scale=(1.0, 0.86, 1.0))
-    b.cyl(0.064, 0.14, (0, 0, T(1.0)), skin, seg=14)                                 # slim neck, tucked into the head
+    b.cyl(0.085, 0.20, (0, 0, T(1.0) - 0.02), skin, seg=16)                                 # slim neck, tucked into the head
     # soft hip mass so the legs grow out of the belly instead of being attached to it
-    b.sph(1.0, (0, 0.0, T(0.58)), skin, scale=(0.21, 0.18, 0.12), seg=18, ring=10)
+    b.sph(1.0, (0, 0.0, T(0.54)), skin, scale=(0.225, 0.185, 0.145), seg=18, ring=10)
     zs = T(0.94)                                                                      # shoulder height
+    # soft shoulder yoke: fills the dip between the head and the shoulders so the neckline flows
+    b.sph(1.0, (0, 0.0, zs + 0.05), skin, scale=(0.19, 0.125, 0.085), seg=18, ring=10)
     for s in (-1, 1):
         x = s * 0.098
         leg = spline([(x * 0.70, 0, 0.80), (x * 0.95, 0, 0.64), (x * 1.04, 0.006, 0.44), (x * 1.06, 0.012, 0.25),
@@ -76,7 +78,7 @@ def part_worker_raw():
         b.sph(1.0, (xf, 0.088, 0.088), skin, scale=(0.098, 0.168, 0.074), seg=14, ring=10)
         b.sph(1.0, (xf, 0.084, 0.028), skin, scale=(0.094, 0.152, 0.028), seg=12, ring=6)
         # small, soft buttcheeks
-        b.sph(1.0, (s * 0.07, -0.135, T(0.60)), skin, scale=(0.074, 0.070, 0.082), seg=14, ring=10)
+        b.sph(1.0, (s * 0.088, -0.142, T(0.575)), skin, scale=(0.088, 0.084, 0.098), seg=14, ring=10)
         # short thick arm out of the narrow shoulder
         arm = spline([(s * 0.13, 0.0, zs), (s * 0.22, 0.0, zs - 0.022), (s * 0.29, 0.015, zs - 0.138),
                       (s * 0.325, 0.04, zs - 0.288), (s * 0.345, 0.065, zs - 0.385)])
