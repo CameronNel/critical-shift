@@ -101,7 +101,7 @@ def _cast(obj, origin, direction, dist=4.0):
     return (loc, nrm) if ok else (None, None)
 
 
-def _ring(obj, centre, n=40, max_r=0.6):
+def _ring(obj, centre, n=40, max_r=0.6, arm=False):
     """Points hugging the surface of obj around the vertical axis through `centre` (cast outward from inside, so the
     arms beside the body are never hit)."""
     pts = []
@@ -109,7 +109,7 @@ def _ring(obj, centre, n=40, max_r=0.6):
         a = i / n * 2 * math.pi
         d = Vector((math.cos(a), math.sin(a), 0.0))
         loc, nrm = _cast(obj, Vector(centre), d, max_r)
-        if loc is not None and abs(loc.x) <= CR.ARM_X:
+        if loc is not None and (arm or abs(loc.x) <= CR.ARM_X):
             pts.append(loc + nrm * 0.004)
     return pts
 
@@ -204,6 +204,121 @@ def _hood(root, pivot, coll, fabric, glass, rim_mat):
     return made
 
 
+def _flat_poly(kit, pts_xz, y, thick, m):
+    """Thin flat shape in the XZ plane at depth y, extruded by `thick` along y (used for patches and the trefoil)."""
+    bm = kit.bm
+    front = [bm.verts.new((x, y, z)) for x, z in pts_xz]
+    back = [bm.verts.new((x, y + thick, z)) for x, z in pts_xz]
+    faces = [bm.faces.new(front[::-1]), bm.faces.new(back)]
+    n = len(pts_xz)
+    for i in range(n):
+        faces.append(bm.faces.new((front[i], front[(i + 1) % n], back[(i + 1) % n], back[i])))
+    i = kit._idx(m)
+    for f in faces:
+        f.material_index = i
+        f.smooth = False
+
+
+def _trefoil(kit, cx, y, cz, r_out, r_in, thick, m, face=-1):
+    """Radiation trefoil: three 60-degree wedges plus a hub. face=-1 means it faces -y (the back)."""
+    for k in range(3):
+        a0 = math.radians(90 + k * 120 - 30)
+        a1 = a0 + math.radians(60)
+        arc = [a0 + (a1 - a0) * i / 6 for i in range(7)]
+        pts = [(cx + r_out * math.cos(a), cz + r_out * math.sin(a)) for a in arc]
+        pts += [(cx + r_in * math.cos(a), cz + r_in * math.sin(a)) for a in arc[::-1]]
+        _flat_poly(kit, pts, y, thick * face, m)
+    hub = [(cx + r_in * 0.55 * math.cos(a), cz + r_in * 0.55 * math.sin(a)) for a in [i / 10 * 2 * math.pi for i in range(10)]]
+    _flat_poly(kit, hub, y, thick * face, m)
+
+
+def _details(kit, body, zs, fabric, trim, accent, boot_m, dark, navy):
+    """Small readable extras: patches, pockets, tape, radio, torch, gauges, straps. Kept low-poly on purpose."""
+    tape = mat("white", 0.35)
+    brass = mat("brass", 0.4, 0.8)
+    lens = mat("mustard", 0.3, 0.0, 2.0)
+    for sgn in (-1, 1):
+        lx = sgn * 0.098 * 1.06
+        # soft knee patch
+        loc, nrm = _cast(body, (lx, 3, 0.40), (0, -1, 0))
+        if loc is not None:
+            kit.box((0.085, 0.016, 0.10), (loc.x, loc.y + 0.006, loc.z), trim, bevel=0.006)
+        # reflective safety tape on the shin and upper arm
+        ring = _ring(body, (lx, 0.012, 0.31), n=20, max_r=0.3)
+        if len(ring) > 6:
+            kit.tube(ring, 0.011, tape, seg=4)
+        arm_c = (sgn * 0.335, 0.045, zs - 0.235)
+        ring = _ring(body, arm_c, n=20, max_r=0.3, arm=True)
+        if len(ring) > 6:
+            kit.tube(ring, 0.010, tape, seg=4)
+        # elbow patch on the outside of the arm
+        loc, nrm = _cast(body, (sgn * 3, 0.02, zs - 0.18), (-sgn, 0, 0))
+        if loc is not None:
+            kit.box((0.014, 0.075, 0.085), (loc.x + nrm.x * 0.005, loc.y, loc.z), trim, bevel=0.005)
+        # velcro tab on the glove cuff and a strap across the boot
+        kit.box((0.055, 0.016, 0.04), (sgn * 0.345, 0.16, zs - 0.335), accent, bevel=0.005)
+        kit.tube([(lx + 0.103 * math.cos(a), 0.016 + 0.103 * math.sin(a), 0.125) for a in [i / 18 * 2 * math.pi for i in range(19)]],
+                 0.011, accent, seg=4)
+        kit.box((0.03, 0.016, 0.03), (lx, 0.016 + 0.108, 0.125), brass, bevel=0.003)
+    # chest pocket with a flap and button, name tag above it (wearer's right = -x)
+    loc, nrm = _cast(body, (-0.11, 3, 0.86), (0, -1, 0))
+    if loc is not None:
+        kit.box((0.09, 0.016, 0.075), (loc.x, loc.y + 0.006, loc.z), fabric, bevel=0.006)
+        kit.box((0.094, 0.02, 0.03), (loc.x, loc.y + 0.01, loc.z + 0.03), trim, bevel=0.005)
+        kit.cyl(0.008, 0.008, (loc.x, loc.y + 0.02, loc.z + 0.03 - 0.004), brass, seg=8, axis="Y")
+    loc, nrm = _cast(body, (-0.11, 3, 1.0), (0, -1, 0))
+    if loc is not None:
+        kit.box((0.085, 0.012, 0.03), (loc.x, loc.y + 0.006, loc.z), mat("white", 0.6), bevel=0.003)
+        kit.box((0.06, 0.006, 0.006), (loc.x, loc.y + 0.013, loc.z), dark, bevel=0.0)
+    # thigh pocket with flap on the wearer's right leg
+    loc, nrm = _cast(body, (-0.104, 3, 0.53), (0, -1, 0))
+    if loc is not None:
+        kit.box((0.085, 0.018, 0.09), (loc.x, loc.y + 0.007, loc.z), fabric, bevel=0.006)
+        kit.box((0.09, 0.022, 0.032), (loc.x, loc.y + 0.011, loc.z + 0.03), trim, bevel=0.005)
+        kit.cyl(0.008, 0.008, (loc.x, loc.y + 0.022, loc.z + 0.026), brass, seg=8, axis="Y")
+    # radio on the right strap, with a stubby antenna; torch clipped on the belt
+    kit.box((0.05, 0.03, 0.075), (-0.105, 0.20, 0.95), dark, bevel=0.006)
+    kit.cyl(0.006, 0.09, (-0.115, 0.20, 0.985), dark, seg=6)
+    kit.sph(0.008, (-0.095, 0.218, 0.965), mat("olive", 0.4, 0.0, 1.5), seg=6, ring=4)
+    loc, nrm = _cast(body, (-0.17, 3, 0.735), (0, -1, 0))
+    if loc is not None:
+        kit.cyl(0.02, 0.11, (loc.x, loc.y + 0.025, loc.z - 0.11), dark, seg=10)
+        kit.cyl(0.026, 0.03, (loc.x, loc.y + 0.025, loc.z - 0.03), accent, seg=10)
+        kit.sph(0.02, (loc.x, loc.y + 0.025, loc.z - 0.115), lens, scale=(1, 1, 0.5), seg=8, ring=5)
+    # pack extras: strap and buckle, side pouch, gauge, beacon, trefoil warning patch
+    kit.box((0.31, 0.142, 0.022), (0, -0.265, 0.80), trim, bevel=0.004)
+    kit.box((0.04, 0.02, 0.035), (0.0, -0.335, 0.80), brass, bevel=0.004)
+    kit.box((0.06, 0.09, 0.13), (-0.185, -0.265, 0.82), dark, bevel=0.012)
+    kit.sph(0.032, (0.20, -0.328, 0.95), mat("white", 0.5), scale=(1, 0.3, 1), seg=12, ring=6)
+    kit.sph(0.02, (0.20, -0.336, 0.95), mat("charcoal", 0.5), scale=(1, 0.3, 1), seg=8, ring=5)
+    kit.sph(0.02, (0.09, -0.265, 1.09), accent, scale=(1, 1, 0.8), seg=8, ring=5)
+    _trefoil(kit, 0.0, -0.361, 0.93, 0.055, 0.02, 0.004, mat("mustard", 0.5))
+    # shoulder ID/loop tab
+    kit.box((0.035, 0.05, 0.012), (0.19, 0.0, zs + 0.075), accent, bevel=0.004)
+
+
+def _hood_details(pivot, coll, trim, accent, dark):
+    """Headlamp on the hood, a filter canister on the cheek, and two drawcord toggles under the visor."""
+    b = B()
+    hz = SC.HZ
+    lens = mat("mustard", 0.3, 0.0, 2.5)
+    b.box((0.06, 0.045, 0.04), (0.10, 0.10, hz + SC.HRZ * 1.10 - 0.012), dark, bevel=0.008, rot=None)
+    b.sph(0.016, (0.10, 0.128, hz + SC.HRZ * 1.10 - 0.012), lens, scale=(1, 0.5, 1), seg=8, ring=5)
+    b.cyl(0.036, 0.05, (-(SC.HRX * 1.10) + 0.005, 0.02, hz - 0.13), dark, seg=12, axis="X")
+    b.cyl(0.038, 0.012, (-(SC.HRX * 1.10) - 0.022, 0.02, hz - 0.13), mat("brass", 0.4, 0.8), seg=12, axis="X")
+    for s in (-1, 1):
+        x = s * 0.075
+        y = SC._fy(x / 1.10, (hz - 0.21 - hz) / 1.10) * 1.10 + 0.02
+        b.tube([(x, y, hz - 0.205), (x + s * 0.005, y + 0.006, hz - 0.255), (x + s * 0.01, y + 0.004, hz - 0.29)], 0.004, dark, seg=4)
+        b.sph(0.013, (x + s * 0.01, y + 0.004, hz - 0.30), accent, seg=8, ring=5)
+    o = b.build("SUIT_HOOD_KIT", floor_normalize=False)
+    coll.objects.link(o)
+    o.parent = pivot
+    o["cs_covers"] = []
+    o["cs_outfit"] = "hazmat"
+    return o
+
+
 def build_hazmat(root, coll=None, colors=None):
     """Add the hazmat suit pieces to a crew worker built with regions=True. Returns (pieces, triangles)."""
     coll = coll or bpy.context.scene.collection
@@ -280,6 +395,7 @@ def build_hazmat(root, coll=None, colors=None):
     kit.tube([(0.20, -0.27, 1.05), (0.17, -0.22, 1.10), (0.11, -0.16, 1.12), (0.10, -0.10, 1.10)], 0.011, trim, seg=5)
     kit.tube([(-0.08 + 0.16 * i / 12, -0.235 - 0.02 * math.sin(math.pi * i / 12), 1.09 + 0.09 * math.sin(math.pi * i / 12))
               for i in range(13)], 0.011, accent, seg=5)
+    _details(kit, body, zs, fabric, trim, accent, boot_m, dark, navy)
     o = kit.build("SUIT_KIT", floor_normalize=False)
     coll.objects.link(o)
     o.parent = root
@@ -288,6 +404,7 @@ def build_hazmat(root, coll=None, colors=None):
     pieces.append(o)
 
     pieces += _hood(root, pivot, coll, fabric, _glass(c["visor"]), trim)
+    pieces.append(_hood_details(pivot, coll, trim, accent, dark))
     tris = sum(tri_count(p) for p in pieces)
     return pieces, tris
 

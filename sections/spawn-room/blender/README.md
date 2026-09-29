@@ -189,6 +189,6 @@ not yet skinned to a skeleton or merged per outfit for Unity.
 big open face and a clear glass visor so the face decals show through, plus belt, zipper, straps, pack and tank, hose,
 rescue handle, dosimeter and ID patch. `build_hazmat(root, colors={...})` swaps the suit, gloves, boots, accent, pack
 and visor tint (any `#RRGGBB`). `render_suit.py` renders the turnaround, close-ups and a colour-variant sheet.
-Design test only: about 9.8k triangles of suit on top of the 6.8k skin (roughly 16.6k drawn with the skin regions
+Design test only: about 12.8k triangles of suit on top of the 6.8k skin (roughly 19.6k drawn with the skin regions
 hidden), so it needs a lower-detail pass, and it is not yet skinned to a rig or tested in Unity. The wrist and ankle
 hems and the shoulder straps are approximations that need a look under animation.
