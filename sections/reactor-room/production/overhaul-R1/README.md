@@ -91,3 +91,12 @@ Players leave a suspiciously cozy spawn room, pass the haunted mine and a barely
 Reference: the spawn room screenshots (bold colour blocking, crisp painted trim, clean edges, high-fidelity stylised finish), translated to the reactor room's dark theme. 58 existing materials got procedural nodes (no image textures): painted navy dado with a rust trim line on wall materials, worn bright edges from a bevel-normal mask (rust on iron, oxblood-orange on machines, violet on walls), and grime rising from the floor with noise. Render: `stage1_stylised_hero.png`.
 
 Gaps: walls still read grey-olive rather than plum under the current light mix; these are Cycles procedural nodes and must be baked to textures for an engine build (bevel and world-position nodes do not exist there); no new modelled detail, decals or signage yet.
+
+
+## Rebuild A: new architecture shell (`j3_rebuild_architecture.py`, `r2lib.py`, `k1_relight_for_new_architecture.py`)
+
+Owner direction: the legacy scene looks archaic next to the spawn room, so this is a structural rebuild, not a tint. About 2,200 legacy architecture, wall-finish, services and floor-detail objects were deleted in this revision (`module.blend` still has them) and replaced by a generated shell of 176 objects: 24 structural columns and 8 corner piers, plinth/navy dado/rust rail/plum panel/lintel band/upper panel tiers with raised insets, cornice with trim stripe, clerestory windows, roof girders, a tiled floor, and three real blast doors (recessed reveal, closed leaves, slits, handles, status lamp, lit sign) at the fixed door positions: MAIN ACCESS (west), FUEL HANDLING (north), COOLING PLANT (south-east diagonal). Materials are new procedural stylised ones (mottled paint, bevel edge wear, floor-up grime). Lighting was rebuilt as modelled wall-washer fixtures on the cornice, alternating sodium amber and cold lavender, some failing.
+
+Removed with the legacy layers, to be rebuilt in the piping pass: wall conduits, cable trays, coolant headers, junction boxes.
+
+Not yet: floor inlays and stencils, wall graphics, dressing, ceiling detail, remaining equipment, pool lining, draw-call merge, piping/cables.
