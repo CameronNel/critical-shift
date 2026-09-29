@@ -40,13 +40,13 @@ An earlier version of this table counted meshes only and understated curve and t
 | State | Triangles | Objects | Materials in use |
 |---|---:|---:|---:|
 | `module.blend` (original) | 2,191,850 | 12,936 | 107 |
-| This revision (`module_overhaul_R1.blend`) | 287,719 (mesh 282,658, curve 2,356, text 2,705) | 1,495 | 48 |
+| This revision (`module_overhaul_R1.blend`, after the station remodel, crane, dressing and door-stub pass) | 264,603 (mesh 258,284, curve 2,356, text 3,963) | 1,439 | 47 |
 
-- Triangles are inside the 400k target (the roof/sky proxy, 53,780, is excluded as before; the glTF re-import counts 340,599 including it and the export's own triangulation).
-- Draw calls: about 1,495 estimated, against the 800 target. Roughly 675 of the objects are gameplay-addressable stations and controls that were deliberately not merged. Not engine-measured.
+- Triangles are inside the 400k target (the roof/sky proxy, 53,780, is excluded as before; the glTF re-import counts 317,483 including it and the export's own triangulation).
+- Draw calls: about 1,439 estimated, against the 800 target. Roughly 675 of the objects are gameplay-addressable stations and controls that were deliberately not merged. Not engine-measured.
 - Materials: 48 against a target of 40. Every mesh has world-scale box-projected UVs.
 - Lights: about 50. A real-time build can only run a handful dynamically; the rest need baking or emissive-only treatment.
-- Engine hand-off: `engine/reactor_room_R1.glb` (27 MB, 12 animations) plus 29 baked 512 px tileable albedo textures. Bakes carry base colour and mottling only; edge wear and grime are Cycles-only. No lightmap UVs. The glb was re-imported to confirm counts; it has not been opened in an engine.
+- Engine hand-off: `engine/reactor_room_R1.glb` (26 MB, 22 animation clips) plus 29 baked 512 px tileable albedo textures. Bakes carry base colour and mottling only; edge wear and grime are Cycles-only. No lightmap UVs. The glb was re-imported to confirm counts; it has not been opened in an engine.
 
 ## Still to do to reach the targets
 

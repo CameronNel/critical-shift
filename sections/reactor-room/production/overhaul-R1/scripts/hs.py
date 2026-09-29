@@ -8,13 +8,18 @@ MATS={"IRON":"R2 iron","TRIM":"R2 trim rust","ENAM":"R2 machine enamel","OLIVE":
       "PIPE":"R2 pipe coolant","LAG":"R2 pipe lagging","CHROME":"GT_Chrome","GLASS":"observation_glass","LAV":"R2 lamp lavender","HYD":"R2 pipe hydraulic","SIGN":"R2 sign text","DRUM":"R2 drum red","CRATE":"R2 crate","PAPER":"R2 paper","CONE":"R2 cone","BIND":"R2 binder a","FAB":"R2 fabric","DESK":"R2 desk","PUD":"R2 puddle","EXIT":"R2 exit sign","INSET":"R2 wall inset"}
 class K(Acc):
     def begin(s,cx,cy,yaw,z=0.0):
-        s._piv=(cx,cy,yaw,z); s._snap={k:len(bm.verts) for k,bm in s.bm.items()}
+        s._piv=(cx,cy,yaw,z); s._main=s.bm; s.bm={}
     def end(s):
         cx,cy,yaw,z=s._piv; c,sn=math.cos(yaw),math.sin(yaw)
         for k,bm in s.bm.items():
-            st=s._snap.get(k,0)
-            for v in list(bm.verts)[st:]:
+            for v in bm.verts:
                 x,y=v.co.x,v.co.y; v.co.x=cx+x*c-y*sn; v.co.y=cy+x*sn+y*c; v.co.z+=z
+            me=bpy.data.meshes.new("_tmp"); bm.to_mesh(me); bm.free()
+            tgt=s._main.get(k)
+            if tgt is None: tgt=bmesh.new(); s._main[k]=tgt
+            tgt.from_mesh(me)              # from_mesh appends to the accumulator
+            bpy.data.meshes.remove(me)
+        s.bm=s._main
     def hull(s,key,pts,ch=0.012):
         bm=s.get(key); vs=[bm.verts.new(Vector(p)) for p in pts]
         r=bmesh.ops.convex_hull(bm,input=vs,use_existing_faces=False)
