@@ -55,18 +55,18 @@ PALETTE = {
     "floor_timber_3": "#8B5D36",
     "floor_timber_4": "#8E6038",
     # neutral machine-grey metals (the source tint read teal on the airlock hatch)
-    "steel": "#9A9EA5",
-    "pressure_metal": "#8C9097",
+    "steel": "#82868D",
+    "pressure_metal": "#767A81",
     "V_pod_satin_metal": "#7E8288",
-    "V_brushed": "#94989E",
+    "V_brushed": "#7A7E85",
     "darksteel": "#2A2C31",
     "V_graphite": "#33353A",
-    "V_reference_charcoal": "#666A71",
+    "V_reference_charcoal": "#55585F",
     "bench_worn_timber": "#5A3826",
 }
 
 # Metals that read as tinted because they mirror coloured rooms: let the base grey show through.
-METAL_TWEAKS = {"V_brushed": 0.35, "steel": 0.7, "pressure_metal": 0.7}
+METAL_TWEAKS = {"V_brushed": 0.35, "steel": 0.5, "pressure_metal": 0.5}
 
 # 0 keeps the source texture contrast, 1 flattens to a plain painted colour.
 FLATTEN = 0.65

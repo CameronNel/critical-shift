@@ -682,3 +682,101 @@ def r_duffel(cloth="forest"):
     b.box((0.16, 0.05, 0.11), (0.0, 0.135, 0.11), fab, bevel=0.012, seg=2)               # side pocket
     b.tube([(-0.26, 0.0, 0.275), (0.26, 0.0, 0.275)], 0.004, mat("charcoal", 0.6), seg=4)  # zip
     return b
+
+
+# ==================================================================== low-poly plants
+def _leaf(b, base, yaw, pitch_deg, length, width, m, droop_deg=28.0, fold=0.006):
+    """Cupped leaf blade: 3 stations along a drooping arc, 4 quads (8 triangles)."""
+    base = Vector(base)
+    h = Vector((-math.sin(yaw), math.cos(yaw), 0.0))
+    r = Vector((math.cos(yaw), math.sin(yaw), 0.0))
+    centres = [base]
+    ang = math.radians(pitch_deg)
+    for i in range(2):
+        a = ang - math.radians(droop_deg) * i * 0.5
+        d = h * math.cos(a) + Vector((0, 0, math.sin(a)))
+        centres.append(centres[-1] + d * length * 0.5)
+    widths = (width * 0.22, width, width * 0.04)
+    C, L, R = [], [], []
+    for c, w in zip(centres, widths):
+        C.append(b.bm.verts.new(c + Vector((0, 0, fold * 0.5))))
+        L.append(b.bm.verts.new(c - r * w * 0.5 - Vector((0, 0, fold))))
+        R.append(b.bm.verts.new(c + r * w * 0.5 - Vector((0, 0, fold))))
+    for i in range(2):
+        b.bm.faces.new((C[i], C[i + 1], R[i + 1], R[i]))
+        b.bm.faces.new((C[i], L[i], L[i + 1], C[i + 1]))
+    b._fin(C + L + R, m, smooth=False)
+
+
+def _pot(b, r, h, color, soil=True):
+    b.lathe([(0, 0), (r * 0.72, 0), (r * 0.82, 0.012), (r, h * 0.92), (r * 1.05, h), (r * 0.94, h),
+             (r * 0.9, h * 0.94), (0, h * 0.94)], (0, 0, 0), mat(color, 0.6), seg=14)
+    if soil:
+        b.cyl(r * 0.9, 0.004, (0, 0, h * 0.9), mat("coffee", 0.95), seg=14)
+
+
+def f_ficus(pot="terracotta"):
+    """Rubber-fig style floor plant, about 1.2 m, full crown. ~1k triangles."""
+    b = B()
+    rnd = random.Random(5)
+    _pot(b, 0.16, 0.30, pot)
+    wood = mat("walnut", 0.8)
+    greens = [mat("leaf1", 0.5), mat("leaf2", 0.5), mat("leaf3", 0.5)]
+    top = 0.29
+    stems = ((0.0, 0.0, 1.05), (0.07, 0.04, 0.9), (-0.06, 0.05, 0.85), (0.02, -0.07, 0.75))
+    for k, (dx, dy, height) in enumerate(stems):
+        path = [(0, 0, top), (dx * 0.5, dy * 0.5, top + height * 0.5), (dx, dy, top + height)]
+        b.tube(path, 0.013 - k * 0.002, wood, seg=5)
+        z = top + 0.22
+        i = 0
+        while z < top + height - 0.05:
+            f = (z - top) / height
+            yaw = i * 2.4 + k * 1.3
+            _leaf(b, (dx * f, dy * f, z), yaw, rnd.uniform(20, 50), rnd.uniform(0.2, 0.27),
+                  rnd.uniform(0.1, 0.13), greens[(i + k) % 3])
+            z += 0.05
+            i += 1
+        _leaf(b, (dx, dy, top + height), rnd.uniform(0, 6.28), 65, 0.17, 0.1, greens[k % 3], droop_deg=12)
+    return b
+
+
+def f_snake(pot="pot_grey"):
+    """Snake plant: upright blades in a low pot. ~350 triangles."""
+    b = B()
+    rnd = random.Random(9)
+    _pot(b, 0.13, 0.22, pot)
+    greens = [mat("leaf3", 0.45), mat("leaf1", 0.45)]
+    for i in range(14):
+        yaw = i * 2.4
+        rad = rnd.uniform(0.0, 0.06)
+        _leaf(b, (rad * math.cos(yaw), rad * math.sin(yaw), 0.2), yaw, rnd.uniform(74, 88),
+              rnd.uniform(0.4, 0.78), 0.06, greens[i % 2], droop_deg=rnd.uniform(6, 18), fold=0.012)
+    return b
+
+
+def r_pothos(pot="terracotta", vines=5):
+    """Trailing pothos in a small pot; vines hang over the rim. ~800 triangles."""
+    b = B()
+    rnd = random.Random(3)
+    _pot(b, 0.075, 0.12, pot)
+    greens = [mat("leaf1", 0.5), mat("leaf2", 0.5), mat("leaf3", 0.5)]
+    for i in range(26):
+        yaw = i * 2.4
+        rad = rnd.uniform(0.0, 0.05)
+        _leaf(b, (rad * math.cos(yaw), rad * math.sin(yaw), 0.11), yaw, rnd.uniform(25, 60),
+              rnd.uniform(0.1, 0.14), rnd.uniform(0.08, 0.1), greens[i % 3], droop_deg=22)
+    stem = mat("olive", 0.8)
+    for v in range(vines):
+        a = v * 2 * math.pi / vines + 0.4
+        out = Vector((math.cos(a), math.sin(a), 0.0))
+        length = rnd.uniform(0.22, 0.45)
+        path = []
+        for j in range(7):
+            t_ = j / 6
+            rr = 0.078 + 0.05 * min(t_ * 3, 1.0)
+            path.append((out.x * rr, out.y * rr, 0.115 - length * t_))
+        b.tube(path, 0.003, stem, seg=4, caps=False)
+        for j in range(1, 7):
+            p_ = path[j]
+            _leaf(b, p_, a + rnd.uniform(-0.9, 0.9), -76, 0.1, 0.085, greens[(v + j) % 3], droop_deg=0)
+    return b

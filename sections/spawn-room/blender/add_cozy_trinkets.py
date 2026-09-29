@@ -390,11 +390,26 @@ def main():
     keepout("KEEPOUT_briefing_door_path", -3.45, -1.85, 2.6, 5.4)
     keepout("KEEPOUT_locker_route", 1.85, 8.1, 3.08, 4.92)
 
+    # ================= plants (low-poly; the owner asked for them back, spec section 14 says 0-2)
+    HALL = "FACILITY_HALL"
+    hall_floor = ("FACILITY_floor",)
+    S(f_ficus, sweep(-2.7, -2.1, 5.35, 5.85, 0.05, near=(-2.39, 5.65)),
+      ("BRIEFING_wood_floor", "BRIEFING_wood_underlay"), BR, "COZY_B_ficus")
+    S(f_ficus, sweep(0.9, 1.5, 0.2, 0.8, 0.05, near=(1.15, 0.4)), hall_floor, HALL, "COZY_H_ficus")
+    S(f_snake, sweep(-1.4, -0.7, 0.2, 0.7, 0.05, near=(-1.08, 0.35)), hall_floor, HALL, "COZY_H_snake")
+    S(r_pothos, sweep(-2.05, -1.85, 1.75, 2.35, 0.04, near=(-1.95, 2.0)), ("V_HALL_plant_shelf_deck",), HALL, "COZY_H_pothos")
+    lockfloor = ("V_LOCKER_porcelain_tiles",)
+    S(f_ficus, sweep(2.1, 2.6, 5.5, 6.9, 0.05, near=(2.35, 5.86)), lockfloor, LK, "COZY_L_ficus")
+    S(f_snake, sweep(5.8, 6.4, 1.1, 1.6, 0.05, near=(6.03, 1.25)), lockfloor, LK, "COZY_L_snake")
+    S(r_pothos, sweep(1.95, 2.15, 5.5, 6.2, 0.04, near=(2.05, 5.85)), ("V_LOCKER_green_shelf_deck",), LK, "COZY_L_pothos")
+    S(r_pothos, sweep(5.4, 6.1, 7.0, 7.2, 0.04, near=(5.7, 7.1)), ("V_LOCKER_peg_shelf_deck",), LK, "COZY_L_pothos2")
+
     # ================= briefing: tea corner on the sideboard
     side = ("BRIEFING_sideboard",)
     top = sweep(-7.16, -6.86, 1.25, 2.25, 0.06)
     fine = sweep(-7.17, -6.85, 1.24, 2.26, 0.04)
     S(r_lamp, sweep(-7.17, -6.85, 1.24, 2.26, 0.04, near=(-7.0, 1.4)), side, BR, "COZY_B_lamp", light=((0, 0, 0.2), 45))
+    S(r_pothos, sweep(-7.19, -6.83, 1.22, 2.28, 0.03, near=(-7.0, 2.0)), ("BRIEFING_sideboard",), BR, "COZY_B_pothos")
     S(r_kettle, fine, side, BR, "COZY_B_kettle", yaws=(0.0, 1.57))
     S(lambda: r_mug("coral"), fine, side, BR, "COZY_B_mug_coral")
     S(r_tin, fine, side, BR, "COZY_B_tin")

@@ -28,7 +28,8 @@ HEX = {
     "cork": "#B98A5B", "paper": "#F1EEF4", "sky": "#8FB4E3", "rose": "#D9788E",
     "ink": "#1D2238", "steel": "#9AA0AE", "glass": "#BFD4F0", "khaki": "#8B8460",
     "forest": "#3F5B48", "brick": "#A2483A", "coffee": "#2A1A12", "cream_paper": "#E8E2D6",
-    "hazard": "#F2C230",
+    "hazard": "#F2C230", "leaf1": "#4F7D4B", "leaf2": "#63915A", "leaf3": "#3E6642",
+    "terracotta": "#C5714F", "pot_grey": "#8E93A0",
 }
 _mats = {}
 

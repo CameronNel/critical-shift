@@ -434,8 +434,9 @@ def rebuild_lighting():
 
 
 # ------------------------------------------------------- plants (spec: 0-2 total)
-KEEP_PLANTS = ("V_LOCKER_corner_ficus", "V_BRIEF_table_pothos")
-DROP_PLANT_ROOTS = ("V_BRIEF_corner_ficus", "V_HALL_staff_ficus", "V_HALL_staff_snake", "V_LOCKER_corner_snake")
+KEEP_PLANTS = ()
+DROP_PLANT_ROOTS = ("V_BRIEF_corner_ficus", "V_HALL_staff_ficus", "V_HALL_staff_snake", "V_LOCKER_corner_snake",
+                    "V_LOCKER_corner_ficus", "V_BRIEF_table_pothos")
 SHELF_ROOTS = ("V_HALL_plant_shelf", "V_LOCKER_green_shelf", "V_LOCKER_peg_shelf")
 PLANT_TOKENS = ("_midrib", "pothos", "_leaf", "_vine", "_plant", "_pot", "_soil", "_band", "trailing")
 
@@ -470,7 +471,7 @@ def remove_extra_plants():
             elif c.type == "MESH" and any(tok in c.name for tok in PLANT_TOKENS):
                 bpy.data.objects.remove(c, do_unlink=True)
                 n += 1
-    log("plants: removed %d objects (kept %s)" % (n, ", ".join(KEEP_PLANTS)))
+    log("plants: removed %d original plant objects (~100k tris); low-poly plants come from the trinket pass" % n)
 
 
 # ------------------------------------------------ replace lumpy / heavy assets
@@ -671,6 +672,154 @@ def decimate_heavy():
     log("decimation: %d objects, scene %d -> %d tris" % (n, before, after))
 
 
+
+# --------------------------------------------------------------- hall floor
+def _lin(hexstr):
+    h = hexstr.lstrip("#")
+    def c(v):
+        v /= 255.0
+        return v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4
+    return tuple(c(int(h[i:i + 2], 16)) for i in (0, 2, 4)) + (1.0,)
+
+
+def rebuild_hall_floor():
+    """One plane + tile shader: warm clay tiles with a navy runner down the corridor."""
+    obj = bpy.data.objects.get("FACILITY_floor")
+    if obj is None or obj.get("cs_rebuilt"):
+        return
+    before = tri_count_eval(obj)
+    lo, hi = world_bbox([obj])
+    z = hi.z
+    mesh = bpy.data.meshes.new("FACILITY_floor_plane")
+    mesh.from_pydata([(lo.x, lo.y, z), (hi.x, lo.y, z), (hi.x, hi.y, z), (lo.x, hi.y, z)], [], [(0, 1, 2, 3)])
+    mesh.update()
+    old = obj.data
+    obj.data = mesh
+    if old.users == 0:
+        bpy.data.meshes.remove(old)
+    m = bpy.data.materials.get("CS_hall_floor") or bpy.data.materials.new("CS_hall_floor")
+    m.use_nodes = True
+    nt = m.node_tree
+    nt.nodes.clear()
+    L = nt.links.new
+    out = nt.nodes.new("ShaderNodeOutputMaterial")
+    bsdf = nt.nodes.new("ShaderNodeBsdfPrincipled")
+    coord = nt.nodes.new("ShaderNodeTexCoord")
+    mp = nt.nodes.new("ShaderNodeMapping")
+    mp.inputs["Scale"].default_value = (2.5, 2.5, 2.5)            # 0.4 m tiles
+    def brick(c1, c2, mortar):
+        n = nt.nodes.new("ShaderNodeTexBrick")
+        n.offset = 0.0
+        n.inputs["Scale"].default_value = 1.0
+        n.inputs["Brick Width"].default_value = 1.0
+        n.inputs["Row Height"].default_value = 1.0
+        n.inputs["Mortar Size"].default_value = 0.03
+        n.inputs["Mortar Smooth"].default_value = 0.08
+        n.inputs["Color1"].default_value = _lin(c1)
+        n.inputs["Color2"].default_value = _lin(c2)
+        n.inputs["Mortar"].default_value = _lin(mortar)
+        L(mp.outputs["Vector"], n.inputs["Vector"])
+        return n
+    clay = brick("#9A7259", "#8A6650", "#3A2B25")
+    navy = brick("#2E3654", "#39426A", "#151A2B")
+    sep = nt.nodes.new("ShaderNodeSeparateXYZ")
+    absx = nt.nodes.new("ShaderNodeMath"); absx.operation = "ABSOLUTE"
+    edge = nt.nodes.new("ShaderNodeMapRange")
+    edge.inputs["From Min"].default_value = 0.78
+    edge.inputs["From Max"].default_value = 0.86
+    edge.inputs["To Min"].default_value = 1.0
+    edge.inputs["To Max"].default_value = 0.0                      # 1 inside the runner
+    mix = nt.nodes.new("ShaderNodeMix"); mix.data_type = "RGBA"
+    bump = nt.nodes.new("ShaderNodeBump"); bump.inputs["Strength"].default_value = 0.3; bump.inputs["Distance"].default_value = 0.004
+    fmix = nt.nodes.new("ShaderNodeMix"); fmix.data_type = "FLOAT"
+    rough = nt.nodes.new("ShaderNodeMapRange")
+    rough.inputs["To Min"].default_value = 0.85
+    rough.inputs["To Max"].default_value = 0.3
+    L(coord.outputs["Object"], mp.inputs["Vector"])
+    L(coord.outputs["Object"], sep.inputs["Vector"])
+    L(sep.outputs["X"], absx.inputs[0]); L(absx.outputs["Value"], edge.inputs["Value"])
+    L(edge.outputs["Result"], mix.inputs["Factor"])
+    L(clay.outputs["Color"], mix.inputs["A"]); L(navy.outputs["Color"], mix.inputs["B"])
+    L(mix.outputs["Result"], bsdf.inputs["Base Color"])
+    L(clay.outputs["Fac"], fmix.inputs["A"]); L(navy.outputs["Fac"], fmix.inputs["B"]); L(edge.outputs["Result"], fmix.inputs["Factor"])
+    L(fmix.outputs["Result"], bump.inputs["Height"]); L(bump.outputs["Normal"], bsdf.inputs["Normal"])
+    L(fmix.outputs["Result"], rough.inputs["Value"]); L(rough.outputs["Result"], bsdf.inputs["Roughness"])
+    L(bsdf.outputs["BSDF"], out.inputs["Surface"])
+    mesh.materials.append(m)
+    obj["cs_rebuilt"] = True
+    log("hall floor: %d -> 2 tris, clay tiles with a navy runner" % before)
+
+
+# ---------------------------------------------- non-AI poster art (replaces photos)
+def make_poster_art(kind, path):
+    from PIL import Image, ImageDraw
+    if kind == "landscape":
+        W, H = 1536, 1024
+        img = Image.new("RGB", (W, H))
+        px = img.load()
+        top, bot = (33, 40, 78), (232, 150, 96)
+        for y in range(H):
+            t = (y / H) ** 1.3
+            col = tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3))
+            for x in range(W):
+                px[x, y] = col
+        d = ImageDraw.Draw(img, "RGBA")
+        d.ellipse((980, 240, 1340, 600), fill=(255, 226, 170, 255))
+        for k, (col, base, amp) in enumerate((((70, 78, 120, 255), 700, 90), ((48, 55, 94, 255), 790, 70), ((30, 36, 66, 255), 880, 50))):
+            pts = [(0, H)]
+            for x in range(0, W + 1, 96):
+                pts.append((x, base - amp * (0.5 + 0.5 * ((x // 96 + k) % 3) / 2)))
+            pts.append((W, H))
+            d.polygon(pts, fill=col)
+        for x0, w_, h_ in ((260, 90, 260), (390, 60, 190), (1180, 80, 230), (1290, 50, 170)):
+            d.rectangle((x0, 880 - h_, x0 + w_, 880), fill=(22, 26, 50, 255))
+        d.rectangle((0, 880, W, H), fill=(22, 26, 50, 255))
+    else:
+        W, H = 1024, 1536
+        img = Image.new("RGB", (W, H), (43, 51, 80))
+        d = ImageDraw.Draw(img, "RGBA")
+        d.ellipse((160, 200, 864, 904), fill=(224, 101, 74, 255))
+        d.ellipse((300, 340, 724, 764), fill=(227, 162, 47, 255))
+        d.ellipse((410, 450, 614, 654), fill=(236, 233, 240, 255))
+        d.polygon([(0, 1536), (0, 1120), (330, 900), (620, 1120), (1024, 960), (1024, 1536)], fill=(29, 34, 56, 255))
+        d.polygon([(0, 1536), (0, 1300), (420, 1150), (760, 1330), (1024, 1200), (1024, 1536)], fill=(20, 24, 42, 255))
+        d.rectangle((0, 60, W, 110), fill=(227, 162, 47, 255))
+    img.save(path)
+
+
+def replace_ai_images():
+    """The crew photo and supervisor portrait were AI-generated; swap in flat generated art."""
+    swaps = {"commissioning_crew.png": "landscape", "human_contribution.png": "portrait"}
+    done = 0
+    for old_name, kind in swaps.items():
+        old = bpy.data.images.get(old_name)
+        if old is None:
+            continue
+        path = os.path.join(tempfile.gettempdir(), "cs_poster_%s.png" % kind)
+        make_poster_art(kind, path)
+        new = bpy.data.images.load(path)
+        new.name = "cs_poster_art_" + kind
+        new.pack()
+        for m in bpy.data.materials:
+            if m.node_tree:
+                for n in m.node_tree.nodes:
+                    if n.type == "TEX_IMAGE" and n.image == old:
+                        n.image = new
+                        done += 1
+        old.user_clear()
+        bpy.data.images.remove(old)
+    if done:
+        log("removed AI-generated images; %d texture slots now use generated flat poster art" % done)
+
+
+def remove_plain_mugs():
+    """The original white mugs are plain cylinders; the trinket pass adds properly shaped ones."""
+    n = delete_prefix("BRIEFING_mug", "V_BRIEF_mug_", "V_BRIEF_manual_", "V_BRIEF_refreshment_tray",
+                       "V_BRIEF_thermal_coffee")
+    if n:
+        log("removed %d plain white mug roots" % n)
+
+
 def remove_seat_clutter():
     n = delete_prefix("LIFE_training_booklet")
     if n:
@@ -681,11 +830,14 @@ def main():
     src, dst = sys.argv[sys.argv.index("--") + 1:][:2]
     bpy.ops.wm.open_mainfile(filepath=src)
     rebuild_tile_floor()
+    rebuild_hall_floor()
+    replace_ai_images()
     rebuild_jackets()
     rebuild_towels()
     rebuild_tv()
     rebuild_lighting()
     remove_seat_clutter()
+    remove_plain_mugs()
     remove_extra_plants()
     replace_props()
     pegboard_shader()

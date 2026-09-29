@@ -129,12 +129,14 @@ python add_cozy_trinkets.py  -- <stage2.blend> <module.blend>
 
 ### Decisions worth reviewing
 
-- **Plants cut to two** (locker corner ficus, briefing tea-corner pothos). The spec (section 14) allows 0-2 across the section; the module had about eight (roughly 100k triangles).
+- **Plants are low-poly and back**: the originals (about eight, roughly 100k triangles, 135 leaf objects each) were replaced by cheap `f_ficus` / `f_snake` / `r_pothos` recipes (330-900 triangles each). Placed: briefing corner ficus + sideboard pothos; hall ficus, snake and shelf pothos; locker ficus, snake and two shelf pothos. **This is more than the spec's 0-2 (section 14)**; the owner asked for plants. Trim the placements in `add_cozy_trinkets.py` if the spec limit should win.
+- **AI-generated images removed**: `commissioning_crew.png` and `human_contribution.png` (the crew photo and supervisor portrait) are replaced by generated flat poster art (`replace_ai_images`). The caption text objects under them are unchanged and may now mismatch the art.
+- **Hall floor** is a single plane with a clay-tile shader and a navy runner (`rebuild_hall_floor`); the old 5.7k-triangle floor mesh is gone.
 - **Briefing bench seats are kept clear** and the seating zone, door path and locker route are keep-out zones for trinkets.
 - **Suits are still missing.** The four suit bays have shelves, boots and hangers but no hero hazmat suits, which the spec requires. Not part of this pass.
 
 ### Budget
 
-Scene total went from about 1,331,000 to about 284,000 triangles (tile floor 449k -> 2, jackets 170k -> 4k, plants ~100k -> ~38k, wall skins ~130k flattened, boots/bags/clock ~110k replaced). The remaining cost is mostly suit-bay hardware (about 15k per bay) and the integrity pod. Measured on the final file: 284,036 triangles, 1,369 mesh objects, 188 materials, 15 lights. The object and material counts are still high for draw calls and are unmeasured on target hardware.
+Scene total went from about 1,331,000 to about 250,000 triangles (tile floor 449k -> 2, jackets 170k -> 4k, plants ~100k -> ~38k, wall skins ~130k flattened, boots/bags/clock ~110k replaced). The remaining cost is mostly suit-bay hardware (about 15k per bay) and the integrity pod. Measured on the final file: 249,708 triangles, 1,220 mesh objects, 188 materials, 14 lights. The object and material counts are still high for draw calls and are unmeasured on target hardware.
 
 Last validation: `validate_contacts.py` reported PASS with no failures. Not run: Unity export, in-engine frame time on a 3050, formal rubric scoring.
