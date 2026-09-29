@@ -53,42 +53,27 @@ def part_body_base():
         # leg: thick at the hip, tapering to the ankle, buried in the pelvis at the top and in the foot at the bottom
         b.tube([(x * 0.6, 0, 0.90), (x, 0, 0.78), (x * 1.05, 0.005, 0.48), (x * 1.05, 0.01, 0.06)],
                lambda u: 0.095 - 0.05 * u, skin, seg=14)
+        # oven-mitten foot: one bean-shaped foot, a big toe that clearly protrudes, little toes fused into one low lobe
+        xf = x * 1.05
+        b.sph(1.0, (xf, 0.062, 0.052), skin, scale=(0.057, 0.096, 0.050), seg=14, ring=10)         # foot
+        b.sph(1.0, (xf, 0.058, 0.022), skin, scale=(0.054, 0.086, 0.024), seg=12, ring=6)          # broader sole
+        b.sph(1.0, (xf - s * 0.034, 0.170, 0.040), skin, scale=(0.033, 0.050, 0.036), seg=10, ring=8)   # big toe
+        b.sph(1.0, (xf + s * 0.026, 0.142, 0.030), skin, scale=(0.032, 0.034, 0.024), seg=10, ring=8)   # fused little toes
         # arm: leaves the upper chest and flows down (no shoulder ball), thicker at the top
         b.tube([(s * 0.14, 0.0, 1.19), (s * 0.24, 0.0, 1.15), (s * 0.31, 0.015, 0.98), (s * 0.345, 0.04, 0.78),
-                (s * 0.355, 0.07, 0.62)], lambda u: 0.066 - 0.026 * u, skin, seg=12)
-    return b
-
-
-def part_extremities():
-    """Cute chubby hands (palm, four short fingers, a thumb) and little feet (five toes) as overlapping smooth
-    capsules in the skin material. Fine detail like this would be erased by the body remesh, so it stays separate."""
-    b = B()
-    skin = mat("sc_skin", 0.8)
-    for s in (-1, 1):
+                (s * 0.355, 0.07, 0.625)], lambda u: 0.066 - 0.031 * u, skin, seg=12)
+        # oven-mitten hand: one fused palm-and-fingers mitten, plus a clearly separate thumb
         hx, hy, hz = s * 0.355, 0.075, 0.585
-        b.sph(0.058, (hx, hy, hz), skin, scale=(0.86, 0.95, 1.0), seg=10, ring=7)                    # palm, a touch wider than the wrist
-        # four short chubby fingers hanging from the palm, curling slightly inward and forward
-        for k, (yo, ln) in enumerate(((0.037, 0.058), (0.012, 0.064), (-0.013, 0.059), (-0.038, 0.046))):
-            base = Vector((hx - s * 0.004, hy + yo, hz - 0.042))
-            path = [base, base + Vector((-s * 0.003, 0.004, -ln * 0.5)), base + Vector((-s * 0.011, 0.010, -ln))]
-            b.tube(path, lambda u: 0.0145 - 0.0025 * u, skin, seg=6, caps=False)
-            b.sph(0.0122, path[-1], skin, seg=6, ring=4)
-        # thumb: shorter and fatter, pointing forward and down
-        tb = Vector((hx - s * 0.018, hy + 0.038, hz - 0.012))
-        tp = [tb, tb + Vector((-s * 0.010, 0.030, -0.012)), tb + Vector((-s * 0.013, 0.052, -0.036))]
-        b.tube(tp, lambda u: 0.0175 - 0.0035 * u, skin, seg=7, caps=False)
-        b.sph(0.0142, tp[-1], skin, seg=7, ring=4)
-        # foot: short chubby lump with five round toes along the front
-        xf = s * 0.09975
-        b.lathe([(0, 0.0), (0.05, 0.0), (0.066, 0.018), (0.064, 0.045), (0.052, 0.07), (0.045, 0.088), (0, 0.10)],
-                (xf, 0.035, 0.0), skin, seg=12, scale=(1.0, 1.5, 1.0))
-        toes = ((-0.053, 0.140, 0.022), (-0.028, 0.141, 0.0165), (-0.005, 0.138, 0.0155), (0.017, 0.134, 0.014), (0.037, 0.127, 0.0125))
-        for dx, ty, r in toes:
-            b.sph(r, (xf + s * dx, ty, r * 0.95), skin, scale=(1.0, 1.05, 0.95), seg=7, ring=4)
+        b.sph(1.0, (hx, hy, hz), skin, scale=(0.040, 0.058, 0.056), seg=14, ring=10)                 # palm
+        b.sph(1.0, (hx - s * 0.003, hy + 0.008, hz - 0.040), skin, scale=(0.038, 0.060, 0.062), seg=14, ring=10)  # fused fingers
+        tb = Vector((hx - s * 0.026, hy + 0.034, hz + 0.014))
+        tp = [tb, tb + Vector((-s * 0.010, 0.036, -0.004)), tb + Vector((-s * 0.014, 0.060, -0.030))]
+        b.tube(tp, lambda u: 0.030 - 0.007 * u, skin, seg=10, caps=True)     # closed: the remesh needs solid volumes
+        b.sph(0.024, tp[-1], skin, seg=10, ring=7)                                                   # thumb
     return b
 
 
-def smooth_body_object(name, target_tris=1900, voxel=0.013):
+def smooth_body_object(name, target_tris=3400, voxel=0.0075):
     """Merge the overlapping primitives into one continuous surface: voxel remesh, smooth, then decimate."""
     scene = bpy.context.scene
     obj = part_body_base().build(name, floor_normalize=False)
@@ -109,8 +94,8 @@ def smooth_body_object(name, target_tris=1900, voxel=0.013):
     md.voxel_size = voxel
     md.adaptivity = 0.0
     md = obj.modifiers.new("cs_smooth", "LAPLACIANSMOOTH")
-    md.iterations = 10
-    md.lambda_factor = 0.6
+    md.iterations = 6
+    md.lambda_factor = 0.55
     md.use_volume_preserve = True
     me = bake(obj)
     me.calc_loop_triangles()
@@ -118,6 +103,10 @@ def smooth_body_object(name, target_tris=1900, voxel=0.013):
     md = obj.modifiers.new("cs_decimate", "DECIMATE")
     md.decimate_type = "COLLAPSE"
     md.ratio = min(1.0, target_tris / current)
+    md2 = obj.modifiers.new("cs_smooth2", "LAPLACIANSMOOTH")           # relax the decimation facets
+    md2.iterations = 4
+    md2.lambda_factor = 0.45
+    md2.use_volume_preserve = True
     me = bake(obj)
     me.shade_smooth()
     return obj
@@ -172,7 +161,7 @@ def part_tee():
 def part_head():
     """Big round head (local frame: pivot at the neck, head centre at z = HZ)."""
     b = B()
-    b.sph(1.0, (0, 0, HZ), mat("sc_skin", 0.8), scale=(HRX, HRY, HRZ), seg=24, ring=16)
+    b.sph(1.0, (0, 0, HZ), mat("sc_skin", 0.8), scale=(HRX, HRY, HRZ), seg=22, ring=14)
     return b
 
 
@@ -290,10 +279,6 @@ def build_scout(name="SCOUT", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None, 
         bpy.context.scene.collection.objects.unlink(body)
     body.parent = root
     tris += tri_count(body)
-    ext_obj = part_extremities().build("%s_HANDS_FEET" % name, floor_normalize=False)
-    coll.objects.link(ext_obj)
-    ext_obj.parent = root
-    tris += tri_count(ext_obj)
     if clothes:
         for label, builder, lift in (("JEANS_SHOES", part_jeans_shoes(), 0.0), ("TEE", part_tee(), LIFT)):
             o = builder.build("%s_%s" % (name, label), floor_normalize=False)
