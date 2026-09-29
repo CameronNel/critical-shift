@@ -23,6 +23,16 @@ The skylight/sky proxy adds 53,780 triangles and is excluded from both rows.
 
 What produced the drop: about 1,760 orphaned stair-finish objects left over from the deleted stair, about 4,900 modeled fasteners and floor grating bars, and Asset Kit 1 replacing four heavy equipment groups.
 
+## After the architecture rebuild and static merge (measured the same way)
+
+| State | Triangles | Objects | Draw-call estimate | Materials |
+|---|---:|---:|---:|---:|
+| `module.blend` (original) | 1,981,445 | 11,795 | 11,797 | 107 |
+| Rebuilt shell + Asset Kit 1 + lighting (`w25`) | 412,623 | 2,779 | 2,781 | 93 |
+| After static merge (`i2_static_merge.py`) | 412,623 | 1,611 | 1,613 | 93 |
+
+The rebuilt architecture is 23.5k triangles (176 objects); the legacy walls, structure and services it replaced were several hundred thousand. Triangles are inside the 400k target only if the roof proxy is excluded and are still slightly over it (412k). Draw calls are about twice the 800 target: the remaining objects are the gameplay-addressable stations, bank mechanisms and controls, which the merge pass deliberately leaves alone (all-caps interaction names, animated or parented objects, `MF WORKFLOW MACHINERY`, `04 BANK MECHANISMS`, `05 PERIMETER EQUIPMENT`). About 45 lights were also added, which a real-time build cannot run dynamically. None of this is engine-measured.
+
 ## Still to do to reach the targets
 
 - Static merge pass by material and region for architecture, wall panels, structure, services and floor details (about 3,500 objects). This is the big draw-call win.
