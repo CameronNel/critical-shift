@@ -151,3 +151,7 @@ Last validation: `validate_contacts.py` reported PASS with no failures. Not run:
 This **deliberately overrides** the "believable adult proportions, not chibi/mascot" rule in `design/ART_DIRECTION.md` section 13, by owner decision, for characters only. That document has not been updated. PEAK and R.E.P.O. are style references only: the designs here are original and nothing is copied.
 
 Not done: rigging, animation, UVs/texture baking, any Unity export, or in-engine cost measurement.
+
+### Scout character (from an owner-supplied concept image)
+
+`character_scout.py` builds a taller, goofier take on the owner's concept (big round head, round glasses, buck-toothed grin, khaki shirt, olive shorts, brown shoes): about 6.6k triangles, over the 5k character budget, so it needs a trim pass. Parts are separate objects (legs, torso, head, face, glasses, hat) under one root, with the head on a tilted neck pivot. `render_scout.py` renders the turnaround. The concept image itself is **not** in the repo. It was produced by an image generator, and its originality has not been checked. Not done: outline shader, rig, poses, UVs, engine export, and porting the modular option lists to this body.
