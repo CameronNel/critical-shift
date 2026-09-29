@@ -39,28 +39,64 @@ def _fy(dx, dz):
 
 
 def part_body_base():
-    """Smooth, featureless base body in skin colour (mannequin-style: no clothes, no anatomical detail).
-    Built in final coordinates. Unisex shape: straight bean torso, simple limbs, mitten hands, plain rounded feet."""
+    """Raw skin primitives for the base body (mannequin-style: no clothes, no anatomical detail, unisex).
+    These overlap on purpose: smooth_body_object() merges them into ONE blended surface, so there are no
+    ball joints or steps. Built in final coordinates."""
     b = B()
     skin = mat("sc_skin", 0.8)
-    top = 1.29 + 0.0
-    # torso: one smooth rounded shell from hips to shoulders
-    b.lathe([(0, 0.80), (0.14, 0.80), (0.19, 0.84), (0.225, 0.96), (0.235, 1.08), (0.22, 1.19), (0.16, 1.26), (0.075, 1.30),
-             (0, 1.31)], (0, 0, 0), skin, seg=22, scale=(1.0, 0.78, 1.0))
-    b.cyl(0.072, 0.10, (0, 0, 1.27), skin, seg=12)                                    # neck
+    # torso: soft pear/egg shell, a little narrower at the shoulders than the hips
+    b.lathe([(0, 0.79), (0.13, 0.79), (0.185, 0.84), (0.215, 0.94), (0.215, 1.05), (0.20, 1.16), (0.15, 1.24),
+             (0.085, 1.29), (0, 1.31)], (0, 0, 0), skin, seg=22, scale=(1.0, 0.80, 1.0))
+    b.cyl(0.078, 0.14, (0, 0, 1.20), skin, r2=0.062, seg=14)                            # neck, flaring into the shoulders
     for s in (-1, 1):
-        x = s * 0.105
-        b.sph(0.085, (x, 0.0, 0.82), skin, seg=12, ring=8)                            # smooth hip joint
-        b.tube([(x, 0, 0.82), (x, 0, 0.50), (x, 0.01, 0.085)], lambda u: 0.072 - 0.026 * u, skin, seg=12)   # leg, meets the foot
-        b.lathe([(0, 0.0), (0.058, 0.0), (0.078, 0.022), (0.074, 0.055), (0.05, 0.085), (0.02, 0.098), (0, 0.10)],
-                (x, 0.05, 0.0), skin, seg=14, scale=(1.0, 1.9, 1.0))                  # plain rounded foot
-        sx = s * 0.27
-        b.sph(0.062, (sx, 0.0, 1.17), skin, seg=12, ring=8)                           # shoulder
-        b.tube([(sx, 0.0, 1.16), (sx + s * 0.045, 0.03, 0.90), (sx + s * 0.06, 0.06, 0.66)], 0.045, skin, seg=10)   # arm
-        hx, hy, hz = sx + s * 0.062, 0.075, 0.60
-        b.sph(0.068, (hx, hy, hz), skin, scale=(1.0, 1.0, 1.1), seg=12, ring=8)        # mitten hand
-        b.sph(0.03, (hx - s * 0.05, hy + 0.045, hz + 0.02), skin, seg=8, ring=6)      # thumb
+        x = s * 0.095
+        # leg: thick at the hip, tapering to the ankle, buried in the pelvis at the top and in the foot at the bottom
+        b.tube([(x * 0.6, 0, 0.90), (x, 0, 0.78), (x * 1.05, 0.005, 0.48), (x * 1.05, 0.01, 0.09)],
+               lambda u: 0.095 - 0.05 * u, skin, seg=14)
+        b.lathe([(0, 0.0), (0.06, 0.0), (0.082, 0.022), (0.078, 0.055), (0.052, 0.088), (0.02, 0.102), (0, 0.105)],
+                (x * 1.05, 0.05, 0.0), skin, seg=14, scale=(1.0, 1.9, 1.0))
+        # arm: leaves the upper chest and flows down (no shoulder ball), thicker at the top
+        b.tube([(s * 0.14, 0.0, 1.19), (s * 0.24, 0.0, 1.15), (s * 0.31, 0.015, 0.98), (s * 0.345, 0.04, 0.78),
+                (s * 0.355, 0.07, 0.62)], lambda u: 0.066 - 0.026 * u, skin, seg=12)
+        hx, hy, hz = s * 0.355, 0.075, 0.585
+        b.sph(0.066, (hx, hy, hz), skin, scale=(1.0, 1.0, 1.15), seg=12, ring=8)         # mitten hand
+        b.sph(0.03, (hx - s * 0.048, hy + 0.045, hz + 0.02), skin, seg=8, ring=6)       # thumb
     return b
+
+
+def smooth_body_object(name, target_tris=2300, voxel=0.013):
+    """Merge the overlapping primitives into one continuous surface: voxel remesh, smooth, then decimate."""
+    scene = bpy.context.scene
+    obj = part_body_base().build(name, floor_normalize=False)
+    scene.collection.objects.link(obj)
+
+    def bake(obj):
+        dg = bpy.context.evaluated_depsgraph_get()
+        me = bpy.data.meshes.new_from_object(obj.evaluated_get(dg))
+        old = obj.data
+        obj.modifiers.clear()
+        obj.data = me
+        if old.users == 0:
+            bpy.data.meshes.remove(old)
+        return me
+
+    md = obj.modifiers.new("cs_remesh", "REMESH")
+    md.mode = "VOXEL"
+    md.voxel_size = voxel
+    md.adaptivity = 0.0
+    md = obj.modifiers.new("cs_smooth", "LAPLACIANSMOOTH")
+    md.iterations = 10
+    md.lambda_factor = 0.6
+    md.use_volume_preserve = True
+    me = bake(obj)
+    me.calc_loop_triangles()
+    current = max(len(me.loop_triangles), 1)
+    md = obj.modifiers.new("cs_decimate", "DECIMATE")
+    md.decimate_type = "COLLAPSE"
+    md.ratio = min(1.0, target_tris / current)
+    me = bake(obj)
+    me.shade_smooth()
+    return obj
 
 
 def part_jeans_shoes():
@@ -223,15 +259,20 @@ def build_scout(name="SCOUT", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None, 
     root.location = origin
     root.rotation_euler = (0, 0, yaw)
     tris = 0
-    body_parts = [("BODY", part_body_base(), 0.0)]
+    body = smooth_body_object("%s_BODY" % name)
+    if body.name not in coll.objects:
+        coll.objects.link(body)
+    if coll is not bpy.context.scene.collection and body.name in bpy.context.scene.collection.objects:
+        bpy.context.scene.collection.objects.unlink(body)
+    body.parent = root
+    tris += tri_count(body)
     if clothes:
-        body_parts += [("JEANS_SHOES", part_jeans_shoes(), 0.0), ("TEE", part_tee(), LIFT)]
-    for label, builder, lift in body_parts:
-        o = builder.build("%s_%s" % (name, label), floor_normalize=False)
-        coll.objects.link(o)
-        o.parent = root
-        o.location = (0, 0, lift)
-        tris += tri_count(o)
+        for label, builder, lift in (("JEANS_SHOES", part_jeans_shoes(), 0.0), ("TEE", part_tee(), LIFT)):
+            o = builder.build("%s_%s" % (name, label), floor_normalize=False)
+            coll.objects.link(o)
+            o.parent = root
+            o.location = (0, 0, lift)
+            tris += tri_count(o)
     pivot = bpy.data.objects.new(name + "_HEAD_PIVOT", None)
     pivot.empty_display_size = 0.06
     coll.objects.link(pivot)
