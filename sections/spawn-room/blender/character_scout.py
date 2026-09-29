@@ -73,7 +73,7 @@ def part_body_base():
     return b
 
 
-def smooth_body_object(name, target_tris=3400, voxel=0.0075, builder=None):
+def smooth_body_object(name, target_tris=3400, voxel=0.0075, builder=None, smooth1=6, smooth2=4, quad=False):
     """Merge the overlapping primitives into one continuous surface: voxel remesh, smooth, then decimate."""
     scene = bpy.context.scene
     obj = (builder or part_body_base)().build(name, floor_normalize=False)
@@ -94,20 +94,40 @@ def smooth_body_object(name, target_tris=3400, voxel=0.0075, builder=None):
     md.voxel_size = voxel
     md.adaptivity = 0.0
     md = obj.modifiers.new("cs_smooth", "LAPLACIANSMOOTH")
-    md.iterations = 6
+    md.iterations = smooth1
     md.lambda_factor = 0.55
     md.use_volume_preserve = True
     me = bake(obj)
     me.calc_loop_triangles()
     current = max(len(me.loop_triangles), 1)
-    md = obj.modifiers.new("cs_decimate", "DECIMATE")
-    md.decimate_type = "COLLAPSE"
-    md.ratio = min(1.0, target_tris / current)
-    md2 = obj.modifiers.new("cs_smooth2", "LAPLACIANSMOOTH")           # relax the decimation facets
-    md2.iterations = 4
-    md2.lambda_factor = 0.45
-    md2.use_volume_preserve = True
-    me = bake(obj)
+    if quad:
+        # clean, evenly flowing quads (no decimation slivers): light pre-decimate for speed, then QuadriFlow
+        if current > 24000:
+            md = obj.modifiers.new("cs_predec", "DECIMATE")
+            md.decimate_type = "COLLAPSE"
+            md.ratio = 24000.0 / current
+            me = bake(obj)
+        view = bpy.context.view_layer
+        for o in view.objects:
+            o.select_set(False)
+        view.objects.active = obj
+        obj.select_set(True)
+        bpy.ops.object.quadriflow_remesh(target_faces=max(int(target_tris // 2), 200), use_mesh_symmetry=True,
+                                         use_preserve_sharp=False, use_preserve_boundary=False, smooth_normals=True)
+        md2 = obj.modifiers.new("cs_smooth2", "LAPLACIANSMOOTH")
+        md2.iterations = smooth2
+        md2.lambda_factor = 0.4
+        md2.use_volume_preserve = True
+        me = bake(obj)
+    else:
+        md = obj.modifiers.new("cs_decimate", "DECIMATE")
+        md.decimate_type = "COLLAPSE"
+        md.ratio = min(1.0, target_tris / current)
+        md2 = obj.modifiers.new("cs_smooth2", "LAPLACIANSMOOTH")           # relax the decimation facets
+        md2.iterations = smooth2
+        md2.lambda_factor = 0.45
+        md2.use_volume_preserve = True
+        me = bake(obj)
     me.shade_smooth()
     return obj
 
@@ -158,10 +178,10 @@ def part_tee():
     return b
 
 
-def part_head():
+def part_head(seg=22, ring=14):
     """Big round head (local frame: pivot at the neck, head centre at z = HZ)."""
     b = B()
-    b.sph(1.0, (0, 0, HZ), mat("sc_skin", 0.8), scale=(HRX, HRY, HRZ), seg=22, ring=14)
+    b.sph(1.0, (0, 0, HZ), mat("sc_skin", 0.8), scale=(HRX, HRY, HRZ), seg=seg, ring=ring)
     return b
 
 
@@ -204,6 +224,9 @@ def part_face_goofy():
     return b
 
 
+EYE_SEG = (16, 10)              # sphere resolution for eyes; a hi-res character can raise it
+
+
 def part_face(style="neutral"):
     """Default: two round matching eyes, no eyebrows, a plain black-line smile. style='goofy' keeps the old face."""
     if style == "goofy":
@@ -216,8 +239,8 @@ def part_face(style="neutral"):
     for s in (-1, 1):
         x = s * 0.112
         y = _fy(x, ez - HZ) - 0.004
-        b.sph(0.066, (x, y, ez), white, scale=(1.0, 0.45, 1.0), seg=16, ring=10)
-        b.sph(0.048, (x, y + 0.014, ez), iris, scale=(1.0, 0.4, 1.0), seg=14, ring=8)
+        b.sph(0.066, (x, y, ez), white, scale=(1.0, 0.45, 1.0), seg=EYE_SEG[0], ring=EYE_SEG[1])
+        b.sph(0.048, (x, y + 0.014, ez), iris, scale=(1.0, 0.4, 1.0), seg=EYE_SEG[0], ring=EYE_SEG[1])
         b.sph(0.022, (x, y + 0.024, ez), ink, scale=(1.0, 0.4, 1.0), seg=10, ring=6)
         b.sph(0.011, (x + s * 0.014, y + 0.03, ez + 0.02), white, scale=(1.0, 0.4, 1.0), seg=6, ring=4)
     mz = HZ - 0.115
