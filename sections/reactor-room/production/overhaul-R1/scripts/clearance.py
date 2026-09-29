@@ -1,6 +1,11 @@
-import bpy,sys,json,math,collections; sys.path.insert(0,"."); from lib import *
-S=sys.argv[sys.argv.index("--")+1]; f=sys.argv[sys.argv.index("--")+2]
-bpy.ops.wm.open_mainfile(filepath=S+"/"+f); sc=bpy.context.scene; dg=bpy.context.evaluated_depsgraph_get(); RUNS=json.load(open(S+"/runs.json"))
+import bpy,sys,json,math,collections,os; sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); from lib import *
+# usage: blender/python clearance.py -- <scene dir> <scene.blend> [runs manifest .json]
+# manifest defaults to the checked-in ../piping_runs_generated.json
+A=sys.argv[sys.argv.index("--")+1:]
+S=A[0]; f=A[1]
+MANIFEST=A[2] if len(A)>2 else os.path.join(os.path.dirname(os.path.abspath(__file__)),"..","piping_runs_generated.json")
+bpy.ops.wm.open_mainfile(filepath=S+"/"+f); sc=bpy.context.scene; dg=bpy.context.evaluated_depsgraph_get(); RUNS=json.load(open(MANIFEST))
+print("runs manifest:",os.path.normpath(MANIFEST))
 hits=collections.defaultdict(list)
 for r in RUNS:
     pts=[Vector(p) for p in r["pts"]]; rad=r["r"]
@@ -25,3 +30,6 @@ bad=0
 for (run,obj),locs in sorted(hits.items()):
     print("CLASH run '%s' passes through '%s' at %s (%d ray hits)"%(run,obj[:40],locs[0],len(locs))); bad+=1
 print("CLASHES:",bad)
+if bad:
+    print("FAIL: %d clash(es)"%bad); sys.exit(1)
+print("PASS")
