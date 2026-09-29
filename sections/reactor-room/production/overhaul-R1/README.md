@@ -118,3 +118,17 @@ Not yet: floor inlays and stencils, wall graphics, dressing, ceiling detail, rem
 ## Rebuild D: elevator doors, pool glow, dressing (`q2_elevator_doors_pool_glow_dressing.py`)
 
 Sliding landing doors at the ground and upper landing, keyed to the car (open while the car is at that level), indicator lamps, call panels, floor signs and a hazard stripe; a state-glow ring round the pool rim and eight glow slots on the pool wall; framed posters, exit signs over the three doors, caution-tape barriers, cones, a wet-floor sign and puddles.
+
+
+## Piping and cables (`scripts/pipes_and_cables.py`, checked by `scripts/verify_piping.py`, runs in `piping_runs.json`)
+
+Built last, from the `PORT_*` empties. 26 runs, 76 objects, plus a perimeter cable ring.
+
+- **Coolant:** plant supply enters through the -Y wall (sleeved penetration, `PORT_WALL_COOLANT_SUPPLY`), runs along the wall header, tees down into EC-1 and EC-2, and its far end drops through the two isolation valves of the coolant-valve station and into the pump suction. Pump discharge rises, drops into a floor trench junction box, runs under cover plates to the pool inlet manifold, and a submerged riser ends in a diffuser in the pool. EC-1/EC-2 injection lines leave through the wall.
+- **Steam:** lagged supply enters the east wall high, drops onto the turbine inlet; the exhaust leaves through the wall.
+- **Waste vent:** cask vent rises and exits through the north-east wall.
+- **Hydraulics:** a pressure unit and a return tank hang from the gantry; four lines connect the bank cassette ports to them.
+- **Power:** a perimeter cable tray ring at z = 11.6 m, with conduit risers from the grid cabinets, turbine sensor, generator, bank control console, control room, elevator machine, waste-vent control, both reserve-power racks and the west bench socket; the pump starter feeds the trench junction box.
+- About 36 old dangling pipe and feed curves were deleted because the layers they connected to no longer exist.
+
+`verify_piping.py` result on this file: 26 runs, 0 dangling ends (every end is a port, a device, a tee on another run, the trench, the diffuser, the pressure unit or the cable ring), 0 unconnected `PORT_*` empties. It checks connectivity only, not clearance or collisions with walkways or equipment.
