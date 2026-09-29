@@ -683,7 +683,7 @@ def _lin(hexstr):
 
 
 def rebuild_hall_floor():
-    """One plane + tile shader: warm clay tiles with a navy runner down the corridor."""
+    """One plane + tile shader: warm clay tiles with a whole-tile navy border along the walls."""
     obj = bpy.data.objects.get("FACILITY_floor")
     if obj is None or obj.get("cs_rebuilt"):
         return
@@ -724,11 +724,10 @@ def rebuild_hall_floor():
     navy = brick("#2E3654", "#39426A", "#151A2B")
     sep = nt.nodes.new("ShaderNodeSeparateXYZ")
     absx = nt.nodes.new("ShaderNodeMath"); absx.operation = "ABSOLUTE"
-    edge = nt.nodes.new("ShaderNodeMapRange")
-    edge.inputs["From Min"].default_value = 0.78
-    edge.inputs["From Max"].default_value = 0.86
-    edge.inputs["To Min"].default_value = 1.0
-    edge.inputs["To Max"].default_value = 0.0                      # 1 inside the runner
+    tile_i = nt.nodes.new("ShaderNodeMath"); tile_i.operation = "MULTIPLY"; tile_i.inputs[1].default_value = 2.5   # x in tiles
+    tile_f = nt.nodes.new("ShaderNodeMath"); tile_f.operation = "FLOOR"
+    edge = nt.nodes.new("ShaderNodeMath"); edge.operation = "GREATER_THAN"
+    edge.inputs[1].default_value = 2.5      # tile column 3+ (|x| >= 1.2 m): a whole-tile border along the walls
     mix = nt.nodes.new("ShaderNodeMix"); mix.data_type = "RGBA"
     bump = nt.nodes.new("ShaderNodeBump"); bump.inputs["Strength"].default_value = 0.3; bump.inputs["Distance"].default_value = 0.004
     fmix = nt.nodes.new("ShaderNodeMix"); fmix.data_type = "FLOAT"
@@ -737,17 +736,18 @@ def rebuild_hall_floor():
     rough.inputs["To Max"].default_value = 0.3
     L(coord.outputs["Object"], mp.inputs["Vector"])
     L(coord.outputs["Object"], sep.inputs["Vector"])
-    L(sep.outputs["X"], absx.inputs[0]); L(absx.outputs["Value"], edge.inputs["Value"])
-    L(edge.outputs["Result"], mix.inputs["Factor"])
+    L(sep.outputs["X"], absx.inputs[0]); L(absx.outputs["Value"], tile_i.inputs[0])
+    L(tile_i.outputs["Value"], tile_f.inputs[0]); L(tile_f.outputs["Value"], edge.inputs[0])
+    L(edge.outputs["Value"], mix.inputs["Factor"])
     L(clay.outputs["Color"], mix.inputs["A"]); L(navy.outputs["Color"], mix.inputs["B"])
     L(mix.outputs["Result"], bsdf.inputs["Base Color"])
-    L(clay.outputs["Fac"], fmix.inputs["A"]); L(navy.outputs["Fac"], fmix.inputs["B"]); L(edge.outputs["Result"], fmix.inputs["Factor"])
+    L(clay.outputs["Fac"], fmix.inputs["A"]); L(navy.outputs["Fac"], fmix.inputs["B"]); L(edge.outputs["Value"], fmix.inputs["Factor"])
     L(fmix.outputs["Result"], bump.inputs["Height"]); L(bump.outputs["Normal"], bsdf.inputs["Normal"])
     L(fmix.outputs["Result"], rough.inputs["Value"]); L(rough.outputs["Result"], bsdf.inputs["Roughness"])
     L(bsdf.outputs["BSDF"], out.inputs["Surface"])
     mesh.materials.append(m)
     obj["cs_rebuilt"] = True
-    log("hall floor: %d -> 2 tris, clay tiles with a navy runner" % before)
+    log("hall floor: %d -> 2 tris, clay tiles with a navy wall border" % before)
 
 
 # ---------------------------------------------- non-AI poster art (replaces photos)

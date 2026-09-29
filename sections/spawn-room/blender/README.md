@@ -131,7 +131,7 @@ python add_cozy_trinkets.py  -- <stage2.blend> <module.blend>
 
 - **Plants are low-poly and back**: the originals (about eight, roughly 100k triangles, 135 leaf objects each) were replaced by cheap `f_ficus` / `f_snake` / `r_pothos` recipes (330-900 triangles each). Placed: briefing corner ficus + sideboard pothos; hall ficus, snake and shelf pothos; locker ficus, snake and two shelf pothos. **This is more than the spec's 0-2 (section 14)**; the owner asked for plants. Trim the placements in `add_cozy_trinkets.py` if the spec limit should win.
 - **AI-generated images removed**: `commissioning_crew.png` and `human_contribution.png` (the crew photo and supervisor portrait) are replaced by generated flat poster art (`replace_ai_images`). The caption text objects under them are unchanged and may now mismatch the art.
-- **Hall floor** is a single plane with a clay-tile shader and a navy runner (`rebuild_hall_floor`); the old 5.7k-triangle floor mesh is gone.
+- **Hall floor** is a single plane with a clay-tile shader and a whole-tile navy border along the walls (`rebuild_hall_floor`); the old 5.7k-triangle floor mesh is gone.
 - **Briefing bench seats are kept clear** and the seating zone, door path and locker route are keep-out zones for trinkets.
 - **Suits are still missing.** The four suit bays have shelves, boots and hangers but no hero hazmat suits, which the spec requires. Not part of this pass.
 
