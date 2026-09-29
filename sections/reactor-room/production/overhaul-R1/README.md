@@ -100,3 +100,10 @@ Owner direction: the legacy scene looks archaic next to the spawn room, so this 
 Removed with the legacy layers, to be rebuilt in the piping pass: wall conduits, cable trays, coolant headers, junction boxes.
 
 Not yet: floor inlays and stencils, wall graphics, dressing, ceiling detail, remaining equipment, pool lining, draw-call merge, piping/cables.
+
+
+## Rebuild B: floor, graphics, dressing, station lighting
+
+- `m1_floor_graphics_dressing.py`: floor inlays (orange safety ring round the pool; route lanes with chevrons from the three doors to the pool; drain grates), painted wall graphics (sector numerals, company and safety stencils), angular drums and crates.
+- `n2_station_lamps_palette5.py`: task lamps (modelled hood plus spot) for the generator, reserve power, grid cabinets, turbine, fuel bay, fuel racks, waste cask and pool console; equipment materials lifted; edge-wear masks thinned.
+- `n4_fixture_shadow_fix.py`: **bug fix.** Every fixture's light sat inside its own closed housing, so the housing blocked the light. This is why the cornice washers, beacons and (at first) the task lamps lit almost nothing. Housings no longer cast shadows.
