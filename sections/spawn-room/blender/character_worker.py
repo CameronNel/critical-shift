@@ -21,10 +21,16 @@ import character_scout as SC
 from cozy_geo import B, mat, tri_count
 
 BODY_TRIS = 5200                      # refined: enough triangles to keep curves smooth and silhouettes round
-H_SCALE = 0.90                        # head scale relative to the Scout head
-DROP = 0.06                           # legs are this much shorter; everything above the hips sits lower by the same amount
-HEAD_CENTRE_Z = 1.295 - DROP          # world height of the head centre (a slim neck still shows)
+H_SCALE = 0.94                        # head kept close to the previous size (slightly trimmed so the taller body reads ~3.1 heads)
+LEG_DROP = -0.11                      # negative: the hips sit higher (0.66 m) so the legs are ~35% longer
+TORSO_SQUASH = 1.05                   # torso a little taller than the source profile
+HEAD_CENTRE_Z = 1.38
 PIVOT_Z = HEAD_CENTRE_Z - SC.HZ * H_SCALE
+
+
+def T(z):
+    """Map a source torso height (0.55 = hip line) onto the shorter, squashed torso."""
+    return (0.55 - LEG_DROP) + (z - 0.55) * TORSO_SQUASH
 
 
 def spline(points, n=18):
@@ -48,40 +54,66 @@ def bump(u, centre, width, amount):
 
 
 def part_worker_raw():
-    """Overlapping closed primitives for the merged body. Final coordinates, feet at z = 0, +y forward."""
+    """Overlapping closed primitives for the merged body. Final coordinates, feet at z = 0, +y forward.
+    Pear/bean silhouette: narrow shoulders, wide low belly, a soft blended hip, stubby arms, big flat-soled feet."""
     b = B()
     skin = mat("sc_skin", 0.8)
-    # wide egg torso; the top tucks into the head so there is almost no neck
-    b.lathe([(0, 0.55), (0.14, 0.55), (0.22, 0.60), (0.27, 0.72), (0.285, 0.84), (0.255, 0.95), (0.19, 1.00),
-             (0.12, 1.035), (0.075, 1.07), (0, 1.09)], (0, 0, -DROP), skin, seg=24, scale=(1.0, 0.86, 1.0))
-    b.cyl(0.062, 0.14, (0, 0, 1.00 - DROP), skin, seg=14)                                   # slim neck, tucked into the head
+    prof = [(0, 0.55), (0.17, 0.55), (0.25, 0.60), (0.30, 0.70), (0.297, 0.80), (0.245, 0.90), (0.18, 0.96),
+            (0.115, 1.00), (0.075, 1.04), (0, 1.06)]
+    b.lathe([(r * 0.90, T(z)) for r, z in prof], (0, 0, 0), skin, seg=24, scale=(1.0, 0.86, 1.0))
+    b.cyl(0.064, 0.14, (0, 0, T(1.0)), skin, seg=14)                                 # slim neck, tucked into the head
+    # soft hip mass so the legs grow out of the belly instead of being attached to it
+    b.sph(1.0, (0, 0.0, T(0.58)), skin, scale=(0.21, 0.18, 0.12), seg=18, ring=10)
+    zs = T(0.94)                                                                      # shoulder height
     for s in (-1, 1):
-        x = s * 0.11
-        # short, thick legs: smooth centre-line, thick thigh, a soft calf, a defined ankle
-        k = (0.68 - DROP) / 0.68
-        leg = spline([(x * 0.7, 0, 0.68 * k), (x * 0.95, 0, 0.55 * k), (x * 1.04, 0.006, 0.36 * k),
-                      (x * 1.05, 0.012, 0.20 * k), (x * 1.05, 0.015, 0.10)])
-        b.tube([tuple(p) for p in leg], lambda u: 0.099 - 0.040 * u + bump(u, 0.55, 0.20, 0.010) - bump(u, 0.95, 0.10, 0.006),
-               skin, seg=18)
-        # chunky toeless foot: one smooth rounded shoe-like bean, flat underneath
-        xf = x * 1.05
-        b.sph(1.0, (xf, 0.078, 0.066), skin, scale=(0.078, 0.140, 0.068), seg=14, ring=10)
-        b.sph(1.0, (xf, 0.074, 0.030), skin, scale=(0.074, 0.126, 0.032), seg=12, ring=6)
-        # little buttcheeks
-        b.sph(1.0, (s * 0.076, -0.128, 0.60 - DROP), skin, scale=(0.080, 0.078, 0.086), seg=14, ring=10)
-        # thick arm flowing out of the upper chest: smooth centre-line, soft deltoid, tapering to a defined wrist
-        arm = spline([(s * 0.15, 0.0, 0.94 - DROP), (s * 0.25, 0.0, 0.915 - DROP), (s * 0.325, 0.015, 0.80 - DROP),
-                      (s * 0.362, 0.04, 0.64 - DROP), (s * 0.385, 0.07, 0.52 - DROP)])
-        b.tube([tuple(p) for p in arm], lambda u: 0.079 - 0.036 * u + bump(u, 0.15, 0.12, 0.006) - bump(u, 0.95, 0.08, 0.004),
+        x = s * 0.098
+        leg = spline([(x * 0.70, 0, 0.80), (x * 0.95, 0, 0.64), (x * 1.04, 0.006, 0.44), (x * 1.06, 0.012, 0.25),
+                      (x * 1.06, 0.016, 0.11)])
+        b.tube([tuple(p) for p in leg],
+               lambda u: 0.108 - 0.040 * u + bump(u, 0.55, 0.20, 0.010) - bump(u, 0.95, 0.10, 0.006), skin, seg=18)
+        # big toeless foot with a flatter sole
+        xf = x * 1.06
+        b.sph(1.0, (xf, 0.088, 0.088), skin, scale=(0.098, 0.168, 0.074), seg=14, ring=10)
+        b.sph(1.0, (xf, 0.084, 0.028), skin, scale=(0.094, 0.152, 0.028), seg=12, ring=6)
+        # small, soft buttcheeks
+        b.sph(1.0, (s * 0.07, -0.135, T(0.60)), skin, scale=(0.074, 0.070, 0.082), seg=14, ring=10)
+        # short thick arm out of the narrow shoulder
+        arm = spline([(s * 0.13, 0.0, zs), (s * 0.22, 0.0, zs - 0.022), (s * 0.29, 0.015, zs - 0.138),
+                      (s * 0.325, 0.04, zs - 0.288), (s * 0.345, 0.065, zs - 0.385)])
+        b.tube([tuple(p) for p in arm], lambda u: 0.094 - 0.040 * u + bump(u, 0.15, 0.12, 0.006) - bump(u, 0.95, 0.08, 0.004),
                skin, seg=16)
-        # big oven-mitten hand: fused fingers plus a distinct, chunky thumb
-        hx, hy, hz = s * 0.385, 0.078, 0.462 - DROP
-        b.sph(1.0, (hx, hy, hz), skin, scale=(0.055, 0.076, 0.074), seg=14, ring=10)
-        b.sph(1.0, (hx - s * 0.003, hy + 0.010, hz - 0.056), skin, scale=(0.050, 0.076, 0.084), seg=14, ring=10)
-        tb = Vector((hx - s * 0.040, hy + 0.030, hz + 0.014))
-        tp = [tb, tb + Vector((-s * 0.006, 0.026, -0.012)), tb + Vector((-s * 0.008, 0.040, -0.030))]
-        b.tube(tp, lambda u: 0.036 - 0.006 * u, skin, seg=10, caps=True)      # short, tucked thumb; closed for the remesh
-        b.sph(0.031, tp[-1], skin, seg=10, ring=7)
+        # bigger oven-mitten hand with a short, tucked thumb
+        hx, hy, hz = s * 0.345, 0.075, zs - 0.455
+        b.sph(1.0, (hx, hy, hz), skin, scale=(0.068, 0.092, 0.092), seg=14, ring=10)
+        b.sph(1.0, (hx - s * 0.003, hy + 0.012, hz - 0.066), skin, scale=(0.062, 0.092, 0.100), seg=14, ring=10)
+        tb = Vector((hx - s * 0.048, hy + 0.036, hz + 0.018))
+        tp = [tb, tb + Vector((-s * 0.007, 0.030, -0.014)), tb + Vector((-s * 0.010, 0.046, -0.034))]
+        b.tube(tp, lambda u: 0.043 - 0.007 * u, skin, seg=10, caps=True)
+        b.sph(0.036, tp[-1], skin, seg=10, ring=7)
+    return b
+
+
+def part_worker_face():
+    """Minimal face: larger, slightly closer, deeper (protruding) round eyes, no brows, no nose, tiny black smile."""
+    b = B()
+    ink = mat("sc_black", 0.35)
+    white = mat("white", 0.3)
+    iris = mat("sc_iris", 0.25)
+    ez = SC.HZ + 0.02
+    for s in (-1, 1):
+        x = s * 0.098
+        y = SC._fy(x, ez - SC.HZ) - 0.002
+        b.sph(0.078, (x, y, ez), white, scale=(1.0, 0.62, 1.0), seg=SC.EYE_SEG[0], ring=SC.EYE_SEG[1])
+        b.sph(0.057, (x, y + 0.032, ez), iris, scale=(1.0, 0.5, 1.0), seg=SC.EYE_SEG[0], ring=SC.EYE_SEG[1])
+        b.sph(0.026, (x, y + 0.046, ez), ink, scale=(1.0, 0.5, 1.0), seg=16, ring=8)
+        b.sph(0.013, (x + s * 0.016, y + 0.056, ez + 0.022), white, scale=(1.0, 0.5, 1.0), seg=8, ring=6)
+    mz = SC.HZ - 0.115
+    pts = []
+    for i in range(-4, 5):
+        x = i * 0.016
+        z = mz + 0.02 * (x / 0.064) ** 2 - 0.008
+        pts.append((x, SC._fy(x, z - SC.HZ) + 0.004, z))
+    b.tube(pts, 0.0065, ink, seg=5)
     return b
 
 
@@ -110,7 +142,7 @@ def build_worker(name="WORKER", origin=(0.0, 0.0, 0.0), yaw=0.0, collection=None
     pivot.location = (0, 0, PIVOT_Z)
     pivot.scale = (H_SCALE, H_SCALE, H_SCALE)
     SC.EYE_SEG = (20, 12)
-    parts = [("HEAD", SC.part_head(seg=32, ring=22)), ("FACE", SC.part_face(face))]
+    parts = [("HEAD", SC.part_head(seg=32, ring=22)), ("FACE", part_worker_face() if face == "neutral" else SC.part_face(face))]
     if accessories:
         parts += [("GLASSES", SC.part_glasses()), ("HAT", SC.part_hat())]
     for label, builder in parts:
