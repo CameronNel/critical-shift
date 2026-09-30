@@ -36,6 +36,12 @@ existing authorities and tools; it does not replace them or relax section accept
 Load its diagnostic references only as needed. Integration and cloud usage are in
 [the skill guide](design/blender-headless/README.md).
 
+For Blender animation, existing-rig posing, keyframes, drivers, shape keys,
+NLA clips or camera motion, also read the
+[animation specialist](.agents/skills/blender-animation/SKILL.md).
+It extends the shared headless workflow; static tasks do not need it.
+[Animation integration and provenance](design/blender-animation/README.md).
+
 ## Change and handoff rules
 
 Search for the existing implementation and consumers before adding a replacement. Establish one mutation owner, explicit lifetime and allowed dependencies. Migrate consumers and remove obsolete active paths; inspect serialized/dynamic references before deleting Unity code or assets.
