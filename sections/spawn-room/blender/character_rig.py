@@ -124,6 +124,7 @@ def leg_weights(p):
         raw[side + base] = math.exp(-(d / _SIGMA) ** 2)
     h, t = SEGMENTS["Hips"]
     raw["Hips"] = 0.6 * math.exp(-(max(0.0, _seg_dist(p, h, t) - 0.17) / _SIGMA) ** 2)
+    raw["Hips"] += 2.5 * _ss(0.07, 0.0, abs(p.x)) * _ss(0.40, 0.55, p.z)   # the crotch web rides on the pelvis
     tot = sum(raw.values())
     if tot < 1e-6:
         return {side + "UpperLeg": 1.0}
@@ -339,7 +340,7 @@ def _limb_key(w):
     return max(sums, key=sums.get)
 
 
-def _split_limbs(o, weight_at, mw, z_split=0.96):
+def _split_limbs(o, weight_at, mw, z_split=0.52):
     """The suit body is one fused mesh, so the sleeve is webbed to the hip and the legs to each other where they touch.
     A raised arm or a striding leg stretches those webs into dark slivers. Split the mesh along those creases (below
     `z_split`) and return {vertex: limb key} so each side can be weighted to its own limb only."""
@@ -354,8 +355,8 @@ def _split_limbs(o, weight_at, mw, z_split=0.96):
         k1, k2 = fkey[e.link_faces[0].index], fkey[e.link_faces[1].index]
         if k1 == k2 or (mw @ ((e.verts[0].co + e.verts[1].co) * 0.5)).z > z_split:
             continue
-        if {k1[:3], k2[:3]} == {"cor", "leg"}:
-            continue                               # hips to leg is a joint, not a web
+        if {k1, k2} != {"legL", "legR"}:
+            continue                               # only the leg-to-leg web; arms are handled by weight blending
         cut.append(e)
     bmesh.ops.split_edges(bm, edges=cut)
     bm.faces.ensure_lookup_table()
@@ -369,10 +370,10 @@ def _split_limbs(o, weight_at, mw, z_split=0.96):
     return vkey
 
 
-def _restrict(w, key, z, z_split=0.96):
+def _restrict(w, key, z, z_split=0.52):
     """Weights confined to the vertex's own limb below the armpit, fading back to the plain weights above it."""
     r = _ss(z_split + 0.06, z_split, z)
-    if r <= 0.0 or key == "core" and not any(n.endswith(_ARM_BONES) for n in w):
+    if r <= 0.0 or not key.startswith("leg"):
         return w
     if key.startswith("arm"):
         side = "Left" if key.endswith("L") else "Right"
@@ -403,7 +404,7 @@ def skin_worker(root, arm):
             o.vertex_groups.new(name=n)
         vg = o.vertex_groups
         rigid_bone = {}
-        vkey = None
+        vkey = _split_limbs(o, weight_at, mw) if o.name == "SUIT_BODY" else None
         if o.name == "SUIT_KIT":
             for isl in _islands(o.data):
                 pts = [mw @ o.data.vertices[i].co for i in isl]
@@ -674,8 +675,9 @@ def _run_body(ph, cartoon=True):
     for side, sgn in (("Left", 1), ("Right", -1)):
         p = (ph + (0.0 if sgn == 1 else 0.5)) % 1.0
         sp = math.sin(tp * p)
-        thigh = (44 if cartoon else 38) * sp
-        flex = 8 + (56 if cartoon else 48) * max(0.0, math.cos(tp * (p - 0.08))) ** 1.5
+        # forward-biased swing: the leg reaches further forward than it trails, and the knee folds while it passes under
+        thigh = 10 + (30 if cartoon else 26) * sp
+        flex = 12 + (70 if cartoon else 60) * max(0.0, math.cos(tp * (p - 0.05))) ** 2
         lower_abs = thigh - flex
         D[side + "UpperLeg"] = D["Hips"] @ _rot("X", thigh) @ _rot("Y", -sgn * 3)
         D[side + "LowerLeg"] = _rot("X", lower_abs) @ D["Hips"]
