@@ -241,8 +241,8 @@ Actions (`RIG.ACTIONS`), all looping in place at 24 fps, frame 0 equal to the la
   mid-shaft with the blade forward, pickaxe choked up with the head forward), left arm pumping against the legs.
 
 Legs are two-bone IK to planned foot paths: the stance foot is planted and slides back at treadmill speed, lands a
-little heel first and rolls onto the toe; the swing foot kicks up behind, drives the knee and reaches before the
-strike; the hips are lowest at mid-stance and highest in the flight phase, so at most one foot is ever on the floor. Arms use
+little heel first and rolls onto the toe; the swing foot kicks up behind, drives the knee and reaches before the strike;
+the hips are lowest at mid-stance and highest in the flight phase, so at most one foot is ever on the floor. Arms use
 two-bone IK to the tool grip (aimed so the mitten, not the wrist, closes on it); tool placements are `TOOL_HOLD` and
 `TOOL_RUN` (grip, shaft direction and roll in chest space; the character faces +Y, its right is -X).
 
