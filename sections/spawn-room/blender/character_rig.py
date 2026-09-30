@@ -7,15 +7,22 @@ Left/RightUpperLeg > LowerLeg > Foot, plus non-humanoid extras: Belly (jiggle), 
 bone under Root that the hand tools are skinned to). Bone names follow Unity's humanoid naming so the Avatar auto-maps.
 Feet have no toes, so there is no Toes bone. Rest pose is an A-pose.
 
-Skinning: weights come from distance to the skeleton (a smooth falloff around each bone), a function of position only,
-so coincident vertices on the region seams and on the suit get identical weights and never open. Each leg only follows
-its own leg bones (no cross-leg contamination below the crotch); arms only reach into the flank near the shoulder.
-Head, hood, visor and face decals are rigid to Head; long suit parts (belt, straps, boots, tank) are rigid to one bone.
+Skinning: weights are a function of position (bone heat for torso and arms, same-side distance weights for the legs), so
+coincident vertices on the region seams and on the suit get identical weights and never open. The suit body is one
+fused mesh: the legs touch from the knee to the crotch and the inner arm touches the flank below the armpit. Those
+creases are cut open and each side is closed with its own wall (`_separate_limbs`), then weighted to its own limb only,
+so a striding leg or a raised arm never drags the shared fabric into torn-looking slivers. Head, hood, visor and face
+decals are rigid to Head; kit that lies flat on the suit follows it (long edges subdivided), bands round the legs and
+small raised items move as one piece, long hard parts (belt, soles, tank) are rigid to one bone.
 
-Animations (all loop, in place):
-    RUN           cartoon run, hands waving above the head (erratic but ordered: mixed harmonics, arms out of phase)
-    HOLD_SHOVEL   two-handed shovel hold with breathing
-    HOLD_PICKAXE  pickaxe resting on the shoulder, right hand on the handle
+Legs are two-bone IK to planned foot targets, so a planted foot stays planted. Animations (all loop, in place, 24 fps):
+    IDLE          standing, arms hanging, breathing and a slow weight shift (48 frames)
+    RUN           cartoon run, arms up beside the head like \\o/, mittens waving (mixed harmonics, arms out of step),
+                  bouncy flight phase, waddle, belly and pack lag (32 frames = two strides)
+    HOLD_SHOVEL   standing, shovel in the right hand low at the hip, blade forward and down (48 frames)
+    HOLD_PICKAXE  standing, pickaxe in the right hand low at the hip, head forward (48 frames)
+    RUN_SHOVEL    plain run, shovel carried at the trail in the right hand, left arm pumping (18 frames)
+    RUN_PICKAXE   plain run, pickaxe choked up in the right hand, head forward, left arm pumping (18 frames)
 """
 
 import math
@@ -494,11 +501,8 @@ def _separate_limbs(o, weight_at, mw, side_only=False):
             k = e.link_faces[0][lay]
             groups.setdefault((k, (mw @ e.verts[0].co).x > 0 if _CLS[k] == "core" else None), []).append(e)
     walls = 0
-    for (k, sd), edges in groups.items():
+    for (k, _), edges in groups.items():
         chains = _chains(edges)
-        if __import__("os").environ.get("RIG_DEBUG"):
-            print("RIG cut group", _CLS[k], sd, [(len(c), round(min(v.co.z for v in c), 3), round(max(v.co.z for v in c), 3),
-                                                  c[0] in {n for e in c[-1].link_edges for n in e.verts}) for c in chains])
         if len(chains) == 1:                   # one U-shaped cut (the arm): split it at its lowest point
             ch = chains[0]
             low = min(range(len(ch)), key=lambda i: ch[i].co.z)
