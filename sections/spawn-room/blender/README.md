@@ -207,22 +207,30 @@ lod 2 (body remesh 3,300, coarse head/hood, fewer segments, no bevels on small p
 for distance only. lod 1 is nearly indistinguishable from lod 0 but saves only about 16 percent. Not yet measured on a
 3050 or in Unity, and no LOD switching distances are set.
 
-## Crew worker rig and run cycle (first pass)
+## Crew worker rig, cartoon run and tool holds
 
 `character_rig.py` builds a Unity Humanoid-compatible skeleton (Root, Hips, Spine, Chest, Neck, Head, shoulders, arms,
 hands, legs, feet; Unity naming so the Avatar auto-maps; A-pose rest; no Toes bone because the feet are toeless) plus
-two extra bones for secondary motion, `Belly` (jiggle) and `Pack` (backpack lag). Skin weights are computed once with
-bone heat on the welded body and copied to every piece by position, so region seams and outfit pieces deform together
-(checked: 201 seam vertices, largest separation 0 at frame 4 of the run). The head, hood, visor and face decals are
-rigid to `Head`; long suit parts (belt, straps, boot shafts and soles, tank) are rigid to one bone; small patches follow
-the fabric.
+extra bones `Belly` (jiggle), `Pack` (backpack lag) and `Tool` (carries a hand tool rigidly). Skin weights are a pure
+function of position (bone heat on the welded body for torso and arms, blended into same-side leg-only distance
+weights below the hips), so region seams and outfit pieces deform together and the two legs never mix (checked earlier:
+201 seam vertices, largest separation 0). Arm vertices are excluded from the leg blend by `|x|`, otherwise the hanging
+arms inherit leg weights. The head, hood, visor and face decals are rigid to `Head`; long suit parts (belt, straps, boot
+shafts and soles, tank) are rigid to one bone; small patches follow the fabric.
 
-`make_run_cycle` makes a looping, in-place 24-frame run: heavy foot plants (the hips are re-keyed so the lower foot
-touches the ground every frame), hip waddle and bounce, exaggerated arm swing, head bob, belly and pack lag.
-`export_fbx` exports the rigged worker and the RUN action for Unity. `render_rig.py` renders posed frames
-(`SUIT=1` for the suited worker, `GIF=1` for a loop, `EXPORT=<path>` to write the FBX).
+Actions (`make_run_cycle`, `make_shovel_hold`, `make_pickaxe_hold`), all looping:
+- `RUN`: 24 frames, in place. Cartoon run with the arms straight up over the head (fanned 10-40 degrees, mittens waving
+  on mixed 1x/2x/3x harmonics, left and right out of step, so it looks random but repeats every cycle), heavy foot plants
+  (hips re-keyed so the lower foot touches the ground), hip waddle and bounce, head bob, belly and pack lag.
+- `HOLD_SHOVEL`: two-handed upright hold with breathing and weight shift.
+- `HOLD_PICKAXE`: one-handed, resting on the right shoulder.
 
-Known limits: not imported into Unity (Humanoid Avatar mapping untested); no idle, walk, jump or grab animations; a few
-small suit patches lift slightly off the fabric in extreme poses; the coverall's ankle bunching looks crumpled at
-full knee bend; feet slide slightly because the cycle is in place with no root motion; face decals are rigid, so
-expressions do not animate.
+`character_tools.py` builds the shovel and pickaxe (origin at the right grip, shaft along +Z). `add_tools` skins them
+100% to the `Tool` bone and hides them; `show_tool` shows one. Arms use two-bone IK to the grips.
+`export_fbx` exports the rigged worker and one action per file. `render_rig.py` renders posed frames
+(`SUIT=1` suited, `ACTIONS=RUN,HOLD_SHOVEL,HOLD_PICKAXE`, `GIF=1` loops (slow), `EXPORT=<dir>` for FBX clips).
+
+Known limits: not imported into Unity (Humanoid Avatar mapping untested); no idle, walk, jump or grab animations;
+overhead arms are short next to the head, so mittens only just clear it; a few small suit patches lift slightly off the
+fabric in extreme poses; feet slide slightly because the cycle is in place with no root motion; face decals are rigid,
+so expressions do not animate. The FBX clips are not committed.

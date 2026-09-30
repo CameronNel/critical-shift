@@ -361,10 +361,13 @@ def _rot(axis, deg):
 
 
 def _aim_bone(arm, bone, direction):
-    """Rotation delta (armature space) that turns a bone's rest direction onto `direction`."""
+    """Rotation delta (armature space) that turns a bone's rest direction onto `direction`. Arms rest pointing down, so
+    the base turn is a 180 degree flip about X (a fixed, unambiguous twist); only the small remainder is solved."""
     b = arm.data.bones[bone]
     rest = (b.tail_local - b.head_local).normalized()
-    return rest.rotation_difference(Vector(direction).normalized()).to_matrix()
+    base = _rot("X", 180)
+    rem = (base @ rest).rotation_difference(Vector(direction).normalized()).to_matrix()
+    return rem @ base
 
 
 def _rest3(arm, bone):
@@ -517,7 +520,7 @@ def make_run_cycle(arm, frames=24, name="RUN"):
             p = (ph + (0.0 if sgn == 1 else 0.5)) % 1.0
             sp = math.sin(tp * p)
             thigh = 44 * sp
-            flex = 8 + 68 * max(0.0, math.cos(tp * (p - 0.08))) ** 1.5
+            flex = 8 + 56 * max(0.0, math.cos(tp * (p - 0.08))) ** 1.5
             lower_abs = thigh - flex
             foot_abs = -0.75 * lower_abs
             D[side + "UpperLeg"] = D["Hips"] @ _rot("X", thigh) @ _rot("Y", -sgn * 3)
@@ -539,8 +542,8 @@ def make_run_cycle(arm, frames=24, name="RUN"):
             el = math.radians(6 + 16 * math.sin(tp * (3 * ph + off + 0.25)) + 6 * math.sin(tp * (2 * ph + off)))
             fa_dir = ch @ Vector((sgn * math.sin(sp + el), fwd + 0.25 * math.sin(el * 2 + tp * off), math.cos(sp + el)))
             D[side + "LowerArm"] = _aim_bone(arm, side + "LowerArm", fa_dir)
-            fl = math.radians(28 * math.sin(tp * (3 * ph + off + 0.55)))
-            fl2 = math.radians(sgn * 20 * math.sin(tp * (4 * ph + off)))
+            fl = math.radians(12 * math.sin(tp * (3 * ph + off + 0.55)))
+            fl2 = math.radians(sgn * 9 * math.sin(tp * (4 * ph + off)))
             D[side + "Hand"] = _aim_bone(arm, side + "Hand", ch @ Vector((sgn * math.sin(sp + el + fl2), math.sin(fl), math.cos(sp + el + fl2) * math.cos(fl))))
         sway = 0.030 * s1
         _key(arm, f, D, loc={"Hips": (sway, 0.0, 0.0)})
