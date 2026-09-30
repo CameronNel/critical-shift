@@ -502,19 +502,22 @@ def _separate_limbs(o, weight_at, mw, side_only=False):
             groups.setdefault((k, (mw @ e.verts[0].co).x > 0 if _CLS[k] == "core" else None), []).append(e)
     walls = 0
     for (k, _), edges in groups.items():
-        chains = _chains(edges)
-        if len(chains) == 1:                   # one U-shaped cut (the arm): split it at its lowest point
-            ch = chains[0]
+        chains = sorted(_chains(edges), key=len, reverse=True)
+        pairs = []
+        if len(chains) >= 2 and len(chains[1]) > 2:   # two cuts reaching an existing opening (the legs, front and back)
+            pairs.append(tuple(c if c[0].co.z > c[-1].co.z else c[::-1] for c in chains[:2]))
+            chains = chains[2:]
+        for ch in chains:                             # one U-shaped cut (the arm), or a stray piece: close it on itself
             low = min(range(len(ch)), key=lambda i: ch[i].co.z)
-            a, b = ch[:low + 1], ch[low:][::-1]
-        elif len(chains) == 2:                 # two cuts reaching an existing opening (the legs, front and back)
-            a, b = (c if c[0].co.z > c[-1].co.z else c[::-1] for c in chains)
-        else:
-            raise RuntimeError("suit body %s cut makes %d chains" % (_CLS[k], len(chains)))
-        for f in _zip(bm, a, b):
-            f[lay] = k
-            f.smooth = True
-            walls += 1
+            if 0 < low < len(ch) - 1:
+                pairs.append((ch[:low + 1], ch[low:][::-1]))
+            elif len(ch) > 2:
+                pairs.append((ch[:len(ch) // 2 + 1], ch[len(ch) // 2:][::-1]))
+        for a, b in pairs:
+            for f in _zip(bm, a, b):
+                f[lay] = k
+                f.smooth = True
+                walls += 1
     bm.verts.index_update()
     bm.faces.index_update()
     vcls = {}

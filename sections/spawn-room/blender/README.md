@@ -212,25 +212,50 @@ for distance only. lod 1 is nearly indistinguishable from lod 0 but saves only a
 `character_rig.py` builds a Unity Humanoid-compatible skeleton (Root, Hips, Spine, Chest, Neck, Head, shoulders, arms,
 hands, legs, feet; Unity naming so the Avatar auto-maps; A-pose rest; no Toes bone because the feet are toeless) plus
 extra bones `Belly` (jiggle), `Pack` (backpack lag) and `Tool` (carries a hand tool rigidly). Skin weights are a pure
-function of position (bone heat on the welded body for torso and arms, blended into same-side leg-only distance
-weights below the hips), so region seams and outfit pieces deform together and the two legs never mix (checked earlier:
-201 seam vertices, largest separation 0). Arm vertices are excluded from the leg blend by `|x|`, otherwise the hanging
-arms inherit leg weights. The head, hood, visor and face decals are rigid to `Head`; long suit parts (belt, straps, boot
-shafts and soles, tank) are rigid to one bone; small patches follow the fabric.
+function of position (bone heat on the welded body for torso and arms, same-side distance weights for the legs, the
+glutes and crotch riding the pelvis), so region seams and outfit pieces deform together.
 
-Actions (`make_run_cycle`, `make_shovel_hold`, `make_pickaxe_hold`), all looping:
-- `RUN`: 24 frames, in place. Cartoon run with the arms straight up over the head (fanned 10-40 degrees, mittens waving
-  on mixed 1x/2x/3x harmonics, left and right out of step, so it looks random but repeats every cycle), heavy foot plants
-  (hips re-keyed so the lower foot touches the ground), hip waddle and bounce, head bob, belly and pack lag.
-- `HOLD_SHOVEL`: two-handed upright hold with breathing and weight shift.
-- `HOLD_PICKAXE`: one-handed, resting on the right shoulder.
+The suit body is one fused mesh: the legs touch from the knee to the crotch and each inner arm touches the flank below
+the armpit. `_separate_limbs` cuts those creases open along a smoothed limb classification and closes each side with its
+own wall (a strip of triangles between the front and back cut lines), and each side is then weighted to its own limb
+only (the flank gets torso weights computed as if the arm were not there). So a raised arm or a striding leg no longer
+drags the shared fabric into torn slivers or opens holes. The two boot shells are kept to their own foot the same way.
+Kit on the suit: pieces lying flat on the fabric (patches, piping, shoulder straps) follow it vertex by vertex with long
+edges subdivided so they bend with it; bands round the legs and small raised items move as one piece; long hard parts
+(belt, soles, tank) are rigid to one bone; everything behind the back rides `Pack`. Head, hood, visor and face decals
+are rigid to `Head`.
+
+Actions (`RIG.ACTIONS`), all looping in place at 24 fps, frame 0 equal to the last frame:
+- `IDLE` (48 frames): standing, arms hanging neutral, breathing and a slow weight shift.
+- `RUN` (32 frames, two strides): cartoon run with the arms up beside the head like \o/, mittens waving on mixed
+  1x/2x/3x harmonics with the arms out of step (looks random, repeats every loop), bouncy flight phase, waddle, head nod,
+  belly and pack lag.
+- `HOLD_SHOVEL`, `HOLD_PICKAXE` (48 frames): first-person style, tool low in the right hand at the hip (shovel blade
+  forward and down, gripped at the D-handle; pickaxe head forward, gripped near the butt), left arm hanging.
+- `RUN_SHOVEL`, `RUN_PICKAXE` (18 frames): a plain athletic run, tool carried at the trail in the right hand (shovel
+  mid-shaft with the blade forward, pickaxe choked up with the head forward), left arm pumping against the legs.
+
+Legs are two-bone IK to planned foot paths: the stance foot is planted and slides back at treadmill speed, lands a little
+heel first and rolls onto the toe; the swing foot kicks up behind, drives the knee and reaches before the strike; the
+hips are lowest at mid-stance and highest in the flight phase, so at most one foot is ever on the floor. Arms use
+two-bone IK to the tool grip (aimed so the mitten, not the wrist, closes on it); tool placements are `TOOL_HOLD` and
+`TOOL_RUN` (grip, shaft direction and roll in chest space; the character faces +Y, its right is -X).
 
 `character_tools.py` builds the shovel and pickaxe (origin at the right grip, shaft along +Z). `add_tools` skins them
-100% to the `Tool` bone and hides them; `show_tool` shows one. Arms use two-bone IK to the grips.
-`export_fbx` exports the rigged worker and one action per file. `render_rig.py` renders posed frames
-(`SUIT=1` suited, `ACTIONS=RUN,HOLD_SHOVEL,HOLD_PICKAXE`, `GIF=1` loops (slow), `EXPORT=<dir>` for FBX clips).
+100% to the `Tool` bone and hides them; `show_tool` shows one. `export_fbx` exports the rigged worker and one action per
+file. `render_rig.py` renders posed frames: `SUIT=1`, `ACTIONS=...`, `VIEWS=` (three_q, front, side, side_r, back,
+shoulders, sh_side, sh_back, legs, legs_b, flank_r, flank_l), `FRAMES=0,4,...` for a contact sheet, `VIDEO=1` for every
+frame plus a looped mp4, `RES=WxH`, `SAMPLES=N`, `HIDE=<object>`, `EXPORT=<dir>` for the FBX clips.
 
-Known limits: not imported into Unity (Humanoid Avatar mapping untested); no idle, walk, jump or grab animations;
-overhead arms are short next to the head, so mittens only just clear it; a few small suit patches lift slightly off the
-fabric in extreme poses; feet slide slightly because the cycle is in place with no root motion; face decals are rigid,
-so expressions do not animate. The FBX clips are not committed.
+Checked (headless bpy 5.0.1, Cycles CPU renders reviewed frame by frame, plus numeric checks): loops close exactly;
+planted feet do not slide or sink (the boot shell sits about 3 cm into the floor at rest, as in the unposed model);
+the run has a flight phase; the tools do not enter the body or the kit and stay above the floor; the mittens keep at
+least 2 cm from the hood and visor; no suit edge stretches more than about 5x in the runs, and what does stretch is
+fabric at the armpit and groin folds. All six FBX clips export.
+
+Known limits: not imported into Unity (Humanoid Avatar mapping and clip import untested). The arms are short next to
+the big hood, so in the \o/ run the mittens reach about the top of the head rather than well above it. With the arm
+raised, the flank under it is the closing wall of the cut, so it is flat rather than rounded, and the armpit fabric
+stretches. The runs are in place with no root motion, so the planted foot slides back on the treadmill. The suit is
+worked on with `SUIT=1`; the bare (unsuited) body was not reviewed in these animations. No walk, jump or grab
+animations; face decals are rigid, so expressions do not animate. The FBX clips and renders are not committed.
