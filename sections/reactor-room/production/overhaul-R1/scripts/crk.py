@@ -188,6 +188,15 @@ def tex_mat(name,img,rough=0.7,metal=0.0,emit=0.0,scale=(1,1),bump=0.0,clamp=Tru
     if emit>0:
         nt.links.new(tx.outputs['Color'],b.inputs['Emission Color']); b.inputs['Emission Strength'].default_value=emit
     return m
+def decal_mat(name,img,rough=0.85,emit=0.0):
+    """image with alpha on a plane (stains, floor paint, stencils); Principled alpha, no geometry needed"""
+    m=_new(name); nt=m.node_tree
+    out=_n(nt,"ShaderNodeOutputMaterial",900,0); b=_n(nt,"ShaderNodeBsdfPrincipled",600,0); nt.links.new(b.outputs['BSDF'],out.inputs['Surface'])
+    b.inputs['Roughness'].default_value=rough
+    uv=_n(nt,"ShaderNodeTexCoord",-500,0); tx=_n(nt,"ShaderNodeTexImage",-200,0); tx.image=img; tx.extension='EXTEND'
+    nt.links.new(uv.outputs['UV'],tx.inputs[0]); nt.links.new(tx.outputs['Color'],b.inputs['Base Color']); nt.links.new(tx.outputs['Alpha'],b.inputs['Alpha'])
+    if emit>0: nt.links.new(tx.outputs['Color'],b.inputs['Emission Color']); b.inputs['Emission Strength'].default_value=emit
+    return m
 def drv(idblock,path,idx,expr,var_s=True,extra=None):
     fc=idblock.driver_add(path,idx) if idx is not None else idblock.driver_add(path)
     d=fc.driver; d.type='SCRIPTED'
@@ -196,11 +205,11 @@ def drv(idblock,path,idx,expr,var_s=True,extra=None):
     for (nm,ident,dp) in (extra or []):
         v=d.variables.new(); v.name=nm; v.type='SINGLE_PROP'; v.targets[0].id=ident; v.targets[0].data_path=dp
     d.expression=expr; return fc
-def emit_mat(name,rgb,strength,expr=None,base=None):
+def emit_mat(name,rgb,strength,expr=None,base=None,use_s=False):
     m=_new(name); nt=m.node_tree
     out=_n(nt,"ShaderNodeOutputMaterial",600,0); b=_n(nt,"ShaderNodeBsdfPrincipled",300,0); nt.links.new(b.outputs['BSDF'],out.inputs['Surface'])
     b.inputs['Base Color'].default_value=(*(base or [c*0.12 for c in rgb]),1); b.inputs['Emission Color'].default_value=(*rgb,1); b.inputs['Emission Strength'].default_value=strength; b.inputs['Roughness'].default_value=0.4
-    if expr: drv(nt,'nodes["Principled BSDF"].inputs["Emission Strength"].default_value',None,expr,var_s=False)
+    if expr: drv(nt,'nodes["Principled BSDF"].inputs["Emission Strength"].default_value',None,expr,var_s=use_s)
     return m
 def glass_mat(name,tint=(0.62,0.72,0.70),rough=0.03,alpha=0.12):
     m=_new(name); nt=m.node_tree
@@ -210,12 +219,13 @@ def glass_mat(name,tint=(0.62,0.72,0.70),rough=0.03,alpha=0.12):
     return m
 # ------------------------------------------------------------------ images
 def new_image(name,arr,cs='sRGB'):
-    """arr: HxWx3/4 float array, row 0 = TOP."""
-    h,w=arr.shape[:2]
+    """arr: HxWx3/4 float array (4th channel = alpha), row 0 = TOP."""
+    h,w=arr.shape[:2]; has_a=arr.shape[2]==4
     if arr.shape[2]==3: arr=np.concatenate([arr,np.ones((h,w,1),dtype=arr.dtype)],axis=2)
     im=bpy.data.images.get(name)
     if im: bpy.data.images.remove(im)
-    im=bpy.data.images.new(name,w,h,alpha=False); im.colorspace_settings.name=cs
+    im=bpy.data.images.new(name,w,h,alpha=has_a); im.colorspace_settings.name=cs
+    if has_a: im.alpha_mode='STRAIGHT'
     im.pixels.foreach_set(np.flipud(arr).astype(np.float32).reshape(-1)); im.pack(); return im
 # ------------------------------------------------------------------ text / lights
 RZ={'-y':0.0,'+y':math.pi,'-x':-math.pi/2,'+x':math.pi/2}

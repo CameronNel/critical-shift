@@ -3,7 +3,7 @@ import math
 from crk import text
 FZ=5.40
 def ledk(c,kind="G"): return c.R.choice({"G":["LED_G0","LED_G1","LED_G2","LED_G3"],"A":["LED_A0","LED_A1","LED_A2","LED_A3"],"R":["LED_R0","LED_R1","LED_R2"]}[kind])
-def wall_quad(c,face,p,lc,zc,w,h,key,frame=True,fkey="BLACK",g="deco",off=None):
+def wall_quad(c,face,p,lc,zc,w,h,key,frame=True,fkey="BLACK",g="deco",off=None,paper=True):
     A=c.A; hw,hh=w/2,h/2; d=0.004
     p=p+(-1 if face in('-x','-y') else 1)*0.022 if off is None else p+(-1 if face in('-x','-y') else 1)*off
     if face=='+y': pts=[(lc+hw,p+d,zc-hh),(lc-hw,p+d,zc-hh),(lc-hw,p+d,zc+hh),(lc+hw,p+d,zc+hh)]
@@ -11,7 +11,7 @@ def wall_quad(c,face,p,lc,zc,w,h,key,frame=True,fkey="BLACK",g="deco",off=None):
     elif face=='+x': pts=[(p+d,lc-hw,zc-hh),(p+d,lc+hw,zc-hh),(p+d,lc+hw,zc+hh),(p+d,lc-hw,zc+hh)]
     else: pts=[(lc-hw,p-d,zc-hh),(lc+hw,p-d,zc-hh),(lc+hw,p-d,zc+hh),(lc-hw,p-d,zc+hh)]
     A.plane((g,key),*pts)
-    A.fb((g,"PAPER"),face,p,lc-hw-0.006,lc+hw+0.006,zc-hh-0.006,zc+hh+0.006,0.003,0.0005)
+    if paper: A.fb((g,"PAPER"),face,p,lc-hw-0.006,lc+hw+0.006,zc-hh-0.006,zc+hh+0.006,0.003,0.0005)
     if frame:
         for (a,b,z0,z1) in ((lc-hw-0.01,lc+hw+0.01,zc+hh+0.006,zc+hh+0.014),(lc-hw-0.01,lc+hw+0.01,zc-hh-0.014,zc-hh-0.006),(lc-hw-0.01,lc-hw-0.006,zc-hh-0.014,zc+hh+0.014),(lc+hw+0.006,lc+hw+0.01,zc-hh-0.014,zc+hh+0.014)):
             A.fb((g,fkey),face,p,a,b,z0,z1,0.009,0.0015)
@@ -30,11 +30,12 @@ def rack(c):
     for k in range(7): A.bx((g,"BLACK"),xf+0.15+k*0.10,xf+0.15+k*0.10+0.04,y0-0.001,y0+0.013,FZ+1.6,FZ+1.9,0.0)  # louvre slots
     for x in (xf+0.1,xf+0.4,xf+0.7): A.bx((g,"BLACK"),x,x+0.02,y0-0.001,y0+0.013,FZ+1.6,FZ+1.9,0.0) if False else None
     yl,yr=yc-0.2415,yc+0.2415; U=0.0445; z=FZ+0.16
-    def plate(u,mk="BLACK",inset=0.0):
+    def plate(u,mk="BLACK",inset=0.0,pull=0.0):
         nonlocal z
-        z0,z1=z+0.003,z+u*U-0.003; A.fb((g,mk),'-x',xf,yl,yr,z0,z1,0.012,0.002)
+        px=xf-pull
+        z0,z1=z+0.003,z+u*U-0.003; A.fb((g,mk),'-x',px,yl,yr,z0,z1,0.012,0.002)
         for zz in (z0+0.011,z1-0.011):
-            for yy in (yl+0.011,yr-0.011): A.screw((g,"STEEL_L"),'-x',xf-0.012,yy,zz,0.0045)
+            for yy in (yl+0.011,yr-0.011): A.screw((g,"STEEL_L"),'-x',px-0.012,yy,zz,0.0045)
         r=(z0,z1); z+=u*U; return r
     # UPS (2U, heavy) with display
     z0,z1=plate(2,"BLACK"); text(c.coll,"VOLTEX  UPS 1500",xf-0.0125,yl+0.03,(z0+z1)/2+0.012,'-x',0.011,M["STEEL_L"],'LEFT',"CR rack label")
@@ -49,16 +50,31 @@ def rack(c):
     # patch cords
     for k in range(9):
         yy=yl+0.03+k*0.0175*2.6; c.A.tube((g,"CABLE_G" if k%3 else "CABLE_B"),[(xf-0.012,yy,z0+0.018),(xf-0.05,yy-0.005,z0+0.0),(xf-0.06,yl-0.02,z0-0.10-k*0.006),(xf-0.03,yl-0.03,max(z0-0.35,FZ+0.05))],0.0032,6)
+    for k in range(9):                                                                                      # coloured tags on the patch cords
+        yy=yl+0.03+k*0.0175*2.6; A.bx((g,("ORANGE","YELLOW","RED")[k%3]),xf-0.058,xf-0.046,yy-0.007,yy+0.007,z0-0.055-k*0.006,z0-0.040-k*0.006,0.001)
+    loomx=xf-0.07
+    for k in range(6):                                                                                      # cable loom down the right-hand duct with cable ties
+        dy=(k%3-1)*0.006; dz=(k//3-0.5)*0.006
+        A.tube((g,"CABLE" if k%2 else "CABLE_G"),[(loomx+dz,y1+0.05+dy,FZ+1.95),(loomx+dz-0.01,y1+0.06+dy,FZ+1.2),(loomx+dz-0.03,y1+0.07+dy,FZ+0.55),(loomx+dz-0.05,y1+0.085+dy,FZ+0.05)],0.0055,8)
+    for zz in (FZ+1.75,FZ+1.45,FZ+1.15,FZ+0.85,FZ+0.55,FZ+0.30): A.bx((g,"ORANGE"),loomx-0.012,loomx+0.012,y1+0.04,y1+0.085,zz,zz+0.006,0.001)
     plate(1,"BLACK")
-    for s in range(2):                                                                                      # two 3U servers
-        z0,z1=plate(3,"BEIGE_D" if s==0 else "GREY")
+    for s in range(2):                                                                                      # two 3U servers; the second one is slid half out on its rails
+        pull=0.20 if s==1 else 0.0; px=xf-pull
+        z0,z1=plate(3,"BEIGE_D" if s==0 else "GREY",pull=pull)
         for k in range(4):
-            ya=yl+0.03+k*0.083; A.fb((g,"BLACK"),'-x',xf-0.012,ya,ya+0.074,z0+0.024,z0+0.104,0.004,0.001)
-            A.fb((g,"STEEL"),'-x',xf-0.016,ya+0.006,ya+0.068,z0+0.05,z0+0.058,0.003,0.0005)
-            A.fb((g,ledk(c,"G")),'-x',xf-0.016,ya+0.007,ya+0.014,z0+0.030,z0+0.036,0.002,0.0); A.fb((g,ledk(c,"A")),'-x',xf-0.016,ya+0.018,ya+0.025,z0+0.030,z0+0.036,0.002,0.0)
-        for k in range(10): A.fb((g,"BLACK"),'-x',xf-0.012,yl+0.03+k*0.011,yl+0.036+k*0.011,z0+0.112,z0+0.128,0.002,0.0) if False else None
-        A.prism((g,"BRASS"),(xf-0.012,yr-0.035,z0+0.016),(xf-0.016,yr-0.035,z0+0.016),0.008,0.008,12)
-        text(c.coll,"MERIDIAN  MS-"+str(200+s*30),xf-0.0125,yr-0.02,z0+0.118,'-x',0.0085,M["KEY"],'RIGHT',"CR rack label")
+            ya=yl+0.03+k*0.083; A.fb((g,"BLACK"),'-x',px-0.012,ya,ya+0.074,z0+0.024,z0+0.104,0.004,0.001)
+            A.fb((g,"STEEL"),'-x',px-0.016,ya+0.006,ya+0.068,z0+0.05,z0+0.058,0.003,0.0005)
+            A.fb((g,ledk(c,"G")),'-x',px-0.016,ya+0.007,ya+0.014,z0+0.030,z0+0.036,0.002,0.0); A.fb((g,ledk(c,"A")),'-x',px-0.016,ya+0.018,ya+0.025,z0+0.030,z0+0.036,0.002,0.0)
+        A.prism((g,"BRASS"),(px-0.012,yr-0.035,z0+0.016),(px-0.016,yr-0.035,z0+0.016),0.008,0.008,12)
+        text(c.coll,"MERIDIAN  MS-"+str(200+s*30),px-0.0125,yr-0.02,z0+0.118,'-x',0.0085,M["KEY"],'RIGHT',"CR rack label")
+        if s==1:                                                                                          # rails, open tray, board, fan
+            for yy in (yl+0.010,yr-0.010): A.bx((g,"STEEL_L"),px,xf+0.03,yy-0.006,yy+0.006,z0+0.030,z0+0.042,0.002)
+            A.bx((g,"BLACK"),px,xf+0.03,yl+0.02,yr-0.02,z0+0.012,z0+0.020,0.002)
+            for (ya,yb) in ((yl+0.02,yl+0.03),(yr-0.03,yr-0.02)): A.bx((g,"BLACK"),px,xf+0.03,ya,yb,z0+0.012,z0+0.115,0.002)
+            A.bx((g,"GREY"),px+0.03,xf-0.01,yl+0.05,yr-0.05,z0+0.034,z0+0.040,0.001)
+            for kk in range(6): A.bx((g,"BLACK"),px+0.05+kk*0.02,px+0.066+kk*0.02,yl+0.07+(kk%3)*0.07,yl+0.10+(kk%3)*0.07,z0+0.040,z0+0.052,0.001)
+            A.cylx((g,"BLACK"),px+0.02,px+0.05,(yl+yr)/2,z0+0.085,0.032,18); A.cylx((g,"STEEL"),px+0.0195,px+0.0505,(yl+yr)/2,z0+0.085,0.012,12)
+            A.tube((g,"CABLE_G"),[(px+0.10,yr-0.06,z0+0.042),(px+0.05,yr-0.03,z0+0.05),(px-0.02,yr+0.005,z0+0.0)],0.004,6)              # ribbon dangling out of the tray
         plate(1,"BLACK")
     z0,z1=plate(2,"BEIGE_D")                                                                                # tape drive
     A.fb((g,"BLACK"),'-x',xf-0.012,yl+0.03,yl+0.30,z0+0.02,z0+0.06,0.004,0.001); A.fb((g,"GREY"),'-x',xf-0.016,yl+0.05,yl+0.28,z0+0.036,z0+0.042,0.003,0.0005)
@@ -244,7 +260,7 @@ def worktable(c):
     # pendant over the table
     px,py=(x0+x1)/2,(y0+y1)/2
     A.cyl((g,"BLACK"),px,py,8.50,8.53,0.04,16); A.prism((g,"CABLE"),(px,py,8.50),(px,py,7.74),0.006,0.006,8)
-    A.prism((g,"LOCKER"),(px,py,7.74),(px,py,7.52),0.045,0.24,32,0,True,0.004); A.prism((g,"PAPER"),(px,py,7.53),(px,py,7.525),0.235,0.235,32,0,False)
+    A.prism((g,"SHADE"),(px,py,7.74),(px,py,7.52),0.045,0.24,32,0,True,0.004); A.prism((g,"LAMPFACE"),(px,py,7.531),(px,py,7.527),0.225,0.225,32,0,True)   # matte enamel shade, emissive diffuser (was a bumpy paper disc that sparkled)
     A.prism((g,"BULB"),(px,py,7.68),(px,py,7.58),0.04,0.06,16); c.PENDANT=(px,py,7.52)
 def credenza(c):
     A,M=c.A,c.M; g="cred"; x0,x1=-2.35,-0.65; yb=-11.91; d=0.46; zt=FZ+0.86

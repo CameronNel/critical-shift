@@ -51,7 +51,7 @@ def wall_decor(c):
     A,M=c.A,c.M; g="deco"; yb=-11.91
     for (k,lc,zc,w,h) in (("machine",-4.25,7.28,0.70,0.98),("shift",-3.20,7.28,0.70,0.98),("hydrate",1.37,7.45,0.40,0.56)):
         wall_quad(c,'+y',yb,lc,zc,w,h,"P_"+k)
-    wall_quad(c,'+x',-4.80,-10.97,7.30,0.70,0.98,"P_report"); wall_quad(c,'-x',2.00,-9.85,7.30,0.70,0.98,"P_questions")
+    wall_quad(c,'+x',-4.80,-10.97,7.30,0.70,0.98,"P_report"); wall_quad(c,'-x',2.00,-9.85,7.30,0.70,0.98,"P_questions_def")
     wall_quad(c,'-x',2.00,-11.45,7.95,0.70,0.98,"P_comply")
     # pinboard behind the desk end (east wall) with forms
     A.fb((g,"CORK"),'-x',1.985,-7.55,-6.40,6.83,7.78,0.016,0.004)

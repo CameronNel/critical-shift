@@ -47,12 +47,16 @@ def make(R):
     M["PORC"]=pm("CR mug ceramic",(0.34,0.33,0.29),0.22,scale=2.0,bump=0.0,coat=0.3)
     M["PORC_O"]=pm("CR mug orange",(0.46,0.13,0.02),0.22,scale=2.0,bump=0.0,coat=0.3)
     M["BRASS"]=pm("CR brass",(0.42,0.30,0.10),0.32,metal=0.9,scale=3.0,bump=0.0,var=(0.85,1.1))
+    M["SHADE"]=pm("CR lamp shade enamel",(0.055,0.060,0.042),0.62,edge=(0.16,0.17,0.11),scale=2.0,bump=0.0,grain=0.02)
     M["GLASS"]=bpy.data.materials.get("observation_glass") or glass_mat("CR glass")
     M["SOIL"]=pm("CR dry soil",(0.07,0.05,0.035),0.95,scale=6,bump=0.3)
     M["LEAF"]=pm("CR dead leaf",(0.20,0.17,0.06),0.9,scale=5,bump=0.1)
+    kc,kh=crt.keyboard_tex()
+    M["KBTEX"]=_kb_mat(new_image("CR keyboard colour",kc),new_image("CR keyboard height",np.repeat(kh[...,None],3,2),'Non-Color'))
     # ---- printed / painted-image materials
     for k in ("machine","shift","comply","questions","report","hydrate"):
         M["P_"+k]=tex_mat("CR poster "+k,new_image("CR poster tex "+k,crt.poster(k,seed=zlib.crc32(k.encode())%1000)),rough=0.62)
+    M["P_questions_def"]=tex_mat("CR poster questions defaced",new_image("CR poster tex questions defaced",crt.poster_defaced()),rough=0.62)
     for k,rgb in (("form",None),("roster",None),("rules",None),("log",None),("safety",None),("passcard",None)):
         M["N_"+k]=tex_mat("CR notice "+k,new_image("CR notice tex "+k,crt.notice(k,seed=zlib.crc32(k.encode())%1000)),rough=0.8)
     M["HAZARD"]=tex_mat("CR hazard stripes",new_image("CR hazard tex",_hazard()),rough=0.5)
@@ -63,12 +67,18 @@ def make(R):
     M["LED_ON"]=emit_mat("CR led steady green",(0.12,1.0,0.16),3.0)
     M["LED_AON"]=emit_mat("CR led steady amber",(1.0,0.50,0.04),3.0)
     M["LED_RON"]=emit_mat("CR led steady red",(1.0,0.06,0.04),3.0)
-    M["TUBE"]=emit_mat("CR tungsten tube",(1.0,0.66,0.34),7.0)
-    M["TUBE_F"]=emit_mat("CR tungsten tube flicker",(1.0,0.66,0.34),7.0,FLICKER)
+    M["TUBE"]=emit_mat("CR tungsten tube",(1.0,0.66,0.34),7.0,TUBE_EXPR,use_s=True)
+    M["TUBE_F"]=emit_mat("CR tungsten tube dying",(1.0,0.66,0.34),7.0,TUBE_EXPR_DYING,use_s=True)
+    M["BEACON"]=emit_mat("CR emergency beacon",(1.0,0.10,0.04),9.0,BEACON_EXPR,base=(0.12,0.01,0.01),use_s=True)
     M["TUBE_OFF"]=pm("CR tube dead",(0.30,0.28,0.22),0.4,scale=2.0,bump=0.0)
     M["BULB"]=emit_mat("CR bulb",(1.0,0.66,0.32),9.0)
     M["LAMPFACE"]=emit_mat("CR panel light",(1.0,0.72,0.44),1.6)
     return M
+# troffers follow the reactor: steady tubes dim and stutter as stability falls; the dying tube is always unreliable and gets worse
+_F="max(0,sin(frame*2.7)*sin(frame*0.53)*sin(frame*0.19+1)-0.42)*3.0"
+TUBE_EXPR=f"7.0*(0.55+0.45*s)*max(0.04,1-0.9*(1-s)*{_F})"
+TUBE_EXPR_DYING=f"7.0*(0.55+0.45*s)*max(0.03,1-(0.85+0.15*(1-s))*{_F})"
+BEACON_EXPR="9.0*max(0,(0.5-s)*2)*(0.35+0.65*max(0,sin(frame*0.45)))"
 FLICKER="7.0*(1-0.85*max(0,sin(frame*2.7)*sin(frame*0.53)*sin(frame*0.19+1)-0.42)*3.0)"
 def _blink(R):
     a,b,p,q=R.uniform(0.35,1.6),R.uniform(0.11,0.6),R.uniform(0,6.3),R.uniform(0,6.3)
@@ -84,4 +94,16 @@ def _floor(img):
     tx=crk._n(nt,"ShaderNodeTexImage",-150,0); tx.image=img; tx.extension='REPEAT'; nt.links.new(mp.outputs['Vector'],tx.inputs[0]); nt.links.new(tx.outputs['Color'],b.inputs['Base Color'])
     nz=crk._n(nt,"ShaderNodeTexNoise",-150,-300); nz.inputs['Scale'].default_value=200; nt.links.new(g.outputs['Position'],nz.inputs['Vector'])
     bp=crk._n(nt,"ShaderNodeBump",300,-300); bp.inputs['Strength'].default_value=0.04; nt.links.new(nz.outputs['Fac'],bp.inputs['Height']); nt.links.new(bp.outputs['Normal'],b.inputs['Normal'])
+    return m
+
+def _kb_mat(col,hgt):
+    """painted QWERTY keyboard top: colour map + the same layout as a height map driving a bump (keys read as raised caps without any key geometry)"""
+    m=crk._new("CR keyboard top"); nt=m.node_tree
+    out=crk._n(nt,"ShaderNodeOutputMaterial",900,0); b=crk._n(nt,"ShaderNodeBsdfPrincipled",600,0); nt.links.new(b.outputs['BSDF'],out.inputs['Surface'])
+    b.inputs['Roughness'].default_value=0.46
+    uv=crk._n(nt,"ShaderNodeTexCoord",-600,0); tc=crk._n(nt,"ShaderNodeTexImage",-300,100); tc.image=col; tc.extension='EXTEND'; tc.interpolation='Linear'
+    th=crk._n(nt,"ShaderNodeTexImage",-300,-200); th.image=hgt; th.extension='EXTEND'; th.interpolation='Linear'
+    nt.links.new(uv.outputs['UV'],tc.inputs[0]); nt.links.new(uv.outputs['UV'],th.inputs[0]); nt.links.new(tc.outputs['Color'],b.inputs['Base Color'])
+    bp=crk._n(nt,"ShaderNodeBump",300,-200); bp.inputs['Strength'].default_value=1.0; bp.inputs['Distance'].default_value=0.0035
+    nt.links.new(th.outputs['Color'],bp.inputs['Height']); nt.links.new(bp.outputs['Normal'],b.inputs['Normal'])
     return m

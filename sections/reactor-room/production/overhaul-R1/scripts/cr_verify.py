@@ -17,7 +17,7 @@ def verts(o):
 out=[]
 for o in coll.objects:
     if o.type!="MESH": continue
-    if o.name.split(" ")[1] in ("wall","deco","ceil","clutter"): continue      # merged whole-room groups: checked by construction
+    if o.name.split(" ")[1] in ("wall","deco","ceil","clutter","glassnote","grime","marks"): continue      # merged whole-room groups: checked by construction
     v=verts(o)
     if not len(v): continue
     mn,mx=v.min(0),v.max(0)
@@ -30,7 +30,7 @@ hits=[]
 for o in bpy.data.objects:
     if o.type!="MESH" or o.name in coll.objects: continue
     cn=o.users_collection[0].name if o.users_collection else ""
-    if cn.startswith(("31 CR","20 CONTROL","26 R2","RF ","25 LIGHT")): continue
+    if cn.startswith(("31 CR","32 CR","20 CONTROL","26 R2","RF ","25 LIGHT")): continue
     if o.name.startswith("LP haze"): continue
     v=verts(o)
     if not len(v): continue
@@ -38,13 +38,14 @@ for o in bpy.data.objects:
     if ins.any(): hits.append((cn[:20],o.name,v[ins].min(0).round(2),v[ins].max(0).round(2)))
 print("2. other-collection objects inside the room envelope:",len(hits))
 for h in hits[:20]: print("   ",h)
+bad+=len(hits)
 # 3 walkability
 G=0.05; x0,y0=ENV[0],ENV[2]; nx=int((ENV[1]-ENV[0])/G)+1; ny=int((ENV[3]-ENV[2])/G)+1; occ=np.zeros((ny,nx),dtype=bool)
 def mark(px,py):
     i=((py-y0)/G).astype(int); j=((px-x0)/G).astype(int); ok=(i>=0)&(i<ny)&(j>=0)&(j<nx); occ[i[ok],j[ok]]=True
 names=set()
 for o in coll.objects:
-    if o.type!="MESH": continue
+    if o.type!="MESH" or o.name.startswith("CR haze"): continue
     me=o.data; me.calc_loop_triangles(); T=me.loop_triangles
     if not len(T): continue
     v=verts(o); t=np.empty(len(T)*3,dtype=np.int32); T.foreach_get("vertices",t); t=t.reshape(-1,3); P=v[t]        # (n,3,3)
@@ -85,6 +86,31 @@ for nme,(x,y) in zones.items():
             if sub.any(): best=rad*G; break
         print("   %-32s %s (nearest reachable %.2f m)"%(nme,"BLOCKED",best if best else -1)); bad+=(0 if best and best<=0.25 else 1)
     else: print("   %-32s ok"%nme)
+# 7 collision proxies (coverage of the detailed geometry + reachability using the proxies only)
+pc=bpy.data.collections.get("32 CR COLLISION"); pocc=np.zeros_like(occ)
+if pc:
+    for o in pc.objects:
+        vv=verts(o); mn,mx=vv.min(0),vv.max(0)
+        if mx[2]<5.45 or mn[2]>7.30: continue
+        j0=int(max(0,(mn[0]-x0)/G)); j1=int(min(nx-1,(mx[0]-x0)/G)); i0=int(max(0,(mn[1]-y0)/G)); i1=int(min(ny-1,(mx[1]-y0)/G)); pocc[i0:i1+1,j0:j1+1]=True
+    padp=np.pad(pocc,1); pd=np.zeros_like(pocc)
+    for dy in range(3):
+        for dx in range(3): pd|=padp[dy:dy+ny,dx:dx+nx]
+    m=int(0.25/G); interior=np.zeros_like(occ); interior[m:-m,m:-m]=True
+    cov=(occ&pd&interior).sum()/max(1,(occ&interior).sum())
+    pocc2=pocc.copy(); pocc2[-1:,:]=True
+    pad2=np.pad(pocc2,r,constant_values=True); d2=np.zeros_like(pocc2)
+    for dy,dx in zip(*np.nonzero(k)): d2|=pad2[dy:dy+ny,dx:dx+nx]
+    f2=~d2; s2=np.zeros_like(f2); st=[seed]; s2[seed]=True
+    while st:
+        i,j=st.pop()
+        for di,dj in((1,0),(-1,0),(0,1),(0,-1)):
+            a,b=i+di,j+dj
+            if 0<=a<ny and 0<=b<nx and f2[a,b] and not s2[a,b]: s2[a,b]=True; st.append((a,b))
+    bl=[n_ for n_,(x,y) in zones.items() if not s2[int((y-y0)/G),int((x-x0)/G)] and not any(s2[max(0,int((y-y0)/G)-d):int((y-y0)/G)+d+1,max(0,int((x-x0)/G)-d):int((x-x0)/G)+d+1].any() for d in (3,5))]
+    print("7. collision proxies: %d boxes; cover %.0f%% of the detailed occupied floor area (excluding a 0.25 m wall strip); zones reachable with proxies only: %s"%(len(pc.objects),100*cov,"all" if not bl else "NOT "+str(bl)))
+    if cov<0.90 or bl: bad+=1
+else: print("7. collision proxies: MISSING"); bad+=1
 # 4 chairs tucked
 def bbox(o): v=verts(o); return v.min(0),v.max(0)
 nch=0

@@ -8,10 +8,10 @@ print("ELEVATOR: objects",len(el),"| car keyed:",bool(bpy.data.objects['EL car']
 for fr in (1,240):
     sc.frame_set(fr); print("  frame",fr,"car floor z=%.2f"%bpy.data.objects['EL car'].location.z,"| ground door L x=%.2f upper door L x=%.2f"%(bpy.data.objects['EL landing door ground L'].location.x,bpy.data.objects['EL landing door upper L'].location.x))
 sc.frame_set(1)
-glass=set(o.name for o in bpy.data.objects if o.type=='MESH' and ("glass" in o.name.lower() or o.name.startswith("LP haze")))
+glass=set(o.name for o in bpy.data.objects if o.type=='MESH' and ("glass" in o.name.lower() or o.name.startswith(("LP haze","CR haze","COL "))))   # haze volume and collision proxies are not visible geometry
 def cast(o,d,maxd=60):
     o=Vector(o); d=Vector(d).normalized(); tot=0
-    for _ in range(6):
+    for _ in range(16):                                   # skips glass, haze volumes and collision proxies (each pass-through costs one or two hits)
         ok,loc,n,i,obj,mw=sc.ray_cast(dg,o,d,distance=maxd-tot)
         if not ok: return None,None
         if obj.name in glass or obj.name.startswith("EL front glass"): tot+=(loc-o).length+0.02; o=loc+d*0.02; continue

@@ -93,6 +93,13 @@ def smooth_noise(H,W,cell,rng):
     fy=fy*fy*(3-2*fy); fx=fx*fx*(3-2*fx)
     a=g[y0][:,x0]*(1-fy)*(1-fx)+g[y0][:,x0+1]*(1-fy)*fx+g[y0+1][:,x0]*fy*(1-fx)+g[y0+1][:,x0+1]*fy*fx
     return a
+def put_label(a,body,cx,cy,size,col,al=1.0):
+    """small-canvas variant of put_text (fast): renders the string on a 192x96 canvas and pastes it centred on (cx,cy)"""
+    m=text_mask(body,192,96,size,'CENTER',False,1.0,1.1,96,48); H,W=a.shape[:2]
+    x0=int(round(cx-96)); y0=int(round(cy-48)); sx0=max(0,-x0); sy0=max(0,-y0); sx1=min(192,W-x0); sy1=min(96,H-y0)
+    if sx1<=sx0 or sy1<=sy0: return
+    sub=a[y0+sy0:y0+sy1,x0+sx0:x0+sx1]; mm=np.clip(m[sy0:sy1,sx0:sx1],0,1)[...,None]*al
+    a[y0+sy0:y0+sy1,x0+sx0:x0+sx1]=sub*(1-mm)+np.array(col,dtype=np.float32)*mm
 def paper_grain(a,rng,amt=0.03,fold=None,age=0.0):
     H,W=a.shape[:2]; n=rng.normal(0,amt,(H,W,1)).astype(np.float32)
     # low-frequency stain
@@ -260,4 +267,116 @@ def tv_bars(W=384,H=216):
     over(a,m_rect(X,Y,0,H*0.72,W,H),(0.04,0.04,0.05)); 
     for i in range(16): over(a,m_rect(X,Y,i*W/16,H*0.72,(i+1)*W/16,H*0.80),(i/15,i/15,i/15))
     over(a,m_rrect(X,Y,W/2-92,H*0.83,W/2+92,H*0.97,4),(0.02,0.02,0.02)); put_text(a,"NO SIGNAL",W/2,H*0.90,24,(0.9,0.9,0.88))
+    return a
+# ---------------- keyboard: ONE painted QWERTY top instead of ~110 key boxes (colour map + height map used as bump)
+def keyboard_tex(W=1536,H=608):
+    """0.48 m x 0.19 m keyboard top. returns (colour HxWx3 sRGB, height HxW). row 0 = BACK edge (v=1)."""
+    ppm=W/0.48; X,Y=XY(W,H); col=canvas(W,H,(0.15,0.145,0.13)); hgt=np.zeros((H,W),dtype=np.float32)
+    U=0.0190*ppm; gap=0.0022*ppm
+    def ky(row): return H-(0.020+row*0.0195)*ppm       # top edge (canvas y) of key row; row 0 = front (space) row
+    keys=[]                                               # (x0,y0,w,h,label,dark)
+    x0=0.016*ppm
+    def add(col_u,row,w_u,label="",dark=False,xo=0.0):
+        keys.append((x0+xo*ppm+col_u*U,ky(row)-U,w_u*U,U,label,dark))
+    # main block rows (front to back): space row, shift row, caps, tab, number, function
+    add(0,0,1.25,"",True); add(1.25,0,1.25,"",True); add(2.5,0,1.25,"",True); add(3.75,0,6.25,""); add(10,0,1.25,"",True); add(11.25,0,1.25,"",True); add(12.5,0,1.25,"",True); add(13.75,0,1.25,"",True)
+    add(0,1,2.25,"SHIFT",True)
+    for i,ch in enumerate("ZXCVBNM,./"): add(2.25+i,1,1,ch)
+    add(12.25,1,2.75,"SHIFT",True)
+    add(0,2,1.75,"CAPS",True)
+    for i,ch in enumerate("ASDFGHJKL;'"): add(1.75+i,2,1,ch)
+    add(12.75,2,2.25,"ENTER",True)
+    add(0,3,1.5,"TAB",True)
+    for i,ch in enumerate("QWERTYUIOP[]"): add(1.5+i,3,1,ch)
+    add(13.5,3,1.5,"\\",True)
+    add(0,4,1,"`",True)
+    for i,ch in enumerate("1234567890-="): add(1+i,4,1,ch)
+    add(13,4,2,"BKSP",True)
+    add(0,5.35,1,"ESC",True)
+    for g_,(a,n) in enumerate(((2,4),(6.5,4),(11,4))):
+        for i in range(n): add(a+i,5.35,1,"F%d"%(g_*4+i+1),True)
+    xn=x0+15.5*U                                   # nav cluster
+    for i in range(3):
+        keys.append((xn+i*U,ky(5.35)-U,U,U,"",True)); keys.append((xn+i*U,ky(4)-U,U,U,"",True)); keys.append((xn+i*U,ky(3)-U,U,U,"",True)); keys.append((xn+i*U,ky(1)-U,U,U,"",True))
+    keys.append((xn+U,ky(2)-U,U,U,"",True)) if False else None
+    xp=x0+19.0*U                                   # numpad
+    for i,lab in enumerate(("7","8","9","4","5","6","1","2","3")): keys.append((xp+(i%3)*U,ky(3-(i//3))-U,U,U,lab,False))
+    keys.append((xp+3*U,ky(3)-U,U,2*U+0.0195*ppm-U,"+",True)); keys.append((xp+3*U,ky(1)-U,U,2*U,"",True))
+    keys.append((xp,ky(0)-U,2*U,U,"0",False)); keys.append((xp+2*U,ky(0)-U,U,U,".",False)); keys.append((xp+3*U,ky(0)-U,U,U,"",True))
+    for (kx,kyy,kw,kh,lab,dark) in keys:
+        base=(0.50,0.47,0.40) if not dark else (0.33,0.32,0.29)
+        m=m_rrect(X,Y,kx+gap/2,kyy+gap/2,kx+kw-gap/2,kyy+kh-gap/2,0.0016*ppm)
+        over(col,m,tuple(c*0.80 for c in base))                                       # key side / shadow edge
+        mi=m_rrect(X,Y,kx+gap/2+0.0012*ppm,kyy+gap/2+0.0008*ppm,kx+kw-gap/2-0.0012*ppm,kyy+kh-gap/2-0.0020*ppm,0.0014*ppm)
+        over(col,mi,base); over(col,mi*np.clip(1-(Y-kyy)/kh,0,1),tuple(min(1,c*1.18) for c in base),0.45)     # dished top with a lit upper edge
+        hgt=np.maximum(hgt,m*0.85+mi*0.15)
+        if lab:
+            sz=(0.0075 if len(lab)<=1 else (0.0048 if len(lab)<=3 else 0.0038))*ppm
+            put_label(col,lab,kx+kw/2,kyy+kh/2-0.0010*ppm,min(sz*1.25 if len(lab)<=1 else sz*1.0,70),(0.10,0.10,0.09))
+    for _ in range(3): hgt=(hgt+np.roll(hgt,1,0)+np.roll(hgt,-1,0)+np.roll(hgt,1,1)+np.roll(hgt,-1,1))/5     # soft key edges for the bump
+    rng=np.random.default_rng(11); col*=(1+rng.normal(0,0.012,(H,W,1))).astype(np.float32)
+    # LED strip (three lamps, back right)
+    for k_ in range(3): over(col,m_rect(X,Y,W-(0.105-k_*0.022)*ppm,0.004*ppm,W-(0.105-k_*0.022)*ppm+0.011*ppm,0.008*ppm),(0.25,0.9,0.3) if k_==0 else (0.2,0.2,0.18))
+    return np.clip(col,0,1),np.clip(hgt,0,1)
+# ---------------- decals (RGBA, straight alpha) for grime, paint, stencils, personal items
+def _rgba(rgb,alpha): 
+    H,W=alpha.shape; a=np.zeros((H,W,4),dtype=np.float32); a[...,:3]=np.array(rgb,dtype=np.float32); a[...,3]=np.clip(alpha,0,1); return a
+def water_stain(W=256,H=512,seed=21):
+    """long streaky water stain running down a wall or over a tile (strongest at the top, feathered edges, darker tide marks)"""
+    rng=np.random.default_rng(seed); X,Y=XY(W,H); u=(X-W/2)/(W/2); v=Y/H
+    width=0.30+0.55*(1-v)**0.6+0.10*smooth_noise(H,W,64,rng)
+    body=np.clip(1-np.abs(u)/np.maximum(width,0.05),0,1)**0.7*np.clip(1.15-v*1.05,0,1)
+    streak=0.6+0.4*smooth_noise(H,W,10,rng)*np.clip(np.sin(u*37+smooth_noise(H,W,40,rng)*9)*0.5+0.5,0,1)
+    edge=np.clip(1-np.abs(body-0.42)*9,0,1)*0.5                                   # tide line
+    a=np.clip((body*streak*1.0+edge*body*0.8)*1.35,0,0.85)
+    col=_rgba((0.14,0.09,0.04),a); col[...,:3]*=(0.85+0.3*smooth_noise(H,W,30,rng))[...,None]; return col
+def floor_wear(W=512,H=512,seed=22):
+    """walkway scuffing: long soft streaks of pale scuff + darker grime"""
+    rng=np.random.default_rng(seed); X,Y=XY(W,H); a=np.zeros((H,W),dtype=np.float32); cols=np.zeros((H,W,3),dtype=np.float32)
+    g=smooth_noise(H,W,80,rng); a+=np.clip(g-0.35,0,1)*0.55
+    for _ in range(70):
+        x0,y0=rng.uniform(0,W,2); ang=rng.normal(0,0.10); L=rng.uniform(80,300); a=np.maximum(a,m_line(X,Y,x0,y0,x0+L*math.cos(ang),y0+L*math.sin(ang),rng.uniform(3,9))*rng.uniform(0.08,0.22))
+    for _ in range(4): a=(a+np.roll(a,2,0)+np.roll(a,-2,0)+np.roll(a,2,1)+np.roll(a,-2,1))/5      # soften: scuffs, not scratches
+    edge=np.clip(1-np.abs(X/W*2-1)**3,0,1)*np.clip(1-np.abs(Y/H*2-1)**3,0,1)
+    return _rgba((0.06,0.055,0.045),np.clip(a*edge*0.85,0,0.5))
+def coffee_ring(W=128,H=128,seed=23,spill=False):
+    rng=np.random.default_rng(seed); X,Y=XY(W,H); r=np.hypot(X-W/2,Y-H/2)/(W/2)
+    if spill:
+        wob=1+0.10*np.sin(np.arctan2(Y-H/2,X-W/2)*3+1.3)+0.05*np.sin(np.arctan2(Y-H/2,X-W/2)*7)
+        a=np.clip((0.78*wob-r)*6,0,1)*0.30+np.clip(1-np.abs(r-0.74*wob)*16,0,1)*0.22
+    else: a=np.clip(1-np.abs(r-0.72)*16,0,1)*0.55*(0.75+0.25*smooth_noise(H,W,14,rng))
+    return _rgba((0.20,0.12,0.06),a*np.clip(1.5-r,0,1))
+def floor_arrow(W=512,H=192,text="EXIT"):
+    X,Y=XY(W,H); a=np.zeros((H,W),dtype=np.float32)
+    a=np.maximum(a,m_rect(X,Y,150,H*0.36,W-10,H*0.64)); a=np.maximum(a,m_tri(X,Y,(150,H*0.12),(150,H*0.88),(6,H*0.5)))
+    tm=text_mask(text,W,H,H*0.30,'CENTER',False,1.0,1.0,(W+150)/2,H/2); a=np.clip(a-tm*1.2,0,1)
+    rng=np.random.default_rng(24); a*=np.clip(0.75+0.45*smooth_noise(H,W,12,rng),0,1)*0.9
+    return _rgba((0.86,0.63,0.10),a)
+def stencil(body,W,H,size,col=(0.06,0.065,0.06),wear=0.35,seed=25,align='CENTER'):
+    rng=np.random.default_rng(seed); m=text_mask(body,W,H,size,align,False,1.0,1.05); m=np.where(m<0.10,0.0,m)
+    w=np.clip(smooth_noise(H,W,10,rng)*1.6-wear,0,1); a=m*(1-0.75*np.clip(w*1.2,0,1))
+    a=np.where(rng.random((H,W))<0.03,a*0.3,a); return _rgba(col,a)
+def sticky(kind,W=128,H=128,seed=26):
+    rng=np.random.default_rng(seed); X,Y=XY(W,H); a=canvas(W,H,(0.93,0.78,0.22)); over(a,np.clip((Y/H),0,1),(0.85,0.65,0.12),0.25)
+    txt={"a":"CHECK\nBANK B\nAGAIN?","b":"DO NOT\nTOUCH\nRED DIAL","c":"HE IS\nALWAYS\nTHERE","d":"SMILE"}[kind]
+    put_label(a,txt,W/2,H/2,22 if kind!="d" else 34,(0.12,0.10,0.35),0.9)
+    return paper_grain(a,rng,0.01,age=0.2)
+def photo(W=128,H=160,seed=27):
+    P=PAL; X,Y=XY(W,H); a=canvas(W,H,(0.68,0.74,0.72)); over(a,np.clip(Y/H,0,1),(0.88,0.78,0.55),0.7)
+    over(a,m_rect(X,Y,0,H*0.72,W,H),(0.32,0.40,0.22))
+    for (cx,cy,r,c) in ((38,H*0.50,11,(0.12,0.12,0.12)),(64,H*0.48,12,(0.10,0.10,0.10)),(90,H*0.56,8,(0.14,0.12,0.10))):
+        over(a,m_circle(X,Y,cx,cy,r),(0.85,0.68,0.55)); over(a,m_rrect(X,Y,cx-r*0.9,cy+r*0.9,cx+r*0.9,cy+r*3.3,5),c)
+    return paper_grain(a,np.random.default_rng(seed),0.012,age=0.3)
+def poster_defaced(W=512,H=720,seed=28):
+    """the QUESTIONS poster, scrawled over in marker"""
+    a=poster("questions",W,H,seed=3); X,Y=XY(W,H); rng=np.random.default_rng(seed)
+    red=(0.50,0.03,0.03)
+    cx,cy=W/2,H*0.46
+    for (x0,y0,x1,y1) in ((cx-200,cy-110,cx+200,cy+110),(cx+200,cy-110,cx-200,cy+110)):
+        for k in range(3): over(a,m_line(X,Y,x0+rng.normal(0,5),y0+rng.normal(0,5),x1+rng.normal(0,5),y1+rng.normal(0,5),rng.uniform(9,14)),red,0.92)
+    over(a,m_line(X,Y,60,H-64,W-60,H-70,12),red,0.9)                                # strikes out TRUST THE OUTPUT
+    m=text_mask("THEY ARE\nLISTENING",W,H,62,'CENTER',False,1.0,0.95,W/2,H*0.80); 
+    ang=-0.12; ca,sa=math.cos(ang),math.sin(ang); xs=((X-W/2)*ca+(Y-H*0.80)*sa+W/2).astype(int).clip(0,W-1); ys=(-(X-W/2)*sa+(Y-H*0.80)*ca+H*0.80).astype(int).clip(0,H-1)
+    over(a,m[ys,xs],red,0.95)
+    for k in range(6): over(a,m_line(X,Y,cx-90+rng.uniform(0,180),cy+140+rng.uniform(0,60),cx-90+rng.uniform(0,180),cy+200+rng.uniform(0,90),4),red,0.6)   # drips
     return a

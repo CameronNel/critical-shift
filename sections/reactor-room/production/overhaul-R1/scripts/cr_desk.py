@@ -38,28 +38,14 @@ def desk(c):
             for yy in (-7.48,-6.52): A.cyl((g,"BLACK"),xc,yy,FZ,FZ+0.03,0.022,12)                         # levelling glides
     return
 def keyboard(c,cx,y0,rot_tag=""):
+    """wedge base + ONE plane carrying the painted QWERTY colour/height maps (see cr_mats._kb_mat): about 40 triangles instead of about 11,000"""
     A,M=c.A,c.M; g="kb"; z0=ZT
     A.hull((g,"BEIGE"),[(cx-0.24,y0,z0),(cx+0.24,y0,z0),(cx-0.24,y0+0.19,z0),(cx+0.24,y0+0.19,z0),
                         (cx-0.24,y0,z0+0.017),(cx+0.24,y0,z0+0.017),(cx-0.24,y0+0.19,z0+0.034),(cx+0.24,y0+0.19,z0+0.034)],0.004)
-    A.bx((g,"BEIGE_D"),cx-0.225,cx+0.225,y0+0.015,y0+0.175,z0+0.017,z0+0.020,0.001)                         # key well
-    p=0.0185; kx=cx-0.225+0.012
-    def key(x,y,r,w=1.0,mk="KEY"):
-        zb=z0+0.02+0.0045*r; A.bx((g,mk),x,x+p*w-0.002,y,y+p-0.002,zb,zb+0.011,0.0012)
-    for r in range(6):
-        y=y0+0.02+r*0.0255
-        if r==0:
-            key(kx+0.0,y,r,1.3,"KEY_D"); key(kx+0.0245,y,r,1.3,"KEY_D"); key(kx+0.0555,y,r,5.7); key(kx+0.176,y,r,1.3,"KEY_D"); key(kx+0.2,y,r,1.3,"KEY_D")   # space row
-            continue
-        n=14 if r<5 else 12
-        for i in range(n): key(kx+i*p,y,r,1.0,"KEY_D" if (i==0 or i==n-1) else "KEY")
-    for i in range(3):
-        for r in (2,3): key(kx+0.30+i*p,y0+0.02+r*0.0255,r,1.0,"KEY_D")                                     # nav cluster
-    for i in range(3): key(kx+0.30+i*p,y0+0.02+0.0255,1,1.0,"KEY_D")
-    for i in range(4):
-        for r in range(1,6): key(kx+0.372+i*p*0.86,y0+0.02+r*0.0255,r,0.86,"KEY_D" if i==3 else "KEY")     # numpad
-    for k,xx in enumerate((cx+0.32,cx+0.345,cx+0.37)): A.bx((g,"LED_ON" if k==0 else "GREY"),xx,xx+0.010,y0+0.18,y0+0.187,z0+0.030,z0+0.034,0.0)
-    A.bx((g,"BEIGE_D"),cx-0.06,cx+0.06,y0+0.002,y0+0.020,z0+0.0,z0+0.0,0.0) if False else None
-    A.tube((g,"CABLE"),[(cx,y0+0.19,z0+0.025),(cx,y0+0.28,z0+0.006),(cx+0.12,y0+0.42,z0+0.006),(cx+0.30,y0+0.62,z0+0.012)],0.0032,8)     # curly-less kb cable
+    m=0.0042; e=0.0006; dz=0.017/0.19
+    def P(x,y): return (x,y,z0+0.017+(y-y0)*dz+e)
+    A.plane((g,"KBTEX"),P(cx-0.24+m,y0+m),P(cx+0.24-m,y0+m),P(cx+0.24-m,y0+0.19-m),P(cx-0.24+m,y0+0.19-m),uv=((m/0.48,m/0.19),(1-m/0.48,m/0.19),(1-m/0.48,1-m/0.19),(m/0.48,1-m/0.19)))
+    A.tube((g,"CABLE"),[(cx,y0+0.19,z0+0.025),(cx,y0+0.28,z0+0.006),(cx+0.12,y0+0.42,z0+0.006),(cx+0.30,y0+0.62,z0+0.012)],0.0032,8)     # cable
 def mouse(c,cx,y):
     A,M=c.A,c.M; g="mouse"; z0=ZT
     A.bx((g,"RUBBER"),cx-0.11,cx+0.11,y-0.09,y+0.09,z0,z0+0.004,0.0015)                                      # mouse mat
@@ -152,10 +138,17 @@ def chair(c,cx,cy,yaw=0.0):
     A.hull((g,"FABRIC"),[(-0.235,-0.225,FZ+0.475),(0.235,-0.225,FZ+0.475),(-0.235,0.225,FZ+0.475),(0.235,0.225,FZ+0.475),
                          (-0.225,-0.215,FZ+0.545),(0.225,-0.215,FZ+0.545),(-0.225,0.185,FZ+0.545),(0.225,0.185,FZ+0.545),(-0.235,0.235,FZ+0.500),(0.235,0.235,FZ+0.500),(-0.230,0.20,FZ+0.535),(0.230,0.20,FZ+0.535)],0.012)
     A.bx((g,"FABRIC_O"),-0.19,0.19,0.205,0.215,FZ+0.497,FZ+0.507,0.002) if False else None
-    A.bx((g,"STEEL"),-0.02,0.02,-0.215,-0.185,FZ+0.475,FZ+0.68,0.004)                                          # back spine
-    A.bx((g,"BLACK"),-0.205,0.205,-0.256,-0.230,FZ+0.65,FZ+1.02,0.012)                                           # back shell
-    A.bx((g,"FABRIC"),-0.192,0.192,-0.230,-0.192,FZ+0.66,FZ+1.01,0.014)                                          # back cushion
-    A.bx((g,"FABRIC_O"),-0.184,0.184,-0.193,-0.189,FZ+0.72,FZ+0.78,0.001)                                        # lumbar band
+    # back rest: tilted 7 degrees, lumbar bulge, tapering upper pad, headrest, side bolsters, shell behind
+    th=0.12; y0_,z0_=-0.215,FZ+0.56; ct,st=math.cos(th),math.sin(th)
+    def B(u,v,dy): return (u,y0_+dy*ct-v*st,z0_+dy*st+v*ct)
+    A.bx((g,"STEEL"),-0.022,0.022,-0.218,-0.176,FZ+0.475,FZ+0.60,0.004)                                          # spine
+    A.hull((g,"BLACK"),[B(u,v,dy) for u in (-0.205,0.205) for v in (0.04,0.53) for dy in (-0.078,-0.046)],0.014)           # back shell
+    A.hull((g,"FABRIC"),[B(u,v,dy) for u in (-0.19,0.19) for v in (0.07,0.27) for dy in (-0.046,0.018)],0.012)             # lumbar pad
+    A.hull((g,"FABRIC"),[B(u,v,dy) for (u,v) in ((-0.19,0.27),(0.19,0.27),(-0.165,0.50),(0.165,0.50)) for dy in (-0.046,0.004 if v<0.4 else 0.0)],0.012)   # upper pad
+    A.hull((g,"FABRIC"),[B(u,v,dy) for u in (-0.12,0.12) for v in (0.47,0.58) for dy in (-0.046,0.012)],0.016)             # headrest
+    for s_ in (-1,1):
+        A.hull((g,"FABRIC"),[B(s_*u,v,dy) for u in (0.155,0.20) for v in (0.10,0.42) for dy in (-0.046,0.032)],0.010)         # side bolsters
+    A.hull((g,"FABRIC_O"),[B(u,v,dy) for u in (-0.15,0.15) for v in (0.13,0.19) for dy in (0.014,0.0195)],0.002)            # lumbar band
     for sx in (-1,1):
         xa=sx*0.262
         A.bx((g,"STEEL"),xa-0.014,xa+0.014,-0.060,-0.030,FZ+0.475,FZ+0.665,0.004)                                # arm post

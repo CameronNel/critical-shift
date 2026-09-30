@@ -5,15 +5,28 @@ import crk
 K={}
 WARM=(1.0,0.68,0.38); WARM2=(1.0,0.58,0.30); COOL=(0.72,0.84,1.0)
 DOWN=(0,0,0)
+def beacons(c):
+    """two red emergency beacons (door wall, back wall): dark above stability 0.5, pulsing harder as it falls"""
+    A,M=c.A,c.M; g="beacon"; co=c.coll
+    for (face,p,l_,z) in (('+x',-4.80,-6.80,8.12),('+y',-11.91,0.55,8.22)):
+        sg=1
+        A.fb((g,"BLACK"),face,p+0.0,l_-0.07,l_+0.07,z-0.07,z+0.07,0.025,0.004)
+        if face=='+x': A.prism((g,"BEACON"),(p+0.025,l_,z),(p+0.105,l_,z),0.055,0.045,24,0,True); loc=(p+0.14,l_,z)
+        else: A.prism((g,"BEACON"),(l_,p+0.025,z),(l_,p+0.105,z),0.055,0.045,24,0,True); loc=(l_,p+0.14,z)
+        A.prism((g,"STEEL"),(loc[0]-(0.135 if face=='+x' else 0),loc[1]-(0.135 if face=='+y' else 0),loc[2]-0.06),(loc[0]-(0.135 if face=='+x' else 0),loc[1]-(0.135 if face=='+y' else 0),loc[2]+0.06),0.004,0.004,6) if False else None
+        ex="45*max(0,(0.5-s)*2)*(0.35+0.65*max(0,sin(frame*0.45)))"
+        crk.light(co,f"CR beacon {face}",loc,(1.0,0.10,0.04),45,'POINT',soft=0.05,expr=ex,var_s=True)
 def build(c):
     co=c.coll; L=crk.light
     # key zone 1: three troffers over the operator desks (third tube is dying)
-    for (x,fl) in ((-3.0,False),(-0.6,False),(1.2,True)):
-        L(co,f"CR troffer {x}",(x,-7.06,8.47),WARM,K.get("troffer",68),'AREA',DOWN,size=(1.15,0.55),expr=("68*(1-0.85*max(0,sin(frame*2.7)*sin(frame*0.53)*sin(frame*0.19+1)-0.42)*3.0)" if fl else None))
+    F="max(0,sin(frame*2.7)*sin(frame*0.53)*sin(frame*0.19+1)-0.42)*3.0"
+    for (x,fl) in ((-3.0,False),(-0.6,False),(1.2,True)):                      # key zone 1: troffers follow the reactor (stability s): dimmer and stuttering as it falls
+        e=(f"{K.get('troffer',68)}*(0.55+0.45*s)*max(0.03,1-(0.85+0.15*(1-s))*{F})" if fl else f"{K.get('troffer',68)}*(0.55+0.45*s)*max(0.04,1-0.9*(1-s)*{F})")
+        L(co,f"CR troffer {x}",(x,-7.06,8.47),WARM,K.get("troffer",68),'AREA',DOWN,size=(1.15,0.55),expr=e,var_s=True)
     # key zone 2: rack batten + pendant over the work table
     L(co,"CR rack batten",(1.25,-10.3,8.47),WARM2,K.get("rack",62),'AREA',DOWN,size=(1.1,0.16))
     px,py,pz=c.PENDANT
-    L(co,"CR work pendant",(px,py,pz-0.02),WARM,K.get("pendant",105),'SPOT',DOWN,spot=115,blend=0.55,soft=0.06)
+    wp=L(co,"CR work pendant",(px,py,pz-0.004),WARM,K.get("pendant",36),'AREA',DOWN,size=(0.45,0.45)); wp.data.shape='DISK'       # disc light at the diffuser (a small spot here sparkled)
     L(co,"CR work lamp",c.WORKLAMP,WARM,K.get("worklamp",25),'SPOT',(math.radians(160),0,math.radians(30)),spot=70,blend=0.6,soft=0.03)
     L(co,"CR desk lamp",c.DESKLAMP,WARM,K.get("desklamp",35),'SPOT',(math.radians(150),0,math.radians(-30)),spot=75,blend=0.6,soft=0.03)
     # cool window spill + door spill from the landing

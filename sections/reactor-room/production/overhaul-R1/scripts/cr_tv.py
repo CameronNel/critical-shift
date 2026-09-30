@@ -72,15 +72,16 @@ def screen_material(E):
     drv(nt,'nodes["Principled BSDF"].inputs["Emission Strength"].default_value',None,"1.7*(0.96+0.04*sin(frame*3.1))",var_s=False)
     return m
 def make_light(coll,E,loc,size=(1.0,0.56)):
-    ld=bpy.data.lights.new("CR tv light",'AREA'); ld.shape='RECTANGLE'; ld.size,ld.size_y=size; ld.energy=15.6
-    lo=bpy.data.objects.new("CR tv light",ld); lo.location=loc; lo.rotation_euler=(math.pi/2,0,0);   # light emits along local -Z -> +Y (into the room)
+    """spot cone aimed slightly downwards: lights the TV wall, credenza and floor in the TV's colour without washing the ceiling"""
+    ld=bpy.data.lights.new("CR tv light",'SPOT'); ld.spot_size=math.radians(100); ld.spot_blend=0.9; ld.shadow_soft_size=0.3; ld.energy=80
+    lo=bpy.data.objects.new("CR tv light",ld); lo.location=loc; lo.rotation_euler=(math.pi/2-0.38,0,0)      # local -Z -> +Y and tilted down
     coll.objects.link(lo)
     ex=[("wt",E,'["w_tel"]'),("wb",E,'["w_bro"]'),("ws",E,'["w_sta"]'),("wn",E,'["w_bar"]'),("wc",E,'["w_clip"]'),("cr",E,'["clip_r"]'),("cg",E,'["clip_g"]'),("cb",E,'["clip_b"]'),("ce",E,'["clip_e"]')]
     BRO=(1.0,0.42,0.16); STA=(0.78,0.88,1.0); BAR=(0.78,0.74,0.62)
     for i,cl in enumerate(("cr","cg","cb")):
         expr=f"wt*({crk.stab_expr(i)})*0.95+wb*{BRO[i]}+ws*{STA[i]}*0.95+wn*{BAR[i]}+wc*{cl}"
         drv(ld,'color',i,expr,var_s=True,extra=ex)
-    drv(ld,'energy',None,"15.6*(wt*1.0+wb*1.25+ws*(0.55+0.55*abs(sin(frame*13.7)*sin(frame*5.9)))+wn*0.8+wc*ce)",var_s=False,extra=ex)
+    drv(ld,'energy',None,"80*(wt*1.0+wb*1.25+ws*(0.55+0.55*abs(sin(frame*13.7)*sin(frame*5.9)))+wn*0.8+wc*ce)",var_s=False,extra=ex)
     return lo
 def build(c,cx=-1.5,zc=7.36,w=1.22,h=0.70):
     """TV panel on the back wall (faces +Y). returns the empty."""

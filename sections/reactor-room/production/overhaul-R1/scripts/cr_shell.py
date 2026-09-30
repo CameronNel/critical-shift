@@ -35,9 +35,9 @@ def build(c):
         A.fb((g,"TRIM"),'+x',X0,a,b,FZ,dz+0.07,0.06,0.006)
     A.fb((g,"TRIM"),'+x',X0,dy0-0.075,dy1+0.075,dz,dz+0.075,0.06,0.006)
     for zz in (FZ+0.25,FZ+1.1,FZ+1.9):                                                   # hinge plates + strike
-        A.fb((g,"STEEL_L"),'+x',X0+0.06,dy0-0.06,dy0-0.015,zz,zz+0.11,0.008,0.002)
-        for k in range(3): A.screw((g,"STEEL"),'+x',X0+0.068,dy0-0.0375,zz+0.02+k*0.035,0.004)
-    A.fb((g,"STEEL_L"),'+x',X0+0.06,dy1+0.02,dy1+0.06,FZ+1.02,FZ+1.22,0.008,0.002)
+        A.fb((g,"STEEL_L"),'+x',X0+0.06,dy1+0.015,dy1+0.06,zz,zz+0.11,0.008,0.002)          # hinge plates on the NORTH jamb (the door leaf is hinged there)
+        for k in range(3): A.screw((g,"STEEL"),'+x',X0+0.068,dy1+0.0375,zz+0.02+k*0.035,0.004)
+    A.fb((g,"STEEL_L"),'+x',X0+0.06,dy0-0.06,dy0-0.02,FZ+1.02,FZ+1.22,0.008,0.002)          # strike plate on the south jamb
     A.bx((g,"STEEL"),X0,X0+0.16,dy0,dy1,FZ,FZ+0.014,0.003)                                # threshold plate
     for k in range(6): A.bx((g,"YELLOW"),X0+0.02,X0+0.14,dy0+0.05+k*0.15,dy0+0.10+k*0.15,FZ+0.014,FZ+0.016,0.0)
     A.fb((g,"BLACK"),'+x',X0+0.06,dy0-0.02,dy1+0.02,dz+0.075,dz+0.30,0.03,0.005)          # door sign box

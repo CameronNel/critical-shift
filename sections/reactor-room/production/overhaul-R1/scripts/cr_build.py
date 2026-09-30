@@ -2,7 +2,7 @@
 import bpy,sys,math,random,os
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from mathutils import Vector
-import crk,crt,cr_pal,cr_mats,cr_shell,cr_desk,cr_props1,cr_props2,cr_tv,cr_light
+import crk,crt,cr_pal,cr_mats,cr_shell,cr_desk,cr_props1,cr_props2,cr_tv,cr_light,cr_extra
 A_=sys.argv[sys.argv.index("--")+1:]; SRC,DST=A_[0],A_[1]; STAGE=A_[2] if len(A_)>2 else "all"
 bpy.ops.wm.open_mainfile(filepath=SRC); sc=bpy.context.scene
 print("PAL",cr_pal.retune())
@@ -48,14 +48,15 @@ if STAGE in("desk","all"):
         c.M[nm]=D.crt_glass_mat("CR crt "+nm,img,2.2)
     for (cx,nm,tower) in ((-2.75,"SCR1",False),(-1.05,"SCR2",True),(0.65,"SCR3",False)):
         D.terminal(c,cx,nm,"KESTREL 14",case=not tower)
-    for cx in (-2.75,-1.05,0.65): D.chair(c,cx,-7.37,0.0)
+    for cx in (-2.75,-1.05,0.65): D.chair(c,cx,-7.41,0.0)
 if STAGE=="all":
     P1,P2=cr_props1,cr_props2
     for f in (P1.rack,P1.copier,P1.printer,P1.shelving,P1.cot,P1.lockers,P1.break_corner,P1.worktable,P1.credenza): f(c)
     P2.desk_clutter(c); P2.wall_decor(c); P2.ceiling_bits(c)
+    cr_extra.door(c); cr_extra.grime(c); cr_extra.desk_personal(c); cr_extra.window_dressing(c); cr_extra.markings(c); cr_extra.haze(c); cr_extra.collision(c,os.path.join(os.path.dirname(os.path.abspath(DST)),'control_room_collision.json'))
     cr_tv.build(c)
     D.chair(c,-2.60,-9.12,math.pi)
-    cr_light.build(c)
+    cr_light.build(c); cr_light.beacons(c)
 elif STAGE in("shell","desk"):
     crk.light(c.coll,"CR test key",(-1.2,-8.0,8.4),(1.0,0.66,0.34),900,'AREA',(0,0,0),size=(3.0,1.5))
 mats=dict(c.M)
