@@ -162,3 +162,11 @@ Built last, from the `PORT_*` empties. 26 runs, 76 objects, plus a perimeter cab
 - `scripts/ap1.py -- <scene dir> <src.blend> <dst.blend> [module.blend]` finds `module.blend` relative to the repository by default; the fourth argument overrides it, and a missing file stops with an error.
 - `scripts/t2b.py` no longer swallows glTF export errors: a failed export raises (non-zero exit) and `ok` is only printed after the GLB exists.
 - `verify_piping.py` tolerances were re-synced with the final layout (trench junction box and pool diffuser positions). The previous checked-in copy predated those layout changes and reported 2 false dangling runs on the shipped scene.
+
+## Control room depth +50% (`scripts/cr1.py`)
+
+The window-to-back-wall depth grew from 3.94 m to 5.92 m (glass at y -4.02, back wall inner face at y -9.94). The back wall cannot move (about 0.5 m to the hall wall), so the front assembly moved 1.97 m toward the hall: window glass and frames, desk, monitors, chairs, ceiling lamps and the five room lights move as rigid pieces; floor, soffit, roof, side walls and long beams stretch; the back-wall furniture, west door, east storage run, elevator landing and rails stay. The middle front post and its base plate were slid 0.8 m in x off the pool-inlet trench pipe.
+
+Verified on the modified scene: `clearance.py` 0 clashes, `verify_piping.py` 26 runs / 0 dangling / 0 unconnected ports, `cr_col.py` (new front strip) no hall equipment intersects it, 0 stair objects.
+
+Trade-off, measured with `vs2.py` (eye positions moved with the window): the window is now over the near edge of the pool, so from the desk seats (0.9 m behind the glass) pool water drops from 52-61% to 16-22% visible, bank A is hidden from the left and right seats, and bank B falls to 50%. Standing at the glass, both banks are 75% visible and the pool 47%. The engine export (`engine/reactor_room_R1.glb`) has not been regenerated for this change.
