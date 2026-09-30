@@ -240,21 +240,23 @@ Actions (`RIG.ACTIONS`), all looping in place at 24 fps, frame 0 equal to the la
 - `RUN_SHOVEL`, `RUN_PICKAXE` (18 frames): a plain athletic run, tool carried at the trail in the right hand (shovel
   mid-shaft with the blade forward, pickaxe choked up with the head forward), left arm pumping against the legs.
 
-Legs are two-bone IK to planned foot paths: the stance foot is planted and slides back at treadmill speed, lands a little
-heel first and rolls onto the toe; the swing foot kicks up behind, drives the knee and reaches before the strike; the
-hips are lowest at mid-stance and highest in the flight phase, so at most one foot is ever on the floor. Arms use
+Legs are two-bone IK to planned foot paths: the stance foot is planted and slides back at treadmill speed, lands a
+little heel first and rolls onto the toe; the swing foot kicks up behind, drives the knee and reaches before the
+strike; the hips are lowest at mid-stance and highest in the flight phase, so at most one foot is ever on the floor. Arms use
 two-bone IK to the tool grip (aimed so the mitten, not the wrist, closes on it); tool placements are `TOOL_HOLD` and
 `TOOL_RUN` (grip, shaft direction and roll in chest space; the character faces +Y, its right is -X).
 
 `character_tools.py` builds the shovel and pickaxe (origin at the right grip, shaft along +Z). `add_tools` skins them
 100% to the `Tool` bone and hides them; `show_tool` shows one. `export_fbx` exports the rigged worker and one action per
 file, baked over that action's own frames (0..N, the last equal to the first, so it loops), with the FBX take (Unity
-clip) named after the action and only the tool that action holds. `render_rig.py` renders posed frames: `SUIT=1`, `ACTIONS=...`, `VIEWS=` (three_q, front, side, side_r, back,
-shoulders, sh_side, sh_back, legs, legs_b, flank_r, flank_l), `FRAMES=0,4,...` for a contact sheet, `VIDEO=1` for every
-frame plus a looped mp4, `RES=WxH`, `SAMPLES=N`, `HIDE=<object>`, `EXPORT=<dir>` for the FBX clips.
+clip) named after the action and only the tool that action holds. `render_rig.py` renders posed frames: `SUIT=1`,
+`ACTIONS=...`, `VIEWS=` (three_q, front, side, side_r, back, shoulders, sh_side, sh_back, legs, legs_b, flank_r,
+flank_l), `FRAMES=0,4,...` for a contact sheet, `VIDEO=1` for every frame plus a looped mp4, `RES=WxH`, `SAMPLES=N`,
+`HIDE=<object>`, `EXPORT=<dir>` for the FBX clips.
 
 Checked (headless bpy 5.0.1, Cycles CPU renders reviewed frame by frame, plus numeric checks): loops close exactly;
-planted feet do not slide or sink (the boot shell sits about 3 cm into the floor at rest, as in the unposed model);
+standing feet stay put and no foot sinks below its rest level (the boot shell sits about 3 cm into the floor at rest,
+as in the unposed model);
 the run has a flight phase; the tools do not enter the body or the kit and stay above the floor; the mittens keep at
 least 2 cm from the hood and visor; no suit edge stretches more than about 5.5x in the runs, and what does stretch is
 fabric at the armpit and groin folds. All six FBX clips export.
@@ -265,3 +267,11 @@ raised, the flank under it is the closing wall of the cut, so it is flat rather 
 stretches. The runs are in place with no root motion, so the planted foot slides back on the treadmill. The suit is
 worked on with `SUIT=1`; the bare (unsuited) body was not reviewed in these animations. No walk, jump or grab
 animations; face decals are rigid, so expressions do not animate. The FBX clips and renders are not committed.
+
+Status: kept on the `claude/character-rig` branch, not merged; marked for later polish. Open polish items:
+- Mittens higher in the \o/ run (they reach about the top of the hood; longer arms or a smaller hood in the rig pose).
+- Round the flank wall that shows under a raised arm, and ease the armpit stretch (up to about 5.5x at the fold).
+- Root motion or foot locking for the runs, so the planted foot does not slide back on the treadmill.
+- Longer tool-run loops (18 frames, 0.75 s) and a steadier shovel blade in `HOLD_SHOVEL` (it bobs with the breath).
+- Import the FBX clips into Unity and check the Humanoid Avatar mapping and clip loop settings.
+- Review the bare (unsuited) body in these animations.
