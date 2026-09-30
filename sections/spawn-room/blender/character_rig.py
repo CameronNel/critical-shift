@@ -124,7 +124,8 @@ def leg_weights(p):
         raw[side + base] = math.exp(-(d / _SIGMA) ** 2)
     h, t = SEGMENTS["Hips"]
     raw["Hips"] = 0.6 * math.exp(-(max(0.0, _seg_dist(p, h, t) - 0.17) / _SIGMA) ** 2)
-    raw["Hips"] += 2.5 * _ss(0.07, 0.0, abs(p.x)) * _ss(0.40, 0.55, p.z)   # the crotch web rides on the pelvis
+    raw["Hips"] += 2.5 * _ss(0.10, 0.0, abs(p.x)) * _ss(0.40, 0.55, p.z)   # the crotch web rides on the pelvis
+    raw["Hips"] += 1.5 * _ss(-0.04, -0.15, p.y) * _ss(0.40, 0.58, p.z)     # so do the glutes; only the fold follows the thigh
     tot = sum(raw.values())
     if tot < 1e-6:
         return {side + "UpperLeg": 1.0}
@@ -132,6 +133,16 @@ def leg_weights(p):
 
 
 _ARM_R = {"UpperArm": 0.08, "LowerArm": 0.07, "Hand": 0.08}
+
+
+def _torso_weights(p):
+    """Hips/Spine/Chest weights from distance to the spine segments (where a point has no heat weight of its own)."""
+    raw = {}
+    for n in ("Hips", "Spine", "Chest"):
+        h, t = SEGMENTS[n]
+        raw[n] = math.exp(-(_seg_dist(p, h, t) / 0.10) ** 2) + 1e-6
+    tot = sum(raw.values())
+    return {n: w / tot for n, w in raw.items()}
 
 
 def _leg_gate(p):
@@ -228,7 +239,7 @@ def _make_weight_fn(root, arm):
     kd.balance()
     bpy.data.objects.remove(src, do_unlink=True)
 
-    def heat_at(p):
+    def heat_at(p, no_arm=False):
         acc, tot = {}, 0.0
         for co, idx, d in kd.find_n(p, 3):
             k = 1.0 / (d + 1e-4) ** 2
@@ -237,14 +248,18 @@ def _make_weight_fn(root, arm):
                 acc[n] = acc.get(n, 0.0) + w * k
         acc = {n: w / tot for n, w in acc.items()}
         z, ax = p.z, abs(p.x)
-        leg_mask = _ss(0.88, 0.70, z) * (_leg_gate(p) if z < 0.88 else 1.0)
-        arm_mask = max(_ss(0.12, 0.26, ax), _ss(0.95, 1.05, z))
+        leg_mask = _ss(0.88, 0.70, z) * (_leg_gate(p) if z < 0.88 and not no_arm else 1.0)
+        arm_mask = 0.0 if no_arm else max(_ss(0.12, 0.26, ax), _ss(0.95, 1.05, z))
         for n in list(acc):
             if "Leg" in n or n.endswith("Foot"):
                 acc[n] *= leg_mask
             elif n.endswith(("UpperArm", "LowerArm", "Hand", "Shoulder")):
                 acc[n] *= arm_mask
         t = sum(acc.values())
+        if no_arm:                                 # the arm's share goes to the torso bones nearest the point
+            for n, w in _torso_weights(p).items():
+                acc[n] = acc.get(n, 0.0) + w * max(0.0, 1.0 - t)
+            t = sum(acc.values())
         return {n: w / t for n, w in acc.items()} if t > 1e-6 else {"Spine": 1.0}
 
     def _arm_share(w, side):
@@ -276,21 +291,23 @@ def _make_weight_fn(root, arm):
         t = sum(out.values())
         return {n: x / t for n, x in out.items() if x / t > 1e-3}
 
-    def weight_at(p):
+    def weight_at(p, no_arm=False):
+        """Bone weights at p. `no_arm`: as if the arm were not there (for the flank, once it is cut free of the arm)."""
         a = _ss(0.80, 0.66, p.z)                 # 0 above the hips, 1 in the legs
-        if 0.0 < a:
+        if 0.0 < a and not no_arm:
             a *= _leg_gate(p)                    # ...but never on a sleeve hanging beside the hip
         if a <= 0.0:
-            acc = heat_at(p)
+            acc = heat_at(p, no_arm)
         elif a >= 1.0:
             acc = leg_weights(p)
         else:
             acc = {}
-            for n, w in heat_at(p).items():
+            for n, w in heat_at(p, no_arm).items():
                 acc[n] = acc.get(n, 0.0) + w * (1 - a)
             for n, w in leg_weights(p).items():
                 acc[n] = acc.get(n, 0.0) + w * a
-        acc = blur_arm(p, acc)
+        if not no_arm:
+            acc = blur_arm(p, acc)
         # soft belly: the front of the lower torso follows the Belly bone
         ax = abs(p.x)
         if p.y > 0.03 and ax < 0.26 and p.z > 0.66:
@@ -340,99 +357,316 @@ def _limb_key(w):
     return max(sums, key=sums.get)
 
 
-def _split_limbs(o, weight_at, mw, z_split=0.52):
-    """The suit body is one fused mesh, so the sleeve is webbed to the hip and the legs to each other where they touch.
-    A raised arm or a striding leg stretches those webs into dark slivers. Split the mesh along those creases (below
-    `z_split`) and return {vertex: limb key} so each side can be weighted to its own limb only."""
+Z_LEG = 0.50          # the legs are fused to each other below here (crotch)
+Z_ARM = 0.97          # the inner arm is fused to the flank below here (armpit)
+_CLS = ("core", "legL", "legR", "armL", "armR")
+
+
+def _face_classes(bm, weight_at, mw, side_only=False):
+    """Limb class per face of the fused suit body: legL/legR (by side) below the crotch, armL/armR where the weights say
+    arm, else core (`side_only`: just left/right, for the boots). Smoothed and cleaned of small islands so the cut runs
+    along one clean line per crease."""
+    bm.faces.ensure_lookup_table()
+    cls = []
+    for f in bm.faces:
+        c = mw @ f.calc_center_median()
+        k = "core" if side_only else _limb_key(weight_at(c))
+        if (c.z < Z_LEG or side_only) and not k.startswith("arm"):
+            k = "legL" if c.x > 0 else "legR"
+        elif k.startswith("leg"):
+            k = "core"
+        cls.append(k)
+    nbr = [[g.index for e in f.edges for g in e.link_faces if g is not f] for f in bm.faces]
+    for _ in range(4):                                             # majority filter: no saw-tooth cut lines
+        new = list(cls)
+        for i, ns in enumerate(nbr):
+            ks = [cls[j] for j in ns]
+            best = max(set(ks), key=ks.count) if ks else cls[i]
+            if best != cls[i] and ks.count(best) * 2 > len(ks):
+                new[i] = best
+        cls = new
+    for _ in range(2):                                             # islands under 40 faces join their surroundings
+        seen = [False] * len(cls)
+        for i in range(len(cls)):
+            if seen[i]:
+                continue
+            comp, stack = [], [i]
+            seen[i] = True
+            while stack:
+                j = stack.pop()
+                comp.append(j)
+                for n in nbr[j]:
+                    if not seen[n] and cls[n] == cls[i]:
+                        seen[n] = True
+                        stack.append(n)
+            if len(comp) < 40:
+                ks = [cls[n] for j in comp for n in nbr[j] if cls[n] != cls[i]]
+                if ks:
+                    k = max(set(ks), key=ks.count)
+                    for j in comp:
+                        cls[j] = k
+    return cls
+
+
+def _zip(bm, a, b):
+    """Close the gap between two boundary vertex chains (both ordered from the top end down) with a strip of triangles,
+    each wound against the suit face it borders so the normals stay consistent."""
+    def params(ch):
+        d = [0.0]
+        for p, q in zip(ch, ch[1:]):
+            d.append(d[-1] + (q.co - p.co).length)
+        return [x / (d[-1] or 1.0) for x in d]
+
+    def wound(p, q, r):
+        e = bm.edges.get((p, q))
+        for f in (e.link_faces if e else ()):
+            for lp in f.loops:
+                if lp.vert is p and lp.link_loop_next.vert is q:
+                    return (q, p, r)
+        return (p, q, r)
+    ta, tb = params(a), params(b)
+    i = j = 0
+    faces = []
+    while i < len(a) - 1 or j < len(b) - 1:
+        if j == len(b) - 1 or (i < len(a) - 1 and ta[i + 1] <= tb[j + 1]):
+            tri = wound(a[i], a[i + 1], b[j])
+            i += 1
+        else:
+            tri = wound(b[j], b[j + 1], a[i])
+            j += 1
+        if len(set(tri)) == 3 and bm.faces.get(tri) is None:
+            faces.append(bm.faces.new(tri))
+    return faces
+
+
+def _chains(edges):
+    """Split a set of boundary edges into vertex chains (ordered paths); closed loops come back as one path."""
+    adj = {}
+    for e in edges:
+        a, b = e.verts
+        adj.setdefault(a, []).append(b)
+        adj.setdefault(b, []).append(a)
+    left, out = set(adj), []
+    while left:
+        ends = [v for v in left if len(adj[v]) == 1]
+        v = ends[0] if ends else next(iter(left))
+        ch = [v]
+        left.discard(v)
+        while True:
+            nxt = [n for n in adj[ch[-1]] if n in left]
+            if not nxt:
+                break
+            ch.append(nxt[0])
+            left.discard(nxt[0])
+        out.append(ch)
+    return out
+
+
+def _separate_limbs(o, weight_at, mw, side_only=False):
+    """The suit body is one fused mesh: the legs touch each other from the crotch down and the inner arm touches the
+    flank below the armpit, so a striding leg or a raised arm stretches the shared fabric into torn-looking slivers.
+    Cut those creases open and close each side with its own wall (a strip between the front and back cut lines), so each
+    limb is a closed surface that moves on its own and nothing opens. Returns the class of every vertex and a lookup
+    for the class of the nearest suit face (used so patches on the suit follow the same side)."""
+    from mathutils.bvhtree import BVHTree
     bm = bmesh.new()
     bm.from_mesh(o.data)
-    bm.faces.ensure_lookup_table()
-    fkey = {f.index: _limb_key(weight_at(mw @ f.calc_center_median())) for f in bm.faces}
+    cls = _face_classes(bm, weight_at, mw, side_only)
+    lay = bm.faces.layers.int.new("cs_cls")
+    for f in bm.faces:
+        f[lay] = _CLS.index(cls[f.index])
+
+    def key(e):
+        return frozenset(v.co.to_tuple(6) for v in e.verts)
+    old_open = {key(e) for e in bm.edges if e.is_boundary}
     cut = []
     for e in bm.edges:
         if len(e.link_faces) != 2:
             continue
-        k1, k2 = fkey[e.link_faces[0].index], fkey[e.link_faces[1].index]
-        if k1 == k2 or (mw @ ((e.verts[0].co + e.verts[1].co) * 0.5)).z > z_split:
-            continue
-        if {k1, k2} != {"legL", "legR"}:
-            continue                               # only the leg-to-leg web; arms are handled by weight blending
-        cut.append(e)
+        a, b = (_CLS[f[lay]] for f in e.link_faces)
+        z = (mw @ ((e.verts[0].co + e.verts[1].co) * 0.5)).z
+        if a != b and ({a, b} == {"legL", "legR"} or (z < Z_ARM and "arm" in a + b)):
+            cut.append(e)
     bmesh.ops.split_edges(bm, edges=cut)
-    bm.faces.ensure_lookup_table()
-    vkey = {}
+    groups = {}
+    for e in bm.edges:
+        if e.is_boundary and key(e) not in old_open:
+            k = e.link_faces[0][lay]
+            groups.setdefault((k, (mw @ e.verts[0].co).x > 0 if _CLS[k] == "core" else None), []).append(e)
+    walls = 0
+    for (k, sd), edges in groups.items():
+        chains = _chains(edges)
+        if __import__("os").environ.get("RIG_DEBUG"):
+            print("RIG cut group", _CLS[k], sd, [(len(c), round(min(v.co.z for v in c), 3), round(max(v.co.z for v in c), 3),
+                                                  c[0] in {n for e in c[-1].link_edges for n in e.verts}) for c in chains])
+        if len(chains) == 1:                   # one U-shaped cut (the arm): split it at its lowest point
+            ch = chains[0]
+            low = min(range(len(ch)), key=lambda i: ch[i].co.z)
+            a, b = ch[:low + 1], ch[low:][::-1]
+        elif len(chains) == 2:                 # two cuts reaching an existing opening (the legs, front and back)
+            a, b = (c if c[0].co.z > c[-1].co.z else c[::-1] for c in chains)
+        else:
+            raise RuntimeError("suit body %s cut makes %d chains" % (_CLS[k], len(chains)))
+        for f in _zip(bm, a, b):
+            f[lay] = k
+            f.smooth = True
+            walls += 1
+    bm.verts.index_update()
+    bm.faces.index_update()
+    vcls = {}
     for v in bm.verts:
-        ks = [_limb_key(weight_at(mw @ f.calc_center_median())) for f in v.link_faces]
-        vkey[v.index] = max(set(ks), key=ks.count) if ks else "core"
+        ks = [_CLS[f[lay]] for f in v.link_faces]
+        vcls[v.index] = max(set(ks), key=ks.count) if ks else "core"
+    fcls = [_CLS[f[lay]] for f in bm.faces]
+    tree = BVHTree.FromBMesh(bm)
     bm.to_mesh(o.data)
     bm.free()
     o.data.update()
-    return vkey
+
+    def near(p, reach=0.08):
+        """(class, distance) of the nearest face of this mesh, or ("core", None) if none is within `reach`."""
+        hit = tree.find_nearest(mw.inverted() @ p, reach)
+        return (fcls[hit[2]], hit[3]) if hit[0] is not None else ("core", None)
+    print("RIG %s: %d cut edges, %d wall faces" % (o.name, len(cut), walls))
+    return vcls, near
 
 
-def _restrict(w, key, z, z_split=0.52):
-    """Weights confined to the vertex's own limb below the armpit, fading back to the plain weights above it."""
-    r = _ss(z_split + 0.06, z_split, z)
-    if r <= 0.0 or not key.startswith("leg"):
-        return w
+def _restricted(weight_at, p, key):
+    """Weights at p confined to limb `key` where the suit body was cut (below the crotch for the legs, below the armpit
+    for the arms and flank), fading back to the plain weights where the cut ends."""
+    side = {"L": "Left", "R": "Right"}.get(key[-1], "")
+    if key.startswith("leg") and (p.x > 0) != (side == "Left"):
+        p = Vector((-p.x, p.y, p.z))           # a face of this leg that sits over the midline: use this leg's weights
+    w = weight_at(p)
+    r_leg = _ss(Z_LEG, Z_LEG - 0.06, p.z)
+    r_arm = _ss(Z_ARM, Z_ARM - 0.08, p.z)
     if key.startswith("arm"):
-        side = "Left" if key.endswith("L") else "Right"
+        r = r_arm
         keep = {n: x for n, x in w.items() if n.startswith(side) and n[len(side):] in _ARM_BONES}
-    else:
-        keep = {n: x for n, x in w.items() if not any(n.endswith(b) for b in _ARM_BONES)}
-        if key.startswith("leg"):
-            side = "Left" if key.endswith("L") else "Right"
-            keep = {n: x for n, x in keep.items() if not (n.startswith(("Left", "Right")) and not n.startswith(side))}
+    else:                                      # flank and legs: the arm is cut free, so none of its weight below the armpit
+        if r_arm > 0.0:
+            na = weight_at(p, no_arm=True)
+            w = {n: (1 - r_arm) * w.get(n, 0.0) + r_arm * na.get(n, 0.0) for n in set(w) | set(na)}
+        if not key.startswith("leg"):
+            return {n: x for n, x in w.items() if x > 1e-4}
+        r = r_leg
+        keep = {n: x for n, x in w.items() if not n.startswith(("Left", "Right")) or n.startswith(side)}
     t = sum(keep.values())
-    if t < 1e-6:
+    if r <= 0.0 or t < 1e-6:
         return w
-    out = {}
-    for n, x in w.items():
-        out[n] = (1 - r) * x
+    out = {n: (1 - r) * x for n, x in w.items()}
     for n, x in keep.items():
         out[n] = out.get(n, 0.0) + r * x / t
     return {n: x for n, x in out.items() if x > 1e-4}
 
 
+def _kit_mode(pts, near):
+    """How a SUIT_KIT island is skinned: "Pack" (rides the backpack), "follow" (anything lying flat on the fabric: patches,
+    piping, straps, bands; follows it vertex by vertex), "piece" (a small raised item that moves as one piece with the
+    fabric under it) or "rigid" (a long raised hard part such as the belt or a sole, rigid to one bone)."""
+    ext = max(max(q[a] for q in pts) - min(q[a] for q in pts) for a in range(3))
+    c = sum(pts, Vector()) / len(pts)
+    behind = sum(1 for q in pts if q.y < -0.19 and 0.68 < q.z < 1.25 and abs(q.x) < 0.30) / len(pts)
+    if behind > 0.5:
+        return "Pack"                          # whole island, so a strap is never half rigid and half stretching
+    if abs(c.x) > 0.10 and 0.95 < c.z < 1.30:
+        return "follow"                        # shoulder straps and piping fold with the fabric
+    if ext < 0.14 and 0.86 < c.z < 1.12 and abs(c.x) > 0.06:
+        return "rigid"                         # small patches in the armpit band, where the fabric shears hardest
+    size = [max(q[a] for q in pts) - min(q[a] for q in pts) for a in range(3)]
+    if c.z < 0.66 and size[2] < 0.07 and min(size[0], size[1]) > 0.10:
+        return "piece"                         # a band round a leg: turns as one ring (half-way at the knee)
+    lift = max((near(q)[1] or 0.08) for q in pts)
+    if lift < 0.025 and (ext < 0.14 or c.z < 0.66):
+        return "follow"                        # flat on the fabric; long ones only on the legs, where they must bend
+    return "piece" if ext < 0.14 else "rigid"
+
+
+def _densify(o, keep, max_len=0.03):
+    """Subdivide the long edges of the islands `keep` selects (by vertex list) so a strap or patch that follows the fabric
+    bends with it instead of cutting across the curve in straight spikes."""
+    mw = o.matrix_world
+    tagged = set()
+    for isl in _islands(o.data):
+        if keep([mw @ o.data.vertices[i].co for i in isl]):
+            tagged.update(isl)
+    bm = bmesh.new()
+    bm.from_mesh(o.data)
+    lay = bm.verts.layers.int.new("cs_follow")
+    bm.verts.ensure_lookup_table()
+    for i in tagged:
+        bm.verts[i][lay] = 1
+    for _ in range(5):
+        for _ in range(2):                         # new vertices of a tagged island are tagged too
+            for v in bm.verts:
+                if not v[lay] and any(e.other_vert(v)[lay] for e in v.link_edges):
+                    v[lay] = 1
+        long_edges = [e for e in bm.edges if e.verts[0][lay] and e.verts[1][lay] and e.calc_length() * mw.median_scale > max_len]
+        if not long_edges:
+            break
+        bmesh.ops.subdivide_edges(bm, edges=long_edges, cuts=1, use_grid_fill=True)
+    bm.to_mesh(o.data)
+    bm.free()
+    o.data.update()
+
+
 def skin_worker(root, arm):
     weight_at = _make_weight_fn(root, arm)
+    meshes = sorted((o for o in root.children_recursive if o.type == "MESH"), key=lambda o: o.name != "SUIT_BODY")
+    near = None
     n_meshes = 0
-    for o in [o for o in root.children_recursive if o.type == "MESH"]:
+    for o in meshes:
         head_rigid = o.parent is not None and o.parent.name.endswith("_HEAD_PIVOT")
         mw = o.matrix_world.copy()
         for n in DEFORM:
             o.vertex_groups.new(name=n)
         vg = o.vertex_groups
-        rigid_bone = {}
-        vkey = _split_limbs(o, weight_at, mw) if o.name == "SUIT_BODY" else None
-        if o.name == "SUIT_KIT":
+        fixed = {}
+        vcls = None
+        if o.name == "SUIT_BODY":
+            vcls, near = _separate_limbs(o, weight_at, mw)
+        elif o.name == "SUIT_BOOTS":
+            vcls, _ = _separate_limbs(o, weight_at, mw, side_only=True)   # the two boots touch at the instep
+
+        def w_at(p, i=None, k=None):
+            """Weights for a point on this mesh: its own class on a cut mesh, or class `k` (the class of the suit under
+            a kit island, so a pocket on the flank does not leave with the arm)."""
+            if vcls is not None:
+                return _restricted(weight_at, p, vcls[i])
+            if k is not None:
+                return _restricted(weight_at, p, k)
+            return weight_at(p)
+        if o.name == "SUIT_KIT" and near is not None:
+            _densify(o, lambda pts: _kit_mode(pts, near) == "follow")
             for isl in _islands(o.data):
                 pts = [mw @ o.data.vertices[i].co for i in isl]
-                ext = max(max(q[a] for q in pts) - min(q[a] for q in pts) for a in range(3))
-                c = sum(pts, Vector()) / len(pts)
-                behind = sum(1 for q in pts if q.y < -0.19 and 0.68 < q.z < 1.25 and abs(q.x) < 0.30) / len(pts)
-                if behind > 0.5:
-                    bone = "Pack"                # whole island, so a strap is never half rigid and half stretching
-                elif abs(c.x) > 0.10 and 0.95 < c.z < 1.30:
-                    continue                     # shoulder straps and piping fold with the fabric
-                elif ext < 0.14 and not (0.86 < c.z < 1.12 and abs(c.x) > 0.06):
-                    continue                     # small patches, pockets and buttons follow the fabric (except in the
-                                                 # armpit band, where the fabric shears too hard: those stay rigid)
-                else:
-                    wc = {n: x for n, x in weight_at(c).items() if n != "Belly"}
-                    bone = max(wc, key=wc.get)
+                mode = _kit_mode(pts, near)
+                ks = [near(q, 0.05)[0] for q in pts if q.z < Z_ARM and near(q, 0.05)[1] is not None]
+                k = max(set(ks), key=ks.count) if ks else None      # one class per island: the arm and flank (and the
+                if mode == "follow":                                 # two legs) coincide at rest where they were fused
+                    for i, q in zip(isl, pts):
+                        fixed[i] = w_at(q, k=k)
+                    continue
+                if mode == "Pack":
+                    w = {"Pack": 1.0}
+                elif mode == "rigid":
+                    wc = {n: x for n, x in w_at(sum(pts, Vector()) / len(pts), k=k).items() if n != "Belly"}
+                    w = {max(wc, key=wc.get): 1.0}
+                else:                                # one averaged weight set: the item moves as a piece
+                    w = {}
+                    for q in pts:
+                        for n, x in w_at(q, k=k).items():
+                            w[n] = w.get(n, 0.0) + x / len(pts)
                 for i in isl:
-                    rigid_bone[i] = bone
+                    fixed[i] = w
         for v in o.data.vertices:
             p = mw @ v.co
             if head_rigid:
                 w = {"Head": 1.0}
-            elif v.index in rigid_bone:
-                w = {rigid_bone[v.index]: 1.0}
+            elif v.index in fixed:
+                w = fixed[v.index]
             else:
-                w = weight_at(p)
-                if vkey is not None:
-                    w = _restrict(w, vkey[v.index], p.z)
+                w = w_at(p, v.index)
             for n, x in w.items():
                 vg[n].add([v.index], x, "REPLACE")
         o.parent = None
@@ -556,35 +790,6 @@ def _eval_bones(arm):
     return arm.evaluated_get(dg).pose.bones
 
 
-def _sole_height(arm):
-    ev = _eval_bones(arm)
-    lows = []
-    for side in ("Left", "Right"):
-        pb = ev[side + "Foot"]
-        m = pb.matrix
-        head = m.translation
-        tail = m @ Vector((0, pb.length, 0))
-        lows.append(min(head.z - 0.13, tail.z - 0.045))
-    return min(lows)
-
-
-def _plant_feet(arm, frames, sways, hop_amp=0.03, hops_per_cycle=2):
-    """Re-key the hips height so the lower foot touches the ground every frame, plus a hop that peaks between
-    footfalls."""
-    sc = bpy.context.scene
-    lows = []
-    for f in range(frames + 1):
-        sc.frame_set(f)
-        bpy.context.view_layer.update()
-        lows.append(_sole_height(arm))
-    for f in range(frames + 1):
-        ph = (f % frames) / frames
-        hop = hop_amp * (0.5 - 0.5 * math.cos(hops_per_cycle * 2 * math.pi * ph + math.pi))
-        pb = arm.pose.bones["Hips"]
-        pb.location = _rest3(arm, "Hips").inverted() @ Vector((sways[f], 0.0, -lows[f] + hop))
-        pb.keyframe_insert("location", frame=f)
-
-
 def _finish(arm, act, frames):
     arm.animation_data.action = act
     sc = bpy.context.scene
@@ -594,10 +799,11 @@ def _finish(arm, act, frames):
 
 # ------------------------------------------------------------------------------------------------------ two-bone IK
 
-def _ik_arm(arm, side, S, T, pole):
-    """Analytic two-bone IK in armature space. S: posed shoulder joint, T: target wrist point, pole: elbow direction.
-    Returns absolute rotation deltas (upper, lower) taking each bone's rest direction to the solved direction."""
-    ub, lb = arm.data.bones[side + "UpperArm"], arm.data.bones[side + "LowerArm"]
+def _ik_two(arm, upper, lower, S, T, pole):
+    """Analytic two-bone IK in armature space. S: posed root joint, T: target end point, pole: direction the middle
+    joint bends towards. Returns absolute rotation deltas (upper, lower) taking each bone's rest direction to the solved
+    direction."""
+    ub, lb = arm.data.bones[upper], arm.data.bones[lower]
     ru, rl = ub.tail_local - ub.head_local, lb.tail_local - lb.head_local
     l1, l2 = ru.length, rl.length
     v = T - S
@@ -615,36 +821,136 @@ def _ik_arm(arm, side, S, T, pole):
     return Du, Dl
 
 
+def _ik_arm(arm, side, S, T, pole):
+    return _ik_two(arm, side + "UpperArm", side + "LowerArm", S, T, pole)
+
+
+# ------------------------------------------------------------------------------------------------------ feet and gait
+
+ANKLE_REST = {"Left": Vector((0.110, 0.014, 0.13)), "Right": Vector((-0.110, 0.014, 0.13))}
+_HEEL, _TOE = (-0.10, -0.13), (0.20, -0.13)       # (y, z) of the boot sole's heel and toe edges from the ankle
+
+
+def _ankle(c, clear, pitch):
+    """Ankle (y, z) of a foot whose ankle would sit at y=c if it stood flat, with its lowest sole edge `clear` above the
+    floor, pitched `pitch` degrees (+ toes up, rolling on the heel; - toes down, rolling on the toe)."""
+    th = math.radians(pitch)
+    py, pz = _HEEL if th >= 0 else _TOE
+    ry, rz = py * math.cos(th) - pz * math.sin(th), py * math.sin(th) + pz * math.cos(th)
+    return c + py - ry, clear - rz
+
+
+def _hermite(keys, t):
+    """Cubic Hermite through keys (t, Vector, tangent or None); finite-difference tangents where None."""
+    tans = []
+    for i, (ti, vi, mi) in enumerate(keys):
+        if mi is None:
+            a, b = keys[max(i - 1, 0)], keys[min(i + 1, len(keys) - 1)]
+            mi = (b[1] - a[1]) / (b[0] - a[0])
+        tans.append(mi)
+    for i in range(len(keys) - 1):
+        (t0, v0, _), (t1, v1, _) = keys[i], keys[i + 1]
+        if t <= t1 or i == len(keys) - 2:
+            h = t1 - t0
+            u = (t - t0) / h
+            u2, u3 = u * u, u * u * u
+            return (v0 * (2 * u3 - 3 * u2 + 1) + tans[i] * (h * (u3 - 2 * u2 + u)) + v1 * (-2 * u3 + 3 * u2)
+                    + tans[i + 1] * (h * (u3 - u2)))
+
+
+def _loop(keys, t):
+    """Periodic cubic through (t, value) keys on [0, 1]; the first key is at 0 and the last at 1 with the same value."""
+    m = (keys[1][1] - keys[-2][1]) / (keys[1][0] + 1.0 - keys[-2][0])
+    ks = [(k[0], Vector((k[1], 0.0)), None) for k in keys]
+    ks[0] = (0.0, ks[0][1], Vector((m, 0.0)))
+    ks[-1] = (1.0, ks[-1][1], Vector((m, 0.0)))
+    return _hermite(ks, t % 1.0)[0]
+
+
+# Run gaits, per leg phase p (0 = foot strike). Stance (p < duty): the foot is planted and slides back at treadmill speed
+# from `stride[0]` to `stride[1]` (flat-ankle y), landing a little heel first and rolling onto the toe. Swing keys
+# (p, flat-ankle y, sole clearance, pitch): toe-off, heel kicked up behind, knee drive, reach, then the foot pulls back
+# into the strike. `hips` (per step, u = 0 at a strike): low at mid-stance, high in the flight phase, so one foot at most
+# is ever on the floor. Everything is in metres and degrees for this 0.72 m-legged worker.
+GAIT_PLAIN = dict(strides=1, duty=0.36, stride=(0.07, -0.25), land=6.0, push=24.0, width=0.095,
+                  swing=[(0.45, -0.31, 0.06, -38), (0.56, -0.26, 0.16, -30), (0.68, -0.08, 0.21, -10),
+                         (0.80, 0.10, 0.17, 6), (0.90, 0.17, 0.05, 10)],
+                  hips=[(0.0, -0.005), (0.30, -0.030), (0.72, 0.028), (0.86, 0.034), (1.0, -0.005)],
+                  lean=-9.0, yaw=8.0, roll=3.0, waddle=0.0, sway=0.012, nod=2.5, belly=10.0, pack=7.0)
+GAIT_CARTOON = dict(GAIT_PLAIN, strides=2, duty=0.34, land=8.0, push=26.0, width=0.10,
+                    swing=[(0.44, -0.31, 0.08, -40), (0.55, -0.25, 0.25, -34), (0.67, -0.06, 0.31, -10),
+                           (0.79, 0.12, 0.21, 8), (0.90, 0.18, 0.07, 12)],
+                    hips=[(0.0, -0.008), (0.30, -0.042), (0.70, 0.030), (0.85, 0.040), (1.0, -0.008)],
+                    lean=-4.0, yaw=10.0, roll=4.0, waddle=6.0, sway=0.026, nod=5.0, belly=16.0, pack=10.0)
+
+
+def _run_foot(p, g):
+    """(flat-ankle y, sole clearance, pitch) of one foot at leg phase p."""
+    s, (c0, c1) = g["duty"], g["stride"]
+    v = (c1 - c0) / s
+    lift = 0.45 * s
+    if p <= s:
+        pitch = g["land"] * _ss(0.06, 0.0, p) - g["push"] * (max(0.0, p - lift) / (s - lift)) ** 2
+        return c0 + v * p, 0.0, pitch
+    keys = [(s, Vector((c1, 0.0, -g["push"])), Vector((v, 0.0, -2 * g["push"] / (s - lift))))]
+    keys += [(k[0], Vector(k[1:]), None) for k in g["swing"]]
+    keys.append((1.0, Vector((c0, 0.0, g["land"])), Vector((v, -0.8, 0.0))))
+    c, clear, pitch = _hermite(keys, p)
+    return c, max(0.0, clear), pitch
+
+
+def _run_feet(q, g):
+    feet = {}
+    for side, sgn in (("Left", 1), ("Right", -1)):
+        c, clear, pitch = _run_foot((q + (0.0 if sgn == 1 else 0.5)) % 1.0, g)
+        y, z = _ankle(c, clear, pitch)
+        feet[side] = (Vector((sgn * g["width"], y, z)), pitch)
+    return feet
+
+
 # ------------------------------------------------------------------------------------------------------ action builder
 
-def _aim(dirn):
-    """3x3 rotation taking +Z to the given direction."""
-    return Vector((0, 0, 1)).rotation_difference(Vector(dirn).normalized()).to_matrix()
+def _aim(dirn, side=(1, 0, 0)):
+    """3x3 rotation taking +Z to `dirn` and +X as close to `side` as it can (the tool's roll)."""
+    z = Vector(dirn).normalized()
+    x = Vector(side) - z * z.dot(Vector(side))
+    x = x.normalized() if x.length > 1e-6 else z.orthogonal().normalized()
+    y = z.cross(x)
+    return Matrix((x, y, z)).transposed()
 
 
-def _compose(arm, frames, name, body, arms, hop_amp=None):
-    """Build one looping action in two passes. Pass 1 keys the body and legs (and plants the feet when `hop_amp` is
-    given). Pass 2 evaluates each frame and lets `arms(ph, D, ev, chest_def)` set the arm deltas and return the tool's
-    armature-space matrix (or None), so arms and tools follow the final, planted body."""
+def _slerp3(a, b, t):
+    return a.to_quaternion().slerp(b.to_quaternion(), t).to_matrix()
+
+
+def _compose(arm, frames, name, body, arms):
+    """Build one looping action in two passes. Pass 1 keys the torso and the hips (sway, height). Pass 2 evaluates each
+    frame, solves both legs with two-bone IK to the body's foot targets (so a planted foot stays planted) and lets
+    `arms(ph, D, ev, chest_def)` set the arm deltas and return the tool's armature-space matrix (or None), so legs, arms
+    and tools all follow the final body."""
     act = _new_action(arm, name)
     sc = bpy.context.scene
-    sways = []
     for f in range(frames + 1):
-        D, sway = body((f % frames) / frames)
-        for side in ("Left", "Right"):                                # provisional arms so the frame evaluates
+        D, loc, _ = body((f % frames) / frames)
+        for side in ("Left", "Right"):                                # provisional limbs so the frame evaluates
             for b in ("Shoulder", "UpperArm", "LowerArm", "Hand"):
                 D[side + b] = D["Chest"]
-        _key(arm, f, D, loc={"Hips": (sway, 0.0, 0.0)})
+            for b in ("UpperLeg", "LowerLeg", "Foot"):
+                D[side + b] = D["Hips"]
+        _key(arm, f, D, loc={"Hips": loc})
         _key_tool(arm, f, Matrix.Identity(4))
-        sways.append(sway)
-    if hop_amp is not None:
-        _plant_feet(arm, frames, sways, hop_amp=hop_amp)
     for f in range(frames + 1):
         ph = (f % frames) / frames
-        D, _ = body(ph)
+        D, _, feet = body(ph)
         sc.frame_set(f)
         bpy.context.view_layer.update()
         ev = _eval_bones(arm)
+        for side, sgn in (("Left", 1), ("Right", -1)):
+            T, pitch = feet[side]
+            D[side + "UpperLeg"], D[side + "LowerLeg"] = _ik_two(
+                arm, side + "UpperLeg", side + "LowerLeg", ev[side + "UpperLeg"].head.copy(), T,
+                Vector((sgn * 0.15, 1.0, 0.0)))
+            D[side + "Foot"] = _rot("X", pitch)
         chest_def = ev["Chest"].matrix @ arm.data.bones["Chest"].matrix_local.inverted()
         M = arms(ph, D, ev, chest_def)
         _key(arm, f, D)
@@ -655,42 +961,34 @@ def _compose(arm, frames, name, body, arms, hop_amp=None):
 
 # ------------------------------------------------------------------------------------------------------ bodies
 
-def _run_body(ph, cartoon=True):
-    """Torso, head and legs of a run. `cartoon` exaggerates waddle and bounce; otherwise a plain athletic run."""
+def _run_body(ph, g):
+    """Torso, head, hips (sway and height) and foot targets of a run with gait `g`. The pelvis turns the striding hip
+    forward and drops on the swing side, the chest counter-rotates, the head stays level with a small nod on landing."""
     tp = 2 * math.pi
-    k = 1.0 if cartoon else 0.45
-    s1, c1 = math.sin(tp * ph), math.cos(tp * ph)
-    c2 = math.cos(2 * tp * ph)
-    lean = -6.0 if cartoon else -10.0
-    ident = Matrix.Identity(3)
-    D = {"Root": ident}
-    D["Hips"] = _rot("Y", 8 * k * s1) @ _rot("Z", 10 * k * c1) @ _rot("X", lean * 0.4)
-    D["Spine"] = D["Hips"] @ _rot("Z", -8 * k * c1) @ _rot("Y", -5 * s1 * (1 if cartoon else 1.6)) @ _rot("X", lean * 0.3)
-    D["Chest"] = D["Spine"] @ _rot("Z", -5 * k * c1) @ _rot("Y", -3 * s1) @ _rot("X", lean * 0.3 + 3 * c2)
-    D["Neck"] = D["Chest"] @ _rot("X", 4 * c2)
-    D["Head"] = (D["Neck"] @ _rot("X", -lean * 0.9 + 7 * k * math.cos(tp * 2 * (ph - 0.1))) @ _rot("Y", -5 * k * s1)
-                 @ _rot("Z", 6 * k * c1))
-    D["Belly"] = D["Spine"] @ _rot("X", 16 * math.sin(tp * 2 * (ph - 0.16)))
-    D["Pack"] = D["Chest"] @ _rot("X", 10 * math.sin(tp * 2 * (ph - 0.28))) @ _rot("Y", 4 * s1)
-    for side, sgn in (("Left", 1), ("Right", -1)):
-        p = (ph + (0.0 if sgn == 1 else 0.5)) % 1.0
-        sp = math.sin(tp * p)
-        # forward-biased swing: the leg reaches further forward than it trails, and the knee folds while it passes under
-        thigh = 10 + (30 if cartoon else 26) * sp
-        flex = 12 + (70 if cartoon else 60) * max(0.0, math.cos(tp * (p - 0.05))) ** 2
-        lower_abs = thigh - flex
-        D[side + "UpperLeg"] = D["Hips"] @ _rot("X", thigh) @ _rot("Y", -sgn * 3)
-        D[side + "LowerLeg"] = _rot("X", lower_abs) @ D["Hips"]
-        D[side + "Foot"] = _rot("X", -0.75 * lower_abs) @ D["Hips"]
-    return D, (0.030 if cartoon else 0.012) * s1
+    q = (ph * g["strides"]) % 1.0                  # leg phase: 0 = left foot strike, 0.5 = right foot strike
+    u = (2 * q) % 1.0                              # step phase: 0 = either strike
+    c1 = math.cos(tp * q)
+    st = math.sin(tp * (q + 0.07))                 # + while the left foot carries the weight, - for the right
+    sq = math.cos(tp * (u - 0.3))                  # 1 at mid-stance (hips lowest)
+    lean, yaw, roll, wad = g["lean"], g["yaw"], g["roll"], g["waddle"]
+    D = {"Root": Matrix.Identity(3)}
+    D["Hips"] = _rot("Z", yaw * c1) @ _rot("Y", -roll * st) @ _rot("X", lean * 0.4)
+    D["Spine"] = D["Hips"] @ _rot("Z", -yaw * 0.7 * c1) @ _rot("Y", (roll + wad) * 0.6 * st) @ _rot("X", lean * 0.3 - 1.5 * sq)
+    D["Chest"] = D["Spine"] @ _rot("Z", -yaw * 0.6 * c1) @ _rot("Y", wad * 0.4 * st) @ _rot("X", lean * 0.3 - 1.5 * sq)
+    D["Head"] = (_rot("Z", 0.15 * yaw * c1) @ _rot("Y", 0.3 * wad * st)
+                 @ _rot("X", -g["nod"] * math.cos(tp * (u - 0.38))))
+    D["Neck"] = _slerp3(D["Chest"], D["Head"], 0.5)
+    D["Belly"] = D["Spine"] @ _rot("X", g["belly"] * math.sin(tp * (u - 0.42)))
+    D["Pack"] = D["Chest"] @ _rot("X", g["pack"] * math.sin(tp * (u - 0.5))) @ _rot("Y", 3 * st)
+    loc = Vector((g["sway"] * st, 0.0, _loop(g["hips"], u)))
+    return D, loc, _run_feet(q, g)
 
 
 def _stand_body(ph):
-    """Relaxed standing with breathing and a slow weight shift."""
+    """Relaxed standing with breathing and a slow weight shift; both feet planted where they rest."""
     tp = 2 * math.pi
     s, c = math.sin(tp * ph), math.cos(tp * ph)
-    ident = Matrix.Identity(3)
-    D = {"Root": ident}
+    D = {"Root": Matrix.Identity(3)}
     D["Hips"] = _rot("Y", 1.6 * s) @ _rot("Z", 1.2 * c)
     D["Spine"] = D["Hips"] @ _rot("X", -1.5 + 1.2 * s) @ _rot("Z", -0.8 * c)
     D["Chest"] = D["Spine"] @ _rot("X", 1.4 * s) @ _rot("Y", -0.8 * s)
@@ -698,12 +996,8 @@ def _stand_body(ph):
     D["Head"] = D["Neck"] @ _rot("Z", 4.0 * math.sin(tp * (ph + 0.15))) @ _rot("X", 1.2 * c)
     D["Belly"] = D["Spine"] @ _rot("X", 5 * math.sin(tp * (ph - 0.12)))
     D["Pack"] = D["Chest"] @ _rot("X", 2.5 * math.sin(tp * (ph - 0.2)))
-    for side, sgn in (("Left", 1), ("Right", -1)):
-        shift = 2.2 * math.sin(tp * ph) * sgn
-        D[side + "UpperLeg"] = D["Hips"] @ _rot("Y", -sgn * 3) @ _rot("X", 1.0 + 0.8 * shift)
-        D[side + "LowerLeg"] = D["Hips"] @ _rot("X", -1.0 - 0.5 * shift)
-        D[side + "Foot"] = D["Hips"] @ _rot("X", 0.0)
-    return D, 0.006 * s
+    feet = {side: (ANKLE_REST[side].copy(), 0.0) for side in ("Left", "Right")}
+    return D, Vector((0.006 * s, 0.0, -0.003 + 0.0012 * math.sin(tp * (ph - 0.1)))), feet
 
 
 # ------------------------------------------------------------------------------------------------------ arms
@@ -742,9 +1036,9 @@ def _arms_cheer(arm):
         ch = D["Chest"]
         for side, sgn in (("Left", 1), ("Right", -1)):
             off = 0.0 if sgn == 1 else 0.37
-            spread = 31 + 8 * math.sin(tp * (ph + off + 0.1)) + 4 * math.sin(tp * (3 * ph + off))
+            spread = 36 + 6 * math.sin(tp * (ph + off + 0.1)) + 3 * math.sin(tp * (3 * ph + off))
             fwd = 0.06 * math.sin(tp * (2 * ph + off + 0.3))
-            el = 4 + 9 * math.sin(tp * (3 * ph + off + 0.25)) + 4 * math.sin(tp * (2 * ph + off))
+            el = 10 + 7 * math.sin(tp * (3 * ph + off + 0.25)) + 3 * math.sin(tp * (2 * ph + off))   # always outward
             sp, e = math.radians(spread), math.radians(el)
             D[side + "Shoulder"] = ch @ _rot("Y", -sgn * 14)
             D[side + "UpperArm"] = _aim_bone(arm, side + "UpperArm", ch @ Vector((sgn * math.sin(sp), fwd, math.cos(sp))))
@@ -756,37 +1050,53 @@ def _arms_cheer(arm):
     return arms
 
 
-# Tool in the right hand, the way a first-person game holds it: grip at the right hip, in front of the body.
-TOOL_HOLD = {
-    "SHOVEL": (Vector((-0.27, 0.24, 0.80)), (-0.06, -0.42, 0.90)),      # blade forward and down, handle back
-    "PICKAXE": (Vector((-0.27, 0.24, 0.80)), (-0.15, 0.85, 0.40)),      # head forward, just above the hip
+# Tool in the right hand. `grip`: where the hand holds it (chest space at rest), `shaft`: direction of the tool's +Z
+# (towards the handle top / the pick head), `side`: where the tool's +X points (shovel blade width / pick head bar), `at`:
+# the point on the shaft (tool-local z) that sits in the fist.
+TOOL_HOLD = {                                     # standing, first-person style: low at the right hip
+    "SHOVEL": dict(grip=(-0.28, 0.26, 0.80), shaft=(-0.22, -0.78, 0.58), side=(1, 0, 0), at=0.24),  # blade forward-down
+    "PICKAXE": dict(grip=(-0.27, 0.26, 0.80), shaft=(0.10, 0.95, 0.25), side=(0, 0, 1), at=-0.14),  # head forward
 }
-# Running with a tool: the shovel is carried mid-shaft with the blade forward so it clears the ground.
-TOOL_RUN = {"SHOVEL": (Vector((-0.27, 0.20, 0.88)), (-0.05, -0.72, 0.69)), "PICKAXE": TOOL_HOLD["PICKAXE"]}
+TOOL_RUN = {                                      # running: carried at the trail, low by the right hip, pointing ahead
+    "SHOVEL": dict(grip=(-0.31, 0.10, 0.81), shaft=(0.10, -0.97, 0.14), side=(1, 0, 0), at=-0.32),   # blade forward
+    "PICKAXE": dict(grip=(-0.30, 0.10, 0.82), shaft=(-0.12, 0.95, 0.30), side=(0, 0, 1), at=0.40),   # choked up, head forward
+}
+_HAND_GRIP = 0.065                                # wrist to the middle of the mitten
 
 
-def _arms_tool(arm, kind, running):
-    """Right hand on the tool (two-bone IK to the grip), left arm hanging (idle) or swinging (running)."""
+def _tool_matrix(t):
+    return Matrix.Translation(Vector(t["grip"])) @ _aim(t["shaft"], t["side"]).to_4x4() @ Matrix.Translation((0, 0, -t["at"]))
+
+
+def _arms_tool(arm, kind, running, gait=GAIT_PLAIN):
+    """Right hand on the tool (two-bone IK so the mitten closes on the grip), left arm hanging (standing) or pumping in
+    step with the legs (running). The tool rides on the chest, and while running it swings a little against the left
+    arm."""
     tp = 2 * math.pi
-    R0, aim = (TOOL_RUN if running else TOOL_HOLD)[kind]
-    Mrest = Matrix.Translation(R0) @ _aim(aim).to_4x4()
+    Mrest = _tool_matrix((TOOL_RUN if running else TOOL_HOLD)[kind])
 
     def arms(ph, D, ev, chest_def):
+        q = (ph * gait["strides"]) % 1.0
+        pump = math.sin(tp * (q - 0.2))           # + when the left arm is forward (right leg forward)
         M = chest_def @ Mrest
         if running:
-            M = M @ Matrix.Translation((0, 0, 0.012 * math.sin(tp * 2 * ph)))
-        for side, sgn in (("Left", 1), ("Right", -1)):
-            if side == "Left":
-                if running:
-                    p = ph % 1.0
-                    _arm_neutral(arm, side, sgn, ph, D, swing=-38 * math.sin(tp * p), bend=70 + 15 * math.cos(tp * p))
-                else:
-                    _arm_neutral(arm, side, sgn, ph, D, swing=2.5 * math.sin(tp * (ph + 0.2)), bend=10 + 3 * math.sin(tp * ph))
-                continue
-            D[side + "Shoulder"] = D["Chest"]
-            S = ev[side + "UpperArm"].head.copy()
-            Du, Dl = _ik_arm(arm, side, S, M @ Vector((0, 0, 0)), Vector((-0.55, -0.35, -0.75)))
-            D[side + "UpperArm"], D[side + "LowerArm"], D[side + "Hand"] = Du, Dl, Dl
+            g = M @ Vector((0, 0, TOOL_RUN[kind]["at"]))
+            M = (Matrix.Translation(g + Vector((0.0, -0.035 * pump, 0.008 * math.cos(tp * 2 * q)))) @ _rot("X", 5 * pump).to_4x4()
+                 @ Matrix.Translation(-g) @ M)
+        if running:
+            _arm_neutral(arm, "Left", 1, ph, D, swing=36 * pump, bend=78 + 14 * pump)
+        else:
+            _arm_neutral(arm, "Left", 1, ph, D, swing=2.5 * math.sin(tp * (ph + 0.2)), bend=10 + 3 * math.sin(tp * ph))
+        grip = M @ Vector((0, 0, (TOOL_RUN if running else TOOL_HOLD)[kind]["at"]))
+        D["RightShoulder"] = D["Chest"]
+        S = ev["RightUpperArm"].head.copy()
+        pole = Vector((-0.55, -0.35, -0.75))
+        wrist = grip
+        for _ in range(2):                        # aim the wrist so the mitten, not the wrist, closes on the grip
+            Du, Dl = _ik_arm(arm, "Right", S, wrist, pole)
+            fore = Dl @ (arm.data.bones["RightLowerArm"].tail_local - arm.data.bones["RightLowerArm"].head_local).normalized()
+            wrist = grip - fore * _HAND_GRIP
+        D["RightUpperArm"], D["RightLowerArm"], D["RightHand"] = Du, Dl, Dl
         return M
     return arms
 
@@ -798,34 +1108,35 @@ def make_idle(arm, frames=48, name="IDLE"):
     return _compose(arm, frames, name, _stand_body, _arms_idle(arm))
 
 
-def make_run_cycle(arm, frames=24, name="RUN"):
-    """Cartoon run, arms up beside the head like \\o/, hands waving a little. Heavy plants, waddle, hop, belly and pack
-    lag. Loops seamlessly."""
-    return _compose(arm, frames, name, _run_body, _arms_cheer(arm), hop_amp=0.05)
+def make_run_cycle(arm, frames=32, name="RUN"):
+    """Cartoon run (two strides per loop), arms up beside the head like \\o/, hands waving a little. Bouncy flight
+    phase, waddle, belly and pack lag. Loops seamlessly."""
+    return _compose(arm, frames, name, lambda ph: _run_body(ph, GAIT_CARTOON), _arms_cheer(arm))
 
 
 def make_shovel_hold(arm, frames=48, name="HOLD_SHOVEL"):
-    """Standing, shovel in the right hand held low in front of the hip (first-person style)."""
+    """Standing, shovel in the right hand low at the hip, blade forward and down (first-person style)."""
     return _compose(arm, frames, name, _stand_body, _arms_tool(arm, "SHOVEL", False))
 
 
 def make_pickaxe_hold(arm, frames=48, name="HOLD_PICKAXE"):
+    """Standing, pickaxe in the right hand low at the hip, head forward."""
     return _compose(arm, frames, name, _stand_body, _arms_tool(arm, "PICKAXE", False))
 
 
-def make_shovel_run(arm, frames=24, name="RUN_SHOVEL"):
-    """A plain run, shovel carried in the right hand, left arm pumping."""
-    return _compose(arm, frames, name, lambda ph: _run_body(ph, False), _arms_tool(arm, "SHOVEL", True), hop_amp=0.06)
+def make_shovel_run(arm, frames=18, name="RUN_SHOVEL"):
+    """A plain run, shovel carried at the trail in the right hand, left arm pumping."""
+    return _compose(arm, frames, name, lambda ph: _run_body(ph, GAIT_PLAIN), _arms_tool(arm, "SHOVEL", True))
 
 
-def make_pickaxe_run(arm, frames=24, name="RUN_PICKAXE"):
-    return _compose(arm, frames, name, lambda ph: _run_body(ph, False), _arms_tool(arm, "PICKAXE", True), hop_amp=0.06)
+def make_pickaxe_run(arm, frames=18, name="RUN_PICKAXE"):
+    """A plain run, pickaxe choked up in the right hand, head forward, left arm pumping."""
+    return _compose(arm, frames, name, lambda ph: _run_body(ph, GAIT_PLAIN), _arms_tool(arm, "PICKAXE", True))
 
 
 ACTIONS = {"IDLE": (make_idle, None), "RUN": (make_run_cycle, None), "HOLD_SHOVEL": (make_shovel_hold, "SHOVEL"),
            "HOLD_PICKAXE": (make_pickaxe_hold, "PICKAXE"), "RUN_SHOVEL": (make_shovel_run, "SHOVEL"),
            "RUN_PICKAXE": (make_pickaxe_run, "PICKAXE")}
-
 
 
 # ------------------------------------------------------------------------------------------------------ export

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Rig check: crew worker (bare or in the hazmat suit) through the IDLE, RUN, HOLD_* and RUN_* actions.
     python render_rig.py -- <output_dir>
-env: SUIT=1 wear the suit | ACTIONS=IDLE,RUN,... | VIEWS=three_q,front,side | FRAMES=0,6,12,... (stills sheet)
+env: SUIT=1 wear the suit | ACTIONS=IDLE,RUN,... | VIEWS=three_q,front,side,... (see VIEWS) | FRAMES=0,6,12,...
      VIDEO=1 render every frame and encode <ACTION>_<view>.mp4 (looped twice) | RES=360x480 | SAMPLES=16
      EXPORT=<dir> write one FBX clip per action
 """
@@ -20,7 +20,10 @@ from render_worker import backdrop  # noqa: E402
 
 VIEWS = {"front": ((0.0, 5.0, 1.0), (0, 0, 0.95), 52), "three_q": ((-3.3, 3.6, 1.15), (0, 0, 0.92), 52),
          "side": ((5.2, 0.0, 1.0), (0, 0, 0.95), 52), "side_r": ((-4.6, 0.0, 1.0), (0, 0, 0.92), 52),
-         "back": ((0.0, -5.0, 1.0), (0, 0, 0.95), 52), "legs": ((2.4, 3.0, 0.55), (0, 0, 0.45), 52), "legs_b": ((-2.0, -2.6, 0.55), (0, 0, 0.45), 52), "shoulders": ((0.0, 2.6, 1.45), (0, 0, 1.3), 60), "sh_side": ((-2.4, 0.4, 1.45), (0, 0, 1.25), 60), "sh_back": ((0.0, -2.6, 1.45), (0, 0, 1.3), 60)}
+         "back": ((0.0, -5.0, 1.0), (0, 0, 0.95), 52), "legs": ((2.4, 3.0, 0.55), (0, 0, 0.45), 52),
+         "legs_b": ((-2.0, -2.6, 0.55), (0, 0, 0.45), 52), "shoulders": ((0.0, 2.6, 1.45), (0, 0, 1.3), 60),
+         "sh_side": ((-2.4, 0.4, 1.45), (0, 0, 1.25), 60), "sh_back": ((0.0, -2.6, 1.45), (0, 0, 1.3), 60),
+         "flank_r": ((-1.9, -0.5, 0.95), (0, 0, 0.8), 55), "flank_l": ((1.9, -0.5, 0.95), (0, 0, 0.8), 55)}
 
 
 def main():
