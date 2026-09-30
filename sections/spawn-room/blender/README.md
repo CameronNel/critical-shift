@@ -206,3 +206,23 @@ Counted per mesh (faces split into triangles), suit on and skin regions hidden:
 lod 2 (body remesh 3,300, coarse head/hood, fewer segments, no bevels on small parts) looks faceted up close, so it is
 for distance only. lod 1 is nearly indistinguishable from lod 0 but saves only about 16 percent. Not yet measured on a
 3050 or in Unity, and no LOD switching distances are set.
+
+## Crew worker rig and run cycle (first pass)
+
+`character_rig.py` builds a Unity Humanoid-compatible skeleton (Root, Hips, Spine, Chest, Neck, Head, shoulders, arms,
+hands, legs, feet; Unity naming so the Avatar auto-maps; A-pose rest; no Toes bone because the feet are toeless) plus
+two extra bones for secondary motion, `Belly` (jiggle) and `Pack` (backpack lag). Skin weights are computed once with
+bone heat on the welded body and copied to every piece by position, so region seams and outfit pieces deform together
+(checked: 201 seam vertices, largest separation 0 at frame 4 of the run). The head, hood, visor and face decals are
+rigid to `Head`; long suit parts (belt, straps, boot shafts and soles, tank) are rigid to one bone; small patches follow
+the fabric.
+
+`make_run_cycle` makes a looping, in-place 24-frame run: heavy foot plants (the hips are re-keyed so the lower foot
+touches the ground every frame), hip waddle and bounce, exaggerated arm swing, head bob, belly and pack lag.
+`export_fbx` exports the rigged worker and the RUN action for Unity. `render_rig.py` renders posed frames
+(`SUIT=1` for the suited worker, `GIF=1` for a loop, `EXPORT=<path>` to write the FBX).
+
+Known limits: not imported into Unity (Humanoid Avatar mapping untested); no idle, walk, jump or grab animations; a few
+small suit patches lift slightly off the fabric in extreme poses; the coverall's ankle bunching looks crumpled at
+full knee bend; feet slide slightly because the cycle is in place with no root motion; face decals are rigid, so
+expressions do not animate.
