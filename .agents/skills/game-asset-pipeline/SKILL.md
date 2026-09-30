@@ -45,10 +45,14 @@ animated assets also use [blender-animation](../blender-animation/SKILL.md).
    relevant, bones, clips and representative evaluated poses. Inspect re-import renders.
 3. Explain expected importer differences such as split vertices or mesh partitioning;
    do not demand identical raw counts or silently accept missing parts.
-4. When a working target is available and import is in scope, validate actual engine
-   import, bindings, materials, collision and representative Player behavior using
-   [unity-validation](../unity-validation/SKILL.md). Blender round-trip success is
-   not a substitute for this step. Otherwise record engine validation as blocked.
+4. When a working target is available and import is in scope, use
+   [unity-validation](../unity-validation/SKILL.md) to select an authorized asset-specific
+   validator for engine import, bindings, materials, collision and representative
+   Player behavior. Verify that its workspace, scene/build and assertions exercise
+   the changed asset. The stock WP-01 foundation runner does not import the map and
+   cannot pass these claims. Blender round-trip success is
+   not a substitute for this step. Missing tooling or asset-specific coverage makes
+   the affected engine acceptance Blocked, not Passed.
 5. Promote only through the existing reviewed section/map/runtime process. A delivery
    check cannot upgrade source art approval or advance a runtime production gate.
 

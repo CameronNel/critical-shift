@@ -10,11 +10,29 @@ package lock, OS/target/backend, activation and build modules. Keep credentials 
 commands recorded in PRs and logs. Source-only preparation and historical success are
 not evidence that the current revision has imported or built successfully.
 
-Use the native runner's disposable-copy mechanism when applicable. Preserve source
+Use an authorized validator's disposable-copy mechanism when applicable and confirm
+that its copied inputs actually include the changed content. Preserve source
 `.meta` identities, scenes and package settings. Do not let an editor upgrade or asset
 reimport silently rewrite the canonical checkout. Compare any intended serialized
 changes explicitly before promoting them. Never delete another session's lock files
 or run concurrent editor jobs on one project copy to evade project locking.
+
+## Foundation coverage is not asset acceptance
+
+At the inspected baseline, `runtime/tools/run_foundation.py` copies the foundation's
+`runtime/unity` project inputs and toolchain profile, uses foundation-only expected
+tests, and reports WP-01-only results. It does not import the map. Its native phases,
+including Player startup, cannot establish imported-asset, material, collider, binding,
+gameplay or visual acceptance. Keep this limit even when every foundation test passes.
+
+For asset/feature claims, identify a separately authorized validator and fixture that
+exercise the changed export/import revision, relevant scene or prefab, required logical
+bindings and actual behavior. Verify copied dependencies and material conversions,
+collider/serialization assertions and the target build when required. List the exact
+coverage and omissions before interpreting results; a broad suite name is not evidence.
+If no applicable validator exists, tests are Planned and acceptance is Blocked. Existing
+but unexecuted tests are NotRun. Do not present the foundation result as a fallback pass
+or expand its source/test catalogue without separate implementation authorization.
 
 ## Command-line pitfalls
 

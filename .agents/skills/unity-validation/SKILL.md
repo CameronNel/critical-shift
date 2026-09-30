@@ -23,8 +23,10 @@ the selected engine, renderer, backend or acceptance requirements. A folder name
 `unity` proves neither a complete project nor a successful native import.
 
 The inspected installation baseline contains an editor-free .NET verifier and optional
-native foundation runner. Re-read the runtime README and scripts to resolve current
-commands; do not assume that baseline paths, test inventories or results remain current.
+native foundation runner. That runner is WP-01-only: it does not import the map or
+validate asset-specific materials, colliders, bindings or visual gameplay. Re-read the
+runtime README and runner source to resolve current commands, coverage and evidence;
+do not assume baseline paths, test inventories or results remain current.
 Do not copy canonical domain/application code into a second Unity implementation.
 
 ## Choose the evidence layer
@@ -33,8 +35,16 @@ Do not copy canonical domain/application code into a second Unity implementation
   Do not run asset hydration, native project preparation or a game build needlessly.
 - Pure runtime rules: use the existing editor-free verification path and its negative
   controls. A passing offline NUnit run is not a Unity Test Runner or Player pass.
-- Native import, serialization, bindings or engine behavior: use the existing authorized
-  native runner in its disposable workspace with the pinned, already activated editor.
+- WP-01 foundation checks only: use the existing authorized foundation runner in its
+  disposable workspace with the pinned, already activated editor. Its passing result
+  establishes only its declared foundation checks, not imported-asset acceptance.
+- Asset import, material conversion, colliders, serialization, bindings or gameplay/
+  visual Player work: use an authorized asset/feature-specific validator. Trace the
+  changed source/export into the disposable workspace, imported asset, tested scene/
+  build and relevant assertions. The stock `run_foundation.py` is not that validator.
+  Missing required coverage makes the affected acceptance Blocked; absent tests are
+  Planned and existing unexecuted tests are NotRun. Do not extend the runner or create
+  tests merely to activate this skill; that implementation needs its own bounded scope.
 - Performance: profile a representative target build using the existing V05 procedure,
   approved budgets and recorded hardware/settings. Do not infer FPS from code review.
 
