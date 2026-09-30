@@ -29,9 +29,8 @@ import math
 
 import bmesh
 import bpy
-from mathutils import Matrix, Quaternion, Vector
+from mathutils import Matrix, Vector
 
-import character_regions as CR
 import character_tools as CT
 import character_worker as CW
 
@@ -378,6 +377,11 @@ def _face_classes(bm, weight_at, mw, side_only=False):
     for f in bm.faces:
         c = mw @ f.calc_center_median()
         k = "core" if side_only else _limb_key(weight_at(c))
+        if k.startswith("arm") and c.z < Z_ARM:   # only the sleeve is arm; the web it was fused by stays on the flank
+            side = "Left" if k == "armL" else "Right"
+            d = min(_seg_dist(c, *SEGMENTS[side + b]) for b in ("UpperArm", "LowerArm", "Hand"))
+            if d > 0.10 + 0.06 * _ss(0.70, 0.95, c.z):
+                k = "core"
         if (c.z < Z_LEG or side_only) and not k.startswith("arm"):
             k = "legL" if c.x > 0 else "legR"
         elif k.startswith("leg"):
@@ -388,7 +392,7 @@ def _face_classes(bm, weight_at, mw, side_only=False):
         new = list(cls)
         for i, ns in enumerate(nbr):
             ks = [cls[j] for j in ns]
-            best = max(set(ks), key=ks.count) if ks else cls[i]
+            best = max(sorted(set(ks)), key=ks.count) if ks else cls[i]
             if best != cls[i] and ks.count(best) * 2 > len(ks):
                 new[i] = best
         cls = new
@@ -409,7 +413,7 @@ def _face_classes(bm, weight_at, mw, side_only=False):
             if len(comp) < 40:
                 ks = [cls[n] for j in comp for n in nbr[j] if cls[n] != cls[i]]
                 if ks:
-                    k = max(set(ks), key=ks.count)
+                    k = max(sorted(set(ks)), key=ks.count)
                     for j in comp:
                         cls[j] = k
     return cls
@@ -453,10 +457,11 @@ def _chains(edges):
         a, b = e.verts
         adj.setdefault(a, []).append(b)
         adj.setdefault(b, []).append(a)
+    order = sorted(adj, key=lambda v: v.co.to_tuple())   # a fixed order, so every build cuts the same way
     left, out = set(adj), []
     while left:
-        ends = [v for v in left if len(adj[v]) == 1]
-        v = ends[0] if ends else next(iter(left))
+        ends = [v for v in order if v in left and len(adj[v]) == 1]
+        v = ends[0] if ends else next(v for v in order if v in left)
         ch = [v]
         left.discard(v)
         while True:
@@ -467,6 +472,51 @@ def _chains(edges):
             left.discard(nxt[0])
         out.append(ch)
     return out
+
+
+def _tuck_arm_flaps(bm, lay, mw):
+    """Where the arm was fused to the flank the cut leaves flaps of the shared web: on the arm they stand out towards
+    where the hip was (torn claws beside the head once the arm is raised), on the flank they bulge where the arm was.
+    Pull arm vertices back onto the sleeve's own radius and push flank vertices out of the space the arm occupied (both
+    fading out towards the armpit, where the arm really does join the body)."""
+    mwi = mw.inverted()
+    core = _CLS.index("core")
+
+    def own(v, k):
+        return v.link_faces and all(f[lay] == k for f in v.link_faces)
+
+    for side, sx in (("Left", 1), ("Right", -1)):
+        k = _CLS.index("armL" if sx == 1 else "armR")
+        segs = [SEGMENTS[side + b] for b in ("UpperArm", "LowerArm", "Hand")]
+
+        def nearest(p):
+            """(distance, closest point) from p to this arm's bones at rest."""
+            best = None
+            for a, b in segs:
+                ab = b - a
+                q = a + ab * max(0.0, min(1.0, (p - a).dot(ab) / ab.length_squared))
+                if best is None or (p - q).length < best[0]:
+                    best = ((p - q).length, q)
+            return best
+        rows = [(v, mw @ v.co) for v in bm.verts if own(v, k) and (mw @ v.co).z < Z_ARM]
+        rows = [(v, p) + nearest(p) for v, p in rows]
+        if not rows:
+            continue
+        ds = sorted(r[2] for r in rows)
+        rad = ds[int(len(ds) * 0.7)]                # the sleeve's radius, from the arm's own vertices
+        for v, p, d, q in rows:
+            if d > rad:
+                nd = d - (d - rad) * 0.85 * _ss(Z_ARM, Z_ARM - 0.12, p.z)
+                v.co = mwi @ (q + (p - q) * (nd / d))
+        clear = rad + 0.03                          # the flank: out of the space the hanging arm took
+        for v in bm.verts:
+            p = mw @ v.co
+            if not own(v, core) or p.z >= Z_ARM or p.x * sx < 0.10:
+                continue
+            d, q = nearest(p)
+            if d < clear:
+                nd = d + (clear - d) * _ss(Z_ARM, Z_ARM - 0.12, p.z)
+                v.co = mwi @ (q + (p - q) * (nd / max(d, 1e-4)))
 
 
 def _separate_limbs(o, weight_at, mw, side_only=False):
@@ -495,6 +545,8 @@ def _separate_limbs(o, weight_at, mw, side_only=False):
         if a != b and ({a, b} == {"legL", "legR"} or (z < Z_ARM and "arm" in a + b)):
             cut.append(e)
     bmesh.ops.split_edges(bm, edges=cut)
+    if not side_only:
+        _tuck_arm_flaps(bm, lay, mw)
     groups = {}
     for e in bm.edges:
         if e.is_boundary and key(e) not in old_open:
@@ -523,7 +575,7 @@ def _separate_limbs(o, weight_at, mw, side_only=False):
     vcls = {}
     for v in bm.verts:
         ks = [_CLS[f[lay]] for f in v.link_faces]
-        vcls[v.index] = max(set(ks), key=ks.count) if ks else "core"
+        vcls[v.index] = max(sorted(set(ks)), key=ks.count) if ks else "core"
     fcls = [_CLS[f[lay]] for f in bm.faces]
     tree = BVHTree.FromBMesh(bm)
     bm.to_mesh(o.data)
@@ -538,19 +590,22 @@ def _separate_limbs(o, weight_at, mw, side_only=False):
     return vcls, near
 
 
-def _restricted(weight_at, p, key):
+def _restricted(weight_at, p, key, hood=None):
     """Weights at p confined to limb `key` where the suit body was cut (below the crotch for the legs, below the armpit
-    for the arms and flank), fading back to the plain weights where the cut ends."""
+    for the arms and flank), fading back to the plain weights where the cut ends. `hood` (centre, radius): fabric under
+    the rigid hood never follows the arm, or a raised arm pulls it out through the hood."""
     side = {"L": "Left", "R": "Right"}.get(key[-1], "")
     if key.startswith("leg") and (p.x > 0) != (side == "Left"):
         p = Vector((-p.x, p.y, p.z))           # a face of this leg that sits over the midline: use this leg's weights
     w = weight_at(p)
     r_leg = _ss(Z_LEG, Z_LEG - 0.06, p.z)
     r_arm = _ss(Z_ARM, Z_ARM - 0.08, p.z)
+    if hood is not None and not key.startswith("arm"):
+        r_arm = max(r_arm, _ss(hood[1] + 0.06, hood[1] - 0.02, (p - hood[0]).length))
     if key.startswith("arm"):
         r = r_arm
         keep = {n: x for n, x in w.items() if n.startswith(side) and n[len(side):] in _ARM_BONES}
-    else:                                      # flank and legs: the arm is cut free, so none of its weight below the armpit
+    else:                                      # flank and legs: the arm is cut free, so none of its weight
         if r_arm > 0.0:
             na = weight_at(p, no_arm=True)
             w = {n: (1 - r_arm) * w.get(n, 0.0) + r_arm * na.get(n, 0.0) for n in set(w) | set(na)}
@@ -568,9 +623,9 @@ def _restricted(weight_at, p, key):
 
 
 def _kit_mode(pts, near):
-    """How a SUIT_KIT island is skinned: "Pack" (rides the backpack), "follow" (anything lying flat on the fabric: patches,
-    piping, straps, bands; follows it vertex by vertex), "piece" (a small raised item that moves as one piece with the
-    fabric under it) or "rigid" (a long raised hard part such as the belt or a sole, rigid to one bone)."""
+    """How a SUIT_KIT island is skinned: "Pack" (rides the backpack), "follow" (anything lying flat on the fabric:
+    patches, piping, straps; follows it vertex by vertex), "piece" (a band round a leg or a small raised item: moves as
+    one piece with the fabric under it) or "rigid" (a long raised hard part such as the belt or a sole, one bone)."""
     ext = max(max(q[a] for q in pts) - min(q[a] for q in pts) for a in range(3))
     c = sum(pts, Vector()) / len(pts)
     behind = sum(1 for q in pts if q.y < -0.19 and 0.68 < q.z < 1.25 and abs(q.x) < 0.30) / len(pts)
@@ -590,8 +645,8 @@ def _kit_mode(pts, near):
 
 
 def _densify(o, keep, max_len=0.03):
-    """Subdivide the long edges of the islands `keep` selects (by vertex list) so a strap or patch that follows the fabric
-    bends with it instead of cutting across the curve in straight spikes."""
+    """Subdivide the long edges of the islands `keep` selects (by vertex list) so a strap or patch that follows the
+    fabric bends with it instead of cutting across the curve in straight spikes."""
     mw = o.matrix_world
     tagged = set()
     for isl in _islands(o.data):
@@ -608,7 +663,8 @@ def _densify(o, keep, max_len=0.03):
             for v in bm.verts:
                 if not v[lay] and any(e.other_vert(v)[lay] for e in v.link_edges):
                     v[lay] = 1
-        long_edges = [e for e in bm.edges if e.verts[0][lay] and e.verts[1][lay] and e.calc_length() * mw.median_scale > max_len]
+        long_edges = [e for e in bm.edges
+                      if e.verts[0][lay] and e.verts[1][lay] and e.calc_length() * mw.median_scale > max_len]
         if not long_edges:
             break
         bmesh.ops.subdivide_edges(bm, edges=long_edges, cuts=1, use_grid_fill=True)
@@ -621,6 +677,12 @@ def skin_worker(root, arm):
     weight_at = _make_weight_fn(root, arm)
     meshes = sorted((o for o in root.children_recursive if o.type == "MESH"), key=lambda o: o.name != "SUIT_BODY")
     near = None
+    hood = None
+    for o in meshes:
+        if o.name == "SUIT_HOOD":                  # rigid to the head: fit a sphere to it
+            pts = [o.matrix_world @ v.co for v in o.data.vertices]
+            c = sum(pts, Vector()) / len(pts)
+            hood = (c, sum((q - c).length for q in pts) / len(pts))
     n_meshes = 0
     for o in meshes:
         head_rigid = o.parent is not None and o.parent.name.endswith("_HEAD_PIVOT")
@@ -639,9 +701,9 @@ def skin_worker(root, arm):
             """Weights for a point on this mesh: its own class on a cut mesh, or class `k` (the class of the suit under
             a kit island, so a pocket on the flank does not leave with the arm)."""
             if vcls is not None:
-                return _restricted(weight_at, p, vcls[i])
+                return _restricted(weight_at, p, vcls[i], hood)
             if k is not None:
-                return _restricted(weight_at, p, k)
+                return _restricted(weight_at, p, k, hood)
             return weight_at(p)
         if o.name == "SUIT_KIT" and near is not None:
             _densify(o, lambda pts: _kit_mode(pts, near) == "follow")
@@ -649,8 +711,9 @@ def skin_worker(root, arm):
                 pts = [mw @ o.data.vertices[i].co for i in isl]
                 mode = _kit_mode(pts, near)
                 ks = [near(q, 0.05)[0] for q in pts if q.z < Z_ARM and near(q, 0.05)[1] is not None]
-                k = max(set(ks), key=ks.count) if ks else None      # one class per island: the arm and flank (and the
-                if mode == "follow":                                 # two legs) coincide at rest where they were fused
+                # one class per island: the arm and flank (and the two legs) coincide at rest where they were fused
+                k = max(sorted(set(ks)), key=ks.count) if ks else "core"
+                if mode == "follow":
                     for i, q in zip(isl, pts):
                         fixed[i] = w_at(q, k=k)
                     continue
@@ -874,11 +937,11 @@ def _loop(keys, t):
     return _hermite(ks, t % 1.0)[0]
 
 
-# Run gaits, per leg phase p (0 = foot strike). Stance (p < duty): the foot is planted and slides back at treadmill speed
-# from `stride[0]` to `stride[1]` (flat-ankle y), landing a little heel first and rolling onto the toe. Swing keys
+# Run gaits, per leg phase p (0 = foot strike). Stance (p < duty): the foot is planted and slides back at treadmill
+# speed from `stride[0]` to `stride[1]` (flat-ankle y), landing a little heel first and rolling onto the toe. Swing keys
 # (p, flat-ankle y, sole clearance, pitch): toe-off, heel kicked up behind, knee drive, reach, then the foot pulls back
-# into the strike. `hips` (per step, u = 0 at a strike): low at mid-stance, high in the flight phase, so one foot at most
-# is ever on the floor. Everything is in metres and degrees for this 0.72 m-legged worker.
+# into the strike. `hips` (per step, u = 0 at a strike): low at mid-stance, high in the flight phase, so one foot at
+# most is ever on the floor. Everything is in metres and degrees for this 0.72 m-legged worker.
 GAIT_PLAIN = dict(strides=1, duty=0.36, stride=(0.07, -0.25), land=6.0, push=24.0, width=0.095,
                   swing=[(0.45, -0.31, 0.06, -38), (0.56, -0.26, 0.16, -30), (0.68, -0.08, 0.21, -10),
                          (0.80, 0.10, 0.17, 6), (0.90, 0.17, 0.05, 10)],
@@ -980,7 +1043,8 @@ def _run_body(ph, g):
     lean, yaw, roll, wad = g["lean"], g["yaw"], g["roll"], g["waddle"]
     D = {"Root": Matrix.Identity(3)}
     D["Hips"] = _rot("Z", yaw * c1) @ _rot("Y", -roll * st) @ _rot("X", lean * 0.4)
-    D["Spine"] = D["Hips"] @ _rot("Z", -yaw * 0.7 * c1) @ _rot("Y", (roll + wad) * 0.6 * st) @ _rot("X", lean * 0.3 - 1.5 * sq)
+    D["Spine"] = (D["Hips"] @ _rot("Z", -yaw * 0.7 * c1) @ _rot("Y", (roll + wad) * 0.6 * st)
+                  @ _rot("X", lean * 0.3 - 1.5 * sq))
     D["Chest"] = D["Spine"] @ _rot("Z", -yaw * 0.6 * c1) @ _rot("Y", wad * 0.4 * st) @ _rot("X", lean * 0.3 - 1.5 * sq)
     D["Head"] = (_rot("Z", 0.15 * yaw * c1) @ _rot("Y", 0.3 * wad * st)
                  @ _rot("X", -g["nod"] * math.cos(tp * (u - 0.38))))
@@ -1013,7 +1077,6 @@ def _arm_neutral(arm, side, sgn, ph, D, swing=0.0, bend=14.0):
     """Arm hanging by the side. `swing` (degrees, + forward) and `bend` (elbow, forward) pose it; used for idle and for
     the free arm while running."""
     ch = D["Chest"]
-    tp = 2 * math.pi
     D[side + "Shoulder"] = ch
     fw = math.sin(math.radians(swing))
     up_dir = ch @ Vector((sgn * 0.13, fw, -math.cos(math.radians(swing))))
@@ -1034,45 +1097,57 @@ def _arms_idle(arm):
     return arms
 
 
-def _arms_cheer(arm):
-    """\\o/ : both arms straight up beside the head, mittens waving a little (mixed harmonics, arms out of step), so it
-    looks lively but repeats every cycle."""
+# \\o/ arms: upper arm `spread` degrees out from the chest's up axis, forearm `elbow` degrees further out (negative
+# bends it back up), shoulders shrugged `shrug` degrees, hand `flick` degrees. The hood is big, so the upper arm must
+# splay wide enough for the sleeve to pass outside it; the forearm then turns up beside the head.
+CHEER = dict(spread=48.0, spread_amp=(6.0, 3.0), elbow=-12.0, elbow_amp=(7.0, 3.0), shrug=4.0, flick=8.0)
+
+
+def _arms_cheer(arm, c=None):
+    """\\o/ : both arms up beside the head, mittens waving a little (mixed harmonics, arms out of step), so it looks
+    lively but repeats every cycle."""
     tp = 2 * math.pi
+    c = c or CHEER
 
     def arms(ph, D, ev, chest_def):
         ch = D["Chest"]
         for side, sgn in (("Left", 1), ("Right", -1)):
             off = 0.0 if sgn == 1 else 0.37
-            spread = 36 + 6 * math.sin(tp * (ph + off + 0.1)) + 3 * math.sin(tp * (3 * ph + off))
+            spread = (c["spread"] + c["spread_amp"][0] * math.sin(tp * (ph + off + 0.1))
+                      + c["spread_amp"][1] * math.sin(tp * (3 * ph + off)))
             fwd = 0.06 * math.sin(tp * (2 * ph + off + 0.3))
-            el = 10 + 7 * math.sin(tp * (3 * ph + off + 0.25)) + 3 * math.sin(tp * (2 * ph + off))   # always outward
+            el = (c["elbow"] + c["elbow_amp"][0] * math.sin(tp * (3 * ph + off + 0.25))
+                  + c["elbow_amp"][1] * math.sin(tp * (2 * ph + off)))
             sp, e = math.radians(spread), math.radians(el)
-            D[side + "Shoulder"] = ch @ _rot("Y", -sgn * 14)
-            D[side + "UpperArm"] = _aim_bone(arm, side + "UpperArm", ch @ Vector((sgn * math.sin(sp), fwd, math.cos(sp))))
+            D[side + "Shoulder"] = ch @ _rot("Y", -sgn * c["shrug"])
+            upper = ch @ Vector((sgn * math.sin(sp), fwd, math.cos(sp)))
+            D[side + "UpperArm"] = _aim_bone(arm, side + "UpperArm", upper)
             fa = ch @ Vector((sgn * math.sin(sp + e), fwd * 1.5, math.cos(sp + e)))
             D[side + "LowerArm"] = _aim_bone(arm, side + "LowerArm", fa)
-            fl = math.radians(sgn * 8 * math.sin(tp * (4 * ph + off)))
-            D[side + "Hand"] = _aim_bone(arm, side + "Hand", ch @ Vector((sgn * math.sin(sp + e + fl), 0.0, math.cos(sp + e + fl))))
+            fl = math.radians(sgn * c["flick"] * math.sin(tp * (4 * ph + off)))
+            hand = ch @ Vector((sgn * math.sin(sp + e + fl), 0.0, math.cos(sp + e + fl)))
+            D[side + "Hand"] = _aim_bone(arm, side + "Hand", hand)
         return None
     return arms
 
 
 # Tool in the right hand. `grip`: where the hand holds it (chest space at rest), `shaft`: direction of the tool's +Z
-# (towards the handle top / the pick head), `side`: where the tool's +X points (shovel blade width / pick head bar), `at`:
-# the point on the shaft (tool-local z) that sits in the fist.
+# (towards the handle top / the pick head), `side`: where the tool's +X points (shovel blade width / pick head bar),
+# `at`: the point on the shaft (tool-local z) that sits in the fist.
 TOOL_HOLD = {                                     # standing, first-person style: low at the right hip
     "SHOVEL": dict(grip=(-0.28, 0.26, 0.80), shaft=(-0.22, -0.78, 0.58), side=(1, 0, 0), at=0.24),  # blade forward-down
     "PICKAXE": dict(grip=(-0.27, 0.26, 0.80), shaft=(0.10, 0.95, 0.25), side=(0, 0, 1), at=-0.14),  # head forward
 }
 TOOL_RUN = {                                      # running: carried at the trail, low by the right hip, pointing ahead
     "SHOVEL": dict(grip=(-0.31, 0.10, 0.81), shaft=(0.10, -0.97, 0.14), side=(1, 0, 0), at=-0.32),   # blade forward
-    "PICKAXE": dict(grip=(-0.30, 0.10, 0.82), shaft=(-0.12, 0.95, 0.30), side=(0, 0, 1), at=0.40),   # choked up, head forward
+    "PICKAXE": dict(grip=(-0.30, 0.10, 0.82), shaft=(-0.12, 0.95, 0.30), side=(0, 0, 1), at=0.40),   # choked up
 }
 _HAND_GRIP = 0.065                                # wrist to the middle of the mitten
 
 
 def _tool_matrix(t):
-    return Matrix.Translation(Vector(t["grip"])) @ _aim(t["shaft"], t["side"]).to_4x4() @ Matrix.Translation((0, 0, -t["at"]))
+    return (Matrix.Translation(Vector(t["grip"])) @ _aim(t["shaft"], t["side"]).to_4x4()
+            @ Matrix.Translation((0, 0, -t["at"])))
 
 
 def _arms_tool(arm, kind, running, gait=GAIT_PLAIN):
@@ -1088,8 +1163,8 @@ def _arms_tool(arm, kind, running, gait=GAIT_PLAIN):
         M = chest_def @ Mrest
         if running:
             g = M @ Vector((0, 0, TOOL_RUN[kind]["at"]))
-            M = (Matrix.Translation(g + Vector((0.0, -0.035 * pump, 0.008 * math.cos(tp * 2 * q)))) @ _rot("X", 5 * pump).to_4x4()
-                 @ Matrix.Translation(-g) @ M)
+            swing = Matrix.Translation(g + Vector((0.0, -0.035 * pump, 0.008 * math.cos(tp * 2 * q))))
+            M = swing @ _rot("X", 5 * pump).to_4x4() @ Matrix.Translation(-g) @ M
         if running:
             _arm_neutral(arm, "Left", 1, ph, D, swing=36 * pump, bend=78 + 14 * pump)
         else:
@@ -1101,7 +1176,8 @@ def _arms_tool(arm, kind, running, gait=GAIT_PLAIN):
         wrist = grip
         for _ in range(2):                        # aim the wrist so the mitten, not the wrist, closes on the grip
             Du, Dl = _ik_arm(arm, "Right", S, wrist, pole)
-            fore = Dl @ (arm.data.bones["RightLowerArm"].tail_local - arm.data.bones["RightLowerArm"].head_local).normalized()
+            lb = arm.data.bones["RightLowerArm"]
+            fore = Dl @ (lb.tail_local - lb.head_local).normalized()
             wrist = grip - fore * _HAND_GRIP
         D["RightUpperArm"], D["RightLowerArm"], D["RightHand"] = Du, Dl, Dl
         return M

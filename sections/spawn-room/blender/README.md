@@ -218,8 +218,12 @@ glutes and crotch riding the pelvis), so region seams and outfit pieces deform t
 The suit body is one fused mesh: the legs touch from the knee to the crotch and each inner arm touches the flank below
 the armpit. `_separate_limbs` cuts those creases open along a smoothed limb classification and closes each side with its
 own wall (a strip of triangles between the front and back cut lines), and each side is then weighted to its own limb
-only (the flank gets torso weights computed as if the arm were not there). So a raised arm or a striding leg no longer
-drags the shared fabric into torn slivers or opens holes. The two boot shells are kept to their own foot the same way.
+only (the flank gets torso weights computed as if the arm were not there). Only faces within the sleeve's own radius
+count as arm; the web that joined arm and flank stays on the flank, and what is left of it is tucked back (arm vertices
+onto the sleeve radius, flank vertices out of the space the hanging arm took), so neither a claw on the raised arm nor
+a bulge on the flank remains. Fabric under the rigid hood never follows the arm, so a raised arm cannot pull it out
+through the hood. So a raised arm or a striding leg no longer drags the shared fabric into torn slivers or opens holes.
+The two boot shells are kept to their own foot the same way.
 Kit on the suit: pieces lying flat on the fabric (patches, piping, shoulder straps) follow it vertex by vertex with long
 edges subdivided so they bend with it; bands round the legs and small raised items move as one piece; long hard parts
 (belt, soles, tank) are rigid to one bone; everything behind the back rides `Pack`. Head, hood, visor and face decals
@@ -227,9 +231,10 @@ are rigid to `Head`.
 
 Actions (`RIG.ACTIONS`), all looping in place at 24 fps, frame 0 equal to the last frame:
 - `IDLE` (48 frames): standing, arms hanging neutral, breathing and a slow weight shift.
-- `RUN` (32 frames, two strides): cartoon run with the arms up beside the head like \o/, mittens waving on mixed
-  1x/2x/3x harmonics with the arms out of step (looks random, repeats every loop), bouncy flight phase, waddle, head nod,
-  belly and pack lag.
+- `RUN` (32 frames, two strides): cartoon run with the arms up beside the head like \o/ (upper arms splayed wide so
+  the sleeves pass outside the big hood, forearms turned up; tuned in `CHEER`), mittens waving on mixed 1x/2x/3x/4x
+  harmonics with the arms out of step (looks random, repeats every loop), bouncy flight phase, waddle, head nod, belly
+  and pack lag.
 - `HOLD_SHOVEL`, `HOLD_PICKAXE` (48 frames): first-person style, tool low in the right hand at the hip (shovel blade
   forward and down, gripped at the D-handle; pickaxe head forward, gripped near the butt), left arm hanging.
 - `RUN_SHOVEL`, `RUN_PICKAXE` (18 frames): a plain athletic run, tool carried at the trail in the right hand (shovel
@@ -250,7 +255,7 @@ frame plus a looped mp4, `RES=WxH`, `SAMPLES=N`, `HIDE=<object>`, `EXPORT=<dir>`
 Checked (headless bpy 5.0.1, Cycles CPU renders reviewed frame by frame, plus numeric checks): loops close exactly;
 planted feet do not slide or sink (the boot shell sits about 3 cm into the floor at rest, as in the unposed model);
 the run has a flight phase; the tools do not enter the body or the kit and stay above the floor; the mittens keep at
-least 2 cm from the hood and visor; no suit edge stretches more than about 5x in the runs, and what does stretch is
+least 2 cm from the hood and visor; no suit edge stretches more than about 5.5x in the runs, and what does stretch is
 fabric at the armpit and groin folds. All six FBX clips export.
 
 Known limits: not imported into Unity (Humanoid Avatar mapping and clip import untested). The arms are short next to
