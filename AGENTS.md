@@ -30,6 +30,12 @@ Also read [ENGINE_DECISION](design/ENGINE_DECISION.md), the relevant gameplay sp
 
 Read the global art/build authority under `design/` and the relevant section-local `AGENT_READ_FIRST.md`, scenery specification and production state. For runtime exports, also read the architecture plan's authoring-to-runtime boundary. Original visual source, licensed materials and art-review evidence are not dead runtime assets to be removed by an unused-code sweep.
 
+For Blender authoring, materials, lighting, rendering or visual QA, read the
+[shared headless skill](.agents/skills/blender-headless/SKILL.md). It routes to the
+existing authorities and tools; it does not replace them or relax section acceptance.
+Load its diagnostic references only as needed. Integration and cloud usage are in
+[the skill guide](design/blender-headless/README.md).
+
 ## Change and handoff rules
 
 Search for the existing implementation and consumers before adding a replacement. Establish one mutation owner, explicit lifetime and allowed dependencies. Migrate consumers and remove obsolete active paths; inspect serialized/dynamic references before deleting Unity code or assets.
