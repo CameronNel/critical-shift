@@ -170,3 +170,17 @@ The window-to-back-wall depth grew from 3.94 m to 5.92 m (glass at y -5.99, back
 The new rear volume sits outside the octagon shell (to about y -12.1, x -5.0..2.2). In the assembled map the reactor room is placed at (14.2, 46.5) rotated 180 degrees, so this bay lies at about x 12..19, y 57.3..58.7; `LAYOUT_A12.json` lists no placement or reserved volume there, but the cooling-plant footprint (placed at (-2.5, 63.2)) was not measured.
 
 Verified on the modified scene: sight lines unchanged from before (`verify_scene.py`: bank A and B 75% from the desk positions, pool water 52-61%), `clearance.py` 0 clashes, `verify_piping.py` 26 runs / 0 dangling / 0 unconnected ports, rays from inside the room pass through the opening to the new back wall, the hall wall above the room is intact (`cr2_chk.py`). The engine export (`engine/reactor_room_R1.glb`) has not been regenerated for this change.
+
+## Control room 1990s overhaul (`scripts/co1.py`, `scripts/co_mat.py`)
+
+Built on the deeper control room (back wall extended, see above). Removed: the modern monitors and keyboards, the storage lockers, the back-wall mimic panel and its gizmos, the cold ceiling panel and the old room lights. Added (collection `31 R2 CONTROL 1990`):
+
+- Three CRT terminals (two green phosphor, one amber) with desktop cases, keyboards, mice and pads, phosphor text, and a small coloured glow light each.
+- Desk clutter: push-button phone with coiled cord, banker's lamp (spot light), floppies and a disk box, notepad and pens, mugs, thermos, stapler, tape dispenser, calculator, in/out trays, framed photo, open shift binder, sticky notes.
+- A dot-matrix printer on a stand with a tractor-paper box and spilling printout.
+- A server rack (UPS, two disk arrays, switch, modem bank, tape drive, patch panel with hanging cables) with about 100 LEDs on twelve flickering materials plus two flickering glow lights.
+- A wall TV with a credenza, VCR, VHS tapes and speakers. The TV alternates on a 480-frame cycle between reactor telemetry (the picture is tinted by `REACTOR_STATE.stability`) and a propaganda broadcast; an area light in front of the TV takes its colour and intensity from the same cycle and stability, so the room takes on the picture's colour.
+- Five propaganda posters in the machine administration's voice (`THE MACHINE PROVIDES. YOU SUSTAIN.`, `YOUR SHIFT KEEPS THE LIGHTS ON`, `COMPLIANCE IS COMFORT.`, `QUESTIONS ARE INEFFICIENCY. TRUST THE OUTPUT.`, `REPORT NOTHING UNUSUAL.`), a corkboard with a roster, coat hooks with a hard hat and jacket, wall aircon with lines to the ceiling, ceiling vents, a smoke detector, an analogue wall clock, a filing cabinet with a boombox, a wastebasket and a dead plant. The old `SHIFT 04 - DO NOT LEAVE UNATTENDED` wall text was mirrored and is now corrected.
+- Lighting is dim and warm: three warm ceiling fixtures (the middle one flickers), the desk lamp, terminal and rack glows, and the TV light. TV, LEDs and screens are driven by Blender drivers on `frame` and the stability value; drivers do not survive the glTF export, so the engine export would carry a static state.
+
+Verified on the modified scene: `clearance.py` 0 clashes, `verify_piping.py` 26 runs / 0 dangling / 0 unconnected ports, `verify_scene.py` sight lines unchanged (bank A and B 75% from the desk positions, pool water 52-61%). Not done: engine export not regenerated; nothing measured in an engine; draw calls not measured (about 100 new objects); the aged plastic reads putty-grey rather than cream on purpose.
