@@ -42,6 +42,20 @@ NLA clips or camera motion, also read the
 It extends the shared headless workflow; static tasks do not need it.
 [Animation integration and provenance](design/blender-animation/README.md).
 
+## Focused production specialists
+
+Load only the specialist needed by the current task:
+- [UV and materials](.agents/skills/blender-uv-texturing/SKILL.md) for UVs,
+  atlases, decals, texture maps and baking, alongside the headless skill.
+- [Game asset delivery](.agents/skills/game-asset-pipeline/SKILL.md) for scoped
+  exports, round-trip checks, colliders, LODs and runtime binding evidence.
+- [Unity validation](.agents/skills/unity-validation/SKILL.md) for runtime
+  readiness, existing offline/native checks, builds and measured profiling.
+
+These extend the existing authorities; they do not install tools, select packages,
+change art direction or advance acceptance gates. See the
+[production skills guide](design/production-skills/README.md).
+
 ## Change and handoff rules
 
 Search for the existing implementation and consumers before adding a replacement. Establish one mutation owner, explicit lifetime and allowed dependencies. Migrate consumers and remove obsolete active paths; inspect serialized/dynamic references before deleting Unity code or assets.
