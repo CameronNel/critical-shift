@@ -1228,26 +1228,43 @@ def set_action(arm, name):
     arm.animation_data.action = bpy.data.actions[name]
 
 
-def export_fbx(root, arm, path, action=None, tools=("SHOVEL", "PICKAXE")):
-    """Export the rigged worker (armature, skinned meshes, optional tools) with one action as a Unity clip."""
+def export_fbx(root, arm, path, action=None, tools=None):
+    """Export the rigged worker (armature, skinned meshes) with one action as a Unity clip. The clip is baked over the
+    action's own frames (0..N, last equal to first, so it loops) and named after it. `tools`: hand tools to include;
+    by default only the one the action holds (none for IDLE and RUN)."""
+    sc = bpy.context.scene
+    old = (sc.frame_start, sc.frame_end, sc.name)
     if action:
         set_action(arm, action)
+        sc.frame_start, sc.frame_end = (int(f) for f in bpy.data.actions[action].frame_range)
+        sc.name = action                          # the FBX take, and so the Unity clip, is named after the scene
+    if tools is None:
+        held = ACTIONS.get(action, (None, None))[1] if action else None
+        tools = (held,) if held else ()
     view = bpy.context.view_layer
     for o in view.objects:
         o.select_set(False)
     arm.select_set(True)
+    shown = []
     for o in arm.children_recursive:
         if o.type != "MESH":
             continue
         if o.get("cs_tool"):
             if o["cs_tool"] in tools:
+                shown.append((o, o.hide_viewport, o.hide_render))
+                o.hide_viewport = o.hide_render = False   # a hidden object would be left out of the selection
                 o.select_set(True)
         elif not o.hide_render:
             o.select_set(True)
     view.objects.active = arm
-    bpy.ops.export_scene.fbx(filepath=path, use_selection=True, object_types={"ARMATURE", "MESH"}, add_leaf_bones=False,
-                             primary_bone_axis="Y", secondary_bone_axis="X", bake_anim=True,
-                             bake_anim_use_all_actions=False, bake_anim_use_nla_strips=False,
-                             bake_anim_simplify_factor=0.0, mesh_smooth_type="FACE", apply_unit_scale=True,
-                             apply_scale_options="FBX_SCALE_UNITS", path_mode="COPY", embed_textures=False)
+    try:
+        bpy.ops.export_scene.fbx(filepath=path, use_selection=True, object_types={"ARMATURE", "MESH"},
+                                 add_leaf_bones=False, primary_bone_axis="Y", secondary_bone_axis="X", bake_anim=True,
+                                 bake_anim_use_all_actions=False, bake_anim_use_nla_strips=False,
+                                 bake_anim_simplify_factor=0.0, mesh_smooth_type="FACE", apply_unit_scale=True,
+                                 apply_scale_options="FBX_SCALE_UNITS", path_mode="COPY", embed_textures=False)
+    finally:
+        sc.frame_start, sc.frame_end, sc.name = old
+        for o, hv, hr in shown:
+            o.hide_viewport, o.hide_render = hv, hr
     return path

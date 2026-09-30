@@ -248,7 +248,8 @@ two-bone IK to the tool grip (aimed so the mitten, not the wrist, closes on it);
 
 `character_tools.py` builds the shovel and pickaxe (origin at the right grip, shaft along +Z). `add_tools` skins them
 100% to the `Tool` bone and hides them; `show_tool` shows one. `export_fbx` exports the rigged worker and one action per
-file. `render_rig.py` renders posed frames: `SUIT=1`, `ACTIONS=...`, `VIEWS=` (three_q, front, side, side_r, back,
+file, baked over that action's own frames (0..N, the last equal to the first, so it loops), with the FBX take (Unity
+clip) named after the action and only the tool that action holds. `render_rig.py` renders posed frames: `SUIT=1`, `ACTIONS=...`, `VIEWS=` (three_q, front, side, side_r, back,
 shoulders, sh_side, sh_back, legs, legs_b, flank_r, flank_l), `FRAMES=0,4,...` for a contact sheet, `VIDEO=1` for every
 frame plus a looped mp4, `RES=WxH`, `SAMPLES=N`, `HIDE=<object>`, `EXPORT=<dir>` for the FBX clips.
 
