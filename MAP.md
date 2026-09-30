@@ -49,12 +49,14 @@ Older handoffs describe historical A04/A05 stages and may say connectors are unb
 
 ## Pull only what you need
 
-A full `git lfs pull` is about 7 GB, and most of that is superseded whole-map snapshots kept as provenance. To open or render the current map you need roughly 1.6 GB:
+A full `git lfs pull` is about 7 GB, and most of that is superseded whole-map snapshots kept as provenance. To open or render the current map you need 26 files, about 862 MB: the environment scene, the R17 preview cache it links, the 12 room modules and the 12 exterior libraries those load. The exact list is in [MINIMAL_PULL.txt](sections/facility-assembly/production/MINIMAL_PULL.txt):
 
 ```sh
 GIT_LFS_SKIP_SMUDGE=1 git clone <repo> && cd critical-shift
-git lfs pull --include="sections/facility-assembly/blender/facility_environment.blend,sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend,sections/facility-assembly/sources/*/module.blend,sections/facility-assembly/exteriors/**"
+git lfs pull --include="$(paste -sd, sections/facility-assembly/production/MINIMAL_PULL.txt)"
 ```
+
+Regenerate that list from the libraries the current scenes actually load (`blender/verify_map_checkout.py` records them) whenever a link changes. Do not use wildcards such as `exteriors/**`; they also pull historical revisions.
 
 The older snapshots (`facility_master_A05` to `A14`, `facility_walkthrough_*`, `facility_spawn_concept02_R15` and `R16`, `facility_spawn_material_preview_R15`) are the input chain of the `build_*`, `integrate_*` and `finalize_*` scripts and are cited by the audits, logs and hash records under `production/`. Do not delete them. Retiring any of them belongs in one deliberate archive PR agreed with the map owner, which also updates every script, manifest and handoff that names them. Git history keeps deleted files, but deleting does not shrink server storage.
 
@@ -68,7 +70,7 @@ Each room is one file, `sources/<room>/module.blend`, with one owner and one bra
 4. Keep the interface identical, and check it numerically against the old room: origin, outer bounding box, wall/door/window planes to within a few millimetres, the floor slab, and the ports in `LAYOUT_A12.json`. Yard fittings and connectors are placed in world coordinates and do not refit themselves.
 5. Run the room's own checks and record triangle and draw-call counts against the budget.
 6. PR 1 is the additive file. Wait for the automated review to finish before merging.
-7. PR 2 (promotion) swaps the overhaul in for `module.blend` and updates the manifest hash, `MAP.json` and `SOURCES.json`. It needs an independent review, the step 4 numbers and a draw-call count under budget.
+7. PR 2 (promotion) swaps the overhaul in for `module.blend` and updates the room's own manifest hash (for the reactor, `MASTER_MANIFEST.json`) and `MAP.json` if entrypoints change. Do not edit `SOURCES.json`: its `source_sha256` values pin the frozen `accepted.blend` snapshots and `blender/verify_map_checkout.py` checks them, so writing a promoted module's hash there breaks checkout verification. Run `verify_map_checkout.py` after promotion. It needs an independent review, the step 4 numbers and a draw-call count under budget.
 8. The map owner relinks, refreshes the preview cache only if needed (never overwrite the R17 cache), and refits attachments.
 9. Render the room from `main` and check it in the assembled map before calling it done.
 
