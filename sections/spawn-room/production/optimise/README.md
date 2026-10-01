@@ -87,9 +87,9 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
 ## Not done / not claimed
 
 - No engine build or profiling: draw calls are a Blender estimate, not measured batches or frame time.
-- 29 materials remain against the room cap of 24 proposed in `design/MATERIAL_BUDGETS.md` on PR #59's branch (owner approval recorded there; not on `main` yet). The leftovers each have a one-off shader graph (locker steel,
+- 30 materials remain (visible; 31 in use counting the untouched copy for animated labels) against the room cap of 24 proposed in `design/MATERIAL_BUDGETS.md` on PR #59's branch (owner approval recorded there; not on `main` yet). The leftovers each have a one-off shader graph (locker steel,
   rubber, wood, bench timber, pressure metal, safety tread, glass, exposed plaster, V_ochre, the posters, TV screen,
-  amber signal and the three floors), so merging them would change the look and needs owner approval. Texture memory (12 x 2K images, about 50 MP, including 4 displacement maps)
+  amber signal, the three floors and the suit visor glass `SUIT_glass`, a blended-alpha material taken as is from the player character, which is the one added by the hero pass), so merging them would change the look and needs owner approval. Texture memory (12 x 2K images, about 50 MP, including 4 displacement maps)
   is not reduced.
 - Door, hatch and interaction assets, support-contact targets and anything with its own properties are intentionally
   left unmerged, which is why the count is 762 and not lower.

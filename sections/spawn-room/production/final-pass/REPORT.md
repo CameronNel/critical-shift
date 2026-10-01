@@ -8,7 +8,7 @@ Scope: the canonical `sections/facility-assembly/sources/spawn-room/module.blend
 | Check | Result |
 |---|---|
 | `check_layout.py` (named objects, BVH route clearance) | 6 PASS, Geiger N/A by owner decision. `layout_check.json` |
-| `validate_contacts.py` (canonical module) | PASS, 224/224. `contact_validation_rerun.json` |
+| `validate_contacts.py` (canonical module, post-suit) | PASS, 208/208 (224/224 before the suit pass, which removed belongings and added hooks, docks and strip lights). `contact_validation_rerun.json` |
 | Fixed cameras, Cycles 1280x720, 64 spp | 11 renders in `renders/` (VALIDATE_Spawn, HallForward, LockerDoor, LockerReverse, BriefingDoor, Material_A, ExitReverse, Walk_A/B/C, Hero_A) |
 | Two independent fresh-context critics scoring against `RUBRIC.md` | 85/100 and 72/100. **Neither clears the 90 overall bar or the category floors.** |
 
