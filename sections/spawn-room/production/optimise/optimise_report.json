@@ -1,8 +1,8 @@
 {
  "after": {
-  "draw_call_estimate": 804,
-  "materials_in_use": 62,
-  "objects": 788,
+  "draw_call_estimate": 756,
+  "materials_in_use": 30,
+  "objects": 753,
   "triangles": 322722
  },
  "before": {
@@ -14,13 +14,89 @@
  "blender": "5.2.2 LTS",
  "coord_dependent_materials": 40,
  "curves_text_converted": 351,
+ "families": {
+  "BELONG_02_crew_photo_ink_on_paper": [
+   "BELONG_02_crew_photo_ink_on_paper",
+   "BRIEFING_crew_ink_on_paper"
+  ],
+  "FAM V13_HALL_dado": [
+   "V13_HALL_dado",
+   "V13_BRIEFING_dado",
+   "V13_LOCKER_dado",
+   "dado",
+   "V_ceiling_mineral",
+   "V13_LOCKER_V_ceiling_mineral"
+  ],
+  "FAM V13_HALL_wall": [
+   "V13_HALL_wall",
+   "V13_LOCKER_wall",
+   "V13_BRIEFING_wall",
+   "wall"
+  ],
+  "FAM V_graphite": [
+   "V_graphite",
+   "V_brushed",
+   "V_pod_satin_metal",
+   "V_reference_charcoal"
+  ],
+  "FAM V_utility_pale": [
+   "V_utility_pale",
+   "V_paper",
+   "V_cardboard",
+   "V_rustred"
+  ],
+  "FAM aged_socket": [
+   "aged_socket",
+   "paper_board",
+   "rubbed_leather"
+  ],
+  "FAM cotton_grey": [
+   "cotton_grey",
+   "cotton_cream",
+   "canvas_rust"
+  ],
+  "FAM darksteel": [
+   "darksteel",
+   "steel"
+  ],
+  "FAM floor_timber_0": [
+   "floor_timber_0",
+   "floor_timber_1",
+   "floor_timber_2",
+   "floor_timber_3",
+   "floor_timber_4"
+  ],
+  "FAM paper": [
+   "paper",
+   "plastic"
+  ],
+  "FAM rubbed_edge": [
+   "rubbed_edge",
+   "wear",
+   "board_enamel"
+  ],
+  "FAM rug_cream": [
+   "rug_cream",
+   "rug_border",
+   "rug_field"
+  ],
+  "FAM yellow": [
+   "yellow",
+   "red",
+   "blue",
+   "pale"
+  ]
+ },
+ "family_attributes": 4,
+ "family_polygons": 78910,
  "flat_materials": 129,
- "join_groups": 173,
+ "join_groups": 166,
  "lights": 14,
  "lights_dynamic_key": 4,
+ "lights_realtime_shadow_casters": 2,
  "materials_kept_unrewritten_for_curves_text": 1,
  "modifiers_baked_on_objects": 767,
- "objects_joined_away": 957,
+ "objects_joined_away": 985,
  "palette_polygons": 58753,
  "skipped": {
   "animated": 1,
