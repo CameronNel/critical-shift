@@ -417,6 +417,8 @@ def _liftable(ma):
     nt = ma.node_tree
     if nt is None or nt.animation_data:
         return False
+    if any(l.is_muted for l in nt.links) or any(n.mute for n in nt.nodes):
+        return False                                  # rebuilt links would come back unmuted: leave such materials alone
     for n in nt.nodes:
         if n.bl_idname == "ShaderNodeValToRGB":
             if len(n.color_ramp.elements) != 2 or n.color_ramp.interpolation not in ("LINEAR", "EASE") \
