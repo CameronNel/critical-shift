@@ -5,29 +5,36 @@
    "tris": 576
   },
   "ARCH": {
-   "faces": 7021,
-   "tris": 14050
+   "faces": 15433,
+   "tris": 31364
   },
   "MACH": {
-   "faces": 12285,
-   "tris": 23696
+   "faces": 30352,
+   "tris": 60200
   },
   "SHAFT": {
-   "faces": 92,
-   "tris": 248
+   "faces": 140,
+   "tris": 440
   },
   "PROPS": {
-   "faces": 4200,
-   "tris": 9004
+   "faces": 7596,
+   "tris": 13940
   }
  },
- "total_tris_before_cull": 47574,
- "total_tris": 43043,
- "faces_kept": 21655,
- "faces_culled": 1943,
+ "total_tris_before_cull": 106520,
+ "total_tris": 252618,
+ "bevelled_edges": {
+  "ARCH": 4477,
+  "MACH": 10100,
+  "SHAFT": 0,
+  "PROPS": 1146
+ },
+ "faces_kept": 44353,
+ "faces_culled": 9168,
  "materials": 8,
  "images": [
-  "turbine_atlas"
+  "turbine_atlas",
+  "turbine_atlas_orm"
  ],
- "objects": 35
+ "objects": 33
 }

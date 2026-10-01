@@ -18,7 +18,7 @@ OUT = os.path.abspath(argv[0] if argv else '/tmp/turbine_v2'); os.makedirs(OUT, 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc = bpy.context.scene; sc.unit_settings.system = 'METRIC'; sc.unit_settings.scale_length = 1.0
 sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'
-atlas = lib.make_atlas(os.path.join(OUT, 'turbine_atlas.png'))
+atlas, orm = lib.make_atlas(os.path.join(OUT, 'turbine_atlas.png'))
 
 def make_mats(grp):
     """Bake-ready PBR material (albedo atlas on UV0) and the emissive twin for lamps / screens."""
@@ -32,8 +32,12 @@ def make_mats(grp):
             e = nt.nodes.new('ShaderNodeEmission'); e.inputs['Strength'].default_value = 3.0; e.location = (300, 0)
             nt.links.new(tex.outputs[0], e.inputs['Color']); nt.links.new(e.outputs[0], out.inputs['Surface'])
         else:
-            p = nt.nodes.new('ShaderNodeBsdfPrincipled'); p.location = (300, 0); p.inputs['Roughness'].default_value = .82
-            nt.links.new(tex.outputs[0], p.inputs['Base Color']); nt.links.new(p.outputs[0], out.inputs['Surface'])
+            p = nt.nodes.new('ShaderNodeBsdfPrincipled'); p.location = (300, 0)
+            nt.links.new(tex.outputs[0], p.inputs['Base Color'])
+            ot = nt.nodes.new('ShaderNodeTexImage'); ot.image = orm; ot.name = 'ORM'; ot.location = (-250, -300); nt.links.new(uvn.outputs[0], ot.inputs[0])
+            sp = nt.nodes.new('ShaderNodeSeparateColor'); sp.location = (50, -300); nt.links.new(ot.outputs[0], sp.inputs[0])
+            nt.links.new(sp.outputs['Green'], p.inputs['Roughness']); nt.links.new(sp.outputs['Blue'], p.inputs['Metallic'])
+            nt.links.new(p.outputs[0], out.inputs['Surface'])
         return m
     return mk(f'M_{grp}', False), mk(f'M_{grp}_emissive', True)
 
@@ -100,6 +104,7 @@ def cull(objs):
     bm.to_mesh(em); bm.free()
     return kept, removed
 cull_kept, cull_removed = cull({k: o for k, o in objs.items()})
+bevelled = {k: lib.finalize(o) for k, o in objs.items() if k != 'OCC'}      # weld + bevel marked edges + shade by angle
 
 # animated shaft: origin on the rotation axis
 sh = objs.get('SHAFT')
@@ -116,7 +121,6 @@ n = 0
 for y in (4, 8, 12, 16, 20):
     for x in (-1.2, 4.6, 8.6):
         area(f'LAMP_{n:02d}', (x, y, 5.27), (1.1, .15), 190); n += 1
-for k, y in enumerate((7.55, 14.85, 22.6)): area(f'LAMP_bearing_{k}', (4.6, y, 3.68), (.28, .28), 70)
 area('LAMP_broken', (2.0, 20.5, 4.9), (1.1, .15), 160, (1, .8, .55)).rotation_euler = (.9, 0, 0)
 sun = bpy.data.lights.new('SUN_EAST', 'SUN'); sun.energy = 3.0; sun.angle = math.radians(1.2); sun.color = (1.0, .93, .80)
 so = bpy.data.objects.new('SUN_EAST', sun); coll.objects.link(so)
@@ -125,25 +129,26 @@ w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
 bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.55, .68, .86, 1); bg.inputs['Strength'].default_value = .7
 
 # ---- named review cameras ----
-CAMS = {   # all positions are in open aisle space (checked against the machinery footprints)
-    'CAM_A_entry_north':   ((0.0, 1.2, 1.7), (4.6, 14, 2.0)),
+CAMS = {   # all positions are in open aisle space
+    'CAM_A_entry_north':   ((0.0, 1.4, 1.65), (4.6, 14, 2.0)),
     'CAM_B_ne_high':       ((9.1, 23.0, 4.6), (-1, 6, 1.5)),
-    'CAM_C_east_aisle':    ((7.9, 12.5, 1.7), (2, 20, 2.2)),
-    'CAM_D_maintenance':   ((-3.2, 12.6, 1.7), (-.5, 19.5, 1.2)),
-    'CAM_E_controls':      ((2.2, 8.0, 1.7), (-3.8, 5.6, 1.6)),
+    'CAM_C_east_aisle':    ((7.9, 12.5, 1.65), (2, 20, 2.2)),
+    'CAM_D_maintenance':   ((-3.2, 12.6, 1.65), (-.5, 19.5, 1.2)),
+    'CAM_E_controls':      ((2.2, 8.0, 1.65), (-3.8, 5.6, 1.6)),
     'CAM_F_sw_high':       ((-2.4, 1.6, 4.2), (6, 16, 1.5)),
-    'CAM_G_generator':     ((8.3, 15.0, 1.7), (4.6, 18.5, 2.2)),
-    'CAM_H_roof':          ((1.0, 4.0, 1.7), (4.6, 14, 6.4)),
-    'CAM_I_east_services': ((8.9, 12.0, 1.6), (9.2, 17, 1.0)),
-    'CAM_J_north_back':    ((1.0, 22.3, 1.8), (5, 2, 2.4)),
+    'CAM_G_generator':     ((8.3, 15.0, 1.65), (4.6, 18.5, 2.2)),
+    'CAM_H_roof':          ((1.0, 4.0, 1.65), (4.6, 14, 6.4)),
+    'CAM_J_north_back':    ((1.0, 22.3, 1.7), (5, 2, 2.4)),
+    'CAM_K_door_d01':      ((0.2, 7.6, 1.65), (-2.4, .3, 1.7)),
+    'CAM_L_desk':          ((7.7, 19.8, 1.6), (8.4, 23.5, 1.0)),
 }
 for name, (loc, tgt) in CAMS.items():
-    cd = bpy.data.cameras.new(name); cd.lens = 22; co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
+    cd = bpy.data.cameras.new(name); cd.lens = 24; co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
     co.rotation_euler = (Vector(tgt) - Vector(loc)).to_track_quat('-Z', 'Y').to_euler()
 sc.camera = bpy.data.objects['CAM_A_entry_north']
 
 report = dict(group_stats={k: v for k, v in b.stats().items()}, total_tris_before_cull=sum(v['tris'] for v in b.stats().values()), total_tris=sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for k, o in objs.items() if k != 'OCC'),
-              faces_kept=cull_kept, faces_culled=cull_removed, materials=len(bpy.data.materials), images=[i.name for i in bpy.data.images], objects=len(bpy.data.objects))
+              bevelled_edges=bevelled, faces_kept=cull_kept, faces_culled=cull_removed, materials=len(bpy.data.materials), images=[i.name for i in bpy.data.images], objects=len(bpy.data.objects))
 print('REPORT', json.dumps(report))
 json.dump(report, open(os.path.join(OUT, 'build_report.json'), 'w'), indent=1)
 bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, 'turbine_room_v2_geo.blend'), compress=True)
