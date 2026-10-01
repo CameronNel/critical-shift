@@ -7,7 +7,7 @@ os.makedirs(out, exist_ok=True); sc = bpy.context.scene
 import os as _o
 _r = _o.environ.get('PREVIEW_RES', '1280x720' if mode == 'wb' else '960x540').split('x')
 sc.render.resolution_x, sc.render.resolution_y = int(_r[0]), int(_r[1])
-sc.view_settings.view_transform = 'Standard'; sc.view_settings.look = 'None'
+sc.view_settings.view_transform = 'Standard'; sc.view_settings.look = 'None'; sc.view_settings.exposure = float(_o.environ.get('PREVIEW_EXPOSURE', '0.8')) if '_o' in globals() else 0.0
 if mode == 'wb':
     sc.render.engine = 'BLENDER_WORKBENCH'; sh = sc.display.shading
     sh.light = 'STUDIO'; sh.color_type = 'TEXTURE'; sh.show_cavity = True; sh.cavity_type = 'BOTH'; sh.show_shadows = True; sh.shadow_intensity = .5

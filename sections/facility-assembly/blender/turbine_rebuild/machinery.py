@@ -75,32 +75,7 @@ def gauge_plate(b, x, y, z):
 def bypass(b, x, y, z):
     b.sweep([(x, y, z), (x + .45, y, z), (x + .45, y, z - .5)], .05, 'steel_mid', 16, .12); valve(b, (x + .45, y, z - .35), .08)
 
-# ---------- turbine train ----------
-def casing(b, y0, y1, r, body, band='orange', flange_r=None, nbolt=16):
-    L = y1 - y0; yc = (y0 + y1) / 2; fr = flange_r or r + .1
-    b.cyl((CX, yc, AZ), r, L - .2, body, 'Y', 48)
-    for y, s in ((y0 + .06, -1), (y1 - .06, 1)):
-        b.cyl((CX, y, AZ), fr, .12, 'steel_mid', 'Y', 48, bev=.01)
-        for i in range(nbolt):
-            a = 2 * math.pi * i / nbolt; hexbolt(b, (CX + (fr - .07) * math.cos(a), y + s * .075, AZ + (fr - .07) * math.sin(a)), 'Y', .028, .03)
-    for k in range(3): b.cyl((CX, y0 + L * (k + 1) / 4, AZ), r + .03, .2, band, 'Y', 48, bev=.01)
-    for s in (-1, 1):
-        b.box((CX + s * (r + .035), yc, AZ), (.1, L - .3, .06), 'steel_mid', bev=.01)
-        n = int((L - .5) / .5)
-        for i in range(n + 1): b.cyl((CX + s * (r + .035), y0 + .25 + i * (L - .5) / max(n, 1), AZ + .04), .022, .03, 'steel_dark', 'Z', 6)
-    b.box((CX, yc, AZ - r - .05), (r * 1.5, L - .4, .1), 'steel_dark', bev=.012)
-
-def saddles(b, y0, y1, r):
-    for y in (y0 + .4, y1 - .4): b.box((CX, y, 1.22), (r * 1.7, .5, .44), 'steel_dark', nb=True, bev=.015)
-
-def bearing(b, y0, y1):
-    yc = (y0 + y1) / 2; L = y1 - y0
-    b.box((CX, yc, 1.7), (1.25, L, 1.4), 'steel_dark', nb=True, bev=.03); b.box((CX, yc, 2.45), (1.1, L - .1, .1), 'steel_mid', bev=.015)
-    b.cyl((CX, yc, AZ), .42, L - .06, 'steel_mid', 'Y', 32, bev=.008)
-    b.cyl((CX + .64, yc - L * .25, 1.8), .06, .04, 'brass', 'X', 20, bev=.006); b.cyl((CX + .66, yc - L * .25, 1.8), .045, .02, 'glass', 'X', 20)
-    for dy in (-.2, .2): b.cyl((CX + .64, yc + dy, 1.4), .015, .06, 'brass', 'X', 8)
-    b.reserve_box((CX, yc, 1.7), (1.4, L, 1.4))
-
+# ---------- turbine train (v4: tapered stepped casings, exposed bladed rotor, gold coupling) ----------
 def handrails(b, xa, xb, ya, yb, z1):
     for xr in (xa + .12, xb - .12):
         n = int((yb - ya) / 2.0) + 1; ys = [ya + .12 + i * (yb - ya - .24) / n for i in range(n + 1)]
@@ -115,7 +90,7 @@ def handrails(b, xa, xb, ya, yb, z1):
 def foundation(b):
     z1 = 1.0; xa, xb, ya, yb = 2.0, 7.2, 2.6, 23.0; x0, x1, y0, y1 = HOLE
     for a, c, d, e in [(xa, xb, ya, y0), (xa, xb, y1, yb), (xa, x0, y0, y1), (x1, xb, y0, y1)]:
-        b.box(((a + c) / 2, (d + e) / 2, z1 / 2), (c - a, e - d, z1), 'concrete', nb=True, bev=.02)
+        b.box(((a + c) / 2, (d + e) / 2, z1 / 2), (c - a, e - d, z1), 'concrete', nb=True, bev=.05)
         b.box(((a + c) / 2, (d + e) / 2, z1 + .008), (c - a - .26, e - d - .26 if e - d > .5 else e - d, .016), 'slate_dark', nb=True)
     for sx in (xa + .07, xb - .07): b.box((sx, (ya + yb) / 2, z1 + .012), (.1, yb - ya - .02, .006), 'yellow_worn', nb=True)
     for sy in (ya + .07, yb - .07): b.box(((xa + xb) / 2, sy, z1 + .012), (xb - xa - .02, .1, .006), 'yellow_worn', nb=True)
@@ -134,52 +109,93 @@ def foundation(b):
     handrails(b, xa, xb, ya, yb, z1)
     b.claim((xa - .5, ya - 1.6, 0), (xb + .5, yb + 1.6, 3.9))
 
+def flange_ring(b, y, r, nbolt=16, face=1):
+    b.cyl((CX, y, AZ), r, .12, 'steel_mid', 'Y', 48, bev=.012)
+    for i in range(nbolt):
+        a = 2 * math.pi * i / nbolt; hexbolt(b, (CX + (r - .07) * math.cos(a), y + face * .075, AZ + (r - .07) * math.sin(a)), 'Y', .028, .03)
+
+def stepped(b, segs, body, flanges=True, nbolt=16):
+    """segs: [(y0, y1, r0, r1), ...] frustums joined by flange rings."""
+    for k, (y0, y1, r0, r1) in enumerate(segs):
+        b.cyl((CX, (y0 + y1) / 2, AZ), r0, y1 - y0, body, 'Y', 48, r2=r1)
+    ys = [(segs[0][0], segs[0][2], -1)] + [(s[0], max(s[2], segs[i][3]), 0) for i, s in enumerate(segs[1:])] + [(segs[-1][1], segs[-1][3], 1)]
+    for y, r, face in ys:
+        flange_ring(b, y + (.06 if face == -1 else -.06 if face == 1 else 0), r + .1, nbolt, face or 1)
+
+def saddles(b, y0, y1, r):
+    for y in (y0 + .4, y1 - .4): b.box((CX, y, 1.22), (r * 1.7, .5, .44), 'steel_dark', nb=True, bev=.04)
+
+def bearing(b, y0, y1):
+    yc = (y0 + y1) / 2; L = y1 - y0
+    b.prism([(-.62, 0), (.62, 0), (.62, .85), (.4, 1.3), (-.4, 1.3), (-.62, .85)], L, 'steel_dark', (CX, yc, 1.0), True, 'Y', bev=.03)
+    b.cyl((CX, yc, AZ), .42, L - .06, 'steel_mid', 'Y', 32, bev=.012)
+    b.cyl((CX + .64, yc - L * .25, 1.8), .06, .04, 'brass', 'X', 20, bev=.006); b.cyl((CX + .66, yc - L * .25, 1.8), .045, .02, 'glass', 'X', 20)
+    for dy in (-.2, .2): b.cyl((CX + .64, yc + dy, 1.4), .015, .06, 'brass', 'X', 8)
+    b.reserve_box((CX, yc, 1.7), (1.4, L, 1.4))
+
+def exposed_lp(b, y0, y1):
+    """Lower-half LP casing with the rotor and its gold blading open to the hall."""
+    L = y1 - y0; yc = (y0 + y1) / 2
+    b.arc_shell((CX, yc, AZ), 1.34, 1.24, L, math.pi, 2 * math.pi, 'casing_dark', 32, bev=.012)
+    for s in (-1, 1):
+        b.box((CX + s * 1.3, yc, AZ), (.2, L, .08), 'steel_mid', bev=.02)
+        for i in range(int(L / .5)): b.cyl((CX + s * 1.3, y0 + .25 + i * .5, AZ + .05), .025, .03, 'steel_dark', 'Z', 6)
+    stages = [y0 + .45 + k * (L - .9) / 5 for k in range(6)]
+    b.cyl((CX, yc, AZ), .26, L + .2, 'steel_light', 'Y', 32)
+    for k, y in enumerate(stages):
+        R = .86 + .035 * k
+        b.cyl((CX, y, AZ), R, .26, 'steel_mid', 'Y', 48, bev=.012); b.cyl((CX, y, AZ), R + .035, .1, 'steel_light', 'Y', 48, bev=.006)
+        b.arc_shell((CX, y + .25, AZ), 1.22, R + .13, .1, math.pi, 2 * math.pi, 'steel_dark', 24)                    # stator diaphragm
+        for q in range(64):
+            a = 2 * math.pi * q / 64
+            b.box((CX + (R + .07) * math.cos(a), y, AZ + (R + .07) * math.sin(a)), (.09, .2, .018), 'orange', (0, -a, 0), bev=.003)      # gold blades
+    b.reserve_box((CX, yc, AZ), (2.7, L, 1.5))
+
+def coupling(b, y):
+    b.cyl((CX, y, AZ), .42, .5, 'orange', 'Y', 40, bev=.015)
+    for i in range(12):
+        a = 2 * math.pi * i / 12; hexbolt(b, (CX + .36 * math.cos(a), y - .27, AZ + .36 * math.sin(a)), 'Y', .026, .03, 'steel_dark')
+    b.cyl((CX, y, AZ), .445, .05, 'lamp', 'Y', 40)                                                              # hot glow band
+    b.arc_shell((CX, y, AZ), .66, .58, .62, math.pi, 2 * math.pi, 'steel_dark', 20, bev=.01)
+    for s in (-1, 1): b.box((CX + s * .62, y, AZ), (.1, .62, .05), 'steel_mid', bev=.012)
+
 def train(b):
     b.use('MACH'); foundation(b)
-    casing(b, 3.2, 7.0, .9, 'casing', band='steel_dark'); saddles(b, 3.2, 7.0, .9)
-    b.box((CX, 4.2, 3.35), (1.3, 1.6, .7), 'steel_dark', bev=.025); b.box((CX, 4.2, 3.72), (1.0, 1.3, .05), 'steel_mid', bev=.01)       # steam chest
+    stepped(b, [(3.2, 4.3, .66, .80), (4.3, 5.7, .80, .95), (5.7, 7.0, .95, .78)], 'casing'); saddles(b, 3.2, 7.0, .9)
+    for y in (3.9, 6.2): b.cyl((CX, y, AZ), .965 if y > 5 else .82, .16, 'orange', 'Y', 48, bev=.01)
+    b.prism([(-.72, 0), (.72, 0), (.52, .62), (-.52, .62)], 1.5, 'steel_dark', (CX, 4.2, 3.12), True, 'Y', bev=.035)                # steam chest
+    b.box((CX, 4.2, 3.75), (.9, 1.2, .04), 'orange', bev=.012)
     for dx in (-.35, .35):
-        b.cyl((CX + dx, 4.2, 4.12), .13, .72, 'orange', 'Z', 28, bev=.01); b.cyl((CX + dx, 4.2, 4.5), .17, .1, 'steel_dark', 'Z', 28, bev=.01)
-        b.sphere((CX + dx, 4.2, 4.58), .1, 'steel_mid', 16)
+        b.cyl((CX + dx, 4.2, 4.1), .13, .66, 'steel_mid', 'Z', 28, bev=.01); b.cyl((CX + dx, 4.2, 4.5), .17, .1, 'steel_dark', 'Z', 28, bev=.01); b.sphere((CX + dx, 4.2, 4.58), .1, 'orange', 16)
     bearing(b, 7.0, 8.1)
-    casing(b, 8.1, 14.4, 1.3, 'casing_dark', band='steel_dark', flange_r=1.42, nbolt=24); saddles(b, 8.1, 14.4, 1.3)
-    for hy in (9.3, 13.3): manway(b, (CX, hy, 3.6))
-    manway(b, (CX, 6.1, 3.15), .22)
-    gauge_plate(b, CX + 1.31, 9.6, AZ + .1); gauge_plate(b, CX + 1.31, 12.9, AZ + .1); bypass(b, CX + 1.28, 11.2, AZ - .35)
+    stepped(b, [(8.1, 9.2, 1.0, 1.32)], 'casing_dark'); exposed_lp(b, 9.2, 13.3); stepped(b, [(13.3, 14.4, 1.32, 1.05)], 'casing_dark')
+    saddles(b, 8.1, 9.2, 1.1); saddles(b, 13.3, 14.4, 1.1)
+    pipe_lagged(b, [(CX, 6.4, 3.15), (CX, 6.4, 4.5), (CX, 11.25, 4.5), (CX, 11.25, 3.65)], .26, bend=.5)                           # crossover (now lagged to the exposed section)
+    gauge_plate(b, CX + 1.31, 8.7, AZ + .1); gauge_plate(b, CX + 1.31, 13.9, AZ + .1); bypass(b, CX + 1.28, 14.15, AZ - .35)
     b.box((CX + .9, 5.0, AZ + .1), (.04, .5, .28), 'steel_dark', bev=.01); gauge(b, (CX + .93, 5.0, AZ + .1), 'X', .09)
-    pipe_lagged(b, [(CX, 6.4, 3.15), (CX, 6.4, 4.5), (CX, 11.25, 4.5), (CX, 11.25, 3.65)], .26, bend=.5)                                  # crossover
-    bearing(b, 14.4, 15.3)
-    b.cyl((CX, 15.6, AZ), .6, .6, 'yellow', 'Y', 32, bev=.01); b.cyl((CX, 15.6, AZ), .62, .06, 'steel_dark', 'Y', 32, bev=.008)
-    b.box((CX, 15.6, AZ + .6), (.5, .26, .03), 'trim_black', bev=.008)
-    casing(b, 15.9, 21.3, 1.05, 'casing', band='steel_dark', flange_r=1.15, nbolt=20); saddles(b, 15.9, 21.3, 1.05)
-    b.cyl((CX, 15.95, AZ), 1.11, .34, 'hood_orange', 'Y', 48, bev=.012); b.cyl((CX, 21.25, AZ), 1.11, .34, 'hood_orange', 'Y', 48, bev=.012)
-    for k in range(5): b.cyl((CX, 16.6 + k * .95, AZ), 1.07, .06, 'steel_mid', 'Y', 48, bev=.006)
-    b.box((CX, 18.6, 3.55), (1.9, 3.6, .56), 'hood_orange', bev=.04)                                                                         # cooler hood, panelled
-    b.box((CX, 18.6, 3.2), (1.95, 3.7, .1), 'steel_dark', bev=.012)
-    for yy in (17.4, 19.8): b.box((CX, yy, 3.55), (1.94, .03, .5), 'trim_black')                                                             # panel seams
-    for yy in (16.95, 18.6, 20.25):
-        for sx in (-.88, .88):
-            for k in range(3): b.cyl((CX + sx, yy - .5 + k * .5, 3.6), .022, .03, 'steel_dark', 'X', 6)
-    b.box((CX, 18.6, 3.835), (1.3, 1.7, .012), 'backing')                                                                                    # recessed grille
-    for k in range(9): b.box((CX, 17.85 + k * .17, 3.848), (1.2, .06, .02), 'steel_dark', bev=.004)
-    b.box((CX, 16.45, 3.55), (.9, .02, .24), 'steel_dark', bev=.006); b.cyl((CX, 16.43, 3.55), .08, .02, 'chalk', 'Y', 20)
+    manway(b, (CX, 6.1, 3.15), .22)
+    bearing(b, 14.4, 15.3); coupling(b, 15.6)
+    stepped(b, [(15.9, 16.7, .92, 1.05), (16.7, 20.5, 1.05, 1.05), (20.5, 21.3, 1.05, .9)], 'casing', nbolt=20); saddles(b, 15.9, 21.3, 1.05)
+    for k in range(5): b.cyl((CX, 17.0 + k * .85, AZ), 1.07, .06, 'steel_mid', 'Y', 48, bev=.006)
+    b.prism([(-.98, 0), (.98, 0), (.62, .56), (-.62, .56)], 3.7, 'hood_orange', (CX, 18.6, 3.2), True, 'Y', bev=.04)                    # cooler hood, chamfered
+    for s in (-1, 1): b.box((CX + s * .78, 18.6, 3.5), (.04, 3.7, .05), 'orange', (0, 0, -s * .55 if False else 0), bev=.01)
+    b.box((CX, 18.6, 3.18), (2.06, 3.78, .06), 'orange_dark', bev=.012)
+    b.box((CX, 18.6, 3.77), (1.0, 2.2, .012), 'backing')
+    for k in range(10): b.box((CX, 17.55 + k * .2, 3.785), (.9, .07, .02), 'steel_dark', bev=.004)
+    b.box((CX, 16.43, 3.55), (.9, .02, .24), 'steel_dark', bev=.006); b.cyl((CX, 16.41, 3.55), .08, .02, 'chalk', 'Y', 20)
     b.box((CX - 1.2, 15.98, 1.55), (.5, .01, .26), 'chalk'); b.text('TG-3', (CX - 1.2, 15.97, 1.55), .1, 'trim_black', 0, math.pi / 2)
-    b.box((CX - 1.45, 20.0, AZ + .1), (.9, 1.1, 1.0), 'steel_dark', bev=.03); b.box((CX - 1.45, 20.0, AZ + .62), (.8, 1.0, .05), 'red', bev=.012)    # terminal box
+    b.box((CX - 1.45, 20.0, AZ + .1), (.9, 1.1, 1.0), 'steel_dark', bev=.05); b.box((CX - 1.45, 20.0, AZ + .62), (.8, 1.0, .05), 'red', bev=.012)
     b.box((CX - 1.91, 20.0, AZ + .1), (.03, .7, .5), 'yellow', bev=.008); b.text('HV', (CX - 1.94, 20.0, AZ + .12), .24, 'trim_black', -math.pi / 2, math.pi / 2)
-    b.cyl((CX, 21.85, AZ), .72, 1.1, 'steel_light', 'Y', 40, bev=.01); b.cyl((CX, 21.3, AZ), .78, .12, 'steel_dark', 'Y', 40, bev=.01)
-    bearing(b, 22.35, 22.9)
-    b.use('SHAFT'); b.cyl((CX, 7.55, AZ), .22, .9, 'steel_light', 'Y', 24); b.cyl((CX, 14.85, AZ), .22, .9, 'steel_light', 'Y', 24)
-    b.cyl((CX, 15.6, AZ), .3, .25, 'steel_mid', 'Y', 24); b.cyl((CX, 22.65, AZ), .22, .5, 'steel_light', 'Y', 24)
-    for k in range(6): b.box((CX + .3 * math.cos(k * math.pi / 3), 15.6, AZ + .3 * math.sin(k * math.pi / 3)), (.05, .3, .05), 'steel_dark')
+    stepped(b, [(21.3, 22.3, .78, .62)], 'steel_light', nbolt=12); bearing(b, 22.35, 22.9)
+    b.use('SHAFT'); b.cyl((CX, 7.55, AZ), .22, .9, 'steel_light', 'Y', 24); b.cyl((CX, 22.65, AZ), .22, .5, 'steel_light', 'Y', 24)
     b.use('MACH')
-    pipe_lagged(b, [(8.4, -.25, 4.9), (8.4, 4.0, 4.9), (8.4, 4.0, 3.55), (CX + .2, 4.0, 3.55), (CX + .2, 4.2, 3.55)], .22, bend=.55)   # steam main from U01
-    b.box((8.4, .25, 4.9), (.46, .3, .46), 'steel_dark', bev=.02)
-    valve(b, (8.4, 2.0, 5.2)); b.box((8.4, 2.0, 4.9), (.5, .5, .5), 'steel_dark', bev=.02)
-    b.box((8.4, 4.0, 1.7), (.3, .3, 3.0), 'steel_dark', bev=.015); b.box((8.4, 4.0, .04), (.7, .7, .08), 'steel_dark', bev=.012)
+    pipe_lagged(b, [(8.4, -.25, 4.9), (8.4, 4.0, 4.9), (8.4, 4.0, 3.55), (CX + .2, 4.0, 3.55), (CX + .2, 4.2, 3.55)], .22, bend=.55)
+    b.box((8.4, .25, 4.9), (.46, .3, .46), 'steel_dark', bev=.03)
+    valve(b, (8.4, 2.0, 5.2)); b.box((8.4, 2.0, 4.9), (.5, .5, .5), 'steel_dark', bev=.04)
+    b.box((8.4, 4.0, 1.7), (.3, .3, 3.0), 'steel_dark', bev=.03); b.box((8.4, 4.0, .04), (.7, .7, .08), 'steel_dark', bev=.02)
     hanger(b, (8.4, 2.0, 5.1)); hanger(b, (8.4, 3.4, 5.1)); hanger(b, (6.6, 4.0, 3.75))
     b.claim((8.1, 0, 4.4), (8.7, 4.1, 5.5))
     b.sweep([(CX - .7, 4.8, 1.55), (CX - 1.3, 4.8, 1.55), (CX - 1.3, 4.8, 1.05)], .035, 'brass', 12, .1)
-    b.sweep([(CX + .7, 9.4, 1.5), (CX + 1.4, 9.4, 1.5), (CX + 1.4, 9.4, 1.05)], .035, 'brass', 12, .1)
     b.claim((1.4, 2.0, 0), (7.8, 23.5, 4.8))
 
 # ---------- services ----------
@@ -192,8 +208,9 @@ def services(b):
     b.cyl((9.0, 7.9, .6), .3, 1.0, 'steel_light', 'Y', 36, bev=.008); b.cyl((9.0, 7.35, .6), .35, .14, 'orange', 'Y', 36, bev=.008); b.cyl((9.0, 8.85, .55), .38, .5, 'orange', 'Y', 36, bev=.01)
     b.box((9.0, 9.4, .55), (.2, .1, .3), 'trim_black', bev=.01)
     b.claim((8.2, 6.5, 0), (9.9, 9.6, 1.4))
-    b.box((9.0, 16.0, .09), (1.6, 4.4, .18), 'steel_dark', nb=True, bev=.015); b.box((9.0, 17.2, .85), (1.4, 2.0, 1.1), 'steel_mid', bev=.03)
-    b.box((9.0, 17.2, 1.42), (1.46, 2.06, .05), 'steel_dark', bev=.012); b.box((8.28, 17.2, .85), (.03, 1.4, .5), 'chalk', bev=.005); b.box((8.265, 17.2, .85), (.01, .3, .4), 'screen')
+    b.box((9.0, 16.0, .09), (1.6, 4.4, .18), 'steel_dark', nb=True, bev=.03); b.cyl((9.0, 17.2, .85), .55, 2.0, 'steel_mid', 'Y', 40, bev=.02); b.cyl((9.0, 18.3, .85), .55, .24, 'steel_dark', 'Y', 40, r2=.32)
+    b.cyl((9.0, 16.1, .85), .32, .24, 'steel_dark', 'Y', 40, r2=.55)
+    b.box((8.28, 17.2, .85), (.03, 1.4, .5), 'chalk', bev=.005); b.box((8.265, 17.2, .85), (.01, .3, .4), 'screen')
     for k in range(3): b.cyl((8.55 + k * .38, 14.6, .55), .15, .7, 'orange' if k else 'orange_dark', 'Z', 28, bev=.008); b.cyl((8.55 + k * .38, 14.6, .93), .17, .05, 'steel_dark', 'Z', 28, bev=.006)
     b.cyl((9.0, 15.7, .5), .28, 1.4, 'steel_light', 'X', 32, bev=.008)
     for y in (16.3, 15.2): b.cyl((8.4, y, .35), .22, .5, 'orange', 'X', 28, bev=.008)

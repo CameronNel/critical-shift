@@ -29,7 +29,7 @@ def make_mats(grp):
         tex = nt.nodes.new('ShaderNodeTexImage'); tex.image = atlas; tex.interpolation = 'Linear'; tex.name = 'ALBEDO'; tex.location = (-250, 0)
         nt.links.new(uvn.outputs[0], tex.inputs[0])
         if emissive:
-            e = nt.nodes.new('ShaderNodeEmission'); e.inputs['Strength'].default_value = 3.0; e.location = (300, 0)
+            e = nt.nodes.new('ShaderNodeEmission'); e.inputs['Strength'].default_value = 7.0; e.location = (300, 0)
             nt.links.new(tex.outputs[0], e.inputs['Color']); nt.links.new(e.outputs[0], out.inputs['Surface'])
         else:
             p = nt.nodes.new('ShaderNodeBsdfPrincipled'); p.location = (300, 0)
@@ -121,17 +121,30 @@ if sh:
 def area(name, loc, size, power, color=(1, .84, .64)):
     d = bpy.data.lights.new(name, 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = size; d.energy = power; d.color = color
     o = bpy.data.objects.new(name, d); o.location = loc; coll.objects.link(o); return o
+# ---- night rig: amber hooded pendants (pools with dark gaps), red warning light, cold moon through the clerestories ----
+def spot(name, loc, power, size_deg, color, blend=.55):
+    d = bpy.data.lights.new(name, 'SPOT'); d.energy = power; d.spot_size = math.radians(size_deg); d.spot_blend = blend; d.color = color; d.shadow_soft_size = .12
+    o = bpy.data.objects.new(name, d); o.location = loc; coll.objects.link(o); return o
+def point(name, loc, power, color, radius=.1):
+    d = bpy.data.lights.new(name, 'POINT'); d.energy = power; d.color = color; d.shadow_soft_size = radius
+    o = bpy.data.objects.new(name, d); o.location = loc; coll.objects.link(o); return o
+AMBER, RED = (1.0, .58, .22), (1.0, .12, .06)
 n = 0
-for y in (4, 8, 12, 16, 20):
-    for x in (-1.2, 4.6, 8.6):
-        area(f'LAMP_{n:02d}', (x, y, 5.27), (1.1, .15), 190); n += 1
-area('LAMP_broken', (2.0, 20.5, 4.9), (1.1, .15), 160, (1, .8, .55)).rotation_euler = (.9, 0, 0)
-for nm, yy, sgn in (('PASS_D01', -.9, 1), ('PASS_D02', 24.9, 1)): area(nm, (0, yy, 2.55), (1.6, .3), 60, (1, .8, .6))
-sun = bpy.data.lights.new('SUN_EAST', 'SUN'); sun.energy = 3.0; sun.angle = math.radians(1.2); sun.color = (1.0, .93, .80)
-so = bpy.data.objects.new('SUN_EAST', sun); coll.objects.link(so)
-so.rotation_euler = Vector((-.62, .40, -.67)).to_track_quat('-Z', 'Y').to_euler()          # coming from the east, ~34 deg elevation
+for y in arch.LAMP_Y:
+    for x in arch.LAMP_X: spot(f'LAMP_{n:02d}', (x, y, 5.27), 1900, 100, AMBER, .7); n += 1
+spot('LAMP_rotor', (machinery.CX, 11.25, 4.1), 800, 65, (1.0, .66, .3), .5)                    # lights the exposed gold blading
+point('GLOW_coupling', (machinery.CX, 15.6, machinery.AZ + .35), 150, (1.0, .55, .18))
+point('GLOW_consoles', (-3.1, 5.65, 1.9), 40, (1.0, .6, .25), .15)
+for nm, loc in (('RED_D01', (1.7, .25, 3.35)), ('RED_D02', (1.7, 23.75, 3.35))): point(nm, loc, 90, RED, .06)
+for nm, yy in (('PASS_D01', -.9), ('PASS_D02', 24.9)): point(nm, (0, yy, 2.5), 45, (1.0, .45, .2), .1)
+for k, yy in enumerate((6, 12, 18)):                                                            # cold rim lights from the window side
+    d = bpy.data.lights.new(f'RIM_{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 2.5, .6; d.energy = 700; d.color = (.45, .62, 1.0)
+    o = bpy.data.objects.new(f'RIM_{k}', d); o.location = (9.4, yy, 6.4); o.rotation_euler = (0, math.radians(-50), 0); coll.objects.link(o)
+sun = bpy.data.lights.new('MOON_EAST', 'SUN'); sun.energy = 4.5; sun.angle = math.radians(2.0); sun.color = (.50, .64, 1.0)
+so = bpy.data.objects.new('MOON_EAST', sun); coll.objects.link(so)
+so.rotation_euler = Vector((-.62, .40, -.67)).to_track_quat('-Z', 'Y').to_euler()
 w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
-bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.55, .68, .86, 1); bg.inputs['Strength'].default_value = .7
+bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.04, .075, .18, 1); bg.inputs['Strength'].default_value = 2.6
 
 # ---- named review cameras ----
 CAMS = {   # all positions are in open aisle space
@@ -145,6 +158,7 @@ CAMS = {   # all positions are in open aisle space
     'CAM_H_roof':          ((1.0, 4.0, 1.65), (4.6, 14, 6.4)),
     'CAM_J_north_back':    ((1.0, 22.3, 1.7), (5, 2, 2.4)),
     'CAM_K_door_d01':      ((0.2, 7.6, 1.65), (-2.4, .3, 1.7)),
+    'CAM_M_turbine_close': ((6.7, 8.5, 2.95), (4.6, 11.6, 2.2)),
     'CAM_L_desk':          ((7.7, 19.8, 1.6), (8.4, 23.5, 1.0)),
 }
 for name, (loc, tgt) in CAMS.items():

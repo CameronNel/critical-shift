@@ -52,8 +52,9 @@ def wall(b, frame, u0, u1, holes, pitch=4.0):
         for a, c in spans(u0, u1, pitch):
             for z0, z1, d, sw in ((.16, 1.20, .032, 'slate_blue'), (1.27, 3.10, .02, 'wall_slate'), (3.42, 4.45, .02, 'wall_slate'), (4.51, H, .018, 'wall_slate_lt')):
                 for r in rect_minus((a, c, z0, z1), holes): slab(b, [r], 0, d, sw, bev=.006)
-        for z0, z1, d, sw, bv in ((1.20, 1.27, .06, 'ivory', .012), (3.10, 3.42, .045, 'orange', .01), (4.45, 4.51, .05, 'slate_dark', .008)):
-            for r in rect_minus((u0, u1, z0, z1), holes): slab(b, [r], 0, d, sw, bev=bv)                               # cap rail, orange colour band, dark course
+        for z0, z1, d, sw, bv in ((1.20, 1.27, .06, 'ivory', .012), (3.10, 3.42, .04, 'steel_dark', .01), (4.45, 4.51, .05, 'slate_dark', .008)):
+            for r in rect_minus((u0, u1, z0, z1), holes): slab(b, [r], 0, d, sw, bev=bv)                               # cap rail, dark band, dark course
+        for r in rect_minus((u0, u1, 3.235, 3.285), holes): slab(b, [r], 0, .06, 'orange', bev=.006)                          # thin warm-gold line
 
 def window(b, frame, c, half, z0, z1):
     org, rz = frame
@@ -150,7 +151,7 @@ def passage(b, frame, label):
         for s in (-1, 1):
             b.box((s * .35, -d + .04, 1.75), (.3, .015, .45), 'glass', bev=.01); b.rod((s * .12, -d + .045, .9), (s * .12, -d + .045, 1.3), .015, 'brass', 10)
             for k in range(8): b.cyl((s * .62, -d + .04, .25 + k * .22), .014, .015, 'steel_light', 'Y', 8)
-        b.box((0, -d + .02, h - .14), (w * .9, .04, .05), 'lamp'); b.box((0, -.9, h - .02), (1.6, .2, .03), 'lamp')
+        b.box((0, -d + .02, h - .14), (w * .9, .04, .05), 'lamp'); b.box((0, -.9, h - .02), (1.6, .2, .03), 'lamp'); b.box((0, -d + .02, h - .3), (w * .9, .03, .04), 'led_red')
         for k in range(8): b.box((-.9 + k * .26, -d + .06, .005), (.12, .5, .006), 'yellow' if k % 2 == 0 else 'trim_black', (0, 0, .5), nb=True)
         b.text(label, (0, -d + .045, 2.45), .09, 'chalk', math.pi, math.pi / 2)
 
@@ -164,18 +165,18 @@ def floor(b):
     cx, cy, w, d = (HOLE[0] + HOLE[1]) / 2, (HOLE[2] + HOLE[3]) / 2, HOLE[1] - HOLE[0], HOLE[3] - HOLE[2]
     b.box((cx, cy, -2.5), (w, d, .1), 'black') if False else b.box((cx, cy, -2.5), (w, d, .1), 'backing')
     for dx, dy, sx, sy in ((0, d / 2, w, .05), (0, -d / 2, w, .05), (w / 2, 0, .05, d), (-w / 2, 0, .05, d)): b.box((cx + dx, cy + dy, -1.3), (sx, sy, 2.4), 'concrete_dark')
-    r = b.rng; t = .5
-    for ix in range(28):
-        for iy in range(48):
-            x, y = X0 + (ix + .5) * t, Y0 + (iy + .5) * t
-            if 2.0 < x < 7.2 and 2.6 < y < 23.0: continue
-            edge = min(x - X0, X1 - x, y - Y0, Y1 - y)
-            if edge < 1.0: sw = 'tile_border' if (ix + iy) % 2 == 0 else 'tile_border_b'
-            else:
-                traffic = (abs(x) < 2.0 and (y < 3.2 or y > 20.8)) or (1.3 < y < 2.7 and 3.4 < x < 5.8)
-                roll = r.random()
-                sw = ('terra_worn' if roll < (.28 if traffic else .02) else 'terra_b' if roll < .30 else 'terra_c' if roll < .40 else 'terra_a')
-            b.box((x, y, -.015), (t - .014, t - .014, .03), sw, nb=True)
+    r = b.rng                                                                 # polished concrete in 1.75 m slabs with dark joints
+    nx, ny = 8, 14; sx_, sy_ = 14 / nx, 24 / ny
+    for ix in range(nx):
+        for iy in range(ny):
+            x, y = X0 + (ix + .5) * sx_, Y0 + (iy + .5) * sy_
+            if 1.9 < x < 7.3 and 2.5 < y < 23.1: continue
+            traffic = (abs(x) < 2.2 and (y < 3.2 or y > 20.8))
+            roll = r.random()
+            sw = 'terra_worn' if roll < (.22 if traffic else .05) else 'terra_b' if roll < .35 else 'terra_c' if roll < .6 else 'terra_a'
+            b.box((x, y, -.015), (sx_ - .018, sy_ - .018, .03), sw, nb=True, bev=.004)
+    for xl in (1.55, 7.65): b.flat((xl, 12.9), .1, 21.0, 'yellow', 0, z=.0075)           # gold paint around the foundation
+    for yl in (2.2, 23.4): b.flat((4.6, yl), 6.2, .1, 'yellow', 0, z=.0075)
 
 def build(b):
     b.use('ARCH'); floor(b)
