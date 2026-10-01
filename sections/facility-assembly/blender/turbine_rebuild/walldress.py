@@ -109,6 +109,7 @@ def build(b):
     with b.push(*FR['north']):
         fan(b, -5.0, 5.2)
         quilt(b, -3.6, 1.0, 4.75, 5.95)
+        b.box((-6.9, .03, 3.55), (1.9, .06, .62), 'trim_black', bev=.016); b.box((-6.9, .064, 3.55), (1.8, .006, .52), 'yellow'); txt(b, 'TURBINE HALL 02', -6.9, 3.66, .13, 'trim_black', .07); txt(b, 'AUTHORISED PERSONNEL', -6.9, 3.42, .07, 'trim_black', .07)
         for u in (1.25, 2.3, 3.35):
             b.rod((u, .09, 2.6), (u, .09, 6.15), .03, 'steel_mid', 10)
         ladder(b, 1.0, 4.0, 6.15, .14)

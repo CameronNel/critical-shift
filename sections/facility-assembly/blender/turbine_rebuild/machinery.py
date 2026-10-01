@@ -21,7 +21,10 @@ def handwheel(b, c, R=.17, sw='red'):
     for k in range(3): b.box(c, (R * 2 - .02, .018, .014), sw, (0, 0, k * math.pi / 3))
 
 def valve(b, c, r=.14, wheel=True):
-    b.box(c, (r * 2.4, r * 2.2, r * 2.0), 'steel_dark', bev=.02); b.cyl((c[0], c[1], c[2] + r * 1.4), r * .7, r * 1.2, 'steel_mid', 'Z', 20, bev=.008)
+    b.box(c, (r * 2.4, r * 2.2, r * 2.0), 'steel_dark', bev=.02)
+    for dz in (-r * 1.0, r * 1.0): b.cyl((c[0], c[1], c[2] + dz), r * 1.25, .035, 'steel_light', 'Z', 20, bev=.006)
+    for k in range(4): a = k * math.pi / 2 + .4; b.cyl((c[0] + r * 1.0 * math.cos(a), c[1] + r * 1.0 * math.sin(a), c[2] + r * 1.0 + .03), .014, .03, 'steel_dark', 'Z', 6)
+    b.cyl((c[0], c[1], c[2] + r * 1.4), r * .7, r * 1.2, 'steel_mid', 'Z', 20, bev=.008)
     b.cyl((c[0], c[1], c[2] + r * 2.4), .02, r * 1.4, 'steel_light', 'Z', 10)
     if wheel: handwheel(b, (c[0], c[1], c[2] + r * 3.2), r * 1.3)
 
@@ -71,6 +74,7 @@ def manway(b, c, r=.28):
 def gauge_plate(b, x, y, z):
     b.box((x, y, z), (.04, .8, .34), 'steel_dark', bev=.012)
     for i in range(3): gauge(b, (x + .03, y - .26 + i * .26, z), 'X', .08)
+    b.box((x + .025, y, z - .25), (.012, .74, .14), 'chalk'); b.box((x + .028, y, z - .25), (.01, .76, .02), 'trim_black'); b.text('MAIN STEAM  T-2', (x + .036, y, z - .245), .06, 'trim_black', math.pi / 2, math.pi / 2)
 
 def bypass(b, x, y, z):
     b.sweep([(x, y, z), (x + .45, y, z), (x + .45, y, z - .5)], .05, 'steel_mid', 16, .12); valve(b, (x + .45, y, z - .35), .08)
@@ -129,6 +133,7 @@ def stepped(b, segs, body, flanges=True, nbolt=16):
         if y1 - y0 > .9:                                                                                         # dark banded collars (spawn-room trim language)
             for t in (.3, .7):
                 rr = r0 + (r1 - r0) * t; b.cyl((CX, y0 + (y1 - y0) * t, AZ), rr + .035, .11, 'trim_black', 'Y', 48, bev=.01)
+                for dt in (-.08, .08): b.cyl((CX, y0 + (y1 - y0) * t + dt, AZ), rr + .02, .025, 'steel_light', 'Y', 48, bev=.005)
     ys = [(segs[0][0], segs[0][2], -1)] + [(s[0], max(s[2], segs[i][3]), 0) for i, s in enumerate(segs[1:])] + [(segs[-1][1], segs[-1][3], 1)]
     for y, r, face in ys:
         flange_ring(b, y + (.06 if face == -1 else -.06 if face == 1 else 0), r + .1, nbolt, face or 1)
