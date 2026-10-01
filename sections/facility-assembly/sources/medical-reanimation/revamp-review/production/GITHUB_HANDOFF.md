@@ -9,6 +9,7 @@ The editable scene is `sections/facility-assembly/sources/medical-reanimation/mo
 ```sh
 GIT_LFS_SKIP_SMUDGE=1 git clone --single-branch --depth 1 --branch codex/reanimation-room-publish-20261001 https://github.com/CameronNel/critical-shift.git
 cd critical-shift
+git lfs install --local
 git lfs pull --include="$(paste -sd, sections/facility-assembly/production/MINIMAL_PULL.txt)"
 ```
 
