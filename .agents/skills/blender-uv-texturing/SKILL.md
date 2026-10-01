@@ -1,6 +1,6 @@
 ---
 name: blender-uv-texturing
-description: Use for Critical Shift Blender UV layouts, texture atlases, trim sheets, decals, PBR map wiring, baking and stretched or missing textures. Extends blender-headless; not for unrelated modeling, runtime code or documentation-only tasks.
+description: Use for Critical Shift Blender UV layouts, texture atlases, trim sheets, decals, PBR map wiring, final-step baking and stretched or missing textures. Extends blender-headless; not for unrelated modeling, runtime code or documentation-only tasks.
 ---
 
 # Critical Shift: UV and materials
@@ -22,7 +22,7 @@ Choose the technique from the asset, not a universal recipe:
 - Repeating surfaces: preserve the approved physical scale and seams.
 - Atlas or trim sheet: map each part to its intended region with a padding policy.
 - Projected decal: verify projection space, orientation, alpha and side coverage.
-- Unique bake: retain the approved source and create a separate delivery derivative.
+- Unique bake (final step only): retain the approved source and create a separate delivery derivative.
 
 Do not hide weak geometry with texture noise. Preserve the project's grounded
 stylized semi-realism and readability from its actual gameplay/validation cameras.
@@ -35,7 +35,8 @@ stylized semi-realism and readability from its actual gameplay/validation camera
    checker on all relevant sides, including caps and sidewalls, not only the hero.
 3. Wire maps by meaning: color versus numeric data, tangent normal versus height,
    roughness versus smoothness. Use the installed-version API, not old UI recipes.
-4. For baking, isolate source/target sets and configure all participating material
+4. Baking is the final step, never part of authoring: do not bake lighting, shadows or AO until geometry, UV0 materials and
+   live lighting are accepted, and any later change to them invalidates the bake. When baking, isolate source/target sets and configure all participating material
    slots and image targets. Save images explicitly; saving a blend alone is not
    proof that external baked files exist. Keep diagnostics out of the source file.
 5. Inspect checker, neutral-light material and actual scene renders at useful
@@ -46,6 +47,10 @@ stylized semi-realism and readability from its actual gameplay/validation camera
 
 Read [map, bake and portability checks](references/surfacing.md) only as needed.
 For export, also use [game-asset-pipeline](../game-asset-pipeline/SKILL.md).
+
+## Baking order
+
+Baking lighting (lightmaps, baked shadows or AO) is the final production step. Do not bake while authoring; finish geometry, UV0 materials and live lighting first, and bake only into a separate delivery derivative once those are accepted. Texture painting, atlases and albedo-only maps are not lighting bakes and may be done earlier.
 
 ## Completion and boundaries
 

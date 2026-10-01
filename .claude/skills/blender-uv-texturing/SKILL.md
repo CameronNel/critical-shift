@@ -1,6 +1,6 @@
 ---
 name: blender-uv-texturing
-description: Use for Critical Shift Blender UV layouts, texture atlases, trim sheets, decals, PBR map wiring, baking and stretched or missing textures. Extends blender-headless; not for unrelated modeling, runtime code or documentation-only tasks.
+description: Use for Critical Shift Blender UV layouts, texture atlases, trim sheets, decals, PBR map wiring, final-step baking and stretched or missing textures. Extends blender-headless; not for unrelated modeling, runtime code or documentation-only tasks.
 ---
 
 # Shared Critical Shift skill

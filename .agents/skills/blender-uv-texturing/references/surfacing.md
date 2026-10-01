@@ -40,6 +40,8 @@ and verify the installed renderer's transparency API. Avoid legacy hard-coded
 
 ## Baking without collateral edits
 
+Baking lighting (lightmaps, baked shadows or AO) is the final production step. Do not bake while authoring; finish geometry, UV0 materials and live lighting first, and bake only into a separate delivery derivative once those are accepted. Anything in this section applies only at that final step.
+
 Use a disposable process/copy. Identify evaluated high/low meshes, scale, cage/ray
 settings, named UVs, map type, resolution and margins before running the existing bake
 path. Selection and active-object state are explicit; unrelated objects stay excluded.

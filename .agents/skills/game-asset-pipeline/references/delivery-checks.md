@@ -47,7 +47,7 @@ flags, root-motion intent and event/binding expectations. Never recreate a skele
 just to make an exporter warning disappear. Recheck intermediate/contact poses and
 playback as required by the animation specialist. Still images alone do not prove timing.
 
-Record every material loss or bake/conversion. Keep lightmaps separate from base color
+Record every material loss or bake/conversion. Lighting bakes are the final step, run only after geometry, materials and live lighting are accepted. Keep lightmaps separate from base color
 and distinguish baked lighting from actual realtime lights. Preserve approved visual
 separation rather than replacing every material with a generic metallic shader.
 

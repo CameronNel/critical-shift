@@ -62,6 +62,7 @@ working scripts, universal bevel recipe or unsolicited overhaul of approved art.
 4. Run applicable numerical checks, then render named views from the actual scene.
 5. Open the resulting images with the available vision/image-reading tool.
    Identify visible defects, fix the highest-impact ones and compare the same views.
+   Do not bake lighting during authoring; baking is the final step, after geometry, materials and live lighting are accepted.
 6. Save the intended editable deliverable only after the applicable checks.
    Update existing production state with commands, evidence, defects and blockers.
 
