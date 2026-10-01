@@ -4,7 +4,9 @@ blender -b FILE.blend --python preview.py -- OUTDIR MODE [CAM_PREFIXES...]   MOD
 import sys, os, bpy
 a = sys.argv[sys.argv.index('--') + 1:]; out, mode = a[0], a[1]; only = a[2:]
 os.makedirs(out, exist_ok=True); sc = bpy.context.scene
-sc.render.resolution_x, sc.render.resolution_y = (1280, 720) if mode == 'wb' else (960, 540)
+import os as _o
+_r = _o.environ.get('PREVIEW_RES', '1280x720' if mode == 'wb' else '960x540').split('x')
+sc.render.resolution_x, sc.render.resolution_y = int(_r[0]), int(_r[1])
 sc.view_settings.view_transform = 'Standard'; sc.view_settings.look = 'None'
 if mode == 'wb':
     sc.render.engine = 'BLENDER_WORKBENCH'; sh = sc.display.shading
