@@ -15,20 +15,20 @@ BEV_MAX = 0.05                          # bevel modifier width; per-edge weight 
 
 # name: (hex, edge, dirt, noise, emissive)   edge>1 lightens edges (paint chipping), <1 darkens
 PALETTE = {
-    'wall_slate': ('424A54', 1.06, .08, .030, 0),
-    'wall_slate_lt': ('4D5661', 1.06, .06, .028, 0),
-    'terra_a': ('2D3135', .88, .05, .026, 0),
-    'terra_b': ('282B2F', .88, .05, .028, 0),
-    'terra_c': ('33373C', .88, .04, .024, 0),
-    'terra_worn': ('3B3E43', .90, .14, .045, 0),
-    'casing': ('66717D', 1.10, .10, .040, 0),
-    'casing_dark': ('59636E', 1.10, .14, .040, 0),
+    'wall_slate': ('333A42', 1.06, .08, .030, 0),
+    'wall_slate_lt': ('3C444C', 1.06, .06, .028, 0),
+    'terra_a': ('23262A', .88, .05, .026, 0),
+    'terra_b': ('202327', .88, .05, .028, 0),
+    'terra_c': ('282B30', .88, .04, .024, 0),
+    'terra_worn': ('303338', .90, .14, .045, 0),
+    'casing': ('7B8692', 1.10, .10, .040, 0),
+    'casing_dark': ('6C7783', 1.10, .14, .040, 0),
     'hood_orange': ('59626D', 1.12, .08, .030, 0),
     'sand': ('4A4F56', 1.06, .08, .030, 0),
     'sand_dark': ('3A3F46', 1.08, .12, .035, 0),
     'ivory': ('5D6670', 1.08, .08, .028, 0),
     'ivory_warm': ('454D56', 1.06, .06, .025, 0),
-    'slate_blue': ('282E36', 1.14, .10, .030, 0),
+    'slate_blue': ('242A31', 1.14, .10, .030, 0),
     'slate_dark': ('1C2025', 1.18, .10, .030, 0),
     'trim_black': ('101215', 1.30, .03, .020, 0),
     'charcoal': ('22262B', 1.25, .06, .030, 0),
@@ -148,6 +148,8 @@ class Builder:
     def push(self, loc=(0, 0, 0), rz=0.0):
         self.stack.append(self.m); loc = tuple(loc) + (0.0,) * (3 - len(loc))
         self.m = self.m @ Matrix.Translation(loc) @ Matrix.Rotation(rz, 4, 'Z'); return self
+    def push_m(self, M):
+        self.stack.append(self.m); self.m = self.m @ M; return self
     def pop(self): self.m = self.stack.pop()
     def __enter__(self): return self
     def __exit__(self, *a): self.pop()

@@ -39,6 +39,11 @@ def puddle(b, x, y, rx, ry, sw, z=.0085, rot=0.0):
     ring = [((rx * math.cos(2 * math.pi * i / 28)) * c - (ry * math.sin(2 * math.pi * i / 28)) * s, (rx * math.cos(2 * math.pi * i / 28)) * s + (ry * math.sin(2 * math.pi * i / 28)) * c) for i in range(28)]
     b.prism(ring, .004, sw, (x, y, z), True, 'Z')
 
+def vent(b, u, z, w=.9, h=.5):
+    b.box((u, .03, z), (w + .1, .06, h + .1), 'trim_black', bev=.012); b.box((u, .062, z), (w, .01, h), 'backing')
+    for k in range(6): b.box((u, .08, z - h / 2 + .06 + k * (h - .12) / 5), (w - .06, .02, .03), 'steel_dark', (math.radians(-28), 0, 0), bev=.004)
+    b.box((u, .09, z), (.03, .02, h), 'steel_dark')
+
 def build(b):
     b.use('PROPS'); R = b.rng
     # --- wear with a story: oil trail from the leak, scuffs at door and steps, one repaired crack ---
@@ -129,3 +134,22 @@ def build(b):
     b.box((2.0, 20.5, 5.0), (1.3, .22, .07), 'steel_dark', (.9, 0, 0), bev=.012); b.box((2.0, 20.5, 4.955), (1.15, .15, .02), 'lamp', (.9, 0, 0)); b.rod((1.4, 20.5, 5.35), (1.4, 20.5, 6.06), .008, 'steel_dark', 8)
     b.box((6.5, 6.5, 7.17), (.94, 1.0, .004), 'primer')                                       # panel missing, bare deck showing
     b.sweep([(6.5, 6.5, 7.15), (6.4, 6.6, 6.5), (6.55, 6.9, 5.9), (6.45, 7.1, 5.5)], .014, 'rubber', 8, .25)
+
+    # --- wall rhythm: high vent grilles on the west, south and north walls ---
+    (o, rz), fu = FR['W']
+    with b.push(o, rz):
+        for t in (9.0, 12.0): vent(b, fu(t), 4.05)
+    (o, rz), fu = FR['S']
+    with b.push(o, rz): vent(b, fu(3.0), 4.0, 1.1, .55)
+    (o, rz), fu = FR['N']
+    with b.push(o, rz): vent(b, fu(6.0), 4.2, 1.1, .55)
+    # --- floor: wet patches that follow the machinery, hairline cracks, a grated cable trench ---
+    for (x, y, rx, ry, rot) in ((1.5, 5.6, .55, .3, .1), (1.7, 9.2, .7, .33, -.1), (1.6, 14.4, .6, .3, .05), (1.5, 18.2, .75, .32, 0.0), (7.7, 7.6, .6, .3, .2), (7.8, 15.4, .7, .3, -.15), (0.2, 21.0, .6, .35, .3)):
+        puddle(b, x, y, rx, ry, 'oil', .0092, rot)
+    for k in range(9):
+        x, y = R.uniform(-3.4, 9.2), R.uniform(.8, 23.2)
+        if 1.7 < x < 7.5 and 2.4 < y < 23.2: continue
+        b.box((x, y, .0075), (R.uniform(.7, 1.4), .012, .003), 'backing', (0, 0, R.uniform(0, 3.1)))
+    tx, ty0, ty1 = .95, 3.7, 8.3
+    b.box((tx, (ty0 + ty1) / 2, .006), (.42, ty1 - ty0, .006), 'trim_black', bev=.003); b.box((tx, (ty0 + ty1) / 2, .0075), (.34, ty1 - ty0 - .08, .004), 'backing')
+    for k in range(int((ty1 - ty0) / .07)): b.box((tx, ty0 + .06 + k * .07, .014), (.34, .022, .014), 'steel_dark', bev=.003)

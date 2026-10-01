@@ -49,8 +49,9 @@ def wall(b, frame, u0, u1, holes, pitch=4.0):
         b.use(g0)
         slab(b, rect_minus((u0, u1, 0, H), holes), 0, .002, 'backing')
         for r in rect_minus((u0, u1, 0, .16), holes): slab(b, [r], 0, .045, 'trim_black', bev=.008)                    # skirting
-        for a, c in spans(u0, u1, pitch):
-            for z0, z1, d, sw in ((.16, 1.20, .032, 'slate_blue'), (1.27, 3.10, .02, 'wall_slate'), (3.42, 4.45, .02, 'wall_slate'), (4.51, H, .018, 'wall_slate_lt')):
+        for si, (a, c) in enumerate(spans(u0, u1, pitch)):
+            rel = .05 if si % 2 else 0.0
+            for z0, z1, d, sw in ((.16, 1.20, .032, 'slate_blue'), (1.27, 3.10, .02 + rel, 'wall_slate'), (3.42, 4.45, .02 + rel, 'wall_slate'), (4.51, H, .018, 'wall_slate_lt')):
                 for r in rect_minus((a, c, z0, z1), holes): slab(b, [r], 0, d, sw, bev=.006)
         for z0, z1, d, sw, bv in ((1.20, 1.27, .06, 'ivory', .012), (3.10, 3.42, .04, 'steel_dark', .01), (4.45, 4.51, .05, 'slate_dark', .008)):
             for r in rect_minus((u0, u1, z0, z1), holes): slab(b, [r], 0, d, sw, bev=bv)                               # cap rail, dark band, dark course
@@ -194,9 +195,8 @@ def build(b):
     for y in BAYS: column(b, -4, y, -1); column(b, 10, y, 1); truss(b, y)
     roof(b); crane(b)
     b.box((8.4, .03, 4.9), (.7, .08, .7), 'steel_dark', bev=.015); b.box((9.5, .03, .45), (.45, .08, .45), 'steel_dark', bev=.012)
-    for y in LAMP_Y:                                                                  # recessed-look linear fixtures
+    for y in LAMP_Y:                                                                  # hooded pendant lamps
         for x in LAMP_X:
-            b.box((x, y, 5.37), (1.3, .26, .05), 'trim_black', bev=.012)
-            for s in (-1, 1): b.box((x, y + s * .12, 5.33), (1.3, .02, .1), 'trim_black', (s * .5, 0, 0), bev=.006)
-            b.box((x, y, 5.30), (1.15, .15, .02), 'lamp')
-            for dx in (-.55, .55): b.rod((x + dx, y, 5.38), (x + dx, y, 6.06), .008, 'steel_dark', 8)
+            b.cyl((x, y, 5.42), .3, .22, 'trim_black', 'Z', 36, r2=.08, bev=.01)
+            b.arc_shell((x, y, 5.32), .315, .285, .03, 0, 2 * math.pi, 'orange', 36)                            # gold rim
+            b.sphere((x, y, 5.3), .085, 'lamp', 14); b.rod((x, y, 5.52), (x, y, 6.06), .012, 'steel_dark', 10)

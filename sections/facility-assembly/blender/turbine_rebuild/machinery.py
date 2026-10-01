@@ -1,6 +1,6 @@
 """Turbine train, generator, process services, controls, switchgear and maintenance bay (v3: hero-quality, restrained)."""
 import math
-from mathutils import Vector
+from mathutils import Vector, Matrix
 from arch import HOLE
 
 CX, AZ = 4.6, 2.3            # shaft axis x and height (shaft runs along Y)
@@ -101,11 +101,19 @@ def foundation(b):
     for k in range(4):                                                        # steps, south end
         b.box((CX, ya - .14 - .26 * (3 - k), .125 * (k + 1)), (1.6, .26, .25 * (k + 1)), 'steel_worn', nb=True, bev=.01)
         b.box((CX, ya - .02 - .26 * (3 - k), .25 * (k + 1) - .008), (1.6, .03, .016), 'yellow')
-    for sx, sgn in ((xb + .0, 1), (xa - .0, -1)):                                                          # inset panels, safety chevrons, stencil
-        for yy in (3.6, 5.6, 7.6, 9.6, 14.0, 16.0, 18.0, 20.0, 22.0):                                       # buttress pilasters instead of sticker panels
-            b.box((sx + sgn * .02, yy, .5), (.04, .3, 1.0), 'concrete', bev=.015)
-        for k in range(40): b.box((sx + sgn * .004, ya + .4 + k * .5, .1), (.014, .25, .1), 'yellow' if k % 2 == 0 else 'trim_black')
-    b.text('UNIT 3  TURBINE-GENERATOR', (xb + .012, 8.8, .78), .17, 'trim_black' if False else 'chalk', math.pi / 2, math.pi / 2)
+    for sx, sgn in ((xb, 1), (xa, -1)):
+        b.box((sx + sgn * .006, (ya + yb) / 2, .09), (.024, yb - ya - .1, .18), 'trim_black', bev=.01)                  # kick plate
+        for k in range(40): b.box((sx + sgn * .004, ya + .4 + k * .5, .24), (.014, .25, .06), 'yellow' if k % 2 == 0 else 'trim_black')
+        for idx in range(12):
+            y = 3.5 + idx * 1.62
+            for (fy, fz, fw, fh) in ((y, .86, 1.36, .03), (y, .34, 1.36, .03)): b.box((sx + sgn * .012, fy, fz), (.024, fw, fh), 'orange', bev=.006)
+            for dy in (-.68, .68): b.box((sx + sgn * .012, y + dy, .6), (.024, .03, .55), 'orange', bev=.006)
+            b.box((sx + sgn * .008, y, .6), (.016, 1.3, .5), 'concrete_dark', bev=.008)
+            if idx % 2 == 0:
+                b.box((sx + sgn * .018, y, .6), (.012, 1.0, .34), 'backing')
+                for q in range(5): b.box((sx + sgn * .026, y, .47 + q * .065), (.012, .96, .02), 'steel_dark', bev=.004)
+            else:
+                b.text('%02d' % (idx + 1), (sx + sgn * .02, y, .6), .26, 'chalk', sgn * math.pi / 2, math.pi / 2)
     handrails(b, xa, xb, ya, yb, z1)
     b.claim((xa - .5, ya - 1.6, 0), (xb + .5, yb + 1.6, 3.9))
 
@@ -147,8 +155,11 @@ def exposed_lp(b, y0, y1):
         b.cyl((CX, y, AZ), R, .26, 'steel_mid', 'Y', 48, bev=.012); b.cyl((CX, y, AZ), R + .035, .1, 'steel_light', 'Y', 48, bev=.006)
         b.arc_shell((CX, y + .25, AZ), 1.22, R + .13, .1, math.pi, 2 * math.pi, 'steel_dark', 24)                    # stator diaphragm
         for q in range(64):
-            a = 2 * math.pi * q / 64
-            b.box((CX + (R + .07) * math.cos(a), y, AZ + (R + .07) * math.sin(a)), (.09, .2, .018), 'orange', (0, -a, 0), bev=.003)      # gold blades
+            a = 2 * math.pi * q / 64; ca, sa = math.cos(a), math.sin(a)
+            M = Matrix(((0, -sa, ca, CX + R * ca), (1, 0, 0, y), (0, ca, sa, AZ + R * sa), (0, 0, 0, 1))) @ Matrix.Rotation(math.radians(24), 4, 'Z')
+            b.push_m(M); b.prism([(-.1, 0), (-.05, .022), (.05, .022), (.1, 0), (.05, -.022), (-.05, -.022)], .17, 'orange', (0, 0, .09), True, 'Z', bev=.004); b.pop()
+        b.arc_shell((CX, y, AZ), R + .2, R + .16, .05, 0, 2 * math.pi, 'steel_light', 40)                        # shroud band
+        b.cyl((CX, y + .22, AZ), .3, .06, 'brass', 'Y', 32, bev=.006)                                              # seal collar on the shaft
     b.reserve_box((CX, yc, AZ), (2.7, L, 1.5))
 
 def coupling(b, y):
@@ -186,7 +197,19 @@ def train(b):
     b.box((CX - 1.2, 15.98, 1.55), (.5, .01, .26), 'chalk'); b.text('TG-3', (CX - 1.2, 15.97, 1.55), .1, 'trim_black', 0, math.pi / 2)
     b.box((CX - 1.45, 20.0, AZ + .1), (.9, 1.1, 1.0), 'steel_dark', bev=.05); b.box((CX - 1.45, 20.0, AZ + .62), (.8, 1.0, .05), 'red', bev=.012)
     b.box((CX - 1.91, 20.0, AZ + .1), (.03, .7, .5), 'yellow', bev=.008); b.text('HV', (CX - 1.94, 20.0, AZ + .12), .24, 'trim_black', -math.pi / 2, math.pi / 2)
+    for k in range(3):                                                                                           # HV bushings on the terminal box
+        bx = CX - 1.45 + (k - 1) * .28; b.cyl((bx, 20.0, AZ + .66), .09, .08, 'steel_dark', 'Z', 20, bev=.008); b.cyl((bx, 20.0, AZ + .85), .055, .3, 'ivory', 'Z', 20)
+        for q in range(4): b.cyl((bx, 20.0, AZ + .74 + q * .07), .085, .02, 'ivory', 'Z', 20)
+        b.cyl((bx, 20.0, AZ + 1.02), .045, .05, 'orange', 'Z', 16)
+    for yy in (17.4, 19.8):                                                                                      # generator cooling water pipes
+        for s in (-1, 1):
+            b.sweep([(CX + s * .98, yy, 3.3), (CX + s * 1.3, yy, 3.3), (CX + s * 1.3, yy, 1.14)], .06, 'steel_mid', 16, .14); b.cyl((CX + s * 1.3, yy, 1.03), .11, .05, 'steel_dark', 'Z', 20, bev=.006)
+    for s in (-1, 1): b.sweep([(CX + s * 1.3, 17.4, 1.14), (CX + s * 1.3, 19.8, 1.14)], .06, 'steel_mid', 16, .1, caps=False)
+    for sx in (-.75, .75):
+        for yy in (17.1, 20.1): torus(b, (CX + sx, yy, 3.8), .07, .014, 'yellow', 'Y', 16)                        # hood lifting lugs
     stepped(b, [(21.3, 22.3, .78, .62)], 'steel_light', nbolt=12); bearing(b, 22.35, 22.9)
+    b.box((CX, 21.85, AZ + .86), (.5, .6, .26), 'steel_dark', bev=.04); b.cyl((CX, 21.85, AZ + .62), .2, .5, 'orange', 'Y', 28, bev=.01)   # slip-ring housing
+    b.box((CX + .55, 22.65, AZ - .55), (.5, .01, .26), 'chalk'); b.text('GEN-3', (CX + .55, 22.66, AZ - .55), .1, 'trim_black', 0, math.pi / 2)
     b.use('SHAFT'); b.cyl((CX, 7.55, AZ), .22, .9, 'steel_light', 'Y', 24); b.cyl((CX, 22.65, AZ), .22, .5, 'steel_light', 'Y', 24)
     b.use('MACH')
     pipe_lagged(b, [(8.4, -.25, 4.9), (8.4, 4.0, 4.9), (8.4, 4.0, 3.55), (CX + .2, 4.0, 3.55), (CX + .2, 4.2, 3.55)], .22, bend=.55)

@@ -132,14 +132,20 @@ AMBER, RED = (1.0, .58, .22), (1.0, .12, .06)
 n = 0
 for y in arch.LAMP_Y:
     for x in arch.LAMP_X: spot(f'LAMP_{n:02d}', (x, y, 5.27), 1900, 100, AMBER, .7); n += 1
+def aim(o, frm, to):
+    o.rotation_euler = (Vector(to) - Vector(frm)).to_track_quat('-Z', 'Y').to_euler()
 spot('LAMP_rotor', (machinery.CX, 11.25, 4.1), 800, 65, (1.0, .66, .3), .5)                    # lights the exposed gold blading
 point('GLOW_coupling', (machinery.CX, 15.6, machinery.AZ + .35), 150, (1.0, .55, .18))
+for k, y in enumerate((5.0, 11.0, 18.0)):                                                      # warm floor uplights give the casings a rim
+    aim(spot(f'UP_W{k}', (1.35, y, .2), 260, 42, AMBER, .5), (1.35, y, .2), (3.2, y, 2.2)); aim(spot(f'UP_E{k}', (7.65, y, .2), 260, 42, AMBER, .5), (7.65, y, .2), (6.0, y, 2.2))
+spot_c = spot('SPOT_consoles', (-2.3, 5.65, 4.8), 520, 46, (1.0, .62, .26)); aim(spot_c, (-2.3, 5.65, 4.8), (-3.5, 5.65, 1.4))
+spot_b = spot('SPOT_bay', (-1.6, 17.0, 5.2), 420, 50, (1.0, .62, .26)); aim(spot_b, (-1.6, 17.0, 5.2), (-.9, 17.0, .8))
+for k, y in enumerate((9.0, 12.5, 16.0, 19.5)):                                                # wall washers reveal the west wall and lead the eye along it
+    aim(spot(f'WASH_W{k}', (-3.25, y, 4.4), 260, 58, AMBER, .6), (-3.25, y, 4.4), (-4.0, y, 2.0))
+point('RED_gen', (machinery.CX - 1.9, 20.0, machinery.AZ + 1.4), 70, RED, .05); point('RED_hood', (machinery.CX, 16.6, 4.0), 40, RED, .05)
 point('GLOW_consoles', (-3.1, 5.65, 1.9), 40, (1.0, .6, .25), .15)
 for nm, loc in (('RED_D01', (1.7, .25, 3.35)), ('RED_D02', (1.7, 23.75, 3.35))): point(nm, loc, 90, RED, .06)
 for nm, yy in (('PASS_D01', -.9), ('PASS_D02', 24.9)): point(nm, (0, yy, 2.5), 45, (1.0, .45, .2), .1)
-for k, yy in enumerate((6, 12, 18)):                                                            # cold rim lights from the window side
-    d = bpy.data.lights.new(f'RIM_{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 2.5, .6; d.energy = 700; d.color = (.45, .62, 1.0)
-    o = bpy.data.objects.new(f'RIM_{k}', d); o.location = (9.4, yy, 6.4); o.rotation_euler = (0, math.radians(-50), 0); coll.objects.link(o)
 sun = bpy.data.lights.new('MOON_EAST', 'SUN'); sun.energy = 4.5; sun.angle = math.radians(2.0); sun.color = (.50, .64, 1.0)
 so = bpy.data.objects.new('MOON_EAST', sun); coll.objects.link(so)
 so.rotation_euler = Vector((-.62, .40, -.67)).to_track_quat('-Z', 'Y').to_euler()
@@ -166,6 +172,11 @@ for name, (loc, tgt) in CAMS.items():
     co.rotation_euler = (Vector(tgt) - Vector(loc)).to_track_quat('-Z', 'Y').to_euler()
 sc.camera = bpy.data.objects['CAM_A_entry_north']
 
+hz = bpy.data.materials.new('M_haze'); hz.use_nodes = True; hn = hz.node_tree; hn.nodes.clear()
+vs = hn.nodes.new('ShaderNodeVolumeScatter'); vs.inputs['Density'].default_value = .006; vs.inputs['Anisotropy'].default_value = .45; vs.inputs['Color'].default_value = (1, .78, .55, 1)
+ho = hn.nodes.new('ShaderNodeOutputMaterial'); hn.links.new(vs.outputs[0], ho.inputs['Volume'])
+hm = bpy.data.meshes.new('HAZE'); hm.from_pydata([(x, y, z) for x in (-3.95, 9.95) for y in (.05, 23.95) for z in (.05, 7.15)], [], [(0, 1, 3, 2), (4, 6, 7, 5), (0, 4, 5, 1), (2, 3, 7, 6), (0, 2, 6, 4), (1, 5, 7, 3)])
+ho_ = bpy.data.objects.new('HAZE_VOLUME', hm); hm.materials.append(hz); coll.objects.link(ho_); ho_.hide_render = os.environ.get('HAZE') != '1'; ho_['shipping'] = False
 report = dict(group_stats={k: v for k, v in b.stats().items()}, total_tris_before_cull=sum(v['tris'] for v in b.stats().values()), total_tris=sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for k, o in objs.items() if k != 'OCC'),
               bevelled_edges=bevelled, faces_kept=cull_kept, faces_culled=cull_removed, materials=len(bpy.data.materials), images=[i.name for i in bpy.data.images], objects=len(bpy.data.objects))
 print('REPORT', json.dumps(report))
