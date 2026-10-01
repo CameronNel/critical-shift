@@ -1,0 +1,98 @@
+{
+  "blender": "5.2.1 LTS",
+  "python": "3.13.13",
+  "file": "/workspace/suit-review/R03.blend",
+  "root": "WORKER",
+  "style": "owner-reference-20261001",
+  "visible_meshes": 19,
+  "source_triangles": 116419,
+  "evaluated_triangles": 119203,
+  "bounds_m": {
+    "x": [
+      -0.4129999876022339,
+      0.4129939675331116
+    ],
+    "y": [
+      -0.3344999849796295,
+      0.3019683063030243
+    ],
+    "z": [
+      0.0021256054751574993,
+      1.6864399909973145
+    ]
+  },
+  "covered_regions": [
+    "ARM_L",
+    "ARM_R",
+    "FOOT_L",
+    "FOOT_R",
+    "HAND_L",
+    "HAND_R",
+    "LEG_L",
+    "LEG_R",
+    "TORSO"
+  ],
+  "missing_images": [],
+  "renderer": "CYCLES",
+  "device": "CPU",
+  "color_transform": "Standard",
+  "samples": 40,
+  "technical_failures": [],
+  "runtime_validation": "Not performed; hero authoring geometry",
+  "visual_acceptance": "Requires pixel review; these checks do not establish an exact reference match",
+  "cold_start": false,
+  "camera_settings": {
+    "hero": {
+      "location": [
+        -2.3,
+        4.8,
+        2.05
+      ],
+      "target": [
+        0,
+        0,
+        0.83
+      ],
+      "lens_mm": 76
+    },
+    "front": {
+      "location": [
+        0,
+        5.32,
+        1.58
+      ],
+      "target": [
+        0,
+        0,
+        0.83
+      ],
+      "lens_mm": 76
+    },
+    "side": {
+      "location": [
+        -5.32,
+        0,
+        1.58
+      ],
+      "target": [
+        0,
+        0,
+        0.83
+      ],
+      "lens_mm": 76
+    },
+    "back": {
+      "location": [
+        0,
+        -5.32,
+        1.58
+      ],
+      "target": [
+        0,
+        0,
+        0.83
+      ],
+      "lens_mm": 76
+    }
+  }
+}
