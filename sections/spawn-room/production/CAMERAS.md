@@ -56,7 +56,7 @@ Integrity-chamber circulation edge.
 Briefing seating aisle.
 
 ### VALIDATE_Material_A
-Close/medium view containing wall, floor, painted equipment, rubber, paper and glass.
+Close/medium view containing wall, floor, painted equipment, rubber, paper and glass. Current framing: 26 mm from the locker-room door side across the changing bench toward the integrity chamber (wall, tile floor, locker, rubber mat, papers and notice board, chamber glass).
 
 Used specifically for anti-plastic review.
 

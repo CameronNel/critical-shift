@@ -185,7 +185,9 @@ for n in (1, 2, 3, 4):
         link_cols(e)
     asset["asset_role"] = "equippable_suit"
     asset["cs_equip_station"] = n                  # player/station i; equipping hides this asset until it is returned
-    asset["cs_hide_on_equip"] = True
+    asset["cs_hide_on_equip"] = True               # hidden while the player wears it
+    asset["cs_show_on_unequip"] = True             # reappears when it is taken off
+    asset["cs_unequip_only_at_station"] = True     # it can only be taken off at its own locker
     asset["cs_support_target"] = ro.name
     asset["cs_support_direction"] = "WORLD_-Z"
     for cname in ("MODULE_spawn-room", "PPE_STATIONS", "CS_SUPPORT_REQUIRED", "CS_FLOOR_DRESSING"):
