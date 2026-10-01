@@ -131,6 +131,7 @@ def stepped(b, segs, body, flanges=True, nbolt=16):
     for k, (y0, y1, r0, r1) in enumerate(segs):
         b.cyl((CX, (y0 + y1) / 2, AZ), r0, y1 - y0, body, 'Y', 48, r2=r1)
         if y1 - y0 > .9:                                                                                         # dark banded collars (spawn-room trim language)
+            b.cyl((CX, y0 + .07, AZ), r0 + .03, .14, 'steel_light', 'Y', 48, bev=.01)                           # pale base band so the lower casing reads
             for t in (.3, .7):
                 rr = r0 + (r1 - r0) * t; b.cyl((CX, y0 + (y1 - y0) * t, AZ), rr + .035, .11, 'trim_black', 'Y', 48, bev=.01)
                 for dt in (-.08, .08): b.cyl((CX, y0 + (y1 - y0) * t + dt, AZ), rr + .02, .025, 'steel_light', 'Y', 48, bev=.005)
@@ -216,8 +217,6 @@ def train(b):
         for s in (-1, 1):
             b.sweep([(CX + s * .98, yy, 3.3), (CX + s * 1.3, yy, 3.3), (CX + s * 1.3, yy, 1.14)], .06, 'steel_mid', 16, .14); b.cyl((CX + s * 1.3, yy, 1.03), .11, .05, 'steel_dark', 'Z', 20, bev=.006)
     for s in (-1, 1): b.sweep([(CX + s * 1.3, 17.4, 1.14), (CX + s * 1.3, 19.8, 1.14)], .06, 'steel_mid', 16, .1, caps=False)
-    for sx in (-.75, .75):
-        for yy in (17.1, 20.1): (torus(b, (CX + sx, yy, 3.8), .07, .014, 'yellow', 'Y', 16), b.box((CX + sx, yy, 3.7), (.14, .08, .06), 'steel_dark', bev=.01))                        # hood lifting lugs
     stepped(b, [(21.3, 22.3, .78, .62)], 'steel_light', nbolt=12); bearing(b, 22.35, 22.9)
     b.box((CX, 21.85, AZ + .86), (.5, .6, .26), 'steel_dark', bev=.04); b.cyl((CX, 21.85, AZ + .62), .2, .5, 'orange', 'Y', 28, bev=.01)   # slip-ring housing
     b.box((CX + .55, 22.65, AZ - .55), (.5, .01, .26), 'chalk'); b.text('GEN-3', (CX + .55, 22.66, AZ - .55), .1, 'trim_black', 0, math.pi / 2)
