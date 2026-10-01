@@ -19,15 +19,18 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 | Render-visible geometry objects | 1,572 | 788 |
 | Triangles | 322,722 | 322,722 |
 | Draw-call estimate (objects x material slots, before any engine batching) | 1,878 | 804 |
-| Materials in use | 189 | 61 |
+| Materials in use | 189 | 62 |
 | Lights | 14 | 14 (unchanged; roles tagged) |
 
 ## What it does (each step is meant to leave the look unchanged)
 
-1. 352 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept);
-   modifiers are baked on the 767 parts that get merged or touched.
+1. 351 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept). Curve/text objects that are animated, driven, in NLA, constrained or have an animated data block or shape keys
+   (for example the POD_state_* labels) are NOT converted, because a mesh copy would freeze them;
+   modifiers are baked on the parts that get merged or touched.
 2. Procedural patterns that depend on the object (Generated / Object coordinates, 40 materials) are frozen into per-vertex
-   attributes `CS_GEN` / `CS_OBJ`, and those materials read the attributes, so joining parts cannot change a pattern.
+   attributes `CS_GEN` / `CS_OBJ`, on every mesh including hidden ones, and those materials read the attributes, so joining
+   parts cannot change a pattern. Curve/text objects that stay curves cannot carry attributes, so they keep an
+   untouched copy of the material (`<name>__noattr`).
 3. The 129 constant-colour Principled materials are folded into one `PAL_flat` material: three packed 16x16 float images
    (albedo, roughness+metal, emission), `Closest` sampling, a `CS_PAL` UV layer. Cell mapping is in text block `OPT_PALETTE`.
 4. Parts of the same asset that share material and object flags are joined (957 objects into 173); shell parts outside any
@@ -42,6 +45,16 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 - `signature.py` / `compare_signatures.py`: triangles identical; scene and per-asset bounding boxes within 0.1 mm; area per
   original material (palette cells decoded back) within 8e-6 relative; every world vertex of each file has a match in the
   other within about 2 mm; every object with properties, and every empty, keeps name, properties, transform and parent. PASS.
+- Animation inventory, compared as a multiset: for every owner (objects, material node trees, meshes, curves, lights,
+  cameras, worlds, shape keys) a digest of a generic deep dump of its whole animation data: owner settings and assigned
+  slot, the action with all layers, slots, channelbags, F-curves (mute, keyframes, handles, easing), F-curve modifiers
+  including collections such as envelope points, drivers (expression, variables, targets and their settings), and NLA
+  tracks and strips (influence, timing, modifiers) with the content of each action they play. Verified to fail on a
+  0.01 keyframe edit, muting an F-curve, an elastic-easing amplitude, a noise-modifier strength, an envelope point, NLA-only
+  action edits, NLA influence, a driver target's rotation mode and a duplicated entry. A first version of this derivative
+  lost the keyframes of
+  `POD_state_READY` (an animated text object converted to a mesh); Codex's review of #60 caught this class of bug and the
+  comparison now fails on it, and also fails if the derivative gains an action, driver or NLA entry the original did not have.
 - `validate_contacts.py` on the derivative: PASS (224 tagged objects, 0 failures), same as the original. (An earlier
   version of this script merged support targets and failed 48 of them; targets are now kept by name.)
 - Render comparison (Cycles, 48 samples, denoised, fixed seed, 960x540) on six fixed validation cameras, original vs

@@ -66,6 +66,14 @@ for k, v in a["identity"].items():
         bad.append("transform moved: " + k)
     if v["parent"] != w["parent"]:
         bad.append("parent changed: %s %s -> %s" % (k, v["parent"], w["parent"]))
+import collections
+
+ca = collections.Counter(json.dumps(x, sort_keys=True) for x in a.get("animation", []))
+cb = collections.Counter(json.dumps(x, sort_keys=True) for x in b.get("animation", []))
+for x, n in (ca - cb).items():
+    bad.append("animation lost or changed (x%d): %s" % (n, x))
+for x, n in (cb - ca).items():
+    bad.append("animation added or changed by the derivative (x%d): %s" % (n, x))
 if a["lights"].keys() != b["lights"].keys():
     bad.append("lights differ")
 print("compare: materials %d, worst relative area difference %.2e" % (len(keys), worst))
