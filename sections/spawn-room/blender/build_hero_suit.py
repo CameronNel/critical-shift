@@ -4,11 +4,14 @@ Hero suit library file: the crew worker's own hazmat suit, as one linkable colle
 
     blender -b --factory-startup -P build_hero_suit.py -- <hero_suit.blend>
 
-This is the single source of the suit that is placed in the spawn-room lockers (module.blend links the collection
-`HERO_SUIT` from this file; edit and re-save this file and every placed suit follows). It is built exactly as the player
-character wears it: character_worker.build_worker + character_suit.build_hazmat + equip, default colours, A-pose rest. Only
-the wearer is left out (skin regions, head and face), because the suit hangs empty in a locker. Nothing in the suit is
-modified after the build.
+This builds the FULL-DETAIL suit (the HZ-01 reference style of character_suit.build_hazmat, about 114,000 triangles) as one
+linkable collection. The library the spawn-room lockers actually link is the locker LOD of it, so the rebuild is two
+stages: run this script, then lod_hero_suit.py on the same file (about 22,000 triangles). module.blend links the collection
+`HERO_SUIT` from that file; edit and re-save it and every placed suit follows. The wearable full-detail hero is the
+scene crew_hazmat_reference.blend, not this library: do not use the reduced library as the wearable character.
+It is built exactly as the player character wears it (character_worker.build_worker + character_suit.build_hazmat + equip,
+default colours, A-pose rest); only the wearer is left out (skin regions, head and face), because the suit hangs empty in a
+locker. Nothing in the suit is modified after the build except by lod_hero_suit.py.
 
 Measurements the placing script needs (suit frame: feet near z = 0, +y forward) are stored as custom properties on the
 collection: cs_top_z, cs_pack_back_y, cs_foot_zmin, cs_sole_x0/x1/y0/y1 (boot footprint), cs_neck_cx/cy/r/z0/z1.

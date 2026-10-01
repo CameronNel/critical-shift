@@ -40,6 +40,10 @@ blender -b --factory-startup -noaudio --disable-autoexec \
   --python-exit-code 1 --python sections/spawn-room/blender/build_hero_suit.py -- \
   sections/facility-assembly/sources/spawn-room/hero_suit.blend
 
+blender -b --factory-startup -noaudio --disable-autoexec \
+  --python-exit-code 1 --python sections/spawn-room/blender/lod_hero_suit.py -- \
+  sections/facility-assembly/sources/spawn-room/hero_suit.blend
+
 blender -b sections/spawn-room/blender/crew_hazmat_reference.blend -noaudio \
   --disable-autoexec --python-exit-code 1 \
   --python sections/spawn-room/blender/render_suit_reference.py -- \
@@ -75,9 +79,9 @@ owner art approval automatically. The model is hero authoring geometry, with
 substantially more triangles than the earlier gameplay test. Rigging, current LOD
 budgets, Unity import, draw calls and frame time require a separate delivery pass.
 
-The existing self-contained `module_optimised.blend` contains the previous suit.
-It must be regenerated and revalidated before using it as a matching delivery
-derivative. The frozen accepted sources, map caches and provenance are not changed.
+`module_optimised.blend` (self-contained) has been regenerated from the linked module with the locker LOD of this suit
+(see "Locker LOD" below and `../optimise/README.md`): contacts, signatures and the six-camera comparison were re-run on
+it. The frozen accepted sources, map caches and provenance are not changed.
 
 ## Git delivery workaround
 
@@ -89,3 +93,24 @@ through the authenticated GitHub Git Data API. Other facility LFS rules continue
 to apply. The draft PR targets `claude/spawn-polish`; it does not merge or promote
 the asset. The earlier local commit history and LFS objects are also retained in
 the task's verified portable backup.
+
+The workaround covers only those files. `module_optimised.blend` (regenerated with
+the locker LOD in the follow-up PR #69) stays in Git LFS and was uploaded normally
+by that branch's executor: a fresh clone of the branch followed by
+`git lfs pull --include=sections/facility-assembly/sources/spawn-room/module_optimised.blend`
+retrieves the 33,575,117-byte file and its SHA-256 equals the pointer's OID
+(`3abf6ae6...f717f`).
+
+## Locker LOD
+
+`hero_suit.blend` (the library the four lockers link) is now a reduced copy of the suit: `build_hero_suit.py` builds the
+full-detail suit (114,094 triangles) and `lod_hero_suit.py` then decimates it object by object to 22,371 triangles
+(solidify applied first, smooth shading and every material kept; the collection records `cs_lod = "locker"` and the counts
+before and after). Rebuild order: `build_hero_suit.py`, then `lod_hero_suit.py` (both are in the command block under "Rebuild and review", before
+the linked-room validation, which now fails unless the library is the locker LOD). `lod_hero_suit.py` refuses a library already marked
+`cs_lod = "locker"` (exit code 1, file untouched), so a retry cannot decimate twice; to redo the stage, rerun `build_hero_suit.py` first. The full-detail suit stays in
+`crew_hazmat_reference.blend`. At locker distance the reduced suit differs from the full one by edge detail only (mean
+absolute pixel difference 0.005 on a 854x640 render from 2.3 m).
+
+
+The linked-locker validation (`LINKED_LOCKER_VALIDATION.json`, `final/linked_lockers.png`) was re-run on the locker LOD library: dock gap and top alignment pass for all four instances and the record includes the LOD triangle counts.

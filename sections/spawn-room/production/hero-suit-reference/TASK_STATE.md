@@ -53,8 +53,9 @@ not claimed. Hidden surfaces are inferred from the visible garment construction.
 The room module and accepted map are not saved by these checks. The source room
 reports a newer Blender file subversion on load; it is used read-only. Its frozen
 geometry and materials are not rewritten through this toolchain. The optimized
-self-contained room derivative still contains the historical suit and is marked
-stale in its handoff until regeneration and equivalence checks.
+self-contained room derivative was regenerated afterwards from the linked module
+with the locker LOD of this suit (22,371 triangles per suit); contacts, signatures
+and the six-camera comparison were re-run on it (see `../optimise/README.md`).
 
 ## Publication
 
@@ -63,7 +64,7 @@ through the authenticated GitHub Git Data API. Git LFS uploads still reject this
 executor's credential, so the owner requested a workaround. The two suit native
 files and this handoff's PNGs are stored as ordinary Git blobs, using three scoped
 `.gitattributes` overrides. Each artifact is under 5 MB; the complete change is
-about 36 MB. Existing LFS rules for other facility assets remain in force. Clones
+about 36 MB. Existing LFS rules for other facility assets remain in force, including `module_optimised.blend`, which the follow-up PR #69 uploaded to LFS and verified from a fresh clone (SHA-256 equals the pointer OID). Clones
 receive real suit files rather than pointers to unuploaded LFS objects.
 
 The original three local commits and their LFS object versions are preserved in

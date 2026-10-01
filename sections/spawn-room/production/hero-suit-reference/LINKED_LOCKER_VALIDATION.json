@@ -1,32 +1,38 @@
 {
   "status": "PASS",
-  "blender": "5.2.1 LTS",
+  "blender": "5.2.2 LTS",
   "instances": [
     {
       "instance": "PPE_01_suit_model",
       "library": "//hero_suit.blend",
       "boot_dock_gap_m": -2.9802322387695312e-08,
-      "top_z_m": 1.9809999465942383
+      "top_z_m": 1.9814531803131104
     },
     {
       "instance": "PPE_02_suit_model",
       "library": "//hero_suit.blend",
       "boot_dock_gap_m": -2.9802322387695312e-08,
-      "top_z_m": 1.9809999465942383
+      "top_z_m": 1.9814531803131104
     },
     {
       "instance": "PPE_03_suit_model",
       "library": "//hero_suit.blend",
       "boot_dock_gap_m": -2.9802322387695312e-08,
-      "top_z_m": 1.9809999465942383
+      "top_z_m": 1.9814531803131104
     },
     {
       "instance": "PPE_04_suit_model",
       "library": "//hero_suit.blend",
       "boot_dock_gap_m": -2.9802322387695312e-08,
-      "top_z_m": 1.9809999465942383
+      "top_z_m": 1.9814531803131104
     }
   ],
+  "lod": {
+    "cs_lod": "locker",
+    "triangles_full": 114094,
+    "triangles_locker": 22371,
+    "triangles_current": 22371
+  },
   "placement_anchors": {
     "cs_top_z": 1.6770398616790771,
     "cs_pack_back_y": -0.36500000953674316,
