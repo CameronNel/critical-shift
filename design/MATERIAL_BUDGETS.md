@@ -1,6 +1,6 @@
-# Material budgets per room (proposed, unmeasured in an engine)
+# Material budgets per room (approved targets, unmeasured in an engine)
 
-Status: **proposal for owner approval.** Nothing here is engine-measured and no Unity project exists in this repository. The only fixed input from the owner is 60 fps on an RTX 3050, medium settings, 1080p. Every cap below is an engineering target chosen to make that likely; change it only with a recorded decision. This document changes no asset, scene or code.
+Status: **approved by the owner on 2026-10-01** (per-view cap of 40, the 15 shared families and the room caps below, as written). Open decisions 3-5 below remain open. Nothing here is engine-measured and no Unity project exists in this repository. The only fixed input from the owner is 60 fps on an RTX 3050, medium settings, 1080p. Every cap below is an engineering target chosen to make that likely; change it only with a recorded decision. This document changes no asset, scene or code.
 
 It extends [GAME_SPEC section 9.4](GAME_SPEC.md) ("simple shared material families, vertex colour/masks where useful, sparse functional decals") and the room targets in `sections/reactor-room/production/overhaul-R1/BUDGET.md`. It supersedes the single "at most 40 unique materials" row there: that figure was written for one room, and it is redefined below as a per-view cap.
 
@@ -118,3 +118,7 @@ Mark engine-side verification **Blocked** until a Unity target exists. Do not re
 3. Decide who owns the shared families: they are map-wide assets, so a change to one touches every room (one owner and one branch at a time, as for `module.blend` files).
 4. Confirm that the spawn room's look is the target the families must reproduce, and that the reactor room's unique count is the first to be reduced if the per-view check fails.
 5. No upscaler or render-pipeline change is assumed here; the repository records the Built-in Render Pipeline ([ENGINE_DECISION](ENGINE_DECISION.md)), and some tricks above (texture arrays, shader-time blink) need a shader-level check in that pipeline before they are committed to.
+
+## Progress log
+
+- 2026-10-01, reactor-room control room (PR #54): step 1 applied, 63 -> 31 materials via seven shared families (S01, S02, S03, S05, S06, S07, S09) with recipe values on the mesh. Cap 16 not yet met; next: emissive family with shader-clock blink, indexed screen shader, floor into S04, glass into S13. Same-view renders before/after differ at noise level; the glTF round trip keeps the colours via `COLOR_0`. Not engine-measured.
