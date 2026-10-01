@@ -1,0 +1,1215 @@
+{
+  "scope": "Supplemental true-surface and consumed-chart probes",
+  "coplanar": [
+    {
+      "a": "D2 frame head",
+      "b": "Office rear lintel",
+      "same_facing_overlap_area_m2": 0.011544066101123462,
+      "witness": {
+        "point": [
+          -6.025000095367432,
+          9.528441429138184,
+          2.2820000648498535
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "a_triangle": 154,
+        "b_triangle": 154,
+        "intersection_area_m2": 0.0001428359496351561
+      }
+    },
+    {
+      "a": "Office rear wall west",
+      "b": "Office rear lintel",
+      "same_facing_overlap_area_m2": 0.15196201075355553,
+      "witness": {
+        "point": [
+          -5.962661266326904,
+          9.520000457763672,
+          3.0275678634643555
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "a_triangle": 218,
+        "b_triangle": 156,
+        "intersection_area_m2": 0.0022570030341846348
+      }
+    },
+    {
+      "a": "Office rear wall east",
+      "b": "Office rear lintel",
+      "same_facing_overlap_area_m2": 0.15196201075355198,
+      "witness": {
+        "point": [
+          -4.810647964477539,
+          9.520000457763672,
+          3.0074589252471924
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "a_triangle": 219,
+        "b_triangle": 156,
+        "intersection_area_m2": 0.00487516079775574
+      }
+    },
+    {
+      "a": "Support privacy screen wall",
+      "b": "Support screen base curb",
+      "same_facing_overlap_area_m2": 0.7133588060284524,
+      "witness": {
+        "point": [
+          -2.381500244140625,
+          12.750323295593262,
+          -0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "a_triangle": 152,
+        "b_triangle": 152,
+        "intersection_area_m2": 0.30316663311716674
+      }
+    }
+  ],
+  "drawer_end_fits": [
+    {
+      "object": "Drawer pull 0_0",
+      "end_center": [
+        -6.0,
+        8.199999809265137,
+        0.2200000286102295
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.199999809265137,
+        0.2200000286102295
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.001362229697406292
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.194000244140625,
+          0.2199999988079071
+        ],
+        "stud_surface": [
+          -6.0,
+          8.194999694824219,
+          0.2199999988079071
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 0_0",
+      "end_center": [
+        -6.0,
+        8.40000057220459,
+        0.2200000137090683
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.40000057220459,
+        0.2200000137090683
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.001362229697406292
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.394000053405762,
+          0.2199999988079071
+        ],
+        "stud_surface": [
+          -6.0,
+          8.394999504089355,
+          0.2199999988079071
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 0_1",
+      "end_center": [
+        -6.0,
+        8.199999809265137,
+        0.5199999809265137
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.199999809265137,
+        0.5199999809265137
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.194000244140625,
+          0.5199999809265137
+        ],
+        "stud_surface": [
+          -6.0,
+          8.194999694824219,
+          0.5199999809265137
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 0_1",
+      "end_center": [
+        -6.0,
+        8.40000057220459,
+        0.5199999809265137
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.40000057220459,
+        0.5199999809265137
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.394000053405762,
+          0.5199999809265137
+        ],
+        "stud_surface": [
+          -6.0,
+          8.394999504089355,
+          0.5199999809265137
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 0_2",
+      "end_center": [
+        -6.0,
+        8.199999809265137,
+        0.8200001120567322
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.199999809265137,
+        0.8200001120567322
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.194000244140625,
+          0.8199999928474426
+        ],
+        "stud_surface": [
+          -6.0,
+          8.194999694824219,
+          0.8199999928474426
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 0_2",
+      "end_center": [
+        -6.0,
+        8.40000057220459,
+        0.8200001120567322
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.40000057220459,
+        0.8200001120567322
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.394000053405762,
+          0.8199999928474426
+        ],
+        "stud_surface": [
+          -6.0,
+          8.394999504089355,
+          0.8199999928474426
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 0_3",
+      "end_center": [
+        -6.0,
+        8.199999809265137,
+        1.1200000047683716
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.199999809265137,
+        1.1200000047683716
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.194000244140625,
+          1.1200000047683716
+        ],
+        "stud_surface": [
+          -6.0,
+          8.194999694824219,
+          1.1200000047683716
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 0_3",
+      "end_center": [
+        -6.0,
+        8.40000057220459,
+        1.1200000047683716
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.40000057220459,
+        1.1200000047683716
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.394000053405762,
+          1.1200000047683716
+        ],
+        "stud_surface": [
+          -6.0,
+          8.394999504089355,
+          1.1200000047683716
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 1_0",
+      "end_center": [
+        -6.0,
+        8.999999046325684,
+        0.2200000286102295
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.999999046325684,
+        0.2200000286102295
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.001362229697406292
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.994000434875488,
+          0.2199999988079071
+        ],
+        "stud_surface": [
+          -6.0,
+          8.994999885559082,
+          0.2199999988079071
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 1_0",
+      "end_center": [
+        -6.0,
+        9.199999809265137,
+        0.2200000137090683
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        9.199999809265137,
+        0.2200000137090683
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.001362229697406292
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          9.194000244140625,
+          0.2199999988079071
+        ],
+        "stud_surface": [
+          -6.0,
+          9.194999694824219,
+          0.2199999988079071
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 1_1",
+      "end_center": [
+        -6.0,
+        8.999999046325684,
+        0.5199999809265137
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.999999046325684,
+        0.5199999809265137
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.994000434875488,
+          0.5199999809265137
+        ],
+        "stud_surface": [
+          -6.0,
+          8.994999885559082,
+          0.5199999809265137
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 1_1",
+      "end_center": [
+        -6.0,
+        9.199999809265137,
+        0.5199999809265137
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        9.199999809265137,
+        0.5199999809265137
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          9.194000244140625,
+          0.5199999809265137
+        ],
+        "stud_surface": [
+          -6.0,
+          9.194999694824219,
+          0.5199999809265137
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 1_2",
+      "end_center": [
+        -6.0,
+        8.999999046325684,
+        0.8200001120567322
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.999999046325684,
+        0.8200001120567322
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.994000434875488,
+          0.8199999928474426
+        ],
+        "stud_surface": [
+          -6.0,
+          8.994999885559082,
+          0.8199999928474426
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 1_2",
+      "end_center": [
+        -6.0,
+        9.199999809265137,
+        0.8200001120567322
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        9.199999809265137,
+        0.8200001120567322
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          9.194000244140625,
+          0.8199999928474426
+        ],
+        "stud_surface": [
+          -6.0,
+          9.194999694824219,
+          0.8199999928474426
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 1_3",
+      "end_center": [
+        -6.0,
+        8.999999046325684,
+        1.1200000047683716
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        8.999999046325684,
+        1.1200000047683716
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          8.994000434875488,
+          1.1200000047683716
+        ],
+        "stud_surface": [
+          -6.0,
+          8.994999885559082,
+          1.1200000047683716
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    },
+    {
+      "object": "Drawer pull 1_3",
+      "end_center": [
+        -6.0,
+        9.199999809265137,
+        1.1200000047683716
+      ],
+      "end_plane_axis_x_range": [
+        -6.0,
+        -6.0
+      ],
+      "stud_nearest_center": [
+        -6.0,
+        9.199999809265137,
+        1.1200000047683716
+      ],
+      "surface_distance_range": [
+        0.00099945068359375,
+        0.0013622159603983164
+      ],
+      "closest_surface_witness": {
+        "pull_surface": [
+          -6.0,
+          9.194000244140625,
+          1.1200000047683716
+        ],
+        "stud_surface": [
+          -6.0,
+          9.194999694824219,
+          1.1200000047683716
+        ],
+        "distance": 0.00099945068359375
+      },
+      "classification": "Uncapped tube mouth; stud fits inside with approximately 1mm radial clearance, not a default planar seat"
+    }
+  ],
+  "cloth_edge_bearing": [
+    {
+      "x": -6.225,
+      "samples": 45,
+      "gap_range": [
+        0.002366364002227783,
+        0.013189196586608887
+      ],
+      "worst_gap": {
+        "cloth_lower": [
+          -6.224999904632568,
+          13.82272720336914,
+          0.8231891989707947
+        ],
+        "deck": [
+          -6.224999904632568,
+          13.82272720336914,
+          0.8100000023841858
+        ],
+        "gap": 0.013189196586608887,
+        "cloth_normal": [
+          0.8997018337249756,
+          -0.001745760440826416,
+          -0.4365015923976898
+        ]
+      },
+      "worst_penetration": {
+        "cloth_lower": [
+          -6.224999904632568,
+          12.199999809265137,
+          0.8123663663864136
+        ],
+        "deck": [
+          -6.224999904632568,
+          12.199999809265137,
+          0.8100000023841858
+        ],
+        "gap": 0.002366364002227783,
+        "cloth_normal": [
+          0.8071275949478149,
+          0.0,
+          -0.5903770923614502
+        ]
+      },
+      "classification": "Flexible cover-over-edge; flat bearing angle rule is inapplicable to a drape"
+    },
+    {
+      "x": -5.475,
+      "samples": 45,
+      "gap_range": [
+        0.00010186433792114258,
+        0.011471092700958252
+      ],
+      "worst_gap": {
+        "cloth_lower": [
+          -5.474999904632568,
+          13.774999618530273,
+          0.8214711546897888
+        ],
+        "deck": [
+          -5.474999904632568,
+          13.774999618530273,
+          0.8100000619888306
+        ],
+        "gap": 0.011471092700958252,
+        "cloth_normal": [
+          -0.8650928735733032,
+          -0.00011468102457001805,
+          -0.5016117691993713
+        ]
+      },
+      "worst_penetration": {
+        "cloth_lower": [
+          -5.474999904632568,
+          12.199999809265137,
+          0.8101019263267517
+        ],
+        "deck": [
+          -5.474999904632568,
+          12.199999809265137,
+          0.8100000619888306
+        ],
+        "gap": 0.00010186433792114258,
+        "cloth_normal": [
+          -0.6884546875953674,
+          0.0,
+          -0.7252793908119202
+        ]
+      },
+      "classification": "Flexible cover-over-edge; flat bearing angle rule is inapplicable to a drape"
+    }
+  ],
+  "stable_signed_volumes": [
+    {
+      "object": "Keyboard keyrow 1",
+      "components": 12,
+      "minimum": 2.981536239431195e-06,
+      "negative_components": 0
+    },
+    {
+      "object": "Keyboard keyrow 4",
+      "components": 12,
+      "minimum": 2.981536239431195e-06,
+      "negative_components": 0
+    },
+    {
+      "object": "Lifting eyebolt stem 4.05_6.65",
+      "components": 1,
+      "minimum": 1.1986789483698905e-05,
+      "negative_components": 0
+    },
+    {
+      "object": "Lifting eyebolt stem 4.05_8.65",
+      "components": 1,
+      "minimum": 1.1986818581934721e-05,
+      "negative_components": 0
+    },
+    {
+      "object": "Lifting eyebolt stem 5.25_8.65",
+      "components": 1,
+      "minimum": 1.1986818581934721e-05,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | D1 ID captive stand-offs",
+      "components": 8,
+      "minimum": 1.0485617400995757e-07,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Checkin Counter Hatch / steel",
+      "components": 21,
+      "minimum": 1.615317304540475e-07,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Checkin Counter Hatch / ink",
+      "components": 6,
+      "minimum": 1.4615738934868768e-06,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Checkin Counter Hatch / wear",
+      "components": 7,
+      "minimum": 1.2684548787554465e-08,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Checkin Counter Hatch / coffee",
+      "components": 19,
+      "minimum": 4.8006728758280895e-09,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined CD | D1 service junction / steel",
+      "components": 14,
+      "minimum": 6.722911133598863e-07,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Person Scanner Arch / steel",
+      "components": 34,
+      "minimum": 4.2616969258122586e-07,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Cargo Inspection Conveyor / steel",
+      "components": 106,
+      "minimum": 4.261644459097736e-07,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Staff Desk Assembly / steel",
+      "components": 15,
+      "minimum": 1.2572673788111263e-07,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Covered Trolley H1 / steel",
+      "components": 18,
+      "minimum": 2.0672821835012863e-06,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Evidence Cabinet H2 / steel",
+      "components": 61,
+      "minimum": 4.261698167001653e-07,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Evidence Cabinet H2 / yellow",
+      "components": 2,
+      "minimum": 1.149355370955521e-06,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Switchgear Console Unit / brass",
+      "components": 2,
+      "minimum": 2.5711667354326125e-06,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined CD | Main ventilation supply trunk suspension / steel",
+      "components": 15,
+      "minimum": 1.5874748630619804e-05,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined CD | Office file cabinet 0 / steel",
+      "components": 8,
+      "minimum": 7.071019189380974e-07,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined CD | Office file cabinet 1 / steel",
+      "components": 8,
+      "minimum": 7.071019189380974e-07,
+      "negative_components": 0
+    },
+    {
+      "object": "CD | Joined Wall Utilities Rack / steel",
+      "components": 36,
+      "minimum": 2.5977651643867283e-07,
+      "negative_components": 0
+    }
+  ],
+  "cloth_cut_chart": {
+    "worst_maximum_singular_value": [
+      0.7279338263611441,
+      1.945952147412264,
+      5502,
+      [
+        [
+          -5.434999942779541,
+          14.14946460723877,
+          0.5550000071525574
+        ],
+        [
+          -5.434999942779541,
+          14.188570976257324,
+          0.5550000071525574
+        ],
+        [
+          -5.469583511352539,
+          14.188570976257324,
+          0.8092114329338074
+        ]
+      ],
+      [
+        [
+          1.4927252531051636,
+          2.0660476684570312
+        ],
+        [
+          1.4479646682739258,
+          2.1214427947998047
+        ],
+        [
+          1.1914116144180298,
+          2.1214427947998047
+        ]
+      ]
+    ],
+    "worst_minimum_singular_value": [
+      0.7209577145128423,
+      1.899739582035696,
+      2570,
+      [
+        [
+          -5.538750171661377,
+          14.14946460723877,
+          0.9133371114730835
+        ],
+        [
+          -5.573333263397217,
+          14.188570976257324,
+          0.9484217166900635
+        ],
+        [
+          -5.573333263397217,
+          14.14946460723877,
+          0.9676318764686584
+        ]
+      ],
+      [
+        [
+          1.1109009981155396,
+          2.0660476684570312
+        ],
+        [
+          1.0174589157104492,
+          2.1214427947998047
+        ],
+        [
+          1.0465278625488281,
+          2.0660476684570312
+        ]
+      ]
+    ],
+    "stretch_quantiles": [
+      1.0107653766145988,
+      1.2563092541520335,
+      1.3972041627951879,
+      1.7485523011440371,
+      1.945952147412264
+    ],
+    "compression_quantiles": [
+      0.7209577145128423,
+      0.7580739434700365,
+      0.842350089018287,
+      0.9114553909316834,
+      0.993308930636542
+    ]
+  },
+  "webbing_nearest": [
+    {
+      "object": "Trolley strap 0",
+      "max_distance": {
+        "strap_surface": [
+          -5.4970831871032715,
+          12.562000274658203,
+          0.8676258325576782
+        ],
+        "cloth_surface": [
+          -5.500925064086914,
+          12.562023162841797,
+          0.8655804991722107
+        ],
+        "distance_m": 0.004352462477982044,
+        "signed_gap_m": 0.004352462986211947,
+        "cloth_triangle": 566,
+        "cloth_normal": [
+          0.882694661617279,
+          -0.005128812976181507,
+          0.4699190855026245
+        ]
+      },
+      "max_signed_gap": {
+        "strap_surface": [
+          -5.4970831871032715,
+          12.562000274658203,
+          0.8676258325576782
+        ],
+        "cloth_surface": [
+          -5.500925064086914,
+          12.562023162841797,
+          0.8655804991722107
+        ],
+        "distance_m": 0.004352462477982044,
+        "signed_gap_m": 0.004352462986211947,
+        "cloth_triangle": 566,
+        "cloth_normal": [
+          0.882694661617279,
+          -0.005128812976181507,
+          0.4699190855026245
+        ]
+      },
+      "min_signed_gap": {
+        "strap_surface": [
+          -5.978333473205566,
+          12.538000106811523,
+          1.0228708982467651
+        ],
+        "cloth_surface": [
+          -5.978218078613281,
+          12.537995338439941,
+          1.0219560861587524
+        ],
+        "distance_m": 0.0009220736683346331,
+        "signed_gap_m": -0.0009220735876720454,
+        "cloth_triangle": 487,
+        "cloth_normal": [
+          0.12550117075443268,
+          -0.004932462703436613,
+          -0.9920812249183655
+        ]
+      }
+    },
+    {
+      "object": "Trolley strap 1",
+      "max_distance": {
+        "strap_surface": [
+          -6.202916622161865,
+          13.062000274658203,
+          0.874407947063446
+        ],
+        "cloth_surface": [
+          -6.1988205909729,
+          13.061874389648438,
+          0.872439444065094
+        ],
+        "distance_m": 0.004546242766082287,
+        "signed_gap_m": 0.004546242381366028,
+        "cloth_triangle": 4118,
+        "cloth_normal": [
+          -0.9009687900543213,
+          0.027690721675753593,
+          0.43299925327301025
+        ]
+      },
+      "max_signed_gap": {
+        "strap_surface": [
+          -6.202916622161865,
+          13.062000274658203,
+          0.874407947063446
+        ],
+        "cloth_surface": [
+          -6.1988205909729,
+          13.061874389648438,
+          0.872439444065094
+        ],
+        "distance_m": 0.004546242766082287,
+        "signed_gap_m": 0.004546242381366028,
+        "cloth_triangle": 4118,
+        "cloth_normal": [
+          -0.9009687900543213,
+          0.027690721675753593,
+          0.43299925327301025
+        ]
+      },
+      "min_signed_gap": {
+        "strap_surface": [
+          -5.7216668128967285,
+          13.062000274658203,
+          1.0235475301742554
+        ],
+        "cloth_surface": [
+          -5.721420764923096,
+          13.061981201171875,
+          1.0244717597961426
+        ],
+        "distance_m": 0.000956610543653369,
+        "signed_gap_m": -0.0009566105533735936,
+        "cloth_triangle": 4146,
+        "cloth_normal": [
+          0.25723475217819214,
+          -0.019938025623559952,
+          0.9661431908607483
+        ]
+      }
+    },
+    {
+      "object": "Trolley strap 2",
+      "max_distance": {
+        "strap_surface": [
+          -5.6895833015441895,
+          13.538000106811523,
+          1.0563654899597168
+        ],
+        "cloth_surface": [
+          -5.692019462585449,
+          13.538233757019043,
+          1.0514509677886963
+        ],
+        "distance_m": 0.005490173120051622,
+        "signed_gap_m": 0.005490172988174891,
+        "cloth_triangle": 4724,
+        "cloth_normal": [
+          0.4437063932418823,
+          -0.04262838140130043,
+          0.8951577544212341
+        ]
+      },
+      "max_signed_gap": {
+        "strap_surface": [
+          -5.6895833015441895,
+          13.538000106811523,
+          1.0563654899597168
+        ],
+        "cloth_surface": [
+          -5.692019462585449,
+          13.538233757019043,
+          1.0514509677886963
+        ],
+        "distance_m": 0.005490173120051622,
+        "signed_gap_m": 0.005490172988174891,
+        "cloth_triangle": 4724,
+        "cloth_normal": [
+          0.4437063932418823,
+          -0.04262838140130043,
+          0.8951577544212341
+        ]
+      },
+      "min_signed_gap": {
+        "strap_surface": [
+          -5.946249961853027,
+          13.562000274658203,
+          1.0592169761657715
+        ],
+        "cloth_surface": [
+          -5.946279048919678,
+          13.561938285827637,
+          1.0598245859146118
+        ],
+        "distance_m": 0.0006114558782428503,
+        "signed_gap_m": -0.0006114557681939914,
+        "cloth_triangle": 4710,
+        "cloth_normal": [
+          -0.047556642442941666,
+          -0.10075635462999344,
+          0.993773877620697
+        ]
+      }
+    },
+    {
+      "object": "Trolley strap 3",
+      "max_distance": {
+        "strap_surface": [
+          -6.010416507720947,
+          14.038000106811523,
+          1.0550432205200195
+        ],
+        "cloth_surface": [
+          -6.009274005889893,
+          14.037487030029297,
+          1.0497891902923584
+        ],
+        "distance_m": 0.005401239730417728,
+        "signed_gap_m": 0.005401239686761983,
+        "cloth_triangle": 5326,
+        "cloth_normal": [
+          -0.21155384182929993,
+          0.09492143988609314,
+          0.9727460741996765
+        ]
+      },
+      "max_signed_gap": {
+        "strap_surface": [
+          -6.010416507720947,
+          14.038000106811523,
+          1.0550432205200195
+        ],
+        "cloth_surface": [
+          -6.009274005889893,
+          14.037487030029297,
+          1.0497891902923584
+        ],
+        "distance_m": 0.005401239730417728,
+        "signed_gap_m": 0.005401239686761983,
+        "cloth_triangle": 5326,
+        "cloth_normal": [
+          -0.21155384182929993,
+          0.09492143988609314,
+          0.9727460741996765
+        ]
+      },
+      "min_signed_gap": {
+        "strap_surface": [
+          -6.074583530426025,
+          14.062000274658203,
+          0.9960014224052429
+        ],
+        "cloth_surface": [
+          -6.074155330657959,
+          14.061970710754395,
+          0.9955480694770813
+        ],
+        "distance_m": 0.0006243059760890901,
+        "signed_gap_m": -0.0006243059330017786,
+        "cloth_triangle": 2397,
+        "cloth_normal": [
+          0.6858270764350891,
+          -0.04685975983738899,
+          -0.726254403591156
+        ]
+      }
+    }
+  ]
+}
