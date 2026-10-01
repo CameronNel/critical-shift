@@ -7,7 +7,7 @@
     "CS_FLOOR_DRESSING",
     "CS_CEILING_DRESSING"
   ],
-  "objects_checked": 200,
+  "objects_checked": 204,
   "failures": [],
   "objects": [
     {
@@ -4869,6 +4869,40 @@
       ]
     },
     {
+      "object": "PPE_01_locker_light",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_locker_light_contact_00",
+          "point_world": [
+            2.75,
+            7.188,
+            2.0361
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0009,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_01_locker_light_contact_01",
+          "point_world": [
+            3.25,
+            7.188,
+            2.0361
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0009,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
       "object": "PPE_01_spare_cartridge",
       "status": "PASS",
       "issues": [],
@@ -5037,6 +5071,40 @@
       ]
     },
     {
+      "object": "PPE_02_locker_light",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_locker_light_contact_00",
+          "point_world": [
+            4.25,
+            7.188,
+            2.0361
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0009,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_02_locker_light_contact_01",
+          "point_world": [
+            4.75,
+            7.188,
+            2.0361
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0009,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
+      ]
+    },
+    {
       "object": "PPE_02_suit",
       "status": "PASS",
       "issues": [],
@@ -5158,6 +5226,40 @@
       ],
       "candidate_collections": [
         "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_03_locker_light",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_locker_light_contact_00",
+          "point_world": [
+            3.25,
+            0.812,
+            2.0361
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0009,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_03_locker_light_contact_01",
+          "point_world": [
+            2.75,
+            0.812,
+            2.0361
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0009,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
       ]
     },
     {
@@ -5326,6 +5428,40 @@
       ],
       "candidate_collections": [
         "CS_WALL_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04_locker_light",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_locker_light_contact_00",
+          "point_world": [
+            4.75,
+            0.812,
+            2.0361
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0009,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_04_locker_light_contact_01",
+          "point_world": [
+            4.25,
+            0.812,
+            2.0361
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0009,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_CEILING_DRESSING"
       ]
     },
     {

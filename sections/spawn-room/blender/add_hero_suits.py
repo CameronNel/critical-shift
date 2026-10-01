@@ -31,6 +31,8 @@ OUT = sys.argv[sys.argv.index("--") + 1] if "--" in sys.argv else None
 ZO = 0.01                          # world z of each locker origin
 Y_BACK = 0.275                     # pack back plate sits just in front of the back panel (local y)
 ROOF = 1.985                       # highest point of the suit, under the rail / upper shelf
+STRIP_Y = 0.19                      # behind the hood so the visor does not mirror the strip
+LOCKER_LIGHT_W = float(os.environ.get("LOCKER_LIGHT_W", "40"))
 PLAYER_ACCENT = {1: "#3C7DDB", 2: "#4CAF50", 3: "#D6407F", 4: "#E8E2D0"}
 scene = bpy.context.scene
 COLS = [c for c in (bpy.data.collections.get("MODULE_spawn-room"), bpy.data.collections.get("PPE_STATIONS")) if c]
@@ -44,7 +46,7 @@ def kill(obj):
 
 
 def clear_old(n):
-    names = [o.name for o in bpy.data.objects if o.name.startswith(("PPE_0%d_suit" % n, "PPE_0%d_helmet" % n, "WORKER_0%d" % n))]
+    names = [o.name for o in bpy.data.objects if o.name.startswith(("PPE_0%d_suit" % n, "PPE_0%d_helmet" % n, "WORKER_0%d" % n, "PPE_0%d_locker_light" % n))]
     for pat in ("BELONG_0%d_jacket" % n, "BELONG_0%d_hanger_" % n, "BELONG_0%d_fold_" % n, "BELONG_0%d_bag" % n,
                 "BELONG_0%d_mid_shelf" % n, "PPE_0%d_work_boot" % n):
         names += [o.name for o in bpy.data.objects
@@ -97,6 +99,30 @@ def box_mesh(name, c, s, parent):
     return o
 
 
+def cap_neck(root):
+    """The skin is gone, so the suit body's neck stub shows through the empty visor: cut it and close the opening with a
+    dark inner cap (a seal ring seen from outside, a dark empty collar through the visor)."""
+    body = next(o for o in root.children_recursive if o.name.startswith("SUIT_BODY"))
+    dark = bpy.data.materials.get("COZY_#30323C_85_0_0")
+    bm = bmesh.new()
+    bm.from_mesh(body.data)
+    cut = [f for f in bm.faces if min(v.co.z for v in f.verts) > 1.20]
+    bmesh.ops.delete(bm, geom=cut, context="FACES")
+    for v in [v for v in bm.verts if not v.link_faces]:
+        bm.verts.remove(v)
+    edges = [e for e in bm.edges if e.is_boundary and min(v.co.z for v in e.verts) > 1.0]
+    new = bmesh.ops.triangle_fill(bm, edges=edges, use_beauty=True)["geom"]
+    if dark is not None:
+        body.data.materials.append(dark)
+        idx = len(body.data.materials) - 1
+        for f in [g for g in new if isinstance(g, bmesh.types.BMFace)]:
+            f.material_index = idx
+    bm.to_mesh(body.data)
+    bm.free()
+    for p in body.data.polygons:
+        p.use_smooth = True
+
+
 # remove the earlier hand-modelled suit pass (and its materials once unused)
 for n in (1, 2, 3, 4):
     clear_old(n)
@@ -119,6 +145,7 @@ for n in (1, 2, 3, 4):
         if (o.name.startswith(("WORKER_0%d_BODY_" % n, "WORKER_0%d_HEAD" % n)) and not o.name.endswith("_HEAD_PIVOT")) \
                 or o.name.startswith("FACE_"):
             bpy.data.objects.remove(o, do_unlink=True)
+    cap_neck(root)
     zmin, zmax = world_zrange(root)
 
     # asset root carrying the support registration
@@ -156,6 +183,9 @@ for n in (1, 2, 3, 4):
         e.location = (ax, 0.15, h2.z + 0.0009)
         e["cs_support_anchor"] = True
         link_cols(e)
+    asset["asset_role"] = "equippable_suit"
+    asset["cs_equip_station"] = n                  # player/station i; equipping hides this asset until it is returned
+    asset["cs_hide_on_equip"] = True
     asset["cs_support_target"] = ro.name
     asset["cs_support_direction"] = "WORLD_-Z"
     for cname in ("MODULE_spawn-room", "PPE_STATIONS", "CS_SUPPORT_REQUIRED", "CS_FLOOR_DRESSING"):
@@ -164,6 +194,47 @@ for n in (1, 2, 3, 4):
             c.objects.link(asset)
     # the working copies were built in the scene root: keep them only in the room collections
     for o in [asset, root] + list(root.children_recursive) + list(asset.children_recursive):
+        if o.name in scene.collection.objects:
+            scene.collection.objects.unlink(o)
+
+    # ---- interior strip light under the upper shelf (visible fixture + baked light), lights the suit and the bay
+    lroot = bpy.data.objects.new("PPE_0%d_locker_light" % n, None)
+    lroot.empty_display_size = 0.04
+    lroot.parent = P
+    lroot.matrix_parent_inverse = Matrix.Identity(4)
+    shelf, shelf_obj = cast(P, (-0.25, STRIP_Y, 1.9 - ZO), (0, 0, 1), 0.5)
+    sz = shelf.z + ZO                                   # world z of the shelf underside
+    strip = box_mesh("PPE_0%d_locker_light_strip" % n, (0.0, STRIP_Y, sz - 0.006 - ZO), (0.70, 0.035, 0.012), lroot)
+    strip.data.materials.clear()
+    strip.data.materials.append(bpy.data.materials["COZY_white_55_10_0"])
+    for i, ax in enumerate((-0.25, 0.25)):
+        e = bpy.data.objects.new("PPE_0%d_locker_light_contact_%02d" % (n, i), None)
+        e.empty_display_size = 0.01
+        e.parent = lroot
+        e.matrix_parent_inverse = Matrix.Identity(4)
+        e.location = (ax, STRIP_Y, sz - ZO - 0.0009)
+        e["cs_support_anchor"] = True
+        link_cols(e)
+    ld = bpy.data.lights.new("LOCKER_light_PPE_0%d_area" % n, "AREA")
+    ld.shape = "RECTANGLE"
+    ld.size, ld.size_y = 0.70, 0.12
+    ld.energy = LOCKER_LIGHT_W
+    ld.color = (1.0, 0.88, 0.72)
+    lo = bpy.data.objects.new("LOCKER_light_PPE_0%d_area" % n, ld)
+    lo.parent = lroot
+    lo.matrix_parent_inverse = Matrix.Identity(4)
+    lo.location = (0.0, STRIP_Y, sz - 0.014 - ZO)
+    lo["cs_rt_role"] = "baked_plus_emissive_fixture"
+    lo["cs_rt_group"] = "locker_power"
+    lo["cs_rt_shadow"] = False
+    link_cols(lo)
+    lroot["cs_support_target"] = shelf_obj.name
+    lroot["cs_support_direction"] = "WORLD_+Z"
+    for cname in ("MODULE_spawn-room", "PPE_STATIONS", "CS_SUPPORT_REQUIRED", "CS_CEILING_DRESSING"):
+        c = bpy.data.collections.get(cname)
+        if c and lroot.name not in c.objects:
+            c.objects.link(lroot)
+    for o in [lroot] + list(lroot.children_recursive):
         if o.name in scene.collection.objects:
             scene.collection.objects.unlink(o)
     P["contents"] = "One hanging crew hazmat suit (the player's own suit, empty) on the hanger rail, personal items on the upper shelf"
