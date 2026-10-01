@@ -1,4 +1,4 @@
-"""Second pass on the control room: door leaf, grime and floor work, emergency beacons, personal desk items, dirty hall-side glass with notices,
+"""Second pass on the control room: door leaf, grime and floor work, emergency beacons, personal desk items, clear hall-side glass with taped notices,
 wall lettering and floor markings, collision proxies, haze.  Each function is independent and idempotent with cr_build.py."""
 import bpy,math,random
 import numpy as np
@@ -103,16 +103,9 @@ def window_dressing(c):
     A,M=c.A,c.M; _misc_mats(c); g="glassnote"
     gl=bpy.data.objects.get("MZ window glass")
     if gl:
-        m=crk._new("CR window glass dirty"); nt=m.node_tree
+        m=crk._new("CR window glass clear"); nt=m.node_tree                                                                                 # clear on request: no film, no streaks, no tint
         out=crk._n(nt,"ShaderNodeOutputMaterial",900,0); b=crk._n(nt,"ShaderNodeBsdfPrincipled",600,0); nt.links.new(b.outputs['BSDF'],out.inputs['Surface'])
-        b.inputs['Base Color'].default_value=(0.55,0.58,0.57,1); b.inputs['IOR'].default_value=1.45
-        b.inputs['Base Color'].default_value=(0.62,0.64,0.63,1)
-        geo=crk._n(nt,"ShaderNodeNewGeometry",-900,0); mp=crk._n(nt,"ShaderNodeMapping",-700,0); mp.inputs['Scale'].default_value=(9.0,9.0,0.45); nt.links.new(geo.outputs['Position'],mp.inputs['Vector'])   # vertical run streaks
-        n1=crk._n(nt,"ShaderNodeTexNoise",-500,100); n1.inputs['Scale'].default_value=2.4; n1.inputs['Detail'].default_value=4.0; nt.links.new(mp.outputs['Vector'],n1.inputs['Vector'])
-        r1=crk._n(nt,"ShaderNodeMapRange",-250,100); r1.inputs['From Min'].default_value=0.60; r1.inputs['From Max'].default_value=0.80; nt.links.new(n1.outputs['Fac'],r1.inputs['Value'])     # sparse streaks only
-        ra=crk._n(nt,"ShaderNodeMath",0,150); ra.operation='MULTIPLY_ADD'; ra.inputs[1].default_value=0.20; ra.inputs[2].default_value=0.10; nt.links.new(r1.outputs['Result'],ra.inputs[0])             # alpha 0.10 clear .. 0.30 streak
-        rr=crk._n(nt,"ShaderNodeMath",0,-50); rr.operation='MULTIPLY_ADD'; rr.inputs[1].default_value=0.30; rr.inputs[2].default_value=0.03; nt.links.new(r1.outputs['Result'],rr.inputs[0])             # roughness 0.03 .. 0.33
-        nt.links.new(rr.outputs['Value'],b.inputs['Roughness']); nt.links.new(ra.outputs['Value'],b.inputs['Alpha'])
+        b.inputs['Base Color'].default_value=(0.95,0.97,0.96,1); b.inputs['IOR'].default_value=1.45; b.inputs['Roughness'].default_value=0.0; b.inputs['Alpha'].default_value=0.03   # faint reflection only
         gl.data.materials.clear(); gl.data.materials.append(m)
     for (k,x,z,w,h) in (("form",-3.55,7.12,0.21,0.30),("safety",-2.30,6.98,0.21,0.29),("rules",-0.72,7.22,0.23,0.31),("roster",1.05,7.04,0.21,0.29)):
         wall_quad(c,'+y',-5.99,x,z,w,h,"N_"+k,frame=False,off=0.0015,g=g,paper=False)

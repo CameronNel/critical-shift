@@ -230,3 +230,7 @@ Order after `cr_build.py`: `cr_optimize.py` -> `cr_atlas_decals.py` -> `cr_famil
 ### Walk-through video
 
 `scripts/cr_flythrough.py -- <blend> <out_dir> [--frames 48 --w 854 --h 480 --samples 8]` renders an eye-height route through the control room (door, shelves, work table, TV wall, rack, desks, window, out over the hall) as a PNG sequence plus a contact sheet. The shipped `renders/overhaul-R1/control_room_walkthrough.mp4` is 48 rendered frames (854x480, 8 samples, denoised, Cycles) interpolated to 24 fps by blending (3.9 s), made with an FFmpeg binary from `pip install imageio-ffmpeg` (the headless Blender build has none). Rendering costs 30-40 s per frame whatever the resolution or samples (69 lights in the module), so a longer walk is slow. Path-traced authoring render, not an engine capture; no frame rate was measured.
+
+### Window glass
+
+The hall-side window glass is now fully clear (`CR window glass clear`: alpha 0.03, roughness 0, no film, no streaks, no tint); the taped notices stay. The shipped blend was patched directly and `cr_extra.window_dressing` rebuilds the same material. The walk-through video and the lightmaps were made before this change, so both are stale on the glass (the lightmaps are parked anyway).
