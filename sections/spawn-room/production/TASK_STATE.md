@@ -6,7 +6,7 @@
 
 
 **Current phase:** Built; final pass run, NOT accepted (see [final-pass/REPORT.md](final-pass/REPORT.md))
-**Current overall score:** Independent critics 85 and 82 of 100 after the suits and the polish pass (needs >= 90)
+**Current overall score:** Independent critics 85 and 82 of 100 on the earlier suit after the polish pass (needs >= 90); not re-scored with the HZ-01 suit
 **Cold-start status:** Not run
 **Authoritative source:** ../../facility-assembly/sources/spawn-room/module.blend (runtime derivative: module_optimised.blend)
 
@@ -24,12 +24,12 @@
 - Automated support-contact validator and tagging convention
 
 ## Worst current visible defects
-Suits, Geiger drop and the polish pass (wear, doorway spill, bench posts, Material_A framing) are done; see [final-pass/REPORT.md](final-pass/REPORT.md). The critics still score 85 and 82. Remaining: the critics read the suit as a toy mannequin (owner decision 2026-10-01: keep the original hero suit unchanged, linked from `hero_suit.blend`), even hall lighting with little falloff, subtle wear, large flat locker doors in LockerDoor/LockerReverse, low-poly plants and heavy signage, LockerDoor hiding one suit per side behind open doors, and the chamber-glass reflection reading as an artefact.
+Suits, Geiger drop and the polish pass (wear, doorway spill, bench posts, Material_A framing) are done; see [final-pass/REPORT.md](final-pass/REPORT.md). The critics still score 85 and 82. The 85 and 82 scores were taken on the earlier suit and predate the HZ-01 replacement (#68) and its locker LOD (#69); the HZ-01 suit's owner review and a critic rescore are pending (see [hero-suit-reference/TASK_STATE.md](hero-suit-reference/TASK_STATE.md)), so the old "toy mannequin" criticism is not a verdict on the current suit. Remaining from those critiques: even hall lighting with little falloff, subtle wear, large flat locker doors in LockerDoor/LockerReverse, low-poly plants and heavy signage, LockerDoor hiding one suit per side behind open doors, and the chamber-glass reflection reading as an artefact.
 
 ## Next actions
 1. Owner decisions: whether to cut or replace the plants; how much signage stays; door sizes or open angles for the locker cameras.
 2. Hall lighting falloff pass, if the owner wants more change to the approved lighting.
 3. Runtime: equip toggle and locker interaction (`final-pass/SUIT_EQUIP.md`), not built.
-4. Re-run critics (at least 4 cycles) and a cold start.
+4. Owner review of the HZ-01 suit, then re-run critics on the HZ-01 locker LOD (at least 4 cycles) and a cold start.
 
 HZ-01 suit LOD: the locker library is reduced to 22,371 triangles per suit (from 114,094); see hero-suit-reference/README.md.
