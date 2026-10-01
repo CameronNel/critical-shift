@@ -107,7 +107,8 @@ retrieves the 33,575,117-byte file and its SHA-256 equals the pointer's OID
 full-detail suit (114,094 triangles) and `lod_hero_suit.py` then decimates it object by object to 22,371 triangles
 (solidify applied first, smooth shading and every material kept; the collection records `cs_lod = "locker"` and the counts
 before and after). Rebuild order: `build_hero_suit.py`, then `lod_hero_suit.py` (both are in the command block under "Rebuild and review", before
-the linked-room validation, which now fails unless the library is the locker LOD). The full-detail suit stays in
+the linked-room validation, which now fails unless the library is the locker LOD). `lod_hero_suit.py` refuses a library already marked
+`cs_lod = "locker"` (exit code 1, file untouched), so a retry cannot decimate twice; to redo the stage, rerun `build_hero_suit.py` first. The full-detail suit stays in
 `crew_hazmat_reference.blend`. At locker distance the reduced suit differs from the full one by edge detail only (mean
 absolute pixel difference 0.005 on a 854x640 render from 2.3 m).
 

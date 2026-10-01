@@ -4,7 +4,7 @@ Locker LOD of the hero suit (Blender 5.2): decimate the HERO_SUIT library to a t
 
     blender -b --factory-startup -P lod_hero_suit.py -- <hero_suit.blend> [--full-copy <hero_suit_full.blend>]
 
-Run after build_hero_suit.py. The library the four spawn lockers link is a background prop seen from a few metres, so the
+Run after build_hero_suit.py. It refuses a library that is already the locker LOD (rebuild with build_hero_suit.py first), so a retry cannot decimate twice. The library the four spawn lockers link is a background prop seen from a few metres, so the
 authoring-detail suit (about 114,000 triangles) is reduced here object by object (Decimate collapse, solidify applied first,
 smooth shading and every material kept). The full-detail suit stays available in the wearable scene
 (crew_hazmat_reference.blend) and can be rebuilt with build_hero_suit.py. Measurements stored on the collection are
@@ -39,6 +39,9 @@ bpy.ops.wm.open_mainfile(filepath=PATH)
 if FULL:
     bpy.ops.wm.save_as_mainfile(filepath=FULL, copy=True)
 col = bpy.data.collections["HERO_SUIT"]
+if col.get("cs_lod") == "locker":
+    # decimating again would degrade the delivered locker mesh and overwrite the recorded full-detail count
+    raise SystemExit("lod_hero_suit.py: %s is already the locker LOD (cs_lod = locker); rebuild the full-detail suit with build_hero_suit.py first" % PATH)
 before = after = 0
 for o in list(col.all_objects):
     if o.type != "MESH":
