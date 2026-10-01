@@ -53,8 +53,9 @@ not claimed. Hidden surfaces are inferred from the visible garment construction.
 The room module and accepted map are not saved by these checks. The source room
 reports a newer Blender file subversion on load; it is used read-only. Its frozen
 geometry and materials are not rewritten through this toolchain. The optimized
-self-contained room derivative still contains the historical suit and is marked
-stale in its handoff until regeneration and equivalence checks.
+self-contained room derivative was regenerated afterwards from the linked module
+with the locker LOD of this suit (22,371 triangles per suit); contacts, signatures
+and the six-camera comparison were re-run on it (see `../optimise/README.md`).
 
 ## Publication
 

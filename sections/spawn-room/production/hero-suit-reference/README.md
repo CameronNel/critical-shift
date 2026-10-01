@@ -75,9 +75,9 @@ owner art approval automatically. The model is hero authoring geometry, with
 substantially more triangles than the earlier gameplay test. Rigging, current LOD
 budgets, Unity import, draw calls and frame time require a separate delivery pass.
 
-The existing self-contained `module_optimised.blend` contains the previous suit.
-It must be regenerated and revalidated before using it as a matching delivery
-derivative. The frozen accepted sources, map caches and provenance are not changed.
+`module_optimised.blend` (self-contained) has been regenerated from the linked module with the locker LOD of this suit
+(see "Locker LOD" below and `../optimise/README.md`): contacts, signatures and the six-camera comparison were re-run on
+it. The frozen accepted sources, map caches and provenance are not changed.
 
 ## Git delivery workaround
 

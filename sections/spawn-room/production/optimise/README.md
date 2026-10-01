@@ -1,10 +1,8 @@
 # Spawn room delivery optimisation (look-preserving derivative)
 
-> **2026-10-01 HZ-01 reference revision:** the shared `hero_suit.blend` library has
-> changed. This self-contained derivative still contains the earlier suit; the
-> historical measurements and equivalence results below do not apply to the new
-> library. Regenerate and rerun equivalence/contact/render checks before delivery.
-> See [the reference suit handoff](../hero-suit-reference/README.md).
+> **Current as of the HZ-01 locker suit (2026-10-01):** this derivative was regenerated from the linked module with the HZ-01 locker LOD
+> (see [Hero suit LOD](#hero-suit-lod-hz-01) below and [the reference suit handoff](../hero-suit-reference/README.md)); the contact,
+> signature and six-camera render checks below were re-run on it.
 
 `module_optimised.blend` (next to `module.blend` in `sections/facility-assembly/sources/spawn-room/`) is a **separate
 delivery derivative**. The approved `module.blend`, `accepted.blend`, the assembled map and `SOURCES.json` are not touched.
@@ -93,9 +91,9 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
 ## Not done / not claimed
 
 - No engine build or profiling: draw calls are a Blender estimate, not measured batches or frame time.
-- 30 materials remain (visible; 31 in use counting the untouched copy for animated labels) against the room cap of 24 proposed in `design/MATERIAL_BUDGETS.md` on PR #59's branch (owner approval recorded there; not on `main` yet). The leftovers each have a one-off shader graph (locker steel,
+- 33 materials remain (visible; 34 in use counting the untouched copy for animated labels) against the room cap of 24 proposed in `design/MATERIAL_BUDGETS.md` on PR #59's branch (owner approval recorded there; not on `main` yet). The leftovers each have a one-off shader graph (locker steel,
   rubber, wood, bench timber, pressure metal, safety tread, glass, exposed plaster, V_ochre, the posters, TV screen,
-  amber signal, the three floors and the suit visor glass `SUIT_glass`, a blended-alpha material taken as is from the player character, which is the one added by the hero pass), so merging them would change the look and needs owner approval. Texture memory (12 x 2K images, about 50 MP, including 4 displacement maps)
+  amber signal and the three floors) or come from the HZ-01 suit: `HZ01_yellow coated fabric`, `HZ01_rubber boot`, `HZ01_clear visor` (blended alpha, not folded) and the family `FAM HZ01_black seals`, so merging them would change the look and needs owner approval. Texture memory (12 x 2K images, about 50 MP, including 4 displacement maps)
   is not reduced.
 - Door, hatch and interaction assets, support-contact targets and anything with its own properties are intentionally
   left unmerged, which is why the count is 822 and not lower.
