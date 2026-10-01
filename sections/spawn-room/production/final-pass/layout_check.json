@@ -1,0 +1,64 @@
+{
+ "briefing_left_locker_right": {
+  "pass": true,
+  "briefing_lateral_m": -4.62,
+  "locker_lateral_m": 4.98
+ },
+ "exit_forward": {
+  "pass": true,
+  "airlock_ahead_m": 9.07,
+  "airlock_lateral_m": 0.0
+ },
+ "four_suit_stations_two_each_side": {
+  "pass": true,
+  "stations": [
+   "PPE_01",
+   "PPE_02",
+   "PPE_03",
+   "PPE_04"
+  ],
+  "left_of_locker_door_view": [
+   "PPE_01",
+   "PPE_02"
+  ],
+  "right": [
+   "PPE_03",
+   "PPE_04"
+  ]
+ },
+ "integrity_chamber_central": {
+  "pass": true,
+  "pod_lateral_m": 0.0,
+  "stations_lateral_range_m": [
+   -3.03,
+   2.98
+  ]
+ },
+ "briefing_seating": {
+  "pass": true,
+  "seat_capacity_total": 4
+ },
+ "geiger_station_at_exit": {
+  "pass": null,
+  "status": "N/A by owner decision: radiation readout is a HUD element, not built in the room"
+ },
+ "primary_route_clear": {
+  "pass": true,
+  "min_clearance_m": 0.85,
+  "tightest_at": [
+   0.0,
+   0.53,
+   0.3
+  ],
+  "method": "5 heights x 8 directions every 0.2 m, spawn to 1 m before the airlock, 3 m rays"
+ },
+ "all_pass_or_missing": {
+  "briefing_left_locker_right": true,
+  "exit_forward": true,
+  "four_suit_stations_two_each_side": true,
+  "integrity_chamber_central": true,
+  "briefing_seating": true,
+  "geiger_station_at_exit": null,
+  "primary_route_clear": true
+ }
+}

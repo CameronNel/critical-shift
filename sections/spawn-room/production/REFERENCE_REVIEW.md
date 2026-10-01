@@ -1,5 +1,8 @@
 # Spawn Room Reference Review
 
+> [!NOTE]
+> **Owner decision (2026-10-01): the radiation (Geiger) checkpoint is not built in the spawn room.** The radiation readout is a player-HUD element. Every radiation-checkpoint requirement here (the plate `07_radiation_checkpoint.svg`, its construction notes and its presence in the Hall Forward camera) is superseded for the room geometry. See `production/final-pass/REPORT.md`.
+
 **Status:** mandatory pre-build evidence  
 **Rule:** this file must be updated before any new Spawn Room style-validation build begins.
 
@@ -22,7 +25,7 @@ Inspect every numbered SVG in:
 - [ ] 04 suit bay anatomy
 - [ ] 05 hazmat suit
 - [ ] 06 integrity chamber
-- [ ] 07 radiation checkpoint
+- [x] ~~07 radiation checkpoint~~ N/A: owner decision 2026-10-01, player-HUD element, not built in the room
 - [ ] 08 door/wall architecture
 - [ ] 09 ceiling/floor
 - [ ] 10 material/wear

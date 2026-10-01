@@ -39,7 +39,7 @@ Must prove:
 - room reads as optional/social.
 
 ### VALIDATE_ExitReverse
-Near Geiger station looking back toward spawn.
+Near the exit looking back toward spawn (the Geiger station is not built: owner decision 2026-10-01, player HUD).
 
 Must prove:
 - reverse navigation remains coherent;

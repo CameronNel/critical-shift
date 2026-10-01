@@ -16,33 +16,35 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 
 | | module.blend | module_optimised.blend |
 |---|---:|---:|
-| Render-visible geometry objects | 1,572 | 753 |
-| Triangles | 322,722 | 322,722 |
-| Draw-call estimate (objects x material slots, before any engine batching) | 1,878 | 756 |
-| Materials in use | 189 | 30 (29 visible plus one untouched copy for animated labels; the 24-material spawn-room cap comes from the per-room budget in PR #59, branch `claude/eloquent-rubin-5y6lnu`, `design/MATERIAL_BUDGETS.md`, where the owner's approval of 2026-10-01 is recorded; that document is not on `main` yet) |
-| Lights | 14 | 14 (unchanged; roles tagged) |
+| Render-visible geometry objects | 1,570 | 759 |
+| Triangles | 351,478 | 351,478 |
+| Draw-call estimate (objects x material slots, before any engine batching) | 1,918 | 762 |
+| Materials in use | 204 | 31 (30 visible plus one untouched copy for animated labels; the 24-material spawn-room cap comes from the per-room budget in PR #59, branch `claude/eloquent-rubin-5y6lnu`, `design/MATERIAL_BUDGETS.md`, where the owner's approval of 2026-10-01 is recorded; that document is not on `main` yet) |
+| Lights | 18 | 18 (the optimisation changes none, it only tags roles; the 18 are the 14 original lights plus the 4 baked locker strip lights added by the hero pass) |
+
+Numbers reflect the module after the hero-suit pass (`../../blender/add_hero_suits.py`: the crew worker's own hazmat suit hung in each of the four PPE lockers).
 
 Every number below (objects, joins, conversions, draw calls, materials) comes from one run, recorded in
 `optimise_report.json` next to this file.
 
 ## What it does (each step is meant to leave the look unchanged)
 
-1. 351 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept). Curve/text objects that are animated, driven, in NLA, constrained or have an animated data block or shape keys
+1. 315 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept). Curve/text objects that are animated, driven, in NLA, constrained or have an animated data block or shape keys
    (for example the POD_state_* labels) are NOT converted, because a mesh copy would freeze them;
-   modifiers are baked on 767 objects (the parts that get merged or touched).
+   modifiers are baked on 753 objects (the parts that get merged or touched).
 2. Procedural patterns that depend on the object (Generated / Object coordinates, 40 materials) are frozen into per-vertex
    attributes `CS_GEN` / `CS_OBJ`, on every mesh including hidden ones, and those materials read the attributes, so joining
    parts cannot change a pattern. Curve/text objects that stay curves cannot carry attributes, so they keep an
    untouched copy of the material (`<name>__noattr`).
-3. The 129 constant-colour Principled materials are folded into one `PAL_flat` material: three packed 16x16 float images
+3. The 140 constant-colour Principled materials are folded into one `PAL_flat` material: three packed 16x16 float images
    (albedo, roughness+metal, emission), `Closest` sampling, a `CS_PAL` UV layer. Cell mapping is in text block `OPT_PALETTE`.
 3b. **Material families** (the method of the reactor control room, PR #54; budgets in PR #59): materials with exactly the same node graph that differ only in
    constants become one `FAM ...` material. The constants (every differing socket value, and the two stop colours of each
    colour ramp) are written per polygon into colour attributes `FAM0..FAM3`; the family graph reads them. The graph is the
    same, so the shading is the same (the structural key includes the colour-ramp interpolation and colour mode, so ramps that differ never share a family): a 2-stop LINEAR/EASE ramp becomes a clamped Map Range (smoothstep for EASE) plus a Mix.
-   Read-back of every attribute is checked at build time. 13 families replace 40 materials; members are listed in text block
+   Read-back of every attribute is checked at build time. 14 families replace 49 materials; members are listed in text block
    `OPT_FAMILIES`. Materials with different graphs are left alone.
-4. Parts of the same asset that share material and object flags are joined (985 objects into 166); shell parts outside any
+4. Parts of the same asset that share material and object flags are joined (967 objects into 156); shell parts outside any
    asset are joined per collection, material and 5 m cell. Left exactly as they were: every object that is animated, has
    children, carries its own properties, is in a support-checked collection, is named by any `cs_support_target`,
    looks interactive (door, hinge, hatch, lever, button, handle, switch...) or belongs to an asset with
@@ -65,31 +67,30 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
   lost the keyframes of
   `POD_state_READY` (an animated text object converted to a mesh); Codex's review of #60 caught this class of bug and the
   comparison now fails on it, and also fails if the derivative gains an action, driver or NLA entry the original did not have.
-- `validate_contacts.py` on the derivative: PASS (224 tagged objects, 0 failures), same as the original. (An earlier
+- `validate_contacts.py` on the derivative: PASS (208 tagged objects, 0 failures) on the post-suit module, same as the original (the count was 224 before the suit pass removed the belongings and added the hooks, docks and strip lights). (An earlier
   version of this script merged support targets and failed 48 of them; targets are now kept by name.)
 - Render comparison (Cycles, 48 samples, denoised, fixed seed, 960x540) on six fixed validation cameras, original vs
   derivative; `renders/<camera>.png` shows before | after | difference amplified 6x:
 
   | Camera | mean abs diff | 99th percentile | pixels differing by more than 8% |
   |---|---:|---:|---:|
-  | VALIDATE_Spawn | 0.0057 | 0.039 | 0.081% |
-  | VALIDATE_LockerDoor | 0.0060 | 0.035 | 0.077% |
-  | VALIDATE_BriefingDoor | 0.0079 | 0.043 | 0.190% |
-  | VALIDATE_ExitReverse | 0.0053 | 0.035 | 0.055% |
-  | VALIDATE_Hero_A | 0.0056 | 0.035 | 0.084% |
-  | VALIDATE_Material_A | 0.0039 | 0.024 | 0.003% |
+  | VALIDATE_Spawn | 0.0066 | 0.047 | 0.186% |
+  | VALIDATE_LockerDoor | 0.0073 | 0.047 | 0.194% |
+  | VALIDATE_BriefingDoor | 0.0091 | 0.051 | 0.311% |
+  | VALIDATE_ExitReverse | 0.0057 | 0.039 | 0.101% |
+  | VALIDATE_Hero_A | 0.0071 | 0.051 | 0.249% |
+  | VALIDATE_Material_A | 0.0062 | 0.039 | 0.112% |
 
   The differences sit on edges (anti-aliasing and denoiser noise from a different object order); there are no
-  colour or pattern shifts. I looked at the montages for Spawn and BriefingDoor; the other four were checked by the
-  numbers only. This is a Cycles comparison, not engine rendering, and not art approval.
+  colour or pattern shifts. Rendered again on the post-suit module and its regenerated derivative; I looked at the Hero_A montage (suit, visor, boot dock and strip light match, differences on edges only); the other five were checked by the numbers only. This is a Cycles comparison, not engine rendering, and not art approval.
 
 ## Not done / not claimed
 
 - No engine build or profiling: draw calls are a Blender estimate, not measured batches or frame time.
-- 29 materials remain against the room cap of 24 proposed in `design/MATERIAL_BUDGETS.md` on PR #59's branch (owner approval recorded there; not on `main` yet). The leftovers each have a one-off shader graph (locker steel,
+- 30 materials remain (visible; 31 in use counting the untouched copy for animated labels) against the room cap of 24 proposed in `design/MATERIAL_BUDGETS.md` on PR #59's branch (owner approval recorded there; not on `main` yet). The leftovers each have a one-off shader graph (locker steel,
   rubber, wood, bench timber, pressure metal, safety tread, glass, exposed plaster, V_ochre, the posters, TV screen,
-  amber signal and the three floors), so merging them would change the look and needs owner approval. Texture memory (12 x 2K images, about 50 MP, including 4 displacement maps)
+  amber signal, the three floors and the suit visor glass `SUIT_glass`, a blended-alpha material taken as is from the player character, which is the one added by the hero pass), so merging them would change the look and needs owner approval. Texture memory (12 x 2K images, about 50 MP, including 4 displacement maps)
   is not reduced.
 - Door, hatch and interaction assets, support-contact targets and anything with its own properties are intentionally
-  left unmerged, which is why the count is 756 and not lower.
+  left unmerged, which is why the count is 762 and not lower.
 - The merged meshes are an export-oriented derivative: authoring edits belong in `module.blend`.

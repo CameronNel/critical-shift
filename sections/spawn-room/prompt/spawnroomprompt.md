@@ -1,5 +1,9 @@
 # Critical Shift — Spawn Room Build and Self-Review Prompt
 
+> [!NOTE]
+> **Owner decision (2026-10-01): the Geiger/radiation checkpoint is not built in the spawn room.** The radiation readout is a player-HUD element. Every Geiger/radiation-station requirement in this file is superseded for the room geometry; the exit, the airlock and the rest of the room are unchanged. Record: `production/final-pass/REPORT.md`.
+
+
 
 # 0. ART DIRECTION RESET — READ BEFORE BUILDING ANYTHING
 

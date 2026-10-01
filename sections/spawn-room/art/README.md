@@ -55,7 +55,7 @@ The numbered reference plates are intentionally redundant. An autonomous builder
 
 ![22 Integrity chamber states](reference/22_integrity_chamber_states.svg)
 
-![07 Radiation checkpoint](reference/07_radiation_checkpoint.svg)
+![07 Radiation checkpoint (superseded: not built in the room, owner decision 2026-10-01, player HUD)](reference/07_radiation_checkpoint.svg)
 
 ![23 Suit bay variation](reference/23_suit_bay_variation.svg)
 
