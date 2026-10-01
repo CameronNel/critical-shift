@@ -18,8 +18,8 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 |---|---:|---:|
 | Render-visible geometry objects | 1,572 | 788 |
 | Triangles | 322,722 | 322,722 |
-| Draw-call estimate (objects x material slots, before any engine batching) | 1,878 | 804 |
-| Materials in use | 189 | 62 |
+| Draw-call estimate (objects x material slots, before any engine batching) | 1,878 | 756 |
+| Materials in use | 189 | 30 (29 visible plus one untouched copy for animated labels; cap in `design/MATERIAL_BUDGETS.md` is 24) |
 | Lights | 14 | 14 (unchanged; roles tagged) |
 
 ## What it does (each step is meant to leave the look unchanged)
@@ -33,12 +33,19 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
    untouched copy of the material (`<name>__noattr`).
 3. The 129 constant-colour Principled materials are folded into one `PAL_flat` material: three packed 16x16 float images
    (albedo, roughness+metal, emission), `Closest` sampling, a `CS_PAL` UV layer. Cell mapping is in text block `OPT_PALETTE`.
+3b. **Material families** (`design/MATERIAL_BUDGETS.md`): materials with exactly the same node graph that differ only in
+   constants become one `FAM ...` material. The constants (every differing socket value, and the two stop colours of each
+   colour ramp) are written per polygon into colour attributes `FAM0..FAM3`; the family graph reads them. The graph is the
+   same, so the shading is the same: a 2-stop LINEAR/EASE ramp becomes a clamped Map Range (smoothstep for EASE) plus a Mix.
+   Read-back of every attribute is checked at build time. 13 families replace 40 materials; members are listed in text block
+   `OPT_FAMILIES`. Materials with different graphs are left alone.
 4. Parts of the same asset that share material and object flags are joined (957 objects into 173); shell parts outside any
    asset are joined per collection, material and 5 m cell. Left exactly as they were: every object that is animated, has
    children, carries its own properties, is in a support-checked collection, is named by any `cs_support_target`,
    looks interactive (door, hinge, hatch, lever, button, handle, switch...) or belongs to an asset with
    moving-state properties. `OPT_MERGE_MANIFEST` lists which source objects went into each merged mesh.
-5. Light roles written as custom properties only (`cs_rt_role`, `cs_rt_group`); see `LIGHT_BUDGET.md`.
+5. Light roles written as custom properties only (`cs_rt_role`, `cs_rt_group`, `cs_rt_shadow`; 4 dynamic hall lights, 2 real-time
+   shadow casters, the rest baked plus emissive); see `LIGHT_BUDGET.md`.
 
 ## Evidence
 
@@ -76,9 +83,10 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 ## Not done / not claimed
 
 - No engine build or profiling: draw calls are a Blender estimate, not measured batches or frame time.
-- 60 textured/procedural materials remain. Getting to the 40-material target means baking those to shared texture sets,
-  which changes the look and needs owner review. Texture memory (12 x 2K images, about 50 MP, including 4 displacement maps)
+- 29 materials remain against the approved room cap of 24. The leftovers each have a one-off shader graph (locker steel,
+  rubber, wood, bench timber, pressure metal, safety tread, glass, exposed plaster, V_ochre, the posters, TV screen,
+  amber signal and the three floors), so merging them would change the look and needs owner approval. Texture memory (12 x 2K images, about 50 MP, including 4 displacement maps)
   is not reduced.
 - Door, hatch and interaction assets, support-contact targets and anything with its own properties are intentionally
-  left unmerged, which is why the count is 804 and not lower.
+  left unmerged, which is why the count is 756 and not lower.
 - The merged meshes are an export-oriented derivative: authoring edits belong in `module.blend`.

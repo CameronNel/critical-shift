@@ -5,7 +5,7 @@ light was changed.
 
 | Group | Lights | Role | Why |
 |---|---|---|---|
-| `hall_power` | HALL_light_00..02, SERVICE_light (4 area) | dynamic key (the only dynamic lights) | main circulation; flicker and brownout events drive these four together |
+| `hall_power` | HALL_light_00..02, SERVICE_light (4 area) | dynamic key (the only dynamic lights; HALL_light_01 and HALL_light_02 are the 2 real-time shadow casters) | main circulation; flicker and brownout events drive these four together |
 | `locker_power` | LOCKER_light_00..02 (3 area) | baked + emissive fixture | static light, flicker via the emissive fixture panel |
 | `briefing_and_accents` | 2 pendants, lamp, 2 neon, candle, lights (7 points) | baked + emissive fixture | small or accent sources |
 
