@@ -1,7 +1,7 @@
 {
   "stage": "full",
-  "revision": "f06",
-  "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+  "revision": "f05",
+  "source_sha256": "75929da29fb7a43db28b5f647fd98e018e03de4cb585b3bd4de6b7b7bdcc5a7c",
   "source_saved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
   "editable_scene": "COMPLIANCE_EDIT_LOCAL",
   "original_objects": 1077,
@@ -261,106 +261,8 @@
   "runtime_performance_measured": false,
   "recipe_sha256": {
     "overhaul_dock.py": "b8a6883432cc327f62592b4206b14607e00de3754b2c04daecb624c520eab0cb",
-    "full_detail.py": "a15ffc60c18b6bc697009d5781a04cc802d1fbb87f07ee42c873422559de91c2",
+    "full_detail.py": "0acc3f2335e8dea1d9c7d317eec093995e7ad4a15503b3944c6125656ced3a6f",
     "full_repairs.py": "afca4f623006de911b01d6f287104ada1834499380b94c0c943d340734a75656",
     "render_dock.py": "1c15a22298abfeb4af36a71ed24ccb3a729a05cb56a829bdfa23fa61d6c66597"
-  },
-  "incremental_repair": {
-    "input_sha256": "75929da29fb7a43db28b5f647fd98e018e03de4cb585b3bd4de6b7b7bdcc5a7c",
-    "patch_script": "repair_support_metadata.py",
-    "patch_script_sha256": "76a20e02be1803246bf3e7812173c08f68a9101b421643bcd12ce844b34c3995",
-    "changed_properties": [
-      {
-        "object": "CD | Joined G1 leaf 1 frame / steel",
-        "parent": "G1 leaf 1 frame",
-        "old_claim": "G1 leaf 1 frame",
-        "new_claim": "G1 Cart Bypass Gate"
-      },
-      {
-        "object": "CD | Joined G1 leaf 1 panel / blue",
-        "parent": "G1 leaf 1 panel",
-        "old_claim": "G1 leaf 1 panel",
-        "new_claim": "G1 Cart Bypass Gate"
-      },
-      {
-        "object": "CD | Joined G1 leaf 1 panel / steel",
-        "parent": "G1 leaf 1 panel",
-        "old_claim": "G1 leaf 1 panel",
-        "new_claim": "G1 Cart Bypass Gate"
-      },
-      {
-        "object": "CD | Joined G1 leaf 2 frame / steel",
-        "parent": "G1 leaf 2 frame",
-        "old_claim": "G1 leaf 2 frame",
-        "new_claim": "G1 Cart Bypass Gate"
-      },
-      {
-        "object": "CD | Joined G1 leaf 2 panel / blue",
-        "parent": "G1 leaf 2 panel",
-        "old_claim": "G1 leaf 2 panel",
-        "new_claim": "G1 Cart Bypass Gate"
-      },
-      {
-        "object": "CD | Joined G1 leaf 2 panel / steel",
-        "parent": "G1 leaf 2 panel",
-        "old_claim": "G1 leaf 2 panel",
-        "new_claim": "G1 Cart Bypass Gate"
-      },
-      {
-        "object": "CD | Joined G1 leaf 3 frame / steel",
-        "parent": "G1 leaf 3 frame",
-        "old_claim": "G1 leaf 3 frame",
-        "new_claim": "G1 Cart Bypass Gate"
-      },
-      {
-        "object": "CD | Joined G1 leaf 3 panel / blue",
-        "parent": "G1 leaf 3 panel",
-        "old_claim": "G1 leaf 3 panel",
-        "new_claim": "G1 Cart Bypass Gate"
-      },
-      {
-        "object": "CD | Joined G1 leaf 3 panel / steel",
-        "parent": "G1 leaf 3 panel",
-        "old_claim": "G1 leaf 3 panel",
-        "new_claim": "G1 Cart Bypass Gate"
-      },
-      {
-        "object": "CD | Joined P2 blast leaf west / blue",
-        "parent": "P2 blast leaf west",
-        "old_claim": "P2 blast leaf west",
-        "new_claim": "Arrival Gate P2"
-      },
-      {
-        "object": "CD | Joined P2 blast leaf west / navy",
-        "parent": "P2 blast leaf west",
-        "old_claim": "P2 blast leaf west",
-        "new_claim": "Arrival Gate P2"
-      },
-      {
-        "object": "CD | Joined P2 blast leaf west / steel",
-        "parent": "P2 blast leaf west",
-        "old_claim": "P2 blast leaf west",
-        "new_claim": "Arrival Gate P2"
-      },
-      {
-        "object": "CD | Joined P2 blast leaf east / blue",
-        "parent": "P2 blast leaf east",
-        "old_claim": "P2 blast leaf east",
-        "new_claim": "Arrival Gate P2"
-      },
-      {
-        "object": "CD | Joined P2 blast leaf east / navy",
-        "parent": "P2 blast leaf east",
-        "old_claim": "P2 blast leaf east",
-        "new_claim": "Arrival Gate P2"
-      },
-      {
-        "object": "CD | Joined P2 blast leaf east / steel",
-        "parent": "P2 blast leaf east",
-        "old_claim": "P2 blast leaf east",
-        "new_claim": "Arrival Gate P2"
-      }
-    ],
-    "geometry_materials_uvs_and_poses_unchanged": true
   }
 }

@@ -49,11 +49,7 @@ def tapered(name,loc,dims,axis,key,taper=.80,cut=.018,w=.001):
 
 def reposition_parent(o,parent):
     bpy.context.view_layer.update()
-    world=o.matrix_world.copy();o.parent=parent;o.matrix_world=world
-    supported=parent
-    while supported and supported.name not in CONTACTS:supported=supported.parent
-    if supported is None:raise RuntimeError('No registered support ancestor for '+o.name)
-    o['assembly']=supported.name
+    world=o.matrix_world.copy();o.parent=parent;o.matrix_world=world;o['assembly']=parent.name
     if o.get('support_class')!='supported_assembly':o['support_class']='assembly_component'
 
 def contact_fixture(name,target,points,direction,children):

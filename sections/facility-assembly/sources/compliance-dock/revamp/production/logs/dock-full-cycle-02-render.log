@@ -1,0 +1,6 @@
+00:02.302  cycles           | WARNING CUEW initialization failed: Error opening the library
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/render_dock.py:128: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.use_nodes=True;m.node_tree.nodes.clear()
+RENDER_SHOT C01_ENTRY
+00:46.691  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C01_ENTRY.png'
+RENDER_SHOT C02_HERO_DOCK

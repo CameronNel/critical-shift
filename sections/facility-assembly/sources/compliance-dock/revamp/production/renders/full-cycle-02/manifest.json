@@ -1,0 +1,67 @@
+{
+  "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+  "renderer_sha256": "1c15a22298abfeb4af36a71ed24ccb3a729a05cb56a829bdfa23fa61d6c66597",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.699999988079071,
+  "diagnostic": null,
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": false,
+  "shots": [
+    {
+      "id": "C01_ENTRY",
+      "label": "01 | FACILITY ENTRY",
+      "group": "mandatory",
+      "inherited": "C01_ENTRY",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.08715580403804779,
+          -0.9961947202682495,
+          0.800000011920929
+        ],
+        [
+          0.0,
+          0.9961947202682495,
+          0.08715580403804779,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "2dd5fdf34ba27afb1f223647278b26bf0de99a6916d10c9dacac5c26fb99503b",
+      "temporary_hidden_geometry": []
+    }
+  ]
+}
