@@ -103,8 +103,27 @@ def main():
         cells = json.loads(bpy.data.texts["OPT_PALETTE"].as_string())
         grid = cells["grid"]
         pal = {c: n for n, c in cells["cells"].items()}
+    family_rows = {}
+    if "OPT_FAMILY_ROWS" in bpy.data.texts:
+        family_rows = json.loads(bpy.data.texts["OPT_FAMILY_ROWS"].as_string())
+    family_map = {}
+    if "OPT_FAMILIES" in bpy.data.texts:
+        for fam, members in json.loads(bpy.data.texts["OPT_FAMILIES"].as_string()).items():
+            if fam in family_rows:
+                # members are decoded per polygon; members whose constants are identical look the same, so they form one
+                # class named after its alphabetically first member
+                classes = collections.defaultdict(list)
+                for mname, rows in family_rows[fam].items():
+                    classes[json.dumps(rows, sort_keys=True)].append(mname)
+                for names in classes.values():
+                    for mname in names:
+                        family_map[mname] = min(names)
+                continue
+            for mname in members:
+                family_map[mname] = fam
     dg = bpy.context.evaluated_depsgraph_get()
     area = collections.Counter()
+    moments = collections.defaultdict(lambda: [0.0, 0.0, 0.0, 0.0, 0.0])
     vset = set()
     vlist = []
     tris = 0
@@ -118,7 +137,9 @@ def main():
         m = e.to_mesh()
         mw = o.matrix_world
         uvl = m.uv_layers.get("CS_PAL")
-        mats = [s.material.name.replace("__noattr", "") if s.material else "" for s in o.material_slots]
+        mats = [(s.material.name if s.material.name in family_rows else
+                 family_map.get(s.material.name.replace("__noattr", ""), s.material.name.replace("__noattr", "")))
+                if s.material else "" for s in o.material_slots]
         asset = o.parent
         while asset and not props(asset):
             asset = asset.parent
@@ -139,11 +160,31 @@ def main():
             for i in range(1, len(pts) - 1):
                 ar += ((pts[i] - pts[0]).cross(pts[i + 1] - pts[0])).length * 0.5
             name = mats[p.material_index] if p.material_index < len(mats) else ""
+            if name in family_rows:
+                # which source material's constants does this polygon carry? decode the FAM attributes at its first loop
+                members = family_rows[name]
+                vals = {}
+                for ai in range(4):
+                    ca = m.color_attributes.get("FAM%d" % ai)
+                    vals[ai] = list(ca.data[p.loop_start].color) if ca is not None else [0, 0, 0, 0]
+                hit = [mn for mn, rows in members.items()
+                       if all(abs(vals[ai][ch + k] - v[k]) < 1e-5 for ai, ch, w, v in rows for k in range(w))]
+                canon = {family_map.get(h, h) for h in hit}
+                name = canon.pop() if len(canon) == 1 else ("%s?%s" % (name, ",".join(sorted(hit))) if hit else name + "?none")
             if name == "PAL_flat" and uvl is not None and pal is not None:
                 u, v = uvl.uv[p.loop_start].vector
                 c = int(v * grid) * grid + int(u * grid)
                 name = pal.get(c, "PAL?%d" % c)
             area[name] += ar
+            cx = sum(q.x for q in pts) / len(pts)
+            cy = sum(q.y for q in pts) / len(pts)
+            cz = sum(q.z for q in pts) / len(pts)
+            mm = moments[name]
+            mm[0] += ar
+            mm[1] += ar * cx
+            mm[2] += ar * cy
+            mm[3] += ar * cz
+            mm[4] += ar * (cx * cx + cy * cy + cz * cz)
             tris += len(p.vertices) - 2
         e.to_mesh_clear()
     ids = {}
@@ -162,8 +203,8 @@ def main():
     lights = {o.name: [round(o.data.energy, 3), o.get("cs_rt_role")] for o in sc.objects if o.type == "LIGHT"}
     import hashlib
     vh = hashlib.md5(repr(sorted(vset)).encode()).hexdigest()
-    out = {"vertex_hash": vh, "unique_vertices_1mm": len(vset), "triangles": tris, "bbox": [lo, hi], "area_by_material": dict(area), "asset_bbox": asset_box, "identity": ids,
-           "lights": lights, "animation": sorted(animation, key=str)}
+    out = {"vertex_hash": vh, "unique_vertices_1mm": len(vset), "triangles": tris, "bbox": [lo, hi], "area_by_material": dict(area), "moment_by_material": {k: v for k, v in moments.items()}, "asset_bbox": asset_box, "identity": ids,
+           "lights": lights, "family_map": family_map, "animation": sorted(animation, key=str)}
     import numpy as np
     np.save(a[1].replace(".json", ".verts.npy"), np.unique(np.round(np.array(vlist, dtype=np.float64), 4), axis=0).astype(np.float32))
     with open(a[1], "w") as fh:

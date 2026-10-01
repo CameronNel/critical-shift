@@ -352,6 +352,319 @@ def drop_unused_slots(o):
     me.update()
 
 
+# ----------------------------------------------------------------------------------------------------------- 3b
+# Material families (design/MATERIAL_BUDGETS.md): materials with the same node graph that differ only in constants become ONE
+# material; the constants travel on the mesh (FAM0.. colour attributes, 4 floats each), so the graph, and with it the look,
+# stays exactly the same.
+SKIP_NODE_PROPS = {"name", "label", "location", "width", "height", "dimensions", "select", "hide", "mute", "show_options",
+                   "show_preview", "show_texture", "use_custom_color", "color", "parent", "width_hidden", "bl_idname",
+                   "bl_label", "bl_description", "bl_icon", "bl_static_type", "bl_width_default", "bl_width_min",
+                   "bl_width_max", "bl_height_default", "bl_height_min", "bl_height_max", "internal_links", "inputs",
+                   "outputs", "image_user", "texture_mapping", "color_mapping", "color_ramp", "node_tree", "image",
+                   "script", "rna_type", "type"}
+RAMP_TYPES = ("TEX_IMAGE",)
+
+
+def _node_props(n):
+    out = {}
+    for p in n.bl_rna.properties:
+        if p.identifier in SKIP_NODE_PROPS or p.type not in ("BOOLEAN", "INT", "FLOAT", "STRING", "ENUM"):
+            continue
+        try:
+            out[p.identifier] = getattr(n, p.identifier)
+        except Exception:
+            pass
+    return out
+
+
+def _struct_props(x):
+    """Plain properties of a nested RNA struct (texture mapping, colour mapping, image user) as a stable dict."""
+    out = {}
+    if x is None:
+        return out
+    for p in x.bl_rna.properties:
+        if p.identifier == "rna_type" or p.type not in ("BOOLEAN", "INT", "FLOAT", "STRING", "ENUM"):
+            continue
+        try:
+            v = getattr(x, p.identifier)
+        except Exception:
+            continue
+        if hasattr(v, "__len__") and not isinstance(v, str):
+            v = [round(e, 6) if isinstance(e, float) else e for e in v]
+        elif isinstance(v, float):
+            v = round(v, 6)
+        elif isinstance(v, set):
+            v = sorted(v)
+        out[p.identifier] = v
+    return out
+
+
+def _round(v):
+    try:
+        return [round(x, 6) for x in v]
+    except TypeError:
+        return round(v, 6) if isinstance(v, float) else v
+
+
+def _struct_key(ma):
+    nt = ma.node_tree
+    nodes = sorted((n.name, n.bl_idname, bool(n.mute), json.dumps(_node_props(n), sort_keys=True, default=str),
+                    ([len(n.color_ramp.elements), n.color_ramp.interpolation, n.color_ramp.color_mode,
+                      n.color_ramp.hue_interpolation] if n.bl_idname == "ShaderNodeValToRGB" else 0),
+                    n.image.name if getattr(n, "image", None) else None,
+                    json.dumps([_struct_props(getattr(n, "texture_mapping", None)), _struct_props(getattr(n, "color_mapping", None)),
+                                _struct_props(getattr(n, "image_user", None))], sort_keys=True, default=str)) for n in nt.nodes)
+    links = sorted((l.from_node.name, l.from_socket.identifier, l.to_node.name, l.to_socket.identifier, bool(l.is_muted))
+                   for l in nt.links)
+    import hashlib
+    return hashlib.md5(json.dumps([nodes, links], default=str).encode()).hexdigest()[:8]
+
+
+def _params(ma):
+    """{(node, kind, id): value} of every unlinked constant input and every colour-ramp stop."""
+    P = {}
+    for n in ma.node_tree.nodes:
+        for i in n.inputs:
+            if i.is_linked or not hasattr(i, "default_value") or i.type not in ("VALUE", "INT", "RGBA", "VECTOR", "BOOLEAN"):
+                continue
+            if not i.enabled:
+                continue
+            P[(n.name, "in", i.identifier)] = _round(i.default_value)
+        if n.bl_idname == "ShaderNodeValToRGB":
+            for k, e in enumerate(n.color_ramp.elements):
+                P[(n.name, "stop%d" % k, "pos")] = round(e.position, 6)
+                P[(n.name, "stop%d" % k, "col")] = _round(e.color)
+    return P
+
+
+def _liftable(ma):
+    nt = ma.node_tree
+    if nt is None or nt.animation_data:
+        return False
+    if any(l.is_muted for l in nt.links) or any(n.mute for n in nt.nodes):
+        return False                                  # rebuilt links would come back unmuted: leave such materials alone
+    for n in nt.nodes:
+        if n.bl_idname == "ShaderNodeValToRGB":
+            if len(n.color_ramp.elements) != 2 or n.color_ramp.interpolation not in ("LINEAR", "EASE") \
+                    or n.color_ramp.color_mode != "RGB" or n.outputs["Alpha"].is_linked:
+                return False
+        if n.bl_idname in ("ShaderNodeGroup", "ShaderNodeScript"):
+            return False
+    return True
+
+
+def lift_families(every_mesh, report):
+    users = collections.Counter()
+    for o in every_mesh:
+        for slot in o.material_slots:
+            if slot.material:
+                users[slot.material.name] += 1
+    groups = collections.defaultdict(list)
+    for ma in bpy.data.materials:
+        if users[ma.name] and ma.node_tree and ma.name != "PAL_flat" and "__noattr" not in ma.name and _liftable(ma):
+            groups[_struct_key(ma)].append(ma)
+    plan = {}                     # material name -> (family material, param row or None)
+    fam_manifest = {}
+    n_attr_max = 0
+    for key, mats in groups.items():
+        mats.sort(key=lambda m: -users[m.name])
+        if len(mats) < 2:
+            continue
+        Ps = [_params(m) for m in mats]
+        keys = sorted(Ps[0].keys(), key=str)
+        varying = [k for k in keys if any(p.get(k) != Ps[0][k] for p in Ps)]
+        # stop positions and colour alpha must stay constant; INT/BOOLEAN sockets would need rounding
+        if any(k[1].startswith("stop") and k[2] == "pos" for k in varying):
+            continue
+        first = mats[0]
+        sockets = {}
+        for n in first.node_tree.nodes:
+            for i in n.inputs:
+                sockets[(n.name, "in", i.identifier)] = i
+        bad = False
+        for k in varying:
+            if k[1] == "in":
+                i = sockets[k]
+                if i.type in ("INT", "BOOLEAN"):
+                    bad = True
+                if i.type == "RGBA" and len({p[k][3] for p in Ps}) > 1:
+                    bad = True
+            elif k[2] == "col" and len({p[k][3] for p in Ps}) > 1:
+                bad = True
+        if bad:
+            continue
+        if not varying:                               # identical materials: just point everything at the first
+            for m in mats:
+                plan[m.name] = (first, None)
+            fam_manifest[first.name] = [m.name for m in mats]
+            continue
+        # ------- build the family: copy of the biggest member, constants replaced by attribute reads
+        fam = first.copy()
+        fam.name = "FAM %s" % first.name
+        nt = fam.node_tree
+        by_name = {n.name: n for n in nt.nodes}
+        layout = []                                   # (param key, attribute index, channel, width)
+        v3 = [k for k in varying if (k[1] != "in" and k[2] == "col") or (k[1] == "in" and sockets[k].type in ("RGBA", "VECTOR"))]
+        sc = [k for k in varying if k not in v3]
+        a = 0
+        free = []                                     # (attr index, channel) still free
+        for k in v3:
+            layout.append((k, a, 0, 3))
+            free.append((a, 3))
+            a += 1
+        for k in sc:
+            if free:
+                ai, ch = free.pop(0)
+            else:
+                ai, ch = a, 0
+                free = [(a, c) for c in (1, 2, 3)]
+                a += 1
+            layout.append((k, ai, ch, 1))
+        n_attr = a
+        n_attr_max = max(n_attr_max, n_attr)
+        attr_nodes, sep_nodes = {}, {}
+
+        def attr_node(ai):
+            if ai not in attr_nodes:
+                an = nt.nodes.new("ShaderNodeAttribute")
+                an.attribute_type = "GEOMETRY"
+                an.attribute_name = "FAM%d" % ai
+                an.label = "FAM%d" % ai
+                attr_nodes[ai] = an
+            return attr_nodes[ai]
+
+        def channel(ai, ch):
+            an = attr_node(ai)
+            if ch == 3:
+                return an.outputs["Alpha"]
+            if ai not in sep_nodes:
+                sp = nt.nodes.new("ShaderNodeSeparateXYZ")
+                nt.links.new(an.outputs["Vector"], sp.inputs["Vector"])
+                sep_nodes[ai] = sp
+            return sep_nodes[ai].outputs[("X", "Y", "Z")[ch]]
+
+        ramp_cols = {}
+        for k, ai, ch, w in layout:
+            if k[1] == "in":
+                node = by_name[k[0]]
+                sock = [i for i in node.inputs if i.identifier == k[2]][0]
+                if w == 3:
+                    nt.links.new(attr_node(ai).outputs["Vector"], sock)
+                else:
+                    nt.links.new(channel(ai, ch), sock)
+            else:
+                ramp_cols[(k[0], k[1])] = (ai, ch)
+        # colour ramps -> Map Range (position to 0..1, smoothstep for EASE) + Mix of the two stop colours
+        for n in list(nt.nodes):
+            if n.bl_idname != "ShaderNodeValToRGB":
+                continue
+            e0, e1 = n.color_ramp.elements[0], n.color_ramp.elements[1]
+            mr = nt.nodes.new("ShaderNodeMapRange")
+            mr.data_type = "FLOAT"
+            mr.interpolation_type = "SMOOTHSTEP" if n.color_ramp.interpolation == "EASE" else "LINEAR"
+            mr.clamp = True
+            mr.inputs["From Min"].default_value = e0.position
+            mr.inputs["From Max"].default_value = e1.position
+            mr.inputs["To Min"].default_value = 0.0
+            mr.inputs["To Max"].default_value = 1.0
+            fac_in = n.inputs["Fac"]
+            if fac_in.is_linked:
+                nt.links.new(fac_in.links[0].from_socket, mr.inputs["Value"])
+            else:
+                mr.inputs["Value"].default_value = fac_in.default_value
+            mx = nt.nodes.new("ShaderNodeMix")
+            mx.data_type = "RGBA"
+            mx.blend_type = "MIX"
+            mx.clamp_result = False
+            nt.links.new(mr.outputs["Result"], mx.inputs["Factor"])
+            for idx, stop in ((6, "stop0"), (7, "stop1")):
+                pk = (n.name, stop)
+                if pk in ramp_cols:
+                    nt.links.new(attr_node(ramp_cols[pk][0]).outputs["Vector"], mx.inputs[idx])
+                else:
+                    mx.inputs[idx].default_value = (e0 if stop == "stop0" else e1).color
+            for lk in list(n.outputs["Color"].links):
+                target = lk.to_socket
+                nt.links.remove(lk)
+                nt.links.new(mx.outputs[2], target)
+            nt.nodes.remove(n)
+        # parameter rows per member material
+        for m, P in zip(mats, Ps):
+            row = []
+            for k, ai, ch, w in layout:
+                v = P[k]
+                row.append((ai, ch, w, v if w == 3 else [v]))
+            plan[m.name] = (fam, row)
+        fam_manifest[fam.name] = [m.name for m in mats]
+        fam["cs_family_members"] = json.dumps([m.name for m in mats])
+    # ---- write the constants onto the meshes and swap the slots
+    moved = 0
+    checked = 0
+    for o in every_mesh:
+        me = o.data
+        mats = list(me.materials)
+        hit = [i for i, m in enumerate(mats) if m is not None and m.name in plan]
+        if not hit:
+            continue
+        nloop = len(me.loops)
+        arrays = {}
+        npoly = len(me.polygons)
+        mi = np.empty(npoly, dtype=np.int32)
+        ls = np.empty(npoly, dtype=np.int32)
+        lt = np.empty(npoly, dtype=np.int32)
+        me.polygons.foreach_get("material_index", mi)
+        me.polygons.foreach_get("loop_start", ls)
+        me.polygons.foreach_get("loop_total", lt)
+        for ai in range(n_attr_max):
+            name = "FAM%d" % ai
+            ca = me.color_attributes.get(name) or me.color_attributes.new(name, "FLOAT_COLOR", "CORNER")
+            arr = np.zeros((nloop, 4), dtype=np.float32)
+            ca.data.foreach_get("color", arr.reshape(-1))
+            arrays[ai] = arr
+        expected = []
+        for p in range(npoly):
+            m = mats[int(mi[p])] if int(mi[p]) < len(mats) else None
+            if m is None or m.name not in plan or plan[m.name][1] is None:
+                continue
+            for ai, ch, w, v in plan[m.name][1]:
+                arrays[ai][ls[p]:ls[p] + lt[p], ch:ch + w] = np.array(v, dtype=np.float32)[:w]
+            expected.append(p)
+            moved += 1
+        for ai, arr in arrays.items():
+            me.color_attributes["FAM%d" % ai].data.foreach_set("color", arr.reshape(-1))
+        # read back and compare
+        for ai in range(n_attr_max):
+            back = np.empty(nloop * 4, dtype=np.float32)
+            me.color_attributes["FAM%d" % ai].data.foreach_get("color", back)
+            if not np.allclose(back.reshape(-1, 4), arrays[ai], atol=1e-6):
+                raise RuntimeError("attribute read-back mismatch on %s FAM%d" % (o.name, ai))
+        checked += 1
+        # swap slots to the family materials and collapse duplicates
+        new = [plan[m.name][0] if (m is not None and m.name in plan) else m for m in mats]
+        uniq = []
+        for m in new:
+            if m not in uniq:
+                uniq.append(m)
+        idx = [uniq.index(m) for m in new]
+        remap = np.array(idx, dtype=np.int32)
+        mi2 = remap[np.clip(mi, 0, len(idx) - 1)]
+        me.materials.clear()
+        for m in uniq:
+            me.materials.append(m)
+        me.polygons.foreach_set("material_index", mi2)
+    rows_by_family = collections.defaultdict(dict)
+    for mname, (fam, row) in plan.items():
+        if row is not None:
+            rows_by_family[fam.name][mname] = [[ai, ch, w, [float(x) for x in v]] for ai, ch, w, v in row]
+    rtxt = bpy.data.texts.new("OPT_FAMILY_ROWS")
+    rtxt.write(json.dumps(rows_by_family, indent=0, sort_keys=True))
+    report["families"] = {k: v for k, v in sorted(fam_manifest.items())}
+    report["family_attributes"] = n_attr_max
+    report["family_polygons"] = moved
+    print("OPT families:", len(fam_manifest), "built;", moved, "polygons carry constants on", checked, "meshes; FAM attributes:", n_attr_max)
+    return fam_manifest
+
+
 # ----------------------------------------------------------------------------------------------------------- 4
 def asset_is_fixed(asset, kids):
     if any(k in asset.keys() for k in MOVING_PROPS) or KEEP_NAME.search(asset.name):
@@ -482,6 +795,11 @@ def main():
     report["palette_polygons"] = moved
     print("OPT palette polygons:", moved)
 
+    # 3b. material families: same graph, constants on the mesh
+    fam_manifest = lift_families(every_mesh, report)
+    ftxt = bpy.data.texts.new("OPT_FAMILIES")
+    ftxt.write(json.dumps(fam_manifest, indent=1, sort_keys=True))
+
     # 4. join parts per asset / material signature / object flags
     groups = collections.defaultdict(list)
     for o in geo:
@@ -549,8 +867,10 @@ def main():
     txt = bpy.data.texts.new("OPT_MERGE_MANIFEST")
     txt.write(json.dumps(merged_manifest, indent=1, sort_keys=True))
 
-    # 5. light roles (metadata only; no light is changed)
-    n_dyn = 0
+    # 5. light roles (metadata only; no light is changed). Budget as in the reactor control room: at most 6 dynamic lights
+    # in view, at most 2 real-time shadow casters; everything else is baked at its rest value, flicker rides on emissives.
+    SHADOW = ("HALL_light_01_area", "HALL_light_02_area")
+    n_dyn = n_shadow = 0
     for l in (o for o in sc.objects if o.type == "LIGHT"):
         if l.name.startswith(("HALL_light", "SERVICE_light")):
             l["cs_rt_role"], l["cs_rt_group"] = "dynamic_key", "hall_power"
@@ -559,8 +879,11 @@ def main():
             l["cs_rt_role"], l["cs_rt_group"] = "baked_plus_emissive_fixture", "locker_power"
         else:
             l["cs_rt_role"], l["cs_rt_group"] = "baked_plus_emissive_fixture", "briefing_and_accents"
+        l["cs_rt_shadow"] = l.name in SHADOW
+        n_shadow += int(l["cs_rt_shadow"])
     report["lights"] = sum(1 for o in sc.objects if o.type == "LIGHT")
     report["lights_dynamic_key"] = n_dyn
+    report["lights_realtime_shadow_casters"] = n_shadow
 
     # cleanup
     for m in list(bpy.data.materials):
