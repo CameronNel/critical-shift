@@ -7,7 +7,7 @@
     "CS_FLOOR_DRESSING",
     "CS_CEILING_DRESSING"
   ],
-  "objects_checked": 208,
+  "objects_checked": 200,
   "failures": [],
   "objects": [
     {
@@ -4869,74 +4869,6 @@
       ]
     },
     {
-      "object": "PPE_01_helmet",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:PPE_01_helmet_contact_00",
-          "point_world": [
-            2.585,
-            6.998,
-            1.0223
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        },
-        {
-          "sample": "anchor:PPE_01_helmet_contact_01",
-          "point_world": [
-            2.685,
-            6.998,
-            1.0223
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "PPE_01_helmet_cradle",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:PPE_01_helmet_cradle_contact_00",
-          "point_world": [
-            2.4953,
-            6.898,
-            0.946
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        },
-        {
-          "sample": "anchor:PPE_01_helmet_cradle_contact_01",
-          "point_world": [
-            2.4953,
-            7.098,
-            0.946
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
       "object": "PPE_01_spare_cartridge",
       "status": "PASS",
       "issues": [],
@@ -4966,7 +4898,7 @@
         {
           "sample": "anchor:PPE_01_suit_contact_00",
           "point_world": [
-            3.075,
+            2.93,
             7.148,
             2.0149
           ],
@@ -4978,7 +4910,7 @@
         {
           "sample": "anchor:PPE_01_suit_contact_01",
           "point_world": [
-            3.225,
+            3.07,
             7.148,
             2.0149
           ],
@@ -5083,74 +5015,6 @@
       ]
     },
     {
-      "object": "PPE_02_helmet",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:PPE_02_helmet_contact_00",
-          "point_world": [
-            4.085,
-            6.998,
-            1.0223
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        },
-        {
-          "sample": "anchor:PPE_02_helmet_contact_01",
-          "point_world": [
-            4.185,
-            6.998,
-            1.0223
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "PPE_02_helmet_cradle",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:PPE_02_helmet_cradle_contact_00",
-          "point_world": [
-            3.9953,
-            6.898,
-            0.946
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        },
-        {
-          "sample": "anchor:PPE_02_helmet_cradle_contact_01",
-          "point_world": [
-            3.9953,
-            7.098,
-            0.946
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
       "object": "PPE_02_inspection_card",
       "status": "PASS",
       "issues": [],
@@ -5180,7 +5044,7 @@
         {
           "sample": "anchor:PPE_02_suit_contact_00",
           "point_world": [
-            4.575,
+            4.43,
             7.148,
             2.0149
           ],
@@ -5192,7 +5056,7 @@
         {
           "sample": "anchor:PPE_02_suit_contact_01",
           "point_world": [
-            4.725,
+            4.57,
             7.148,
             2.0149
           ],
@@ -5297,74 +5161,6 @@
       ]
     },
     {
-      "object": "PPE_03_helmet",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:PPE_03_helmet_contact_00",
-          "point_world": [
-            3.415,
-            1.002,
-            1.0223
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        },
-        {
-          "sample": "anchor:PPE_03_helmet_contact_01",
-          "point_world": [
-            3.315,
-            1.002,
-            1.0223
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "PPE_03_helmet_cradle",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:PPE_03_helmet_cradle_contact_00",
-          "point_world": [
-            3.5047,
-            1.102,
-            0.946
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        },
-        {
-          "sample": "anchor:PPE_03_helmet_cradle_contact_01",
-          "point_world": [
-            3.5047,
-            0.902,
-            0.946
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
       "object": "PPE_03_spare_cartridge",
       "status": "PASS",
       "issues": [],
@@ -5394,7 +5190,7 @@
         {
           "sample": "anchor:PPE_03_suit_contact_00",
           "point_world": [
-            2.925,
+            3.07,
             0.852,
             2.0149
           ],
@@ -5406,7 +5202,7 @@
         {
           "sample": "anchor:PPE_03_suit_contact_01",
           "point_world": [
-            2.775,
+            2.93,
             0.852,
             2.0149
           ],
@@ -5511,74 +5307,6 @@
       ]
     },
     {
-      "object": "PPE_04_helmet",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:PPE_04_helmet_contact_00",
-          "point_world": [
-            4.914999,
-            1.002,
-            1.0223
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        },
-        {
-          "sample": "anchor:PPE_04_helmet_contact_01",
-          "point_world": [
-            4.815,
-            1.002,
-            1.0223
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "PPE_04_helmet_cradle",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:PPE_04_helmet_cradle_contact_00",
-          "point_world": [
-            5.0047,
-            1.102,
-            0.946
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        },
-        {
-          "sample": "anchor:PPE_04_helmet_cradle_contact_01",
-          "point_world": [
-            5.0047,
-            0.902,
-            0.946
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0003,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
       "object": "PPE_04_inspection_card",
       "status": "PASS",
       "issues": [],
@@ -5608,7 +5336,7 @@
         {
           "sample": "anchor:PPE_04_suit_contact_00",
           "point_world": [
-            4.425,
+            4.57,
             0.852,
             2.0149
           ],
@@ -5620,7 +5348,7 @@
         {
           "sample": "anchor:PPE_04_suit_contact_01",
           "point_world": [
-            4.275,
+            4.43,
             0.852,
             2.0149
           ],
