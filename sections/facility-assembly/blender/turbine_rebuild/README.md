@@ -36,4 +36,6 @@ full quality, and it must be re-run after any later change.
 ## Not done
 
 Independent review, Cycles art-acceptance against the spawn room, measured runtime performance, collision, Unity import, and
-the final lighting bake. Previews are Cycles 32-sample denoised renders from the named `CAM_*` cameras.
+the final lighting bake. Previews are Cycles 32-sample denoised renders (960 x 540) from the named `CAM_*` cameras, all from the committed build: `production/turbine-rebuild/renders/`. Agent self-review only; no independent review.
+
+Known lesson: coplanar duplicate faces (e.g. a casing cap and a flange cap in one plane) shadow each other and render black. Keep caps inset or offset.

@@ -16,7 +16,7 @@ def ring_bolts(b, y, r, n, sw='steel_dark', c=(CX, 0, AZ)):
 
 def casing(b, y0, y1, r, body, band='orange', flange_r=None, nbolt=18):
     L = y1 - y0; yc = (y0 + y1) / 2
-    b.cyl((CX, yc, AZ), r, L, body, 'Y', 16)
+    b.cyl((CX, yc, AZ), r, L - .2, body, 'Y', 16)          # ends sit inside the flange rings: no coplanar caps (they shadow each other)
     fr = flange_r or r + .1
     for y in (y0 + .06, y1 - .06): b.cyl((CX, y, AZ), fr, .12, 'steel_mid', 'Y', 16); ring_bolts(b, y + (.07 if y < yc else -.07), fr - .06, nbolt)
     for k in range(3): b.cyl((CX, y0 + L * (k + 1) / 4, AZ), r + .03, .22, band, 'Y', 16)

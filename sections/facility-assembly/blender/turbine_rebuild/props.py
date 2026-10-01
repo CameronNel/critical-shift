@@ -213,3 +213,8 @@ def build(b):
             b.rod((x - .5, y, 5.4), (x - .5, y, 6.06), .008, 'steel_dark', 4); b.rod((x + .5, y, 5.4), (x + .5, y, 6.06), .008, 'steel_dark', 4)
     b.box((2.0, 20.5, 5.0), (1.2, .22, .08), 'steel_dark', (.9, 0, 0)); b.box((2.0, 20.5, 4.95), (1.1, .15, .02), 'lamp', (.9, 0, 0))   # dangling, broken-hinge lamp
     b.rod((1.5, 20.5, 5.35), (1.5, 20.5, 6.06), .008, 'steel_dark', 4)
+
+    # inspection lamps hung over each bearing gap of the turbine train (they also light the otherwise dark casing end faces)
+    for y in (7.55, 14.85, 22.6):
+        b.box((4.6, y, 3.75), (.34, .34, .1), 'steel_dark'); b.box((4.6, y, 3.68), (.28, .28, .02), 'lamp')
+        b.rod((4.6, y, 3.8), (4.6, y, 6.06), .01, 'steel_dark', 4)

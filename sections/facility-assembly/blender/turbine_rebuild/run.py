@@ -116,6 +116,7 @@ n = 0
 for y in (4, 8, 12, 16, 20):
     for x in (-1.2, 4.6, 8.6):
         area(f'LAMP_{n:02d}', (x, y, 5.27), (1.1, .15), 190); n += 1
+for k, y in enumerate((7.55, 14.85, 22.6)): area(f'LAMP_bearing_{k}', (4.6, y, 3.68), (.28, .28), 70)
 area('LAMP_broken', (2.0, 20.5, 4.9), (1.1, .15), 160, (1, .8, .55)).rotation_euler = (.9, 0, 0)
 sun = bpy.data.lights.new('SUN_EAST', 'SUN'); sun.energy = 3.0; sun.angle = math.radians(1.2); sun.color = (1.0, .93, .80)
 so = bpy.data.objects.new('SUN_EAST', sun); coll.objects.link(so)
