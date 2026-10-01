@@ -390,7 +390,8 @@ def _struct_key(ma):
                     ([len(n.color_ramp.elements), n.color_ramp.interpolation, n.color_ramp.color_mode,
                       n.color_ramp.hue_interpolation] if n.bl_idname == "ShaderNodeValToRGB" else 0),
                     n.image.name if getattr(n, "image", None) else None) for n in nt.nodes)
-    links = sorted((l.from_node.name, l.from_socket.identifier, l.to_node.name, l.to_socket.identifier) for l in nt.links)
+    links = sorted((l.from_node.name, l.from_socket.identifier, l.to_node.name, l.to_socket.identifier, bool(l.is_muted))
+                   for l in nt.links)
     import hashlib
     return hashlib.md5(json.dumps([nodes, links], default=str).encode()).hexdigest()[:8]
 
