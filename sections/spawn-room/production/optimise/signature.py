@@ -34,7 +34,7 @@ def digest(x):
 
 SKIP_PROPS = {"rna_type", "bl_rna", "id_data", "original", "users", "session_uid", "is_evaluated", "tag", "is_runtime_data",
               "is_missing", "library", "library_weak_reference", "override_library", "asset_data", "preview",
-              "name_full", "is_embedded_data", "use_extra_user", "is_library_indirect", "is_editable", "id_type"}
+              "name_full", "is_embedded_data", "use_extra_user", "is_library_indirect", "is_editable"}
 
 
 def rna_deep(x, depth=0, seen=None):
@@ -74,24 +74,24 @@ def rna_deep(x, depth=0, seen=None):
             if v is None:
                 out[ident] = None
             elif isinstance(v, bpy.types.ID):
-                out[ident] = rna_deep(v, depth + 1, seen) if isinstance(v, bpy.types.Action) else v.name
+                out[ident] = rna_deep(v, depth + 1, seen) if isinstance(v, bpy.types.Action) else "%s:%s" % (type(v).__name__, v.name)
             else:
                 out[ident] = rna_deep(v, depth + 1, seen)
         elif prop.type == "COLLECTION":
             items = []
             for it in v:
                 if isinstance(it, bpy.types.ID):
-                    items.append(rna_deep(it, depth + 1, seen) if isinstance(it, bpy.types.Action) else it.name)
+                    items.append(rna_deep(it, depth + 1, seen) if isinstance(it, bpy.types.Action) else "%s:%s" % (type(it).__name__, it.name))
                 else:
                     items.append(rna_deep(it, depth + 1, seen))
             out[ident] = items
     return out
 
 
-def animation_entry(coll_name, idb, ad):
+def animation_entry(coll_name, idb, ad, owner_kind="id"):
     """[collection, name, action name, digest of the whole animation data (owner settings, action with all layers, slots,
     F-curves, keyframes, modifiers; drivers; NLA tracks and strips with the actions they play)]"""
-    return [coll_name, idb.name, ad.action.name if ad.action else None, digest(rna_deep(ad))]
+    return [coll_name, owner_kind, idb.name, ad.action.name if ad.action else None, digest(rna_deep(ad))]
 
 
 def main():
@@ -155,10 +155,10 @@ def main():
     animation = []
     for coll_name in ("objects", "materials", "meshes", "curves", "lights", "cameras", "worlds", "node_groups", "shape_keys"):
         for idb in getattr(bpy.data, coll_name):
-            for owner in (idb, getattr(idb, "node_tree", None)):
+            for owner_kind, owner in (("id", idb), ("node_tree", getattr(idb, "node_tree", None))):
                 ad = getattr(owner, "animation_data", None) if owner is not None else None
                 if ad and (ad.action or ad.drivers or ad.nla_tracks):
-                    animation.append(animation_entry(coll_name, idb, ad))
+                    animation.append(animation_entry(coll_name, idb, ad, owner_kind))
     lights = {o.name: [round(o.data.energy, 3), o.get("cs_rt_role")] for o in sc.objects if o.type == "LIGHT"}
     import hashlib
     vh = hashlib.md5(repr(sorted(vset)).encode()).hexdigest()
