@@ -119,9 +119,19 @@ class Kit:
         out=[]
         for (grp,mk),bm in s.bm.items():
             if not bm.faces: bm.free(); continue
+            _box_uv(bm)
             nm=f"{prefix} {grp} {mk}"; me=bpy.data.meshes.new(nm); bm.to_mesh(me); bm.free()
             o=bpy.data.objects.new(nm,me); coll.objects.link(o); me.materials.append(mats[mk]); out.append(o)
         s.bm={}; return out
+def _box_uv(bm):
+    """world-scaled box projection (1 UV unit = 1 m) for every face that has no authored UV; faces from plane() / dome() keep theirs.
+    Gives tiling image materials a valid, uniform texel density and lets the delivery derivative bake / export."""
+    uvl=bm.loops.layers.uv.verify(); bm.normal_update()
+    for f in bm.faces:
+        if all(abs(l[uvl].uv.x)+abs(l[uvl].uv.y)<1e-9 for l in f.loops):
+            n=f.normal; ax=max(range(3),key=lambda i:abs(n[i]))
+            for l in f.loops:
+                p=l.vert.co; l[uvl].uv=(p.x,p.y) if ax==2 else ((p.x,p.z) if ax==1 else (p.y,p.z))
 # ------------------------------------------------------------------ materials
 def _new(name):
     m=bpy.data.materials.get(name)

@@ -8,7 +8,7 @@ def make(R):
     M={}
     # ---- architecture
     M["WALL_LO"]=pm("CR wall dado olive",(0.078,0.094,0.056),0.52,edge=(0.17,0.19,0.11),grime=0.55,scale=1.6,var=(0.84,1.07),coat=0.05)
-    M["WALL_HI"]=pm("CR wall mineral plaster",(0.215,0.20,0.165),0.82,scale=1.1,var=(0.86,1.05),bump=0.12,grime=0.30,grain=0.05)
+    M["WALL_HI"]=pm("CR wall mineral plaster",(0.215,0.20,0.165),0.82,scale=1.1,var=(0.88,1.04),bump=0.05,grime=0.30,grain=0.03)
     M["WALL_BAND"]=pm("CR wall band graphite",(0.030,0.034,0.033),0.5,edge=(0.14,0.15,0.14),scale=2.0)
     M["TRIM"]=pm("CR trim charcoal steel",(0.040,0.044,0.044),0.42,metal=0.55,edge=(0.22,0.23,0.22),scale=2.0,bump=0.0)
     M["STEEL"]=pm("CR graphite steel",(0.058,0.066,0.068),0.38,metal=0.75,edge=(0.27,0.28,0.28),scale=2.2,bump=0.0)

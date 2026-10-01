@@ -13,7 +13,7 @@ bpy.ops.wm.open_mainfile(filepath=SRC)
 E=bpy.data.objects["CR_TV"]; m=bpy.data.materials["CR tv screen"]; nt=m.node_tree; node=nt.nodes["TV CLIP"]
 files=sorted(f for f in os.listdir(DIR) if f.lower().endswith((".png",".jpg",".jpeg",".tif",".tiff",".exr",".bmp",".webp")))
 if not files: raise SystemExit("no images in "+DIR)
-N=len(files); HOLD=int(A[A.index("--hold")+1]) if "--hold" in A else max(24,480//N); W,H=640,360
+FPS=bpy.context.scene.render.fps/bpy.context.scene.render.fps_base; N=len(files); HOLD=int(A[A.index("--hold")+1]) if "--hold" in A else max(12,int(round(20*FPS))//N); W,H=640,360      # default: the whole show loops in 20 s at the scene frame rate
 def load(f):
     im=bpy.data.images.load(os.path.join(DIR,f)); w,h=im.size; px=np.array(im.pixels[:],dtype=np.float32).reshape(h,w,4)[...,:3]
     srgb=im.colorspace_settings.name=='sRGB'; bpy.data.images.remove(im)

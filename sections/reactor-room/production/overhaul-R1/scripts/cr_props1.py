@@ -85,7 +85,28 @@ def rack(c):
         for r in (0.006,0.012): A.prism((g,"STEEL"),(xf-0.013,yy,(z0+z1)/2),(xf-0.0165,yy,(z0+z1)/2),r,r,16,0,False)
     for u in (1,1,2):
         z0,z1=plate(u,"BLACK")
-    while z<FZ+1.98: plate(1,"BLACK")
+    def f_switch():                                                                                           # 1U switch: two rows of ports + link LEDs
+        z0,z1=plate(1,"GREY")
+        for r in range(2):
+            for k in range(12): A.fb((g,"BLACK"),'-x',xf-0.012,yl+0.02+k*0.0185+r*0.0,yl+0.02+k*0.0185+0.012,z0+0.010+r*0.016,z0+0.022+r*0.016,0.004,0.0)
+        for k in range(12):
+            if c.R.random()<0.7: A.fb((g,ledk(c,"G") if c.R.random()<0.75 else ledk(c,"A")),'-x',xf-0.016,yl+0.022+k*0.0185,yl+0.026+k*0.0185,z0+0.034,z0+0.037,0.001,0.0)
+    def f_modem():                                                                                            # 2U modem bank: columns of status LEDs
+        z0,z1=plate(2,"BEIGE_D")
+        for k in range(8):
+            x_=yl+0.03+k*0.055; A.fb((g,"BLACK"),'-x',xf-0.012,x_,x_+0.040,z0+0.012,z0+0.075,0.003,0.001)
+            for r in range(3): A.fb((g,ledk(c,"G" if r<2 else "A")),'-x',xf-0.016,x_+0.012,x_+0.020,z0+0.020+r*0.018,z0+0.027+r*0.018,0.001,0.0)
+        text(c.coll,"TAKAMI MB-8",xf-0.0125,yr-0.03,z0+0.082,'-x',0.0085,M["KEY_D"],'RIGHT',"CR rack label")
+    def f_kvm():                                                                                              # 1U keyboard drawer
+        z0,z1=plate(1,"BLACK"); A.fb((g,"STEEL_L"),'-x',xf-0.012,(yl+yr)/2-0.09,(yl+yr)/2+0.09,(z0+z1)/2-0.004,(z0+z1)/2+0.004,0.014,0.003)
+        A.fb((g,"YELLOW"),'-x',xf-0.012,yr-0.08,yr-0.03,z0+0.010,z0+0.022,0.001,0.0)
+    def f_vent():                                                                                             # perforated blank
+        z0,z1=plate(1,"BLACK")
+        for k in range(8): A.fb((g,"GREY"),'-x',xf-0.012,yl+0.03,yr-0.03,z0+0.006+k*0.0045,z0+0.0085+k*0.0045,0.0015,0.0)
+    seq=[f_switch,lambda: plate(1,"BLACK"),f_modem,f_vent,f_kvm,lambda: plate(1,"BLACK"),f_switch,f_vent,lambda: plate(1,"BLACK"),f_modem,f_kvm]
+    i_=0
+    while z+U<FZ+1.98:
+        seq[i_%len(seq)](); i_+=1
     # side cable duct (front-left) and trunking to ceiling
     A.bx((g,"BLACK"),xf-0.04,xf-0.005,y1-0.005,y1+0.045,FZ+0.16,FZ+2.05,0.003)
     A.bx((g,"BLACK"),xb-0.30,xb,yc-0.14,yc+0.14,FZ+2.075,8.50,0.005)                                          # trunking up to the ceiling

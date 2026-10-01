@@ -53,7 +53,7 @@ if STAGE=="all":
     P1,P2=cr_props1,cr_props2
     for f in (P1.rack,P1.copier,P1.printer,P1.shelving,P1.cot,P1.lockers,P1.break_corner,P1.worktable,P1.credenza): f(c)
     P2.desk_clutter(c); P2.wall_decor(c); P2.ceiling_bits(c)
-    cr_extra.door(c); cr_extra.grime(c); cr_extra.desk_personal(c); cr_extra.window_dressing(c); cr_extra.markings(c); cr_extra.haze(c); cr_extra.collision(c,os.path.join(os.path.dirname(os.path.abspath(DST)),'control_room_collision.json'))
+    cr_extra.door(c); cr_extra.grime(c); cr_extra.desk_personal(c); cr_extra.window_dressing(c); cr_extra.markings(c); cr_extra.story(c); cr_extra.haze(c); cr_extra.collision(c,os.path.join(os.path.dirname(os.path.abspath(DST)),'control_room_collision.json'))
     cr_tv.build(c)
     D.chair(c,-2.60,-9.12,math.pi)
     cr_light.build(c); cr_light.beacons(c)

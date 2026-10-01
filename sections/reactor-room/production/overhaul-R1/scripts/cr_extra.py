@@ -106,14 +106,13 @@ def window_dressing(c):
         m=crk._new("CR window glass dirty"); nt=m.node_tree
         out=crk._n(nt,"ShaderNodeOutputMaterial",900,0); b=crk._n(nt,"ShaderNodeBsdfPrincipled",600,0); nt.links.new(b.outputs['BSDF'],out.inputs['Surface'])
         b.inputs['Base Color'].default_value=(0.55,0.58,0.57,1); b.inputs['IOR'].default_value=1.45
-        geo=crk._n(nt,"ShaderNodeNewGeometry",-900,0); mp=crk._n(nt,"ShaderNodeMapping",-700,0); mp.inputs['Scale'].default_value=(9.0,9.0,0.55); nt.links.new(geo.outputs['Position'],mp.inputs['Vector'])   # vertical run streaks
-        n1=crk._n(nt,"ShaderNodeTexNoise",-500,100); n1.inputs['Scale'].default_value=2.2; n1.inputs['Detail'].default_value=4.0; nt.links.new(mp.outputs['Vector'],n1.inputs['Vector'])
-        n2=crk._n(nt,"ShaderNodeTexNoise",-500,-150); n2.inputs['Scale'].default_value=1.3; n2.inputs['Detail'].default_value=2.0; nt.links.new(geo.outputs['Position'],n2.inputs['Vector'])
-        r1=crk._n(nt,"ShaderNodeMapRange",-250,100); r1.inputs['From Min'].default_value=0.42; r1.inputs['From Max'].default_value=0.72; r1.inputs['To Min'].default_value=0.03; r1.inputs['To Max'].default_value=0.50; nt.links.new(n1.outputs['Fac'],r1.inputs['Value'])
-        r2=crk._n(nt,"ShaderNodeMapRange",-250,-150); r2.inputs['From Min'].default_value=0.40; r2.inputs['From Max'].default_value=0.70; r2.inputs['To Min'].default_value=0.06; r2.inputs['To Max'].default_value=0.16; nt.links.new(n2.outputs['Fac'],r2.inputs['Value'])
-        ad=crk._n(nt,"ShaderNodeMath",0,-100); ad.operation='MAXIMUM'; nt.links.new(r1.outputs['Result'],ad.inputs[0]); nt.links.new(r2.outputs['Result'],ad.inputs[1])
-        r3=crk._n(nt,"ShaderNodeMath",200,-100); r3.operation='MULTIPLY'; r3.inputs[1].default_value=0.38; nt.links.new(ad.outputs['Value'],r3.inputs[0]); ad=r3          # dirt film, not a curtain
-        nt.links.new(r1.outputs['Result'],b.inputs['Roughness']); nt.links.new(ad.outputs['Value'],b.inputs['Alpha'])
+        b.inputs['Base Color'].default_value=(0.62,0.64,0.63,1)
+        geo=crk._n(nt,"ShaderNodeNewGeometry",-900,0); mp=crk._n(nt,"ShaderNodeMapping",-700,0); mp.inputs['Scale'].default_value=(9.0,9.0,0.45); nt.links.new(geo.outputs['Position'],mp.inputs['Vector'])   # vertical run streaks
+        n1=crk._n(nt,"ShaderNodeTexNoise",-500,100); n1.inputs['Scale'].default_value=2.4; n1.inputs['Detail'].default_value=4.0; nt.links.new(mp.outputs['Vector'],n1.inputs['Vector'])
+        r1=crk._n(nt,"ShaderNodeMapRange",-250,100); r1.inputs['From Min'].default_value=0.60; r1.inputs['From Max'].default_value=0.80; nt.links.new(n1.outputs['Fac'],r1.inputs['Value'])     # sparse streaks only
+        ra=crk._n(nt,"ShaderNodeMath",0,150); ra.operation='MULTIPLY_ADD'; ra.inputs[1].default_value=0.20; ra.inputs[2].default_value=0.10; nt.links.new(r1.outputs['Result'],ra.inputs[0])             # alpha 0.10 clear .. 0.30 streak
+        rr=crk._n(nt,"ShaderNodeMath",0,-50); rr.operation='MULTIPLY_ADD'; rr.inputs[1].default_value=0.30; rr.inputs[2].default_value=0.03; nt.links.new(r1.outputs['Result'],rr.inputs[0])             # roughness 0.03 .. 0.33
+        nt.links.new(rr.outputs['Value'],b.inputs['Roughness']); nt.links.new(ra.outputs['Value'],b.inputs['Alpha'])
         gl.data.materials.clear(); gl.data.materials.append(m)
     for (k,x,z,w,h) in (("form",-3.55,7.12,0.21,0.30),("safety",-2.30,6.98,0.21,0.29),("rules",-0.72,7.22,0.23,0.31),("roster",1.05,7.04,0.21,0.29)):
         wall_quad(c,'+y',-5.99,x,z,w,h,"N_"+k,frame=False,off=0.0015,g=g,paper=False)
@@ -131,12 +130,12 @@ def markings(c):
 # ---------------------------------------------------------------- 13. faint haze (beams in the warm pools)
 def haze(c):
     coll=c.coll
-    me=bpy.data.meshes.new("CR haze volume"); x0,x1,y0,y1,z0,z1=-4.77,1.97,-11.88,-6.19,5.43,8.47
+    me=bpy.data.meshes.new("CR haze volume"); x0,x1,y0,y1,z0,z1=-4.77,1.97,-11.88,-7.30,5.43,8.47
     v=[(x0,y0,z0),(x1,y0,z0),(x1,y1,z0),(x0,y1,z0),(x0,y0,z1),(x1,y0,z1),(x1,y1,z1),(x0,y1,z1)]
     f=[(0,3,2,1),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)]; me.from_pydata(v,[],f); me.update()
     o=bpy.data.objects.new("CR haze volume",me); coll.objects.link(o)
     m=crk._new("CR haze"); nt=m.node_tree; out=crk._n(nt,"ShaderNodeOutputMaterial",400,0); pv=crk._n(nt,"ShaderNodeVolumePrincipled",100,0)
-    pv.inputs['Color'].default_value=(0.86,0.87,0.88,1); pv.inputs['Density'].default_value=0.016; pv.inputs['Anisotropy'].default_value=0.45
+    pv.inputs['Color'].default_value=(0.86,0.87,0.88,1); pv.inputs['Density'].default_value=0.008; pv.inputs['Anisotropy'].default_value=0.6
     nt.links.new(pv.outputs['Volume'],out.inputs['Volume']); me.materials.append(m)
     o.visible_shadow=False
 # ---------------------------------------------------------------- 14. collision proxies (axis-aligned boxes, engine-side player / physics collision)
@@ -166,3 +165,17 @@ def collision(c,json_path=None):
     if json_path:
         json.dump({"note":"control-room collision proxies, axis-aligned boxes, Blender world space, metres, Z up; walls are thin boxes with the west door opening left free (y -7.26..-6.34)",
                    "boxes":[{"name":n,"min":[x0,y0,z0],"max":[x1,y1,z1]} for (n,x0,x1,y0,y1,z0,z1) in PROXIES]},open(json_path,"w"),indent=1)
+# ---------------------------------------------------------------- story props: a work jacket left on the bay-3 chair, a jacket and boots by the cot
+def story(c):
+    A,M=c.A,c.M; g="story"; cx=0.65; yb=-7.41-0.33                      # behind the bay-3 chair back (chair centre y -7.41)
+    A.hull((g,"FABRIC"),[(cx-0.20,yb-0.07,6.08),(cx+0.20,yb-0.07,6.08),(cx-0.20,yb-0.02,6.08),(cx+0.20,yb-0.02,6.08),(cx-0.19,yb-0.075,6.50),(cx+0.19,yb-0.075,6.50),(cx-0.19,yb-0.025,6.50),(cx+0.19,yb-0.025,6.50)],0.02)
+    for s in (-1,1): A.hull((g,"FABRIC"),[(cx+s*0.20,yb-0.07,6.46),(cx+s*0.27,yb-0.065,6.40),(cx+s*0.20,yb-0.03,6.46),(cx+s*0.27,yb-0.03,6.40),(cx+s*0.27,yb-0.07,6.10),(cx+s*0.22,yb-0.07,6.10),(cx+s*0.27,yb-0.035,6.10),(cx+s*0.22,yb-0.035,6.10)],0.012)   # sleeves hanging
+    A.bx((g,"ORANGE"),cx-0.19,cx+0.19,yb-0.077,yb-0.074,6.22,6.28,0.001)                                      # hi-vis stripe
+    # cot: jacket thrown over the foot, a pair of boots on the floor
+    A.hull((g,"FABRIC"),[(-4.60,-10.30,5.80),(-4.10,-10.30,5.80),(-4.60,-10.08,5.80),(-4.10,-10.08,5.80),(-4.58,-10.28,5.86),(-4.12,-10.28,5.86),(-4.58,-10.12,5.84),(-4.12,-10.12,5.84)],0.012) if False else None
+    A.hull((g,"CANVAS"),[(-4.62,-10.46,5.78),(-4.06,-10.46,5.78),(-4.62,-10.16,5.78),(-4.06,-10.16,5.78),(-4.60,-10.44,5.86),(-4.08,-10.44,5.86),(-4.60,-10.18,5.84),(-4.08,-10.18,5.84)],0.014)
+    for (bx,by,ang) in ((-3.86,-10.40,0.25),(-3.80,-10.18,-0.2)):
+        c_,s_=math.cos(ang),math.sin(ang)
+        def P(u,v,z): return (bx+u*c_-v*s_,by+u*s_+v*c_,FZ+z)
+        A.hull((g,"BLACK"),[P(-0.05,-0.12,0.0),P(0.05,-0.12,0.0),P(-0.05,0.13,0.0),P(0.05,0.13,0.0),P(-0.045,-0.10,0.07),P(0.045,-0.10,0.07),P(-0.045,0.04,0.05),P(0.045,0.04,0.05),P(-0.04,-0.10,0.16),P(0.04,-0.10,0.16)],0.01)
+        A.bx((g,"RUBBER"),bx-0.055,bx+0.055,by-0.125,by+0.135,FZ,FZ+0.012,0.003) if False else None

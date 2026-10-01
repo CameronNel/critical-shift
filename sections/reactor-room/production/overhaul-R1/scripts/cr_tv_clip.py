@@ -10,6 +10,8 @@ import numpy as np
 A=sys.argv[sys.argv.index("--")+1:]; SRC,CLIP,DST=A[0],A[1],A[2]
 N=int(A[A.index("--frames")+1]) if "--frames" in A else None
 bpy.ops.wm.open_mainfile(filepath=SRC)
+FPS=bpy.context.scene.render.fps/bpy.context.scene.render.fps_base
+print("scene fps %.3f: Blender plays an image sequence / movie one frame per scene frame, so a 20 s clip should be %d frames at %.0f fps (convert the clip to the scene fps first, or the speed will be wrong)"%(FPS,round(20*FPS),FPS))
 E=bpy.data.objects["CR_TV"]; m=bpy.data.materials["CR tv screen"]; node=m.node_tree.nodes["TV CLIP"]
 import re
 EXT=os.path.splitext(CLIP)[1].lower(); SEQ=EXT in(".png",".jpg",".jpeg",".tif",".tiff",".exr")

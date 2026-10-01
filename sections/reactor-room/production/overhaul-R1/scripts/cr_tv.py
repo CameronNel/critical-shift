@@ -7,7 +7,9 @@ import bpy,math
 import numpy as np
 import crk,crt
 from crk import _new,_n,drv,new_image
-CYCLE=480
+CYCLE=480                                          # frames at 24 fps; make_empty() rescales to 20 seconds at the scene frame rate (30 fps here -> 600 frames)
+def cycle_frames():
+    sc=bpy.context.scene; return int(round(20*sc.render.fps/sc.render.fps_base))
 SCHED=[  # (frame, tel, bro, sta, bar)  linear crossfades, cyclic
  (1,1,0,0,0),(150,1,0,0,0),(158,0,0,1,0),(170,0,0,1,0),(180,0,1,0,0),(330,0,1,0,0),(337,0,0,1,0),(347,0,0,1,0),(355,0,0,0,1),(410,0,0,0,1),(416,0,0,1,0),(426,0,0,1,0),(434,1,0,0,0),(481,1,0,0,0)]
 def _fcurves(act):
@@ -24,7 +26,7 @@ def make_empty(coll):
     e["w_tel"]=1.0; e["clip_r"]=0.6; e["clip_g"]=0.6; e["clip_b"]=0.6; e["clip_e"]=1.0
     for idx,n in enumerate(("w_tel","w_bro","w_sta","w_bar")):
         for (f,*w) in SCHED:
-            e[n]=float(w[idx]); e.keyframe_insert(f'["{n}"]',frame=f)
+            e[n]=float(w[idx]); e.keyframe_insert(f'["{n}"]',frame=1+int(round((f-1)*cycle_frames()/480.0)))
     for fc in _fcurves(e.animation_data.action): fc.modifiers.new('CYCLES')
     e["w_tel"]=1.0
     return e
