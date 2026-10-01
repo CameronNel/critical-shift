@@ -1,0 +1,624 @@
+{
+  "cycle": 17,
+  "role": "independent Blender technical critic",
+  "review_mode": "fresh independent cold source and current individual PNG review",
+  "status": "PASS",
+  "score": 9.3,
+  "maximum": 10,
+  "minimum": 8.5,
+  "critical_defect_count": 0,
+  "confirmed_blockers": [],
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "scene": "REANIMATION_EDIT_LOCAL",
+  "provenance": {
+    "blender_version": "5.2.2 LTS",
+    "source_saved": false,
+    "prior_critic_scores_or_reports_read": false,
+    "author_effort_narratives_read": false,
+    "root_production_report_writes_redirected": true,
+    "native_processes_finished": true,
+    "private_render_performed": false,
+    "verifier_sha256": "41ba00bccb47bcd0ac718413dc02dba509b33a9a0fbf716da6ff88c559298643",
+    "renderer_sha256": "d58c877b8b970c5ee48ba1e0a9a4812fe23d3129239977f634bb66ecd8fa52eb",
+    "commands": [
+      "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-17-technical-witnesses/redirected_verify.py -- --cold --dependencies",
+      "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-17-technical-witnesses/independent_probe.py",
+      "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-17-technical-witnesses/targeted_probe.py",
+      "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-17-technical-witnesses/mechanical_completion.py"
+    ],
+    "evidence_directory": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-17-technical-witnesses"
+  },
+  "objective_checks": {
+    "existing_cold_verifier": "PASS",
+    "inherited_baseline_objects": 1203,
+    "minor_dressing_pose_exceptions": [
+      "Calibration tick",
+      "Calibration tick.001",
+      "Calibration tick.002",
+      "Calibration tick.003",
+      "Calibration tick.004",
+      "Calibration tick.005",
+      "Calibration tick.006",
+      "Calibration tick.007",
+      "Calibration tick.008",
+      "Clipboard title",
+      "Dial fixing pin",
+      "Dial fixing pin.001",
+      "Engraved C01",
+      "Engraved MAINS / RESERVE",
+      "Engraved RESERVE",
+      "Engraved backing C01",
+      "Engraved backing MAINS / RESERVE",
+      "Engraved backing RESERVE",
+      "Formed pull grip",
+      "Handle mounting boss",
+      "Handle mounting boss.001",
+      "Instrument cast bezel",
+      "Inventory clipboard",
+      "Inventory paper",
+      "Inventory ruled line",
+      "Inventory ruled line.001",
+      "Inventory ruled line.002",
+      "Inventory ruled line.003",
+      "Ivory instrument dial",
+      "Mechanical selector.001",
+      "Meter needle",
+      "Meter unit",
+      "Needle pivot",
+      "RESERVE_SERVICE_DOOR",
+      "Reserve door fastener",
+      "Reserve door fastener.001",
+      "Reserve door fastener.002",
+      "Reserve door fastener.003",
+      "Reserve removable door",
+      "Reserve service hinge",
+      "Reserve service hinge.001",
+      "Rolled bezel rim",
+      "Screwdriver slot.022",
+      "Screwdriver slot.023",
+      "Screwdriver slot.024",
+      "Screwdriver slot.025",
+      "Selector escutcheon.001",
+      "Service jamb narrow edge scuff",
+      "Service jamb narrow edge scuff.002"
+    ],
+    "all_other_inherited_nonlight_matrices_and_all_dimensions_match": true,
+    "protected_original_module_and_main_map_sha_checks": "PASS",
+    "approved_spawn_sha_check": "PASS",
+    "isolated_scene_local": true,
+    "all_1180_scene_meshes_and_mesh_data_local": true,
+    "reserved_rescue_lane": "156 added meshes clear x -1.35 to 2.45, y 0.18 to 8.0, z 0.05 to 2.5",
+    "lighting": {
+      "active": 4,
+      "red": 1,
+      "warm_practicals": 1,
+      "directional_accents": 2
+    },
+    "hidden_bag": "Closed folded bag under berth, no remains; HIDDEN_BAG uses explicitly labelled temporary 2 W inspection fill",
+    "retained_interactive_parenting": "Cart guards follow CART_LIFT_DECK; fabricated cabinet faces follow respective sliding panes; inherited objects, interfaces and hooks retained"
+  },
+  "uv_and_print": {
+    "physical_uv_mesh_count": 214,
+    "physical_uv_consumer_faces": 99659,
+    "physical_uv_finite_nonzero_pass": true,
+    "semantic_print_uv_layers": {
+      "Printed artwork": "8 consumer faces pass through actual active-render implicit UV input",
+      "Clinical_Label": "48 bottle-label consumer faces pass explicit named UVMAP"
+    },
+    "active_physical_material_users_missing_layer": 0,
+    "printed_component_substrate_checks": 27,
+    "printed_maximum_gap_m": 0.002500533824786544,
+    "printed_maximum_penetration_m": 0.0018301010132849873,
+    "sewn_all_vertex_groups": 10,
+    "qualified_shader_mapping": "Physical UV microheight is checked separately from retained Generated/Object/Geometry broad variation and measured 600 mm floor mapping."
+  },
+  "support_and_winding": {
+    "registered_contacts": 217,
+    "registered_anchor_count": 238,
+    "passed_registered_contacts": 217,
+    "unregistered_authored_meshes": 0,
+    "maximum_anchor_gap_m": 0.004999926090240478,
+    "maximum_anchor_penetration_m": 0.0008581776544451716,
+    "part_id_contacts": 217,
+    "part_id_contacts_pass": true,
+    "part_id_maximum_gap_m": 0.0036519474908709524,
+    "unregistered_inherited_terminals_exposed": 82,
+    "intended_retained_surface_pairs": 81,
+    "additional_mechanical_completion_pairs": 6,
+    "negative_closed_components_authored_revised_check": 0,
+    "inconsistent_winding_edges_authored_revised_check": 0,
+    "sterile_stock": "All 12 cases have two downward witnesses, each at -0.5 mm into its own closed bearing channel. All 96 sampled mount-bottom vertices hit the actual registered shelf with upward normal and -0.5 mm signed gap. Shelf targets come from actual registry and evaluated shelf geometry.",
+    "cartridge_storage": "All 12 cartridges target their actual highest evaluated shelf below their bottom; 2.500 mm downward clearance, shelves physically contact rack uprights."
+  },
+  "measured_witnesses": [
+    {
+      "path": "Supply cabinet shelves -> cabinet back -> wall spacer -> East wall",
+      "evaluated_minimum_surface_gap_m": 0.0
+    },
+    {
+      "path": "OCRU jamb/panel/liner -> chassis/pan -> fabricated foot -> sole shoe -> Floor",
+      "evaluated_minimum_surface_gap_m": 0.0
+    },
+    {
+      "path": "Supply bench top -> rear apron -> leg -> Floor",
+      "evaluated_minimum_surface_gap_m": 0.0
+    },
+    {
+      "path": "Recovery pan -> longitudinal support -> tubular leg -> nonmarking foot -> Floor",
+      "maximum_measured_interface_gap_m": 1.1e-08
+    },
+    {
+      "path": "Console worktop -> cable apron -> rear leg -> Floor",
+      "maximum_measured_interface_distance_m": 0.000103676
+    },
+    {
+      "object": "Lower captive scissor track",
+      "intended_target": "Cart lift load crossmember",
+      "minimum_sampled_surface_distance_m": 2.9802322387695312e-08,
+      "own_surface_point_world": [
+        -3.2774999141693115,
+        0.6525000333786011,
+        0.29750001430511475
+      ],
+      "target_surface_point_world": [
+        -3.2774999141693115,
+        0.6525000333786011,
+        0.29749998450279236
+      ],
+      "target_normal_world": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0
+    },
+    {
+      "object": "Cart lift load crossmember",
+      "intended_target": "Cart lower frame rail",
+      "minimum_sampled_surface_distance_m": 0.0,
+      "own_surface_point_world": [
+        -3.440999984741211,
+        0.6533492803573608,
+        0.3010501563549042
+      ],
+      "target_surface_point_world": [
+        -3.440999984741211,
+        0.6533492803573608,
+        0.3010501563549042
+      ],
+      "target_normal_world": [
+        -0.3826744258403778,
+        0.0,
+        0.9238832592964172
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0
+    },
+    {
+      "object": "Pressed caster fork",
+      "intended_target": "Wheel hub",
+      "minimum_sampled_surface_distance_m": 0.0009996891021728516,
+      "own_surface_point_world": [
+        -3.420999765396118,
+        0.5000000596046448,
+        0.06599999964237213
+      ],
+      "target_surface_point_world": [
+        -3.4200000762939453,
+        0.5000000596046448,
+        0.06599999964237213
+      ],
+      "target_normal_world": [
+        -1.0,
+        -7.845228537917137e-07,
+        0.0
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0009996891021728516
+    },
+    {
+      "object": "Wheel hub",
+      "intended_target": "Caster rubber tyre",
+      "minimum_sampled_surface_distance_m": 0.0,
+      "own_surface_point_world": [
+        -3.4099998474121094,
+        0.5000000596046448,
+        0.05119999870657921
+      ],
+      "target_surface_point_world": [
+        -3.4099998474121094,
+        0.5000000596046448,
+        0.05119999870657921
+      ],
+      "target_normal_world": [
+        0.0,
+        -0.049067504703998566,
+        0.9987953901290894
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0
+    },
+    {
+      "object": "Reserve folded cap",
+      "intended_target": "Battery plinth",
+      "minimum_sampled_surface_distance_m": 0.0,
+      "own_surface_point_world": [
+        -2.558828592300415,
+        8.456171989440918,
+        0.14000000059604645
+      ],
+      "target_surface_point_world": [
+        -2.558828592300415,
+        8.456171989440918,
+        0.14000000059604645
+      ],
+      "target_normal_world": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0
+    },
+    {
+      "object": "Battery plinth",
+      "intended_target": "Floor",
+      "minimum_sampled_surface_distance_m": 0.0,
+      "own_surface_point_world": [
+        -2.575000047683716,
+        8.445000648498535,
+        0.0
+      ],
+      "target_surface_point_world": [
+        -2.575000047683716,
+        8.445000648498535,
+        0.0
+      ],
+      "target_normal_world": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0
+    }
+  ],
+  "nonblocking_findings": [
+    {
+      "id": "T17-N1",
+      "severity": "minor",
+      "finding": "20 declared corner/edge anchors select a different adjacent surface normal when ray-start offset changes from 10 mm to 15 or 20 mm; signed gaps remain about zero. All exact 10 mm contract probes pass.",
+      "action": "If the contact registry is revised later, prefer face-interior anchors to reduce BVH edge-hit normal sensitivity. No source repair is required for this cycle.",
+      "evidence": "corner-ray-start-sensitivity.json"
+    },
+    {
+      "id": "T17-N2",
+      "severity": "qualification",
+      "finding": "The moving reserve-door hinge is 6.5746 mm from the fixed side in this retained open pose. This is not a fixed attachment proof or a confirmed unsupported fixed mount; its moving knuckle remains attached to the door.",
+      "action": "Retain its existing articulated pose. A future motion-range or fixed hinge counterpart audit can establish the full mechanism beyond this static art check.",
+      "evidence": "intended-retained-load-paths.json"
+    }
+  ],
+  "limits": [
+    "Unregistered inherited terminals remain qualified terminals. The registry traversal does not by itself establish architectural support; independent intended-surface measurements cover the major retained mounting and gravity paths listed above.",
+    "Lower scissor track is 15 mm from the neighboring longitudinal rail, but contacts its actual load crossmember; caster fork is 8.5 mm from rubber, but bears through its hub with 0.9997 mm clearance. These alternate-neighbor distances are not support failures.",
+    "UV validity is checked only on the faces consuming each semantic print layer. Zero UVs on unrelated joined parts do not invalidate the bottle-label material.",
+    "Closest sampled contact witnesses and explicit directional bearings establish measured intended interfaces; this is not exhaustive triangle penetration, structural engineering, collision, animation-range or Unity runtime validation.",
+    "No private full render, destructive source write, promotion, external message or owner art approval was performed."
+  ],
+  "cold_dependencies": {
+    "library_count": 25,
+    "missing_libraries": [],
+    "file_image_count": 124,
+    "packed_images": 124,
+    "unpacked_required_images": 0,
+    "all_loaded_image_sizes_valid": true,
+    "source_sha_unchanged": true,
+    "inventory": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-17-technical-witnesses/dependency-manifest.json",
+    "renderer_label_font": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/fonts/DejaVuSans.ttf"
+  },
+  "render_evidence": {
+    "manifest_complete": true,
+    "png_count": 24,
+    "resolution": [
+      1067,
+      600
+    ],
+    "cold_open": true,
+    "source_sha_matches_reviewed_source": true,
+    "individual_frames_inspected": [
+      {
+        "id": "ENTRY",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/ENTRY.png",
+        "sha256": "6ee045ec008ee4fa6f21b160af8db802cf5bebe7986505aaea5cb3b211ca91f0",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "REVERSE",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/REVERSE.png",
+        "sha256": "56ffd7441530fb756bf65fb6e8ef2b5b06b0a18d03d1b5036a277e94aa066dd5",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "PINCH",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/PINCH.png",
+        "sha256": "972a15ce832df1198e99f1d501901f9c84eef715cab2716bdeca13ebb5c33601",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "DETAIL_OCRU",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/DETAIL_OCRU.png",
+        "sha256": "dca149d5756a9b97f9cf40ca5a9cbe4ed70b8e8bf211ab4cb8c56785865d1193",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "DETAIL_SUPPLIES",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/DETAIL_SUPPLIES.png",
+        "sha256": "f1153d041fc81f6484b50d4e582398b5378c82b54594b3a9881e65582f3d252b",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "CORNER_SW",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/CORNER_SW.png",
+        "sha256": "5b0c54e67380035f709c212e52ac8f2d761868b301a8145b6913803246981044",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "CORNER_SE",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/CORNER_SE.png",
+        "sha256": "622c326e0eb165ec040e1885a49b2fad7be3562a71b447eaa76c6b239300e8b0",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "CORNER_NW",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/CORNER_NW.png",
+        "sha256": "1bdefe0206615026d9d6b5cad76b1845b91c0276e526d93fff3d5260149dca2d",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "CORNER_NE",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/CORNER_NE.png",
+        "sha256": "b80d28664289834ddd0d517544f66ab374c59319731d6b55c9ffd39fe98f674d",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "WALL_SOUTH",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/WALL_SOUTH.png",
+        "sha256": "b074fc87451c941f2bb295a803720d12191243058c319f343e4d1aeef96b5a55",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "WALL_WEST",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/WALL_WEST.png",
+        "sha256": "c7ccd0e6e143fda120af6eaa5091d997caf1a264dc60801d2f8cc78fa52f36d8",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "WALL_NORTH",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/WALL_NORTH.png",
+        "sha256": "bbf876883cf829ad07cdde651fbd141b1f6c3961f4e26f48ccb0c62c296b2b7f",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "WALL_EAST",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/WALL_EAST.png",
+        "sha256": "7f2946580f514c7dc1dce5f25f1cebca9e556abb207d2d8483bc2c60bf3bd924",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "HERO_OCRU",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_OCRU.png",
+        "sha256": "38924930a6cd4c9f2eeee84cd8a25e46cda10ed0fa1c285baac41c894564ad26",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "HERO_RESTART",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_RESTART.png",
+        "sha256": "07e61ce04220c9d8dfcb255c9c5d79132a2a10fe963a20a9d35c5f49cacca2da",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "HERO_CARTRIDGES",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_CARTRIDGES.png",
+        "sha256": "3b379bc1226c21d433a3f626837dfb02c4f2554f217a5391fae1b27cb929fc76",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "HERO_RESERVE",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_RESERVE.png",
+        "sha256": "99a6547fd58f1336922f3ee0ffd319a81fb8b95fb4675f4880c12f359019798b",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "HERO_DECON",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_DECON.png",
+        "sha256": "380adb5c2e38cf927a3ed14b022f90d81e98059bbc4249fba1aeb1329e328464",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "HERO_RECOVERY",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_RECOVERY.png",
+        "sha256": "472f1e61c91a61c9d37333fea2b46c0546f64543c9d72a6160a5f05995713c93",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "HERO_CART",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_CART.png",
+        "sha256": "6da794e2b1d0ba57782d85ad983990d37c93407bd5690d83b533357be47c1c21",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "HERO_SUPPLIES",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_SUPPLIES.png",
+        "sha256": "bad7f5ef2e8c44d2fddc4e9219a46ee8949889606f45cdcfd5409e5ae74203f5",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "HERO_WASH",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_WASH.png",
+        "sha256": "d6347e9666bf9c0c77530e509a047ddd63d84948737060aaac5c2f8de2979df0",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "HERO_CABINET",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_CABINET.png",
+        "sha256": "4c4b02d5b7ed592f53c65ba4861a307594de650a6ba59534c72c292393e498d0",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      },
+      {
+        "id": "HIDDEN_BAG",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HIDDEN_BAG.png",
+        "sha256": "794f420d9187a5768c6ea9dd61a2c2320bce77c8f005bd19b480f462ba6928f6",
+        "size": [
+          1067,
+          600
+        ],
+        "camera_provenance": true,
+        "inspected_individual_image": true
+      }
+    ],
+    "approved_spawn_references_inspected": [
+      {
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/BRIEFING_INDIRECT.png",
+        "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+        "inspected_individual_image": true
+      },
+      {
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_LockerDoor.png",
+        "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+        "inspected_individual_image": true
+      },
+      {
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Spawn.png",
+        "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+        "inspected_individual_image": true
+      },
+      {
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Material_A.png",
+        "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+        "inspected_individual_image": true
+      }
+    ],
+    "hot_cold_same_source_and_renderer": true,
+    "hot_cold_pixel_identical_frames": 24,
+    "hot_cold_maximum_mean_absolute_channel_error_0_255": 0.0
+  },
+  "score_basis": "9.3/10: editable protected source, full cold dependencies, retained boundaries and lane, active physical/print UVs, winding, part-ID contacts and intended major load paths pass. Small deduction reflects corner-anchor numerical fragility and qualified static mechanism/terminal coverage. No confirmed blocking or critical defect."
+}

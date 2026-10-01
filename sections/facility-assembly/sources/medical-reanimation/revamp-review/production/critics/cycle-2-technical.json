@@ -1,0 +1,66 @@
+{
+  "cycle": 2,
+  "reviewer": "medical_technical_cycle2",
+  "score": 8.8,
+  "available": 10,
+  "verdict": "PROVISIONAL_PASS",
+  "acceptance_threshold": 8.5,
+  "source_sha256": "3f79ffe7ebb57b737c3a571b5611bce94ea22d61732596970f3457f307fbcdf3",
+  "review_scope": "Completed read-only technical review of the isolated medical overhaul source at the stated hash. This record does not assess subsequent rebuilds.",
+  "blocking_technical_defects": [],
+  "outstanding_acceptance_gates": [
+    "Complete the required final cold-render batch and compare its mandatory camera images with the approved prior renders. Cycle-2 pixel renders were not treated as completed cold-render comparison evidence."
+  ],
+  "verified": [
+    "Fresh Blender 5.2.2 full-file open and objective checks pass, using one CPU with Blender and numerical-library thread limits set to one.",
+    "Editable room scene is local, the current assembled map is a separate linked scene, and all 25 linked libraries resolve.",
+    "Protected assembled-map and original-module hashes remain unchanged; inherited layout checks pass apart from the declared small dressing pose updates.",
+    "All 67 registered support groups and 73 declared anchors pass directional rays, gap and penetration limits, angle checks, and authored-object witness checks. The consumables cluster has six explicit witnesses; the cup and scissors group has two.",
+    "An additional 39 inherited assembly support anchors contact their intended support surfaces in the declared directions.",
+    "An expanded audit of all 1091 local meshes finds consistent winding, with outward winding on all 1392 closed components.",
+    "No exact coincident evaluated mesh duplicates or missing face materials were found.",
+    "Four active lights match the contract: one red area source, one warm area source, and two spot sources. Saved resolution is 1067 by 600 at 100 percent.",
+    "A 0.088 metre upward lift-deck probe moves the cart deck and upper guards together while fixed pivot hardware stays stationary.",
+    "A fresh in-memory full rebuild with every write and save operation removed reproduces all 1277 object signatures and all 67 support records. The saved source checksum remains unchanged.",
+    "Saved fonts are built-in; the renderer's system-font dependency is optional and has a fallback."
+  ],
+  "rebuild_comparison": {
+    "built_objects": 1277,
+    "saved_objects": 1277,
+    "object_signature_mismatches": 0,
+    "support_records": 67,
+    "support_record_mismatches": 0,
+    "object_signature_fields": [
+      "name",
+      "type",
+      "parent",
+      "world transform",
+      "material assignments",
+      "base mesh vertices and faces",
+      "face smoothing",
+      "modifier names and types",
+      "text bodies",
+      "camera types and lenses",
+      "light type, energy and colour"
+    ],
+    "numeric_rounding_decimals": 6,
+    "saved_blend_written": false
+  },
+  "limits": [
+    "No exhaustive intersection audit or per-component support audit of every joined assembly was performed.",
+    "The file contains no animation drivers or actions; the cart probe verifies editable transform hierarchy behavior.",
+    "Visual quality and final cold-render equivalence were not scored by this technical review."
+  ],
+  "minor_findings": [
+    "Five near-zero-area faces remain in the inherited Blanket institutional tag; no winding failure resulted.",
+    "At review time TASK_STATE.md and CHECKLIST.md lagged the full-stage build. Update the documented rebuild command to use --stage full and keep final cold-render comparison pending until completed."
+  ],
+  "review_execution": {
+    "blender_version": "5.2.2 LTS",
+    "cpu_affinity_count": 1,
+    "blender_threads": 1,
+    "scene_or_script_edits": false,
+    "saved_blend_written": false,
+    "review_source_checksum_unchanged": true
+  }
+}

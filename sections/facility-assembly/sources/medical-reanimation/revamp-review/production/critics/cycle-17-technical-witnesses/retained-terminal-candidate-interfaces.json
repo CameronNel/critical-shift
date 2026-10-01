@@ -1,0 +1,6292 @@
+[
+  {
+    "terminal": "Adult tray pressed pan",
+    "parent": "OCRU_BERTH",
+    "bounds": [
+      [
+        -2.5637502670288086,
+        3.5,
+        0.9490000009536743
+      ],
+      [
+        -1.633750081062317,
+        5.760000228881836,
+        0.9950000047683716
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Tray folded end flange",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -2.5557501316070557,
+          3.508000135421753,
+          0.9950000047683716
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Tray folded end flange.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -2.5557501316070557,
+          5.751999855041504,
+          0.9950000047683716
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Segmented adult berth cushion",
+        "minimum_sampled_surface_distance_m": 0.0001716017723083496,
+        "point_target_world": [
+          -2.098750114440918,
+          3.501171588897705,
+          0.9900000095367432
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Segmented adult berth cushion.002",
+        "minimum_sampled_surface_distance_m": 0.0001716017723083496,
+        "point_target_world": [
+          -2.098750114440918,
+          5.758828639984131,
+          0.9900000095367432
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Segmented adult berth cushion.001",
+        "minimum_sampled_surface_distance_m": 0.004999995231628418,
+        "point_target_world": [
+          -2.098750114440918,
+          4.630000114440918,
+          0.9900000095367432
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Bridge pivot knuckle.002",
+        "minimum_sampled_surface_distance_m": 0.005162383429706097,
+        "point_target_world": [
+          -1.6356465816497803,
+          4.630000114440918,
+          0.946181058883667
+        ],
+        "normal_target_world": [
+          -0.6343958377838135,
+          0.0,
+          0.7730083465576172
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Basin bottom",
+    "parent": "HANDWASH",
+    "bounds": [
+      [
+        3.490000009536743,
+        2.684999942779541,
+        0.7599999904632568
+      ],
+      [
+        3.919999837875366,
+        3.2150001525878906,
+        0.7999999523162842
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Sink wall bracket",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.9140000343322754,
+          2.684999942779541,
+          0.765999972820282
+        ],
+        "normal_target_world": [
+          -2.6490945401747013e-06,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Basin folded side",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.490000009536743,
+          3.2090001106262207,
+          0.793999969959259
+        ],
+        "normal_target_world": [
+          -0.9238765835762024,
+          0.38269057869911194,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Basin folded side.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.490000009536743,
+          2.690999984741211,
+          0.793999969959259
+        ],
+        "normal_target_world": [
+          -0.923894464969635,
+          -0.3826472759246826,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Basin folded rim",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.495999813079834,
+          3.2150001525878906,
+          0.793999969959259
+        ],
+        "normal_target_world": [
+          1.1920863471459597e-05,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Basin folded rim.001",
+        "minimum_sampled_surface_distance_m": 5.960464477539063e-08,
+        "point_target_world": [
+          3.919999837875366,
+          2.950000047683716,
+          0.7800000309944153
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Bench rear apron",
+    "parent": "SUPPLY_BENCH",
+    "bounds": [
+      [
+        3.8299999237060547,
+        0.4950000047683716,
+        0.29499998688697815
+      ],
+      [
+        3.9099998474121094,
+        2.445000171661377,
+        0.8849999904632568
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Supply bench top",
+        "minimum_sampled_surface_distance_m": 0.004999995231628418,
+        "point_target_world": [
+          3.8299999237060547,
+          2.440000057220459,
+          0.875
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cabinet formed edge",
+    "parent": "SUPPLY_CABINET",
+    "bounds": [
+      [
+        3.2749998569488525,
+        8.34749984741211,
+        1.2699999809265137
+      ],
+      [
+        3.944999933242798,
+        8.412500381469727,
+        2.490000009536743
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Supply cabinet shelf",
+        "minimum_sampled_surface_distance_m": 2.384185791015625e-07,
+        "point_target_world": [
+          3.2749998569488525,
+          8.353500366210938,
+          1.2760002613067627
+        ],
+        "normal_target_world": [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Supply cabinet shelf.003",
+        "minimum_sampled_surface_distance_m": 2.384185791015625e-07,
+        "point_target_world": [
+          3.944999933242798,
+          8.353500366210938,
+          2.483999729156494
+        ],
+        "normal_target_world": [
+          0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Supply cabinet back",
+        "minimum_sampled_surface_distance_m": 0.0013780593872070312,
+        "point_target_world": [
+          3.9441213607788086,
+          8.40999984741211,
+          1.880000114440918
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cabinet formed edge.001",
+    "parent": "SUPPLY_CABINET",
+    "bounds": [
+      [
+        3.2749998569488525,
+        6.527500152587891,
+        1.2699999809265137
+      ],
+      [
+        3.944999933242798,
+        6.592499732971191,
+        2.490000009536743
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Supply cabinet shelf",
+        "minimum_sampled_surface_distance_m": 1.1920928955078125e-07,
+        "point_target_world": [
+          3.2749998569488525,
+          6.58650016784668,
+          1.2760001420974731
+        ],
+        "normal_target_world": [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Supply cabinet shelf.003",
+        "minimum_sampled_surface_distance_m": 4.76837158203125e-07,
+        "point_target_world": [
+          3.944999933242798,
+          6.58650016784668,
+          2.4839999675750732
+        ],
+        "normal_target_world": [
+          0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Supply cabinet back",
+        "minimum_sampled_surface_distance_m": 0.0013790130615234375,
+        "point_target_world": [
+          3.9441208839416504,
+          6.529999732971191,
+          1.880000114440918
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Captive transfer rail",
+    "parent": "OCRU_BERTH",
+    "bounds": [
+      [
+        -1.7962501049041748,
+        3.450000047683716,
+        0.8975000381469727
+      ],
+      [
+        -1.721250057220459,
+        5.809999942779541,
+        0.9624999761581421
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Adult tray pressed pan",
+        "minimum_sampled_surface_distance_m": 0.011560678482055664,
+        "point_target_world": [
+          -1.7958106994628906,
+          4.630000114440918,
+          0.9490000009536743
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cart deck",
+    "parent": "CART_LIFT_DECK",
+    "bounds": [
+      [
+        -3.489999771118164,
+        0.28000009059906006,
+        0.7975000143051147
+      ],
+      [
+        -2.75,
+        2.380000114440918,
+        0.8624999523162842
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Stretcher side retaining rim",
+        "minimum_sampled_surface_distance_m": 0.0009038448915816844,
+        "point_target_world": [
+          -3.482499837875366,
+          1.3300000429153442,
+          0.8605963587760925
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Stretcher side retaining rim.001",
+        "minimum_sampled_surface_distance_m": 0.0009038448915816844,
+        "point_target_world": [
+          -2.757499933242798,
+          1.3299999237060547,
+          0.8605963587760925
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cart segmented mattress.001",
+        "minimum_sampled_surface_distance_m": 0.0024999380111694336,
+        "point_target_world": [
+          -3.119999885559082,
+          1.3300000429153442,
+          0.8600000143051147
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Engraved backing TRANSFER",
+        "minimum_sampled_surface_distance_m": 0.0029038190841674805,
+        "point_target_world": [
+          -3.119999885559082,
+          0.27900010347366333,
+          0.8059037923812866
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cart lift scissor.002",
+    "parent": "BODY_CART",
+    "bounds": [
+      [
+        -2.947499990463257,
+        0.6810249090194702,
+        0.2755107581615448
+      ],
+      [
+        -2.8924996852874756,
+        1.9689751863479614,
+        0.8244892954826355
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Cart lift scissor.003",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -2.8924999237060547,
+          1.3250000476837158,
+          0.550000011920929
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cart lift load crossmember",
+        "minimum_sampled_surface_distance_m": 0.002289503812789917,
+        "point_target_world": [
+          -2.8929390907287598,
+          0.6918046474456787,
+          0.30300000309944153
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Lower captive scissor track.001",
+        "minimum_sampled_surface_distance_m": 0.0028126537799835205,
+        "point_target_world": [
+          -2.8954999446868896,
+          0.682716965675354,
+          0.3295000195503235
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Scissor lower slider.002",
+        "minimum_sampled_surface_distance_m": 0.0074999332427978516,
+        "point_target_world": [
+          -2.8849997520446777,
+          0.6838163733482361,
+          0.3238959312438965
+        ],
+        "normal_target_world": [
+          1.0,
+          9.608869504518225e-07,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cart segmented mattress",
+    "parent": "CART_LIFT_DECK",
+    "bounds": [
+      [
+        -3.4499998092651367,
+        0.315000057220459,
+        0.8600000143051147
+      ],
+      [
+        -2.7899999618530273,
+        0.9650000333786011,
+        0.9199999570846558
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Cart deck",
+        "minimum_sampled_surface_distance_m": 0.0024999380111694336,
+        "point_target_world": [
+          -3.4417498111724854,
+          0.3231251835823059,
+          0.8624999523162842
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Stretcher side retaining rim",
+        "minimum_sampled_surface_distance_m": 0.0074999332427978516,
+        "point_target_world": [
+          -3.4574997425079346,
+          0.5343756675720215,
+          0.8600006699562073
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Stretcher side retaining rim.001",
+        "minimum_sampled_surface_distance_m": 0.0074999332427978516,
+        "point_target_world": [
+          -2.7825000286102295,
+          0.5343756675720215,
+          0.8599993586540222
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cart segmented mattress.001",
+    "parent": "CART_LIFT_DECK",
+    "bounds": [
+      [
+        -3.4499998092651367,
+        1.005000114440918,
+        0.8600000143051147
+      ],
+      [
+        -2.7899999618530273,
+        1.6549999713897705,
+        0.9199999570846558
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Cart deck",
+        "minimum_sampled_surface_distance_m": 0.0024999380111694336,
+        "point_target_world": [
+          -3.4417498111724854,
+          1.0131250619888306,
+          0.8624999523162842
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Stretcher side retaining rim",
+        "minimum_sampled_surface_distance_m": 0.0074999332427978516,
+        "point_target_world": [
+          -3.4574997425079346,
+          1.3300000429153442,
+          0.8600000143051147
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Stretcher side retaining rim.001",
+        "minimum_sampled_surface_distance_m": 0.0074999332427978516,
+        "point_target_world": [
+          -2.7825000286102295,
+          1.3300000429153442,
+          0.8600000143051147
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cart segmented mattress.002",
+    "parent": "CART_LIFT_DECK",
+    "bounds": [
+      [
+        -3.4499998092651367,
+        1.6949999332427979,
+        0.8600000143051147
+      ],
+      [
+        -2.7899999618530273,
+        2.3450000286102295,
+        0.9199999570846558
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Cart deck",
+        "minimum_sampled_surface_distance_m": 0.0024999380111694336,
+        "point_target_world": [
+          -3.4417498111724854,
+          1.7031248807907104,
+          0.8624999523162842
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Stretcher side retaining rim",
+        "minimum_sampled_surface_distance_m": 0.0074999332427978516,
+        "point_target_world": [
+          -3.4574997425079346,
+          2.0199999809265137,
+          0.8599994778633118
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Stretcher side retaining rim.001",
+        "minimum_sampled_surface_distance_m": 0.0074999332427978516,
+        "point_target_world": [
+          -2.7825000286102295,
+          2.0199999809265137,
+          0.8600005507469177
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge bank formed upright",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        0.6474999785423279,
+        8.304999351501465,
+        0.0
+      ],
+      [
+        0.7225000262260437,
+        8.994999885559082,
+        2.240000009536743
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Cartridge rack rear",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          0.7175000309944153,
+          8.989999771118164,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge bank formed upright.001",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        1.277500033378601,
+        8.304999351501465,
+        0.0
+      ],
+      [
+        1.352500081062317,
+        8.994999885559082,
+        2.240000009536743
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Cartridge rack rear",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          1.2825000286102295,
+          8.989999771118164,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge extraction tab",
+    "parent": "OCRU_CARTRIDGE_RECEIVER",
+    "bounds": [
+      [
+        -1.2237498760223389,
+        2.944999933242798,
+        1.3550000190734863
+      ],
+      [
+        -1.1937499046325684,
+        3.055000066757202,
+        1.4049999713897705
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Cartridge retaining drawer",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -1.2237498760223389,
+          2.9489998817443848,
+          1.3589999675750732
+        ],
+        "normal_target_world": [
+          0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Engraved backing C01",
+        "minimum_sampled_surface_distance_m": 0.0005274656577967107,
+        "point_target_world": [
+          -1.1941338777542114,
+          3.000000238418579,
+          1.3580732345581055
+        ],
+        "normal_target_world": [
+          -0.3826979100704193,
+          -8.843027217153576e-07,
+          -0.9238734841346741
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        0.7749999761581421,
+        8.554999351501465,
+        0.4399999976158142
+      ],
+      [
+        0.8650000095367432,
+        8.644999504089355,
+        0.6600000262260437
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          0.8258234262466431,
+          8.555999755859375,
+          0.550000011920929
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal",
+        "minimum_sampled_surface_distance_m": 0.0017974248621612787,
+        "point_target_world": [
+          0.8433476090431213,
+          8.559443473815918,
+          0.44200000166893005
+        ],
+        "normal_target_world": [
+          0.4714602828025818,
+          -0.8818873167037964,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.001",
+        "minimum_sampled_surface_distance_m": 0.0024999380111694336,
+        "point_target_world": [
+          0.8200000524520874,
+          8.600000381469727,
+          0.4375
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap",
+        "minimum_sampled_surface_distance_m": 0.003296020207926631,
+        "point_target_world": [
+          0.8666505217552185,
+          8.587499618530273,
+          0.6579999923706055
+        ],
+        "normal_target_world": [
+          0.9659249186515808,
+          -0.25882261991500854,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body.001",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        0.9549999833106995,
+        8.554999351501465,
+        0.4399999976158142
+      ],
+      [
+        1.0449999570846558,
+        8.644999504089355,
+        0.6600000262260437
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID.001",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          1.0058233737945557,
+          8.555999755859375,
+          0.550000011920929
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal.001",
+        "minimum_sampled_surface_distance_m": 0.0017973966896533966,
+        "point_target_world": [
+          1.0233476161956787,
+          8.559443473815918,
+          0.44200000166893005
+        ],
+        "normal_target_world": [
+          0.4714568257331848,
+          -0.8818891644477844,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.001",
+        "minimum_sampled_surface_distance_m": 0.0024999380111694336,
+        "point_target_world": [
+          1.0000001192092896,
+          8.600000381469727,
+          0.4375
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap.001",
+        "minimum_sampled_surface_distance_m": 0.0032959049567580223,
+        "point_target_world": [
+          1.0466504096984863,
+          8.587499618530273,
+          0.6579999923706055
+        ],
+        "normal_target_world": [
+          0.9659243226051331,
+          -0.25882479548454285,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body.002",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        1.1350001096725464,
+        8.554999351501465,
+        0.4399999976158142
+      ],
+      [
+        1.225000023841858,
+        8.644999504089355,
+        0.6600000262260437
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID.002",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          1.1858234405517578,
+          8.555999755859375,
+          0.550000011920929
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal.002",
+        "minimum_sampled_surface_distance_m": 0.0017973966896533966,
+        "point_target_world": [
+          1.2033476829528809,
+          8.559443473815918,
+          0.44200000166893005
+        ],
+        "normal_target_world": [
+          0.4714602828025818,
+          -0.8818873167037964,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.001",
+        "minimum_sampled_surface_distance_m": 0.0024999380111694336,
+        "point_target_world": [
+          1.1800000667572021,
+          8.600000381469727,
+          0.4375
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap.002",
+        "minimum_sampled_surface_distance_m": 0.0032959049567580223,
+        "point_target_world": [
+          1.2266504764556885,
+          8.587499618530273,
+          0.6579999923706055
+        ],
+        "normal_target_world": [
+          0.9659254550933838,
+          -0.25882044434547424,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body.003",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        0.7749999761581421,
+        8.554999351501465,
+        0.8399999737739563
+      ],
+      [
+        0.8650000095367432,
+        8.644999504089355,
+        1.059999942779541
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID.003",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          0.8258234262466431,
+          8.555999755859375,
+          0.949999988079071
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal.003",
+        "minimum_sampled_surface_distance_m": 0.0017974248621612787,
+        "point_target_world": [
+          0.8433476090431213,
+          8.559443473815918,
+          0.8420000076293945
+        ],
+        "normal_target_world": [
+          0.47145864367485046,
+          -0.881888210773468,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.002",
+        "minimum_sampled_surface_distance_m": 0.002499997615814209,
+        "point_target_world": [
+          0.8199999928474426,
+          8.642982482910156,
+          0.8374999761581421
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap.003",
+        "minimum_sampled_surface_distance_m": 0.0032959626987576485,
+        "point_target_world": [
+          0.8666504621505737,
+          8.587499618530273,
+          1.0579999685287476
+        ],
+        "normal_target_world": [
+          0.9659251570701599,
+          -0.25882160663604736,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body.004",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        0.9549999833106995,
+        8.554999351501465,
+        0.8399999737739563
+      ],
+      [
+        1.0449999570846558,
+        8.644999504089355,
+        1.059999942779541
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID.004",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          1.0058233737945557,
+          8.555999755859375,
+          0.949999988079071
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal.004",
+        "minimum_sampled_surface_distance_m": 0.0017974248621612787,
+        "point_target_world": [
+          0.9766523838043213,
+          8.640555381774902,
+          0.8420000076293945
+        ],
+        "normal_target_world": [
+          -0.47145864367485046,
+          0.881888210773468,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.002",
+        "minimum_sampled_surface_distance_m": 0.002499997615814209,
+        "point_target_world": [
+          1.0,
+          8.642982482910156,
+          0.8374999761581421
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap.004",
+        "minimum_sampled_surface_distance_m": 0.0032959049567580223,
+        "point_target_world": [
+          1.0466504096984863,
+          8.587499618530273,
+          1.0579999685287476
+        ],
+        "normal_target_world": [
+          0.9659251570701599,
+          -0.25882160663604736,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body.005",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        1.1350001096725464,
+        8.554999351501465,
+        0.8399999737739563
+      ],
+      [
+        1.225000023841858,
+        8.644999504089355,
+        1.059999942779541
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID.005",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          1.1858234405517578,
+          8.555999755859375,
+          0.949999988079071
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal.005",
+        "minimum_sampled_surface_distance_m": 0.001797452918253839,
+        "point_target_world": [
+          1.2033478021621704,
+          8.559443473815918,
+          0.8420000076293945
+        ],
+        "normal_target_world": [
+          0.47145864367485046,
+          -0.881888210773468,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.002",
+        "minimum_sampled_surface_distance_m": 0.002499997615814209,
+        "point_target_world": [
+          1.1800000667572021,
+          8.642982482910156,
+          0.8374999761581421
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap.005",
+        "minimum_sampled_surface_distance_m": 0.0032959049567580223,
+        "point_target_world": [
+          1.2266504764556885,
+          8.587499618530273,
+          1.0579999685287476
+        ],
+        "normal_target_world": [
+          0.9659239649772644,
+          -0.2588259279727936,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body.006",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        0.7749999761581421,
+        8.554999351501465,
+        1.2400000095367432
+      ],
+      [
+        0.8650000095367432,
+        8.644999504089355,
+        1.4600000381469727
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID.006",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          0.8258234262466431,
+          8.555999755859375,
+          1.350000023841858
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal.006",
+        "minimum_sampled_surface_distance_m": 0.0017974248621612787,
+        "point_target_world": [
+          0.8433476090431213,
+          8.559443473815918,
+          1.2419999837875366
+        ],
+        "normal_target_world": [
+          0.47145843505859375,
+          -0.8818883299827576,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.003",
+        "minimum_sampled_surface_distance_m": 0.002499818801879883,
+        "point_target_world": [
+          0.8200000524520874,
+          8.600000381469727,
+          1.2375000715255737
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap.006",
+        "minimum_sampled_surface_distance_m": 0.003296020207926631,
+        "point_target_world": [
+          0.8666505217552185,
+          8.587499618530273,
+          1.4580000638961792
+        ],
+        "normal_target_world": [
+          0.9659249186515808,
+          -0.25882217288017273,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body.007",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        0.9549999833106995,
+        8.554999351501465,
+        1.2400000095367432
+      ],
+      [
+        1.0449999570846558,
+        8.644999504089355,
+        1.4600000381469727
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID.007",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          1.0058233737945557,
+          8.555999755859375,
+          1.350000023841858
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal.007",
+        "minimum_sampled_surface_distance_m": 0.0017973966896533966,
+        "point_target_world": [
+          1.0233476161956787,
+          8.559443473815918,
+          1.2419999837875366
+        ],
+        "normal_target_world": [
+          0.47145843505859375,
+          -0.8818883299827576,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.003",
+        "minimum_sampled_surface_distance_m": 0.002499818801879883,
+        "point_target_world": [
+          1.0000001192092896,
+          8.600000381469727,
+          1.2375000715255737
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap.007",
+        "minimum_sampled_surface_distance_m": 0.0032959049567580223,
+        "point_target_world": [
+          1.0466504096984863,
+          8.587499618530273,
+          1.4580000638961792
+        ],
+        "normal_target_world": [
+          0.9659249186515808,
+          -0.25882217288017273,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body.008",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        1.1350001096725464,
+        8.554999351501465,
+        1.2400000095367432
+      ],
+      [
+        1.225000023841858,
+        8.644999504089355,
+        1.4600000381469727
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID.008",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          1.1858234405517578,
+          8.555999755859375,
+          1.350000023841858
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal.008",
+        "minimum_sampled_surface_distance_m": 0.0017973966896533966,
+        "point_target_world": [
+          1.2033476829528809,
+          8.559443473815918,
+          1.2419999837875366
+        ],
+        "normal_target_world": [
+          0.47145843505859375,
+          -0.8818883299827576,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.003",
+        "minimum_sampled_surface_distance_m": 0.002499818801879883,
+        "point_target_world": [
+          1.1800000667572021,
+          8.600000381469727,
+          1.2375000715255737
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap.008",
+        "minimum_sampled_surface_distance_m": 0.0032959049567580223,
+        "point_target_world": [
+          1.2266504764556885,
+          8.587499618530273,
+          1.4580000638961792
+        ],
+        "normal_target_world": [
+          0.9659237861633301,
+          -0.25882652401924133,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body.009",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        0.7749999761581421,
+        8.554999351501465,
+        1.6399999856948853
+      ],
+      [
+        0.8650000095367432,
+        8.644999504089355,
+        1.8600000143051147
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID.009",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          0.8258234262466431,
+          8.555999755859375,
+          1.75
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal.009",
+        "minimum_sampled_surface_distance_m": 0.0017974248621612787,
+        "point_target_world": [
+          0.8433476090431213,
+          8.559443473815918,
+          1.6419999599456787
+        ],
+        "normal_target_world": [
+          0.47145843505859375,
+          -0.8818883299827576,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.004",
+        "minimum_sampled_surface_distance_m": 0.002499699592590332,
+        "point_target_world": [
+          0.8200000524520874,
+          8.600000381469727,
+          1.6375000476837158
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap.009",
+        "minimum_sampled_surface_distance_m": 0.003296020207926631,
+        "point_target_world": [
+          0.8666505217552185,
+          8.587499618530273,
+          1.8580000400543213
+        ],
+        "normal_target_world": [
+          0.9659253358840942,
+          -0.258821040391922,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body.010",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        0.9549999833106995,
+        8.554999351501465,
+        1.6399999856948853
+      ],
+      [
+        1.0449999570846558,
+        8.644999504089355,
+        1.8600000143051147
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID.010",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          1.0058233737945557,
+          8.555999755859375,
+          1.75
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal.010",
+        "minimum_sampled_surface_distance_m": 0.0017973966896533966,
+        "point_target_world": [
+          1.0233476161956787,
+          8.559443473815918,
+          1.6419999599456787
+        ],
+        "normal_target_world": [
+          0.47145843505859375,
+          -0.8818883299827576,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.004",
+        "minimum_sampled_surface_distance_m": 0.002499699592590332,
+        "point_target_world": [
+          1.0000001192092896,
+          8.600000381469727,
+          1.6375000476837158
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap.010",
+        "minimum_sampled_surface_distance_m": 0.0032959049567580223,
+        "point_target_world": [
+          1.0466504096984863,
+          8.587499618530273,
+          1.8580000400543213
+        ],
+        "normal_target_world": [
+          0.9659253358840942,
+          -0.258821040391922,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Cartridge steel body.011",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        1.1350001096725464,
+        8.554999351501465,
+        1.6399999856948853
+      ],
+      [
+        1.225000023841858,
+        8.644999504089355,
+        1.8600000143051147
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Consumable paper ID.011",
+        "minimum_sampled_surface_distance_m": 0.00023365020751953125,
+        "point_target_world": [
+          1.1858234405517578,
+          8.555999755859375,
+          1.75
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bottom seal.011",
+        "minimum_sampled_surface_distance_m": 0.0017973966896533966,
+        "point_target_world": [
+          1.2033476829528809,
+          8.559443473815918,
+          1.6419999599456787
+        ],
+        "normal_target_world": [
+          0.47145843505859375,
+          -0.8818883299827576,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.004",
+        "minimum_sampled_surface_distance_m": 0.002499699592590332,
+        "point_target_world": [
+          1.1800000667572021,
+          8.600000381469727,
+          1.6375000476837158
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Keyed consumable cap.011",
+        "minimum_sampled_surface_distance_m": 0.0032959049567580223,
+        "point_target_world": [
+          1.2266504764556885,
+          8.587499618530273,
+          1.8580000400543213
+        ],
+        "normal_target_world": [
+          0.9659242033958435,
+          -0.2588253617286682,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Caster mounting plate",
+    "parent": "BODY_CART",
+    "bounds": [
+      [
+        -3.4649999141693115,
+        0.4200000762939453,
+        0.21599999070167542
+      ],
+      [
+        -3.31499981880188,
+        0.5800000429153442,
+        0.23600000143051147
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Cart axle cross brace",
+        "minimum_sampled_surface_distance_m": 0.0005606412887573242,
+        "point_target_world": [
+          -3.316939353942871,
+          0.5000000596046448,
+          0.23500001430511475
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Cart lower frame rail",
+        "minimum_sampled_surface_distance_m": 0.0015000104904174805,
+        "point_target_world": [
+          -3.3899998664855957,
+          0.5000002384185791,
+          0.23750001192092896
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Caster swivel",
+        "minimum_sampled_surface_distance_m": 0.001999989151954651,
+        "point_target_world": [
+          -3.3899998664855957,
+          0.5000000596046448,
+          0.21400000154972076
+        ],
+        "normal_target_world": [
+          -5.5451540248441233e-08,
+          0.0,
+          0.9999999403953552
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Chamber roof load beam",
+    "parent": "OCRU",
+    "bounds": [
+      [
+        -3.923750162124634,
+        2.490000009536743,
+        2.6449999809265137
+      ],
+      [
+        -1.4937498569488525,
+        6.770000457763672,
+        2.815000057220459
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Chamber top folded fascia",
+        "minimum_sampled_surface_distance_m": 0.004999637603759766,
+        "point_target_world": [
+          -1.4997501373291016,
+          6.775000095367432,
+          2.6510000228881836
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Rear machine skin",
+        "minimum_sampled_surface_distance_m": 0.004999876022338867,
+        "point_target_world": [
+          -3.9177498817443848,
+          2.4850001335144043,
+          2.6510000228881836
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Chamber structural upright",
+        "minimum_sampled_surface_distance_m": 0.004999876022338867,
+        "point_target_world": [
+          -1.4887499809265137,
+          2.496000051498413,
+          2.6510000228881836
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Chamber structural upright.001",
+        "minimum_sampled_surface_distance_m": 0.004999876022338867,
+        "point_target_world": [
+          -3.9287500381469727,
+          6.763999938964844,
+          2.6510000228881836
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Formed end service panel",
+        "minimum_sampled_surface_distance_m": 0.0058786869049072266,
+        "point_target_world": [
+          -2.708749771118164,
+          2.4938788414001465,
+          2.6399998664855957
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Formed end service panel.001",
+        "minimum_sampled_surface_distance_m": 0.0058786869049072266,
+        "point_target_world": [
+          -2.7087502479553223,
+          6.766120910644531,
+          2.6399998664855957
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Chamber top folded fascia",
+    "parent": "OCRU",
+    "bounds": [
+      [
+        -1.6037501096725464,
+        2.4850001335144043,
+        2.5950000286102295
+      ],
+      [
+        -1.4537500143051147,
+        6.775000095367432,
+        2.924999952316284
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Chamber roof load beam",
+        "minimum_sampled_surface_distance_m": 0.004999637603759766,
+        "point_target_world": [
+          -1.5287501811981201,
+          6.770000457763672,
+          2.759999990463257
+        ],
+        "normal_target_world": [
+          -1.9720313559901115e-07,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Chamber structural upright",
+        "minimum_sampled_surface_distance_m": 0.004999876022338867,
+        "point_target_world": [
+          -1.6037499904632568,
+          2.4800002574920654,
+          2.6115000247955322
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Chamber structural upright.001",
+        "minimum_sampled_surface_distance_m": 0.005000114440917969,
+        "point_target_world": [
+          -1.6037501096725464,
+          6.78000020980835,
+          2.6115000247955322
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Jamb removable outer flange",
+        "minimum_sampled_surface_distance_m": 0.0065000057220458984,
+        "point_target_world": [
+          -1.5287500619888306,
+          2.585750102996826,
+          2.603250026702881
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Jamb removable outer flange.001",
+        "minimum_sampled_surface_distance_m": 0.006500244140625,
+        "point_target_world": [
+          -1.5287501811981201,
+          6.67425012588501,
+          2.603250026702881
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Console cable apron",
+    "parent": "RESTART_CONSOLE",
+    "bounds": [
+      [
+        -1.2699999809265137,
+        8.809999465942383,
+        0.5
+      ],
+      [
+        0.45000001788139343,
+        8.930000305175781,
+        0.8999999761581421
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Console working surface",
+        "minimum_sampled_surface_distance_m": 0.0003867149353027344,
+        "point_target_world": [
+          -1.2678868770599365,
+          8.812112808227539,
+          0.8975000381469727
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Console drawer front",
+    "parent": "RESTART_CONSOLE",
+    "bounds": [
+      [
+        -1.1949999332427979,
+        8.195500373840332,
+        0.3149999976158142
+      ],
+      [
+        -0.684999942779541,
+        8.220499992370605,
+        0.48500001430511475
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Console steel leg",
+        "minimum_sampled_surface_distance_m": 0.00023174285888671875,
+        "point_target_world": [
+          -1.194267749786377,
+          8.217499732971191,
+          0.4000000059604645
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Console drawer carcass",
+        "minimum_sampled_surface_distance_m": 0.00023174285888671875,
+        "point_target_world": [
+          -1.191767692565918,
+          8.220000267028809,
+          0.4000000059604645
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Drawer finger pull",
+        "minimum_sampled_surface_distance_m": 0.010000228881835938,
+        "point_target_world": [
+          -0.9399999380111694,
+          8.21049976348877,
+          0.4000000059604645
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Console drawer front.001",
+    "parent": "RESTART_CONSOLE",
+    "bounds": [
+      [
+        -1.1949999332427979,
+        8.195500373840332,
+        0.5450000166893005
+      ],
+      [
+        -0.684999942779541,
+        8.220499992370605,
+        0.7149999737739563
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Console steel leg",
+        "minimum_sampled_surface_distance_m": 0.00023174285888671875,
+        "point_target_world": [
+          -1.194267749786377,
+          8.217499732971191,
+          0.6299999952316284
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Console drawer carcass",
+        "minimum_sampled_surface_distance_m": 0.00023174285888671875,
+        "point_target_world": [
+          -1.191767692565918,
+          8.220000267028809,
+          0.6299999952316284
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Drawer finger pull.001",
+        "minimum_sampled_surface_distance_m": 0.010000228881835938,
+        "point_target_world": [
+          -0.9399999380111694,
+          8.21049976348877,
+          0.6299999952316284
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Console drawer front.002",
+    "parent": "RESTART_CONSOLE",
+    "bounds": [
+      [
+        -1.1949999332427979,
+        8.195500373840332,
+        0.7350000143051147
+      ],
+      [
+        -0.684999942779541,
+        8.220499992370605,
+        0.9049999713897705
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Console steel leg",
+        "minimum_sampled_surface_distance_m": 0.00023174285888671875,
+        "point_target_world": [
+          -1.194267749786377,
+          8.217499732971191,
+          0.8200000524520874
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Console drawer carcass",
+        "minimum_sampled_surface_distance_m": 0.00023174285888671875,
+        "point_target_world": [
+          -1.191767692565918,
+          8.220000267028809,
+          0.8200000524520874
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Console working surface",
+        "minimum_sampled_surface_distance_m": 0.0024999380111694336,
+        "point_target_world": [
+          -1.1899999380111694,
+          8.195500373840332,
+          0.8975000381469727
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Drawer finger pull.002",
+        "minimum_sampled_surface_distance_m": 0.010000228881835938,
+        "point_target_world": [
+          -0.9399999380111694,
+          8.21049976348877,
+          0.8199999928474426
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Console working surface",
+    "parent": "RESTART_CONSOLE",
+    "bounds": [
+      [
+        -1.3300000429153442,
+        8.100000381469727,
+        0.8975000381469727
+      ],
+      [
+        0.5099999904632568,
+        9.0,
+        0.9624999761581421
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Engraved backing CONNECT",
+        "minimum_sampled_surface_distance_m": 0.005000114440917969,
+        "point_target_world": [
+          -0.4100000560283661,
+          8.095000267028809,
+          0.9300000071525574
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Contoured head pad",
+    "parent": "OCRU_BERTH",
+    "bounds": [
+      [
+        -2.3737502098083496,
+        5.350000381469727,
+        1.0200001001358032
+      ],
+      [
+        -1.8237501382827759,
+        5.670000076293945,
+        1.1100000143051147
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Segmented adult berth cushion.002",
+        "minimum_sampled_surface_distance_m": 1.1920928955078125e-07,
+        "point_target_world": [
+          -2.024271011352539,
+          5.350000381469727,
+          1.0199999809265137
+        ],
+        "normal_target_world": [
+          1.1756223102565855e-05,
+          -1.8391941921436228e-05,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Decon ceiling",
+    "parent": null,
+    "bounds": [
+      [
+        1.2999999523162842,
+        8.820000648498535,
+        2.5500001907348633
+      ],
+      [
+        3.359999895095825,
+        11.300000190734863,
+        2.7100000381469727
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Decon rear wall pier.001",
+        "minimum_sampled_surface_distance_m": 2.384185791015625e-07,
+        "point_target_world": [
+          3.3559999465942383,
+          11.296000480651855,
+          2.549999952316284
+        ],
+        "normal_target_world": [
+          0.3827574551105499,
+          0.0,
+          0.9238488078117371
+        ]
+      },
+      {
+        "candidate": "Decon rear wall pier",
+        "minimum_sampled_surface_distance_m": 2.6656007889869215e-07,
+        "point_target_world": [
+          1.3040000200271606,
+          11.296000480651855,
+          2.549999952316284
+        ],
+        "normal_target_world": [
+          -0.3251537084579468,
+          0.32516953349113464,
+          0.8879976868629456
+        ]
+      },
+      {
+        "candidate": "Decon east wall",
+        "minimum_sampled_surface_distance_m": 4.76837158203125e-07,
+        "point_target_world": [
+          3.3559999465942383,
+          11.296000480651855,
+          2.549999713897705
+        ],
+        "normal_target_world": [
+          0.0,
+          0.3827122747898102,
+          0.9238675236701965
+        ]
+      },
+      {
+        "candidate": "Decon west wall",
+        "minimum_sampled_surface_distance_m": 4.915124804938387e-07,
+        "point_target_world": [
+          1.3040000200271606,
+          11.296000480651855,
+          2.549999713897705
+        ],
+        "normal_target_world": [
+          -0.3251572251319885,
+          0.32504644989967346,
+          0.8880413770675659
+        ]
+      },
+      {
+        "candidate": "Decon rear wall above extract",
+        "minimum_sampled_surface_distance_m": 0.0010826438665390015,
+        "point_target_world": [
+          2.3299999237060547,
+          11.297000885009766,
+          2.5495855808258057
+        ],
+        "normal_target_world": [
+          0.0,
+          0.3827165365219116,
+          0.9238658547401428
+        ]
+      },
+      {
+        "candidate": "Decon ceiling lamp",
+        "minimum_sampled_surface_distance_m": 0.010000228881835938,
+        "point_target_world": [
+          2.3299999237060547,
+          10.0600004196167,
+          2.5399999618530273
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Decon header",
+    "parent": null,
+    "bounds": [
+      [
+        1.4500000476837158,
+        8.890000343322754,
+        2.1549999713897705
+      ],
+      [
+        2.8500001430511475,
+        9.050000190734863,
+        2.305000066757202
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Decon jamb",
+        "minimum_sampled_surface_distance_m": 6.541853508679196e-05,
+        "point_target_world": [
+          1.4506462812423706,
+          8.970000267028809,
+          2.1575605869293213
+        ],
+        "normal_target_world": [
+          -0.9239062666893005,
+          0.0,
+          0.38261890411376953
+        ]
+      },
+      {
+        "candidate": "Decon jamb.001",
+        "minimum_sampled_surface_distance_m": 6.552868580911309e-05,
+        "point_target_world": [
+          2.849353790283203,
+          8.970000267028809,
+          2.1575605869293213
+        ],
+        "normal_target_world": [
+          0.9238924384117126,
+          0.0,
+          0.3826523423194885
+        ]
+      },
+      {
+        "candidate": "Decon doorway lintel",
+        "minimum_sampled_surface_distance_m": 0.005585670471191406,
+        "point_target_world": [
+          2.1500000953674316,
+          9.047414779663086,
+          2.1500000953674316
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Decon jamb",
+    "parent": null,
+    "bounds": [
+      [
+        1.4500000476837158,
+        8.90999984741211,
+        0.0
+      ],
+      [
+        1.5499999523162842,
+        9.049999237060547,
+        2.1600000858306885
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Floor",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          1.4539999961853027,
+          8.913999557495117,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Rear west wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          1.4539999961853027,
+          9.045999526977539,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Decon west wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          1.4539999961853027,
+          9.045999526977539,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Decon doorway lintel",
+        "minimum_sampled_surface_distance_m": 1.1920928955078125e-07,
+        "point_target_world": [
+          1.5500000715255737,
+          9.045999526977539,
+          2.1560001373291016
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Decon header",
+        "minimum_sampled_surface_distance_m": 6.411642243620008e-05,
+        "point_target_world": [
+          1.5,
+          9.049354553222656,
+          2.1574392318725586
+        ],
+        "normal_target_world": [
+          0.0,
+          0.9239593148231506,
+          -0.382490873336792
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Decon jamb.001",
+    "parent": null,
+    "bounds": [
+      [
+        2.75,
+        8.90999984741211,
+        0.0
+      ],
+      [
+        2.8499999046325684,
+        9.049999237060547,
+        2.1600000858306885
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Floor",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          2.753999948501587,
+          8.913999557495117,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Rear east wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          2.753999948501587,
+          9.045999526977539,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Decon doorway lintel",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          2.75,
+          9.045999526977539,
+          2.1560001373291016
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Decon header",
+        "minimum_sampled_surface_distance_m": 6.499694427475333e-05,
+        "point_target_world": [
+          2.799999952316284,
+          9.04935359954834,
+          2.1574392318725586
+        ],
+        "normal_target_world": [
+          0.0,
+          0.9239593148231506,
+          -0.382490873336792
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "East wall",
+    "parent": null,
+    "bounds": [
+      [
+        4.0,
+        -0.17999982833862305,
+        0.0
+      ],
+      [
+        4.180000305175781,
+        9.180000305175781,
+        3.5999999046325684
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Floor",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          4.008571624755859,
+          8.734285354614258,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Entry wall.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          4.004000186920166,
+          -0.17599964141845703,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Rear east wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          4.0,
+          9.175999641418457,
+          0.003999948501586914
+        ],
+        "normal_target_world": [
+          0.9238866567611694,
+          0.0,
+          -0.3826664090156555
+        ]
+      },
+      {
+        "candidate": "Ceiling cross member",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          4.0,
+          0.9342859983444214,
+          3.5122857093811035
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Ceiling cross member.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          4.0,
+          3.385714292526245,
+          3.4285712242126465
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Ceiling cross member.002",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          4.0,
+          6.059999942779541,
+          3.4285712242126465
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Wall structural post cover.003",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          4.0,
+          6.059999942779541,
+          1.1999999284744263
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Ceiling",
+        "minimum_sampled_surface_distance_m": 2.384185791015625e-07,
+        "point_target_world": [
+          4.171428680419922,
+          8.734285354614258,
+          3.6000001430511475
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Impact wall lining.003",
+        "minimum_sampled_surface_distance_m": 0.0004999637603759766,
+        "point_target_world": [
+          3.999500036239624,
+          0.2657146453857422,
+          0.17142856121063232
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Impact wall lining.004",
+        "minimum_sampled_surface_distance_m": 0.0004999637603759766,
+        "point_target_world": [
+          3.999500036239624,
+          2.494285821914673,
+          0.17142856121063232
+        ],
+        "normal_target_world": [
+          0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Impact wall lining.005",
+        "minimum_sampled_surface_distance_m": 0.0004999637603759766,
+        "point_target_world": [
+          3.999500036239624,
+          6.059999942779541,
+          0.17142856121063232
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Floor sealed joint.002",
+        "minimum_sampled_surface_distance_m": 0.00169042544439435,
+        "point_target_world": [
+          4.0,
+          4.5,
+          0.0010000000474974513
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Ceiling cross member.003",
+        "minimum_sampled_surface_distance_m": 0.0051073781214654446,
+        "point_target_world": [
+          3.9980459213256836,
+          8.72956657409668,
+          3.4285712242126465
+        ],
+        "normal_target_world": [
+          0.38255617022514343,
+          0.9239323139190674,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Floor",
+    "parent": null,
+    "bounds": [
+      [
+        -4.179999828338623,
+        -0.17999982833862305,
+        -0.23999999463558197
+      ],
+      [
+        4.179999828338623,
+        9.180000305175781,
+        0.0
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Decon floor",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.2511110305786133,
+          9.180000305175781,
+          -0.23466667532920837
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "West wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -4.086111068725586,
+          1.172000527381897,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "East wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          4.086111068725586,
+          7.827999114990234,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Entry wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -4.086111068725586,
+          -0.07499992847442627,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Entry wall.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          4.086111068725586,
+          -0.07500004768371582,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Rear west wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -3.9013333320617676,
+          9.074999809265137,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Rear east wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          2.7866663932800293,
+          9.074999809265137,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Decon west wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          1.3933329582214355,
+          9.177999496459961,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Decon east wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.2511110305786133,
+          9.177999496459961,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Impact wall lining",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -3.9942221641540527,
+          2.1080002784729004,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Impact wall lining.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -3.9942221641540527,
+          5.435999870300293,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Impact wall lining.002",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -3.9942221641540527,
+          8.972000122070312,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Impact wall lining.003",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.9942221641540527,
+          1.4840004444122314,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Impact wall lining.004",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.9942221641540527,
+          4.604000091552734,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Impact wall lining.005",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.9942221641540527,
+          8.972000122070312,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Floor sealed joint.002",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.9013333320617676,
+          4.5,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Entry capture housing",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -1.4862219095230103,
+          -0.07500004768371582,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Entry capture housing.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          2.2293338775634766,
+          -0.07500004768371582,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Entry threshold",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -0.3715550899505615,
+          0.13199996948242188,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Entry jamb",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -1.11466646194458,
+          0.13199996948242188,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Entry jamb.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          1.1146671772003174,
+          0.13199996948242188,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Floor longitudinal joint.001",
+        "minimum_sampled_surface_distance_m": 2.60770320892334e-08,
+        "point_target_world": [
+          0.0,
+          4.5,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Localized cart contact mark.003",
+        "minimum_sampled_surface_distance_m": 0.006633981596678495,
+        "point_target_world": [
+          0.28508689999580383,
+          1.0666991472244263,
+          0.0010499999625608325
+        ],
+        "normal_target_world": [
+          -0.9800665974617004,
+          0.19866926968097687,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Localized cart contact mark.005",
+        "minimum_sampled_surface_distance_m": 0.010792700573801994,
+        "point_target_world": [
+          -0.36102789640426636,
+          2.214134454727173,
+          0.0010499999625608325
+        ],
+        "normal_target_world": [
+          1.5158105881596384e-09,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Folded cleaning cloth",
+    "parent": "SUPPLY_BENCH",
+    "bounds": [
+      [
+        3.3499999046325684,
+        1.7949999570846558,
+        0.9460000395774841
+      ],
+      [
+        3.690000057220459,
+        2.184999942779541,
+        1.00600004196167
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Supply bench top",
+        "minimum_sampled_surface_distance_m": 0.0009993314743041992,
+        "point_target_world": [
+          3.5199978351593018,
+          1.9899992942810059,
+          0.9450000524520874
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Sterile pack",
+        "minimum_sampled_surface_distance_m": 0.004404081963002682,
+        "point_target_world": [
+          3.3490469455718994,
+          1.7982314825057983,
+          0.9460000395774841
+        ],
+        "normal_target_world": [
+          0.9884141683578491,
+          0.151780903339386,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Sterile pack.001",
+        "minimum_sampled_surface_distance_m": 0.006685259751975536,
+        "point_target_world": [
+          3.3450145721435547,
+          1.7948683500289917,
+          0.987430214881897
+        ],
+        "normal_target_world": [
+          0.7449995875358582,
+          0.017842575907707214,
+          0.6668263673782349
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Folded work glove palm",
+    "parent": "SUPPLY_BENCH",
+    "bounds": [
+      [
+        3.630000114440918,
+        1.5850000381469727,
+        0.9449999928474426
+      ],
+      [
+        3.75,
+        1.6949999332427979,
+        0.9699999690055847
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Supply bench top",
+        "minimum_sampled_surface_distance_m": 5.960464477539063e-08,
+        "point_target_world": [
+          3.690000057220459,
+          1.6399999856948853,
+          0.9450000524520874
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.003",
+        "minimum_sampled_surface_distance_m": 4.693274604505859e-06,
+        "point_target_world": [
+          3.7383148670196533,
+          1.5957156419754028,
+          0.950985848903656
+        ],
+        "normal_target_world": [
+          -0.25876346230506897,
+          -0.7763547301292419,
+          -0.5747302174568176
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger",
+        "minimum_sampled_surface_distance_m": 6.22459701844491e-05,
+        "point_target_world": [
+          3.7485716342926025,
+          1.6783055067062378,
+          0.9575250148773193
+        ],
+        "normal_target_world": [
+          -0.027979793027043343,
+          -0.9201330542564392,
+          0.3906049430370331
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.002",
+        "minimum_sampled_surface_distance_m": 7.457281753886491e-05,
+        "point_target_world": [
+          3.744987964630127,
+          1.626975178718567,
+          0.9621915817260742
+        ],
+        "normal_target_world": [
+          -0.1662115603685379,
+          -0.13696932792663574,
+          0.9765311479568481
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.001",
+        "minimum_sampled_surface_distance_m": 0.00016993431199807674,
+        "point_target_world": [
+          3.7491674423217773,
+          1.6742589473724365,
+          0.9563100934028625
+        ],
+        "normal_target_world": [
+          -0.029448898509144783,
+          0.9315252900123596,
+          0.3624821901321411
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Folded work glove palm.001",
+    "parent": "SUPPLY_BENCH",
+    "bounds": [
+      [
+        3.630000114440918,
+        1.4450000524520874,
+        0.9449999928474426
+      ],
+      [
+        3.75,
+        1.5549999475479126,
+        0.9699999690055847
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Supply bench top",
+        "minimum_sampled_surface_distance_m": 5.960464477539063e-08,
+        "point_target_world": [
+          3.690000057220459,
+          1.5,
+          0.9450000524520874
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.007",
+        "minimum_sampled_surface_distance_m": 4.519352842180524e-06,
+        "point_target_world": [
+          3.738314628601074,
+          1.4557156562805176,
+          0.9509857892990112
+        ],
+        "normal_target_world": [
+          -0.25876346230506897,
+          -0.7763547301292419,
+          -0.5747302174568176
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.004",
+        "minimum_sampled_surface_distance_m": 6.22459701844491e-05,
+        "point_target_world": [
+          3.7485716342926025,
+          1.5383055210113525,
+          0.9575250148773193
+        ],
+        "normal_target_world": [
+          -0.027979793027043343,
+          -0.9201330542564392,
+          0.3906049430370331
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.006",
+        "minimum_sampled_surface_distance_m": 7.461434870492667e-05,
+        "point_target_world": [
+          3.744988203048706,
+          1.4869751930236816,
+          0.9621915817260742
+        ],
+        "normal_target_world": [
+          -0.16619980335235596,
+          -0.13695964217185974,
+          0.9765344858169556
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.005",
+        "minimum_sampled_surface_distance_m": 0.00016993431199807674,
+        "point_target_world": [
+          3.7491674423217773,
+          1.5342589616775513,
+          0.9563100934028625
+        ],
+        "normal_target_world": [
+          -0.029448604211211205,
+          0.9315159916877747,
+          0.36250635981559753
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Formed end service panel",
+    "parent": "OCRU",
+    "bounds": [
+      [
+        -3.8287501335144043,
+        2.4750001430511475,
+        0.3999999761581421
+      ],
+      [
+        -1.5287500619888306,
+        2.6050002574920654,
+        2.6399998664855957
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Sealed chamber pan",
+        "minimum_sampled_surface_distance_m": 2.9802322387695312e-08,
+        "point_target_world": [
+          -1.5407500267028809,
+          2.5930001735687256,
+          0.4000000059604645
+        ],
+        "normal_target_world": [
+          -2.3663774939564064e-08,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Chamber structural upright",
+        "minimum_sampled_surface_distance_m": 7.152557373046875e-05,
+        "point_target_world": [
+          -3.627108097076416,
+          2.4800002574920654,
+          0.4039638042449951
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Chamber roof load beam",
+        "minimum_sampled_surface_distance_m": 0.005000114440917969,
+        "point_target_world": [
+          -3.596750020980835,
+          2.5930001735687256,
+          2.6449999809265137
+        ],
+        "normal_target_world": [
+          9.241008314120336e-08,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Access jamb graphite return",
+        "minimum_sampled_surface_distance_m": 0.0060607194900512695,
+        "point_target_world": [
+          -1.6437499523162842,
+          2.597242832183838,
+          2.5183181762695312
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Jamb removable outer flange",
+        "minimum_sampled_surface_distance_m": 0.00724261999130249,
+        "point_target_world": [
+          -1.5305074453353882,
+          2.5400002002716064,
+          0.41499996185302734
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Formed end service panel.001",
+    "parent": "OCRU",
+    "bounds": [
+      [
+        -3.8287501335144043,
+        6.65500020980835,
+        0.3999999761581421
+      ],
+      [
+        -1.5287500619888306,
+        6.785000324249268,
+        2.6399998664855957
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Sealed chamber pan",
+        "minimum_sampled_surface_distance_m": 2.9802322387695312e-08,
+        "point_target_world": [
+          -2.5787501335144043,
+          6.720000267028809,
+          0.4000000059604645
+        ],
+        "normal_target_world": [
+          -2.3663774939564064e-08,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Chamber structural upright.001",
+        "minimum_sampled_surface_distance_m": 7.152557373046875e-05,
+        "point_target_world": [
+          -3.627108097076416,
+          6.660000324249268,
+          0.4039638042449951
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Chamber roof load beam",
+        "minimum_sampled_surface_distance_m": 0.005000114440917969,
+        "point_target_world": [
+          -3.596750020980835,
+          6.6670002937316895,
+          2.6449999809265137
+        ],
+        "normal_target_world": [
+          9.241008314120336e-08,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Access jamb graphite return.001",
+        "minimum_sampled_surface_distance_m": 0.006242513656616211,
+        "point_target_world": [
+          -1.6437501907348633,
+          6.662757396697998,
+          2.5187573432922363
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Jamb removable outer flange.001",
+        "minimum_sampled_surface_distance_m": 0.00724261999130249,
+        "point_target_world": [
+          -1.5305074453353882,
+          6.720000267028809,
+          0.41499996185302734
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Handwash soap dispenser",
+    "parent": "HANDWASH",
+    "bounds": [
+      [
+        3.880000114440918,
+        3.06000018119812,
+        1.090000033378601
+      ],
+      [
+        4.0,
+        3.200000047683716,
+        1.3100000619888306
+      ]
+    ],
+    "same_assembly_close_surfaces": []
+  },
+  {
+    "terminal": "Identity wall spacer",
+    "parent": "Recovery identity",
+    "bounds": [
+      [
+        3.9800000190734863,
+        4.349999904632568,
+        1.659999966621399
+      ],
+      [
+        4.0,
+        5.049999713897705,
+        1.840000033378601
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Engraved backing RECOVERY.001",
+        "minimum_sampled_surface_distance_m": 0.006000041961669922,
+        "point_target_world": [
+          3.9739999771118164,
+          5.047999858856201,
+          1.6619999408721924
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Identity wall spacer.001",
+    "parent": "Supplies identity",
+    "bounds": [
+      [
+        3.9800000190734863,
+        1.1200000047683716,
+        1.659999966621399
+      ],
+      [
+        4.0,
+        1.8200000524520874,
+        1.840000033378601
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Engraved backing SUPPLIES",
+        "minimum_sampled_surface_distance_m": 0.006000041961669922,
+        "point_target_world": [
+          3.9739999771118164,
+          1.8179999589920044,
+          1.6619999408721924
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Inner removable liner.001",
+    "parent": "OCRU",
+    "bounds": [
+      [
+        -3.898749828338623,
+        4.210000038146973,
+        0.5450000166893005
+      ],
+      [
+        -3.8587498664855957,
+        5.050000190734863,
+        2.3949999809265137
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Rear machine skin",
+        "minimum_sampled_surface_distance_m": 0.00749969482421875,
+        "point_target_world": [
+          -3.8912501335144043,
+          4.210000038146973,
+          2.3949999809265137
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Inventory paper",
+    "parent": "MED_R2 | Displaced inventory cluster",
+    "bounds": [
+      [
+        3.2671127319335938,
+        0.9656246304512024,
+        0.9710000157356262
+      ],
+      [
+        3.6728873252868652,
+        1.2943754196166992,
+        0.9740000367164612
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Inventory clipboard",
+        "minimum_sampled_surface_distance_m": 0.001000046730041504,
+        "point_target_world": [
+          3.2680909633636475,
+          1.2189648151397705,
+          0.9699999690055847
+        ],
+        "normal_target_world": [
+          -2.695969101296214e-07,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Inventory ruled line.002",
+        "minimum_sampled_surface_distance_m": 0.009500117041170597,
+        "point_target_world": [
+          3.4792771339416504,
+          1.1320463418960571,
+          0.9739985466003418
+        ],
+        "normal_target_world": [
+          -0.9781473875045776,
+          -0.2079128921031952,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Ivory instrument dial",
+    "parent": "RESERVE_SERVICE_DOOR",
+    "bounds": [
+      [
+        -2.4967498779296875,
+        8.117952346801758,
+        1.024399995803833
+      ],
+      [
+        -2.4012980461120605,
+        8.238946914672852,
+        1.1756000518798828
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Instrument cast bezel",
+        "minimum_sampled_surface_distance_m": 0.0009992613922804594,
+        "point_target_world": [
+          -2.4237823486328125,
+          8.150201797485352,
+          1.0345286130905151
+        ],
+        "normal_target_world": [
+          -0.7880102396011353,
+          -0.6156622171401978,
+          -1.535773037630861e-07
+        ]
+      },
+      {
+        "candidate": "Rolled bezel rim",
+        "minimum_sampled_surface_distance_m": 0.001605682889930904,
+        "point_target_world": [
+          -2.408722162246704,
+          8.125242233276367,
+          1.0613523721694946
+        ],
+        "normal_target_world": [
+          -0.17211312055587769,
+          0.8407885432243347,
+          0.5132753252983093
+        ]
+      },
+      {
+        "candidate": "Meter needle",
+        "minimum_sampled_surface_distance_m": 0.006610576994717121,
+        "point_target_world": [
+          -2.455145835876465,
+          8.173291206359863,
+          1.1011630296707153
+        ],
+        "normal_target_world": [
+          0.6694473028182983,
+          0.643190324306488,
+          -0.37168052792549133
+        ]
+      },
+      {
+        "candidate": "Needle pivot",
+        "minimum_sampled_surface_distance_m": 0.009000632911920547,
+        "point_target_world": [
+          -2.4572982788085938,
+          8.171985626220703,
+          1.100000262260437
+        ],
+        "normal_target_world": [
+          0.788009762763977,
+          0.6156626343727112,
+          -6.215944267751183e-06
+        ]
+      },
+      {
+        "candidate": "Dial fixing pin",
+        "minimum_sampled_surface_distance_m": 0.009794105775654316,
+        "point_target_world": [
+          -2.4949400424957275,
+          8.227474212646484,
+          1.100000023841858
+        ],
+        "normal_target_world": [
+          -0.5688084363937378,
+          0.7280869483947754,
+          -0.38255244493484497
+        ]
+      },
+      {
+        "candidate": "Dial fixing pin.001",
+        "minimum_sampled_surface_distance_m": 0.00979503896087408,
+        "point_target_world": [
+          -2.412564277648926,
+          8.122037887573242,
+          1.100000023841858
+        ],
+        "normal_target_world": [
+          0.5687432289123535,
+          -0.7280542254447937,
+          -0.38271141052246094
+        ]
+      },
+      {
+        "candidate": "Calibration tick.003",
+        "minimum_sampled_surface_distance_m": 0.010914995335042477,
+        "point_target_world": [
+          -2.4713737964630127,
+          8.201858520507812,
+          1.1562540531158447
+        ],
+        "normal_target_world": [
+          0.006338090635836124,
+          0.6132454872131348,
+          0.7898669242858887
+        ]
+      },
+      {
+        "candidate": "Calibration tick.005",
+        "minimum_sampled_surface_distance_m": 0.010915416292846203,
+        "point_target_world": [
+          -2.4317171573638916,
+          8.151101112365723,
+          1.1562538146972656
+        ],
+        "normal_target_world": [
+          0.3193594217300415,
+          -0.4087829291820526,
+          0.8549304604530334
+        ]
+      },
+      {
+        "candidate": "Calibration tick.004",
+        "minimum_sampled_surface_distance_m": 0.010933066718280315,
+        "point_target_world": [
+          -2.4515459537506104,
+          8.17647933959961,
+          1.1648000478744507
+        ],
+        "normal_target_world": [
+          0.30140459537506104,
+          0.23559558391571045,
+          0.923931896686554
+        ]
+      },
+      {
+        "candidate": "Calibration tick.008",
+        "minimum_sampled_surface_distance_m": 0.010964568704366684,
+        "point_target_world": [
+          -2.419501304626465,
+          8.135464668273926,
+          1.0613577365875244
+        ],
+        "normal_target_world": [
+          0.7674503922462463,
+          -0.36087140440940857,
+          -0.5298978090286255
+        ]
+      },
+      {
+        "candidate": "Calibration tick.002",
+        "minimum_sampled_surface_distance_m": 0.010964633896946907,
+        "point_target_world": [
+          -2.4864211082458496,
+          8.221117973327637,
+          1.131518006324768
+        ],
+        "normal_target_world": [
+          -0.5460141897201538,
+          0.6989671587944031,
+          0.4618586301803589
+        ]
+      },
+      {
+        "candidate": "Calibration tick",
+        "minimum_sampled_surface_distance_m": 0.010964655317366123,
+        "point_target_world": [
+          -2.4835898876190186,
+          8.217494010925293,
+          1.0613577365875244
+        ],
+        "normal_target_world": [
+          -0.5042234063148499,
+          0.6454030871391296,
+          -0.5737714767456055
+        ]
+      },
+      {
+        "candidate": "Calibration tick.006",
+        "minimum_sampled_surface_distance_m": 0.010965014807879925,
+        "point_target_world": [
+          -2.416670083999634,
+          8.131841659545898,
+          1.131518006324768
+        ],
+        "normal_target_world": [
+          0.39567238092422485,
+          -0.506438136100769,
+          0.766135573387146
+        ]
+      },
+      {
+        "candidate": "Calibration tick.001",
+        "minimum_sampled_surface_distance_m": 0.01110792625695467,
+        "point_target_world": [
+          -2.4913551807403564,
+          8.227434158325195,
+          1.0957629680633545
+        ],
+        "normal_target_world": [
+          -0.6143744587898254,
+          0.7862757444381714,
+          -0.06568467617034912
+        ]
+      },
+      {
+        "candidate": "Calibration tick.007",
+        "minimum_sampled_surface_distance_m": 0.011109257116913795,
+        "point_target_world": [
+          -2.411736249923706,
+          8.12552547454834,
+          1.0957626104354858
+        ],
+        "normal_target_world": [
+          0.8691930770874023,
+          -0.49077051877975464,
+          -0.060395482927560806
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Jamb folded cover",
+    "parent": "OCRU",
+    "bounds": [
+      [
+        -1.5137498378753662,
+        2.5404000282287598,
+        0.4049999713897705
+      ],
+      [
+        -1.4537498950958252,
+        2.7904000282287598,
+        2.5350000858306885
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Shutter guide bolted shoe",
+        "minimum_sampled_surface_distance_m": 0.0009999871253967285,
+        "point_target_world": [
+          -1.4537498950958252,
+          2.5404000282287598,
+          0.512499988079071
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Shutter guide bolted shoe.001",
+        "minimum_sampled_surface_distance_m": 0.0010001659393310547,
+        "point_target_world": [
+          -1.4537498950958252,
+          2.5404000282287598,
+          2.427500009536743
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Chamber sill",
+        "minimum_sampled_surface_distance_m": 0.0020999908447265625,
+        "point_target_world": [
+          -1.5137498378753662,
+          2.7799999713897705,
+          0.4049999713897705
+        ],
+        "normal_target_world": [
+          1.2289614232940949e-06,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Access jamb graphite return",
+        "minimum_sampled_surface_distance_m": 0.004999876022338867,
+        "point_target_world": [
+          -1.5137498378753662,
+          2.777899980545044,
+          2.5399999618530273
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Jamb removable outer flange",
+        "minimum_sampled_surface_distance_m": 0.004999995231628418,
+        "point_target_world": [
+          -1.4787498712539673,
+          2.5466501712799072,
+          0.4582499861717224
+        ],
+        "normal_target_world": [
+          0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Chamber structural upright",
+        "minimum_sampled_surface_distance_m": 0.005000114440917969,
+        "point_target_world": [
+          -1.4887499809265137,
+          2.5466501712799072,
+          0.4582499861717224
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Orange latch rail",
+        "minimum_sampled_surface_distance_m": 0.005899906158447266,
+        "point_target_world": [
+          -1.4592499732971191,
+          2.6654000282287598,
+          1.4700000286102295
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Sealed chamber pan",
+        "minimum_sampled_surface_distance_m": 0.008313676342368126,
+        "point_target_world": [
+          -1.5196285247802734,
+          2.5529000759124756,
+          0.39912134408950806
+        ],
+        "normal_target_world": [
+          0.3826810419559479,
+          2.3893099054816958e-08,
+          0.9238804578781128
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Jamb folded cover.001",
+    "parent": "OCRU",
+    "bounds": [
+      [
+        -1.5137500762939453,
+        6.469600200653076,
+        0.4049999713897705
+      ],
+      [
+        -1.4537501335144043,
+        6.719600200653076,
+        2.5350000858306885
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Shutter guide bolted shoe.002",
+        "minimum_sampled_surface_distance_m": 0.0009999871253967285,
+        "point_target_world": [
+          -1.4537501335144043,
+          6.719600200653076,
+          0.512499988079071
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Shutter guide bolted shoe.003",
+        "minimum_sampled_surface_distance_m": 0.0010001659393310547,
+        "point_target_world": [
+          -1.4537501335144043,
+          6.719600200653076,
+          2.427500009536743
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Chamber sill",
+        "minimum_sampled_surface_distance_m": 0.0020999908447265625,
+        "point_target_world": [
+          -1.5137500762939453,
+          6.480000019073486,
+          0.4049999713897705
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Chamber structural upright.001",
+        "minimum_sampled_surface_distance_m": 0.004999876022338867,
+        "point_target_world": [
+          -1.4887499809265137,
+          6.713350296020508,
+          0.4582499861717224
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Access jamb graphite return.001",
+        "minimum_sampled_surface_distance_m": 0.004999876022338867,
+        "point_target_world": [
+          -1.5137500762939453,
+          6.482100009918213,
+          2.5399999618530273
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Jamb removable outer flange.001",
+        "minimum_sampled_surface_distance_m": 0.004999995231628418,
+        "point_target_world": [
+          -1.4787501096725464,
+          6.713350296020508,
+          0.4582499861717224
+        ],
+        "normal_target_world": [
+          0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Orange latch rail.001",
+        "minimum_sampled_surface_distance_m": 0.005899786949157715,
+        "point_target_world": [
+          -1.4592502117156982,
+          6.594600200653076,
+          1.4700000286102295
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Sealed chamber pan",
+        "minimum_sampled_surface_distance_m": 0.008313676342368126,
+        "point_target_world": [
+          -1.5196287631988525,
+          6.482100486755371,
+          0.39912134408950806
+        ],
+        "normal_target_world": [
+          0.3826810419559479,
+          2.3893099054816958e-08,
+          0.9238804578781128
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Monitor bezel",
+    "parent": "RESTART_CONSOLE",
+    "bounds": [
+      [
+        -1.225000023841858,
+        8.664999961853027,
+        1.1799999475479126
+      ],
+      [
+        -0.5149999856948853,
+        8.744999885559082,
+        1.5800000429153442
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Monitor dark face",
+        "minimum_sampled_surface_distance_m": 0.0010004043579101562,
+        "point_target_world": [
+          -0.8700000047683716,
+          8.663999557495117,
+          1.3799999952316284
+        ],
+        "normal_target_world": [
+          0.0,
+          0.9999999403953552,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Operator sloped panel",
+        "minimum_sampled_surface_distance_m": 0.0027706038672477007,
+        "point_target_world": [
+          -1.2130000591278076,
+          8.730440139770508,
+          1.5810604095458984
+        ],
+        "normal_target_world": [
+          0.0,
+          -0.923893392086029,
+          0.38264983892440796
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Monitor bezel.001",
+    "parent": "RESTART_CONSOLE",
+    "bounds": [
+      [
+        -0.3349999785423279,
+        8.664999961853027,
+        1.1799999475479126
+      ],
+      [
+        0.375,
+        8.744999885559082,
+        1.5800000429153442
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Monitor dark face.001",
+        "minimum_sampled_surface_distance_m": 0.0010004043579101562,
+        "point_target_world": [
+          0.02000001072883606,
+          8.663999557495117,
+          1.3799999952316284
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Operator sloped panel",
+        "minimum_sampled_surface_distance_m": 0.0027706038672477007,
+        "point_target_world": [
+          -0.32300007343292236,
+          8.730440139770508,
+          1.5810604095458984
+        ],
+        "normal_target_world": [
+          0.0,
+          -0.923893392086029,
+          0.38264983892440796
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Monitor dark face",
+    "parent": "RESTART_CONSOLE",
+    "bounds": [
+      [
+        -1.190000057220459,
+        8.652000427246094,
+        1.215000033378601
+      ],
+      [
+        -0.550000011920929,
+        8.663999557495117,
+        1.5449999570846558
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Monitor bezel",
+        "minimum_sampled_surface_distance_m": 0.0010004043579101562,
+        "point_target_world": [
+          -1.187999963760376,
+          8.664999961853027,
+          1.2170000076293945
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Pressure door lower panel",
+    "parent": "ENTRY_LEAF_L",
+    "bounds": [
+      [
+        -2.2200000286102295,
+        0.06499999761581421,
+        0.010000050067901611
+      ],
+      [
+        -1.119999885559082,
+        0.13500000536441803,
+        1.190000057220459
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Door window side panel",
+        "minimum_sampled_surface_distance_m": 1.1920928955078125e-07,
+        "point_target_world": [
+          -2.2100000381469727,
+          0.07500000298023224,
+          1.1899999380111694
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Door window side panel.001",
+        "minimum_sampled_surface_distance_m": 1.1920928955078125e-07,
+        "point_target_world": [
+          -1.1299998760223389,
+          0.07500000298023224,
+          1.1899999380111694
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Door edge seal",
+        "minimum_sampled_surface_distance_m": 0.003999829292297363,
+        "point_target_world": [
+          -1.1160000562667847,
+          0.07500001043081284,
+          1.1800001859664917
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Door safety glazing",
+        "minimum_sampled_surface_distance_m": 0.010000109672546387,
+        "point_target_world": [
+          -1.6700000762939453,
+          0.09999999403953552,
+          1.1799999475479126
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Pressure door lower panel.001",
+    "parent": "ENTRY_LEAF_R",
+    "bounds": [
+      [
+        1.119999885559082,
+        0.06499999761581421,
+        0.010000050067901611
+      ],
+      [
+        2.2200000286102295,
+        0.13500000536441803,
+        1.190000057220459
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Door window side panel.002",
+        "minimum_sampled_surface_distance_m": 1.1920928955078125e-07,
+        "point_target_world": [
+          1.1299998760223389,
+          0.07500000298023224,
+          1.1899999380111694
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Door window side panel.003",
+        "minimum_sampled_surface_distance_m": 1.1920928955078125e-07,
+        "point_target_world": [
+          2.2100000381469727,
+          0.07500000298023224,
+          1.1899999380111694
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Door edge seal.001",
+        "minimum_sampled_surface_distance_m": 0.003999829292297363,
+        "point_target_world": [
+          1.1160000562667847,
+          0.07500000298023224,
+          1.1800000667572021
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Door safety glazing.001",
+        "minimum_sampled_surface_distance_m": 0.010000109672546387,
+        "point_target_world": [
+          1.6699999570846558,
+          0.10000000149011612,
+          1.1799999475479126
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Rail support crosshead",
+    "parent": "OCRU_BERTH",
+    "bounds": [
+      [
+        -2.4987502098083496,
+        3.690000057220459,
+        0.8650000095367432
+      ],
+      [
+        -1.6987501382827759,
+        4.070000171661377,
+        0.9249999523162842
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Tray captive roller",
+        "minimum_sampled_surface_distance_m": 0.003012479282915592,
+        "point_target_world": [
+          -1.7675501108169556,
+          3.706606149673462,
+          0.9276642203330994
+        ],
+        "normal_target_world": [
+          0.0,
+          -0.4713900089263916,
+          -0.8819248676300049
+        ]
+      },
+      {
+        "candidate": "Tray captive roller.002",
+        "minimum_sampled_surface_distance_m": 0.003012479282915592,
+        "point_target_world": [
+          -2.429949998855591,
+          3.706606149673462,
+          0.9276642203330994
+        ],
+        "normal_target_world": [
+          0.0,
+          -0.4713870584964752,
+          -0.881926417350769
+        ]
+      },
+      {
+        "candidate": "Captive transfer rail",
+        "minimum_sampled_surface_distance_m": 0.004778146278113127,
+        "point_target_world": [
+          -1.7221287488937378,
+          3.69950008392334,
+          0.8983786702156067
+        ],
+        "normal_target_world": [
+          0.9238801002502441,
+          0.0,
+          -0.38268208503723145
+        ]
+      },
+      {
+        "candidate": "Captive transfer rail.001",
+        "minimum_sampled_surface_distance_m": 0.004778146278113127,
+        "point_target_world": [
+          -2.4753713607788086,
+          3.69950008392334,
+          0.8983786702156067
+        ],
+        "normal_target_world": [
+          -0.9238736629486084,
+          -8.615549518253829e-08,
+          -0.3826977014541626
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Rear wash control backing",
+    "parent": "DECON_WASH",
+    "bounds": [
+      [
+        2.5799999237060547,
+        11.0,
+        1.1749999523162842
+      ],
+      [
+        2.9800000190734863,
+        11.100000381469727,
+        1.625
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Selector escutcheon.002",
+        "minimum_sampled_surface_distance_m": 0.0039997100830078125,
+        "point_target_world": [
+          2.7799999713897705,
+          10.996000289916992,
+          1.399999976158142
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          1.2031437108817045e-06
+        ]
+      },
+      {
+        "candidate": "Wash fitting union",
+        "minimum_sampled_surface_distance_m": 0.010625517927110195,
+        "point_target_world": [
+          2.7799999713897705,
+          11.11026382446289,
+          1.4027501344680786
+        ],
+        "normal_target_world": [
+          0.0,
+          0.9659186601638794,
+          0.2588457465171814
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Rear west wall",
+    "parent": null,
+    "bounds": [
+      [
+        -4.0,
+        9.0,
+        0.0
+      ],
+      [
+        1.5500000715255737,
+        9.180000305175781,
+        3.5999999046325684
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Floor",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -3.7357144355773926,
+          9.171428680419922,
+          0.0
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "West wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -4.0,
+          9.00857162475586,
+          0.17142856121063232
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Decon doorway lintel",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          1.5500000715255737,
+          9.171428680419922,
+          2.2285714149475098
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Decon west wall",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          1.4158573150634766,
+          9.0,
+          0.08771425485610962
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Longitudinal steel",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -3.7357144355773926,
+          9.0,
+          3.4285712242126465
+        ],
+        "normal_target_world": [
+          0.0,
+          0.9999999403953552,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Decon jamb",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          1.5488284826278687,
+          9.003999710083008,
+          0.0011714696884155273
+        ],
+        "normal_target_world": [
+          0.3826481103897095,
+          0.0,
+          -0.9238941669464111
+        ]
+      },
+      {
+        "candidate": "Rear cable wall clamp",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -3.471428871154785,
+          9.0,
+          3.085714340209961
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Rear cable wall clamp.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -2.6785717010498047,
+          9.0,
+          3.085714340209961
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Ceiling",
+        "minimum_sampled_surface_distance_m": 2.384185791015625e-07,
+        "point_target_world": [
+          -0.2999999523162842,
+          9.154285430908203,
+          3.6000001430511475
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Telemetry clip",
+        "minimum_sampled_surface_distance_m": 5.47148629266303e-05,
+        "point_target_world": [
+          -0.4321219325065613,
+          8.99994945526123,
+          1.7999999523162842
+        ],
+        "normal_target_world": [
+          -0.3829098045825958,
+          0.9237857460975647,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Telemetry clip.001",
+        "minimum_sampled_surface_distance_m": 5.47148629266303e-05,
+        "point_target_world": [
+          -0.4321219325065613,
+          8.99994945526123,
+          2.3142857551574707
+        ],
+        "normal_target_world": [
+          -0.38290533423423767,
+          0.9237875938415527,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Rear upper panel joint",
+        "minimum_sampled_surface_distance_m": 0.001142740249633789,
+        "point_target_world": [
+          -3.2060000896453857,
+          9.0,
+          2.057142734527588
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Rear horizontal panel joint",
+        "minimum_sampled_surface_distance_m": 0.0011429786682128906,
+        "point_target_world": [
+          1.153571605682373,
+          9.0,
+          2.1440000534057617
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Decon header",
+        "minimum_sampled_surface_distance_m": 0.0014286041259765625,
+        "point_target_world": [
+          1.5500000715255737,
+          9.050000190734863,
+          2.2285714149475098
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Decon floor",
+        "minimum_sampled_surface_distance_m": 0.0024853944778442383,
+        "point_target_world": [
+          1.5460002422332764,
+          9.180585861206055,
+          -0.0005857869982719421
+        ],
+        "normal_target_world": [
+          0.0,
+          -0.9239734411239624,
+          0.3824564516544342
+        ]
+      },
+      {
+        "candidate": "MED_DATA termination",
+        "minimum_sampled_surface_distance_m": 0.010000228881835938,
+        "point_target_world": [
+          -0.43214279413223267,
+          9.170000076293945,
+          2.6571426391601562
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          2.2570009150513215e-06
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Recovery bed pan",
+    "parent": "RECOVERY_BERTH",
+    "bounds": [
+      [
+        2.6649999618530273,
+        3.5699996948242188,
+        0.6200000047683716
+      ],
+      [
+        3.7950000762939453,
+        5.829999923706055,
+        0.7000000476837158
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Recovery identity bed bracket",
+        "minimum_sampled_surface_distance_m": 0.004999995231628418,
+        "point_target_world": [
+          3.2300000190734863,
+          3.5699996948242188,
+          0.6650000214576721
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "candidate": "Recovery foam cushion",
+        "minimum_sampled_surface_distance_m": 0.009999959729611874,
+        "point_target_world": [
+          3.229962110519409,
+          4.699981689453125,
+          0.6900001764297485
+        ],
+        "normal_target_world": [
+          -0.00378433451987803,
+          -0.0018206094391644,
+          -0.9999911785125732
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Recovery foam cushion",
+    "parent": "RECOVERY_BERTH",
+    "bounds": [
+      [
+        2.7200000286102295,
+        3.6399998664855957,
+        0.6899999976158142
+      ],
+      [
+        3.740000009536743,
+        5.759999752044678,
+        0.7700000405311584
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Recovery pillow",
+        "minimum_sampled_surface_distance_m": 3.6716461181640625e-05,
+        "point_target_world": [
+          3.0657389163970947,
+          5.582569599151611,
+          0.7549999952316284
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Recovery bed pan",
+        "minimum_sampled_surface_distance_m": 0.0004703998565673828,
+        "point_target_world": [
+          2.8485021591186523,
+          4.268841743469238,
+          0.7000000476837158
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Folded recovery blanket",
+        "minimum_sampled_surface_distance_m": 0.0015969896921887994,
+        "point_target_world": [
+          3.2725718021392822,
+          4.258543491363525,
+          0.766834557056427
+        ],
+        "normal_target_world": [
+          -0.10686911642551422,
+          -0.11604444682598114,
+          -0.9874779582023621
+        ]
+      },
+      {
+        "candidate": "Mattress bound piping",
+        "minimum_sampled_surface_distance_m": 0.0065234070643782616,
+        "point_target_world": [
+          2.75600004196167,
+          4.616249084472656,
+          0.7455000281333923
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Mattress bound piping.001",
+        "minimum_sampled_surface_distance_m": 0.0065234070643782616,
+        "point_target_world": [
+          3.7039999961853027,
+          4.783750534057617,
+          0.7455000281333923
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Recovery pillow",
+    "parent": "RECOVERY_BERTH",
+    "bounds": [
+      [
+        2.8949999809265137,
+        5.210000038146973,
+        0.7549999952316284
+      ],
+      [
+        3.565000057220459,
+        5.649999618530273,
+        0.8650000095367432
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Recovery foam cushion",
+        "minimum_sampled_surface_distance_m": 5.245208740234375e-06,
+        "point_target_world": [
+          3.4905378818511963,
+          5.564279556274414,
+          0.7550052404403687
+        ],
+        "normal_target_world": [
+          0.0408719927072525,
+          0.021355509757995605,
+          0.998936116695404
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Reserve folded back",
+    "parent": "RESERVE_POWER",
+    "bounds": [
+      [
+        -2.5500001907348633,
+        8.96250057220459,
+        0.11500000953674316
+      ],
+      [
+        -1.7500001192092896,
+        8.987500190734863,
+        1.3650000095367432
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Reserve folded side",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -2.5470001697540283,
+          8.965500831604004,
+          0.11500000953674316
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Reserve folded side.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -1.753000020980835,
+          8.965500831604004,
+          0.11500000953674316
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Reserve folded cap",
+        "minimum_sampled_surface_distance_m": 0.00011151981016155332,
+        "point_target_world": [
+          -2.5470001697540283,
+          8.984396934509277,
+          0.11504276841878891
+        ],
+        "normal_target_world": [
+          0.0,
+          0.9238833785057068,
+          -0.38267412781715393
+        ]
+      },
+      {
+        "candidate": "Reserve folded cap.001",
+        "minimum_sampled_surface_distance_m": 0.0004634857177734375,
+        "point_target_world": [
+          -2.5479636192321777,
+          8.985000610351562,
+          1.364243745803833
+        ],
+        "normal_target_world": [
+          0.0,
+          0.9999999403953552,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Reserve folded side",
+    "parent": "RESERVE_POWER",
+    "bounds": [
+      [
+        -2.567500114440918,
+        8.454999923706055,
+        0.11500000953674316
+      ],
+      [
+        -2.5325002670288086,
+        8.985000610351562,
+        1.3650000095367432
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Reserve folded cap",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -2.5365002155303955,
+          8.454999923706055,
+          0.11900001764297485
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Reserve folded back",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -2.5365002155303955,
+          8.980999946594238,
+          0.11500000953674316
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Reserve folded cap.001",
+        "minimum_sampled_surface_distance_m": 2.384185791015625e-07,
+        "point_target_world": [
+          -2.5364999771118164,
+          8.454999923706055,
+          1.3610000610351562
+        ],
+        "normal_target_world": [
+          0.0,
+          -0.9999999403953552,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Reserve removable door",
+    "parent": "RESERVE_SERVICE_DOOR",
+    "bounds": [
+      [
+        -2.542233467102051,
+        7.826067924499512,
+        0.18000000715255737
+      ],
+      [
+        -2.0460205078125,
+        8.442925453186035,
+        1.3599998950958252
+      ]
+    ],
+    "same_assembly_close_surfaces": []
+  },
+  {
+    "terminal": "Sealed chamber pan",
+    "parent": "OCRU",
+    "bounds": [
+      [
+        -3.898750066757202,
+        2.505000114440918,
+        0.33000001311302185
+      ],
+      [
+        -1.5187498331069946,
+        6.755000114440918,
+        0.4000000059604645
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Chassis longitudinal channel",
+        "minimum_sampled_surface_distance_m": 2.6656007889869215e-07,
+        "point_target_world": [
+          -1.5187499523162842,
+          2.508000373840332,
+          0.3330000042915344
+        ],
+        "normal_target_world": [
+          1.0,
+          4.175959489316483e-08,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Chassis longitudinal channel.001",
+        "minimum_sampled_surface_distance_m": 3.3717478231665154e-07,
+        "point_target_world": [
+          -3.898749828338623,
+          2.507999897003174,
+          0.3330000042915344
+        ],
+        "normal_target_world": [
+          -1.0,
+          -8.351918978632966e-08,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Chassis cross member.001",
+        "minimum_sampled_surface_distance_m": 0.0004391670227050781,
+        "point_target_world": [
+          -3.898750066757202,
+          4.630000114440918,
+          0.33193933963775635
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Formed end service panel",
+        "minimum_sampled_surface_distance_m": 0.0004392862319946289,
+        "point_target_world": [
+          -2.708749771118164,
+          2.50693941116333,
+          0.3999999761581421
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Formed end service panel.001",
+        "minimum_sampled_surface_distance_m": 0.0004392862319946289,
+        "point_target_world": [
+          -2.708750009536743,
+          6.753060817718506,
+          0.3999999761581421
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ]
+      },
+      {
+        "candidate": "Rear machine skin",
+        "minimum_sampled_surface_distance_m": 0.004499912261962891,
+        "point_target_world": [
+          -3.8912501335144043,
+          6.752000331878662,
+          0.4000000059604645
+        ],
+        "normal_target_world": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Chamber sill",
+        "minimum_sampled_surface_distance_m": 0.004999995231628418,
+        "point_target_world": [
+          -1.5187499523162842,
+          4.630000114440918,
+          0.3700000047683716
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Segmented adult berth cushion",
+    "parent": "OCRU_BERTH",
+    "bounds": [
+      [
+        -2.538750171661377,
+        3.500000238418579,
+        0.9900000095367432
+      ],
+      [
+        -1.658750057220459,
+        4.200000286102295,
+        1.0199999809265137
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Safety restraint webbing",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          -2.1843056678771973,
+          3.879166841506958,
+          1.0199999809265137
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Tray folded end flange",
+        "minimum_sampled_surface_distance_m": 0.00020837783813476562,
+        "point_target_world": [
+          -1.6642900705337524,
+          3.5275001525878906,
+          0.9900000095367432
+        ],
+        "normal_target_world": [
+          0.0,
+          0.9999999403953552,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Adult tray pressed pan",
+        "minimum_sampled_surface_distance_m": 0.00024128473887685686,
+        "point_target_world": [
+          -2.4562501907348633,
+          3.501204490661621,
+          0.9899076819419861
+        ],
+        "normal_target_world": [
+          1.7939528618171607e-07,
+          -0.9238748550415039,
+          0.38269469141960144
+        ]
+      },
+      {
+        "candidate": "Tray captive roller",
+        "minimum_sampled_surface_distance_m": 0.0009695190819911659,
+        "point_target_world": [
+          -1.7687504291534424,
+          3.703835964202881,
+          0.9908550381660461
+        ],
+        "normal_target_world": [
+          0.0,
+          -0.4713900089263916,
+          0.8819248676300049
+        ]
+      },
+      {
+        "candidate": "Tray captive roller.002",
+        "minimum_sampled_surface_distance_m": 0.0009695190819911659,
+        "point_target_world": [
+          -2.4287497997283936,
+          3.703835964202881,
+          0.9908550381660461
+        ],
+        "normal_target_world": [
+          0.0,
+          -0.4713870584964752,
+          0.881926417350769
+        ]
+      },
+      {
+        "candidate": "Restraint buckle",
+        "minimum_sampled_surface_distance_m": 0.002239461522549391,
+        "point_target_world": [
+          -1.657893180847168,
+          3.9068751335144043,
+          1.0052664279937744
+        ],
+        "normal_target_world": [
+          -0.38267016410827637,
+          0.0,
+          -0.9238851070404053
+        ]
+      },
+      {
+        "candidate": "Bridge lift slide",
+        "minimum_sampled_surface_distance_m": 0.00950002670288086,
+        "point_target_world": [
+          -1.6492500305175781,
+          3.8310418128967285,
+          1.0030933618545532
+        ],
+        "normal_target_world": [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Segmented adult berth cushion.001",
+    "parent": "OCRU_BERTH",
+    "bounds": [
+      [
+        -2.538750171661377,
+        4.28000020980835,
+        0.9900000095367432
+      ],
+      [
+        -1.658750057220459,
+        4.980000019073486,
+        1.0199999809265137
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Adult tray pressed pan",
+        "minimum_sampled_surface_distance_m": 0.0014185309410095215,
+        "point_target_world": [
+          -1.658750057220459,
+          4.525729179382324,
+          0.9950000047683716
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Segmented adult berth cushion.002",
+    "parent": "OCRU_BERTH",
+    "bounds": [
+      [
+        -2.538750171661377,
+        5.059999942779541,
+        0.9900000095367432
+      ],
+      [
+        -1.658750057220459,
+        5.759999752044678,
+        1.0199999809265137
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Contoured head pad",
+        "minimum_sampled_surface_distance_m": 1.1920928955078125e-07,
+        "point_target_world": [
+          -2.025416851043701,
+          5.351666450500488,
+          1.0200001001358032
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Tray folded end flange.001",
+        "minimum_sampled_surface_distance_m": 0.00020837783813476562,
+        "point_target_world": [
+          -2.533210039138794,
+          5.732500076293945,
+          0.9900000095367432
+        ],
+        "normal_target_world": [
+          0.0,
+          -0.9999999403953552,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Adult tray pressed pan",
+        "minimum_sampled_surface_distance_m": 0.00024101884628180414,
+        "point_target_world": [
+          -2.4562501907348633,
+          5.758795738220215,
+          0.9899078011512756
+        ],
+        "normal_target_world": [
+          0.0,
+          0.9238892793655396,
+          0.38266006112098694
+        ]
+      },
+      {
+        "candidate": "Tray captive roller.003",
+        "minimum_sampled_surface_distance_m": 0.0009692489984445274,
+        "point_target_world": [
+          -2.4287497997283936,
+          5.556164264678955,
+          0.9908548593521118
+        ],
+        "normal_target_world": [
+          0.0,
+          0.4713900089263916,
+          0.8819248676300049
+        ]
+      },
+      {
+        "candidate": "Tray captive roller.001",
+        "minimum_sampled_surface_distance_m": 0.000969406682997942,
+        "point_target_world": [
+          -1.7687504291534424,
+          5.556163787841797,
+          0.9908550381660461
+        ],
+        "normal_target_world": [
+          0.0,
+          0.4713900089263916,
+          0.8819248676300049
+        ]
+      },
+      {
+        "candidate": "Safety restraint webbing.001",
+        "minimum_sampled_surface_distance_m": 0.0028241875115782022,
+        "point_target_world": [
+          -1.8800890445709229,
+          5.098890781402588,
+          1.0199999809265137
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Restraint buckle.001",
+        "minimum_sampled_surface_distance_m": 0.0032631047070026398,
+        "point_target_world": [
+          -1.660078525543213,
+          5.106666564941406,
+          1.0061715841293335
+        ],
+        "normal_target_world": [
+          -0.9238725304603577,
+          0.0,
+          -0.38270044326782227
+        ]
+      },
+      {
+        "candidate": "Bridge lift slide.001",
+        "minimum_sampled_surface_distance_m": 0.009499907493591309,
+        "point_target_world": [
+          -1.6492501497268677,
+          5.4194793701171875,
+          0.9965811371803284
+        ],
+        "normal_target_world": [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Serviceable inner access panel",
+    "parent": "OCRU",
+    "bounds": [
+      [
+        -3.7437500953674316,
+        2.6600000858306885,
+        0.7450000047683716
+      ],
+      [
+        -3.6337499618530273,
+        3.200000047683716,
+        2.2150001525878906
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Inner service panel rear support",
+        "minimum_sampled_surface_distance_m": 0.009999990463256836,
+        "point_target_world": [
+          -3.7337498664855957,
+          2.930000066757202,
+          1.4799997806549072
+        ],
+        "normal_target_world": [
+          0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Serviceable inner access panel.001",
+    "parent": "OCRU",
+    "bounds": [
+      [
+        -3.7437500953674316,
+        6.059999942779541,
+        0.7450000047683716
+      ],
+      [
+        -3.6337499618530273,
+        6.599999904632568,
+        2.2150001525878906
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Inner service panel rear support.001",
+        "minimum_sampled_surface_distance_m": 0.009999513626098633,
+        "point_target_world": [
+          -3.733750343322754,
+          6.329999923706055,
+          1.4800000190734863
+        ],
+        "normal_target_world": [
+          0.9999999403953552,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Shelf retaining lip.002",
+    "parent": "CARTRIDGE_BANK",
+    "bounds": [
+      [
+        0.6850000023841858,
+        8.314000129699707,
+        1.2324999570846558
+      ],
+      [
+        1.315000057220459,
+        8.335999488830566,
+        1.2975000143051147
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Engraved backing 07-09",
+        "minimum_sampled_surface_distance_m": 9.5367431640625e-07,
+        "point_target_world": [
+          1.0,
+          8.31399917602539,
+          1.2649999856948853
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Folded storage shelf.003",
+        "minimum_sampled_surface_distance_m": 0.0027717510238289833,
+        "point_target_world": [
+          1.315000057220459,
+          8.332939147949219,
+          1.237060785293579
+        ],
+        "normal_target_world": [
+          0.0,
+          -0.38267022371292114,
+          0.9238850474357605
+        ]
+      },
+      {
+        "candidate": "Cartridge bank formed upright",
+        "minimum_sampled_surface_distance_m": 0.009000778198242188,
+        "point_target_world": [
+          0.687000036239624,
+          8.304999351501465,
+          1.2344999313354492
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cartridge bank formed upright.001",
+        "minimum_sampled_surface_distance_m": 0.009000778198242188,
+        "point_target_world": [
+          1.312999963760376,
+          8.304999351501465,
+          1.2344999313354492
+        ],
+        "normal_target_world": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Sterile pack.001",
+    "parent": "SUPPLY_BENCH",
+    "bounds": [
+      [
+        3.0999999046325684,
+        1.6050000190734863,
+        0.9769999980926514
+      ],
+      [
+        3.3499999046325684,
+        1.815000057220459,
+        1.0069999694824219
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Sterile pack seal",
+        "minimum_sampled_surface_distance_m": 0.00012605497613549232,
+        "point_target_world": [
+          3.3291666507720947,
+          1.7273129224777222,
+          0.9769517779350281
+        ],
+        "normal_target_world": [
+          0.0,
+          0.9238781929016113,
+          0.38268670439720154
+        ]
+      },
+      {
+        "candidate": "Sterile pack seal.001",
+        "minimum_sampled_surface_distance_m": 0.00019134057220071554,
+        "point_target_world": [
+          3.183333158493042,
+          1.727323293685913,
+          1.007073163986206
+        ],
+        "normal_target_world": [
+          0.0,
+          0.9238895773887634,
+          -0.3826591372489929
+        ]
+      },
+      {
+        "candidate": "Folded cleaning cloth",
+        "minimum_sampled_surface_distance_m": 0.0012978680897504091,
+        "point_target_world": [
+          3.3506929874420166,
+          1.7957950830459595,
+          0.9825297594070435
+        ],
+        "normal_target_world": [
+          -0.9975311160087585,
+          0.007475848775357008,
+          -0.06982749700546265
+        ]
+      },
+      {
+        "candidate": "Sterile pack",
+        "minimum_sampled_surface_distance_m": 0.0020000338554382324,
+        "point_target_world": [
+          3.183333158493042,
+          1.7450000047683716,
+          0.9749999642372131
+        ],
+        "normal_target_world": [
+          -7.46041041566059e-05,
+          8.515883382642642e-05,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Supply bench top",
+    "parent": "SUPPLY_BENCH",
+    "bounds": [
+      [
+        3.0950000286102295,
+        0.4350000321865082,
+        0.875
+      ],
+      [
+        3.944999933242798,
+        2.505000114440918,
+        0.9450000524520874
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Service tool tray",
+        "minimum_sampled_surface_distance_m": 5.960464477539063e-08,
+        "point_target_world": [
+          3.670806407928467,
+          0.501774251461029,
+          0.9449999928474426
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Sterile pack",
+        "minimum_sampled_surface_distance_m": 5.960464477539063e-08,
+        "point_target_world": [
+          3.3417742252349854,
+          1.6369355916976929,
+          0.9449999928474426
+        ],
+        "normal_target_world": [
+          -1.301446218349156e-06,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Folded work glove palm",
+        "minimum_sampled_surface_distance_m": 0.00011660015297820792,
+        "point_target_world": [
+          3.6982245445251465,
+          1.6369367837905884,
+          0.9451166391372681
+        ],
+        "normal_target_world": [
+          0.010046813637018204,
+          -0.010962864384055138,
+          -0.9998894333839417
+        ]
+      },
+      {
+        "candidate": "Folded work glove palm.001",
+        "minimum_sampled_surface_distance_m": 0.00011993764201179147,
+        "point_target_world": [
+          3.6982245445251465,
+          1.5033857822418213,
+          0.9451199769973755
+        ],
+        "normal_target_world": [
+          0.010047455318272114,
+          0.010962419211864471,
+          -0.9998894333839417
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.003",
+        "minimum_sampled_surface_distance_m": 0.000165043500601314,
+        "point_target_world": [
+          3.7667763233184814,
+          1.6035680770874023,
+          0.945163905620575
+        ],
+        "normal_target_world": [
+          -0.012556863017380238,
+          -0.11960851401090622,
+          -0.9927417635917664
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.007",
+        "minimum_sampled_surface_distance_m": 0.0003504906489979476,
+        "point_target_world": [
+          3.7667782306671143,
+          1.4699583053588867,
+          0.9453480243682861
+        ],
+        "normal_target_world": [
+          -0.01255752518773079,
+          0.11961069703102112,
+          -0.9927414655685425
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.002",
+        "minimum_sampled_surface_distance_m": 0.00042652926640585065,
+        "point_target_world": [
+          3.7804670333862305,
+          1.6368860006332397,
+          0.9454233646392822
+        ],
+        "normal_target_world": [
+          0.039167337119579315,
+          0.11754506826400757,
+          -0.9922949075698853
+        ]
+      },
+      {
+        "candidate": "Folded cleaning cloth",
+        "minimum_sampled_surface_distance_m": 0.0009999871253967285,
+        "point_target_world": [
+          3.670806407928467,
+          1.8372581005096436,
+          0.9460000395774841
+        ],
+        "normal_target_world": [
+          1.90142174005814e-07,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.001",
+        "minimum_sampled_surface_distance_m": 0.0014822414377704263,
+        "point_target_world": [
+          3.766789436340332,
+          1.669823169708252,
+          0.9463955163955688
+        ],
+        "normal_target_world": [
+          -0.0107018006965518,
+          0.3381248414516449,
+          -0.9410403966903687
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.006",
+        "minimum_sampled_surface_distance_m": 0.002050057053565979,
+        "point_target_world": [
+          3.780423402786255,
+          1.5023281574249268,
+          0.9467543959617615
+        ],
+        "normal_target_world": [
+          0.027294903993606567,
+          0.5218538641929626,
+          -0.8525981903076172
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.004",
+        "minimum_sampled_surface_distance_m": 0.004016872961074114,
+        "point_target_world": [
+          3.76680064201355,
+          1.539583683013916,
+          0.9478707909584045
+        ],
+        "normal_target_world": [
+          -0.008547176606953144,
+          -0.5273269414901733,
+          -0.8496195077896118
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger",
+        "minimum_sampled_surface_distance_m": 0.004474678076803684,
+        "point_target_world": [
+          3.780393123626709,
+          1.7004101276397705,
+          0.9480211734771729
+        ],
+        "normal_target_world": [
+          0.027293449267745018,
+          0.5218260288238525,
+          -0.852615237236023
+        ]
+      },
+      {
+        "candidate": "Tool tray folded rim.001",
+        "minimum_sampled_surface_distance_m": 0.004999995231628418,
+        "point_target_world": [
+          3.670806646347046,
+          0.5017740726470947,
+          0.9500000476837158
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Tool tray folded rim.002",
+        "minimum_sampled_surface_distance_m": 0.005005079787224531,
+        "point_target_world": [
+          3.2730000019073486,
+          0.5351613759994507,
+          0.9500000476837158
+        ],
+        "normal_target_world": [
+          0.3826693892478943,
+          0.0,
+          -0.9238852858543396
+        ]
+      },
+      {
+        "candidate": "Tool tray folded rim",
+        "minimum_sampled_surface_distance_m": 0.005180296488106251,
+        "point_target_world": [
+          3.670806407928467,
+          0.8370000123977661,
+          0.9500000476837158
+        ],
+        "normal_target_world": [
+          -1.785256529274193e-07,
+          -0.3826884925365448,
+          -0.9238774180412292
+        ]
+      },
+      {
+        "candidate": "Folded work glove finger.005",
+        "minimum_sampled_surface_distance_m": 0.005218368023633957,
+        "point_target_world": [
+          3.766800880432129,
+          1.5324164628982544,
+          0.9478707909584045
+        ],
+        "normal_target_world": [
+          -0.0015943280886858702,
+          0.9468400478363037,
+          -0.32170048356056213
+        ]
+      },
+      {
+        "candidate": "Bench rear apron",
+        "minimum_sampled_surface_distance_m": 0.005322694778442383,
+        "point_target_world": [
+          3.8299999237060547,
+          2.438225507736206,
+          0.875
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Tool tray folded rim.003",
+        "minimum_sampled_surface_distance_m": 0.0055699837394058704,
+        "point_target_world": [
+          3.686647415161133,
+          0.5351613759994507,
+          0.9501460790634155
+        ],
+        "normal_target_world": [
+          -0.3826693892478943,
+          0.0,
+          -0.9238852858543396
+        ]
+      },
+      {
+        "candidate": "Seal tool grip",
+        "minimum_sampled_surface_distance_m": 0.010063464753329754,
+        "point_target_world": [
+          3.588548421859741,
+          0.7700000405311584,
+          0.9549999833106995
+        ],
+        "normal_target_world": [
+          1.2126176329729788e-07,
+          0.19509315490722656,
+          -0.9807847142219543
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Supply cabinet shelf",
+    "parent": "SUPPLY_CABINET",
+    "bounds": [
+      [
+        3.2749998569488525,
+        6.529999732971191,
+        1.2599999904632568
+      ],
+      [
+        3.944999933242798,
+        8.40999984741211,
+        1.2999999523162842
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Supply cabinet back",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.940999984741211,
+          8.40999984741211,
+          1.2960000038146973
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cabinet formed edge",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.2749998569488525,
+          8.406000137329102,
+          1.2960000038146973
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cabinet formed edge.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.2749998569488525,
+          6.533999919891357,
+          1.2960000038146973
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Supply cabinet shelf.001",
+    "parent": "SUPPLY_CABINET",
+    "bounds": [
+      [
+        3.2749998569488525,
+        6.529999732971191,
+        1.6700000762939453
+      ],
+      [
+        3.944999933242798,
+        8.40999984741211,
+        1.7100000381469727
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Supply cabinet back",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.940999984741211,
+          8.40999984741211,
+          1.6740000247955322
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cabinet formed edge",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.2749998569488525,
+          8.406000137329102,
+          1.6740000247955322
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cabinet formed edge.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.2749998569488525,
+          6.533999919891357,
+          1.6740000247955322
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Supply cabinet shelf.002",
+    "parent": "SUPPLY_CABINET",
+    "bounds": [
+      [
+        3.2749998569488525,
+        6.529999732971191,
+        2.069999933242798
+      ],
+      [
+        3.944999933242798,
+        8.40999984741211,
+        2.109999895095825
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Supply cabinet back",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.940999984741211,
+          8.40999984741211,
+          2.0739998817443848
+        ],
+        "normal_target_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cabinet formed edge",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.2749998569488525,
+          8.406000137329102,
+          2.0739998817443848
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Cabinet formed edge.001",
+        "minimum_sampled_surface_distance_m": 0.0,
+        "point_target_world": [
+          3.2749998569488525,
+          6.533999919891357,
+          2.0739998817443848
+        ],
+        "normal_target_world": [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Tap rear rim mounting plate",
+    "parent": "HANDWASH",
+    "bounds": [
+      [
+        3.8000001907348633,
+        2.75,
+        0.9190000295639038
+      ],
+      [
+        3.940000057220459,
+        2.9099998474121094,
+        0.9309999942779541
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Basin folded rim.001",
+        "minimum_sampled_surface_distance_m": 0.0043024602346122265,
+        "point_target_world": [
+          3.934025287628174,
+          2.751999855041504,
+          0.9173534512519836
+        ],
+        "normal_target_world": [
+          0.9238665103912354,
+          0.0,
+          0.38271480798721313
+        ]
+      }
+    ]
+  },
+  {
+    "terminal": "Telescopic lift outer",
+    "parent": "OCRU_BERTH",
+    "bounds": [
+      [
+        -2.2587502002716064,
+        3.75,
+        0.47499996423721313
+      ],
+      [
+        -1.938750147819519,
+        4.010000228881836,
+        0.8050000071525574
+      ]
+    ],
+    "same_assembly_close_surfaces": [
+      {
+        "candidate": "Lift foot bolt flange",
+        "minimum_sampled_surface_distance_m": 0.0024999678134918213,
+        "point_target_world": [
+          -1.938750147819519,
+          3.750000238418579,
+          0.4724999964237213
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      },
+      {
+        "candidate": "Lift adjustment ram",
+        "minimum_sampled_surface_distance_m": 0.003000020980834961,
+        "point_target_world": [
+          -2.2617502212524414,
+          3.880000114440918,
+          0.6399999856948853
+        ],
+        "normal_target_world": [
+          0.9951850771903992,
+          0.09801318496465683,
+          0.0
+        ]
+      },
+      {
+        "candidate": "Berth pedestal foot",
+        "minimum_sampled_surface_distance_m": 0.005000025033950806,
+        "point_target_world": [
+          -1.938750147819519,
+          3.750000238418579,
+          0.47999998927116394
+        ],
+        "normal_target_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  }
+]

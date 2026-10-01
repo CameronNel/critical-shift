@@ -1,0 +1,760 @@
+{
+  "status": "PASS",
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "extracted_root": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted",
+  "blender": "5.2.2 LTS",
+  "source_saved": false,
+  "editable_objects": 1366,
+  "libraries": [
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/blender/facility_environment.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/condenser-bay/module.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/mine/module.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/spawn-room/module.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/compliance-dock/module.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/cooling-plant/module.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/electrical-room/module.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/fuel-corridor/module.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/medical-reanimation/module.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/reactor-room/module.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/refinery/module.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/turbine-room/module.blend",
+      "inside_package": true,
+      "exists": true
+    },
+    {
+      "path": "/workspace/scratch/reanimation-skill-portability-stage-17/extracted/sections/facility-assembly/sources/waste-storage/module.blend",
+      "inside_package": true,
+      "exists": true
+    }
+  ],
+  "file_images": [
+    {
+      "name": "clinical-labels.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "clinical-propaganda.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "painted_plaster_wall_diff_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "painted_plaster_wall_disp_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "painted_plaster_wall_rough_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "BirchTree_Leaves.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "boulder_01_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "boulder_01_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "boulder_02_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "boulder_02_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "brown_mud_02_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "brown_mud_02_nor_gl_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "cliff_side_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "cliff_side_nor_gl_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "dark_rock_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "dark_rock_nor_gl_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "GF | Courtyard dimensional slab wear and damp masks",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "GF | Refinery dimensional slab wear and damp masks",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "muddy_tracks_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "muddy_tracks_nor_gl_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "namaqualand_boulder_05_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "namaqualand_boulder_05_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "old_planks_02_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "old_planks_02_nor_gl_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "Pickaxe_Wood_Grain",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "picke_dirty_01_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "picke_dirty_01_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "PineTree_Bark.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "PineTree_Bark_Normal.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "rock_wall_08_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "rock_wall_08_nor_gl_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "rocky_trail_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "rough_wood_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "rough_wood_nor_gl_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "rust_coarse_01_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "rusty_corrugated_iron_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "rusty_corrugated_iron_nor_gl_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "rusty_metal_02_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "rusty_metal_02_nor_gl_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "schist-basecolor.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "sledgehammer_01_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "sledgehammer_01_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "SY | Courtyard localized wear and moisture",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "VC Concrete Painted Albedo",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "VC Limestone Angular Pigment R34",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "VC Meadow Painted Albedo",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "vintage_oil_lamp_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "vintage_oil_lamp_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "weathered_planks_diff_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "weathered_planks_nor_gl_1k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wine_barrel_01_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wine_barrel_01_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wooden_axe_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wooden_axe_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wooden_bucket_01_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wooden_bucket_01_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wooden_crate_01_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wooden_crate_01_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wooden_crate_02_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wooden_crate_02_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wooden_ladder_diff",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wooden_ladder_nor_gl",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "YARD Concrete046",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "spawn_painted_mineral_01.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "color.jpg.003",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "color.jpg.004",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "color.jpg.005",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "Gullet Damp Slate Albedo",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "Gullet Fresh Slate Albedo",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "Gullet Slate Painted Albedo",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "height.jpg.003",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "height.jpg.004",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "height.jpg.005",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "label_cart.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "label_door.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "label_magazine.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "label_portal.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "label_pump.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "label_return.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "label_sector_a.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "label_sector_b.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "label_sector_c.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "localized_scuff.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "paper_basecolor.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "paper_normal.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "paper_roughness.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "roughness.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "roughness.jpg.001",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "roughness.jpg.002",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "roughness.jpg.003",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "roughness.jpg.004",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "roughness.jpg.005",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "shift_card.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "timber_basecolor.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "timber_normal.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "timber_roughness.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "cs_poster_art_landscape",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "cs_poster_art_portrait",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "cs_tv_briefing_slide",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "metal_plate_diff_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "metal_plate_disp_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "metal_plate_rough_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "painted_plaster_wall_diff_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "painted_plaster_wall_disp_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "painted_plaster_wall_rough_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "plastered_wall_diff_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "plastered_wall_disp_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "plastered_wall_rough_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wood_table_worn_diff_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wood_table_worn_disp_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "wood_table_worn_rough_2k.jpg",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "T01-floor-albedo-r01.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "T02-wall-albedo-r01.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "T03-cloth-albedo-r01.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "A04 original painted material atlas",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "A05 main-hall painted material atlas",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "crt_rx_core.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "crt_trend.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "keycap_atlas.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "PAINTED floor use map \u2014 original Art09",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "your-shift-their-tomorrow.png",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "color.jpg.001",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "height.jpg.001",
+      "packed": true,
+      "valid_loaded_pixels": true
+    },
+    {
+      "name": "roughness.jpg.001",
+      "packed": true,
+      "valid_loaded_pixels": true
+    }
+  ],
+  "errors": [],
+  "verified_stage_archive_sha256": "a8bf6cbe16436d1123193e454333c160e645233a59e53b448391fa03141157d3",
+  "verification_scope": "Actual extracted stage source ZIP. Final delivery ZIP receives a second external report tied to its exact archive checksum."
+}

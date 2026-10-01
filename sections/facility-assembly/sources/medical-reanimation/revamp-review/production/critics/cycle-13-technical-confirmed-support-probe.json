@@ -1,0 +1,2218 @@
+{
+  "source_sha256": "4da6305df4b0618012696bf29baa82db2a9a625511e10ede0afc7ef442937ac7",
+  "source_path": "/workspace/scratch/medical-skill-full-cycle13.blend",
+  "records": [
+    {
+      "family": "battery",
+      "object": "Battery supported drawer rail",
+      "target": "Reserve folded back",
+      "part_surface_world": [
+        -2.1500000953674316,
+        8.9350004196167,
+        0.30000001192092896
+      ],
+      "part_surface_local": [
+        0.0,
+        0.21500015258789062,
+        0.0
+      ],
+      "coordinate_parent": "RESERVE_POWER",
+      "part_surface_parent_local": [
+        0.0,
+        0.21500015258789062,
+        0.30000001192092896
+      ],
+      "OCRU_local": null,
+      "support_surface_world": [
+        -2.1500000953674316,
+        8.96250057220459,
+        0.30000001192092896
+      ],
+      "support_surface_target_local": [
+        0.0,
+        -0.012499809265136719,
+        -0.4399999976158142
+      ],
+      "direction_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ray_gap_m": 0.027500154450535774,
+      "nearest_surface_m": 0.027500152587890625,
+      "source_surface_witness_distance_m": 0.0,
+      "cluster_islands": 59,
+      "cluster_rooted": false,
+      "cluster_members": [
+        {
+          "object": "Battery supported drawer rail",
+          "island": 0,
+          "node": 1890
+        },
+        {
+          "object": "Reserve battery module",
+          "island": 0,
+          "node": 1891
+        },
+        {
+          "object": "Battery terminal",
+          "island": 0,
+          "node": 1892
+        },
+        {
+          "object": "Battery terminal.001",
+          "island": 0,
+          "node": 1893
+        },
+        {
+          "object": "Battery carry handle",
+          "island": 0,
+          "node": 1894
+        },
+        {
+          "object": "Battery carry handle",
+          "island": 1,
+          "node": 1895
+        },
+        {
+          "object": "Battery carry handle",
+          "island": 2,
+          "node": 1896
+        },
+        {
+          "object": "Battery supported drawer rail.001",
+          "island": 0,
+          "node": 1897
+        },
+        {
+          "object": "Reserve battery module.001",
+          "island": 0,
+          "node": 1898
+        },
+        {
+          "object": "Battery terminal.002",
+          "island": 0,
+          "node": 1899
+        },
+        {
+          "object": "Battery terminal.003",
+          "island": 0,
+          "node": 1900
+        },
+        {
+          "object": "Battery carry handle.001",
+          "island": 0,
+          "node": 1901
+        },
+        {
+          "object": "Battery carry handle.001",
+          "island": 1,
+          "node": 1902
+        },
+        {
+          "object": "Battery carry handle.001",
+          "island": 2,
+          "node": 1903
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 0,
+          "node": 2995
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 1,
+          "node": 2996
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 2,
+          "node": 2997
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 3,
+          "node": 2998
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 4,
+          "node": 2999
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 5,
+          "node": 3000
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 6,
+          "node": 3001
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 7,
+          "node": 3002
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 8,
+          "node": 3003
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 9,
+          "node": 3004
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 10,
+          "node": 3005
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 11,
+          "node": 3006
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 12,
+          "node": 3007
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 13,
+          "node": 3008
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 14,
+          "node": 3009
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 15,
+          "node": 3010
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 16,
+          "node": 3011
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 17,
+          "node": 3012
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 18,
+          "node": 3013
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 19,
+          "node": 3014
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 20,
+          "node": 3015
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 21,
+          "node": 3016
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 22,
+          "node": 3017
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 23,
+          "node": 3018
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 24,
+          "node": 3019
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 25,
+          "node": 3020
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 26,
+          "node": 3021
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 27,
+          "node": 3022
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 28,
+          "node": 3023
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 29,
+          "node": 3024
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 30,
+          "node": 3025
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 31,
+          "node": 3026
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 32,
+          "node": 3027
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 33,
+          "node": 3028
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 34,
+          "node": 3029
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 35,
+          "node": 3030
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 36,
+          "node": 3031
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 37,
+          "node": 3032
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 38,
+          "node": 3033
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 39,
+          "node": 3034
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 40,
+          "node": 3035
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 41,
+          "node": 3036
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 42,
+          "node": 3037
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 43,
+          "node": 3038
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 44,
+          "node": 3039
+        }
+      ],
+      "outside_island_AABB_lower_bound_m": 0.025229454040527344,
+      "outside_island_lower_bound_pair": [
+        "Battery carry handle#2",
+        "Reserve removable door#0"
+      ],
+      "status": "CONFIRMED_DETACHED"
+    },
+    {
+      "family": "battery",
+      "object": "Battery supported drawer rail.001",
+      "target": "Reserve folded back",
+      "part_surface_world": [
+        -2.1500000953674316,
+        8.9350004196167,
+        0.7099999785423279
+      ],
+      "part_surface_local": [
+        0.0,
+        0.21500015258789062,
+        0.0
+      ],
+      "coordinate_parent": "RESERVE_POWER",
+      "part_surface_parent_local": [
+        0.0,
+        0.21500015258789062,
+        0.7099999785423279
+      ],
+      "OCRU_local": null,
+      "support_surface_world": [
+        -2.1500000953674316,
+        8.96250057220459,
+        0.7099999785423279
+      ],
+      "support_surface_target_local": [
+        0.0,
+        -0.012499809265136719,
+        -0.030000030994415283
+      ],
+      "direction_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ray_gap_m": 0.027500152587890625,
+      "nearest_surface_m": 0.027500152587890625,
+      "source_surface_witness_distance_m": 0.0,
+      "cluster_islands": 59,
+      "cluster_rooted": false,
+      "cluster_members": [
+        {
+          "object": "Battery supported drawer rail",
+          "island": 0,
+          "node": 1890
+        },
+        {
+          "object": "Reserve battery module",
+          "island": 0,
+          "node": 1891
+        },
+        {
+          "object": "Battery terminal",
+          "island": 0,
+          "node": 1892
+        },
+        {
+          "object": "Battery terminal.001",
+          "island": 0,
+          "node": 1893
+        },
+        {
+          "object": "Battery carry handle",
+          "island": 0,
+          "node": 1894
+        },
+        {
+          "object": "Battery carry handle",
+          "island": 1,
+          "node": 1895
+        },
+        {
+          "object": "Battery carry handle",
+          "island": 2,
+          "node": 1896
+        },
+        {
+          "object": "Battery supported drawer rail.001",
+          "island": 0,
+          "node": 1897
+        },
+        {
+          "object": "Reserve battery module.001",
+          "island": 0,
+          "node": 1898
+        },
+        {
+          "object": "Battery terminal.002",
+          "island": 0,
+          "node": 1899
+        },
+        {
+          "object": "Battery terminal.003",
+          "island": 0,
+          "node": 1900
+        },
+        {
+          "object": "Battery carry handle.001",
+          "island": 0,
+          "node": 1901
+        },
+        {
+          "object": "Battery carry handle.001",
+          "island": 1,
+          "node": 1902
+        },
+        {
+          "object": "Battery carry handle.001",
+          "island": 2,
+          "node": 1903
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 0,
+          "node": 2995
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 1,
+          "node": 2996
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 2,
+          "node": 2997
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 3,
+          "node": 2998
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 4,
+          "node": 2999
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 5,
+          "node": 3000
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 6,
+          "node": 3001
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 7,
+          "node": 3002
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 8,
+          "node": 3003
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 9,
+          "node": 3004
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 10,
+          "node": 3005
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 11,
+          "node": 3006
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 12,
+          "node": 3007
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 13,
+          "node": 3008
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 14,
+          "node": 3009
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 15,
+          "node": 3010
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 16,
+          "node": 3011
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 17,
+          "node": 3012
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 18,
+          "node": 3013
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 19,
+          "node": 3014
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 20,
+          "node": 3015
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 21,
+          "node": 3016
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 22,
+          "node": 3017
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 23,
+          "node": 3018
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 24,
+          "node": 3019
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 25,
+          "node": 3020
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 26,
+          "node": 3021
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 27,
+          "node": 3022
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 28,
+          "node": 3023
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 29,
+          "node": 3024
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 30,
+          "node": 3025
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 31,
+          "node": 3026
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 32,
+          "node": 3027
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 33,
+          "node": 3028
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 34,
+          "node": 3029
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 35,
+          "node": 3030
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 36,
+          "node": 3031
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 37,
+          "node": 3032
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 38,
+          "node": 3033
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 39,
+          "node": 3034
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 40,
+          "node": 3035
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 41,
+          "node": 3036
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 42,
+          "node": 3037
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 43,
+          "node": 3038
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "island": 44,
+          "node": 3039
+        }
+      ],
+      "outside_island_AABB_lower_bound_m": 0.025229454040527344,
+      "outside_island_lower_bound_pair": [
+        "Battery carry handle#2",
+        "Reserve removable door#0"
+      ],
+      "status": "CONFIRMED_DETACHED"
+    },
+    {
+      "family": "cabinet_panes",
+      "object": "Clear cabinet sliding pane",
+      "target": "Cabinet formed edge",
+      "part_surface_world": [
+        3.260999917984009,
+        8.369999885559082,
+        1.8899998664855957
+      ],
+      "part_surface_local": [
+        -0.4300004541873932,
+        0.010999790392816067,
+        -1.1920928955078125e-07
+      ],
+      "coordinate_parent": "SUPPLY_CABINET",
+      "part_surface_parent_local": [
+        -0.9000002145767212,
+        -0.34900009632110596,
+        1.8899998664855957
+      ],
+      "OCRU_local": null,
+      "support_surface_world": [
+        3.2749998569488525,
+        8.369999885559082,
+        1.8899998664855957
+      ],
+      "support_surface_target_local": [
+        0.010000085458159447,
+        -0.3349999189376831,
+        0.009999871253967285
+      ],
+      "direction_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ray_gap_m": 0.013999938033521175,
+      "nearest_surface_m": 0.01399993896484375,
+      "source_surface_witness_distance_m": 1.1920928955078125e-07,
+      "cluster_islands": 54,
+      "cluster_rooted": false,
+      "cluster_members": [
+        {
+          "object": "Clear cabinet sliding pane",
+          "island": 0,
+          "node": 1653
+        },
+        {
+          "object": "Clear cabinet sliding pane",
+          "island": 1,
+          "node": 1654
+        },
+        {
+          "object": "Clear cabinet sliding pane",
+          "island": 2,
+          "node": 1655
+        },
+        {
+          "object": "Clear cabinet sliding pane",
+          "island": 3,
+          "node": 1656
+        },
+        {
+          "object": "Clear cabinet sliding pane.001",
+          "island": 0,
+          "node": 1657
+        },
+        {
+          "object": "Clear cabinet sliding pane.001",
+          "island": 1,
+          "node": 1658
+        },
+        {
+          "object": "Clear cabinet sliding pane.001",
+          "island": 2,
+          "node": 1659
+        },
+        {
+          "object": "Clear cabinet sliding pane.001",
+          "island": 3,
+          "node": 1660
+        },
+        {
+          "object": "Handle mounting boss.002",
+          "island": 0,
+          "node": 1661
+        },
+        {
+          "object": "Handle mounting boss.003",
+          "island": 0,
+          "node": 1662
+        },
+        {
+          "object": "Formed pull grip.001",
+          "island": 0,
+          "node": 1663
+        },
+        {
+          "object": "Handle mounting boss.004",
+          "island": 0,
+          "node": 1664
+        },
+        {
+          "object": "Handle mounting boss.005",
+          "island": 0,
+          "node": 1665
+        },
+        {
+          "object": "Formed pull grip.002",
+          "island": 0,
+          "node": 1666
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 0,
+          "node": 3053
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 1,
+          "node": 3054
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 2,
+          "node": 3055
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 3,
+          "node": 3056
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 4,
+          "node": 3057
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 5,
+          "node": 3058
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 6,
+          "node": 3059
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 7,
+          "node": 3060
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 8,
+          "node": 3061
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 9,
+          "node": 3062
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 10,
+          "node": 3063
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 11,
+          "node": 3064
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 12,
+          "node": 3065
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 13,
+          "node": 3066
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 14,
+          "node": 3067
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 15,
+          "node": 3068
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 16,
+          "node": 3069
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 17,
+          "node": 3070
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 18,
+          "node": 3071
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 19,
+          "node": 3072
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 0,
+          "node": 3073
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 1,
+          "node": 3074
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 2,
+          "node": 3075
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 3,
+          "node": 3076
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 4,
+          "node": 3077
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 5,
+          "node": 3078
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 6,
+          "node": 3079
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 7,
+          "node": 3080
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 8,
+          "node": 3081
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 9,
+          "node": 3082
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 10,
+          "node": 3083
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 11,
+          "node": 3084
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 12,
+          "node": 3085
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 13,
+          "node": 3086
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 14,
+          "node": 3087
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 15,
+          "node": 3088
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 16,
+          "node": 3089
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 17,
+          "node": 3090
+        },
+        {
+          "object": "MED_R2 | Neglected cabinet restraint seal",
+          "island": 0,
+          "node": 3091
+        },
+        {
+          "object": "MED_R2 | Neglected cabinet restraint seal",
+          "island": 1,
+          "node": 3092
+        }
+      ],
+      "outside_island_AABB_lower_bound_m": 0.01399993896484375,
+      "outside_island_lower_bound_pair": [
+        "Clear cabinet sliding pane#0",
+        "Cabinet formed edge#0"
+      ],
+      "status": "CONFIRMED_DETACHED"
+    },
+    {
+      "family": "cabinet_panes",
+      "object": "Clear cabinet sliding pane.001",
+      "target": "Cabinet formed edge.001",
+      "part_surface_world": [
+        3.2609996795654297,
+        6.570000171661377,
+        1.8899999856948853
+      ],
+      "part_surface_local": [
+        0.4299996793270111,
+        0.010999869555234909,
+        0.0
+      ],
+      "coordinate_parent": "SUPPLY_CABINET",
+      "part_surface_parent_local": [
+        0.8999994993209839,
+        -0.3490002751350403,
+        1.8899999856948853
+      ],
+      "OCRU_local": null,
+      "support_surface_world": [
+        3.2749998569488525,
+        6.570000171661377,
+        1.8899999856948853
+      ],
+      "support_surface_target_local": [
+        -0.010000372305512428,
+        -0.33500009775161743,
+        0.009999990463256836
+      ],
+      "direction_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ray_gap_m": 0.014000176452100277,
+      "nearest_surface_m": 0.014000177383422852,
+      "source_surface_witness_distance_m": 0.0,
+      "cluster_islands": 54,
+      "cluster_rooted": false,
+      "cluster_members": [
+        {
+          "object": "Clear cabinet sliding pane",
+          "island": 0,
+          "node": 1653
+        },
+        {
+          "object": "Clear cabinet sliding pane",
+          "island": 1,
+          "node": 1654
+        },
+        {
+          "object": "Clear cabinet sliding pane",
+          "island": 2,
+          "node": 1655
+        },
+        {
+          "object": "Clear cabinet sliding pane",
+          "island": 3,
+          "node": 1656
+        },
+        {
+          "object": "Clear cabinet sliding pane.001",
+          "island": 0,
+          "node": 1657
+        },
+        {
+          "object": "Clear cabinet sliding pane.001",
+          "island": 1,
+          "node": 1658
+        },
+        {
+          "object": "Clear cabinet sliding pane.001",
+          "island": 2,
+          "node": 1659
+        },
+        {
+          "object": "Clear cabinet sliding pane.001",
+          "island": 3,
+          "node": 1660
+        },
+        {
+          "object": "Handle mounting boss.002",
+          "island": 0,
+          "node": 1661
+        },
+        {
+          "object": "Handle mounting boss.003",
+          "island": 0,
+          "node": 1662
+        },
+        {
+          "object": "Formed pull grip.001",
+          "island": 0,
+          "node": 1663
+        },
+        {
+          "object": "Handle mounting boss.004",
+          "island": 0,
+          "node": 1664
+        },
+        {
+          "object": "Handle mounting boss.005",
+          "island": 0,
+          "node": 1665
+        },
+        {
+          "object": "Formed pull grip.002",
+          "island": 0,
+          "node": 1666
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 0,
+          "node": 3053
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 1,
+          "node": 3054
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 2,
+          "node": 3055
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 3,
+          "node": 3056
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 4,
+          "node": 3057
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 5,
+          "node": 3058
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 6,
+          "node": 3059
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 7,
+          "node": 3060
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 8,
+          "node": 3061
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 9,
+          "node": 3062
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 10,
+          "node": 3063
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 11,
+          "node": 3064
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 12,
+          "node": 3065
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 13,
+          "node": 3066
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 14,
+          "node": 3067
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 15,
+          "node": 3068
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 16,
+          "node": 3069
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 17,
+          "node": 3070
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 18,
+          "node": 3071
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island": 19,
+          "node": 3072
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 0,
+          "node": 3073
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 1,
+          "node": 3074
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 2,
+          "node": 3075
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 3,
+          "node": 3076
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 4,
+          "node": 3077
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 5,
+          "node": 3078
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 6,
+          "node": 3079
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 7,
+          "node": 3080
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 8,
+          "node": 3081
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 9,
+          "node": 3082
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 10,
+          "node": 3083
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 11,
+          "node": 3084
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 12,
+          "node": 3085
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 13,
+          "node": 3086
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 14,
+          "node": 3087
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 15,
+          "node": 3088
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 16,
+          "node": 3089
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island": 17,
+          "node": 3090
+        },
+        {
+          "object": "MED_R2 | Neglected cabinet restraint seal",
+          "island": 0,
+          "node": 3091
+        },
+        {
+          "object": "MED_R2 | Neglected cabinet restraint seal",
+          "island": 1,
+          "node": 3092
+        }
+      ],
+      "outside_island_AABB_lower_bound_m": 0.01399993896484375,
+      "outside_island_lower_bound_pair": [
+        "Clear cabinet sliding pane#0",
+        "Cabinet formed edge#0"
+      ],
+      "status": "CONFIRMED_DETACHED"
+    },
+    {
+      "family": "suit_service",
+      "object": "Suit service enclosure",
+      "target": "Jamb folded cover.001",
+      "part_surface_world": [
+        -1.4887499809265137,
+        6.400000095367432,
+        1.25
+      ],
+      "part_surface_local": [
+        0.1700001358985901,
+        -1.6054360685302527e-07,
+        0.0
+      ],
+      "coordinate_parent": "OCRU_SUIT_SERVICE",
+      "part_surface_parent_local": [
+        0.1700001358985901,
+        0.01499982550740242,
+        0.0
+      ],
+      "OCRU_local": [
+        1.7700001001358032,
+        -1.2200000286102295,
+        1.25
+      ],
+      "support_surface_world": [
+        -1.4887499809265137,
+        6.469600200653076,
+        1.25
+      ],
+      "support_surface_target_local": [
+        -0.12499993294477463,
+        0.004999831784516573,
+        -0.2200000286102295
+      ],
+      "direction_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ray_gap_m": 0.06960010528564453,
+      "nearest_surface_m": 0.06960010528564453,
+      "source_surface_witness_distance_m": 0.0,
+      "cluster_islands": 38,
+      "cluster_rooted": false,
+      "cluster_members": [
+        {
+          "object": "Suit port socket",
+          "island": 0,
+          "node": 559
+        },
+        {
+          "object": "Suit coupling lock",
+          "island": 0,
+          "node": 560
+        },
+        {
+          "object": "Suit service hose",
+          "island": 0,
+          "node": 561
+        },
+        {
+          "object": "Suit service hose",
+          "island": 1,
+          "node": 562
+        },
+        {
+          "object": "Suit service hose",
+          "island": 2,
+          "node": 563
+        },
+        {
+          "object": "Parked suit coupling",
+          "island": 0,
+          "node": 564
+        },
+        {
+          "object": "Coupling parking clip",
+          "island": 0,
+          "node": 565
+        },
+        {
+          "object": "Engraved backing SUIT",
+          "island": 0,
+          "node": 566
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 0,
+          "node": 567
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 1,
+          "node": 568
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 2,
+          "node": 569
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 3,
+          "node": 570
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 4,
+          "node": 571
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 5,
+          "node": 572
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 6,
+          "node": 573
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 7,
+          "node": 574
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 8,
+          "node": 575
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 9,
+          "node": 576
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 10,
+          "node": 577
+        },
+        {
+          "object": "Engraved SUIT",
+          "island": 11,
+          "node": 578
+        },
+        {
+          "object": "Engraved backing 01",
+          "island": 0,
+          "node": 797
+        },
+        {
+          "object": "Engraved 01",
+          "island": 0,
+          "node": 798
+        },
+        {
+          "object": "Engraved 01",
+          "island": 1,
+          "node": 799
+        },
+        {
+          "object": "Engraved 01",
+          "island": 2,
+          "node": 800
+        },
+        {
+          "object": "Engraved 01",
+          "island": 3,
+          "node": 801
+        },
+        {
+          "object": "Engraved 01",
+          "island": 4,
+          "node": 802
+        },
+        {
+          "object": "Engraved 01",
+          "island": 5,
+          "node": 803
+        },
+        {
+          "object": "Engraved 01",
+          "island": 6,
+          "node": 804
+        },
+        {
+          "object": "Interface label mounting stem",
+          "island": 0,
+          "node": 805
+        },
+        {
+          "object": "Suit service enclosure",
+          "island": 0,
+          "node": 817
+        },
+        {
+          "object": "Suit collar lock lug",
+          "island": 0,
+          "node": 830
+        },
+        {
+          "object": "Suit collar lock lug.001",
+          "island": 0,
+          "node": 831
+        },
+        {
+          "object": "Suit collar lock lug.002",
+          "island": 0,
+          "node": 832
+        },
+        {
+          "object": "Suit collar lock lug.003",
+          "island": 0,
+          "node": 833
+        },
+        {
+          "object": "Suit collar lock lug.004",
+          "island": 0,
+          "node": 834
+        },
+        {
+          "object": "Suit collar lock lug.005",
+          "island": 0,
+          "node": 835
+        },
+        {
+          "object": "Suit collar lock lug.006",
+          "island": 0,
+          "node": 836
+        },
+        {
+          "object": "Suit collar lock lug.007",
+          "island": 0,
+          "node": 837
+        }
+      ],
+      "outside_island_AABB_lower_bound_m": 0.04900026321411133,
+      "outside_island_lower_bound_pair": [
+        "Suit service enclosure#0",
+        "Seal guide.001#0"
+      ],
+      "status": "CONFIRMED_DETACHED"
+    },
+    {
+      "family": "recovery_plaque",
+      "object": "Engraved backing RECOVERY.001",
+      "target": "Identity wall spacer",
+      "part_surface_world": [
+        3.9739999771118164,
+        4.699999809265137,
+        1.75
+      ],
+      "part_surface_local": [
+        -1.7370905425195815e-07,
+        0.003999981563538313,
+        0.0
+      ],
+      "coordinate_parent": "Recovery identity",
+      "part_surface_parent_local": [
+        -1.7370905425195815e-07,
+        0.003999981563538313,
+        0.0
+      ],
+      "OCRU_local": null,
+      "support_surface_world": [
+        3.9800000190734863,
+        4.699999809265137,
+        1.75
+      ],
+      "support_surface_target_local": [
+        -1.7397132978658192e-07,
+        -0.009999957866966724,
+        0.0
+      ],
+      "direction_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ray_gap_m": 0.006000041961669922,
+      "nearest_surface_m": 0.006000041961669922,
+      "source_surface_witness_distance_m": 0.0,
+      "cluster_islands": 28,
+      "cluster_rooted": false,
+      "cluster_members": [
+        {
+          "object": "Engraved backing RECOVERY.001",
+          "island": 0,
+          "node": 269
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 0,
+          "node": 270
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 1,
+          "node": 271
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 2,
+          "node": 272
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 3,
+          "node": 273
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 4,
+          "node": 274
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 5,
+          "node": 275
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 6,
+          "node": 276
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 7,
+          "node": 277
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 8,
+          "node": 278
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 9,
+          "node": 279
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 10,
+          "node": 280
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 11,
+          "node": 281
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 12,
+          "node": 282
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 13,
+          "node": 283
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 14,
+          "node": 284
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 15,
+          "node": 285
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 16,
+          "node": 286
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 17,
+          "node": 287
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 18,
+          "node": 288
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 19,
+          "node": 289
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 20,
+          "node": 290
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 21,
+          "node": 291
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 22,
+          "node": 292
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 23,
+          "node": 293
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 24,
+          "node": 294
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 25,
+          "node": 295
+        },
+        {
+          "object": "Engraved RECOVERY.001",
+          "island": 26,
+          "node": 296
+        }
+      ],
+      "outside_island_AABB_lower_bound_m": 0.006000041961669922,
+      "outside_island_lower_bound_pair": [
+        "Engraved backing RECOVERY.001#0",
+        "Identity wall spacer#0"
+      ],
+      "status": "CONFIRMED_DETACHED"
+    },
+    {
+      "family": "supplies_plaque",
+      "object": "Engraved backing SUPPLIES",
+      "target": "Identity wall spacer.001",
+      "part_surface_world": [
+        3.9739999771118164,
+        1.4700000286102295,
+        1.75
+      ],
+      "part_surface_local": [
+        -5.44997647011769e-08,
+        0.003999884240329266,
+        0.0
+      ],
+      "coordinate_parent": "Supplies identity",
+      "part_surface_parent_local": [
+        -5.44997647011769e-08,
+        0.003999884240329266,
+        0.0
+      ],
+      "OCRU_local": null,
+      "support_surface_world": [
+        3.9800000190734863,
+        1.4700000286102295,
+        1.75
+      ],
+      "support_surface_target_local": [
+        -5.476204023580067e-08,
+        -0.010000054724514484,
+        0.0
+      ],
+      "direction_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ray_gap_m": 0.006000041961669922,
+      "nearest_surface_m": 0.006000041961669922,
+      "source_surface_witness_distance_m": 0.0,
+      "cluster_islands": 27,
+      "cluster_rooted": false,
+      "cluster_members": [
+        {
+          "object": "Engraved backing SUPPLIES",
+          "island": 0,
+          "node": 298
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 0,
+          "node": 299
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 1,
+          "node": 300
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 2,
+          "node": 301
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 3,
+          "node": 302
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 4,
+          "node": 303
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 5,
+          "node": 304
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 6,
+          "node": 305
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 7,
+          "node": 306
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 8,
+          "node": 307
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 9,
+          "node": 308
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 10,
+          "node": 309
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 11,
+          "node": 310
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 12,
+          "node": 311
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 13,
+          "node": 312
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 14,
+          "node": 313
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 15,
+          "node": 314
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 16,
+          "node": 315
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 17,
+          "node": 316
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 18,
+          "node": 317
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 19,
+          "node": 318
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 20,
+          "node": 319
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 21,
+          "node": 320
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 22,
+          "node": 321
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 23,
+          "node": 322
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 24,
+          "node": 323
+        },
+        {
+          "object": "Engraved SUPPLIES",
+          "island": 25,
+          "node": 324
+        }
+      ],
+      "outside_island_AABB_lower_bound_m": 0.006000041961669922,
+      "outside_island_lower_bound_pair": [
+        "Engraved backing SUPPLIES#0",
+        "Identity wall spacer.001#0"
+      ],
+      "status": "CONFIRMED_DETACHED"
+    },
+    {
+      "family": "jamb_fixings",
+      "object": "Jamb captive fastener",
+      "target": "Jamb folded cover",
+      "part_surface_world": [
+        -1.4427498579025269,
+        2.6654000282287598,
+        0.550000011920929
+      ],
+      "part_surface_local": [
+        6.306459710003764e-08,
+        -3.4599472176211066e-09,
+        -0.003999975044280291
+      ],
+      "coordinate_parent": "OCRU",
+      "part_surface_parent_local": [
+        -1.9645999670028687,
+        -1.2660000324249268,
+        0.550000011920929
+      ],
+      "OCRU_local": [
+        -1.9645999670028687,
+        -1.2660000324249268,
+        0.550000011920929
+      ],
+      "support_surface_world": [
+        -1.4651498794555664,
+        2.6654000282287598,
+        0.550000011920929
+      ],
+      "support_surface_target_local": [
+        6.404373209534242e-08,
+        -0.018599985167384148,
+        -0.9200000166893005
+      ],
+      "direction_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "ray_gap_m": 0.0224000234156847,
+      "nearest_surface_m": 0.02240002155303955,
+      "source_surface_witness_distance_m": 0.0,
+      "cluster_islands": 2,
+      "cluster_rooted": false,
+      "cluster_members": [
+        {
+          "object": "Jamb captive fastener",
+          "island": 0,
+          "node": 407
+        },
+        {
+          "object": "Screwdriver slot",
+          "island": 0,
+          "node": 408
+        }
+      ],
+      "outside_island_AABB_lower_bound_m": 0.01100003719329834,
+      "outside_island_lower_bound_pair": [
+        "Jamb captive fastener#0",
+        "Jamb folded cover#0"
+      ],
+      "status": "CONFIRMED_DETACHED"
+    },
+    {
+      "family": "jamb_fixings",
+      "object": "Jamb captive fastener.002",
+      "target": "Jamb folded cover",
+      "part_surface_world": [
+        -1.4427498579025269,
+        2.6654000282287598,
+        2.180000066757202
+      ],
+      "part_surface_local": [
+        6.306459710003764e-08,
+        -6.306458999461029e-08,
+        -0.003999927081167698
+      ],
+      "coordinate_parent": "OCRU",
+      "part_surface_parent_local": [
+        -1.9645999670028687,
+        -1.2660000324249268,
+        2.180000066757202
+      ],
+      "OCRU_local": [
+        -1.9645999670028687,
+        -1.2660000324249268,
+        2.180000066757202
+      ],
+      "support_surface_world": [
+        -1.4651498794555664,
+        2.6654000282287598,
+        2.180000066757202
+      ],
+      "support_surface_target_local": [
+        6.404373209534242e-08,
+        -0.018599985167384148,
+        0.7100000381469727
+      ],
+      "direction_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "ray_gap_m": 0.0224000234156847,
+      "nearest_surface_m": 0.02240002155303955,
+      "source_surface_witness_distance_m": 0.0,
+      "cluster_islands": 2,
+      "cluster_rooted": false,
+      "cluster_members": [
+        {
+          "object": "Jamb captive fastener.002",
+          "island": 0,
+          "node": 411
+        },
+        {
+          "object": "Screwdriver slot.002",
+          "island": 0,
+          "node": 412
+        }
+      ],
+      "outside_island_AABB_lower_bound_m": 0.01100003719329834,
+      "outside_island_lower_bound_pair": [
+        "Jamb captive fastener.002#0",
+        "Jamb folded cover#0"
+      ],
+      "status": "CONFIRMED_DETACHED"
+    },
+    {
+      "family": "jamb_fixings",
+      "object": "Jamb captive fastener.003",
+      "target": "Jamb folded cover.001",
+      "part_surface_world": [
+        -1.442750096321106,
+        6.594600200653076,
+        0.550000011920929
+      ],
+      "part_surface_local": [
+        6.306461131089236e-08,
+        -3.4599541010038593e-09,
+        -0.003999922890216112
+      ],
+      "coordinate_parent": "OCRU",
+      "part_surface_parent_local": [
+        1.9646002054214478,
+        -1.2659999132156372,
+        0.550000011920929
+      ],
+      "OCRU_local": [
+        1.9646002054214478,
+        -1.2659999132156372,
+        0.550000011920929
+      ],
+      "support_surface_world": [
+        -1.4651501178741455,
+        6.594600200653076,
+        0.550000011920929
+      ],
+      "support_surface_target_local": [
+        6.404374630619714e-08,
+        -0.018600037321448326,
+        -0.9200000166893005
+      ],
+      "direction_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "ray_gap_m": 0.02240002155303955,
+      "nearest_surface_m": 0.02240002155303955,
+      "source_surface_witness_distance_m": 0.0,
+      "cluster_islands": 2,
+      "cluster_rooted": false,
+      "cluster_members": [
+        {
+          "object": "Jamb captive fastener.003",
+          "island": 0,
+          "node": 418
+        },
+        {
+          "object": "Screwdriver slot.003",
+          "island": 0,
+          "node": 419
+        }
+      ],
+      "outside_island_AABB_lower_bound_m": 0.01100003719329834,
+      "outside_island_lower_bound_pair": [
+        "Jamb captive fastener.003#0",
+        "Jamb folded cover.001#0"
+      ],
+      "status": "CONFIRMED_DETACHED"
+    },
+    {
+      "family": "jamb_fixings",
+      "object": "Jamb captive fastener.005",
+      "target": "Jamb folded cover.001",
+      "part_surface_world": [
+        -1.442750096321106,
+        6.594600200653076,
+        2.180000066757202
+      ],
+      "part_surface_local": [
+        6.306461131089236e-08,
+        -6.306459710003764e-08,
+        -0.0039998749271035194
+      ],
+      "coordinate_parent": "OCRU",
+      "part_surface_parent_local": [
+        1.9646002054214478,
+        -1.2659999132156372,
+        2.180000066757202
+      ],
+      "OCRU_local": [
+        1.9646002054214478,
+        -1.2659999132156372,
+        2.180000066757202
+      ],
+      "support_surface_world": [
+        -1.4651501178741455,
+        6.594600200653076,
+        2.180000066757202
+      ],
+      "support_surface_target_local": [
+        6.404374630619714e-08,
+        -0.018600037321448326,
+        0.7100000381469727
+      ],
+      "direction_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "ray_gap_m": 0.0224000234156847,
+      "nearest_surface_m": 0.02240002155303955,
+      "source_surface_witness_distance_m": 0.0,
+      "cluster_islands": 2,
+      "cluster_rooted": false,
+      "cluster_members": [
+        {
+          "object": "Jamb captive fastener.005",
+          "island": 0,
+          "node": 422
+        },
+        {
+          "object": "Screwdriver slot.005",
+          "island": 0,
+          "node": 423
+        }
+      ],
+      "outside_island_AABB_lower_bound_m": 0.01100003719329834,
+      "outside_island_lower_bound_pair": [
+        "Jamb captive fastener.005#0",
+        "Jamb folded cover.001#0"
+      ],
+      "status": "CONFIRMED_DETACHED"
+    }
+  ],
+  "family_count": 6,
+  "confirmed_records": 11,
+  "source_saved": false,
+  "limits": [
+    "Ray witnesses measure specified intended mechanisms. Other graph suspects are not elevated to confirmed findings.",
+    "Outside-island AABB lower bound is exhaustive over every nonarchitectural island. Architectural targets were separately tested in whole-contact-probe; no root contact was found."
+  ]
+}

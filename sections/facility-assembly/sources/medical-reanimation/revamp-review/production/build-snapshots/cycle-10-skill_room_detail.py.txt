@@ -1,0 +1,140 @@
+"""Full-room extension of the reviewed clinical construction slice."""
+
+# Battery housings are painted steel, not inherited near-black graphite. A
+# shallow pressed face preserves their envelope and seats the service label.
+for suffix in ('','.001'):
+    folded_skin(s.objects['Reserve battery module'+suffix],1,-1,inset=.07,depth=.006)
+    for name in ('Reserve folded side','Reserve folded cap'):
+        o=s.objects[name+suffix];o.data.materials.clear();o.data.materials.append(M['blue'])
+
+def attribute_age(mat,name,color):
+    nt=mat.node_tree;p=principal(mat);base=p.inputs['Base Color']
+    src=base.links[0].from_socket if base.is_linked else None
+    a=nt.nodes.new('ShaderNodeAttribute');a.attribute_name=name
+    mix=nt.nodes.new('ShaderNodeMixRGB')
+    if src:nt.links.new(src,mix.inputs[1])
+    else:mix.inputs[1].default_value=base.default_value[:]
+    mix.inputs[2].default_value=(*rgb(color),1)
+    nt.links.new(a.outputs['Fac'],mix.inputs[0]);nt.links.new(mix.outputs[0],base)
+
+def paint_surface(o,name,fn,cuts=24):
+    # Planar subdivision carries hand-directed broad wear while preserving every
+    # wall plane and original bound. No displacement and no automatic unwrap.
+    o.data=o.data.copy();bm=bmesh.new();bm.from_mesh(o.data)
+    bmesh.ops.subdivide_edges(bm,edges=list(bm.edges),cuts=cuts,use_grid_fill=True)
+    bm.to_mesh(o.data);bm.free();o.data.update()
+    a=o.data.attributes.get(name) or o.data.attributes.new(name,'FLOAT','POINT')
+    for v,w in zip(o.data.vertices,a.data):w.value=max(0,min(.82,fn(o.matrix_world@v.co)))
+
+attribute_age(M['mauve'],'MED_WallAge','62595F')
+attribute_age(M['navy'],'MED_WallAge','5B6069')
+for o in list(s.objects):
+    if o.name in ['West wall','East wall','Entry wall','Entry wall.001','Rear west wall','Rear east wall','Decon west wall','Decon east wall'] or o.name.startswith('Impact wall lining'):
+        def wall_age(p):
+            # Leaking upper service seam on the north west panel, wash handling
+            # on the east wall, and repeated cart contact below the impact cap.
+            leak=.46*math.exp(-((p.x+3.46)/.23)**2)*math.exp(-((p.y-9)/.38)**2)*math.exp(-((p.z-2.27)/.64)**2)
+            wash=.32*math.exp(-((p.y-3.02)/.40)**2)*math.exp(-((p.x-4)/.25)**2)*math.exp(-((p.z-1.19)/.48)**2)
+            low=.12*math.exp(-((p.z-.46)/.25)**2)*(math.exp(-((p.y-1.3)/.50)**2)+math.exp(-((p.y-4.7)/.55)**2))
+            return (leak+wash+low)*(.86+.14*math.sin(p.z*13+p.y*4)**2)
+        paint_surface(o,'MED_WallAge',wall_age,20)
+attribute_age(M['floor'],'MED_FloorAge','49434B')
+def floor_age(p):
+    bed=.32*math.exp(-((p.x+2.38)/.61)**2-((p.y-4.35)/.92)**2)
+    wash=.24*math.exp(-((p.x-3.45)/.32)**2-((p.y-3.05)/.48)**2)
+    cart=.20*math.exp(-((p.x+3.10)/.47)**2-((p.y-1.2)/.70)**2)
+    return (bed+wash+cart)*(.84+.16*math.sin(p.x*14+p.y*7)**2)
+paint_surface(s.objects['Floor'],'MED_FloorAge',floor_age,44)
+
+attribute_age(M['cream'],'MED_WorkWear','8C8D87')
+top=s.objects['Supply bench top']
+def work_wear(p):
+    q=bench.matrix_world.inverted()@p
+    lip=.28*math.exp(-((q.y+.425)/.016)**2)*(.55+.45*math.sin(q.x*8+.4)**2)
+    work=.13*math.exp(-((q.x-.18)/.36)**2-((q.y+.16)/.19)**2)
+    return lip+work
+paint_surface(top,'MED_WorkWear',work_wear,30)
+
+def sealed_wrapper(o):
+    # Folded paper around a gauze stack: bevelled cardboard is the wrong form.
+    lo,hi=bounds(o);sp=hi-lo;v=[];f=[];n=12
+    for bottom in (False,True):
+        for i in range(n+1):
+            x=-1+2*i/n
+            for j in range(n+1):
+                y=-1+2*j/n
+                xx=x*(1-.025*abs(y)**10);yy=y*(1-.025*abs(x)**10)
+                # Thin crimped perimeter, broad gauze centre, two folded corners.
+                rise=max(0,1-max(abs(x),abs(y))**12)**.5
+                z=0 if bottom else .18+.82*rise
+                if not bottom:z-=.12*math.exp(-((x+y-1.1)/.10)**2)*rise
+                v.append((lo.x+(xx+1)*sp.x/2,lo.y+(yy+1)*sp.y/2,lo.z+z*sp.z))
+    size=(n+1)**2
+    for b in range(2):
+        for i in range(n):
+            for j in range(n):
+                q=b*size+i*(n+1)+j;face=(q,q+1,q+n+2,q+n+1);f.append(face if b else tuple(reversed(face)))
+    edge=list(range(n+1))+[i*(n+1)+n for i in range(1,n+1)]+[n*(n+1)+j for j in range(n-1,-1,-1)]+[i*(n+1) for i in range(n-1,0,-1)]
+    for a,b in zip(edge,edge[1:]+edge[:1]):f.append((a,b,b+size,a+size))
+    for k in range(3):
+        amin=min(p[k] for p in v);amax=max(p[k] for p in v)
+        v=[tuple(lo[t]+(p[t]-amin)/(amax-amin)*sp[t] if t==k else p[t] for t in range(3)) for p in v]
+    replace(o,v,f,[M['paper']],smooth=True)
+for name in ['Sterile pack','Sterile pack.001']:sealed_wrapper(s.objects[name])
+
+def carton_print():
+    for o in [s.objects['Sterile pack'],s.objects['Sterile pack.001']]:
+        x,y,z=o.location
+        text('Sterile gauze wrapper typography','STERILE / 04\nGAUZE COMPRESS',(x-.088,y+.08,z+.0154),.012,M['ink'],bench,(0,0,0))
+        for i in range(8):line('Wrapper heat-seal crimps',[(x-.095,y-.105+i*.025,z+.002),(x-.087,y-.105+i*.025,z+.004)],.0006,M['age'],bench)
+    for i,o in enumerate([o for o in s.objects if o.name.startswith('Sealed consumable carton')]):
+        assign(o,M['carton']);x,y,z=o.location;lo,hi=bounds(o)
+        text('Carton clinical stock print','CONTINUITY\nMEDICAL STOCK', (x-.15,y-.247,z+.023),.019,M['ink'],bench)
+        text('Carton batch identifier','LOT 31-804 / '+str(12+i),(x-.15,y-.247,z-.050),.010,M['ink'],bench)
+        for k in range(22):box('Carton inventory barcode',(x-.145+k*.007,y-.247,z-.075),(.002 if k%3 else .004,.001,.021),M['ink'],bench)
+        # Fold lines are physically shallow pressed paper seams.
+        for xx in (-.185,.185):line('Carton folded return',[(x+xx,y-.245,z-.087),(x+xx,y-.245,z+.085)],.0007,M['age'],bench)
+group('Printed and folded clinical packaging',carton_print,'Sterile pack.001')
+
+# Detailed tire section, smooth shoulders and an open hub. Replaces the old
+# simple cylinder within its exact measured axle/radius envelope.
+for o in [o for o in s.objects if o.name.startswith('Caster rubber tyre')]:
+    lo,hi=bounds(o);sp=hi-lo;axis=min(range(3),key=lambda i:sp[i]);axes=[i for i in range(3) if i!=axis];v=[];f=[];n=64
+    rings=[(-.5,.36),(-.5,.82),(-.42,.97),(-.26,1),(.26,1),(.42,.97),(.5,.82),(.5,.36)]
+    for z,r in rings:
+        for i in range(n):
+            a=i*math.tau/n;p=(lo+hi)/2;p[axis]+=z*sp[axis];p[axes[0]]+=r*sp[axes[0]]*.5*math.cos(a);p[axes[1]]+=r*sp[axes[1]]*.5*math.sin(a);v.append(tuple(p))
+    for k in range(len(rings)):
+        for i in range(n):f.append((k*n+i,k*n+(i+1)%n,((k+1)%len(rings))*n+(i+1)%n,((k+1)%len(rings))*n+i))
+    replace(o,v,f,[M['rubber']],smooth=True)
+
+def cart_service():
+    for x in (-.27,.27):
+        for y in (-.83,.83):
+            box('Caster brake folded pedal',(x,y+.075,.117),(.060,.052,.014),M['ochre'],cart,.003)
+            for off in (-.016,0,.016):box('Caster brake traction rib',(x+off,y+.078,.126),(.006,.040,.004),M['edge'],cart)
+            cylinder('Swivel captive locking pin',(x,y,.245),.025,.020,M['steel'],cart,vertices=24)
+            line('Caster brake retaining lever',[(x,y+.042,.145),(x,y+.065,.118)],.006,M['steel'],cart)
+group('Transfer cart brake and retained swivel construction',cart_service,'Caster mounting plate')
+
+def cart_deck_identity():
+    plate('Transfer cart end inspection plate',(0,-1.051,.830),.22,.050,.003,M['navy'],s.objects['CART_LIFT_DECK'],.009)
+    text('Transfer cart working load print','LOAD / 140 KG',(-.091,-1.053,.835),.016,M['paper'],s.objects['CART_LIFT_DECK'])
+group('Transfer deck load identification',cart_deck_identity,'Cart deck')
+
+# Cabinet fog and deposits are deliberately restrained so the clinical stock
+# still reads through the glazing. Its two sliding leaves retain their parenting.
+gp=principal(M['glass']);gp.inputs['Roughness'].default_value=.16
+for name in ['MED_R2 | Old caster traffic marks','MED_R2 | Neglected clinical traffic']:
+    obj=s.objects.get(name)
+    if obj:
+        for slot in obj.material_slots:
+            if slot.material in (M['blood'],M['rust'],M['rubber']):slot.material=M['age']
+
+# Fine handling marks stay attached to the worktop and use the medical working
+# cluster's footprint. The room's quiet areas remain quiet.
+def worktop_contact():
+    for i in range(7):
+        x=-.12+i*.035;y=-.30+.012*math.sin(i)
+        line('Clinical handled worktop hairline',[(x,y,.9454),(x+.050+i*.004,y+.003,.9454)],.00035,M['edge'],bench)
+group('Localized clinical worktop handling',worktop_contact,'Supply bench top')

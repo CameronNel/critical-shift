@@ -1,0 +1,157 @@
+{
+  "cycle": 3,
+  "reviewer": "medical_technical_cycle3",
+  "score": 8.4,
+  "available": 10,
+  "acceptance_threshold": 8.5,
+  "verdict": "FAIL",
+  "source_sha256": "e11315e75219fa870c9b4f40042f2a4e8bbb1089fcffb0a997f8fefab5068b3d",
+  "review_scope": "Independent read-only technical review of cycle-3 source at this exact hash. Visual art quality and subsequent rebuilds are outside this score.",
+  "blocking_technical_defects": [
+    {
+      "id": "CABINET_SLIDE_HIERARCHY",
+      "severity": "medium",
+      "objects": [
+        "Clear cabinet sliding pane",
+        "Clear cabinet sliding pane.001",
+        "MED_R2 | Medical cabinet fabricated face ",
+        "MED_R2 | Medical cabinet fabricated face .001"
+      ],
+      "finding": "Each new cabinet face group contains glass, gaskets, fasteners and labels but is parented to SUPPLY_CABINET alongside its inherited sliding pane. Moving a pane opens its steel frame while leaving the new glass and skin stationary.",
+      "evidence": [
+        {
+          "pane": "Clear cabinet sliding pane",
+          "pane_parent": "SUPPLY_CABINET",
+          "face": "MED_R2 | Medical cabinet fabricated face ",
+          "face_parent": "SUPPLY_CABINET",
+          "pane_translation": [
+            0.0,
+            -0.14999961853027344,
+            0.0
+          ],
+          "face_translation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "pane_properties": {
+            "assembly_member": "SUPPLY_CABINET"
+          }
+        },
+        {
+          "pane": "Clear cabinet sliding pane.001",
+          "pane_parent": "SUPPLY_CABINET",
+          "face": "MED_R2 | Medical cabinet fabricated face .001",
+          "face_parent": "SUPPLY_CABINET",
+          "pane_translation": [
+            0.0,
+            -0.15000009536743164,
+            0.0
+          ],
+          "face_translation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "pane_properties": {
+            "assembly_member": "SUPPLY_CABINET"
+          }
+        }
+      ],
+      "code": "overhaul_room.py:593-603 constructs cabinet-face pieces with cabinet as parent; group() joins them without reparenting to the declared pane support.",
+      "required_repair": "Parent each fabricated face group to its corresponding original sliding pane while preserving its world matrix, then rerun a pane-motion probe and same-camera renders. Current cabinet cannot be accepted as an intentionally fixed cabinet."
+    }
+  ],
+  "outstanding_acceptance_gates": [
+    "Repair and verify the cabinet sliding-face hierarchy.",
+    "Complete an actual final repeated cold-render batch and compare mandatory images against approved prior images. Fresh cold open and matching in-memory scene fingerprints are not render comparison evidence."
+  ],
+  "verified": [
+    "Fresh Blender 5.2.2 full-file open passes the authored objective checker without saving or changing report files; all 25 linked libraries resolve.",
+    "REANIMATION_EDIT_LOCAL is local; the assembled map is a separate linked read-only scene. Main-map and original-module hashes match the recorded baseline; the interface Git object matches HEAD; approved spawn source hash is intact.",
+    "All 1203 inherited object transforms and dimensions pass the baseline validator except only the declared inventory-dressing and reserve-service-door pose exceptions. Room, equipment, interaction and utility roots remain fixed.",
+    "All 85 registered added support groups and 94 frozen local witnesses pass directional ray, gap, penetration, surface angle and actual-object witness checks. No added mesh is unregistered.",
+    "A separate probe verifies all 39 inherited assembly support anchors against their declared support surfaces and directions.",
+    "Expanded audit of all 1109 local meshes finds consistent winding and outward winding on all 1651 closed components. No exact coincident evaluated mesh duplicates or missing face materials are detected.",
+    "Four active saved lights match the user contract: one red OCRU area at 65 W, one warm bench area at 45 W, and two spots at 220 W and 240 W.",
+    "Saved renderer is Cycles at 1067 x 600 and 100 percent, 24 samples, AgX Medium High Contrast.",
+    "An 0.088 metre upward lift-deck probe moves the cart deck and new guards together while fixed scissor-pivot hardware remains stationary.",
+    "A fresh full-stage in-memory rebuild, with file-write and Blender-save calls removed, reproduces all 1295 saved object signatures, all 36 referenced local material graph signatures, all 85 support records and saved render settings.",
+    "All 123 FILE images visible after full cold open are packed. The local propaganda artwork and three approved wall maps have valid loaded pixel dimensions; stale historical external paths do not create missing dependencies.",
+    "Local saved fonts use built-in Bfont. Optional review-label DejaVu font has a built-in fallback."
+  ],
+  "rebuild_comparison": {
+    "built_objects": 1295,
+    "saved_objects": 1295,
+    "object_signature_mismatches": 0,
+    "referenced_local_materials": 36,
+    "material_signature_mismatches": 0,
+    "support_records": 85,
+    "support_record_mismatches": 0,
+    "saved_render_settings_match": true,
+    "saved_blend_written": false,
+    "object_signature_fields": [
+      "name",
+      "type",
+      "parent",
+      "world transform",
+      "material assignments and face indices",
+      "base mesh vertices and faces",
+      "face smoothing",
+      "modifier names and types",
+      "text bodies and font",
+      "camera projection and lens",
+      "light type, energy and colour",
+      "render visibility"
+    ],
+    "material_signature_fields": [
+      "diffuse colour",
+      "top-level node type, name and socket defaults",
+      "image names and packing",
+      "group names",
+      "colour-ramp values",
+      "links"
+    ],
+    "numeric_rounding_decimals": 6
+  },
+  "minor_findings": [
+    {
+      "id": "INHERITED_DEGENERATE_TAG",
+      "finding": "Five near-zero-area faces remain in inherited Blanket institutional tag. They produce no detected winding failure."
+    },
+    {
+      "id": "RENDER_EVIDENCE_REUSE",
+      "finding": "render_overhaul.py allows --skip-existing and merges --only prior manifests without verifying prior source hashes. These modes can stamp stale images with a new source hash. The running full cycle-3 batch does not use either option; final comparison must use fresh outputs or verified source-specific reuse."
+    },
+    {
+      "id": "CHECKLIST_STATE",
+      "finding": "CHECKLIST.md still leaves the independently passed style slice and completed full construction pass unchecked. TASK_STATE.md correctly retains overall non-acceptance and final cold comparison pending."
+    }
+  ],
+  "protected_sha256": {
+    "blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+    "sources/medical-reanimation/module.blend": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523",
+    "sources/medical-reanimation/contracts/interface.json": "9bc10bf2d28292062c8cf1a3cb26bf3df6e17d43fb3b97a6a54403efefd8bd25",
+    "sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40"
+  },
+  "limits": [
+    "No exhaustive intersection audit or per-component support audit of every disconnected joined assembly was performed. Most support groups use one attachment witness; this proves group attachment, not contact for every decorative part.",
+    "The object fingerprints compare modifier names and types, not all modifier parameters. Material fingerprints compare top-level graphs, not recursively every node-group property.",
+    "The clearance validator preserves the broad reserved rescue lane; this review does not verify runtime collision, navigation, frame time or complete animation behavior.",
+    "No code complexity, object count or shader complexity was used as proof of visual art quality.",
+    "No final repeated cold-render images were reviewed or accepted."
+  ],
+  "review_execution": {
+    "blender_version": "5.2.2 LTS",
+    "cpu_affinity_count": 1,
+    "blender_threads": 1,
+    "author_files_edited": false,
+    "saved_blend_written": false,
+    "review_source_checksum_unchanged": true,
+    "scratch_evidence": [
+      "/workspace/scratch/medical-cycle3-technical-cold.json",
+      "/workspace/scratch/medical-cycle3-technical-rebuild.json",
+      "/workspace/scratch/medical-cycle3-hierarchy.json"
+    ]
+  }
+}

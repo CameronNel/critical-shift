@@ -1,0 +1,30 @@
+{
+  "score": 6.5,
+  "available": 10,
+  "verdict": "FAIL",
+  "source_sha256": "d19599da (full SHA in cycle-1 render manifest)",
+  "reviewer": "medical_technical_review",
+  "blockers": [
+    "Nearest-single-vertex support test lacks directional/angle/independent-item proof",
+    "Inconsistent and inward mesh winding",
+    "Cart upper guards fail lift-deck hierarchy",
+    "Absolute Linux font dependency"
+  ],
+  "verified": [
+    "5.2.2 cold full-file open and linked map load",
+    "Protected original module and full-map hashes",
+    "Only declared dressing poses alter baseline",
+    "Four active lights match contract",
+    "No exact coincident geometry duplicates"
+  ],
+  "limits": [
+    "No exhaustive intersection audit",
+    "No cold final render/comparison yet"
+  ],
+  "repairs_queued": [
+    "68 declared directional contact witnesses",
+    "Fixed plate/cylinder/upholstery winding and inherited cast shells",
+    "Split moving guards from fixed cart pivot",
+    "Bfont fallback when system font missing"
+  ]
+}

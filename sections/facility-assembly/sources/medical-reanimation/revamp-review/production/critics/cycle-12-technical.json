@@ -1,0 +1,4373 @@
+{
+  "schema_version": 1,
+  "cycle": 12,
+  "role": "fresh independent technical critic",
+  "timestamp_utc": "2026-10-01T09:29:43.026369+00:00",
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+  "source_sha256": "e90d540600a9ec180f3a3bf71a89da4bf0f29a156b0ac3c8bcff2f59d0a63199",
+  "technical_score": 7.8,
+  "technical_available": 10,
+  "technical_minimum": 8.5,
+  "technical_minimum_status": "FAIL",
+  "overall_status": "FAIL",
+  "visual_available": 90,
+  "visual_score": null,
+  "visual_status": "UNSCORED",
+  "critical_blockers": [
+    {
+      "id": "TECH-12-C1",
+      "severity": "critical_acceptance_blocker",
+      "summary": "Joined hardware islands float without support although their whole-object anchors pass.",
+      "affected_objects": [
+        "MED_R2 | Jamb service cassette -1",
+        "MED_R2 | Jamb service cassette 1",
+        "MED_R2 | Manufactured underbench drawers",
+        "MED_R2 | Medical cabinet fabricated face ",
+        "MED_R2 | Medical cabinet fabricated face .001",
+        "MED_R2 | OCRU external pressure service -1",
+        "MED_R2 | OCRU external pressure service 1"
+      ],
+      "island_count": 28,
+      "threshold_gap_m": 0.005,
+      "evidence": "Evaluated connected-component scan, nearest-surface witnesses, support-axis disjoint bounding boxes, zero enclosure and zero supporting-surface intersections. Paired dial ring/face pieces touch each other but their group does not touch backing.",
+      "examples": [
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face [suffix empty or .001]",
+          "islands": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "nearest_intended_support": "Clear cabinet sliding pane [matching suffix]",
+          "gap_m": 0.014,
+          "nearest_supported_own_frame_distance_m": 0.025495
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "islands": [
+            4,
+            11
+          ],
+          "nearest_intended_support": "same object islands1/8 respectively",
+          "gap_m": 0.0115
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "islands": [
+            5,
+            6,
+            12,
+            13
+          ],
+          "nearest_intended_support": "same object islands1/8 respectively",
+          "gap_m": 0.0055
+        },
+        {
+          "object": "MED_R2 | Jamb service cassette [-1 or 1]",
+          "islands": [
+            2,
+            3
+          ],
+          "nearest_intended_support": "same object island0",
+          "gap_m": 0.006
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service [-1 or 1]",
+          "islands": [
+            2
+          ],
+          "nearest_intended_support": "same object island1",
+          "gap_m": 0.007
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service [-1 or 1]",
+          "islands": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "nearest_intended_support": "paired rings/insert groups12\u201313 and14\u201315 to same object island0",
+          "group_gap_m": 0.0105
+        }
+      ],
+      "requirement": "AUTONOMOUS_SECTION_BUILD_PROTOCOL.md \u00a714.1: required support/contact failures block technical acceptance. Register component support witnesses and validate coverage for the joined components rather than treating a single assembly anchor as proof for every island. Thick hardware needs construction-appropriate contact witnesses; all outer vertices need not lie on backing.",
+      "witness_records": [
+        {
+          "object": "MED_R2 | Jamb service cassette -1",
+          "island_index": 2,
+          "bounds": [
+            [
+              -1.4277498722076416,
+              2.6510000228881836,
+              0.7960000038146973
+            ],
+            [
+              -1.4137499332427979,
+              2.678999900817871,
+              0.8240000009536743
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -1.4517499208450317,
+                  2.549999952316284,
+                  0.7300000190734863
+                ],
+                [
+                  -1.433749794960022,
+                  2.7799999713897705,
+                  1.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.005999922752380371,
+              "signed_nearest_min_m": 0.005999922752380371,
+              "signed_nearest_max_m": 0.019999980926513672,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  -1.435749888420105,
+                  2.5950000286102295,
+                  0.8650000095367432
+                ],
+                [
+                  -1.4257498979568481,
+                  2.734999895095825,
+                  1.1749999523162842
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04100000858306885,
+              "signed_nearest_min_m": 0.04100000858306885,
+              "signed_nearest_max_m": 0.0690000057220459,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 4,
+              "bounds": [
+                [
+                  -1.4252499341964722,
+                  2.615000009536743,
+                  0.9140000343322754
+                ],
+                [
+                  -1.4122499227523804,
+                  2.7149999141693115,
+                  0.9259999990463257
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.09000003337860107,
+              "signed_nearest_min_m": 0.0024999380111694336,
+              "signed_nearest_max_m": 0.11800003051757812,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Jamb service inset",
+              "minimum_vertex_distance_m": 0.01236940361559391,
+              "signed_min_m": 0.012234678491950035,
+              "signed_max_m": 0.03750835731625557,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb folded cover",
+              "minimum_vertex_distance_m": 0.037400007247924805,
+              "signed_min_m": 0.037400007247924805,
+              "signed_max_m": 0.051399946212768555,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Access jamb graphite return",
+              "minimum_vertex_distance_m": 0.046000003814697266,
+              "signed_min_m": 0.046000003814697266,
+              "signed_max_m": 0.059999942779541016,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb latch pin",
+              "minimum_vertex_distance_m": 0.05797415226697922,
+              "signed_min_m": 0.0570435281842947,
+              "signed_max_m": 0.08502011536620557,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright",
+              "minimum_vertex_distance_m": 0.08074874430894852,
+              "signed_min_m": 0.07702233828604221,
+              "signed_max_m": 0.10067232884466648,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb removable outer flange",
+              "minimum_vertex_distance_m": 0.08363872021436691,
+              "signed_min_m": 0.07284955680370331,
+              "signed_max_m": 0.09649704024195671,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Jamb service cassette -1",
+          "island_index": 3,
+          "bounds": [
+            [
+              -1.4277498722076416,
+              2.6510000228881836,
+              1.2160000801086426
+            ],
+            [
+              -1.4137499332427979,
+              2.678999900817871,
+              1.24399995803833
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -1.4517499208450317,
+                  2.549999952316284,
+                  0.7300000190734863
+                ],
+                [
+                  -1.433749794960022,
+                  2.7799999713897705,
+                  1.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.006000041961669922,
+              "signed_nearest_min_m": 0.006000041961669922,
+              "signed_nearest_max_m": 0.019999980926513672,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  -1.435749888420105,
+                  2.5950000286102295,
+                  0.8650000095367432
+                ],
+                [
+                  -1.4257498979568481,
+                  2.734999895095825,
+                  1.1749999523162842
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0410001277923584,
+              "signed_nearest_min_m": 0.011999964714050293,
+              "signed_nearest_max_m": 0.0690000057220459,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Jamb folded cover",
+              "minimum_vertex_distance_m": 0.037400007247924805,
+              "signed_min_m": 0.037400007247924805,
+              "signed_max_m": 0.051399946212768555,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Access jamb graphite return",
+              "minimum_vertex_distance_m": 0.046000003814697266,
+              "signed_min_m": 0.046000003814697266,
+              "signed_max_m": 0.059999942779541016,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb service inset",
+              "minimum_vertex_distance_m": 0.06258606165647507,
+              "signed_min_m": 0.06171427154913545,
+              "signed_max_m": 0.09294034913182259,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb latch pin.002",
+              "minimum_vertex_distance_m": 0.07746623456478119,
+              "signed_min_m": 0.07489196781534702,
+              "signed_max_m": 0.1043386438395828,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright",
+              "minimum_vertex_distance_m": 0.08074874430894852,
+              "signed_min_m": 0.07702233828604221,
+              "signed_max_m": 0.10067232884466648,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb removable outer flange",
+              "minimum_vertex_distance_m": 0.08363872021436691,
+              "signed_min_m": 0.07284955680370331,
+              "signed_max_m": 0.09649704024195671,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Jamb service cassette 1",
+          "island_index": 2,
+          "bounds": [
+            [
+              -1.4277501106262207,
+              6.581000328063965,
+              0.7960000038146973
+            ],
+            [
+              -1.413750171661377,
+              6.609000205993652,
+              0.8240000009536743
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -1.4517501592636108,
+                  6.4800004959106445,
+                  0.7300000190734863
+                ],
+                [
+                  -1.433750033378601,
+                  6.710000038146973,
+                  1.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.005999922752380371,
+              "signed_nearest_min_m": 0.005999922752380371,
+              "signed_nearest_max_m": 0.019999980926513672,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  -1.435750126838684,
+                  6.525000095367432,
+                  0.8650000095367432
+                ],
+                [
+                  -1.4257501363754272,
+                  6.6650004386901855,
+                  1.1749999523162842
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04100000858306885,
+              "signed_nearest_min_m": 0.04100000858306885,
+              "signed_nearest_max_m": 0.0690000057220459,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 4,
+              "bounds": [
+                [
+                  -1.4252501726150513,
+                  6.545000076293945,
+                  0.9140000343322754
+                ],
+                [
+                  -1.4122501611709595,
+                  6.645000457763672,
+                  0.9259999990463257
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.09000003337860107,
+              "signed_nearest_min_m": 0.0024999380111694336,
+              "signed_nearest_max_m": 0.11800003051757812,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Jamb service inset.001",
+              "minimum_vertex_distance_m": 0.01236940361559391,
+              "signed_min_m": 0.012234678491950035,
+              "signed_max_m": 0.037508332170546055,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb folded cover.001",
+              "minimum_vertex_distance_m": 0.037400007247924805,
+              "signed_min_m": 0.037400007247924805,
+              "signed_max_m": 0.051399946212768555,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Access jamb graphite return.001",
+              "minimum_vertex_distance_m": 0.046000003814697266,
+              "signed_min_m": 0.046000003814697266,
+              "signed_max_m": 0.059999942779541016,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb latch pin.003",
+              "minimum_vertex_distance_m": 0.05797421559691429,
+              "signed_min_m": 0.0570437079295516,
+              "signed_max_m": 0.08502017706632614,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright.001",
+              "minimum_vertex_distance_m": 0.08074887096881866,
+              "signed_min_m": 0.07702327333390713,
+              "signed_max_m": 0.10067407600581646,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb removable outer flange.001",
+              "minimum_vertex_distance_m": 0.08363853394985199,
+              "signed_min_m": 0.07285214215517044,
+              "signed_max_m": 0.0965009555220604,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Jamb service cassette 1",
+          "island_index": 3,
+          "bounds": [
+            [
+              -1.4277501106262207,
+              6.581000328063965,
+              1.2160000801086426
+            ],
+            [
+              -1.413750171661377,
+              6.609000205993652,
+              1.24399995803833
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -1.4517501592636108,
+                  6.4800004959106445,
+                  0.7300000190734863
+                ],
+                [
+                  -1.433750033378601,
+                  6.710000038146973,
+                  1.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.006000041961669922,
+              "signed_nearest_min_m": 0.006000041961669922,
+              "signed_nearest_max_m": 0.019999980926513672,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  -1.435750126838684,
+                  6.525000095367432,
+                  0.8650000095367432
+                ],
+                [
+                  -1.4257501363754272,
+                  6.6650004386901855,
+                  1.1749999523162842
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0410001277923584,
+              "signed_nearest_min_m": 0.011999964714050293,
+              "signed_nearest_max_m": 0.0690000057220459,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Jamb folded cover.001",
+              "minimum_vertex_distance_m": 0.037400007247924805,
+              "signed_min_m": 0.037400007247924805,
+              "signed_max_m": 0.051399946212768555,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Access jamb graphite return.001",
+              "minimum_vertex_distance_m": 0.046000003814697266,
+              "signed_min_m": 0.046000003814697266,
+              "signed_max_m": 0.059999942779541016,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb service inset.001",
+              "minimum_vertex_distance_m": 0.06258606165647507,
+              "signed_min_m": 0.06171428319066763,
+              "signed_max_m": 0.09294035006314516,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb latch pin.005",
+              "minimum_vertex_distance_m": 0.07746627926826477,
+              "signed_min_m": 0.07489044615067542,
+              "signed_max_m": 0.10433870553970337,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright.001",
+              "minimum_vertex_distance_m": 0.08074887096881866,
+              "signed_min_m": 0.07702327333390713,
+              "signed_max_m": 0.10067407600581646,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Jamb removable outer flange.001",
+              "minimum_vertex_distance_m": 0.08363853394985199,
+              "signed_min_m": 0.07285214215517044,
+              "signed_max_m": 0.0965009555220604,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "island_index": 4,
+          "bounds": [
+            [
+              3.2432217597961426,
+              1.9889999628067017,
+              0.7204737663269043
+            ],
+            [
+              3.2850000858306885,
+              2.2109999656677246,
+              0.7395262718200684
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  3.2964999675750732,
+                  1.7389999628067017,
+                  0.6200000047683716
+                ],
+                [
+                  3.311499834060669,
+                  2.321000099182129,
+                  0.8400000333786011
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.011499881744384766,
+              "signed_nearest_min_m": 0.011499881744384766,
+              "signed_nearest_max_m": 0.053278207778930664,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  3.309999942779541,
+                  1.7299998998641968,
+                  0.6100000143051147
+                ],
+                [
+                  3.8299999237060547,
+                  2.3299999237060547,
+                  0.8500000238418579
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.02499985694885254,
+              "signed_nearest_min_m": 0.02499985694885254,
+              "signed_nearest_max_m": 0.06677818298339844,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 2,
+              "bounds": [
+                [
+                  3.2880001068115234,
+                  1.8299999237060547,
+                  0.7400000095367432
+                ],
+                [
+                  3.2960000038146973,
+                  1.9499999284744263,
+                  0.7799999713897705
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0403733104467392,
+              "signed_nearest_min_m": 0.03900003433227539,
+              "signed_nearest_max_m": 0.26100003719329834,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 3,
+              "bounds": [
+                [
+                  3.2864999771118164,
+                  1.838499903678894,
+                  0.7465000152587891
+                ],
+                [
+                  3.2874999046325684,
+                  1.9414998292922974,
+                  0.7734999656677246
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.05030668526887894,
+              "signed_nearest_min_m": 0.0475001335144043,
+              "signed_nearest_max_m": 0.26950013637542725,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 5,
+              "bounds": [
+                [
+                  3.2850000858306885,
+                  2.2770001888275146,
+                  0.7669999599456787
+                ],
+                [
+                  3.2910001277923584,
+                  2.2929999828338623,
+                  0.7829999923706055
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07858587801456451,
+              "signed_nearest_min_m": 0.07539721950888634,
+              "signed_nearest_max_m": 0.289834882132709,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "MED_R2 | Printed and folded clinical packaging",
+              "minimum_vertex_distance_m": 0.2921002507209778,
+              "signed_min_m": 0.0372590022161603,
+              "signed_max_m": 0.1753811575472355,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "island_index": 5,
+          "bounds": [
+            [
+              3.2850000858306885,
+              2.2770001888275146,
+              0.7669999599456787
+            ],
+            [
+              3.2910001277923584,
+              2.2929999828338623,
+              0.7829999923706055
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  3.2964999675750732,
+                  1.7389999628067017,
+                  0.6200000047683716
+                ],
+                [
+                  3.311499834060669,
+                  2.321000099182129,
+                  0.8400000333786011
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.005499839782714844,
+              "signed_nearest_min_m": 0.005499839782714844,
+              "signed_nearest_max_m": 0.011499881744384766,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  3.309999942779541,
+                  1.7299998998641968,
+                  0.6100000143051147
+                ],
+                [
+                  3.8299999237060547,
+                  2.3299999237060547,
+                  0.8500000238418579
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.018999814987182617,
+              "signed_nearest_min_m": 0.018999814987182617,
+              "signed_nearest_max_m": 0.02499985694885254,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 4,
+              "bounds": [
+                [
+                  3.2432217597961426,
+                  1.9889999628067017,
+                  0.7204737663269043
+                ],
+                [
+                  3.2850000858306885,
+                  2.2109999656677246,
+                  0.7395262718200684
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07858587801456451,
+              "signed_nearest_min_m": 0.044921979802893475,
+              "signed_nearest_max_m": 0.0943005383014679,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Supply bench leg",
+              "minimum_vertex_distance_m": 0.05065801367163658,
+              "signed_min_m": 0.050171016715466976,
+              "signed_max_m": 0.06183658912777901,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Supply bench top",
+              "minimum_vertex_distance_m": 0.09200000762939453,
+              "signed_min_m": 0.09200000762939453,
+              "signed_max_m": 0.10800004005432129,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "MED_R2 | Printed and folded clinical packaging",
+              "minimum_vertex_distance_m": 0.3432760536670685,
+              "signed_min_m": 0.013444771058857441,
+              "signed_max_m": 0.030300780665129423,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "island_index": 6,
+          "bounds": [
+            [
+              3.2850000858306885,
+              1.7669999599456787,
+              0.7669999599456787
+            ],
+            [
+              3.2910001277923584,
+              1.7829999923706055,
+              0.7829999923706055
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  3.2964999675750732,
+                  1.7389999628067017,
+                  0.6200000047683716
+                ],
+                [
+                  3.311499834060669,
+                  2.321000099182129,
+                  0.8400000333786011
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.005499839782714844,
+              "signed_nearest_min_m": 0.005499839782714844,
+              "signed_nearest_max_m": 0.011499881744384766,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  3.309999942779541,
+                  1.7299998998641968,
+                  0.6100000143051147
+                ],
+                [
+                  3.8299999237060547,
+                  2.3299999237060547,
+                  0.8500000238418579
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.018999814987182617,
+              "signed_nearest_min_m": 0.018999814987182617,
+              "signed_nearest_max_m": 0.02499985694885254,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 2,
+              "bounds": [
+                [
+                  3.2880001068115234,
+                  1.8299999237060547,
+                  0.7400000095367432
+                ],
+                [
+                  3.2960000038146973,
+                  1.9499999284744263,
+                  0.7799999713897705
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04699993133544922,
+              "signed_nearest_min_m": 0.04699993133544922,
+              "signed_nearest_max_m": 0.06299996376037598,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 3,
+              "bounds": [
+                [
+                  3.2864999771118164,
+                  1.838499903678894,
+                  0.7465000152587891
+                ],
+                [
+                  3.2874999046325684,
+                  1.9414998292922974,
+                  0.7734999656677246
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.055520180612802505,
+              "signed_nearest_min_m": 0.055499911308288574,
+              "signed_nearest_max_m": 0.07149994373321533,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Supply bench top",
+              "minimum_vertex_distance_m": 0.09200000762939453,
+              "signed_min_m": 0.09200000762939453,
+              "signed_max_m": 0.10800004005432129,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "MED_R2 | Printed and folded clinical packaging",
+              "minimum_vertex_distance_m": 0.18101638555526733,
+              "signed_min_m": 0.18041255557909608,
+              "signed_max_m": 0.1959350206889212,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "island_index": 11,
+          "bounds": [
+            [
+              3.2432217597961426,
+              1.2889999151229858,
+              0.7504737377166748
+            ],
+            [
+              3.2849998474121094,
+              1.5109999179840088,
+              0.7695262432098389
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 8,
+              "bounds": [
+                [
+                  3.2964999675750732,
+                  1.028999924659729,
+                  0.6800000071525574
+                ],
+                [
+                  3.311499834060669,
+                  1.6309999227523804,
+                  0.8399999737739563
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.011500120162963867,
+              "signed_nearest_min_m": 0.011500120162963867,
+              "signed_nearest_max_m": 0.053278207778930664,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 7,
+              "bounds": [
+                [
+                  3.309999942779541,
+                  1.0199999809265137,
+                  0.6699999570846558
+                ],
+                [
+                  3.8299999237060547,
+                  1.6399999856948853,
+                  0.8500000238418579
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.02500009536743164,
+              "signed_nearest_min_m": 0.02500009536743164,
+              "signed_nearest_max_m": 0.06677818298339844,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 9,
+              "bounds": [
+                [
+                  3.2880001068115234,
+                  1.1299999952316284,
+                  0.7700000405311584
+                ],
+                [
+                  3.2960000038146973,
+                  1.25,
+                  0.8100000023841858
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04037320986390114,
+              "signed_nearest_min_m": 0.03899991512298584,
+              "signed_nearest_max_m": 0.2609999179840088,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 10,
+              "bounds": [
+                [
+                  3.2864999771118164,
+                  1.1384999752044678,
+                  0.7765000462532043
+                ],
+                [
+                  3.2874999046325684,
+                  1.2415000200271606,
+                  0.8034999966621399
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.05030648410320282,
+              "signed_nearest_min_m": 0.047499895095825195,
+              "signed_nearest_max_m": 0.26949989795684814,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 12,
+              "bounds": [
+                [
+                  3.2850000858306885,
+                  1.5869998931884766,
+                  0.796999990940094
+                ],
+                [
+                  3.2910001277923584,
+                  1.6029999256134033,
+                  0.8130000233650208
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0872986912727356,
+              "signed_nearest_min_m": 0.0806423518806696,
+              "signed_nearest_max_m": 0.29949155263602734,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "MED_R2 | Printed and folded clinical packaging",
+              "minimum_vertex_distance_m": 0.28185659646987915,
+              "signed_min_m": -0.22492623329162598,
+              "signed_max_m": 0.08053206838667393,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "island_index": 12,
+          "bounds": [
+            [
+              3.2850000858306885,
+              1.5869998931884766,
+              0.796999990940094
+            ],
+            [
+              3.2910001277923584,
+              1.6029999256134033,
+              0.8130000233650208
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 8,
+              "bounds": [
+                [
+                  3.2964999675750732,
+                  1.028999924659729,
+                  0.6800000071525574
+                ],
+                [
+                  3.311499834060669,
+                  1.6309999227523804,
+                  0.8399999737739563
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.005499839782714844,
+              "signed_nearest_min_m": 0.005499839782714844,
+              "signed_nearest_max_m": 0.011499881744384766,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 7,
+              "bounds": [
+                [
+                  3.309999942779541,
+                  1.0199999809265137,
+                  0.6699999570846558
+                ],
+                [
+                  3.8299999237060547,
+                  1.6399999856948853,
+                  0.8500000238418579
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.018999814987182617,
+              "signed_nearest_min_m": 0.018999814987182617,
+              "signed_nearest_max_m": 0.02499985694885254,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 11,
+              "bounds": [
+                [
+                  3.2432217597961426,
+                  1.2889999151229858,
+                  0.7504737377166748
+                ],
+                [
+                  3.2849998474121094,
+                  1.5109999179840088,
+                  0.7695262432098389
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0872986912727356,
+              "signed_nearest_min_m": 0.049905850959476084,
+              "signed_nearest_max_m": 0.1018661411099897,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Supply bench top",
+              "minimum_vertex_distance_m": 0.06199997663497925,
+              "signed_min_m": 0.06199997663497925,
+              "signed_max_m": 0.078000009059906,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "MED_R2 | Printed and folded clinical packaging",
+              "minimum_vertex_distance_m": 0.1910339891910553,
+              "signed_min_m": -0.1783999800682068,
+              "signed_max_m": -0.16239994764328003,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "island_index": 13,
+          "bounds": [
+            [
+              3.2849998474121094,
+              1.056999921798706,
+              0.796999990940094
+            ],
+            [
+              3.2909998893737793,
+              1.0729999542236328,
+              0.8130000233650208
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 8,
+              "bounds": [
+                [
+                  3.2964999675750732,
+                  1.028999924659729,
+                  0.6800000071525574
+                ],
+                [
+                  3.311499834060669,
+                  1.6309999227523804,
+                  0.8399999737739563
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.005500078201293945,
+              "signed_nearest_min_m": 0.005500078201293945,
+              "signed_nearest_max_m": 0.011500120162963867,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 7,
+              "bounds": [
+                [
+                  3.309999942779541,
+                  1.0199999809265137,
+                  0.6699999570846558
+                ],
+                [
+                  3.8299999237060547,
+                  1.6399999856948853,
+                  0.8500000238418579
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.01900005340576172,
+              "signed_nearest_min_m": 0.01900005340576172,
+              "signed_nearest_max_m": 0.02500009536743164,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 9,
+              "bounds": [
+                [
+                  3.2880001068115234,
+                  1.1299999952316284,
+                  0.7700000405311584
+                ],
+                [
+                  3.2960000038146973,
+                  1.25,
+                  0.8100000023841858
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.057000041007995605,
+              "signed_nearest_min_m": 0.057000041007995605,
+              "signed_nearest_max_m": 0.07300007343292236,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 10,
+              "bounds": [
+                [
+                  3.2864999771118164,
+                  1.1384999752044678,
+                  0.7765000462532043
+                ],
+                [
+                  3.2874999046325684,
+                  1.2415000200271606,
+                  0.8034999966621399
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.06551719456911087,
+              "signed_nearest_min_m": 0.06550002098083496,
+              "signed_nearest_max_m": 0.08150005340576172,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Supply bench top",
+              "minimum_vertex_distance_m": 0.06199997663497925,
+              "signed_min_m": 0.06199997663497925,
+              "signed_max_m": 0.078000009059906,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "MED_R2 | Printed and folded clinical packaging",
+              "minimum_vertex_distance_m": 0.3725217878818512,
+              "signed_min_m": 0.0077874616254121065,
+              "signed_max_m": 0.021645194152370095,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island_index": 5,
+          "bounds": [
+            [
+              3.2169997692108154,
+              8.343998908996582,
+              1.4919999837875366
+            ],
+            [
+              3.2249996662139893,
+              8.359999656677246,
+              1.5080000162124634
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  8.309000015258789,
+                  1.4249999523162842
+                ],
+                [
+                  3.243999719619751,
+                  8.320999145507812,
+                  2.3550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.025494951754808426,
+              "signed_nearest_min_m": 0.011000155471265316,
+              "signed_nearest_max_m": 0.01900005154311657,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  3.246999979019165,
+                  7.5749993324279785,
+                  1.4449999332427979
+                ],
+                [
+                  3.254999876022339,
+                  8.304999351501465,
+                  2.3350000381469727
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04477699473500252,
+              "signed_nearest_min_m": 0.02200031280517578,
+              "signed_nearest_max_m": 0.03000020980834961,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 3,
+              "bounds": [
+                [
+                  3.2360000610351562,
+                  7.562499523162842,
+                  1.4179999828338623
+                ],
+                [
+                  3.24399995803833,
+                  8.317499160766602,
+                  1.4300000667572021
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07091774791479111,
+              "signed_nearest_min_m": 0.06199991703033447,
+              "signed_nearest_max_m": 0.07799994945526123,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Clear cabinet sliding pane",
+              "minimum_vertex_distance_m": 0.014000415802001953,
+              "signed_min_m": 0.014000415802001953,
+              "signed_max_m": 0.02200031280517578,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Cabinet formed edge",
+              "minimum_vertex_distance_m": 0.05000019073486328,
+              "signed_min_m": 0.05000019073486328,
+              "signed_max_m": 0.05800008773803711,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island_index": 6,
+          "bounds": [
+            [
+              3.2169997692108154,
+              8.343998908996582,
+              2.2720000743865967
+            ],
+            [
+              3.2249996662139893,
+              8.359999656677246,
+              2.2879998683929443
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  8.309000015258789,
+                  1.4249999523162842
+                ],
+                [
+                  3.243999719619751,
+                  8.320999145507812,
+                  2.3550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.025494951754808426,
+              "signed_nearest_min_m": 0.011000155471265316,
+              "signed_nearest_max_m": 0.01900005154311657,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  3.246999979019165,
+                  7.5749993324279785,
+                  1.4449999332427979
+                ],
+                [
+                  3.254999876022339,
+                  8.304999351501465,
+                  2.3350000381469727
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04477699473500252,
+              "signed_nearest_min_m": 0.02200031280517578,
+              "signed_nearest_max_m": 0.03000020980834961,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 4,
+              "bounds": [
+                [
+                  3.2360000610351562,
+                  7.562499523162842,
+                  2.3489999771118164
+                ],
+                [
+                  3.24399995803833,
+                  8.317499160766602,
+                  2.3610000610351562
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07002993673086166,
+              "signed_nearest_min_m": 0.02649974636733532,
+              "signed_nearest_max_m": 0.04250049218535423,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Clear cabinet sliding pane",
+              "minimum_vertex_distance_m": 0.014000415802001953,
+              "signed_min_m": 0.014000415802001953,
+              "signed_max_m": 0.02200031280517578,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Cabinet formed edge",
+              "minimum_vertex_distance_m": 0.05000019073486328,
+              "signed_min_m": 0.05000019073486328,
+              "signed_max_m": 0.05800008773803711,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island_index": 7,
+          "bounds": [
+            [
+              3.2170000076293945,
+              7.519999980926514,
+              1.4919999837875366
+            ],
+            [
+              3.2249999046325684,
+              7.535999774932861,
+              1.5080000162124634
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 2,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  7.558999538421631,
+                  1.4249999523162842
+                ],
+                [
+                  3.243999719619751,
+                  7.570999622344971,
+                  2.3550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.025494849309325218,
+              "signed_nearest_min_m": 0.02299976348876953,
+              "signed_nearest_max_m": 0.03899955749511719,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  3.246999979019165,
+                  7.5749993324279785,
+                  1.4449999332427979
+                ],
+                [
+                  3.254999876022339,
+                  8.304999351501465,
+                  2.3350000381469727
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.044777292758226395,
+              "signed_nearest_min_m": 0.039001341933158074,
+              "signed_nearest_max_m": 0.055001612777687114,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 3,
+              "bounds": [
+                [
+                  3.2360000610351562,
+                  7.562499523162842,
+                  1.4179999828338623
+                ],
+                [
+                  3.24399995803833,
+                  8.317499160766602,
+                  1.4300000667572021
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07091730087995529,
+              "signed_nearest_min_m": 0.02649974636733532,
+              "signed_nearest_max_m": 0.04249953851103783,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Clear cabinet sliding pane",
+              "minimum_vertex_distance_m": 0.014000177383422852,
+              "signed_min_m": 0.014000176452100277,
+              "signed_max_m": 0.02200007252395153,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "minimum_vertex_distance_m": 0.07180541008710861,
+              "signed_min_m": 0.07000017166137695,
+              "signed_max_m": 0.08599996566772461,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "MED_R2 | Neglected cabinet restraint seal",
+              "minimum_vertex_distance_m": 0.11423715949058533,
+              "signed_min_m": 0.013000011444091797,
+              "signed_max_m": 0.020999908447265625,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island_index": 8,
+          "bounds": [
+            [
+              3.2170000076293945,
+              7.519999980926514,
+              2.2720000743865967
+            ],
+            [
+              3.2249999046325684,
+              7.535999774932861,
+              2.2879998683929443
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 2,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  7.558999538421631,
+                  1.4249999523162842
+                ],
+                [
+                  3.243999719619751,
+                  7.570999622344971,
+                  2.3550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.025494849309325218,
+              "signed_nearest_min_m": 0.02299976348876953,
+              "signed_nearest_max_m": 0.03899955749511719,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  3.246999979019165,
+                  7.5749993324279785,
+                  1.4449999332427979
+                ],
+                [
+                  3.254999876022339,
+                  8.304999351501465,
+                  2.3350000381469727
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.044777292758226395,
+              "signed_nearest_min_m": 0.039001341933158074,
+              "signed_nearest_max_m": 0.055001612777687114,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 4,
+              "bounds": [
+                [
+                  3.2360000610351562,
+                  7.562499523162842,
+                  2.3489999771118164
+                ],
+                [
+                  3.24399995803833,
+                  8.317499160766602,
+                  2.3610000610351562
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07002948969602585,
+              "signed_nearest_min_m": 0.02649974636733532,
+              "signed_nearest_max_m": 0.04249953851103783,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Clear cabinet sliding pane",
+              "minimum_vertex_distance_m": 0.014000177383422852,
+              "signed_min_m": 0.014000176452100277,
+              "signed_max_m": 0.02200007252395153,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "minimum_vertex_distance_m": 0.07180541008710861,
+              "signed_min_m": 0.07000017166137695,
+              "signed_max_m": 0.08599996566772461,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island_index": 5,
+          "bounds": [
+            [
+              3.2170000076293945,
+              7.4039998054504395,
+              1.4919999837875366
+            ],
+            [
+              3.2249999046325684,
+              7.419999599456787,
+              1.5080000162124634
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  7.36899995803833,
+                  1.4249999523162842
+                ],
+                [
+                  3.243999719619751,
+                  7.38100004196167,
+                  2.3550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.025494849309325218,
+              "signed_nearest_min_m": 0.010999917984008789,
+              "signed_nearest_max_m": 0.018999814987182617,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  3.246999979019165,
+                  6.634999752044678,
+                  1.4449999332427979
+                ],
+                [
+                  3.254999876022339,
+                  7.365000247955322,
+                  2.3350000381469727
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04477687552571297,
+              "signed_nearest_min_m": 0.02200007438659668,
+              "signed_nearest_max_m": 0.029999971389770508,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 3,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  6.622499942779541,
+                  1.4179999828338623
+                ],
+                [
+                  3.243999719619751,
+                  7.377500057220459,
+                  1.4300000667572021
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07091726362705231,
+              "signed_nearest_min_m": 0.06199991703033447,
+              "signed_nearest_max_m": 0.07799994945526123,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "minimum_vertex_distance_m": 0.01399993896484375,
+              "signed_min_m": 0.013999938033521175,
+              "signed_max_m": 0.02199983410537243,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Clear cabinet sliding pane",
+              "minimum_vertex_distance_m": 0.07180546224117279,
+              "signed_min_m": 0.07000017166137695,
+              "signed_max_m": 0.08599996566772461,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "MED_R2 | Neglected cabinet restraint seal",
+              "minimum_vertex_distance_m": 0.10905791819095612,
+              "signed_min_m": 0.013000011444091797,
+              "signed_max_m": 0.020999908447265625,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island_index": 6,
+          "bounds": [
+            [
+              3.2170000076293945,
+              7.4039998054504395,
+              2.2720000743865967
+            ],
+            [
+              3.2249999046325684,
+              7.419999599456787,
+              2.2879998683929443
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  7.36899995803833,
+                  1.4249999523162842
+                ],
+                [
+                  3.243999719619751,
+                  7.38100004196167,
+                  2.3550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.025494849309325218,
+              "signed_nearest_min_m": 0.010999917984008789,
+              "signed_nearest_max_m": 0.018999814987182617,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  3.246999979019165,
+                  6.634999752044678,
+                  1.4449999332427979
+                ],
+                [
+                  3.254999876022339,
+                  7.365000247955322,
+                  2.3350000381469727
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04477687552571297,
+              "signed_nearest_min_m": 0.02200007438659668,
+              "signed_nearest_max_m": 0.029999971389770508,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 4,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  6.622499942779541,
+                  2.3489999771118164
+                ],
+                [
+                  3.243999719619751,
+                  7.377500057220459,
+                  2.3610000610351562
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07002945244312286,
+              "signed_nearest_min_m": 0.02649974636733532,
+              "signed_nearest_max_m": 0.04249953851103783,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "minimum_vertex_distance_m": 0.01399993896484375,
+              "signed_min_m": 0.013999938033521175,
+              "signed_max_m": 0.02199983410537243,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Clear cabinet sliding pane",
+              "minimum_vertex_distance_m": 0.07180546224117279,
+              "signed_min_m": 0.07000017166137695,
+              "signed_max_m": 0.08599996566772461,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island_index": 7,
+          "bounds": [
+            [
+              3.2170000076293945,
+              6.579999923706055,
+              1.4919999837875366
+            ],
+            [
+              3.2249999046325684,
+              6.595999717712402,
+              1.5080000162124634
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 2,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  6.61899995803833,
+                  1.4249999523162842
+                ],
+                [
+                  3.243999719619751,
+                  6.63100004196167,
+                  2.3550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.02549527958035469,
+              "signed_nearest_min_m": 0.023000240325927734,
+              "signed_nearest_max_m": 0.03900003433227539,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  3.246999979019165,
+                  6.634999752044678,
+                  1.4449999332427979
+                ],
+                [
+                  3.254999876022339,
+                  7.365000247955322,
+                  2.3350000381469727
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04477770999073982,
+              "signed_nearest_min_m": 0.03900181877031628,
+              "signed_nearest_max_m": 0.05500208961484532,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 3,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  6.622499942779541,
+                  1.4179999828338623
+                ],
+                [
+                  3.243999719619751,
+                  7.377500057220459,
+                  1.4300000667572021
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07091746479272842,
+              "signed_nearest_min_m": 0.026500223204493523,
+              "signed_nearest_max_m": 0.04250001534819603,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "minimum_vertex_distance_m": 0.01399993896484375,
+              "signed_min_m": 0.013999938033521175,
+              "signed_max_m": 0.02199983410537243,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Cabinet formed edge.001",
+              "minimum_vertex_distance_m": 0.04999995231628418,
+              "signed_min_m": 0.04999995231628418,
+              "signed_max_m": 0.05799984931945801,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island_index": 8,
+          "bounds": [
+            [
+              3.2170000076293945,
+              6.579999923706055,
+              2.2720000743865967
+            ],
+            [
+              3.2249999046325684,
+              6.595999717712402,
+              2.2879998683929443
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 2,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  6.61899995803833,
+                  1.4249999523162842
+                ],
+                [
+                  3.243999719619751,
+                  6.63100004196167,
+                  2.3550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.02549527958035469,
+              "signed_nearest_min_m": 0.023000240325927734,
+              "signed_nearest_max_m": 0.03900003433227539,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  3.246999979019165,
+                  6.634999752044678,
+                  1.4449999332427979
+                ],
+                [
+                  3.254999876022339,
+                  7.365000247955322,
+                  2.3350000381469727
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04477770999073982,
+              "signed_nearest_min_m": 0.03900181877031628,
+              "signed_nearest_max_m": 0.05500208961484532,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 4,
+              "bounds": [
+                [
+                  3.235999822616577,
+                  6.622499942779541,
+                  2.3489999771118164
+                ],
+                [
+                  3.243999719619751,
+                  7.377500057220459,
+                  2.3610000610351562
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07002965360879898,
+              "signed_nearest_min_m": 0.026500223204493523,
+              "signed_nearest_max_m": 0.04250001534819603,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "minimum_vertex_distance_m": 0.01399993896484375,
+              "signed_min_m": 0.013999938033521175,
+              "signed_max_m": 0.02199983410537243,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Cabinet formed edge.001",
+              "minimum_vertex_distance_m": 0.04999995231628418,
+              "signed_min_m": 0.04999995231628418,
+              "signed_max_m": 0.05799984931945801,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service -1",
+          "island_index": 2,
+          "bounds": [
+            [
+              -2.4417498111724854,
+              2.4140000343322754,
+              0.7820000052452087
+            ],
+            [
+              -2.405749797821045,
+              2.4260001182556152,
+              0.8180000185966492
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  -2.4357500076293945,
+                  2.4260001182556152,
+                  0.824999988079071
+                ],
+                [
+                  -2.411749839782715,
+                  2.440000057220459,
+                  2.194999933242798
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.006999969482421875,
+              "signed_nearest_min_m": 0.006999969016760588,
+              "signed_nearest_max_m": 0.042999979108572006,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -3.0687501430511475,
+                  2.440000057220459,
+                  0.699999988079071
+                ],
+                [
+                  -2.328749895095825,
+                  2.4720001220703125,
+                  2.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.01399993896484375,
+              "signed_nearest_min_m": 0.01399993896484375,
+              "signed_nearest_max_m": 0.026000022888183594,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Formed end service panel",
+              "minimum_vertex_distance_m": 0.04900002479553223,
+              "signed_min_m": 0.049000024795526516,
+              "signed_max_m": 0.06100010871887778,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright",
+              "minimum_vertex_distance_m": 0.054000139236450195,
+              "signed_min_m": 0.054000139236450195,
+              "signed_max_m": 0.06600022315979004,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service -1",
+          "island_index": 12,
+          "bounds": [
+            [
+              -2.6327497959136963,
+              2.394500255584717,
+              1.7660000324249268
+            ],
+            [
+              -2.524749994277954,
+              2.429500102996826,
+              1.874000072479248
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 13,
+              "bounds": [
+                [
+                  -2.6137499809265137,
+                  2.385999917984009,
+                  1.7850000858306885
+                ],
+                [
+                  -2.5437498092651367,
+                  2.3960001468658447,
+                  1.8550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0014998912811279297,
+              "signed_nearest_min_m": 0.018352394923567772,
+              "signed_nearest_max_m": 0.033499965790529274,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 12
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -3.0687501430511475,
+                  2.440000057220459,
+                  0.699999988079071
+                ],
+                [
+                  -2.328749895095825,
+                  2.4720001220703125,
+                  2.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.010499954223632812,
+              "signed_nearest_min_m": 0.010499954223632812,
+              "signed_nearest_max_m": 0.04549980163574219,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  -2.4357500076293945,
+                  2.4260001182556152,
+                  0.824999988079071
+                ],
+                [
+                  -2.411749839782715,
+                  2.440000057220459,
+                  2.194999933242798
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.08899998664855957,
+              "signed_nearest_min_m": 0.08899998664855957,
+              "signed_nearest_max_m": 0.19699978828430176,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Formed end service panel",
+              "minimum_vertex_distance_m": 0.04550004005432129,
+              "signed_min_m": 0.04550004005429844,
+              "signed_max_m": 0.08049988746645352,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright",
+              "minimum_vertex_distance_m": 0.05050015449523926,
+              "signed_min_m": 0.05050015449523926,
+              "signed_max_m": 0.08550000190734863,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service -1",
+          "island_index": 13,
+          "bounds": [
+            [
+              -2.6137499809265137,
+              2.385999917984009,
+              1.7850000858306885
+            ],
+            [
+              -2.5437498092651367,
+              2.3960001468658447,
+              1.8550000190734863
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 12,
+              "bounds": [
+                [
+                  -2.6327497959136963,
+                  2.394500255584717,
+                  1.7660000324249268
+                ],
+                [
+                  -2.524749994277954,
+                  2.429500102996826,
+                  1.874000072479248
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0014998912811279297,
+              "signed_nearest_min_m": -0.0014998912811279297,
+              "signed_nearest_max_m": 0.008500337600708008,
+              "center_inside": false,
+              "vertices_inside": 12,
+              "candidate_vertices": 24,
+              "surface_intersections": 12
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -3.0687501430511475,
+                  2.440000057220459,
+                  0.699999988079071
+                ],
+                [
+                  -2.328749895095825,
+                  2.4720001220703125,
+                  2.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04399991035461426,
+              "signed_nearest_min_m": 0.04399991035461426,
+              "signed_nearest_max_m": 0.054000139236450195,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Formed end service panel",
+              "minimum_vertex_distance_m": 0.07899999618530273,
+              "signed_min_m": 0.07899999618529131,
+              "signed_max_m": 0.0890002250671501,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright",
+              "minimum_vertex_distance_m": 0.0840001106262207,
+              "signed_min_m": 0.0840001106262207,
+              "signed_max_m": 0.09400033950805664,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service -1",
+          "island_index": 14,
+          "bounds": [
+            [
+              -2.892749786376953,
+              2.394500494003296,
+              1.7660000324249268
+            ],
+            [
+              -2.784749984741211,
+              2.4295003414154053,
+              1.874000072479248
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 15,
+              "bounds": [
+                [
+                  -2.8737499713897705,
+                  2.386000156402588,
+                  1.7850000858306885
+                ],
+                [
+                  -2.8037497997283936,
+                  2.3960001468658447,
+                  1.8550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0014996528625488281,
+              "signed_nearest_min_m": 0.018352381885051727,
+              "signed_nearest_max_m": 0.033500204209127915,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 12
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -3.0687501430511475,
+                  2.440000057220459,
+                  0.699999988079071
+                ],
+                [
+                  -2.328749895095825,
+                  2.4720001220703125,
+                  2.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.010499715805053711,
+              "signed_nearest_min_m": 0.010499715805053711,
+              "signed_nearest_max_m": 0.045499563217163086,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 4,
+              "bounds": [
+                [
+                  -2.9957499504089355,
+                  2.4260003566741943,
+                  0.824999988079071
+                ],
+                [
+                  -2.971749782562256,
+                  2.440000295639038,
+                  2.194999933242798
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07900000363588333,
+              "signed_nearest_min_m": 0.07899999618530273,
+              "signed_nearest_max_m": 0.18699979782104492,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Formed end service panel",
+              "minimum_vertex_distance_m": 0.04549980163574219,
+              "signed_min_m": 0.04549980163573076,
+              "signed_max_m": 0.08049964904787442,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright",
+              "minimum_vertex_distance_m": 0.050499916076660156,
+              "signed_min_m": 0.050499916076660156,
+              "signed_max_m": 0.08549976348876953,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service -1",
+          "island_index": 15,
+          "bounds": [
+            [
+              -2.8737499713897705,
+              2.386000156402588,
+              1.7850000858306885
+            ],
+            [
+              -2.8037497997283936,
+              2.3960001468658447,
+              1.8550000190734863
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 14,
+              "bounds": [
+                [
+                  -2.892749786376953,
+                  2.394500494003296,
+                  1.7660000324249268
+                ],
+                [
+                  -2.784749984741211,
+                  2.4295003414154053,
+                  1.874000072479248
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0014996528625488281,
+              "signed_nearest_min_m": -0.0014996528625488281,
+              "signed_nearest_max_m": 0.008500337600708008,
+              "center_inside": false,
+              "vertices_inside": 12,
+              "candidate_vertices": 24,
+              "surface_intersections": 12
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -3.0687501430511475,
+                  2.440000057220459,
+                  0.699999988079071
+                ],
+                [
+                  -2.328749895095825,
+                  2.4720001220703125,
+                  2.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04399991035461426,
+              "signed_nearest_min_m": 0.04399991035461426,
+              "signed_nearest_max_m": 0.053999900817871094,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Formed end service panel",
+              "minimum_vertex_distance_m": 0.07899999618530273,
+              "signed_min_m": 0.07899999618527988,
+              "signed_max_m": 0.08899998664858243,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright",
+              "minimum_vertex_distance_m": 0.0840001106262207,
+              "signed_min_m": 0.0840001106262207,
+              "signed_max_m": 0.09400010108947754,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service 1",
+          "island_index": 2,
+          "bounds": [
+            [
+              -2.4417502880096436,
+              6.834000110626221,
+              0.7820000052452087
+            ],
+            [
+              -2.405750274658203,
+              6.8460001945495605,
+              0.8180000185966492
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  -2.4357502460479736,
+                  6.820000171661377,
+                  0.824999988079071
+                ],
+                [
+                  -2.411750078201294,
+                  6.834000110626221,
+                  2.194999933242798
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.006999969482421875,
+              "signed_nearest_min_m": 0.006999969482421875,
+              "signed_nearest_max_m": 0.042999982833862305,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -3.0687501430511475,
+                  6.788000106811523,
+                  0.699999988079071
+                ],
+                [
+                  -2.328749895095825,
+                  6.819999694824219,
+                  2.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.014000415802001953,
+              "signed_nearest_min_m": 0.014000415801995823,
+              "signed_nearest_max_m": 0.02600049972536019,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Formed end service panel.001",
+              "minimum_vertex_distance_m": 0.048999786376953125,
+              "signed_min_m": 0.04899978637690171,
+              "signed_max_m": 0.06099987030031868,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright.001",
+              "minimum_vertex_distance_m": 0.053999900817871094,
+              "signed_min_m": 0.053999900817871094,
+              "signed_max_m": 0.06599998474121094,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service 1",
+          "island_index": 12,
+          "bounds": [
+            [
+              -2.6327500343322754,
+              6.83050012588501,
+              1.7660000324249268
+            ],
+            [
+              -2.524750232696533,
+              6.865499973297119,
+              1.874000072479248
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 13,
+              "bounds": [
+                [
+                  -2.6137502193450928,
+                  6.86400032043457,
+                  1.7850000858306885
+                ],
+                [
+                  -2.543750047683716,
+                  6.874000549316406,
+                  1.8550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0014996528625488281,
+              "signed_nearest_min_m": 0.018352357670664787,
+              "signed_nearest_max_m": 0.03350019454956055,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 12
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -3.0687501430511475,
+                  6.788000106811523,
+                  0.699999988079071
+                ],
+                [
+                  -2.328749895095825,
+                  6.819999694824219,
+                  2.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.010500431060791016,
+              "signed_nearest_min_m": 0.010500431060766494,
+              "signed_nearest_max_m": 0.04550027847291265,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 1,
+              "bounds": [
+                [
+                  -2.4357502460479736,
+                  6.820000171661377,
+                  0.824999988079071
+                ],
+                [
+                  -2.411750078201294,
+                  6.834000110626221,
+                  2.194999933242798
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.08899998664855957,
+              "signed_nearest_min_m": 0.03149986267089844,
+              "signed_nearest_max_m": 0.19699978828430176,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Formed end service panel.001",
+              "minimum_vertex_distance_m": 0.04549980163574219,
+              "signed_min_m": 0.04549980163571648,
+              "signed_max_m": 0.08049964904787726,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright.001",
+              "minimum_vertex_distance_m": 0.050499916076660156,
+              "signed_min_m": 0.050499916076660156,
+              "signed_max_m": 0.08549976348876953,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service 1",
+          "island_index": 13,
+          "bounds": [
+            [
+              -2.6137502193450928,
+              6.86400032043457,
+              1.7850000858306885
+            ],
+            [
+              -2.543750047683716,
+              6.874000549316406,
+              1.8550000190734863
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 12,
+              "bounds": [
+                [
+                  -2.6327500343322754,
+                  6.83050012588501,
+                  1.7660000324249268
+                ],
+                [
+                  -2.524750232696533,
+                  6.865499973297119,
+                  1.874000072479248
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0014996528625488281,
+              "signed_nearest_min_m": -0.0014996528625488281,
+              "signed_nearest_max_m": 0.00850057601928711,
+              "center_inside": false,
+              "vertices_inside": 12,
+              "candidate_vertices": 24,
+              "surface_intersections": 12
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -3.0687501430511475,
+                  6.788000106811523,
+                  0.699999988079071
+                ],
+                [
+                  -2.328749895095825,
+                  6.819999694824219,
+                  2.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04400062561035156,
+              "signed_nearest_min_m": 0.04400062561032704,
+              "signed_nearest_max_m": 0.05400085449219976,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Formed end service panel.001",
+              "minimum_vertex_distance_m": 0.07899999618530273,
+              "signed_min_m": 0.07899999618527703,
+              "signed_max_m": 0.08900022506719009,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright.001",
+              "minimum_vertex_distance_m": 0.0840001106262207,
+              "signed_min_m": 0.0840001106262207,
+              "signed_max_m": 0.09400033950805664,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service 1",
+          "island_index": 14,
+          "bounds": [
+            [
+              -2.8927500247955322,
+              6.83050012588501,
+              1.7660000324249268
+            ],
+            [
+              -2.78475022315979,
+              6.865499973297119,
+              1.874000072479248
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 15,
+              "bounds": [
+                [
+                  -2.8737502098083496,
+                  6.86400032043457,
+                  1.7850000858306885
+                ],
+                [
+                  -2.8037500381469727,
+                  6.874000549316406,
+                  1.8550000190734863
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0014996528625488281,
+              "signed_nearest_min_m": 0.018352370709180832,
+              "signed_nearest_max_m": 0.03350019454956055,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 12
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -3.0687501430511475,
+                  6.788000106811523,
+                  0.699999988079071
+                ],
+                [
+                  -2.328749895095825,
+                  6.819999694824219,
+                  2.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.010500431060791016,
+              "signed_nearest_min_m": 0.010500431060766494,
+              "signed_nearest_max_m": 0.04550027847290039,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 0
+            },
+            {
+              "same_object_island": 4,
+              "bounds": [
+                [
+                  -2.9957501888275146,
+                  6.820000171661377,
+                  0.824999988079071
+                ],
+                [
+                  -2.971750020980835,
+                  6.834000110626221,
+                  2.194999933242798
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.07900000363588333,
+              "signed_nearest_min_m": 0.03149986267089844,
+              "signed_nearest_max_m": 0.18699979782104492,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 32,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Formed end service panel.001",
+              "minimum_vertex_distance_m": 0.04549980163574219,
+              "signed_min_m": 0.04549980163569077,
+              "signed_max_m": 0.08049964904787726,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright.001",
+              "minimum_vertex_distance_m": 0.050499916076660156,
+              "signed_min_m": 0.050499916076660156,
+              "signed_max_m": 0.08549976348876953,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service 1",
+          "island_index": 15,
+          "bounds": [
+            [
+              -2.8737502098083496,
+              6.86400032043457,
+              1.7850000858306885
+            ],
+            [
+              -2.8037500381469727,
+              6.874000549316406,
+              1.8550000190734863
+            ]
+          ],
+          "nearest_same_object": [
+            {
+              "same_object_island": 14,
+              "bounds": [
+                [
+                  -2.8927500247955322,
+                  6.83050012588501,
+                  1.7660000324249268
+                ],
+                [
+                  -2.78475022315979,
+                  6.865499973297119,
+                  1.874000072479248
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.0014996528625488281,
+              "signed_nearest_min_m": -0.0014996528625488281,
+              "signed_nearest_max_m": 0.00850057601928711,
+              "center_inside": false,
+              "vertices_inside": 12,
+              "candidate_vertices": 24,
+              "surface_intersections": 12
+            },
+            {
+              "same_object_island": 0,
+              "bounds": [
+                [
+                  -3.0687501430511475,
+                  6.788000106811523,
+                  0.699999988079071
+                ],
+                [
+                  -2.328749895095825,
+                  6.819999694824219,
+                  2.309999942779541
+                ]
+              ],
+              "minimum_vertex_distance_m": 0.04400062561035156,
+              "signed_nearest_min_m": 0.04400062561032704,
+              "signed_nearest_max_m": 0.05400085449219976,
+              "center_inside": false,
+              "vertices_inside": 0,
+              "candidate_vertices": 24,
+              "surface_intersections": 0
+            }
+          ],
+          "nearest_external": [
+            {
+              "object": "Formed end service panel.001",
+              "minimum_vertex_distance_m": 0.07899999618530273,
+              "signed_min_m": 0.07899999618527703,
+              "signed_max_m": 0.08900022506716437,
+              "center_inside": false,
+              "surface_intersections": 0
+            },
+            {
+              "object": "Chamber structural upright.001",
+              "minimum_vertex_distance_m": 0.0840001106262207,
+              "signed_min_m": 0.0840001106262207,
+              "signed_max_m": 0.09400033950805664,
+              "center_inside": false,
+              "surface_intersections": 0
+            }
+          ]
+        }
+      ],
+      "suggested_read_only_translations": [
+        {
+          "object": "MED_R2 | OCRU external pressure service -1",
+          "island_indices": [
+            2
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "OCRU",
+          "world_translation_m": [
+            0.0,
+            0.0,
+            0.006000000052154064
+          ],
+          "parent_local_translation_m": [
+            0.0,
+            0.0,
+            0.006000000052154064
+          ],
+          "intended_support_same_object_island": 1,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.007,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service -1",
+          "island_indices": [
+            12,
+            13
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "OCRU",
+          "world_translation_m": [
+            0.0,
+            0.009499999694526196,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            0.009499999694526196,
+            -4.1525818894605493e-10,
+            0.0
+          ],
+          "intended_support_same_object_island": 0,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.0105,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service -1",
+          "island_indices": [
+            14,
+            15
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "OCRU",
+          "world_translation_m": [
+            0.0,
+            0.009499999694526196,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            0.009499999694526196,
+            -4.1525818894605493e-10,
+            0.0
+          ],
+          "intended_support_same_object_island": 0,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.0105,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service 1",
+          "island_indices": [
+            2
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "OCRU",
+          "world_translation_m": [
+            0.0,
+            0.0,
+            0.006000000052154064
+          ],
+          "parent_local_translation_m": [
+            0.0,
+            0.0,
+            0.006000000052154064
+          ],
+          "intended_support_same_object_island": 1,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.007,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service 1",
+          "island_indices": [
+            12,
+            13
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "OCRU",
+          "world_translation_m": [
+            0.0,
+            -0.009499999694526196,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            -0.009499999694526196,
+            4.1525818894605493e-10,
+            0.0
+          ],
+          "intended_support_same_object_island": 0,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.0105,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | OCRU external pressure service 1",
+          "island_indices": [
+            14,
+            15
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "OCRU",
+          "world_translation_m": [
+            0.0,
+            -0.009499999694526196,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            -0.009499999694526196,
+            4.1525818894605493e-10,
+            0.0
+          ],
+          "intended_support_same_object_island": 0,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.0105,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | Jamb service cassette -1",
+          "island_indices": [
+            2,
+            3
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "OCRU",
+          "world_translation_m": [
+            -0.004999999888241291,
+            0.0,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            2.1855693643768603e-10,
+            0.004999999888241291,
+            0.0
+          ],
+          "intended_support_same_object_island": 0,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.006,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | Jamb service cassette 1",
+          "island_indices": [
+            2,
+            3
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "OCRU",
+          "world_translation_m": [
+            -0.004999999888241291,
+            0.0,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            2.1855693643768603e-10,
+            0.004999999888241291,
+            0.0
+          ],
+          "intended_support_same_object_island": 0,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.006,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "island_indices": [
+            4
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "SUPPLY_BENCH",
+          "world_translation_m": [
+            0.010499999858438969,
+            0.0,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            -4.589695845602648e-10,
+            0.010499999858438969,
+            0.0
+          ],
+          "intended_support_same_object_island": 1,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.0115,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "island_indices": [
+            5,
+            6
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "SUPPLY_BENCH",
+          "world_translation_m": [
+            0.0044999998062849045,
+            0.0,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            -1.967012386305811e-10,
+            0.0044999998062849045,
+            0.0
+          ],
+          "intended_support_same_object_island": 1,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.0055,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "island_indices": [
+            11
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "SUPPLY_BENCH",
+          "world_translation_m": [
+            0.010499999858438969,
+            0.0,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            -4.589695845602648e-10,
+            0.010499999858438969,
+            0.0
+          ],
+          "intended_support_same_object_island": 8,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.0115,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | Manufactured underbench drawers",
+          "island_indices": [
+            12,
+            13
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "SUPPLY_BENCH",
+          "world_translation_m": [
+            0.0044999998062849045,
+            0.0,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            -1.967012386305811e-10,
+            0.0044999998062849045,
+            0.0
+          ],
+          "intended_support_same_object_island": 8,
+          "intended_support_object": null,
+          "measured_initial_gap_m": 0.0055,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "island_indices": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "Clear cabinet sliding pane",
+          "world_translation_m": [
+            0.013000000268220901,
+            0.0,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            -5.682480597180017e-10,
+            0.013000000268220901,
+            0.0
+          ],
+          "intended_support_same_object_island": null,
+          "intended_support_object": "Clear cabinet sliding pane",
+          "measured_initial_gap_m": 0.014,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "island_indices": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "coordinate_frame": "object parent-local translation vector",
+          "parent": "Clear cabinet sliding pane.001",
+          "world_translation_m": [
+            0.013000000268220901,
+            0.0,
+            0.0
+          ],
+          "parent_local_translation_m": [
+            -5.682480597180017e-10,
+            0.013000000268220901,
+            0.0
+          ],
+          "intended_support_same_object_island": null,
+          "intended_support_object": "Clear cabinet sliding pane.001",
+          "measured_initial_gap_m": 0.014,
+          "desired_gap_m": 0.001,
+          "note": "Read-only suggested placement correction. For paired dial parts translate together; remeasure actual contact anchors after editing."
+        }
+      ]
+    }
+  ],
+  "scope_counts": {
+    "scene_objects": 1312,
+    "local_scene_mesh_objects": 1126,
+    "new_MED_R2_mesh_objects": 102,
+    "new_or_skill_revised_mesh_objects": 141,
+    "raw_faces": 166461,
+    "evaluated_vertices": 236074,
+    "evaluated_faces": 222677,
+    "evaluated_triangles": 433314,
+    "source_mesh_material_bindings_proxy": 1343,
+    "inherited_baseline_objects": 1203,
+    "protected_file_hashes": 3,
+    "linked_libraries": 25,
+    "packed_loaded_file_images": 124,
+    "registered_support_pairs": 102,
+    "independently_replayed_anchors": 111,
+    "all_vertex_sewn_surface_objects": 10,
+    "all_vertex_sewn_surface_vertices": 10362,
+    "component_contracts_replayed": 26,
+    "component_contract_vertices": 8638,
+    "new_mesh_disconnected_face_islands": 1825,
+    "initial_unattached_candidates": 33,
+    "confirmed_unattached_hardware_islands": 28,
+    "affected_joined_hardware_objects": 7,
+    "named_UV_material_face_consumer_records": 34,
+    "printed_surface_scan_objects": 36,
+    "printed_surface_scan_vertices": 19358,
+    "completed_fixed_camera_views": 24,
+    "saved_camera_objects": 17
+  },
+  "independent_pass_checks": {
+    "protected_sources_and_layout": true,
+    "cold_open_editable_scene_local": true,
+    "all25_linked_libraries_resolve": true,
+    "all124_file_images_packed_and_loaded": true,
+    "surface_winding_all1126_meshes": true,
+    "finite_geometry": true,
+    "exact_world_geometry_duplicates": true,
+    "reserved_rescue_lane_added_mesh_aabbs": true,
+    "registered111_support_anchors": true,
+    "sewn_all_vertex_surface_checks": true,
+    "declared26_component_checks": true,
+    "named_active_UV_consumer_layers_present": true,
+    "assigned_faces_named_UV_finite_and_nondegenerate": true,
+    "all24_camera_manifest_checks": true,
+    "cart_guards_follow_lift_deck": true,
+    "cabinet_faces_follow_panes": true
+  },
+  "additional_coverage_qualifications": [
+    {
+      "object": "MED_R2 | Concealed closed body bag",
+      "islands": [
+        1,
+        4,
+        56,
+        58
+      ],
+      "status": "contact coverage unresolved; not added to confirmed hardware blocker",
+      "evidence": "These four islands contact one another; sparse full-vertex/polygon-center nearest witnesses found closest bridge to a supported island at5.504mm, no overlap/enclosure in inspected candidate pairs. This is not an exact edge-to-edge distance proof for the irregular cloth geometry. Add intended sewn/join support witnesses and test before acceptance."
+    },
+    {
+      "object": "MED_R2 | Constructed clinical dispensing bottles and tray",
+      "islands": [
+        74
+      ],
+      "status": "not classified as floating",
+      "evidence": "Wire/trim component intersects Inventory clipboard. Initial nearest-sample-only test missed that intersection; relation requires authored support intent, not automatic failure."
+    },
+    {
+      "scope": "exploratory printed-face nearest-substrate scan",
+      "status": "not a universal print-contact PASS; additional target coverage needs checking",
+      "objects_with_sample_outliers": [
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.0063947897288016975,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.001",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.006394812662620097,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.002",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.006394812662620097,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.003",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.0063947903690859675,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.004",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.006394813186489046,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.005",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.006394813186489046,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.006",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.006394789845217019,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.007",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.006394812662620097,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.008",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.006394812138751149,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.009",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.0063947897288016975,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.010",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.006394812546204776,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.011",
+          "outlier_vertices": 6,
+          "max_signed_gap_m": 0.006394812662620097,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Corporate continuity clinical wall art",
+          "outlier_vertices": 1,
+          "max_signed_gap_m": 0.017999887466430664,
+          "max_signed_penetration_m": 0
+        },
+        {
+          "object": "MED_R2 | Interrupted restart incident docket",
+          "outlier_vertices": 176,
+          "max_signed_gap_m": 0.005692367753555469,
+          "max_signed_penetration_m": 0.0014647872702400068
+        },
+        {
+          "object": "MED_R2 | Printed and folded clinical packaging",
+          "outlier_vertices": 5087,
+          "max_signed_gap_m": 0.16085081337951124,
+          "max_signed_penetration_m": 0
+        }
+      ],
+      "evidence": "Scan used same-mesh nonprint substrate plus declared support targets. It does not identify every possible alternative original packaging surface or distinguish intentionally raised art frames without a component-level intent contract. Existing26 declared case/battery print component checks all passed independently; remaining labels must not be claimed exhaustively validated from those26 checks."
+    }
+  ],
+  "camera_evidence": {
+    "manifest_complete": true,
+    "source_sha256": "e90d540600a9ec180f3a3bf71a89da4bf0f29a156b0ac3c8bcff2f59d0a63199",
+    "matches_native_source": true,
+    "renderer_sha256": "81f7b3d98f333aba57b5e443c97faaf01e8e56a0dcb8a1bf33a55d98b9198df8",
+    "renderer_sha256_matches_current": true,
+    "engine": "CYCLES",
+    "resolution": [
+      1067,
+      600
+    ],
+    "samples": 24,
+    "cold_open": false,
+    "diagnostic": null,
+    "shot_count": 24,
+    "all_expected_ids": true,
+    "records": [
+      {
+        "id": "ENTRY",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/ENTRY.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "844a45f157059db411e023b5a0d61a278c784b482aa6634451752372e906fd1b",
+        "bytes": 808443,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 22.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "inherited_camera": "CAM_ENTRY",
+        "saved_matrix_max_delta": 0.0,
+        "saved_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "REVERSE",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/REVERSE.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "c231edc60aab630a3243a8c2097b70745de9540f2e71b715eaf3f6fedcca0885",
+        "bytes": 807307,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 22.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "inherited_camera": "CAM_REVERSE",
+        "saved_matrix_max_delta": 0.0,
+        "saved_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "PINCH",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/PINCH.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "a78825480d6385ef2edc817630101c26f5cca156b956ac8a637f6d75a01f15da",
+        "bytes": 763706,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 23.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "inherited_camera": "MED_ROUTE",
+        "saved_matrix_max_delta": 0.0,
+        "saved_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "DETAIL_OCRU",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/DETAIL_OCRU.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "93db04dc5c9492fbe78f73028ef7f04e95dd01d9183ae842350b1a2c02bd6525",
+        "bytes": 845089,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 42.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "inherited_camera": "MED_DETAIL_OCRU",
+        "saved_matrix_max_delta": 0.0,
+        "saved_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "DETAIL_SUPPLIES",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/DETAIL_SUPPLIES.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "e08095f3e034fc974838c806c3081ae0958a4a8ede386813bef303f0c31d87ec",
+        "bytes": 885544,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 46.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "inherited_camera": "MED_DETAIL_SUPPLIES",
+        "saved_matrix_max_delta": 0.0,
+        "saved_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "CORNER_SW",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/CORNER_SW.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "8ad00b1fdd43d88f4c0a72f6a2e56d3cc5b340b4f0e5fbb5317dbaafe3b2a99d",
+        "bytes": 739255,
+        "camera_matrix_finite": true,
+        "projection": "ORTHO",
+        "lens_mm": 21.0,
+        "temporary_hidden_geometry_count": 113,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 0.0,
+        "recipe_target_angle_degrees": 0.004266699779447861,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0.0,
+        "whole_footprint_normalized_frame_bounds": [
+          [
+            0.23365220770579864,
+            0.12956310526075487
+          ],
+          [
+            0.7902892816888043,
+            0.7417619546507699
+          ]
+        ],
+        "whole_footprint_in_frame": true
+      },
+      {
+        "id": "CORNER_SE",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/CORNER_SE.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "6a6f1db9b4afcb7002c97d5b069adde420a8f1ec1aa003ee1022b4da7919618d",
+        "bytes": 749181,
+        "camera_matrix_finite": true,
+        "projection": "ORTHO",
+        "lens_mm": 21.0,
+        "temporary_hidden_geometry_count": 112,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 0.0,
+        "recipe_target_angle_degrees": 0.004266699779447861,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0.0,
+        "whole_footprint_normalized_frame_bounds": [
+          [
+            0.20971071831119564,
+            0.12956310526075487
+          ],
+          [
+            0.800344544658155,
+            0.6903377314951706
+          ]
+        ],
+        "whole_footprint_in_frame": true
+      },
+      {
+        "id": "CORNER_NW",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/CORNER_NW.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "16583926055692615d296ff1dfb1314dd0ae97c967514f349b86233283bfb28b",
+        "bytes": 729863,
+        "camera_matrix_finite": true,
+        "projection": "ORTHO",
+        "lens_mm": 21.0,
+        "temporary_hidden_geometry_count": 113,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 0.0,
+        "recipe_target_angle_degrees": 0.0,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0.0,
+        "whole_footprint_normalized_frame_bounds": [
+          [
+            0.21688905707880807,
+            0.17515068446877508
+          ],
+          [
+            0.7705334971832805,
+            0.7137536685016611
+          ]
+        ],
+        "whole_footprint_in_frame": true
+      },
+      {
+        "id": "CORNER_NE",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/CORNER_NE.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "009939f7fab9c0c31e7652f663021722f56fb254ba34a5f0d1ab5fbbe5a812a4",
+        "bytes": 721285,
+        "camera_matrix_finite": true,
+        "projection": "ORTHO",
+        "lens_mm": 21.0,
+        "temporary_hidden_geometry_count": 112,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 0.0,
+        "recipe_target_angle_degrees": 0.0,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0.0,
+        "whole_footprint_normalized_frame_bounds": [
+          [
+            0.2294665028167195,
+            0.13024398274091176
+          ],
+          [
+            0.7471178727302483,
+            0.7137536685016611
+          ]
+        ],
+        "whole_footprint_in_frame": true
+      },
+      {
+        "id": "WALL_SOUTH",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/WALL_SOUTH.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "b11185eb8aaf07d57dd68836c8582b3db5e76450e35c9fb2e650c5e77e158f97",
+        "bytes": 765096,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 22.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 9.536743128535363e-08,
+        "recipe_target_angle_degrees": 0.01172942861765881,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "WALL_WEST",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/WALL_WEST.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "a4273f2780b622a72ebbe674fc2c0f9f2380bd0133b03340dd3de2107abcde0d",
+        "bytes": 677945,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 19.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 4.7683715642676816e-08,
+        "recipe_target_angle_degrees": 0.0,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "WALL_NORTH",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/WALL_NORTH.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "11576e635cb7629472cc05a22151434259569ad18300a9a11d2c73e7396b9987",
+        "bytes": 753803,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 22.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 2.3841857821338408e-08,
+        "recipe_target_angle_degrees": 0.0,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "WALL_EAST",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/WALL_EAST.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "54190b4f73e589c4c4e9036e8715613865f9bede81c826def0b25b9fe3e5ce5a",
+        "bytes": 727691,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 16.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 2.3841857821338408e-08,
+        "recipe_target_angle_degrees": 0.0,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "HERO_OCRU",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/HERO_OCRU.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "deb5927005cd13ba2c5a2a748532fe7fea4d80fdb02e60d8e07b5d0305a4c05c",
+        "bytes": 772090,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 24.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "inherited_camera": "CAM_HERO",
+        "saved_matrix_max_delta": 0.0,
+        "saved_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "HERO_RESTART",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/HERO_RESTART.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "33590d918a7e9a9316e389d747f358bc13b5aa27e0033f016750a72b953493a4",
+        "bytes": 741344,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 24.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 1.9073486345888568e-07,
+        "recipe_target_angle_degrees": 0.009147330656435049,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "HERO_CARTRIDGES",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/HERO_CARTRIDGES.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "53840e7d75b56fee46db2a0d76ee7d32b18a1c43ae1fb0c6eaa64e3757fdaf34",
+        "bytes": 712675,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 22.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 1.9073486345888568e-07,
+        "recipe_target_angle_degrees": 0.0,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "HERO_RESERVE",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/HERO_RESERVE.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "779b88a3cb700d3718195cbce335d8ada671ddadd22af850f47de49146e3f555",
+        "bytes": 653679,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 26.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 1.9073486345888568e-07,
+        "recipe_target_angle_degrees": 0.012632221536864578,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "HERO_DECON",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/HERO_DECON.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "72bf4c0b2a15f4550665963322d35566b6e698a3eaf34ce91e6d7d4704c9b972",
+        "bytes": 617347,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 24.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 1.9073486345888568e-07,
+        "recipe_target_angle_degrees": 0.01227110211979799,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "HERO_RECOVERY",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/HERO_RECOVERY.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "aa4fd087db015a324af6488482a989301e8c10018d98678e53e9ffee6286a528",
+        "bytes": 827895,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 28.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 4.768371586472142e-08,
+        "recipe_target_angle_degrees": 0.0,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "HERO_CART",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/HERO_CART.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "f7a4678ec8091306521e27f54236d2785b9b0c929d6c6c4695a36cf1d8cad6aa",
+        "bytes": 668142,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 18.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 2.384185793236071e-08,
+        "recipe_target_angle_degrees": 0.00960488261118428,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "HERO_SUPPLIES",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/HERO_SUPPLIES.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "0f07e986b121ca16f4b0e80ef588d3a0798c42e4096bd82099b871e1b085acfb",
+        "bytes": 778093,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 28.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 9.536743172944284e-08,
+        "recipe_target_angle_degrees": 0.01403717712414958,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "HERO_WASH",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/HERO_WASH.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "f15e8917bd1a4727cfe4ffa651610786d602860c3dc9c8aacf79f5956ccb82b4",
+        "bytes": 772805,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 38.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 4.768371586472142e-08,
+        "recipe_target_angle_degrees": 0.009696900695522554,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "HERO_CABINET",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/HERO_CABINET.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "a00a3b03601bffd102cc9b80bee70b9265abcc9640726a90540fc164a083a3f6",
+        "bytes": 657018,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 25.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 0,
+        "recipe_position_max_delta": 1.9073486345888568e-07,
+        "recipe_target_angle_degrees": 0.0,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      },
+      {
+        "id": "HIDDEN_BAG",
+        "image": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12/HIDDEN_BAG.png",
+        "png_size": [
+          1067,
+          600
+        ],
+        "sha256": "eaebf7addeefa9aed263c4a39a7c49bcce2aed0a0793449b5f78946241c848d9",
+        "bytes": 668128,
+        "camera_matrix_finite": true,
+        "projection": "PERSP",
+        "lens_mm": 35.0,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_fill_watts": 2,
+        "recipe_position_max_delta": 1.1444091807533141e-07,
+        "recipe_target_angle_degrees": 0.0,
+        "recipe_lens_delta": 0.0,
+        "prior_cycle_matrix_max_delta": 0.0,
+        "prior_cycle_lens_delta": 0.0,
+        "prior_cycle_projection_same": true,
+        "prior_cycle_ortho_scale_delta": 0
+      }
+    ]
+  },
+  "libraries": [
+    {
+      "name": "exterior-R01.blend",
+      "stored_path": "//../../exteriors/refinery/exterior-R01.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../exteriors/refinery/exterior-R01.blend",
+      "exists": true,
+      "parent": "facility_spawn_material_preview_R17.blend"
+    },
+    {
+      "name": "exterior-R01.blend.001",
+      "stored_path": "//../../exteriors/waste-storage/exterior-R01.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../exteriors/waste-storage/exterior-R01.blend",
+      "exists": true,
+      "parent": "facility_spawn_material_preview_R17.blend"
+    },
+    {
+      "name": "exterior-R02.blend",
+      "stored_path": "//../../exteriors/condenser-bay/exterior-R02.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../exteriors/condenser-bay/exterior-R02.blend",
+      "exists": true,
+      "parent": "facility_spawn_material_preview_R17.blend"
+    },
+    {
+      "name": "exterior-R02.blend.001",
+      "stored_path": "//../../exteriors/fuel-corridor/exterior-R02.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../exteriors/fuel-corridor/exterior-R02.blend",
+      "exists": true,
+      "parent": "facility_spawn_material_preview_R17.blend"
+    },
+    {
+      "name": "exterior-R03.blend",
+      "stored_path": "//../../exteriors/cooling-plant/exterior-R03.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../exteriors/cooling-plant/exterior-R03.blend",
+      "exists": true,
+      "parent": "facility_spawn_material_preview_R17.blend"
+    },
+    {
+      "name": "exterior-R03.blend.001",
+      "stored_path": "//../../exteriors/electrical-room/exterior-R03.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../exteriors/electrical-room/exterior-R03.blend",
+      "exists": true,
+      "parent": "facility_spawn_material_preview_R17.blend"
+    },
+    {
+      "name": "exterior-R04.blend",
+      "stored_path": "//../../exteriors/medical-reanimation/exterior-R04.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../exteriors/medical-reanimation/exterior-R04.blend",
+      "exists": true,
+      "parent": "facility_spawn_material_preview_R17.blend"
+    },
+    {
+      "name": "exterior-R04.blend.001",
+      "stored_path": "//../../exteriors/turbine-room/exterior-R04.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../exteriors/turbine-room/exterior-R04.blend",
+      "exists": true,
+      "parent": "facility_spawn_material_preview_R17.blend"
+    },
+    {
+      "name": "exterior-R05.blend",
+      "stored_path": "//../../exteriors/reactor-room/exterior-R05.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../exteriors/reactor-room/exterior-R05.blend",
+      "exists": true,
+      "parent": "facility_spawn_material_preview_R17.blend"
+    },
+    {
+      "name": "exterior-R05.blend.001",
+      "stored_path": "//../../exteriors/spawn-room/exterior-R05.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../exteriors/spawn-room/exterior-R05.blend",
+      "exists": true,
+      "parent": "facility_spawn_material_preview_R17.blend"
+    },
+    {
+      "name": "exterior-R08.blend",
+      "stored_path": "//../../exteriors/compliance-dock/exterior-R08.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../exteriors/compliance-dock/exterior-R08.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    },
+    {
+      "name": "facility_environment.blend",
+      "stored_path": "//../../blender/facility_environment.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../blender/facility_environment.blend",
+      "exists": true,
+      "parent": null
+    },
+    {
+      "name": "facility_spawn_material_preview_R17.blend",
+      "stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../../blender/facility_spawn_material_preview_R17.blend",
+      "exists": true,
+      "parent": null
+    },
+    {
+      "name": "module.blend",
+      "stored_path": "//../condenser-bay/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../condenser-bay/module.blend",
+      "exists": true,
+      "parent": "facility_spawn_material_preview_R17.blend"
+    },
+    {
+      "name": "module.blend.001",
+      "stored_path": "//../mine/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../mine/module.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    },
+    {
+      "name": "module.blend.002",
+      "stored_path": "//../spawn-room/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../spawn-room/module.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    },
+    {
+      "name": "module.blend.003",
+      "stored_path": "//../compliance-dock/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../compliance-dock/module.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    },
+    {
+      "name": "module.blend.004",
+      "stored_path": "//../cooling-plant/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../cooling-plant/module.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    },
+    {
+      "name": "module.blend.005",
+      "stored_path": "//../electrical-room/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../electrical-room/module.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    },
+    {
+      "name": "module.blend.006",
+      "stored_path": "//../fuel-corridor/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../fuel-corridor/module.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    },
+    {
+      "name": "module.blend.007",
+      "stored_path": "//module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    },
+    {
+      "name": "module.blend.008",
+      "stored_path": "//../reactor-room/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../reactor-room/module.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    },
+    {
+      "name": "module.blend.009",
+      "stored_path": "//../refinery/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../refinery/module.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    },
+    {
+      "name": "module.blend.010",
+      "stored_path": "//../turbine-room/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../turbine-room/module.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    },
+    {
+      "name": "module.blend.011",
+      "stored_path": "//../waste-storage/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/../waste-storage/module.blend",
+      "exists": true,
+      "parent": "facility_environment.blend"
+    }
+  ],
+  "commands": [
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle12-technical-independent/probe.py > /workspace/scratch/medical-cycle12-technical-independent/probe.log 2>&1",
+      "exit_code": 0
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle12-technical-independent/followup.py > /workspace/scratch/medical-cycle12-technical-independent/followup.log 2>&1",
+      "exit_code": 0
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle12-technical-independent/uv_print_probe.py > /workspace/scratch/medical-cycle12-technical-independent/uv-print-probe-first-failed.log 2>&1",
+      "exit_code": 1
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle12-technical-independent/uv_print_probe.py > /workspace/scratch/medical-cycle12-technical-independent/uv-print-probe-mesh-slot-scope.log 2>&1",
+      "exit_code": 0
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle12-technical-independent/uv_print_probe.py > /workspace/scratch/medical-cycle12-technical-independent/uv-print-probe.log 2>&1",
+      "exit_code": 0
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle12-technical-independent/translation_vectors.py > /workspace/scratch/medical-cycle12-technical-independent/translation-vectors.log 2>&1",
+      "exit_code": 0
+    },
+    {
+      "command": "python /workspace/scratch/medical-cycle12-technical-independent/camera_audit.py",
+      "exit_code": 0
+    }
+  ],
+  "raw_probe_directory": "/workspace/scratch/medical-cycle12-technical-independent",
+  "inspected_pixel_evidence": {
+    "method": "24current images inspected in4labelled contact sheets, plus all24decodedPNG metadata and source/recipe camera checks",
+    "sheets": [
+      "/workspace/scratch/medical-cycle12-technical-independent/evidence-sheet-1.png",
+      "/workspace/scratch/medical-cycle12-technical-independent/evidence-sheet-2.png",
+      "/workspace/scratch/medical-cycle12-technical-independent/evidence-sheet-3.png",
+      "/workspace/scratch/medical-cycle12-technical-independent/evidence-sheet-4.png"
+    ],
+    "formal_render_directory": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-12"
+  },
+  "limits": [
+    "No source/script/art/native saves or edits; only own scratch probes and critic reports were written. Source SHA unchanged.",
+    "No full rebuild was executed by this critic; cold open of saved source was independently exercised with25libraries124images. Existing current objective/cold PASS reports were inspected only as supporting bounded evidence.",
+    "No cold-start RGB renders or RGB pixel comparison performed by this critic. Full24hot evidence belongs to exact source SHA; cold runtime image equivalence remains outside this audit.",
+    "No exhaustive self-intersection/collision solver or watertight mandate for intentional open meshes. Exact duplicate world geometry and winding were tested, but geometric support is a separate requirement.",
+    "Triangle count433314 and mesh/material bindings1343 are authoring metrics, not measured Unity draw calls or a runtime budget pass. No Unity import, collision/navmesh, gameplay mechanisms, network/host behavior or performance testing.",
+    "Camera metadata/pixel inspection establishes supplied evidence coverage; visual categories90points remain unscored.",
+    "Initial own UV probe exited1 after temporary evaluated-mesh lifetime misuse; corrected and rerun successfully with no source save. Initial library path interpretation wrongly re-applied parent context to already rewritten loaded paths; followup current loaded-path resolution establishes all25exist. Original raw probes retained and these superseded interpretations are not source defects.",
+    "Printed-surface exploratory outliers and irregular bag connectivity are explicitly qualified; they are not silently converted to PASS or added as exact confirmed defects."
+  ],
+  "score_rationale": "7.8/10: preservation, cold-open dependencies, winding, UV consumers and24camera evidence are strong; mandatory support completeness fails for28small hardware islands across7assemblies. The102-object/111-anchor PASS does not cover those disconnected joined pieces.",
+  "source_checksum_unchanged_at_report": true
+}

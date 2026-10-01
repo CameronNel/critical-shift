@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "cycle": 11,
+  "reviewer_role": "fresh independent Blender technical critic",
+  "review_date_utc": "2026-10-01T08:59:56.479700+00:00",
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+  "source_sha256": "ef097c0052c95bf23c8a4d542db661cb151566f8618c287931f4ffa163015ff7",
+  "technical_score": 8.3,
+  "technical_maximum": 10,
+  "minimum_required": 8.5,
+  "minimum_status": "FAIL",
+  "status": "FAIL",
+  "critical_blocker_count": 1,
+  "critical_blockers": [
+    {
+      "id": "TECH11-CONTACT-01",
+      "severity": "critical_acceptance_gate",
+      "title": "Cabinet barcode strokes float beyond the mandatory 5 mm support limit",
+      "objects": [
+        "MED_R2 | Clinical cabinet stock 0",
+        "MED_R2 | Clinical cabinet stock 1",
+        "MED_R2 | Clinical cabinet stock 10",
+        "MED_R2 | Clinical cabinet stock 11",
+        "MED_R2 | Clinical cabinet stock 2",
+        "MED_R2 | Clinical cabinet stock 3",
+        "MED_R2 | Clinical cabinet stock 4",
+        "MED_R2 | Clinical cabinet stock 5",
+        "MED_R2 | Clinical cabinet stock 6",
+        "MED_R2 | Clinical cabinet stock 7",
+        "MED_R2 | Clinical cabinet stock 8",
+        "MED_R2 | Clinical cabinet stock 9"
+      ],
+      "supports": [
+        "Sealed supply case",
+        "Sealed supply case.001",
+        "Sealed supply case.010",
+        "Sealed supply case.011",
+        "Sealed supply case.002",
+        "Sealed supply case.003",
+        "Sealed supply case.004",
+        "Sealed supply case.005",
+        "Sealed supply case.006",
+        "Sealed supply case.007",
+        "Sealed supply case.008",
+        "Sealed supply case.009"
+      ],
+      "parent": "SUPPLY_CABINET",
+      "components": "8 disconnected, six-face MED | Charcoal print barcode cuboids in every stock group, 96 total",
+      "minimum_gap_m": 0.008499860763549805,
+      "maximum_gap_m": 0.008500099182128906,
+      "required_maximum_gap_m": 0.005,
+      "witness": {
+        "local_bounds": [
+          [
+            -0.70250004529953,
+            -0.1994999647140503,
+            1.4290001392364502
+          ],
+          [
+            -0.6975008845329285,
+            -0.19850003719329834,
+            1.4630000591278076
+          ]
+        ],
+        "world_contact_candidate": [
+          3.4114999771118164,
+          8.167500495910645,
+          1.4630000591278076
+        ],
+        "support_surface_world": [
+          3.419999837875366,
+          8.167500495910645,
+          1.4630000591278076
+        ],
+        "support_surface_parent_local": [
+          -0.6975008845329285,
+          -0.19000017642974854,
+          1.4630000591278076
+        ],
+        "support_normal_world": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "min_surface_distance_m": 0.008499860763549805
+      },
+      "coverage_failure": "The group has one registered assembly witness. That witness can pass on other attached geometry while these barcode components remain unsupported. Independent expanded-room search for stock 0 finds 5 of 8 barcode components more than 5 mm from every nearby alternative support; the other 3 lie within 0.5 mm of Supply case tab, which does not make them printed onto the intended case face.",
+      "minimal_measured_repair": {
+        "parent_local_translation_m": [
+          0,
+          0.00825,
+          0
+        ],
+        "world_translation_m": [
+          0.00825,
+          0,
+          0
+        ],
+        "current_parent_local_bar_center_y_m": -0.199,
+        "measured_case_front_parent_local_y_m": -0.19000017642974854,
+        "suggested_bar_center_parent_local_y_m": -0.19075,
+        "builder_expression": "Use (x-.07+j*.018, y-.23075, z-.004) instead of y-.239 in clinical_stock; preserve the existing 1 mm thickness. Reraycast the actual case face after rebuild.",
+        "expected_nearest_gap_m": 0.00025,
+        "expected_outer_gap_m": 0.00125,
+        "validation_needed": "Register per-barcode/per-label component witnesses for all 12 cases. Also measure the adjacent Clinical package identification / Clinical stock expiry text currently placed at y-.238; its face offset is related but was not independently scored as a second blocker."
+      },
+      "evidence": "/workspace/scratch/medical-cycle11-technical/cabinet-barcode-witnesses.json"
+    }
+  ],
+  "visual_score": null,
+  "visual_maximum_unscored": 90,
+  "scoring_basis": "Deduct 1.4 for the repeated support-contact failure and its assembly-only coverage gap, and 0.3 for missing requested UV mapping on three active material users. All other tested current-source technical properties retain credit.",
+  "bounded_noncritical_findings": [
+    {
+      "id": "TECH11-UV-01",
+      "severity": "bounded_noncritical",
+      "objects": [
+        "Sealed consumable carton",
+        "Sealed consumable carton.001",
+        "Sealed consumable carton.002"
+      ],
+      "material": "MED | Unbleached folded carton",
+      "shader_request": "MED_Physical_1m -> Noise Texture Vector -> active surface graph",
+      "actual_uv_layers": [
+        "UVMap"
+      ],
+      "effect": "The requested physical-coordinate channel is unavailable to the three material users. Do not certify this as a mapped physical-scale surface. Packed label and poster maps on their used faces are valid.",
+      "repair": "Include these three material users in the named physical-UV assignment or wire their existing UVMap with a documented scale."
+    }
+  ],
+  "verified": {
+    "fresh_factory_cold_open": "PASS in Blender 5.2.2 LTS; autoexec disabled, one thread, no save",
+    "root_objective_rerun": {
+      "status": "PASS",
+      "independent_report_redirect": "/workspace/scratch/medical-cycle11-technical/rerun-cold-verification.json",
+      "declared_support_pairs_passed": 102,
+      "declared_anchors_passed": 111,
+      "all_vertex_supported_surfaces": 10,
+      "reserve_label_components_passed": 2,
+      "qualification": "These passes cover the declared witnesses, not every small disconnected component of joined meshes."
+    },
+    "protected_hashes_unchanged": {
+      "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend": "ef097c0052c95bf23c8a4d542db661cb151566f8618c287931f4ffa163015ff7",
+      "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module.blend": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523",
+      "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/accepted.blend": "96aef5bb281343f8c069b6de27c46e1d2e408cb34c71b99cc13f29a90aa890ff",
+      "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/contracts/interface.json": "9bc10bf2d28292062c8cf1a3cb26bf3df6e17d43fb3b97a6a54403efefd8bd25",
+      "/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+      "/workspace/critical-shift/sections/facility-assembly/production/LAYOUT_A12.json": "a63ae542c2b79c9743a7cf0644b367a8b59df7af5bc284b8250e550e3d02dd76",
+      "/workspace/critical-shift/MAP.json": "f40eaab3bbc153c8a32727fe3c3699e57ddf78bb04dc999686f59453f7884ab8",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40"
+    },
+    "inherited_layout": {
+      "count": 1203,
+      "missing": 0,
+      "unapproved_transform_deviation": 0,
+      "dimension_deviation": 0,
+      "tolerance": 1e-06,
+      "allowlisted_pose_updates": [
+        "Calibration tick",
+        "Calibration tick.001",
+        "Calibration tick.002",
+        "Calibration tick.003",
+        "Calibration tick.004",
+        "Calibration tick.005",
+        "Calibration tick.006",
+        "Calibration tick.007",
+        "Calibration tick.008",
+        "Clipboard title",
+        "Dial fixing pin",
+        "Dial fixing pin.001",
+        "Engraved MAINS / RESERVE",
+        "Engraved RESERVE",
+        "Engraved backing MAINS / RESERVE",
+        "Engraved backing RESERVE",
+        "Formed pull grip",
+        "Handle mounting boss",
+        "Handle mounting boss.001",
+        "Instrument cast bezel",
+        "Inventory clipboard",
+        "Inventory paper",
+        "Inventory ruled line",
+        "Inventory ruled line.001",
+        "Inventory ruled line.002",
+        "Inventory ruled line.003",
+        "Ivory instrument dial",
+        "Mechanical selector.001",
+        "Meter needle",
+        "Meter unit",
+        "Needle pivot",
+        "RESERVE_SERVICE_DOOR",
+        "Reserve door fastener",
+        "Reserve door fastener.001",
+        "Reserve door fastener.002",
+        "Reserve door fastener.003",
+        "Reserve removable door",
+        "Reserve service hinge",
+        "Reserve service hinge.001",
+        "Rolled bezel rim",
+        "Screwdriver slot.022",
+        "Screwdriver slot.023",
+        "Screwdriver slot.024",
+        "Screwdriver slot.025",
+        "Screwdriver slot.082",
+        "Screwdriver slot.083",
+        "Screwdriver slot.084",
+        "Screwdriver slot.085",
+        "Selector escutcheon.001"
+      ]
+    },
+    "native_scene": {
+      "name": "REANIMATION_EDIT_LOCAL",
+      "local": true,
+      "objects": 1312,
+      "types": {
+        "MESH": 1126,
+        "EMPTY": 63,
+        "FONT": 56,
+        "CURVE": 31,
+        "LIGHT": 19,
+        "CAMERA": 17
+      },
+      "linked_map_reference_retained": true
+    },
+    "dependencies": {
+      "scope": "Whole-file cold open retains linked assembled-map context. It is portable as the repository tree with all 25 resolved libraries, not as a lone .blend. Relocated ZIP delivery not executed in this review.",
+      "resolved_relative_repository_libraries": 25,
+      "missing_libraries": 0,
+      "file_images": 124,
+      "packed_file_images": 124,
+      "invalid_loaded_images": 0,
+      "fonts": "Three built-in Bfont datablocks; no external room font requirement. Renderer has bundled DejaVuSans plus system fallback.",
+      "cache_files": 0
+    },
+    "geometry": {
+      "evaluated_meshes": 1126,
+      "evaluated_mesh_triangles": 433314,
+      "authored_or_revised_meshes_checked": 156,
+      "authored_or_revised_mesh_triangles": 179626,
+      "bad_material_indices": 0,
+      "nonfinite_mesh_coordinates": 0,
+      "negative_transform_determinants": 0,
+      "authored_inconsistent_winding_or_negative_closed_components": 0,
+      "exact_visible_mesh_duplicates": 0,
+      "physical_uv_layers_finite_and_nonzero": 156,
+      "used_poster_image_faces_valid": 8,
+      "used_bottle_label_image_faces_valid": 48,
+      "print_map_semantics": "Both packed images use sRGB; physical procedural height paths are explicitly named where present.",
+      "limits": "Triangle count covers MESH evaluation only; excludes converted FONT/CURVE geometry and is not a runtime draw-call or FPS measurement."
+    },
+    "lane": {
+      "added_meshes_clear": "PASS",
+      "all_room_aabb_scan": "Five inherited west-side fittings enter the broad reserved lane box by at most about 0.17 m; unchanged layout retains at least about 3.63 m width to x=2.45 at those projections. Not a new obstruction or runtime collision proof.",
+      "outer_architecture_interface": "Inherited floor, walls, portal and utility object transforms/dimensions unchanged; interface.json and LAYOUT_A12.json hashes unchanged."
+    },
+    "parenting": {
+      "guard": "CART_LIFT_DECK",
+      "cabinet_faces": [
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face ",
+          "parent": "Clear cabinet sliding pane"
+        },
+        {
+          "object": "MED_R2 | Medical cabinet fabricated face .001",
+          "parent": "Clear cabinet sliding pane.001"
+        }
+      ],
+      "cyclic": []
+    },
+    "complete_cycle11": {
+      "complete": true,
+      "views": 24,
+      "png_decode_dimensions": [
+        1067,
+        600
+      ],
+      "source_sha_matches": true,
+      "renderer_sha_matches": true,
+      "cold_open": true,
+      "engine": "CYCLES",
+      "samples": 24,
+      "maximum_expected_camera_matrix_delta": 2.821299744937278e-07,
+      "maximum_prior_camera_matrix_delta": 0.0,
+      "decoded_RGB_equal_to_cycle10_views": 24,
+      "PNG_file_byte_identical_to_cycle10_views": 0,
+      "renderer_change_scope": "The cycle-10 snapshot differs only by bpy.context.view_layer.update() after assigning the camera and before provenance; inspected via diff. No lighting, geometry, settings or framing recipe edit.",
+      "temporary_inspection_fill": "Only HIDDEN_BAG reports the labelled 2 W inspection fill; no authored source save.",
+      "evidence": "/workspace/scratch/medical-cycle11-technical/complete-cycle11-camera-pixels.json"
+    },
+    "script_error_propagation": "Invalid renderer diagnostic value rejected before scene load/render and exited 1 under --python-exit-code 1. Script inspection confirms no source save in render/verifier and source hash checks; cache provenance includes current source/renderer/cold mode."
+  },
+  "residuals_and_limits": [
+    "No full rebuild, render, promotion, map edit, source save or runtime test was performed by this critic. Current saved native source was scored.",
+    "The source cold-open and all native dependencies resolve in this checkout; relocation/packaged extraction, full procedural rebuild, Unity material conversion, collision, interaction state, navigation, performance and draw-call budgets remain unchecked.",
+    "Authored open mesh components may be intentional print, seam or shell surfaces; open components are not automatically failed. No global self-intersection or watertightness certification is claimed.",
+    "Evaluated zero-area polygons were found on six inherited-name Impact wall lining meshes (168 each), Supply bench top (248), and Blanket institutional tag (5); these were not found in the 156 authored/revised mesh cohort. Modifier/topology cause and runtime export effect were not exhaustively audited.",
+    "Independent small-part diagnostic examined 9 selected joined assemblies plus all 96 cabinet barcode components. It resolved most candidate separations through nearby inherited supports. It does not certify every disconnected island in the entire room.",
+    "Visual categories /90 are unscored. Only HERO_CABINET and DETAIL_SUPPLIES were opened for contextual technical pixel inspection; concealed millimetre gaps are judged from geometry, not flattering or dark camera visibility.",
+    "No prior critic reports, rubric scores, acceptance or TASK_STATE contents were read. Code was read solely for technical behavior and coverage."
+  ],
+  "commands": [
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle11-technical/probe.py > /workspace/scratch/medical-cycle11-technical/probe.log 2>&1",
+      "exit_code": 0,
+      "scope": "Existing verifier cold rerun with all report writes redirected to critic scratch, followed by independent native scene audit"
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle11-technical/attachment-probe.py > /workspace/scratch/medical-cycle11-technical/attachment-probe.log 2>&1",
+      "exit_code": 0,
+      "scope": "Initial disconnected component and used print-face audit; retained first output"
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle11-technical/attachment-probe.py > /workspace/scratch/medical-cycle11-technical/attachment-probe-expanded.log 2>&1",
+      "exit_code": 0,
+      "scope": "Expanded nearby room-support search after candidate gaps; current script writes the expanded report"
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle11-technical/barcode-probe.py > /workspace/scratch/medical-cycle11-technical/barcode-probe.log 2>&1",
+      "exit_code": 0,
+      "scope": "Independent exact witnesses for all 96 barcode cuboids across 12 stock groups"
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/render_overhaul.py -- --out /workspace/scratch/medical-cycle11-technical/invalid-render-output --diagnostic invalid > /workspace/scratch/medical-cycle11-technical/renderer-invalid-cli.log 2>&1",
+      "exit_code": 1,
+      "scope": "Expected invalid-CLI failure; no rendering or root output"
+    },
+    {
+      "command": "python /workspace/scratch/medical-cycle11-technical/evidence-probe.py",
+      "exit_code": 0,
+      "scope": "Complete final camera/PNG decode and decoded RGB comparison, independent of root comparison report"
+    },
+    {
+      "command": "diff -u /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/build-snapshots/cycle-10-render_overhaul.py.txt /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/render_overhaul.py",
+      "exit_code": 1,
+      "scope": "Expected difference: one dependency-graph update only"
+    }
+  ],
+  "artifacts": [
+    "/workspace/scratch/medical-cycle11-technical/probe.py",
+    "/workspace/scratch/medical-cycle11-technical/probe.log",
+    "/workspace/scratch/medical-cycle11-technical/rerun-cold-verification.json",
+    "/workspace/scratch/medical-cycle11-technical/rerun-dependency-manifest.json",
+    "/workspace/scratch/medical-cycle11-technical/independent-native.json",
+    "/workspace/scratch/medical-cycle11-technical/attachment-probe.py",
+    "/workspace/scratch/medical-cycle11-technical/attachment-and-used-print-faces.json",
+    "/workspace/scratch/medical-cycle11-technical/attachment-and-used-print-faces-expanded.json",
+    "/workspace/scratch/medical-cycle11-technical/barcode-probe.py",
+    "/workspace/scratch/medical-cycle11-technical/cabinet-barcode-witnesses.json",
+    "/workspace/scratch/medical-cycle11-technical/evidence-probe.py",
+    "/workspace/scratch/medical-cycle11-technical/complete-cycle11-camera-pixels.json",
+    "/workspace/scratch/medical-cycle11-technical/renderer-invalid-cli.log"
+  ]
+}

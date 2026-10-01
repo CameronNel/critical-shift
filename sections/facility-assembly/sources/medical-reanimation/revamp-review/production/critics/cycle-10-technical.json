@@ -1,0 +1,510 @@
+{
+  "schema_version": 1,
+  "cycle": 10,
+  "discipline": "Blender technical quality",
+  "review_type": "Fresh independent full-cycle technical critique",
+  "status": "PASS_WITH_NONCRITICAL_FINDINGS",
+  "technical_score": 8.8,
+  "technical_max": 10,
+  "minimum_required": 8.5,
+  "meets_technical_minimum": true,
+  "critical_source_defects": [],
+  "critical_failure_count": 0,
+  "source": "module_overhaul_R2.blend",
+  "source_sha256": "ef097c0052c95bf23c8a4d542db661cb151566f8618c287931f4ffa163015ff7",
+  "prior_scores_or_critic_reports_read": false,
+  "source_saved": false,
+  "runtime_or_export_assessed": false,
+  "score_breakdown": [
+    {
+      "category": "Protected source, layout, scale and interfaces",
+      "score": 1.9,
+      "max": 2
+    },
+    {
+      "category": "Geometry, winding and separation",
+      "score": 1.9,
+      "max": 2
+    },
+    {
+      "category": "Registered support contact",
+      "score": 2,
+      "max": 2
+    },
+    {
+      "category": "UV selection and material-coordinate semantics",
+      "score": 1.6,
+      "max": 2
+    },
+    {
+      "category": "Hierarchy, dependencies and headless evidence",
+      "score": 1.4,
+      "max": 2
+    }
+  ],
+  "evidence": {
+    "authorities": [
+      "/workspace/critical-shift/AGENTS.md",
+      "/workspace/critical-shift/.agents/skills/blender-headless/SKILL.md",
+      "/workspace/critical-shift/.agents/skills/blender-headless/references/headless.md",
+      "/workspace/critical-shift/.agents/skills/blender-uv-texturing/SKILL.md",
+      "/workspace/critical-shift/.agents/skills/blender-uv-texturing/references/surfacing.md",
+      "/workspace/critical-shift/design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md",
+      "/workspace/critical-shift/design/ART_DIRECTION.md",
+      "/workspace/critical-shift/design/ART_REFERENCE_INDEX.md",
+      "contracts/interface.json",
+      "revamp-review/production/CAMERAS.md"
+    ],
+    "implementation_inspected": [
+      "overhaul_room.py",
+      "skill_redo.py",
+      "skill_room_detail.py",
+      "verify_overhaul.py",
+      "render_overhaul.py",
+      "revamp-review/production/build-snapshots/cycle-10-render_overhaul.py.txt"
+    ],
+    "reports_inspected": [
+      "revamp-review/baseline.json",
+      "revamp-review/production/build-state.json",
+      "revamp-review/production/objective-verification.json",
+      "revamp-review/production/support-registry.json",
+      "revamp-review/production/skill-redo-uv-contract.json",
+      "revamp-review/production/dependency-manifest.json",
+      "revamp-review/production/renders/cycle-10/manifest.json"
+    ],
+    "blender_executable": "/workspace/tools/blender-5.2.2-linux-x64/blender",
+    "blender_version": "5.2.2 LTS",
+    "probe_exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "probe_cli_flags": [
+      "--background",
+      "--factory-startup",
+      "--disable-autoexec",
+      "--threads 1",
+      "--python-exit-code 1",
+      "--python-expr"
+    ],
+    "probe_method": "Three fresh disposable Blender processes. First ran the current verifier with --cold after intercepting Path.write_text in memory so no existing report was overwritten, then independently inspected UV defaults and named print consumers, live material branches, hierarchy, dependencies and recorded cameras. Second independently sampled support vertices, edge midpoints and polygon centroids, scanned exact visible raw-mesh duplicates and reconstructed corner hidden sets and orthographic fits. Third inspected active texture-coordinate branches and floor users. No native source save, rebuild, or render was executed.",
+    "pixel_review": {
+      "all_24_cycle10_pngs_opened": true,
+      "path": "revamp-review/production/renders/cycle-10",
+      "purpose": "Technical corroboration of separation, contact, print orientation, camera framing and intentional cutaways; no visual score awarded."
+    },
+    "png_decode_validation": {
+      "status": "PASS",
+      "images": 24,
+      "resolution": [
+        1067,
+        600
+      ]
+    },
+    "current_implementation_sha256": {
+      "overhaul_room.py": "d5e0194b4204ade71d1add55b23a8fee7c3c8027f46374abf0ed6ea6e17a80d4",
+      "skill_redo.py": "5f3e841c4cf419f4a8f51fba8fc5f3529ca9c56fd69ba8575cd69aa8fcb3f2c6",
+      "skill_room_detail.py": "4f15ee00cb989dce6b3a9763dab456fb5eb2c91e043209e1a7d208478a676ca4",
+      "verify_overhaul.py": "22f6fc80b476b04ebbd8c5a5e1f86080e6a944eda8649ba7f4bd382a4b1dd1fb",
+      "render_overhaul.py": "b36e00639bad98353c5eda83231195b26870936b98fc149aeb9228db00186030"
+    }
+  },
+  "checks": {
+    "protected_boundary": {
+      "status": "PASS",
+      "inherited_objects_compared": 1203,
+      "protected_original_module_and_map_hashes_match": true,
+      "approved_spawn_material_source_hash_matches": true,
+      "unexpected_inherited_transform_or_dimension_changes": 0,
+      "intentional_pose_exceptions": "49 clipboard and reserve service-door/detail objects listed by build-state; not room boundaries or major equipment relocation.",
+      "added_mesh_lane_checks": 102,
+      "rescue_lane_x_m": [
+        -1.35,
+        2.45
+      ],
+      "notes": "Baseline matrices and dimensions were compared for all inherited objects. Major interfaces and utility placement remain inherited. METRIC units, scale_length1.0."
+    },
+    "winding": {
+      "status": "PASS",
+      "revised_meshes_checked": 156,
+      "inconsistent_winding_edges": 0,
+      "negative_closed_components": 0,
+      "notes": "Evaluated revised and additive meshes were checked. Open print surfaces are intentional; no claim of a full-room manifold or self-intersection census."
+    },
+    "duplicate_geometry": {
+      "status": "PASS_IN_SCANNED_SCOPE",
+      "exact_visible_raw_mesh_duplicate_groups": [],
+      "method": "Matching world vertex coordinates rounded to7 decimal places, face order and material slots. Does not detect arbitrary partial overlaps or all evaluated modifier intersections."
+    },
+    "support": {
+      "status": "PASS",
+      "registered_groups": 102,
+      "passed_groups": 102,
+      "unregistered_additive_meshes": [],
+      "anchors_checked": 111,
+      "max_gap_m": 0.005,
+      "max_penetration_m": 0.002,
+      "max_angle_degrees": 12,
+      "anchor_witness_tolerance_m": 0.0011,
+      "sewn_groups": 10,
+      "sewn_vertices_checked": 10362,
+      "battery_label_components": 2,
+      "battery_label_vertices_checked": 16,
+      "independent_sample_count": 38296,
+      "independent_sample_checks": [
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "target": "Reserve battery module",
+          "vertices": 8,
+          "edge_midpoints": 12,
+          "polygon_centroids": 6,
+          "samples": 26,
+          "max_gap_m": 0.00017070770263671875,
+          "max_penetration_m": 0.0018301010131835938,
+          "gap_failures": 0,
+          "penetration_failures": 0,
+          "component": "Lower battery identification"
+        },
+        {
+          "object": "MED_R2 | Exposed reserve battery service construction",
+          "target": "Reserve battery module.001",
+          "vertices": 8,
+          "edge_midpoints": 12,
+          "polygon_centroids": 6,
+          "samples": 26,
+          "max_gap_m": 0.00017070770263671875,
+          "max_penetration_m": 0.0018301010132849873,
+          "gap_failures": 0,
+          "penetration_failures": 0,
+          "component": "Upper battery identification"
+        },
+        {
+          "object": "MED_R2 | Recovery foam cushion wrapped seam",
+          "target": "Recovery foam cushion",
+          "vertices": 294,
+          "edge_midpoints": 582,
+          "polygon_centroids": 288,
+          "samples": 1164,
+          "max_gap_m": 0.0015002173437750344,
+          "max_penetration_m": 0.0015001300969407771,
+          "gap_failures": 0,
+          "penetration_failures": 0
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Segmented adult berth cushion",
+          "target": "Segmented adult berth cushion",
+          "vertices": 1254,
+          "edge_midpoints": 2310,
+          "polygon_centroids": 1056,
+          "samples": 4620,
+          "max_gap_m": 0.0016003474181900401,
+          "max_penetration_m": 0.0006088766967877746,
+          "gap_failures": 0,
+          "penetration_failures": 0
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Segmented adult berth cushion.001",
+          "target": "Segmented adult berth cushion.001",
+          "vertices": 1254,
+          "edge_midpoints": 2310,
+          "polygon_centroids": 1056,
+          "samples": 4620,
+          "max_gap_m": 0.0016003448901926731,
+          "max_penetration_m": 0.0006091717514209449,
+          "gap_failures": 0,
+          "penetration_failures": 0
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Segmented adult berth cushion.002",
+          "target": "Segmented adult berth cushion.002",
+          "vertices": 1254,
+          "edge_midpoints": 2310,
+          "polygon_centroids": 1056,
+          "samples": 4620,
+          "max_gap_m": 0.0016003448901926731,
+          "max_penetration_m": 0.0006092863040976226,
+          "gap_failures": 0,
+          "penetration_failures": 0
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Contoured head pad",
+          "target": "Contoured head pad",
+          "vertices": 1254,
+          "edge_midpoints": 2310,
+          "polygon_centroids": 1056,
+          "samples": 4620,
+          "max_gap_m": 0.0016002989222414499,
+          "max_penetration_m": 0.0007732060763672166,
+          "gap_failures": 0,
+          "penetration_failures": 0
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Recovery pillow",
+          "target": "Recovery pillow",
+          "vertices": 1254,
+          "edge_midpoints": 2310,
+          "polygon_centroids": 1056,
+          "samples": 4620,
+          "max_gap_m": 0.001600287601114303,
+          "max_penetration_m": 0.0007702366920057102,
+          "gap_failures": 0,
+          "penetration_failures": 0
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Cart segmented mattress",
+          "target": "Cart segmented mattress",
+          "vertices": 1254,
+          "edge_midpoints": 2310,
+          "polygon_centroids": 1056,
+          "samples": 4620,
+          "max_gap_m": 0.0016001111501253718,
+          "max_penetration_m": 0.0006496035603049677,
+          "gap_failures": 0,
+          "penetration_failures": 0
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Cart segmented mattress.001",
+          "target": "Cart segmented mattress.001",
+          "vertices": 1254,
+          "edge_midpoints": 2310,
+          "polygon_centroids": 1056,
+          "samples": 4620,
+          "max_gap_m": 0.0016001111501253718,
+          "max_penetration_m": 0.0006885857037559617,
+          "gap_failures": 0,
+          "penetration_failures": 0
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Cart segmented mattress.002",
+          "target": "Cart segmented mattress.002",
+          "vertices": 1254,
+          "edge_midpoints": 2310,
+          "polygon_centroids": 1056,
+          "samples": 4620,
+          "max_gap_m": 0.0016001095373212593,
+          "max_penetration_m": 0.0006508770529762842,
+          "gap_failures": 0,
+          "penetration_failures": 0
+        },
+        {
+          "object": "MED_R2 | Constructed cleaning cotton folded edges",
+          "target": "Folded cleaning cloth",
+          "vertices": 36,
+          "edge_midpoints": 60,
+          "polygon_centroids": 24,
+          "samples": 120,
+          "max_gap_m": 0.001998167824847741,
+          "max_penetration_m": 0.000497818598634403,
+          "gap_failures": 0,
+          "penetration_failures": 0
+        }
+      ],
+      "notes": "All ten sewn groups and both battery labels pass the saved validator and added edge-midpoint/polygon-centroid sampling. Most other compound additions retain one frozen contact witness; that proves the declared attachment, not contact of every disconnected component."
+    },
+    "uv": {
+      "status": "PASS_FOR_156_REVISED_MESHES_WITH_BOUNDED_USER_GAP",
+      "revised_meshes": 156,
+      "finite": true,
+      "degenerate_physical_faces": 0,
+      "physical_projection_formula_error": 0,
+      "active_physical_layers": 156,
+      "render_physical_layers": 155,
+      "render_printed_artwork_layers": 1,
+      "printed_mapping": [
+        {
+          "object": "MED_R2 | Constructed clinical dispensing bottles and tray",
+          "layer": "Clinical_Label",
+          "image": "clinical-labels.png",
+          "node_selection": "Explicit UV Map node",
+          "mapped_faces": 48,
+          "degenerate_mapped_faces": 0,
+          "uv_range": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "object": "MED_R2 | Corporate continuity clinical wall art",
+          "layer": "Printed artwork",
+          "image": "clinical-propaganda.png",
+          "node_selection": "Image default UV uses selected active_render Printed artwork",
+          "mapped_faces": 8,
+          "degenerate_mapped_faces": 0,
+          "uv_range": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      ],
+      "missing_named_uv_users": [
+        {
+          "object": "Sealed consumable carton",
+          "object_type": "MESH",
+          "material": "MED | Unbleached folded carton",
+          "requested_uv": "MED_Physical_1m"
+        },
+        {
+          "object": "Sealed consumable carton.001",
+          "object_type": "MESH",
+          "material": "MED | Unbleached folded carton",
+          "requested_uv": "MED_Physical_1m"
+        },
+        {
+          "object": "Sealed consumable carton.002",
+          "object_type": "MESH",
+          "material": "MED | Unbleached folded carton",
+          "requested_uv": "MED_Physical_1m"
+        }
+      ],
+      "notes": "MED_Physical_1m is local dominant-normal-axis projection multiplied by object scale; intentional tiled overlap and out-of-range coordinates are allowed. It is not a unique lightmap or an isometric unwrap."
+    },
+    "material_branches": {
+      "status": "PASS_WITH_DOCUMENTATION_QUALIFICATIONS",
+      "physical_branch": "Four controlled_finish materials (ivory instrument enamel, treatment vinyl, cotton and carton) use MED_Physical_1m -> Noise scale180 -> Bump Strength0.055/Distance0.00015m. Color and roughness use med_contact_wear attributes.",
+      "retained_branch": "Retained/reference graphs also use explicit Object/Geometry mappings and implicit Generated vectors. Broad procedural variation and the slate-fabric wave are not globally physical-UV scaled.",
+      "main_floor_branch": "Generated -> Multiply(8.36,9.36,0.24) -> Brick Width/Row Height0.60m, matching the main Floor bounds.",
+      "decon_floor_qualification": "Same graph is also assigned to Decon floor(2.06x2.12x0.24m), so the tile repeat there is approximately148x136mm rather than600mm. Grating largely obscures this small area.",
+      "print_images": "Packed sRGB clinical-labels.png1024x1024 and clinical-propaganda.png1024x1536; images are live base-color consumers. No tangent normal image -> Bump error observed."
+    },
+    "hierarchy": {
+      "status": "PASS",
+      "scene": "REANIMATION_EDIT_LOCAL",
+      "editable_scene_local": true,
+      "scene_objects": 1312,
+      "linked_objects_in_edit_scene": 0,
+      "local_meshes": 1126,
+      "new_art_objects": 103,
+      "cart_guard_parent": "CART_LIFT_DECK",
+      "cabinet_face_parents": [
+        "Clear cabinet sliding pane",
+        "Clear cabinet sliding pane.001"
+      ],
+      "missing_scene_parent_targets": [],
+      "intentional_hidden_additions": [
+        {
+          "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.007",
+          "parent": "CARTRIDGE_BANK",
+          "hide_render": true,
+          "hide_viewport": false,
+          "properties": {
+            "art_stage": "full",
+            "support_target": "Cartridge steel body.007"
+          }
+        }
+      ],
+      "notes": "The one hidden crimped cartridge is explicitly authored as part of the spent-cartridge storytelling state, not unexplained render scaffolding. Native linked map/reference scenes remain dependency context."
+    },
+    "dependencies": {
+      "status": "PASS_IN_CURRENT_CHECKOUT",
+      "fresh_native_cold_open": true,
+      "linked_libraries": 25,
+      "missing_libraries": [],
+      "file_images": 124,
+      "all_file_images_packed": true,
+      "missing_fonts": [],
+      "source_checksum_unchanged": true,
+      "notes": "This proves current-checkout cold opening; the blend still needs its25 linked reference libraries for full native scene context. Packed images with historical absolute stored paths are not missing file dependencies."
+    },
+    "recorded_cameras": {
+      "status": "PASS",
+      "shots": 24,
+      "source_hash_matches": true,
+      "renderer_snapshot_sha256": "672415da4ec45d5fbc785c9d793b6f706b24447f4ae0afc6da45ac0a3ffc3d61",
+      "max_matrix_error": 2.980232238769531e-07,
+      "lens_error": 0,
+      "corner_checks": [
+        {
+          "id": "CORNER_SW",
+          "hidden_set_matches": true,
+          "ortho_scale_error": 2.4777871594494627e-06
+        },
+        {
+          "id": "CORNER_SE",
+          "hidden_set_matches": true,
+          "ortho_scale_error": 2.4777871594494627e-06
+        },
+        {
+          "id": "CORNER_NW",
+          "hidden_set_matches": true,
+          "ortho_scale_error": 4.176740294070669e-06
+        },
+        {
+          "id": "CORNER_NE",
+          "hidden_set_matches": true,
+          "ortho_scale_error": 4.176740294070669e-06
+        }
+      ],
+      "settings": {
+        "engine": "CYCLES",
+        "resolution": [
+          1067,
+          600
+        ],
+        "samples": 24,
+        "denoising": true,
+        "view_transform": "AgX",
+        "look": "AgX - Medium High Contrast",
+        "exposure": 0.4000000059604645,
+        "seed": 17,
+        "motion_blur": false
+      },
+      "notes": "Recorded cycle10 matrices match native inherited cameras or recomputed position/target frames. Cutaway hidden sets match and orthographic fit errors are at floating-point scale. HIDDEN_BAG uses the declared temporary2W fill; review labels are temporary camera geometry."
+    },
+    "cli_contract": {
+      "status": "PASS_FOR_DOCUMENTED_VALID_ARGUMENTS_WITH_HEADER_NIT",
+      "builder": "overhaul_room.py -- --stage full; source-creating builder defaults to slice and reads R1. skill_redo.py and skill_room_detail.py are extension fragments executed within its namespace, not independent Blender entrypoints.",
+      "validator": "verify_overhaul.py supports --cold and --dependencies; dependencies correctly require --cold. Native source is hashed before/after and not saved.",
+      "renderer": "render_overhaul.py supports --out, --only, --skip-existing, --cold, --preview and --diagnostic(clay|uv|neutral); partial/cache reuse requires matching source/renderer/cold-open provenance.",
+      "header_nit": "render_overhaul.py docstring still names render_review.py; the actual current CLI uses render_overhaul.py.",
+      "post_cycle10_change": "Current renderer adds only bpy.context.view_layer.update() before camera metadata, fixing skipped-render dependency-graph provenance. Cycle10 is audited against its frozen recipe. Root must explicitly record this renderer-version difference in cold comparison; RGB/camera/source/settings equivalence remains required."
+    }
+  },
+  "noncritical_findings": [
+    {
+      "id": "T10-UV-USERS",
+      "severity": "minor",
+      "objects": [
+        "Sealed consumable carton",
+        "Sealed consumable carton.001",
+        "Sealed consumable carton.002"
+      ],
+      "finding": "These inherited users of the new carton material lack its requested MED_Physical_1m layer.",
+      "impact": "Tiny UV-driven microheight is unavailable/degenerate on three under-bench cartons; base color and modeled/printed construction are unaffected.",
+      "recommendation": "In a future authorized source pass, extend named-UV coverage to all active material users, or give these users a material without the physical microheight branch."
+    },
+    {
+      "id": "T10-FLOOR-SCALE",
+      "severity": "minor",
+      "finding": "The600mm Generated tile metric is specific to the main slab; shared use on the smaller decon slab compresses the repeat.",
+      "impact": "Bounded material scale discrepancy beneath drain grating, no protected layout or contact failure.",
+      "recommendation": "Qualify the documentation now; use per-object physical coordinates or a separate decon material only in a future source pass."
+    },
+    {
+      "id": "T10-DOC-CLI",
+      "severity": "minor",
+      "finding": "Surfacing prose should mention retained Object/Geometry mapping alongside Generated, and the renderer header names an older entrypoint.",
+      "impact": "Documentation precision and command discoverability; valid current commands run successfully.",
+      "recommendation": "Correct these prose/header references without claiming a source or pixel change."
+    }
+  ],
+  "limitations": [
+    "Fresh source open and current objective checks were executed; a destructive full rebuild was deliberately outside this read-only critic pass.",
+    "No fresh pixel render or cold RGB equivalence comparison was performed by this critic. Parent's final cold comparison remains a separate acceptance gate.",
+    "Normal coverage is the156 revised/additive meshes. Exact duplicate scan does not establish absence of every partial overlap, self-intersection or inherited topology issue.",
+    "Most compound support groups use one frozen witness, while the ten sewn groups and two battery labels have wider geometric coverage. Surface sampling is finite and does not mathematically prove every triangle interior.",
+    "No unique-lightmap, mip-padding, bake, export conversion, runtime collision, performance, animation sweep or Unity validation is claimed.",
+    "The source remains unchanged; score and pass apply only to native ef097c0052c95bf23c8a4d542db661cb151566f8618c287931f4ffa163015ff7 and recorded cycle10 evidence."
+  ]
+}

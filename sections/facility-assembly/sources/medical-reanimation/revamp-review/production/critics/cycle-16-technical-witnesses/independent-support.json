@@ -1,0 +1,3442 @@
+{
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "method": "Independently specified intended support pairs; evaluated polygon BVH, face/vertex/edge samples and real edge intersections. Fixed bearing/mount directions; ambiguous misses require mechanism review rather than automatic blocker.",
+  "reports": [
+    {
+      "object": "Chamber sole shoe",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "OCRU floor shoe bearing",
+      "samples": 223,
+      "oriented_hits": 223,
+      "passing_actual_surface_witnesses": 50,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.6007499694824219,
+          2.6720001697540283,
+          0.0
+        ],
+        "target_surface": [
+          -1.6007499694824219,
+          2.6720001697540283,
+          0.0
+        ],
+        "target_face_index": 1320,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Fabricated chamber foot",
+      "target": "Chamber sole shoe",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "fabricated foot to sole shoe",
+      "samples": 230,
+      "oriented_hits": 230,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.618749976158142,
+          2.696000099182129,
+          0.07999999821186066
+        ],
+        "target_surface": [
+          -1.618749976158142,
+          2.696000099182129,
+          0.07999999821186066
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Bed non-marking foot",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "recovery foot bearing",
+      "samples": 728,
+      "oriented_hits": 728,
+      "passing_actual_surface_witnesses": 343,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          2.8338840007781982,
+          3.7957448959350586,
+          0.0
+        ],
+        "target_surface": [
+          2.8338840007781982,
+          3.7957448959350586,
+          0.0
+        ],
+        "target_face_index": 282,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Tubular recovery leg",
+      "target": "Bed non-marking foot",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "recovery tubular leg socket",
+      "samples": 218,
+      "oriented_hits": 218,
+      "passing_actual_surface_witnesses": 97,
+      "best": {
+        "signed_gap_m": 1.050531864277282e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          2.8269999027252197,
+          3.7599997520446777,
+          0.050000011920928955
+        ],
+        "target_surface": [
+          2.8269999027252197,
+          3.7599997520446777,
+          0.05000000447034836
+        ],
+        "target_face_index": 131,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Supply bench leg",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "bench floor bearing",
+      "samples": 224,
+      "oriented_hits": 224,
+      "passing_actual_surface_witnesses": 103,
+      "best": {
+        "signed_gap_m": 1.1920928966180355e-09,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.18149995803833,
+          2.321499824523926,
+          0.0
+        ],
+        "target_surface": [
+          3.18149995803833,
+          2.321499824523926,
+          -1.862645149230957e-09
+        ],
+        "target_face_index": 203,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Console steel leg",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "console floor bearing",
+      "samples": 222,
+      "oriented_hits": 222,
+      "passing_actual_surface_witnesses": 101,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.1524999141693115,
+          8.25,
+          0.0
+        ],
+        "target_surface": [
+          -1.1524999141693115,
+          8.25,
+          0.0
+        ],
+        "target_face_index": 1164,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Caster rubber tyre",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cart tyre floor bearing",
+      "samples": 2052,
+      "oriented_hits": 2052,
+      "passing_actual_surface_witnesses": 97,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.4016997814178467,
+          0.5000000596046448,
+          5.114232926040074e-10
+        ],
+        "target_surface": [
+          -3.4016997814178467,
+          0.5000000596046448,
+          0.0
+        ],
+        "target_face_index": 1717,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Cabinet wall spacer",
+      "target": "East wall",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "cabinet spacer to wall",
+      "samples": 222,
+      "oriented_hits": 222,
+      "passing_actual_surface_witnesses": 101,
+      "best": {
+        "signed_gap_m": -2.8610229491077277e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          4.0,
+          8.227999687194824,
+          1.4579999446868896
+        ],
+        "target_surface": [
+          4.0,
+          8.227999687194824,
+          1.4579999446868896
+        ],
+        "target_face_index": 1955,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Supply cabinet back",
+      "target": "Cabinet wall spacer",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "cabinet back to wall spacer",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Chamber sole shoe.001",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "OCRU floor shoe bearing",
+      "samples": 224,
+      "oriented_hits": 224,
+      "passing_actual_surface_witnesses": 51,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.8167498111724854,
+          2.9880001544952393,
+          0.0
+        ],
+        "target_surface": [
+          -3.8167498111724854,
+          2.9880001544952393,
+          0.0
+        ],
+        "target_face_index": 1834,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Fabricated chamber foot.001",
+      "target": "Chamber sole shoe.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "fabricated foot to sole shoe",
+      "samples": 230,
+      "oriented_hits": 230,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.5447497367858887,
+          2.690000057220459,
+          0.07999999821186066
+        ],
+        "target_surface": [
+          -3.5447497367858887,
+          2.690000057220459,
+          0.07999999821186066
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Bed non-marking foot.001",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "recovery foot bearing",
+      "samples": 728,
+      "oriented_hits": 728,
+      "passing_actual_surface_witnesses": 343,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          2.809999942779541,
+          5.682990074157715,
+          0.0
+        ],
+        "target_surface": [
+          2.809999942779541,
+          5.682990074157715,
+          0.0
+        ],
+        "target_face_index": 273,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Tubular recovery leg.001",
+      "target": "Bed non-marking foot.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "recovery tubular leg socket",
+      "samples": 218,
+      "oriented_hits": 218,
+      "passing_actual_surface_witnesses": 97,
+      "best": {
+        "signed_gap_m": 1.050531864277282e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          2.8269999027252197,
+          5.6570000648498535,
+          0.050000011920928955
+        ],
+        "target_surface": [
+          2.8269999027252197,
+          5.6570000648498535,
+          0.05000000447034836
+        ],
+        "target_face_index": 131,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Supply bench leg.001",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "bench floor bearing",
+      "samples": 225,
+      "oriented_hits": 225,
+      "passing_actual_surface_witnesses": 104,
+      "best": {
+        "signed_gap_m": 1.1920928966180355e-09,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.8585000038146973,
+          2.378499984741211,
+          0.0
+        ],
+        "target_surface": [
+          3.8585000038146973,
+          2.378499984741211,
+          -1.862645149230957e-09
+        ],
+        "target_face_index": 31,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Console steel leg.001",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "console floor bearing",
+      "samples": 223,
+      "oriented_hits": 223,
+      "passing_actual_surface_witnesses": 102,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.1524999141693115,
+          8.822500228881836,
+          0.0
+        ],
+        "target_surface": [
+          -1.1524999141693115,
+          8.822500228881836,
+          0.0
+        ],
+        "target_face_index": 1161,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Caster rubber tyre.001",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cart tyre floor bearing",
+      "samples": 2052,
+      "oriented_hits": 2052,
+      "passing_actual_surface_witnesses": 97,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.4016997814178467,
+          2.1600000858306885,
+          5.114232926040074e-10
+        ],
+        "target_surface": [
+          -3.4016997814178467,
+          2.1600000858306885,
+          0.0
+        ],
+        "target_face_index": 1709,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Cabinet wall spacer.001",
+      "target": "East wall",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "cabinet spacer to wall",
+      "samples": 222,
+      "oriented_hits": 222,
+      "passing_actual_surface_witnesses": 101,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          4.0,
+          8.227999687194824,
+          2.241999864578247
+        ],
+        "target_surface": [
+          4.0,
+          8.227999687194824,
+          2.241999864578247
+        ],
+        "target_face_index": 2050,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Supply cabinet back",
+      "target": "Cabinet wall spacer.001",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "cabinet back to wall spacer",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Chamber sole shoe.002",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "OCRU floor shoe bearing",
+      "samples": 223,
+      "oriented_hits": 223,
+      "passing_actual_surface_witnesses": 50,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.6007500886917114,
+          6.272000312805176,
+          0.0
+        ],
+        "target_surface": [
+          -1.6007500886917114,
+          6.272000312805176,
+          0.0
+        ],
+        "target_face_index": 1302,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Fabricated chamber foot.002",
+      "target": "Chamber sole shoe.002",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "fabricated foot to sole shoe",
+      "samples": 230,
+      "oriented_hits": 230,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": 3.0547380458489926e-09,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.6187500953674316,
+          6.2960004806518555,
+          0.07999999821186066
+        ],
+        "target_surface": [
+          -1.6187500953674316,
+          6.2960004806518555,
+          0.07999999821186066
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Bed non-marking foot.002",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "recovery foot bearing",
+      "samples": 726,
+      "oriented_hits": 726,
+      "passing_actual_surface_witnesses": 341,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.619601249694824,
+          3.7296009063720703,
+          0.0
+        ],
+        "target_surface": [
+          3.619601249694824,
+          3.7296009063720703,
+          0.0
+        ],
+        "target_face_index": 111,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Tubular recovery leg.002",
+      "target": "Bed non-marking foot.002",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "recovery tubular leg socket",
+      "samples": 218,
+      "oriented_hits": 218,
+      "passing_actual_surface_witnesses": 97,
+      "best": {
+        "signed_gap_m": 1.050531864277282e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.6670000553131104,
+          3.7599997520446777,
+          0.050000011920928955
+        ],
+        "target_surface": [
+          3.6670000553131104,
+          3.7599997520446777,
+          0.05000000447034836
+        ],
+        "target_face_index": 131,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Supply bench leg.002",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "bench floor bearing",
+      "samples": 223,
+      "oriented_hits": 223,
+      "passing_actual_surface_witnesses": 102,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.18149995803833,
+          0.6185000538825989,
+          0.0
+        ],
+        "target_surface": [
+          3.18149995803833,
+          0.6185000538825989,
+          0.0
+        ],
+        "target_face_index": 212,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Console steel leg.002",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "console floor bearing",
+      "samples": 222,
+      "oriented_hits": 222,
+      "passing_actual_surface_witnesses": 101,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.38749998807907104,
+          8.27750015258789,
+          0.0
+        ],
+        "target_surface": [
+          0.38749998807907104,
+          8.27750015258789,
+          0.0
+        ],
+        "target_face_index": 820,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Caster rubber tyre.002",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cart tyre floor bearing",
+      "samples": 2052,
+      "oriented_hits": 2052,
+      "passing_actual_surface_witnesses": 97,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.8616998195648193,
+          0.5000000596046448,
+          5.114232926040074e-10
+        ],
+        "target_surface": [
+          -2.8616998195648193,
+          0.5000000596046448,
+          0.0
+        ],
+        "target_face_index": 1588,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Cabinet wall spacer.002",
+      "target": "East wall",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "cabinet spacer to wall",
+      "samples": 222,
+      "oriented_hits": 222,
+      "passing_actual_surface_witnesses": 101,
+      "best": {
+        "signed_gap_m": -2.4884939192615363e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          4.0,
+          6.828000068664551,
+          1.4579999446868896
+        ],
+        "target_surface": [
+          4.0,
+          6.828000068664551,
+          1.4579999446868896
+        ],
+        "target_face_index": 1952,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Supply cabinet back",
+      "target": "Cabinet wall spacer.002",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "cabinet back to wall spacer",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Chamber sole shoe.003",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "OCRU floor shoe bearing",
+      "samples": 223,
+      "oriented_hits": 223,
+      "passing_actual_surface_witnesses": 50,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.8167500495910645,
+          6.272000312805176,
+          0.0
+        ],
+        "target_surface": [
+          -3.8167500495910645,
+          6.272000312805176,
+          0.0
+        ],
+        "target_face_index": 1818,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Fabricated chamber foot.003",
+      "target": "Chamber sole shoe.003",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "fabricated foot to sole shoe",
+      "samples": 230,
+      "oriented_hits": 230,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.5331974018438785e-09,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.5405073165893555,
+          6.291757583618164,
+          0.07999999076128006
+        ],
+        "target_surface": [
+          -3.5405073165893555,
+          6.291757583618164,
+          0.07999999821186066
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Bed non-marking foot.003",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "recovery foot bearing",
+      "samples": 723,
+      "oriented_hits": 723,
+      "passing_actual_surface_witnesses": 338,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.689718008041382,
+          5.65645170211792,
+          0.0
+        ],
+        "target_surface": [
+          3.689718008041382,
+          5.65645170211792,
+          0.0
+        ],
+        "target_face_index": 58,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Tubular recovery leg.003",
+      "target": "Bed non-marking foot.003",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "recovery tubular leg socket",
+      "samples": 218,
+      "oriented_hits": 218,
+      "passing_actual_surface_witnesses": 97,
+      "best": {
+        "signed_gap_m": 1.050531864277282e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.6670000553131104,
+          5.6570000648498535,
+          0.050000011920928955
+        ],
+        "target_surface": [
+          3.6670000553131104,
+          5.6570000648498535,
+          0.05000000447034836
+        ],
+        "target_face_index": 131,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Supply bench leg.003",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "bench floor bearing",
+      "samples": 223,
+      "oriented_hits": 223,
+      "passing_actual_surface_witnesses": 102,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.8585000038146973,
+          0.5615000128746033,
+          0.0
+        ],
+        "target_surface": [
+          3.8585000038146973,
+          0.5615000128746033,
+          0.0
+        ],
+        "target_face_index": 40,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Console steel leg.003",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "console floor bearing",
+      "samples": 225,
+      "oriented_hits": 225,
+      "passing_actual_surface_witnesses": 104,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.38749998807907104,
+          8.822500228881836,
+          0.0
+        ],
+        "target_surface": [
+          0.38749998807907104,
+          8.822500228881836,
+          0.0
+        ],
+        "target_face_index": 817,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Caster rubber tyre.003",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cart tyre floor bearing",
+      "samples": 2052,
+      "oriented_hits": 2052,
+      "passing_actual_surface_witnesses": 97,
+      "best": {
+        "signed_gap_m": 1.1920928966180355e-09,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.8382999897003174,
+          2.1600000858306885,
+          -5.114232926040074e-10
+        ],
+        "target_surface": [
+          -2.8382999897003174,
+          2.1600000858306885,
+          -1.862645149230957e-09
+        ],
+        "target_face_index": 1580,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Cabinet wall spacer.003",
+      "target": "East wall",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "cabinet spacer to wall",
+      "samples": 221,
+      "oriented_hits": 221,
+      "passing_actual_surface_witnesses": 100,
+      "best": {
+        "signed_gap_m": -2.4884939192615363e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          4.0,
+          6.828000068664551,
+          2.241999864578247
+        ],
+        "target_surface": [
+          4.0,
+          6.828000068664551,
+          2.241999864578247
+        ],
+        "target_face_index": 2047,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Supply cabinet back",
+      "target": "Cabinet wall spacer.003",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "cabinet back to wall spacer",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Reserve folded side",
+      "target": "Battery plinth",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "reserve folded chassis to plinth",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.563500165939331,
+          8.454999923706055,
+          0.14000000059604645
+        ],
+        "target_surface": [
+          -2.563500165939331,
+          8.454999923706055,
+          0.14000000059604645
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Reserve folded side.001",
+      "target": "Battery plinth",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "reserve folded chassis to plinth",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.7663285732269287,
+          8.9838285446167,
+          0.14000000059604645
+        ],
+        "target_surface": [
+          -1.7663285732269287,
+          8.9838285446167,
+          0.14000000059604645
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Reserve folded back",
+      "target": "Battery plinth",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "reserve folded chassis to plinth",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.549121379852295,
+          8.986621856689453,
+          0.14000000059604645
+        ],
+        "target_surface": [
+          -2.549121379852295,
+          8.986621856689453,
+          0.14000000059604645
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Battery plinth",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "reserve floor bearing",
+      "samples": 222,
+      "oriented_hits": 222,
+      "passing_actual_surface_witnesses": 101,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.7250001430511475,
+          8.445000648498535,
+          0.0
+        ],
+        "target_surface": [
+          -1.7250001430511475,
+          8.445000648498535,
+          0.0
+        ],
+        "target_face_index": 1292,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Reserve battery module",
+      "target": "MED_R2 | Battery resilient bearing pad ",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "battery downward bearing pad",
+      "samples": 114,
+      "oriented_hits": 2,
+      "passing_actual_surface_witnesses": 1,
+      "best": {
+        "signed_gap_m": -0.0004999942332506169,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.1500000953674316,
+          8.720000267028809,
+          0.32499998807907104
+        ],
+        "target_surface": [
+          -2.1500000953674316,
+          8.720000267028809,
+          0.3254999816417694
+        ],
+        "target_face_index": 0,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "MED_R2 | Battery resilient bearing pad ",
+      "target": "Battery supported drawer rail",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "battery pad on drawer rail",
+      "samples": 58,
+      "oriented_hits": 58,
+      "passing_actual_surface_witnesses": 41,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.1650002002716064,
+          8.804600715637207,
+          0.3175000250339508
+        ],
+        "target_surface": [
+          -2.1650002002716064,
+          8.804600715637207,
+          0.3175000250339508
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Battery supported drawer rail",
+      "target": "MED_R2 | Reserve drawer rear mounting return ",
+      "approach_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "mechanism": "drawer rail back fixing",
+      "samples": 218,
+      "oriented_hits": 2,
+      "passing_actual_surface_witnesses": 1,
+      "best": {
+        "signed_gap_m": -0.0004999923706054676,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.1500000953674316,
+          8.9350004196167,
+          0.30000001192092896
+        ],
+        "target_surface": [
+          -2.1500000953674316,
+          8.934500694274902,
+          0.30000001192092896
+        ],
+        "target_face_index": 0,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "MED_R2 | Reserve drawer rear mounting return ",
+      "target": "Reserve folded back",
+      "approach_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "mechanism": "reserve rear return to back sheet",
+      "samples": 58,
+      "oriented_hits": 58,
+      "passing_actual_surface_witnesses": 25,
+      "best": {
+        "signed_gap_m": -2.670288085926398e-07,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.1906800270080566,
+          8.96250057220459,
+          0.2880000174045563
+        ],
+        "target_surface": [
+          -2.1906800270080566,
+          8.96250057220459,
+          0.2880000174045563
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Jamb folded cover",
+      "target": "Access jamb graphite return",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "OCRU folded cover retained backing",
+      "samples": 120,
+      "oriented_hits": 46,
+      "passing_actual_surface_witnesses": 1,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.4737498760223389,
+          2.777899980545044,
+          0.4049999713897705
+        ],
+        "target_surface": [
+          -1.4737498760223389,
+          2.777899980545044,
+          0.4049999713897705
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Access jamb graphite return",
+      "target": "Chamber structural upright",
+      "approach_world": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "mechanism": "OCRU jamb backing to structural end upright",
+      "samples": 230,
+      "oriented_hits": 127,
+      "passing_actual_surface_witnesses": 6,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.6377499103546143,
+          2.6000001430511475,
+          2.5399999618530273
+        ],
+        "target_surface": [
+          -1.6377499103546143,
+          2.6000001430511475,
+          2.5399999618530273
+        ],
+        "target_face_index": 53,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Chamber structural upright",
+      "target": "Sealed chamber pan",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "OCRU structural end upright to pan",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Formed end service panel",
+      "target": "Chamber structural upright",
+      "approach_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "mechanism": "OCRU manufactured service end panel to upright",
+      "samples": 436,
+      "oriented_hits": 197,
+      "passing_actual_surface_witnesses": 113,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.5316495895385742,
+          2.4800002574920654,
+          0.4119999408721924
+        ],
+        "target_surface": [
+          -1.5316495895385742,
+          2.4800002574920654,
+          0.4119999408721924
+        ],
+        "target_face_index": 49,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Cabinet formed edge",
+      "target": "Supply cabinet back",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "cabinet edge return to back",
+      "samples": 222,
+      "oriented_hits": 7,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.274999828338623,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.609999895095825,
+          8.34749984741211,
+          1.8799999952316284
+        ],
+        "target_surface": [
+          3.8849997520446777,
+          8.34749984741211,
+          1.8799999952316284
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Clear cabinet sliding pane",
+      "target": "MED_R2 | Glazing captive slide guide  1.46",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "captured lower sliding glazing guide",
+      "samples": 872,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Glazing captive slide guide  1.46",
+      "target": "Cabinet formed edge",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "sliding guide to cabinet edge",
+      "samples": 58,
+      "oriented_hits": 58,
+      "passing_actual_surface_witnesses": 25,
+      "best": {
+        "signed_gap_m": -3.0472874640308234e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.2749998569488525,
+          8.362319946289062,
+          1.444000005722046
+        ],
+        "target_surface": [
+          3.2749998569488525,
+          8.362319946289062,
+          1.444000005722046
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Berth pedestal foot",
+      "target": "Sealed chamber pan",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "treatment lift base to chamber pan",
+      "samples": 225,
+      "oriented_hits": 225,
+      "passing_actual_surface_witnesses": 56,
+      "best": {
+        "signed_gap_m": 1.1920928966180355e-09,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.408750057220459,
+          3.615000009536743,
+          0.4000000059604645
+        ],
+        "target_surface": [
+          -2.408750057220459,
+          3.615000009536743,
+          0.4000000059604645
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Telescopic lift outer",
+      "target": "Berth pedestal foot",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "treatment column to base socket",
+      "samples": 72,
+      "oriented_hits": 72,
+      "passing_actual_surface_witnesses": 10,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.938750147819519,
+          3.973600149154663,
+          0.47999998927116394
+        ],
+        "target_surface": [
+          -1.938750147819519,
+          3.973600149154663,
+          0.47999998927116394
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Rail support crosshead",
+      "target": "Telescopic lift inner",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "treatment crosshead to lift inner",
+      "samples": 114,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Reserve battery module.001",
+      "target": "MED_R2 | Battery resilient bearing pad .001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "battery downward bearing pad",
+      "samples": 114,
+      "oriented_hits": 2,
+      "passing_actual_surface_witnesses": 1,
+      "best": {
+        "signed_gap_m": -0.0005000538378953923,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.1500000953674316,
+          8.720000267028809,
+          0.7350000143051147
+        ],
+        "target_surface": [
+          -2.1500000953674316,
+          8.720000267028809,
+          0.7355000376701355
+        ],
+        "target_face_index": 0,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "MED_R2 | Battery resilient bearing pad .001",
+      "target": "Battery supported drawer rail.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "battery pad on drawer rail",
+      "samples": 58,
+      "oriented_hits": 58,
+      "passing_actual_surface_witnesses": 41,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.134999990463257,
+          8.63539981842041,
+          0.7274999618530273
+        ],
+        "target_surface": [
+          -2.134999990463257,
+          8.63539981842041,
+          0.7274999618530273
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Battery supported drawer rail.001",
+      "target": "MED_R2 | Reserve drawer rear mounting return .001",
+      "approach_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "mechanism": "drawer rail back fixing",
+      "samples": 218,
+      "oriented_hits": 2,
+      "passing_actual_surface_witnesses": 1,
+      "best": {
+        "signed_gap_m": -0.0004999905079603184,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.1500000953674316,
+          8.9350004196167,
+          0.7099999785423279
+        ],
+        "target_surface": [
+          -2.1500000953674316,
+          8.934500694274902,
+          0.7099999785423279
+        ],
+        "target_face_index": 0,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "MED_R2 | Reserve drawer rear mounting return .001",
+      "target": "Reserve folded back",
+      "approach_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "mechanism": "reserve rear return to back sheet",
+      "samples": 58,
+      "oriented_hits": 58,
+      "passing_actual_surface_witnesses": 25,
+      "best": {
+        "signed_gap_m": -2.670288085926398e-07,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.1050000190734863,
+          8.96250057220459,
+          0.7023199796676636
+        ],
+        "target_surface": [
+          -2.1050000190734863,
+          8.96250057220459,
+          0.7023199796676636
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Jamb folded cover.001",
+      "target": "Access jamb graphite return.001",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "OCRU folded cover retained backing",
+      "samples": 120,
+      "oriented_hits": 46,
+      "passing_actual_surface_witnesses": 1,
+      "best": {
+        "signed_gap_m": -2.8610229491077277e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.473750114440918,
+          6.482100009918213,
+          0.4049999713897705
+        ],
+        "target_surface": [
+          -1.473750114440918,
+          6.482100009918213,
+          0.4049999713897705
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Access jamb graphite return.001",
+      "target": "Chamber structural upright.001",
+      "approach_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "mechanism": "OCRU jamb backing to structural end upright",
+      "samples": 230,
+      "oriented_hits": 127,
+      "passing_actual_surface_witnesses": 6,
+      "best": {
+        "signed_gap_m": 2.0980834961048522e-07,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.6377501487731934,
+          6.660000324249268,
+          0.36000001430511475
+        ],
+        "target_surface": [
+          -1.6377501487731934,
+          6.660000324249268,
+          0.36000001430511475
+        ],
+        "target_face_index": 49,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Chamber structural upright.001",
+      "target": "Sealed chamber pan",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "OCRU structural end upright to pan",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Formed end service panel.001",
+      "target": "Chamber structural upright.001",
+      "approach_world": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "mechanism": "OCRU manufactured service end panel to upright",
+      "samples": 436,
+      "oriented_hits": 197,
+      "passing_actual_surface_witnesses": 98,
+      "best": {
+        "signed_gap_m": 2.060830593120233e-07,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.5316495895385742,
+          6.78000020980835,
+          0.4119999408721924
+        ],
+        "target_surface": [
+          -1.5316495895385742,
+          6.78000020980835,
+          0.4119999408721924
+        ],
+        "target_face_index": 53,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Cabinet formed edge.001",
+      "target": "Supply cabinet back",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "cabinet edge return to back",
+      "samples": 222,
+      "oriented_hits": 7,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.274999828338623,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.609999895095825,
+          6.592499732971191,
+          1.8799999952316284
+        ],
+        "target_surface": [
+          3.8849997520446777,
+          6.592499732971191,
+          1.8799999952316284
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Clear cabinet sliding pane.001",
+      "target": "MED_R2 | Glazing captive slide guide .001 1.46",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "captured lower sliding glazing guide",
+      "samples": 872,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Glazing captive slide guide .001 1.46",
+      "target": "Cabinet formed edge.001",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "sliding guide to cabinet edge",
+      "samples": 58,
+      "oriented_hits": 58,
+      "passing_actual_surface_witnesses": 25,
+      "best": {
+        "signed_gap_m": -2.8610229491077277e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.2749998569488525,
+          6.582000255584717,
+          1.4716800451278687
+        ],
+        "target_surface": [
+          3.2749998569488525,
+          6.582000255584717,
+          1.4716800451278687
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Berth pedestal foot.001",
+      "target": "Sealed chamber pan",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "treatment lift base to chamber pan",
+      "samples": 224,
+      "oriented_hits": 224,
+      "passing_actual_surface_witnesses": 55,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -2.098750114440918,
+          5.115000247955322,
+          0.4000000059604645
+        ],
+        "target_surface": [
+          -2.098750114440918,
+          5.115000247955322,
+          0.4000000059604645
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Telescopic lift outer.001",
+      "target": "Berth pedestal foot.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "treatment column to base socket",
+      "samples": 72,
+      "oriented_hits": 72,
+      "passing_actual_surface_witnesses": 10,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.938750147819519,
+          5.25,
+          0.47999998927116394
+        ],
+        "target_surface": [
+          -1.938750147819519,
+          5.25,
+          0.47999998927116394
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Rail support crosshead.001",
+      "target": "Telescopic lift inner.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "treatment crosshead to lift inner",
+      "samples": 114,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Supply cabinet shelf",
+      "target": "Supply cabinet back",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "stock shelf back return",
+      "samples": 230,
+      "oriented_hits": 13,
+      "passing_actual_surface_witnesses": 1,
+      "best": {
+        "signed_gap_m": -3.233551978953919e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.8849997520446777,
+          6.533999919891357,
+          1.2999999523162842
+        ],
+        "target_surface": [
+          3.8849997520446777,
+          6.533999919891357,
+          1.2999999523162842
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Supply cabinet shelf.001",
+      "target": "Supply cabinet back",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "stock shelf back return",
+      "samples": 233,
+      "oriented_hits": 28,
+      "passing_actual_surface_witnesses": 2,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.8849997520446777,
+          6.533999919891357,
+          1.6700000762939453
+        ],
+        "target_surface": [
+          3.8849997520446777,
+          6.533999919891357,
+          1.6700000762939453
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Supply cabinet shelf.002",
+      "target": "Supply cabinet back",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "stock shelf back return",
+      "samples": 233,
+      "oriented_hits": 28,
+      "passing_actual_surface_witnesses": 2,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.8849997520446777,
+          6.533999919891357,
+          2.109999895095825
+        ],
+        "target_surface": [
+          3.8849997520446777,
+          6.533999919891357,
+          2.109999895095825
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case",
+      "target": "MED_R2 | Sterile stock shelf bearing 0",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 0",
+      "target": "Supply cabinet shelf",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.869999647140503,
+          8.175599098205566,
+          1.2999999523162842
+        ],
+        "target_surface": [
+          3.869999647140503,
+          8.175599098205566,
+          1.2999999523162842
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case.001",
+      "target": "MED_R2 | Sterile stock shelf bearing 1",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 1",
+      "target": "Supply cabinet shelf.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.869999647140503,
+          8.175599098205566,
+          1.7100000381469727
+        ],
+        "target_surface": [
+          3.869999647140503,
+          8.175599098205566,
+          1.7100000381469727
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case.002",
+      "target": "MED_R2 | Sterile stock shelf bearing 2",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 2",
+      "target": "Supply cabinet shelf.002",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.869999647140503,
+          8.175599098205566,
+          2.109999895095825
+        ],
+        "target_surface": [
+          3.869999647140503,
+          8.175599098205566,
+          2.109999895095825
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case.003",
+      "target": "MED_R2 | Sterile stock shelf bearing 3",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 3",
+      "target": "Supply cabinet shelf",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.429999828338623,
+          7.763599872589111,
+          1.2999999523162842
+        ],
+        "target_surface": [
+          3.429999828338623,
+          7.763599872589111,
+          1.2999999523162842
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case.004",
+      "target": "MED_R2 | Sterile stock shelf bearing 4",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 4",
+      "target": "Supply cabinet shelf.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.429999828338623,
+          7.763599872589111,
+          1.7100000381469727
+        ],
+        "target_surface": [
+          3.429999828338623,
+          7.763599872589111,
+          1.7100000381469727
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case.005",
+      "target": "MED_R2 | Sterile stock shelf bearing 5",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 5",
+      "target": "Supply cabinet shelf.002",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.429999828338623,
+          7.763599872589111,
+          2.109999895095825
+        ],
+        "target_surface": [
+          3.429999828338623,
+          7.763599872589111,
+          2.109999895095825
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case.006",
+      "target": "MED_R2 | Sterile stock shelf bearing 6",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 6",
+      "target": "Supply cabinet shelf",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.429999828338623,
+          7.313600063323975,
+          1.2999999523162842
+        ],
+        "target_surface": [
+          3.429999828338623,
+          7.313600063323975,
+          1.2999999523162842
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case.007",
+      "target": "MED_R2 | Sterile stock shelf bearing 7",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 7",
+      "target": "Supply cabinet shelf.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.429999828338623,
+          7.313600063323975,
+          1.7100000381469727
+        ],
+        "target_surface": [
+          3.429999828338623,
+          7.313600063323975,
+          1.7100000381469727
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case.008",
+      "target": "MED_R2 | Sterile stock shelf bearing 8",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 8",
+      "target": "Supply cabinet shelf.002",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.429999828338623,
+          7.313600063323975,
+          2.109999895095825
+        ],
+        "target_surface": [
+          3.429999828338623,
+          7.313600063323975,
+          2.109999895095825
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case.009",
+      "target": "MED_R2 | Sterile stock shelf bearing 9",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 9",
+      "target": "Supply cabinet shelf",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.429999828338623,
+          6.865600109100342,
+          1.2999999523162842
+        ],
+        "target_surface": [
+          3.429999828338623,
+          6.865600109100342,
+          1.2999999523162842
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case.010",
+      "target": "MED_R2 | Sterile stock shelf bearing 10",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 10",
+      "target": "Supply cabinet shelf.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.429999828338623,
+          6.865600109100342,
+          1.7100000381469727
+        ],
+        "target_surface": [
+          3.429999828338623,
+          6.865600109100342,
+          1.7100000381469727
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed supply case.011",
+      "target": "MED_R2 | Sterile stock shelf bearing 11",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "sterile case downward load to paired pressed feet",
+      "samples": 218,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Sterile stock shelf bearing 11",
+      "target": "Supply cabinet shelf.002",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "pressed stock feet downward load to intended shelf",
+      "samples": 108,
+      "oriented_hits": 108,
+      "passing_actual_surface_witnesses": 44,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.429999828338623,
+          6.865600109100342,
+          2.109999895095825
+        ],
+        "target_surface": [
+          3.429999828338623,
+          6.865600109100342,
+          2.109999895095825
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Cartridge bottom seal",
+      "target": "Folded storage shelf",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.3394999516010284,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.8484548330307007,
+          8.634672164916992,
+          0.43700000643730164
+        ],
+        "target_surface": [
+          0.8484548330307007,
+          8.634672164916992,
+          0.09750005602836609
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 1.3328003944934608e-07
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Cartridge bottom seal.001",
+      "target": "Folded storage shelf",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.3395000112056732,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.0087928771972656,
+          8.644204139709473,
+          0.43700000643730164
+        ],
+        "target_surface": [
+          1.0087928771972656,
+          8.644204139709473,
+          0.09749999642372131
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Cartridge bottom seal.002",
+      "target": "Folded storage shelf",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.3395000112056732,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.1800000667572021,
+          8.64507007598877,
+          0.43700000643730164
+        ],
+        "target_surface": [
+          1.1800000667572021,
+          8.64507007598877,
+          0.09749999642372131
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Cartridge bottom seal.003",
+      "target": "Folded storage shelf.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.3994999539852142,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.8287928700447083,
+          8.644204139709473,
+          0.8370000123977661
+        ],
+        "target_surface": [
+          0.8287928700447083,
+          8.644204139709473,
+          0.4375000298023224
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Cartridge bottom seal.004",
+      "target": "Folded storage shelf.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.39949989438056943,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.0,
+          8.600000381469727,
+          0.8369999527931213
+        ],
+        "target_surface": [
+          1.0,
+          8.600000381469727,
+          0.4375000298023224
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 5.960464477539063e-08
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Cartridge bottom seal.005",
+      "target": "Folded storage shelf.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.3994999241828918,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.2118698358535767,
+          8.568129539489746,
+          0.8370000123977661
+        ],
+        "target_surface": [
+          1.2118698358535767,
+          8.568129539489746,
+          0.4375000596046448
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Cartridge bottom seal.006",
+      "target": "Folded storage shelf.002",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.39949965596199033,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.8199999332427979,
+          8.600000381469727,
+          1.2369996309280396
+        ],
+        "target_surface": [
+          0.8199999332427979,
+          8.600000381469727,
+          0.8374999761581421
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 3.5762786865234375e-07
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Cartridge bottom seal.007",
+      "target": "Folded storage shelf.002",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.39949962615966794,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.0,
+          8.600000381469727,
+          1.2369996309280396
+        ],
+        "target_surface": [
+          1.0,
+          8.600000381469727,
+          0.8374999761581421
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 3.5762786865234375e-07
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Cartridge bottom seal.008",
+      "target": "Folded storage shelf.002",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.39949965596199033,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.1800003051757812,
+          8.600000381469727,
+          1.2369996309280396
+        ],
+        "target_surface": [
+          1.1800003051757812,
+          8.600000381469727,
+          0.8374999761581421
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 3.5762786865234375e-07
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Cartridge bottom seal.009",
+      "target": "Folded storage shelf.003",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.39949980497360227,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.8595573902130127,
+          8.578855514526367,
+          1.6369999647140503
+        ],
+        "target_surface": [
+          0.8595573902130127,
+          8.578855514526367,
+          1.2375001907348633
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Cartridge bottom seal.010",
+      "target": "Folded storage shelf.003",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.39949980497360227,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.0087928771972656,
+          8.555794715881348,
+          1.6369999647140503
+        ],
+        "target_surface": [
+          1.0087928771972656,
+          8.555794715881348,
+          1.2375001907348633
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Cartridge bottom seal.011",
+      "target": "Folded storage shelf.003",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge end-seal downward shelf bearing",
+      "samples": 706,
+      "oriented_hits": 706,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.39949980497360227,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.197247862815857,
+          8.641639709472656,
+          1.6369999647140503
+        ],
+        "target_surface": [
+          1.197247862815857,
+          8.641639709472656,
+          1.2375001907348633
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Sealed consumable carton",
+      "target": "Bench lower shelf",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "bench stored carton downward shelf bearing",
+      "samples": 219,
+      "oriented_hits": 219,
+      "passing_actual_surface_witnesses": 46,
+      "best": {
+        "signed_gap_m": 1.4230608941234735e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.7730000019073486,
+          2.130000114440918,
+          0.24000000953674316
+        ],
+        "target_surface": [
+          3.7730000019073486,
+          2.130000114440918,
+          0.23999999463558197
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed consumable carton.001",
+      "target": "Bench lower shelf",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "bench stored carton downward shelf bearing",
+      "samples": 220,
+      "oriented_hits": 220,
+      "passing_actual_surface_witnesses": 47,
+      "best": {
+        "signed_gap_m": 1.4230608941234735e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.306999921798706,
+          1.6030000448226929,
+          0.24000000953674316
+        ],
+        "target_surface": [
+          3.306999921798706,
+          1.6030000448226929,
+          0.23999999463558197
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sealed consumable carton.002",
+      "target": "Bench lower shelf",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "bench stored carton downward shelf bearing",
+      "samples": 218,
+      "oriented_hits": 218,
+      "passing_actual_surface_witnesses": 45,
+      "best": {
+        "signed_gap_m": 1.4230608941234735e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.306999921798706,
+          1.0429999828338623,
+          0.24000000953674316
+        ],
+        "target_surface": [
+          3.306999921798706,
+          1.0429999828338623,
+          0.23999999463558197
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sink load-bearing wall packer",
+      "target": "East wall",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "sink packer at intended wall",
+      "samples": 221,
+      "oriented_hits": 221,
+      "passing_actual_surface_witnesses": 100,
+      "best": {
+        "signed_gap_m": -2.4884939192615363e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          4.0,
+          2.687000036239624,
+          0.7099999785423279
+        ],
+        "target_surface": [
+          4.0,
+          2.687000036239624,
+          0.7099999785423279
+        ],
+        "target_face_index": 1867,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Sink wall bracket",
+      "target": "Sink load-bearing wall packer",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "sink bracket to packer",
+      "samples": 220,
+      "oriented_hits": 60,
+      "passing_actual_surface_witnesses": 31,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          3.9700000286102295,
+          3.2100000381469727,
+          0.7099999785423279
+        ],
+        "target_surface": [
+          3.9700000286102295,
+          3.2100000381469727,
+          0.7099999785423279
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Basin bottom",
+      "target": "Sink wall bracket",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "basin resting on wall bracket",
+      "samples": 232,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Handwash soap dispenser",
+      "target": "East wall",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "wall soap dispenser rear mounting",
+      "samples": 221,
+      "oriented_hits": 221,
+      "passing_actual_surface_witnesses": 48,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          4.0,
+          3.188000202178955,
+          1.2980000972747803
+        ],
+        "target_surface": [
+          4.0,
+          3.188000202178955,
+          1.2980000972747803
+        ],
+        "target_face_index": 1925,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Identity wall spacer",
+      "target": "East wall",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "identity sign spacer wall mount",
+      "samples": 223,
+      "oriented_hits": 223,
+      "passing_actual_surface_witnesses": 102,
+      "best": {
+        "signed_gap_m": -2.4884939192615363e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          4.0,
+          4.351999759674072,
+          1.8380000591278076
+        ],
+        "target_surface": [
+          4.0,
+          4.351999759674072,
+          1.8380000591278076
+        ],
+        "target_face_index": 1985,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Identity wall spacer.001",
+      "target": "East wall",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "identity sign spacer wall mount",
+      "samples": 221,
+      "oriented_hits": 221,
+      "passing_actual_surface_witnesses": 100,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          4.0,
+          1.8179999589920044,
+          1.8380000591278076
+        ],
+        "target_surface": [
+          4.0,
+          1.8179999589920044,
+          1.8380000591278076
+        ],
+        "target_face_index": 1979,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Inner removable liner.001",
+      "target": "West wall",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "rear treatment liner wall-backed sheet",
+      "samples": 90,
+      "oriented_hits": 90,
+      "passing_actual_surface_witnesses": 0,
+      "best": {
+        "signed_gap_m": 0.10125012814998627,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.898749828338623,
+          4.210000038146973,
+          2.3949999809265137
+        ],
+        "target_surface": [
+          -4.0,
+          4.210000038146973,
+          2.3949999809265137
+        ],
+        "target_face_index": 1321,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "Receiver cast housing",
+      "target": "MED_R2 | Receiver fixed steel mounting arm",
+      "approach_world": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "mechanism": "receiver retained fixed arm",
+      "samples": 434,
+      "oriented_hits": 2,
+      "passing_actual_surface_witnesses": 1,
+      "best": {
+        "signed_gap_m": -0.00050022892653942,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.4537498950958252,
+          2.825000047683716,
+          1.2999999523162842
+        ],
+        "target_surface": [
+          -1.4537498950958252,
+          2.825500249862671,
+          1.2999999523162842
+        ],
+        "target_face_index": 0,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "MED_R2 | Receiver fixed steel mounting arm",
+      "target": "Jamb folded cover",
+      "approach_world": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "mechanism": "receiver arm to retained jamb cover",
+      "samples": 56,
+      "oriented_hits": 35,
+      "passing_actual_surface_witnesses": 16,
+      "best": {
+        "signed_gap_m": -3.0472874640308234e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.464789867401123,
+          2.7904000282287598,
+          1.2889999151229858
+        ],
+        "target_surface": [
+          -1.464789867401123,
+          2.7904000282287598,
+          1.2889999151229858
+        ],
+        "target_face_index": 21,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Suit service enclosure",
+      "target": "MED_R2 | Suit service fixed mounting arm 1.12",
+      "approach_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "mechanism": "suit service fixed arm",
+      "samples": 434,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Suit service fixed mounting arm 1.12",
+      "target": "Jamb folded cover.001",
+      "approach_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "mechanism": "suit arm to retained jamb cover",
+      "samples": 58,
+      "oriented_hits": 58,
+      "passing_actual_surface_witnesses": 25,
+      "best": {
+        "signed_gap_m": 2.060830593120233e-07,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.4687509536743164,
+          6.469600200653076,
+          1.1257548332214355
+        ],
+        "target_surface": [
+          -1.4687509536743164,
+          6.469600200653076,
+          1.1257548332214355
+        ],
+        "target_face_index": 25,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Suit service enclosure",
+      "target": "MED_R2 | Suit service fixed mounting arm 1.4",
+      "approach_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "mechanism": "suit service fixed arm",
+      "samples": 434,
+      "oriented_hits": 0,
+      "passing_actual_surface_witnesses": 0,
+      "best": null,
+      "status": "REVIEW_DIRECTION_OR_CLEARANCE"
+    },
+    {
+      "object": "MED_R2 | Suit service fixed mounting arm 1.4",
+      "target": "Jamb folded cover.001",
+      "approach_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "mechanism": "suit arm to retained jamb cover",
+      "samples": 58,
+      "oriented_hits": 58,
+      "passing_actual_surface_witnesses": 25,
+      "best": {
+        "signed_gap_m": 2.060830593120233e-07,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.5087506771087646,
+          6.469600200653076,
+          1.405784249305725
+        ],
+        "target_surface": [
+          -1.5087506771087646,
+          6.469600200653076,
+          1.405784249305725
+        ],
+        "target_face_index": 25,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Decon ceiling lamp",
+      "target": "MED_R2 | Decon fixture ceiling mounting return",
+      "approach_world": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mechanism": "decon ceiling fixture mounting return",
+      "samples": 218,
+      "oriented_hits": 2,
+      "passing_actual_surface_witnesses": 1,
+      "best": {
+        "signed_gap_m": -0.0004999923706054676,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          2.200000047683716,
+          10.149999618530273,
+          2.5399999618530273
+        ],
+        "target_surface": [
+          2.200000047683716,
+          10.149999618530273,
+          2.5394999980926514
+        ],
+        "target_face_index": 0,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "MED_R2 | Decon fixture ceiling mounting return",
+      "target": "Decon ceiling",
+      "approach_world": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mechanism": "decon mounting return to ceiling",
+      "samples": 58,
+      "oriented_hits": 58,
+      "passing_actual_surface_witnesses": 41,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          2.177500009536743,
+          10.108099937438965,
+          2.5500001907348633
+        ],
+        "target_surface": [
+          2.177500009536743,
+          10.108099937438965,
+          2.5500001907348633
+        ],
+        "target_face_index": 48,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Recovery release slip",
+      "target": "MED_R2 | Recovery foot chart holder",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "recovery card folded chart holder",
+      "samples": 218,
+      "oriented_hits": 218,
+      "passing_actual_surface_witnesses": 218,
+      "best": {
+        "signed_gap_m": 0.000499931424856187,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          2.821000099182129,
+          3.6999998092651367,
+          0.7699999809265137
+        ],
+        "target_surface": [
+          2.821000099182129,
+          3.6999998092651367,
+          0.7695000171661377
+        ],
+        "target_face_index": 6,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "MED_R2 | Recovery foot chart holder",
+      "target": "Recovery bed pan",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "chart holder lower folded flange",
+      "samples": 54,
+      "oriented_hits": 54,
+      "passing_actual_surface_witnesses": 25,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          2.811000108718872,
+          3.619999885559082,
+          0.7000000476837158
+        ],
+        "target_surface": [
+          2.811000108718872,
+          3.619999885559082,
+          0.7000000476837158
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    }
+  ],
+  "source_sha256_after": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487"
+}

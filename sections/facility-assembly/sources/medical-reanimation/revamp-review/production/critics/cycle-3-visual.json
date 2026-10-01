@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "review_type": "fresh-context independent pixel-only visual critique",
+  "cycle": 3,
+  "status": "FAIL",
+  "reviewed_at_utc": "2026-09-30",
+  "source_sha256": "e11315e75219fa870c9b4f40042f2a4e8bbb1089fcffb0a997f8fefab5068b3d",
+  "source_hash_authority": "production/renders/cycle-3/manifest.json",
+  "render_complete_gate": {
+    "manifest_exists": true,
+    "log_complete_marker": "REVIEW_RENDER_COMPLETE",
+    "log_path": "/workspace/scratch/medical-render-cycle3.log",
+    "individually_inspected_png_count": 24,
+    "all_manifest_shots_inspected": true
+  },
+  "scope": {
+    "technical_score": null,
+    "technical_note": "Technical cleanliness and reproducibility are separate. No visual points awarded for object counts, camera presence, builder effort or node complexity.",
+    "consulted": [
+      "design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md",
+      "design/ART_DIRECTION.md",
+      "design/GAME_SPEC.md sections 4.5, 5.3-5.4",
+      "contracts/interface.json",
+      "revamp-review/concepts/brief.json",
+      "revamp-review/production/RUBRIC.md",
+      "revamp-review/production/CAMERAS.md"
+    ],
+    "excluded": [
+      "TASK_STATE",
+      "earlier critic reports",
+      "builder and render authoring scripts"
+    ],
+    "reference_images_individually_inspected": [
+      "BRIEFING_INDIRECT.png",
+      "VALIDATE_Material_A.png",
+      "VALIDATE_LockerDoor.png",
+      "VALIDATE_Spawn.png"
+    ],
+    "comparison_basis": "Current pixels against the four approved spawn images and the explicit bleak neglected clinic objective. No prior-cycle visual comparison."
+  },
+  "visual_total": 73.5,
+  "visual_maximum": 90,
+  "summary": "The layout, spawn palette and red/amber lighting hierarchy are coherent. The room is an identifiable manufactured medical workplace rather than a glossy science-fiction kitbash. It remains below the requested final craft: the OCRU is dominated by a simple rectangular enclosure, pads and linen are smooth and regular, much of the equipment is visibly fresh, and floor/stock/work surfaces do not yet sell a clinic degraded by neglect. Corporate recommissioning pressure is visible in the poster and control language; it needs stronger environmental evidence around the actual work.",
+  "scores": {
+    "layout": {
+      "score": 18.5,
+      "maximum": 20,
+      "minimum": 17,
+      "status": "PASS",
+      "evidence": "All four corner images show the recognizable west OCRU, rear controls/stock/decon, east recovery and front supply/cart arrangement. The central rescue lane is clear in ENTRY, REVERSE and PINCH. Pixels support the spatial composition; exact dimensions remain an objective check."
+    },
+    "art": {
+      "score": 15.5,
+      "maximum": 20,
+      "minimum": 17,
+      "status": "FAIL",
+      "evidence": "Muted mauve, navy, blue, oxide and ochre closely follow the approved source palette. Frames, guarded controls and lift mechanisms add believable secondary forms. The main OCRU shell and several soft/support assets still have large generic rectangular masses without the asset-specific form refinement expected of final authoritative stylized game art."
+    },
+    "hero": {
+      "score": 12.5,
+      "maximum": 15,
+      "minimum": 12.75,
+      "status": "FAIL",
+      "evidence": "The empty loading bed is clearly the red focal hero. Loading/release and suit interfaces, rails and lift supports read physically. The bay's straight box silhouette dominates; smooth mattress pads and a nearly black lower mechanism reduce tactile function in its hero/detail images."
+    },
+    "materials": {
+      "score": 12,
+      "maximum": 15,
+      "minimum": 12.75,
+      "status": "FAIL",
+      "evidence": "Glass, matte wall, metal rail and dark rubber families are distinguishable. No room-wide glossy plastic problem. Upholstery, pillow, folded linen and gloves are too smooth; worktop and supply packaging share clean cream surfaces; cabinet/console/rail paint and the tile route are exceptionally uniform for the requested neglected setting."
+    },
+    "light": {
+      "score": 8,
+      "maximum": 10,
+      "minimum": 8.5,
+      "status": "FAIL",
+      "evidence": "One visible red practical drives the OCRU, one warm pool picks out supplies, inherited lights read off, and the entrance stays dark. The broad rear-wall/console illumination feels fairly even relative to the localized brief, while HERO_DECON hides much of the hose/reel and floor construction. Improve accent direction and falloff without lifting the whole room."
+    },
+    "story": {
+      "score": 7,
+      "maximum": 10,
+      "minimum": 8.5,
+      "status": "FAIL",
+      "evidence": "The recommissioning poster, employee status screen, shift log, clinical tools, dead fixtures, wall repairs and concealed bag establish the function and some corporate pressure. Perfectly stocked cartridges, empty orderly paperwork, clean linen, clean floors and almost pristine machines weaken the bleak neglected workplace. The bag and note are appropriately unobtrusive in ordinary views."
+    }
+  },
+  "hard_vetoes": [
+    {
+      "id": "procedural_cleanliness",
+      "triggered": true,
+      "severity": "room-wide visual blocker",
+      "evidence_views": [
+        "ENTRY",
+        "WALL_NORTH",
+        "HERO_RESTART",
+        "HERO_CART",
+        "HERO_SUPPLIES",
+        "DETAIL_SUPPLIES"
+      ],
+      "reason": "Despite wall patches and small handling scratches, the dominant equipment/floor/consumable presentation remains orderly, clean and freshly finished. This is incompatible with the explicit neglected clinic objective and the protocol's procedural-cleanliness veto.",
+      "repair": "Author a few visible use/neglect events at real working points: wheel-route abrasion, a dried cleaned-over rail mark, worn handles/seat edges, a stained or collapsed cloth area, used/dated work papers, and a localized leaking/repair context. Keep quiet wall and floor areas; avoid uniform grunge or adding unrelated clutter."
+    },
+    {
+      "id": "generic_low_poly_or_web_demo",
+      "triggered": false,
+      "reason": "The palette, architectural depth, guarded controls and functional prop identities prevent this from being the dominant room read, although several assets still need form refinement."
+    },
+    {
+      "id": "repeated_bevelled_box_construction",
+      "triggered": false,
+      "reason": "Rectangular construction is overused in the hero shell and some support objects, but framed glass doors, hose, cart mechanism and manufactured controls provide enough specific construction that a blanket scene-wide primitive veto would overstate the pixels."
+    },
+    {
+      "id": "uniform_satin_plastic",
+      "triggered": false,
+      "reason": "Most surfaces are matte, and glass/rail/rubber separation is visible. The soft-goods material failures are localized and are scored above."
+    },
+    {
+      "id": "flat_even_lighting",
+      "triggered": false,
+      "reason": "Red, amber and dark entry zones establish hierarchy; the rear-wall accent and decon need local repair."
+    },
+    {
+      "id": "excessive_signage_or_screens",
+      "triggered": false,
+      "reason": "The named procedure stations and compact displays have functional purposes. Their presence does not replace all physical affordances."
+    },
+    {
+      "id": "random_decorative_clutter",
+      "triggered": false,
+      "reason": "Supply and medical props are functionally grouped; the problem is insufficient use history rather than unrelated filler."
+    },
+    {
+      "id": "toy_ppe",
+      "triggered": false,
+      "reason": "No visible suit/mannequin requires this veto."
+    },
+    {
+      "id": "aaa_photoreal_texture_noise",
+      "triggered": false,
+      "reason": "Wall grain is visible but the room is not dominated by photographic grunge or dense scan noise."
+    },
+    {
+      "id": "floating_unsupported_props",
+      "triggered": false,
+      "reason": "No clear floating contact failure is visible in these pixels. Geometric support validation is still required separately."
+    }
+  ],
+  "camera_evaluation_definition": "PASS evaluates the rendered camera's named visual purpose. It does not waive the room-wide veto or the scored art/material failures. All 24 images were opened separately through view_image.",
+  "cameras": [
+    {
+      "id": "CORNER_SW",
+      "status": "PASS",
+      "small_label_visible": true,
+      "reason": "Whole room footprint, rear decon projection, west hero, east services and front cart read clearly; red/amber hierarchy and empty central lane are visible."
+    },
+    {
+      "id": "CORNER_SE",
+      "status": "PASS",
+      "small_label_visible": true,
+      "reason": "Opposite full-room view exposes the bed opening, controls, east cot and workbench with readable scale and circulation."
+    },
+    {
+      "id": "CORNER_NW",
+      "status": "PASS",
+      "small_label_visible": true,
+      "reason": "Reverse cutaway exposes front entry, supplies, cart parking and the retained central route without hiding the room composition."
+    },
+    {
+      "id": "CORNER_NE",
+      "status": "PASS",
+      "small_label_visible": true,
+      "reason": "Full reverse footprint including decon extension and bed mouth is readable; asset finish problems are exposed rather than concealed."
+    },
+    {
+      "id": "WALL_SOUTH",
+      "status": "PASS",
+      "small_label_visible": true,
+      "reason": "Entrance and its flanking equipment have depth and a restrained dark composition; the warm task pool and bed reflection remain spatially consistent."
+    },
+    {
+      "id": "WALL_WEST",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "The OCRU reads as a very large straight rectangular booth around a small smooth bed; near-black inner service/lift forms and pristine surfaces do not achieve the hero construction target."
+    },
+    {
+      "id": "WALL_NORTH",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "Procedure arrangement is readable but the broadly lit mauve wall and almost pristine console/rack/cabinet create a clean ordered clinical read rather than neglected dark work."
+    },
+    {
+      "id": "WALL_EAST",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "Warm light and institutional palette work; the cot's flat smooth linen, clean worktop and neatly staged stock remain visibly simplified. The poster carries most of the coercive story."
+    },
+    {
+      "id": "HERO_OCRU",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "Red focal bed and interfaces are clear, but plain bay panels, smooth pads and obscured mechanism do not supply enough tactile, asset-specific hero fidelity."
+    },
+    {
+      "id": "HERO_RESTART",
+      "status": "PASS",
+      "small_label_visible": true,
+      "reason": "Framed industrial screens, physical guarded arm/connect/restart controls, drawers and ventilation form a coherent usable console. Its cleanliness contributes to the room-wide story deficit."
+    },
+    {
+      "id": "HERO_CARTRIDGES",
+      "status": "PASS",
+      "small_label_visible": true,
+      "reason": "Stock cylinders have caps, labels and defined shelf retention in a readable deep rack. Repetition is appropriate to stocked consumables, though usage/stock history should be added."
+    },
+    {
+      "id": "HERO_RESERVE",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "Two handled battery boxes in a very plain open cabinet remain visually sparse; service terminations, retention and use history are not legible enough for a finished significant asset."
+    },
+    {
+      "id": "HERO_DECON",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "The alcove, hose and used-PPE bin can be identified, but the reel, fittings and lower threshold/floor are too dark to judge their construction as finished. The accent needs more precise useful grazing."
+    },
+    {
+      "id": "HERO_RECOVERY",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "Bed scale and metal rails are plausible, but the cream sheet and pillow remain smooth flat masses, and the dark blanket's few parallel grooves do not convincingly describe fabric weight or wear."
+    },
+    {
+      "id": "HERO_CART",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "The scissor lift and wheeled frame have a credible silhouette. Three near-identical smooth pads, clean rails and very simple caster construction keep it below the support-asset craft target."
+    },
+    {
+      "id": "HERO_SUPPLIES",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "Localized warm light is good and the work cluster is purposeful. Blank stacked linen, cream packaging and clean unused worktop make the important supply zone read as staged rather than neglected."
+    },
+    {
+      "id": "HERO_WASH",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "Angular metal basin and soap box are identifiable; faucet operating logic and drain/service detail are weak in the image, and broad plaster patches provide more history than the sink itself."
+    },
+    {
+      "id": "HERO_CABINET",
+      "status": "PASS",
+      "small_label_visible": true,
+      "reason": "The framed frosted-glass doors, gray pulls, lower trim, hinges/fasteners and sparse handling scratches read as a specific manufactured painted-steel cabinet."
+    },
+    {
+      "id": "ENTRY",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "Navigation and palette are strong. At actual player height the huge simple OCRU shell, clean rear equipment and regular floor dominate over the promised high-fidelity neglected-clinic story."
+    },
+    {
+      "id": "REVERSE",
+      "status": "PASS",
+      "small_label_visible": true,
+      "reason": "Dark entry, localized warm supply light and red bed establish a readable bleak atmosphere with clear rescue circulation. Visible materials still contribute to the global finish deficits."
+    },
+    {
+      "id": "PINCH",
+      "status": "PASS",
+      "small_label_visible": true,
+      "reason": "Actual pixels show a clear route past controls and recovery to decon with believable human-scale equipment and no visible circulation blockage."
+    },
+    {
+      "id": "DETAIL_OCRU",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "Smooth cushion masses and clean tubular rail response dominate the detail. Bare-metal, rubber and vinyl feel insufficiently differentiated through shape, broad roughness and handling wear."
+    },
+    {
+      "id": "DETAIL_SUPPLIES",
+      "status": "FAIL",
+      "small_label_visible": true,
+      "reason": "Tools, bottles, bandage rolls and gloves are recognizable. Linen remains flat slab stacks, gloves lack convincing compressed folds/cuffs, and the shift log is a pristine empty form with no work history."
+    },
+    {
+      "id": "HIDDEN_BAG",
+      "status": "PASS",
+      "small_label_visible": true,
+      "reason": "The owner-inspection image shows a closed zipper, dark bag/handle edges and only tiny split ochre note fragments under the bed. Ordinary room/hero views do not expose an obvious bag or readable note. This added-fill image was excluded from lighting scoring."
+    }
+  ],
+  "priority_repairs": [
+    {
+      "priority": 1,
+      "title": "Make the OCRU a specific manufactured hero inside its existing bounds",
+      "views": [
+        "ENTRY",
+        "WALL_WEST",
+        "HERO_OCRU",
+        "DETAIL_OCRU"
+      ],
+      "action": "Refine the primary enclosure with differentiated header/end-cap profiles, visible folded edges and service access logic, plus a limited number of deep functional recesses. Strengthen bed/lift/coupling construction that survives the existing red lighting. Keep equipment placements and room footprint."
+    },
+    {
+      "priority": 2,
+      "title": "Author convincing soft materials",
+      "views": [
+        "DETAIL_OCRU",
+        "HERO_RECOVERY",
+        "HERO_CART",
+        "DETAIL_SUPPLIES"
+      ],
+      "action": "Give pillows/pads constrained compression and stitched edge logic; shape sheet/blanket drape with broad weight-bearing folds; give the linen stack varied folded edges and gloves credible cuff/knuckle collapse. Use matte fabric versus slightly different vinyl response without dense weave/noise."
+    },
+    {
+      "priority": 3,
+      "title": "Add visible, localized neglect at working points",
+      "views": [
+        "ENTRY",
+        "WALL_NORTH",
+        "HERO_RESTART",
+        "HERO_SUPPLIES",
+        "DETAIL_SUPPLIES"
+      ],
+      "action": "Create a small number of concrete work events: worn guard/handle contacts, a faded service tag, incomplete or used stock, marked shift paperwork, a wheel-scuffed floor lane, a cleaning trace near the bed and a plausible repair/leak stain. Preserve palette and negative space; no blanket dirt."
+    },
+    {
+      "priority": 4,
+      "title": "Tune the two accents for useful dark detail",
+      "views": [
+        "WALL_NORTH",
+        "HERO_DECON",
+        "HERO_RESERVE",
+        "HERO_OCRU"
+      ],
+      "action": "Narrow rear illumination so it selects controls rather than washing the whole wall; graze decon fittings/threshold enough to read the manufacturing while retaining darkness. Keep the single red practical and single dim warm supply practical authoritative."
+    },
+    {
+      "priority": 5,
+      "title": "Finish sparse support mechanisms",
+      "views": [
+        "HERO_RESERVE",
+        "HERO_WASH",
+        "HERO_CART"
+      ],
+      "action": "Make battery retention/terminals, faucet operation/drain fittings, and caster/brake/pivot construction visible and plausible. Prioritize secondary forms and material identity over extra labels or tiny screws."
+    }
+  ],
+  "material_issues": [
+    {
+      "family": "upholstery and cloth",
+      "severity": "high",
+      "views": [
+        "DETAIL_OCRU",
+        "HERO_RECOVERY",
+        "HERO_CART",
+        "DETAIL_SUPPLIES"
+      ],
+      "issue": "Smooth uniform pillow/pad masses and slab-like linen weaken tactile identity.",
+      "repair": "Broad authored folds/compression, edge stitching where useful, irregular folded thickness, matte family differentiation and localized contact wear."
+    },
+    {
+      "family": "painted metal",
+      "severity": "medium",
+      "views": [
+        "HERO_RESTART",
+        "HERO_RESERVE",
+        "HERO_OCRU",
+        "HERO_CART"
+      ],
+      "issue": "Blue/oxide/cream equipment paint is largely uniform and fresh despite a few small scratches.",
+      "repair": "Low-frequency roughness/value changes and selective handling scuffs at drawers, guards, loading edges and handles; keep most large planes quiet."
+    },
+    {
+      "family": "flooring",
+      "severity": "high for story",
+      "views": [
+        "ENTRY",
+        "PINCH",
+        "REVERSE",
+        "CORNER_SE"
+      ],
+      "issue": "Regular uniform tiles and clean route markings do not record repeated cart rescue traffic or neglect.",
+      "repair": "A localized matte worn wheel route, occasional replacement/value variation and a few physically motivated cleaning/scuff marks; avoid wet plastic or grunge carpet."
+    },
+    {
+      "family": "paper, packaging and consumables",
+      "severity": "medium",
+      "views": [
+        "DETAIL_SUPPLIES",
+        "HERO_SUPPLIES",
+        "HERO_CARTRIDGES"
+      ],
+      "issue": "Blank log, uniform packaging and perfect stock order feel newly placed.",
+      "repair": "Sparse used dates/entries, one opened or depleted consumable, worn folds/tape and restrained variation in organized stock."
+    },
+    {
+      "family": "glass and rubber",
+      "severity": "low",
+      "views": [
+        "HERO_CABINET",
+        "HERO_OCRU"
+      ],
+      "issue": "These families are already distinguishable; preserve them while improving nearby soft goods.",
+      "repair": "Keep frosted cabinet glass and dark couplings controlled; avoid raising every specular response."
+    }
+  ],
+  "acceptance_note": "FAIL regardless of the separate technical score: only layout reaches its category minimum, several significant asset views fail, and the procedural-cleanliness blocker remains. This review does not certify source geometry, light count, cold-start behavior, support contacts or stable-cycle acceptance."
+}

@@ -1,0 +1,106 @@
+{
+  "review_type": "independent visual pixel review \u2014 incomplete batch, no scores",
+  "cycle": 14,
+  "source_sha256": "7b18f78e64c96b68dc992710947f780662615ce3ccf7d2d11df167809f19f867",
+  "reviewed_at_utc": "2026-10-01T10:07:06.980480+00:00",
+  "status": "INCOMPLETE_EVIDENCE_NO_FORMAL_SCORE",
+  "manifest_complete": false,
+  "available_png_count_at_review": 3,
+  "required_current_png_count": 24,
+  "inspection_method": "Each listed PNG opened individually with view_image, detail=original; no contact sheets used.",
+  "opened_references": [
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Spawn.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_LockerDoor.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Material_A.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/BRIEFING_INDIRECT.png"
+  ],
+  "opened_current_images": [
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-14/ENTRY.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-14/REVERSE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-14/PINCH.png"
+  ],
+  "reference_comparison": "Compared all four approved spawn PNGs for object-specific construction, controlled institutional color blocking, matte material separation, purposeful human props, localized lighting, and restrained texture frequency. The three available current medical views use that visual vocabulary with reduced exposure and red/warm focal lighting. Full fidelity consistency remains unassessed without the remaining views.",
+  "categories": [
+    {
+      "name": "Layout and route readability",
+      "available": 20,
+      "minimum": 17,
+      "score": null,
+      "status": "NOT_SCORED"
+    },
+    {
+      "name": "Grounded stylized art and silhouettes",
+      "available": 20,
+      "minimum": 17,
+      "score": null,
+      "status": "NOT_SCORED"
+    },
+    {
+      "name": "OCRU hero function and focal clarity",
+      "available": 15,
+      "minimum": 12.75,
+      "score": null,
+      "status": "NOT_SCORED"
+    },
+    {
+      "name": "Materials and anti-plastic quality",
+      "available": 15,
+      "minimum": 12.75,
+      "score": null,
+      "status": "NOT_SCORED"
+    },
+    {
+      "name": "Dark lighting and atmosphere",
+      "available": 10,
+      "minimum": 8.5,
+      "score": null,
+      "status": "NOT_SCORED"
+    },
+    {
+      "name": "Purposeful dressing and neglected workplace story",
+      "available": 10,
+      "minimum": 8.5,
+      "score": null,
+      "status": "NOT_SCORED"
+    }
+  ],
+  "visual_total_available": 90,
+  "visual_total_score": null,
+  "camera_gates": {
+    "status": "NOT_RUN_INCOMPLETE_BATCH",
+    "required": 24,
+    "opened": 3,
+    "passed": null
+  },
+  "observations": [
+    {
+      "view": "ENTRY.png",
+      "region": "OCRU bay, central floor, and distant working wall",
+      "observation": "The red OCRU bay reads as a distinct focal zone. The center circulation floor is visibly clear, and the restart, cartridge, decon, recovery-bed, and cabinet silhouettes remain separable in dim light. Painted frames, grey floor, and pale fabric separate visually.",
+      "severity": "observation",
+      "correction": null
+    },
+    {
+      "view": "REVERSE.png",
+      "region": "entry doors, supplies bench, and OCRU bed",
+      "observation": "The exit opening is clear and the orange floor boundary continues visibly. A localized warm wall practical highlights the supplies bench while red light groups the OCRU bed. The equipment frames and door construction have a specific angular institutional read.",
+      "severity": "observation",
+      "correction": null
+    },
+    {
+      "view": "PINCH.png",
+      "region": "restart, cartridge rack, decon recess, and cabinet",
+      "observation": "The rescue route is visible between equipment masses. This view is substantially darker than the approved spawn views, consistent with the requested bleak room, while the functional silhouettes remain readable. Small cabinet contents and decon interior detail are subdued; dedicated hero/detail views are needed before judging those regions.",
+      "severity": "observation",
+      "correction": null
+    }
+  ],
+  "confirmed_visual_blockers_from_opened_images": [],
+  "limitations": [
+    "Only three of the required 24 current PNGs were available and inspected; render manifest complete=false.",
+    "The absence of an obvious blocker in these three views does not certify zero critical visual defects or any camera gate.",
+    "No technical category score, actual-light count, numerical layout/support verification, source/camera mutation, overall acceptance, or stability comparison performed.",
+    "Closed under-bed bodybag and barely visible sticky note cannot be evaluated from this incomplete evidence."
+  ],
+  "next_required_step": "Review a complete source-specific 24-image batch independently before assigning any visual category scores or camera gate outcomes."
+}

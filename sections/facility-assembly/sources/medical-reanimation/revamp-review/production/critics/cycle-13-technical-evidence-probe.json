@@ -1,0 +1,456 @@
+{
+  "manifest_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/manifest.json",
+  "manifest_sha256": "664a81974eaedb3711e8494061d2f959946da3933b5cbae4539f1a8adb35d30f",
+  "source_sha256": "4da6305df4b0618012696bf29baa82db2a9a625511e10ede0afc7ef442937ac7",
+  "renderer_sha256": "81f7b3d98f333aba57b5e443c97faaf01e8e56a0dcb8a1bf33a55d98b9198df8",
+  "renderer_current_matches": true,
+  "complete": true,
+  "shots_count": 24,
+  "expected_ids_exact": true,
+  "settings": {
+    "engine": "CYCLES",
+    "resolution": [
+      1067,
+      600
+    ],
+    "samples": 24,
+    "cold_open": false,
+    "diagnostic": null
+  },
+  "shots": [
+    {
+      "id": "ENTRY",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/ENTRY.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "41f9b4c34cbdfc9e9cd3ffc95c1120e8758e53c887c94c93461c0bb7a49cdc93",
+      "rgb_sha256": "6a49d60a4519c72fef5484d4aa2e46c76b2d6363d6fbcbe68725291ce6c99b82",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 0.0,
+      "look_direction_max_error": null,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "REVERSE",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/REVERSE.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "3284c323e79c4bc703d14cbb0b8675b26c3ada5e27239f0a619147e59deef0a0",
+      "rgb_sha256": "4d79a756235ffbeaac75c6418d5691b6eb2b0c5e19370ea0bef1319a0627868e",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 0.0,
+      "look_direction_max_error": null,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "PINCH",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/PINCH.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "cb4e8a044217b753bc838aeb96e002599e85524617d820d85eb5d370a45d8737",
+      "rgb_sha256": "113ccffb8d3de3af5425e7d5520e79dd785532807329a23a55dd967b259b272f",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 0.0,
+      "look_direction_max_error": null,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "DETAIL_OCRU",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/DETAIL_OCRU.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "b2a5477156bebb9c96377f07a60dd5a5a8afa4f3e1b7a1058ca07dda1da4c6ee",
+      "rgb_sha256": "8e1247605c6d6a122d88201850e03c4bdad7980f624bf1e8bbcfedeaabfd966d",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 0.0,
+      "look_direction_max_error": null,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "DETAIL_SUPPLIES",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/DETAIL_SUPPLIES.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "4f9a34932537b93a61a040e7fbd0004f7783d9cf1367b70b5da8c31afe89ff3b",
+      "rgb_sha256": "85353b25376ebb1f87342d11bdcf5ca74a3977933a6a4cb90349982d39c4da52",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 0.0,
+      "look_direction_max_error": null,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "CORNER_SW",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/CORNER_SW.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "244fffce2065cda6dcabbcde0e3218d130852d1b086cc72571a9baa4e492152b",
+      "rgb_sha256": "604acf92b16b33150e32f710f30a4ff66a17b2f08d5651a91ccfb2cc7ea22af1",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 0.0,
+      "look_direction_max_error": 1.022700156783074e-07,
+      "lens_error_mm": 0.0,
+      "projection": "ORTHO",
+      "temporary_hidden_count": 113,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "CORNER_SE",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/CORNER_SE.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "a4b911b20be20525b57acddf9ed7e396a5b45ee1e412c808d35f7caefd056bc0",
+      "rgb_sha256": "ead521aadeb98a9614fdea9a14820d2804e6b39ed466abbe46d5e2b5db31fa63",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 0.0,
+      "look_direction_max_error": 1.022700156783074e-07,
+      "lens_error_mm": 0.0,
+      "projection": "ORTHO",
+      "temporary_hidden_count": 112,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "CORNER_NW",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/CORNER_NW.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "14aef1d51ac4d38c85248719a431c2ce4141891c9be1845ba01bc26c96d6962b",
+      "rgb_sha256": "d029a370f0010b0e872a010584068f76acb51fc5d13c5f0624b3acce5bd30651",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 0.0,
+      "look_direction_max_error": 1.2031690421743235e-07,
+      "lens_error_mm": 0.0,
+      "projection": "ORTHO",
+      "temporary_hidden_count": 113,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "CORNER_NE",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/CORNER_NE.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "25b2270651e70c8dd703b7a6c315cf0e5d197ccd6136e148f1b169d8f0106dfb",
+      "rgb_sha256": "f3b6fde92eaa5070dee412cb880e2909e8dfb76f6c545998ae3d29640976a8f7",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 0.0,
+      "look_direction_max_error": 1.2031690421743235e-07,
+      "lens_error_mm": 0.0,
+      "projection": "ORTHO",
+      "temporary_hidden_count": 112,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "WALL_SOUTH",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/WALL_SOUTH.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "f0dceaa0f62a37451e67428c33ec3dfec9bbff3e14790da892a630bf001f5db1",
+      "rgb_sha256": "954c4a41e708765b314019d065b21c0539fb8e38a9864f821bbabe0e8dc3c10a",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 9.536743128535363e-08,
+      "look_direction_max_error": 1.2289328263012655e-07,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "WALL_WEST",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/WALL_WEST.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "c1717616745076fb5c8a481a6f8f9024eae0d407f281d7cd76eb3939b7353abc",
+      "rgb_sha256": "7b37fbb4f0c3a7b82752462637d5cb75f1aa25217e14964469a88d0188b8015b",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 4.7683715642676816e-08,
+      "look_direction_max_error": 7.596512574536973e-08,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "WALL_NORTH",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/WALL_NORTH.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "eb90eb447cd9607da2a4e98a9450460ba7442a44c620ff89b6e1cda347d3644d",
+      "rgb_sha256": "5622ec4be7a2a2091b0c12a483d501c83f908bdb9bdfe7fd7ce619f14f7c7f26",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 2.3841857821338408e-08,
+      "look_direction_max_error": 1.8402856419297287e-08,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "WALL_EAST",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/WALL_EAST.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "f2b1152d0b45ecf36df32209fd5e6924ecb0b6d665b8ea7c50b9e73655073904",
+      "rgb_sha256": "231028f8597acc4b767e343b6e482367a93680dc62c3289438b7ba5d9eb9c6b1",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 2.3841857821338408e-08,
+      "look_direction_max_error": 1.6288936421915423e-07,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "HERO_OCRU",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_OCRU.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "f9906f07467c4d85a18ca8a2c5565ba836c67006ab4e9045414c2e9673352a75",
+      "rgb_sha256": "1b30e3d89f9cbe371cc4556dcee2603de1980f22ca2ef5d96fb627b0bc14cbab",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 0.0,
+      "look_direction_max_error": null,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "HERO_RESTART",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_RESTART.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "d6b5b0255d493e50894b0cafba50ae23079527199d0c3464c2c72ea3a0cf6432",
+      "rgb_sha256": "9637abf562007b27b9d85e85c2acfc16f128fb789e24d55b16502984426b659f",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 1.9073486345888568e-07,
+      "look_direction_max_error": 5.546528408784113e-08,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "HERO_CARTRIDGES",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_CARTRIDGES.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "af8520a9b1792622e34fb705268c9c83e8be8fa1f14fb54b4f90d65a18c0375f",
+      "rgb_sha256": "b6b3ef273575f21038aa415109073ee21a7f384110424110cf744f3ba890dd53",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 1.9073486345888568e-07,
+      "look_direction_max_error": 1.9160126263351174e-08,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "HERO_RESERVE",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_RESERVE.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "7ba44561132322658118137091e6f79c553308605cc1e879d5f318f43a3975b6",
+      "rgb_sha256": "eb381f361cfb1bad5109a6ba49d30fe7e3fb0d28fc8d9c8a4514fb6d3f41e32c",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 1.9073486345888568e-07,
+      "look_direction_max_error": 1.2256983872305227e-07,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "HERO_DECON",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_DECON.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "c7d2c9a5576c9f3d76a57e158dcf87a75da8cc8736f0ce3215e37b4fc987eb32",
+      "rgb_sha256": "3c16284142636717efc22503835028846bba7dcb01cfae4d3c3127c26144cf37",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 1.9073486345888568e-07,
+      "look_direction_max_error": 2.939418405900618e-08,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "HERO_RECOVERY",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_RECOVERY.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "934af45e15e1cbaeeb5953eeb87cfd59ca7bccc6a4b5947601591940e4cf7f93",
+      "rgb_sha256": "c3be12693de13794a1e706b9c5eb0087cfb148c13032ebadb921dadd4e16e908",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 4.768371586472142e-08,
+      "look_direction_max_error": 1.8716642508076475e-07,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "HERO_CART",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_CART.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "3451bb1548514d340fb1382d886940c3595c49cf821b81797e963da055fd6e64",
+      "rgb_sha256": "e1496e6b303ca51bc8a484807b832e8a732ea2a00ec212932cc8a1c03edc184d",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 2.384185793236071e-08,
+      "look_direction_max_error": 1.290591906677463e-07,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "HERO_SUPPLIES",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_SUPPLIES.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "149762127fde514fce350ea09e4705502740415be3bca19afd86aa21cbb21f56",
+      "rgb_sha256": "7356ad23b0fcd199c646ef32587beb4ae63ebd1ea41cc3ddefb19f6d9456c0be",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 9.536743172944284e-08,
+      "look_direction_max_error": 1.761022127011458e-07,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "HERO_WASH",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_WASH.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "970c2cb817f02d7031a0acd195fa3ebb710ee4048ac0eb716fd337ad6c858409",
+      "rgb_sha256": "ca3bdf9527319e7a8eac5d827816450a056fc704461b227c68f813e4c0587463",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 4.768371586472142e-08,
+      "look_direction_max_error": 2.713847441493389e-07,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "HERO_CABINET",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_CABINET.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "e98f721711b68d468c4de327ff9bc97fc205a29003db9e3b25463fec909d4d77",
+      "rgb_sha256": "19dded876f0c6c30926524c179c8ed45354b1ed2f8e3d6a02fe8801b06829617",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 1.9073486345888568e-07,
+      "look_direction_max_error": 7.574626270656637e-08,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 0
+    },
+    {
+      "id": "HIDDEN_BAG",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HIDDEN_BAG.png",
+      "size": [
+        1067,
+        600
+      ],
+      "decoded": true,
+      "file_sha256": "a50a38158a1953cd3b4b8ef3951de44cc7107eb5db76e07667c2a0d94d3c5869",
+      "rgb_sha256": "49cef3a1cb1d8317742430a8cf61bb823c4db9f04ff295bf0075edf0ae0fe79d",
+      "camera_finite": true,
+      "matrix_or_position_max_error": 1.1444091807533141e-07,
+      "look_direction_max_error": 1.8663649825612083e-07,
+      "lens_error_mm": 0.0,
+      "projection": "PERSP",
+      "temporary_hidden_count": 0,
+      "temporary_inspection_fill_watts": 2
+    }
+  ],
+  "status": "PASS",
+  "source_scene_saved_by_critic": false
+}

@@ -1,0 +1,327 @@
+{
+  "cycle": 13,
+  "review_scope": "Fresh independent current-only visual review; six visual categories /90. Technical /10 is unscored.",
+  "source_sha256": "4da6305df4b0618012696bf29baa82db2a9a625511e10ede0afc7ef442937ac7",
+  "renderer_sha256": "81f7b3d98f333aba57b5e443c97faaf01e8e56a0dcb8a1bf33a55d98b9198df8",
+  "evidence": {
+    "manifest": "renders/cycle-13/manifest.json",
+    "manifest_complete": true,
+    "render_count": 24,
+    "all_named_pngs_present": true,
+    "resolution": [
+      1067,
+      600
+    ],
+    "all_24_opened_individually_at_original_detail": true,
+    "approved_spawn_references_opened_individually_at_original_detail": [
+      "../spawn-reference/VALIDATE_Spawn.png",
+      "../spawn-reference/VALIDATE_LockerDoor.png",
+      "../spawn-reference/VALIDATE_Material_A.png",
+      "../spawn-reference/BRIEFING_INDIRECT.png"
+    ]
+  },
+  "categories": [
+    {
+      "category": "Layout and route readability",
+      "score": 18.5,
+      "available": 20,
+      "minimum": 17,
+      "rationale": "ENTRY, REVERSE and PINCH show a continuous open central transfer area, readable doorway and clear access between OCRU, restart/decon, recovery and supplies. Four cutaways expose the present footprint and prop arrangement. This is visual route evidence, not measured old-layout preservation or numerical clearance.",
+      "passes_minimum": true
+    },
+    {
+      "category": "Grounded stylized art and silhouettes",
+      "score": 18.5,
+      "available": 20,
+      "minimum": 17,
+      "rationale": "The OCRU has a specific framed chamber, stepped lift supports, carriage rails, controls and panel construction. Recovery furniture, scissor cart, folded cloth and guarded console controls remain identifiable by shape. Angular housings, restrained detail and broad color groups are consistent with the approved spawn references. Secondary enclosures are simpler, but repeated default primitives do not dominate.",
+      "passes_minimum": true
+    },
+    {
+      "category": "OCRU hero function and focal clarity",
+      "score": 14,
+      "available": 15,
+      "minimum": 12.75,
+      "rationale": "The red bed zone is the dominant landmark from gameplay and footprint views. Its carriage, supports, insert/release hardware, suit connection and neighboring restart station establish medical machinery rather than a decorative sci-fi box. Secondary stations stay subordinate.",
+      "passes_minimum": true
+    },
+    {
+      "category": "Materials and anti-plastic quality",
+      "score": 13.5,
+      "available": 15,
+      "minimum": 12.75,
+      "rationale": "Soft cream bedding, dark padded cart surfaces, matte gloves, painted blue housings, subdued steel hardware, paper, dark glass and lavender plaster separate visibly. DETAIL_OCRU and DETAIL_SUPPLIES show controlled highlights, broad folds and restrained wear. There is no dominant shared glossy-plastic response or photographic texture noise. Deep shadow limits some secondary material identity.",
+      "passes_minimum": true
+    },
+    {
+      "category": "Dark lighting and atmosphere",
+      "score": 9,
+      "available": 10,
+      "minimum": 8.5,
+      "rationale": "A localized red OCRU bed light supplies the strongest color/value emphasis, with a quieter warm supplies pool and dim directional wall accents. The ceiling and secondary recesses stay dark while the route and major furniture remain readable. The decon/cabinet regions lose small-label clarity, but do not obstruct the gameplay reading. HIDDEN_BAG's 2 W inspection fill is excluded from gameplay brightness judgment.",
+      "passes_minimum": true
+    },
+    {
+      "category": "Purposeful dressing and neglected workplace story",
+      "score": 9,
+      "available": 10,
+      "minimum": 8.5,
+      "rationale": "Worn continuity propaganda, removed-paper wall marks, restrained floor staining/debris near OCRU, repeated denied entries in the shift log, clinical supplies, used cartridge storage and a closed concealed bag convey an established clinic with sinister procedures. The dressing clusters around work and focal areas and leaves movement space quiet. The bag's small tan paper detail is visible but its text is not resolved.",
+      "passes_minimum": true
+    }
+  ],
+  "visual_total": 82.5,
+  "visual_available": 90,
+  "all_six_category_minima_pass": true,
+  "all_24_camera_gates_pass": true,
+  "mandatory_gameplay_gates": {
+    "ENTRY": "PASS",
+    "REVERSE": "PASS",
+    "PINCH": "PASS"
+  },
+  "current_only_visual_pass": true,
+  "critical_visual_blockers": [],
+  "visual_vetoes": {
+    "dominant_default_primitives": false,
+    "dominant_generic_low_poly_or_web_demo": false,
+    "dominant_uniform_plastic": false,
+    "dominant_photographic_or_AAA_noise": false,
+    "flat_even_lighting": false,
+    "dominant_unrelated_asset_assembly": false
+  },
+  "nonblocking_visual_limitations": [
+    "Decon, reserve and cabinet fine labels/interior details lose clarity in deep secondary shadow; their major forms and the gameplay route remain readable.",
+    "Some secondary enclosures and the regular floor grid are simpler than the focal OCRU construction, without becoming the room's dominant primitive read.",
+    "The concealed bag's small tan paper detail is visible in the inspection view, but its text is not legible at 1067 x 600."
+  ],
+  "unscored_technical": {
+    "available": 10,
+    "score": null,
+    "status": "Not evaluated by this visual critic"
+  },
+  "limits": [
+    "Current pixels expose the room footprint and route; exact old-layout preservation and numerical clearances were not measured.",
+    "Visible lighting hierarchy was reviewed; exact saved light counts or wattages outside the documented inspection fill were not verified.",
+    "Pixel contact cues do not certify geometric support-contact, intersections, UV integrity, source reproducibility, cold-start, runtime performance or runtime integration.",
+    "No earlier-cycle images, reports or scores were used. Cross-cycle stability and final two-cycle regression acceptance were not assessed.",
+    "This visual PASS does not establish overall /100 completion, owner promotion or merge approval. No source, art or rendering changes were made."
+  ],
+  "per_camera": [
+    {
+      "camera": "ENTRY",
+      "file": "renders/cycle-13/ENTRY.png",
+      "group": "gameplay",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Central route and far-wall functions read clearly; red OCRU is primary and recovery is subordinate."
+    },
+    {
+      "camera": "REVERSE",
+      "file": "renders/cycle-13/REVERSE.png",
+      "group": "gameplay",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Exit opening and open transfer floor remain legible; supplies and OCRU flank the route without visually closing it."
+    },
+    {
+      "camera": "PINCH",
+      "file": "renders/cycle-13/PINCH.png",
+      "group": "gameplay",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Restart, cartridge bank and decon frame remain identifiable around an open rescue route; small labels are dim."
+    },
+    {
+      "camera": "DETAIL_OCRU",
+      "file": "renders/cycle-13/DETAIL_OCRU.png",
+      "group": "detail",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Bedding thickness, stitched-edge treatment, rails, lift supports and restrained metal highlights provide specific construction."
+    },
+    {
+      "camera": "DETAIL_SUPPLIES",
+      "file": "renders/cycle-13/DETAIL_SUPPLIES.png",
+      "group": "detail",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Gloves, folded pads, bandage rolls, tools, bottles and the denied shift log form a purposeful clinical cluster with distinct responses."
+    },
+    {
+      "camera": "CORNER_SW",
+      "file": "renders/cycle-13/CORNER_SW.png",
+      "group": "cutaway",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Whole current floor arrangement is exposed; red OCRU, recovery and warm supplies form a readable hierarchy."
+    },
+    {
+      "camera": "CORNER_SE",
+      "file": "renders/cycle-13/CORNER_SE.png",
+      "group": "cutaway",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Opposing footprint view shows open center and access to restart/decon; no broad assembly mismatch is visible."
+    },
+    {
+      "camera": "CORNER_NW",
+      "file": "renders/cycle-13/CORNER_NW.png",
+      "group": "cutaway",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Entry side, supplies/recovery and OCRU placement are visible together; circulation remains clear in the current arrangement."
+    },
+    {
+      "camera": "CORNER_NE",
+      "file": "renders/cycle-13/CORNER_NE.png",
+      "group": "cutaway",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Fourth corner exposes cabinet/decon projection and central transfer zone; red focal area remains distinct."
+    },
+    {
+      "camera": "WALL_SOUTH",
+      "file": "renders/cycle-13/WALL_SOUTH.png",
+      "group": "wall",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Door framing has depth and specific panels; dark opening remains identifiable as the exit beside supplies and OCRU."
+    },
+    {
+      "camera": "WALL_WEST",
+      "file": "renders/cycle-13/WALL_WEST.png",
+      "group": "wall",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "OCRU reads as a constructed treatment machine, with a localized red bed zone and sparse dark staining below."
+    },
+    {
+      "camera": "WALL_NORTH",
+      "file": "renders/cycle-13/WALL_NORTH.png",
+      "group": "wall",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Restart, cartridges and recessed decon occupy a coherent functional wall; subdued lighting preserves primary hierarchy."
+    },
+    {
+      "camera": "WALL_EAST",
+      "file": "renders/cycle-13/WALL_EAST.png",
+      "group": "wall",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Recovery berth, worn poster, sink and supplies bench read at believable relative scale, with quiet wall space between clusters."
+    },
+    {
+      "camera": "HERO_OCRU",
+      "file": "renders/cycle-13/HERO_OCRU.png",
+      "group": "functional",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Bed, carriage, insert/release controls, suit connector and chamber panels are legible; closed bag stays underneath the bed."
+    },
+    {
+      "camera": "HERO_RESTART",
+      "file": "renders/cycle-13/HERO_RESTART.png",
+      "group": "functional",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Guarded physical buttons and restrained status panels read as dated industrial controls; no decorative luminous UI dominates."
+    },
+    {
+      "camera": "HERO_CARTRIDGES",
+      "file": "renders/cycle-13/HERO_CARTRIDGES.png",
+      "group": "functional",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Labeled cartridge grouping and a missing slot support use; rack and decon remain subordinate to the OCRU."
+    },
+    {
+      "camera": "HERO_RESERVE",
+      "file": "renders/cycle-13/HERO_RESERVE.png",
+      "group": "functional",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Handled reserve modules remain recognizable inside dark painted cabinetry; tiny interior details are limited by shadow."
+    },
+    {
+      "camera": "HERO_DECON",
+      "file": "renders/cycle-13/HERO_DECON.png",
+      "group": "functional",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Recessed frame, hanging hose, service panel, grated floor and used-PPE bin are visible. Upper recess and fine text are very dark."
+    },
+    {
+      "camera": "HERO_RECOVERY",
+      "file": "renders/cycle-13/HERO_RECOVERY.png",
+      "group": "functional",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Broad sheet folds, pillow, folded blanket, rail frame and worn institutional graphic establish a clinical recovery berth."
+    },
+    {
+      "camera": "HERO_CART",
+      "file": "renders/cycle-13/HERO_CART.png",
+      "group": "functional",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Three padded sections, scissor lift, base and casters distinguish a transfer cart; it remains a dim secondary asset."
+    },
+    {
+      "camera": "HERO_SUPPLIES",
+      "file": "renders/cycle-13/HERO_SUPPLIES.png",
+      "group": "functional",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Workbench, clinical items, lower stock boxes and drawers form a believable work station under a restrained warm pool."
+    },
+    {
+      "camera": "HERO_WASH",
+      "file": "renders/cycle-13/HERO_WASH.png",
+      "group": "functional",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Recessed basin, tap, dispenser, pipe and adjacent sharps bin establish a practical handwash station without excessive detail."
+    },
+    {
+      "camera": "HERO_CABINET",
+      "file": "renders/cycle-13/HERO_CABINET.png",
+      "group": "functional",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Door reveals, handles, dark glazed fronts, muted stored-box shapes and sparse wear identify wall medical storage; contents are intentionally subdued."
+    },
+    {
+      "camera": "HIDDEN_BAG",
+      "file": "renders/cycle-13/HIDDEN_BAG.png",
+      "group": "inspection",
+      "inspected_individually": true,
+      "image_detail": "original",
+      "verdict": "PASS",
+      "observation": "Closed dark soft-sided bag, continuous zipper, handles and small tan paper detail are visible. Temporary 2 W inspection fill is not gameplay lighting evidence."
+    }
+  ]
+}

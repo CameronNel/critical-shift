@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "source_sha256": "ef097c0052c95bf23c8a4d542db661cb151566f8618c287931f4ffa163015ff7",
+  "renderer_sha256": "b36e00639bad98353c5eda83231195b26870936b98fc149aeb9228db00186030",
+  "first_render_and_cached_skip_camera_matrix_delta": 0.0,
+  "cached_camera_is_identity": false,
+  "cached_camera_matrix_world": [
+    [
+      0.6823181509971619,
+      -0.22077800333499908,
+      0.6969211101531982,
+      -0.6499999761581421
+    ],
+    [
+      0.7310553789138794,
+      0.20605939626693726,
+      -0.6504594683647156,
+      7.300000190734863
+    ],
+    [
+      -6.592319579112882e-09,
+      0.9533082246780396,
+      0.3019990026950836,
+      1.5
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "maximum_RGB_difference_against_cycle10": 0.0,
+  "png_sha256": "bdfb6ba5385ff7f5bbd91d9e3330eddd8d09e7f16622a2e7a64a71ac60eaf34e",
+  "evidence": "Original actual render manifest frozen in cache-camera-before.json; second invocation used --skip-existing under the same renderer hash; cached image was not rerendered."
+}

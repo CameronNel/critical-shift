@@ -1,0 +1,41 @@
+{
+  "cycle": 1,
+  "verdict": "FAIL",
+  "visual_score": 70.5,
+  "technical_score": 6.5,
+  "total": 77,
+  "scores": {
+    "layout": 18,
+    "art": 16,
+    "hero": 12,
+    "materials": 11.5,
+    "lighting": 5.5,
+    "dressing": 7.5,
+    "technical": 6.5
+  },
+  "reviewer": "medical_visual_cycle1 + medical_technical_review",
+  "evidence": "renders/cycle-1",
+  "critical": [
+    "Cart unreadable; reserve/cabinet/decon forms lost in black",
+    "Invalid winding",
+    "Support proof insufficient",
+    "Cart lift hierarchy incorrect"
+  ],
+  "defects": [
+    "Repeated blue/black panel vocabulary",
+    "Rigid-looking folded cloth and padding transitions",
+    "Neglect under-expressed",
+    "PINCH aimed at bed; corner framing too small"
+  ],
+  "repairs": [
+    "Broaden two authored accents without adding sources",
+    "Soft goods now wrap above and below narrow stitched edges",
+    "Peel-open sterile wrapper moved clear of folded cloth",
+    "Fixed plate/cylinder/upholstery normals and cast shells",
+    "Directional multi-item support anchors and mesh witness test",
+    "Split lift-deck guards from fixed pivot",
+    "New circulation camera and whole-room orthographic cutaway fit",
+    "Dark isolated-camera world backdrop instead of bright open-portal sky"
+  ],
+  "status": "repairs being verified"
+}

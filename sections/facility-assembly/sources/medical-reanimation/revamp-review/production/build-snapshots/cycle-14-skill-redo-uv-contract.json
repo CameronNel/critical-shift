@@ -1,0 +1,1122 @@
+{
+  "procedural_scale": "Named MED_Physical_1m UV for controlled microheight (height in metres), including every active material user. Retained reference broad variation uses Generated, Object and Geometry inputs. Main and decon floor Generated coordinates each scale by their respective slab dimensions for 600 mm tiles.",
+  "maps": {
+    "clinical-labels.png": "sRGB base colour, packed; Clinical_Label UV",
+    "clinical-propaganda.png": "sRGB base colour, packed; Printed artwork UV"
+  },
+  "meshes": [
+    {
+      "object": "Formed end service panel",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Jamb folded cover",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Formed end service panel.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Jamb folded cover.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Chamber top folded fascia",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Telescopic lift outer",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Telescopic lift inner",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Rail support crosshead",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Telescopic lift outer.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Telescopic lift inner.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Rail support crosshead.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Segmented adult berth cushion",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Segmented adult berth cushion.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Segmented adult berth cushion.002",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Contoured head pad",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Serviceable inner access panel",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Serviceable inner access panel.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Inner removable liner",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Inner removable liner.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Inner removable liner.002",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Lift column protective bellows",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Lift column protective bellows.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Lift column protective bellows.002",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Lift column protective bellows.003",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Lift column protective bellows.004",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Lift column protective bellows.005",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Lift column protective bellows.006",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Lift column protective bellows.007",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Caster rubber tyre",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Caster rubber tyre.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Caster rubber tyre.002",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Caster rubber tyre.003",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Cart segmented mattress",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Cart segmented mattress.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Cart segmented mattress.002",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Recovery foam cushion",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Recovery pillow",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Sealed consumable carton",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Sealed consumable carton.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Sealed consumable carton.002",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Folded cleaning cloth",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Clear cabinet sliding pane",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Clear cabinet sliding pane.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Reserve battery module",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Reserve battery module.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Folded work glove palm",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Folded work glove finger",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Folded work glove finger.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Folded work glove finger.002",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Folded work glove finger.003",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Folded work glove palm.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Folded work glove finger.004",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Folded work glove finger.005",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Folded work glove finger.006",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Folded work glove finger.007",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Sterile pack",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "Sterile pack.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Glove cuff and thumb Folded work glove palm",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Glove cuff and thumb Folded work glove palm.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service -1",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service 1",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | OCRU stepped cast pressure beam",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Jamb service cassette -1",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Jamb service cassette 1",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Single red OCRU practical housing",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Concealed closed body bag",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Bed rear service shield",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Bed manufactured rail carriage",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Barely visible continuity note",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical consumables working cluster",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Manufactured underbench drawers",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Staff cup and clinical instruments",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Sealed clinical sharps disposal",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Discarded clinical swab",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Restrained old loading trace",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Interrupted continuity shift log",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Decon pressure-jamb construction 1.5",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Decon pressure-jamb construction 2.8",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Decon layered header",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Decon low pressure threshold",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Wash-zone localized repair and water maps",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Handled gantry paint chips",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Manufactured display surround ",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Cast diagnostic monitor hood ",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Manufactured display surround .001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Cast diagnostic monitor hood .001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Restart station folded worktop edge",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Console drawer fabrication ",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Console drawer fabrication .001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Console drawer fabrication .002",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Restart rear service loom",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.002",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.003",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.004",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.005",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.006",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.007",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.008",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.009",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.010",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.011",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Cartridge rack folded returns",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Reserve power manufactured cover",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Exposed reserve battery service construction",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Recovery cot fabrication and textile seams",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Recovery foam cushion wrapped seam",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Transfer cart folded guards and pivot",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Transfer cart scissor pivot hardware",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face ",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face .001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Neglected cabinet restraint seal",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 0",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 1",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 2",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 3",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 4",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 5",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 6",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 7",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 8",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 9",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 10",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical cabinet stock 11",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Corporate continuity clinical wall art",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Handwash slotted drain",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Molded clinical soap dispenser",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Tap base localized mineral residue",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Decon wash manufactured control skin",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Interrupted recovery care sheet",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Old retrieval residue below loading edge",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Neglected retrieval traffic at loading approach",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Neglected rear utility leak",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Old recovery linen handling trace",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Handwash wall fitted repair patch",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Interrupted restart incident docket",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Reserve localized old floor leak",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Pressure leaf layered inset ",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Pressure leaf layered inset .001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Dated OCRU maintenance card",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Open cast load column and machined guide construction",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Tailored cover construction Segmented adult berth cushion",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Tailored cover construction Segmented adult berth cushion.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Tailored cover construction Segmented adult berth cushion.002",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Tailored cover construction Contoured head pad",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Tailored cover construction Recovery pillow",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Tailored cover construction Cart segmented mattress",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Tailored cover construction Cart segmented mattress.001",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Tailored cover construction Cart segmented mattress.002",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Bound treatment pan construction",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical chamber inspection construction",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Constructed clinical dispensing bottles and tray",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Constructed cleaning cotton folded edges",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Clinical quick-release patient webbing",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Printed and folded clinical packaging",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Transfer cart brake and retained swivel construction",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Transfer deck load identification",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    },
+    {
+      "object": "MED_R2 | Localized clinical worktop handling",
+      "layer": "MED_Physical_1m",
+      "finite": true,
+      "zero_uv_area_faces": 0,
+      "overlap": "Intentional physical repeating projection, or discrete label atlas regions."
+    }
+  ]
+}

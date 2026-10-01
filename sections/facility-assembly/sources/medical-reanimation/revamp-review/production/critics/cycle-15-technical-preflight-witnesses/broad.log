@@ -1,0 +1,21 @@
+/tmp/medical15-technical/broad.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  required=any(mat and mat.use_nodes and any(n.type=='UVMAP' and n.uv_map=='MED_Physical_1m' and n.outputs[0].is_linked for n in mat.node_tree.nodes) for mat in me.materials)
+/tmp/medical15-technical/broad.py:39: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not mat.use_nodes:continue
+PHYSICAL_GRAPH_PROGRESS 0 1243 0 0
+PHYSICAL_GRAPH_PROGRESS 100 1243 287 278
+PHYSICAL_GRAPH_PROGRESS 200 1243 425 416
+PHYSICAL_GRAPH_PROGRESS 300 1243 663 636
+PHYSICAL_GRAPH_PROGRESS 400 1243 805 755
+PHYSICAL_GRAPH_PROGRESS 500 1243 1024 946
+PHYSICAL_GRAPH_PROGRESS 600 1243 1164 1082
+PHYSICAL_GRAPH_PROGRESS 700 1243 1354 1238
+PHYSICAL_GRAPH_PROGRESS 800 1243 1502 1365
+PHYSICAL_GRAPH_PROGRESS 900 1243 1639 1498
+PHYSICAL_GRAPH_PROGRESS 1000 1243 1900 1713
+PHYSICAL_GRAPH_PROGRESS 1100 1243 2202 1914
+PHYSICAL_GRAPH_PROGRESS 1200 1243 2703 2225
+BROAD_AUDIT_COMPLETE 1243 2932 2370 unrooted [['Meter unit'], ['Screwdriver slot.015', 'Access panel fastener.001'], ['Top removable fascia fixing.001', 'Screwdriver slot.007'], ['Service jamb narrow edge scuff.003', 'Orange latch rail.001'], ['Service jamb narrow edge scuff'], ['Top removable fascia fixing.005', 'Screwdriver slot.011'], ['Release slip', 'Recovery release slip'], ['Engraved backing ORGANIC CONTINUITY', 'Engraved ORGANIC CONTINUITY'], ['Screwdriver slot.009', 'Top removable fascia fixing.003'], ['Access panel fastener.007', 'Screwdriver slot.021'], ['Carton adhesive seal.002'], ['Blanket institutional tag', 'Recovery blanket ID'], ['Carton adhesive seal'], ['Meter needle', 'Needle pivot'], ['Carton adhesive seal.001'], ['Screwdriver slot.013', 'Top removable fascia fixing.007'], ['Service jamb narrow edge scuff.002']]
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

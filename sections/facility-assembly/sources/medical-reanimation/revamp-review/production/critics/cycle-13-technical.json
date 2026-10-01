@@ -1,0 +1,2911 @@
+{
+  "cycle": 13,
+  "discipline": "Blender technical cleanliness and reproducibility",
+  "score": 7.0,
+  "available": 10,
+  "minimum": 8.5,
+  "status": "FAIL",
+  "meets_minimum": false,
+  "critical": true,
+  "critical_findings_count": 8,
+  "source_sha256": "4da6305df4b0618012696bf29baa82db2a9a625511e10ede0afc7ef442937ac7",
+  "currentSHA_at_source_review": "4da6305df4b0618012696bf29baa82db2a9a625511e10ede0afc7ef442937ac7",
+  "native_sha256_at_report": "7b18f78e64c96b68dc992710947f780662615ce3ccf7d2d11df167809f19f867",
+  "reviewed_checkpoint": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+  "frozen_checkpoint": "/workspace/scratch/medical-skill-full-cycle13.blend",
+  "reported_at_utc": "2026-10-01T10:15:23.623203+00:00",
+  "score_reason": "Preserved interfaces, cold dependencies, UV/material use, winding and complete camera evidence are strong. Confirmed floating small parts and multiple unsupported compound assemblies fail mandatory contact coverage and prevent the8.5 technical threshold.",
+  "findings": [
+    {
+      "id": "C13-T01",
+      "critical": true,
+      "status": "CONFIRMED",
+      "title": "Two instrument tray rolled lips lack intended support",
+      "objects": [
+        "MED_R2 | Constructed clinical dispensing bottles and tray"
+      ],
+      "islands": [
+        73,
+        74
+      ],
+      "target": "same object island72, intended thin tray pan",
+      "signed_gap_m": 0.009401917457580566,
+      "allowed_gap_m": 0.005,
+      "evidence": "cycle-13-technical-tray-probe.json",
+      "correction": "Add continuous pressed pan walls to the existing rims or reseat the rims. Register pan-to-bench and each rim-to-pan. An unrelated clipboard intersection is insufficient."
+    },
+    {
+      "id": "C13-T02",
+      "critical": true,
+      "status": "CONFIRMED",
+      "title": "Eight display recess fixings lack a supported path",
+      "objects": [
+        "MED_R2 | Manufactured display surround ",
+        "MED_R2 | Manufactured display surround .001"
+      ],
+      "islands_per_object": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "nearest_surface_distance_range_m": [
+        0.005099117290228605,
+        0.005099129397422075
+      ],
+      "allowed_gap_m": 0.005,
+      "evidence": "cycle-13-technical-contact-probe.json",
+      "correction": "Align each fixing with its own side bezel and give each fixing and each side/upper return an explicit path to the inherited monitor bezel."
+    },
+    {
+      "id": "C13-T03",
+      "critical": true,
+      "status": "CONFIRMED",
+      "title": "Battery rails and modules form an isolated assembly",
+      "family": "battery",
+      "confirmed_islands": 59,
+      "intended_contact_records": [
+        {
+          "family": "battery",
+          "object": "Battery supported drawer rail",
+          "target": "Reserve folded back",
+          "part_surface_world": [
+            -2.1500000953674316,
+            8.9350004196167,
+            0.30000001192092896
+          ],
+          "part_surface_local": [
+            0.0,
+            0.21500015258789062,
+            0.0
+          ],
+          "coordinate_parent": "RESERVE_POWER",
+          "part_surface_parent_local": [
+            0.0,
+            0.21500015258789062,
+            0.30000001192092896
+          ],
+          "OCRU_local": null,
+          "support_surface_world": [
+            -2.1500000953674316,
+            8.96250057220459,
+            0.30000001192092896
+          ],
+          "support_surface_target_local": [
+            0.0,
+            -0.012499809265136719,
+            -0.4399999976158142
+          ],
+          "direction_world": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "ray_gap_m": 0.027500154450535774,
+          "nearest_surface_m": 0.027500152587890625,
+          "source_surface_witness_distance_m": 0.0,
+          "cluster_islands": 59,
+          "cluster_rooted": false,
+          "cluster_members": [
+            {
+              "object": "Battery supported drawer rail",
+              "island": 0,
+              "node": 1890
+            },
+            {
+              "object": "Reserve battery module",
+              "island": 0,
+              "node": 1891
+            },
+            {
+              "object": "Battery terminal",
+              "island": 0,
+              "node": 1892
+            },
+            {
+              "object": "Battery terminal.001",
+              "island": 0,
+              "node": 1893
+            },
+            {
+              "object": "Battery carry handle",
+              "island": 0,
+              "node": 1894
+            },
+            {
+              "object": "Battery carry handle",
+              "island": 1,
+              "node": 1895
+            },
+            {
+              "object": "Battery carry handle",
+              "island": 2,
+              "node": 1896
+            },
+            {
+              "object": "Battery supported drawer rail.001",
+              "island": 0,
+              "node": 1897
+            },
+            {
+              "object": "Reserve battery module.001",
+              "island": 0,
+              "node": 1898
+            },
+            {
+              "object": "Battery terminal.002",
+              "island": 0,
+              "node": 1899
+            },
+            {
+              "object": "Battery terminal.003",
+              "island": 0,
+              "node": 1900
+            },
+            {
+              "object": "Battery carry handle.001",
+              "island": 0,
+              "node": 1901
+            },
+            {
+              "object": "Battery carry handle.001",
+              "island": 1,
+              "node": 1902
+            },
+            {
+              "object": "Battery carry handle.001",
+              "island": 2,
+              "node": 1903
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 0,
+              "node": 2995
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 1,
+              "node": 2996
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 2,
+              "node": 2997
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 3,
+              "node": 2998
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 4,
+              "node": 2999
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 5,
+              "node": 3000
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 6,
+              "node": 3001
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 7,
+              "node": 3002
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 8,
+              "node": 3003
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 9,
+              "node": 3004
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 10,
+              "node": 3005
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 11,
+              "node": 3006
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 12,
+              "node": 3007
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 13,
+              "node": 3008
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 14,
+              "node": 3009
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 15,
+              "node": 3010
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 16,
+              "node": 3011
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 17,
+              "node": 3012
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 18,
+              "node": 3013
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 19,
+              "node": 3014
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 20,
+              "node": 3015
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 21,
+              "node": 3016
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 22,
+              "node": 3017
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 23,
+              "node": 3018
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 24,
+              "node": 3019
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 25,
+              "node": 3020
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 26,
+              "node": 3021
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 27,
+              "node": 3022
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 28,
+              "node": 3023
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 29,
+              "node": 3024
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 30,
+              "node": 3025
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 31,
+              "node": 3026
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 32,
+              "node": 3027
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 33,
+              "node": 3028
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 34,
+              "node": 3029
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 35,
+              "node": 3030
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 36,
+              "node": 3031
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 37,
+              "node": 3032
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 38,
+              "node": 3033
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 39,
+              "node": 3034
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 40,
+              "node": 3035
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 41,
+              "node": 3036
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 42,
+              "node": 3037
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 43,
+              "node": 3038
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 44,
+              "node": 3039
+            }
+          ],
+          "outside_island_AABB_lower_bound_m": 0.025229454040527344,
+          "outside_island_lower_bound_pair": [
+            "Battery carry handle#2",
+            "Reserve removable door#0"
+          ],
+          "status": "CONFIRMED_DETACHED"
+        },
+        {
+          "family": "battery",
+          "object": "Battery supported drawer rail.001",
+          "target": "Reserve folded back",
+          "part_surface_world": [
+            -2.1500000953674316,
+            8.9350004196167,
+            0.7099999785423279
+          ],
+          "part_surface_local": [
+            0.0,
+            0.21500015258789062,
+            0.0
+          ],
+          "coordinate_parent": "RESERVE_POWER",
+          "part_surface_parent_local": [
+            0.0,
+            0.21500015258789062,
+            0.7099999785423279
+          ],
+          "OCRU_local": null,
+          "support_surface_world": [
+            -2.1500000953674316,
+            8.96250057220459,
+            0.7099999785423279
+          ],
+          "support_surface_target_local": [
+            0.0,
+            -0.012499809265136719,
+            -0.030000030994415283
+          ],
+          "direction_world": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "ray_gap_m": 0.027500152587890625,
+          "nearest_surface_m": 0.027500152587890625,
+          "source_surface_witness_distance_m": 0.0,
+          "cluster_islands": 59,
+          "cluster_rooted": false,
+          "cluster_members": [
+            {
+              "object": "Battery supported drawer rail",
+              "island": 0,
+              "node": 1890
+            },
+            {
+              "object": "Reserve battery module",
+              "island": 0,
+              "node": 1891
+            },
+            {
+              "object": "Battery terminal",
+              "island": 0,
+              "node": 1892
+            },
+            {
+              "object": "Battery terminal.001",
+              "island": 0,
+              "node": 1893
+            },
+            {
+              "object": "Battery carry handle",
+              "island": 0,
+              "node": 1894
+            },
+            {
+              "object": "Battery carry handle",
+              "island": 1,
+              "node": 1895
+            },
+            {
+              "object": "Battery carry handle",
+              "island": 2,
+              "node": 1896
+            },
+            {
+              "object": "Battery supported drawer rail.001",
+              "island": 0,
+              "node": 1897
+            },
+            {
+              "object": "Reserve battery module.001",
+              "island": 0,
+              "node": 1898
+            },
+            {
+              "object": "Battery terminal.002",
+              "island": 0,
+              "node": 1899
+            },
+            {
+              "object": "Battery terminal.003",
+              "island": 0,
+              "node": 1900
+            },
+            {
+              "object": "Battery carry handle.001",
+              "island": 0,
+              "node": 1901
+            },
+            {
+              "object": "Battery carry handle.001",
+              "island": 1,
+              "node": 1902
+            },
+            {
+              "object": "Battery carry handle.001",
+              "island": 2,
+              "node": 1903
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 0,
+              "node": 2995
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 1,
+              "node": 2996
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 2,
+              "node": 2997
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 3,
+              "node": 2998
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 4,
+              "node": 2999
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 5,
+              "node": 3000
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 6,
+              "node": 3001
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 7,
+              "node": 3002
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 8,
+              "node": 3003
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 9,
+              "node": 3004
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 10,
+              "node": 3005
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 11,
+              "node": 3006
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 12,
+              "node": 3007
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 13,
+              "node": 3008
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 14,
+              "node": 3009
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 15,
+              "node": 3010
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 16,
+              "node": 3011
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 17,
+              "node": 3012
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 18,
+              "node": 3013
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 19,
+              "node": 3014
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 20,
+              "node": 3015
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 21,
+              "node": 3016
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 22,
+              "node": 3017
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 23,
+              "node": 3018
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 24,
+              "node": 3019
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 25,
+              "node": 3020
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 26,
+              "node": 3021
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 27,
+              "node": 3022
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 28,
+              "node": 3023
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 29,
+              "node": 3024
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 30,
+              "node": 3025
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 31,
+              "node": 3026
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 32,
+              "node": 3027
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 33,
+              "node": 3028
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 34,
+              "node": 3029
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 35,
+              "node": 3030
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 36,
+              "node": 3031
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 37,
+              "node": 3032
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 38,
+              "node": 3033
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 39,
+              "node": 3034
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 40,
+              "node": 3035
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 41,
+              "node": 3036
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 42,
+              "node": 3037
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 43,
+              "node": 3038
+            },
+            {
+              "object": "MED_R2 | Exposed reserve battery service construction",
+              "island": 44,
+              "node": 3039
+            }
+          ],
+          "outside_island_AABB_lower_bound_m": 0.025229454040527344,
+          "outside_island_lower_bound_pair": [
+            "Battery carry handle#2",
+            "Reserve removable door#0"
+          ],
+          "status": "CONFIRMED_DETACHED"
+        }
+      ],
+      "evidence": "cycle-13-technical-confirmed-support-probe.json",
+      "correction": "Add creator-owned mounting returns, tracks or brackets at fixed inherited transforms, then validate actual part contacts and a directed path to architecture. Preserve the room layout and original protected files."
+    },
+    {
+      "id": "C13-T04",
+      "critical": true,
+      "status": "CONFIRMED",
+      "title": "Both cabinet pane frames and attached faces lack track/frame support",
+      "family": "cabinet_panes",
+      "confirmed_islands": 54,
+      "intended_contact_records": [
+        {
+          "family": "cabinet_panes",
+          "object": "Clear cabinet sliding pane",
+          "target": "Cabinet formed edge",
+          "part_surface_world": [
+            3.260999917984009,
+            8.369999885559082,
+            1.8899998664855957
+          ],
+          "part_surface_local": [
+            -0.4300004541873932,
+            0.010999790392816067,
+            -1.1920928955078125e-07
+          ],
+          "coordinate_parent": "SUPPLY_CABINET",
+          "part_surface_parent_local": [
+            -0.9000002145767212,
+            -0.34900009632110596,
+            1.8899998664855957
+          ],
+          "OCRU_local": null,
+          "support_surface_world": [
+            3.2749998569488525,
+            8.369999885559082,
+            1.8899998664855957
+          ],
+          "support_surface_target_local": [
+            0.010000085458159447,
+            -0.3349999189376831,
+            0.009999871253967285
+          ],
+          "direction_world": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "ray_gap_m": 0.013999938033521175,
+          "nearest_surface_m": 0.01399993896484375,
+          "source_surface_witness_distance_m": 1.1920928955078125e-07,
+          "cluster_islands": 54,
+          "cluster_rooted": false,
+          "cluster_members": [
+            {
+              "object": "Clear cabinet sliding pane",
+              "island": 0,
+              "node": 1653
+            },
+            {
+              "object": "Clear cabinet sliding pane",
+              "island": 1,
+              "node": 1654
+            },
+            {
+              "object": "Clear cabinet sliding pane",
+              "island": 2,
+              "node": 1655
+            },
+            {
+              "object": "Clear cabinet sliding pane",
+              "island": 3,
+              "node": 1656
+            },
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "island": 0,
+              "node": 1657
+            },
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "island": 1,
+              "node": 1658
+            },
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "island": 2,
+              "node": 1659
+            },
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "island": 3,
+              "node": 1660
+            },
+            {
+              "object": "Handle mounting boss.002",
+              "island": 0,
+              "node": 1661
+            },
+            {
+              "object": "Handle mounting boss.003",
+              "island": 0,
+              "node": 1662
+            },
+            {
+              "object": "Formed pull grip.001",
+              "island": 0,
+              "node": 1663
+            },
+            {
+              "object": "Handle mounting boss.004",
+              "island": 0,
+              "node": 1664
+            },
+            {
+              "object": "Handle mounting boss.005",
+              "island": 0,
+              "node": 1665
+            },
+            {
+              "object": "Formed pull grip.002",
+              "island": 0,
+              "node": 1666
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 0,
+              "node": 3053
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 1,
+              "node": 3054
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 2,
+              "node": 3055
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 3,
+              "node": 3056
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 4,
+              "node": 3057
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 5,
+              "node": 3058
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 6,
+              "node": 3059
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 7,
+              "node": 3060
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 8,
+              "node": 3061
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 9,
+              "node": 3062
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 10,
+              "node": 3063
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 11,
+              "node": 3064
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 12,
+              "node": 3065
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 13,
+              "node": 3066
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 14,
+              "node": 3067
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 15,
+              "node": 3068
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 16,
+              "node": 3069
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 17,
+              "node": 3070
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 18,
+              "node": 3071
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 19,
+              "node": 3072
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 0,
+              "node": 3073
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 1,
+              "node": 3074
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 2,
+              "node": 3075
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 3,
+              "node": 3076
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 4,
+              "node": 3077
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 5,
+              "node": 3078
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 6,
+              "node": 3079
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 7,
+              "node": 3080
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 8,
+              "node": 3081
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 9,
+              "node": 3082
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 10,
+              "node": 3083
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 11,
+              "node": 3084
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 12,
+              "node": 3085
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 13,
+              "node": 3086
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 14,
+              "node": 3087
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 15,
+              "node": 3088
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 16,
+              "node": 3089
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 17,
+              "node": 3090
+            },
+            {
+              "object": "MED_R2 | Neglected cabinet restraint seal",
+              "island": 0,
+              "node": 3091
+            },
+            {
+              "object": "MED_R2 | Neglected cabinet restraint seal",
+              "island": 1,
+              "node": 3092
+            }
+          ],
+          "outside_island_AABB_lower_bound_m": 0.01399993896484375,
+          "outside_island_lower_bound_pair": [
+            "Clear cabinet sliding pane#0",
+            "Cabinet formed edge#0"
+          ],
+          "status": "CONFIRMED_DETACHED"
+        },
+        {
+          "family": "cabinet_panes",
+          "object": "Clear cabinet sliding pane.001",
+          "target": "Cabinet formed edge.001",
+          "part_surface_world": [
+            3.2609996795654297,
+            6.570000171661377,
+            1.8899999856948853
+          ],
+          "part_surface_local": [
+            0.4299996793270111,
+            0.010999869555234909,
+            0.0
+          ],
+          "coordinate_parent": "SUPPLY_CABINET",
+          "part_surface_parent_local": [
+            0.8999994993209839,
+            -0.3490002751350403,
+            1.8899999856948853
+          ],
+          "OCRU_local": null,
+          "support_surface_world": [
+            3.2749998569488525,
+            6.570000171661377,
+            1.8899999856948853
+          ],
+          "support_surface_target_local": [
+            -0.010000372305512428,
+            -0.33500009775161743,
+            0.009999990463256836
+          ],
+          "direction_world": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "ray_gap_m": 0.014000176452100277,
+          "nearest_surface_m": 0.014000177383422852,
+          "source_surface_witness_distance_m": 0.0,
+          "cluster_islands": 54,
+          "cluster_rooted": false,
+          "cluster_members": [
+            {
+              "object": "Clear cabinet sliding pane",
+              "island": 0,
+              "node": 1653
+            },
+            {
+              "object": "Clear cabinet sliding pane",
+              "island": 1,
+              "node": 1654
+            },
+            {
+              "object": "Clear cabinet sliding pane",
+              "island": 2,
+              "node": 1655
+            },
+            {
+              "object": "Clear cabinet sliding pane",
+              "island": 3,
+              "node": 1656
+            },
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "island": 0,
+              "node": 1657
+            },
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "island": 1,
+              "node": 1658
+            },
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "island": 2,
+              "node": 1659
+            },
+            {
+              "object": "Clear cabinet sliding pane.001",
+              "island": 3,
+              "node": 1660
+            },
+            {
+              "object": "Handle mounting boss.002",
+              "island": 0,
+              "node": 1661
+            },
+            {
+              "object": "Handle mounting boss.003",
+              "island": 0,
+              "node": 1662
+            },
+            {
+              "object": "Formed pull grip.001",
+              "island": 0,
+              "node": 1663
+            },
+            {
+              "object": "Handle mounting boss.004",
+              "island": 0,
+              "node": 1664
+            },
+            {
+              "object": "Handle mounting boss.005",
+              "island": 0,
+              "node": 1665
+            },
+            {
+              "object": "Formed pull grip.002",
+              "island": 0,
+              "node": 1666
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 0,
+              "node": 3053
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 1,
+              "node": 3054
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 2,
+              "node": 3055
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 3,
+              "node": 3056
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 4,
+              "node": 3057
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 5,
+              "node": 3058
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 6,
+              "node": 3059
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 7,
+              "node": 3060
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 8,
+              "node": 3061
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 9,
+              "node": 3062
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 10,
+              "node": 3063
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 11,
+              "node": 3064
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 12,
+              "node": 3065
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 13,
+              "node": 3066
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 14,
+              "node": 3067
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 15,
+              "node": 3068
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 16,
+              "node": 3069
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 17,
+              "node": 3070
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 18,
+              "node": 3071
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face ",
+              "island": 19,
+              "node": 3072
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 0,
+              "node": 3073
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 1,
+              "node": 3074
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 2,
+              "node": 3075
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 3,
+              "node": 3076
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 4,
+              "node": 3077
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 5,
+              "node": 3078
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 6,
+              "node": 3079
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 7,
+              "node": 3080
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 8,
+              "node": 3081
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 9,
+              "node": 3082
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 10,
+              "node": 3083
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 11,
+              "node": 3084
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 12,
+              "node": 3085
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 13,
+              "node": 3086
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 14,
+              "node": 3087
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 15,
+              "node": 3088
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 16,
+              "node": 3089
+            },
+            {
+              "object": "MED_R2 | Medical cabinet fabricated face .001",
+              "island": 17,
+              "node": 3090
+            },
+            {
+              "object": "MED_R2 | Neglected cabinet restraint seal",
+              "island": 0,
+              "node": 3091
+            },
+            {
+              "object": "MED_R2 | Neglected cabinet restraint seal",
+              "island": 1,
+              "node": 3092
+            }
+          ],
+          "outside_island_AABB_lower_bound_m": 0.01399993896484375,
+          "outside_island_lower_bound_pair": [
+            "Clear cabinet sliding pane#0",
+            "Cabinet formed edge#0"
+          ],
+          "status": "CONFIRMED_DETACHED"
+        }
+      ],
+      "evidence": "cycle-13-technical-confirmed-support-probe.json",
+      "correction": "Add creator-owned mounting returns, tracks or brackets at fixed inherited transforms, then validate actual part contacts and a directed path to architecture. Preserve the room layout and original protected files."
+    },
+    {
+      "id": "C13-T05",
+      "critical": true,
+      "status": "CONFIRMED",
+      "title": "Suit-service housing and coupling assembly lack a fixed support",
+      "family": "suit_service",
+      "confirmed_islands": 38,
+      "intended_contact_records": [
+        {
+          "family": "suit_service",
+          "object": "Suit service enclosure",
+          "target": "Jamb folded cover.001",
+          "part_surface_world": [
+            -1.4887499809265137,
+            6.400000095367432,
+            1.25
+          ],
+          "part_surface_local": [
+            0.1700001358985901,
+            -1.6054360685302527e-07,
+            0.0
+          ],
+          "coordinate_parent": "OCRU_SUIT_SERVICE",
+          "part_surface_parent_local": [
+            0.1700001358985901,
+            0.01499982550740242,
+            0.0
+          ],
+          "OCRU_local": [
+            1.7700001001358032,
+            -1.2200000286102295,
+            1.25
+          ],
+          "support_surface_world": [
+            -1.4887499809265137,
+            6.469600200653076,
+            1.25
+          ],
+          "support_surface_target_local": [
+            -0.12499993294477463,
+            0.004999831784516573,
+            -0.2200000286102295
+          ],
+          "direction_world": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "ray_gap_m": 0.06960010528564453,
+          "nearest_surface_m": 0.06960010528564453,
+          "source_surface_witness_distance_m": 0.0,
+          "cluster_islands": 38,
+          "cluster_rooted": false,
+          "cluster_members": [
+            {
+              "object": "Suit port socket",
+              "island": 0,
+              "node": 559
+            },
+            {
+              "object": "Suit coupling lock",
+              "island": 0,
+              "node": 560
+            },
+            {
+              "object": "Suit service hose",
+              "island": 0,
+              "node": 561
+            },
+            {
+              "object": "Suit service hose",
+              "island": 1,
+              "node": 562
+            },
+            {
+              "object": "Suit service hose",
+              "island": 2,
+              "node": 563
+            },
+            {
+              "object": "Parked suit coupling",
+              "island": 0,
+              "node": 564
+            },
+            {
+              "object": "Coupling parking clip",
+              "island": 0,
+              "node": 565
+            },
+            {
+              "object": "Engraved backing SUIT",
+              "island": 0,
+              "node": 566
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 0,
+              "node": 567
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 1,
+              "node": 568
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 2,
+              "node": 569
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 3,
+              "node": 570
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 4,
+              "node": 571
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 5,
+              "node": 572
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 6,
+              "node": 573
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 7,
+              "node": 574
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 8,
+              "node": 575
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 9,
+              "node": 576
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 10,
+              "node": 577
+            },
+            {
+              "object": "Engraved SUIT",
+              "island": 11,
+              "node": 578
+            },
+            {
+              "object": "Engraved backing 01",
+              "island": 0,
+              "node": 797
+            },
+            {
+              "object": "Engraved 01",
+              "island": 0,
+              "node": 798
+            },
+            {
+              "object": "Engraved 01",
+              "island": 1,
+              "node": 799
+            },
+            {
+              "object": "Engraved 01",
+              "island": 2,
+              "node": 800
+            },
+            {
+              "object": "Engraved 01",
+              "island": 3,
+              "node": 801
+            },
+            {
+              "object": "Engraved 01",
+              "island": 4,
+              "node": 802
+            },
+            {
+              "object": "Engraved 01",
+              "island": 5,
+              "node": 803
+            },
+            {
+              "object": "Engraved 01",
+              "island": 6,
+              "node": 804
+            },
+            {
+              "object": "Interface label mounting stem",
+              "island": 0,
+              "node": 805
+            },
+            {
+              "object": "Suit service enclosure",
+              "island": 0,
+              "node": 817
+            },
+            {
+              "object": "Suit collar lock lug",
+              "island": 0,
+              "node": 830
+            },
+            {
+              "object": "Suit collar lock lug.001",
+              "island": 0,
+              "node": 831
+            },
+            {
+              "object": "Suit collar lock lug.002",
+              "island": 0,
+              "node": 832
+            },
+            {
+              "object": "Suit collar lock lug.003",
+              "island": 0,
+              "node": 833
+            },
+            {
+              "object": "Suit collar lock lug.004",
+              "island": 0,
+              "node": 834
+            },
+            {
+              "object": "Suit collar lock lug.005",
+              "island": 0,
+              "node": 835
+            },
+            {
+              "object": "Suit collar lock lug.006",
+              "island": 0,
+              "node": 836
+            },
+            {
+              "object": "Suit collar lock lug.007",
+              "island": 0,
+              "node": 837
+            }
+          ],
+          "outside_island_AABB_lower_bound_m": 0.04900026321411133,
+          "outside_island_lower_bound_pair": [
+            "Suit service enclosure#0",
+            "Seal guide.001#0"
+          ],
+          "status": "CONFIRMED_DETACHED"
+        }
+      ],
+      "evidence": "cycle-13-technical-confirmed-support-probe.json",
+      "correction": "Add creator-owned mounting returns, tracks or brackets at fixed inherited transforms, then validate actual part contacts and a directed path to architecture. Preserve the room layout and original protected files."
+    },
+    {
+      "id": "C13-T06",
+      "critical": true,
+      "status": "CONFIRMED",
+      "title": "Recovery plaque does not contact its own spacer",
+      "family": "recovery_plaque",
+      "confirmed_islands": 28,
+      "intended_contact_records": [
+        {
+          "family": "recovery_plaque",
+          "object": "Engraved backing RECOVERY.001",
+          "target": "Identity wall spacer",
+          "part_surface_world": [
+            3.9739999771118164,
+            4.699999809265137,
+            1.75
+          ],
+          "part_surface_local": [
+            -1.7370905425195815e-07,
+            0.003999981563538313,
+            0.0
+          ],
+          "coordinate_parent": "Recovery identity",
+          "part_surface_parent_local": [
+            -1.7370905425195815e-07,
+            0.003999981563538313,
+            0.0
+          ],
+          "OCRU_local": null,
+          "support_surface_world": [
+            3.9800000190734863,
+            4.699999809265137,
+            1.75
+          ],
+          "support_surface_target_local": [
+            -1.7397132978658192e-07,
+            -0.009999957866966724,
+            0.0
+          ],
+          "direction_world": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "ray_gap_m": 0.006000041961669922,
+          "nearest_surface_m": 0.006000041961669922,
+          "source_surface_witness_distance_m": 0.0,
+          "cluster_islands": 28,
+          "cluster_rooted": false,
+          "cluster_members": [
+            {
+              "object": "Engraved backing RECOVERY.001",
+              "island": 0,
+              "node": 269
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 0,
+              "node": 270
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 1,
+              "node": 271
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 2,
+              "node": 272
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 3,
+              "node": 273
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 4,
+              "node": 274
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 5,
+              "node": 275
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 6,
+              "node": 276
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 7,
+              "node": 277
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 8,
+              "node": 278
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 9,
+              "node": 279
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 10,
+              "node": 280
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 11,
+              "node": 281
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 12,
+              "node": 282
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 13,
+              "node": 283
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 14,
+              "node": 284
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 15,
+              "node": 285
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 16,
+              "node": 286
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 17,
+              "node": 287
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 18,
+              "node": 288
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 19,
+              "node": 289
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 20,
+              "node": 290
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 21,
+              "node": 291
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 22,
+              "node": 292
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 23,
+              "node": 293
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 24,
+              "node": 294
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 25,
+              "node": 295
+            },
+            {
+              "object": "Engraved RECOVERY.001",
+              "island": 26,
+              "node": 296
+            }
+          ],
+          "outside_island_AABB_lower_bound_m": 0.006000041961669922,
+          "outside_island_lower_bound_pair": [
+            "Engraved backing RECOVERY.001#0",
+            "Identity wall spacer#0"
+          ],
+          "status": "CONFIRMED_DETACHED"
+        }
+      ],
+      "evidence": "cycle-13-technical-confirmed-support-probe.json",
+      "correction": "Add creator-owned mounting returns, tracks or brackets at fixed inherited transforms, then validate actual part contacts and a directed path to architecture. Preserve the room layout and original protected files."
+    },
+    {
+      "id": "C13-T07",
+      "critical": true,
+      "status": "CONFIRMED",
+      "title": "Supplies plaque does not contact its own spacer",
+      "family": "supplies_plaque",
+      "confirmed_islands": 27,
+      "intended_contact_records": [
+        {
+          "family": "supplies_plaque",
+          "object": "Engraved backing SUPPLIES",
+          "target": "Identity wall spacer.001",
+          "part_surface_world": [
+            3.9739999771118164,
+            1.4700000286102295,
+            1.75
+          ],
+          "part_surface_local": [
+            -5.44997647011769e-08,
+            0.003999884240329266,
+            0.0
+          ],
+          "coordinate_parent": "Supplies identity",
+          "part_surface_parent_local": [
+            -5.44997647011769e-08,
+            0.003999884240329266,
+            0.0
+          ],
+          "OCRU_local": null,
+          "support_surface_world": [
+            3.9800000190734863,
+            1.4700000286102295,
+            1.75
+          ],
+          "support_surface_target_local": [
+            -5.476204023580067e-08,
+            -0.010000054724514484,
+            0.0
+          ],
+          "direction_world": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "ray_gap_m": 0.006000041961669922,
+          "nearest_surface_m": 0.006000041961669922,
+          "source_surface_witness_distance_m": 0.0,
+          "cluster_islands": 27,
+          "cluster_rooted": false,
+          "cluster_members": [
+            {
+              "object": "Engraved backing SUPPLIES",
+              "island": 0,
+              "node": 298
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 0,
+              "node": 299
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 1,
+              "node": 300
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 2,
+              "node": 301
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 3,
+              "node": 302
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 4,
+              "node": 303
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 5,
+              "node": 304
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 6,
+              "node": 305
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 7,
+              "node": 306
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 8,
+              "node": 307
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 9,
+              "node": 308
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 10,
+              "node": 309
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 11,
+              "node": 310
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 12,
+              "node": 311
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 13,
+              "node": 312
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 14,
+              "node": 313
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 15,
+              "node": 314
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 16,
+              "node": 315
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 17,
+              "node": 316
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 18,
+              "node": 317
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 19,
+              "node": 318
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 20,
+              "node": 319
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 21,
+              "node": 320
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 22,
+              "node": 321
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 23,
+              "node": 322
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 24,
+              "node": 323
+            },
+            {
+              "object": "Engraved SUPPLIES",
+              "island": 25,
+              "node": 324
+            }
+          ],
+          "outside_island_AABB_lower_bound_m": 0.006000041961669922,
+          "outside_island_lower_bound_pair": [
+            "Engraved backing SUPPLIES#0",
+            "Identity wall spacer.001#0"
+          ],
+          "status": "CONFIRMED_DETACHED"
+        }
+      ],
+      "evidence": "cycle-13-technical-confirmed-support-probe.json",
+      "correction": "Add creator-owned mounting returns, tracks or brackets at fixed inherited transforms, then validate actual part contacts and a directed path to architecture. Preserve the room layout and original protected files."
+    },
+    {
+      "id": "C13-T08",
+      "critical": true,
+      "status": "CONFIRMED",
+      "title": "Four captive fastener and slot pairs float in front of their jambs",
+      "family": "jamb_fixings",
+      "confirmed_islands": 8,
+      "intended_contact_records": [
+        {
+          "family": "jamb_fixings",
+          "object": "Jamb captive fastener",
+          "target": "Jamb folded cover",
+          "part_surface_world": [
+            -1.4427498579025269,
+            2.6654000282287598,
+            0.550000011920929
+          ],
+          "part_surface_local": [
+            6.306459710003764e-08,
+            -3.4599472176211066e-09,
+            -0.003999975044280291
+          ],
+          "coordinate_parent": "OCRU",
+          "part_surface_parent_local": [
+            -1.9645999670028687,
+            -1.2660000324249268,
+            0.550000011920929
+          ],
+          "OCRU_local": [
+            -1.9645999670028687,
+            -1.2660000324249268,
+            0.550000011920929
+          ],
+          "support_surface_world": [
+            -1.4651498794555664,
+            2.6654000282287598,
+            0.550000011920929
+          ],
+          "support_surface_target_local": [
+            6.404373209534242e-08,
+            -0.018599985167384148,
+            -0.9200000166893005
+          ],
+          "direction_world": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "ray_gap_m": 0.0224000234156847,
+          "nearest_surface_m": 0.02240002155303955,
+          "source_surface_witness_distance_m": 0.0,
+          "cluster_islands": 2,
+          "cluster_rooted": false,
+          "cluster_members": [
+            {
+              "object": "Jamb captive fastener",
+              "island": 0,
+              "node": 407
+            },
+            {
+              "object": "Screwdriver slot",
+              "island": 0,
+              "node": 408
+            }
+          ],
+          "outside_island_AABB_lower_bound_m": 0.01100003719329834,
+          "outside_island_lower_bound_pair": [
+            "Jamb captive fastener#0",
+            "Jamb folded cover#0"
+          ],
+          "status": "CONFIRMED_DETACHED"
+        },
+        {
+          "family": "jamb_fixings",
+          "object": "Jamb captive fastener.002",
+          "target": "Jamb folded cover",
+          "part_surface_world": [
+            -1.4427498579025269,
+            2.6654000282287598,
+            2.180000066757202
+          ],
+          "part_surface_local": [
+            6.306459710003764e-08,
+            -6.306458999461029e-08,
+            -0.003999927081167698
+          ],
+          "coordinate_parent": "OCRU",
+          "part_surface_parent_local": [
+            -1.9645999670028687,
+            -1.2660000324249268,
+            2.180000066757202
+          ],
+          "OCRU_local": [
+            -1.9645999670028687,
+            -1.2660000324249268,
+            2.180000066757202
+          ],
+          "support_surface_world": [
+            -1.4651498794555664,
+            2.6654000282287598,
+            2.180000066757202
+          ],
+          "support_surface_target_local": [
+            6.404373209534242e-08,
+            -0.018599985167384148,
+            0.7100000381469727
+          ],
+          "direction_world": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "ray_gap_m": 0.0224000234156847,
+          "nearest_surface_m": 0.02240002155303955,
+          "source_surface_witness_distance_m": 0.0,
+          "cluster_islands": 2,
+          "cluster_rooted": false,
+          "cluster_members": [
+            {
+              "object": "Jamb captive fastener.002",
+              "island": 0,
+              "node": 411
+            },
+            {
+              "object": "Screwdriver slot.002",
+              "island": 0,
+              "node": 412
+            }
+          ],
+          "outside_island_AABB_lower_bound_m": 0.01100003719329834,
+          "outside_island_lower_bound_pair": [
+            "Jamb captive fastener.002#0",
+            "Jamb folded cover#0"
+          ],
+          "status": "CONFIRMED_DETACHED"
+        },
+        {
+          "family": "jamb_fixings",
+          "object": "Jamb captive fastener.003",
+          "target": "Jamb folded cover.001",
+          "part_surface_world": [
+            -1.442750096321106,
+            6.594600200653076,
+            0.550000011920929
+          ],
+          "part_surface_local": [
+            6.306461131089236e-08,
+            -3.4599541010038593e-09,
+            -0.003999922890216112
+          ],
+          "coordinate_parent": "OCRU",
+          "part_surface_parent_local": [
+            1.9646002054214478,
+            -1.2659999132156372,
+            0.550000011920929
+          ],
+          "OCRU_local": [
+            1.9646002054214478,
+            -1.2659999132156372,
+            0.550000011920929
+          ],
+          "support_surface_world": [
+            -1.4651501178741455,
+            6.594600200653076,
+            0.550000011920929
+          ],
+          "support_surface_target_local": [
+            6.404374630619714e-08,
+            -0.018600037321448326,
+            -0.9200000166893005
+          ],
+          "direction_world": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "ray_gap_m": 0.02240002155303955,
+          "nearest_surface_m": 0.02240002155303955,
+          "source_surface_witness_distance_m": 0.0,
+          "cluster_islands": 2,
+          "cluster_rooted": false,
+          "cluster_members": [
+            {
+              "object": "Jamb captive fastener.003",
+              "island": 0,
+              "node": 418
+            },
+            {
+              "object": "Screwdriver slot.003",
+              "island": 0,
+              "node": 419
+            }
+          ],
+          "outside_island_AABB_lower_bound_m": 0.01100003719329834,
+          "outside_island_lower_bound_pair": [
+            "Jamb captive fastener.003#0",
+            "Jamb folded cover.001#0"
+          ],
+          "status": "CONFIRMED_DETACHED"
+        },
+        {
+          "family": "jamb_fixings",
+          "object": "Jamb captive fastener.005",
+          "target": "Jamb folded cover.001",
+          "part_surface_world": [
+            -1.442750096321106,
+            6.594600200653076,
+            2.180000066757202
+          ],
+          "part_surface_local": [
+            6.306461131089236e-08,
+            -6.306459710003764e-08,
+            -0.0039998749271035194
+          ],
+          "coordinate_parent": "OCRU",
+          "part_surface_parent_local": [
+            1.9646002054214478,
+            -1.2659999132156372,
+            2.180000066757202
+          ],
+          "OCRU_local": [
+            1.9646002054214478,
+            -1.2659999132156372,
+            2.180000066757202
+          ],
+          "support_surface_world": [
+            -1.4651501178741455,
+            6.594600200653076,
+            2.180000066757202
+          ],
+          "support_surface_target_local": [
+            6.404374630619714e-08,
+            -0.018600037321448326,
+            0.7100000381469727
+          ],
+          "direction_world": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "ray_gap_m": 0.0224000234156847,
+          "nearest_surface_m": 0.02240002155303955,
+          "source_surface_witness_distance_m": 0.0,
+          "cluster_islands": 2,
+          "cluster_rooted": false,
+          "cluster_members": [
+            {
+              "object": "Jamb captive fastener.005",
+              "island": 0,
+              "node": 422
+            },
+            {
+              "object": "Screwdriver slot.005",
+              "island": 0,
+              "node": 423
+            }
+          ],
+          "outside_island_AABB_lower_bound_m": 0.01100003719329834,
+          "outside_island_lower_bound_pair": [
+            "Jamb captive fastener.005#0",
+            "Jamb folded cover.001#0"
+          ],
+          "status": "CONFIRMED_DETACHED"
+        }
+      ],
+      "evidence": "cycle-13-technical-confirmed-support-probe.json",
+      "correction": "Add creator-owned mounting returns, tracks or brackets at fixed inherited transforms, then validate actual part contacts and a directed path to architecture. Preserve the room layout and original protected files."
+    }
+  ],
+  "counts": {
+    "scene_objects": 1312,
+    "inherited_objects": 1203,
+    "geometry_objects": 1213,
+    "evaluated_triangles": 517954,
+    "material_slots_used_estimate": 1430,
+    "mesh_islands": 4279,
+    "materials": 44,
+    "file_images": 124,
+    "libraries": 25,
+    "cameras": 17
+  },
+  "support_counts": {
+    "registered_objects": 102,
+    "registry_anchors": 111,
+    "declared_assembly_parts": 130,
+    "sewn_surface_objects": 10,
+    "sewn_vertices": 10362,
+    "component_surface_checks": 26,
+    "component_vertices": 8638,
+    "new_islands_scanned": 1825,
+    "whole_nonarchitectural_islands": 4263,
+    "architectural_roots": 16,
+    "whole_clusters": 118,
+    "rooted_clusters": 67,
+    "unrooted_diagnostic_clusters": 51,
+    "unrooted_diagnostic_islands": 547,
+    "confirmed_inherited_support_families": 6,
+    "confirmed_inherited_clusters": 9,
+    "confirmed_inherited_family_islands": 214
+  },
+  "verified": {
+    "root_read_only_validator_status": "PASS",
+    "protected_source_and_map_unchanged_at_probe": true,
+    "approved_spawn_source_unchanged": true,
+    "interface_identical_to_HEAD": true,
+    "layout_A12_identical_to_HEAD": true,
+    "inherited_count": 1203,
+    "documented_small_pose_changes": 49,
+    "added_geometry_reserved_lane_clear": true,
+    "added_geometry_outer_bounds_clear": true,
+    "winding_inconsistent_edges": 0,
+    "negative_closed_components": 0,
+    "packed_file_images_valid": 124,
+    "linked_libraries_resolved": 25,
+    "material_face_UV_checks": 34,
+    "UV_missing_or_invalid_used_coverage": 0,
+    "printed_art_used_triangles": 16,
+    "clinical_label_used_triangles": 96,
+    "cart_deck_and_cabinet_parenting_checked": true
+  },
+  "complete24_manifest": {
+    "manifest_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/manifest.json",
+    "manifest_sha256": "664a81974eaedb3711e8494061d2f959946da3933b5cbae4539f1a8adb35d30f",
+    "source_sha256": "4da6305df4b0618012696bf29baa82db2a9a625511e10ede0afc7ef442937ac7",
+    "renderer_sha256": "81f7b3d98f333aba57b5e443c97faaf01e8e56a0dcb8a1bf33a55d98b9198df8",
+    "renderer_current_matches": true,
+    "complete": true,
+    "shots_count": 24,
+    "expected_ids_exact": true,
+    "settings": {
+      "engine": "CYCLES",
+      "resolution": [
+        1067,
+        600
+      ],
+      "samples": 24,
+      "cold_open": false,
+      "diagnostic": null
+    },
+    "shots": [
+      {
+        "id": "ENTRY",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/ENTRY.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "41f9b4c34cbdfc9e9cd3ffc95c1120e8758e53c887c94c93461c0bb7a49cdc93",
+        "rgb_sha256": "6a49d60a4519c72fef5484d4aa2e46c76b2d6363d6fbcbe68725291ce6c99b82",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 0.0,
+        "look_direction_max_error": null,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "REVERSE",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/REVERSE.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "3284c323e79c4bc703d14cbb0b8675b26c3ada5e27239f0a619147e59deef0a0",
+        "rgb_sha256": "4d79a756235ffbeaac75c6418d5691b6eb2b0c5e19370ea0bef1319a0627868e",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 0.0,
+        "look_direction_max_error": null,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "PINCH",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/PINCH.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "cb4e8a044217b753bc838aeb96e002599e85524617d820d85eb5d370a45d8737",
+        "rgb_sha256": "113ccffb8d3de3af5425e7d5520e79dd785532807329a23a55dd967b259b272f",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 0.0,
+        "look_direction_max_error": null,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "DETAIL_OCRU",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/DETAIL_OCRU.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "b2a5477156bebb9c96377f07a60dd5a5a8afa4f3e1b7a1058ca07dda1da4c6ee",
+        "rgb_sha256": "8e1247605c6d6a122d88201850e03c4bdad7980f624bf1e8bbcfedeaabfd966d",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 0.0,
+        "look_direction_max_error": null,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "DETAIL_SUPPLIES",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/DETAIL_SUPPLIES.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "4f9a34932537b93a61a040e7fbd0004f7783d9cf1367b70b5da8c31afe89ff3b",
+        "rgb_sha256": "85353b25376ebb1f87342d11bdcf5ca74a3977933a6a4cb90349982d39c4da52",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 0.0,
+        "look_direction_max_error": null,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "CORNER_SW",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/CORNER_SW.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "244fffce2065cda6dcabbcde0e3218d130852d1b086cc72571a9baa4e492152b",
+        "rgb_sha256": "604acf92b16b33150e32f710f30a4ff66a17b2f08d5651a91ccfb2cc7ea22af1",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 0.0,
+        "look_direction_max_error": 1.022700156783074e-07,
+        "lens_error_mm": 0.0,
+        "projection": "ORTHO",
+        "temporary_hidden_count": 113,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "CORNER_SE",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/CORNER_SE.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "a4b911b20be20525b57acddf9ed7e396a5b45ee1e412c808d35f7caefd056bc0",
+        "rgb_sha256": "ead521aadeb98a9614fdea9a14820d2804e6b39ed466abbe46d5e2b5db31fa63",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 0.0,
+        "look_direction_max_error": 1.022700156783074e-07,
+        "lens_error_mm": 0.0,
+        "projection": "ORTHO",
+        "temporary_hidden_count": 112,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "CORNER_NW",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/CORNER_NW.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "14aef1d51ac4d38c85248719a431c2ce4141891c9be1845ba01bc26c96d6962b",
+        "rgb_sha256": "d029a370f0010b0e872a010584068f76acb51fc5d13c5f0624b3acce5bd30651",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 0.0,
+        "look_direction_max_error": 1.2031690421743235e-07,
+        "lens_error_mm": 0.0,
+        "projection": "ORTHO",
+        "temporary_hidden_count": 113,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "CORNER_NE",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/CORNER_NE.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "25b2270651e70c8dd703b7a6c315cf0e5d197ccd6136e148f1b169d8f0106dfb",
+        "rgb_sha256": "f3b6fde92eaa5070dee412cb880e2909e8dfb76f6c545998ae3d29640976a8f7",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 0.0,
+        "look_direction_max_error": 1.2031690421743235e-07,
+        "lens_error_mm": 0.0,
+        "projection": "ORTHO",
+        "temporary_hidden_count": 112,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "WALL_SOUTH",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/WALL_SOUTH.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "f0dceaa0f62a37451e67428c33ec3dfec9bbff3e14790da892a630bf001f5db1",
+        "rgb_sha256": "954c4a41e708765b314019d065b21c0539fb8e38a9864f821bbabe0e8dc3c10a",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 9.536743128535363e-08,
+        "look_direction_max_error": 1.2289328263012655e-07,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "WALL_WEST",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/WALL_WEST.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "c1717616745076fb5c8a481a6f8f9024eae0d407f281d7cd76eb3939b7353abc",
+        "rgb_sha256": "7b37fbb4f0c3a7b82752462637d5cb75f1aa25217e14964469a88d0188b8015b",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 4.7683715642676816e-08,
+        "look_direction_max_error": 7.596512574536973e-08,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "WALL_NORTH",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/WALL_NORTH.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "eb90eb447cd9607da2a4e98a9450460ba7442a44c620ff89b6e1cda347d3644d",
+        "rgb_sha256": "5622ec4be7a2a2091b0c12a483d501c83f908bdb9bdfe7fd7ce619f14f7c7f26",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 2.3841857821338408e-08,
+        "look_direction_max_error": 1.8402856419297287e-08,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "WALL_EAST",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/WALL_EAST.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "f2b1152d0b45ecf36df32209fd5e6924ecb0b6d665b8ea7c50b9e73655073904",
+        "rgb_sha256": "231028f8597acc4b767e343b6e482367a93680dc62c3289438b7ba5d9eb9c6b1",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 2.3841857821338408e-08,
+        "look_direction_max_error": 1.6288936421915423e-07,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "HERO_OCRU",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_OCRU.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "f9906f07467c4d85a18ca8a2c5565ba836c67006ab4e9045414c2e9673352a75",
+        "rgb_sha256": "1b30e3d89f9cbe371cc4556dcee2603de1980f22ca2ef5d96fb627b0bc14cbab",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 0.0,
+        "look_direction_max_error": null,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "HERO_RESTART",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_RESTART.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "d6b5b0255d493e50894b0cafba50ae23079527199d0c3464c2c72ea3a0cf6432",
+        "rgb_sha256": "9637abf562007b27b9d85e85c2acfc16f128fb789e24d55b16502984426b659f",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 1.9073486345888568e-07,
+        "look_direction_max_error": 5.546528408784113e-08,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "HERO_CARTRIDGES",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_CARTRIDGES.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "af8520a9b1792622e34fb705268c9c83e8be8fa1f14fb54b4f90d65a18c0375f",
+        "rgb_sha256": "b6b3ef273575f21038aa415109073ee21a7f384110424110cf744f3ba890dd53",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 1.9073486345888568e-07,
+        "look_direction_max_error": 1.9160126263351174e-08,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "HERO_RESERVE",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_RESERVE.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "7ba44561132322658118137091e6f79c553308605cc1e879d5f318f43a3975b6",
+        "rgb_sha256": "eb381f361cfb1bad5109a6ba49d30fe7e3fb0d28fc8d9c8a4514fb6d3f41e32c",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 1.9073486345888568e-07,
+        "look_direction_max_error": 1.2256983872305227e-07,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "HERO_DECON",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_DECON.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "c7d2c9a5576c9f3d76a57e158dcf87a75da8cc8736f0ce3215e37b4fc987eb32",
+        "rgb_sha256": "3c16284142636717efc22503835028846bba7dcb01cfae4d3c3127c26144cf37",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 1.9073486345888568e-07,
+        "look_direction_max_error": 2.939418405900618e-08,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "HERO_RECOVERY",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_RECOVERY.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "934af45e15e1cbaeeb5953eeb87cfd59ca7bccc6a4b5947601591940e4cf7f93",
+        "rgb_sha256": "c3be12693de13794a1e706b9c5eb0087cfb148c13032ebadb921dadd4e16e908",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 4.768371586472142e-08,
+        "look_direction_max_error": 1.8716642508076475e-07,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "HERO_CART",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_CART.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "3451bb1548514d340fb1382d886940c3595c49cf821b81797e963da055fd6e64",
+        "rgb_sha256": "e1496e6b303ca51bc8a484807b832e8a732ea2a00ec212932cc8a1c03edc184d",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 2.384185793236071e-08,
+        "look_direction_max_error": 1.290591906677463e-07,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "HERO_SUPPLIES",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_SUPPLIES.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "149762127fde514fce350ea09e4705502740415be3bca19afd86aa21cbb21f56",
+        "rgb_sha256": "7356ad23b0fcd199c646ef32587beb4ae63ebd1ea41cc3ddefb19f6d9456c0be",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 9.536743172944284e-08,
+        "look_direction_max_error": 1.761022127011458e-07,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "HERO_WASH",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_WASH.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "970c2cb817f02d7031a0acd195fa3ebb710ee4048ac0eb716fd337ad6c858409",
+        "rgb_sha256": "ca3bdf9527319e7a8eac5d827816450a056fc704461b227c68f813e4c0587463",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 4.768371586472142e-08,
+        "look_direction_max_error": 2.713847441493389e-07,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "HERO_CABINET",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HERO_CABINET.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "e98f721711b68d468c4de327ff9bc97fc205a29003db9e3b25463fec909d4d77",
+        "rgb_sha256": "19dded876f0c6c30926524c179c8ed45354b1ed2f8e3d6a02fe8801b06829617",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 1.9073486345888568e-07,
+        "look_direction_max_error": 7.574626270656637e-08,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 0
+      },
+      {
+        "id": "HIDDEN_BAG",
+        "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-13/HIDDEN_BAG.png",
+        "size": [
+          1067,
+          600
+        ],
+        "decoded": true,
+        "file_sha256": "a50a38158a1953cd3b4b8ef3951de44cc7107eb5db76e07667c2a0d94d3c5869",
+        "rgb_sha256": "49cef3a1cb1d8317742430a8cf61bb823c4db9f04ff295bf0075edf0ae0fe79d",
+        "camera_finite": true,
+        "matrix_or_position_max_error": 1.1444091807533141e-07,
+        "look_direction_max_error": 1.8663649825612083e-07,
+        "lens_error_mm": 0.0,
+        "projection": "PERSP",
+        "temporary_hidden_count": 0,
+        "temporary_inspection_fill_watts": 2
+      }
+    ],
+    "status": "PASS",
+    "source_scene_saved_by_critic": false
+  },
+  "inspected_image_sheets": [
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-13-technical-evidence-sheet-1.jpg",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-13-technical-evidence-sheet-2.jpg",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-13-technical-evidence-sheet-3.jpg",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-13-technical-evidence-sheet-4.jpg"
+  ],
+  "commands": [
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-13-technical-source-probe.py",
+      "exit_code": 0,
+      "outputs": [
+        "cycle-13-technical-source-probe.json",
+        "cycle-13-technical-root-verification.json",
+        "cycle-13-technical-root-dependencies.json"
+      ]
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-13-technical-contact-probe.py",
+      "exit_code": 0,
+      "outputs": [
+        "cycle-13-technical-contact-probe.json"
+      ]
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-13-technical-whole-contact-probe.py",
+      "exit_code": 0,
+      "outputs": [
+        "cycle-13-technical-whole-contact-probe.json"
+      ]
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-13-technical-tray-probe.py",
+      "exit_code": 0,
+      "outputs": [
+        "cycle-13-technical-tray-probe.json"
+      ]
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-13-technical-uv-probe.py",
+      "exit_code": 0,
+      "outputs": [
+        "cycle-13-technical-uv-probe.json"
+      ]
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-13-technical-confirmed-support-probe.py",
+      "exit_code": 0,
+      "outputs": [
+        "cycle-13-technical-confirmed-support-probe.json"
+      ]
+    }
+  ],
+  "limits": [
+    "Technical score only; all visual90 points unscored. All24 camera pixels inspected for evidence validity, not graded as art.",
+    "Native cold-open/objective probes executed, with no source saves. No rebuild, render, runtime/Unity, collision/navmesh, FPS, measured engine draw-call or export test performed by this critic.",
+    "The author repair native present at report time has not been scored. This report applies only to frozen4da and completed cycle13.",
+    "The root verifier terminates assembly paths at inherited object names. Its130 declared small-part passes and102 object passes do not prove attachment of every component or architecture-rooted support.",
+    "Whole-room geometric graph finds possible contact using sampled vertices, edge midpoints, face centres and edge intersections; a negative sampled result alone is not a defect. Only the six inherited families with exhaustive separating AABB lower bounds plus actual intended-support rays are elevated to critical findings.",
+    "The other unrooted graph clusters remain unresolved diagnostic candidates and are not counted as critical findings. Fully enclosed parts, bevel cavities and intended moving mechanisms need individual interpretation.",
+    "2668 nearly zero-area evaluated triangles were counted across8 objects (mostly subdivided bench and impact lining); this is technical cleanup debt, not an outward-winding failure or a newly confirmed visual blocker. No exhaustive duplicate-triangle/self-intersection/manifold certification is claimed.",
+    "Named physical UVs are object-local dominant-face planar projections scaled by object scale. Tiled overlaps and coordinates outside0\u20131 are intentional; they are not a unique atlas or lightmap. Retained Generated/Object/Geometry graph inputs have their own coordinate semantics."
+  ],
+  "source_saved": false,
+  "root_reports_overwritten": false,
+  "runtime_status": "UNTESTED",
+  "promotion_merge_status": "NO ACTION"
+}

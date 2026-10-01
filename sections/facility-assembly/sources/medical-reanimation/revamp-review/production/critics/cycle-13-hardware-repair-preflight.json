@@ -1,0 +1,3295 @@
+{
+  "schema_version": 1,
+  "review_type": "bounded independent hardware repair preflight",
+  "timestamp_utc": "2026-10-01T09:49:19.249977+00:00",
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+  "source_sha256": "4da6305df4b0618012696bf29baa82db2a9a625511e10ede0afc7ef442937ac7",
+  "status": "PASS_BOUNDED_REPAIR_WITH_COVERAGE_QUALIFICATIONS",
+  "formal_acceptance": "NOT_EVALUATED",
+  "formal_score_assigned": false,
+  "renders_launched": false,
+  "source_saved": false,
+  "confirmed_blockers_in_bounded_repair": [],
+  "counts": {
+    "evaluated_scene_meshes": 1126,
+    "new_joined_mesh_objects": 102,
+    "new_or_skill_revised_meshes": 141,
+    "evaluated_triangles": 433314,
+    "disconnected_face_islands_scanned": 1825,
+    "former_floating_hardware_remeasured": 28,
+    "contracted_assembly_objects": 8,
+    "part_contracts_independently_checked": 130,
+    "part_contracts_passed": 130,
+    "bag_part_contracts_checked": 60,
+    "group_support_pairs_replayed": 102,
+    "group_support_anchors_replayed": 111,
+    "sewn_surface_objects_checked": 10,
+    "sewn_surface_vertices_checked": 10362,
+    "declared_print_components_checked": 26,
+    "declared_print_component_vertices_checked": 8638,
+    "UV_material_face_consumer_records": 34,
+    "exploratory_print_scan_objects": 36,
+    "exploratory_print_scan_vertices": 19358,
+    "inherited_layout_objects_checked": 1203,
+    "protected_source_hashes_checked": 3,
+    "linked_libraries_resolved": 25,
+    "packed_file_images_loaded": 124,
+    "remaining_nearest_sample_attachment_candidates": 1,
+    "new_print_outlier_count_changes": 0
+  },
+  "former28_hardware_contacts": [
+    {
+      "object": "MED_R2 | OCRU external pressure service -1",
+      "part_id": 2,
+      "part_name": "MED_R2 | Cassette captive mounting",
+      "target_object": "MED_R2 | OCRU external pressure service -1",
+      "target_part_id": 1,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -2.4417498111724854,
+          2.4140000343322754,
+          0.8320000171661377
+        ],
+        [
+          -2.405749797821045,
+          2.4260001182556152,
+          0.8680000305175781
+        ]
+      ],
+      "point_world": [
+        -2.4327497482299805,
+        2.4260001182556152,
+        0.8655884861946106
+      ],
+      "support_hit_world": [
+        -2.4327497482299805,
+        2.4260001182556152,
+        0.8655884861946106
+      ],
+      "support_normal_world": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "approach_world": [
+        -0.0,
+        1.0,
+        -0.0
+      ],
+      "signed_gap_m": -9.536743164270667e-09,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 5.960464477539063e-08,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            2
+          ],
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            1
+          ],
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            0
+          ],
+          [
+            "Formed end service panel",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service -1",
+      "part_id": 12,
+      "part_name": "MED_R2 | Pressure diagnostic port",
+      "target_object": "MED_R2 | OCRU external pressure service -1",
+      "target_part_id": 0,
+      "part_vertex_count": 32,
+      "bounds": [
+        [
+          -2.6327497959136963,
+          2.4045002460479736,
+          1.7660000324249268
+        ],
+        [
+          -2.524749994277954,
+          2.439500093460083,
+          1.874000072479248
+        ]
+      ],
+      "point_world": [
+        -2.6327497959136963,
+        2.439500093460083,
+        1.8200000524520874
+      ],
+      "support_hit_world": [
+        -2.6327497959136963,
+        2.440000057220459,
+        1.8200000524520874
+      ],
+      "support_normal_world": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "approach_world": [
+        -0.0,
+        1.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004999551549553869,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0004999637603759766,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            12
+          ],
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            0
+          ],
+          [
+            "Formed end service panel",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service -1",
+      "part_id": 13,
+      "part_name": "MED_R2 | Sealed diagnostic plug",
+      "target_object": "MED_R2 | OCRU external pressure service -1",
+      "target_part_id": 12,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -2.6137499809265137,
+          2.3960001468658447,
+          1.7850000858306885
+        ],
+        [
+          -2.5437498092651367,
+          2.4060001373291016,
+          1.8550000190734863
+        ]
+      ],
+      "point_world": [
+        -2.6137499809265137,
+        2.4045004844665527,
+        1.8200000524520874
+      ],
+      "support_hit_world": [
+        -2.6137499809265137,
+        2.4045002460479736,
+        1.8200000524520874
+      ],
+      "support_normal_world": [
+        0.0,
+        -1.0,
+        -2.712417881411966e-06
+      ],
+      "approach_world": [
+        -0.0,
+        1.0,
+        2.712417881411966e-06
+      ],
+      "signed_gap_m": -2.4888664484044865e-07,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 2.384185791015625e-07,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            13
+          ],
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            12
+          ],
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            0
+          ],
+          [
+            "Formed end service panel",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service -1",
+      "part_id": 14,
+      "part_name": "MED_R2 | Pressure diagnostic port.001",
+      "target_object": "MED_R2 | OCRU external pressure service -1",
+      "target_part_id": 0,
+      "part_vertex_count": 32,
+      "bounds": [
+        [
+          -2.892749786376953,
+          2.4045004844665527,
+          1.7660000324249268
+        ],
+        [
+          -2.784749984741211,
+          2.439500331878662,
+          1.874000072479248
+        ]
+      ],
+      "point_world": [
+        -2.892749786376953,
+        2.439500331878662,
+        1.8200000524520874
+      ],
+      "support_hit_world": [
+        -2.892749786376953,
+        2.440000057220459,
+        1.8200000524520874
+      ],
+      "support_normal_world": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "approach_world": [
+        -0.0,
+        1.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004997158050537107,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.000499725341796875,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            14
+          ],
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            0
+          ],
+          [
+            "Formed end service panel",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service -1",
+      "part_id": 15,
+      "part_name": "MED_R2 | Sealed diagnostic plug.001",
+      "target_object": "MED_R2 | OCRU external pressure service -1",
+      "target_part_id": 14,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -2.8737499713897705,
+          2.3960001468658447,
+          1.7850000858306885
+        ],
+        [
+          -2.8037497997283936,
+          2.4060001373291016,
+          1.8550000190734863
+        ]
+      ],
+      "point_world": [
+        -2.8737499713897705,
+        2.404500722885132,
+        1.8200000524520874
+      ],
+      "support_hit_world": [
+        -2.8737499713897705,
+        2.4045004844665527,
+        1.8200000524520874
+      ],
+      "support_normal_world": [
+        0.0,
+        -1.0,
+        -3.129711672045232e-07
+      ],
+      "approach_world": [
+        -0.0,
+        1.0,
+        3.129711672045232e-07
+      ],
+      "signed_gap_m": -2.4795532226583317e-07,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 2.384185791015625e-07,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            15
+          ],
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            14
+          ],
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            0
+          ],
+          [
+            "Formed end service panel",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service 1",
+      "part_id": 2,
+      "part_name": "MED_R2 | Cassette captive mounting",
+      "target_object": "MED_R2 | OCRU external pressure service 1",
+      "target_part_id": 1,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -2.4417502880096436,
+          6.834000110626221,
+          0.8320000171661377
+        ],
+        [
+          -2.405750274658203,
+          6.8460001945495605,
+          0.8680000305175781
+        ]
+      ],
+      "point_world": [
+        -2.423750162124634,
+        6.834000110626221,
+        0.8680000305175781
+      ],
+      "support_hit_world": [
+        -2.423750162124634,
+        6.834000110626221,
+        0.8680000305175781
+      ],
+      "support_normal_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "approach_world": [
+        -0.0,
+        -1.0,
+        -0.0
+      ],
+      "signed_gap_m": 2.2888183593729183e-07,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            2
+          ],
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            1
+          ],
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            0
+          ],
+          [
+            "Formed end service panel.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service 1",
+      "part_id": 12,
+      "part_name": "MED_R2 | Pressure diagnostic port",
+      "target_object": "MED_R2 | OCRU external pressure service 1",
+      "target_part_id": 0,
+      "part_vertex_count": 32,
+      "bounds": [
+        [
+          -2.6327500343322754,
+          6.820500373840332,
+          1.7660000324249268
+        ],
+        [
+          -2.524750232696533,
+          6.855500221252441,
+          1.874000072479248
+        ]
+      ],
+      "point_world": [
+        -2.6327500343322754,
+        6.820500373840332,
+        1.8200000524520874
+      ],
+      "support_hit_world": [
+        -2.6327500343322754,
+        6.819999694824219,
+        1.8200000524520874
+      ],
+      "support_normal_world": [
+        0.0,
+        1.0,
+        -1.0285089047101792e-07
+      ],
+      "approach_world": [
+        -0.0,
+        -1.0,
+        1.0285089047101792e-07
+      ],
+      "signed_gap_m": 0.0005009078979492185,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0005006790161132812,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            12
+          ],
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            0
+          ],
+          [
+            "Formed end service panel.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service 1",
+      "part_id": 13,
+      "part_name": "MED_R2 | Sealed diagnostic plug",
+      "target_object": "MED_R2 | OCRU external pressure service 1",
+      "target_part_id": 12,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -2.6137502193450928,
+          6.854000091552734,
+          1.7850000858306885
+        ],
+        [
+          -2.543750047683716,
+          6.86400032043457,
+          1.8550000190734863
+        ]
+      ],
+      "point_world": [
+        -2.6137502193450928,
+        6.855500221252441,
+        1.8200000524520874
+      ],
+      "support_hit_world": [
+        -2.6137502193450928,
+        6.855500221252441,
+        1.8200000524520874
+      ],
+      "support_normal_world": [
+        0.0,
+        1.0,
+        -2.503774567230721e-06
+      ],
+      "approach_world": [
+        -0.0,
+        -1.0,
+        2.503774567230721e-06
+      ],
+      "signed_gap_m": 2.2888183593729183e-07,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            13
+          ],
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            12
+          ],
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            0
+          ],
+          [
+            "Formed end service panel.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service 1",
+      "part_id": 14,
+      "part_name": "MED_R2 | Pressure diagnostic port.001",
+      "target_object": "MED_R2 | OCRU external pressure service 1",
+      "target_part_id": 0,
+      "part_vertex_count": 32,
+      "bounds": [
+        [
+          -2.8927500247955322,
+          6.820500373840332,
+          1.7660000324249268
+        ],
+        [
+          -2.78475022315979,
+          6.855500221252441,
+          1.874000072479248
+        ]
+      ],
+      "point_world": [
+        -2.8927500247955322,
+        6.820500373840332,
+        1.8200000524520874
+      ],
+      "support_hit_world": [
+        -2.8927500247955322,
+        6.819999694824219,
+        1.8200000524520874
+      ],
+      "support_normal_world": [
+        0.0,
+        1.0,
+        -1.0285089047101792e-07
+      ],
+      "approach_world": [
+        -0.0,
+        -1.0,
+        1.0285089047101792e-07
+      ],
+      "signed_gap_m": 0.0005009078979492185,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0005006790161132812,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            14
+          ],
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            0
+          ],
+          [
+            "Formed end service panel.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service 1",
+      "part_id": 15,
+      "part_name": "MED_R2 | Sealed diagnostic plug.001",
+      "target_object": "MED_R2 | OCRU external pressure service 1",
+      "target_part_id": 14,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -2.8737502098083496,
+          6.854000091552734,
+          1.7850000858306885
+        ],
+        [
+          -2.8037500381469727,
+          6.86400032043457,
+          1.8550000190734863
+        ]
+      ],
+      "point_world": [
+        -2.8737502098083496,
+        6.855500221252441,
+        1.8200000524520874
+      ],
+      "support_hit_world": [
+        -2.8737502098083496,
+        6.855500221252441,
+        1.8200000524520874
+      ],
+      "support_normal_world": [
+        0.0,
+        1.0,
+        -2.5037702471308876e-06
+      ],
+      "approach_world": [
+        -0.0,
+        -1.0,
+        2.5037702471308876e-06
+      ],
+      "signed_gap_m": 2.2888183593729183e-07,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            15
+          ],
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            14
+          ],
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            0
+          ],
+          [
+            "Formed end service panel.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Jamb service cassette -1",
+      "part_id": 2,
+      "part_name": "MED_R2 | Captive service fastener",
+      "target_object": "MED_R2 | Jamb service cassette -1",
+      "target_part_id": 0,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -1.433249831199646,
+          2.6510000228881836,
+          0.7960000038146973
+        ],
+        [
+          -1.4192498922348022,
+          2.678999900817871,
+          0.8240000009536743
+        ]
+      ],
+      "point_world": [
+        -1.433249831199646,
+        2.671999931335449,
+        0.8221243619918823
+      ],
+      "support_hit_world": [
+        -1.4337499141693115,
+        2.671999931335449,
+        0.8221243619918823
+      ],
+      "support_normal_world": [
+        1.0,
+        4.6080134552539675e-07,
+        0.0
+      ],
+      "approach_world": [
+        -1.0,
+        -4.6080134552539675e-07,
+        -0.0
+      ],
+      "signed_gap_m": 0.0005000296607613561,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0004999637603759766,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Jamb service cassette -1",
+            2
+          ],
+          [
+            "MED_R2 | Jamb service cassette -1",
+            0
+          ],
+          [
+            "Jamb folded cover",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Jamb service cassette -1",
+      "part_id": 3,
+      "part_name": "MED_R2 | Captive service fastener.001",
+      "target_object": "MED_R2 | Jamb service cassette -1",
+      "target_part_id": 0,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -1.433249831199646,
+          2.6510000228881836,
+          1.2160000801086426
+        ],
+        [
+          -1.4192498922348022,
+          2.678999900817871,
+          1.24399995803833
+        ]
+      ],
+      "point_world": [
+        -1.433249831199646,
+        2.678999900817871,
+        1.2300000190734863
+      ],
+      "support_hit_world": [
+        -1.4337499141693115,
+        2.678999900817871,
+        1.2300000190734863
+      ],
+      "support_normal_world": [
+        1.0,
+        4.6080134552539675e-07,
+        0.0
+      ],
+      "approach_world": [
+        -1.0,
+        -4.6080134552539675e-07,
+        -0.0
+      ],
+      "signed_gap_m": 0.0005000603944063185,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0005000829696655273,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Jamb service cassette -1",
+            3
+          ],
+          [
+            "MED_R2 | Jamb service cassette -1",
+            0
+          ],
+          [
+            "Jamb folded cover",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Jamb service cassette 1",
+      "part_id": 2,
+      "part_name": "MED_R2 | Captive service fastener",
+      "target_object": "MED_R2 | Jamb service cassette 1",
+      "target_part_id": 0,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -1.433250069618225,
+          6.581000328063965,
+          0.7960000038146973
+        ],
+        [
+          -1.4192501306533813,
+          6.609000205993652,
+          0.8240000009536743
+        ]
+      ],
+      "point_world": [
+        -1.4332503080368042,
+        6.595000743865967,
+        0.8100000619888306
+      ],
+      "support_hit_world": [
+        -1.4337501525878906,
+        6.595000743865967,
+        0.8100000619888306
+      ],
+      "support_normal_world": [
+        1.0,
+        4.6080219817667967e-07,
+        0.0
+      ],
+      "approach_world": [
+        -1.0,
+        -4.6080219817667967e-07,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004997856542468069,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.000499725341796875,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Jamb service cassette 1",
+            2
+          ],
+          [
+            "MED_R2 | Jamb service cassette 1",
+            0
+          ],
+          [
+            "Jamb folded cover.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Jamb service cassette 1",
+      "part_id": 3,
+      "part_name": "MED_R2 | Captive service fastener.001",
+      "target_object": "MED_R2 | Jamb service cassette 1",
+      "target_part_id": 0,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -1.433250069618225,
+          6.581000328063965,
+          1.2160000801086426
+        ],
+        [
+          -1.4192501306533813,
+          6.609000205993652,
+          1.24399995803833
+        ]
+      ],
+      "point_world": [
+        -1.4332503080368042,
+        6.595000743865967,
+        1.2300000190734863
+      ],
+      "support_hit_world": [
+        -1.4337501525878906,
+        6.595000743865967,
+        1.2300000190734863
+      ],
+      "support_normal_world": [
+        1.0,
+        4.6080219817667967e-07,
+        0.0
+      ],
+      "approach_world": [
+        -1.0,
+        -4.6080219817667967e-07,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004998210445046423,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.0004998445510864258,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Jamb service cassette 1",
+            3
+          ],
+          [
+            "MED_R2 | Jamb service cassette 1",
+            0
+          ],
+          [
+            "Jamb folded cover.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Manufactured underbench drawers",
+      "part_id": 4,
+      "part_name": "MED_R2 | Pressed steel drawer pull",
+      "target_object": "MED_R2 | Manufactured underbench drawers",
+      "target_part_id": 1,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2542219161987305,
+          1.9889999628067017,
+          0.7204737663269043
+        ],
+        [
+          3.2960000038146973,
+          2.2109999656677246,
+          0.7395262718200684
+        ]
+      ],
+      "point_world": [
+        3.2960000038146973,
+        2.194499969482422,
+        0.7395262718200684
+      ],
+      "support_hit_world": [
+        3.2964999675750732,
+        2.194499969482422,
+        0.7395262718200684
+      ],
+      "support_normal_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004999532923102377,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0004999637603759766,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            4
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            1
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            0
+          ],
+          [
+            "Bench rear apron",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Manufactured underbench drawers",
+      "part_id": 5,
+      "part_name": "MED_R2 | Drawer corner fixing",
+      "target_object": "MED_R2 | Manufactured underbench drawers",
+      "target_part_id": 1,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2899999618530273,
+          2.2770001888275146,
+          0.7669999599456787
+        ],
+        [
+          3.2960000038146973,
+          2.2929999828338623,
+          0.7829999923706055
+        ]
+      ],
+      "point_world": [
+        3.2960002422332764,
+        2.2850003242492676,
+        0.7749999761581421
+      ],
+      "support_hit_world": [
+        3.2964999675750732,
+        2.2850003242492676,
+        0.7749999761581421
+      ],
+      "support_normal_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004997158050537107,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.000499725341796875,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            5
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            1
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            0
+          ],
+          [
+            "Bench rear apron",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Manufactured underbench drawers",
+      "part_id": 6,
+      "part_name": "MED_R2 | Drawer corner fixing.001",
+      "target_object": "MED_R2 | Manufactured underbench drawers",
+      "target_part_id": 1,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2899999618530273,
+          1.7669999599456787,
+          0.7669999599456787
+        ],
+        [
+          3.2960000038146973,
+          1.7829999923706055,
+          0.7829999923706055
+        ]
+      ],
+      "point_world": [
+        3.2960002422332764,
+        1.774999976158142,
+        0.7749999761581421
+      ],
+      "support_hit_world": [
+        3.2964999675750732,
+        1.774999976158142,
+        0.7749999761581421
+      ],
+      "support_normal_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004997167363762853,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.000499725341796875,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            6
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            1
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            0
+          ],
+          [
+            "Bench rear apron",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Manufactured underbench drawers",
+      "part_id": 11,
+      "part_name": "MED_R2 | Pressed steel drawer pull.001",
+      "target_object": "MED_R2 | Manufactured underbench drawers",
+      "target_part_id": 8,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2542216777801514,
+          1.2889999151229858,
+          0.7504737377166748
+        ],
+        [
+          3.2960000038146973,
+          1.5109999179840088,
+          0.7695262432098389
+        ]
+      ],
+      "point_world": [
+        3.2960000038146973,
+        1.4944998025894165,
+        0.7695262432098389
+      ],
+      "support_hit_world": [
+        3.2964999675750732,
+        1.4944998025894165,
+        0.7695262432098389
+      ],
+      "support_normal_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004999532923102377,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 1.1920928955078125e-07,
+      "target_nearest_distance_m": 0.0004999637603759766,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            11
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            8
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            7
+          ],
+          [
+            "Bench rear apron",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Manufactured underbench drawers",
+      "part_id": 12,
+      "part_name": "MED_R2 | Drawer corner fixing.002",
+      "target_object": "MED_R2 | Manufactured underbench drawers",
+      "target_part_id": 8,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2899999618530273,
+          1.5869998931884766,
+          0.796999990940094
+        ],
+        [
+          3.2960000038146973,
+          1.6029999256134033,
+          0.8130000233650208
+        ]
+      ],
+      "point_world": [
+        3.2960002422332764,
+        1.59499990940094,
+        0.8050000071525574
+      ],
+      "support_hit_world": [
+        3.2964999675750732,
+        1.59499990940094,
+        0.8050000071525574
+      ],
+      "support_normal_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004997158050537107,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.000499725341796875,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            12
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            8
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            7
+          ],
+          [
+            "Bench rear apron",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Manufactured underbench drawers",
+      "part_id": 13,
+      "part_name": "MED_R2 | Drawer corner fixing.003",
+      "target_object": "MED_R2 | Manufactured underbench drawers",
+      "target_part_id": 8,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2899999618530273,
+          1.056999921798706,
+          0.796999990940094
+        ],
+        [
+          3.2960000038146973,
+          1.0729999542236328,
+          0.8130000233650208
+        ]
+      ],
+      "point_world": [
+        3.2960002422332764,
+        1.0649999380111694,
+        0.8050000071525574
+      ],
+      "support_hit_world": [
+        3.2964999675750732,
+        1.0649999380111694,
+        0.8050000071525574
+      ],
+      "support_normal_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004997158050537107,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.000499725341796875,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            13
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            8
+          ],
+          [
+            "MED_R2 | Manufactured underbench drawers",
+            7
+          ],
+          [
+            "Bench rear apron",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face ",
+      "part_id": 5,
+      "part_name": "MED_R2 | Cabinet panel fixing",
+      "target_object": "Clear cabinet sliding pane",
+      "target_part_id": null,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.230499744415283,
+          8.343998908996582,
+          1.4919999837875366
+        ],
+        [
+          3.238499641418457,
+          8.359999656677246,
+          1.5080000162124634
+        ]
+      ],
+      "point_world": [
+        3.238499641418457,
+        8.347999572753906,
+        1.5069282054901123
+      ],
+      "support_hit_world": [
+        3.239000082015991,
+        8.347999572753906,
+        1.5069282054901123
+      ],
+      "support_normal_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0005004310607910154,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0005004405975341797,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Medical cabinet fabricated face ",
+            5
+          ],
+          [
+            "Clear cabinet sliding pane",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face ",
+      "part_id": 6,
+      "part_name": "MED_R2 | Cabinet panel fixing.001",
+      "target_object": "Clear cabinet sliding pane",
+      "target_part_id": null,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.230499744415283,
+          8.343998908996582,
+          2.2720000743865967
+        ],
+        [
+          3.238499641418457,
+          8.359999656677246,
+          2.2879998683929443
+        ]
+      ],
+      "point_world": [
+        3.238499641418457,
+        8.343998908996582,
+        2.2799999713897705
+      ],
+      "support_hit_world": [
+        3.239000082015991,
+        8.343998908996582,
+        2.2799999713897705
+      ],
+      "support_normal_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.00050043199211359,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0005004405975341797,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Medical cabinet fabricated face ",
+            6
+          ],
+          [
+            "Clear cabinet sliding pane",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face ",
+      "part_id": 7,
+      "part_name": "MED_R2 | Cabinet panel fixing.002",
+      "target_object": "Clear cabinet sliding pane",
+      "target_part_id": null,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2304999828338623,
+          7.519999980926514,
+          1.4919999837875366
+        ],
+        [
+          3.238499879837036,
+          7.535999774932861,
+          1.5080000162124634
+        ]
+      ],
+      "point_world": [
+        3.2385001182556152,
+        7.5279998779296875,
+        1.500000238418579
+      ],
+      "support_hit_world": [
+        3.239000082015991,
+        7.5279998779296875,
+        1.500000238418579
+      ],
+      "support_normal_world": [
+        -0.9999999403953552,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004999551549553869,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.0004999638185836375,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Medical cabinet fabricated face ",
+            7
+          ],
+          [
+            "Clear cabinet sliding pane",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face ",
+      "part_id": 8,
+      "part_name": "MED_R2 | Cabinet panel fixing.003",
+      "target_object": "Clear cabinet sliding pane",
+      "target_part_id": null,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2304999828338623,
+          7.519999980926514,
+          2.2720000743865967
+        ],
+        [
+          3.238499879837036,
+          7.535999774932861,
+          2.2879998683929443
+        ]
+      ],
+      "point_world": [
+        3.2385001182556152,
+        7.5279998779296875,
+        2.2800002098083496
+      ],
+      "support_hit_world": [
+        3.239000082015991,
+        7.5279998779296875,
+        2.2800002098083496
+      ],
+      "support_normal_world": [
+        -0.9999999403953552,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004999532923102377,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.0004999637603759766,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Medical cabinet fabricated face ",
+            8
+          ],
+          [
+            "Clear cabinet sliding pane",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face .001",
+      "part_id": 5,
+      "part_name": "MED_R2 | Cabinet panel fixing",
+      "target_object": "Clear cabinet sliding pane.001",
+      "target_part_id": null,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2304999828338623,
+          7.4039998054504395,
+          1.4919999837875366
+        ],
+        [
+          3.238499879837036,
+          7.419999599456787,
+          1.5080000162124634
+        ]
+      ],
+      "point_world": [
+        3.2385001182556152,
+        7.4120001792907715,
+        1.500000238418579
+      ],
+      "support_hit_world": [
+        3.238999843597412,
+        7.4120001792907715,
+        1.500000238418579
+      ],
+      "support_normal_world": [
+        -0.9999999403953552,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004997158050537107,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.000499725341796875,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Medical cabinet fabricated face .001",
+            5
+          ],
+          [
+            "Clear cabinet sliding pane.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face .001",
+      "part_id": 6,
+      "part_name": "MED_R2 | Cabinet panel fixing.001",
+      "target_object": "Clear cabinet sliding pane.001",
+      "target_part_id": null,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2304999828338623,
+          7.4039998054504395,
+          2.2720000743865967
+        ],
+        [
+          3.238499879837036,
+          7.419999599456787,
+          2.2879998683929443
+        ]
+      ],
+      "point_world": [
+        3.2385001182556152,
+        7.4120001792907715,
+        2.2800002098083496
+      ],
+      "support_hit_world": [
+        3.238999843597412,
+        7.4120001792907715,
+        2.2800002098083496
+      ],
+      "support_normal_world": [
+        -0.9999999403953552,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004997158050537107,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.0004997254000045359,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Medical cabinet fabricated face .001",
+            6
+          ],
+          [
+            "Clear cabinet sliding pane.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face .001",
+      "part_id": 7,
+      "part_name": "MED_R2 | Cabinet panel fixing.002",
+      "target_object": "Clear cabinet sliding pane.001",
+      "target_part_id": null,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2304999828338623,
+          6.579999923706055,
+          1.4919999837875366
+        ],
+        [
+          3.238499879837036,
+          6.595999717712402,
+          1.5080000162124634
+        ]
+      ],
+      "point_world": [
+        3.2385001182556152,
+        6.588000297546387,
+        1.500000238418579
+      ],
+      "support_hit_world": [
+        3.238999843597412,
+        6.588000297546387,
+        1.500000238418579
+      ],
+      "support_normal_world": [
+        -0.9999999403953552,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004997167363762853,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.0004997254000045359,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Medical cabinet fabricated face .001",
+            7
+          ],
+          [
+            "Clear cabinet sliding pane.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face .001",
+      "part_id": 8,
+      "part_name": "MED_R2 | Cabinet panel fixing.003",
+      "target_object": "Clear cabinet sliding pane.001",
+      "target_part_id": null,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          3.2304999828338623,
+          6.579999923706055,
+          2.2720000743865967
+        ],
+        [
+          3.238499879837036,
+          6.595999717712402,
+          2.2879998683929443
+        ]
+      ],
+      "point_world": [
+        3.2385001182556152,
+        6.588000297546387,
+        2.2800002098083496
+      ],
+      "support_hit_world": [
+        3.238999843597412,
+        6.588000297546387,
+        2.2800002098083496
+      ],
+      "support_normal_world": [
+        -0.9999999403953552,
+        0.0,
+        0.0
+      ],
+      "approach_world": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "signed_gap_m": 0.0004997158050537107,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 2.384185791015625e-07,
+      "target_nearest_distance_m": 0.000499725341796875,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | Medical cabinet fabricated face .001",
+            8
+          ],
+          [
+            "Clear cabinet sliding pane.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    }
+  ],
+  "hardware_gap_range_m": [
+    -2.4888664484044865e-07,
+    0.0005009078979492185
+  ],
+  "hardware_max_normal_angle_degrees": 0.0,
+  "hardware_max_own_witness_distance_m": 2.384185791015625e-07,
+  "support_graph_result": "All130declared part paths are acyclic and reach inherited room geometry; transitions through any registered new group also traverse its independently replayed group support target.",
+  "support_path_examples": [
+    {
+      "pass": true,
+      "reason": "inherited room support",
+      "path": [
+        [
+          "MED_R2 | OCRU external pressure service -1",
+          13
+        ],
+        [
+          "MED_R2 | OCRU external pressure service -1",
+          12
+        ],
+        [
+          "MED_R2 | OCRU external pressure service -1",
+          0
+        ],
+        [
+          "Formed end service panel",
+          null
+        ]
+      ]
+    },
+    {
+      "pass": true,
+      "reason": "inherited room support",
+      "path": [
+        [
+          "MED_R2 | OCRU external pressure service -1",
+          15
+        ],
+        [
+          "MED_R2 | OCRU external pressure service -1",
+          14
+        ],
+        [
+          "MED_R2 | OCRU external pressure service -1",
+          0
+        ],
+        [
+          "Formed end service panel",
+          null
+        ]
+      ]
+    },
+    {
+      "pass": true,
+      "reason": "inherited room support",
+      "path": [
+        [
+          "MED_R2 | OCRU external pressure service 1",
+          13
+        ],
+        [
+          "MED_R2 | OCRU external pressure service 1",
+          12
+        ],
+        [
+          "MED_R2 | OCRU external pressure service 1",
+          0
+        ],
+        [
+          "Formed end service panel.001",
+          null
+        ]
+      ]
+    },
+    {
+      "pass": true,
+      "reason": "inherited room support",
+      "path": [
+        [
+          "MED_R2 | OCRU external pressure service 1",
+          15
+        ],
+        [
+          "MED_R2 | OCRU external pressure service 1",
+          14
+        ],
+        [
+          "MED_R2 | OCRU external pressure service 1",
+          0
+        ],
+        [
+          "Formed end service panel.001",
+          null
+        ]
+      ]
+    },
+    {
+      "pass": true,
+      "reason": "inherited room support",
+      "path": [
+        [
+          "MED_R2 | Manufactured underbench drawers",
+          4
+        ],
+        [
+          "MED_R2 | Manufactured underbench drawers",
+          1
+        ],
+        [
+          "MED_R2 | Manufactured underbench drawers",
+          0
+        ],
+        [
+          "Bench rear apron",
+          null
+        ]
+      ]
+    },
+    {
+      "pass": true,
+      "reason": "inherited room support",
+      "path": [
+        [
+          "MED_R2 | Manufactured underbench drawers",
+          11
+        ],
+        [
+          "MED_R2 | Manufactured underbench drawers",
+          8
+        ],
+        [
+          "MED_R2 | Manufactured underbench drawers",
+          7
+        ],
+        [
+          "Bench rear apron",
+          null
+        ]
+      ]
+    }
+  ],
+  "lower_pressure_mounting_head_contact": [
+    {
+      "object": "MED_R2 | OCRU external pressure service -1",
+      "part_id": 2,
+      "part_name": "MED_R2 | Cassette captive mounting",
+      "target_object": "MED_R2 | OCRU external pressure service -1",
+      "target_part_id": 1,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -2.4417498111724854,
+          2.4140000343322754,
+          0.8320000171661377
+        ],
+        [
+          -2.405749797821045,
+          2.4260001182556152,
+          0.8680000305175781
+        ]
+      ],
+      "point_world": [
+        -2.4327497482299805,
+        2.4260001182556152,
+        0.8655884861946106
+      ],
+      "support_hit_world": [
+        -2.4327497482299805,
+        2.4260001182556152,
+        0.8655884861946106
+      ],
+      "support_normal_world": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "approach_world": [
+        -0.0,
+        1.0,
+        -0.0
+      ],
+      "signed_gap_m": -9.536743164270667e-09,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 5.960464477539063e-08,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            2
+          ],
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            1
+          ],
+          [
+            "MED_R2 | OCRU external pressure service -1",
+            0
+          ],
+          [
+            "Formed end service panel",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    },
+    {
+      "object": "MED_R2 | OCRU external pressure service 1",
+      "part_id": 2,
+      "part_name": "MED_R2 | Cassette captive mounting",
+      "target_object": "MED_R2 | OCRU external pressure service 1",
+      "target_part_id": 1,
+      "part_vertex_count": 24,
+      "bounds": [
+        [
+          -2.4417502880096436,
+          6.834000110626221,
+          0.8320000171661377
+        ],
+        [
+          -2.405750274658203,
+          6.8460001945495605,
+          0.8680000305175781
+        ]
+      ],
+      "point_world": [
+        -2.423750162124634,
+        6.834000110626221,
+        0.8680000305175781
+      ],
+      "support_hit_world": [
+        -2.423750162124634,
+        6.834000110626221,
+        0.8680000305175781
+      ],
+      "support_normal_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "approach_world": [
+        -0.0,
+        -1.0,
+        -0.0
+      ],
+      "signed_gap_m": 2.2888183593729183e-07,
+      "support_normal_angle_degrees": 0.0,
+      "own_surface_witness_distance_m": 0.0,
+      "target_nearest_distance_m": 0.0,
+      "support_route": {
+        "pass": true,
+        "reason": "inherited room support",
+        "path": [
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            2
+          ],
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            1
+          ],
+          [
+            "MED_R2 | OCRU external pressure service 1",
+            0
+          ],
+          [
+            "Formed end service panel.001",
+            null
+          ]
+        ]
+      },
+      "pass": true
+    }
+  ],
+  "bag_support_closure": {
+    "parts": 60,
+    "all_directed_contacts_pass": true,
+    "gap_range_m": [
+      -1.8849968910425452e-08,
+      0.0036519474908709524
+    ],
+    "max_normal_angle_degrees": 0.0,
+    "max_own_surface_witness_distance_m": 0.000296569342026487,
+    "fold_support_routes": [
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 0,
+        "part_name": "MED_R2 | Slack folded containment fabric 0",
+        "target_object": "Sealed chamber pan",
+        "target_part_id": null,
+        "part_vertex_count": 546,
+        "bounds": [
+          [
+            -2.301746368408203,
+            4.240000247955322,
+            0.4020000100135803
+          ],
+          [
+            -1.8957538604736328,
+            5.019999980926514,
+            0.43333688378334045
+          ]
+        ],
+        "point_world": [
+          -1.9105602502822876,
+          4.257550239562988,
+          0.4020000100135803
+        ],
+        "support_hit_world": [
+          -1.9105602502822876,
+          4.257550239562988,
+          0.4000000059604645
+        ],
+        "support_normal_world": [
+          -2.3663774939564064e-08,
+          0.0,
+          1.0
+        ],
+        "approach_world": [
+          2.3663774939564064e-08,
+          -0.0,
+          -1.0
+        ],
+        "signed_gap_m": 0.001999995447695255,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 0.0,
+        "target_nearest_distance_m": 0.0020000040531158447,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 1,
+        "part_name": "MED_R2 | Body bag bound folded edge",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 0,
+        "part_vertex_count": 126,
+        "bounds": [
+          [
+            -1.9051485061645508,
+            4.269939422607422,
+            0.413292795419693
+          ],
+          [
+            -1.8963518142700195,
+            4.990025043487549,
+            0.4211214482784271
+          ]
+        ],
+        "point_world": [
+          -1.9041852951049805,
+          4.295882225036621,
+          0.4169270396232605
+        ],
+        "support_hit_world": [
+          -1.9041852951049805,
+          4.295882225036621,
+          0.4169270396232605
+        ],
+        "support_normal_world": [
+          0.9977309107780457,
+          -0.06732812523841858,
+          0.0
+        ],
+        "approach_world": [
+          -0.9977309107780457,
+          0.06732812523841858,
+          -0.0
+        ],
+        "signed_gap_m": -1.8849968910425452e-08,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 2.9802322387695312e-08,
+        "target_nearest_distance_m": 0.0,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              1
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 2,
+        "part_name": "MED_R2 | Slack folded containment fabric 1",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 0,
+        "part_vertex_count": 546,
+        "bounds": [
+          [
+            -2.301661729812622,
+            4.240000247955322,
+            0.41682660579681396
+          ],
+          [
+            -1.8957926034927368,
+            5.019999980926514,
+            0.45433688163757324
+          ]
+        ],
+        "point_world": [
+          -2.1154167652130127,
+          4.532500267028809,
+          0.42587804794311523
+        ],
+        "support_hit_world": [
+          -2.1154167652130127,
+          4.532500267028809,
+          0.42587733268737793
+        ],
+        "support_normal_world": [
+          -0.026034653186798096,
+          0.11502083390951157,
+          0.9930218458175659
+        ],
+        "approach_world": [
+          0.026034653186798096,
+          -0.11502083390951157,
+          -0.9930218458175659
+        ],
+        "signed_gap_m": 7.345899939534967e-07,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 0.000296569342026487,
+        "target_nearest_distance_m": 7.152557373046875e-07,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              2
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 3,
+        "part_name": "MED_R2 | Body bag bound folded edge.001",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 2,
+        "part_vertex_count": 126,
+        "bounds": [
+          [
+            -1.9051092863082886,
+            4.269922256469727,
+            0.4342937469482422
+          ],
+          [
+            -1.8963515758514404,
+            4.990031719207764,
+            0.44190192222595215
+          ]
+        ],
+        "point_world": [
+          -1.902382493019104,
+          4.30213737487793,
+          0.4376441538333893
+        ],
+        "support_hit_world": [
+          -1.902382493019104,
+          4.30213737487793,
+          0.4376441538333893
+        ],
+        "support_normal_world": [
+          0.996033251285553,
+          -0.08898160606622696,
+          0.0
+        ],
+        "approach_world": [
+          -0.996033251285553,
+          0.08898160606622696,
+          -0.0
+        ],
+        "signed_gap_m": 1.6391277311150754e-09,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 0.0,
+        "target_nearest_distance_m": 0.0,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              3
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              2
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 4,
+        "part_name": "MED_R2 | Slack folded containment fabric 2",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 2,
+        "part_vertex_count": 546,
+        "bounds": [
+          [
+            -2.301748752593994,
+            4.240000247955322,
+            0.43782660365104675
+          ],
+          [
+            -1.8957771062850952,
+            5.019999980926514,
+            0.47533687949180603
+          ]
+        ],
+        "point_world": [
+          -2.1154167652130127,
+          4.532500267028809,
+          0.44687801599502563
+        ],
+        "support_hit_world": [
+          -2.1154167652130127,
+          4.532500267028809,
+          0.4468773305416107
+        ],
+        "support_normal_world": [
+          -0.02603607438504696,
+          0.11502082645893097,
+          0.9930217862129211
+        ],
+        "approach_world": [
+          0.02603607438504696,
+          -0.11502082645893097,
+          -0.9930217862129211
+        ],
+        "signed_gap_m": 7.047876715658014e-07,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 0.0002965398016385734,
+        "target_nearest_distance_m": 6.854534149169922e-07,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              4
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              2
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 5,
+        "part_name": "MED_R2 | Body bag bound folded edge.002",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 4,
+        "part_vertex_count": 126,
+        "bounds": [
+          [
+            -1.9051488637924194,
+            4.269919395446777,
+            0.45529162883758545
+          ],
+          [
+            -1.8963667154312134,
+            4.990052700042725,
+            0.46275442838668823
+          ]
+        ],
+        "point_world": [
+          -1.9000542163848877,
+          4.302773952484131,
+          0.45860806107521057
+        ],
+        "support_hit_world": [
+          -1.9000542163848877,
+          4.302773952484131,
+          0.45860806107521057
+        ],
+        "support_normal_world": [
+          0.9961218237876892,
+          -0.08798454701900482,
+          0.0
+        ],
+        "approach_world": [
+          -0.9961218237876892,
+          0.08798454701900482,
+          -0.0
+        ],
+        "signed_gap_m": 2.1196901798040124e-08,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 0.0,
+        "target_nearest_distance_m": 0.0,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              5
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              4
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              2
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 6,
+        "part_name": "MED_R2 | Body bag closure tape",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 4,
+        "part_vertex_count": 126,
+        "bounds": [
+          [
+            -2.033750057220459,
+            4.289652347564697,
+            0.45720335841178894
+          ],
+          [
+            -2.023750066757202,
+            4.970137119293213,
+            0.47926095128059387
+          ]
+        ],
+        "point_world": [
+          -2.0243606567382812,
+          4.2900848388671875,
+          0.4604651927947998
+        ],
+        "support_hit_world": [
+          -2.0243606567382812,
+          4.2900848388671875,
+          0.4604651629924774
+        ],
+        "support_normal_world": [
+          0.01676536723971367,
+          -0.04659154638648033,
+          0.9987733364105225
+        ],
+        "approach_world": [
+          -0.01676536723971367,
+          0.04659154638648033,
+          -0.9987733364105225
+        ],
+        "signed_gap_m": 2.4922192096502038e-08,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 5.960464477539063e-08,
+        "target_nearest_distance_m": 0.0,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              6
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              4
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              2
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 54,
+        "part_name": "MED_R2 | Body bag zipper slider",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 4,
+        "part_vertex_count": 56,
+        "bounds": [
+          [
+            -2.036750078201294,
+            4.940000057220459,
+            0.46610939502716064
+          ],
+          [
+            -2.0207502841949463,
+            4.964000225067139,
+            0.4721093773841858
+          ]
+        ],
+        "point_world": [
+          -2.03475022315979,
+          4.942000389099121,
+          0.46610939502716064
+        ],
+        "support_hit_world": [
+          -2.0348217487335205,
+          4.9419379234313965,
+          0.4636932611465454
+        ],
+        "support_normal_world": [
+          0.029612282291054726,
+          0.025852583348751068,
+          0.9992271065711975
+        ],
+        "approach_world": [
+          -0.029612282291054726,
+          -0.025852583348751068,
+          -0.9992271065711975
+        ],
+        "signed_gap_m": 0.0024180000275373457,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 0.0,
+        "target_nearest_distance_m": 0.002417962532490492,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              54
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              4
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              2
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 55,
+        "part_name": "MED_R2 | Body bag zipper pull",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 54,
+        "part_vertex_count": 24,
+        "bounds": [
+          [
+            -2.0557496547698975,
+            4.959257125854492,
+            0.4691322445869446
+          ],
+          [
+            -2.026893138885498,
+            4.986656188964844,
+            0.47381266951560974
+          ]
+        ],
+        "point_world": [
+          -2.0299174785614014,
+          4.959473133087158,
+          0.4721093773841858
+        ],
+        "support_hit_world": [
+          -2.0299174785614014,
+          4.959473133087158,
+          0.4721093773841858
+        ],
+        "support_normal_world": [
+          0.0,
+          0.0,
+          0.9999999403953552
+        ],
+        "approach_world": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "signed_gap_m": -9.536743164270667e-09,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 5.960464477539063e-08,
+        "target_nearest_distance_m": 0.0,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              55
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              54
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              4
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              2
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 56,
+        "part_name": "MED_R2 | Stowed body bag webbing",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 2,
+        "part_vertex_count": 24,
+        "bounds": [
+          [
+            -1.9014194011688232,
+            4.384000301361084,
+            0.43258601427078247
+          ],
+          [
+            -1.8537003993988037,
+            4.485403060913086,
+            0.45475083589553833
+          ]
+        ],
+        "point_world": [
+          -1.8990811109542847,
+          4.395395755767822,
+          0.43899309635162354
+        ],
+        "support_hit_world": [
+          -1.8990811109542847,
+          4.395395755767822,
+          0.43899309635162354
+        ],
+        "support_normal_world": [
+          0.08578116446733475,
+          -0.04758739098906517,
+          0.9951768517494202
+        ],
+        "approach_world": [
+          -0.08578116446733475,
+          0.04758739098906517,
+          -0.9951768517494202
+        ],
+        "signed_gap_m": 1.6391277311150754e-09,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 5.960464477539063e-08,
+        "target_nearest_distance_m": 0.0,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              56
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              2
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 57,
+        "part_name": "MED_R2 | Folded containment cross strap",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 4,
+        "part_vertex_count": 66,
+        "bounds": [
+          [
+            -2.283944845199585,
+            4.384585380554199,
+            0.45991769433021545
+          ],
+          [
+            -1.91349458694458,
+            4.39541482925415,
+            0.4728069603443146
+          ]
+        ],
+        "point_world": [
+          -1.913926601409912,
+          4.392599105834961,
+          0.46128636598587036
+        ],
+        "support_hit_world": [
+          -1.913926601409912,
+          4.392599105834961,
+          0.46128636598587036
+        ],
+        "support_normal_world": [
+          0.08327866345643997,
+          -0.04642315208911896,
+          0.9954444766044617
+        ],
+        "approach_world": [
+          -0.08327866345643997,
+          0.04642315208911896,
+          -0.9954444766044617
+        ],
+        "signed_gap_m": 2.1196901798040124e-08,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 5.960464477539063e-08,
+        "target_nearest_distance_m": 0.0,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              57
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              4
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              2
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 58,
+        "part_name": "MED_R2 | Stowed body bag webbing.001",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 2,
+        "part_vertex_count": 24,
+        "bounds": [
+          [
+            -1.9014194011688232,
+            4.86400032043457,
+            0.43258601427078247
+          ],
+          [
+            -1.8537003993988037,
+            4.965403079986572,
+            0.45475083589553833
+          ]
+        ],
+        "point_world": [
+          -1.8995575904846191,
+          4.874525547027588,
+          0.4404224753379822
+        ],
+        "support_hit_world": [
+          -1.8995575904846191,
+          4.874525547027588,
+          0.4404224753379822
+        ],
+        "support_normal_world": [
+          0.019489793106913567,
+          0.043242525309324265,
+          0.9988744854927063
+        ],
+        "approach_world": [
+          -0.019489793106913567,
+          -0.043242525309324265,
+          -0.9988744854927063
+        ],
+        "signed_gap_m": 7.2270631788079465e-09,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 8.940696716308594e-08,
+        "target_nearest_distance_m": 0.0,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              58
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              2
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      },
+      {
+        "object": "MED_R2 | Concealed closed body bag",
+        "part_id": 59,
+        "part_name": "MED_R2 | Folded containment cross strap.001",
+        "target_object": "MED_R2 | Concealed closed body bag",
+        "target_part_id": 4,
+        "part_vertex_count": 66,
+        "bounds": [
+          [
+            -2.2839152812957764,
+            4.8645853996276855,
+            0.4606064260005951
+          ],
+          [
+            -1.9136191606521606,
+            4.875414848327637,
+            0.4692386984825134
+          ]
+        ],
+        "point_world": [
+          -1.9138678312301636,
+          4.8725361824035645,
+          0.4618666172027588
+        ],
+        "support_hit_world": [
+          -1.9138678312301636,
+          4.8725361824035645,
+          0.4618666172027588
+        ],
+        "support_normal_world": [
+          0.019149228930473328,
+          0.04387044534087181,
+          0.9988536834716797
+        ],
+        "approach_world": [
+          -0.019149228930473328,
+          -0.04387044534087181,
+          -0.9988536834716797
+        ],
+        "signed_gap_m": -3.948807716577796e-09,
+        "support_normal_angle_degrees": 0.0,
+        "own_surface_witness_distance_m": 5.960464477539063e-08,
+        "target_nearest_distance_m": 0.0,
+        "support_route": {
+          "pass": true,
+          "reason": "inherited room support",
+          "path": [
+            [
+              "MED_R2 | Concealed closed body bag",
+              59
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              4
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              2
+            ],
+            [
+              "MED_R2 | Concealed closed body bag",
+              0
+            ],
+            [
+              "Sealed chamber pan",
+              null
+            ]
+          ]
+        },
+        "pass": true
+      }
+    ]
+  },
+  "part_ID_contract_coverage_qualifications": [
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face ",
+      "attribute_type": "INT",
+      "attribute_domain": "POINT",
+      "present_part_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "contract_part_ids": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "uncontracted_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "contracted_ids_without_vertices": [],
+      "mixed_part_polygons": 0
+    },
+    {
+      "object": "MED_R2 | Medical cabinet fabricated face .001",
+      "attribute_type": "INT",
+      "attribute_domain": "POINT",
+      "present_part_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "contract_part_ids": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "uncontracted_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "contracted_ids_without_vertices": [],
+      "mixed_part_polygons": 0
+    }
+  ],
+  "printed_UV_regression_result": {
+    "new_missing_named_uv_consumers": [],
+    "assigned_face_uv_errors": [],
+    "declared26_print_component_failures": [],
+    "exploratory_print_outlier_count_changes": [],
+    "maximum_print_gap_change_m": 0.0,
+    "persistent_qualified_print_outliers": [
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.0063947897288016975
+      },
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.001",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.006394812662620097
+      },
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.002",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.006394812662620097
+      },
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.003",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.0063947903690859675
+      },
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.004",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.006394813186489046
+      },
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.005",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.006394813186489046
+      },
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.006",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.006394789845217019
+      },
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.007",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.006394812662620097
+      },
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.008",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.006394812138751149
+      },
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.009",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.0063947897288016975
+      },
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.010",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.006394812546204776
+      },
+      {
+        "object": "MED_R2 | Crimped medical cartridge Cartridge steel body.011",
+        "outlier_vertices": 6,
+        "max_signed_gap_m": 0.006394812662620097
+      },
+      {
+        "object": "MED_R2 | Corporate continuity clinical wall art",
+        "outlier_vertices": 1,
+        "max_signed_gap_m": 0.017999887466430664
+      },
+      {
+        "object": "MED_R2 | Interrupted restart incident docket",
+        "outlier_vertices": 176,
+        "max_signed_gap_m": 0.005692367753555469
+      },
+      {
+        "object": "MED_R2 | Printed and folded clinical packaging",
+        "outlier_vertices": 5087,
+        "max_signed_gap_m": 0.16085081337951124
+      }
+    ],
+    "meaning": "No measured print/UV regression. Persisting cycle12 exploratory outliers retain their substrate-target and intentional-raised-frame qualifications; they are not a universal printed-island contact PASS."
+  },
+  "other_independent_checks": {
+    "layout_unexpected_changes": [],
+    "protected_hashes_unchanged": true,
+    "winding_issue_objects": [],
+    "exact_world_geometry_duplicates": [],
+    "lane_added_mesh_intersections": [],
+    "registered_anchor_failures": [],
+    "sewn_surface_failures": [],
+    "missing_libraries": [],
+    "unpacked_or_empty_file_images": []
+  },
+  "remaining_tray_candidate": [
+    {
+      "object": "MED_R2 | Constructed clinical dispensing bottles and tray",
+      "island_index": 74,
+      "bounds": [
+        [
+          3.4619998931884766,
+          1.1720000505447388,
+          0.9574019312858582
+        ],
+        [
+          3.4679999351501465,
+          1.625,
+          0.9625980257987976
+        ]
+      ],
+      "nearest_same_object": [
+        {
+          "same_object_island": 72,
+          "bounds": [
+            [
+              3.249999761581421,
+              1.1600000858306885,
+              0.9459999799728394
+            ],
+            [
+              3.4700000286102295,
+              1.6400001049041748,
+              0.9480000138282776
+            ]
+          ],
+          "minimum_vertex_distance_m": 0.009401917457580566,
+          "signed_nearest_min_m": 0.009401917457580566,
+          "signed_nearest_max_m": 0.01459801197052002,
+          "center_inside": false,
+          "vertices_inside": 0,
+          "candidate_vertices": 12,
+          "surface_intersections": 0
+        }
+      ],
+      "nearest_external": [
+        {
+          "object": "Inventory clipboard",
+          "minimum_vertex_distance_m": 0.007401943206787109,
+          "signed_min_m": -0.012401938438415527,
+          "signed_max_m": 0.3408464528620243,
+          "center_inside": false,
+          "surface_intersections": 6
+        },
+        {
+          "object": "Inventory paper",
+          "minimum_vertex_distance_m": 0.008401989936828613,
+          "signed_min_m": 0.008401989936828613,
+          "signed_max_m": 0.3340364429168403,
+          "center_inside": false,
+          "surface_intersections": 0
+        },
+        {
+          "object": "Inventory ruled line.002",
+          "minimum_vertex_distance_m": 0.011960289441049099,
+          "signed_min_m": 0.002723859295656439,
+          "signed_max_m": 0.016398072242736816,
+          "center_inside": false,
+          "surface_intersections": 0
+        },
+        {
+          "object": "Supply bench top",
+          "minimum_vertex_distance_m": 0.012401878833770752,
+          "signed_min_m": 0.012401878833770752,
+          "signed_max_m": 0.017597973346710205,
+          "center_inside": false,
+          "surface_intersections": 0
+        },
+        {
+          "object": "MED_R2 | Interrupted continuity shift log",
+          "minimum_vertex_distance_m": 0.022037267684936523,
+          "signed_min_m": -0.01719808578491211,
+          "signed_max_m": -0.012001991271972656,
+          "center_inside": false,
+          "surface_intersections": 0
+        },
+        {
+          "object": "Inventory ruled line.001",
+          "minimum_vertex_distance_m": 0.042698848992586136,
+          "signed_min_m": 0.011201977729797363,
+          "signed_max_m": 0.046276211040094495,
+          "center_inside": false,
+          "surface_intersections": 0
+        }
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle13-hardware-independent/probe.py > /workspace/scratch/medical-cycle13-hardware-independent/probe.log 2>&1",
+      "exit_code": 0
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle13-hardware-independent/part_contract_probe.py > /workspace/scratch/medical-cycle13-hardware-independent/part-contract-probe.log 2>&1",
+      "exit_code": 0
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle13-hardware-independent/uv_print_probe.py > /workspace/scratch/medical-cycle13-hardware-independent/uv-print-probe.log 2>&1",
+      "exit_code": 0
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle13-hardware-independent/followup.py > /workspace/scratch/medical-cycle13-hardware-independent/followup.log 2>&1",
+      "exit_code": 0
+    }
+  ],
+  "scratch_directory": "/workspace/scratch/medical-cycle13-hardware-independent",
+  "limits": [
+    "Bounded geometry repair preflight only; no new technical/visual score or formal acceptance. Fresh full13hot/14cold render evidence and formal critics remain separate.",
+    "No source/code/art edits or native saves; all cycle12reports/probes preserved. CurrentSHA rechecked at report writing.",
+    "All130declared part contracts checked;20part IDs in the two cabinet faces are not individually contracted (IDs0\u20134and9\u201313each). Their coarse geometry appears attached in the broad island scan, but130anchors must not be called complete150-part-ID contract coverage.",
+    "Part contact is checked by actual own-surface witnesses and directional raycasts with\u22122mm/+5mm tolerance and12degree normal tolerance, plus rooted support graph. It does not require every exterior vertex of a thick screw/port/pull to touch backing.",
+    "Broad island connection uses geometric sampled adjacency/triangle intersections, not an exhaustive global penetration/self-intersection or runtime collision solver. Tray74 intersects Inventory clipboard and is not a confirmed floating blocker.",
+    "Exploratory print substrate scan preserves15object qualifications from cycle12; alternate original packaging substrates and raised-frame intent are not fully inferred. No new measured outlier or UV regression.",
+    "No full rebuild or render launched independently. Saved-source cold opens resolved25libraries124packedimages; coldRGB comparison, assembled-map art acceptance, Unity/gameplay/network/collision/navmesh/runtime performance are unchecked."
+  ],
+  "source_hash_unchanged": true
+}

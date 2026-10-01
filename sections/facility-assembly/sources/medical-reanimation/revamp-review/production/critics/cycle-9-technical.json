@@ -1,0 +1,555 @@
+{
+  "schema_version": 1,
+  "cycle": 9,
+  "discipline": "Blender technical quality",
+  "reviewer": "Fresh independent technical critic",
+  "generated_at_utc": "2026-10-01T08:04:55.017036+00:00",
+  "source": "module_overhaul_R2.blend",
+  "source_sha256": "55f8e3208d87ef0fa3398654886faecf74055e0a5e79c6d2ac15a6d31caed308",
+  "score": 8.9,
+  "maximum_score": 10,
+  "minimum_score": 8.5,
+  "threshold_pass": true,
+  "verdict": "PASS for the current isolated native source, with validation and authoring limitations",
+  "critical_blockers": [],
+  "review_boundaries": {
+    "no_prior_critic_scores_or_reports_read": true,
+    "native_source_saved": false,
+    "native_source_checksum_unchanged": true,
+    "main_map_original_module_and_approved_spawn_untouched": true,
+    "runtime_integration_and_export_tested": false
+  },
+  "evidence": {
+    "protected_sha256": {
+      "blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+      "sources/medical-reanimation/module.blend": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523"
+    },
+    "approved_spawn_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "cold_open": {
+      "linked_map": true,
+      "missing_libraries": [],
+      "editable_room_local": true
+    },
+    "objective_checker": {
+      "status": "PASS",
+      "errors": [],
+      "inherited_objects": 1203,
+      "documented_small_prop_pose_exceptions": 49,
+      "support_contact": {
+        "registered": 102,
+        "passed": 102,
+        "unregistered": [],
+        "anchors_checked": 111
+      },
+      "new_geometry_clearance_checked": 102,
+      "all_new_solids_clear_reserved_rescue_lane": true
+    },
+    "normals": {
+      "authored_or_revised_meshes_checked": 156,
+      "inconsistent_edges": 0,
+      "negative_closed_components": 0
+    },
+    "evaluated_geometry": {
+      "authored_or_revised_meshes_checked": 156,
+      "zero_area_faces": 0,
+      "loose_vertices": 0,
+      "more_than_two_face_edges": 0,
+      "nonfinite_vertices": 0,
+      "room_objects": 1312,
+      "room_meshes": 1126,
+      "room_triangles": 433314,
+      "baseline_triangles": 133888,
+      "runtime_draw_calls_or_budget_measured": false
+    },
+    "sewn_surface_contact": [
+      {
+        "object": "MED_R2 | Tailored cover construction Segmented adult berth cushion",
+        "target": "Segmented adult berth cushion",
+        "vertices_checked": 1254,
+        "maximum_gap_m": 0.0016003474181900401,
+        "maximum_penetration_m": 0.0004531948161456967,
+        "outside_gap_tolerance": 0,
+        "outside_penetration_tolerance": 0,
+        "status": "PASS"
+      },
+      {
+        "object": "MED_R2 | Tailored cover construction Segmented adult berth cushion.001",
+        "target": "Segmented adult berth cushion.001",
+        "vertices_checked": 1254,
+        "maximum_gap_m": 0.0016003448901926731,
+        "maximum_penetration_m": 0.00045319479977479205,
+        "outside_gap_tolerance": 0,
+        "outside_penetration_tolerance": 0,
+        "status": "PASS"
+      },
+      {
+        "object": "MED_R2 | Tailored cover construction Segmented adult berth cushion.002",
+        "target": "Segmented adult berth cushion.002",
+        "vertices_checked": 1254,
+        "maximum_gap_m": 0.0016003448901926731,
+        "maximum_penetration_m": 0.00045319479977479205,
+        "outside_gap_tolerance": 0,
+        "outside_penetration_tolerance": 0,
+        "status": "PASS"
+      },
+      {
+        "object": "MED_R2 | Tailored cover construction Contoured head pad",
+        "target": "Contoured head pad",
+        "vertices_checked": 1254,
+        "maximum_gap_m": 0.0016002989222414499,
+        "maximum_penetration_m": 0.0007732060763672166,
+        "outside_gap_tolerance": 0,
+        "outside_penetration_tolerance": 0,
+        "status": "PASS"
+      },
+      {
+        "object": "MED_R2 | Tailored cover construction Recovery pillow",
+        "target": "Recovery pillow",
+        "vertices_checked": 1254,
+        "maximum_gap_m": 0.001600287601114303,
+        "maximum_penetration_m": 0.0007662994902499776,
+        "outside_gap_tolerance": 0,
+        "outside_penetration_tolerance": 0,
+        "status": "PASS"
+      },
+      {
+        "object": "MED_R2 | Tailored cover construction Cart segmented mattress",
+        "target": "Cart segmented mattress",
+        "vertices_checked": 1254,
+        "maximum_gap_m": 0.0016001111501253718,
+        "maximum_penetration_m": 0.0006218157941475511,
+        "outside_gap_tolerance": 0,
+        "outside_penetration_tolerance": 0,
+        "status": "PASS"
+      },
+      {
+        "object": "MED_R2 | Tailored cover construction Cart segmented mattress.001",
+        "target": "Cart segmented mattress.001",
+        "vertices_checked": 1254,
+        "maximum_gap_m": 0.0016001111501253718,
+        "maximum_penetration_m": 0.0006221974326763302,
+        "outside_gap_tolerance": 0,
+        "outside_penetration_tolerance": 0,
+        "status": "PASS"
+      },
+      {
+        "object": "MED_R2 | Tailored cover construction Cart segmented mattress.002",
+        "target": "Cart segmented mattress.002",
+        "vertices_checked": 1254,
+        "maximum_gap_m": 0.0016001095373212593,
+        "maximum_penetration_m": 0.0006198699993547052,
+        "outside_gap_tolerance": 0,
+        "outside_penetration_tolerance": 0,
+        "status": "PASS"
+      }
+    ],
+    "supplemental_sewn_surface_contact": [
+      {
+        "object": "MED_R2 | Recovery foam cushion wrapped seam",
+        "target": "Recovery foam cushion",
+        "vertices": 294,
+        "max_gap_m": 0.0015001502449791815,
+        "max_penetration_m": 0.0015001300969407771,
+        "max_nearest_distance_m": 0.0015001920983195305,
+        "outside_gap_vertices": 0,
+        "outside_penetration_vertices": 0
+      },
+      {
+        "object": "MED_R2 | Constructed cleaning cotton folded edges",
+        "target": "Folded cleaning cloth",
+        "vertices": 36,
+        "max_gap_m": 0.0016979198056716882,
+        "max_penetration_m": 0.000497818598634403,
+        "max_nearest_distance_m": 0.0016979282954707742,
+        "outside_gap_vertices": 0,
+        "outside_penetration_vertices": 0
+      }
+    ],
+    "battery_paper_components": [
+      {
+        "component": 7,
+        "vertices": 8,
+        "materials": [
+          "MED | Aged clinical paper / approved spawn graph"
+        ],
+        "world_bounds": [
+          [
+            -2.255000114440918,
+            8.526000022888184,
+            0.4960000216960907
+          ],
+          [
+            -2.0450000762939453,
+            8.528000831604004,
+            0.5460000038146973
+          ]
+        ],
+        "contacts": [
+          {
+            "target": "Reserve battery module",
+            "max_gap_m": 0.00017070770263671875,
+            "min_gap_m": -0.0018301010131835938,
+            "min_nearest_m": 0.00017070770263671875
+          },
+          {
+            "target": "Reserve battery module.001",
+            "max_gap_m": 0.23899997770786285,
+            "min_gap_m": 0.1889999955892563,
+            "min_nearest_m": 0.18900001049041748
+          }
+        ]
+      },
+      {
+        "component": 29,
+        "vertices": 8,
+        "materials": [
+          "MED | Aged clinical paper / approved spawn graph"
+        ],
+        "world_bounds": [
+          [
+            -2.255000114440918,
+            8.526000022888184,
+            0.906000018119812
+          ],
+          [
+            -2.0450000762939453,
+            8.528000831604004,
+            0.9559999704360962
+          ]
+        ],
+        "contacts": [
+          {
+            "target": "Reserve battery module",
+            "max_gap_m": 0.3609999120235443,
+            "min_gap_m": 0.31099995970726013,
+            "min_nearest_m": 0.3109999895095825
+          },
+          {
+            "target": "Reserve battery module.001",
+            "max_gap_m": 0.00017070770263671875,
+            "min_gap_m": -0.0018301010132849873,
+            "min_nearest_m": 0.00017070770263671875
+          }
+        ]
+      }
+    ],
+    "maintenance_card": {
+      "geometry": {
+        "object": "MED_R2 | Dated OCRU maintenance card",
+        "vertices": 718,
+        "polygons": 694,
+        "triangles": 706,
+        "zero_area_faces": 0,
+        "loose_vertices": 0,
+        "boundary_edges": 702,
+        "more_than_two_face_edges": 0,
+        "nonfinite_vertices": 0,
+        "modifiers": []
+      },
+      "uv": {
+        "object": "MED_R2 | Dated OCRU maintenance card",
+        "active": "MED_Physical_1m",
+        "layers": [
+          {
+            "name": "UVMap",
+            "finite": true,
+            "zero_uv_area_faces": 694,
+            "active_render": true
+          },
+          {
+            "name": "MED_Physical_1m",
+            "finite": true,
+            "zero_uv_area_faces": 0,
+            "active_render": false
+          }
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "world_scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "support_contact": {
+        "object": "MED_R2 | Dated OCRU maintenance card",
+        "target": "Jamb folded cover",
+        "max_gap_m": 0.005,
+        "max_penetration_m": 0.002,
+        "anchors": [
+          {
+            "local_point": [
+              -0.055000003427267075,
+              0.0130999144166708,
+              0.06999993324279785
+            ],
+            "approach_world": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "expected_surface_normal_world": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "max_angle_degrees": 12,
+        "anchor_results": [
+          {
+            "signed_gap_m": 0.00030004024505615214,
+            "angle_degrees": 0.0,
+            "object_witness_distance_m": 0.0,
+            "contact_anchor": [
+              -1.464849829673767,
+              2.609999895095825,
+              2.009999990463257
+            ],
+            "surface_anchor": [
+              -1.4651498794555664,
+              2.609999895095825,
+              2.009999990463257
+            ],
+            "status": "PASS"
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    "uv": {
+      "authored_meshes_with_finite_nondegenerate_MED_Physical_1m": 156,
+      "default_render_layer_degenerate_meshes": 40,
+      "printed_faces": [
+        {
+          "object": "MED_R2 | Corporate continuity clinical wall art",
+          "material": "MED | Corporate continuity printed art",
+          "image": "clinical-propaganda.png",
+          "layer": "Printed artwork",
+          "faces": 8,
+          "zero_uv_faces": 0,
+          "nonfinite_faces": 0,
+          "range": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "object": "MED_R2 | Constructed clinical dispensing bottles and tray",
+          "material": "MED | Printed clinical bottle labels",
+          "image": "clinical-labels.png",
+          "layer": "Clinical_Label",
+          "faces": 48,
+          "zero_uv_faces": 0,
+          "nonfinite_faces": 0,
+          "range": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "current_MED_default_UV_consumers": []
+    },
+    "semantic_image_maps": {
+      "colour": [
+        "clinical-labels.png: sRGB -> Base Color",
+        "clinical-propaganda.png: sRGB -> Base Color",
+        "painted_plaster_wall_diff_2k.jpg: sRGB -> Base Color"
+      ],
+      "numeric": [
+        "painted_plaster_wall_disp_2k.jpg: Non-Color -> Bump Height",
+        "painted_plaster_wall_rough_2k.jpg: Non-Color; currently disconnected after constant-roughness override"
+      ],
+      "height_not_misused_as_tangent_normal": true
+    },
+    "hierarchy": [
+      {
+        "object": "Clear cabinet sliding pane",
+        "parent": "SUPPLY_CABINET",
+        "origin": [
+          3.25,
+          7.939999580383301,
+          1.8899999856948853
+        ],
+        "data": "MED_R2 | Open steel clinical window frame"
+      },
+      {
+        "object": "Clear cabinet sliding pane.001",
+        "parent": "SUPPLY_CABINET",
+        "origin": [
+          3.249999761581421,
+          7.0,
+          1.8899999856948853
+        ],
+        "data": "MED_R2 | Open steel clinical window frame.001"
+      },
+      {
+        "object": "CART_LIFT_DECK",
+        "parent": "BODY_CART",
+        "origin": [
+          -3.119999885559082,
+          1.3300000429153442,
+          0.0
+        ],
+        "data": null
+      },
+      {
+        "object": "MED_R2 | Transfer cart folded guards and pivot",
+        "parent": "CART_LIFT_DECK",
+        "origin": [
+          -3.489999771118164,
+          1.3300000429153442,
+          0.8199999928474426
+        ],
+        "data": "MED_R2 | Cart folded rail cover"
+      },
+      {
+        "object": "MED_R2 | Transfer cart scissor pivot hardware",
+        "parent": "BODY_CART",
+        "origin": [
+          -2.881999969482422,
+          1.3300000429153442,
+          0.550000011920929
+        ],
+        "data": "MED_R2 | Scissor pivot captive hub"
+      },
+      {
+        "object": "MED_R2 | Medical cabinet fabricated face ",
+        "parent": "Clear cabinet sliding pane",
+        "origin": [
+          3.250999927520752,
+          7.939999580383301,
+          1.8899999856948853
+        ],
+        "data": "MED_R2 | Clinical safety glass"
+      },
+      {
+        "object": "MED_R2 | Medical cabinet fabricated face .001",
+        "parent": "Clear cabinet sliding pane.001",
+        "origin": [
+          3.250999927520752,
+          7.0,
+          1.8899999856948853
+        ],
+        "data": "MED_R2 | Clinical safety glass.001"
+      },
+      {
+        "object": "MED_R2 | Dated OCRU maintenance card",
+        "parent": "OCRU",
+        "origin": [
+          -1.4517499208450317,
+          2.6649999618530273,
+          1.940000057220459
+        ],
+        "data": "MED_R2 | Overdue service card"
+      },
+      {
+        "object": "MED_R2 | Transfer cart brake and retained swivel construction",
+        "parent": "BODY_CART",
+        "origin": [
+          -3.3899998664855957,
+          0.5750000476837158,
+          0.11699999868869781
+        ],
+        "data": "MED_R2 | Caster brake folded pedal"
+      },
+      {
+        "object": "MED_R2 | Transfer deck load identification",
+        "parent": "CART_LIFT_DECK",
+        "origin": [
+          -3.119999885559082,
+          0.27900004386901855,
+          0.8299999833106995
+        ],
+        "data": "MED_R2 | Transfer cart end inspection plate"
+      }
+    ],
+    "dependencies": {
+      "resolved_libraries": 25,
+      "valid_file_images": 124,
+      "all_file_images_packed": true,
+      "missing_libraries": [],
+      "missing_or_invalid_images": [],
+      "local_fonts": [
+        {
+          "name": "Bfont Regular",
+          "path": "<builtin>",
+          "packed": false,
+          "builtin": true
+        }
+      ],
+      "current_dependency_manifest_source_sha256": "55f8e3208d87ef0fa3398654886faecf74055e0a5e79c6d2ac15a6d31caed308"
+    },
+    "cycle9_render_provenance": {
+      "source_sha256": "55f8e3208d87ef0fa3398654886faecf74055e0a5e79c6d2ac15a6d31caed308",
+      "renderer_sha256": "9a90c6d124e14e1f09718462d4349d138a79b8919d4da7ed61f9b6982ea6a7fc",
+      "complete": true,
+      "shots": 24,
+      "cold_open": false
+    },
+    "pixels_inspected": [
+      "revamp-review/production/renders/cycle-9/HERO_RESERVE.png",
+      "revamp-review/production/renders/cycle-9/HERO_CART.png",
+      "revamp-review/production/renders/cycle-9/HERO_CABINET.png",
+      "revamp-review/production/renders/cycle-9/DETAIL_OCRU.png"
+    ],
+    "script_identity": {
+      "overhaul_room.py": "d5e0194b4204ade71d1add55b23a8fee7c3c8027f46374abf0ed6ea6e17a80d4",
+      "skill_redo.py": "01f6166f9407ded860e58f8d798d32be6f220074440982e6362ad58852574fd6",
+      "skill_room_detail.py": "4f15ee00cb989dce6b3a9763dab456fb5eb2c91e043209e1a7d208478a676ca4",
+      "verify_overhaul.py": "64285b2b5f9356e93b27d29855efb121a3c5d4a8d176459320a2bd92604548cb",
+      "render_overhaul.py": "9a90c6d124e14e1f09718462d4349d138a79b8919d4da7ed61f9b6982ea6a7fc"
+    },
+    "independent_probe_outputs": [
+      "/workspace/scratch/medical-cycle9-technical-independent/current-validator.json",
+      "/workspace/scratch/medical-cycle9-technical-independent/independent-probe.json",
+      "/workspace/scratch/medical-cycle9-technical-independent/material-probe.json"
+    ]
+  },
+  "material_limitations": [
+    {
+      "id": "contact-regression-coverage",
+      "severity": "nonblocking validation limitation",
+      "finding": "The durable checker validates 102 joined support groups with 111 anchors, and all vertices on eight tailored cover groups. The recovery foam welt and cleaning cotton folded edges are registered with one anchor each but are omitted from its all-vertex sewn list; the battery service group has one anchor targeting only the lower battery. Independent supplemental probes pass these omitted sewn groups and both battery paper components in the current file.",
+      "recommendation": "Retain the supplemental measurements and extend the existing checker to the two additional sewn groups and both independent battery-label supports before those assemblies change."
+    },
+    {
+      "id": "render-uv-selection",
+      "severity": "nonblocking authoring limitation",
+      "finding": "40 of 156 authored/revised meshes retain a default active-render UV layer with degenerate faces while MED_Physical_1m has full coverage. The maintenance card retains 694 zero-area faces in its old default UVMap, but zero in MED_Physical_1m. Current MED material graphs have no TexCoord UV consumers; printed poster and bottle labels use valid named layers. This does not invalidate the current material rendering.",
+      "recommendation": "Make physical UV render selection explicit where appropriate and make the generic UV diagnostic select the named layer, preserving Printed artwork and Clinical_Label for their image uses."
+    },
+    {
+      "id": "mapping-contract-scope",
+      "severity": "nonblocking documentation limitation",
+      "finding": "The UV contract describes object coordinates in authoring metres, but several reachable broad variation Noise nodes in enamel, rubber, ochre, damp-plaster and cloth materials keep an unconnected Vector input. Those branches use implicit Generated mapping rather than the physical layer. Controlled-finish microheight uses explicit MED_Physical_1m; this is not evidence of universally physical procedural scale.",
+      "recommendation": "Describe mapping by material/branch instead of making the universal object-metre statement."
+    },
+    {
+      "id": "unrun-rebuild-render-runtime",
+      "severity": "scope limitation",
+      "finding": "The critic cold-opened and ran geometry/dependency checks. The builder was source-reviewed and syntax-compiled but not executed because this review permits read-only probes. The critic did not run a fresh cold RGB render, a full rebuild, exporter, Unity import, runtime animation/collision or performance measurements. Formal cold-render and stability evidence remain separate pending work."
+    }
+  ],
+  "commands_run": [
+    "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 /workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle9-technical-independent/probe.py",
+    "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 /workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python /workspace/scratch/medical-cycle9-technical-independent/material_probe.py",
+    "Python compile() of overhaul_room.py, skill_redo.py, skill_room_detail.py, verify_overhaul.py and render_overhaul.py: PASS"
+  ],
+  "rebuild_command_source_reviewed_not_executed": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python overhaul_room.py -- --stage full"
+}

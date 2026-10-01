@@ -1,0 +1,433 @@
+{
+  "schema_version": 1,
+  "review_cycle": 2,
+  "review_type": "independent_fresh_context_pixel_review",
+  "reviewer": "medical_visual_cycle2",
+  "recorded_at_utc": "2026-09-30T21:55:33.127644+00:00",
+  "source_sha256": "3f79ffe7ebb57b737c3a571b5611bce94ea22d61732596970f3457f307fbcdf3",
+  "source_hash_provenance": "Supplied by the parent for the already completed cycle-2 review; no current rebuild source was opened or inspected when persisting this record.",
+  "verdict": "FAIL",
+  "full_room_acceptance": "UNEARNED",
+  "visual_score": 70.5,
+  "visual_available": 90,
+  "visual_percentage": 78.33333333333333,
+  "technical_score": null,
+  "technical_available": 10,
+  "maximum_total_with_perfect_technical_score": 80.5,
+  "required_total": 90,
+  "minimum_category_percentage": 85,
+  "categories": [
+    {
+      "id": "layout_route_readability",
+      "score": 18,
+      "available": 20,
+      "minimum": 17,
+      "percentage": 90.0,
+      "disposition": "PASS",
+      "evidence": "Clear circulation, useful negative space and readable functional placement. Preservation of source boundaries remains for separate geometry review."
+    },
+    {
+      "id": "grounded_stylized_art_silhouettes",
+      "score": 15,
+      "available": 20,
+      "minimum": 17,
+      "percentage": 75.0,
+      "disposition": "FAIL",
+      "evidence": "Secondary equipment repeats smooth box and clipped-corner plate construction; manufactured distinctions remain insufficient."
+    },
+    {
+      "id": "ocru_hero_function_focal_clarity",
+      "score": 12,
+      "available": 15,
+      "minimum": 12.75,
+      "percentage": 80.0,
+      "disposition": "FAIL",
+      "evidence": "Red bay gives a strong focal role, but bed upholstery and carriage construction lose distinction."
+    },
+    {
+      "id": "materials_anti_plastic",
+      "score": 11,
+      "available": 15,
+      "minimum": 12.75,
+      "percentage": 73.33333333333333,
+      "disposition": "FAIL",
+      "evidence": "Major surfaces are substantially smoother and more uniform than the approved spawn material benchmarks."
+    },
+    {
+      "id": "lighting_atmosphere",
+      "score": 8,
+      "available": 10,
+      "minimum": 8.5,
+      "percentage": 80.0,
+      "disposition": "FAIL",
+      "evidence": "Distinct red and warm practical zones establish mood; decon operating hardware and entrance header lack sufficient readability."
+    },
+    {
+      "id": "dressing_neglected_workplace_story",
+      "score": 6.5,
+      "available": 10,
+      "minimum": 8.5,
+      "percentage": 65.0,
+      "disposition": "FAIL",
+      "evidence": "Clinical function is recognizable, but pristine surfaces and staged supplies weakly communicate an established neglected workplace."
+    }
+  ],
+  "scope": {
+    "inspection_basis": "All 24 cycle-2 PNGs and four approved spawn references inspected individually. Scores are based on pixels, not object counts, scripts, implementation claims or builder effort.",
+    "render_directory": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2",
+    "render_dimensions": [
+      1067,
+      600
+    ],
+    "current_rebuild_inspected": false,
+    "scene_or_script_edits": false,
+    "unscored": [
+      "Technical cleanliness and reproducibility",
+      "Exact light-source counts",
+      "Preservation of source boundaries and layout geometry"
+    ],
+    "per_camera_pass_meaning": "An individual view meets its local visual check; local PASS does not override the failed room score."
+  },
+  "summary": "Clear circulation, useful negative space and a strong red OCRU focal point. Violet/navy, red and cream grouping broadly relates to spawn, but surfaces and equipment remain cleaner, smoother and less materially specific than the approved references. The established neglected clinical history is weak.",
+  "visual_vetoes": {
+    "unequivocal_dominant_automatic_veto": false,
+    "concerns": [
+      "Repeated box/plate construction remains a substantial anti-blockout concern.",
+      "Uniform synthetic surfaces remain a substantial anti-plastic concern."
+    ],
+    "not_observed": [
+      "Dominant photographic texture noise",
+      "Flat even lighting"
+    ]
+  },
+  "lighting_assessment": {
+    "red_ocru_practical_zone": "Visibly distinct and a strong focal guide.",
+    "warm_supply_practical_zone": "Visibly distinct.",
+    "exact_light_counts": "Unscored; requires technical evidence.",
+    "hidden_bag_fill": "HIDDEN_BAG temporary inspection fill excluded from gameplay-light assessment."
+  },
+  "evidence_completeness": {
+    "pngs_present": 24,
+    "all_pngs_inspected_individually": true,
+    "corner_footprint_coverage": "PASS",
+    "visible_camera_label_coverage": "FAIL: none of the four CORNER_* images has a visible camera label; the other 20 do."
+  },
+  "per_camera_dispositions": [
+    {
+      "camera": "ENTRY",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/ENTRY.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Clear composition; smooth secondary equipment dominates.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "REVERSE",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/REVERSE.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Entrance/header weak; surrounding surfaces too pristine.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "PINCH",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/PINCH.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Route clearly demonstrated; console/cabinet art remains below target.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "HERO_OCRU",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/HERO_OCRU.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Strong focal role; material and carriage distinction weak.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "DETAIL_OCRU",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/DETAIL_OCRU.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Smooth cushions and dark supports fail close inspection.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "HERO_RESTART",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/HERO_RESTART.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Primitive screen/control assembly.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "HERO_CARTRIDGES",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/HERO_CARTRIDGES.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Repeated plain cylinders and simple shelf construction.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "HERO_RESERVE",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/HERO_RESERVE.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Box plus plate/gauge construction remains generic.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "HERO_DECON",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/HERO_DECON.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Functional hardware insufficiently readable.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "HERO_CABINET",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/HERO_CABINET.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Broad uniform doors and repeated panel vocabulary.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "HERO_SUPPLIES",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/HERO_SUPPLIES.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Clinical function clear; staged, pristine character.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "DETAIL_SUPPLIES",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/DETAIL_SUPPLIES.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Some useful tools/gloves; insufficient surface and work-history detail.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "HERO_WASH",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/HERO_WASH.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Box-like basin and simplified tap/dispenser.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "HERO_RECOVERY",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/HERO_RECOVERY.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "PASS",
+      "finding": "Believable berth, bedding and readable material separation.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "HERO_CART",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/HERO_CART.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "PASS",
+      "finding": "Recognizable scissor mechanism and grounded mobile silhouette.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "HIDDEN_BAG",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/HIDDEN_BAG.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Concealment succeeds; bag construction/read remains weak.",
+      "lighting_mode": "temporary_owner_inspection_fill_excluded_from_gameplay_lighting"
+    },
+    {
+      "camera": "WALL_NORTH",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/WALL_NORTH.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Console/decon construction shortcomings dominate.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "WALL_SOUTH",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/WALL_SOUTH.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Entrance contrast and overly clean surfaces.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "WALL_EAST",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/WALL_EAST.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "Neglected workplace story insufficient.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "WALL_WEST",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/WALL_WEST.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": true,
+      "visual_disposition": "FAIL",
+      "finding": "OCRU material/construction deficiencies remain visible.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "CORNER_NE",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/CORNER_NE.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": false,
+      "visual_disposition": "FAIL",
+      "finding": "Useful layout evidence; missing visible label and broad finish deficiencies.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "CORNER_NW",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/CORNER_NW.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": false,
+      "visual_disposition": "FAIL",
+      "finding": "Useful layout evidence; missing visible label and sterile presentation.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "CORNER_SE",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/CORNER_SE.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": false,
+      "visual_disposition": "FAIL",
+      "finding": "Useful layout evidence; missing visible label and repeated equipment forms.",
+      "lighting_mode": "authored_room_lighting"
+    },
+    {
+      "camera": "CORNER_SW",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-2/CORNER_SW.png",
+      "inspected": true,
+      "evidence_present": true,
+      "visible_label": false,
+      "visual_disposition": "FAIL",
+      "finding": "Useful layout evidence; missing visible label and weak wear/story differentiation.",
+      "lighting_mode": "authored_room_lighting"
+    }
+  ],
+  "highest_impact_defects": [
+    {
+      "priority": 1,
+      "cameras": [
+        "HERO_RESTART",
+        "HERO_RESERVE",
+        "HERO_CABINET",
+        "PINCH"
+      ],
+      "defect": "Smooth boxes with similar clipped-corner blue plates dominate different equipment types. Flat screen slabs and three identical guarded control blocks need stronger manufactured housing, recess, support and operating distinctions."
+    },
+    {
+      "priority": 2,
+      "cameras": [
+        "WALL_EAST",
+        "HERO_SUPPLIES",
+        "DETAIL_SUPPLIES"
+      ],
+      "defect": "Pristine worktop, mostly blank paperwork, uniform containers and smooth wall fields communicate a newly staged room. Localized handling wear, repaired surfaces and restrained evidence of interrupted clinical work are missing."
+    },
+    {
+      "priority": 3,
+      "cameras": [
+        "HERO_OCRU",
+        "DETAIL_OCRU",
+        "WALL_WEST"
+      ],
+      "defect": "Red illumination collapses bed materials into a single salmon response. Cushions read as smooth flattened wedges; support towers lose construction in darkness. Clearer upholstery edges/seams and carriage construction are needed."
+    },
+    {
+      "priority": 4,
+      "cameras": [
+        "HERO_DECON",
+        "REVERSE",
+        "WALL_SOUTH"
+      ],
+      "defect": "The decon cavity obscures operating hardware, while the entrance header has poor contrast. Redistribute existing dim accents/fill before adding any light source."
+    },
+    {
+      "priority": 5,
+      "cameras": [
+        "HIDDEN_BAG"
+      ],
+      "defect": "Under-bed placement and concealment work, but the inspection view reads as a faceted domed pouch with an angular white seam rather than a convincing body bag. The tiny note-like sliver is suitably inconspicuous, although its sticky-note identity cannot be confirmed from these pixels."
+    }
+  ],
+  "references_inspected": [
+    {
+      "name": "VALIDATE_Spawn",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Spawn.png",
+      "inspected_individually": true
+    },
+    {
+      "name": "VALIDATE_LockerDoor",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_LockerDoor.png",
+      "inspected_individually": true
+    },
+    {
+      "name": "VALIDATE_Material_A",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Material_A.png",
+      "inspected_individually": true
+    },
+    {
+      "name": "BRIEFING_INDIRECT",
+      "path": "sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/BRIEFING_INDIRECT.png",
+      "inspected_individually": true
+    }
+  ],
+  "authorities_read": [
+    "AGENTS.md",
+    "design/ART_DIRECTION.md",
+    "design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md",
+    "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/RUBRIC.md",
+    "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/CAMERAS.md",
+    "sections/facility-assembly/sources/medical-reanimation/revamp-review/production/CHECKLIST.md"
+  ]
+}
