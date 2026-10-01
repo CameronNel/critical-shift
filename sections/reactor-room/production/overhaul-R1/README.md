@@ -214,3 +214,7 @@ All control-room motion (TV cycle, slideshow, LED blink, troffer stutter, CRT sh
 ### Optimisation pass
 
 `scripts/cr_optimize.py -- <built.blend> <out.blend>` (run after `cr_build.py`): hidden-face removal, coplanar dissolve and static merge by material. Together with single-segment bevels and radius-scaled cylinder sides in `crk.py`, control-room triangles went from 154,462 to 74,589 with no visible change (same-view pixel comparison, see `BUDGET.md`). `cr_verify.py` treats merged `CR static ...` objects as checked by construction, so run it on the pre-optimise blend for the full envelope check. The control-room delivery report was regenerated for the optimised file.
+
+### Real-time lights and decal atlas
+
+Order after `cr_build.py`: `cr_optimize.py` -> `cr_atlas_decals.py` -> `cr_rt_lights.py` (then `cr_verify.py`, `cr_delivery.py`, `cr_runtime_spec.py`). `cr_rt_lights.py` keeps 6 dynamic lights (2 with shadows) and bakes the other 12 at rest value (spec: `control_room_light_budget.json/.md`); `cr_atlas_decals.py` packs 24 decal/poster/notice materials into one atlas material. Materials in the control room: 85 -> 63 (target 40 not met); see `BUDGET.md`.

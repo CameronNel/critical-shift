@@ -55,6 +55,10 @@ Procedural or driver-based motion does not survive export. Ship a seconds-based 
 constants (target, formula in seconds, inputs such as stability, period) and record frame-rate independence evidence; never leave
 the engine to guess timing from frame counts. Example: `sections/reactor-room/production/overhaul-R1/scripts/cr_runtime_spec.py`.
 
+Reduce materials and lights before export, not after: pack image-with-UV-quad decals into one atlas (pad the cells, unify UV layer
+names before joining), and decide which lights stay dynamic (a handful, at most two shadow casters) and which are baked at a rest value; record
+the budget as a spec. Example: `sections/reactor-room/production/overhaul-R1/scripts/cr_atlas_decals.py` and `cr_rt_lights.py`.
+
 ## Evidence states
 
 Use V00's labels and definitions from the existing validation plan: Planned, NotRun,

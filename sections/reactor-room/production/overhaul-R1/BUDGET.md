@@ -73,3 +73,17 @@ Scope: `31 CR CONTROL ROOM REDO` only. Visual-neutral tricks, all scripted:
 Whole module (`scripts/stats2.py`): 413,910 -> 334,049 triangles including the 53,780-triangle roof proxy (about 280k without it, under the 400k target). glTF round trip of the control room: 74,613 triangles in and out, bounds difference 0.0 m, 0.3% of UV loops at the origin.
 Same four views rendered before and after at frame 1: mean pixel difference 0.003-0.005, no 16 px block above 0.07 (sampling noise level); the cork board was regressed by a first, too eager face test (centre only) and fixed by requiring full coverage.
 Not changed: **materials** (132 in the file, 85 in the control room, target 40: needs the atlas/bake step), **draw calls** (about 226 control-room objects, 1,704 module-wide, target 800; not engine-measured), no LODs, no instancing (props are merged world-space geometry). All numbers are Blender estimates, not engine measurements.
+
+## Control-room real-time lights and material consolidation (measured in Blender)
+
+**Light budget** (`scripts/cr_rt_lights.py`, spec in `control_room_light_budget.json/.md`): 18 authored lights -> 6 dynamic (three troffers with flicker/brownout/stability, the TV light, two beacons) of which 2 cast real-time shadows (middle troffer, TV); 12 are baked at their rest value (drivers removed, flagged `rt_mode=baked`). The CRT/rack flicker cue stays on the emissive screens and LEDs. Visible cost: during a brownout only the troffers and TV dip (mean frame luminance 0.150 with baked lights vs 0.132 with everything dipping), the rest of the room holds steady.
+
+**Decal atlas** (`scripts/cr_atlas_decals.py`): 24 image materials (posters, notices, stickies, stains, floor paint, stencil, photo) -> one 2048 px RGBA atlas (scale 0.85 to fit, 4 px edge padding), one material, one joined object (29 objects -> 1).
+
+| State | Control-room materials | Delivery images | glTF materials / images (round trip) | glb |
+|---|---:|---:|---:|---:|
+| Before | 85 | 72 | 87 / 72 | 12.7 MB |
+| After | 63 | 49 | 64 / 49 | 11.7 MB |
+
+Module file: 132 -> 109 materials, 1,704 -> 1,676 objects. Triangles unchanged (74,613 in and out of the glTF round trip, bounds 0.0 m, 0.2% of UV loops at the origin). Same four views before/after: mean pixel difference 0.004-0.006, no block above 0.07.
+Still over target: **materials** (63 in the control room, 109 in the file, target 40 - the procedural surfaces, 13 blinking LED variants and screens remain separate), **draw calls** (200 control-room objects after the merges; module-wide target 800 not met). Nothing is engine-measured.

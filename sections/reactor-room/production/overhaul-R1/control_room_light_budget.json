@@ -1,0 +1,317 @@
+{
+ "dynamic_lights": 6,
+ "realtime_shadow_casters": 2,
+ "baked_lights": 12,
+ "lights": [
+  {
+   "name": "CR back fill",
+   "type": "AREA",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 1.0,
+   "color": [
+    1.0,
+    0.68,
+    0.38
+   ],
+   "location": [
+    -1.4,
+    -10.3,
+    8.4
+   ]
+  },
+  {
+   "name": "CR beacon +x",
+   "type": "POINT",
+   "mode": "dynamic",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 3.8,
+   "color": [
+    1.0,
+    0.1,
+    0.04
+   ],
+   "location": [
+    -4.66,
+    -6.8,
+    8.12
+   ]
+  },
+  {
+   "name": "CR beacon +y",
+   "type": "POINT",
+   "mode": "dynamic",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 3.8,
+   "color": [
+    1.0,
+    0.1,
+    0.04
+   ],
+   "location": [
+    0.55,
+    -11.77,
+    8.22
+   ]
+  },
+  {
+   "name": "CR crt glow -1.05",
+   "type": "AREA",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 7.0,
+   "color": [
+    1.0,
+    0.55,
+    0.1
+   ],
+   "location": [
+    -1.05,
+    -7.15,
+    6.5
+   ]
+  },
+  {
+   "name": "CR crt glow -2.75",
+   "type": "AREA",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 7.0,
+   "color": [
+    0.2,
+    1.0,
+    0.3
+   ],
+   "location": [
+    -2.75,
+    -7.15,
+    6.5
+   ]
+  },
+  {
+   "name": "CR crt glow 0.65",
+   "type": "AREA",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 7.0,
+   "color": [
+    0.2,
+    1.0,
+    0.3
+   ],
+   "location": [
+    0.65,
+    -7.15,
+    6.5
+   ]
+  },
+  {
+   "name": "CR desk lamp",
+   "type": "SPOT",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 30.0,
+   "color": [
+    1.0,
+    0.68,
+    0.38
+   ],
+   "location": [
+    0.99,
+    -6.92,
+    6.43
+   ]
+  },
+  {
+   "name": "CR door spill",
+   "type": "AREA",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 12.0,
+   "color": [
+    0.72,
+    0.84,
+    1.0
+   ],
+   "location": [
+    -5.15,
+    -6.8,
+    6.7
+   ]
+  },
+  {
+   "name": "CR rack batten",
+   "type": "AREA",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 30.0,
+   "color": [
+    1.0,
+    0.58,
+    0.3
+   ],
+   "location": [
+    1.25,
+    -10.3,
+    8.47
+   ]
+  },
+  {
+   "name": "CR rack glow low",
+   "type": "POINT",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 3.0,
+   "color": [
+    0.3,
+    1.0,
+    0.35
+   ],
+   "location": [
+    0.98,
+    -10.35,
+    5.95
+   ]
+  },
+  {
+   "name": "CR rack glow mid",
+   "type": "POINT",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 3.0,
+   "color": [
+    1.0,
+    0.55,
+    0.12
+   ],
+   "location": [
+    0.98,
+    -10.35,
+    6.6
+   ]
+  },
+  {
+   "name": "CR troffer -0.6",
+   "type": "AREA",
+   "mode": "dynamic",
+   "realtime_shadow": true,
+   "rest_energy_W_cycles": 25.6,
+   "color": [
+    1.0,
+    0.68,
+    0.38
+   ],
+   "location": [
+    -0.6,
+    -7.06,
+    8.47
+   ]
+  },
+  {
+   "name": "CR troffer -3.0",
+   "type": "AREA",
+   "mode": "dynamic",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 25.6,
+   "color": [
+    1.0,
+    0.68,
+    0.38
+   ],
+   "location": [
+    -3.0,
+    -7.06,
+    8.47
+   ]
+  },
+  {
+   "name": "CR troffer 1.2",
+   "type": "AREA",
+   "mode": "dynamic",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 25.6,
+   "color": [
+    1.0,
+    0.68,
+    0.38
+   ],
+   "location": [
+    1.2,
+    -7.06,
+    8.47
+   ]
+  },
+  {
+   "name": "CR tv light",
+   "type": "SPOT",
+   "mode": "dynamic",
+   "realtime_shadow": true,
+   "rest_energy_W_cycles": 80.0,
+   "color": [
+    0.228,
+    0.902,
+    0.19
+   ],
+   "location": [
+    -1.5,
+    -11.61,
+    7.36
+   ]
+  },
+  {
+   "name": "CR window spill",
+   "type": "AREA",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 26.0,
+   "color": [
+    0.72,
+    0.84,
+    1.0
+   ],
+   "location": [
+    -1.4,
+    -6.35,
+    7.2
+   ]
+  },
+  {
+   "name": "CR work lamp",
+   "type": "SPOT",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 22.0,
+   "color": [
+    1.0,
+    0.68,
+    0.38
+   ],
+   "location": [
+    -2.255,
+    -9.84,
+    6.46
+   ]
+  },
+  {
+   "name": "CR work pendant",
+   "type": "AREA",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 20.0,
+   "color": [
+    1.0,
+    0.68,
+    0.38
+   ],
+   "location": [
+    -2.6,
+    -9.9,
+    7.516
+   ]
+  }
+ ],
+ "status": {
+  "engine_implementation": "Blocked (no Unity target)",
+  "measured_performance": "NotRun"
+ }
+}

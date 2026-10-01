@@ -1,6 +1,6 @@
 {
- "source": "g5o.blend",
- "scope_objects": 228,
+ "source": "g7.blend",
+ "scope_objects": 200,
  "source_triangles": 74613,
  "source_bounds_min": [
   -4.8,
@@ -13,18 +13,18 @@
   8.8
  ],
  "materials": {
-  "emit_img": 4,
+  "bake": 41,
   "emit": 16,
-  "floor": 1,
-  "keep": 25,
-  "bake": 41
+  "keep": 2,
+  "emit_img": 4,
+  "floor": 1
  },
  "baked_tiles": 41,
- "delivery_images": 72,
- "delivery_image_megapixels": 10.71,
- "glb_kib": 12680,
+ "delivery_images": 49,
+ "delivery_image_megapixels": 10.47,
+ "glb_kib": 11740,
  "note_tiles": "single-location 256 px albedo bake of procedural materials; not seamless; roughness/metal constant; no normal/AO; screens, LEDs, lamps frozen at frame 1; drivers, stability reactions and TV cycle are not exported",
- "reimport_objects": 228,
+ "reimport_objects": 200,
  "reimport_triangles": 74613,
  "reimport_bounds_min": [
   -4.8,
@@ -37,9 +37,9 @@
   8.8
  ],
  "bounds_max_abs_diff_m": 0.0,
- "reimport_materials": 87,
- "reimport_uv_loops_at_origin_pct": 0.3,
- "reimport_images": 72,
+ "reimport_materials": 64,
+ "reimport_uv_loops_at_origin_pct": 0.2,
+ "reimport_images": 49,
  "runtime_s": 85,
  "status": {
   "technical_roundtrip": "see numbers (objects/triangles/bounds/materials/UV)",

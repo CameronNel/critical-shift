@@ -604,43 +604,6 @@
    }
   },
   {
-   "owner": "CR crt glow -1.05",
-   "kind": "Object",
-   "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
-   "inputs": {
-    "bw": "REACTOR_STATE[\"cr_brown\"]"
-   }
-  },
-  {
-   "owner": "CR crt glow -2.75",
-   "kind": "Object",
-   "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
-   "inputs": {
-    "bw": "REACTOR_STATE[\"cr_brown\"]"
-   }
-  },
-  {
-   "owner": "CR crt glow 0.65",
-   "kind": "Object",
-   "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
-   "inputs": {
-    "bw": "REACTOR_STATE[\"cr_brown\"]"
-   }
-  },
-  {
-   "owner": "CR rack batten",
-   "kind": "Object",
-   "target": "energy[0]",
-   "expression": "30*(1-0.6*fk*0.5)*(1-0.6*bw)",
-   "inputs": {
-    "fk": "REACTOR_STATE[\"cr_flick\"]",
-    "bw": "REACTOR_STATE[\"cr_brown\"]"
-   }
-  },
-  {
    "owner": "CR troffer -0.6",
    "kind": "Object",
    "target": "energy[0]",
@@ -1043,43 +1006,6 @@
    "expression": "40*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
    "inputs": {
     "s": "REACTOR_STATE[\"stability\"]"
-   }
-  },
-  {
-   "owner": "CR crt glow -1.05",
-   "kind": "AreaLight",
-   "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
-   "inputs": {
-    "bw": "REACTOR_STATE[\"cr_brown\"]"
-   }
-  },
-  {
-   "owner": "CR crt glow -2.75",
-   "kind": "AreaLight",
-   "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
-   "inputs": {
-    "bw": "REACTOR_STATE[\"cr_brown\"]"
-   }
-  },
-  {
-   "owner": "CR crt glow 0.65",
-   "kind": "AreaLight",
-   "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
-   "inputs": {
-    "bw": "REACTOR_STATE[\"cr_brown\"]"
-   }
-  },
-  {
-   "owner": "CR rack batten",
-   "kind": "AreaLight",
-   "target": "energy[0]",
-   "expression": "30*(1-0.6*fk*0.5)*(1-0.6*bw)",
-   "inputs": {
-    "fk": "REACTOR_STATE[\"cr_flick\"]",
-    "bw": "REACTOR_STATE[\"cr_brown\"]"
    }
   },
   {
