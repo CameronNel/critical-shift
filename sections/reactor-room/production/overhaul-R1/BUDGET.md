@@ -1,6 +1,6 @@
 # Reactor room performance budget (proposed, unmeasured)
 
-Fixed input from the owner: **60 fps on an RTX 3050, medium settings, 1080p**. The numbers below are engineering targets I chose to make that likely; none has been profiled. There is no Unity project or engine build in this repository, so no engine frame time was measured. Triangle counts are Blender evaluated, triangulated meshes; object and draw-call counts are the Blender object count and an object x material estimate before any static batching.
+Fixed input from the owner: **50 fps at 1080p on the Low preset, RTX 3050** (changed by the owner on 2026-10-01 from 60 fps, medium; see `design/ENGINE_DECISION.md` once PR #59 lands). The caps below were chosen for the old target and are not loosened: nothing is measured. The numbers below are engineering targets I chose to make that likely; none has been profiled. There is no Unity project or engine build in this repository, so no engine frame time was measured. Triangle counts are Blender evaluated, triangulated meshes; object and draw-call counts are the Blender object count and an object x material estimate before any static batching.
 
 ## Targets (to confirm)
 
