@@ -225,7 +225,7 @@ count as arm; the web that joined arm and flank stays on the flank, and what is 
 claw on the raised arm nor a bulge on the flank remains. Fabric under the rigid hood never follows the arm. The two boot
 shells are kept to their own foot the same way. Kit on the suit: pieces lying flat on the fabric follow it vertex by
 vertex with long edges subdivided; bands round the legs and small raised items move as one piece; long hard parts
-(belt, soles, tank) are rigid to one bone; everything behind the back rides `Pack`. Head, hood, visor and face decals
+(belt, tank) are rigid to one bone; everything behind the back rides `Pack`. Head, hood, visor and face decals
 are rigid to `Head` (tagged `cs_head_rigid`, hidden in the first-person view).
 
 Legs are two-bone IK to planned foot paths (planted stance foot sliding back at treadmill speed, heel strike, toe roll,

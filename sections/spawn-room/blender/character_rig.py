@@ -14,7 +14,7 @@ fused mesh: the legs touch from the knee to the crotch and the inner arm touches
 creases are cut open and each side is closed with its own wall (`_separate_limbs`), then weighted to its own limb only,
 so a striding leg or a raised arm never drags the shared fabric into torn-looking slivers. Head, hood, visor and face
 decals are rigid to Head; kit that lies flat on the suit follows it (long edges subdivided), bands round the legs and
-small raised items move as one piece, long hard parts (belt, soles, tank) are rigid to one bone.
+small raised items move as one piece, long hard parts (belt, tank) are rigid to one bone.
 
 Legs are two-bone IK to planned foot targets, so a planted foot stays planted. Animations (all loop, in place, 24 fps):
     IDLE          standing, arms hanging, breathing and a slow weight shift (48 frames)
@@ -634,7 +634,7 @@ def _restricted(weight_at, p, key, hood=None):
 def _kit_mode(pts, near):
     """How a SUIT_KIT island is skinned: "Pack" (rides the backpack), "follow" (anything lying flat on the fabric:
     patches, piping, straps; follows it vertex by vertex), "piece" (a band round a leg or a small raised item: moves as
-    one piece with the fabric under it) or "rigid" (a long raised hard part such as the belt or a sole, one bone)."""
+    one piece with the fabric under it) or "rigid" (a long raised hard part such as the belt, one bone)."""
     ext = max(max(q[a] for q in pts) - min(q[a] for q in pts) for a in range(3))
     c = sum(pts, Vector()) / len(pts)
     behind = sum(1 for q in pts if q.y < -0.19 and 0.68 < q.z < 1.25 and abs(q.x) < 0.30) / len(pts)
@@ -1164,7 +1164,7 @@ TOOL_HOLD = {
     "SHOVEL": dict(grip=(0.30, 0.38, 1.00), shaft=(0.25, -0.80, -0.55), side=(1, 0, 0), at=-0.16),  # blade up-forward
     "PICKAXE": dict(grip=(0.28, 0.36, 1.00), shaft=(-0.12, 0.84, 0.50), side=(0, 0, 1), at=-0.14),  # head up-forward
 }
-TOOL_RUN = {                                      # running: the same, a little lower and closer, bobbing with the stride
+TOOL_RUN = {                                      # running: the same, a little closer, bobbing with the stride
     "SHOVEL": dict(grip=(0.30, 0.36, 1.02), shaft=(0.25, -0.72, -0.65), side=(1, 0, 0), at=-0.16),
     "PICKAXE": dict(grip=(0.28, 0.31, 0.96), shaft=(-0.10, 0.76, 0.64), side=(0, 0, 1), at=-0.14),
 }
