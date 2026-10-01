@@ -1,0 +1,86 @@
+{
+  "review_id": "slice-s07-visual",
+  "role": "independent local visual style-slice critic",
+  "verdict": "LOCAL_FAIL",
+  "reason": "Mandatory fabric response is not identifiable at the unchanged 1067x600 beauty review size.",
+  "scope": ["front-office wall and architectural transition", "D1", "check-in cluster", "practical", "reader and cable utility", "worker traces"],
+  "excluded": ["inherited scanner machinery", "inherited office contents", "whole-room scoring", "technical contact certification", "measured scale or clearance certification"],
+  "whole_room_score": null,
+  "technical_certification": false,
+  "evidence_opened": [
+    "renders/slice-s07/SLICE_ENTRY.png",
+    "renders/slice-s07/SLICE_MATERIAL.png",
+    "renders/slice-s07/SLICE_DOOR.png",
+    "renders/slice-s07-uv/SLICE_ENTRY.png",
+    "renders/slice-s07-uv/SLICE_DOOR.png",
+    "renders/slice-s07-neutral/SLICE_MATERIAL.png",
+    "renders/spawn-reference/VALIDATE_Spawn.png",
+    "renders/spawn-reference/VALIDATE_Material_A.png",
+    "renders/spawn-reference/VALIDATE_LockerDoor.png",
+    "renders/spawn-reference/BRIEFING_INDIRECT.png"
+  ],
+  "review_resolution": [1067, 600],
+  "reference_resolution": [1280, 720],
+  "checks": {
+    "wall_transition": "PASS",
+    "door": "PASS",
+    "primary_prop_cluster": "PASS",
+    "practical_light": "PASS",
+    "utility_element": "PASS",
+    "human_traces_3_to_5": "PASS",
+    "visual_scale_construction": "PASS",
+    "object_specific_geometry": "PASS",
+    "painted_metal": "PASS",
+    "plastic": "PASS",
+    "rubber": "PASS",
+    "fabric": "FAIL",
+    "concrete_plaster": "PASS_WEAK",
+    "localized_wear": "PASS_WEAK",
+    "spawn_colour_coherence": "PASS",
+    "localized_light_contact_shadows": "PASS",
+    "restrained_signage": "PASS",
+    "negative_space": "PASS",
+    "coercive_human_story": "PASS",
+    "no_toy_ppe": "NOT_APPLICABLE_NO_PPE_VISIBLE",
+    "no_generic_scifi_greebles": "PASS"
+  },
+  "dominant_visual_vetoes_observed": [],
+  "defects": [
+    {
+      "id": "S07-V01",
+      "priority": "blocking",
+      "views": ["renders/slice-s07/SLICE_MATERIAL.png", "renders/slice-s07-neutral/SLICE_MATERIAL.png"],
+      "regions": [{"name": "long counter mat", "xyxy_approx": [160, 288, 978, 455]}, {"name": "open ink pad", "xyxy_approx": [877, 361, 947, 440]}],
+      "observation": "Smooth planar mat and smooth blue-gray ink pad do not visibly establish fabric or felt. No other unmistakable fabric object is visible within scope.",
+      "repair_target": "Give one existing worker trace clearly readable fabric thickness, broad folds or bound soft edges and matte textile response. Preserve countertop gaps and palette; prove it in unchanged beauty framing."
+    },
+    {
+      "id": "S07-V02",
+      "priority": "secondary",
+      "views": ["renders/slice-s07/SLICE_DOOR.png"],
+      "regions": [{"name": "lever wear", "xyxy_approx": [600, 338, 659, 410]}],
+      "observation": "Lever-zone wear is a flat brown/olive polygon with a conspicuously sharp edge, reading like a pasted colour shape.",
+      "repair_target": "Use a restrained irregular rubbed-paint transition tied to hand and lever contact."
+    },
+    {
+      "id": "S07-V03",
+      "priority": "secondary",
+      "views": ["renders/slice-s07/SLICE_MATERIAL.png", "renders/slice-s07-neutral/SLICE_MATERIAL.png"],
+      "regions": [{"name": "counter-front scar", "xyxy_approx": [295, 377, 345, 390]}],
+      "observation": "An isolated black scar has abrupt dark openings and little surrounding rubbed finish, giving wear excessive graphic contrast.",
+      "repair_target": "Reduce hard black contrast and add a small broad rubbed/chipped transition without spreading scratches across the countertop."
+    },
+    {
+      "id": "S07-V04",
+      "priority": "secondary",
+      "views": ["renders/slice-s07/SLICE_ENTRY.png", "renders/slice-s07/SLICE_DOOR.png"],
+      "regions": [{"name": "Door left wall", "xyxy_approx": [0, 0, 348, 550]}, {"name": "Door reader wall", "xyxy_approx": [729, 0, 961, 430]}],
+      "observation": "Diffuse wall finish is distinguishable but unusually smooth compared with approved spawn wall response; visible broad variation mostly follows illumination.",
+      "repair_target": "Add subtle low-frequency tone or roughness variation or one restrained maintenance patch while preserving quiet wall space."
+    }
+  ],
+  "expansion_gate": "BLOCKED_UNTIL_MANDATORY_FABRIC_REQUIREMENT_PASSES",
+  "source_code_or_prior_reviews_read": false,
+  "scene_or_builder_edits": false,
+  "written_outputs": ["production/critics/slice-s07-visual.md", "production/critics/slice-s07-visual.json"]
+}

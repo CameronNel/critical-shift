@@ -1,0 +1,76 @@
+{
+  "source_sha256": "a78d03bb5822ce0133cac551ee6e81151e8d7643a9b66050c2c1f9940561e34f",
+  "renderer_sha256": "4b3460ca01fa02d154d2f2d9eeeb03287f1aec78b812341e7470f52da5878747",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.699999988079071,
+  "diagnostic": "neutral",
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "SLICE_MATERIAL",
+      "label": "SLICE | COUNTER / MATERIALS",
+      "group": "slice",
+      "inherited": null,
+      "position": [
+        -2.8,
+        1.9,
+        1.65
+      ],
+      "target": [
+        -3.55,
+        3.65,
+        1.1
+      ],
+      "lens": 32,
+      "camera_matrix_world": [
+        [
+          0.9191450476646423,
+          -0.10932304710149765,
+          0.3784452974796295,
+          -2.799999952316284
+        ],
+        [
+          0.3939192593097687,
+          0.2550871968269348,
+          -0.8830391764640808,
+          1.899999976158142
+        ],
+        [
+          -1.747726408041217e-08,
+          0.9607179760932922,
+          0.2775265872478485,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 32.0,
+      "projection": "PERSP",
+      "image_sha256": "d7745b4c313552a8c824dd45f09783de6426150e3b45b83467919966b645a82a",
+      "temporary_hidden_geometry": []
+    }
+  ],
+  "requested_view_count": 1
+}

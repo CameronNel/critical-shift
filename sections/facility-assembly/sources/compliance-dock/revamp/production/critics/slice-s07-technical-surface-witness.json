@@ -1,0 +1,1912 @@
+{
+  "source_sha256": "269c04fe6b45870873baf1985e21e7ad915dc12a07136378cb639ffc46acc612",
+  "source_saved": false,
+  "reader_seating": [
+    {
+      "reader_back_point": [
+        -4.699999809265137,
+        3.5399999618530273,
+        1.25
+      ],
+      "wall_hit": [
+        -4.699999809265137,
+        3.5199999809265137,
+        1.25
+      ],
+      "signed_gap_m": -0.020000101029872895,
+      "wall_front_normal": [
+        -1.8040151417153538e-07,
+        -1.0,
+        0.0
+      ],
+      "reader_back_to_wall_penetration_m": 0.020000101029872895
+    },
+    {
+      "reader_back_point": [
+        -4.670000076293945,
+        3.5399999618530273,
+        1.2999999523162842
+      ],
+      "wall_hit": [
+        -4.670000076293945,
+        3.5199999809265137,
+        1.2999999523162842
+      ],
+      "signed_gap_m": -0.020000101029872895,
+      "wall_front_normal": [
+        -1.8040151417153538e-07,
+        -1.0,
+        0.0
+      ],
+      "reader_back_to_wall_penetration_m": 0.020000101029872895
+    },
+    {
+      "reader_back_point": [
+        -4.730000019073486,
+        3.5399999618530273,
+        1.190000057220459
+      ],
+      "wall_hit": [
+        -4.730000019073486,
+        3.5199999809265137,
+        1.190000057220459
+      ],
+      "signed_gap_m": -0.020000101029872895,
+      "wall_front_normal": [
+        -1.8040151417153538e-07,
+        -1.0,
+        0.0
+      ],
+      "reader_back_to_wall_penetration_m": 0.020000101029872895
+    }
+  ],
+  "coplanar_plane_witnesses": [
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        0.25844,
+        -0.96603,
+        0.95003
+      ],
+      "area_m2": 0.00014887476609063994,
+      "witness": {
+        "point": [
+          -4.267324924468994,
+          3.676961898803711,
+          0.00025737492251209915
+        ],
+        "normal": [
+          0.0,
+          0.25844213366508484,
+          -0.9660267233848572
+        ],
+        "tri_a": 104,
+        "tri_b": 104,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 0.00025632278993725777
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        0.70712,
+        -0.70709,
+        2.60041
+      ],
+      "area_m2": 0.0001494973088807631,
+      "witness": {
+        "point": [
+          -4.267324924468994,
+          3.678704261779785,
+          0.001241569290868938
+        ],
+        "normal": [
+          0.0,
+          0.7071211338043213,
+          -0.7070924043655396
+        ],
+        "tri_a": 106,
+        "tri_b": 106,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 0.001745738321915269
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        0.96603,
+        -0.25841,
+        3.55397
+      ],
+      "area_m2": 0.00014886687162535836,
+      "witness": {
+        "point": [
+          -4.267324924468994,
+          3.679723024368286,
+          0.002964672865346074
+        ],
+        "normal": [
+          0.0,
+          0.9660347104072571,
+          -0.25841259956359863
+        ],
+        "tri_a": 108,
+        "tri_b": 108,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 0.01146224606782198
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        -0.0,
+        0.25846,
+        0.96602,
+        1.91611
+      ],
+      "area_m2": 0.0001488753172344242,
+      "witness": {
+        "point": [
+          -4.249324798583984,
+          3.676058053970337,
+          0.9999844431877136
+        ],
+        "normal": [
+          -0.0,
+          0.2584556043148041,
+          0.9660231471061707
+        ],
+        "tri_a": 110,
+        "tri_b": 110,
+        "outward_probe_contained_by": [
+          "Transaction counter slab"
+        ],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 6.00489329372067e-06
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        -0.0,
+        0.70711,
+        0.70711,
+        3.30747
+      ],
+      "area_m2": 0.00014949426417613205,
+      "witness": {
+        "point": [
+          -4.249324798583984,
+          3.6780402660369873,
+          0.9994228482246399
+        ],
+        "normal": [
+          -0.0,
+          0.7071068286895752,
+          0.7071068286895752
+        ],
+        "tri_a": 112,
+        "tri_b": 112,
+        "outward_probe_contained_by": [
+          "CD | Counter gusset"
+        ],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.0008060440886765718
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        -0.0,
+        0.96604,
+        0.25841,
+        3.81239
+      ],
+      "area_m2": 0.0001488689458585977,
+      "witness": {
+        "point": [
+          -4.249324798583984,
+          3.679481029510498,
+          0.9979392290115356
+        ],
+        "normal": [
+          -0.0,
+          0.9660356640815735,
+          0.2584090232849121
+        ],
+        "tri_a": 114,
+        "tri_b": 114,
+        "outward_probe_contained_by": [
+          "CD | Counter gusset"
+        ],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.007964525371789932
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.25844,
+        -0.96603,
+        -0.91075
+      ],
+      "area_m2": 0.00014887476609063994,
+      "witness": {
+        "point": [
+          -4.249324798583984,
+          3.5239417552948,
+          1.553302899992559e-05
+        ],
+        "normal": [
+          0.0,
+          -0.25844213366508484,
+          -0.9660267233848572
+        ],
+        "tri_a": 140,
+        "tri_b": 140,
+        "outward_probe_contained_by": [
+          "Floor slab"
+        ],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 5.975779004074866e-06
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.70712,
+        -0.70709,
+        -2.49086
+      ],
+      "area_m2": 0.0001494973088807631,
+      "witness": {
+        "point": [
+          -4.249324798583984,
+          3.5219595432281494,
+          0.000577128550503403
+        ],
+        "normal": [
+          0.0,
+          -0.7071211338043213,
+          -0.7070924043655396
+        ],
+        "tri_a": 142,
+        "tri_b": 142,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 0.000806058116722852
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.96603,
+        -0.25841,
+        -3.40148
+      ],
+      "area_m2": 0.00014886687162535836,
+      "witness": {
+        "point": [
+          -4.249324798583984,
+          3.5205187797546387,
+          0.002060774015262723
+        ],
+        "normal": [
+          0.0,
+          -0.9660347104072571,
+          -0.25841259956359863
+        ],
+        "tri_a": 144,
+        "tri_b": 144,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 0.007964356802403927
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.25846,
+        0.96602,
+        0.05523
+      ],
+      "area_m2": 0.0001488753172344242,
+      "witness": {
+        "point": [
+          -4.267324924468994,
+          3.523037910461426,
+          0.9997426271438599
+        ],
+        "normal": [
+          0.0,
+          -0.2584556043148041,
+          0.9660231471061707
+        ],
+        "tri_a": 146,
+        "tri_b": 146,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.00025632616598159075
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.70711,
+        0.70711,
+        -1.7837
+      ],
+      "area_m2": 0.00014949426417613205,
+      "witness": {
+        "point": [
+          -4.267324924468994,
+          3.5212953090667725,
+          0.9987584352493286
+        ],
+        "normal": [
+          0.0,
+          -0.7071068286895752,
+          0.7071068286895752
+        ],
+        "tri_a": 148,
+        "tri_b": 148,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.0017456652130931616
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.96604,
+        0.25841,
+        -3.14307
+      ],
+      "area_m2": 0.0001488689458585977,
+      "witness": {
+        "point": [
+          -4.267324924468994,
+          3.5202767848968506,
+          0.9970353245735168
+        ],
+        "normal": [
+          0.0,
+          -0.9660356640815735,
+          0.2584090232849121
+        ],
+        "tri_a": 150,
+        "tri_b": 150,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.011462507769465446
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "area_m2": 0.010943928009055526,
+      "witness": {
+        "point": [
+          -4.249324798583984,
+          3.671574831008911,
+          -0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "tri_a": 152,
+        "tri_b": 152,
+        "outward_probe_contained_by": [
+          "Floor slab"
+        ],
+        "outward_cover": null,
+        "cover_distance_m": null
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -1.0,
+        0.0,
+        -3.52
+      ],
+      "area_m2": 0.07142355655668253,
+      "witness": {
+        "point": [
+          -4.249324798583984,
+          3.5199999809265137,
+          0.9671211242675781
+        ],
+        "normal": [
+          0.0,
+          -0.9999999403953552,
+          0.0
+        ],
+        "tri_a": 156,
+        "tri_b": 156,
+        "outward_probe_contained_by": [
+          "CD | Counter underside fixing"
+        ],
+        "outward_cover": "CD | Counter underside fixing",
+        "cover_distance_m": 0.0014897792134433985
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "area_m2": 0.010943928009055526,
+      "witness": {
+        "point": [
+          -4.267324924468994,
+          3.6027884483337402,
+          1.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tri_a": 158,
+        "tri_b": 158,
+        "outward_probe_contained_by": [
+          "Transaction counter slab"
+        ],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.03998984023928642
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        1.0,
+        0.0,
+        3.68
+      ],
+      "area_m2": 0.07142355655668263,
+      "witness": {
+        "point": [
+          -4.267324924468994,
+          3.679999828338623,
+          0.5181995034217834
+        ],
+        "normal": [
+          0.0,
+          0.9999999403953552,
+          0.0
+        ],
+        "tri_a": 160,
+        "tri_b": 160,
+        "outward_probe_contained_by": [],
+        "outward_cover": null,
+        "cover_distance_m": null
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        0.25844,
+        -0.96603,
+        0.95003
+      ],
+      "area_m2": 0.00014887575205542062,
+      "witness": {
+        "point": [
+          -2.7504498958587646,
+          3.6760458946228027,
+          1.2325373972998932e-05
+        ],
+        "normal": [
+          0.0,
+          0.25844210386276245,
+          -0.9660267233848572
+        ],
+        "tri_a": 104,
+        "tri_b": 104,
+        "outward_probe_contained_by": [
+          "Floor slab"
+        ],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 2.6553161660558544e-06
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        0.70712,
+        -0.70709,
+        2.60041
+      ],
+      "area_m2": 0.0001494982989685077,
+      "witness": {
+        "point": [
+          -2.7504498958587646,
+          3.6780309677124023,
+          0.000568149727769196
+        ],
+        "normal": [
+          0.0,
+          0.7071211338043213,
+          -0.7070924043655396
+        ],
+        "tri_a": 106,
+        "tri_b": 106,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 0.0007933598826639354
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        0.96603,
+        -0.25841,
+        3.55397
+      ],
+      "area_m2": 0.00014886787590824547,
+      "witness": {
+        "point": [
+          -2.7504498958587646,
+          3.6794779300689697,
+          0.0020485592540353537
+        ],
+        "normal": [
+          0.0,
+          0.9660345911979675,
+          -0.25841256976127625
+        ],
+        "tri_a": 108,
+        "tri_b": 108,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 0.007917088456451893
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        -0.0,
+        0.25846,
+        0.96602,
+        1.91611
+      ],
+      "area_m2": 0.00014887630320285496,
+      "witness": {
+        "point": [
+          -2.732450008392334,
+          3.676974296569824,
+          0.9997392892837524
+        ],
+        "normal": [
+          -0.0,
+          0.2584555745124817,
+          0.9660231471061707
+        ],
+        "tri_a": 110,
+        "tri_b": 110,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.00025978131452575326
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        -0.0,
+        0.70711,
+        0.70711,
+        3.30747
+      ],
+      "area_m2": 0.00014949526684521994,
+      "witness": {
+        "point": [
+          -2.732450008392334,
+          3.67871356010437,
+          0.9987494349479675
+        ],
+        "normal": [
+          -0.0,
+          0.7071067690849304,
+          0.7071067690849304
+        ],
+        "tri_a": 112,
+        "tri_b": 112,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.0017583941807970405
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        -0.0,
+        0.96604,
+        0.25841,
+        3.81239
+      ],
+      "area_m2": 0.00014886994097014524,
+      "witness": {
+        "point": [
+          -2.732450008392334,
+          3.6797261238098145,
+          0.9970231056213379
+        ],
+        "normal": [
+          -0.0,
+          0.9660356044769287,
+          0.25840896368026733
+        ],
+        "tri_a": 114,
+        "tri_b": 114,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.01150976587086916
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.25844,
+        -0.96603,
+        -0.91075
+      ],
+      "area_m2": 0.0001488757520554206,
+      "witness": {
+        "point": [
+          -2.732450008392334,
+          3.5230255126953125,
+          0.00026070335297845304
+        ],
+        "normal": [
+          0.0,
+          -0.25844210386276245,
+          -0.9660267233848572
+        ],
+        "tri_a": 140,
+        "tri_b": 140,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 0.0002597682469058782
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.70712,
+        -0.70709,
+        -2.49086
+      ],
+      "area_m2": 0.00014949829896850753,
+      "witness": {
+        "point": [
+          -2.732450008392334,
+          3.5212862491607666,
+          0.0012505481718108058
+        ],
+        "normal": [
+          0.0,
+          -0.7071211338043213,
+          -0.7070924043655396
+        ],
+        "tri_a": 142,
+        "tri_b": 142,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 0.0017584366723895073
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.96603,
+        -0.25841,
+        -3.40148
+      ],
+      "area_m2": 0.00014886787590824503,
+      "witness": {
+        "point": [
+          -2.732450008392334,
+          3.5202736854553223,
+          0.0029768876265734434
+        ],
+        "normal": [
+          0.0,
+          -0.9660345911979675,
+          -0.25841256976127625
+        ],
+        "tri_a": 144,
+        "tri_b": 144,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Floor slab",
+        "cover_distance_m": 0.011509514413774014
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.25846,
+        0.96602,
+        0.05523
+      ],
+      "area_m2": 0.00014887630320285496,
+      "witness": {
+        "point": [
+          -2.7504498958587646,
+          3.523953914642334,
+          0.9999877214431763
+        ],
+        "normal": [
+          0.0,
+          -0.2584555745124817,
+          0.9660231471061707
+        ],
+        "tri_a": 146,
+        "tri_b": 146,
+        "outward_probe_contained_by": [
+          "Transaction counter slab"
+        ],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 2.6113289095519576e-06
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.70711,
+        0.70711,
+        -1.7837
+      ],
+      "area_m2": 0.00014949526684521994,
+      "witness": {
+        "point": [
+          -2.7504498958587646,
+          3.5219688415527344,
+          0.999431848526001
+        ],
+        "normal": [
+          0.0,
+          -0.7071067690849304,
+          0.7071067690849304
+        ],
+        "tri_a": 148,
+        "tri_b": 148,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.0007933147135190666
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -0.96604,
+        0.25841,
+        -3.14307
+      ],
+      "area_m2": 0.00014886994097014527,
+      "witness": {
+        "point": [
+          -2.7504498958587646,
+          3.520521879196167,
+          0.9979514479637146
+        ],
+        "normal": [
+          0.0,
+          -0.9660356044769287,
+          0.25840896368026733
+        ],
+        "tri_a": 150,
+        "tri_b": 150,
+        "outward_probe_contained_by": [],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.007917257957160473
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "area_m2": 0.010944000488279926,
+      "witness": {
+        "point": [
+          -2.732450008392334,
+          3.6018590927124023,
+          -0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "tri_a": 152,
+        "tri_b": 152,
+        "outward_probe_contained_by": [
+          "Floor slab"
+        ],
+        "outward_cover": null,
+        "cover_distance_m": null
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        -1.0,
+        0.0,
+        -3.52
+      ],
+      "area_m2": 0.0714240253219599,
+      "witness": {
+        "point": [
+          -2.732450008392334,
+          3.5199999809265137,
+          0.512133002281189
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "tri_a": 156,
+        "tri_b": 156,
+        "outward_probe_contained_by": [],
+        "outward_cover": null,
+        "cover_distance_m": null
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "area_m2": 0.010944000488279926,
+      "witness": {
+        "point": [
+          -2.7504498958587646,
+          3.672504425048828,
+          1.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tri_a": 158,
+        "tri_b": 158,
+        "outward_probe_contained_by": [
+          "Transaction counter slab"
+        ],
+        "outward_cover": "Transaction counter slab",
+        "cover_distance_m": 0.03998984023928642
+      }
+    },
+    {
+      "objects": [
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "plane": [
+        0.0,
+        1.0,
+        0.0,
+        3.68
+      ],
+      "area_m2": 0.07142402532196002,
+      "witness": {
+        "point": [
+          -2.7504498958587646,
+          3.679999828338623,
+          0.9731875658035278
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "tri_a": 160,
+        "tri_b": 160,
+        "outward_probe_contained_by": [
+          "CD | Counter gusset.001"
+        ],
+        "outward_cover": "CD | Counter gusset.001",
+        "cover_distance_m": 0.05876362323760986
+      }
+    },
+    {
+      "objects": [
+        "Office front dado west",
+        "Office front wainscot west"
+      ],
+      "plane": [
+        -1.0,
+        0.0,
+        0.0,
+        6.8
+      ],
+      "area_m2": 4.9999904632613834e-05,
+      "witness": {
+        "point": [
+          -6.800000190734863,
+          3.507999897003174,
+          0.9944999814033508
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "tri_a": 155,
+        "tri_b": 154,
+        "outward_probe_contained_by": [],
+        "outward_cover": null,
+        "cover_distance_m": null
+      }
+    },
+    {
+      "objects": [
+        "Office front dado west",
+        "Office front wainscot west"
+      ],
+      "plane": [
+        1.0,
+        0.0,
+        -0.0,
+        -6.025
+      ],
+      "area_m2": 4.9999904632613834e-05,
+      "witness": {
+        "point": [
+          -6.025000095367432,
+          3.512226104736328,
+          0.9953333139419556
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        "tri_a": 162,
+        "tri_b": 162,
+        "outward_probe_contained_by": [
+          "D1 frame jamb -1"
+        ],
+        "outward_cover": "D1 frame jamb -1",
+        "cover_distance_m": 0.0999903678894043
+      }
+    },
+    {
+      "objects": [
+        "Office front dado mid",
+        "Office front wainscot mid"
+      ],
+      "plane": [
+        -1.0,
+        0.0,
+        0.0,
+        4.775
+      ],
+      "area_m2": 4.9999904632613834e-05,
+      "witness": {
+        "point": [
+          -4.775000095367432,
+          3.507999897003174,
+          0.9944999814033508
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "tri_a": 155,
+        "tri_b": 154,
+        "outward_probe_contained_by": [
+          "D1 frame jamb 1"
+        ],
+        "outward_cover": "D1 frame jamb 1",
+        "cover_distance_m": 0.0999898910522461
+      }
+    },
+    {
+      "objects": [
+        "Office front dado mid",
+        "Office front wainscot mid"
+      ],
+      "plane": [
+        1.0,
+        0.0,
+        -0.0,
+        -4.35
+      ],
+      "area_m2": 4.9999904632613834e-05,
+      "witness": {
+        "point": [
+          -4.350000381469727,
+          3.512226104736328,
+          0.9953333139419556
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        "tri_a": 162,
+        "tri_b": 162,
+        "outward_probe_contained_by": [],
+        "outward_cover": null,
+        "cover_distance_m": null
+      }
+    },
+    {
+      "objects": [
+        "CD | Counter lip rubbed spot",
+        "CD | Counter lip rubbed spot.001"
+      ],
+      "plane": [
+        0.0,
+        -1.0,
+        0.0,
+        -3.2294
+      ],
+      "area_m2": 0.0002871504857278051,
+      "witness": {
+        "point": [
+          -3.8310999870300293,
+          3.2293999195098877,
+          1.0220781564712524
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "tri_a": 1,
+        "tri_b": 0,
+        "outward_probe_contained_by": [],
+        "outward_cover": null,
+        "cover_distance_m": null
+      }
+    },
+    {
+      "objects": [
+        "CD | Counter lip rubbed spot",
+        "CD | Counter lip rubbed spot.001"
+      ],
+      "plane": [
+        0.0,
+        1.0,
+        0.0,
+        3.23
+      ],
+      "area_m2": 0.0002871504857278051,
+      "witness": {
+        "point": [
+          -3.831165313720703,
+          3.2300000190734863,
+          1.020686149597168
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "tri_a": 3,
+        "tri_b": 3,
+        "outward_probe_contained_by": [
+          "Counter front chamfer nose"
+        ],
+        "outward_cover": "Counter front chamfer nose",
+        "cover_distance_m": 0.019989782944321632
+      }
+    },
+    {
+      "objects": [
+        "CD | Counter lip rubbed spot.001",
+        "CD | Counter lip rubbed spot.002"
+      ],
+      "plane": [
+        0.0,
+        -1.0,
+        0.0,
+        -3.2294
+      ],
+      "area_m2": 0.0002871505406403241,
+      "witness": {
+        "point": [
+          -3.786100149154663,
+          3.2293999195098877,
+          1.0220781564712524
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "tri_a": 1,
+        "tri_b": 0,
+        "outward_probe_contained_by": [],
+        "outward_cover": null,
+        "cover_distance_m": null
+      }
+    },
+    {
+      "objects": [
+        "CD | Counter lip rubbed spot.001",
+        "CD | Counter lip rubbed spot.002"
+      ],
+      "plane": [
+        0.0,
+        1.0,
+        0.0,
+        3.23
+      ],
+      "area_m2": 0.0002871505406403241,
+      "witness": {
+        "point": [
+          -3.786165237426758,
+          3.2300000190734863,
+          1.020686149597168
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "tri_a": 3,
+        "tri_b": 3,
+        "outward_probe_contained_by": [
+          "Counter front chamfer nose"
+        ],
+        "outward_cover": "Counter front chamfer nose",
+        "cover_distance_m": 0.019989782944321632
+      }
+    }
+  ],
+  "zero_area_triangles": [
+    {
+      "object": "Counter manifest paper",
+      "exact_zero_area_triangle_count": 4,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        94,
+        95,
+        96,
+        142
+      ]
+    },
+    {
+      "object": "CD | D1 key cylinder",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129
+      ]
+    },
+    {
+      "object": "CD | Speaking grille slit",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129
+      ]
+    },
+    {
+      "object": "CD | Speaking grille slit.001",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129
+      ]
+    },
+    {
+      "object": "CD | Speaking grille slit.002",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129
+      ]
+    },
+    {
+      "object": "CD | Speaking grille slit.003",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129
+      ]
+    },
+    {
+      "object": "CD | Speaking grille slit.004",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129
+      ]
+    },
+    {
+      "object": "CD | Speaking grille slit.005",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib.001",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib.002",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib.003",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib.004",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib.005",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib.006",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib.007",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib.008",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib.009",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib.010",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Pad grip rib.011",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        134,
+        135
+      ]
+    },
+    {
+      "object": "CD | Ink pad lid inner lip",
+      "exact_zero_area_triangle_count": 32,
+      "tiny_nonzero_triangle_count": 0,
+      "zero_triangle_indices": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129
+      ]
+    }
+  ],
+  "bearing_penetration_rays": [
+    {
+      "a": "D1 keycard reader",
+      "b": "Office front wall mid",
+      "surface_point": [
+        -4.7,
+        3.54,
+        1.25
+      ],
+      "hit": [
+        -4.699999809265137,
+        3.5199999809265137,
+        1.25
+      ],
+      "signed_gap_m": -0.0200000998750329
+    },
+    {
+      "a": "Ink pad felt cushion",
+      "b": "Ink pad tin base",
+      "surface_point": [
+        -2.8,
+        3.42,
+        1.0695
+      ],
+      "hit": [
+        -2.799999952316284,
+        3.4200000762939453,
+        1.0695000886917114
+      ],
+      "signed_gap_m": -1.1987984180339417e-07
+    },
+    {
+      "a": "CD | Used cotton wipe",
+      "b": "CD | Folded wipe lower ply",
+      "surface_point": [
+        -4.11,
+        3.323,
+        1.044
+      ],
+      "hit": [
+        -4.110000133514404,
+        3.322999954223633,
+        1.0440001487731934
+      ],
+      "signed_gap_m": -1.0311603546031556e-07
+    },
+    {
+      "a": "CD | D1 hinge strap",
+      "b": "D1 door leaf",
+      "surface_point": [
+        -5.86,
+        3.599,
+        0.32
+      ],
+      "hit": [
+        -5.860000133514404,
+        3.5999999046325684,
+        0.3199999928474426
+      ],
+      "signed_gap_m": 0.000999826267361642
+    }
+  ]
+}

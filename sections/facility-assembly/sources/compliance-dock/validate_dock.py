@@ -335,7 +335,10 @@ class Validator:
         for library in bpy.data.libraries:
             path = Path(bpy.path.abspath(library.filepath))
             resources['libraries'].append({'name': library.name, 'path': str(path), 'exists': path.is_file()})
-            self.fail('external_library', 'Original self-contained geometry contract does not permit linked libraries.', library=library.name)
+            if not path.is_file():
+                self.fail('missing_library', 'Linked map reference cannot be resolved.', library=library.name)
+            elif not self.scene.get('overhaul_map_reference'):
+                self.fail('external_library', 'Original self-contained geometry contract does not permit linked libraries.', library=library.name)
         for image in bpy.data.images:
             packed = bool(image.packed_file) or bool(getattr(image, 'packed_files', ()))
             entry = {'name': image.name, 'source': image.source, 'packed': packed, 'size': list(image.size)}
@@ -347,7 +350,7 @@ class Validator:
                 if not raw or not entry['exists']:
                     self.fail('missing_image', 'Image resource cannot be resolved.', image=image.name, paths=entry['paths'])
             resources['images'].append(entry)
-        for material in bpy.data.materials:
+        for material in {m for o in self.scene.objects if o.type in GEOMETRY_TYPES for m in o.data.materials if m}:
             if material.use_nodes and material.node_tree:
                 for node in material.node_tree.nodes:
                     if node.type in {'TEX_IMAGE', 'TEX_ENVIRONMENT'} and node.image is None:
@@ -704,6 +707,59 @@ class Validator:
                     samples[-1]['measured_opposite_face_span_m'] = pair[1] - pair[0]
         self.report['clearance']['interior_face_measurements'] = samples
 
+    def overhaul_surfaces(self):
+        if not self.scene.get('overhaul_map_reference'):
+            return
+        start = len(self.report['errors'])
+        rows = []
+        for obj in self.scene.objects:
+            if obj.type not in GEOMETRY_TYPES:
+                continue
+            if not any(m and m.name.startswith('CD |') for m in obj.data.materials):
+                continue
+            evaluated = obj.evaluated_get(self.depsgraph)
+            mesh = evaluated.to_mesh()
+            mesh.calc_loop_triangles()
+            required = sorted({node.uv_map for mat in mesh.materials if mat and mat.use_nodes
+                               for node in mat.node_tree.nodes if node.type == 'UVMAP'})
+            missing = [name for name in required if name not in mesh.uv_layers]
+            if missing:
+                self.fail('missing_consumed_uv', 'A shader consumes an absent named UV layer.', object=obj.name, layers=missing)
+            zero = 0
+            metric_errors = []
+            nonfinite_uv = 0
+            layer = mesh.uv_layers.get('CD_Physical_1m')
+            for tri in mesh.loop_triangles:
+                pts = [obj.matrix_world @ mesh.vertices[i].co for i in tri.vertices]
+                area = (pts[1] - pts[0]).cross(pts[2] - pts[0]).length * .5
+                if area == 0:
+                    zero += 1
+                if layer is None:
+                    continue
+                coords = [layer.data[i].uv for i in tri.loops]
+                if not all(finite(coord) for coord in coords):
+                    nonfinite_uv += 1
+                for i in range(3):
+                    distance = (pts[(i + 1) % 3] - pts[i]).length
+                    if distance > .0001:
+                        ratio = (coords[(i + 1) % 3] - coords[i]).length / distance
+                        if abs(ratio - 1) > .01 and len(metric_errors) < 5:
+                            metric_errors.append({'triangle': tri.index, 'edge_m': distance, 'uv_per_m_ratio': ratio})
+            if zero:
+                self.fail('collapsed_overhaul_triangles', 'Exactly zero-area triangles in an overhauled surface.', object=obj.name, count=zero)
+            if metric_errors or nonfinite_uv:
+                self.fail('overhaul_uv_geometry', 'Metric UV coverage is nonfinite or deviates over 1% on edges above 0.1mm.', object=obj.name, nonfinite=nonfinite_uv, witnesses=metric_errors)
+            rows.append({'object': obj.name, 'type': obj.type, 'triangles': len(mesh.loop_triangles),
+                         'consumed_uv_layers': required, 'missing_layers': missing,
+                         'exact_zero_area_triangles': zero, 'metric_error_witnesses': metric_errors,
+                         'nonfinite_uv_triangles': nonfinite_uv,
+                         'mapping_contract': obj.get('uv_contract') or [m.get('mapping_contract') for m in mesh.materials if m and m.get('mapping_contract')]})
+            evaluated.to_mesh_clear()
+        self.report['overhaul_surfaces'] = rows
+        self.check('overhaul_shader_uv_and_noncollapsed_geometry', start, surfaces=len(rows),
+                   metric_edge_min_m=.0001, metric_relative_tolerance=.01,
+                   interpretation='Physical repeating face charts permit seams/overlaps; editable text uses declared object-metre mapping. Not a lightmap or runtime shader proof.')
+
     def run(self):
         self.inventory()
         self.resources()
@@ -711,6 +767,7 @@ class Validator:
         self.duplicates()
         self.cameras()
         self.clearances()
+        self.overhaul_surfaces()
 
 
 def main():

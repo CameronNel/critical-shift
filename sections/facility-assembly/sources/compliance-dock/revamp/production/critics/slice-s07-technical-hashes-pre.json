@@ -1,0 +1,38 @@
+{
+  "sections/facility-assembly/blender/facility_environment.blend": {
+    "expected": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+    "actual": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+    "matches": true,
+    "header": "b'(\\xb5/\\xfd\\xa0A\\x06\\x01\\x00]/\\x05\\xae\\xc1\\tK'"
+  },
+  "sections/facility-assembly/sources/compliance-dock/module.blend": {
+    "expected": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+    "actual": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+    "matches": true,
+    "header": "b'(\\xb5/\\xfd\\xa0A\\x06\\x01\\x00\\xb57\\x00DGBL'"
+  },
+  "sections/facility-assembly/sources/compliance-dock/accepted.blend": {
+    "expected": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+    "actual": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+    "matches": true,
+    "header": "b'version https://'"
+  },
+  "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": {
+    "expected": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+    "actual": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+    "matches": true,
+    "header": "b'{\\r\\n  \"schema_ver'"
+  },
+  "sections/facility-assembly/sources/spawn-room/module.blend": {
+    "expected": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "actual": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "matches": true,
+    "header": "b'(\\xb5/\\xfd\\xa0A\\x06\\x01\\x00=\\x7f\\x04\\x8ew\\x86\\xc7'"
+  },
+  "source": {
+    "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+    "sha256": "269c04fe6b45870873baf1985e21e7ad915dc12a07136378cb639ffc46acc612",
+    "bytes": 1423094,
+    "header": "b'(\\xb5/\\xfd\\xa0A\\x06\\x01\\x00\\xad7\\x00zH\\xc8\\x11'"
+  }
+}

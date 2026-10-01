@@ -1,0 +1,132 @@
+{
+  "review_type": "fresh-context independent local style-slice pixel review",
+  "review_date": "2026-10-01",
+  "slice": "s03",
+  "verdict": "FAIL",
+  "expansion_gate": "BLOCKED pending repaired slice and fresh review",
+  "scope": "Front-office architectural transition, D1 staff door, check-in prop cluster, practical task light, service junction, worker paper/pen/stamp/tray traces. Inherited remainder is ungraded context.",
+  "pixel_review_complete": true,
+  "manifest_complete": true,
+  "manifest_path": "renders/slice-s03/manifest.json",
+  "scene_frames_opened": [
+    "SLICE_ENTRY",
+    "SLICE_MATERIAL",
+    "SLICE_DOOR"
+  ],
+  "images_actually_inspected": [
+    "renders/slice-s03/SLICE_ENTRY.png",
+    "renders/slice-s03/SLICE_MATERIAL.png",
+    "renders/slice-s03/SLICE_DOOR.png",
+    "renders/spawn-reference/VALIDATE_Spawn.png",
+    "renders/spawn-reference/VALIDATE_LockerDoor.png",
+    "renders/spawn-reference/VALIDATE_Material_A.png",
+    "renders/spawn-reference/BRIEFING_INDIRECT.png",
+    "renders/baseline-01/C03_CHECKIN_COUNTER.png",
+    "renders/baseline-01/C01_ENTRY.png",
+    "concepts/01-dock-direction.png"
+  ],
+  "visual_veto": {
+    "detected": false,
+    "items": [],
+    "note": "Local FAIL is caused by missing polished slice proof of visible localized wear, tactile broad-surface identity and sufficiently bleak localized atmosphere, not a dominant listed veto."
+  },
+  "findings": [
+    {
+      "requirement": "Front-office architectural transition and negative space",
+      "status": "PASS",
+      "camera_region": "SLICE_ENTRY: cream pier/header, black hatch reveal, navy lower wall and quiet wall left of D1; SLICE_DOOR: jamb/lower-wall junction",
+      "finding": "The hatch and staff door form a legible institutional front. The thick reveal, protective lower zone and quiet wall regions supply believable construction and breathing room. Visual scale is plausible; pixel review does not verify preserved dimensions or route clearance."
+    },
+    {
+      "requirement": "D1 staff door: object-specific angular manufactured construction",
+      "status": "PASS",
+      "camera_region": "SLICE_DOOR: door leaf, hinges, handle/lock plate, kick plate and black frame; SLICE_ENTRY: whole silhouette",
+      "finding": "Pressed-looking clipped-corner panel shapes, hinge hardware, lever escutcheon and separate kick plate give the leaf more construction than a uniform bevelled box. It reads immediately as a usable staff door. The orange coating remains too pristine to demonstrate use."
+    },
+    {
+      "requirement": "Check-in prop cluster and functional hierarchy",
+      "status": "PASS",
+      "camera_region": "SLICE_ENTRY: opening and counter; SLICE_MATERIAL: glass/intercom, tray, pen, clipboard, stamp and ink pad",
+      "finding": "The physical hatch, speaking grille and paperwork surface explain the check-in transaction before reading labels. The front counter is the clear local interaction cluster. A tray, restrained paper stack, fixed pen, form/clipboard, stamp and pad are specific to bureaucratic work. The inherited scanner and rear office objects are context only."
+    },
+    {
+      "requirement": "Practical light, localized falloff, contact and bleak atmosphere",
+      "status": "PARTIAL / REPAIR REQUIRED",
+      "camera_region": "SLICE_ENTRY: fixture above hatch, cream header/pier and warm office; SLICE_MATERIAL: counter and rear office wall",
+      "finding": "The visible practical illuminates its surrounding header and working surface, and the props show local grounding shadows. The ceiling and under-counter areas are dark. However, the cream foreground and rear-office wall receive a broad, comfortable warm exposure; most bleakness comes from navy albedo and the coercive sign. The pool needs more visible falloff and a quieter darker secondary space while retaining door/hatch readability."
+    },
+    {
+      "requirement": "Service junction / utility element",
+      "status": "PASS",
+      "camera_region": "SLICE_ENTRY: blue box right of door and black conduit to reader; SLICE_DOOR: stepped conduit and clearance reader",
+      "finding": "A single compact junction and routed conduit explain access service without pipe spaghetti. It has a useful termination and remains subordinate to the door. Close-view fittings and wall contact still require the separate numerical technical review."
+    },
+    {
+      "requirement": "Distinct tactile material families and anti-plastic quality",
+      "status": "PARTIAL / REPAIR REQUIRED",
+      "camera_region": "SLICE_DOOR: cream wall, orange leaf, silver hardware and navy panels; SLICE_MATERIAL: counter edge, gray mat, paper, transparent barrier and stamp",
+      "finding": "Paper is matte and distinct from the transparent barrier; silver hardware has a different highlight from orange paint, and the mat is quieter than the countertop edge. There is no dominant uniform glossy-plastic veto. Yet the broad cream wall, orange paint and gray counter remain smooth and nearly uniform, with less tactile variation than the approved spawn wall/locker references. Rubber versus coated/plastic surfaces is only weakly established, and a fabric response is not evidenced in these frames. This does not prove any such material is absent from the native scene; the slice has not visibly demonstrated the full material gate."
+    },
+    {
+      "requirement": "Localized meaningful wear and maintained deterioration",
+      "status": "FAIL",
+      "camera_region": "SLICE_DOOR: handle zone, kick plate, panel edges and base; SLICE_MATERIAL: counter working edge, pen zone, tray, stamp/pad and paperwork",
+      "finding": "No convincing localized wear or repair reads at the supplied framing. The handle zone, kick plate, orange leaf and counter are pristine; props are orderly and fresh. Subtle authored wear may exist in the native asset, but it is not visible evidence. This is the principal missing slice requirement."
+    },
+    {
+      "requirement": "Restrained signage and coercive institutional storytelling",
+      "status": "PASS WITH FINISH GAP",
+      "camera_region": "SLICE_ENTRY: WE VALUE YOUR TIME / ALL DELAYS ARE YOUR RESPONSIBILITY; SLICE_MATERIAL: STATE YOUR NUMBER and paperwork; SLICE_DOOR: STAFF / 01 and clearance reader",
+      "finding": "The reassurance with a punitive second line supplies a clear coercive meaning. Labels are few, functional and subordinate to construction. Human work traces are present, but the pristine, evenly aligned cluster communicates a freshly set display more strongly than an institution deteriorating under pressure."
+    },
+    {
+      "requirement": "Spawn colour/craft coherence and angular grounded stylization",
+      "status": "PARTIAL / REPAIR REQUIRED",
+      "camera_region": "All three s03 frames, compared with all four spawn-reference frames",
+      "finding": "Cream, navy, orange, steel and restrained utility accents are coherent with the spawn palette. Door secondary forms and practical objects are grounded rather than toy-like. Spawn-reference plaster variation, locker response and individualized everyday traces show a more tactile finish; s03 does not yet match that craft in its broad surfaces. The concept is directional only and does not authorize changing the inherited layout."
+    },
+    {
+      "requirement": "No generic low-poly, web-demo, sci-fi greeble, excessive labels or photoreal noise",
+      "status": "PASS",
+      "camera_region": "All three s03 frames within the front-office slice",
+      "finding": "No listed dominant visual veto is detected. The focal function is physical and industrial; geometry is angular without an obvious faceted-low-poly read, signage is restrained, and noise is controlled. This absence of a veto does not cure the wear/material/light proof gaps."
+    }
+  ],
+  "prioritized_repair_actions": [
+    {
+      "priority": 1,
+      "action": "Give the broad front-office surfaces tactile identity and visible local use. Add restrained low-frequency plaster/paint response, handle and kick-plate contact wear, and a short counter/pen working wear zone. Keep most edges clean; do not blanket the slice with grunge or procedural scratches. Make the rubber/plastic/painted-metal distinction readable and demonstrate fabric with one plausible restrained staff-side trace if needed to meet the material gate.",
+      "evidence_views": [
+        "SLICE_DOOR",
+        "SLICE_MATERIAL"
+      ]
+    },
+    {
+      "priority": 2,
+      "action": "Shape the practical light into a more localized working pool. Preserve clear door and hatch silhouettes, reduce the broadly bright warm secondary office fill, and introduce restrained warm/cool separation and visible falloff. Keep contact shadow and material highlights readable; a navy surface alone should not carry the bleak atmosphere.",
+      "evidence_views": [
+        "SLICE_ENTRY",
+        "SLICE_MATERIAL",
+        "SLICE_DOOR"
+      ]
+    },
+    {
+      "priority": 3,
+      "action": "Turn the tidy paperwork set into a visibly worked station using two or three deliberate imperfections: one offset/creased form, a used ink surface or stamp contact trace, and one rubbed pen/counter contact. Keep the existing functional cluster and negative space. Avoid adding unrelated props or further warning signs.",
+      "evidence_views": [
+        "SLICE_ENTRY",
+        "SLICE_MATERIAL"
+      ]
+    }
+  ],
+  "baseline_comparison": {
+    "strict_same_camera_comparison": false,
+    "note": "Baseline C03/C01 and s03 use different framing; comparisons are qualitative only. The hatch/intercom, D1 construction, palette and punitive sign are clearer than baseline. The old pale, evenly exposed material response is substantially reduced but pristine broad surfaces remain."
+  },
+  "limits": [
+    "No builder code was read and no native scene or source/model/script was authored by this critic.",
+    "No full-room category scores or overall score are awarded. The full-room bar remains strictly above 93 in every category.",
+    "This review does not certify layout preservation, geometry/support contact, material-family counts, editable source, dependencies, minimum full review cycles, cold-open/render stability, runtime or engine performance.",
+    "The slice manifest records cold_open false and source_saved false; neither is presented as a technical PASS."
+  ]
+}
