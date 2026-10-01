@@ -66,6 +66,10 @@ for k, v in a["identity"].items():
         bad.append("transform moved: " + k)
     if v["parent"] != w["parent"]:
         bad.append("parent changed: %s %s -> %s" % (k, v["parent"], w["parent"]))
+if a.get("animation") != b.get("animation"):
+    for x in a.get("animation", []):
+        if x not in b.get("animation", []):
+            bad.append("animation lost or changed: %s" % (x,))
 if a["lights"].keys() != b["lights"].keys():
     bad.append("lights differ")
 print("compare: materials %d, worst relative area difference %.2e" % (len(keys), worst))

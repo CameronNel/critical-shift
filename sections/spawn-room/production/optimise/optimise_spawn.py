@@ -42,7 +42,7 @@ def props(o):
 
 
 def anim(o):
-    return bool(o.animation_data and (o.animation_data.action or o.animation_data.drivers))
+    return bool(o.animation_data and (o.animation_data.action or o.animation_data.drivers or o.animation_data.nla_tracks))
 
 
 def nearest_asset(o):
@@ -85,6 +85,8 @@ def to_mesh_objects():
     for o in list(bpy.context.scene.objects):
         if o.type not in ("CURVE", "FONT", "SURFACE") or o.hide_render:
             continue
+        if anim(o) or o.constraints or (o.animation_data and o.animation_data.nla_tracks):
+            continue                       # a mesh copy would freeze its keyframes
         data = o.data
         tex = (Vector(data.texspace_location), Vector(data.texspace_size))
         me = bpy.data.meshes.new_from_object(o.evaluated_get(dg))
@@ -410,7 +412,8 @@ def main():
     # texspace for everything that will be re-based (captured before modifiers are baked)
     dg = bpy.context.evaluated_depsgraph_get()
     geo = [o for o in sc.objects if o.type == "MESH" and not o.hide_render]
-    for o in geo:
+    every_mesh = [o for o in bpy.data.objects if o.type == "MESH"]
+    for o in every_mesh:
         if "_cs_texspace" not in o.keys():
             loc, size = texspace_of(o)
             o["_cs_texspace"] = [*loc, *size]
@@ -434,9 +437,21 @@ def main():
                 bpy.data.meshes.remove(old)
             baked += 1
     report["modifiers_baked_on_objects"] = baked
-    for o in geo:
+    for o in every_mesh:
         if any(s.material and s.material.name in coord_mats for s in o.material_slots):
             add_coord_attributes(o, texspace_of(o))
+    # curve/text objects that were kept (animated or hidden) cannot carry the attributes: they keep an untouched copy
+    clones = {}
+    for o in bpy.data.objects:
+        if o.type in ("CURVE", "FONT", "SURFACE"):
+            for slot in o.material_slots:
+                if slot.material and slot.material.name in coord_mats:
+                    nm = slot.material.name
+                    if nm not in clones:
+                        clones[nm] = slot.material.copy()
+                        clones[nm].name = nm + "__noattr"
+                    slot.material = clones[nm]
+    report["materials_kept_unrewritten_for_curves_text"] = len(clones)
     for name in coord_mats:
         rewrite_material_coords(bpy.data.materials[name])
 
@@ -445,7 +460,7 @@ def main():
     ptxt = bpy.data.texts.new("OPT_PALETTE")
     ptxt.write(json.dumps({"grid": PAL_G, "cells": cell}, indent=1, sort_keys=True))
     moved = 0
-    for o in geo:
+    for o in every_mesh:
         moved += apply_palette(o, pal, cell)
         drop_unused_slots(o)
     report["palette_polygons"] = moved

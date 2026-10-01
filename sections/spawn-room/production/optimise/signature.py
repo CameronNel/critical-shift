@@ -51,7 +51,7 @@ def main():
         m = e.to_mesh()
         mw = o.matrix_world
         uvl = m.uv_layers.get("CS_PAL")
-        mats = [s.material.name if s.material else "" for s in o.material_slots]
+        mats = [s.material.name.replace("__noattr", "") if s.material else "" for s in o.material_slots]
         asset = o.parent
         while asset and not props(asset):
             asset = asset.parent
@@ -85,11 +85,20 @@ def main():
         if pr or o.type == "EMPTY":
             ids[o.name] = {"type": o.type, "props": jsonable(pr), "parent": o.parent.name if o.parent else None,
                            "matrix": [round(x, 5) for r in o.matrix_world for x in r]}
+    animation = []
+    for coll_name in ("objects", "materials", "meshes", "curves", "lights", "cameras", "worlds", "node_groups", "shape_keys"):
+        for idb in getattr(bpy.data, coll_name):
+            for owner in (idb, getattr(idb, "node_tree", None)):
+                ad = getattr(owner, "animation_data", None) if owner is not None else None
+                if ad and (ad.action or ad.drivers or ad.nla_tracks):
+                    animation.append([coll_name, idb.name, ad.action.name if ad.action else None,
+                                      len(ad.action.fcurves) if ad.action and hasattr(ad.action, "fcurves") else None,
+                                      len(ad.drivers), len(ad.nla_tracks)])
     lights = {o.name: [round(o.data.energy, 3), o.get("cs_rt_role")] for o in sc.objects if o.type == "LIGHT"}
     import hashlib
     vh = hashlib.md5(repr(sorted(vset)).encode()).hexdigest()
     out = {"vertex_hash": vh, "unique_vertices_1mm": len(vset), "triangles": tris, "bbox": [lo, hi], "area_by_material": dict(area), "asset_bbox": asset_box, "identity": ids,
-           "lights": lights}
+           "lights": lights, "animation": sorted(animation, key=str)}
     import numpy as np
     np.save(a[1].replace(".json", ".verts.npy"), np.unique(np.round(np.array(vlist, dtype=np.float64), 4), axis=0).astype(np.float32))
     with open(a[1], "w") as fh:
