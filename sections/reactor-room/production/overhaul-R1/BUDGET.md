@@ -101,3 +101,17 @@ Delivery (`cr_delivery.py`): a family exports as one glTF material (shared neutr
 Same four views before/after: mean pixel difference 0.006-0.008, no block above 0.07; the round-trip render (family materials via `COLOR_0`) was opened and keeps the colours, the cork board, the decals and the wall dado. Triangles unchanged (74,613 in and out, bounds 0.0 m).
 Lost in the glTF export (Cycles-only): per-material mottling scale, bevel edge highlight, bump; the neutral grain tile replaces the mottling. Not lost in the Blender scene.
 Still over the control-room cap of 16: 31 materials. What remains: 16 emissive materials (13 blinking LEDs, tubes, beacon, lamps), 4 emissive screens (3 CRTs, TV), the decal atlas, floor tile, keyboard plane, glass, haze, 2 baked. Next steps: one emissive family with shader-clock blink (design item 7), one screen shader with an indexed atlas (item 8), floor into S04, glass into S13. Nothing is engine-measured.
+
+## Low-tier lighting: four lightmaps with runtime modulators (`scripts/cr_lightmaps.py`, tiers in `design/QUALITY_TIERS.md`)
+
+Static lighting is baked once with Cycles and shipped as textures; the flicker, brownouts, TV light and beacon pulse become per-frame scalars on pre-baked maps, so the Low tier has **zero real-time lights and zero shadow maps** and keeps the eerie look.
+
+| Map | Contains | Size | Modulator |
+|---|---|---:|---|
+| static | 12 baked lights, ambient, steady emissives | 2048 | constant |
+| troffer | three troffers and tubes at reference 32 W / strength 5 | 1024 | troffer expression / 32 |
+| tv | TV light (white, reference 80 W) and screen glow | 1024 | TV colour x energy / 80 |
+| beacon | two beacons at reference 40 W | 1024 | beacon energy / 40 |
+
+All maps share one second UV layer `Lightmap` (smart project 89 degrees + uniform-density pack): 121 objects, 663 m2 of surface, 48.6 texels/m at 2048, 37% of the atlas used. Files and decode values: `lightmaps/` (PNG + `control_room_lightmaps.json`, 6.5 MB total). Delivery glb now carries the second UV set (12.5 MB).
+Check (Blender only): the Low tier emulated as `albedo x lightmaps` with no lights, same four views as the path-traced renders. Mean luminance is 81% / 68% / 94% / 84% of the path-traced frame (wide / desk / rack / door), mean pixel difference 0.04-0.08. `renders/overhaul-R1/control_room_lowtier_vs_pathtraced_*.png` (top: path traced, bottom: Low emulation) were opened. What it keeps: composition, mood, warm/green split, shadow shapes, decals, posters. What it loses: real-time specular (copier, desk wood), contact grain and floor grime, window sheen, sharp shadow edges. A first bake with 32 samples and a 3x3 blur was visibly speckled; the shipped maps use an indirect clamp, firefly clamp and a coverage-aware blur. A lightmap gain of about 1.2 would match mean brightness but was not render-verified. Ultra adds real-time specular and shadows on top. Engine check **Blocked**; no frame time measured. The first bake attempt came out black because `film_exposure` is linear (0.0 = black), not stops.

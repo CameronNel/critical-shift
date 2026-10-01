@@ -1,0 +1,59 @@
+{
+ "uv_layer": "Lightmap",
+ "size_px": {
+  "static": 2048,
+  "troffer": 1024,
+  "tv": 1024,
+  "beacon": 1024
+ },
+ "samples": 40,
+ "texels_per_metre": 48.6,
+ "surface_m2": 663.0,
+ "objects": 121,
+ "decode": "linear_irradiance = scale * pixel_srgb_decoded_gamma22(pixel)   (pixel stored as (v/scale)^(1/2.2))",
+ "scales": {
+  "static": 1.5331758260726929,
+  "troffer": 1.4876481294631958,
+  "tv": 0.5052924156188965,
+  "beacon": 2.3816475868225098
+ },
+ "reference_energy_W_cycles": {
+  "troffer": 32.0,
+  "tv": 80.0,
+  "beacon": 40.0
+ },
+ "reference_tube_emission": 5.0,
+ "modulators_at_frame1_stability1": {
+  "troffer": 0.800000011920929,
+  "tv": [
+   0.2280000001192093,
+   0.9024999737739563,
+   0.1899999976158142
+  ],
+  "beacon": 0.0949091374874115
+ },
+ "runtime_formula": "light = albedo * (scale_s*lm_static + scale_t*mod_troffer(t,s)*lm_troffer + scale_v*mod_tv_rgb(t,s)*lm_tv + scale_b*mod_beacon(t,s)*lm_beacon); modulators from control_room_runtime_behaviour.json",
+ "status": {
+  "engine_implementation": "Blocked (no Unity target)",
+  "measured_performance": "NotRun"
+ },
+ "verification": {
+  "method": "Low tier emulated in Blender (every surface = albedo x the four lightmaps, no lights), same four cameras and settings as the path-traced renders, frame 1, stability 1",
+  "mean_luminance_vs_path_traced": {
+   "wide": 0.81,
+   "desk": 0.68,
+   "rack": 0.94,
+   "door": 0.84
+  },
+  "mean_abs_pixel_diff": {
+   "wide": 0.056,
+   "desk": 0.076,
+   "rack": 0.038,
+   "door": 0.056
+  },
+  "lost_vs_path_traced": "real-time specular, contact grain/grime, window glass sheen, shadow sharpness limited to about 48 texels/m",
+  "gain_note": "a lightmap gain of about 1.2 would match mean brightness; NOT render-verified",
+  "engine": "Blocked (no Unity target); not measured"
+ },
+ "noise_filter": "indirect sample clamp 8, firefly clamp at 1.5x the 99.7th percentile, coverage-aware gaussian sigma 1.6 texels"
+}

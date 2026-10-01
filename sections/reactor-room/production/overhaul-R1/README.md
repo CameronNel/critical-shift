@@ -222,3 +222,7 @@ Order after `cr_build.py`: `cr_optimize.py` -> `cr_atlas_decals.py` -> `cr_rt_li
 ### Material families
 
 Order after `cr_build.py`: `cr_optimize.py` -> `cr_atlas_decals.py` -> `cr_families.py` -> `cr_rt_lights.py`. `cr_families.py` maps the 39 procedural recipes to 7 shared family materials and keeps their values on the mesh (`Col`, `Mat` colour attributes); `crk.pm` records each recipe's parameters as `pm_*` custom props for it. Control-room materials 63 -> 31 (cap 16, see `BUDGET.md`). Do not add a second colour attribute to export copies: the glTF exporter then writes white `COLOR_0`.
+
+### Lightmaps (Low tier)
+
+`scripts/cr_lightmaps.py -- <in.blend> <out_dir> <ship.blend> <emulate.blend> [--size 2048 --samples 40 --sigma 1.6]` (run last; about 27 minutes on 4 CPU cores): adds the `Lightmap` UV layer, bakes four lightmaps (`lightmaps/`), writes the ship blend and a Low-tier emulation scene. `CR_LM_REUSE=1` reuses saved raw bakes. Pipeline order: `cr_build` -> `cr_optimize` -> `cr_atlas_decals` -> `cr_families` -> `cr_rt_lights` -> `cr_lightmaps`. Numbers and limits: `BUDGET.md`.
