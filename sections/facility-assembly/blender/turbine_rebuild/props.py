@@ -153,3 +153,11 @@ def build(b):
     tx, ty0, ty1 = .95, 3.7, 8.3
     b.box((tx, (ty0 + ty1) / 2, .006), (.42, ty1 - ty0, .006), 'trim_black', bev=.003); b.box((tx, (ty0 + ty1) / 2, .0075), (.34, ty1 - ty0 - .08, .004), 'backing')
     for k in range(int((ty1 - ty0) / .07)): b.box((tx, ty0 + .06 + k * .07, .014), (.34, .022, .014), 'steel_dark', bev=.003)
+
+    # --- work lamp on a stand at the foundation walkway: lights the open rotor (its light lives in run.py) ---
+    wx, wy = 6.55, 7.3
+    b.cyl((wx, wy, 1.012), .22, .024, 'steel_dark', 'Z', 24, bev=.006)
+    for k in range(3):
+        a = 2 * math.pi * k / 3; b.rod((wx, wy, 2.3), (wx + .24 * math.cos(a), wy + .24 * math.sin(a), 1.02), .014, 'steel_mid', 8)
+    b.rod((wx, wy, 1.0), (wx, wy, 3.45), .02, 'steel_mid', 12)
+    b.box((wx - .08, wy + .05, 3.6), (.34, .12, .26), 'trim_black', (0, .5, .25), bev=.02); b.box((wx - .17, wy + .06, 3.54), (.04, .1, .2), 'lamp', (0, .5, .25))

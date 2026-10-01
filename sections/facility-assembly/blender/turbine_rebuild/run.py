@@ -18,6 +18,9 @@ OUT = os.path.abspath(argv[0] if argv else '/tmp/turbine_v2'); os.makedirs(OUT, 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc = bpy.context.scene; sc.unit_settings.system = 'METRIC'; sc.unit_settings.scale_length = 1.0
 sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'
+sc.view_settings.view_transform = 'AgX'
+_looks = [i.identifier for i in sc.view_settings.bl_rna.properties['look'].enum_items]
+sc.view_settings.look = next((l for l in _looks if 'Medium High Contrast' in l), 'None'); sc.view_settings.exposure = 0.0
 atlas, orm = lib.make_atlas(os.path.join(OUT, 'turbine_atlas.png'))
 
 def make_mats(grp):
@@ -135,10 +138,12 @@ def point(name, loc, power, color, radius=.1):
 AMBER, RED = (1.0, .58, .22), (1.0, .12, .06)
 n = 0
 for y in arch.LAMP_Y:
-    for x in arch.LAMP_X: spot(f'LAMP_{n:02d}', (x, y, 5.27), 1900, 100, AMBER, .22); n += 1
+    for x in arch.LAMP_X: spot(f'LAMP_{n:02d}', (x, y, 5.27), 1700, 76, (1.0, .60, .27), .16); n += 1
 def aim(o, frm, to):
     o.rotation_euler = (Vector(to) - Vector(frm)).to_track_quat('-Z', 'Y').to_euler()
-spot('LAMP_rotor', (machinery.CX, 11.25, 4.1), 800, 65, (1.0, .66, .3), .5)                    # lights the exposed gold blading
+spot('LAMP_rotor', (machinery.CX, 11.25, 4.1), 1300, 62, (1.0, .66, .3), .4)
+aim(spot('WORK_rotor', (6.38, 7.36, 3.55), 1800, 42, (1.0, .62, .30), .3), (6.38, 7.36, 3.55), (4.6, 11.0, 2.2))                     # work lamp on its stand
+aim(spot('SPOT_desk', (8.0, 22.3, 4.8), 420, 42, (1.0, .66, .32), .3), (8.0, 22.3, 4.8), (8.0, 23.4, .8))                    # lights the exposed gold blading
 point('GLOW_coupling', (machinery.CX, 15.6, machinery.AZ + .35), 150, (1.0, .55, .18))
 for k, y in enumerate((5.0, 11.0, 18.0)):                                                      # warm floor uplights give the casings a rim
     aim(spot(f'UP_W{k}', (1.35, y, .2), 180, 42, AMBER, .3), (1.35, y, .2), (3.2, y, 2.2)); aim(spot(f'UP_E{k}', (7.65, y, .2), 180, 42, AMBER, .3), (7.65, y, .2), (6.0, y, 2.2))
@@ -146,15 +151,18 @@ spot_c = spot('SPOT_consoles', (-2.3, 5.65, 4.8), 520, 46, (1.0, .62, .26)); aim
 spot_b = spot('SPOT_bay', (-1.6, 17.0, 5.2), 420, 50, (1.0, .62, .26)); aim(spot_b, (-1.6, 17.0, 5.2), (-.9, 17.0, .8))
 for k, y in enumerate((9.0, 12.5, 16.0, 19.5)):                                                # wall washers reveal the west wall and lead the eye along it
     aim(spot(f'WASH_W{k}', (-3.25, y, 4.4), 110, 52, (1.0, .66, .32), .3), (-3.25, y, 4.4), (-4.0, y, 2.0))
-point('RED_gen', (machinery.CX - 1.9, 20.0, machinery.AZ + 1.4), 70, RED, .05); point('RED_hood', (machinery.CX, 16.6, 4.0), 40, RED, .05)
+point('RED_gen', (machinery.CX - 1.9, 20.0, machinery.AZ + 1.4), 45, RED, .05); point('RED_hood', (machinery.CX, 16.6, 4.0), 40, RED, .05)
 point('GLOW_consoles', (-3.1, 5.65, 1.9), 18, (1.0, .6, .25), .15)
-for nm, loc in (('RED_D01', (1.7, .25, 3.35)), ('RED_D02', (1.7, 23.75, 3.35))): point(nm, loc, 20, RED, .05)
+for nm, loc in (('RED_D01', (1.7, .25, 3.35)), ('RED_D02', (1.7, 23.75, 3.35))): point(nm, loc, 8, RED, .05)
 for nm, yy in (('PASS_D01', -.9), ('PASS_D02', 24.9)): point(nm, (0, yy, 2.5), 25, (1.0, .55, .25), .1)
-sun = bpy.data.lights.new('MOON_EAST', 'SUN'); sun.energy = 6.0; sun.angle = math.radians(2.0); sun.color = (.42, .58, 1.0)
+for k, yy in enumerate((4, 12, 20)):
+    d = bpy.data.lights.new(f'RIM_W{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 2.0, .6; d.energy = 450; d.color = (.40, .58, 1.0)
+    o = bpy.data.objects.new(f'RIM_W{k}', d); o.location = (-3.7, yy, 5.8); o.rotation_euler = (0, math.radians(50), 0); coll.objects.link(o)
+sun = bpy.data.lights.new('MOON_EAST', 'SUN'); sun.energy = 9.0; sun.angle = math.radians(2.0); sun.color = (.38, .55, 1.0)
 so = bpy.data.objects.new('MOON_EAST', sun); coll.objects.link(so)
 so.rotation_euler = Vector((-.62, .40, -.67)).to_track_quat('-Z', 'Y').to_euler()
 w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
-bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.04, .075, .18, 1); bg.inputs['Strength'].default_value = 2.6
+bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.04, .075, .18, 1); bg.inputs['Strength'].default_value = 1.5
 
 # ---- named review cameras ----
 CAMS = {   # all positions are in open aisle space

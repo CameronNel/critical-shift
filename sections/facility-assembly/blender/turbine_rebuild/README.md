@@ -28,7 +28,7 @@ Blender 5.2.2 LTS. `lib.py` (primitives, painted atlas), `arch.py` (shell, floor
 
 ## Lighting: live, not baked
 
-The scene is lit live (15 ceiling area lights, one broken lamp, an east sun through clerestories, sky world). **Lighting is not baked.**
+The scene is lit live for a night mood: 15 amber hooded pendant spots (pools with dark gaps), warm floor uplights and wall washers, focused spots on the rotor, consoles, bay and desk, a work lamp on a stand, restrained red warning lights, and a cold moon plus rim lights through the clerestory windows. AgX view transform. **Lighting is not baked.**
 Baking is the final production step, run only after geometry, materials and live lighting are accepted. `bake.py` is the
 final-step tool and has not been run for this rebuild; its lightmap layout (`LightmapUV`) and denoise path are untested at
 full quality, and it must be re-run after any later change.
@@ -36,6 +36,6 @@ full quality, and it must be re-run after any later change.
 ## Not done
 
 Independent review, Cycles art-acceptance against the spawn room, measured runtime performance, collision, Unity import, and
-the final lighting bake. Previews are Cycles 32-sample denoised renders (960 x 540) from the named `CAM_*` cameras, all from the committed build: `production/turbine-rebuild/renders/`. Agent self-review only; no independent review.
+the final lighting bake. Previews are Cycles 32-sample denoised renders (1067 x 600) from the named `CAM_*` cameras, all from the committed build: `production/turbine-rebuild/renders/`. Agent self-review only; no independent review.
 
 Known lesson: coplanar duplicate faces (e.g. a casing cap and a flange cap in one plane) shadow each other and render black. Keep caps inset or offset.
