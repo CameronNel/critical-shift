@@ -74,7 +74,7 @@ def manway(b, c, r=.28):
 def gauge_plate(b, x, y, z):
     b.box((x, y, z), (.04, .8, .34), 'steel_dark', bev=.012)
     for i in range(3): gauge(b, (x + .03, y - .26 + i * .26, z), 'X', .08)
-    b.box((x + .025, y, z - .25), (.012, .74, .14), 'chalk'); b.box((x + .028, y, z - .25), (.01, .76, .02), 'trim_black'); b.text('MAIN STEAM  T-2', (x + .036, y, z - .245), .06, 'trim_black', math.pi / 2, math.pi / 2)
+    b.box((x + .025, y, z - .25), (.012, .74, .14), 'trim_black', bev=.004); b.box((x + .029, y + .0, z - .31), (.008, .7, .012), 'yellow'); b.text('MAIN STEAM  T-2', (x + .036, y, z - .245), .066, 'chalk', math.pi / 2, math.pi / 2)
 
 def bypass(b, x, y, z):
     b.sweep([(x, y, z), (x + .45, y, z), (x + .45, y, z - .5)], .05, 'steel_mid', 16, .12); valve(b, (x + .45, y, z - .35), .08)
