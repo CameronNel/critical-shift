@@ -40,6 +40,10 @@ blender -b --factory-startup -noaudio --disable-autoexec \
   --python-exit-code 1 --python sections/spawn-room/blender/build_hero_suit.py -- \
   sections/facility-assembly/sources/spawn-room/hero_suit.blend
 
+blender -b --factory-startup -noaudio --disable-autoexec \
+  --python-exit-code 1 --python sections/spawn-room/blender/lod_hero_suit.py -- \
+  sections/facility-assembly/sources/spawn-room/hero_suit.blend
+
 blender -b sections/spawn-room/blender/crew_hazmat_reference.blend -noaudio \
   --disable-autoexec --python-exit-code 1 \
   --python sections/spawn-room/blender/render_suit_reference.py -- \
@@ -95,11 +99,10 @@ the task's verified portable backup.
 `hero_suit.blend` (the library the four lockers link) is now a reduced copy of the suit: `build_hero_suit.py` builds the
 full-detail suit (114,094 triangles) and `lod_hero_suit.py` then decimates it object by object to 22,371 triangles
 (solidify applied first, smooth shading and every material kept; the collection records `cs_lod = "locker"` and the counts
-before and after). Rebuild order: `build_hero_suit.py`, then `lod_hero_suit.py`. The full-detail suit stays in
+before and after). Rebuild order: `build_hero_suit.py`, then `lod_hero_suit.py` (both are in the command block under "Rebuild and review", before
+the linked-room validation, which now fails unless the library is the locker LOD). The full-detail suit stays in
 `crew_hazmat_reference.blend`. At locker distance the reduced suit differs from the full one by edge detail only (mean
 absolute pixel difference 0.005 on a 854x640 render from 2.3 m).
 
-```sh
-blender -b --factory-startup -P sections/spawn-room/blender/lod_hero_suit.py -- \
-  sections/facility-assembly/sources/spawn-room/hero_suit.blend
-```
+
+The linked-locker validation (`LINKED_LOCKER_VALIDATION.json`, `final/linked_lockers.png`) was re-run on the locker LOD library: dock gap and top alignment pass for all four instances and the record includes the LOD triangle counts.

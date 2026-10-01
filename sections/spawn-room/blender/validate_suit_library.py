@@ -30,6 +30,8 @@ instances = sorted(
 assert len(instances) == 4, "Expected exactly four linked suit instances"
 assert hero["cs_suit_style"] == "owner-reference-20261001"
 assert hero["cs_placement_preserved"]
+assert hero.get("cs_lod") == "locker", "hero_suit.blend is not the locker LOD: run lod_hero_suit.py after build_hero_suit.py"
+assert hero["cs_tris_lod"] < hero["cs_tris_full"] and hero["cs_tris_lod"] <= 30000, "locker LOD triangle budget"
 assert not any(
     o.name.endswith("_HEAD") or o.name.startswith("FACE_") for o in hero.objects
 )
@@ -76,6 +78,7 @@ report = {
     "status": "PASS",
     "blender": bpy.app.version_string,
     "instances": rows,
+    "lod": {"cs_lod": hero["cs_lod"], "triangles_full": hero["cs_tris_full"], "triangles_locker": hero["cs_tris_lod"]},
     "placement_anchors": {
         k: hero[k] for k in ("cs_top_z", "cs_pack_back_y", "cs_foot_zmin")
     },
