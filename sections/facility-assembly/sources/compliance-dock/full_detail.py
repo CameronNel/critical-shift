@@ -225,7 +225,7 @@ def cabinetry_detail():
             replace(f'Locker door {k}_{j}',profile('TEMP vault door',octagon(.5,.66,.028),.02,1,(x,14.79,z),'blue',.002),'Clipped reinforced vault door, retained lock/hinge/plaque positions')
             panel('Vault raised pressing',x,14.773,z,.405,.55,'blue')
             for xx in [x-.178,x+.178]:
-                for zz in [z-.245,z+.245]:bolt('CD | Vault captive pressing screw',(xx,14.755,zz),r=.004)
+                for zz in [z-.245,z+.245]:bolt('CD | Vault captive pressing screw',(xx,14.7605,zz),r=.004)
             cyl('CD | Vault lock escutcheon',(x+.14,14.755,z),.042,.006,'steel','Y',vertices=16,w=.001)
     box('CD | Evidence folded crown edge',(-5.575,14.787,1.619),(1.72,.01,.037),'steel',.001)
     # Purposeful sealed custody docket on cabinet, no scattered gore.
@@ -288,8 +288,8 @@ def full_lighting():
     # Existing authored practical locations are immutable; energy is purpose-led.
     powers={'Warm Fluorescent SW':28,'Warm Fluorescent S-Mid':45,'Warm Fluorescent SE':22,
         'Office Task Fluorescent':55,'Office Rear Fluorescent':20,'Scanner Overhead Key':115,
-        'Conveyor Hero Key':155,'Arrival Bay Key':58,'Bay Utility Key':50,
-        'Support Concealed Accent':18,'Ambient Fill Center':8,'Ceiling Wash 4.0':12,
+        'Conveyor Hero Key':70,'Arrival Bay Key':58,'Bay Utility Key':60,
+        'Support Concealed Accent':45,'Ambient Fill Center':15,'Ceiling Wash 4.0':12,
         'Ceiling Wash 11.0':10,'P2 Gate Amber Spotlight':12,'Lead Tunnel Hazard Spotlight':5,
         'G1 Gate Amber Downlight':5}
     for o in S.objects:
@@ -300,6 +300,8 @@ def full_lighting():
 
 def full_work():
     full_palette();scanner_detail();cargo_detail();office_detail();trolley_detail();cabinetry_detail();architectural_detail()
+    exec(compile((ROOT/'full_repairs.py').read_text(),str(ROOT/'full_repairs.py'),'exec'),globals())
+    repair_full_candidate()
     S['full_construction_recipe']='full_detail.py; root sole author; original named objects and pose interfaces retained'
 
 def consolidate_new_details():

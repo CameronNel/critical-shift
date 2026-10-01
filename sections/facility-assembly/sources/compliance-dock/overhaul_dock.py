@@ -20,6 +20,7 @@ bpy.ops.wm.open_mainfile(filepath=str(ROOT/'module.blend'),load_ui=False)
 S=bpy.context.scene;S.name='COMPLIANCE_EDIT_LOCAL'
 BASE={o.name:{'matrix':[list(r) for r in o.matrix_world],'dimensions':list(o.dimensions)} for o in S.objects}
 ORIGINAL=set(BASE);EXCEPTIONS={};COL=None;ASM=None;MATERIALS={};CONTACTS=[]
+RECIPE_HASHES={name:sha(ROOT/name) for name in ['overhaul_dock.py','full_detail.py','full_repairs.py','render_dock.py'] if (ROOT/name).exists()}
 old=ROOT/'revamp/reference-tooling/original_build_dock.py'
 tree=ast.parse(old.read_text());defs=[n for n in tree.body if isinstance(n,ast.FunctionDef)]
 exec(compile(ast.Module(body=defs,type_ignores=[]),str(old),'exec'),globals())
@@ -121,7 +122,14 @@ def handling_wear(o,key,center,radii,color,strength=.6):
     rough=n.new('ShaderNodeMath');rough.operation='SUBTRACT';old=bs.inputs['Roughness'].links[0].from_socket;l.new(old,rough.inputs[0]);l.new(drop.outputs[0],rough.inputs[1]);l.new(rough.outputs[0],bs.inputs['Roughness'])
     MATERIALS[key]=m;o.data.materials[0]=m
 def replace(name,new,reason):
+    # Rotation setters on freshly generated cylinders/toruses do not eagerly
+    # update matrix_world. Resolve evaluated transforms before copying geometry.
+    bpy.context.view_layer.update()
     old=S.objects[name];world=old.matrix_world.copy();inv=world.inverted()
+    if old.type!='MESH':
+        for selected in list(bpy.context.selected_objects):selected.select_set(False)
+        old.select_set(True);bpy.context.view_layer.objects.active=old
+        bpy.ops.object.convert(target='MESH');old=bpy.context.object;old.select_set(False)
     bm=bmesh.new();bm.from_mesh(new.data);bm.transform(inv@new.matrix_world);bm.to_mesh(new.data);bm.free()
     old.data=new.data;old.modifiers.clear()
     for mod in new.modifiers:
@@ -445,7 +453,9 @@ for o in S.objects:
         if len(f.verts)>3 and max(abs((v.co-f.verts[0].co).dot(f.normal)) for v in f.verts)>1e-6:warped.append(f)
     if warped:bmesh.ops.triangulate(bm,faces=warped)
     bm.to_mesh(o.data);bm.free();o.data.update();uv(o);o.select_set(False)
-if a.stage=='full':consolidate_new_details()
+if a.stage=='full':
+    finish_full_repairs()
+    consolidate_new_details()
 # Keep actual inherited camera count; additional evidence cameras are disposable.
 S.camera=S.objects['C01_ENTRY'];S.render.resolution_x=1067;S.render.resolution_y=600;S.render.resolution_percentage=100
 bpy.context.view_layer.update()
@@ -459,12 +469,17 @@ with bpy.data.libraries.load(str(map_path),link=True) as (lib,loaded):loaded.sce
 for lib in bpy.data.libraries:
     if lib.parent is None:lib.filepath=bpy.path.relpath(bpy.path.abspath(lib.filepath),start=str(ROOT))
 bpy.context.window.scene=S
+for name,expected in RECIPE_HASHES.items():
+    if sha(ROOT/name)!=expected:raise RuntimeError('Recipe changed during build: '+name)
+S['recipe_sha256']=json.dumps(RECIPE_HASHES,sort_keys=True)
 out=ROOT/'module_overhaul_R1.blend';bpy.ops.wm.save_as_mainfile(filepath=str(out),compress=True)
 deps=bpy.context.evaluated_depsgraph_get();triangles=0
 for o in S.objects:
     if o.type not in {'MESH','CURVE','FONT'}:continue
     ev=o.evaluated_get(deps);me=ev.to_mesh();me.calc_loop_triangles();triangles+=len(me.loop_triangles);ev.to_mesh_clear()
 state={'stage':a.stage,'revision':a.revision,'source_sha256':sha(out),'source_saved':str(out),'editable_scene':S.name,'original_objects':len(ORIGINAL),'objects':len(S.objects),'evaluated_triangles':triangles,'authoring_material_submeshes':sum(len({p.material_index for p in o.data.polygons}) if o.type=='MESH' else 1 for o in S.objects if o.type in {'MESH','CURVE','FONT'}),'used_local_material_families':sorted({m.name for o in S.objects if o.type in {'MESH','CURVE','FONT'} for m in o.data.materials if m}),'intentional_construction_repairs':EXCEPTIONS,'inherited_matrices_unchanged':True,'combined_room_envelope_and_apertures_unchanged':True,'architectural_geometry_repairs':[n for n in EXCEPTIONS if S.objects[n].get('support_class')=='architectural'],'architectural_dimension_repairs':[n for n in EXCEPTIONS if S.objects[n].get('support_class')=='architectural' and max(abs(S.objects[n].dimensions[i]-BASE[n]['dimensions'][i]) for i in range(3))>1e-5],'approved_spawn_source_sha256':spawn['source_sha256'],'map_reference':str(map_path),'source_author':'root','runtime_performance_measured':False}
+(PROD/'build-state.json').write_text(json.dumps(state,indent=2)+'\n')
+state['recipe_sha256']=RECIPE_HASHES
 (PROD/'build-state.json').write_text(json.dumps(state,indent=2)+'\n')
 for rel,expected in protected.items():
     if sha(ROOT.parents[3]/rel)!=expected:raise RuntimeError('Changed protected input '+rel)

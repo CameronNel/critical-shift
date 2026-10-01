@@ -1,0 +1,1665 @@
+{
+  "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+  "directed_aperture_rays": [
+    {
+      "label": "P1",
+      "point": [
+        0,
+        -0.112,
+        1.1
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "South wall west",
+        "point": [
+          -1.1999999284744263,
+          -0.1120000034570694,
+          1.100000023841858
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 1.1999999284744263
+      }
+    },
+    {
+      "label": "P1",
+      "point": [
+        0,
+        -0.112,
+        1.1
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "South wall east",
+        "point": [
+          1.1999999284744263,
+          -0.1120000034570694,
+          1.100000023841858
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 1.1999999284744263
+      }
+    },
+    {
+      "label": "P1",
+      "point": [
+        0,
+        -0.112,
+        1.1
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "object": "South lintel P1",
+        "point": [
+          0.0,
+          -0.1120000034570694,
+          2.5999999046325684
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "distance_m": 1.499999761581421
+      }
+    },
+    {
+      "label": "D1",
+      "point": [
+        -5.4,
+        3.6,
+        1.1
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "D1 frame jamb -1",
+        "point": [
+          -5.924999713897705,
+          3.5999999046325684,
+          1.100000023841858
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.5249994397163391
+      }
+    },
+    {
+      "label": "D1",
+      "point": [
+        -5.4,
+        3.6,
+        1.1
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "D1 frame jamb 1",
+        "point": [
+          -4.875,
+          3.5999999046325684,
+          1.100000023841858
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.5249999761581421
+      }
+    },
+    {
+      "label": "D1",
+      "point": [
+        -5.4,
+        3.6,
+        1.1
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "object": "D1 frame head",
+        "point": [
+          -5.400000095367432,
+          3.5999999046325684,
+          2.1999998092651367
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "distance_m": 1.0999999046325684
+      }
+    },
+    {
+      "label": "D2",
+      "point": [
+        -5.4,
+        9.6,
+        1.1
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "D2 frame jamb -1",
+        "point": [
+          -5.924999713897705,
+          9.600000381469727,
+          1.100000023841858
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.5249994397163391
+      }
+    },
+    {
+      "label": "D2",
+      "point": [
+        -5.4,
+        9.6,
+        1.1
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "D2 frame jamb 1",
+        "point": [
+          -4.875,
+          9.600000381469727,
+          1.100000023841858
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.5249999761581421
+      }
+    },
+    {
+      "label": "D2",
+      "point": [
+        -5.4,
+        9.6,
+        1.1
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "object": "D2 frame head",
+        "point": [
+          -5.400000095367432,
+          9.600000381469727,
+          2.1999998092651367
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "distance_m": 1.0999999046325684
+      }
+    },
+    {
+      "label": "P2",
+      "point": [
+        0,
+        15.85,
+        1.1
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "P2 frame jamb -1",
+        "point": [
+          -2.3000001907348633,
+          15.850000381469727,
+          1.100000023841858
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 2.3000001907348633
+      }
+    },
+    {
+      "label": "P2",
+      "point": [
+        0,
+        15.85,
+        1.1
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "P2 frame jamb 1",
+        "point": [
+          2.3000001907348633,
+          15.850000381469727,
+          1.100000023841858
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 2.3000001907348633
+      }
+    },
+    {
+      "label": "P2",
+      "point": [
+        0,
+        15.85,
+        1.1
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "object": "P2 frame head lintel",
+        "point": [
+          0.0,
+          15.850000381469727,
+          3.5
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "distance_m": 2.4000000953674316
+      }
+    },
+    {
+      "label": "SCANNER",
+      "point": [
+        0,
+        7,
+        1.1
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "Scanner portal column -1",
+        "point": [
+          -0.6099998950958252,
+          7.0,
+          1.100000023841858
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.6099998950958252
+      }
+    },
+    {
+      "label": "SCANNER",
+      "point": [
+        0,
+        7,
+        1.1
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "Scanner portal column 1",
+        "point": [
+          0.6099998950958252,
+          7.0,
+          1.100000023841858
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.6099998950958252
+      }
+    },
+    {
+      "label": "SCANNER",
+      "point": [
+        0,
+        7,
+        1.1
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "object": "Scanner portal lintel",
+        "point": [
+          0.0,
+          7.0,
+          2.6500000953674316
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "distance_m": 1.5500000715255737
+      }
+    },
+    {
+      "label": "CARGO rigid liner at 6.55",
+      "point": [
+        4.65,
+        6.55,
+        1.25
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "Lead tunnel inner chamber",
+        "point": [
+          4.053999900817871,
+          6.550000190734863,
+          1.25
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.5960000157356262
+      }
+    },
+    {
+      "label": "CARGO rigid liner at 6.55",
+      "point": [
+        4.65,
+        6.55,
+        1.25
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "Lead tunnel inner chamber",
+        "point": [
+          5.245999336242676,
+          6.550000190734863,
+          1.25
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.5959993600845337
+      }
+    },
+    {
+      "label": "CARGO rigid liner at 6.55",
+      "point": [
+        4.65,
+        6.55,
+        1.25
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "object": "Lead tunnel inner chamber",
+        "point": [
+          4.650000095367432,
+          6.550000190734863,
+          1.7459999322891235
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "distance_m": 0.49599993228912354
+      }
+    },
+    {
+      "label": "CARGO rigid liner at 7.65",
+      "point": [
+        4.65,
+        7.65,
+        1.25
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "Lead tunnel inner chamber",
+        "point": [
+          4.053999900817871,
+          7.650000095367432,
+          1.25
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.5960000157356262
+      }
+    },
+    {
+      "label": "CARGO rigid liner at 7.65",
+      "point": [
+        4.65,
+        7.65,
+        1.25
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "Lead tunnel inner chamber",
+        "point": [
+          5.245999336242676,
+          7.650000095367432,
+          1.25
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.5959994196891785
+      }
+    },
+    {
+      "label": "CARGO rigid liner at 7.65",
+      "point": [
+        4.65,
+        7.65,
+        1.25
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "object": "Lead tunnel inner chamber",
+        "point": [
+          4.650000095367432,
+          7.650000095367432,
+          1.7459999322891235
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "distance_m": 0.49599993228912354
+      }
+    },
+    {
+      "label": "CARGO rigid liner at 8.75",
+      "point": [
+        4.65,
+        8.75,
+        1.25
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "Lead tunnel inner chamber",
+        "point": [
+          4.053999900817871,
+          8.75,
+          1.25
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.5960000157356262
+      }
+    },
+    {
+      "label": "CARGO rigid liner at 8.75",
+      "point": [
+        4.65,
+        8.75,
+        1.25
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "Lead tunnel inner chamber",
+        "point": [
+          5.245999813079834,
+          8.75,
+          1.25
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.595999538898468
+      }
+    },
+    {
+      "label": "CARGO rigid liner at 8.75",
+      "point": [
+        4.65,
+        8.75,
+        1.25
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "object": "Lead tunnel inner chamber",
+        "point": [
+          4.650000095367432,
+          8.75,
+          1.7459999322891235
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "distance_m": 0.49599993228912354
+      }
+    }
+  ],
+  "aperture_method": "Exact evaluated triangle raycasts against named rigid frame surfaces only. Moving/flexible leaves excluded to measure structural aperture, not certify runtime opening behavior. Full route/SAT checks independently rerun in validator-independent.json.",
+  "engagement_classification": [
+    {
+      "a": "Scanner column inset -1",
+      "b": "Scanner portal column -1",
+      "point": [
+        -0.77,
+        7,
+        1.35
+      ],
+      "b_contains_point": true,
+      "triangle_overlap_pairs": 0
+    },
+    {
+      "a": "Key box glass",
+      "b": "Office key box cabinet",
+      "point": [
+        -3,
+        9.47,
+        1.5
+      ],
+      "b_contains_point": true,
+      "triangle_overlap_pairs": 0
+    }
+  ],
+  "selected_coplanar_exposure": [
+    {
+      "objects": [
+        "Drainage trench recess",
+        "Floor slab"
+      ],
+      "plane": [
+        2,
+        1,
+        0.0
+      ],
+      "overlap_area_m2": 1.8999326656949123,
+      "triangle_pair_count": 4,
+      "witnesses": [
+        {
+          "point": [
+            1.7924120763000646,
+            14.448940595040508,
+            0.0
+          ],
+          "triangles": [
+            158,
+            158
+          ],
+          "outward_occluder_within_30mm": "Arrival warning hatch zone"
+        },
+        {
+          "point": [
+            3.059444000240125,
+            14.357254452241511,
+            0.0
+          ],
+          "triangles": [
+            158,
+            159
+          ],
+          "outward_occluder_within_30mm": "Drain grate panel 11"
+        },
+        {
+          "point": [
+            6.054549738970967,
+            14.501254187755833,
+            0.0
+          ],
+          "triangles": [
+            159,
+            158
+          ],
+          "outward_occluder_within_30mm": null
+        }
+      ],
+      "material_families": {
+        "Drainage trench recess": [
+          "CD | navy"
+        ],
+        "Floor slab": [
+          "CD | Floor traffic polish"
+        ]
+      },
+      "exposure_probes": [
+        {
+          "point": [
+            1.7924120763000646,
+            14.448940595040508,
+            0.0
+          ],
+          "triangles": [
+            158,
+            158
+          ],
+          "outward_occluder_within_30mm": "Arrival warning hatch zone",
+          "100um_outside_point": [
+            1.7924120426177979,
+            14.44894027709961,
+            9.999999747378752e-05
+          ],
+          "other_closed_solids_containing_outside_point": [
+            "Drain grate panel 8"
+          ]
+        },
+        {
+          "point": [
+            3.059444000240125,
+            14.357254452241511,
+            0.0
+          ],
+          "triangles": [
+            158,
+            159
+          ],
+          "outward_occluder_within_30mm": "Drain grate panel 11",
+          "100um_outside_point": [
+            3.059443950653076,
+            14.357254028320312,
+            9.999999747378752e-05
+          ],
+          "other_closed_solids_containing_outside_point": [
+            "Drain grate panel 11"
+          ]
+        },
+        {
+          "point": [
+            6.054549738970967,
+            14.501254187755833,
+            0.0
+          ],
+          "triangles": [
+            159,
+            158
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            6.054549694061279,
+            14.501254081726074,
+            9.999999747378752e-05
+          ],
+          "other_closed_solids_containing_outside_point": []
+        }
+      ]
+    },
+    {
+      "objects": [
+        "North wall east",
+        "P2 frame jamb 1"
+      ],
+      "plane": [
+        0,
+        -1,
+        2.3
+      ],
+      "overlap_area_m2": 0.9350507336121188,
+      "triangle_pair_count": 4,
+      "witnesses": [
+        {
+          "point": [
+            2.3,
+            15.860138203975948,
+            1.767650031608234
+          ],
+          "triangles": [
+            154,
+            154
+          ],
+          "outward_occluder_within_30mm": "P2 blast leaf east"
+        },
+        {
+          "point": [
+            2.3,
+            15.807153456115273,
+            0.028866799092147125
+          ],
+          "triangles": [
+            154,
+            155
+          ],
+          "outward_occluder_within_30mm": "P2 blast leaf east"
+        },
+        {
+          "point": [
+            2.3,
+            15.994138028499874,
+            2.6336874979911884
+          ],
+          "triangles": [
+            155,
+            154
+          ],
+          "outward_occluder_within_30mm": null
+        }
+      ],
+      "material_families": {
+        "North wall east": [
+          "CD | plaster"
+        ],
+        "P2 frame jamb 1": [
+          "CD | navy"
+        ]
+      },
+      "exposure_probes": [
+        {
+          "point": [
+            2.3,
+            15.860138203975948,
+            1.767650031608234
+          ],
+          "triangles": [
+            154,
+            154
+          ],
+          "outward_occluder_within_30mm": "P2 blast leaf east",
+          "100um_outside_point": [
+            2.2999000549316406,
+            15.860137939453125,
+            1.7676500082015991
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            2.3,
+            15.807153456115273,
+            0.028866799092147125
+          ],
+          "triangles": [
+            154,
+            155
+          ],
+          "outward_occluder_within_30mm": "P2 blast leaf east",
+          "100um_outside_point": [
+            2.2999000549316406,
+            15.807153701782227,
+            0.028866799548268318
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            2.3,
+            15.994138028499874,
+            2.6336874979911884
+          ],
+          "triangles": [
+            155,
+            154
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            2.2999000549316406,
+            15.99413776397705,
+            2.6336874961853027
+          ],
+          "other_closed_solids_containing_outside_point": []
+        }
+      ]
+    },
+    {
+      "objects": [
+        "North wall west",
+        "P2 frame jamb -1"
+      ],
+      "plane": [
+        0,
+        1,
+        -2.3
+      ],
+      "overlap_area_m2": 0.9350507336121121,
+      "triangle_pair_count": 4,
+      "witnesses": [
+        {
+          "point": [
+            -2.3,
+            16.019861850785954,
+            1.7676323122974287
+          ],
+          "triangles": [
+            162,
+            162
+          ],
+          "outward_occluder_within_30mm": null
+        },
+        {
+          "point": [
+            -2.3,
+            16.072846896645064,
+            0.02884317334440663
+          ],
+          "triangles": [
+            162,
+            163
+          ],
+          "outward_occluder_within_30mm": null
+        },
+        {
+          "point": [
+            -2.3,
+            15.885862026262028,
+            2.633669778680383
+          ],
+          "triangles": [
+            163,
+            162
+          ],
+          "outward_occluder_within_30mm": "P2 blast leaf west"
+        }
+      ],
+      "material_families": {
+        "North wall west": [
+          "CD | plaster"
+        ],
+        "P2 frame jamb -1": [
+          "CD | navy"
+        ]
+      },
+      "exposure_probes": [
+        {
+          "point": [
+            -2.3,
+            16.019861850785954,
+            1.7676323122974287
+          ],
+          "triangles": [
+            162,
+            162
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -2.2999000549316406,
+            16.019861221313477,
+            1.7676323652267456
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            -2.3,
+            16.072846896645064,
+            0.02884317334440663
+          ],
+          "triangles": [
+            162,
+            163
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -2.2999000549316406,
+            16.072847366333008,
+            0.028843173757195473
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            -2.3,
+            15.885862026262028,
+            2.633669778680383
+          ],
+          "triangles": [
+            163,
+            162
+          ],
+          "outward_occluder_within_30mm": "P2 blast leaf west",
+          "100um_outside_point": [
+            -2.2999000549316406,
+            15.885862350463867,
+            2.633669853210449
+          ],
+          "other_closed_solids_containing_outside_point": []
+        }
+      ]
+    },
+    {
+      "objects": [
+        "North lintel P2",
+        "P2 frame head lintel"
+      ],
+      "plane": [
+        1,
+        -1,
+        15.8
+      ],
+      "overlap_area_m2": 0.8671314673118777,
+      "triangle_pair_count": 4,
+      "witnesses": [
+        {
+          "point": [
+            2.041431542569206,
+            15.8,
+            3.603441712342134
+          ],
+          "triangles": [
+            156,
+            156
+          ],
+          "outward_occluder_within_30mm": null
+        },
+        {
+          "point": [
+            2.2827418824878567,
+            15.8,
+            3.5099223416148697
+          ],
+          "triangles": [
+            156,
+            157
+          ],
+          "outward_occluder_within_30mm": null
+        },
+        {
+          "point": [
+            -0.2525683677854087,
+            15.8,
+            3.647826654070883
+          ],
+          "triangles": [
+            157,
+            156
+          ],
+          "outward_occluder_within_30mm": null
+        }
+      ],
+      "material_families": {
+        "North lintel P2": [
+          "CD | plaster"
+        ],
+        "P2 frame head lintel": [
+          "CD | navy"
+        ]
+      },
+      "exposure_probes": [
+        {
+          "point": [
+            2.041431542569206,
+            15.8,
+            3.603441712342134
+          ],
+          "triangles": [
+            156,
+            156
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            2.041431427001953,
+            15.79990005493164,
+            3.6034417152404785
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            2.2827418824878567,
+            15.8,
+            3.5099223416148697
+          ],
+          "triangles": [
+            156,
+            157
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            2.2827417850494385,
+            15.79990005493164,
+            3.5099222660064697
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            -0.2525683677854087,
+            15.8,
+            3.647826654070883
+          ],
+          "triangles": [
+            157,
+            156
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -0.2525683641433716,
+            15.79990005493164,
+            3.647826671600342
+          ],
+          "other_closed_solids_containing_outside_point": []
+        }
+      ]
+    },
+    {
+      "objects": [
+        "North wall west",
+        "P2 frame jamb -1"
+      ],
+      "plane": [
+        1,
+        -1,
+        15.8
+      ],
+      "overlap_area_m2": 0.5198607304706676,
+      "triangle_pair_count": 3,
+      "witnesses": [
+        {
+          "point": [
+            -2.3556668758392334,
+            15.8,
+            2.3394234261150992
+          ],
+          "triangles": [
+            156,
+            156
+          ],
+          "outward_occluder_within_30mm": null
+        },
+        {
+          "point": [
+            -2.3805001974105835,
+            15.8,
+            0.920237611616204
+          ],
+          "triangles": [
+            156,
+            157
+          ],
+          "outward_occluder_within_30mm": "North wall wainscot west"
+        },
+        {
+          "point": [
+            -2.4053335189819336,
+            15.8,
+            0.05456003188009118
+          ],
+          "triangles": [
+            157,
+            157
+          ],
+          "outward_occluder_within_30mm": null
+        }
+      ],
+      "material_families": {
+        "North wall west": [
+          "CD | plaster"
+        ],
+        "P2 frame jamb -1": [
+          "CD | navy"
+        ]
+      },
+      "exposure_probes": [
+        {
+          "point": [
+            -2.3556668758392334,
+            15.8,
+            2.3394234261150992
+          ],
+          "triangles": [
+            156,
+            156
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -2.3556668758392334,
+            15.79990005493164,
+            2.339423418045044
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            -2.3805001974105835,
+            15.8,
+            0.920237611616204
+          ],
+          "triangles": [
+            156,
+            157
+          ],
+          "outward_occluder_within_30mm": "North wall wainscot west",
+          "100um_outside_point": [
+            -2.380500316619873,
+            15.79990005493164,
+            0.9202376008033752
+          ],
+          "other_closed_solids_containing_outside_point": [
+            "North wall wainscot west"
+          ]
+        },
+        {
+          "point": [
+            -2.4053335189819336,
+            15.8,
+            0.05456003188009118
+          ],
+          "triangles": [
+            157,
+            157
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -2.4053335189819336,
+            15.79990005493164,
+            0.05456003174185753
+          ],
+          "other_closed_solids_containing_outside_point": [
+            "Skirting north west"
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "North wall east",
+        "P2 frame jamb 1"
+      ],
+      "plane": [
+        1,
+        -1,
+        15.8
+      ],
+      "overlap_area_m2": 0.5198607304706675,
+      "triangle_pair_count": 2,
+      "witnesses": [
+        {
+          "point": [
+            2.395391593957428,
+            15.8,
+            2.0947458457210164
+          ],
+          "triangles": [
+            157,
+            156
+          ],
+          "outward_occluder_within_30mm": null
+        },
+        {
+          "point": [
+            2.3556525485126247,
+            15.8,
+            1.161243152495639
+          ],
+          "triangles": [
+            157,
+            157
+          ],
+          "outward_occluder_within_30mm": null
+        }
+      ],
+      "material_families": {
+        "North wall east": [
+          "CD | plaster"
+        ],
+        "P2 frame jamb 1": [
+          "CD | navy"
+        ]
+      },
+      "exposure_probes": [
+        {
+          "point": [
+            2.395391593957428,
+            15.8,
+            2.0947458457210164
+          ],
+          "triangles": [
+            157,
+            156
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            2.3953917026519775,
+            15.79990005493164,
+            2.0947458744049072
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            2.3556525485126247,
+            15.8,
+            1.161243152495639
+          ],
+          "triangles": [
+            157,
+            157
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            2.3556525707244873,
+            15.79990005493164,
+            1.161243200302124
+          ],
+          "other_closed_solids_containing_outside_point": []
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Floor slab",
+        "P1 corridor floor"
+      ],
+      "plane": [
+        2,
+        1,
+        0.0
+      ],
+      "overlap_area_m2": 0.48172850267602013,
+      "triangle_pair_count": 2,
+      "witnesses": [
+        {
+          "point": [
+            -0.06033673475038026,
+            -0.0985000729560852,
+            0.0
+          ],
+          "triangles": [
+            159,
+            158
+          ],
+          "outward_occluder_within_30mm": null
+        },
+        {
+          "point": [
+            1.167551046082033,
+            -0.13066677252451608,
+            0.0
+          ],
+          "triangles": [
+            159,
+            159
+          ],
+          "outward_occluder_within_30mm": null
+        }
+      ],
+      "material_families": {
+        "Floor slab": [
+          "CD | Floor traffic polish"
+        ],
+        "P1 corridor floor": [
+          "CD | concrete"
+        ]
+      },
+      "exposure_probes": [
+        {
+          "point": [
+            -0.06033673475038026,
+            -0.0985000729560852,
+            0.0
+          ],
+          "triangles": [
+            159,
+            158
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -0.06033673509955406,
+            -0.0985000729560852,
+            9.999999747378752e-05
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            1.167551046082033,
+            -0.13066677252451608,
+            0.0
+          ],
+          "triangles": [
+            159,
+            159
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            1.167551040649414,
+            -0.13066677749156952,
+            9.999999747378752e-05
+          ],
+          "other_closed_solids_containing_outside_point": []
+        }
+      ]
+    },
+    {
+      "objects": [
+        "D2 frame jamb 1",
+        "Office rear wall east"
+      ],
+      "plane": [
+        0,
+        -1,
+        -4.875
+      ],
+      "overlap_area_m2": 0.32397358906564655,
+      "triangle_pair_count": 4,
+      "witnesses": [
+        {
+          "point": [
+            -4.875,
+            9.559355508075399,
+            1.2981983900644432
+          ],
+          "triangles": [
+            154,
+            154
+          ],
+          "outward_occluder_within_30mm": null
+        },
+        {
+          "point": [
+            -4.875,
+            9.633355866656942,
+            1.7246729764471824
+          ],
+          "triangles": [
+            154,
+            155
+          ],
+          "outward_occluder_within_30mm": null
+        },
+        {
+          "point": [
+            -4.875,
+            9.534927195687695,
+            0.2695977529655627
+          ],
+          "triangles": [
+            155,
+            154
+          ],
+          "outward_occluder_within_30mm": null
+        }
+      ],
+      "material_families": {
+        "D2 frame jamb 1": [
+          "CD | navy"
+        ],
+        "Office rear wall east": [
+          "CD | plaster"
+        ]
+      },
+      "exposure_probes": [
+        {
+          "point": [
+            -4.875,
+            9.559355508075399,
+            1.2981983900644432
+          ],
+          "triangles": [
+            154,
+            154
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -4.875100135803223,
+            9.559355735778809,
+            1.2981983423233032
+          ],
+          "other_closed_solids_containing_outside_point": [
+            "D2 door leaf"
+          ]
+        },
+        {
+          "point": [
+            -4.875,
+            9.633355866656942,
+            1.7246729764471824
+          ],
+          "triangles": [
+            154,
+            155
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -4.875100135803223,
+            9.633356094360352,
+            1.7246730327606201
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            -4.875,
+            9.534927195687695,
+            0.2695977529655627
+          ],
+          "triangles": [
+            155,
+            154
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -4.875100135803223,
+            9.534927368164062,
+            0.26959773898124695
+          ],
+          "other_closed_solids_containing_outside_point": []
+        }
+      ]
+    },
+    {
+      "objects": [
+        "Terminal monitor housing",
+        "Terminal screen face"
+      ],
+      "plane": [
+        0,
+        -1,
+        -3.52
+      ],
+      "overlap_area_m2": 0.07367607128526288,
+      "triangle_pair_count": 4,
+      "witnesses": [
+        {
+          "point": [
+            -3.52,
+            6.749641194877006,
+            1.0782497376003
+          ],
+          "triangles": [
+            282,
+            154
+          ],
+          "outward_occluder_within_30mm": null
+        },
+        {
+          "point": [
+            -3.52,
+            6.704144349123314,
+            0.9746662974090219
+          ],
+          "triangles": [
+            282,
+            155
+          ],
+          "outward_occluder_within_30mm": null
+        },
+        {
+          "point": [
+            -3.52,
+            6.89585496973591,
+            1.1253330111236217
+          ],
+          "triangles": [
+            283,
+            154
+          ],
+          "outward_occluder_within_30mm": null
+        }
+      ],
+      "material_families": {
+        "Terminal monitor housing": [
+          "CD | plastic"
+        ],
+        "Terminal screen face": [
+          "CD | screen"
+        ]
+      },
+      "exposure_probes": [
+        {
+          "point": [
+            -3.52,
+            6.749641194877006,
+            1.0782497376003
+          ],
+          "triangles": [
+            282,
+            154
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -3.5200998783111572,
+            6.749641418457031,
+            1.0782496929168701
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            -3.52,
+            6.704144349123314,
+            0.9746662974090219
+          ],
+          "triangles": [
+            282,
+            155
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -3.5200998783111572,
+            6.704144477844238,
+            0.9746662974357605
+          ],
+          "other_closed_solids_containing_outside_point": []
+        },
+        {
+          "point": [
+            -3.52,
+            6.89585496973591,
+            1.1253330111236217
+          ],
+          "triangles": [
+            283,
+            154
+          ],
+          "outward_occluder_within_30mm": null,
+          "100um_outside_point": [
+            -3.5200998783111572,
+            6.895854949951172,
+            1.1253329515457153
+          ],
+          "other_closed_solids_containing_outside_point": []
+        }
+      ]
+    }
+  ]
+}

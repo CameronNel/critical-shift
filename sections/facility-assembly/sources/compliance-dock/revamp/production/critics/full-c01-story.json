@@ -1,0 +1,78 @@
+{
+  "review": "full-c01-story",
+  "discipline": "environmental_storytelling",
+  "review_date": "2026-10-01",
+  "candidate": "full compliance dock f02",
+  "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+  "category": 7,
+  "category_name": "Purposeful worker traces and coercive institutional storytelling",
+  "score": 80,
+  "score_max": 100,
+  "required_score_strictly_greater_than": 93,
+  "category_pass": false,
+  "candidate_review_only": true,
+  "final_acceptance": false,
+  "pixel_evidence_only": true,
+  "all_26_dock_frames_opened": true,
+  "all_4_spawn_references_opened": true,
+  "critical_failures": [
+    {
+      "id": "STORY-C01-CRITICAL-01",
+      "type": "fixed_view_coverage",
+      "view": "HERO_SCANNER",
+      "finding": "A beige foreground wall covers approximately 60 percent of the frame and most of the scanner arch; the named asset hero cannot be evaluated as a complete object.",
+      "repair": "Repair the invalid evidence camera, record the correction and establish a new baseline without altering the dock layout."
+    }
+  ],
+  "strengths": [
+    {
+      "views": ["C03_CHECKIN_COUNTER", "DETAIL_CHECKIN", "C02_HERO_DOCK"],
+      "finding": "Numbered speech request, physical intercom, tethered pen, stamp and tray form a coherent controlled check-in workflow."
+    },
+    {
+      "views": ["C07_OFFICE_INTERIOR", "HERO_EVIDENCE", "HERO_TROLLEY"],
+      "finding": "Office mug, notebook and angled chair suggest ordinary staff use; the taped DO NOT RELEASE notice and partially concealed covered trolley add ominous implications."
+    },
+    {
+      "views": ["CORNER_SW", "CORNER_SE", "CORNER_NW", "CORNER_NE"],
+      "finding": "Clustering follows dock functions and circulation remains quiet; random clutter does not dominate."
+    }
+  ],
+  "defects": [
+    "No opened frame establishes corporate reassurance with a coercive second meaning; most signs straightforwardly identify or restrict.",
+    "Clean markings, thresholds, controls, counter and cabinets do not visibly establish prolonged use, specific repair or pressure on the institution.",
+    "The office and paperwork arrangement show little interrupted or pressured shift activity.",
+    "Evidence storage is largely generic secure cabinetry; one taped note lacks a visible handling counterpart.",
+    "The covered trolley reads as repeated dark rounded humps with little visible continuous textile drape; its handling relationship to storage is weak."
+  ],
+  "repairs": [
+    {
+      "priority": 1,
+      "views": ["C03_CHECKIN_COUNTER", "DETAIL_CHECKIN", "C02_HERO_DOCK"],
+      "action": "Develop one warm reassuring institutional graphic or notice whose close-reading qualification and paired retention or denial form reveal coercion; consolidate existing paperwork."
+    },
+    {
+      "priority": 2,
+      "views": ["C01_ENTRY", "C04_SCANNER_APPROACH", "C06_CART_GATE_G1", "PLAYER_REVERSE", "DETAIL_CHECKIN"],
+      "action": "Add selective procedure-driven threshold, queue, latch and counter wear plus one specific maintained repair or replacement; preserve routes and avoid blanket grime."
+    },
+    {
+      "priority": 3,
+      "views": ["HERO_EVIDENCE", "HERO_TROLLEY", "C08_CONCEALED_SUPPORT_H1"],
+      "action": "Give the hold notice a restrained physical handling counterpart linking storage to the covered load, and improve continuous cloth drape and contact; preserve ambiguity and avoid extra medical apparatus."
+    },
+    {
+      "priority": 4,
+      "views": ["C07_OFFICE_INTERIOR", "WALL_WEST", "DETAIL_CHECKIN"],
+      "action": "Develop the existing desk cluster through one interrupted-shift or handover arrangement and a small purposeful repair or use mark; distinguish completed and pending forms without paper clutter."
+    },
+    {
+      "priority": 5,
+      "views": ["HERO_SCANNER"],
+      "action": "Correct the obstructed asset evidence camera and record the new baseline; show the complete scanner silhouette, control interface and worker-route relationship."
+    }
+  ],
+  "inspected_dock_views": ["C01_ENTRY", "C02_HERO_DOCK", "C03_CHECKIN_COUNTER", "C04_SCANNER_APPROACH", "C05_CONVEYOR_LEAD_TUNNEL", "C06_CART_GATE_G1", "C07_OFFICE_INTERIOR", "C08_CONCEALED_SUPPORT_H1", "C09_ARRIVAL_GATE_P2", "C10_ROOF_SERVICES", "CORNER_SW", "CORNER_SE", "CORNER_NW", "CORNER_NE", "WALL_SOUTH", "WALL_NORTH", "WALL_EAST", "WALL_WEST", "HERO_SCANNER", "HERO_CARGO", "HERO_EVIDENCE", "HERO_TROLLEY", "HERO_UTILITIES", "DETAIL_CHECKIN", "PLAYER_REVERSE", "PLAYER_PINCH"],
+  "inspected_spawn_references": ["VALIDATE_Material_A", "VALIDATE_LockerDoor", "VALIDATE_Spawn", "BRIEFING_INDIRECT"],
+  "limits": "No author code, history, prior scores or geometry inspected or changed. Technical, cold-start, layout-preservation and runtime gates are not certified."
+}

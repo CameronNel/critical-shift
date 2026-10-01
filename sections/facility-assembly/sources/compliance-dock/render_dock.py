@@ -64,6 +64,7 @@ else:
     # R04 C05/C10 are inside solid geometry; C06 crops the opening and C09 faces
     # the entry rather than arrival. Rebase these before the formal comparison.
     rebased={
+        'C02_HERO_DOCK':((0,1.1,2.1),(1.2,7.9,1.8),20),
         'C05_CONVEYOR_LEAD_TUNNEL':((2.95,4.15,1.65),(4.65,7.4,1.08),25),
         'C06_CART_GATE_G1':((2.3,4.2,1.65),(1.95,7,1.15),24),
         'C09_ARRIVAL_GATE_P2':((1.4,11.4,1.65),(0,15.8,1.85),24),
@@ -74,11 +75,11 @@ else:
         else:shot(name,label,inherited=name)
     for i,(id,pos) in enumerate([('CORNER_SW',(-11,-4,12)),('CORNER_SE',(11,-4,12)),('CORNER_NW',(-11,20,12)),('CORNER_NE',(11,20,12))]):
         shot(id,f'{11+i:02} | '+id.replace('_',' ')+' / CUTAWAY','corners',position=pos,target=(0,7.9,1.2),lens=26)
-    shot('WALL_SOUTH','15 | ENTRY WALL / FRONT OFFICE','walls',position=(0,10.8,2.1),target=(0,0,1.8),lens=18)
-    shot('WALL_NORTH','16 | ARRIVAL WALL','walls',position=(0,5,2.1),target=(0,15.8,1.9),lens=18)
-    shot('WALL_EAST','17 | SERVICE / CARGO WALL','walls',position=(-1.8,7.9,1.85),target=(6.8,7.9,1.9),lens=18)
-    shot('WALL_WEST','18 | OFFICE / STORAGE WALL / CUTAWAY','wall-cutaway',position=(1.2,7.9,2.1),target=(-6.8,7.9,1.8),lens=16)
-    shot('HERO_SCANNER','19 | WORKER INSPECTION ARCH','assets',position=(-2.5,3.4,1.85),target=(0,7,1.3),lens=28)
+    shot('WALL_SOUTH','15 | ENTRY WALL / ELEVATION CUTAWAY','wall-elevation',position=(0,2.7,2.2),target=(0,0,2.2),lens=18)
+    shot('WALL_NORTH','16 | ARRIVAL WALL / ELEVATION CUTAWAY','wall-elevation',position=(0,11.7,2.2),target=(0,15.8,2.2),lens=18)
+    shot('WALL_EAST','17 | SERVICE WALL / ELEVATION CUTAWAY','wall-elevation',position=(2.9,7.9,2.2),target=(6.8,7.9,2.2),lens=18)
+    shot('WALL_WEST','18 | OFFICE WALL / ELEVATION CUTAWAY','wall-elevation',position=(-1.8,7.9,2.2),target=(-6.8,7.9,2.2),lens=18)
+    shot('HERO_SCANNER','19 | WORKER INSPECTION ARCH','assets',position=(-1.65,3.3,1.85),target=(0,7,1.45),lens=25)
     shot('HERO_CARGO','20 | CARGO EXAMINATION MACHINE','assets',position=(3.2,3.7,1.85),target=(4.65,7.4,1.05),lens=25)
     shot('HERO_EVIDENCE','21 | EVIDENCE STORAGE','assets',position=(-4.5,13,1.65),target=(-5.6,15.25,.9),lens=26)
     shot('HERO_TROLLEY','22 | COVERED TRANSFER TROLLEY','assets',position=(-3.4,10.6,1.65),target=(-5.8,13.2,.85),lens=25)
@@ -86,6 +87,7 @@ else:
     shot('DETAIL_CHECKIN','24 | CHECK-IN WORK / DETAIL','details',position=(-4.6,2.3,1.65),target=(-3.55,3.75,1.0),lens=35)
     shot('PLAYER_REVERSE','25 | REVERSE / PLAYER HEIGHT','mandatory',position=(1.95,11.5,1.65),target=(0,2.5,1.4),lens=25)
     shot('PLAYER_PINCH','26 | NORTH RETURN / PLAYER HEIGHT','mandatory',position=(-3.5,14.8,1.65),target=(-.5,14.8,1.4),lens=25)
+    shot('WALL_OFFICE_FRONT','27 | OFFICE FRONT / ELEVATION','wall-office',position=(-4.6,.7,1.55),target=(-4.6,3.6,1.55),lens=25)
     shot('SLICE_ENTRY','SLICE | CHECK-IN / PLAYER HEIGHT','slice',position=(-4.2,.45,1.65),target=(-4.1,3.6,1.56),lens=22)
     shot('SLICE_MATERIAL','SLICE | COUNTER / MATERIALS','slice',position=(-2.8,1.9,1.65),target=(-3.55,3.65,1.1),lens=32)
     shot('SLICE_DOOR','SLICE | STAFF DOOR / CONSTRUCTION','slice',position=(-3.85,1.7,1.65),target=(-5.4,3.6,1.15),lens=30)
@@ -99,10 +101,13 @@ if a.diagnostic:
         if o.type=='LIGHT':o.data.energy=0
     scene.world=scene.world.copy()
     bg=scene.world.node_tree.nodes.get('Background')
-    if bg:bg.inputs[0].default_value=(.55,.55,.55,1);bg.inputs[1].default_value=.65
-    d=bpy.data.lights.new('TEMP neutral practical','AREA');d.energy=800;d.size=5
-    light=bpy.data.objects.new(d.name,d);scene.collection.objects.link(light)
-    light.location=(-3.5,3,3);light.rotation_euler=(0,0,0)
+    if bg:bg.inputs[0].default_value=(.55,.55,.55,1);bg.inputs[1].default_value=.18
+    scene.view_settings.exposure=0
+    diagnostic_lights=[]
+    for index,power in enumerate((90,30)):
+        d=bpy.data.lights.new('TEMP diagnostic key '+str(index),'AREA');d.energy=power;d.size=2.2
+        light=bpy.data.objects.new(d.name,d);scene.collection.objects.link(light)
+        diagnostic_lights.append(light)
     if a.diagnostic!='neutral':
         m=bpy.data.materials.new('TEMP diagnostic');m.use_nodes=True
         bs=m.node_tree.nodes.get('Principled BSDF');bs.inputs['Base Color'].default_value=(.35,.35,.35,1);bs.inputs['Roughness'].default_value=.8
@@ -113,7 +118,11 @@ if a.diagnostic:
             m.node_tree.links.new(uv.outputs[0],tex.inputs['Vector']);m.node_tree.links.new(tex.outputs[0],bs.inputs['Base Color'])
         for o in scene.objects:
             if o.type=='MESH' and (a.diagnostic=='clay' or o.get('overhaul_surface')):
-                for slot in o.material_slots:slot.material=m
+                material=m
+                if a.diagnostic=='uv' and o.data.uv_layers.get('CD_Fabric_Cut_1m'):
+                    material=m.copy();material.name='TEMP continuous textile checker'
+                    material.node_tree.nodes.get('UV Map').uv_map='CD_Fabric_Cut_1m'
+                for slot in o.material_slots:slot.material=material
 labels=bpy.data.collections.new('TEMP_REVIEW_LABELS');scene.collection.children.link(labels)
 def emission(name,color):
     m=bpy.data.materials.new(name);m.use_nodes=True;m.node_tree.nodes.clear()
@@ -134,7 +143,7 @@ manifest={'source_sha256':source_sha,'renderer_sha256':sha(__file__),'resolution
           'label_method':'Temporary camera-attached emission geometry','complete':False,'shots':[]}
 for item in shots:
     hidden=[]
-    if item['group'] in {'corners','wall-cutaway'}:
+    if item['group'] in {'corners','wall-cutaway','wall-elevation'}:
         for o in scene.objects:
             if o.type!='MESH' or o.name.startswith('TEMP '):continue
             v=[o.matrix_world @ Vector(c) for c in o.bound_box]
@@ -147,15 +156,23 @@ for item in shots:
                 # Plan-oblique room evidence removes overhead assemblies too,
                 # exposing the whole floor. The roof-services camera documents
                 # these same assemblies with every actual part present.
-                roof=roof or lo[2]>=3.0 or o.name.startswith(('Truss ','Main ventilation','Return ventilation','Cable tray ','Supply diffuser','Diffuser grille'))
-            else:
+                roof=roof or o.name.startswith(('Truss ','Main ventilation','Return ventilation','Cable tray ','Supply diffuser','Diffuser grille'))
+            elif item['group']=='wall-cutaway' or (item['group']=='wall-elevation' and item['id']=='WALL_WEST'):
                 side=('office' in o.name.lower() and -2.52<((lo[0]+hi[0])/2)<-2.28) or 'support screen' in o.name.lower() or 'Observation glass' in o.name
+            if item['group']=='wall-elevation':
+                roof=roof or lo[2]>=3.0 or o.name.startswith(('Truss ','Main ventilation','Return ventilation','Cable tray ','Supply diffuser','Diffuser grille'))
+                root=o
+                while root.parent:root=root.parent
+                side=side or root.name in {'Person Scanner Arch','G1 Cart Bypass Gate','Cargo Inspection Conveyor','Covered Trolley H1','Parked Hand Cart'}
+                if item['id']=='WALL_NORTH':side=side or 'support screen' in o.name.lower()
             if roof or side:hidden.append((o,o.hide_render));o.hide_render=True
     if item['inherited']:
         cam=scene.objects[item['inherited']]
     else:
         data=bpy.data.cameras.new('REVIEW_'+item['id']);cam=bpy.data.objects.new(data.name,data);scene.collection.objects.link(cam)
         cam.location=item['position'];cam.rotation_euler=(Vector(item['target'])-cam.location).to_track_quat('-Z','Y').to_euler();data.lens=item['lens'];data.sensor_width=36
+        if item['group'] in {'wall-elevation','wall-office'}:
+            data.type='ORTHO';data.ortho_scale=15.5 if item['id'] in {'WALL_SOUTH','WALL_NORTH'} else 6.0 if item['group']=='wall-office' else 18.0
         if item['group']=='corners':
             inv=cam.rotation_euler.to_quaternion().inverted();required=0
             for o in scene.objects:
@@ -165,6 +182,13 @@ for item in shots:
                     required=max(required,abs(q.x)*2,abs(q.y)*2*1067/600)
             data.type='ORTHO';data.ortho_scale=required/.90
     scene.camera=cam;cam.data.clip_start=.01;bpy.context.view_layer.update()
+    if a.diagnostic:
+        target=Vector(item['target']) if item['target'] else cam.location+cam.rotation_euler.to_quaternion() @ Vector((0,0,-3))
+        positions=(cam.location+Vector((0,0,.65)),target+Vector((.45,.35,1.35)))
+        for light,pos in zip(diagnostic_lights,positions):
+            light.location=pos;light.rotation_euler=(target-pos).to_track_quat('-Z','Y').to_euler()
+        bpy.context.view_layer.update()
+        item['diagnostic_lights']=[dict(location=list(l.location),matrix_world=[list(r) for r in l.matrix_world],watts=l.data.energy,size_m=l.data.size) for l in diagnostic_lights]
     frame=cam.data.view_frame(scene=scene);distance=.1
     frame=[Vector((v.x,v.y,-distance)) if cam.data.type=='ORTHO' else v*(distance/abs(v.z)) for v in frame]
     left=min(v.x for v in frame);right=max(v.x for v in frame);bottom=min(v.y for v in frame);px=(right-left)/1067

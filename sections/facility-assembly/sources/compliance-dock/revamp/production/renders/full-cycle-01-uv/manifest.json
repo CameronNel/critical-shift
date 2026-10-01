@@ -1,0 +1,123 @@
+{
+  "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+  "renderer_sha256": "ea13469f7bfbbc268ea8ad0357ab77b3f9cbc2e7ae2438f3e99a860650613278",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.699999988079071,
+  "diagnostic": "uv",
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "label": "05 | CARGO INSPECTION",
+      "group": "mandatory",
+      "inherited": null,
+      "position": [
+        2.95,
+        4.15,
+        1.65
+      ],
+      "target": [
+        4.65,
+        7.4,
+        1.08
+      ],
+      "lens": 25,
+      "camera_matrix_world": [
+        [
+          0.8860982060432434,
+          0.07117689400911331,
+          -0.4579998254776001,
+          2.950000047683716
+        ],
+        [
+          -0.4634975790977478,
+          0.13607339560985565,
+          -0.8755878210067749,
+          4.150000095367432
+        ],
+        [
+          -3.344947430150569e-08,
+          0.9881386160850525,
+          0.1535647064447403,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 25.0,
+      "projection": "PERSP",
+      "image_sha256": "d696fcd30a1e34b0158bfe9b101dcbdd48d6c6cedb0c05ba7e485e662f643140",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "HERO_EVIDENCE",
+      "label": "21 | EVIDENCE STORAGE",
+      "group": "assets",
+      "inherited": null,
+      "position": [
+        -4.5,
+        13,
+        1.65
+      ],
+      "target": [
+        -5.6,
+        15.25,
+        0.9
+      ],
+      "lens": 26,
+      "camera_matrix_world": [
+        [
+          0.8983843326568604,
+          -0.12599816918373108,
+          0.4207494258880615,
+          -4.5
+        ],
+        [
+          0.4392102062702179,
+          0.2577233612537384,
+          -0.8606236577033997,
+          13.0
+        ],
+        [
+          4.1028332731229966e-08,
+          0.9579682350158691,
+          0.28687432408332825,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 26.0,
+      "projection": "PERSP",
+      "image_sha256": "a81422df242f7b541e6a9315098ac46efb81278d506bf2017450d3f026b149af",
+      "temporary_hidden_geometry": []
+    }
+  ],
+  "requested_view_count": 2
+}

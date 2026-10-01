@@ -1,0 +1,87 @@
+{
+  "review": "full-c01-materials",
+  "discipline": "independent materials / anti-plastic",
+  "source": {
+    "checkpoint": "f02",
+    "sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+    "identity_supplied_by_primary_author": true,
+    "source_code_inspected": false
+  },
+  "verdict": "FAIL",
+  "threshold": {"per_category": "strictly greater than 93", "maximum": 100},
+  "scores": {
+    "4_tactile_material_identity_and_uv_texture_discipline": {"score": 81, "passes": false},
+    "6_approved_spawn_colour_coherence_and_restrained_accents": {"score": 94, "passes": true}
+  },
+  "other_categories_scored": false,
+  "dominant_material_or_palette_visual_veto_observed": false,
+  "critical_defects_in_assigned_visual_scope": [],
+  "material_validation_blockers": [
+    {
+      "id": "M01",
+      "severity": "high",
+      "finding": "The trolley cover checker fragments into angular triangles with abrupt orientation and scale changes; orderly cabinet front mapping does not approve the cover.",
+      "views": ["full-cycle-01-uv-valid/HERO_EVIDENCE.png"]
+    }
+  ],
+  "highest_impact_repairs": [
+    {
+      "priority": 1,
+      "id": "M01",
+      "repair": "Establish continuous textile coordinates on the drape, with intentional seams and comparable checker scale over top and hanging sides; recheck the lit cover in both evidence and trolley views.",
+      "views": ["full-cycle-01-uv-valid/HERO_EVIDENCE.png", "HERO_TROLLEY"]
+    },
+    {
+      "priority": 2,
+      "id": "M02",
+      "severity": "high",
+      "finding": "Trolley cover reads as stiff regular humps and a planar skirt; chair pads remain too close in smooth response to rigid office surfaces.",
+      "repair": "Use broad gravity-driven drape, hem/thickness and compression at straps; clarify soft upholstery or vinyl against molded plastic and painted supports, without gameplay-scale weave noise.",
+      "views": ["C08_CONCEALED_SUPPORT_H1", "HERO_TROLLEY", "full-cycle-01-neutral-valid/HERO_TROLLEY.png", "full-cycle-01-neutral/C07_OFFICE_INTERIOR.png"]
+    },
+    {
+      "priority": 3,
+      "id": "M03",
+      "severity": "high",
+      "finding": "Floor and yellow route markings remain nearly pristine; painted working equipment shows little visible causal contact wear.",
+      "repair": "Author restrained wheel/contact bands, threshold scuffs, locally interrupted paint and touch wear at working handles, locks and cargo edges; avoid blanket dirt and uniform edge wear.",
+      "views": ["C01_ENTRY", "C04_SCANNER_APPROACH", "PLAYER_REVERSE", "PLAYER_PINCH", "HERO_CARGO", "HERO_EVIDENCE"]
+    },
+    {
+      "priority": 4,
+      "id": "M04",
+      "severity": "medium",
+      "finding": "Several broad painted, mineral, plastic and upholstered surfaces depend too heavily on colour and silhouette for identity at ordinary camera distance.",
+      "repair": "Strengthen controlled material-specific response, low-frequency variation and sparse purposeful repairs; retain useful bare-metal glints and the successful navy/cream/rust/yellow hierarchy.",
+      "views": ["full-cycle-01-neutral/C07_OFFICE_INTERIOR.png", "full-cycle-01-neutral-valid/HERO_TROLLEY.png", "HERO_UTILITIES", "DETAIL_CHECKIN", "C05_CONVEYOR_LEAD_TUNNEL"]
+    }
+  ],
+  "strengths": [
+    "Spawn-related navy, cream, rust-orange and restrained hazard yellow remain coherent; small status and screen accents stay functional.",
+    "Bare counter hardware, silver trim and trolley pole have tighter highlights than broad painted bodies.",
+    "Paper reads matte and glass has a recognisable hazy reflective response.",
+    "Plaster-like close-range relief is visible, with no blanket photographic grunge or scratch noise."
+  ],
+  "evidence": {
+    "beauty_directory": "production/renders/full-cycle-01",
+    "beauty_frames_opened_individually": [
+      "C01_ENTRY", "C02_HERO_DOCK", "C03_CHECKIN_COUNTER", "C04_SCANNER_APPROACH", "C05_CONVEYOR_LEAD_TUNNEL", "C06_CART_GATE_G1", "C07_OFFICE_INTERIOR", "C08_CONCEALED_SUPPORT_H1", "C09_ARRIVAL_GATE_P2", "C10_ROOF_SERVICES", "CORNER_NE", "CORNER_NW", "CORNER_SE", "CORNER_SW", "WALL_EAST", "WALL_NORTH", "WALL_SOUTH", "WALL_WEST", "HERO_CARGO", "HERO_EVIDENCE", "HERO_SCANNER", "HERO_TROLLEY", "HERO_UTILITIES", "DETAIL_CHECKIN", "PLAYER_REVERSE", "PLAYER_PINCH"
+    ],
+    "spawn_reference_directory": "production/renders/spawn-reference",
+    "spawn_frames_opened": ["VALIDATE_Material_A", "VALIDATE_LockerDoor", "VALIDATE_Spawn", "BRIEFING_INDIRECT"],
+    "usable_diagnostic_frames_opened": [
+      "full-cycle-01-uv/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "full-cycle-01-uv-valid/HERO_EVIDENCE.png",
+      "full-cycle-01-neutral/C07_OFFICE_INTERIOR.png",
+      "full-cycle-01-neutral-valid/HERO_TROLLEY.png"
+    ],
+    "failed_diagnostic_frames_opened": [
+      "full-cycle-01-uv/HERO_EVIDENCE.png",
+      "full-cycle-01-neutral/HERO_TROLLEY.png"
+    ],
+    "failed_diagnostic_reason": "Near-black exposure prevented useful material/checker inspection; confirmed diagnostic-only replacement frames were subsequently opened.",
+    "complete_unseen_uv_coverage_claimed": false
+  },
+  "source_edits": false,
+  "outputs": ["production/critics/full-c01-materials.md", "production/critics/full-c01-materials.json"]
+}
