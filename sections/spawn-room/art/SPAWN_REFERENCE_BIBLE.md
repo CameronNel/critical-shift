@@ -1,5 +1,8 @@
 # Spawn Room Visual Reference Bible
 
+> [!NOTE]
+> **Owner decision (2026-10-01): the radiation (Geiger) checkpoint is not built in the spawn room.** The radiation readout is a player-HUD element. Every radiation-checkpoint requirement here (the plate `07_radiation_checkpoint.svg`, its construction notes and its presence in the Hall Forward camera) is superseded for the room geometry. See `production/final-pass/REPORT.md`.
+
 **Status:** mandatory section-specific visual authority  
 **Applies to:** hallway, briefing room, locker/suiting room, integrity chamber, radiation checkpoint, doors, furniture, props, materials, lighting, signage and camera review  
 **Global authority:** [../../../design/ART_DIRECTION.md](../../../design/ART_DIRECTION.md)
@@ -235,6 +238,8 @@ Colour alone is insufficient.
 ---
 
 # 8. Radiation checkpoint reference
+
+> **Superseded by owner decision (2026-10-01):** not built in the room; the radiation readout is part of the player HUD. Kept for reference if the checkpoint is ever reinstated.
 
 Use:
 - [07_radiation_checkpoint.svg](reference/07_radiation_checkpoint.svg)
@@ -513,7 +518,7 @@ Do not approve a prop only from orthographic/editor views.
 At minimum maintain:
 
 - **A — Entry Read:** spawn → left/right/forward composition.
-- **B — Hall Forward:** operations exit and radiation checkpoint.
+- **B — Hall Forward:** operations exit (the radiation checkpoint is not built: owner decision 2026-10-01, player HUD).
 - **C — Locker Entry:** four suit bays + chamber hierarchy.
 - **D — Locker Reverse:** circulation, contact, rear surfaces.
 - **E — Briefing Entry:** screen and chair read from doorway.

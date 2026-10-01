@@ -20,7 +20,7 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 | Triangles | 351,478 | 351,478 |
 | Draw-call estimate (objects x material slots, before any engine batching) | 1,918 | 762 |
 | Materials in use | 204 | 31 (30 visible plus one untouched copy for animated labels; the 24-material spawn-room cap comes from the per-room budget in PR #59, branch `claude/eloquent-rubin-5y6lnu`, `design/MATERIAL_BUDGETS.md`, where the owner's approval of 2026-10-01 is recorded; that document is not on `main` yet) |
-| Lights | 14 | 18 (14 original unchanged, plus 4 baked locker strip lights; roles tagged) |
+| Lights | 18 | 18 (the optimisation changes none, it only tags roles; the 18 are the 14 original lights plus the 4 baked locker strip lights added by the hero pass) |
 
 Numbers reflect the module after the hero-suit pass (`../../blender/add_hero_suits.py`: the crew worker's own hazmat suit hung in each of the four PPE lockers).
 
