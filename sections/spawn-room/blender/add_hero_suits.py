@@ -6,7 +6,8 @@ Run headlessly (Blender 5.2):
     blender -b <input.blend> -P add_hero_suits.py -- <output.blend>
 
 The suit is not copied into the module. `hero_suit.blend` (built by build_hero_suit.py with the same code the player
-character wears) holds the collection `HERO_SUIT`; each locker PPE_01..PPE_04 gets a collection instance of it
+character wears, then reduced to the locker LOD by lod_hero_suit.py; the full-detail wearable is
+crew_hazmat_reference.blend) holds the collection `HERO_SUIT`; each locker PPE_01..PPE_04 gets a collection instance of it
 (`PPE_0n_suit_model`), so editing and re-saving hero_suit.blend changes all four placed suits (reload the library in the
 module). The suit hangs empty (no wearer), faces the open front of the locker with its pack against the back panel, is held
 by a strap from the rescue handle to a hook over the hanger rail, and stands on a low boot dock. A dark collar around the
