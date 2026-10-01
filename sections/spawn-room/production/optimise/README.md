@@ -16,20 +16,22 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 
 | | module.blend | module_optimised.blend |
 |---|---:|---:|
-| Render-visible geometry objects | 1,572 | 753 |
-| Triangles | 322,722 | 322,722 |
-| Draw-call estimate (objects x material slots, before any engine batching) | 1,878 | 756 |
-| Materials in use | 189 | 30 (29 visible plus one untouched copy for animated labels; the 24-material spawn-room cap comes from the per-room budget in PR #59, branch `claude/eloquent-rubin-5y6lnu`, `design/MATERIAL_BUDGETS.md`, where the owner's approval of 2026-10-01 is recorded; that document is not on `main` yet) |
+| Render-visible geometry objects | 1,554 | 744 |
+| Triangles | 327,590 | 327,590 |
+| Draw-call estimate (objects x material slots, before any engine batching) | 1,834 | 747 |
+| Materials in use | 195 | 32 (31 visible plus one untouched copy for animated labels; the 24-material spawn-room cap comes from the per-room budget in PR #59, branch `claude/eloquent-rubin-5y6lnu`, `design/MATERIAL_BUDGETS.md`, where the owner's approval of 2026-10-01 is recorded; that document is not on `main` yet) |
 | Lights | 14 | 14 (unchanged; roles tagged) |
+
+Numbers reflect the module after the hero-suit pass (`../../blender/add_hero_suits.py`, adds four suits: +4,868 triangles and two one-off materials, SUIT_fabric and SUIT_visor).
 
 Every number below (objects, joins, conversions, draw calls, materials) comes from one run, recorded in
 `optimise_report.json` next to this file.
 
 ## What it does (each step is meant to leave the look unchanged)
 
-1. 351 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept). Curve/text objects that are animated, driven, in NLA, constrained or have an animated data block or shape keys
+1. 315 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept). Curve/text objects that are animated, driven, in NLA, constrained or have an animated data block or shape keys
    (for example the POD_state_* labels) are NOT converted, because a mesh copy would freeze them;
-   modifiers are baked on 767 objects (the parts that get merged or touched).
+   modifiers are baked on 752 objects (the parts that get merged or touched).
 2. Procedural patterns that depend on the object (Generated / Object coordinates, 40 materials) are frozen into per-vertex
    attributes `CS_GEN` / `CS_OBJ`, on every mesh including hidden ones, and those materials read the attributes, so joining
    parts cannot change a pattern. Curve/text objects that stay curves cannot carry attributes, so they keep an
@@ -42,7 +44,7 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
    same, so the shading is the same (the structural key includes the colour-ramp interpolation and colour mode, so ramps that differ never share a family): a 2-stop LINEAR/EASE ramp becomes a clamped Map Range (smoothstep for EASE) plus a Mix.
    Read-back of every attribute is checked at build time. 13 families replace 40 materials; members are listed in text block
    `OPT_FAMILIES`. Materials with different graphs are left alone.
-4. Parts of the same asset that share material and object flags are joined (985 objects into 166); shell parts outside any
+4. Parts of the same asset that share material and object flags are joined (970 objects into 160); shell parts outside any
    asset are joined per collection, material and 5 m cell. Left exactly as they were: every object that is animated, has
    children, carries its own properties, is in a support-checked collection, is named by any `cs_support_target`,
    looks interactive (door, hinge, hatch, lever, button, handle, switch...) or belongs to an asset with
@@ -91,5 +93,5 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
   amber signal and the three floors), so merging them would change the look and needs owner approval. Texture memory (12 x 2K images, about 50 MP, including 4 displacement maps)
   is not reduced.
 - Door, hatch and interaction assets, support-contact targets and anything with its own properties are intentionally
-  left unmerged, which is why the count is 756 and not lower.
+  left unmerged, which is why the count is 747 and not lower.
 - The merged meshes are an export-oriented derivative: authoring edits belong in `module.blend`.

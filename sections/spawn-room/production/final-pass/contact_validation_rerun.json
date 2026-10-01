@@ -7,7 +7,7 @@
     "CS_FLOOR_DRESSING",
     "CS_CEILING_DRESSING"
   ],
-  "objects_checked": 224,
+  "objects_checked": 208,
   "failures": [],
   "objects": [
     {
@@ -89,116 +89,6 @@
       ]
     },
     {
-      "object": "BELONG_01_fold_0",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_01_fold_0_contact_00",
-          "point_world": [
-            3.25,
-            7.014,
-            0.631
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_01_fold_1",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_01_fold_1_contact_00",
-          "point_world": [
-            3.25,
-            7.014,
-            0.687
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.001,
-          "normal_alignment": 0.992611
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_01_hanger_0",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_01_hanger_0_contact_00",
-          "point_world": [
-            2.77,
-            7.148,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991448
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_01_hanger_1",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_01_hanger_1_contact_00",
-          "point_world": [
-            3.02,
-            7.148,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991448
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_01_hanger_2",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_01_hanger_2_contact_00",
-          "point_world": [
-            3.24,
-            7.148,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991448
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
       "object": "BELONG_01_thermos",
       "status": "PASS",
       "issues": [],
@@ -213,28 +103,6 @@
           "status": "PASS",
           "relation": "gap",
           "distance_m": 0.0,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_02_bag",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_02_bag_contact_00",
-          "point_world": [
-            4.36,
-            6.998,
-            0.635
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.004,
           "normal_alignment": 1.0
         }
       ],
@@ -309,94 +177,6 @@
       ]
     },
     {
-      "object": "BELONG_02_fold_0",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_02_fold_0_contact_00",
-          "point_world": [
-            4.75,
-            7.014,
-            0.631
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_02_hanger_0",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_02_hanger_0_contact_00",
-          "point_world": [
-            4.27,
-            7.148,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991448
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_02_hanger_1",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_02_hanger_1_contact_00",
-          "point_world": [
-            4.52,
-            7.148,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991448
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_02_hanger_2",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_02_hanger_2_contact_00",
-          "point_world": [
-            4.74,
-            7.148,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991448
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
       "object": "BELONG_03_door_L_sheet_rubbed_paint",
       "status": "PASS",
       "issues": [],
@@ -441,94 +221,6 @@
       ]
     },
     {
-      "object": "BELONG_03_fold_0",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_03_fold_0_contact_00",
-          "point_world": [
-            2.75,
-            0.986,
-            0.631
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_03_hanger_0",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_03_hanger_0_contact_00",
-          "point_world": [
-            3.23,
-            0.852,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991446
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_03_hanger_1",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_03_hanger_1_contact_00",
-          "point_world": [
-            2.98,
-            0.852,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991446
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_03_hanger_2",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_03_hanger_2_contact_00",
-          "point_world": [
-            2.76,
-            0.852,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991446
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
       "object": "BELONG_03_thermos",
       "status": "PASS",
       "issues": [],
@@ -543,28 +235,6 @@
           "status": "PASS",
           "relation": "gap",
           "distance_m": 0.0,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_04_bag",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_04_bag_contact_00",
-          "point_world": [
-            4.64,
-            1.002,
-            0.635
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.004,
           "normal_alignment": 1.0
         }
       ],
@@ -614,116 +284,6 @@
       ],
       "candidate_collections": [
         "CS_WALL_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_04_fold_0",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_04_fold_0_contact_00",
-          "point_world": [
-            4.25,
-            0.986,
-            0.631
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_04_fold_1",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_04_fold_1_contact_00",
-          "point_world": [
-            4.25,
-            0.986,
-            0.687
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.001,
-          "normal_alignment": 0.99261
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_04_hanger_0",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_04_hanger_0_contact_00",
-          "point_world": [
-            4.73,
-            0.852,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991446
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_04_hanger_1",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_04_hanger_1_contact_00",
-          "point_world": [
-            4.48,
-            0.852,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991446
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "BELONG_04_hanger_2",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "anchor:BELONG_04_hanger_2_contact_00",
-          "point_world": [
-            4.26,
-            0.852,
-            2.0185
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0045,
-          "normal_alignment": 0.991446
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
       ]
     },
     {
@@ -5309,6 +4869,74 @@
       ]
     },
     {
+      "object": "PPE_01_helmet",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_helmet_contact_00",
+          "point_world": [
+            2.585,
+            6.998,
+            1.0223
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_01_helmet_contact_01",
+          "point_world": [
+            2.685,
+            6.998,
+            1.0223
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_01_helmet_cradle",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_helmet_cradle_contact_00",
+          "point_world": [
+            2.4953,
+            6.898,
+            0.946
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_01_helmet_cradle_contact_01",
+          "point_world": [
+            2.4953,
+            7.098,
+            0.946
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
       "object": "PPE_01_spare_cartridge",
       "status": "PASS",
       "issues": [],
@@ -5331,43 +4959,33 @@
       ]
     },
     {
-      "object": "PPE_01_work_boot",
+      "object": "PPE_01_suit",
       "status": "PASS",
       "issues": [],
       "samples": [
         {
-          "sample": "anchor:PPE_01_work_boot_contact_00",
+          "sample": "anchor:PPE_01_suit_contact_00",
           "point_world": [
-            2.868875,
-            6.853025,
-            0.1035
+            3.075,
+            7.148,
+            2.0149
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "PPE_01_work_boot.001",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
+          "distance_m": 0.0009,
+          "normal_alignment": 0.991448
+        },
         {
-          "sample": "anchor:PPE_01_work_boot.001_contact_00",
+          "sample": "anchor:PPE_01_suit_contact_01",
           "point_world": [
-            3.130625,
-            6.853008,
-            0.1035
+            3.225,
+            7.148,
+            2.0149
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.0009,
+          "normal_alignment": 0.991448
         }
       ],
       "candidate_collections": [
@@ -5465,6 +5083,74 @@
       ]
     },
     {
+      "object": "PPE_02_helmet",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_helmet_contact_00",
+          "point_world": [
+            4.085,
+            6.998,
+            1.0223
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_02_helmet_contact_01",
+          "point_world": [
+            4.185,
+            6.998,
+            1.0223
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_02_helmet_cradle",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_helmet_cradle_contact_00",
+          "point_world": [
+            3.9953,
+            6.898,
+            0.946
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_02_helmet_cradle_contact_01",
+          "point_world": [
+            3.9953,
+            7.098,
+            0.946
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
       "object": "PPE_02_inspection_card",
       "status": "PASS",
       "issues": [],
@@ -5487,43 +5173,33 @@
       ]
     },
     {
-      "object": "PPE_02_work_boot",
+      "object": "PPE_02_suit",
       "status": "PASS",
       "issues": [],
       "samples": [
         {
-          "sample": "anchor:PPE_02_work_boot_contact_00",
+          "sample": "anchor:PPE_02_suit_contact_00",
           "point_world": [
-            4.369125,
-            6.853015,
-            0.1035
+            4.575,
+            7.148,
+            2.0149
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "PPE_02_work_boot.001",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
+          "distance_m": 0.0009,
+          "normal_alignment": 0.991448
+        },
         {
-          "sample": "anchor:PPE_02_work_boot.001_contact_00",
+          "sample": "anchor:PPE_02_suit_contact_01",
           "point_world": [
-            4.630875,
-            6.853015,
-            0.1035
+            4.725,
+            7.148,
+            2.0149
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.0009,
+          "normal_alignment": 0.991448
         }
       ],
       "candidate_collections": [
@@ -5621,6 +5297,74 @@
       ]
     },
     {
+      "object": "PPE_03_helmet",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_helmet_contact_00",
+          "point_world": [
+            3.415,
+            1.002,
+            1.0223
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_03_helmet_contact_01",
+          "point_world": [
+            3.315,
+            1.002,
+            1.0223
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_03_helmet_cradle",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_helmet_cradle_contact_00",
+          "point_world": [
+            3.5047,
+            1.102,
+            0.946
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_03_helmet_cradle_contact_01",
+          "point_world": [
+            3.5047,
+            0.902,
+            0.946
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
       "object": "PPE_03_spare_cartridge",
       "status": "PASS",
       "issues": [],
@@ -5643,43 +5387,33 @@
       ]
     },
     {
-      "object": "PPE_03_work_boot",
+      "object": "PPE_03_suit",
       "status": "PASS",
       "issues": [],
       "samples": [
         {
-          "sample": "anchor:PPE_03_work_boot_contact_00",
+          "sample": "anchor:PPE_03_suit_contact_00",
           "point_world": [
-            3.130625,
-            1.146992,
-            0.1035
+            2.925,
+            0.852,
+            2.0149
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "PPE_03_work_boot.001",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
+          "distance_m": 0.0009,
+          "normal_alignment": 0.991446
+        },
         {
-          "sample": "anchor:PPE_03_work_boot.001_contact_00",
+          "sample": "anchor:PPE_03_suit_contact_01",
           "point_world": [
-            2.868875,
-            1.146975,
-            0.1035
+            2.775,
+            0.852,
+            2.0149
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.0009,
+          "normal_alignment": 0.991446
         }
       ],
       "candidate_collections": [
@@ -5777,6 +5511,74 @@
       ]
     },
     {
+      "object": "PPE_04_helmet",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_helmet_contact_00",
+          "point_world": [
+            4.914999,
+            1.002,
+            1.0223
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_04_helmet_contact_01",
+          "point_world": [
+            4.815,
+            1.002,
+            1.0223
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04_helmet_cradle",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_helmet_cradle_contact_00",
+          "point_world": [
+            5.0047,
+            1.102,
+            0.946
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_04_helmet_cradle_contact_01",
+          "point_world": [
+            5.0047,
+            0.902,
+            0.946
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0003,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
       "object": "PPE_04_inspection_card",
       "status": "PASS",
       "issues": [],
@@ -5799,43 +5601,33 @@
       ]
     },
     {
-      "object": "PPE_04_work_boot",
+      "object": "PPE_04_suit",
       "status": "PASS",
       "issues": [],
       "samples": [
         {
-          "sample": "anchor:PPE_04_work_boot_contact_00",
+          "sample": "anchor:PPE_04_suit_contact_00",
           "point_world": [
-            4.630375,
-            1.146997,
-            0.1035
+            4.425,
+            0.852,
+            2.0149
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_FLOOR_DRESSING"
-      ]
-    },
-    {
-      "object": "PPE_04_work_boot.001",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
+          "distance_m": 0.0009,
+          "normal_alignment": 0.991446
+        },
         {
-          "sample": "anchor:PPE_04_work_boot.001_contact_00",
+          "sample": "anchor:PPE_04_suit_contact_01",
           "point_world": [
-            4.368626,
-            1.146962,
-            0.1035
+            4.275,
+            0.852,
+            2.0149
           ],
           "status": "PASS",
           "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
+          "distance_m": 0.0009,
+          "normal_alignment": 0.991446
         }
       ],
       "candidate_collections": [
