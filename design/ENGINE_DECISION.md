@@ -50,6 +50,7 @@ Godot alternative.
 - Engine: Unity 6000.4.3f1
 - Language: C#
 - Renderer: Built-in Render Pipeline, low graphics defaults, no ray tracing
+- Performance target (owner, 2026-10-01): **50 fps at 1080p on the Low quality preset, RTX 3050** (replaces the earlier 60 fps / medium target). A target, not a result: nothing has been measured and no Unity project exists; declare hardware, settings and workload before reporting any FPS (see VALIDATION_PLAN).
 - Physics: Unity 3D physics
 - Networking: not installed; next gate is host-authoritative selection/spike
 - Steam: not selected
