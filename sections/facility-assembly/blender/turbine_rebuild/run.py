@@ -177,6 +177,7 @@ CAMS = {   # all positions are in open aisle space
     'CAM_J_north_back':    ((1.0, 22.3, 1.7), (5, 2, 2.4)),
     'CAM_K_door_d01':      ((0.2, 7.6, 1.65), (-2.4, .3, 1.7)),
     'CAM_M_turbine_close': ((6.7, 8.5, 2.95), (4.6, 11.6, 2.2)),
+    'CAM_N_floor':         ((.2, 3.6, .95), (1.5, 13.5, .08)),
     'CAM_L_desk':          ((7.7, 19.8, 1.6), (8.4, 23.5, 1.0)),
 }
 for name, (loc, tgt) in CAMS.items():

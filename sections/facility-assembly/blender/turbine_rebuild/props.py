@@ -46,11 +46,6 @@ def vent(b, u, z, w=.9, h=.5):
 
 def build(b):
     b.use('PROPS'); R = b.rng
-    # --- wear with a story: oil trail from the leak, scuffs at door and steps, one repaired crack ---
-    for (x, y, sx, sy, sw, rz) in ((-.6, 8.9, 1.3, .9, 'terra_worn', .3), (.3, 2.2, 1.0, .6, 'terra_worn', .2), (1.6, 21.6, .9, .6, 'terra_worn', 1.2),
-                                   (6.7, 1.7, .8, .5, 'terra_worn', 0), (8.1, 3.5, .6, .4, 'terra_worn', .5)):
-        puddle(b, x, y, sx / 2, sy / 2, sw, .0085, rz)
-    for k in range(3): b.box((-.35 + .22 * k, 8.8 + .15 * k, .016), (.1, .08, .004), 'tile_crack', (0, 0, R.uniform(0, 3)))
     # --- signage hung over the bay and on the foundation ---
     b.box((-1.2, 13.7, 4.25), (2.6, .05, .5), 'trim_black', bev=.014)
     for sgn, rz_ in ((-1, 0), (1, math.pi)): b.text('MAINTENANCE BAY', (-.95, 13.7 + (.032 if sgn == 1 else -.032), 4.25), .112, 'chalk', rz_, math.pi / 2)
@@ -128,9 +123,6 @@ def build(b):
     # --- broken: a leaking pipe stub, a missing ceiling panel with dangling cable, a lamp off its hanger ---
     b.cyl((-.6, 9.0, 4.95), .12, 2.1, 'lagging', 'Z', 24); b.cyl((-.6, 9.0, 3.9), .18, .06, 'steel_mid', 'Z', 24, bev=.006)
     b.sweep([(-.6, 9.0, 3.88), (-.45, 9.1, 3.5), (-.35, 9.15, 3.1)], .08, 'lagging', 20, .2); b.box((-.33, 9.16, 3.05), (.3, .08, .26), 'primer', (.5, 0, .4), bev=.01)
-    puddle(b, -.4, 9.1, .55, .38, 'wet', .0105, .3)
-    b.box((-1.05, 8.55, .006), (.6, .6, .012), 'steel_dark', bev=.01)                                    # floor drain
-    for k in range(7): b.box((-1.05, 8.55 - .24 + k * .08, .014), (.5, .03, .012), 'backing')
     b.box((2.0, 20.5, 5.0), (1.3, .22, .07), 'steel_dark', (.9, 0, 0), bev=.012); b.box((2.0, 20.5, 4.955), (1.15, .15, .02), 'lamp', (.9, 0, 0)); b.rod((1.4, 20.5, 5.35), (1.4, 20.5, 6.06), .008, 'steel_dark', 8)
     b.box((6.5, 6.5, 7.17), (.94, 1.0, .004), 'primer')                                       # panel missing, bare deck showing
     b.sweep([(6.5, 6.5, 7.15), (6.4, 6.6, 6.5), (6.55, 6.9, 5.9), (6.45, 7.1, 5.5)], .014, 'rubber', 8, .25)
@@ -143,17 +135,6 @@ def build(b):
     with b.push(o, rz): vent(b, fu(3.0), 4.0, 1.1, .55)
     (o, rz), fu = FR['N']
     with b.push(o, rz): vent(b, fu(6.0), 4.2, 1.1, .55)
-    # --- floor: wet patches that follow the machinery, hairline cracks, a grated cable trench ---
-    for (x, y, rx, ry, rot) in ((1.5, 5.6, .55, .3, .1), (1.7, 9.2, .7, .33, -.1), (1.6, 14.4, .6, .3, .05), (1.5, 18.2, .75, .32, 0.0), (7.7, 7.6, .6, .3, .2), (7.8, 15.4, .7, .3, -.15), (0.2, 21.0, .6, .35, .3)):
-        puddle(b, x, y, rx, ry, 'wet', .0092, rot)
-    for k in range(9):
-        x, y = R.uniform(-3.4, 9.2), R.uniform(.8, 23.2)
-        if 1.7 < x < 7.5 and 2.4 < y < 23.2: continue
-        b.box((x, y, .0075), (R.uniform(.7, 1.4), .012, .003), 'backing', (0, 0, R.uniform(0, 3.1)))
-    tx, ty0, ty1 = .95, 3.7, 8.3
-    b.box((tx, (ty0 + ty1) / 2, .006), (.42, ty1 - ty0, .006), 'trim_black', bev=.003); b.box((tx, (ty0 + ty1) / 2, .0075), (.34, ty1 - ty0 - .08, .004), 'backing')
-    for k in range(int((ty1 - ty0) / .07)): b.box((tx, ty0 + .06 + k * .07, .014), (.34, .022, .014), 'steel_dark', bev=.003)
-
     # --- work lamp on a stand at the foundation walkway: lights the open rotor (its light lives in run.py) ---
     wx, wy = 6.55, 7.3
     b.cyl((wx, wy, 1.012), .22, .024, 'steel_dark', 'Z', 24, bev=.006)

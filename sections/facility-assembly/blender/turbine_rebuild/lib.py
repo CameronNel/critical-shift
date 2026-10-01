@@ -63,6 +63,11 @@ PALETTE = {
     'paper':        ('E7E2D4', 1.0, .04, .025, 0),
     'lagging': ('5B6672', 1.10, .10, .040, 0),
     'lagging_dark': ('4F5965', 1.10, .14, .040, 0),
+    'crack':        ('050607', 1.0, .0, .01, 0),
+    'damp':         ('191D22', 1.0, .0, .02, 0),
+    'floor_grime':  ('0F1114', 1.0, .0, .03, 0),
+    'patch':        ('272D34', 1.05, .06, .04, 0),
+    'sealant':      ('0B0C0E', 1.0, .0, .02, 0),
     'gold_paint':   ('A98439', 1.12, .10, .035, 0),
     'wet':          ('23272D', 1.0, .0, .02, 0),
     'brass_blade':  ('94722F', 1.15, .10, .03, 0),
@@ -83,7 +88,9 @@ PALETTE = {
     'led_green':    ('7DFF8A', 1.0, 0., .01, 1),
 }
 # (roughness, metallic) overrides, default (.62, 0)
-PBR = {'gold_paint': (.7, 0), 'wet': (.035, 0), 'brass_blade': (.38, .92),
+PBR = {'crack': (.95, 0),
+       'damp': (.11, 0), 'floor_grime': (.78, 0), 'patch': (.55, 0), 'sealant': (.45, 0),
+       'gold_paint': (.7, 0), 'wet': (.035, 0), 'brass_blade': (.38, .92),
        'terra_a': (.2, 0), 'terra_b': (.2, 0), 'terra_c': (.2, 0), 'terra_worn': (.32, 0), 'tile_border': (.2, 0), 'tile_border_b': (.2, 0), 'oil': (.04, 0), 'tile_oil': (.06, 0),
        'casing': (.42, .6), 'casing_dark': (.42, .6), 'hood_orange': (.5, .05), 'wall_slate': (.9, 0), 'wall_slate_lt': (.9, 0),
        'steel_dark': (.42, .65), 'steel_mid': (.36, .75), 'steel_light': (.34, .78), 'brass': (.28, .95), 'orange': (.3, .85), 'orange_dark': (.35, .8), 'orange_worn': (.4, .75), 'yellow': (.3, .85), 'yellow_worn': (.4, .75), 'steel_worn': (.55, .55), 'brass': (.32, .9),

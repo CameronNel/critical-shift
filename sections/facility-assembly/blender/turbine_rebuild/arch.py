@@ -166,18 +166,6 @@ def floor(b):
     cx, cy, w, d = (HOLE[0] + HOLE[1]) / 2, (HOLE[2] + HOLE[3]) / 2, HOLE[1] - HOLE[0], HOLE[3] - HOLE[2]
     b.box((cx, cy, -2.5), (w, d, .1), 'black') if False else b.box((cx, cy, -2.5), (w, d, .1), 'backing')
     for dx, dy, sx, sy in ((0, d / 2, w, .05), (0, -d / 2, w, .05), (w / 2, 0, .05, d), (-w / 2, 0, .05, d)): b.box((cx + dx, cy + dy, -1.3), (sx, sy, 2.4), 'concrete_dark')
-    r = b.rng                                                                 # polished concrete in 1.75 m slabs with dark joints
-    nx, ny = 8, 14; sx_, sy_ = 14 / nx, 24 / ny
-    for ix in range(nx):
-        for iy in range(ny):
-            x, y = X0 + (ix + .5) * sx_, Y0 + (iy + .5) * sy_
-            if 1.9 < x < 7.3 and 2.5 < y < 23.1: continue
-            traffic = (abs(x) < 2.2 and (y < 3.2 or y > 20.8))
-            roll = r.random()
-            sw = 'terra_worn' if roll < (.22 if traffic else .05) else 'terra_b' if roll < .35 else 'terra_c' if roll < .6 else 'terra_a'
-            b.box((x, y, -.015), (sx_ - .018, sy_ - .018, .03), sw, nb=True, bev=.004)
-    for xl in (1.55, 7.65): b.flat((xl, 12.9), .1, 21.0, 'gold_paint', 0, z=.0075)           # gold paint around the foundation
-    for yl in (2.2, 23.4): b.flat((4.6, yl), 6.2, .1, 'gold_paint', 0, z=.0075)
 
 def build(b):
     b.use('ARCH'); floor(b)
@@ -195,6 +183,8 @@ def build(b):
     for y in BAYS: column(b, -4, y, -1); column(b, 10, y, 1); truss(b, y)
     roof(b); crane(b)
     b.box((8.4, .03, 4.9), (.7, .08, .7), 'steel_dark', bev=.015); b.box((9.5, .03, .45), (.45, .08, .45), 'steel_dark', bev=.012)
+    import floor as floor_mod; floor_mod.build(b)                                     # slabs, drainage, flow and imperfections
+    b.use('ARCH')
     for y in LAMP_Y:                                                                  # hooded pendant lamps
         for x in LAMP_X:
             b.cyl((x, y, 5.45), .38, .28, 'trim_black', 'Z', 36, r2=.09, bev=.01)
