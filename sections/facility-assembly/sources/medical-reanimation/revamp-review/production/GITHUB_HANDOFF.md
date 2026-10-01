@@ -23,6 +23,7 @@ The accepted R2 native SHA-256 remains `39007192eef36f87c5299933e3a2a4f346279187
 - Earlier useful renders, original/spawn references, concepts, diagnostics and failed reviews remain under `revamp-review/`.
 - Final acceptance: `revamp-review/production/acceptance.json` and `RUBRIC.md` (91.7/100, every category and camera gate passed, zero critical findings).
 - Source/dependency checks: `objective-verification.json`, `cold-verification.json`, `cold-render-comparison.json` and `portable-delivery-verification.json` beside the acceptance record.
+- Fresh GitHub checkout: `github-checkout-verification.json` records unchanged native bytes for all 519 scene/image assets, 25 resolved libraries, 124 valid file images and 1,366 editable objects. The existing portable verifier passed without saving the source after local Git LFS initialisation.
 
 Verify a checkout without saving the scene:
 

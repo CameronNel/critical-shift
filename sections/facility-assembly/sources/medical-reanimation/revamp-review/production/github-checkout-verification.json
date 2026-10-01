@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "verified_utc": "2026-10-01T14:15:48.047225+00:00",
+  "status": "PASS",
+  "repository": "https://github.com/CameronNel/critical-shift",
+  "branch": "codex/reanimation-room-publish-20261001",
+  "checked_commit": "2558cd8b11a91160386b1db78a706613dad6d77a",
+  "pull_request": "https://github.com/CameronNel/critical-shift/pull/65",
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "native_assets_compared_to_authoring_bytes": 519,
+  "native_asset_byte_mismatches": [],
+  "blender": "5.2.2 LTS",
+  "editable_scene": "REANIMATION_EDIT_LOCAL",
+  "editable_objects": 1366,
+  "linked_libraries": [
+    {
+      "path": "sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/blender/facility_environment.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/condenser-bay/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/mine/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/spawn-room/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/cooling-plant/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/electrical-room/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/fuel-corridor/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/medical-reanimation/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/reactor-room/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/refinery/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/turbine-room/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/waste-storage/module.blend",
+      "inside_checkout": true,
+      "exists": true
+    }
+  ],
+  "valid_file_image_count": 124,
+  "source_saved": false,
+  "verifier": "verify_delivery.py (existing cold/portable verification)",
+  "errors": [],
+  "setup_note": "Initial clone lacked local Git LFS setup and retained pointer files. After git lfs install --local and the documented minimal pull, the unchanged scene passed cold-open validation.",
+  "scope": "GitHub retrieval and Blender source dependencies. No additional art approval, runtime performance validation or map promotion."
+}
