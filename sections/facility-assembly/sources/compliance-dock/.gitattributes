@@ -1,0 +1,5 @@
+# New additive review assets use ordinary Git because this environment's
+# GitHub LFS upload authentication is unavailable. Frozen inputs retain LFS.
+module_overhaul_R*.blend -filter -diff -merge -text
+revamp/**/*.png -filter -diff -merge -text
+revamp/**/*.jpg -filter -diff -merge -text
