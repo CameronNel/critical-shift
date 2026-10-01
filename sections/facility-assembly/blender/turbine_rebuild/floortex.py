@@ -76,7 +76,7 @@ def generate(path_prefix, layout):
     low, mid, fine = gnoise(rng, 90), gnoise(rng, 14), gnoise(rng, 2.0)
     # ---------- base concrete ----------
     base = np.array([.125, .145, .170], np.float32)
-    alb = base[None, None, :] * (1 + .10 * low[..., None] + .05 * mid[..., None] + .035 * fine[..., None])
+    alb = base[None, None, :] * 1.9 * (1 + .10 * low[..., None] + .05 * mid[..., None] + .035 * fine[..., None])
     # slab-to-slab tone
     xs = [-4.0] + list(layout['joints_x']) + [10.0]; ys = [0.0] + list(layout['joints_y']) + [24.0]
     for xa, xb in zip(xs, xs[1:]):

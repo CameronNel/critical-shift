@@ -78,6 +78,7 @@ def gauge_plate(b, x, y, z):
 
 def bypass(b, x, y, z):
     b.sweep([(x, y, z), (x + .45, y, z), (x + .45, y, z - .5)], .05, 'steel_mid', 16, .12); valve(b, (x + .45, y, z - .35), .08)
+    for dx in (.12, .32): b.cyl((x + dx, y, z), .068, .05, 'trim_black', 'X', 16, bev=.006); b.box((x + dx, y, z + .06), (.06, .05, .1), 'steel_dark', bev=.008)
 
 # ---------- turbine train (v4: tapered stepped casings, exposed bladed rotor, gold coupling) ----------
 def handrails(b, xa, xb, ya, yb, z1):
