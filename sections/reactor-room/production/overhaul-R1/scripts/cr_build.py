@@ -6,7 +6,7 @@ import crk,crt,cr_pal,cr_mats,cr_shell,cr_desk,cr_props1,cr_props2,cr_tv,cr_ligh
 A_=sys.argv[sys.argv.index("--")+1:]; SRC,DST=A_[0],A_[1]; STAGE=A_[2] if len(A_)>2 else "all"
 bpy.ops.wm.open_mainfile(filepath=SRC); sc=bpy.context.scene
 print("PAL",cr_pal.retune())
-crk.STATE=bpy.data.objects["REACTOR_STATE"]
+crk.STATE=bpy.data.objects["REACTOR_STATE"]; crk.setup_flicker()
 def ext(o):
     p=[o.matrix_world@Vector(v) for v in o.bound_box]
     return (min(q.x for q in p),max(q.x for q in p),min(q.y for q in p),max(q.y for q in p),min(q.z for q in p),max(q.z for q in p))

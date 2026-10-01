@@ -67,19 +67,18 @@ def make(R):
     M["LED_ON"]=emit_mat("CR led steady green",(0.12,1.0,0.16),3.0)
     M["LED_AON"]=emit_mat("CR led steady amber",(1.0,0.50,0.04),3.0)
     M["LED_RON"]=emit_mat("CR led steady red",(1.0,0.06,0.04),3.0)
-    M["TUBE"]=emit_mat("CR tungsten tube",(1.0,0.66,0.34),7.0,TUBE_EXPR,use_s=True)
-    M["TUBE_F"]=emit_mat("CR tungsten tube dying",(1.0,0.66,0.34),7.0,TUBE_EXPR_DYING,use_s=True)
+    M["TUBE"]=emit_mat("CR tungsten tube",(1.0,0.66,0.34),5.0,TUBE_EXPR,use_s=True)
+    M["TUBE_F"]=emit_mat("CR tungsten tube dying",(1.0,0.66,0.34),5.0,TUBE_EXPR_DYING,use_s=True)
     M["BEACON"]=emit_mat("CR emergency beacon",(1.0,0.10,0.04),9.0,BEACON_EXPR,base=(0.12,0.01,0.01),use_s=True)
     M["TUBE_OFF"]=pm("CR tube dead",(0.30,0.28,0.22),0.4,scale=2.0,bump=0.0)
     M["BULB"]=emit_mat("CR bulb",(1.0,0.66,0.32),9.0)
     M["LAMPFACE"]=emit_mat("CR panel light",(1.0,0.72,0.44),1.6)
     return M
 # troffers follow the reactor: steady tubes dim and stutter as stability falls; the dying tube is always unreliable and gets worse
-_F="max(0,sin(frame*2.7)*sin(frame*0.53)*sin(frame*0.19+1)-0.42)*3.0"
-TUBE_EXPR=f"7.0*(0.55+0.45*s)*max(0.04,1-0.9*(1-s)*{_F})"
-TUBE_EXPR_DYING=f"7.0*(0.55+0.45*s)*max(0.03,1-(0.85+0.15*(1-s))*{_F})"
-BEACON_EXPR="9.0*max(0,(0.5-s)*2)*(0.35+0.65*max(0,sin(frame*0.45)))"
-FLICKER="7.0*(1-0.85*max(0,sin(frame*2.7)*sin(frame*0.53)*sin(frame*0.19+1)-0.42)*3.0)"
+TUBE_EXPR="5.0*(0.5+0.3*s)*max(0.04,1-0.9*max(0.4,1-s)*fk)*(1-0.7*bw)"
+TUBE_EXPR_DYING="5.0*(0.5+0.3*s)*max(0.03,1-(0.85+0.15*(1-s))*fk)*(1-0.7*bw)"
+BEACON_EXPR="9.0*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin(frame*0.45)))"
+FLICKER="7.0*(1-0.85*fk)"
 def _blink(R):
     a,b,p,q=R.uniform(0.35,1.6),R.uniform(0.11,0.6),R.uniform(0,6.3),R.uniform(0,6.3)
     return f"4.5*max(0.03,min(1.0,(sin(frame*{a:.3f}+{p:.2f})+sin(frame*{b:.3f}+{q:.2f}))*3.2-1.6))"

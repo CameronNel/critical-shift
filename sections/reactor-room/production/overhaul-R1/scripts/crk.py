@@ -218,6 +218,14 @@ def to_seconds(expr):
     import re
     e=re.sub(r'\bframe\b','(T*30)',expr)
     return re.sub(r'\bT\b','(frame*fb/fps)',e)
+import re
+def setup_flicker():
+    """two shared time signals on REACTOR_STATE: cr_flick (fast tube stutter bursts) and cr_brown (slow brownout dips, ~0..1); both in seconds"""
+    for nm,ex in (("cr_flick","max(0,sin(T*81)*sin(T*15.9)*sin(T*5.7+1)-0.42)*3"),("cr_brown","max(0,sin(T*2.1)*sin(T*5.3+1)-0.45)*1.8")):
+        STATE[nm]=0.0
+        try: STATE.driver_remove('["%s"]'%nm)
+        except Exception: pass
+        drv(STATE,'["%s"]'%nm,None,ex,var_s=False)
 def drv(idblock,path,idx,expr,var_s=True,extra=None):
     fc=idblock.driver_add(path,idx) if idx is not None else idblock.driver_add(path)
     d=fc.driver; d.type='SCRIPTED'
@@ -225,6 +233,9 @@ def drv(idblock,path,idx,expr,var_s=True,extra=None):
         v=d.variables.new(); v.name='s'; v.type='SINGLE_PROP'; v.targets[0].id=STATE; v.targets[0].data_path='["stability"]'
     for (nm,ident,dp) in (extra or []):
         v=d.variables.new(); v.name=nm; v.type='SINGLE_PROP'; v.targets[0].id=ident; v.targets[0].data_path=dp
+    for nm,pr in (("fk","cr_flick"),("bw","cr_brown")):          # shared flicker / brownout signals (props on REACTOR_STATE, see setup_flicker)
+        if re.search(r'\b%s\b'%nm,expr) and not any(v.name==nm for v in d.variables):
+            v=d.variables.new(); v.name=nm; v.type='SINGLE_PROP'; v.targets[0].id=STATE; v.targets[0].data_path='["%s"]'%pr
     ex=to_seconds(expr)
     if ex!=expr: _fps_vars(d)
     d.expression=ex; return fc

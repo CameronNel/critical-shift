@@ -589,7 +589,7 @@
    "owner": "CR beacon +x",
    "kind": "Object",
    "target": "energy[0]",
-   "expression": "45*max(0,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
+   "expression": "40*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
    "inputs": {
     "s": "REACTOR_STATE[\"stability\"]"
    }
@@ -598,7 +598,7 @@
    "owner": "CR beacon +y",
    "kind": "Object",
    "target": "energy[0]",
-   "expression": "45*max(0,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
+   "expression": "40*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
    "inputs": {
     "s": "REACTOR_STATE[\"stability\"]"
    }
@@ -607,48 +607,70 @@
    "owner": "CR crt glow -1.05",
    "kind": "Object",
    "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))",
-   "inputs": {}
+   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
+   "inputs": {
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
   },
   {
    "owner": "CR crt glow -2.75",
    "kind": "Object",
    "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))",
-   "inputs": {}
+   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
+   "inputs": {
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
   },
   {
    "owner": "CR crt glow 0.65",
    "kind": "Object",
    "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))",
-   "inputs": {}
+   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
+   "inputs": {
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR rack batten",
+   "kind": "Object",
+   "target": "energy[0]",
+   "expression": "30*(1-0.6*fk*0.5)*(1-0.6*bw)",
+   "inputs": {
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
   },
   {
    "owner": "CR troffer -0.6",
    "kind": "Object",
    "target": "energy[0]",
-   "expression": "68*(0.55+0.45*s)*max(0.04,1-0.9*(1-s)*max(0,sin((T*30)*2.7)*sin((T*30)*0.53)*sin((T*30)*0.19+1)-0.42)*3.0)",
+   "expression": "32*(0.5+0.3*s)*max(0.04,1-0.9*max(0.4,1-s)*fk)*(1-0.7*bw)",
    "inputs": {
-    "s": "REACTOR_STATE[\"stability\"]"
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
    }
   },
   {
    "owner": "CR troffer -3.0",
    "kind": "Object",
    "target": "energy[0]",
-   "expression": "68*(0.55+0.45*s)*max(0.04,1-0.9*(1-s)*max(0,sin((T*30)*2.7)*sin((T*30)*0.53)*sin((T*30)*0.19+1)-0.42)*3.0)",
+   "expression": "32*(0.5+0.3*s)*max(0.04,1-0.9*max(0.4,1-s)*fk)*(1-0.7*bw)",
    "inputs": {
-    "s": "REACTOR_STATE[\"stability\"]"
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
    }
   },
   {
    "owner": "CR troffer 1.2",
    "kind": "Object",
    "target": "energy[0]",
-   "expression": "68*(0.55+0.45*s)*max(0.03,1-(0.85+0.15*(1-s))*max(0,sin((T*30)*2.7)*sin((T*30)*0.53)*sin((T*30)*0.19+1)-0.42)*3.0)",
+   "expression": "32*(0.5+0.3*s)*max(0.03,1-(0.85+0.15*(1-s))*fk)*(1-0.7*bw)",
    "inputs": {
-    "s": "REACTOR_STATE[\"stability\"]"
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
    }
   },
   {
@@ -836,7 +858,7 @@
    "owner": "CR emergency beacon",
    "kind": "Material",
    "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
-   "expression": "9.0*max(0,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
+   "expression": "9.0*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
    "inputs": {
     "s": "REACTOR_STATE[\"stability\"]"
    }
@@ -901,18 +923,22 @@
    "owner": "CR tungsten tube",
    "kind": "Material",
    "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
-   "expression": "7.0*(0.55+0.45*s)*max(0.04,1-0.9*(1-s)*max(0,sin((T*30)*2.7)*sin((T*30)*0.53)*sin((T*30)*0.19+1)-0.42)*3.0)",
+   "expression": "5.0*(0.5+0.3*s)*max(0.04,1-0.9*max(0.4,1-s)*fk)*(1-0.7*bw)",
    "inputs": {
-    "s": "REACTOR_STATE[\"stability\"]"
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
    }
   },
   {
    "owner": "CR tungsten tube dying",
    "kind": "Material",
    "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
-   "expression": "7.0*(0.55+0.45*s)*max(0.03,1-(0.85+0.15*(1-s))*max(0,sin((T*30)*2.7)*sin((T*30)*0.53)*sin((T*30)*0.19+1)-0.42)*3.0)",
+   "expression": "5.0*(0.5+0.3*s)*max(0.03,1-(0.85+0.15*(1-s))*fk)*(1-0.7*bw)",
    "inputs": {
-    "s": "REACTOR_STATE[\"stability\"]"
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
    }
   },
   {
@@ -1002,73 +1028,95 @@
    "inputs": {}
   },
   {
-   "owner": "CR beacon +x",
+   "owner": "CR beacon +x.001",
    "kind": "PointLight",
    "target": "energy[0]",
-   "expression": "45*max(0,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
+   "expression": "40*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
    "inputs": {
     "s": "REACTOR_STATE[\"stability\"]"
    }
   },
   {
-   "owner": "CR beacon +y",
+   "owner": "CR beacon +y.001",
    "kind": "PointLight",
    "target": "energy[0]",
-   "expression": "45*max(0,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
+   "expression": "40*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
    "inputs": {
     "s": "REACTOR_STATE[\"stability\"]"
    }
   },
   {
-   "owner": "CR crt glow -1.05",
+   "owner": "CR crt glow -1.001",
    "kind": "AreaLight",
    "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))",
-   "inputs": {}
-  },
-  {
-   "owner": "CR crt glow -2.75",
-   "kind": "AreaLight",
-   "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))",
-   "inputs": {}
-  },
-  {
-   "owner": "CR crt glow 0.65",
-   "kind": "AreaLight",
-   "target": "energy[0]",
-   "expression": "7*(0.92+0.08*sin((T*30)*1.7))",
-   "inputs": {}
-  },
-  {
-   "owner": "CR troffer -0.6",
-   "kind": "AreaLight",
-   "target": "energy[0]",
-   "expression": "68*(0.55+0.45*s)*max(0.04,1-0.9*(1-s)*max(0,sin((T*30)*2.7)*sin((T*30)*0.53)*sin((T*30)*0.19+1)-0.42)*3.0)",
+   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
    "inputs": {
-    "s": "REACTOR_STATE[\"stability\"]"
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
    }
   },
   {
-   "owner": "CR troffer -3.0",
+   "owner": "CR crt glow -2.001",
    "kind": "AreaLight",
    "target": "energy[0]",
-   "expression": "68*(0.55+0.45*s)*max(0.04,1-0.9*(1-s)*max(0,sin((T*30)*2.7)*sin((T*30)*0.53)*sin((T*30)*0.19+1)-0.42)*3.0)",
+   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
    "inputs": {
-    "s": "REACTOR_STATE[\"stability\"]"
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
    }
   },
   {
-   "owner": "CR troffer 1.2",
+   "owner": "CR crt glow 0.001",
    "kind": "AreaLight",
    "target": "energy[0]",
-   "expression": "68*(0.55+0.45*s)*max(0.03,1-(0.85+0.15*(1-s))*max(0,sin((T*30)*2.7)*sin((T*30)*0.53)*sin((T*30)*0.19+1)-0.42)*3.0)",
+   "expression": "7*(0.92+0.08*sin((T*30)*1.7))*(1-0.5*bw)",
    "inputs": {
-    "s": "REACTOR_STATE[\"stability\"]"
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
    }
   },
   {
-   "owner": "CR tv light",
+   "owner": "CR rack batten.001",
+   "kind": "AreaLight",
+   "target": "energy[0]",
+   "expression": "30*(1-0.6*fk*0.5)*(1-0.6*bw)",
+   "inputs": {
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR troffer -0.001",
+   "kind": "AreaLight",
+   "target": "energy[0]",
+   "expression": "32*(0.5+0.3*s)*max(0.04,1-0.9*max(0.4,1-s)*fk)*(1-0.7*bw)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR troffer -3.001",
+   "kind": "AreaLight",
+   "target": "energy[0]",
+   "expression": "32*(0.5+0.3*s)*max(0.04,1-0.9*max(0.4,1-s)*fk)*(1-0.7*bw)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR troffer 1.001",
+   "kind": "AreaLight",
+   "target": "energy[0]",
+   "expression": "32*(0.5+0.3*s)*max(0.03,1-(0.85+0.15*(1-s))*fk)*(1-0.7*bw)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR tv light.001",
    "kind": "SpotLight",
    "target": "color[0]",
    "expression": "wt*(min(1,2*(1-s)+0.24))*0.95+wb*1.0+ws*0.78*0.95+wn*0.78+wc*cr",
@@ -1086,7 +1134,7 @@
    }
   },
   {
-   "owner": "CR tv light",
+   "owner": "CR tv light.001",
    "kind": "SpotLight",
    "target": "color[1]",
    "expression": "wt*(0.03+0.92*s)*0.95+wb*0.42+ws*0.88*0.95+wn*0.74+wc*cg",
@@ -1104,7 +1152,7 @@
    }
   },
   {
-   "owner": "CR tv light",
+   "owner": "CR tv light.001",
    "kind": "SpotLight",
    "target": "color[2]",
    "expression": "wt*(0.20*s)*0.95+wb*0.16+ws*1.0*0.95+wn*0.62+wc*cb",
@@ -1122,7 +1170,7 @@
    }
   },
   {
-   "owner": "CR tv light",
+   "owner": "CR tv light.001",
    "kind": "SpotLight",
    "target": "energy[0]",
    "expression": "80*(wt*1.0+wb*1.25+ws*(0.55+0.55*abs(sin((T*30)*13.7)*sin((T*30)*5.9)))+wn*0.8+wc*ce)",
