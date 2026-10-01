@@ -36,13 +36,13 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
    attributes `CS_GEN` / `CS_OBJ`, on every mesh including hidden ones, and those materials read the attributes, so joining
    parts cannot change a pattern. Curve/text objects that stay curves cannot carry attributes, so they keep an
    untouched copy of the material (`<name>__noattr`).
-3. The 129 constant-colour Principled materials are folded into one `PAL_flat` material: three packed 16x16 float images
+3. The 140 constant-colour Principled materials are folded into one `PAL_flat` material: three packed 16x16 float images
    (albedo, roughness+metal, emission), `Closest` sampling, a `CS_PAL` UV layer. Cell mapping is in text block `OPT_PALETTE`.
 3b. **Material families** (the method of the reactor control room, PR #54; budgets in PR #59): materials with exactly the same node graph that differ only in
    constants become one `FAM ...` material. The constants (every differing socket value, and the two stop colours of each
    colour ramp) are written per polygon into colour attributes `FAM0..FAM3`; the family graph reads them. The graph is the
    same, so the shading is the same (the structural key includes the colour-ramp interpolation and colour mode, so ramps that differ never share a family): a 2-stop LINEAR/EASE ramp becomes a clamped Map Range (smoothstep for EASE) plus a Mix.
-   Read-back of every attribute is checked at build time. 13 families replace 40 materials; members are listed in text block
+   Read-back of every attribute is checked at build time. 14 families replace 49 materials; members are listed in text block
    `OPT_FAMILIES`. Materials with different graphs are left alone.
 4. Parts of the same asset that share material and object flags are joined (967 objects into 156); shell parts outside any
    asset are joined per collection, material and 5 m cell. Left exactly as they were: every object that is animated, has
