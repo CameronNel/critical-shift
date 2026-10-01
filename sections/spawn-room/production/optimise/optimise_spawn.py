@@ -41,8 +41,24 @@ def props(o):
     return {k: o[k] for k in o.keys() if not k.startswith("_") and k != "cycles"}
 
 
+def _ad_live(ad):
+    return bool(ad and (ad.action or ad.drivers or ad.nla_tracks))
+
+
 def anim(o):
-    return bool(o.animation_data and (o.animation_data.action or o.animation_data.drivers or o.animation_data.nla_tracks))
+    """True if anything that shapes this object over time is animated, driven or in NLA: the object itself, its data
+    block (text body, extrusion, bevel...), or its shape keys. A shape-keyed object is also treated as animated, because
+    baking or joining would drop the keys."""
+    if _ad_live(o.animation_data):
+        return True
+    d = getattr(o, "data", None)
+    if d is not None:
+        if _ad_live(getattr(d, "animation_data", None)):
+            return True
+        sk = getattr(d, "shape_keys", None)
+        if sk is not None:
+            return True
+    return False
 
 
 def nearest_asset(o):
@@ -85,7 +101,7 @@ def to_mesh_objects():
     for o in list(bpy.context.scene.objects):
         if o.type not in ("CURVE", "FONT", "SURFACE") or o.hide_render:
             continue
-        if anim(o) or o.constraints or (o.animation_data and o.animation_data.nla_tracks):
+        if anim(o) or o.constraints:
             continue                       # a mesh copy would freeze its keyframes
         data = o.data
         tex = (Vector(data.texspace_location), Vector(data.texspace_size))

@@ -24,8 +24,8 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 
 ## What it does (each step is meant to leave the look unchanged)
 
-1. 351 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept). Animated, driven or constrained curve/text objects
-   (for example the POD_state_* labels) are NOT converted, because a mesh copy would freeze their keyframes;
+1. 351 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept). Curve/text objects that are animated, driven, in NLA, constrained or have an animated data block or shape keys
+   (for example the POD_state_* labels) are NOT converted, because a mesh copy would freeze them;
    modifiers are baked on the parts that get merged or touched.
 2. Procedural patterns that depend on the object (Generated / Object coordinates, 40 materials) are frozen into per-vertex
    attributes `CS_GEN` / `CS_OBJ`, on every mesh including hidden ones, and those materials read the attributes, so joining
@@ -48,7 +48,7 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 - Animation inventory (every object, material node tree, mesh, curve, light, camera, world and shape key with an action,
   drivers or NLA tracks) is identical in both files. A first version of this derivative lost the keyframes of
   `POD_state_READY` (an animated text object converted to a mesh); Codex's review of #60 caught this class of bug and the
-  comparison now fails on it.
+  comparison now fails on it, and also fails if the derivative gains an action, driver or NLA entry the original did not have.
 - `validate_contacts.py` on the derivative: PASS (224 tagged objects, 0 failures), same as the original. (An earlier
   version of this script merged support targets and failed 48 of them; targets are now kept by name.)
 - Render comparison (Cycles, 48 samples, denoised, fixed seed, 960x540) on six fixed validation cameras, original vs
