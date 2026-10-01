@@ -36,7 +36,7 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
 1. 315 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept). Curve/text objects that are animated, driven, in NLA, constrained or have an animated data block or shape keys
    (for example the POD_state_* labels) are NOT converted, because a mesh copy would freeze them;
    modifiers are baked on 753 objects (the parts that get merged or touched).
-2. Procedural patterns that depend on the object (Generated / Object coordinates, 40 materials) are frozen into per-vertex
+2. Procedural patterns that depend on the object (Generated / Object coordinates, 75 materials) are frozen into per-vertex
    attributes `CS_GEN` / `CS_OBJ`, on every mesh including hidden ones, and those materials read the attributes, so joining
    parts cannot change a pattern. Curve/text objects that stay curves cannot carry attributes, so they keep an
    untouched copy of the material (`<name>__noattr`).
