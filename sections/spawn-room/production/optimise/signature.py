@@ -27,6 +27,51 @@ def jsonable(v):
             return str(v)
 
 
+def digest(x):
+    import hashlib
+    return hashlib.md5(json.dumps(x, sort_keys=True, default=str).encode()).hexdigest()[:12]
+
+
+def fcurves_of(action):
+    """All F-curves of an action: the legacy list, or every channelbag of every layered-action strip."""
+    out = list(getattr(action, "fcurves", []) or [])
+    for layer in getattr(action, "layers", []) or []:
+        for strip in getattr(layer, "strips", []) or []:
+            for cb in getattr(strip, "channelbags", []) or []:
+                out.extend(cb.fcurves)
+    return out
+
+
+def action_content(action):
+    if action is None:
+        return None
+    curves = []
+    for fc in fcurves_of(action):
+        curves.append([fc.data_path, fc.array_index, fc.extrapolation,
+                       [[round(k.co[0], 4), round(k.co[1], 5), k.interpolation, round(k.handle_left[0], 3),
+                         round(k.handle_left[1], 4), round(k.handle_right[0], 3), round(k.handle_right[1], 4)]
+                        for k in fc.keyframe_points],
+                       [m.type for m in fc.modifiers]])
+    slots = sorted(sl.name_display for sl in getattr(action, "slots", []) or [])
+    return {"curves": sorted(curves, key=str), "slots": slots, "frame_range": list(action.frame_range)}
+
+
+def driver_content(ad):
+    out = []
+    for dr in ad.drivers:
+        d = dr.driver
+        out.append([dr.data_path, dr.array_index, d.type, d.expression,
+                    [[v.name, v.type, [[t.id.name if t.id else None, t.data_path, t.transform_type, t.transform_space,
+                                         t.bone_target] for t in v.targets]] for v in d.variables]])
+    return sorted(out, key=str)
+
+
+def nla_content(ad):
+    return [[tr.name, tr.mute, [[st.name, st.action.name if st.action else None, st.frame_start, st.frame_end,
+                                  st.action_frame_start, st.action_frame_end, st.scale, st.repeat, st.blend_type,
+                                  st.extrapolation, st.mute] for st in tr.strips]] for tr in ad.nla_tracks]
+
+
 def main():
     a = sys.argv[sys.argv.index("--") + 1:]
     bpy.ops.wm.open_mainfile(filepath=a[0])
@@ -92,8 +137,8 @@ def main():
                 ad = getattr(owner, "animation_data", None) if owner is not None else None
                 if ad and (ad.action or ad.drivers or ad.nla_tracks):
                     animation.append([coll_name, idb.name, ad.action.name if ad.action else None,
-                                      len(ad.action.fcurves) if ad.action and hasattr(ad.action, "fcurves") else None,
-                                      len(ad.drivers), len(ad.nla_tracks)])
+                                      digest(action_content(ad.action)), digest(driver_content(ad)),
+                                      digest(nla_content(ad))])
     lights = {o.name: [round(o.data.energy, 3), o.get("cs_rt_role")] for o in sc.objects if o.type == "LIGHT"}
     import hashlib
     vh = hashlib.md5(repr(sorted(vset)).encode()).hexdigest()
