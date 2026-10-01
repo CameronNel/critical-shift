@@ -67,23 +67,22 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
   lost the keyframes of
   `POD_state_READY` (an animated text object converted to a mesh); Codex's review of #60 caught this class of bug and the
   comparison now fails on it, and also fails if the derivative gains an action, driver or NLA entry the original did not have.
-- `validate_contacts.py` on the derivative: PASS (224 tagged objects, 0 failures), same as the original. (An earlier
+- `validate_contacts.py` on the derivative: PASS (208 tagged objects, 0 failures) on the post-suit module, same as the original (the count was 224 before the suit pass removed the belongings and added the hooks, docks and strip lights). (An earlier
   version of this script merged support targets and failed 48 of them; targets are now kept by name.)
 - Render comparison (Cycles, 48 samples, denoised, fixed seed, 960x540) on six fixed validation cameras, original vs
   derivative; `renders/<camera>.png` shows before | after | difference amplified 6x:
 
   | Camera | mean abs diff | 99th percentile | pixels differing by more than 8% |
   |---|---:|---:|---:|
-  | VALIDATE_Spawn | 0.0057 | 0.039 | 0.081% |
-  | VALIDATE_LockerDoor | 0.0060 | 0.035 | 0.077% |
-  | VALIDATE_BriefingDoor | 0.0079 | 0.043 | 0.190% |
-  | VALIDATE_ExitReverse | 0.0053 | 0.035 | 0.055% |
-  | VALIDATE_Hero_A | 0.0056 | 0.035 | 0.084% |
-  | VALIDATE_Material_A | 0.0039 | 0.024 | 0.003% |
+  | VALIDATE_Spawn | 0.0066 | 0.047 | 0.186% |
+  | VALIDATE_LockerDoor | 0.0073 | 0.047 | 0.194% |
+  | VALIDATE_BriefingDoor | 0.0091 | 0.051 | 0.311% |
+  | VALIDATE_ExitReverse | 0.0057 | 0.039 | 0.101% |
+  | VALIDATE_Hero_A | 0.0071 | 0.051 | 0.249% |
+  | VALIDATE_Material_A | 0.0062 | 0.039 | 0.112% |
 
   The differences sit on edges (anti-aliasing and denoiser noise from a different object order); there are no
-  colour or pattern shifts. I looked at the montages for Spawn and BriefingDoor; the other four were checked by the
-  numbers only. This is a Cycles comparison, not engine rendering, and not art approval.
+  colour or pattern shifts. Rendered again on the post-suit module and its regenerated derivative; I looked at the Hero_A montage (suit, visor, boot dock and strip light match, differences on edges only); the other five were checked by the numbers only. This is a Cycles comparison, not engine rendering, and not art approval.
 
 ## Not done / not claimed
 
