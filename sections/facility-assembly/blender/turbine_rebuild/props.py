@@ -102,17 +102,18 @@ def build(b):
         for dx in (-.68, .68):
             for dy in (.08, .68): b.box((u + dx, dy, .36), (.05, .05, .7), 'steel_dark', bev=.006)
         b.box((u, .62, .775), (.4, .24, .012), 'charcoal', bev=.006)
-        b.box((u + .05, .68, .93), (.5, .03, .3), 'trim_black', bev=.012); b.box((u + .05, .665, .93), (.46, .006, .26), 'screen_cool'); b.box((u + .05, .68, .78), (.1, .08, .02), 'steel_dark'); b.box((u + .05, .68, .83), (.03, .03, .1), 'steel_dark')
+        b.box((u + .05, .68, .93), (.5, .03, .3), 'trim_black', bev=.012); b.box((u + .05, .700, .93), (.46, .006, .26), 'screen_cool'); b.box((u + .05, .704, .98), (.3, .004, .02), 'screen'); b.box((u + .05, .704, .93), (.36, .004, .02), 'screen'); b.box((u + .05, .704, .88), (.2, .004, .02), 'screen'); b.box((u + .05, .45, .0) if False else (u + .05, .4, .78), (.34, .14, .014), 'charcoal', bev=.005); b.box((u + .05, .68, .78), (.1, .08, .02), 'steel_dark'); b.box((u + .05, .68, .83), (.03, .03, .1), 'steel_dark')
         b.box((u - .1, .35, .766), (.38, .14, .018), 'charcoal', bev=.008); b.cyl((u + .55, .3, .8), .04, .09, 'chalk', 'Z', 20, bev=.004)
         b.cyl((u - .55, .55, .765), .06, .03, 'steel_dark', 'Z', 20); b.sweep([(u - .55, .55, .78), (u - .55, .55, 1.05), (u - .4, .5, 1.15)], .008, 'steel_dark', 8, .1); b.box((u - .37, .49, 1.14), (.14, .08, .04), 'yellow', bev=.01)
         b.box((u, .32, .45), (.46, .46, .06), 'rubber', bev=.02) if False else None
-        poster(b, fu(8.0), 1.9, 1)
+        b.box((fu(8.0), .03, 1.9), (.9, .06, .5), 'trim_black', bev=.014); b.box((fu(8.0), .062, 1.9), (.82, .006, .42), 'yellow'); wt(b, 'TURBINE 02', fu(8.0), 2.0, .1, 'trim_black', .068); wt(b, 'CONTROL DESK', fu(8.0), 1.8, .06, 'trim_black', .068)
         for t, p in ((8.4, False),): socket(b, fu(t), .5, plug=p)
     ux, uy = 8.0, 22.7                                                       # the chair, in front of the desk
     b.cyl((ux, uy, .46), .22, .06, 'rubber', 'Z', 28, bev=.012); b.box((ux, uy - .2, .72), (.4, .06, .46), 'rubber', bev=.02); b.cyl((ux, uy, .24), .035, .42, 'steel_dark', 'Z', 12)
     for a in range(5): b.box((ux + .17 * math.cos(a * 1.2566), uy + .17 * math.sin(a * 1.2566), .04), (.18, .04, .03), 'steel_dark', (0, 0, a * 1.2566), bev=.006)
     # --- tidy storage: drum group, pallet with crates, gas cylinders in a rack ---
-    for (x, y, c) in ((9.35, 22.4, 'red'), (8.75, 22.9, 'yellow'), (9.4, 23.3, 'steel_mid')):
+    for (x, y, c) in ((9.35, 22.4, 'red_dark'), (8.75, 22.9, 'orange_dark'), (9.4, 23.3, 'steel_dark')):
+        b.box((x, y - .272, .5), (.3, .01, .26), 'chalk'); b.box((x, y - .278, .5), (.3, .006, .05), 'trim_black'); b.prism([(-.06, -.05), (.06, -.05), (0, .06)], .004, 'trim_black', (x, y - .28, .56), True, 'Y')
         b.cyl((x, y, .45), .27, .9, c, 'Z', 32, bev=.01); b.cyl((x, y, .75), .285, .035, 'steel_dark', 'Z', 32); b.cyl((x, y, .3), .285, .035, 'steel_dark', 'Z', 32)
     for dx in (-.4, 0, .4): b.box((6.8 + dx, 1.2, .06), (.1, .8, .1), 'wood_dark', bev=.01)
     for dy in (-.3, 0, .3): b.box((6.8, 1.2 + dy, .13), (1.0, .12, .03), 'wood', bev=.008)

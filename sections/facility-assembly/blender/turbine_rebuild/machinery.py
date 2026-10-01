@@ -80,11 +80,11 @@ def handrails(b, xa, xb, ya, yb, z1):
     for xr in (xa + .12, xb - .12):
         n = int((yb - ya) / 2.0) + 1; ys = [ya + .12 + i * (yb - ya - .24) / n for i in range(n + 1)]
         for y in ys: b.cyl((xr, y, z1 + .55), .042, 1.1, 'trim_black', 'Z', 14, bev=.006); b.cyl((xr, y, z1 + .02), .1, .03, 'steel_dark', 'Z', 16, bev=.006); b.cyl((xr, y, z1 + 1.1), .05, .03, 'gold_paint', 'Z', 14, bev=.006)
-        b.rod((xr, ys[0], z1 + 1.05), (xr, ys[-1], z1 + 1.05), .032, 'gold_paint', 12); b.rod((xr, ys[0], z1 + .55), (xr, ys[-1], z1 + .55), .024, 'trim_black', 12)
+        b.rod((xr, ys[0], z1 + 1.05), (xr, ys[-1], z1 + 1.05), .032, 'orange_dark', 12); b.rod((xr, ys[0], z1 + .55), (xr, ys[-1], z1 + .55), .024, 'trim_black', 12)
         b.box((xr, (ya + yb) / 2, z1 + .06), (.012, yb - ya - .2, .1), 'trim_black')
     for yr in (ya + .12, yb - .12):
         for (x0, x1) in ((xa + .12, CX - .95), (CX + .95, xb - .12)):
-            for z in (z1 + .55, z1 + 1.05): b.rod((x0, yr, z), (x1, yr, z), .032 if z > z1 + .6 else .024, 'gold_paint' if z > z1 + .6 else 'trim_black', 12)
+            for z in (z1 + .55, z1 + 1.05): b.rod((x0, yr, z), (x1, yr, z), .032 if z > z1 + .6 else .024, 'orange_dark' if z > z1 + .6 else 'trim_black', 12)
         for x in (CX - .95, CX + .95): b.cyl((x, yr, z1 + .55), .042, 1.1, 'trim_black', 'Z', 14, bev=.006)
 
 def foundation(b):
@@ -126,6 +126,9 @@ def stepped(b, segs, body, flanges=True, nbolt=16):
     """segs: [(y0, y1, r0, r1), ...] frustums joined by flange rings."""
     for k, (y0, y1, r0, r1) in enumerate(segs):
         b.cyl((CX, (y0 + y1) / 2, AZ), r0, y1 - y0, body, 'Y', 48, r2=r1)
+        if y1 - y0 > .9:                                                                                         # dark banded collars (spawn-room trim language)
+            for t in (.3, .7):
+                rr = r0 + (r1 - r0) * t; b.cyl((CX, y0 + (y1 - y0) * t, AZ), rr + .035, .11, 'trim_black', 'Y', 48, bev=.01)
     ys = [(segs[0][0], segs[0][2], -1)] + [(s[0], max(s[2], segs[i][3]), 0) for i, s in enumerate(segs[1:])] + [(segs[-1][1], segs[-1][3], 1)]
     for y, r, face in ys:
         flange_ring(b, y + (.06 if face == -1 else -.06 if face == 1 else 0), r + .1, nbolt, face or 1)
@@ -209,7 +212,7 @@ def train(b):
             b.sweep([(CX + s * .98, yy, 3.3), (CX + s * 1.3, yy, 3.3), (CX + s * 1.3, yy, 1.14)], .06, 'steel_mid', 16, .14); b.cyl((CX + s * 1.3, yy, 1.03), .11, .05, 'steel_dark', 'Z', 20, bev=.006)
     for s in (-1, 1): b.sweep([(CX + s * 1.3, 17.4, 1.14), (CX + s * 1.3, 19.8, 1.14)], .06, 'steel_mid', 16, .1, caps=False)
     for sx in (-.75, .75):
-        for yy in (17.1, 20.1): torus(b, (CX + sx, yy, 3.8), .07, .014, 'yellow', 'Y', 16)                        # hood lifting lugs
+        for yy in (17.1, 20.1): (torus(b, (CX + sx, yy, 3.8), .07, .014, 'yellow', 'Y', 16), b.box((CX + sx, yy, 3.7), (.14, .08, .06), 'steel_dark', bev=.01))                        # hood lifting lugs
     stepped(b, [(21.3, 22.3, .78, .62)], 'steel_light', nbolt=12); bearing(b, 22.35, 22.9)
     b.box((CX, 21.85, AZ + .86), (.5, .6, .26), 'steel_dark', bev=.04); b.cyl((CX, 21.85, AZ + .62), .2, .5, 'orange', 'Y', 28, bev=.01)   # slip-ring housing
     b.box((CX + .55, 22.65, AZ - .55), (.5, .01, .26), 'chalk'); b.text('GEN-3', (CX + .55, 22.66, AZ - .55), .1, 'trim_black', 0, math.pi / 2)
