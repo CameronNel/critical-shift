@@ -29,7 +29,7 @@ def make_mats(grp):
         tex = nt.nodes.new('ShaderNodeTexImage'); tex.image = atlas; tex.interpolation = 'Linear'; tex.name = 'ALBEDO'; tex.location = (-250, 0)
         nt.links.new(uvn.outputs[0], tex.inputs[0])
         if emissive:
-            e = nt.nodes.new('ShaderNodeEmission'); e.inputs['Strength'].default_value = 7.0; e.location = (300, 0)
+            e = nt.nodes.new('ShaderNodeEmission'); e.inputs['Strength'].default_value = 4.5; e.location = (300, 0)
             nt.links.new(tex.outputs[0], e.inputs['Color']); nt.links.new(e.outputs[0], out.inputs['Surface'])
         else:
             p = nt.nodes.new('ShaderNodeBsdfPrincipled'); p.location = (300, 0)
@@ -110,6 +110,10 @@ def cull(objs):
 cull_kept, cull_removed = cull({k: o for k, o in objs.items()})
 bevelled = {k: lib.finalize(o) for k, o in objs.items() if k != 'OCC'}      # weld + bevel marked edges + shade by angle
 
+occ_ob = objs.get('OCC')
+if occ_ob:
+    om = bpy.data.materials.new('M_occluder'); om.diffuse_color = (.02, .02, .02, 1); om.use_nodes = True
+    om.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value = (.02, .02, .02, 1); occ_ob.data.materials.append(om)
 # animated shaft: origin on the rotation axis
 sh = objs.get('SHAFT')
 if sh:
@@ -131,22 +135,22 @@ def point(name, loc, power, color, radius=.1):
 AMBER, RED = (1.0, .58, .22), (1.0, .12, .06)
 n = 0
 for y in arch.LAMP_Y:
-    for x in arch.LAMP_X: spot(f'LAMP_{n:02d}', (x, y, 5.27), 1900, 100, AMBER, .7); n += 1
+    for x in arch.LAMP_X: spot(f'LAMP_{n:02d}', (x, y, 5.27), 1900, 100, AMBER, .22); n += 1
 def aim(o, frm, to):
     o.rotation_euler = (Vector(to) - Vector(frm)).to_track_quat('-Z', 'Y').to_euler()
 spot('LAMP_rotor', (machinery.CX, 11.25, 4.1), 800, 65, (1.0, .66, .3), .5)                    # lights the exposed gold blading
 point('GLOW_coupling', (machinery.CX, 15.6, machinery.AZ + .35), 150, (1.0, .55, .18))
 for k, y in enumerate((5.0, 11.0, 18.0)):                                                      # warm floor uplights give the casings a rim
-    aim(spot(f'UP_W{k}', (1.35, y, .2), 260, 42, AMBER, .5), (1.35, y, .2), (3.2, y, 2.2)); aim(spot(f'UP_E{k}', (7.65, y, .2), 260, 42, AMBER, .5), (7.65, y, .2), (6.0, y, 2.2))
+    aim(spot(f'UP_W{k}', (1.35, y, .2), 180, 42, AMBER, .3), (1.35, y, .2), (3.2, y, 2.2)); aim(spot(f'UP_E{k}', (7.65, y, .2), 180, 42, AMBER, .3), (7.65, y, .2), (6.0, y, 2.2))
 spot_c = spot('SPOT_consoles', (-2.3, 5.65, 4.8), 520, 46, (1.0, .62, .26)); aim(spot_c, (-2.3, 5.65, 4.8), (-3.5, 5.65, 1.4))
 spot_b = spot('SPOT_bay', (-1.6, 17.0, 5.2), 420, 50, (1.0, .62, .26)); aim(spot_b, (-1.6, 17.0, 5.2), (-.9, 17.0, .8))
 for k, y in enumerate((9.0, 12.5, 16.0, 19.5)):                                                # wall washers reveal the west wall and lead the eye along it
-    aim(spot(f'WASH_W{k}', (-3.25, y, 4.4), 260, 58, AMBER, .6), (-3.25, y, 4.4), (-4.0, y, 2.0))
+    aim(spot(f'WASH_W{k}', (-3.25, y, 4.4), 110, 52, (1.0, .66, .32), .3), (-3.25, y, 4.4), (-4.0, y, 2.0))
 point('RED_gen', (machinery.CX - 1.9, 20.0, machinery.AZ + 1.4), 70, RED, .05); point('RED_hood', (machinery.CX, 16.6, 4.0), 40, RED, .05)
-point('GLOW_consoles', (-3.1, 5.65, 1.9), 40, (1.0, .6, .25), .15)
-for nm, loc in (('RED_D01', (1.7, .25, 3.35)), ('RED_D02', (1.7, 23.75, 3.35))): point(nm, loc, 90, RED, .06)
-for nm, yy in (('PASS_D01', -.9), ('PASS_D02', 24.9)): point(nm, (0, yy, 2.5), 45, (1.0, .45, .2), .1)
-sun = bpy.data.lights.new('MOON_EAST', 'SUN'); sun.energy = 4.5; sun.angle = math.radians(2.0); sun.color = (.50, .64, 1.0)
+point('GLOW_consoles', (-3.1, 5.65, 1.9), 18, (1.0, .6, .25), .15)
+for nm, loc in (('RED_D01', (1.7, .25, 3.35)), ('RED_D02', (1.7, 23.75, 3.35))): point(nm, loc, 20, RED, .05)
+for nm, yy in (('PASS_D01', -.9), ('PASS_D02', 24.9)): point(nm, (0, yy, 2.5), 25, (1.0, .55, .25), .1)
+sun = bpy.data.lights.new('MOON_EAST', 'SUN'); sun.energy = 6.0; sun.angle = math.radians(2.0); sun.color = (.42, .58, 1.0)
 so = bpy.data.objects.new('MOON_EAST', sun); coll.objects.link(so)
 so.rotation_euler = Vector((-.62, .40, -.67)).to_track_quat('-Z', 'Y').to_euler()
 w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True

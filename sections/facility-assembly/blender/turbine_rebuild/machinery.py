@@ -79,13 +79,13 @@ def bypass(b, x, y, z):
 def handrails(b, xa, xb, ya, yb, z1):
     for xr in (xa + .12, xb - .12):
         n = int((yb - ya) / 2.0) + 1; ys = [ya + .12 + i * (yb - ya - .24) / n for i in range(n + 1)]
-        for y in ys: b.cyl((xr, y, z1 + .55), .024, 1.1, 'yellow', 'Z', 12, bev=.004); b.cyl((xr, y, z1 + .012), .05, .012, 'steel_dark', 'Z', 16)
-        b.rod((xr, ys[0], z1 + 1.05), (xr, ys[-1], z1 + 1.05), .017, 'yellow', 12); b.rod((xr, ys[0], z1 + .55), (xr, ys[-1], z1 + .55), .016, 'yellow_worn', 12)
+        for y in ys: b.cyl((xr, y, z1 + .55), .032, 1.1, 'orange_dark', 'Z', 14, bev=.004); b.cyl((xr, y, z1 + .012), .07, .016, 'steel_dark', 'Z', 16)
+        b.rod((xr, ys[0], z1 + 1.05), (xr, ys[-1], z1 + 1.05), .022, 'orange_dark', 12); b.rod((xr, ys[0], z1 + .55), (xr, ys[-1], z1 + .55), .02, 'orange_dark', 12)
         b.box((xr, (ya + yb) / 2, z1 + .06), (.012, yb - ya - .2, .1), 'trim_black')
     for yr in (ya + .12, yb - .12):
         for (x0, x1) in ((xa + .12, CX - .95), (CX + .95, xb - .12)):
-            for z in (z1 + .55, z1 + 1.05): b.rod((x0, yr, z), (x1, yr, z), .02, 'yellow', 12)
-        for x in (CX - .95, CX + .95): b.cyl((x, yr, z1 + .55), .024, 1.1, 'yellow', 'Z', 12)
+            for z in (z1 + .55, z1 + 1.05): b.rod((x0, yr, z), (x1, yr, z), .022, 'orange_dark', 12)
+        for x in (CX - .95, CX + .95): b.cyl((x, yr, z1 + .55), .032, 1.1, 'orange_dark', 'Z', 14)
 
 def foundation(b):
     z1 = 1.0; xa, xb, ya, yb = 2.0, 7.2, 2.6, 23.0; x0, x1, y0, y1 = HOLE
@@ -147,17 +147,18 @@ def exposed_lp(b, y0, y1):
     b.arc_shell((CX, yc, AZ), 1.34, 1.24, L, math.pi, 2 * math.pi, 'casing_dark', 32, bev=.012)
     for s in (-1, 1):
         b.box((CX + s * 1.3, yc, AZ), (.2, L, .08), 'steel_mid', bev=.02)
-        for i in range(int(L / .5)): b.cyl((CX + s * 1.3, y0 + .25 + i * .5, AZ + .05), .025, .03, 'steel_dark', 'Z', 6)
+        for i in range(int(L / .28)): b.cyl((CX + s * 1.3, y0 + .16 + i * .28, AZ + .05), .036, .04, 'steel_dark', 'Z', 6)
+        b.box((CX + s * 1.3, yc, AZ - .1), (.28, L, .06), 'steel_dark', bev=.02)
     stages = [y0 + .45 + k * (L - .9) / 5 for k in range(6)]
     b.cyl((CX, yc, AZ), .26, L + .2, 'steel_light', 'Y', 32)
     for k, y in enumerate(stages):
         R = .86 + .035 * k
-        b.cyl((CX, y, AZ), R, .26, 'steel_mid', 'Y', 48, bev=.012); b.cyl((CX, y, AZ), R + .035, .1, 'steel_light', 'Y', 48, bev=.006)
+        b.cyl((CX, y, AZ), R, .34, 'steel_mid', 'Y', 48, bev=.02); b.cyl((CX, y, AZ), R + .05, .12, 'steel_light', 'Y', 48, bev=.008)
         b.arc_shell((CX, y + .25, AZ), 1.22, R + .13, .1, math.pi, 2 * math.pi, 'steel_dark', 24)                    # stator diaphragm
         for q in range(64):
             a = 2 * math.pi * q / 64; ca, sa = math.cos(a), math.sin(a)
             M = Matrix(((0, -sa, ca, CX + R * ca), (1, 0, 0, y), (0, ca, sa, AZ + R * sa), (0, 0, 0, 1))) @ Matrix.Rotation(math.radians(24), 4, 'Z')
-            b.push_m(M); b.prism([(-.1, 0), (-.05, .022), (.05, .022), (.1, 0), (.05, -.022), (-.05, -.022)], .17, 'orange', (0, 0, .09), True, 'Z', bev=.004); b.pop()
+            b.push_m(M); b.prism([(-.1, 0), (-.05, .022), (.05, .022), (.1, 0), (.05, -.022), (-.05, -.022)], .17, 'brass_blade', (0, 0, .09), True, 'Z', bev=.004); b.pop()
         b.arc_shell((CX, y, AZ), R + .2, R + .16, .05, 0, 2 * math.pi, 'steel_light', 40)                        # shroud band
         b.cyl((CX, y + .22, AZ), .3, .06, 'brass', 'Y', 32, bev=.006)                                              # seal collar on the shaft
     b.reserve_box((CX, yc, AZ), (2.7, L, 1.5))
@@ -187,7 +188,7 @@ def train(b):
     manway(b, (CX, 6.1, 3.15), .22)
     bearing(b, 14.4, 15.3); coupling(b, 15.6)
     stepped(b, [(15.9, 16.7, .92, 1.05), (16.7, 20.5, 1.05, 1.05), (20.5, 21.3, 1.05, .9)], 'casing', nbolt=20); saddles(b, 15.9, 21.3, 1.05)
-    for k in range(5): b.cyl((CX, 17.0 + k * .85, AZ), 1.07, .06, 'steel_mid', 'Y', 48, bev=.006)
+    for k in range(15): b.cyl((CX, 16.9 + k * .26, AZ), 1.1, .055, 'steel_mid', 'Y', 48, bev=.01)                  # cooling-fin bands
     b.prism([(-.98, 0), (.98, 0), (.62, .56), (-.62, .56)], 3.7, 'hood_orange', (CX, 18.6, 3.2), True, 'Y', bev=.04)                    # cooler hood, chamfered
     for s in (-1, 1): b.box((CX + s * .78, 18.6, 3.5), (.04, 3.7, .05), 'orange', (0, 0, -s * .55 if False else 0), bev=.01)
     b.box((CX, 18.6, 3.18), (2.06, 3.78, .06), 'orange_dark', bev=.012)
@@ -197,10 +198,12 @@ def train(b):
     b.box((CX - 1.2, 15.98, 1.55), (.5, .01, .26), 'chalk'); b.text('TG-3', (CX - 1.2, 15.97, 1.55), .1, 'trim_black', 0, math.pi / 2)
     b.box((CX - 1.45, 20.0, AZ + .1), (.9, 1.1, 1.0), 'steel_dark', bev=.05); b.box((CX - 1.45, 20.0, AZ + .62), (.8, 1.0, .05), 'red', bev=.012)
     b.box((CX - 1.91, 20.0, AZ + .1), (.03, .7, .5), 'yellow', bev=.008); b.text('HV', (CX - 1.94, 20.0, AZ + .12), .24, 'trim_black', -math.pi / 2, math.pi / 2)
+    for sx_ in (-.36, 0, .36):
+        for sy_ in (-.44, .44): b.cyl((CX - 1.45 + sx_, 20.0 + sy_, AZ + .66), .03, .035, 'steel_light', 'Z', 6)
     for k in range(3):                                                                                           # HV bushings on the terminal box
-        bx = CX - 1.45 + (k - 1) * .28; b.cyl((bx, 20.0, AZ + .66), .09, .08, 'steel_dark', 'Z', 20, bev=.008); b.cyl((bx, 20.0, AZ + .85), .055, .3, 'ivory', 'Z', 20)
-        for q in range(4): b.cyl((bx, 20.0, AZ + .74 + q * .07), .085, .02, 'ivory', 'Z', 20)
-        b.cyl((bx, 20.0, AZ + 1.02), .045, .05, 'orange', 'Z', 16)
+        bx = CX - 1.45 + (k - 1) * .28; b.cyl((bx, 20.0, AZ + .66), .13, .09, 'steel_dark', 'Z', 20, bev=.01); b.cyl((bx, 20.0, AZ + .9), .075, .42, 'ivory', 'Z', 20)
+        for q in range(5): b.cyl((bx, 20.0, AZ + .76 + q * .08), .115, .025, 'ivory', 'Z', 24)
+        b.cyl((bx, 20.0, AZ + 1.13), .06, .07, 'orange', 'Z', 16)
     for yy in (17.4, 19.8):                                                                                      # generator cooling water pipes
         for s in (-1, 1):
             b.sweep([(CX + s * .98, yy, 3.3), (CX + s * 1.3, yy, 3.3), (CX + s * 1.3, yy, 1.14)], .06, 'steel_mid', 16, .14); b.cyl((CX + s * 1.3, yy, 1.03), .11, .05, 'steel_dark', 'Z', 20, bev=.006)
@@ -274,9 +277,9 @@ def controls(b):
     cols = ['led_green', 'led_green', 'screen', 'led_green', 'led_red', 'led_green', 'screen', 'led_green']
     for i in range(8):
         if abs(4.2 + i * .4 - 6.0) < .3: continue
-        for j in range(3): b.box((-3.835, 4.2 + i * .4, 1.95 + j * .3), (.02, .3, .2), cols[(i + j * 3) % 8], bev=.006); b.text(str(i * 3 + j + 1), (-3.82, 4.2 + i * .4, 1.95 + j * .3), .06, 'trim_black', math.pi / 2, math.pi / 2)
+        for j in range(3): b.box((-3.842, 4.2 + i * .4, 1.95 + j * .3), (.014, .35, .25), 'trim_black', bev=.006); b.box((-3.835, 4.2 + i * .4, 1.95 + j * .3), (.02, .3, .2), cols[(i + j * 3) % 8], bev=.006); b.text(str(i * 3 + j + 1), (-3.82, 4.2 + i * .4, 1.95 + j * .3), .06, 'trim_black', math.pi / 2, math.pi / 2)
     b.box((-3.9, 5.65, 3.02), (.1, 3.6, .46), 'orange', bev=.02); b.text('TURBINE CONTROL', (-3.84, 5.65, 3.02), .25, 'trim_black', math.pi / 2, math.pi / 2)
-    b.box((-2.2, 5.6, .72), (.8, 1.5, .05), 'wood', bev=.012)
+    b.box((-2.2, 5.6, .72), (.8, 1.5, .05), 'steel_dark', bev=.012); b.box((-1.795, 5.6, .72), (.012, 1.5, .052), 'orange')
     for dx in (-.35, .35):
         for dy in (-.7, .7): b.box((-2.2 + dx, 5.6 + dy, .36), (.05, .05, .7), 'steel_dark', bev=.006)
     b.box((-2.2, 5.3, .755), (.3, .22, .008), 'paper', (0, 0, .3)); b.box((-2.12, 6.0, .86), (.3, .02, .2), 'trim_black', bev=.008); b.box((-2.12, 6.0, .86), (.26, .005, .16), 'screen_cool')
@@ -304,7 +307,7 @@ def maintenance(b):
     b.use('MACH')
     rx, rz = -.9, .62
     for y in (14.6, 19.4):
-        b.box((rx, y, .3), (.9, .22, .6), 'steel_dark', nb=True, bev=.02); b.box((rx, y, .575), (.7, .2, .06), 'orange_dark', bev=.01)
+        b.prism([(-.48, 0), (.48, 0), (.3, .58), (-.3, .58)], .24, 'steel_dark', (rx, y, 0), True, 'Y', bev=.025); b.box((rx, y, .6), (.62, .22, .05), 'orange_dark', bev=.01)
     b.cyl((rx, 17.0, rz + .14), .17, 5.8, 'steel_light', 'Y', 32, bev=.008)
     for i, yy in enumerate((15.3, 15.75, 16.2, 16.65, 17.1, 17.55, 18.0, 18.45)):
         R = .55 - .02 * abs(i - 3.5)
@@ -315,9 +318,9 @@ def maintenance(b):
                 b.box((rx + (R + .05) * math.cos(a), yy, rz + .14 + (R + .05) * math.sin(a)), (.1, .26, .035), 'steel_dark', (0, -a, 0), bev=.004)
     for y in (15.5, 18.5): torus(b, (rx, y, rz + .74), .06, .012, 'yellow', 'X', 16)
     b.claim((-1.9, 14.2, 0), (.3, 19.7, 1.3))
-    b.box((-3.35, 16.0, .46), (.7, 3.0, .07), 'wood', bev=.014)
-    for y in (14.55, 17.45): b.box((-3.35, y, .22), (.62, .06, .44), 'steel_dark', bev=.008)
-    b.box((-3.35, 16.0, .12), (.62, 2.9, .04), 'steel_dark', bev=.008)
+    b.box((-3.35, 15.9, .46), (.7, 2.2, .07), 'steel_dark', bev=.014); b.box((-3.0, 15.9, .46), (.012, 2.2, .075), 'orange')
+    for y in (14.9, 16.9): b.box((-3.35, y, .22), (.62, .06, .44), 'steel_dark', bev=.008)
+    b.box((-3.35, 15.9, .12), (.62, 2.1, .04), 'steel_dark', bev=.008)
     b.box((-3.45, 15.1, .6), (.18, .26, .14), 'steel_dark', bev=.012); b.box((-3.45, 15.1, .7), (.1, .26, .05), 'steel_mid', bev=.008)
     b.box((-3.78, 16.0, 1.5), (.03, 2.9, 1.0), 'slate_blue', bev=.01); b.box((-3.7, 16.0, 1.98), (.18, 2.9, .035), 'wood', bev=.008)
     for i in range(6):                                                         # tidy tool wall: wrenches and screwdrivers on a rail
@@ -332,8 +335,8 @@ def maintenance(b):
             for dx in (0, .6): b.box((-3.7 + dx, y, 1.0), (.045, .045, 2.0), 'steel_dark', bev=.005)
         for i, z in enumerate((.1, .7, 1.3)): b.box((-3.45, yc + (.15 if i % 2 else -.15), z + .15), (.4, .4, .26), ['wood', 'steel_mid', 'orange'][i], bev=.01)
     b.claim((-3.9, 19.2, 0), (-3.0, 21.9, 2.2))
-    for ya in (12.1, 21.9): b.flat((-.3, ya), 5.3, .09, 'yellow', 0, z=.008)
-    b.flat((-2.95, 17), .09, 9.8, 'yellow', 0, z=.008)
+    for ya in (12.1, 21.9): b.flat((-.3, ya), 5.3, .09, 'gold_paint', 0, z=.008)
+    b.flat((-2.95, 17), .09, 9.8, 'gold_paint', 0, z=.008)
     b.box((.2, 21.2, .45), (.6, .9, .05), 'steel_dark', bev=.01)
     for dx in (-.25, .25):
         for dy in (-.35, .35): b.cyl((.2 + dx, 21.2 + dy, .1), .08, .06, 'rubber', 'X', 20)

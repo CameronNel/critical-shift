@@ -128,7 +128,7 @@ def build(b):
     # --- broken: a leaking pipe stub, a missing ceiling panel with dangling cable, a lamp off its hanger ---
     b.cyl((-.6, 9.0, 4.95), .12, 2.1, 'lagging', 'Z', 24); b.cyl((-.6, 9.0, 3.9), .18, .06, 'steel_mid', 'Z', 24, bev=.006)
     b.sweep([(-.6, 9.0, 3.88), (-.45, 9.1, 3.5), (-.35, 9.15, 3.1)], .08, 'lagging', 20, .2); b.box((-.33, 9.16, 3.05), (.3, .08, .26), 'primer', (.5, 0, .4), bev=.01)
-    puddle(b, -.4, 9.1, .55, .38, 'oil', .0105, .3)
+    puddle(b, -.4, 9.1, .55, .38, 'wet', .0105, .3)
     b.box((-1.05, 8.55, .006), (.6, .6, .012), 'steel_dark', bev=.01)                                    # floor drain
     for k in range(7): b.box((-1.05, 8.55 - .24 + k * .08, .014), (.5, .03, .012), 'backing')
     b.box((2.0, 20.5, 5.0), (1.3, .22, .07), 'steel_dark', (.9, 0, 0), bev=.012); b.box((2.0, 20.5, 4.955), (1.15, .15, .02), 'lamp', (.9, 0, 0)); b.rod((1.4, 20.5, 5.35), (1.4, 20.5, 6.06), .008, 'steel_dark', 8)
@@ -145,7 +145,7 @@ def build(b):
     with b.push(o, rz): vent(b, fu(6.0), 4.2, 1.1, .55)
     # --- floor: wet patches that follow the machinery, hairline cracks, a grated cable trench ---
     for (x, y, rx, ry, rot) in ((1.5, 5.6, .55, .3, .1), (1.7, 9.2, .7, .33, -.1), (1.6, 14.4, .6, .3, .05), (1.5, 18.2, .75, .32, 0.0), (7.7, 7.6, .6, .3, .2), (7.8, 15.4, .7, .3, -.15), (0.2, 21.0, .6, .35, .3)):
-        puddle(b, x, y, rx, ry, 'oil', .0092, rot)
+        puddle(b, x, y, rx, ry, 'wet', .0092, rot)
     for k in range(9):
         x, y = R.uniform(-3.4, 9.2), R.uniform(.8, 23.2)
         if 1.7 < x < 7.5 and 2.4 < y < 23.2: continue

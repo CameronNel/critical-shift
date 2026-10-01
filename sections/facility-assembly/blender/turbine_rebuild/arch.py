@@ -162,7 +162,7 @@ def floor(b):
         b.box(((r[0] + r[1]) / 2, (r[2] + r[3]) / 2, -0.22), (r[1] - r[0], r[3] - r[2], .38), 'concrete_dark')
     b.use(g0)
     for r in rect_minus((X0, X1, Y0, Y1), [(HOLE[0], HOLE[1], HOLE[2], HOLE[3])]):
-        b.box(((r[0] + r[1]) / 2, (r[2] + r[3]) / 2, -0.031), (r[1] - r[0], r[3] - r[2], .002), 'backing', nb=True)
+        b.box(((r[0] + r[1]) / 2, (r[2] + r[3]) / 2, -0.0285), (r[1] - r[0], r[3] - r[2], .002), 'backing', nb=True)
     cx, cy, w, d = (HOLE[0] + HOLE[1]) / 2, (HOLE[2] + HOLE[3]) / 2, HOLE[1] - HOLE[0], HOLE[3] - HOLE[2]
     b.box((cx, cy, -2.5), (w, d, .1), 'black') if False else b.box((cx, cy, -2.5), (w, d, .1), 'backing')
     for dx, dy, sx, sy in ((0, d / 2, w, .05), (0, -d / 2, w, .05), (w / 2, 0, .05, d), (-w / 2, 0, .05, d)): b.box((cx + dx, cy + dy, -1.3), (sx, sy, 2.4), 'concrete_dark')
@@ -176,8 +176,8 @@ def floor(b):
             roll = r.random()
             sw = 'terra_worn' if roll < (.22 if traffic else .05) else 'terra_b' if roll < .35 else 'terra_c' if roll < .6 else 'terra_a'
             b.box((x, y, -.015), (sx_ - .018, sy_ - .018, .03), sw, nb=True, bev=.004)
-    for xl in (1.55, 7.65): b.flat((xl, 12.9), .1, 21.0, 'yellow', 0, z=.0075)           # gold paint around the foundation
-    for yl in (2.2, 23.4): b.flat((4.6, yl), 6.2, .1, 'yellow', 0, z=.0075)
+    for xl in (1.55, 7.65): b.flat((xl, 12.9), .1, 21.0, 'gold_paint', 0, z=.0075)           # gold paint around the foundation
+    for yl in (2.2, 23.4): b.flat((4.6, yl), 6.2, .1, 'gold_paint', 0, z=.0075)
 
 def build(b):
     b.use('ARCH'); floor(b)
@@ -197,6 +197,6 @@ def build(b):
     b.box((8.4, .03, 4.9), (.7, .08, .7), 'steel_dark', bev=.015); b.box((9.5, .03, .45), (.45, .08, .45), 'steel_dark', bev=.012)
     for y in LAMP_Y:                                                                  # hooded pendant lamps
         for x in LAMP_X:
-            b.cyl((x, y, 5.42), .3, .22, 'trim_black', 'Z', 36, r2=.08, bev=.01)
-            b.arc_shell((x, y, 5.32), .315, .285, .03, 0, 2 * math.pi, 'orange', 36)                            # gold rim
-            b.sphere((x, y, 5.3), .085, 'lamp', 14); b.rod((x, y, 5.52), (x, y, 6.06), .012, 'steel_dark', 10)
+            b.cyl((x, y, 5.45), .38, .28, 'trim_black', 'Z', 36, r2=.09, bev=.01)
+            b.arc_shell((x, y, 5.31), .395, .36, .03, 0, 2 * math.pi, 'orange_dark', 36)                            # gold rim
+            b.sphere((x, y, 5.3), .085, 'lamp', 14); b.rod((x, y, 5.59), (x, y, 6.06), .014, 'steel_dark', 10)
