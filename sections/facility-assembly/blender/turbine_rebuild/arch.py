@@ -23,6 +23,14 @@ def rect_minus(r, holes):
         out = nxt
     return out
 
+def torus(b, c, R, r, sw, plane='Z', n=28):
+    pts = []
+    for i in range(n + 1):
+        t = 2 * math.pi * i / n
+        p = (R * math.cos(t), R * math.sin(t), 0) if plane == 'Z' else (R * math.cos(t), 0, R * math.sin(t)) if plane == 'Y' else (0, R * math.cos(t), R * math.sin(t))
+        pts.append((c[0] + p[0], c[1] + p[1], c[2] + p[2]))
+    b.sweep(pts, r, sw, 10, R * .15, caps=False)
+
 def slab(b, rects, d0, d1, sw, bev=0.0, nb=False):
     for u0, u1, z0, z1 in rects:
         if u1 - u0 < 1e-4 or z1 - z0 < 1e-4: continue
@@ -42,7 +50,7 @@ def wall(b, frame, u0, u1, holes, pitch=4.0):
         slab(b, rect_minus((u0, u1, 0, H), holes), 0, .002, 'backing')
         for r in rect_minus((u0, u1, 0, .16), holes): slab(b, [r], 0, .045, 'trim_black', bev=.008)                    # skirting
         for a, c in spans(u0, u1, pitch):
-            for z0, z1, d, sw in ((.16, 1.20, .032, 'slate_blue'), (1.27, 3.10, .02, 'sand'), (3.42, 4.45, .02, 'sand'), (4.51, H, .018, 'ivory_warm')):
+            for z0, z1, d, sw in ((.16, 1.20, .032, 'slate_blue'), (1.27, 3.10, .02, 'wall_slate'), (3.42, 4.45, .02, 'wall_slate'), (4.51, H, .018, 'wall_slate_lt')):
                 for r in rect_minus((a, c, z0, z1), holes): slab(b, [r], 0, d, sw, bev=.006)
         for z0, z1, d, sw, bv in ((1.20, 1.27, .06, 'ivory', .012), (3.10, 3.42, .045, 'orange', .01), (4.45, 4.51, .05, 'slate_dark', .008)):
             for r in rect_minus((u0, u1, z0, z1), holes): slab(b, [r], 0, d, sw, bev=bv)                               # cap rail, orange colour band, dark course
@@ -71,10 +79,10 @@ def column(b, x, y, side):
 
 def truss(b, y):
     x0, x1 = X0, X1; n = 8; st = (x1 - x0) / n
-    b.box((3, y, 6.06), (14, .14, .12), 'steel_mid', bev=.01); b.box((3, y, 7.14), (14, .14, .12), 'steel_mid', bev=.01)
+    b.box((3, y, 6.08), (14, .2, .16), 'steel_light', bev=.012); b.box((3, y, 7.12), (14, .2, .16), 'steel_light', bev=.012)
     for i in range(n):
         xa, xb, xc = x0 + i * st, x0 + (i + .5) * st, x0 + (i + 1) * st
-        b.rod((xa, y, 7.14), (xb, y, 6.06), .036, 'steel_dark', 10); b.rod((xb, y, 6.06), (xc, y, 7.14), .036, 'steel_dark', 10)
+        b.rod((xa, y, 7.14), (xb, y, 6.06), .05, 'steel_mid', 12); b.rod((xb, y, 6.06), (xc, y, 7.14), .05, 'steel_mid', 12)
     for i in range(n + 1): b.box((x0 + i * st, y, 6.6), (.05, .1, 1.0), 'steel_dark', bev=.005); b.box((x0 + i * st, y, 6.06), (.2, .2, .03), 'steel_light', bev=.006)
     b.box((x0 + .3, y, 6.1), (.5, .3, .04), 'steel_light', bev=.008); b.box((x1 - .3, y, 6.1), (.5, .3, .04), 'steel_light', bev=.008)
 
@@ -85,7 +93,7 @@ def roof(b):
         yc, w = (a + c) / 2, c - a - .25
         for i in range(14):
             x = X0 + .5 + i
-            b.box((x, yc, H - .02), (.94, w, .03), 'steel_light' if b.rng.random() > .08 else 'steel_worn', nt=True, bev=.005)
+            b.box((x, yc, H - .02), (.94, w, .03), 'slate_dark' if b.rng.random() > .08 else 'charcoal', nt=True, bev=.005)
 
 def crane(b, ybridge=10.0, zr=5.55):
     for x in (-3.35, 9.35):
@@ -114,7 +122,9 @@ def door(b, frame, side_sign, label):
         b.box((0, .1, h + .13), (w + .48, .2, .26), 'trim_black', bev=.022)
         b.box((0, 0, -.01), (w, .3, .03), 'steel_worn', nb=True, bev=.006)
         for dx in (-.9, .9): b.flat((dx, .35), .12, .5, 'yellow', 0, z=.012)
-        b.box((0, .07, h + .52), (2.0, .05, .34), 'trim_black', bev=.012); b.text(label, (0, .1, h + .52), .13, 'chalk', math.pi, math.pi / 2)
+        b.box((0, .07, h + .52), (2.1, .05, .38), 'trim_black', bev=.012); b.text(label, (.12, .1, h + .52), .12, 'chalk', math.pi, math.pi / 2)
+        if label.startswith('ELECTRICAL'): b.prism([(.0, .16), (-.07, -.02), (-.01, -.02), (-.05, -.16), (.08, .03), (.01, .03)], .006, 'yellow', (-.82, .098, h + .52), True, 'Y')
+        else: torus(b, (-.82, .098, h + .52), .1, .014, 'yellow', 'Y', 24); b.cyl((-.82, .098, h + .52), .035, .008, 'yellow', 'Y', 16)
         lx = side_sign * (w / 2 + .2 + 1.2)
         b.box((lx, .22, h / 2), (2.4, .08, h - .08), 'steel_mid', bev=.02)
         for dx in (-.6, .6): b.box((lx + dx, .27, h / 2 - .1), (1.0, .02, h - .6), 'steel_dark', bev=.012)
@@ -127,6 +137,22 @@ def door(b, frame, side_sign, label):
         b.rod((lx - side_sign * .9, .33, .7), (lx - side_sign * .9, .33, 1.3), .02, 'brass', 12)
         b.box((lx, .17, h + .12), (2.6, .12, .1), 'steel_dark', bev=.012)
         for k in range(3): b.box((lx + (k - 1) * .85, .17, h + .05), (.05, .12, .1), 'steel_mid')
+
+def passage(b, frame, label):
+    """1.7 m deep service passage behind a portal (the real connector is future work): dark walls, floor strip, lit end wall."""
+    org, rz = frame
+    with b.push(org, rz):
+        w, h, d = 2.4, 2.7, 1.7
+        for s in (-1, 1): b.box((s * (w / 2 + .02), -d / 2, h / 2), (.04, d, h), 'slate_dark', bev=.006)
+        b.box((0, -d / 2, h + .02), (w + .08, d, .04), 'slate_dark'); b.box((0, -d / 2, -.02), (w, d, .04), 'tile_border')
+        b.box((0, -d - .03, h / 2), (w, .06, h), 'slate_blue', bev=.01)
+        b.box((0, -d + .02, h / 2), (1.4, .03, 2.1), 'steel_mid', bev=.02); b.box((0, -d + .005, 1.0), (.04, .02, 1.9), 'trim_black')
+        for s in (-1, 1):
+            b.box((s * .35, -d + .04, 1.75), (.3, .015, .45), 'glass', bev=.01); b.rod((s * .12, -d + .045, .9), (s * .12, -d + .045, 1.3), .015, 'brass', 10)
+            for k in range(8): b.cyl((s * .62, -d + .04, .25 + k * .22), .014, .015, 'steel_light', 'Y', 8)
+        b.box((0, -d + .02, h - .14), (w * .9, .04, .05), 'lamp'); b.box((0, -.9, h - .02), (1.6, .2, .03), 'lamp')
+        for k in range(8): b.box((-.9 + k * .26, -d + .06, .005), (.12, .5, .006), 'yellow' if k % 2 == 0 else 'trim_black', (0, 0, .5), nb=True)
+        b.text(label, (0, -d + .045, 2.45), .09, 'chalk', math.pi, math.pi / 2)
 
 def floor(b):
     g0 = b.group; b.use('OCC')
@@ -148,7 +174,7 @@ def floor(b):
             else:
                 traffic = (abs(x) < 2.0 and (y < 3.2 or y > 20.8)) or (1.3 < y < 2.7 and 3.4 < x < 5.8)
                 roll = r.random()
-                sw = ('tile_worn' if roll < (.28 if traffic else .02) else 'tile_b' if roll < .30 else 'tile_c' if roll < .40 else 'tile_a')
+                sw = ('terra_worn' if roll < (.28 if traffic else .02) else 'terra_b' if roll < .30 else 'terra_c' if roll < .40 else 'terra_a')
             b.box((x, y, -.015), (t - .014, t - .014, .03), sw, nb=True)
 
 def build(b):
@@ -163,10 +189,13 @@ def build(b):
     for c in win_e: window(b, east, c, 1.3, 4.55, 6.55)
     for c in win_w: window(b, west, 24 - c, 1.1, 5.0, 6.4)
     door(b, south, -1, 'REACTOR  /  D01'); door(b, north, -1, 'ELECTRICAL  /  D02')
+    passage(b, south, 'TO REACTOR'); passage(b, north, 'TO ELECTRICAL')
     for y in BAYS: column(b, -4, y, -1); column(b, 10, y, 1); truss(b, y)
     roof(b); crane(b)
     b.box((8.4, .03, 4.9), (.7, .08, .7), 'steel_dark', bev=.015); b.box((9.5, .03, .45), (.45, .08, .45), 'steel_dark', bev=.012)
     for y in LAMP_Y:                                                                  # recessed-look linear fixtures
         for x in LAMP_X:
-            b.box((x, y, 5.35), (1.3, .22, .07), 'steel_dark', bev=.012); b.box((x, y, 5.305), (1.15, .15, .02), 'lamp')
+            b.box((x, y, 5.37), (1.3, .26, .05), 'trim_black', bev=.012)
+            for s in (-1, 1): b.box((x, y + s * .12, 5.33), (1.3, .02, .1), 'trim_black', (s * .5, 0, 0), bev=.006)
+            b.box((x, y, 5.30), (1.15, .15, .02), 'lamp')
             for dx in (-.55, .55): b.rod((x + dx, y, 5.38), (x + dx, y, 6.06), .008, 'steel_dark', 8)

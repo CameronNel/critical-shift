@@ -62,6 +62,19 @@ def duct(b, pts, w, h, sw='steel_light'):
             p = a + d * (i * 1.5 / L)
             b.box(tuple(p), (w * 1.1 if abs(d.x) < 1e-6 else .05, w * 1.1 if abs(d.y) < 1e-6 else .05, h * 1.1 if abs(d.z) < 1e-6 else .05), 'steel_dark', bev=.008)
 
+def manway(b, c, r=.28):
+    b.cyl(c, r, .1, 'steel_mid', 'Z', 32, bev=.01); b.cyl((c[0], c[1], c[2] + .07), r * .78, .06, 'steel_light', 'Z', 32, bev=.008)
+    for i in range(12):
+        a = 2 * math.pi * i / 12; hexbolt(b, (c[0] + (r - .035) * math.cos(a), c[1] + (r - .035) * math.sin(a), c[2] + .07), 'Z', .02, .03)
+    b.sphere((c[0], c[1], c[2] + .1), .07, 'steel_dark', 12)
+
+def gauge_plate(b, x, y, z):
+    b.box((x, y, z), (.04, .8, .34), 'steel_dark', bev=.012)
+    for i in range(3): gauge(b, (x + .03, y - .26 + i * .26, z), 'X', .08)
+
+def bypass(b, x, y, z):
+    b.sweep([(x, y, z), (x + .45, y, z), (x + .45, y, z - .5)], .05, 'steel_mid', 16, .12); valve(b, (x + .45, y, z - .35), .08)
+
 # ---------- turbine train ----------
 def casing(b, y0, y1, r, body, band='orange', flange_r=None, nbolt=16):
     L = y1 - y0; yc = (y0 + y1) / 2; fr = flange_r or r + .1
@@ -91,9 +104,9 @@ def bearing(b, y0, y1):
 def handrails(b, xa, xb, ya, yb, z1):
     for xr in (xa + .12, xb - .12):
         n = int((yb - ya) / 2.0) + 1; ys = [ya + .12 + i * (yb - ya - .24) / n for i in range(n + 1)]
-        for y in ys: b.cyl((xr, y, z1 + .55), .024, 1.1, 'yellow', 'Z', 12, bev=.004)
-        for z in (z1 + .55, z1 + 1.05): b.rod((xr, ys[0], z), (xr, ys[-1], z), .02, 'yellow', 12)
-        b.box((xr, (ya + yb) / 2, z1 + .06), (.012, yb - ya - .2, .1), 'yellow_worn')
+        for y in ys: b.cyl((xr, y, z1 + .55), .024, 1.1, 'yellow', 'Z', 12, bev=.004); b.cyl((xr, y, z1 + .012), .05, .012, 'steel_dark', 'Z', 16)
+        b.rod((xr, ys[0], z1 + 1.05), (xr, ys[-1], z1 + 1.05), .017, 'yellow', 12); b.rod((xr, ys[0], z1 + .55), (xr, ys[-1], z1 + .55), .016, 'yellow_worn', 12)
+        b.box((xr, (ya + yb) / 2, z1 + .06), (.012, yb - ya - .2, .1), 'trim_black')
     for yr in (ya + .12, yb - .12):
         for (x0, x1) in ((xa + .12, CX - .95), (CX + .95, xb - .12)):
             for z in (z1 + .55, z1 + 1.05): b.rod((x0, yr, z), (x1, yr, z), .02, 'yellow', 12)
@@ -103,7 +116,7 @@ def foundation(b):
     z1 = 1.0; xa, xb, ya, yb = 2.0, 7.2, 2.6, 23.0; x0, x1, y0, y1 = HOLE
     for a, c, d, e in [(xa, xb, ya, y0), (xa, xb, y1, yb), (xa, x0, y0, y1), (x1, xb, y0, y1)]:
         b.box(((a + c) / 2, (d + e) / 2, z1 / 2), (c - a, e - d, z1), 'concrete', nb=True, bev=.02)
-        b.box(((a + c) / 2, (d + e) / 2, z1 + .008), (c - a - .26, e - d - .26 if e - d > .5 else e - d, .016), 'concrete_dark', nb=True)
+        b.box(((a + c) / 2, (d + e) / 2, z1 + .008), (c - a - .26, e - d - .26 if e - d > .5 else e - d, .016), 'slate_dark', nb=True)
     for sx in (xa + .07, xb - .07): b.box((sx, (ya + yb) / 2, z1 + .012), (.1, yb - ya - .02, .006), 'yellow_worn', nb=True)
     for sy in (ya + .07, yb - .07): b.box(((xa + xb) / 2, sy, z1 + .012), (xb - xa - .02, .1, .006), 'yellow_worn', nb=True)
     b.box((CX, ya - .06, .07), (xb - xa + .24, .12, .14), 'concrete_dark', nb=True, bev=.015); b.box((CX, yb + .06, .07), (xb - xa + .24, .12, .14), 'concrete_dark', nb=True, bev=.015)
@@ -113,32 +126,44 @@ def foundation(b):
     for k in range(4):                                                        # steps, south end
         b.box((CX, ya - .14 - .26 * (3 - k), .125 * (k + 1)), (1.6, .26, .25 * (k + 1)), 'steel_worn', nb=True, bev=.01)
         b.box((CX, ya - .02 - .26 * (3 - k), .25 * (k + 1) - .008), (1.6, .03, .016), 'yellow')
+    for sx, sgn in ((xb + .0, 1), (xa - .0, -1)):                                                          # inset panels, safety chevrons, stencil
+        for yy in (3.6, 5.6, 7.6, 9.6, 14.0, 16.0, 18.0, 20.0, 22.0):                                       # buttress pilasters instead of sticker panels
+            b.box((sx + sgn * .02, yy, .5), (.04, .3, 1.0), 'concrete', bev=.015)
+        for k in range(40): b.box((sx + sgn * .004, ya + .4 + k * .5, .1), (.014, .25, .1), 'yellow' if k % 2 == 0 else 'trim_black')
+    b.text('UNIT 3  TURBINE-GENERATOR', (xb + .012, 8.8, .78), .17, 'trim_black' if False else 'chalk', math.pi / 2, math.pi / 2)
     handrails(b, xa, xb, ya, yb, z1)
     b.claim((xa - .5, ya - 1.6, 0), (xb + .5, yb + 1.6, 3.9))
 
 def train(b):
     b.use('MACH'); foundation(b)
-    casing(b, 3.2, 7.0, .9, 'lagging'); saddles(b, 3.2, 7.0, .9)
+    casing(b, 3.2, 7.0, .9, 'casing', band='steel_dark'); saddles(b, 3.2, 7.0, .9)
     b.box((CX, 4.2, 3.35), (1.3, 1.6, .7), 'steel_dark', bev=.025); b.box((CX, 4.2, 3.72), (1.0, 1.3, .05), 'steel_mid', bev=.01)       # steam chest
     for dx in (-.35, .35):
         b.cyl((CX + dx, 4.2, 4.12), .13, .72, 'orange', 'Z', 28, bev=.01); b.cyl((CX + dx, 4.2, 4.5), .17, .1, 'steel_dark', 'Z', 28, bev=.01)
         b.sphere((CX + dx, 4.2, 4.58), .1, 'steel_mid', 16)
     bearing(b, 7.0, 8.1)
-    casing(b, 8.1, 14.4, 1.3, 'lagging_dark', flange_r=1.42, nbolt=24); saddles(b, 8.1, 14.4, 1.3)
-    for hy in (9.3, 13.3):
-        b.box((CX, hy, 3.6), (1.0, .8, .1), 'steel_dark', bev=.02)
-        for ix in (-1, 1):
-            for iy in (-1, 1): b.cyl((CX + ix * .4, hy + iy * .3, 3.68), .03, .05, 'steel_light', 'Z', 6)
+    casing(b, 8.1, 14.4, 1.3, 'casing_dark', band='steel_dark', flange_r=1.42, nbolt=24); saddles(b, 8.1, 14.4, 1.3)
+    for hy in (9.3, 13.3): manway(b, (CX, hy, 3.6))
+    manway(b, (CX, 6.1, 3.15), .22)
+    gauge_plate(b, CX + 1.31, 9.6, AZ + .1); gauge_plate(b, CX + 1.31, 12.9, AZ + .1); bypass(b, CX + 1.28, 11.2, AZ - .35)
+    b.box((CX + .9, 5.0, AZ + .1), (.04, .5, .28), 'steel_dark', bev=.01); gauge(b, (CX + .93, 5.0, AZ + .1), 'X', .09)
     pipe_lagged(b, [(CX, 6.4, 3.15), (CX, 6.4, 4.5), (CX, 11.25, 4.5), (CX, 11.25, 3.65)], .26, bend=.5)                                  # crossover
     bearing(b, 14.4, 15.3)
     b.cyl((CX, 15.6, AZ), .6, .6, 'yellow', 'Y', 32, bev=.01); b.cyl((CX, 15.6, AZ), .62, .06, 'steel_dark', 'Y', 32, bev=.008)
     b.box((CX, 15.6, AZ + .6), (.5, .26, .03), 'trim_black', bev=.008)
-    casing(b, 15.9, 21.3, 1.05, 'ivory', band='steel_mid', flange_r=1.15, nbolt=20); saddles(b, 15.9, 21.3, 1.05)
-    b.cyl((CX, 15.95, AZ), 1.11, .34, 'orange', 'Y', 48, bev=.012); b.cyl((CX, 21.25, AZ), 1.11, .34, 'orange', 'Y', 48, bev=.012)
+    casing(b, 15.9, 21.3, 1.05, 'casing', band='steel_dark', flange_r=1.15, nbolt=20); saddles(b, 15.9, 21.3, 1.05)
+    b.cyl((CX, 15.95, AZ), 1.11, .34, 'hood_orange', 'Y', 48, bev=.012); b.cyl((CX, 21.25, AZ), 1.11, .34, 'hood_orange', 'Y', 48, bev=.012)
     for k in range(5): b.cyl((CX, 16.6 + k * .95, AZ), 1.07, .06, 'steel_mid', 'Y', 48, bev=.006)
-    b.box((CX, 18.6, 3.55), (1.9, 3.6, .62), 'orange', bev=.04)                                                                             # cooler hood
-    for k in range(8): b.box((CX, 17.1 + k * .42, 3.862), (1.6, .09, .008), 'trim_black')
-    b.box((CX, 18.6, 3.2), (1.7, 3.3, .1), 'steel_dark', bev=.01)
+    b.box((CX, 18.6, 3.55), (1.9, 3.6, .56), 'hood_orange', bev=.04)                                                                         # cooler hood, panelled
+    b.box((CX, 18.6, 3.2), (1.95, 3.7, .1), 'steel_dark', bev=.012)
+    for yy in (17.4, 19.8): b.box((CX, yy, 3.55), (1.94, .03, .5), 'trim_black')                                                             # panel seams
+    for yy in (16.95, 18.6, 20.25):
+        for sx in (-.88, .88):
+            for k in range(3): b.cyl((CX + sx, yy - .5 + k * .5, 3.6), .022, .03, 'steel_dark', 'X', 6)
+    b.box((CX, 18.6, 3.835), (1.3, 1.7, .012), 'backing')                                                                                    # recessed grille
+    for k in range(9): b.box((CX, 17.85 + k * .17, 3.848), (1.2, .06, .02), 'steel_dark', bev=.004)
+    b.box((CX, 16.45, 3.55), (.9, .02, .24), 'steel_dark', bev=.006); b.cyl((CX, 16.43, 3.55), .08, .02, 'chalk', 'Y', 20)
+    b.box((CX - 1.2, 15.98, 1.55), (.5, .01, .26), 'chalk'); b.text('TG-3', (CX - 1.2, 15.97, 1.55), .1, 'trim_black', 0, math.pi / 2)
     b.box((CX - 1.45, 20.0, AZ + .1), (.9, 1.1, 1.0), 'steel_dark', bev=.03); b.box((CX - 1.45, 20.0, AZ + .62), (.8, 1.0, .05), 'red', bev=.012)    # terminal box
     b.box((CX - 1.91, 20.0, AZ + .1), (.03, .7, .5), 'yellow', bev=.008); b.text('HV', (CX - 1.94, 20.0, AZ + .12), .24, 'trim_black', -math.pi / 2, math.pi / 2)
     b.cyl((CX, 21.85, AZ), .72, 1.1, 'steel_light', 'Y', 40, bev=.01); b.cyl((CX, 21.3, AZ), .78, .12, 'steel_dark', 'Y', 40, bev=.01)
@@ -197,17 +222,18 @@ def controls(b):
         b.box((-2.995, yc, .55), (.014, .88, .82), 'slate_dark', bev=.008); b.rod((-2.97, yc + .3, .4), (-2.97, yc + .3, .7), .012, 'steel_light', 10)
         for i in range(4): b.box((-2.992, yc - .25, .3 + i * .05), (.01, .3, .012), 'trim_black')
         b.box((-3.4, yc, 1.12), (.9, 1.1, .05), 'steel_dark', bev=.012)
-        b.box((-3.55, yc, 1.55), (.4, 1.06, .8), 'ivory', (0, -.45, 0), bev=.014)
+        b.box((-3.55, yc, 1.55), (.4, 1.06, .8), 'blue_panel', (0, -.45, 0), bev=.014)
         for j in range(2):
             yy = yc - .26 + .52 * j
             gauge(b, (-3.36, yy, 1.62), 'X', .105)
-            b.box((-3.36, yy, 1.82), (.02, .15, .05), 'screen' if (j + k) % 2 else 'led_green', bev=.004)
+            b.box((-3.36, yy, 1.82), (.02, .15, .05), 'screen' if (j + k) % 2 else 'led_green', bev=.004); b.box((-3.345, yy, 1.5), (.01, .22, .035), 'chalk', (0, -.45, 0))
         for i in range(3): b.cyl((-3.22, yc - .3 + i * .12, 1.25), .014, .05, 'steel_light', 'Z', 10); b.box((-3.22, yc - .3 + i * .12, 1.28), (.012, .012, .035), 'steel_dark')
         b.rod((-3.2, yc + .25, 1.19), (-3.02, yc + .25, 1.38), .014, 'steel_dark', 10); b.sphere((-3.02, yc + .25, 1.4), .035, 'red', 12)
     b.cyl((-3.1, 7.3, 1.17), .1, .05, 'yellow', 'Z', 24, bev=.006); b.cyl((-3.1, 7.3, 1.215), .065, .05, 'red', 'Z', 24, bev=.008)
-    b.box((-3.9, 5.65, 2.25), (.1, 3.4, .92), 'trim_black', bev=.015)
+    for ya, yb_ in ((3.9, 5.8), (6.2, 7.3)): b.box((-3.9, (ya + yb_) / 2, 2.25), (.1, yb_ - ya, .92), 'trim_black', bev=.015)
     cols = ['led_green', 'led_green', 'screen', 'led_green', 'led_red', 'led_green', 'screen', 'led_green']
     for i in range(8):
+        if abs(4.2 + i * .4 - 6.0) < .3: continue
         for j in range(3): b.box((-3.835, 4.2 + i * .4, 1.95 + j * .3), (.02, .3, .2), cols[(i + j * 3) % 8], bev=.006); b.text(str(i * 3 + j + 1), (-3.82, 4.2 + i * .4, 1.95 + j * .3), .06, 'trim_black', math.pi / 2, math.pi / 2)
     b.box((-3.9, 5.65, 3.02), (.1, 3.6, .46), 'orange', bev=.02); b.text('TURBINE CONTROL', (-3.84, 5.65, 3.02), .25, 'trim_black', math.pi / 2, math.pi / 2)
     b.box((-2.2, 5.6, .72), (.8, 1.5, .05), 'wood', bev=.012)
@@ -247,14 +273,16 @@ def maintenance(b):
             for k in range(30):
                 a = 2 * math.pi * k / 30
                 b.box((rx + (R + .05) * math.cos(a), yy, rz + .14 + (R + .05) * math.sin(a)), (.1, .26, .035), 'steel_dark', (0, -a, 0), bev=.004)
+    for y in (15.5, 18.5): torus(b, (rx, y, rz + .74), .06, .012, 'yellow', 'X', 16)
     b.claim((-1.9, 14.2, 0), (.3, 19.7, 1.3))
     b.box((-3.35, 16.0, .46), (.7, 3.0, .07), 'wood', bev=.014)
     for y in (14.55, 17.45): b.box((-3.35, y, .22), (.62, .06, .44), 'steel_dark', bev=.008)
     b.box((-3.35, 16.0, .12), (.62, 2.9, .04), 'steel_dark', bev=.008)
     b.box((-3.45, 15.1, .6), (.18, .26, .14), 'steel_dark', bev=.012); b.box((-3.45, 15.1, .7), (.1, .26, .05), 'steel_mid', bev=.008)
-    b.box((-3.78, 16.0, 1.5), (.03, 2.9, 1.0), 'wood_dark', bev=.01); b.box((-3.7, 16.0, 1.98), (.18, 2.9, .035), 'wood', bev=.008)
+    b.box((-3.78, 16.0, 1.5), (.03, 2.9, 1.0), 'slate_blue', bev=.01); b.box((-3.7, 16.0, 1.98), (.18, 2.9, .035), 'wood', bev=.008)
     for i in range(6):                                                         # tidy tool wall: wrenches and screwdrivers on a rail
         y = 14.85 + i * .46
+        b.box((-3.755, y, 1.62), (.008, .075, .5), 'trim_black'); b.box((-3.755, y + .22, 1.5), (.008, .08, .3), 'trim_black')
         b.box((-3.74, y, 1.62), (.02, .035, .42), 'steel_mid', bev=.006); b.box((-3.74, y, 1.4), (.02, .09, .08), 'steel_mid', bev=.006); b.box((-3.74, y, 1.37), (.02, .04, .05), 'wood_dark')
         b.box((-3.74, y + .22, 1.5), (.025, .04, .24), ['orange', 'yellow'][i % 2], bev=.008); b.box((-3.74, y + .22, 1.34), (.012, .012, .1), 'steel_light')
     b.claim((-3.9, 14.2, 0), (-2.9, 17.9, 2.3))

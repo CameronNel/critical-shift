@@ -52,6 +52,8 @@ objs = b.build(coll, mats)
 
 # ---- cull invisible faces (outside the shell, buried against other solids). Culled faces are kept in a
 # non-shipping occluder mesh so the light bake still sees a sealed room (no light leaks through seams). ----
+KEEP_OUTSIDE = [(-1.5, 1.5, -1.85, 0.005, -.05, 2.9), (-1.5, 1.5, 23.995, 25.85, -.05, 2.9),      # door passages
+                (8.0, 8.8, -.4, .005, 4.4, 5.4), (9.2, 9.8, -.4, .005, .2, .7), (-4.7, -3.5, 23.995, 25.6, 3.5, 4.3)]   # U01, U02, U03 stubs
 def cull(objs):
     import bmesh
     from mathutils.bvhtree import BVHTree
@@ -74,6 +76,8 @@ def cull(objs):
         for f in bm.faces:
             c = f.calc_center_median(); n = f.normal
             inside = -4.005 <= c.x <= 10.005 and -.005 <= c.y <= 24.005 and -.005 <= c.z <= 7.205
+            if not inside:
+                inside = any(x0 <= c.x <= x1 and y0 <= c.y <= y1 and z0 <= c.z <= z1 for x0, x1, y0, y1, z0, z1 in KEEP_OUTSIDE)
             in_hole = hx0 - .1 <= c.x <= hx1 + .1 and hy0 - .1 <= c.y <= hy1 + .1 and c.z < 0
             if not inside and not in_hole: dele.append(f); continue
             if sl is not None and f[sl] == keep_idx: continue
@@ -114,7 +118,7 @@ if sh:
     sh.location = org; sh.name = 'ANIM_TURBINE_SHAFT'
 
 # ---- lighting rig (used for the bake; light-map result is what ships) ----
-def area(name, loc, size, power, color=(1, .90, .74)):
+def area(name, loc, size, power, color=(1, .84, .64)):
     d = bpy.data.lights.new(name, 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = size; d.energy = power; d.color = color
     o = bpy.data.objects.new(name, d); o.location = loc; coll.objects.link(o); return o
 n = 0
@@ -122,6 +126,7 @@ for y in (4, 8, 12, 16, 20):
     for x in (-1.2, 4.6, 8.6):
         area(f'LAMP_{n:02d}', (x, y, 5.27), (1.1, .15), 190); n += 1
 area('LAMP_broken', (2.0, 20.5, 4.9), (1.1, .15), 160, (1, .8, .55)).rotation_euler = (.9, 0, 0)
+for nm, yy, sgn in (('PASS_D01', -.9, 1), ('PASS_D02', 24.9, 1)): area(nm, (0, yy, 2.55), (1.6, .3), 60, (1, .8, .6))
 sun = bpy.data.lights.new('SUN_EAST', 'SUN'); sun.energy = 3.0; sun.angle = math.radians(1.2); sun.color = (1.0, .93, .80)
 so = bpy.data.objects.new('SUN_EAST', sun); coll.objects.link(so)
 so.rotation_euler = Vector((-.62, .40, -.67)).to_track_quat('-Z', 'Y').to_euler()          # coming from the east, ~34 deg elevation

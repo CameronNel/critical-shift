@@ -42,14 +42,20 @@ def puddle(b, x, y, rx, ry, sw, z=.0085, rot=0.0):
 def build(b):
     b.use('PROPS'); R = b.rng
     # --- wear with a story: oil trail from the leak, scuffs at door and steps, one repaired crack ---
-    for (x, y, sx, sy, sw, rz) in ((-.6, 8.9, 1.3, .9, 'tile_oil', .3), (.3, 2.2, 1.0, .6, 'tile_worn', .2), (1.6, 21.6, .9, .6, 'tile_worn', 1.2),
-                                   (6.7, 1.7, .8, .5, 'tile_worn', 0), (8.1, 3.5, .6, .4, 'tile_worn', .5)):
+    for (x, y, sx, sy, sw, rz) in ((-.6, 8.9, 1.3, .9, 'terra_worn', .3), (.3, 2.2, 1.0, .6, 'terra_worn', .2), (1.6, 21.6, .9, .6, 'terra_worn', 1.2),
+                                   (6.7, 1.7, .8, .5, 'terra_worn', 0), (8.1, 3.5, .6, .4, 'terra_worn', .5)):
         puddle(b, x, y, sx / 2, sy / 2, sw, .0085, rz)
     for k in range(3): b.box((-.35 + .22 * k, 8.8 + .15 * k, .016), (.1, .08, .004), 'tile_crack', (0, 0, R.uniform(0, 3)))
     # --- signage hung over the bay and on the foundation ---
-    b.box((-1.2, 13.7, 4.32), (2.0, .05, .36), 'trim_black', bev=.012); b.text('MAINTENANCE BAY', (-1.2, 13.67, 4.32), .105, 'chalk', 0, math.pi / 2)
-    b.text('MAINTENANCE BAY', (-1.2, 13.73, 4.32), .105, 'chalk', math.pi, math.pi / 2)
-    for dx in (-.85, .85): b.rod((-1.2 + dx, 13.7, 4.5), (-1.2 + dx, 14.0, 6.06), .008, 'steel_dark', 8)
+    b.box((-1.2, 13.7, 4.25), (2.6, .05, .5), 'trim_black', bev=.014)
+    for sgn, rz_ in ((-1, 0), (1, math.pi)): b.text('MAINTENANCE BAY', (-.95, 13.7 + (.032 if sgn == 1 else -.032), 4.25), .112, 'chalk', rz_, math.pi / 2)
+    for sgn in (-1, 1):                                                                                  # gear icon, both faces
+        yf = 13.7 + sgn * .033
+        b.cyl((-2.2, yf, 4.25), .13, .008, 'yellow', 'Y', 24)
+        for k in range(8): b.box((-2.2 + .15 * math.cos(k * math.pi / 4), yf, 4.25 + .15 * math.sin(k * math.pi / 4)), (.06, .008, .06), 'yellow', (0, k * math.pi / 4 * -1, 0))
+        b.cyl((-2.2, yf + sgn * .005, 4.25), .055, .008, 'trim_black', 'Y', 16)
+    for dx in (-1.1, 1.1):                                                                                # chains
+        for k in range(int(1.7 / .07)): b.box((-1.2 + dx, 13.7, 4.5 + k * .07), (.02, .012 if k % 2 else .03, .06), 'steel_mid')
     b.box((7.215, 12.6, .55), (.03, .9, .22), 'yellow', bev=.008); b.text('EXHAUST  U04', (7.235, 12.6, .55), .1, 'trim_black', math.pi / 2, math.pi / 2)
     # --- west wall: notice board, posters, first aid, conduit ---
     (o, rz), fu = FR['W']
@@ -75,6 +81,19 @@ def build(b):
         b.cyl((fu(6.7), .25, 1.3), .33, .2, 'red', 'Y', 36, bev=.008); b.cyl((fu(6.7), .25, 1.3), .14, .26, 'steel_dark', 'Y', 20); b.box((fu(6.7), .07, 1.3), (.1, .1, .8), 'steel_dark', bev=.01)
         b.sweep([(fu(6.7) + .1, .32, 1.0), (fu(6.7) + .3, .5, .55), (fu(6.7) + .25, .6, .08)], .03, 'rubber', 12, .15)
         b.cyl((fu(3.0), .05, 3.4), .22, .05, 'chalk', 'Y', 36, bev=.006); b.box((fu(3.0), .08, 3.47), (.012, .01, .15), 'trim_black'); b.box((fu(3.0) + .05, .08, 3.4), (.09, .01, .012), 'trim_black')
+    # --- wayfinding on the south wall, tool trolley in the bay ---
+    (o, rz), fu = FR['S']
+    with b.push(o, rz):
+        b.box((fu(5.5), .04, 2.6), (1.8, .05, .5), 'trim_black', bev=.014); wt(b, 'TURBINE HALL', fu(5.5) - .2, 2.6, .12, 'chalk', .066)
+        b.prism([(-.12, -.12), (.12, 0), (-.12, .12)], .006, 'yellow', (fu(5.5) + .68, .066, 2.6), True, 'Y')
+    tx, ty = .75, 13.0
+    b.box((tx, ty, .62), (.9, .5, .05), 'steel_dark', bev=.01); b.box((tx, ty, .27), (.86, .46, .03), 'steel_dark', bev=.008)
+    for dx in (-.4, .4):
+        for dy in (-.2, .2): b.rod((tx + dx, ty + dy, .08), (tx + dx, ty + dy, .96), .014, 'steel_mid', 10)
+    for dx in (-.4, .4):
+        for dy in (-.2, .2): b.cyl((tx + dx, ty + dy, .05), .05, .04, 'rubber', 'X', 16)
+    b.box((tx, ty - .24, .88), (.9, .02, .6), 'steel_dark', bev=.008); b.box((tx - .2, ty, .72), (.3, .3, .14), 'orange', bev=.015); b.box((tx + .2, ty, .74), (.3, .25, .18), 'wood', bev=.015)
+    b.box((tx, ty, .35), (.3, .3, .12), 'steel_light', bev=.012); b.cyl((tx + .3, ty + .1, .31), .04, .24, 'red', 'Z', 14); b.sphere((tx + .3, ty + .1, .44), .04, 'red', 10)
     # --- north wall: working desk with a monitor, mug, lamp and chair; pinned poster ---
     (o, rz), fu = FR['N']
     with b.push(o, rz):
@@ -104,7 +123,9 @@ def build(b):
     # --- broken: a leaking pipe stub, a missing ceiling panel with dangling cable, a lamp off its hanger ---
     b.cyl((-.6, 9.0, 4.95), .12, 2.1, 'lagging', 'Z', 24); b.cyl((-.6, 9.0, 3.9), .18, .06, 'steel_mid', 'Z', 24, bev=.006)
     b.sweep([(-.6, 9.0, 3.88), (-.45, 9.1, 3.5), (-.35, 9.15, 3.1)], .08, 'lagging', 20, .2); b.box((-.33, 9.16, 3.05), (.3, .08, .26), 'primer', (.5, 0, .4), bev=.01)
-    puddle(b, -.4, 9.1, .55, .38, 'tile_oil', .0105, .3)
+    puddle(b, -.4, 9.1, .55, .38, 'oil', .0105, .3)
+    b.box((-1.05, 8.55, .006), (.6, .6, .012), 'steel_dark', bev=.01)                                    # floor drain
+    for k in range(7): b.box((-1.05, 8.55 - .24 + k * .08, .014), (.5, .03, .012), 'backing')
     b.box((2.0, 20.5, 5.0), (1.3, .22, .07), 'steel_dark', (.9, 0, 0), bev=.012); b.box((2.0, 20.5, 4.955), (1.15, .15, .02), 'lamp', (.9, 0, 0)); b.rod((1.4, 20.5, 5.35), (1.4, 20.5, 6.06), .008, 'steel_dark', 8)
     b.box((6.5, 6.5, 7.17), (.94, 1.0, .004), 'primer')                                       # panel missing, bare deck showing
     b.sweep([(6.5, 6.5, 7.15), (6.4, 6.6, 6.5), (6.55, 6.9, 5.9), (6.45, 7.1, 5.5)], .014, 'rubber', 8, .25)

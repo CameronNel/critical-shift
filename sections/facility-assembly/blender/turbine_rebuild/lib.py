@@ -15,6 +15,15 @@ BEV_MAX = 0.03                          # bevel modifier width; per-edge weight 
 
 # name: (hex, edge, dirt, noise, emissive)   edge>1 lightens edges (paint chipping), <1 darkens
 PALETTE = {
+    'wall_slate':   ('8793A3', 1.06, .08, .030, 0),
+    'wall_slate_lt':('A2ACB8', 1.06, .06, .028, 0),
+    'terra_a':      ('C98963', .88, .05, .026, 0),
+    'terra_b':      ('BF7F5B', .88, .05, .028, 0),
+    'terra_c':      ('D49670', .88, .04, .024, 0),
+    'terra_worn':   ('A87558', .90, .14, .045, 0),
+    'casing':       ('A9B3B9', 1.10, .10, .040, 0),
+    'casing_dark':  ('8794A0', 1.10, .14, .040, 0),
+    'hood_orange':  ('C9622A', 1.12, .08, .030, 0),
     'sand':         ('D5C5A8', 1.06, .08, .030, 0),
     'sand_dark':    ('BCAC8E', 1.08, .12, .035, 0),
     'ivory':        ('E4DAC6', 1.08, .08, .028, 0),
@@ -40,11 +49,11 @@ PALETTE = {
     'tile_b':       ('ABA497', .88, .05, .024, 0),
     'tile_c':       ('BDB6A9', .88, .04, .020, 0),
     'tile_worn':    ('9A9488', .90, .14, .045, 0),
-    'tile_border':  ('42536B', .86, .05, .022, 0),
-    'tile_border_b':('3A4A60', .86, .05, .022, 0),
+    'tile_border':  ('2E3E57', .86, .05, .022, 0),
+    'tile_border_b':('293850', .86, .05, .022, 0),
     'tile_oil':     ('645C50', .92, .08, .045, 0),
     'tile_crack':   ('7C776E', .92, .12, .045, 0),
-    'grout':        ('3A3834', 1., .0, .02, 0),
+    'grout':        ('2A2724', 1., .0, .02, 0),
     'backing':      ('1E2025', 1., .0, .02, 0),
     'primer':       ('6A4B3E', 1.2, .12, .05, 0),
     'rust':         ('8A4D2B', 1.1, .20, .08, 0),
@@ -71,9 +80,10 @@ PALETTE = {
     'led_green':    ('7DFF8A', 1.0, 0., .01, 1),
 }
 # (roughness, metallic) overrides, default (.62, 0)
-PBR = {'steel_dark': (.45, .65), 'steel_mid': (.38, .75), 'steel_light': (.32, .78), 'steel_worn': (.55, .55), 'brass': (.32, .9),
+PBR = {'terra_a': (.34, 0), 'terra_b': (.34, 0), 'terra_c': (.34, 0), 'terra_worn': (.5, 0), 'casing': (.5, .15), 'casing_dark': (.5, .15), 'hood_orange': (.5, .05), 'wall_slate': (.9, 0), 'wall_slate_lt': (.9, 0),
+       'steel_dark': (.5, .5), 'steel_mid': (.45, .6), 'steel_light': (.42, .55), 'steel_worn': (.55, .55), 'brass': (.32, .9),
        'tile_a': (.34, 0), 'tile_b': (.34, 0), 'tile_c': (.34, 0), 'tile_worn': (.5, 0), 'tile_border': (.34, 0), 'tile_border_b': (.34, 0),
-       'tile_oil': (.2, 0), 'tile_crack': (.5, 0), 'concrete': (.85, 0), 'concrete_dark': (.85, 0), 'trim_black': (.4, 0), 'glass': (.08, 0),
+       'tile_oil': (.2, 0), 'oil': (.1, 0), 'tile_crack': (.5, 0), 'concrete': (.85, 0), 'concrete_dark': (.85, 0), 'trim_black': (.4, 0), 'glass': (.08, 0),
        'orange': (.48, .05), 'yellow': (.48, .05), 'red': (.45, .05), 'rubber': (.8, 0), 'lagging': (.85, 0), 'lagging_dark': (.85, 0),
        'sand': (.9, 0), 'sand_dark': (.9, 0), 'ivory': (.7, 0), 'ivory_warm': (.9, 0), 'paper': (.9, 0), 'wood': (.6, 0), 'wood_dark': (.6, 0)}
 ORDER = list(PALETTE)
