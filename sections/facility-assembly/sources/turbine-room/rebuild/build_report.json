@@ -1,12 +1,16 @@
 {
  "group_stats": {
   "ARCH": {
-   "faces": 36624,
-   "tris": 74056
+   "faces": 36378,
+   "tris": 73636
   },
   "OCC": {
    "faces": 264,
    "tris": 528
+  },
+  "GLASS": {
+   "faces": 48,
+   "tris": 96
   },
   "MACH": {
    "faces": 55765,
@@ -17,16 +21,38 @@
    "tris": 184
   },
   "PROPS": {
-   "faces": 9404,
-   "tris": 16936
+   "faces": 16141,
+   "tris": 31524
   }
  },
- "total_tris_before_cull": 206396,
- "total_tris": 313658,
+ "total_tris_before_cull": 220660,
+ "total_tris": 339854,
  "floor": {
   "top_faces": 9,
   "faces": 222,
   "tris": 876
+ },
+ "walls": {
+  "south": {
+   "faces": 22,
+   "top_faces": 3,
+   "tris": 68
+  },
+  "north": {
+   "faces": 14,
+   "top_faces": 1,
+   "tris": 44
+  },
+  "east": {
+   "faces": 36,
+   "top_faces": 6,
+   "tris": 112
+  },
+  "west": {
+   "faces": 24,
+   "top_faces": 4,
+   "tris": 72
+  }
  },
  "floor_textures": {
   "size": [
@@ -38,20 +64,33 @@
   "damp_fraction": 0.08019356863839286
  },
  "bevelled_edges": {
-  "ARCH": 6205,
+  "ARCH": 6263,
+  "GLASS": 0,
   "MACH": 15076,
   "SHAFT": 0,
-  "PROPS": 1579
+  "PROPS": 3855
  },
- "faces_kept": 89954,
- "faces_culled": 11891,
- "materials": 12,
+ "faces_kept": 95532,
+ "faces_culled": 12852,
+ "materials": 21,
  "images": [
   "turbine_atlas",
   "turbine_atlas_orm",
   "turbine_floor_albedo.png",
   "turbine_floor_normal.png",
-  "turbine_floor_orm.png"
+  "turbine_floor_orm.png",
+  "turbine_wall_east_albedo.png",
+  "turbine_wall_east_normal.png",
+  "turbine_wall_east_orm.png",
+  "turbine_wall_north_albedo.png",
+  "turbine_wall_north_normal.png",
+  "turbine_wall_north_orm.png",
+  "turbine_wall_south_albedo.png",
+  "turbine_wall_south_normal.png",
+  "turbine_wall_south_orm.png",
+  "turbine_wall_west_albedo.png",
+  "turbine_wall_west_normal.png",
+  "turbine_wall_west_orm.png"
  ],
- "objects": 62
+ "objects": 69
 }

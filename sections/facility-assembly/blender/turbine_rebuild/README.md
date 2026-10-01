@@ -40,6 +40,14 @@ five round drains and the exhaust opening. One planar UV covers the whole top; `
 normal map at 160 texels per metre (2240 x 3840) with joints, cracks, spalls, stains, repair patches, tyre scuffs, worn lane paint and wet flow to the drains.
 Gratings and drain covers (`floor.py`) are the only separate meshes. These maps are texturing, not baked lighting.
 
+## Walls
+
+Each wall is ONE 0.05 m skin (`wallmesh.py`) with the real openings (doors, windows, utility ports) cut through it and one per-wall texture set
+(`walltex.py`, 96 px/m: corrugated cladding, plinth, wainscot, seams, rivets, grime, streaks, peeling, painted numerals and arrows, gold stripe; albedo/ORM/normal).
+`arch.py` adds the structure (chamfered plinth, rails, cornice with drip lip, black bay frames, X-bracing, glazed windows with hinges and latches) and
+`walldress.py` the dressing (pipe bundles with ID bands, valves and gauges, cable ladders and risers, louvred fans, EXIT signs, hazard plaques, DB boards,
+e-stops, eyewash, PA horns and strobes, evacuation plan, bump rails, quilted acoustic panels). Wall textures total about 5 MB on disk; no light is baked.
+
 ## Not done
 
 Independent review, Cycles art-acceptance against the spawn room, measured runtime performance, collision, Unity import, and

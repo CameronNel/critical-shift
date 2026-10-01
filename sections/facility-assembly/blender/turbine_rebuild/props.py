@@ -132,9 +132,9 @@ def build(b):
     with b.push(o, rz):
         for t in (9.0, 12.0): vent(b, fu(t), 4.05)
     (o, rz), fu = FR['S']
-    with b.push(o, rz): vent(b, fu(3.0), 4.0, 1.1, .55)
+    pass
     (o, rz), fu = FR['N']
-    with b.push(o, rz): vent(b, fu(6.0), 4.2, 1.1, .55)
+    pass
     # --- work lamp on a stand at the foundation walkway: lights the open rotor (its light lives in run.py) ---
     wx, wy = 6.55, 7.3
     b.cyl((wx, wy, 1.012), .22, .024, 'steel_dark', 'Z', 24, bev=.006)

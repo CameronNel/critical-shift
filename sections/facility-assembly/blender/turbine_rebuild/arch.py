@@ -40,22 +40,44 @@ def spans(u0, u1, pitch):
     n = max(1, int(round((u1 - u0) / pitch))); st = (u1 - u0) / n
     return [(u0 + i * st + .008, u0 + (i + 1) * st - .008) for i in range(n)]
 
-def wall(b, frame, u0, u1, holes, pitch=4.0):
-    """One wall in its local frame: local x along the wall, local y into the room, z up."""
-    org, rz = frame
+def wall_specs():
+    """Single source of truth for the four walls (used by the 3D structure here and by the wall skins / textures in run.py)."""
+    D = lambda x0, x1, z0, z1: (x0, x1, z0, z1)
+    win_e, win_w = [4, 8, 12, 16, 20], [4, 12, 20]
+    return {
+        'south': dict(frame=((0, 0), 0.0), u0=-4, u1=10, holes=[D(-1.2, 1.2, 0, 2.7), D(8.15, 8.65, 4.65, 5.15), D(9.35, 9.65, .3, .6)], stations=[-4, -.5, 3, 6.5, 10],
+                      braces=[], feat=dict(seam_pitch=3.5, cols=[], bay_marks=[], arrows=[(4.2, .95, -1)], leaks=[(3.0, 3.8, 2.0)], floor_runs=[(-4, 10)])),
+        'north': dict(frame=((0, 24), math.pi), u0=-10, u1=4, holes=[D(-1.2, 1.2, 0, 2.7), D(3.6, 4.0, 3.73, 4.03)], stations=[-10, -6.5, -3, .5, 4],
+                      braces=[], feat=dict(seam_pitch=3.5, cols=[], bay_marks=[], arrows=[(-5.0, .95, 1)], leaks=[(-6.0, 3.9, 2.2)], floor_runs=[(-10, 4)])),
+        'east': dict(frame=((10, 0), math.pi / 2), u0=0, u1=24, holes=[D(c - 1.3, c + 1.3, 4.55, 6.55) for c in win_e], stations=[0, 2, 6, 10, 14, 18, 22, 24], braces=[(0, 2), (22, 24)],
+                     feat=dict(seam_pitch=2.0, cols=list(BAYS), bay_marks=[(y + .75, str(i + 1)) for i, y in enumerate(BAYS)], arrows=[(3.0, .95, -1), (21.0, .95, 1)],
+                               leaks=[(c, 4.55, 2.6) for c in win_e], floor_runs=[(0, 24)])),
+        'west': dict(frame=((-4, 24), -math.pi / 2), u0=0, u1=24, holes=[D(24 - c - 1.1, 24 - c + 1.1, 5.0, 6.4) for c in win_w], stations=[0, 2, 6, 10, 14, 18, 22, 24], braces=[(22, 24)],
+                     feat=dict(seam_pitch=2.0, cols=[24 - y for y in BAYS], bay_marks=[(24 - y + .75, str(i + 1)) for i, y in enumerate(BAYS)], arrows=[(21.0, .95, 1), (3.0, .95, -1)],
+                               leaks=[(24 - c, 5.0, 3.0) for c in win_w], floor_runs=[(0, 24)])),
+    }
+
+def wall(b, name, spec):
+    """3D structure on a textured wall skin: occluder core, plinth, rails, cornice, bay frames and X-bracing."""
+    org, rz = spec['frame']; u0, u1, holes, st = spec['u0'], spec['u1'], spec['holes'], spec['stations']
     with b.push(org, rz):
         g0 = b.group; b.use('OCC')
         slab(b, rect_minus((u0 - T, u1 + T, -0.4, H + 0.25), holes), -T, 0, 'concrete_dark')
         b.use(g0)
-        slab(b, rect_minus((u0, u1, 0, H), holes), 0, .002, 'backing')
-        for r in rect_minus((u0, u1, 0, .16), holes): slab(b, [r], 0, .045, 'trim_black', bev=.008)                    # skirting
-        for si, (a, c) in enumerate(spans(u0, u1, pitch)):
-            rel = .05 if si % 2 else 0.0
-            for z0, z1, d, sw in ((.16, 1.20, .032, 'slate_blue'), (1.27, 3.10, .02 + rel, 'wall_slate'), (3.42, 4.45, .02 + rel, 'wall_slate'), (4.51, H, .018, 'wall_slate_lt')):
-                for r in rect_minus((a, c, z0, z1), holes): slab(b, [r], 0, d, sw, bev=.006)
-        for z0, z1, d, sw, bv in ((1.20, 1.27, .06, 'ivory', .012), (3.10, 3.42, .04, 'steel_dark', .01), (4.45, 4.51, .05, 'slate_dark', .008)):
-            for r in rect_minus((u0, u1, z0, z1), holes): slab(b, [r], 0, d, sw, bev=bv)                               # cap rail, dark band, dark course
-        for r in rect_minus((u0, u1, 3.235, 3.285), holes): slab(b, [r], 0, .06, 'orange', bev=.006)                          # thin warm-gold line
+        for r in rect_minus((u0, u1, 0, .2), [h for h in holes if h[2] < .2]): slab(b, [r], 0.04, .105, 'concrete_dark', bev=.025)                  # chamfered plinth
+        for z0, z1, d, sw, bv in ((1.20, 1.27, .075, 'steel_mid', .012), (4.45, 4.52, .07, 'slate_dark', .01)):
+            for r in rect_minus((u0, u1, z0, z1), holes): slab(b, [r], 0.04, d, sw, bev=bv)                                                       # cap rail and dark course
+        slab(b, [(u0, u1, H - .2, H)], 0.04, .13, 'steel_dark', bev=.02); slab(b, [(u0, u1, H - .27, H - .2)], 0.04, .16, 'steel_mid', bev=.02)   # cornice with drip lip
+        for k, (a, c) in enumerate(zip(st, st[1:])):
+            ia, ic = a + .24, c - .24
+            if ic - ia < .8: continue
+            if any(h[1] > ia and h[0] < ic and h[3] > 1.45 and h[2] < 4.35 for h in holes): continue                                                    # not across openings
+            for cz in (1.5, 4.3): b.box(((ia + ic) / 2, .075, cz), (ic - ia, .05, .1), 'trim_black', bev=.015)
+            for cu in (ia + .05, ic - .05): b.box((cu, .075, 2.9), (.1, .05, 2.9), 'trim_black', bev=.015)
+            if (a, c) in spec['braces']:
+                for (xa, za, xb, zb) in ((ia + .1, 1.6, ic - .1, 4.2), (ia + .1, 4.2, ic - .1, 1.6)): b.rod((xa, .12, za), (xb, .12, zb), .03, 'steel_mid', 10)
+                b.box(((ia + ic) / 2, .13, 2.9), (.26, .03, .26), 'steel_dark', bev=.01)
+                for (cu, cz) in ((ia + .12, 1.62), (ic - .12, 1.62), (ia + .12, 4.18), (ic - .12, 4.18)): b.box((cu, .12, cz), (.2, .03, .2), 'steel_dark', bev=.01)
 
 def window(b, frame, c, half, z0, z1):
     org, rz = frame
@@ -66,6 +88,9 @@ def window(b, frame, c, half, z0, z1):
         b.box((c, -.02, z0 - .03), (2 * half + .1, .4, .06), 'steel_light', bev=.015)                                   # sill
         for k in (1, 2): b.box((c - half + k * (2 * half) / 3, -.06, (z0 + z1) / 2), (.05, .1, z1 - z0), 'trim_black', bev=.008)
         b.box((c, -.06, (z0 + z1) / 2), (2 * half, .1, .04), 'trim_black', bev=.008)
+        g0 = b.group; b.use('GLASS'); b.box((c, .02, (z0 + z1) / 2), (2 * half, .012, z1 - z0), 'glass'); b.use(g0)                                        # glass pane
+        for s in (-1, 1): b.box((c + s * (half - .1), .075, z0 + .6), (.05, .03, .12), 'steel_mid', bev=.008)
+        b.box((c, .075, (z0 + z1) / 2), (.06, .04, .16), 'brass', bev=.01)
 
 def column(b, x, y, side):
     with b.push((x, y, 0), 0 if side < 0 else math.pi):
@@ -164,13 +189,9 @@ def floor(b):
 
 def build(b):
     b.use('ARCH'); floor(b)
-    south = ((0, 0), 0); north = ((0, 24), math.pi); east = ((10, 0), math.pi / 2); west = ((-4, 24), -math.pi / 2)
-    D = lambda x0, x1, z0, z1: (x0, x1, z0, z1)
+    specs = wall_specs(); east, west = specs['east']['frame'], specs['west']['frame']; south, north = specs['south']['frame'], specs['north']['frame']
     win_e, win_w = [4, 8, 12, 16, 20], [4, 12, 20]
-    wall(b, south, -4, 10, [D(-1.2, 1.2, 0, 2.7), D(8.15, 8.65, 4.65, 5.15), D(9.35, 9.65, .3, .6)], 3.5)
-    wall(b, north, -10, 4, [D(-1.2, 1.2, 0, 2.7), D(3.6, 4.0, 3.73, 4.03)], 3.5)
-    wall(b, east, 0, 24, [D(c - 1.3, c + 1.3, 4.55, 6.55) for c in win_e])
-    wall(b, west, 0, 24, [D(24 - c - 1.1, 24 - c + 1.1, 5.0, 6.4) for c in win_w])
+    for nm, sp in specs.items(): wall(b, nm, sp)
     for c in win_e: window(b, east, c, 1.3, 4.55, 6.55)
     for c in win_w: window(b, west, 24 - c, 1.1, 5.0, 6.4)
     door(b, south, -1, 'REACTOR  /  D01'); door(b, north, -1, 'ELECTRICAL  /  D02')

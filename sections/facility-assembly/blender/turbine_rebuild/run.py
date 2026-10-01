@@ -10,7 +10,7 @@ import sys, os, json, math
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import bpy
 from mathutils import Vector
-import lib, arch, machinery, props
+import lib, arch, machinery, props, walldress, walltex, wallmesh, floormesh
 
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 OUT = os.path.abspath(argv[0] if argv else '/tmp/turbine_v2'); os.makedirs(OUT, exist_ok=True)
@@ -48,8 +48,15 @@ coll = bpy.data.collections.new('TURBINE_ROOM_V2'); sc.collection.children.link(
 b = lib.Builder()
 arch.build(b)
 machinery.train(b); machinery.services(b); machinery.controls(b); machinery.maintenance(b)
-props.build(b)
-mats = {g: make_mats(g) for g in b.g if g != 'OCC'}
+props.build(b); walldress.build(b)
+mats = {g: make_mats(g) for g in b.g if g not in ('OCC', 'GLASS')}
+def make_glass():
+    m = bpy.data.materials.new('M_GLASS'); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    out = nt.nodes.new('ShaderNodeOutputMaterial'); tr = nt.nodes.new('ShaderNodeBsdfTransparent'); gl = nt.nodes.new('ShaderNodeBsdfGlossy')
+    gl.inputs['Roughness'].default_value = .06; gl.inputs['Color'].default_value = (.35, .5, .65, 1)
+    mx = nt.nodes.new('ShaderNodeMixShader'); mx.inputs['Fac'].default_value = .07
+    nt.links.new(tr.outputs[0], mx.inputs[1]); nt.links.new(gl.outputs[0], mx.inputs[2]); nt.links.new(mx.outputs[0], out.inputs['Surface']); return m
+if 'GLASS' in b.g: gm = make_glass(); mats['GLASS'] = (gm, gm)
 objs = b.build(coll, mats)
 
 
@@ -124,6 +131,15 @@ tex_info = None
 if os.environ.get('REGEN_FLOOR', '1') == '1' or not os.path.exists(tex_prefix + '_albedo.png'): tex_info = floortex.generate(tex_prefix, floor_layout.LAYOUT)
 mt, mw = floormesh.make_materials(tex_prefix)
 floor_ob, floor_info = floormesh.make_floor(coll, floor_layout.LAYOUT, (mt, mw), arch.HOLE)
+# ---- wall skins: one slab per wall with the real openings cut, one texture set per wall (96 px/m) ----
+wall_info = {}
+for nm, sp in arch.wall_specs().items():
+    pre = os.path.join(OUT, f'turbine_wall_{nm}')
+    L = sp['u1'] - sp['u0']
+    if os.environ.get('REGEN_WALLS', '1') == '1' or not os.path.exists(pre + '_albedo.png'):
+        walltex.generate(os.path.join(OUT, 'turbine_wall'), nm, L, sp['feat'], seed=11 + len(nm))
+    wm, wmw = floormesh.make_materials(pre, f'wall_{nm}')
+    wo, wi = wallmesh.make_wall(coll, nm, sp['frame'], sp['u0'], sp['u1'], sp['holes'], (wm, wmw)); wall_info[nm] = wi
 # animated shaft: origin on the rotation axis
 sh = objs.get('SHAFT')
 if sh:
@@ -184,6 +200,9 @@ CAMS = {   # all positions are in open aisle space
     'CAM_J_north_back':    ((1.0, 22.3, 1.7), (5, 2, 2.4)),
     'CAM_K_door_d01':      ((0.2, 7.6, 1.65), (-2.4, .3, 1.7)),
     'CAM_M_turbine_close': ((6.7, 8.5, 2.95), (4.6, 11.6, 2.2)),
+    'CAM_P_west_wall':     ((1.0, 12.0, 1.65), (-4, 12, 2.6)),
+    'CAM_Q_east_wall':     ((8.6, 3.2, 1.7), (10, 13, 3.0)),
+    'CAM_R_south_wall':    ((6.0, 11.5, 1.8), (4.5, 0, 3.4)),
     'CAM_N_floor':         ((.2, 3.6, .95), (1.5, 13.5, .08)),
     'CAM_L_desk':          ((7.7, 19.8, 1.6), (8.4, 23.5, 1.0)),
 }
@@ -197,7 +216,7 @@ vs = hn.nodes.new('ShaderNodeVolumeScatter'); vs.inputs['Density'].default_value
 ho = hn.nodes.new('ShaderNodeOutputMaterial'); hn.links.new(vs.outputs[0], ho.inputs['Volume'])
 hm = bpy.data.meshes.new('HAZE'); hm.from_pydata([(x, y, z) for x in (-3.95, 9.95) for y in (.05, 23.95) for z in (.05, 7.15)], [], [(0, 1, 3, 2), (4, 6, 7, 5), (0, 4, 5, 1), (2, 3, 7, 6), (0, 2, 6, 4), (1, 5, 7, 3)])
 ho_ = bpy.data.objects.new('HAZE_VOLUME', hm); hm.materials.append(hz); coll.objects.link(ho_); ho_.hide_render = os.environ.get('HAZE') != '1'; ho_['shipping'] = False
-report = dict(group_stats={k: v for k, v in b.stats().items()}, total_tris_before_cull=sum(v['tris'] for v in b.stats().values()), total_tris=sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for k, o in objs.items() if k != 'OCC') + floor_info['tris'], floor=floor_info, floor_textures=tex_info,
+report = dict(group_stats={k: v for k, v in b.stats().items()}, total_tris_before_cull=sum(v['tris'] for v in b.stats().values()), total_tris=sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for k, o in objs.items() if k != 'OCC') + floor_info['tris'] + sum(w['tris'] for w in wall_info.values()), floor=floor_info, walls=wall_info, floor_textures=tex_info,
               bevelled_edges=bevelled, faces_kept=cull_kept, faces_culled=cull_removed, materials=len(bpy.data.materials), images=[i.name for i in bpy.data.images], objects=len(bpy.data.objects))
 print('REPORT', json.dumps(report))
 json.dump(report, open(os.path.join(OUT, 'build_report.json'), 'w'), indent=1)

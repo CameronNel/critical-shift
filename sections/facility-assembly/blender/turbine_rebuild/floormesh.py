@@ -48,12 +48,12 @@ def make_floor(coll, layout, mats, hole):
     for m in mats: me.materials.append(m)
     return slab, dict(top_faces=tops, faces=len(me.polygons), tris=sum(len(p.vertices) - 2 for p in me.polygons))
 
-def make_materials(atlas_prefix, bpy_images=None):
+def make_materials(atlas_prefix, name='floor'):
     """Floor top material (albedo + ORM + normal on UV0) and a flat dark material for the hole walls / underside."""
     def img(path, cs):
         i = bpy.data.images.load(path); i.colorspace_settings.name = cs; return i
     a, o, n = img(atlas_prefix + '_albedo.png', 'sRGB'), img(atlas_prefix + '_orm.png', 'Non-Color'), img(atlas_prefix + '_normal.png', 'Non-Color')
-    m = bpy.data.materials.new('M_floor'); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    m = bpy.data.materials.new('M_' + name); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
     out = nt.nodes.new('ShaderNodeOutputMaterial'); out.location = (800, 0)
     uvn = nt.nodes.new('ShaderNodeUVMap'); uvn.uv_map = 'UVMap'; uvn.location = (-700, 0)
     ta = nt.nodes.new('ShaderNodeTexImage'); ta.image = a; ta.name = 'ALBEDO'; ta.location = (-420, 250)
@@ -65,6 +65,6 @@ def make_materials(atlas_prefix, bpy_images=None):
     p = nt.nodes.new('ShaderNodeBsdfPrincipled'); p.location = (300, 0)
     nt.links.new(ta.outputs[0], p.inputs['Base Color']); nt.links.new(sp.outputs['Green'], p.inputs['Roughness']); nt.links.new(sp.outputs['Blue'], p.inputs['Metallic']); nt.links.new(nm.outputs[0], p.inputs['Normal'])
     nt.links.new(p.outputs[0], out.inputs['Surface'])
-    w = bpy.data.materials.new('M_floor_walls'); w.use_nodes = True; wn = w.node_tree.nodes['Principled BSDF']
+    w = bpy.data.materials.new('M_' + name + '_edges'); w.use_nodes = True; wn = w.node_tree.nodes['Principled BSDF']
     wn.inputs['Base Color'].default_value = (.03, .035, .042, 1); wn.inputs['Roughness'].default_value = .85
     return m, w
