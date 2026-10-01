@@ -1,8 +1,25 @@
 {
  "dynamic_lights": 6,
  "realtime_shadow_casters": 2,
- "baked_lights": 12,
+ "baked_lights": 13,
  "lights": [
+  {
+   "name": "CR anteroom lamp",
+   "type": "AREA",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 16.0,
+   "color": [
+    1.0,
+    0.68,
+    0.38
+   ],
+   "location": [
+    -5.83,
+    -6.7,
+    8.4
+   ]
+  },
   {
    "name": "CR back fill",
    "type": "AREA",
@@ -129,9 +146,9 @@
    "realtime_shadow": false,
    "rest_energy_W_cycles": 12.0,
    "color": [
-    0.72,
-    0.84,
-    1.0
+    1.0,
+    0.58,
+    0.3
    ],
    "location": [
     -5.15,

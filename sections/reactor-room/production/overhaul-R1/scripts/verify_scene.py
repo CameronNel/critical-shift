@@ -3,10 +3,11 @@ S=sys.argv[sys.argv.index("--")+1]; f=sys.argv[sys.argv.index("--")+2]
 bpy.ops.wm.open_mainfile(filepath=S+"/"+f); sc=bpy.context.scene; dg=bpy.context.evaluated_depsgraph_get()
 st=[o.name for o in bpy.data.objects if 'stair' in o.name.lower()]
 print("STAIRS: objects named stair:",len(st),"| collections:",[c.name for c in bpy.data.collections if 'stair' in c.name.lower()])
-el=[o for o in bpy.data.objects if o.name.startswith("EL ")]
-print("ELEVATOR: objects",len(el),"| car keyed:",bool(bpy.data.objects['EL car'].animation_data),"| counterweight keyed:",bool(bpy.data.objects['EL counterweight'].animation_data),"| landing doors keyed:",sum(1 for o in bpy.data.objects if o.name.startswith("EL landing door") and o.animation_data))
-for fr in (1,240):
-    sc.frame_set(fr); print("  frame",fr,"car floor z=%.2f"%bpy.data.objects['EL car'].location.z,"| ground door L x=%.2f upper door L x=%.2f"%(bpy.data.objects['EL landing door ground L'].location.x,bpy.data.objects['EL landing door upper L'].location.x))
+el=[o for o in bpy.data.objects if o.name.startswith(("CR lift","CR ante"))]
+print("LIFT: objects",len(el),"| car/cw/ropes/doors driven (seconds):",bool(bpy.data.objects['CR lift car'].animation_data),bool(bpy.data.objects['CR lift cw'].animation_data),sum(1 for o in bpy.data.objects if o.name.startswith("CR lift rope") and o.animation_data),sum(1 for o in bpy.data.objects if o.name.startswith(("CR lift_dg","CR lift_du")) and o.animation_data))
+for fr in (1,240,330):                          # scene fps 30: t = (frame-1)/30 s -> ground, 8 s (riding up), 11 s (upper)
+    sc.frame_set(fr); dg=[o for o in bpy.data.objects if o.name.startswith("CR lift_dgL")][0]; du=[o for o in bpy.data.objects if o.name.startswith("CR lift_duL")][0]
+    print("  frame",fr,"car z=%.2f"%bpy.data.objects['CR lift car'].location.z,"| ground door L dx=%.2f upper door L dy=%.2f"%(dg.location.x,du.location.y))
 sc.frame_set(1)
 glass=set(o.name for o in bpy.data.objects if o.type=='MESH' and ("glass" in o.name.lower() or o.name.startswith(("LP haze","CR haze","COL "))))   # haze volume and collision proxies are not visible geometry
 def cast(o,d,maxd=60):

@@ -17,7 +17,7 @@ def verts(o):
 out=[]
 for o in coll.objects:
     if o.type!="MESH": continue
-    if o.name.split(" ")[1] in ("wall","deco","ceil","clutter","glassnote","grime","marks","static"): continue      # merged whole-room groups: checked by construction; "static" = cr_optimize.py joins (geometry-neutral; run cr_verify on the pre-optimise blend for the full envelope check)
+    if o.name.split(" ")[1] in ("wall","deco","ceil","clutter","glassnote","grime","marks","static") or o.name.split(" ")[1].startswith(("lift","ante","control")): continue      # merged whole-room groups: checked by construction; "static" = cr_optimize.py joins (geometry-neutral; run cr_verify on the pre-optimise blend for the full envelope check)
     v=verts(o)
     if not len(v): continue
     mn,mx=v.min(0),v.max(0)

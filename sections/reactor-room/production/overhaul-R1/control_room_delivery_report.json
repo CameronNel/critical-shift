@@ -1,48 +1,48 @@
 {
- "source": "h8_ship.blend",
- "scope_objects": 122,
- "source_triangles": 74613,
+ "source": "L6.blend",
+ "scope_objects": 163,
+ "source_triangles": 82994,
  "source_bounds_min": [
-  -4.8,
+  -9.084,
   -12.03,
-  5.2
+  -0.3
  ],
  "source_bounds_max": [
   2.15,
-  -5.9835,
-  8.8
+  -4.98,
+  10.95
  ],
  "materials": {
-  "emit_img": 4,
   "family": 7,
+  "emit_img": 4,
   "floor": 1,
-  "emit": 16,
+  "keep": 2,
   "bake": 2,
-  "keep": 2
+  "emit": 16
  },
  "baked_tiles": 2,
  "delivery_images": 11,
  "delivery_image_megapixels": 7.98,
- "glb_kib": 12476,
+ "glb_kib": 11479,
  "note_tiles": "single-location 256 px albedo bake of procedural materials; not seamless; roughness/metal constant; no normal/AO; screens, LEDs, lamps frozen at frame 1; drivers, stability reactions and TV cycle are not exported",
- "reimport_objects": 122,
- "reimport_triangles": 74613,
+ "reimport_objects": 163,
+ "reimport_triangles": 82994,
  "reimport_bounds_min": [
-  -4.8,
+  -9.084,
   -12.03,
-  5.2
+  -0.3
  ],
  "reimport_bounds_max": [
   2.15,
-  -5.9835,
-  8.8
+  -4.98,
+  10.95
  ],
- "bounds_max_abs_diff_m": 0.0,
+ "bounds_max_abs_diff_m": 9.5367431640625e-07,
  "reimport_materials": 32,
  "reimport_uv_loops_at_origin_pct": 0.2,
  "reimport_images": 11,
- "reimport_objects_with_vertex_colour": 84,
- "runtime_s": 6,
+ "reimport_objects_with_vertex_colour": 117,
+ "runtime_s": 7,
  "status": {
   "technical_roundtrip": "see numbers (objects/triangles/bounds/materials/UV)",
   "visual_roundtrip": "render written, must be opened and judged",

@@ -2,7 +2,7 @@
 import bpy,sys,math,random,os
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from mathutils import Vector
-import crk,crt,cr_pal,cr_mats,cr_shell,cr_desk,cr_props1,cr_props2,cr_tv,cr_light,cr_extra
+import crk,crt,cr_pal,cr_mats,cr_shell,cr_desk,cr_props1,cr_props2,cr_tv,cr_light,cr_extra,cr_lift
 A_=sys.argv[sys.argv.index("--")+1:]; SRC,DST=A_[0],A_[1]; STAGE=A_[2] if len(A_)>2 else "all"
 bpy.ops.wm.open_mainfile(filepath=SRC); sc=bpy.context.scene
 print("PAL",cr_pal.retune())
@@ -57,6 +57,7 @@ if STAGE=="all":
     cr_tv.build(c)
     D.chair(c,-2.60,-9.12,math.pi)
     cr_light.build(c); cr_light.beacons(c)
+    cr_lift.build(c)
 elif STAGE in("shell","desk"):
     crk.light(c.coll,"CR test key",(-1.2,-8.0,8.4),(1.0,0.66,0.34),900,'AREA',(0,0,0),size=(3.0,1.5))
 mats=dict(c.M)

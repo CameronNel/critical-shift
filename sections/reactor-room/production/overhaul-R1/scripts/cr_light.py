@@ -30,7 +30,7 @@ def build(c):
     L(co,"CR desk lamp",c.DESKLAMP,WARM,K.get("desklamp",30),'SPOT',(math.radians(150),0,math.radians(-30)),spot=75,blend=0.6,soft=0.03)
     # cool window spill + door spill from the landing
     L(co,"CR window spill",(-1.4,-6.35,7.2),COOL,K.get("window",26),'AREA',(-math.pi/2,0,0),size=(5.4,2.2))
-    L(co,"CR door spill",(-5.15,-6.8,6.7),COOL,K.get("door",12),'AREA',(0,math.pi/2,0),size=(0.9,1.8))
+    L(co,"CR door spill",(-5.15,-6.8,6.7),WARM2,K.get("door",12),'AREA',(0,math.pi/2,0),size=(0.9,1.8))
     # low warm bounce so far corners stay readable (but darker)
     L(co,"CR back fill",(-1.4,-10.3,8.4),WARM,K.get("fill",1.0),'AREA',DOWN,size=(5.0,2.4))
     # accents: CRT phosphor glows and rack LEDs

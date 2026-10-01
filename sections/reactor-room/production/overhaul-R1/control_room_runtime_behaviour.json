@@ -604,6 +604,168 @@
    }
   },
   {
+   "owner": "CR lift car",
+   "kind": "Object",
+   "target": "location[2]",
+   "expression": "z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift cw",
+   "kind": "Object",
+   "target": "location[2]",
+   "expression": "-z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift rope car -7.85",
+   "kind": "Object",
+   "target": "scale[2]",
+   "expression": "7.12-z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift rope car -8.05",
+   "kind": "Object",
+   "target": "scale[2]",
+   "expression": "7.12-z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift rope cw -7.85",
+   "kind": "Object",
+   "target": "scale[2]",
+   "expression": "0.6+z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift rope cw -8.05",
+   "kind": "Object",
+   "target": "scale[2]",
+   "expression": "0.6+z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgL STEEL",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgL STEEL_L",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgL YELLOW",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgR STEEL",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgR STEEL_L",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgR YELLOW",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duL STEEL",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duL STEEL_L",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duL YELLOW",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duR STEEL",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duR STEEL_L",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duR YELLOW",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
    "owner": "CR troffer -0.6",
    "kind": "Object",
    "target": "energy[0]",
@@ -705,6 +867,67 @@
     "cg": "CR_TV[\"clip_g\"]",
     "cb": "CR_TV[\"clip_b\"]",
     "ce": "CR_TV[\"clip_e\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"t_s\"][0]",
+   "expression": "fmod(T,24.0)",
+   "inputs": {}
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"car_z_0\"][0]",
+   "expression": "(+5.4)*max(0,min(1,(p-5.000)/6.000))+(-5.4)*max(0,min(1,(p-17.000)/6.000))",
+   "inputs": {
+    "p": "CR_LIFT[\"t_s\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"car_z\"][0]",
+   "expression": "0.000+q0",
+   "inputs": {
+    "q0": "CR_LIFT[\"car_z_0\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"dg_0\"][0]",
+   "expression": "(-1)*max(0,min(1,(p-4.200)/0.800))+(+1)*max(0,min(1,(p-23.000)/0.800))",
+   "inputs": {
+    "p": "CR_LIFT[\"t_s\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"dg\"][0]",
+   "expression": "1.000+q0",
+   "inputs": {
+    "q0": "CR_LIFT[\"dg_0\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"du_0\"][0]",
+   "expression": "(+1)*max(0,min(1,(p-11.000)/0.800))+(-1)*max(0,min(1,(p-16.200)/0.800))",
+   "inputs": {
+    "p": "CR_LIFT[\"t_s\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"du\"][0]",
+   "expression": "0.000+q0",
+   "inputs": {
+    "q0": "CR_LIFT[\"du_0\"]"
    }
   },
   {
