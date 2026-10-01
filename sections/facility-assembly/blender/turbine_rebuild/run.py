@@ -120,17 +120,17 @@ w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
 bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.55, .68, .86, 1); bg.inputs['Strength'].default_value = .5
 
 # ---- named review cameras ----
-CAMS = {
+CAMS = {   # all positions are in open aisle space (checked against the machinery footprints)
     'CAM_A_entry_north':   ((0.0, 1.2, 1.7), (4.6, 14, 2.0)),
-    'CAM_B_nw_high':       ((-3.5, 22.8, 5.2), (5, 6, 1.5)),
-    'CAM_C_east_aisle':    ((9.3, 3.0, 1.7), (-1, 15, 2.0)),
+    'CAM_B_ne_high':       ((9.1, 23.0, 4.6), (-1, 6, 1.5)),
+    'CAM_C_east_aisle':    ((7.9, 12.5, 1.7), (2, 20, 2.2)),
     'CAM_D_maintenance':   ((-3.2, 12.6, 1.7), (-.5, 19.5, 1.2)),
     'CAM_E_controls':      ((2.2, 8.0, 1.7), (-3.8, 5.6, 1.6)),
-    'CAM_F_sw_high':       ((-3.5, 1.2, 6.0), (6, 16, 1.5)),
+    'CAM_F_sw_high':       ((-2.4, 1.6, 4.2), (6, 16, 1.5)),
     'CAM_G_generator':     ((8.3, 15.0, 1.7), (4.6, 18.5, 2.2)),
-    'CAM_H_roof':          ((4.6, 5, 2.0), (4.6, 15, 6.6)),
-    'CAM_I_east_services': ((5.0, 12.0, 1.6), (9.5, 16.5, 1.0)),
-    'CAM_J_south_back':    ((4.6, 22.6, 1.8), (4.6, 2, 2.4)),
+    'CAM_H_roof':          ((1.0, 4.0, 1.7), (4.6, 14, 6.4)),
+    'CAM_I_east_services': ((8.9, 12.0, 1.6), (9.2, 17, 1.0)),
+    'CAM_J_north_back':    ((1.0, 22.3, 1.8), (5, 2, 2.4)),
 }
 for name, (loc, tgt) in CAMS.items():
     cd = bpy.data.cameras.new(name); cd.lens = 22; co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
