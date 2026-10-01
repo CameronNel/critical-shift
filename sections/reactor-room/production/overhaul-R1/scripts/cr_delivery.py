@@ -47,7 +47,8 @@ plan={}
 for m in mats:
     b=principled(m)
     if b is None: plan[m.name]="keep"; continue
-    if m.name=="CR floor tile": plan[m.name]="floor"
+    if m.name.startswith("CR FAM "): plan[m.name]="family"
+    elif m.name=="CR floor tile": plan[m.name]="floor"
     elif emission_strength(m)>0.05 and not b.inputs['Emission Color'].is_linked: plan[m.name]="emit"
     elif emission_strength(m)>0.05: plan[m.name]="emit_img"
     elif uv_image(m) is not None: plan[m.name]="keep"
@@ -73,6 +74,20 @@ if any(v=="bake" for v in plan.values()):
         im.pack(); tiles[name]=im; bpy.data.materials.remove(mc)
     bpy.data.objects.remove(po); bpy.data.meshes.remove(me)
 print("baked",len(tiles),"tiles in %.0f s"%(time.time()-bake_t))
+# families (cr_families.py): colour+roughness live on the mesh ('Col' RGB base, A roughness; 'Mat' R metallic) -> glTF COLOR_0 x one shared neutral grain tile
+fam_stats={}
+for o in src:
+    me=o.data
+    if "Col" not in me.color_attributes: continue
+    L=len(me.loops); ca=np.empty(L*4,dtype=np.float32); me.color_attributes["Col"].data.foreach_get("color",ca); ca=ca.reshape(-1,4)
+    ma=np.empty(L*4,dtype=np.float32); me.color_attributes["Mat"].data.foreach_get("color",ma); ma=ma.reshape(-1,4)
+    for p in me.polygons:
+        sm=o.material_slots[p.material_index].material if p.material_index<len(o.material_slots) else None
+        if sm is not None and plan.get(sm.name)=="family":
+            li=list(p.loop_indices); r,mt_,n=fam_stats.get(sm.name,(0.0,0.0,0)); fam_stats[sm.name]=(r+float(ca[li,3].sum()),mt_+float(ma[li,0].sum()),n+len(li))
+rng=np.random.default_rng(7); g=rng.random((64,64)).astype(np.float32); g=np.fft.irfft2(np.fft.rfft2(g)*np.exp(-((np.fft.fftfreq(64)[:,None]**2)+(np.fft.rfftfreq(64)[None,:]**2))*900),s=g.shape); g=(g-g.mean())/(g.std()+1e-6)
+g=np.repeat(np.repeat(np.clip(0.96+0.03*g,0.88,1.06),4,0),4,1)                     # 256 px neutral +-4% mottling, tileable enough at 1.2 m
+grain=bpy.data.images.new("CR family grain",256,256,alpha=False); grain.colorspace_settings.name='Non-Color'; grain.pixels.foreach_set(np.dstack([g,g,g,np.ones_like(g)]).astype(np.float32).reshape(-1)); grain.pack()
 def rough_of(m):
     b=principled(m)
     if b is None: return 0.6
@@ -96,10 +111,21 @@ def mk(name,base=None,tile=None,rough=0.6,metal=0.0,emit=None,emit_str=0.0,uvsca
     if emit is not None:
         b.inputs['Emission Color'].default_value=(*emit[:3],1); b.inputs['Emission Strength'].default_value=emit_str
     return m
+def mk_family(name,rough,metal):
+    m=bpy.data.materials.new(name); m.use_nodes=True; nt=m.node_tree; nt.nodes.clear()
+    out=nt.nodes.new("ShaderNodeOutputMaterial"); b=nt.nodes.new("ShaderNodeBsdfPrincipled"); nt.links.new(b.outputs['BSDF'],out.inputs['Surface'])
+    b.inputs['Roughness'].default_value=rough; b.inputs['Metallic'].default_value=metal
+    vc=nt.nodes.new("ShaderNodeVertexColor"); vc.layer_name="Col"
+    uvn=nt.nodes.new("ShaderNodeUVMap"); uvn.uv_map="UVMap"; tx=nt.nodes.new("ShaderNodeTexImage"); tx.image=grain; tx.extension='REPEAT'; nt.links.new(uvn.outputs['UV'],tx.inputs[0])
+    mx=nt.nodes.new("ShaderNodeMix"); mx.data_type='RGBA'; mx.blend_type='MULTIPLY'; mx.inputs[0].default_value=1.0
+    nt.links.new(vc.outputs['Color'],mx.inputs[6]); nt.links.new(tx.outputs['Color'],mx.inputs[7]); nt.links.new(mx.outputs[2],b.inputs['Base Color'])
+    return m
 newmat={}; report_mats=collections=None
 for name,kind in plan.items():
     m=bpy.data.materials[name]; b=principled(m)
     if kind=="keep": newmat[name]=m
+    elif kind=="family":
+        r,mt_,n=fam_stats.get(name,(0.6,0.0,1)); newmat[name]=mk_family("D "+name,r/max(n,1),mt_/max(n,1))
     elif kind=="bake": newmat[name]=mk("D "+name,tile=tiles[name],rough=rough_of(m),metal=b.inputs['Metallic'].default_value)
     elif kind=="floor":
         img=next(n.image for n in m.node_tree.nodes if n.type=='TEX_IMAGE'); newmat[name]=mk("D "+name,img=img,rough=0.42,uvscale=(1/1.2,1/1.2,1/1.2))
@@ -112,6 +138,8 @@ for name,kind in plan.items():
 dcol=bpy.data.collections.new("CR_DELIVERY_COPIES"); sc.collection.children.link(dcol); copies=[]
 for o in src:
     c=o.copy(); c.data=o.data.copy(); c.name="D_"+o.name; dcol.objects.link(c); copies.append(c)
+    if "Mat" in c.data.color_attributes: c.data.color_attributes.remove(c.data.color_attributes["Mat"])      # a second colour attribute makes the glTF exporter write white COLOR_0 (tested); the Mat values are family constants in the export
+    if "Col" in c.data.color_attributes: c.data.color_attributes.active_color=c.data.color_attributes["Col"]; c.data.color_attributes.render_color_index=c.data.color_attributes.find("Col")
     for i,s in enumerate(c.material_slots):
         if s.material: c.data.materials[i]=newmat[s.material.name]
 bpy.ops.object.select_all(action='DESELECT')
@@ -139,6 +167,22 @@ imats={m.name for o in imp for m in o.data.materials if m};
 rep.update({"reimport_objects":len(imp),"reimport_triangles":i_tris,"reimport_bounds_min":i_min.round(4).tolist(),"reimport_bounds_max":i_max.round(4).tolist(),
             "bounds_max_abs_diff_m":float(max(np.abs(i_min-src_min).max(),np.abs(i_max-src_max).max())),"reimport_materials":len(imats),"reimport_uv_loops_at_origin_pct":round(100*uvz/max(1,uvt),1),
             "reimport_images":len([i for i in bpy.data.images if i.size[0]>0 and i.name not in("Render Result","Viewer Node")])})
+# a glTF-compliant engine multiplies COLOR_0 into the base colour; Blender's importer keeps the attribute but not the multiply, so the check render adds it
+vc_prims=0
+for o in imp:
+    ca=o.data.color_attributes
+    if len(ca)==0: continue
+    vc_prims+=1; nm=ca[0].name
+    for m in o.data.materials:
+        if not m or not m.use_nodes: continue
+        nt=m.node_tree; b=next((n for n in nt.nodes if n.type=='BSDF_PRINCIPLED'),None)
+        if b is None or any(n.type=='VERTEX_COLOR' for n in nt.nodes): continue
+        vcn=nt.nodes.new("ShaderNodeVertexColor"); vcn.layer_name=nm; mx=nt.nodes.new("ShaderNodeMix"); mx.data_type='RGBA'; mx.blend_type='MULTIPLY'; mx.inputs[0].default_value=1.0
+        lk=b.inputs['Base Color'].links
+        if lk: nt.links.new(lk[0].from_socket,mx.inputs[6])
+        else: mx.inputs[6].default_value=b.inputs['Base Color'].default_value
+        nt.links.new(vcn.outputs['Color'],mx.inputs[7]); nt.links.new(mx.outputs[2],b.inputs['Base Color'])
+rep["reimport_objects_with_vertex_colour"]=vc_prims
 if RENDER:
     sc=bpy.context.scene; sc.render.engine='CYCLES'; sc.cycles.device='CPU'; sc.cycles.samples=16; sc.cycles.use_denoising=True
     w=bpy.data.worlds.new("w"); w.use_nodes=True; w.node_tree.nodes["Background"].inputs[0].default_value=(0.55,0.57,0.6,1); w.node_tree.nodes["Background"].inputs[1].default_value=1.0; sc.world=w

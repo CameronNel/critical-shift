@@ -218,3 +218,7 @@ All control-room motion (TV cycle, slideshow, LED blink, troffer stutter, CRT sh
 ### Real-time lights and decal atlas
 
 Order after `cr_build.py`: `cr_optimize.py` -> `cr_atlas_decals.py` -> `cr_rt_lights.py` (then `cr_verify.py`, `cr_delivery.py`, `cr_runtime_spec.py`). `cr_rt_lights.py` keeps 6 dynamic lights (2 with shadows) and bakes the other 12 at rest value (spec: `control_room_light_budget.json/.md`); `cr_atlas_decals.py` packs 24 decal/poster/notice materials into one atlas material. Materials in the control room: 85 -> 63 (target 40 not met); see `BUDGET.md`.
+
+### Material families
+
+Order after `cr_build.py`: `cr_optimize.py` -> `cr_atlas_decals.py` -> `cr_families.py` -> `cr_rt_lights.py`. `cr_families.py` maps the 39 procedural recipes to 7 shared family materials and keeps their values on the mesh (`Col`, `Mat` colour attributes); `crk.pm` records each recipe's parameters as `pm_*` custom props for it. Control-room materials 63 -> 31 (cap 16, see `BUDGET.md`). Do not add a second colour attribute to export copies: the glTF exporter then writes white `COLOR_0`.

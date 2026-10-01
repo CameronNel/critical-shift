@@ -87,3 +87,17 @@ Not changed: **materials** (132 in the file, 85 in the control room, target 40: 
 
 Module file: 132 -> 109 materials, 1,704 -> 1,676 objects. Triangles unchanged (74,613 in and out of the glTF round trip, bounds 0.0 m, 0.2% of UV loops at the origin). Same four views before/after: mean pixel difference 0.004-0.006, no block above 0.07.
 Still over target: **materials** (63 in the control room, 109 in the file, target 40 - the procedural surfaces, 13 blinking LED variants and screens remain separate), **draw calls** (200 control-room objects after the merges; module-wide target 800 not met). Nothing is engine-measured.
+
+## Material families, step 1 (budgets in `design/MATERIAL_BUDGETS.md`, approved by the owner)
+
+`scripts/cr_families.py` replaces the 39 procedural spawn-recipe materials of the control room with 7 shared family materials (S01 painted metal, S02 bare metal, S03 plaster and tile, S05 plastic and rubber, S06 fabric, S07 wood/paper/organic, S09 cable). The recipe values travel on the mesh: colour attribute `Col` (RGB base colour, A roughness) and `Mat` (R metallic, G bump, B variation, A edge highlight). Objects of the same group and family are joined.
+Delivery (`cr_delivery.py`): a family exports as one glTF material (shared neutral grain tile) multiplied by `COLOR_0` (the `Mat` attribute is removed on the export copies because a second colour attribute makes the exporter write white, tested). The round trip multiplies `COLOR_0` into the base colour the way a glTF-compliant engine does; Blender's importer does not, so the check render adds it.
+
+| State | Control-room materials | Mesh objects | glTF materials / images (round trip) | glb |
+|---|---:|---:|---:|---:|
+| Before step 1 | 63 | 200 | 64 / 49 | 11.7 MB |
+| After step 1 | 31 | 120 | 32 / 11 | 10.9 MB |
+
+Same four views before/after: mean pixel difference 0.006-0.008, no block above 0.07; the round-trip render (family materials via `COLOR_0`) was opened and keeps the colours, the cork board, the decals and the wall dado. Triangles unchanged (74,613 in and out, bounds 0.0 m).
+Lost in the glTF export (Cycles-only): per-material mottling scale, bevel edge highlight, bump; the neutral grain tile replaces the mottling. Not lost in the Blender scene.
+Still over the control-room cap of 16: 31 materials. What remains: 16 emissive materials (13 blinking LEDs, tubes, beacon, lamps), 4 emissive screens (3 CRTs, TV), the decal atlas, floor tile, keyboard plane, glass, haze, 2 baked. Next steps: one emissive family with shader-clock blink (design item 7), one screen shader with an indexed atlas (item 8), floor into S04, glass into S13. Nothing is engine-measured.

@@ -146,6 +146,8 @@ def _scale(c,k): return (c[0]*k,c[1]*k,c[2]*k,1.0)
 def pm(name,base,rough=0.5,metal=0.0,var=(0.87,1.05),scale=2.5,bump=0.06,edge=None,edge_w=0.004,grime=0.0,rvar=0.10,coat=0.0,grain=0.04,zfloor=5.4,aniso=None):
     """spawn-room recipe: Principled BSDF, low-frequency noise albedo variation, fine bump on non-metals, painted edge highlight, floor grime."""
     m=_new(name); nt=m.node_tree
+    m["pm_base"]=[float(c) for c in base[:3]]; m["pm_rough"]=float(rough); m["pm_metal"]=float(metal); m["pm_bump"]=float(bump if metal<0.5 else 0.0)      # recipe parameters, read by cr_families.py
+    m["pm_var"]=float((var[1]-var[0])/0.18); m["pm_edge"]=[float(c) for c in edge[:3]] if edge else []
     out=_n(nt,"ShaderNodeOutputMaterial",1900,0); b=_n(nt,"ShaderNodeBsdfPrincipled",1650,0); nt.links.new(b.outputs['BSDF'],out.inputs['Surface'])
     b.inputs['Metallic'].default_value=metal
     if coat>0: b.inputs['Coat Weight'].default_value=coat; b.inputs['Coat Roughness'].default_value=0.25
