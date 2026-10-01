@@ -103,6 +103,11 @@ def main():
         cells = json.loads(bpy.data.texts["OPT_PALETTE"].as_string())
         grid = cells["grid"]
         pal = {c: n for n, c in cells["cells"].items()}
+    family_map = {}
+    if "OPT_FAMILIES" in bpy.data.texts:
+        for fam, members in json.loads(bpy.data.texts["OPT_FAMILIES"].as_string()).items():
+            for m in members:
+                family_map[m] = fam
     dg = bpy.context.evaluated_depsgraph_get()
     area = collections.Counter()
     vset = set()
@@ -118,7 +123,8 @@ def main():
         m = e.to_mesh()
         mw = o.matrix_world
         uvl = m.uv_layers.get("CS_PAL")
-        mats = [s.material.name.replace("__noattr", "") if s.material else "" for s in o.material_slots]
+        mats = [family_map.get(s.material.name.replace("__noattr", ""), s.material.name.replace("__noattr", ""))
+                if s.material else "" for s in o.material_slots]
         asset = o.parent
         while asset and not props(asset):
             asset = asset.parent
@@ -163,7 +169,7 @@ def main():
     import hashlib
     vh = hashlib.md5(repr(sorted(vset)).encode()).hexdigest()
     out = {"vertex_hash": vh, "unique_vertices_1mm": len(vset), "triangles": tris, "bbox": [lo, hi], "area_by_material": dict(area), "asset_bbox": asset_box, "identity": ids,
-           "lights": lights, "animation": sorted(animation, key=str)}
+           "lights": lights, "family_map": family_map, "animation": sorted(animation, key=str)}
     import numpy as np
     np.save(a[1].replace(".json", ".verts.npy"), np.unique(np.round(np.array(vlist, dtype=np.float64), 4), axis=0).astype(np.float32))
     with open(a[1], "w") as fh:

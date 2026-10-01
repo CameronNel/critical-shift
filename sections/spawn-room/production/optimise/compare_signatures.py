@@ -1,4 +1,5 @@
 """python compare_signatures.py before.json after.json  -> exit 1 on any difference beyond tolerance"""
+import collections
 import json
 import sys
 
@@ -38,6 +39,12 @@ def covered(src, dst):
 m1, m2 = covered(va, vb), covered(vb, va)
 if m1 or m2:
     bad.append("world vertex sets differ: %d original vertices without a match, %d new vertices without a match" % (m1, m2))
+fmap = b.get("family_map") or {}
+if fmap:                                    # the derivative merged materials into families: compare area per family
+    relabel = collections.Counter()
+    for k, v in a["area_by_material"].items():
+        relabel[fmap.get(k, k)] += v
+    a["area_by_material"] = dict(relabel)
 keys = set(a["area_by_material"]) | set(b["area_by_material"])
 worst = 0.0
 for k in sorted(keys):
