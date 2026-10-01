@@ -33,6 +33,8 @@ Read the global art/build authority under `design/` and the relevant section-loc
 For Blender authoring, materials, lighting, rendering or visual QA, read the
 [shared headless skill](.agents/skills/blender-headless/SKILL.md). It routes to the
 existing authorities and tools; it does not replace them or relax section acceptance.
+Material counts per room and the shared-material-family rules are in
+[the material budgets](design/MATERIAL_BUDGETS.md) (proposed, awaiting owner approval).
 Load its diagnostic references only as needed. Integration and cloud usage are in
 [the skill guide](design/blender-headless/README.md).
 
