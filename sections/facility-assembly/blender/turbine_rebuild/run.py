@@ -74,10 +74,14 @@ def cull(objs):
             if not inside and not in_hole: dele.append(f); continue
             if sl is not None and f[sl] == keep_idx: continue
             t = n.cross(Vector((0, 0, 1)) if abs(n.z) < .9 else Vector((1, 0, 0))).normalized(); bt = n.cross(t)
-            o = c + n * .004; open_ = False
-            for d in dirs:
-                w = t * d.x + bt * d.y + n * d.z
-                if tree.ray_cast(o, w, .18)[0] is None: open_ = True; break
+            open_ = False
+            pts = [(c, dirs)] + [(c + (v.co - c) * .6, dirs[::3]) for v in f.verts]          # centre + points toward each corner (big n-gons)
+            for pc, dd in pts:
+                o = pc + n * .004
+                for d in dd:
+                    w = t * d.x + bt * d.y + n * d.z
+                    if tree.ray_cast(o, w, .18)[0] is None: open_ = True; break
+                if open_: break
             if not open_: dele.append(f)
         for f in dele:
             base = len(occ_v); occ_v += [v.co[:] for v in f.verts]; occ_f.append(tuple(range(base, base + len(f.verts))))
@@ -117,7 +121,7 @@ sun = bpy.data.lights.new('SUN_EAST', 'SUN'); sun.energy = 3.0; sun.angle = math
 so = bpy.data.objects.new('SUN_EAST', sun); coll.objects.link(so)
 so.rotation_euler = Vector((-.62, .40, -.67)).to_track_quat('-Z', 'Y').to_euler()          # coming from the east, ~34 deg elevation
 w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
-bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.55, .68, .86, 1); bg.inputs['Strength'].default_value = .5
+bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.55, .68, .86, 1); bg.inputs['Strength'].default_value = .7
 
 # ---- named review cameras ----
 CAMS = {   # all positions are in open aisle space (checked against the machinery footprints)

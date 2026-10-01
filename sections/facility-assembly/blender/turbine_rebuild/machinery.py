@@ -26,11 +26,11 @@ def casing(b, y0, y1, r, body, band='orange', flange_r=None, nbolt=18):
 
 def saddles(b, y0, y1, r):
     for y in (y0 + .4, y1 - .4):
-        b.box((CX, y, 1.22), (r * 1.7, .5, .44), 'charcoal', nb=True)
+        b.box((CX, y, 1.22), (r * 1.7, .5, .44), 'steel_dark', nb=True)
 
 def bearing(b, y0, y1):
     yc = (y0 + y1) / 2
-    b.box((CX, yc, 1.7), (1.25, y1 - y0, 1.4), 'charcoal', nb=True); b.box((CX, yc, 2.45), (1.1, y1 - y0 - .1, .12), 'steel_dark')
+    b.box((CX, yc, 1.7), (1.25, y1 - y0, 1.4), 'steel_dark', nb=True); b.box((CX, yc, 2.45), (1.1, y1 - y0 - .1, .12), 'steel_mid')
     b.cyl((CX, yc, AZ), .42, y1 - y0 - .06, 'steel_mid', 'Y', 12)
     b.box((CX + .64, yc, 1.8), (.04, .3, .3), 'brass'); b.box((CX + .67, yc, 1.8), (.02, .2, .2), 'screen')     # oil sight glass
     b.reserve_box((CX, yc, 1.7), (1.4, y1 - y0, 1.4))
