@@ -1,0 +1,16 @@
+00:00.912  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend"
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:58: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('CD | '+key);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF')
+Traceback (most recent call last):
+  File "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py", line 375, in <module>
+    slice_work()
+    ~~~~~~~~~~^^
+  File "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py", line 184, in slice_work
+    o=S.objects[name];inv=o.matrix_world.inverted()
+      ~~~~~~~~~^^^^^^
+KeyError: 'bpy_prop_collection[key]: key "Office front wainscot east" not found'
+
+Error: script failed, file: 'sections/facility-assembly/sources/compliance-dock/overhaul_dock.py', exiting.
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

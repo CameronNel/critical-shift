@@ -1,0 +1,74 @@
+{
+  "source_sha256": "388103aa67a8fd24018e6d0e9f93b1859ad7c65cf796d0d3d07cf7a2a7d996a8",
+  "verdict": "LOCAL FAIL",
+  "source_probing_complete": true,
+  "native_saved": false,
+  "existing_validator_passed": true,
+  "critical_findings": [
+    {
+      "id": "unsupported_d1_identity_plate",
+      "gap_m": [
+        0.0064995,
+        0.0184996
+      ],
+      "allowed_gap_m": 0.005
+    },
+    {
+      "id": "exposed_dado_wainscot_partial_coplanar_cap",
+      "objects": [
+        "Office front dado mid",
+        "Office front wainscot mid"
+      ],
+      "area_m2": 4.99998e-05,
+      "plane_x_m": -4.35000038
+    }
+  ],
+  "native_inventory": {
+    "scene": "COMPLIANCE_EDIT_LOCAL",
+    "objects": 1246,
+    "triangles": 331036,
+    "material_submeshes": 1144,
+    "local_material_names": [
+      "CD | D1 handled paint",
+      "CD | Handled linoleum",
+      "CD | Worktop lip wear",
+      "CD | blue",
+      "CD | brass",
+      "CD | charcoal",
+      "CD | coffee",
+      "CD | coral",
+      "CD | coral | text object metres",
+      "CD | cotton",
+      "CD | glass",
+      "CD | green_lamp",
+      "CD | ink",
+      "CD | ink | text object metres",
+      "CD | ivory",
+      "CD | ivory | text object metres",
+      "CD | navy",
+      "CD | paper",
+      "CD | plaster",
+      "CD | plastic",
+      "CD | rubber",
+      "CD | steel",
+      "CD | warm_lamp",
+      "CD | wear",
+      "CD | wood"
+    ]
+  },
+  "total_used_native_material_datablocks": 48,
+  "inherited_world_matrices_exact_unchanged": true,
+  "protected_hashes_passed": true,
+  "relative_libraries_resolved": true,
+  "bearing_samples": 55,
+  "inspected_images": 10,
+  "new_revision_recheck_required": true,
+  "unverified": [
+    "Full room and runtime approval",
+    "Exhaustive arbitrary self-intersection proof",
+    "Full-room cold-render comparison",
+    "Runtime collision/navigation/draw calls/FPS",
+    "Final 36-material-family planning target"
+  ],
+  "source_sha256_at_release": "388103aa67a8fd24018e6d0e9f93b1859ad7c65cf796d0d3d07cf7a2a7d996a8"
+}

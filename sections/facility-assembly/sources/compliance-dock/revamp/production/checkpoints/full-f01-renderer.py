@@ -21,12 +21,8 @@ p.add_argument('--out',required=True)
 p.add_argument('--only',default='')
 p.add_argument('--samples',type=int,default=24)
 p.add_argument('--diagnostic',choices=['clay','uv','neutral'])
-p.add_argument('--source',help='Explicit immutable checkpoint for preformal comparison; local scene only unless --cold')
 a=p.parse_args(sys.argv[sys.argv.index('--')+1:])
 source=ROOT.parent/'spawn-room/module.blend' if a.spawn else ROOT/('module.blend' if a.baseline else 'module_overhaul_R1.blend')
-if a.source:
-    if a.baseline or a.spawn:raise RuntimeError('A source override cannot change baseline/spawn authority')
-    source=(ROOT/a.source).resolve()
 out=ROOT/'revamp/production/renders'/a.out
 out.mkdir(parents=True,exist_ok=True)
 sha=lambda path:hashlib.sha256(Path(path).read_bytes()).hexdigest()

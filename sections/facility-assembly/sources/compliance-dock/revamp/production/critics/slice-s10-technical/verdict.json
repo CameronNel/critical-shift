@@ -1,0 +1,302 @@
+{
+  "verdict": "LOCAL PASS",
+  "role": "Fresh independent Blender technical critic",
+  "technical_rubric_category_8_local_score": 96,
+  "score_basis": "Critic judgment for the bounded slice; not a measured runtime score or full-room approval.",
+  "scope": "Front-office architecture/D1, registered ID plate, reader, check-in worktop and working props, task practical and local service utility; surrounding room context excluded from art/construction judgment.",
+  "source": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+  "source_sha256": "f817b83c4d0bcf1dec88e6f3b7bf39ddc9100da66e74a1a1c5015ebbe52c5265",
+  "source_unchanged_after_all_probes": true,
+  "native_saved_or_modified": false,
+  "independence": "No previous verdict/finding reports or author history read. Technical measurement code was reused as a method only; all result rows were recomputed from current native source. No builder executed or production geometry edited.",
+  "hard_failure_findings": [],
+  "preservation": {
+    "1077_inherited_matrices_exact": true,
+    "protected_sha_count": 5,
+    "protected_sha_match": true,
+    "relative_resolved_libraries": 25,
+    "floor_geometry_bounds_exact": true,
+    "combined_architectural_outer_bounds_exact": true,
+    "usable_D1_shell_aperture": {
+      "label": "D1 usable aperture",
+      "samples": 25,
+      "baseline_shell_occupied": 0,
+      "overhaul_shell_occupied": 0,
+      "differences": [],
+      "movable_door_leaf_omitted": true
+    },
+    "usable_hatch_shell_aperture": {
+      "label": "hatch above worktop",
+      "samples": 35,
+      "baseline_shell_occupied": 0,
+      "overhaul_shell_occupied": 0,
+      "differences": [],
+      "movable_door_leaf_omitted": true
+    },
+    "headslot_closure": "Adds solid in the former 50mm head slot at z2.30..2.35, above the preserved 2.20m usable D1 doorway. Literal all-solid union identity is not claimed.",
+    "literal_unchanged_all_solid_union_claimed": false
+  },
+  "geometry": {
+    "native_objects": 1250,
+    "evaluated_authoring_triangles": 333308,
+    "authoring_material_submeshes": 1145,
+    "local_connected_components": 970,
+    "closed_positive_centered_volume_components": 198,
+    "open_evaluated_font_components": 765,
+    "intentional_open_ended_tube_components": 7,
+    "nonfinite_collapsed_winding_or_closed_volume_failures": 0
+  },
+  "support": {
+    "registered_assemblies": 23,
+    "registered_support_anchor_rows": 53,
+    "new_registered_CD_roots": [
+      "CD | D1 identity plate",
+      "CD | D1 wall-mounted reader",
+      "CD | Stamping rubber pad",
+      "CD | Counter cleaning cloth",
+      "CD | Counter authority plaque",
+      "CD | Check-in task fixture",
+      "CD | D1 service junction"
+    ],
+    "independent_surface_bearing_samples": 64,
+    "ID_standoff_loadpaths": 4,
+    "ID_plate_spacer_skin_and_head_contacts_m": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "reader_aperture_clear_samples": 3,
+    "reader_cap_border_hit_samples": 2,
+    "conduit_endpoint_actual_engagement": [
+      {
+        "conduit": "CD | Door armored conduit",
+        "receiver": "CD | D1 service lid",
+        "actual_tube_surface_vertices_inside_closed_receiver": 5,
+        "witnesses": [
+          [
+            -4.618864059448242,
+            3.4863638877868652,
+            1.9800000190734863
+          ],
+          [
+            -4.612500190734863,
+            3.489000082015991,
+            1.9800000190734863
+          ],
+          [
+            -4.606136322021484,
+            3.4863638877868652,
+            1.9800000190734863
+          ],
+          [
+            -4.6035003662109375,
+            3.4800000190734863,
+            1.9800000190734863
+          ],
+          [
+            -4.621500015258789,
+            3.4800000190734863,
+            1.9800000190734863
+          ]
+        ],
+        "pass": true
+      },
+      {
+        "conduit": "CD | Door armored conduit",
+        "receiver": "D1 keycard reader",
+        "actual_tube_surface_vertices_inside_closed_receiver": 4,
+        "witnesses": [
+          [
+            -4.691251754760742,
+            3.5179481506347656,
+            1.349487066268921
+          ],
+          [
+            -4.695309638977051,
+            3.5125482082366943,
+            1.3481370210647583
+          ],
+          [
+            -4.702114582061768,
+            3.5115132331848145,
+            1.347878336906433
+          ],
+          [
+            -4.707681179046631,
+            3.5154497623443604,
+            1.3488624095916748
+          ]
+        ],
+        "pass": true
+      }
+    ],
+    "largest_simple_nonengaged_contact_gap_m": 0.003000020980834961,
+    "engagement_classification": "Clamps seat into stanchions/glazing; ink hinges/lip, captive door hinges and fixture bracket tabs overlap their receivers intentionally. Thread/weld/lip fastening details are not fully modeled. These are declared assembly engagement, not exposed duplicate planes."
+  },
+  "coplanar": {
+    "method": "Actual coplanar same-outward-facing triangle polygon intersections; opposed butt joints excluded. Exposure uses a 30mm outward ray from intersection witness.",
+    "exposed_positive_area_pairs_at_tested_witnesses": 0,
+    "covered_pairs": 2,
+    "covered_pair_names": [
+      [
+        "CD | D1 service mounting back",
+        "CD | Service saddle fixing.001"
+      ],
+      [
+        "CD | Counter linoleum inset",
+        "Hatch security grille bottom"
+      ]
+    ],
+    "trim_return_included": true,
+    "within_mesh_pairs_included": true
+  },
+  "uv": {
+    "local_surface_objects": 198,
+    "local_evaluated_triangles": 61644,
+    "axis_plane_triangles": 19190,
+    "sloped_or_bevel_triangles": 42454,
+    "metric_edge_threshold_m": 0.0001,
+    "metric_edge_uv_per_m_min": 0.9930996051755828,
+    "metric_edge_uv_per_m_max": 1.0063066476605218,
+    "edge_relative_tolerance": 0.01,
+    "missing_consumed_named_uvs_or_metric_failures": 0,
+    "text_mapping": "3 shader variants use declared local Object metre coordinates for editable FONT; they do not claim a nonexistent UV layer. Meshes consume CD_Physical_1m along active shader output paths. Repeating per-face seams/overlaps are intentional; not a lightmap atlas."
+  },
+  "materials": {
+    "total_used_native_datablocks_including_legacy_context": 48,
+    "used_legacy_context_datablocks": 23,
+    "used_CD_authored_datablocks": 25,
+    "represented_CD_families": 20,
+    "CD_family_names": [
+      "blue",
+      "brass",
+      "charcoal",
+      "coffee",
+      "coral",
+      "cotton",
+      "glass",
+      "green_lamp",
+      "ink",
+      "ivory",
+      "linoleum",
+      "navy",
+      "paper",
+      "plaster",
+      "plastic",
+      "rubber",
+      "steel",
+      "warm_lamp",
+      "wear",
+      "wood"
+    ],
+    "localized_wear_datablocks": 3,
+    "text_coordinate_variants": 3,
+    "family_accounting_note": "Linoleum is represented only by its handled material copy; coral and steel have both base and handled copies. Datablock totals are distinct from logical family counts.",
+    "interpretation": "48 native used datablocks includes retained out-of-slice legacy context; the <=36 family goal applies at final full-room planning. Datablocks and family counts are not interchangeable, and neither establishes engine performance.",
+    "final_full_room_material_family_planning_goal": 36,
+    "final_goal_status": "Not assessed as a slice hard gate; full-room family consolidation/accounting remains pending."
+  },
+  "validator_summary": {
+    "failures": 0,
+    "warnings": 0,
+    "unverified_checks": 5,
+    "passed_checks": 6,
+    "failed_checks": 0
+  },
+  "actual_images_opened": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/slice-s10/SLICE_ENTRY.png",
+      "sha256": "0efe69cd7eb897436a23553b77c3ece0bbc654d3aaff22ead9c14b976ab4beda",
+      "actually_opened": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/slice-s10/SLICE_MATERIAL.png",
+      "sha256": "57d5514baca3d4b5179d9bd9f7a6824dbfa0dfa40fd4824a6becf9e9ee724035",
+      "actually_opened": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/slice-s10/SLICE_DOOR.png",
+      "sha256": "f917627fd78e811dd2ce39cbd278c72920984b65b1efe9706a04e371e01426a5",
+      "actually_opened": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/slice-s10-uv/SLICE_ENTRY.png",
+      "sha256": "e2edd963f707e67864b6d564400c571b36910f1ed81f4efaa7f24aa1b25155de",
+      "actually_opened": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/slice-s10-uv/SLICE_DOOR.png",
+      "sha256": "01cff1a9319360e4a47ab17f5207d10cf158e86b396556b80841fd5cfe3217ee",
+      "actually_opened": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/slice-s10-neutral/SLICE_MATERIAL.png",
+      "sha256": "e7ce569f8465e6c4daf17ed864fc36b8c49d041788e7b09d88d4bd0bd4549ec0",
+      "actually_opened": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "actually_opened": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "actually_opened": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "actually_opened": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "actually_opened": true
+    }
+  ],
+  "limitations": [
+    "Finite surface/contact/aperture sampling and coplanar centroid exposure witnesses are not an exhaustive mathematical proof of every hidden intersection or every surface point.",
+    "Full room routes, all equipment/internal assemblies, complete portal clearance, all mandatory full-room renders, four full review cycles and stable final two cycles remain outside this slice audit.",
+    "Cold native open succeeded in fresh factory-startup processes. A cold-render comparison was not run by this critic.",
+    "No engine import, runtime shader equivalence, colliders, navigation, interaction/physics, runtime draw calls, FPS or engine performance measured.",
+    "Material consolidation remains a final full-room planning item.",
+    "This technical local pass does not provide independent visual acceptance, full-room acceptance, promotion or runtime approval."
+  ],
+  "commands": {
+    "prefix": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 --python-exit-code 1",
+    "native_input": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+    "successful_scripts": [
+      "validate_dock.py with explicit --interface ROOT/contracts/interface.json --expected-stage slice",
+      "slice-s10-technical/probe.py",
+      "slice-s10-technical/internal.py",
+      "slice-s10-technical/overlap.py",
+      "slice-s10-technical/anchors.py"
+    ],
+    "diagnostic_retry": "An initial internal.py invocation exited 1 due to an undefined sha helper in the critic script. The helper was corrected; rerun passed. Native source was never modified."
+  },
+  "supporting_reports": [
+    "validator.json",
+    "probe.json",
+    "internal.json",
+    "overlap.json",
+    "anchors.json"
+  ]
+}

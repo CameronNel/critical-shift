@@ -21,12 +21,8 @@ p.add_argument('--out',required=True)
 p.add_argument('--only',default='')
 p.add_argument('--samples',type=int,default=24)
 p.add_argument('--diagnostic',choices=['clay','uv','neutral'])
-p.add_argument('--source',help='Explicit immutable checkpoint for preformal comparison; local scene only unless --cold')
 a=p.parse_args(sys.argv[sys.argv.index('--')+1:])
 source=ROOT.parent/'spawn-room/module.blend' if a.spawn else ROOT/('module.blend' if a.baseline else 'module_overhaul_R1.blend')
-if a.source:
-    if a.baseline or a.spawn:raise RuntimeError('A source override cannot change baseline/spawn authority')
-    source=(ROOT/a.source).resolve()
 out=ROOT/'revamp/production/renders'/a.out
 out.mkdir(parents=True,exist_ok=True)
 sha=lambda path:hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -144,10 +140,6 @@ for item in shots:
             if item['group']=='corners':
                 pos=item['position'];side=(hi[0]<-6.70 if pos[0]<0 else lo[0]>6.70)
                 side=side or (hi[1]<.10 if pos[1]<0 else lo[1]>15.68)
-                # Plan-oblique room evidence removes overhead assemblies too,
-                # exposing the whole floor. The roof-services camera documents
-                # these same assemblies with every actual part present.
-                roof=roof or lo[2]>=3.0 or o.name.startswith(('Truss ','Main ventilation','Return ventilation','Cable tray ','Supply diffuser','Diffuser grille'))
             else:
                 side=('office' in o.name.lower() and -2.52<((lo[0]+hi[0])/2)<-2.28) or 'support screen' in o.name.lower() or 'Observation glass' in o.name
             if roof or side:hidden.append((o,o.hide_render));o.hide_render=True

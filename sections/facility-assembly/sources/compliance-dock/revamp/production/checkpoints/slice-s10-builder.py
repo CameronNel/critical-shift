@@ -374,13 +374,7 @@ def slice_work():
 
 slice_work()
 if a.stage=='full':
-    gate=json.loads((PROD/'STYLE_SLICE_ACCEPTANCE.json').read_text())
-    for rel,digest in gate['files'].items():
-        if sha(PROD/rel)!=digest:raise RuntimeError('Style gate evidence changed: '+rel)
-    for role in ['visual_report','technical_report']:
-        if json.loads((PROD/gate[role]).read_text())['verdict']!='LOCAL PASS':raise RuntimeError('Style expansion gate failed: '+role)
-    exec(compile((ROOT/'full_detail.py').read_text(),str(ROOT/'full_detail.py'),'exec'),globals())
-    full_work()
+    raise RuntimeError('Full expansion is locked until independent style-slice acceptance is recorded.')
 
 # Global lighting mood is a preview. All out-of-slice meshes stay untouched.
 for o in S.objects:
@@ -391,12 +385,11 @@ for mat in list(bpy.data.materials):
     if not mat.name.startswith('emissive_'):continue
     bs=mat.node_tree.nodes.get('Principled BSDF') if mat.use_nodes else None
     if bs:bs.inputs['Emission Strength'].default_value*=.18
-if a.stage=='full':full_lighting()
 S.world=S.world.copy();bg=S.world.node_tree.nodes.get('Background')
 if bg:bg.inputs[0].default_value=(.11,.14,.20,1);bg.inputs[1].default_value=.16
 S['stage']=a.stage;S['revision']=a.revision;S['contact_assemblies']=json.dumps(CONTACTS)
 S['overhaul_map_reference']=True;S['map_context']='Read-only linked canonical map; original module remains selected in assembly.'
-S['author']='root';S['overhaul_status']='FULL ROOM / REVIEW PENDING' if a.stage=='full' else 'STYLE SLICE / LOCAL ACCEPTED s10' if a.revision=='s10' else 'STYLE SLICE / NOT ACCEPTED'
+S['author']='root';S['overhaul_status']='STYLE SLICE / NOT ACCEPTED'
 for o in S.objects:
     if o.name not in ORIGINAL and o.type=='MESH':uv(o)
     elif o.name not in ORIGINAL and o.type=='CURVE':o.data.resolution_u=min(o.data.resolution_u,6);o.data.bevel_resolution=min(o.data.bevel_resolution,2)
@@ -445,7 +438,6 @@ for o in S.objects:
         if len(f.verts)>3 and max(abs((v.co-f.verts[0].co).dot(f.normal)) for v in f.verts)>1e-6:warped.append(f)
     if warped:bmesh.ops.triangulate(bm,faces=warped)
     bm.to_mesh(o.data);bm.free();o.data.update();uv(o);o.select_set(False)
-if a.stage=='full':consolidate_new_details()
 # Keep actual inherited camera count; additional evidence cameras are disposable.
 S.camera=S.objects['C01_ENTRY'];S.render.resolution_x=1067;S.render.resolution_y=600;S.render.resolution_percentage=100
 bpy.context.view_layer.update()
