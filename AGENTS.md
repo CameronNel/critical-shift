@@ -30,6 +30,32 @@ Also read [ENGINE_DECISION](design/ENGINE_DECISION.md), the relevant gameplay sp
 
 Read the global art/build authority under `design/` and the relevant section-local `AGENT_READ_FIRST.md`, scenery specification and production state. For runtime exports, also read the architecture plan's authoring-to-runtime boundary. Original visual source, licensed materials and art-review evidence are not dead runtime assets to be removed by an unused-code sweep.
 
+For Blender authoring, materials, lighting, rendering or visual QA, read the
+[shared headless skill](.agents/skills/blender-headless/SKILL.md). It routes to the
+existing authorities and tools; it does not replace them or relax section acceptance.
+Load its diagnostic references only as needed. Integration and cloud usage are in
+[the skill guide](design/blender-headless/README.md).
+
+For Blender animation, existing-rig posing, keyframes, drivers, shape keys,
+NLA clips or camera motion, also read the
+[animation specialist](.agents/skills/blender-animation/SKILL.md).
+It extends the shared headless workflow; static tasks do not need it.
+[Animation integration and provenance](design/blender-animation/README.md).
+
+## Focused production specialists
+
+Load only the specialist needed by the current task:
+- [UV and materials](.agents/skills/blender-uv-texturing/SKILL.md) for UVs,
+  atlases, decals, texture maps and baking, alongside the headless skill.
+- [Game asset delivery](.agents/skills/game-asset-pipeline/SKILL.md) for scoped
+  exports, round-trip checks, colliders, LODs and runtime binding evidence.
+- [Unity validation](.agents/skills/unity-validation/SKILL.md) for runtime
+  readiness, existing offline/native checks, builds and measured profiling.
+
+These extend the existing authorities; they do not install tools, select packages,
+change art direction or advance acceptance gates. See the
+[production skills guide](design/production-skills/README.md).
+
 ## Change and handoff rules
 
 Search for the existing implementation and consumers before adding a replacement. Establish one mutation owner, explicit lifetime and allowed dependencies. Migrate consumers and remove obsolete active paths; inspect serialized/dynamic references before deleting Unity code or assets.
