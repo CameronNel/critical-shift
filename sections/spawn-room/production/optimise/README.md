@@ -44,7 +44,21 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
   other within about 2 mm; every object with properties, and every empty, keeps name, properties, transform and parent. PASS.
 - `validate_contacts.py` on the derivative: PASS (224 tagged objects, 0 failures), same as the original. (An earlier
   version of this script merged support targets and failed 48 of them; targets are now kept by name.)
-- Render comparison on the fixed validation cameras: see the section below.
+- Render comparison (Cycles, 48 samples, denoised, fixed seed, 960x540) on six fixed validation cameras, original vs
+  derivative; `renders/<camera>.png` shows before | after | difference amplified 6x:
+
+  | Camera | mean abs diff | 99th percentile | pixels differing by more than 8% |
+  |---|---:|---:|---:|
+  | VALIDATE_Spawn | 0.0057 | 0.039 | 0.081% |
+  | VALIDATE_LockerDoor | 0.0060 | 0.035 | 0.077% |
+  | VALIDATE_BriefingDoor | 0.0079 | 0.043 | 0.190% |
+  | VALIDATE_ExitReverse | 0.0053 | 0.035 | 0.055% |
+  | VALIDATE_Hero_A | 0.0056 | 0.035 | 0.084% |
+  | VALIDATE_Material_A | 0.0039 | 0.024 | 0.003% |
+
+  The differences sit on edges (anti-aliasing and denoiser noise from a different object order); there are no
+  colour or pattern shifts. I looked at the montages for Spawn and BriefingDoor; the other four were checked by the
+  numbers only. This is a Cycles comparison, not engine rendering, and not art approval.
 
 ## Not done / not claimed
 
