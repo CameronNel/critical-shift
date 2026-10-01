@@ -352,8 +352,18 @@ def _hood_details(pivot, coll, trim, accent, dark):
     return o
 
 
-def build_hazmat(root, coll=None, colors=None, lod=0):
-    """Add the hazmat suit pieces to a crew worker built with regions=True. Returns (pieces, triangles)."""
+def build_hazmat(root, coll=None, colors=None, lod=0, style="reference"):
+    """Add the owner-reference suit; style='legacy' retains the prior design test.
+
+    Both styles use the same worker, hidden-region/equip contract and HERO_SUIT
+    library entrypoint. The reference style is hero authoring geometry, not a
+    replacement for the parked rig's engine delivery or animation validation.
+    """
+    if style == "reference":
+        from hazmat_reference import build_reference
+        return build_reference(root, coll or bpy.context.scene.collection, colors, lod)
+    if style != "legacy":
+        raise ValueError("Unknown hazmat style: " + style)
     global LODF
     LODF = 1 + int(lod)
     coll = coll or bpy.context.scene.collection

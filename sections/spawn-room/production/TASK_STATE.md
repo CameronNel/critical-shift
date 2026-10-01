@@ -11,6 +11,11 @@
 **Authoritative source:** ../../facility-assembly/sources/spawn-room/module.blend (runtime derivative: module_optimised.blend)
 
 ## Completed
+
+- HZ-01 owner-reference suit revision on its own task branch: see
+  [the asset handoff](hero-suit-reference/README.md) and
+  [asset review state](hero-suit-reference/TASK_STATE.md). New asset approval and
+  runtime delivery remain pending; this does not advance room acceptance.
 - Detailed scenery specification
 - Build/self-review prompt
 - Production rubric

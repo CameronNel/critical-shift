@@ -27,6 +27,17 @@ import character_worker as CW  # noqa: E402
 OUT = sys.argv[sys.argv.index("--") + 1]
 NAME = "HERO_SUIT"
 
+# Existing lockers place the suit from these three library anchors. Preserve
+# their coordinates while rebuilding the design, so editing the library alone
+# does not lift the boots off their docks or move the pack off the back panel.
+placement = None
+if os.path.isfile(OUT):
+    with bpy.data.libraries.load(OUT, link=False) as (_src, _dst):
+        _dst.collections = [NAME]
+    previous = _dst.collections[0]
+    placement = {k: float(previous[k]) for k in ("cs_top_z", "cs_pack_back_y", "cs_foot_zmin")}
+bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.context.preferences.system.audio_device = "None"
 root, _tris = CW.build_worker(name=NAME, collection=bpy.context.scene.collection)
 CS.build_hazmat(root, coll=bpy.context.scene.collection)
 CS.equip(root)
@@ -38,6 +49,18 @@ for o in list(root.children_recursive):                    # no wearer: skin reg
 bpy.context.view_layer.update()
 
 meshes = [o for o in root.children_recursive if o.type == "MESH" and not o.hide_render]
+if placement:
+    pts = [o.matrix_world @ Vector(c) for o in meshes for c in o.bound_box]
+    raw_top, raw_min = max(p.z for p in pts), min(p.z for p in pts)
+    scale_z = (placement["cs_top_z"] - placement["cs_foot_zmin"]) / (raw_top - raw_min)
+    root.scale.z = scale_z
+    root.location.z = placement["cs_foot_zmin"] - raw_min * scale_z
+    raw_pack = min((o.matrix_world @ v.co).y for o in meshes if o.name.startswith("SUIT_KIT") for v in o.data.vertices)
+    root.location.y = placement["cs_pack_back_y"] - raw_pack
+    root["cs_library_placement_scale_z"] = scale_z
+    root["cs_library_placement_offset_z"] = root.location.z
+    root["cs_library_placement_offset_y"] = root.location.y
+    bpy.context.view_layer.update()
 top = max((o.matrix_world @ Vector(c)).z for o in meshes for c in o.bound_box)
 body = next(o for o in meshes if o.name.startswith("SUIT_BODY"))
 boots = [o for o in meshes if o.name.startswith(("SUIT_BOOTS", "SUIT_KIT"))]
@@ -64,5 +87,13 @@ coll["cs_sole_x0"], coll["cs_sole_x1"] = min(p.x for p in sole), max(p.x for p i
 coll["cs_sole_y0"], coll["cs_sole_y1"] = min(p.y for p in sole), max(p.y for p in sole)
 coll["cs_neck_cx"], coll["cs_neck_cy"], coll["cs_neck_r"] = ncx, ncy, nr
 coll["cs_neck_z0"], coll["cs_neck_z1"] = 1.20, max(p.z for p in neck)
+coll["cs_suit_style"] = root.get("cs_suit_style", "legacy")
+coll["cs_suit_reference"] = root.get("cs_suit_reference", "Original worker suit")
+if placement:
+    for k, value in placement.items():
+        if abs(coll[k] - value) > 0.00001:
+            raise RuntimeError("Hero suit placement anchor changed: " + k)
+    coll["cs_placement_preserved"] = True
+bpy.ops.file.pack_all()
 bpy.ops.wm.save_as_mainfile(filepath=OUT)
 print("HERO_SUIT saved", OUT, {k: (round(v, 4) if isinstance(v, float) else v) for k, v in coll.items()})

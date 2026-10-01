@@ -1,5 +1,11 @@
 # Spawn room delivery optimisation (look-preserving derivative)
 
+> **2026-10-01 HZ-01 reference revision:** the shared `hero_suit.blend` library has
+> changed. This self-contained derivative still contains the earlier suit; the
+> historical measurements and equivalence results below do not apply to the new
+> library. Regenerate and rerun equivalence/contact/render checks before delivery.
+> See [the reference suit handoff](../hero-suit-reference/README.md).
+
 `module_optimised.blend` (next to `module.blend` in `sections/facility-assembly/sources/spawn-room/`) is a **separate
 delivery derivative**. The approved `module.blend`, `accepted.blend`, the assembled map and `SOURCES.json` are not touched.
 Nothing here is promoted; swapping it into the map is a separate reviewed PR (see `MAP.md`).

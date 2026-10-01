@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "blender": "5.2.1 LTS",
+  "instances": [
+    {
+      "instance": "PPE_01_suit_model",
+      "library": "//hero_suit.blend",
+      "boot_dock_gap_m": -2.9802322387695312e-08,
+      "top_z_m": 1.9809999465942383
+    },
+    {
+      "instance": "PPE_02_suit_model",
+      "library": "//hero_suit.blend",
+      "boot_dock_gap_m": -2.9802322387695312e-08,
+      "top_z_m": 1.9809999465942383
+    },
+    {
+      "instance": "PPE_03_suit_model",
+      "library": "//hero_suit.blend",
+      "boot_dock_gap_m": -2.9802322387695312e-08,
+      "top_z_m": 1.9809999465942383
+    },
+    {
+      "instance": "PPE_04_suit_model",
+      "library": "//hero_suit.blend",
+      "boot_dock_gap_m": -2.9802322387695312e-08,
+      "top_z_m": 1.9809999465942383
+    }
+  ],
+  "placement_anchors": {
+    "cs_top_z": 1.6770398616790771,
+    "cs_pack_back_y": -0.36500000953674316,
+    "cs_foot_zmin": -0.03324364125728607
+  },
+  "missing_libraries": [],
+  "wearer_in_empty_library": false,
+  "scope": "Linked authoring suit only; no room art or Unity acceptance"
+}
