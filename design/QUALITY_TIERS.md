@@ -1,6 +1,6 @@
 # Quality tiers: Ultra and Low (proposed, unmeasured in an engine)
 
-Status: **proposal.** Owner intent (2026-10-01): *Ultra looks as close to the Blender renders as a real-time renderer can; Low costs as little as possible so weak GPUs keep the frame rate.* Performance target for Low: **50 fps at 1080p on an RTX 3050** ([ENGINE_DECISION](ENGINE_DECISION.md)). Nothing here is measured: no Unity project exists, so every statement about speed is a design intent or a vendor recommendation, not a result. Engine implementation is **Blocked**.
+Status: **proposal.** Owner intent (2026-10-01): *Ultra looks as close to the Blender renders as a real-time renderer can; Low costs as little as possible so weak GPUs keep the frame rate.* Performance targets ([ENGINE_DECISION](ENGINE_DECISION.md)): Low is the minimum-spec floor, **50 fps at 1080p on an RTX 3050**; the typical player is expected to run **High at 1080p on an RTX 5060** (frame-rate figure proposed at 60 fps, not yet confirmed by the owner). The table below has only Ultra and Low; where the typical-player High preset sits between them is not decided. Nothing here is measured: no Unity project exists, so every statement about speed is a design intent or a vendor recommendation, not a result. Engine implementation is **Blocked**.
 
 ## Principle
 
@@ -65,6 +65,7 @@ Source: Unity manual and Unity guidance pages found 2026-10-01 (optimising light
 
 ## Open decisions (owner)
 
+0. Settle the tier names and what High (the 5060 target) switches on between Low and Ultra; confirm its frame-rate figure.
 1. Approve the tier table (what Ultra spends, what Low drops).
 2. Decide whether Low is the default for first launch on a weak GPU, or a manual choice.
 3. Create the bounded Unity trial (project, one room, profiler capture on the target GPU). Without it the tier numbers stay estimates.

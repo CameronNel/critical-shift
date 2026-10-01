@@ -51,6 +51,7 @@ Godot alternative.
 - Language: C#
 - Renderer: Built-in Render Pipeline, low graphics defaults, no ray tracing
 - Performance target (owner, 2026-10-01): **50 fps at 1080p on the Low quality preset, RTX 3050** (replaces the earlier 60 fps / medium target). A target, not a result: nothing has been measured and no Unity project exists; declare hardware, settings and workload before reporting any FPS (see VALIDATION_PLAN).
+- Typical-player target (owner, 2026-10-01): **High quality preset at 1080p on an RTX 5060**, the expected average player's card. The owner gave no frame-rate figure; **proposed: 60 fps, to be confirmed by the owner**. The Low / RTX 3050 line above stays as the minimum-spec floor. Both are targets, not results: nothing has been measured, there is no Unity project, and the CPU side (about 1,700 objects across the map against a draw-call target of 800, network and gameplay cost) is a bigger risk than the GPU. First evidence needed: a bounded Unity trial of one room with a profiler capture on named hardware, per VALIDATION_PLAN.
 - Physics: Unity 3D physics
 - Networking: not installed; next gate is host-authoritative selection/spike
 - Steam: not selected
