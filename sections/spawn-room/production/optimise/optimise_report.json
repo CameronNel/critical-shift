@@ -1,0 +1,32 @@
+{
+ "after": {
+  "draw_call_estimate": 804,
+  "materials_in_use": 61,
+  "objects": 788,
+  "triangles": 322722
+ },
+ "before": {
+  "draw_call_estimate": 1878,
+  "materials_in_use": 189,
+  "objects": 1572,
+  "triangles": 322722
+ },
+ "blender": "5.2.2 LTS",
+ "coord_dependent_materials": 40,
+ "curves_text_converted": 352,
+ "flat_materials": 129,
+ "join_groups": 173,
+ "lights": 14,
+ "lights_dynamic_key": 4,
+ "modifiers_baked_on_objects": 767,
+ "objects_joined_away": 957,
+ "palette_polygons": 58753,
+ "skipped": {
+  "animated": 1,
+  "asset: moving/interactive asset": 125,
+  "interactive name": 96,
+  "own properties": 116,
+  "support-contact target": 82
+ },
+ "source": "sections/facility-assembly/sources/spawn-room/module.blend"
+}
