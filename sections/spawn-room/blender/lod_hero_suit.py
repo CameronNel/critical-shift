@@ -36,12 +36,13 @@ def tri_count(o):
 
 
 bpy.ops.wm.open_mainfile(filepath=PATH)
-if FULL:
-    bpy.ops.wm.save_as_mainfile(filepath=FULL, copy=True)
 col = bpy.data.collections["HERO_SUIT"]
 if col.get("cs_lod") == "locker":
-    # decimating again would degrade the delivered locker mesh and overwrite the recorded full-detail count
+    # checked before anything is written (including --full-copy): decimating again would degrade the delivered locker
+    # mesh, and copying it over the full-detail backup would destroy the backup
     raise SystemExit("lod_hero_suit.py: %s is already the locker LOD (cs_lod = locker); rebuild the full-detail suit with build_hero_suit.py first" % PATH)
+if FULL:
+    bpy.ops.wm.save_as_mainfile(filepath=FULL, copy=True)
 before = after = 0
 for o in list(col.all_objects):
     if o.type != "MESH":
