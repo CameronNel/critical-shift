@@ -377,6 +377,28 @@ def _node_props(n):
     return out
 
 
+def _struct_props(x):
+    """Plain properties of a nested RNA struct (texture mapping, colour mapping, image user) as a stable dict."""
+    out = {}
+    if x is None:
+        return out
+    for p in x.bl_rna.properties:
+        if p.identifier == "rna_type" or p.type not in ("BOOLEAN", "INT", "FLOAT", "STRING", "ENUM"):
+            continue
+        try:
+            v = getattr(x, p.identifier)
+        except Exception:
+            continue
+        if hasattr(v, "__len__") and not isinstance(v, str):
+            v = [round(e, 6) if isinstance(e, float) else e for e in v]
+        elif isinstance(v, float):
+            v = round(v, 6)
+        elif isinstance(v, set):
+            v = sorted(v)
+        out[p.identifier] = v
+    return out
+
+
 def _round(v):
     try:
         return [round(x, 6) for x in v]
@@ -389,7 +411,9 @@ def _struct_key(ma):
     nodes = sorted((n.name, n.bl_idname, bool(n.mute), json.dumps(_node_props(n), sort_keys=True, default=str),
                     ([len(n.color_ramp.elements), n.color_ramp.interpolation, n.color_ramp.color_mode,
                       n.color_ramp.hue_interpolation] if n.bl_idname == "ShaderNodeValToRGB" else 0),
-                    n.image.name if getattr(n, "image", None) else None) for n in nt.nodes)
+                    n.image.name if getattr(n, "image", None) else None,
+                    json.dumps([_struct_props(getattr(n, "texture_mapping", None)), _struct_props(getattr(n, "color_mapping", None)),
+                                _struct_props(getattr(n, "image_user", None))], sort_keys=True, default=str)) for n in nt.nodes)
     links = sorted((l.from_node.name, l.from_socket.identifier, l.to_node.name, l.to_socket.identifier, bool(l.is_muted))
                    for l in nt.links)
     import hashlib

@@ -123,6 +123,7 @@ def main():
                 family_map[mname] = fam
     dg = bpy.context.evaluated_depsgraph_get()
     area = collections.Counter()
+    moments = collections.defaultdict(lambda: [0.0, 0.0, 0.0, 0.0, 0.0])
     vset = set()
     vlist = []
     tris = 0
@@ -175,6 +176,15 @@ def main():
                 c = int(v * grid) * grid + int(u * grid)
                 name = pal.get(c, "PAL?%d" % c)
             area[name] += ar
+            cx = sum(q.x for q in pts) / len(pts)
+            cy = sum(q.y for q in pts) / len(pts)
+            cz = sum(q.z for q in pts) / len(pts)
+            mm = moments[name]
+            mm[0] += ar
+            mm[1] += ar * cx
+            mm[2] += ar * cy
+            mm[3] += ar * cz
+            mm[4] += ar * (cx * cx + cy * cy + cz * cz)
             tris += len(p.vertices) - 2
         e.to_mesh_clear()
     ids = {}
@@ -193,7 +203,7 @@ def main():
     lights = {o.name: [round(o.data.energy, 3), o.get("cs_rt_role")] for o in sc.objects if o.type == "LIGHT"}
     import hashlib
     vh = hashlib.md5(repr(sorted(vset)).encode()).hexdigest()
-    out = {"vertex_hash": vh, "unique_vertices_1mm": len(vset), "triangles": tris, "bbox": [lo, hi], "area_by_material": dict(area), "asset_bbox": asset_box, "identity": ids,
+    out = {"vertex_hash": vh, "unique_vertices_1mm": len(vset), "triangles": tris, "bbox": [lo, hi], "area_by_material": dict(area), "moment_by_material": {k: v for k, v in moments.items()}, "asset_bbox": asset_box, "identity": ids,
            "lights": lights, "family_map": family_map, "animation": sorted(animation, key=str)}
     import numpy as np
     np.save(a[1].replace(".json", ".verts.npy"), np.unique(np.round(np.array(vlist, dtype=np.float64), 4), axis=0).astype(np.float32))

@@ -45,6 +45,16 @@ if fmap:                                    # the derivative merged materials in
     for k, v in a["area_by_material"].items():
         relabel[fmap.get(k, k)] += v
     a["area_by_material"] = dict(relabel)
+    mrel = collections.defaultdict(lambda: [0.0] * 5)
+    for k, v in a.get("moment_by_material", {}).items():
+        for i in range(5):
+            mrel[fmap.get(k, k)][i] += v[i]
+    a["moment_by_material"] = dict(mrel)
+# area-weighted position moments per material: swapping constants between equal-area polygons in different places still shows
+for k in sorted(set(a.get("moment_by_material", {})) | set(b.get("moment_by_material", {}))):
+    ma, mb = a.get("moment_by_material", {}).get(k, [0.0] * 5), b.get("moment_by_material", {}).get(k, [0.0] * 5)
+    if any(abs(x - y) > 1e-3 + 1e-6 * abs(x) for x, y in zip(ma, mb)):
+        bad.append("geometry moments differ for material %s: %s -> %s" % (k, [round(x, 3) for x in ma], [round(x, 3) for x in mb]))
 keys = set(a["area_by_material"]) | set(b["area_by_material"])
 worst = 0.0
 for k in sorted(keys):
