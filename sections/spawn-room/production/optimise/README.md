@@ -16,17 +16,20 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 
 | | module.blend | module_optimised.blend |
 |---|---:|---:|
-| Render-visible geometry objects | 1,572 | 788 |
+| Render-visible geometry objects | 1,572 | 753 |
 | Triangles | 322,722 | 322,722 |
 | Draw-call estimate (objects x material slots, before any engine batching) | 1,878 | 756 |
 | Materials in use | 189 | 30 (29 visible plus one untouched copy for animated labels; cap in `design/MATERIAL_BUDGETS.md` is 24) |
 | Lights | 14 | 14 (unchanged; roles tagged) |
 
+Every number below (objects, joins, conversions, draw calls, materials) comes from one run, recorded in
+`optimise_report.json` next to this file.
+
 ## What it does (each step is meant to leave the look unchanged)
 
 1. 351 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept). Curve/text objects that are animated, driven, in NLA, constrained or have an animated data block or shape keys
    (for example the POD_state_* labels) are NOT converted, because a mesh copy would freeze them;
-   modifiers are baked on the parts that get merged or touched.
+   modifiers are baked on 767 objects (the parts that get merged or touched).
 2. Procedural patterns that depend on the object (Generated / Object coordinates, 40 materials) are frozen into per-vertex
    attributes `CS_GEN` / `CS_OBJ`, on every mesh including hidden ones, and those materials read the attributes, so joining
    parts cannot change a pattern. Curve/text objects that stay curves cannot carry attributes, so they keep an
@@ -36,10 +39,10 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 3b. **Material families** (`design/MATERIAL_BUDGETS.md`): materials with exactly the same node graph that differ only in
    constants become one `FAM ...` material. The constants (every differing socket value, and the two stop colours of each
    colour ramp) are written per polygon into colour attributes `FAM0..FAM3`; the family graph reads them. The graph is the
-   same, so the shading is the same: a 2-stop LINEAR/EASE ramp becomes a clamped Map Range (smoothstep for EASE) plus a Mix.
+   same, so the shading is the same (the structural key includes the colour-ramp interpolation and colour mode, so ramps that differ never share a family): a 2-stop LINEAR/EASE ramp becomes a clamped Map Range (smoothstep for EASE) plus a Mix.
    Read-back of every attribute is checked at build time. 13 families replace 40 materials; members are listed in text block
    `OPT_FAMILIES`. Materials with different graphs are left alone.
-4. Parts of the same asset that share material and object flags are joined (957 objects into 173); shell parts outside any
+4. Parts of the same asset that share material and object flags are joined (985 objects into 166); shell parts outside any
    asset are joined per collection, material and 5 m cell. Left exactly as they were: every object that is animated, has
    children, carries its own properties, is in a support-checked collection, is named by any `cs_support_target`,
    looks interactive (door, hinge, hatch, lever, button, handle, switch...) or belongs to an asset with
@@ -49,7 +52,7 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 
 ## Evidence
 
-- `signature.py` / `compare_signatures.py`: triangles identical; scene and per-asset bounding boxes within 0.1 mm; area per
+- `signature.py` / `compare_signatures.py` (per-member: every polygon of a family material is decoded back to the source material whose constants it carries, from text block `OPT_FAMILY_ROWS`; members with identical constants form one class; verified to fail when constants of one member are put on another member's faces): triangles identical; scene and per-asset bounding boxes within 0.1 mm; area per
   original material (palette cells decoded back) within 8e-6 relative; every world vertex of each file has a match in the
   other within about 2 mm; every object with properties, and every empty, keeps name, properties, transform and parent. PASS.
 - Animation inventory, compared as a multiset: for every owner (objects, material node trees, meshes, curves, lights,

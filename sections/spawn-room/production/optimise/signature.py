@@ -103,11 +103,24 @@ def main():
         cells = json.loads(bpy.data.texts["OPT_PALETTE"].as_string())
         grid = cells["grid"]
         pal = {c: n for n, c in cells["cells"].items()}
+    family_rows = {}
+    if "OPT_FAMILY_ROWS" in bpy.data.texts:
+        family_rows = json.loads(bpy.data.texts["OPT_FAMILY_ROWS"].as_string())
     family_map = {}
     if "OPT_FAMILIES" in bpy.data.texts:
         for fam, members in json.loads(bpy.data.texts["OPT_FAMILIES"].as_string()).items():
-            for m in members:
-                family_map[m] = fam
+            if fam in family_rows:
+                # members are decoded per polygon; members whose constants are identical look the same, so they form one
+                # class named after its alphabetically first member
+                classes = collections.defaultdict(list)
+                for mname, rows in family_rows[fam].items():
+                    classes[json.dumps(rows, sort_keys=True)].append(mname)
+                for names in classes.values():
+                    for mname in names:
+                        family_map[mname] = min(names)
+                continue
+            for mname in members:
+                family_map[mname] = fam
     dg = bpy.context.evaluated_depsgraph_get()
     area = collections.Counter()
     vset = set()
@@ -123,7 +136,8 @@ def main():
         m = e.to_mesh()
         mw = o.matrix_world
         uvl = m.uv_layers.get("CS_PAL")
-        mats = [family_map.get(s.material.name.replace("__noattr", ""), s.material.name.replace("__noattr", ""))
+        mats = [(s.material.name if s.material.name in family_rows else
+                 family_map.get(s.material.name.replace("__noattr", ""), s.material.name.replace("__noattr", "")))
                 if s.material else "" for s in o.material_slots]
         asset = o.parent
         while asset and not props(asset):
@@ -145,6 +159,17 @@ def main():
             for i in range(1, len(pts) - 1):
                 ar += ((pts[i] - pts[0]).cross(pts[i + 1] - pts[0])).length * 0.5
             name = mats[p.material_index] if p.material_index < len(mats) else ""
+            if name in family_rows:
+                # which source material's constants does this polygon carry? decode the FAM attributes at its first loop
+                members = family_rows[name]
+                vals = {}
+                for ai in range(4):
+                    ca = m.color_attributes.get("FAM%d" % ai)
+                    vals[ai] = list(ca.data[p.loop_start].color) if ca is not None else [0, 0, 0, 0]
+                hit = [mn for mn, rows in members.items()
+                       if all(abs(vals[ai][ch + k] - v[k]) < 1e-5 for ai, ch, w, v in rows for k in range(w))]
+                canon = {family_map.get(h, h) for h in hit}
+                name = canon.pop() if len(canon) == 1 else ("%s?%s" % (name, ",".join(sorted(hit))) if hit else name + "?none")
             if name == "PAL_flat" and uvl is not None and pal is not None:
                 u, v = uvl.uv[p.loop_start].vector
                 c = int(v * grid) * grid + int(u * grid)

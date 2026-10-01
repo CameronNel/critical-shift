@@ -387,7 +387,8 @@ def _round(v):
 def _struct_key(ma):
     nt = ma.node_tree
     nodes = sorted((n.name, n.bl_idname, json.dumps(_node_props(n), sort_keys=True, default=str),
-                    len(n.color_ramp.elements) if n.bl_idname == "ShaderNodeValToRGB" else 0,
+                    ([len(n.color_ramp.elements), n.color_ramp.interpolation, n.color_ramp.color_mode,
+                      n.color_ramp.hue_interpolation] if n.bl_idname == "ShaderNodeValToRGB" else 0),
                     n.image.name if getattr(n, "image", None) else None) for n in nt.nodes)
     links = sorted((l.from_node.name, l.from_socket.identifier, l.to_node.name, l.to_socket.identifier) for l in nt.links)
     import hashlib
@@ -624,6 +625,12 @@ def lift_families(every_mesh, report):
         for m in uniq:
             me.materials.append(m)
         me.polygons.foreach_set("material_index", mi2)
+    rows_by_family = collections.defaultdict(dict)
+    for mname, (fam, row) in plan.items():
+        if row is not None:
+            rows_by_family[fam.name][mname] = [[ai, ch, w, [float(x) for x in v]] for ai, ch, w, v in row]
+    rtxt = bpy.data.texts.new("OPT_FAMILY_ROWS")
+    rtxt.write(json.dumps(rows_by_family, indent=0, sort_keys=True))
     report["families"] = {k: v for k, v in sorted(fam_manifest.items())}
     report["family_attributes"] = n_attr_max
     report["family_polygons"] = moved
