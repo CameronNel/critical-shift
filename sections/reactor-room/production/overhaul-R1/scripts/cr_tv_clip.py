@@ -46,17 +46,17 @@ bpy.data.scenes.remove(sc)
 def fcs(act):
     if hasattr(act,'fcurves'): return list(act.fcurves)
     return [fc for l in act.layers for s in l.strips for cb in s.channelbags for fc in cb.fcurves]
-if E.animation_data and E.animation_data.action:
-    for fc in fcs(E.animation_data.action):
-        if any(k in fc.data_path for k in("w_tel","w_bro","w_sta","w_bar")):
-            while len(fc.keyframe_points): fc.keyframe_points.remove(fc.keyframe_points[0])
+for k in("w_tel","w_bro","w_sta","w_bar"):          # the built-in cycle is a driver (seconds based): drop it
+    try: E.driver_remove(f'["{k}"]')
+    except Exception: pass
 for k,v in (("w_tel",0.0),("w_bro",0.0),("w_sta",0.0),("w_bar",0.0),("w_clip",1.0)):
     E[k]=v; E.keyframe_insert(f'["{k}"]',frame=1)
+if not E.animation_data.action: raise SystemExit("no action on CR_TV")
 for (f,r,g,b,e) in track:
     E["clip_r"],E["clip_g"],E["clip_b"],E["clip_e"]=r,g,b,e
     for k in("clip_r","clip_g","clip_b","clip_e"): E.keyframe_insert(f'["{k}"]',frame=f)
 for fc in fcs(E.animation_data.action):
     if "clip_" in fc.data_path and not any(mo.type=='CYCLES' for mo in fc.modifiers): fc.modifiers.new('CYCLES')
 bpy.context.scene.frame_start,bpy.context.scene.frame_end=1,n
-json.dump({"clip":os.path.basename(CLIP),"frames":n,"track":track},open(os.path.join(os.path.dirname(os.path.abspath(DST)),"tv_light_track.json"),"w"))
+json.dump({"clip":os.path.basename(CLIP),"frames":n,"clip_fps":FPS,"duration_s":n/FPS,"track":track,"track_time_s":[[(t[0]-1)/FPS]+t[1:] for t in track],"note":"Blender plays a clip one frame per scene frame; author the clip at the scene fps. The engine should play the clip by TIME and sample track_time_s."},open(os.path.join(os.path.dirname(os.path.abspath(DST)),"tv_light_track.json"),"w"))
 bpy.ops.wm.save_as_mainfile(filepath=DST); print("TV clip installed:",n,"frames")

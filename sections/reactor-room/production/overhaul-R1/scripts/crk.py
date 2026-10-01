@@ -207,6 +207,17 @@ def decal_mat(name,img,rough=0.85,emit=0.0):
     nt.links.new(uv.outputs['UV'],tx.inputs[0]); nt.links.new(tx.outputs['Color'],b.inputs['Base Color']); nt.links.new(tx.outputs['Alpha'],b.inputs['Alpha'])
     if emit>0: nt.links.new(tx.outputs['Color'],b.inputs['Emission Color']); b.inputs['Emission Strength'].default_value=emit
     return m
+def _fps_vars(d):
+    """scene frame-rate variables so that drivers can work in seconds: seconds = frame*fb/fps"""
+    for nm,dp in (("fps","render.fps"),("fb","render.fps_base")):
+        v=d.variables.new(); v.name=nm; v.type='SINGLE_PROP'; v.targets[0].id_type='SCENE'; v.targets[0].id=bpy.context.scene; v.targets[0].data_path=dp
+def to_seconds(expr):
+    """All control-room driver expressions are TIME based, never frame based.
+    Write `T` for scene time in seconds.  Legacy `frame` (older constants were tuned at 30 fps) is mapped to `T*30`, so the look is unchanged at 30 fps
+    and identical in real time at every other frame rate."""
+    import re
+    e=re.sub(r'\bframe\b','(T*30)',expr)
+    return re.sub(r'\bT\b','(frame*fb/fps)',e)
 def drv(idblock,path,idx,expr,var_s=True,extra=None):
     fc=idblock.driver_add(path,idx) if idx is not None else idblock.driver_add(path)
     d=fc.driver; d.type='SCRIPTED'
@@ -214,7 +225,9 @@ def drv(idblock,path,idx,expr,var_s=True,extra=None):
         v=d.variables.new(); v.name='s'; v.type='SINGLE_PROP'; v.targets[0].id=STATE; v.targets[0].data_path='["stability"]'
     for (nm,ident,dp) in (extra or []):
         v=d.variables.new(); v.name=nm; v.type='SINGLE_PROP'; v.targets[0].id=ident; v.targets[0].data_path=dp
-    d.expression=expr; return fc
+    ex=to_seconds(expr)
+    if ex!=expr: _fps_vars(d)
+    d.expression=ex; return fc
 def emit_mat(name,rgb,strength,expr=None,base=None,use_s=False):
     m=_new(name); nt=m.node_tree
     out=_n(nt,"ShaderNodeOutputMaterial",600,0); b=_n(nt,"ShaderNodeBsdfPrincipled",300,0); nt.links.new(b.outputs['BSDF'],out.inputs['Surface'])

@@ -51,6 +51,10 @@ Record every material loss or bake/conversion. Keep lightmaps separate from base
 and distinguish baked lighting from actual realtime lights. Preserve approved visual
 separation rather than replacing every material with a generic metallic shader.
 
+Procedural or driver-based motion does not survive export. Ship a seconds-based runtime behaviour spec generated from the same
+constants (target, formula in seconds, inputs such as stability, period) and record frame-rate independence evidence; never leave
+the engine to guess timing from frame counts. Example: `sections/reactor-room/production/overhaul-R1/scripts/cr_runtime_spec.py`.
+
 ## Evidence states
 
 Use V00's labels and definitions from the existing validation plan: Planned, NotRun,

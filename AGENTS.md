@@ -41,6 +41,8 @@ NLA clips or camera motion, also read the
 [animation specialist](.agents/skills/blender-animation/SKILL.md).
 It extends the shared headless workflow; static tasks do not need it.
 [Animation integration and provenance](design/blender-animation/README.md).
+Runtime-facing motion (blinks, screen cycles, pulses) is authored in seconds, not frames: see the
+"Runtime-facing motion is authored in seconds" section of the animation patterns reference.
 
 ## Focused production specialists
 

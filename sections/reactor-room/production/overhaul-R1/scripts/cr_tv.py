@@ -1,5 +1,5 @@
-"""Wall TV: content cycle (480 frames = 20 s @ 24 fps) and the light it casts.
-An empty 'CR_TV' carries the animated custom props  w_tel w_bro w_sta w_bar w_clip  (state weights, sum 1)  and  clip_r clip_g clip_b clip_e
+"""Wall TV: content cycle (20 SECONDS of scene time, frame-rate independent) and the light it casts.
+An empty 'CR_TV' carries the time-driven custom props  w_tel w_bro w_sta w_bar w_clip  (state weights, sum 1)  and  clip_r clip_g clip_b clip_e
 (colour/intensity track of the custom clip).  The screen shader and the area light both read those props, so the light always matches the picture.
  telemetry = stability coloured (live driver on REACTOR_STATE.stability)   broadcast / static / NO SIGNAL bars = built in
  clip slot = image node 'TV CLIP' (empty placeholder).  cr_tv_clip.py loads a clip into it and re-bakes clip_* from the clip's frames."""
@@ -7,28 +7,30 @@ import bpy,math
 import numpy as np
 import crk,crt
 from crk import _new,_n,drv,new_image
-CYCLE=480                                          # frames at 24 fps; make_empty() rescales to 20 seconds at the scene frame rate (30 fps here -> 600 frames)
-def cycle_frames():
-    sc=bpy.context.scene; return int(round(20*sc.render.fps/sc.render.fps_base))
 SCHED=[  # (frame, tel, bro, sta, bar)  linear crossfades, cyclic
  (1,1,0,0,0),(150,1,0,0,0),(158,0,0,1,0),(170,0,0,1,0),(180,0,1,0,0),(330,0,1,0,0),(337,0,0,1,0),(347,0,0,1,0),(355,0,0,0,1),(410,0,0,0,1),(416,0,0,1,0),(426,0,0,1,0),(434,1,0,0,0),(481,1,0,0,0)]
-def _fcurves(act):
-    if hasattr(act,'fcurves'): return list(act.fcurves)
-    out=[]
-    for l in act.layers:
-        for s in l.strips:
-            for cb in s.channelbags: out+=list(cb.fcurves)
-    return out
+CYCLE_S=20.0                                        # the TV show loops every 20 SECONDS of scene time (any frame rate)
+SCHED_S=[((f-1)/24.0,*w) for (f,*w) in SCHED]       # SCHED was authored in 24-fps frames; the driver schedule below is in seconds
+def ramp_terms(points):
+    """exact piecewise-linear function of the cycle phase p (seconds) through (t, v) points: v0 + sum of clamped ramps"""
+    return points[0][1],["(%+g)*max(0,min(1,(p-%.3f)/%.3f))"%(vb-va,ta,tb-ta) for (ta,va),(tb,vb) in zip(points[:-1],points[1:]) if abs(vb-va)>1e-9]
+def drive_ramp(e,name,points,per=5):
+    """Blender caps a driver expression at ~255 chars, so long schedules are split over helper props <name>_k that the final prop sums"""
+    v0,terms=ramp_terms(points); chunks=[terms[i:i+per] for i in range(0,len(terms),per)] or [[]]
+    ph=("p",e,'["t_s"]'); names=[]
+    for k,ch in enumerate(chunks):
+        nm=f"{name}_{k}"; e[nm]=0.0; names.append(nm)
+        drv(e,f'["{nm}"]',None,"+".join(ch) or "0",var_s=False,extra=[ph])
+    vs=[(f"q{k}",e,f'["{nm}"]') for k,nm in enumerate(names)]
+    drv(e,f'["{name}"]',None,"%.3f+"%v0+"+".join(v[0] for v in vs),var_s=False,extra=vs)
 def make_empty(coll):
+    """the empty CR_TV carries the state weights as TIME-driven custom properties (w_tel w_bro w_sta w_bar) and the clip track (w_clip, clip_r/g/b/e)"""
     e=bpy.data.objects.new("CR_TV",None); e.empty_display_type='PLAIN_AXES'; e.empty_display_size=0.1; coll.objects.link(e)
-    names=("w_tel","w_bro","w_sta","w_bar","w_clip","clip_r","clip_g","clip_b","clip_e")
-    for n in names: e[n]=0.0
+    for n in ("w_tel","w_bro","w_sta","w_bar","w_clip","clip_r","clip_g","clip_b","clip_e"): e[n]=0.0
     e["w_tel"]=1.0; e["clip_r"]=0.6; e["clip_g"]=0.6; e["clip_b"]=0.6; e["clip_e"]=1.0
+    e["t_s"]=0.0; drv(e,'["t_s"]',None,"fmod(T,%.1f)"%CYCLE_S,var_s=False)      # cycle phase in seconds
     for idx,n in enumerate(("w_tel","w_bro","w_sta","w_bar")):
-        for (f,*w) in SCHED:
-            e[n]=float(w[idx]); e.keyframe_insert(f'["{n}"]',frame=1+int(round((f-1)*cycle_frames()/480.0)))
-    for fc in _fcurves(e.animation_data.action): fc.modifiers.new('CYCLES')
-    e["w_tel"]=1.0
+        drive_ramp(e,n,[(ts,w[idx]) for (ts,*w) in SCHED_S])
     return e
 def _sum_vec(nt,items,x,y):
     """items: list of (color_socket, scalar_socket) -> weighted sum socket"""

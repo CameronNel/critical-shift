@@ -121,6 +121,16 @@ script auto-run or alter application security preferences. Evaluate drivers and
 constraints after changing the scene frame; no viewport refresh is required as a
 workflow step. Report unsupported execution instead of bypassing security.
 
+### Runtime-facing motion is authored in seconds
+
+Motion that must run in an engine at any display rate (blinking lights, screen cycles, pulses, shimmer) is authored as drivers
+of scene time in seconds, `T = frame*fps_base/fps` (read `render.fps` and `render.fps_base` as driver variables), never of the raw
+`frame` and never as keys tuned to one fps. Keep expressions short (Blender caps them near 255 characters; split long schedules over
+helper properties). Drivers do not export, so also publish a seconds-based runtime behaviour spec (period, formula, inputs) and
+check frame-rate independence by evaluating the same real times at several rates. Reference implementation:
+`sections/reactor-room/production/overhaul-R1/scripts/` (`crk.drv`, `fps_independence_check.py`, `cr_runtime_spec.py`).
+Frame-count rates only for authored clips whose source is frame-based (record fps and duration in seconds).
+
 ## Actions, NLA, baking and export
 
 Inspect active Action, slot, tracks, strip timing, influence, blend/extrapolation,
