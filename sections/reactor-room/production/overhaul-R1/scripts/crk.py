@@ -5,6 +5,8 @@ import numpy as np
 from mathutils import Vector
 STATE=None                      # REACTOR_STATE empty (set by caller)
 # ------------------------------------------------------------------ geometry kit
+BEVSEG=1      # bevel segments: 1 = a single smooth-shaded chamfer (half the bevel triangles; reads the same at 2-12 mm)
+def prism_seg(r,seg): return max(8,min(seg,2*int(3+r*80)))     # small cylinders do not need 16-20 sides
 class Kit:
     """Accumulates bmeshes per (group, material key).  All edges get a per-element bevel of `ch` metres, 2 segments.
     Bevel facets are smooth shaded, big faces stay flat (crisp planes, soft highlights on the edge only)."""
@@ -31,7 +33,7 @@ class Kit:
         if w<0.0008: return
         edges=list({e for v in verts for e in v.link_edges if e.is_valid})
         try:
-            r=bmesh.ops.bevel(bm,geom=edges,offset=w,segments=2,affect='EDGES',profile=0.5,clamp_overlap=True)
+            r=bmesh.ops.bevel(bm,geom=edges,offset=w,segments=BEVSEG,affect='EDGES',profile=0.5,clamp_overlap=True)
             for f in r['faces']: f.smooth=True
         except Exception: pass
     def box(s,key,cx,cy,z0,z1,sx,sy,ang=0.0,ch=0.004):
@@ -59,13 +61,14 @@ class Kit:
         if ch>0 and vv:
             es=list({e for v in vv for e in v.link_edges if e.is_valid and len(e.link_faces)==2})
             try:
-                rr=bmesh.ops.bevel(bm,geom=es,offset=ch,segments=2,affect='EDGES',profile=0.5,clamp_overlap=True)
+                rr=bmesh.ops.bevel(bm,geom=es,offset=ch,segments=BEVSEG,affect='EDGES',profile=0.5,clamp_overlap=True)
                 for f in rr['faces']: f.smooth=True
             except Exception: pass
     def prism(s,key,p0,p1,r0,r1=None,seg=16,rot=0.0,cap=True,ch=0.0):
         r1=r0 if r1 is None else r1; bm=s.get(key); a=Vector(p0); b=Vector(p1); d=b-a; L=d.length
         if L<1e-6: return
         z=d/L; x=(Vector((1,0,0)) if abs(z.x)<0.9 else Vector((0,1,0))); x=(x-z*x.dot(z)).normalized(); y=z.cross(x)
+        seg=prism_seg(max(r0,r1 if r1 is not None else r0),seg)
         r=bmesh.ops.create_cone(bm,cap_ends=cap,segments=seg,radius1=r0,radius2=r1,depth=1.0)
         c,sn=math.cos(rot),math.sin(rot); vs=r['verts']
         fset={f for v in vs for f in v.link_faces}
@@ -75,7 +78,7 @@ class Kit:
         if ch>0 and min(r0,r1)>3*ch and cap:
             es=[e for f in fset if len(f.verts)>4 for e in f.edges if e.is_valid]
             try:
-                rr=bmesh.ops.bevel(bm,geom=list(set(es)),offset=ch,segments=2,affect='EDGES',profile=0.5,clamp_overlap=True)
+                rr=bmesh.ops.bevel(bm,geom=list(set(es)),offset=ch,segments=BEVSEG,affect='EDGES',profile=0.5,clamp_overlap=True)
                 for f in rr['faces']: f.smooth=True
             except Exception: pass
     def cyl(s,key,x,y,z0,z1,r,seg=20,ch=0.0): s.prism(key,(x,y,z0),(x,y,z1),r,r,seg,0.0,True,ch)

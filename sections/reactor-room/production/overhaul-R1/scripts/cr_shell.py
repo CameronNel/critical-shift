@@ -61,7 +61,7 @@ def build(c):
         for j in range(len(ys)-1):
             xa,xb,ya,yb=xs[i],xs[i+1],ys[j+1],ys[j]
             if (i,j) in tr or (i,j) in missing: continue
-            A.bx((g,"CEIL"),xa+0.013,xb-0.013,ya+0.013,yb-0.013,CZ+0.012,CZ+0.03,0.004)
+            A.bx((g,"CEIL"),xa+0.013,xb-0.013,ya+0.013,yb-0.013,CZ+0.012,CZ+0.03,0.0)
     for x in xs[1:-1]: A.bx((g,"CEIL_GRID"),x-0.012,x+0.012,Y0,YF,CZ,CZ+0.032,0.002)
     for y in ys[1:-1]: A.bx((g,"CEIL_GRID"),X0,X1,y-0.012,y+0.012,CZ,CZ+0.032,0.002)
     A.bx((g,"CEIL_GRID"),X0,X1,Y0,Y0+0.03,CZ-0.002,CZ+0.03,0.002)                          # wall angle

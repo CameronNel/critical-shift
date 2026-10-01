@@ -55,3 +55,21 @@ An earlier version of this table counted meshes only and understated curve and t
 - Pool shaft lining (224 tile-course objects, 45k triangles) rebuilt as a few textured cylinders.
 - Remaining equipment (generator/reserve power, grid cabinets, fuel racks, bank housings) redone to the same per-asset budgets: hero asset at most 2k triangles, station asset at most 1k.
 - Measure in an engine build once one exists; until then treat every figure here as an estimate.
+
+## Control-room optimisation pass (measured in Blender, same counting as above)
+
+Scope: `31 CR CONTROL ROOM REDO` only. Visual-neutral tricks, all scripted:
+- **Bevel segments 2 -> 1** (`crk.BEVSEG`): a single smooth-shaded chamfer reads the same at 2-12 mm and halves the bevel triangles (the main saving).
+- **Cylinder sides scale with radius** (`crk.prism_seg`, 8 minimum): casters, screws, stems and lamps no longer carry 16-20 sides.
+- **Ceiling tiles unbevelled** (their edges sit under the grid flange and cannot be seen).
+- **Hidden-face removal** (`cr_optimize.py`): faces whose centre and corners are all flush (<= 1.5 mm) against another surface are deleted; coplanar dissolve with UV/material delimits.
+- **Static merge** by material for dressing groups (wall, deco, ceiling, clutter, shelf, break corner, work table, door): 292 -> 226 mesh objects. UV layers are unified by name first (a mismatch put 8.9% of loops at (0,0)).
+
+| State | Control-room triangles | Mesh objects | Materials in use |
+|---|---:|---:|---:|
+| Before | 154,462 | 292 | 85 |
+| After | 74,589 | 226 | 85 |
+
+Whole module (`scripts/stats2.py`): 413,910 -> 334,049 triangles including the 53,780-triangle roof proxy (about 280k without it, under the 400k target). glTF round trip of the control room: 74,613 triangles in and out, bounds difference 0.0 m, 0.3% of UV loops at the origin.
+Same four views rendered before and after at frame 1: mean pixel difference 0.003-0.005, no 16 px block above 0.07 (sampling noise level); the cork board was regressed by a first, too eager face test (centre only) and fixed by requiring full coverage.
+Not changed: **materials** (132 in the file, 85 in the control room, target 40: needs the atlas/bake step), **draw calls** (about 226 control-room objects, 1,704 module-wide, target 800; not engine-measured), no LODs, no instancing (props are merged world-space geometry). All numbers are Blender estimates, not engine measurements.
