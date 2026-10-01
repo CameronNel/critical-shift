@@ -32,80 +32,66 @@ def digest(x):
     return hashlib.md5(json.dumps(x, sort_keys=True, default=str).encode()).hexdigest()[:12]
 
 
-def rna_props(x):
-    """Every plain (bool/int/float/string/enum) RNA property of x as a stable, JSON-able dict."""
+SKIP_PROPS = {"rna_type", "bl_rna", "id_data", "original", "users", "session_uid", "is_evaluated", "tag", "is_runtime_data",
+              "is_missing", "library", "library_weak_reference", "override_library", "asset_data", "preview",
+              "name_full", "is_embedded_data", "use_extra_user", "is_library_indirect", "is_editable", "id_type"}
+
+
+def rna_deep(x, depth=0, seen=None):
+    """Stable, JSON-able dump of an RNA struct: every plain property, every nested struct and every collection, to a fixed
+    depth. Pointers to other datablocks are recorded by name, except Actions, which are dumped in full (an NLA strip's
+    action, a driver-less owner's action). Selection state is skipped: it is editor state, not motion."""
+    if seen is None:
+        seen = set()
+    if depth > 9:
+        return "<depth>"
+    try:
+        key = x.as_pointer()
+    except Exception:
+        key = None
+    if key is not None:
+        if (key, type(x).__name__) in seen:
+            return "<seen>"
+        seen = seen | {(key, type(x).__name__)}
     out = {}
     for prop in x.bl_rna.properties:
-        if prop.identifier == "rna_type" or prop.type not in ("BOOLEAN", "INT", "FLOAT", "STRING", "ENUM"):
+        ident = prop.identifier
+        if ident in SKIP_PROPS or ident.startswith("select") or ident.startswith("is_selected"):
             continue
         try:
-            v = getattr(x, prop.identifier)
+            v = getattr(x, ident)
         except Exception:
             continue
-        if hasattr(v, "__len__") and not isinstance(v, str):
-            v = [round(e, 5) if isinstance(e, float) else e for e in v]
-        elif isinstance(v, float):
-            v = round(v, 5)
-        elif isinstance(v, set):
-            v = sorted(v)
-        out[prop.identifier] = v
+        if prop.type in ("BOOLEAN", "INT", "FLOAT", "STRING", "ENUM"):
+            if hasattr(v, "__len__") and not isinstance(v, str):
+                v = [round(e, 5) if isinstance(e, float) else e for e in v]
+            elif isinstance(v, float):
+                v = round(v, 5)
+            elif isinstance(v, set):
+                v = sorted(v)
+            out[ident] = v
+        elif prop.type == "POINTER":
+            if v is None:
+                out[ident] = None
+            elif isinstance(v, bpy.types.ID):
+                out[ident] = rna_deep(v, depth + 1, seen) if isinstance(v, bpy.types.Action) else v.name
+            else:
+                out[ident] = rna_deep(v, depth + 1, seen)
+        elif prop.type == "COLLECTION":
+            items = []
+            for it in v:
+                if isinstance(it, bpy.types.ID):
+                    items.append(rna_deep(it, depth + 1, seen) if isinstance(it, bpy.types.Action) else it.name)
+                else:
+                    items.append(rna_deep(it, depth + 1, seen))
+            out[ident] = items
     return out
 
 
-def fcurve_content(fc):
-    return [fc.data_path, fc.array_index, fc.extrapolation,
-            [[round(k.co[0], 4), round(k.co[1], 5), k.interpolation, round(k.handle_left[0], 3),
-              round(k.handle_left[1], 4), round(k.handle_right[0], 3), round(k.handle_right[1], 4)]
-             for k in fc.keyframe_points],
-            [[m.type, rna_props(m)] for m in fc.modifiers]]
-
-
-def action_content(action):
-    """Every F-curve of an action, grouped by the slot (layered actions) it is bound to, with keyframes, handles and the
-    full parameters of F-curve modifiers."""
-    if action is None:
-        return None
-    groups = {"": [fcurve_content(fc) for fc in (getattr(action, "fcurves", []) or [])]}
-    for layer in getattr(action, "layers", []) or []:
-        for strip in getattr(layer, "strips", []) or []:
-            for cb in getattr(strip, "channelbags", []) or []:
-                slot = getattr(cb, "slot", None)
-                key = slot.identifier if slot is not None else "?"
-                groups.setdefault(key, []).extend(fcurve_content(fc) for fc in cb.fcurves)
-    return {"curves": {k: sorted(v, key=str) for k, v in sorted(groups.items())},
-            "slots": sorted(sl.identifier for sl in getattr(action, "slots", []) or []),
-            "frame_range": list(action.frame_range)}
-
-
-def owner_slot(ad):
-    sl = getattr(ad, "action_slot", None)
-    return sl.identifier if sl is not None else None
-
-
-def driver_content(ad):
-    out = []
-    for dr in ad.drivers:
-        d = dr.driver
-        out.append([dr.data_path, dr.array_index, d.type, d.expression,
-                    [[v.name, v.type, [[t.id.name if t.id else None, t.data_path, t.transform_type, t.transform_space,
-                                         t.bone_target] for t in v.targets]] for v in d.variables],
-                    fcurve_content(dr) if hasattr(dr, "keyframe_points") else None])
-    return sorted(out, key=str)
-
-
-def nla_content(ad):
-    """NLA tracks and strips, including the full content of the action each strip plays and its slot."""
-    out = []
-    for tr in ad.nla_tracks:
-        strips = []
-        for st in tr.strips:
-            slot = getattr(st, "action_slot", None)
-            strips.append([st.name, st.action.name if st.action else None, digest(action_content(st.action)),
-                           slot.identifier if slot is not None else None, st.frame_start, st.frame_end,
-                           st.action_frame_start, st.action_frame_end, st.scale, st.repeat, st.blend_type,
-                           st.extrapolation, st.mute])
-        out.append([tr.name, tr.mute, strips])
-    return out
+def animation_entry(coll_name, idb, ad):
+    """[collection, name, action name, digest of the whole animation data (owner settings, action with all layers, slots,
+    F-curves, keyframes, modifiers; drivers; NLA tracks and strips with the actions they play)]"""
+    return [coll_name, idb.name, ad.action.name if ad.action else None, digest(rna_deep(ad))]
 
 
 def main():
@@ -172,9 +158,7 @@ def main():
             for owner in (idb, getattr(idb, "node_tree", None)):
                 ad = getattr(owner, "animation_data", None) if owner is not None else None
                 if ad and (ad.action or ad.drivers or ad.nla_tracks):
-                    animation.append([coll_name, idb.name, ad.action.name if ad.action else None,
-                                      digest(action_content(ad.action)), digest(driver_content(ad)),
-                                      digest(nla_content(ad)), owner_slot(ad)])
+                    animation.append(animation_entry(coll_name, idb, ad))
     lights = {o.name: [round(o.data.energy, 3), o.get("cs_rt_role")] for o in sc.objects if o.type == "LIGHT"}
     import hashlib
     vh = hashlib.md5(repr(sorted(vset)).encode()).hexdigest()

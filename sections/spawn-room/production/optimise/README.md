@@ -45,11 +45,14 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 - `signature.py` / `compare_signatures.py`: triangles identical; scene and per-asset bounding boxes within 0.1 mm; area per
   original material (palette cells decoded back) within 8e-6 relative; every world vertex of each file has a match in the
   other within about 2 mm; every object with properties, and every empty, keeps name, properties, transform and parent. PASS.
-- Animation inventory, compared as a multiset of content digests (F-curves with every keyframe and handle and the full
-  parameters of F-curve modifiers, grouped by action slot; the slot assigned to each owner; drivers with expressions and
-  targets; NLA tracks and strips including the content of the action each strip plays; verified to fail on a 0.01
-  keyframe edit, a changed F-curve modifier parameter, an NLA-only action edit and a duplicated entry) (every object, material node tree, mesh, curve, light, camera, world and shape key with an action,
-  drivers or NLA tracks) is identical in both files. A first version of this derivative lost the keyframes of
+- Animation inventory, compared as a multiset: for every owner (objects, material node trees, meshes, curves, lights,
+  cameras, worlds, shape keys) a digest of a generic deep dump of its whole animation data: owner settings and assigned
+  slot, the action with all layers, slots, channelbags, F-curves (mute, keyframes, handles, easing), F-curve modifiers
+  including collections such as envelope points, drivers (expression, variables, targets and their settings), and NLA
+  tracks and strips (influence, timing, modifiers) with the content of each action they play. Verified to fail on a
+  0.01 keyframe edit, muting an F-curve, an elastic-easing amplitude, a noise-modifier strength, an envelope point, NLA-only
+  action edits, NLA influence, a driver target's rotation mode and a duplicated entry. A first version of this derivative
+  lost the keyframes of
   `POD_state_READY` (an animated text object converted to a mesh); Codex's review of #60 caught this class of bug and the
   comparison now fails on it, and also fails if the derivative gains an action, driver or NLA entry the original did not have.
 - `validate_contacts.py` on the derivative: PASS (224 tagged objects, 0 failures), same as the original. (An earlier
