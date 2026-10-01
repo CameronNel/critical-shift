@@ -386,7 +386,7 @@ def _round(v):
 
 def _struct_key(ma):
     nt = ma.node_tree
-    nodes = sorted((n.name, n.bl_idname, json.dumps(_node_props(n), sort_keys=True, default=str),
+    nodes = sorted((n.name, n.bl_idname, bool(n.mute), json.dumps(_node_props(n), sort_keys=True, default=str),
                     ([len(n.color_ramp.elements), n.color_ramp.interpolation, n.color_ramp.color_mode,
                       n.color_ramp.hue_interpolation] if n.bl_idname == "ShaderNodeValToRGB" else 0),
                     n.image.name if getattr(n, "image", None) else None) for n in nt.nodes)

@@ -19,7 +19,7 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 | Render-visible geometry objects | 1,572 | 753 |
 | Triangles | 322,722 | 322,722 |
 | Draw-call estimate (objects x material slots, before any engine batching) | 1,878 | 756 |
-| Materials in use | 189 | 30 (29 visible plus one untouched copy for animated labels; cap in `design/MATERIAL_BUDGETS.md` is 24) |
+| Materials in use | 189 | 30 (29 visible plus one untouched copy for animated labels; the 24-material spawn-room cap comes from the per-room budget in PR #59, branch `claude/eloquent-rubin-5y6lnu`, `design/MATERIAL_BUDGETS.md`, where the owner's approval of 2026-10-01 is recorded; that document is not on `main` yet) |
 | Lights | 14 | 14 (unchanged; roles tagged) |
 
 Every number below (objects, joins, conversions, draw calls, materials) comes from one run, recorded in
@@ -36,7 +36,7 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
    untouched copy of the material (`<name>__noattr`).
 3. The 129 constant-colour Principled materials are folded into one `PAL_flat` material: three packed 16x16 float images
    (albedo, roughness+metal, emission), `Closest` sampling, a `CS_PAL` UV layer. Cell mapping is in text block `OPT_PALETTE`.
-3b. **Material families** (`design/MATERIAL_BUDGETS.md`): materials with exactly the same node graph that differ only in
+3b. **Material families** (the method of the reactor control room, PR #54; budgets in PR #59): materials with exactly the same node graph that differ only in
    constants become one `FAM ...` material. The constants (every differing socket value, and the two stop colours of each
    colour ramp) are written per polygon into colour attributes `FAM0..FAM3`; the family graph reads them. The graph is the
    same, so the shading is the same (the structural key includes the colour-ramp interpolation and colour mode, so ramps that differ never share a family): a 2-stop LINEAR/EASE ramp becomes a clamped Map Range (smoothstep for EASE) plus a Mix.
@@ -86,7 +86,7 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
 ## Not done / not claimed
 
 - No engine build or profiling: draw calls are a Blender estimate, not measured batches or frame time.
-- 29 materials remain against the approved room cap of 24. The leftovers each have a one-off shader graph (locker steel,
+- 29 materials remain against the room cap of 24 proposed in `design/MATERIAL_BUDGETS.md` on PR #59's branch (owner approval recorded there; not on `main` yet). The leftovers each have a one-off shader graph (locker steel,
   rubber, wood, bench timber, pressure metal, safety tread, glass, exposed plaster, V_ochre, the posters, TV screen,
   amber signal and the three floors), so merging them would change the look and needs owner approval. Texture memory (12 x 2K images, about 50 MP, including 4 displacement maps)
   is not reduced.
