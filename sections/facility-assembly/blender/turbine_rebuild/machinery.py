@@ -335,8 +335,6 @@ def maintenance(b):
             for dx in (0, .6): b.box((-3.7 + dx, y, 1.0), (.045, .045, 2.0), 'steel_dark', bev=.005)
         for i, z in enumerate((.1, .7, 1.3)): b.box((-3.45, yc + (.15 if i % 2 else -.15), z + .15), (.4, .4, .26), ['wood', 'steel_mid', 'orange'][i], bev=.01)
     b.claim((-3.9, 19.2, 0), (-3.0, 21.9, 2.2))
-    for ya in (12.1, 21.9): b.flat((-.3, ya), 5.3, .09, 'gold_paint', 0, z=.008)
-    b.flat((-2.95, 17), .09, 9.8, 'gold_paint', 0, z=.008)
     b.box((.2, 21.2, .45), (.6, .9, .05), 'steel_dark', bev=.01)
     for dx in (-.25, .25):
         for dy in (-.35, .35): b.cyl((.2 + dx, 21.2 + dy, .1), .08, .06, 'rubber', 'X', 20)

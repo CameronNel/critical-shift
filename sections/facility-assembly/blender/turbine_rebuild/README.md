@@ -33,6 +33,13 @@ Baking is the final production step, run only after geometry, materials and live
 final-step tool and has not been run for this rebuild; its lightmap layout (`LightmapUV`) and denoise path are untested at
 full quality, and it must be re-run after any later change.
 
+## Floor
+
+The floor is ONE concrete slab (`floormesh.py`, 14 x 24 x 0.3 m, 876 triangles) with real holes cut through it for the two drainage channels, two sumps,
+five round drains and the exhaust opening. One planar UV covers the whole top; `floortex.py` paints albedo, roughness (wet / damp / polished) and a
+normal map at 160 texels per metre (2240 x 3840) with joints, cracks, spalls, stains, repair patches, tyre scuffs, worn lane paint and wet flow to the drains.
+Gratings and drain covers (`floor.py`) are the only separate meshes. These maps are texturing, not baked lighting.
+
 ## Not done
 
 Independent review, Cycles art-acceptance against the spawn room, measured runtime performance, collision, Unity import, and

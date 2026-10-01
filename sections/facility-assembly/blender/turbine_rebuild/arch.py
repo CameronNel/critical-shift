@@ -157,12 +157,7 @@ def passage(b, frame, label):
         b.text(label, (0, -d + .045, 2.45), .09, 'chalk', math.pi, math.pi / 2)
 
 def floor(b):
-    g0 = b.group; b.use('OCC')
-    for r in rect_minus((X0, X1, Y0, Y1), [(HOLE[0], HOLE[1], HOLE[2], HOLE[3])]):
-        b.box(((r[0] + r[1]) / 2, (r[2] + r[3]) / 2, -0.22), (r[1] - r[0], r[3] - r[2], .38), 'concrete_dark')
-    b.use(g0)
-    for r in rect_minus((X0, X1, Y0, Y1), [(HOLE[0], HOLE[1], HOLE[2], HOLE[3])]):
-        b.box(((r[0] + r[1]) / 2, (r[2] + r[3]) / 2, -0.0285), (r[1] - r[0], r[3] - r[2], .002), 'backing', nb=True)
+    """The floor is one slab with real holes (floormesh.py); only the exhaust pit below it is built here."""
     cx, cy, w, d = (HOLE[0] + HOLE[1]) / 2, (HOLE[2] + HOLE[3]) / 2, HOLE[1] - HOLE[0], HOLE[3] - HOLE[2]
     b.box((cx, cy, -2.5), (w, d, .1), 'black') if False else b.box((cx, cy, -2.5), (w, d, .1), 'backing')
     for dx, dy, sx, sy in ((0, d / 2, w, .05), (0, -d / 2, w, .05), (w / 2, 0, .05, d), (-w / 2, 0, .05, d)): b.box((cx + dx, cy + dy, -1.3), (sx, sy, 2.4), 'concrete_dark')

@@ -1,16 +1,16 @@
 {
  "group_stats": {
-  "OCC": {
-   "faces": 288,
-   "tris": 576
-  },
   "ARCH": {
-   "faces": 40839,
-   "tris": 83170
+   "faces": 36624,
+   "tris": 74056
+  },
+  "OCC": {
+   "faces": 264,
+   "tris": 528
   },
   "MACH": {
-   "faces": 55780,
-   "tris": 114722
+   "faces": 55765,
+   "tris": 114692
   },
   "SHAFT": {
    "faces": 52,
@@ -21,20 +21,37 @@
    "tris": 16936
   }
  },
- "total_tris_before_cull": 215588,
- "total_tris": 317768,
+ "total_tris_before_cull": 206396,
+ "total_tris": 313658,
+ "floor": {
+  "top_faces": 9,
+  "faces": 222,
+  "tris": 876
+ },
+ "floor_textures": {
+  "size": [
+   2240,
+   3840
+  ],
+  "px_per_m": 160,
+  "wet_fraction": 0.019654715401785715,
+  "damp_fraction": 0.08019356863839286
+ },
  "bevelled_edges": {
-  "ARCH": 6178,
+  "ARCH": 6205,
   "MACH": 15076,
   "SHAFT": 0,
-  "PROPS": 1575
+  "PROPS": 1579
  },
- "faces_kept": 92358,
- "faces_culled": 13717,
- "materials": 10,
+ "faces_kept": 89954,
+ "faces_culled": 11891,
+ "materials": 12,
  "images": [
   "turbine_atlas",
-  "turbine_atlas_orm"
+  "turbine_atlas_orm",
+  "turbine_floor_albedo.png",
+  "turbine_floor_normal.png",
+  "turbine_floor_orm.png"
  ],
- "objects": 61
+ "objects": 62
 }

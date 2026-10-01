@@ -117,6 +117,13 @@ occ_ob = objs.get('OCC')
 if occ_ob:
     om = bpy.data.materials.new('M_occluder'); om.diffuse_color = (.02, .02, .02, 1); om.use_nodes = True
     om.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value = (.02, .02, .02, 1); occ_ob.data.materials.append(om)
+# ---- the floor: one slab with holes + one texture set (wetness, flow, cracks, wear and paint live in the maps) ----
+import floor as floor_layout, floortex, floormesh
+tex_prefix = os.path.join(OUT, 'turbine_floor')
+tex_info = None
+if os.environ.get('REGEN_FLOOR', '1') == '1' or not os.path.exists(tex_prefix + '_albedo.png'): tex_info = floortex.generate(tex_prefix, floor_layout.LAYOUT)
+mt, mw = floormesh.make_materials(tex_prefix)
+floor_ob, floor_info = floormesh.make_floor(coll, floor_layout.LAYOUT, (mt, mw), arch.HOLE)
 # animated shaft: origin on the rotation axis
 sh = objs.get('SHAFT')
 if sh:
@@ -190,7 +197,7 @@ vs = hn.nodes.new('ShaderNodeVolumeScatter'); vs.inputs['Density'].default_value
 ho = hn.nodes.new('ShaderNodeOutputMaterial'); hn.links.new(vs.outputs[0], ho.inputs['Volume'])
 hm = bpy.data.meshes.new('HAZE'); hm.from_pydata([(x, y, z) for x in (-3.95, 9.95) for y in (.05, 23.95) for z in (.05, 7.15)], [], [(0, 1, 3, 2), (4, 6, 7, 5), (0, 4, 5, 1), (2, 3, 7, 6), (0, 2, 6, 4), (1, 5, 7, 3)])
 ho_ = bpy.data.objects.new('HAZE_VOLUME', hm); hm.materials.append(hz); coll.objects.link(ho_); ho_.hide_render = os.environ.get('HAZE') != '1'; ho_['shipping'] = False
-report = dict(group_stats={k: v for k, v in b.stats().items()}, total_tris_before_cull=sum(v['tris'] for v in b.stats().values()), total_tris=sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for k, o in objs.items() if k != 'OCC'),
+report = dict(group_stats={k: v for k, v in b.stats().items()}, total_tris_before_cull=sum(v['tris'] for v in b.stats().values()), total_tris=sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for k, o in objs.items() if k != 'OCC') + floor_info['tris'], floor=floor_info, floor_textures=tex_info,
               bevelled_edges=bevelled, faces_kept=cull_kept, faces_culled=cull_removed, materials=len(bpy.data.materials), images=[i.name for i in bpy.data.images], objects=len(bpy.data.objects))
 print('REPORT', json.dumps(report))
 json.dump(report, open(os.path.join(OUT, 'build_report.json'), 'w'), indent=1)
