@@ -4,3 +4,4 @@ module_overhaul_R*.blend -filter -diff -merge -text
 revamp/**/*.png -filter -diff -merge -text
 revamp/**/*.jpg -filter -diff -merge -text
 revamp/**/*.blend -filter -diff -merge -text
+revamp/production/portable_dependencies/parts/*.bin -filter -diff -merge -text
