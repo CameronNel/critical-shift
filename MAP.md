@@ -49,7 +49,7 @@ Older handoffs describe historical A04/A05 stages and may say connectors are unb
 
 ## Pull only what you need
 
-A full `git lfs pull` is about 7 GB, and most of that is superseded whole-map snapshots kept as provenance. To open or render the current map you need 25 files, about 861 MB: the environment scene, the R17 preview cache it links directly (it also carries the condenser bay bake and pulls in 10 exterior libraries, so do not drop it), the 12 room modules and the 11 exterior libraries the scenes load. The exact list is in [MINIMAL_PULL.txt](sections/facility-assembly/production/MINIMAL_PULL.txt):
+A full `git lfs pull` is about 7 GB, and most of that is superseded whole-map snapshots kept as provenance. To open or render the current map you need 26 files, about 862 MB: the environment scene, the R17 preview cache it links directly (it also carries the condenser bay bake and pulls in 10 exterior libraries, so do not drop it), the 12 room modules, the hero suit library the spawn module links (`sources/spawn-room/hero_suit.blend`) and the 11 exterior libraries the scenes load. The exact list is in [MINIMAL_PULL.txt](sections/facility-assembly/production/MINIMAL_PULL.txt):
 
 ```sh
 GIT_LFS_SKIP_SMUDGE=1 git clone <repo> && cd critical-shift
