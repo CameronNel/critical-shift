@@ -5,7 +5,8 @@ Rig and animations for the crew worker (Blender 5.2 / bpy). Unity Humanoid compa
 Skeleton: Root > Hips > Spine > Chest > Neck > Head, Chest > Left/RightShoulder > UpperArm > LowerArm > Hand, Hips >
 Left/RightUpperLeg > LowerLeg > Foot, plus non-humanoid extras: Belly (jiggle), Pack (backpack lag) and Tool (a free
 bone under Root that the hand tools are skinned to). Bone names follow Unity's humanoid naming so the Avatar auto-maps.
-Feet have no toes, so there is no Toes bone. Rest pose is an A-pose.
+Feet have no toes, so there is no Toes bone. Rest pose is an A-pose. The worker faces +Y, so its own left side (the
+Left* bones) is at -X.
 
 Skinning: weights are a function of position (bone heat for torso and arms, same-side distance weights for the legs), so
 coincident vertices on the region seams and on the suit get identical weights and never open. The suit body is one
@@ -19,10 +20,12 @@ Legs are two-bone IK to planned foot targets, so a planted foot stays planted. A
     IDLE          standing, arms hanging, breathing and a slow weight shift (48 frames)
     RUN           cartoon run, arms up beside the head like \\o/, mittens waving (mixed harmonics, arms out of step),
                   bouncy flight phase, waddle, belly and pack lag (32 frames = two strides)
-    HOLD_SHOVEL   standing, shovel in the right hand low at the hip, blade forward and down (48 frames)
-    HOLD_PICKAXE  standing, pickaxe in the right hand low at the hip, head forward (48 frames)
-    RUN_SHOVEL    plain run, shovel carried at the trail in the right hand, left arm pumping (18 frames)
-    RUN_PICKAXE   plain run, pickaxe choked up in the right hand, head forward, left arm pumping (18 frames)
+    HOLD_SHOVEL   standing, shovel in the right hand at chest height, blade raised forward into the lower right of the
+                  first-person view (48 frames)
+    HOLD_PICKAXE  the same with the pickaxe, head up and forward (48 frames)
+    RUN_SHOVEL    plain run holding the shovel the same way, left arm pumping (18 frames)
+    RUN_PICKAXE   plain run holding the pickaxe the same way, left arm pumping (18 frames)
+character_clips adds the gameplay clips (walks, jumps, carrying, interactions, hits, get-ups, OCRU, digging).
 """
 
 import math
@@ -59,11 +62,17 @@ _SIDE = [
 DEFORM = ["Hips", "Spine", "Chest", "Neck", "Head", "Belly", "Pack", "Tool"] + [
     s + n for s in ("Left", "Right") for n in ("Shoulder", "UpperArm", "LowerArm", "Hand", "UpperLeg", "LowerLeg", "Foot")]
 _PARENTS_WITH_SIDE = ("Shoulder", "UpperArm", "LowerArm", "UpperLeg", "LowerLeg")
+SIDES = (("Left", -1), ("Right", 1))  # (side, sign of x): the worker faces +Y, so its own left is at -X
+SX = dict(SIDES)
+
+
+def _side_of(x):
+    return "Left" if x * SX["Left"] > 0 else "Right"
 
 
 def _bone_table():
     rows = list(_CENTRE)
-    for side, sx in (("Left", 1), ("Right", -1)):
+    for side, sx in SIDES:
         for name, parent, h, t in _SIDE:
             par = side + parent if parent in _PARENTS_WITH_SIDE else parent
             rows.append((side + name, par, (h[0] * sx, h[1], h[2]), (t[0] * sx, t[1], t[2])))
@@ -122,7 +131,7 @@ def _seg_dist(p, a, b):
 def leg_weights(p):
     """Same-side leg weights from distance to the leg bones: smooth blend at the knee and ankle, and a leg never
     follows the other leg's bones (that cross-contamination made the pants morph)."""
-    side = "Left" if p.x > 0 else "Right"
+    side = _side_of(p.x)
     raw = {}
     for base in ("UpperLeg", "LowerLeg", "Foot"):
         h, t = SEGMENTS[side + base]
@@ -154,7 +163,7 @@ def _torso_weights(p):
 def _leg_gate(p):
     """0 where the point belongs to the arm (hanging beside the hip), 1 where it belongs to a leg, by which limb's surface
     is closer. A fixed |x| cut let the sleeve pick up leg weights."""
-    side = "Left" if p.x > 0 else "Right"
+    side = _side_of(p.x)
     dl = min(_seg_dist(p, *SEGMENTS[side + b]) - _LEG_R[b] for b in ("UpperLeg", "LowerLeg"))
     da = min(_seg_dist(p, *SEGMENTS[side + b]) - _ARM_R[b] for b in ("UpperArm", "LowerArm", "Hand"))
     return _ss(0.0, 0.05, da - dl)
@@ -276,7 +285,7 @@ def _make_weight_fn(root, arm):
         stretched web where the sleeve meets the flank."""
         if abs(p.x) < 0.10 or p.z > 1.02 or p.z < 0.50:
             return w
-        side = "Left" if p.x > 0 else "Right"
+        side = _side_of(p.x)
         s0 = _arm_share(w, side)
         acc = [s0]
         for dx, dy, dz in ((0.07, 0, 0), (-0.07, 0, 0), (0, 0.06, 0), (0, -0.06, 0), (0, 0, 0.07), (0, 0, -0.07),
@@ -383,7 +392,7 @@ def _face_classes(bm, weight_at, mw, side_only=False):
             if d > 0.10 + 0.06 * _ss(0.70, 0.95, c.z):
                 k = "core"
         if (c.z < Z_LEG or side_only) and not k.startswith("arm"):
-            k = "legL" if c.x > 0 else "legR"
+            k = "leg" + _side_of(c.x)[0]
         elif k.startswith("leg"):
             k = "core"
         cls.append(k)
@@ -485,8 +494,8 @@ def _tuck_arm_flaps(bm, lay, mw):
     def own(v, k):
         return v.link_faces and all(f[lay] == k for f in v.link_faces)
 
-    for side, sx in (("Left", 1), ("Right", -1)):
-        k = _CLS.index("armL" if sx == 1 else "armR")
+    for side, sx in SIDES:
+        k = _CLS.index("arm" + side[0])
         segs = [SEGMENTS[side + b] for b in ("UpperArm", "LowerArm", "Hand")]
 
         def nearest(p):
@@ -595,7 +604,7 @@ def _restricted(weight_at, p, key, hood=None):
     for the arms and flank), fading back to the plain weights where the cut ends. `hood` (centre, radius): fabric under
     the rigid hood never follows the arm, or a raised arm pulls it out through the hood."""
     side = {"L": "Left", "R": "Right"}.get(key[-1], "")
-    if key.startswith("leg") and (p.x > 0) != (side == "Left"):
+    if key.startswith("leg") and _side_of(p.x) != side:
         p = Vector((-p.x, p.y, p.z))           # a face of this leg that sits over the midline: use this leg's weights
     w = weight_at(p)
     r_leg = _ss(Z_LEG, Z_LEG - 0.06, p.z)
@@ -733,6 +742,7 @@ def skin_worker(root, arm):
             p = mw @ v.co
             if head_rigid:
                 w = {"Head": 1.0}
+                o["cs_head_rigid"] = True          # hidden in the first-person eye view
             elif v.index in fixed:
                 w = fixed[v.index]
             else:
@@ -860,10 +870,13 @@ def _eval_bones(arm):
     return arm.evaluated_get(dg).pose.bones
 
 
-def _finish(arm, act, frames):
+def _finish(arm, act, frames, loop=True):
+    """Make `act` current. A loop's last key equals its first, so playback (and rendering) stops one frame short; a
+    one-shot plays to its last key. `act["cs_loop"]` records which, for the renderer and the exporter."""
     arm.animation_data.action = act
+    act["cs_loop"] = bool(loop)
     sc = bpy.context.scene
-    sc.frame_start, sc.frame_end = 0, frames - 1
+    sc.frame_start, sc.frame_end = 0, frames - 1 if loop else frames
     sc.render.fps = 24
 
 
@@ -892,12 +905,18 @@ def _ik_two(arm, upper, lower, S, T, pole):
 
 
 def _ik_arm(arm, side, S, T, pole):
-    return _ik_two(arm, side + "UpperArm", side + "LowerArm", S, T, pole)
+    """Arm IK. The upper arm turns the shortest way from rest (so the sleeve keeps its rest twist) and the forearm
+    follows it through a pure elbow hinge, so the elbow never twists."""
+    Du, Dl = _ik_two(arm, side + "UpperArm", side + "LowerArm", S, T, pole)
+    lb = arm.data.bones[side + "LowerArm"]
+    rl = (lb.tail_local - lb.head_local).normalized()
+    Dl = (Du @ rl).rotation_difference(Dl @ rl).to_matrix() @ Du
+    return Du, Dl
 
 
 # ------------------------------------------------------------------------------------------------------ feet and gait
 
-ANKLE_REST = {"Left": Vector((0.110, 0.014, 0.13)), "Right": Vector((-0.110, 0.014, 0.13))}
+ANKLE_REST = {side: Vector((sx * 0.110, 0.014, 0.13)) for side, sx in SIDES}
 _HEEL, _TOE = (-0.10, -0.13), (0.20, -0.13)       # (y, z) of the boot sole's heel and toe edges from the ankle
 
 
@@ -971,8 +990,8 @@ def _run_foot(p, g):
 
 def _run_feet(q, g):
     feet = {}
-    for side, sgn in (("Left", 1), ("Right", -1)):
-        c, clear, pitch = _run_foot((q + (0.0 if sgn == 1 else 0.5)) % 1.0, g)
+    for side, sgn in SIDES:
+        c, clear, pitch = _run_foot((q + (0.0 if side == "Right" else 0.5)) % 1.0, g)
         y, z = _ankle(c, clear, pitch)
         feet[side] = (Vector((sgn * g["width"], y, z)), pitch)
     return feet
@@ -993,15 +1012,19 @@ def _slerp3(a, b, t):
     return a.to_quaternion().slerp(b.to_quaternion(), t).to_matrix()
 
 
-def _compose(arm, frames, name, body, arms):
-    """Build one looping action in two passes. Pass 1 keys the torso and the hips (sway, height). Pass 2 evaluates each
-    frame, solves both legs with two-bone IK to the body's foot targets (so a planted foot stays planted) and lets
-    `arms(ph, D, ev, chest_def)` set the arm deltas and return the tool's armature-space matrix (or None), so legs, arms
-    and tools all follow the final body."""
+def _compose(arm, frames, name, body, arms, loop=True):
+    """Build one action in two passes. Pass 1 keys the torso and the hips (sway, height). Pass 2 evaluates each frame,
+    solves both legs with two-bone IK to the body's foot targets (so a planted foot stays planted; the knee bends
+    towards the pelvis's front) and lets `arms(ph, D, ev, chest_def)` set the arm deltas and return the tool's
+    armature-space matrix (or None), so legs, arms and tools all follow the final body. `loop`: phase wraps (frame N is
+    frame 0 again); otherwise a one-shot from phase 0 to 1."""
     act = _new_action(arm, name)
     sc = bpy.context.scene
+
+    def phase(f):
+        return (f % frames) / frames if loop else f / frames
     for f in range(frames + 1):
-        D, loc, _ = body((f % frames) / frames)
+        D, loc, _ = body(phase(f))
         for side in ("Left", "Right"):                                # provisional limbs so the frame evaluates
             for b in ("Shoulder", "UpperArm", "LowerArm", "Hand"):
                 D[side + b] = D["Chest"]
@@ -1010,22 +1033,22 @@ def _compose(arm, frames, name, body, arms):
         _key(arm, f, D, loc={"Hips": loc})
         _key_tool(arm, f, Matrix.Identity(4))
     for f in range(frames + 1):
-        ph = (f % frames) / frames
+        ph = phase(f)
         D, _, feet = body(ph)
         sc.frame_set(f)
         bpy.context.view_layer.update()
         ev = _eval_bones(arm)
-        for side, sgn in (("Left", 1), ("Right", -1)):
-            T, pitch = feet[side]
+        for side, sgn in SIDES:
+            T, rot = feet[side]
             D[side + "UpperLeg"], D[side + "LowerLeg"] = _ik_two(
                 arm, side + "UpperLeg", side + "LowerLeg", ev[side + "UpperLeg"].head.copy(), T,
-                Vector((sgn * 0.15, 1.0, 0.0)))
-            D[side + "Foot"] = _rot("X", pitch)
+                D["Hips"] @ Vector((sgn * 0.15, 1.0, 0.0)))
+            D[side + "Foot"] = rot if isinstance(rot, Matrix) else _rot("X", rot)
         chest_def = ev["Chest"].matrix @ arm.data.bones["Chest"].matrix_local.inverted()
         M = arms(ph, D, ev, chest_def)
         _key(arm, f, D)
         _key_tool(arm, f, M if M is not None else Matrix.Identity(4))
-    _finish(arm, act, frames)
+    _finish(arm, act, frames, loop)
     return act
 
 
@@ -1035,10 +1058,10 @@ def _run_body(ph, g):
     """Torso, head, hips (sway and height) and foot targets of a run with gait `g`. The pelvis turns the striding hip
     forward and drops on the swing side, the chest counter-rotates, the head stays level with a small nod on landing."""
     tp = 2 * math.pi
-    q = (ph * g["strides"]) % 1.0                  # leg phase: 0 = left foot strike, 0.5 = right foot strike
+    q = (ph * g["strides"]) % 1.0                  # leg phase: 0 = right foot strike, 0.5 = left foot strike
     u = (2 * q) % 1.0                              # step phase: 0 = either strike
     c1 = math.cos(tp * q)
-    st = math.sin(tp * (q + 0.07))                 # + while the left foot carries the weight, - for the right
+    st = math.sin(tp * (q + 0.07))                 # + while the right foot (+X) carries the weight, - for the left
     sq = math.cos(tp * (u - 0.3))                  # 1 at mid-stance (hips lowest)
     lean, yaw, roll, wad = g["lean"], g["yaw"], g["roll"], g["waddle"]
     D = {"Root": Matrix.Identity(3)}
@@ -1091,7 +1114,7 @@ def _arms_idle(arm):
     tp = 2 * math.pi
 
     def arms(ph, D, ev, chest_def):
-        for side, sgn in (("Left", 1), ("Right", -1)):
+        for side, sgn in SIDES:
             _arm_neutral(arm, side, sgn, ph, D, swing=2.5 * math.sin(tp * (ph + 0.2 * sgn)), bend=10 + 3 * math.sin(tp * ph))
         return None
     return arms
@@ -1111,7 +1134,7 @@ def _arms_cheer(arm, c=None):
 
     def arms(ph, D, ev, chest_def):
         ch = D["Chest"]
-        for side, sgn in (("Left", 1), ("Right", -1)):
+        for side, sgn in SIDES:
             off = 0.0 if sgn == 1 else 0.37
             spread = (c["spread"] + c["spread_amp"][0] * math.sin(tp * (ph + off + 0.1))
                       + c["spread_amp"][1] * math.sin(tp * (3 * ph + off)))
@@ -1134,13 +1157,16 @@ def _arms_cheer(arm, c=None):
 # Tool in the right hand. `grip`: where the hand holds it (chest space at rest), `shaft`: direction of the tool's +Z
 # (towards the handle top / the pick head), `side`: where the tool's +X points (shovel blade width / pick head bar),
 # `at`: the point on the shaft (tool-local z) that sits in the fist.
-TOOL_HOLD = {                                     # standing, first-person style: low at the right hip
-    "SHOVEL": dict(grip=(-0.28, 0.26, 0.80), shaft=(-0.22, -0.78, 0.58), side=(1, 0, 0), at=0.24),  # blade forward-down
-    "PICKAXE": dict(grip=(-0.27, 0.26, 0.80), shaft=(0.10, 0.95, 0.25), side=(0, 0, 1), at=-0.14),  # head forward
+# First-person holds: the worker's arms are short and its eyes 0.34 m above the shoulders, so a hand is never inside a
+# 60 degree first-person view in a natural pose; the tool's business end is. The hand holds the tool at chest height in
+# front of the right shoulder and the blade or pick head rises into the lower right of the view.
+TOOL_HOLD = {
+    "SHOVEL": dict(grip=(0.30, 0.38, 1.00), shaft=(0.25, -0.80, -0.55), side=(1, 0, 0), at=-0.16),  # blade up-forward
+    "PICKAXE": dict(grip=(0.28, 0.36, 1.00), shaft=(-0.12, 0.84, 0.50), side=(0, 0, 1), at=-0.14),  # head up-forward
 }
-TOOL_RUN = {                                      # running: carried at the trail, low by the right hip, pointing ahead
-    "SHOVEL": dict(grip=(-0.31, 0.10, 0.81), shaft=(0.10, -0.97, 0.14), side=(1, 0, 0), at=-0.32),   # blade forward
-    "PICKAXE": dict(grip=(-0.30, 0.10, 0.82), shaft=(-0.12, 0.95, 0.30), side=(0, 0, 1), at=0.40),   # choked up
+TOOL_RUN = {                                      # running: the same, a little lower and closer, bobbing with the stride
+    "SHOVEL": dict(grip=(0.30, 0.36, 1.02), shaft=(0.25, -0.72, -0.65), side=(1, 0, 0), at=-0.16),
+    "PICKAXE": dict(grip=(0.28, 0.31, 0.96), shaft=(-0.10, 0.76, 0.64), side=(0, 0, 1), at=-0.14),
 }
 _HAND_GRIP = 0.065                                # wrist to the middle of the mitten
 
@@ -1159,20 +1185,20 @@ def _arms_tool(arm, kind, running, gait=GAIT_PLAIN):
 
     def arms(ph, D, ev, chest_def):
         q = (ph * gait["strides"]) % 1.0
-        pump = math.sin(tp * (q - 0.2))           # + when the left arm is forward (right leg forward)
+        pump = -math.sin(tp * (q - 0.2))          # + when the left arm is forward (right leg forward)
         M = chest_def @ Mrest
         if running:
             g = M @ Vector((0, 0, TOOL_RUN[kind]["at"]))
             swing = Matrix.Translation(g + Vector((0.0, -0.035 * pump, 0.008 * math.cos(tp * 2 * q))))
             M = swing @ _rot("X", 5 * pump).to_4x4() @ Matrix.Translation(-g) @ M
         if running:
-            _arm_neutral(arm, "Left", 1, ph, D, swing=36 * pump, bend=78 + 14 * pump)
+            _arm_neutral(arm, "Left", SX["Left"], ph, D, swing=36 * pump, bend=78 + 14 * pump)
         else:
-            _arm_neutral(arm, "Left", 1, ph, D, swing=2.5 * math.sin(tp * (ph + 0.2)), bend=10 + 3 * math.sin(tp * ph))
+            _arm_neutral(arm, "Left", SX["Left"], ph, D, swing=2.5 * math.sin(tp * (ph + 0.2)), bend=10 + 3 * math.sin(tp * ph))
         grip = M @ Vector((0, 0, (TOOL_RUN if running else TOOL_HOLD)[kind]["at"]))
         D["RightShoulder"] = D["Chest"]
         S = ev["RightUpperArm"].head.copy()
-        pole = Vector((-0.55, -0.35, -0.75))
+        pole = Vector((0.55, -0.35, -0.75))
         wrist = grip
         for _ in range(2):                        # aim the wrist so the mitten, not the wrist, closes on the grip
             Du, Dl = _ik_arm(arm, "Right", S, wrist, pole)
@@ -1198,22 +1224,22 @@ def make_run_cycle(arm, frames=32, name="RUN"):
 
 
 def make_shovel_hold(arm, frames=48, name="HOLD_SHOVEL"):
-    """Standing, shovel in the right hand low at the hip, blade forward and down (first-person style)."""
+    """Standing, shovel in the right hand at chest height, blade raised forward (first-person view)."""
     return _compose(arm, frames, name, _stand_body, _arms_tool(arm, "SHOVEL", False))
 
 
 def make_pickaxe_hold(arm, frames=48, name="HOLD_PICKAXE"):
-    """Standing, pickaxe in the right hand low at the hip, head forward."""
+    """Standing, pickaxe in the right hand at chest height, head up and forward (first-person view)."""
     return _compose(arm, frames, name, _stand_body, _arms_tool(arm, "PICKAXE", False))
 
 
 def make_shovel_run(arm, frames=18, name="RUN_SHOVEL"):
-    """A plain run, shovel carried at the trail in the right hand, left arm pumping."""
+    """A plain run, shovel held up in the right hand as in HOLD_SHOVEL, left arm pumping."""
     return _compose(arm, frames, name, lambda ph: _run_body(ph, GAIT_PLAIN), _arms_tool(arm, "SHOVEL", True))
 
 
 def make_pickaxe_run(arm, frames=18, name="RUN_PICKAXE"):
-    """A plain run, pickaxe choked up in the right hand, head forward, left arm pumping."""
+    """A plain run, pickaxe held up in the right hand as in HOLD_PICKAXE, left arm pumping."""
     return _compose(arm, frames, name, lambda ph: _run_body(ph, GAIT_PLAIN), _arms_tool(arm, "PICKAXE", True))
 
 
