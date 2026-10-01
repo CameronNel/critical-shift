@@ -4,9 +4,12 @@ Palette materials are decoded back to the original material name through the OPT
 """
 import collections
 import json
+import os
 import sys
 
 import bpy
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mathutils import Vector
 
 GEO = ("MESH", "CURVE", "FONT", "SURFACE")
@@ -97,6 +100,8 @@ def animation_entry(coll_name, idb, ad, owner_kind="id"):
 def main():
     a = sys.argv[sys.argv.index("--") + 1:]
     bpy.ops.wm.open_mainfile(filepath=a[0])
+    from realize_instances import realize_linked_instances
+    print('REALIZED linked instances:', realize_linked_instances())
     sc = bpy.context.scene
     pal = None
     if "OPT_PALETTE" in bpy.data.texts:

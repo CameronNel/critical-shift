@@ -16,13 +16,13 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 
 | | module.blend | module_optimised.blend |
 |---|---:|---:|
-| Render-visible geometry objects | 1,570 | 759 |
-| Triangles | 351,590 | 351,590 |
+| Render-visible geometry objects | 1,574 | 759 |
+| Triangles | 352,462 | 352,462 |
 | Draw-call estimate (objects x material slots, before any engine batching) | 1,918 | 762 |
-| Materials in use | 205 | 31 (30 visible plus one untouched copy for animated labels; the 24-material spawn-room cap comes from the per-room budget in PR #59, branch `claude/eloquent-rubin-5y6lnu`, `design/MATERIAL_BUDGETS.md`, where the owner's approval of 2026-10-01 is recorded; that document is not on `main` yet) |
+| Materials in use | 249 | 31 (30 visible plus one untouched copy for animated labels; the 24-material spawn-room cap comes from the per-room budget in PR #59, branch `claude/eloquent-rubin-5y6lnu`, `design/MATERIAL_BUDGETS.md`, where the owner's approval of 2026-10-01 is recorded; that document is not on `main` yet) |
 | Lights | 20 | 20 (the optimisation changes none, it only tags roles; the 20 are the 14 original lights, 4 baked locker strip lights and 2 baked doorway spill lights added by the hero and polish passes) |
 
-Numbers reflect the module after the hero-suit pass (`../../blender/add_hero_suits.py`: the crew worker's own hazmat suit hung in each of the four PPE lockers) and the polish pass (`../../blender/polish_spawn.py`).
+Numbers reflect the module after the hero-suit pass (`../../blender/add_hero_suits.py`: the crew worker's own hazmat suit hung in each of the four PPE lockers) and the polish pass (`../../blender/polish_spawn.py`). The hero suit is **linked** into `module.blend` from `hero_suit.blend`; `optimise_spawn.py` first makes the linked instances local (`realize_instances.py`) so the derivative is self-contained (no library).
 
 Every number below (objects, joins, conversions, draw calls, materials) comes from one run, recorded in
 `optimise_report.json` next to this file.
@@ -36,15 +36,15 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
    attributes `CS_GEN` / `CS_OBJ`, on every mesh including hidden ones, and those materials read the attributes, so joining
    parts cannot change a pattern. Curve/text objects that stay curves cannot carry attributes, so they keep an
    untouched copy of the material (`<name>__noattr`).
-3. The 141 constant-colour Principled materials are folded into one `PAL_flat` material: three packed 16x16 float images
+3. The 199 constant-colour Principled materials are folded into one `PAL_flat` material: three packed 16x16 float images
    (albedo, roughness+metal, emission), `Closest` sampling, a `CS_PAL` UV layer. Cell mapping is in text block `OPT_PALETTE`.
 3b. **Material families** (the method of the reactor control room, PR #54; budgets in PR #59): materials with exactly the same node graph that differ only in
    constants become one `FAM ...` material. The constants (every differing socket value, and the two stop colours of each
    colour ramp) are written per polygon into colour attributes `FAM0..FAM3`; the family graph reads them. The graph is the
    same, so the shading is the same (the structural key includes the colour-ramp interpolation and colour mode, so ramps that differ never share a family): a 2-stop LINEAR/EASE ramp becomes a clamped Map Range (smoothstep for EASE) plus a Mix.
-   Read-back of every attribute is checked at build time. 14 families replace 49 materials; members are listed in text block
+   Read-back of every attribute is checked at build time. 14 families replace 50 materials; members are listed in text block
    `OPT_FAMILIES`. Materials with different graphs are left alone.
-4. Parts of the same asset that share material and object flags are joined (967 objects into 156); shell parts outside any
+4. Parts of the same asset that share material and object flags are joined (971 objects into 156); shell parts outside any
    asset are joined per collection, material and 5 m cell. Left exactly as they were: every object that is animated, has
    children, carries its own properties, is in a support-checked collection, is named by any `cs_support_target`,
    looks interactive (door, hinge, hatch, lever, button, handle, switch...) or belongs to an asset with
@@ -74,15 +74,15 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
 
   | Camera | mean abs diff | 99th percentile | pixels differing by more than 8% |
   |---|---:|---:|---:|
-  | VALIDATE_Spawn | 0.0067 | 0.043 | 0.169% |
-  | VALIDATE_LockerDoor | 0.0072 | 0.043 | 0.134% |
-  | VALIDATE_BriefingDoor | 0.0087 | 0.051 | 0.295% |
-  | VALIDATE_ExitReverse | 0.0060 | 0.039 | 0.100% |
-  | VALIDATE_Hero_A | 0.0067 | 0.043 | 0.159% |
-  | VALIDATE_Material_A | 0.0081 | 0.047 | 0.160% |
+  | VALIDATE_Spawn | 0.0067 | 0.043 | 0.182% |
+  | VALIDATE_LockerDoor | 0.0071 | 0.043 | 0.120% |
+  | VALIDATE_BriefingDoor | 0.0087 | 0.051 | 0.297% |
+  | VALIDATE_ExitReverse | 0.0060 | 0.039 | 0.096% |
+  | VALIDATE_Hero_A | 0.0067 | 0.043 | 0.150% |
+  | VALIDATE_Material_A | 0.0081 | 0.047 | 0.153% |
 
   The differences sit on edges (anti-aliasing and denoiser noise from a different object order); there are no
-  colour or pattern shifts. Rendered again on the post-polish module (wear layer, doorway spill, reframed Material_A) and its regenerated derivative; I looked at the Material_A montage (wear, suit, glass and lights match, differences on edges only); the other five were checked by the numbers only. This is a Cycles comparison, not engine rendering, and not art approval.
+  colour or pattern shifts. Rendered again on the post-polish module (wear layer, doorway spill, reframed Material_A) and its regenerated derivative; I looked at the Hero_A montage (the linked suit, neck collar, dock and strip light match, differences on edges only); the other five were checked by the numbers only. This is a Cycles comparison, not engine rendering, and not art approval.
 
 ## Not done / not claimed
 

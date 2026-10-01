@@ -3,13 +3,13 @@
   "draw_call_estimate": 762,
   "materials_in_use": 31,
   "objects": 759,
-  "triangles": 351590
+  "triangles": 352462
  },
  "before": {
   "draw_call_estimate": 1918,
-  "materials_in_use": 205,
-  "objects": 1570,
-  "triangles": 351590
+  "materials_in_use": 249,
+  "objects": 1574,
+  "triangles": 352462
  },
  "blender": "5.2.2 LTS",
  "coord_dependent_materials": 40,
@@ -86,24 +86,25 @@
    "blue",
    "pale"
   ],
-  "SUIT_glass.004": [
-   "SUIT_glass.004",
-   "SUIT_glass.005",
-   "SUIT_glass.006",
-   "SUIT_glass.008"
+  "SUIT_glass": [
+   "SUIT_glass",
+   "SUIT_glass.001",
+   "SUIT_glass.002",
+   "SUIT_glass.003",
+   "SUIT_glass.004"
   ]
  },
  "family_attributes": 4,
- "family_polygons": 73420,
- "flat_materials": 141,
+ "family_polygons": 73540,
+ "flat_materials": 199,
  "join_groups": 156,
  "lights": 20,
  "lights_dynamic_key": 4,
  "lights_realtime_shadow_casters": 2,
  "materials_kept_unrewritten_for_curves_text": 1,
  "modifiers_baked_on_objects": 753,
- "objects_joined_away": 967,
- "palette_polygons": 90149,
+ "objects_joined_away": 971,
+ "palette_polygons": 99292,
  "skipped": {
   "animated": 1,
   "asset: moving/interactive asset": 124,

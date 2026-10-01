@@ -22,9 +22,12 @@ import collections
 import json
 import math
 import re
+import os
 import sys
 
 import bpy
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
 from mathutils import Matrix, Vector
 
@@ -713,6 +716,8 @@ def main():
     src, dst = a[0], a[1]
     rep_path = a[2] if len(a) > 2 else dst.replace(".blend", "_report.json")
     bpy.ops.wm.open_mainfile(filepath=src)
+    from realize_instances import realize_linked_instances
+    print('REALIZED linked instances:', realize_linked_instances())
     sc = bpy.context.scene
     report = {"source": src, "blender": bpy.app.version_string}
     report["before"] = stats("before")

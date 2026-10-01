@@ -16,7 +16,7 @@ Owner decisions (2026-10-01):
 2. The suit reappears once it is removed, and it can only be removed in the locker (at the station the suit belongs to).
    Returning it is therefore a locker interaction, not a drop anywhere in the facility.
 
-The suit is the same asset the player character wears (`character_suit.build_hazmat`).
+The suit is the same asset the player character wears (`character_suit.build_hazmat`) and is linked, not copied: `PPE_0n_suit_model` is an instance of the collection `HERO_SUIT` in `hero_suit.blend`.
 
 Not implemented here: the toggle and the locker interaction are runtime logic and were not built or tested (no Unity
 project in this repo state). Open for the runtime owner: what happens to a suit that is equipped when its player

@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 """
-Spawn Room hero suits: the crew worker's own hazmat suit (character_worker + character_suit) hung in each locker.
+Spawn Room hero suits: the crew worker's own hazmat suit, LINKED into each locker.
 
 Run headlessly (Blender 5.2):
     blender -b <input.blend> -P add_hero_suits.py -- <output.blend>
 
-One suit per locker PPE_01..PPE_04 (one per player), identical suit, per-player accent colour. The suit is the exact
-build the player character wears (build_worker + build_hazmat + equip, A-pose rest), minus the wearer: skin regions,
-head and face are removed so it hangs empty. It faces the open front of the locker, its pack against the back panel, and
-is hung from the hanger rail by a strap from the rescue handle to a hook over the rail.
+The suit is not copied into the module. `hero_suit.blend` (built by build_hero_suit.py with the same code the player
+character wears) holds the collection `HERO_SUIT`; each locker PPE_01..PPE_04 gets a collection instance of it
+(`PPE_0n_suit_model`), so editing and re-saving hero_suit.blend changes all four placed suits (reload the library in the
+module). The suit hangs empty (no wearer), faces the open front of the locker with its pack against the back panel, is held
+by a strap from the rescue handle to a hook over the hanger rail, and stands on a low boot dock. A dark collar around the
+neck stub hides it behind the empty visor (a separate object, the suit itself is unmodified).
 
-Replaces the earlier hand-modelled suit (PPE_0n_suit / helmet / cradle objects are deleted on every run). The
-personal-belongings dressing that sat in the suit's space was removed by that earlier pass and stays removed.
-Support registration (validate_contacts.py): the PPE_0n_suit root rests on the hanger rail via the hook; the contact
-points are raycast onto the real rail. Re-running rebuilds everything.
+Support registration (validate_contacts.py): the PPE_0n_suit root rests on the hanger rail via the hook, the dock on the
+locker floor shelf, the strip light under the upper shelf; contact points are raycast onto the real geometry.
+Re-running rebuilds everything (the earlier hand-modelled and copied suits are deleted).
 """
 import math
 import os
@@ -23,9 +24,6 @@ import bpy
 import bmesh
 from mathutils import Matrix, Vector
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import character_suit as CS  # noqa: E402
-import character_worker as CW  # noqa: E402
 
 OUT = sys.argv[sys.argv.index("--") + 1] if "--" in sys.argv else None
 ZO = 0.01                          # world z of each locker origin
@@ -33,7 +31,6 @@ Y_BACK = 0.275                     # pack back plate sits just in front of the b
 ROOF = 1.985                       # highest point of the suit, under the rail / upper shelf
 STRIP_Y = 0.19                      # behind the hood so the visor does not mirror the strip
 LOCKER_LIGHT_W = float(os.environ.get("LOCKER_LIGHT_W", "40"))
-PLAYER_ACCENT = {1: "#3C7DDB", 2: "#4CAF50", 3: "#D6407F", 4: "#E8E2D0"}
 scene = bpy.context.scene
 COLS = [c for c in (bpy.data.collections.get("MODULE_spawn-room"), bpy.data.collections.get("PPE_STATIONS")) if c]
 STEEL = bpy.data.materials["steel"]
@@ -55,17 +52,6 @@ def clear_old(n):
         o = bpy.data.objects.get(nm)
         if o is not None:
             kill(o)
-
-
-def world_zrange(root):
-    bpy.context.view_layer.update()
-    zmax, zmin = -1e9, 1e9
-    for o in root.children_recursive:
-        if o.type == "MESH" and not o.hide_render:
-            for c in o.bound_box:
-                w = o.matrix_world @ Vector(c)
-                zmax, zmin = max(zmax, w.z), min(zmin, w.z)
-    return zmin, zmax
 
 
 def cast(parent, local_origin, local_dir, dist=1.0):
@@ -99,30 +85,6 @@ def box_mesh(name, c, s, parent):
     return o
 
 
-def cap_neck(root):
-    """The skin is gone, so the suit body's neck stub shows through the empty visor: cut it and close the opening with a
-    dark inner cap (a seal ring seen from outside, a dark empty collar through the visor)."""
-    body = next(o for o in root.children_recursive if o.name.startswith("SUIT_BODY"))
-    dark = bpy.data.materials.get("COZY_#30323C_85_0_0")
-    bm = bmesh.new()
-    bm.from_mesh(body.data)
-    cut = [f for f in bm.faces if min(v.co.z for v in f.verts) > 1.20]
-    bmesh.ops.delete(bm, geom=cut, context="FACES")
-    for v in [v for v in bm.verts if not v.link_faces]:
-        bm.verts.remove(v)
-    edges = [e for e in bm.edges if e.is_boundary and min(v.co.z for v in e.verts) > 1.0]
-    new = bmesh.ops.triangle_fill(bm, edges=edges, use_beauty=True)["geom"]
-    if dark is not None:
-        body.data.materials.append(dark)
-        idx = len(body.data.materials) - 1
-        for f in [g for g in new if isinstance(g, bmesh.types.BMFace)]:
-            f.material_index = idx
-    bm.to_mesh(body.data)
-    bm.free()
-    for p in body.data.polygons:
-        p.use_smooth = True
-
-
 # remove the earlier hand-modelled suit pass (and its materials once unused)
 for n in (1, 2, 3, 4):
     clear_old(n)
@@ -130,43 +92,69 @@ for m in list(bpy.data.materials):
     if m.name.startswith("SUIT_") and m.name != "SUIT_glass" and m.users == 0:
         bpy.data.materials.remove(m)
 
+# ---------------------------------------------------------------- the linked hero suit
+LIB_PATH = os.environ.get("HERO_SUIT_LIB") or os.path.join(os.path.dirname(bpy.data.filepath), "hero_suit.blend")
+for _lib in list(bpy.data.libraries):                    # drop a previous link so a re-run picks up the file as saved
+    if _lib.name == "hero_suit.blend" or os.path.basename(_lib.filepath) == "hero_suit.blend":
+        bpy.data.libraries.remove(_lib)
+with bpy.data.libraries.load(LIB_PATH, link=True, relative=True) as (_src, _dst):
+    _dst.collections = ["HERO_SUIT"]
+HERO = _dst.collections[0]
+HP = {k: HERO[k] for k in HERO.keys()}                   # measurements stored with the suit
+DARK = bpy.data.materials["darksteel"]
+
+
+def cylinder(name, c, r, h, parent, seg=28):
+    me = bpy.data.meshes.new(name)
+    bm = bmesh.new()
+    ret = bmesh.ops.create_cone(bm, cap_ends=True, segments=seg, radius1=r, radius2=r, depth=h)
+    for v in ret["verts"]:
+        v.co = Vector((v.co.x + c[0], v.co.y + c[1], v.co.z + c[2]))
+    bm.to_mesh(me)
+    bm.free()
+    me.materials.append(DARK)
+    for p_ in me.polygons:
+        p_.use_smooth = True
+    o = bpy.data.objects.new(name, me)
+    o.parent = parent
+    link_cols(o)
+    return o
+
+
 report = {}
 for n in (1, 2, 3, 4):
     P = bpy.data.objects["PPE_0%d" % n]
     bpy.context.view_layer.update()
-
-    # ---- the crew worker's hazmat suit, built exactly as the player character wears it
-    root, _tris = CW.build_worker(name="WORKER_0%d" % n, collection=scene.collection)
-    CS.build_hazmat(root, coll=scene.collection, colors={"accent": PLAYER_ACCENT[n]})
-    CS.equip(root)
-    for o in list(root.children_recursive):          # empty suit: no wearer (skin, head, face)
-        if o.name not in bpy.data.objects:
-            continue
-        if (o.name.startswith(("WORKER_0%d_BODY_" % n, "WORKER_0%d_HEAD" % n)) and not o.name.endswith("_HEAD_PIVOT")) \
-                or o.name.startswith("FACE_"):
-            bpy.data.objects.remove(o, do_unlink=True)
-    cap_neck(root)
-    zmin, zmax = world_zrange(root)
 
     # asset root carrying the support registration
     asset = bpy.data.objects.new("PPE_0%d_suit" % n, None)
     asset.empty_display_size = 0.05
     asset.parent = P
     asset.matrix_parent_inverse = Matrix.Identity(4)
-    z0 = ROOF - zmax                                    # world z of the character origin
-    pack_back = -0.345                                  # SUIT_KIT back plate (character y)
-    root.parent = asset
-    root.matrix_parent_inverse = Matrix.Identity(4)
-    root.rotation_euler = (0, 0, math.pi)               # face the open front of the locker
-    root.location = (0.0, Y_BACK + pack_back, z0 - ZO)
-    for o in [root] + list(root.children_recursive):
-        link_cols(o)
+    top_z, pack_back = HP["cs_top_z"], HP["cs_pack_back_y"]
+    z0 = ROOF - top_z                                   # world z of the suit origin
+    yoff = Y_BACK + pack_back                           # locker-local y of the suit origin
+    zmin, zmax = z0 + HP["cs_foot_zmin"], ROOF
+    inst = bpy.data.objects.new("PPE_0%d_suit_model" % n, None)   # the linked hero suit
+    inst.instance_type = "COLLECTION"
+    inst.instance_collection = HERO
+    inst.empty_display_size = 0.05
+    inst.parent = asset
+    inst.matrix_parent_inverse = Matrix.Identity(4)
+    inst.rotation_euler = (0, 0, math.pi)               # face the open front of the locker
+    inst.location = (0.0, yoff, z0 - ZO)
+    link_cols(inst)
+    # collar around the neck stub (visible through the empty visor), a separate object: the suit is not modified
+    cylinder("PPE_0%d_suit_neck_collar" % n,
+             (-HP["cs_neck_cx"], yoff - HP["cs_neck_cy"], z0 + (HP["cs_neck_z0"] + HP["cs_neck_z1"]) / 2 - ZO),
+             HP["cs_neck_r"] + 0.004, HP["cs_neck_z1"] - HP["cs_neck_z0"], asset)
+    link_cols(asset)
 
     # hook over the rail, strap down to the rescue handle behind the hood
     hit, ro = cast(P, (0.0, 0.15, 2.03 - ZO), (0, 0, -1), 0.5)
     rail_top = hit.z + ZO + 0.0004                      # world z of the rail top
     ys = 0.255                                          # strap sits between the hood back and the back panel
-    handle_y = Y_BACK + pack_back + 0.255
+    handle_y = yoff + 0.255
     handle_top = z0 + 1.19
     box_mesh("PPE_0%d_suit_strap" % n, (0.0, ys, (handle_top + rail_top) / 2 - ZO),
              (0.03, 0.012, rail_top - handle_top), asset)
@@ -194,23 +182,17 @@ for n in (1, 2, 3, 4):
         c = bpy.data.collections.get(cname)
         if c and asset.name not in c.objects:
             c.objects.link(asset)
-    # the working copies were built in the scene root: keep them only in the room collections
-    for o in [asset, root] + list(root.children_recursive) + list(asset.children_recursive):
+    for o in [asset] + list(asset.children_recursive):
         if o.name in scene.collection.objects:
             scene.collection.objects.unlink(o)
 
 
     # ---- boot dock: a low steel dock on the locker floor that the suit boots rest on (the suit no longer floats)
     bpy.context.view_layer.update()
-    inv = P.matrix_world.inverted()
-    pts = []
-    for o in root.children_recursive:
-        if o.type == "MESH" and o.name.startswith(("SUIT_BOOTS", "SUIT_KIT")) and not o.hide_render:
-            pts += [inv @ (o.matrix_world @ v.co) for v in o.data.vertices]
-    fz = min(p.z for p in pts)                          # lowest point of the boots, locker-local z
-    sole = [p for p in pts if p.z < fz + 0.02]
-    x0, x1 = min(p.x for p in sole) - 0.015, max(p.x for p in sole) + 0.015
-    y0, y1 = max(min(p.y for p in sole) - 0.015, -0.30), min(max(p.y for p in sole) + 0.015, 0.20)
+    fz = z0 + HP["cs_foot_zmin"] - ZO                   # locker-local z of the lowest point of the boots
+    x0, x1 = -HP["cs_sole_x1"] - 0.015, -HP["cs_sole_x0"] + 0.015
+    y0 = max(yoff - HP["cs_sole_y1"] - 0.015, -0.30)
+    y1 = min(yoff - HP["cs_sole_y0"] + 0.015, 0.20)
     droot = bpy.data.objects.new("PPE_0%d_boot_dock" % n, None)
     droot.empty_display_size = 0.04
     droot.parent = P
@@ -287,10 +269,11 @@ for n in (1, 2, 3, 4):
     for o in [lroot] + list(lroot.children_recursive):
         if o.name in scene.collection.objects:
             scene.collection.objects.unlink(o)
-    P["contents"] = "One hanging crew hazmat suit (the player's own suit, empty) on the hanger rail, personal items on the upper shelf"
+    P["contents"] = "One hanging crew hazmat suit (linked from hero_suit.blend, empty) on the hanger rail, personal items on the upper shelf"
     report[n] = {"rail": ro.name, "z_origin": round(z0, 3), "suit_zmin": round(zmin, 3), "suit_zmax": round(zmax, 3), "dock": report_dock}
 
 print("SUIT_REPORT", report)
+bpy.ops.outliner.orphans_purge(do_local_ids=True, do_linked_ids=False, do_recursive=True)   # copies from earlier passes
 if OUT:
     bpy.ops.wm.save_as_mainfile(filepath=OUT)
     print("saved", OUT)
