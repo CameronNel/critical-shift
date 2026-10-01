@@ -31,3 +31,5 @@ Suits, Geiger drop and the polish pass (wear, doorway spill, bench posts, Materi
 2. Hall lighting falloff pass, if the owner wants more change to the approved lighting.
 3. Runtime: equip toggle and locker interaction (`final-pass/SUIT_EQUIP.md`), not built.
 4. Re-run critics (at least 4 cycles) and a cold start.
+
+HZ-01 suit LOD: the locker library is reduced to 22,371 triangles per suit (from 114,094); see hero-suit-reference/README.md.
