@@ -379,11 +379,11 @@ def build_hazmat(root, coll=None, colors=None, lod=0):
     zs = CW.T(0.94)
     for s in (-1, 1):
         x = s * 0.098 * 1.06
-        # boot shaft, sole and hem ring over the suit trouser
-        _kcyl(kit, 0.098 if LODF < 3 else 0.086, 0.15, (x, 0.016, 0.175), boot_m, r2=0.094 if LODF < 3 else 0.082, seg=16)
+        # boot shaft over the trouser hem, its top under the hem ring (no separate sole plate: the boot shell is the
+        # sole). It sits outside the trouser (radius 0.100-0.105 m here) so the fabric never pokes through it.
+        _kcyl(kit, 0.106 if LODF < 3 else 0.094, 0.11, (x, 0.016, 0.10), boot_m, r2=0.110 if LODF < 3 else 0.098, seg=16)
         _ktube(kit, [(x + 0.122 * math.cos(a), 0.016 + 0.122 * math.sin(a), 0.205) for a in [i / 20 * 2 * math.pi for i in range(21)]],
                  0.014, fabric, seg=6)
-        _kbox(kit, (0.19, 0.34, 0.03), (x, 0.06, 0.016), boot_m, bevel=0.012, seg=3)
         # glove cuff
         hx = s * 0.345
         _kcyl(kit, 0.094 if LODF < 3 else 0.086, 0.10, (hx, 0.065, zs - 0.355), dark, r2=0.098 if LODF < 3 else 0.090, seg=18)
