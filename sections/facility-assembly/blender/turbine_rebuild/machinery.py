@@ -79,13 +79,13 @@ def bypass(b, x, y, z):
 def handrails(b, xa, xb, ya, yb, z1):
     for xr in (xa + .12, xb - .12):
         n = int((yb - ya) / 2.0) + 1; ys = [ya + .12 + i * (yb - ya - .24) / n for i in range(n + 1)]
-        for y in ys: b.cyl((xr, y, z1 + .55), .032, 1.1, 'orange_dark', 'Z', 14, bev=.004); b.cyl((xr, y, z1 + .012), .07, .016, 'steel_dark', 'Z', 16)
-        b.rod((xr, ys[0], z1 + 1.05), (xr, ys[-1], z1 + 1.05), .022, 'orange_dark', 12); b.rod((xr, ys[0], z1 + .55), (xr, ys[-1], z1 + .55), .02, 'orange_dark', 12)
+        for y in ys: b.cyl((xr, y, z1 + .55), .042, 1.1, 'trim_black', 'Z', 14, bev=.006); b.cyl((xr, y, z1 + .02), .1, .03, 'steel_dark', 'Z', 16, bev=.006); b.cyl((xr, y, z1 + 1.1), .05, .03, 'gold_paint', 'Z', 14, bev=.006)
+        b.rod((xr, ys[0], z1 + 1.05), (xr, ys[-1], z1 + 1.05), .032, 'gold_paint', 12); b.rod((xr, ys[0], z1 + .55), (xr, ys[-1], z1 + .55), .024, 'trim_black', 12)
         b.box((xr, (ya + yb) / 2, z1 + .06), (.012, yb - ya - .2, .1), 'trim_black')
     for yr in (ya + .12, yb - .12):
         for (x0, x1) in ((xa + .12, CX - .95), (CX + .95, xb - .12)):
-            for z in (z1 + .55, z1 + 1.05): b.rod((x0, yr, z), (x1, yr, z), .022, 'orange_dark', 12)
-        for x in (CX - .95, CX + .95): b.cyl((x, yr, z1 + .55), .032, 1.1, 'orange_dark', 'Z', 14)
+            for z in (z1 + .55, z1 + 1.05): b.rod((x0, yr, z), (x1, yr, z), .032 if z > z1 + .6 else .024, 'gold_paint' if z > z1 + .6 else 'trim_black', 12)
+        for x in (CX - .95, CX + .95): b.cyl((x, yr, z1 + .55), .042, 1.1, 'trim_black', 'Z', 14, bev=.006)
 
 def foundation(b):
     z1 = 1.0; xa, xb, ya, yb = 2.0, 7.2, 2.6, 23.0; x0, x1, y0, y1 = HOLE
@@ -155,10 +155,10 @@ def exposed_lp(b, y0, y1):
         R = .86 + .035 * k
         b.cyl((CX, y, AZ), R, .34, 'steel_mid', 'Y', 48, bev=.02); b.cyl((CX, y, AZ), R + .05, .12, 'steel_light', 'Y', 48, bev=.008)
         b.arc_shell((CX, y + .25, AZ), 1.22, R + .13, .1, math.pi, 2 * math.pi, 'steel_dark', 24)                    # stator diaphragm
-        for q in range(64):
-            a = 2 * math.pi * q / 64; ca, sa = math.cos(a), math.sin(a)
+        for q in range(32):
+            a = 2 * math.pi * q / 32; ca, sa = math.cos(a), math.sin(a)
             M = Matrix(((0, -sa, ca, CX + R * ca), (1, 0, 0, y), (0, ca, sa, AZ + R * sa), (0, 0, 0, 1))) @ Matrix.Rotation(math.radians(24), 4, 'Z')
-            b.push_m(M); b.prism([(-.1, 0), (-.05, .022), (.05, .022), (.1, 0), (.05, -.022), (-.05, -.022)], .17, 'brass_blade', (0, 0, .09), True, 'Z', bev=.004); b.pop()
+            b.push_m(M); b.prism([(-.17, 0), (-.09, .035), (.09, .035), (.17, 0), (.09, -.035), (-.09, -.035)], .17, 'brass_blade', (0, 0, .09), True, 'Z', bev=.004); b.pop()
         b.arc_shell((CX, y, AZ), R + .2, R + .16, .05, 0, 2 * math.pi, 'steel_light', 40)                        # shroud band
         b.cyl((CX, y + .22, AZ), .3, .06, 'brass', 'Y', 32, bev=.006)                                              # seal collar on the shaft
     b.reserve_box((CX, yc, AZ), (2.7, L, 1.5))
@@ -313,9 +313,9 @@ def maintenance(b):
         R = .55 - .02 * abs(i - 3.5)
         b.cyl((rx, yy, rz + .14), R, .36, 'steel_mid' if i % 2 else 'steel_light', 'Y', 48, bev=.01)
         if i in (1, 3, 5, 6):                                                   # turbine blades on four rotor discs
-            for k in range(30):
-                a = 2 * math.pi * k / 30
-                b.box((rx + (R + .05) * math.cos(a), yy, rz + .14 + (R + .05) * math.sin(a)), (.1, .26, .035), 'steel_dark', (0, -a, 0), bev=.004)
+            for k in range(16):
+                a = 2 * math.pi * k / 16
+                b.box((rx + (R + .05) * math.cos(a), yy, rz + .14 + (R + .05) * math.sin(a)), (.18, .26, .06), 'steel_dark', (0, -a, 0), bev=.004)
     for y in (15.5, 18.5): torus(b, (rx, y, rz + .74), .06, .012, 'yellow', 'X', 16)
     b.claim((-1.9, 14.2, 0), (.3, 19.7, 1.3))
     b.box((-3.35, 15.9, .46), (.7, 2.2, .07), 'steel_dark', bev=.014); b.box((-3.0, 15.9, .46), (.012, 2.2, .075), 'orange')

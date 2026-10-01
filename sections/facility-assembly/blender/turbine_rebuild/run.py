@@ -185,8 +185,12 @@ sun = bpy.data.lights.new('MOON_EAST', 'SUN'); sun.energy = 9.0; sun.angle = mat
 so = bpy.data.objects.new('MOON_EAST', sun); coll.objects.link(so)
 so.rotation_euler = Vector((-.62, .40, -.67)).to_track_quat('-Z', 'Y').to_euler()
 w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
-bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.04, .075, .18, 1); bg.inputs['Strength'].default_value = 1.5
+bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.04, .075, .18, 1); bg.inputs['Strength'].default_value = 3.0
 
+# cool/warm fills so silhouettes separate and shadows are not dead black (readability pass)
+for k, (fx, fy) in enumerate(((-.5, 5), (3, 12), (7.5, 19), (3, 21))):
+    d = bpy.data.lights.new(f'FILL_{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 5.0, 5.0; d.energy = 650; d.color = (.55, .68, 1.0)
+    o = bpy.data.objects.new(f'FILL_{k}', d); o.location = (fx, fy, 6.0); coll.objects.link(o)
 # ---- named review cameras ----
 CAMS = {   # all positions are in open aisle space
     'CAM_A_entry_north':   ((0.0, 1.4, 1.65), (4.6, 14, 2.0)),

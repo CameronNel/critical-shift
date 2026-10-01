@@ -61,7 +61,7 @@ def make_materials(atlas_prefix, name='floor'):
     tn = nt.nodes.new('ShaderNodeTexImage'); tn.image = n; tn.name = 'NORMAL'; tn.location = (-420, -250)
     for t in (ta, to, tn): nt.links.new(uvn.outputs[0], t.inputs[0])
     sp = nt.nodes.new('ShaderNodeSeparateColor'); sp.location = (-150, 0); nt.links.new(to.outputs[0], sp.inputs[0])
-    nm = nt.nodes.new('ShaderNodeNormalMap'); nm.location = (-150, -250); nm.inputs['Strength'].default_value = 1.0; nt.links.new(tn.outputs[0], nm.inputs['Color'])
+    nm = nt.nodes.new('ShaderNodeNormalMap'); nm.location = (-150, -250); nm.inputs['Strength'].default_value = (.45 if name == 'floor' else 1.0); nt.links.new(tn.outputs[0], nm.inputs['Color'])
     p = nt.nodes.new('ShaderNodeBsdfPrincipled'); p.location = (300, 0)
     nt.links.new(ta.outputs[0], p.inputs['Base Color']); nt.links.new(sp.outputs['Green'], p.inputs['Roughness']); nt.links.new(sp.outputs['Blue'], p.inputs['Metallic']); nt.links.new(nm.outputs[0], p.inputs['Normal'])
     nt.links.new(p.outputs[0], out.inputs['Surface'])
