@@ -234,3 +234,7 @@ Order after `cr_build.py`: `cr_optimize.py` -> `cr_atlas_decals.py` -> `cr_famil
 ### Window glass
 
 The hall-side window glass is now fully clear (`CR window glass clear`: alpha 0.03, roughness 0, no film, no streaks, no tint); the taped notices stay. The shipped blend was patched directly and `cr_extra.window_dressing` rebuilds the same material. The walk-through video and the lightmaps were made before this change, so both are stale on the glass (the lightmaps are parked anyway).
+
+### Lift review views (current state, not yet redone)
+
+`scripts/cr_lift_views.py` renders review views of the older-fidelity elevator: inside the car, the ground landing, an overview from the hall, the upper landing, an aerial of the connection and the control-room west door seen straight on (`renders/overhaul-R1/lift_*.png`). The connection is the 1 m deep railed deck in front of the upper landing doors plus a 0.8 m strip (x -5.6 to -4.8, y -8.0 to -5.6, z 5.2 to 5.4) along the shaft's east wall to the control room's west door. A view along the strip was dark and unreadable and is not kept. The lift has not had the control-room pass (bevels, materials, lighting, props).
