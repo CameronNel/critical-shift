@@ -64,7 +64,7 @@ through the authenticated GitHub Git Data API. Git LFS uploads still reject this
 executor's credential, so the owner requested a workaround. The two suit native
 files and this handoff's PNGs are stored as ordinary Git blobs, using three scoped
 `.gitattributes` overrides. Each artifact is under 5 MB; the complete change is
-about 36 MB. Existing LFS rules for other facility assets remain in force. Clones
+about 36 MB. Existing LFS rules for other facility assets remain in force, including `module_optimised.blend`, which the follow-up PR #69 uploaded to LFS and verified from a fresh clone (SHA-256 equals the pointer OID). Clones
 receive real suit files rather than pointers to unuploaded LFS objects.
 
 The original three local commits and their LFS object versions are preserved in

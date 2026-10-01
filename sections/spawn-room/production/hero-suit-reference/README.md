@@ -94,6 +94,13 @@ to apply. The draft PR targets `claude/spawn-polish`; it does not merge or promo
 the asset. The earlier local commit history and LFS objects are also retained in
 the task's verified portable backup.
 
+The workaround covers only those files. `module_optimised.blend` (regenerated with
+the locker LOD in the follow-up PR #69) stays in Git LFS and was uploaded normally
+by that branch's executor: a fresh clone of the branch followed by
+`git lfs pull --include=sections/facility-assembly/sources/spawn-room/module_optimised.blend`
+retrieves the 33,575,117-byte file and its SHA-256 equals the pointer's OID
+(`3abf6ae6...f717f`).
+
 ## Locker LOD
 
 `hero_suit.blend` (the library the four lockers link) is now a reduced copy of the suit: `build_hero_suit.py` builds the
