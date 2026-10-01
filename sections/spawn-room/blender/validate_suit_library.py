@@ -31,14 +31,14 @@ assert len(instances) == 4, "Expected exactly four linked suit instances"
 assert hero["cs_suit_style"] == "owner-reference-20261001"
 assert hero["cs_placement_preserved"]
 assert hero.get("cs_lod") == "locker", "hero_suit.blend is not the locker LOD: run lod_hero_suit.py after build_hero_suit.py"
-meshes_all = [o for o in hero.objects if o.type == "MESH"]
+meshes_all = [o for o in hero.all_objects if o.type == "MESH"]
 assert not any(o.modifiers for o in meshes_all), "library meshes carry modifiers: apply them (lod_hero_suit.py does)"
 current_tris = sum(len(p.vertices) - 2 for o in meshes_all for p in o.data.polygons)   # recomputed, not read from metadata
 assert current_tris <= 30000, ("locker LOD triangle budget", current_tris)
 assert current_tris == hero["cs_tris_lod"], ("cs_tris_lod is stale", current_tris, hero["cs_tris_lod"])
 assert hero["cs_tris_lod"] < hero["cs_tris_full"]
 assert not any(
-    o.name.endswith("_HEAD") or o.name.startswith("FACE_") for o in hero.objects
+    o.name.endswith("_HEAD") or o.name.startswith("FACE_") for o in hero.all_objects
 )
 missing = [
     lib.filepath
@@ -46,7 +46,7 @@ missing = [
     if not Path(bpy.path.abspath(lib.filepath)).exists()
 ]
 assert not missing, "Missing linked libraries"
-meshes = [o for o in hero.objects if o.type == "MESH" and not o.hide_render]
+meshes = [o for o in hero.all_objects if o.type == "MESH" and not o.hide_render]
 local = [o.matrix_world @ Vector(c) for o in meshes for c in o.bound_box]
 rows = []
 for inst in instances:
