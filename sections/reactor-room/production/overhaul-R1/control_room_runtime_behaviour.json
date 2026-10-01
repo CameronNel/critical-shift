@@ -613,6 +613,15 @@
    }
   },
   {
+   "owner": "CR lift car lamp",
+   "kind": "Object",
+   "target": "energy[0]",
+   "expression": "30*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",
+   "inputs": {
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
    "owner": "CR lift cw",
    "kind": "Object",
    "target": "location[2]",
@@ -763,6 +772,15 @@
    "expression": "+0.50*d",
    "inputs": {
     "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_needle",
+   "kind": "Object",
+   "target": "rotation_euler[1]",
+   "expression": "1.0*(1-2*z/5.4)",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
    }
   },
   {
@@ -1106,6 +1124,49 @@
    "inputs": {}
   },
   {
+   "owner": "CR lift cabin light",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "9.0*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",
+   "inputs": {
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR lift camera led",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.0*(1 if fmod(T,2.4)<0.18 else 0)",
+   "inputs": {}
+  },
+  {
+   "owner": "CR lift lamp F1",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.0*min(1,max(0,(z-4.8)/0.6))",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift lamp G",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.0*max(0,1-z/0.6)",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift lamp moving",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "3.0*(1 if z>0.15 and z<5.25 else 0)",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
    "owner": "CR tungsten tube",
    "kind": "Material",
    "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
@@ -1229,6 +1290,15 @@
    "expression": "40*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
    "inputs": {
     "s": "REACTOR_STATE[\"stability\"]"
+   }
+  },
+  {
+   "owner": "CR lift car lamp",
+   "kind": "AreaLight",
+   "target": "energy[0]",
+   "expression": "30*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",
+   "inputs": {
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
    }
   },
   {

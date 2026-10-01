@@ -17,9 +17,9 @@ FAM=[  # (family, noise scale for the low-frequency variation, regexes of the ol
  ("S01 painted metal",2.5,r"hazard|signal red|locker|lamp shade|fridge|aircon|trim charcoal|desk edge|mug|terracotta"),
  ("S02 bare metal",3.0,r"galvanised|graphite|brass|ceiling grid"),
  ("S03 plaster and tile",2.0,r"wall |ceiling tile"),
- ("S05 plastic and rubber",2.5,r"black plastic|grey plastic|platinum|keycap|rubber|jug"),
+ ("S05 plastic and rubber",2.5,r"black plastic|grey plastic|platinum|keycap|rubber|jug|pill"),
  ("S06 fabric",3.0,r"fabric|canvas|blanket|pillow"),
- ("S07 wood paper organic",4.0,r"laminate|cardboard|paper|cork|dead leaf|dry soil|plant leaf"),
+ ("S07 wood paper organic",4.0,r"laminate|cardboard|paper|cork|dead leaf|dry soil|plant leaf|coffee|book cover"),
  ("S09 cable",3.0,r"cable"),
 ]
 def family_of(name):

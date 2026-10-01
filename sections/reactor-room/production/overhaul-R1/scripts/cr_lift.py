@@ -11,7 +11,7 @@ import crk,crt
 from crk import pm,drv
 FZ=5.40; CZ=8.50
 SX0,SX1,SY0,SY1=-8.95,-6.95,-7.40,-5.40         # shaft interior
-AX0,AX1,AY0,AY1=-6.83,-4.83,-7.70,-5.70         # anteroom interior
+AX0,AX1,AY0,AY1=-6.83,-4.83,-8.95,-5.70         # anteroom interior: 2.0 m wide, 3.25 m deep (back wall pushed 1.25 m south on request: it was 2 x 2 m and cramped)
 PERIOD=24.0
 CAR_Z=[(0,0),(5,0),(11,5.4),(17,5.4),(23,0),(24,0)]
 DG=[(0,1),(4.2,1),(5.0,0),(23.0,0),(23.8,1),(24,1)]            # ground (north) landing door open fraction
@@ -52,6 +52,7 @@ def build(c):
     for n_ in ("car_z","dg","du"): ctl[n_]=0.0
     cr_tv.drive_ramp(ctl,"car_z",CAR_Z); cr_tv.drive_ramp(ctl,"dg",DG); cr_tv.drive_ramp(ctl,"du",DU)
     zv=[("z",ctl,'["car_z"]')]
+    import cr_ante; cr_ante.lamp_mats(c,ctl)
     # ---------------------------------------------------------------- shaft: solid enclosure, ground door in the north wall, car-level door in the east wall
     g="lift"; T=0.12
     wx0,wx1=SX0-T,SX1+T; wy0,wy1=SY0-T,SY1+T                 # outer faces x -9.07..-6.83, y -7.52..-5.28
@@ -91,6 +92,7 @@ def build(c):
     for zz in (0.9,2.6,FZ-0.55):
         A.fb((g,"TRIM"),'+y',by1,bx0,bx1,zz,zz+0.05,0.012,0.003); A.fb((g,"TRIM"),'-y',by0,bx0,bx1,zz,zz+0.05,0.012,0.003)
     A.bx((g,"YELLOW"),bx0,bx1,by1,by1+0.012,0.0,0.18,0.0)
+    A.bx((g,"WALL_BAND"),SX1,bx0,by0,wy0,0.0,CZ+0.10,0.004)                                           # west wall south of the shaft (the shaft only spans y -7.52..-5.28)
     A.bx((g,"STEEL"),bx0,bx1,by0,by1,FZ-0.2,FZ-0.02,0.004)                                           # floor slab
     A.bx((g,"FLOOR"),AX0,AX1,AY0,AY1,FZ-0.02,FZ,0.0)                                                 # floor finish (control-room tile)
     # walls: north, south (plaster with an olive dado), west (the shaft's east face), east (the control room's west wall)
@@ -104,7 +106,6 @@ def build(c):
     # lift door frame (anteroom side) and skirting
     A.bx((g,"STEEL"),AX0,AX0+0.05,-7.10,-7.00,FZ,7.70,0.003); A.bx((g,"STEEL"),AX0,AX0+0.05,-5.80,-5.70,FZ,7.70,0.003); A.bx((g,"STEEL"),AX0,AX0+0.05,-7.10,-5.70,7.62,7.72,0.003)
     A.bx((g,"STEEL"),AX0,AX0+0.06,-7.00,-5.80,FZ,FZ+0.012,0.002)                                      # lift sill
-    A.fb((g,"BLACK"),'+x',AX0,-6.62,-6.18,7.80,7.98,0.022,0.004); A.fb((g,"LED_ON"),'+x',AX0+0.022,-6.50,-6.30,7.86,7.92,0.004,0.0)   # floor indicator over the lift door
     A.fb((g,"BLACK"),'+x',AX0,-7.30,-7.16,6.45,6.80,0.022,0.004); A.fb((g,"LED_AON"),'+x',AX0+0.022,-7.27,-7.19,6.58,6.67,0.004,0.0) # call button
     # control-room door side: sign above the doorway
     A.fb((g,"BLACK"),'-x',AX1,-7.30,-6.30,7.74,8.06,0.03,0.004)
@@ -114,42 +115,11 @@ def build(c):
     A.bx((g,"CEIL"),AX0,AX1,AY0,AY1,CZ-0.02,CZ,0.0); A.bx((g,"CEIL_GRID"),AX0,AX1,AY0,AY0+0.03,CZ-0.03,CZ,0.002); A.bx((g,"CEIL_GRID"),AX0,AX1,AY1-0.03,AY1,CZ-0.03,CZ,0.002)
     A.bx((g,"CEIL_GRID"),AX0,AX0+0.03,AY0,AY1,CZ-0.03,CZ,0.002); A.bx((g,"CEIL_GRID"),AX1-0.03,AX1,AY0,AY1,CZ-0.03,CZ,0.002); A.bx((g,"CEIL_GRID"),-5.83-0.012,-5.83+0.012,AY0,AY1,CZ-0.03,CZ,0.002)
     A.bx((g,"STEEL"),bx0,bx1,by0,by1,CZ,CZ+0.10,0.004)
-    lx,ly=-5.83,-6.70
+    lx,ly=-5.83,-7.325
     A.bx((g,"CEIL_GRID"),lx-0.31,lx+0.31,ly-0.16,ly+0.16,CZ-0.045,CZ,0.004); A.bx((g,"LAMPFACE"),lx-0.28,lx+0.28,ly-0.13,ly+0.13,CZ-0.05,CZ-0.045,0.0)
-    crk.light(coll,"CR anteroom lamp",(lx,ly,CZ-0.10),(1.0,0.68,0.38),16,'AREA',(0,0,0),size=(0.56,0.26))
-    # ---------------------------------------------------------------- props
-    g="anteprop"
-    # water cooler on the north wall: white cabinet, drip tray, taps, blue jug, cup dispenser
-    cx0,cx1,cy0,cy1=-6.28,-5.94,-6.08,AY1
-    A.bx((g,"PORC"),cx0,cx1,cy0,cy1,FZ+0.05,FZ+1.15,0.012); A.bx((g,"BLACK"),cx0+0.02,cx1-0.02,cy0+0.01,cy1-0.02,FZ,FZ+0.05,0.004)
-    A.bx((g,"PORC_O"),cx0-0.003,cx1+0.003,cy0-0.004,cy0+0.012,FZ+1.00,FZ+1.15,0.004)                 # top shoulder
-    A.bx((g,"GREY"),cx0+0.04,cx1-0.04,cy0-0.045,cy0+0.004,FZ+0.52,FZ+0.57,0.005)                       # drip tray
-    A.bx((g,"BLACK"),cx0+0.05,cx1-0.05,cy0-0.004,cy0+0.004,FZ+0.58,FZ+0.84,0.003)                      # tap panel
-    A.bx((g,"JUG"),cx0+0.08,cx0+0.14,cy0-0.022,cy0-0.004,FZ+0.74,FZ+0.79,0.004); A.bx((g,"RED"),cx1-0.14,cx1-0.08,cy0-0.022,cy0-0.004,FZ+0.74,FZ+0.79,0.004)   # cold / hot taps
-    A.cyl((g,"JUG"),(cx0+cx1)/2,(cy0+cy1)/2,FZ+1.15,FZ+1.60,0.135,28,0.006); A.cyl((g,"JUG"),(cx0+cx1)/2,(cy0+cy1)/2,FZ+1.60,FZ+1.67,0.060,18,0.004)   # 19 l jug + neck
-    A.cyl((g,"PORC"),(cx0+cx1)/2,(cy0+cy1)/2,FZ+1.67,FZ+1.70,0.075,18,0.003)                          # cap
-    A.cyl((g,"PORC"),cx1+0.045,cy1-0.075,FZ+0.55,FZ+1.05,0.035,16,0.003)                              # paper-cup tube on the side
-    for k in range(4): A.cyl((g,"PORC_O"),cx1+0.045,cy1-0.075,FZ+0.55+k*0.12,FZ+0.58+k*0.12,0.032,16,0.0)
-    # loveseat on the south wall: base, cushions, back, arms, legs
-    sx0,sx1,sy0,sy1=-6.60,-5.45,AY0,AY0+0.78
-    A.bx((g,"BLACK"),sx0,sx1,sy0+0.02,sy1-0.02,FZ+0.09,FZ+0.30,0.012)
-    for xa,xb in ((sx0+0.10,(sx0+sx1)/2-0.005),((sx0+sx1)/2+0.005,sx1-0.10)): A.bx((g,"FABRIC"),xa,xb,sy0+0.18,sy1-0.03,FZ+0.30,FZ+0.46,0.03)   # seat cushions
-    A.bx((g,"FABRIC"),sx0+0.10,sx1-0.10,sy0+0.03,sy0+0.26,FZ+0.46,FZ+0.92,0.04)                                                                   # back
-    for xa,xb in ((sx0,sx0+0.10),(sx1-0.10,sx1)): A.bx((g,"FABRIC"),xa,xb,sy0+0.03,sy1-0.03,FZ+0.30,FZ+0.66,0.03)                               # arms
-    for (x,y) in ((sx0+0.06,sy0+0.06),(sx1-0.06,sy0+0.06),(sx0+0.06,sy1-0.06),(sx1-0.06,sy1-0.06)): A.cyl((g,"BLACK"),x,y,FZ,FZ+0.09,0.022,10)
-    A.bx((g,"FABRIC_O"),sx0+0.14,sx0+0.50,sy0+0.26,sy0+0.34,FZ+0.46,FZ+0.80,0.02)                                                                # orange throw cushion
-    # potted plant in the north-east corner: terracotta pot, soil, stems, leaves
-    px,py=-5.22,-6.02
-    A.prism((g,"TERRA"),(px,py,FZ),(px,py,FZ+0.36),0.15,0.21,22,0.0,True,0.004); A.cyl((g,"SOIL"),px,py,FZ+0.36,FZ+0.385,0.185,20)
-    for k in range(9):
-        a=k*2*math.pi/9+0.3; ca,sa=math.cos(a),math.sin(a); nx,ny=-sa,ca; h=0.42+0.20*((k*7)%3)/2
-        top=(px+0.17*ca,py+0.17*sa,FZ+0.38+h)
-        A.tube((g,"PLANT"),[(px+0.02*ca,py+0.02*sa,FZ+0.38),(px+0.08*ca,py+0.08*sa,FZ+0.38+h*0.6),top],0.006,6)
-        L=0.30; d=(0.80*ca,0.80*sa,0.35)                                                  # leaf direction: outward and slightly up
-        pts=[top,(top[0]+0.15*L*d[0]*1.2+0.025*nx,top[1]+0.15*L*d[1]*1.2+0.025*ny,top[2]+0.15*L*d[2]),(top[0]+0.15*L*d[0]*1.2-0.025*nx,top[1]+0.15*L*d[1]*1.2-0.025*ny,top[2]+0.15*L*d[2]),
-             (top[0]+0.5*L*d[0]*1.2+0.075*nx,top[1]+0.5*L*d[1]*1.2+0.075*ny,top[2]+0.5*L*d[2]+0.01),(top[0]+0.5*L*d[0]*1.2-0.075*nx,top[1]+0.5*L*d[1]*1.2-0.075*ny,top[2]+0.5*L*d[2]+0.01),
-             (top[0]+L*d[0]*1.2,top[1]+L*d[1]*1.2,top[2]+L*d[2]-0.05)]
-        A.hull((g,"PLANT"),pts,0.002)
+    crk.light(coll,"CR anteroom lamp",(lx,ly,CZ-0.10),(1.0,0.68,0.38),22,'AREA',(0,0,0),size=(0.56,0.26))
+    # ---------------------------------------------------------------- props and floor indicators (cr_ante.py)
+    cr_ante.props(c); cr_ante.indicators(c,ctl)
     # ---------------------------------------------------------------- moving parts (car, doors, counterweight, ropes), driven by CR_LIFT in seconds
     car=bpy.data.objects.new("CR lift car",None); car.empty_display_type='PLAIN_AXES'; car.empty_display_size=0.2; coll.objects.link(car)
     drv(car,'location',2,"z",var_s=False,extra=zv)
@@ -161,14 +131,13 @@ def build(c):
         for (xa,ya) in ((x0,y1-0.10),(x1-0.10,y1-0.10),(x1-0.10,y0)): K.bx((g,"TRIM"),xa,xa+0.10,ya,ya+0.10,0.08,2.40,0.004)        # corner posts (north + east sides are the doorways)
         K.bx((g,"TRIM"),x0,x1,y1-0.10,y1,2.28,2.40,0.004); K.bx((g,"TRIM"),x1-0.10,x1,y0,y1,2.28,2.40,0.004)                          # door lintels
         K.bx((g,"STEEL_L"),x0,x1,y0,y1,2.40,2.48,0.004)                                                                              # roof
-        K.bx((g,"CEIL_GRID"),-8.25,-7.65,-6.75,-6.45,2.36,2.40,0.004); K.bx((g,"LAMPFACE"),-8.22,-7.68,-6.72,-6.48,2.355,2.36,0.0)  # cabin light
+        K.bx((g,"CEIL_GRID"),-8.25,-7.65,-6.75,-6.45,2.36,2.40,0.004); K.bx((g,"CAB_LIGHT"),-8.22,-7.68,-6.72,-6.48,2.355,2.36,0.0)  # cabin light (flickers)
         K.bx((g,"STEEL_L"),x0+0.07,x0+0.12,y0+0.25,y1-0.25,0.95,1.0,0.003); K.bx((g,"STEEL_L"),x0+0.25,x1-0.25,y0+0.07,y0+0.12,0.95,1.0,0.003)    # handrails
-        K.bx((g,"BLACK"),x1-0.02,x1,y1-0.52,y1-0.34,1.0,1.45,0.004)                                                                  # control strip (east post)
-        for k in range(4): K.bx((g,"LED_AON") if k==2 else (g,"LED_ON"),x1-0.018,x1-0.012,y1-0.50+k*0.04,y1-0.46+k*0.04,1.08+k*0.08,1.12+k*0.08,0.0)
         K.bx((g,"YELLOW"),x0+0.07,x1-0.10,y1-0.10,y1,0.08,0.09,0.0)                                                                   # sill marking
         K.bx((g,"STEEL"),x0+0.4,x1-0.4,y0+0.08,y0+0.095,1.5,1.62,0.002)                                                               # rear panel plate
     cobjs=_mover(c,"lift_car",mkcar)
     for o in cobjs: o.parent=car
+    cr_ante.car_interior(c,ctl,car,zv,_mover)
     # counterweight and ropes (z = 7.1 - car z)
     cw=bpy.data.objects.new("CR lift cw",None); cw.empty_display_type='PLAIN_AXES'; cw.empty_display_size=0.2; coll.objects.link(cw); drv(cw,'location',2,"-z",var_s=False,extra=zv)
     def mkcw(K):

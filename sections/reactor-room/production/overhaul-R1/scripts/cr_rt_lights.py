@@ -7,7 +7,7 @@ drivers stay).  Writes control_room_light_budget.json/.md.  Spec only: nothing h
 import bpy,sys,os,json
 A=sys.argv[sys.argv.index("--")+1:]; SRC,DST,OUT=A[0],A[1],A[2]
 bpy.ops.wm.open_mainfile(filepath=SRC)
-DYN={"CR troffer -3.0":False,"CR troffer -0.6":True,"CR troffer 1.2":False,"CR tv light":True,"CR beacon +x":False,"CR beacon +y":False}   # name -> casts a real-time shadow
+DYN={"CR troffer -3.0":False,"CR troffer -0.6":True,"CR troffer 1.2":False,"CR tv light":True,"CR beacon +x":False,"CR beacon +y":False,"CR lift car lamp":False}   # name -> casts a real-time shadow
 REST={"CR rack batten":30.0,"CR crt glow -1.05":7.0,"CR crt glow -2.75":7.0,"CR crt glow 0.65":7.0}                                         # driver-free rest values (stability 1, no flicker)
 rows=[]
 for o in bpy.data.objects:

@@ -11,7 +11,7 @@ sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 import crk
 A=sys.argv[sys.argv.index("--")+1:]; SRC,DST=A[0],A[1]; SIZE=int(A[A.index("--size")+1]) if "--size" in A else 2048; PAD=4
 bpy.ops.wm.open_mainfile(filepath=SRC)
-PAT=re.compile(r"CR (decal|notice|poster|sticky|stencil|family photo|floor (arrow|operator))")
+PAT=re.compile(r"CR (decal|notice|poster|sticky|stencil|family photo|floor (arrow|operator)|rug)")
 C=bpy.data.collections["31 CR CONTROL ROOM REDO"]
 mats=[m for m in bpy.data.materials if PAT.match(m.name) and m.use_nodes and any(n.type=='TEX_IMAGE' and n.image for n in m.node_tree.nodes)]
 def img_of(m): return next(n.image for n in m.node_tree.nodes if n.type=='TEX_IMAGE' and n.image)
@@ -70,7 +70,7 @@ for o in objs:
     me.materials.clear()
     for m in uniq: me.materials.append(m)
 # join the all-atlas objects
-pure=[o for o in objs if len(o.data.materials)==1 and o.data.materials[0]==am]
+pure=[o for o in objs if len(o.data.materials)==1 and o.data.materials[0]==am and o.parent is None and not o.animation_data]      # parented decals (e.g. inside the lift car) must keep their parent: joining them would drag every decal along
 for o in pure: o.data.uv_layers[0].name="UVMap"
 for o in bpy.context.view_layer.objects: o.select_set(False)
 for o in pure: o.select_set(True)

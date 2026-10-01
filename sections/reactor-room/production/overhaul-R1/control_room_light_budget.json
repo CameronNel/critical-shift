@@ -1,14 +1,14 @@
 {
- "dynamic_lights": 6,
+ "dynamic_lights": 7,
  "realtime_shadow_casters": 2,
- "baked_lights": 13,
+ "baked_lights": 14,
  "lights": [
   {
    "name": "CR anteroom lamp",
    "type": "AREA",
    "mode": "baked",
    "realtime_shadow": false,
-   "rest_energy_W_cycles": 16.0,
+   "rest_energy_W_cycles": 22.0,
    "color": [
     1.0,
     0.68,
@@ -16,7 +16,7 @@
    ],
    "location": [
     -5.83,
-    -6.7,
+    -7.325,
     8.4
    ]
   },
@@ -69,6 +69,23 @@
     0.55,
     -11.77,
     8.22
+   ]
+  },
+  {
+   "name": "CR bedside lamp",
+   "type": "POINT",
+   "mode": "baked",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 5.0,
+   "color": [
+    1.0,
+    0.7,
+    0.38
+   ],
+   "location": [
+    -5.47,
+    -8.86,
+    6.095
    ]
   },
   {
@@ -154,6 +171,23 @@
     -5.15,
     -6.8,
     6.7
+   ]
+  },
+  {
+   "name": "CR lift car lamp",
+   "type": "AREA",
+   "mode": "dynamic",
+   "realtime_shadow": false,
+   "rest_energy_W_cycles": 2.21,
+   "color": [
+    1.0,
+    0.72,
+    0.45
+   ],
+   "location": [
+    -7.95,
+    -6.4,
+    2.25
    ]
   },
   {
