@@ -1,15 +1,15 @@
 {
  "after": {
-  "draw_call_estimate": 754,
+  "draw_call_estimate": 762,
   "materials_in_use": 31,
-  "objects": 751,
-  "triangles": 350518
+  "objects": 759,
+  "triangles": 351478
  },
  "before": {
-  "draw_call_estimate": 1902,
+  "draw_call_estimate": 1918,
   "materials_in_use": 204,
-  "objects": 1554,
-  "triangles": 350518
+  "objects": 1570,
+  "triangles": 351478
  },
  "blender": "5.2.2 LTS",
  "coord_dependent_materials": 40,
@@ -55,10 +55,6 @@
    "cotton_cream",
    "canvas_rust"
   ],
-  "FAM darksteel": [
-   "darksteel",
-   "steel"
-  ],
   "FAM floor_timber_0": [
    "floor_timber_0",
    "floor_timber_1",
@@ -80,29 +76,33 @@
    "rug_border",
    "rug_field"
   ],
+  "FAM steel": [
+   "steel",
+   "darksteel"
+  ],
   "FAM yellow": [
    "yellow",
    "red",
    "blue",
    "pale"
   ],
-  "SUIT_glass": [
-   "SUIT_glass",
-   "SUIT_glass.004",
-   "SUIT_glass.005",
-   "SUIT_glass.006"
+  "SUIT_glass.001": [
+   "SUIT_glass.001",
+   "SUIT_glass.002",
+   "SUIT_glass.003",
+   "SUIT_glass.007"
   ]
  },
  "family_attributes": 4,
- "family_polygons": 73288,
+ "family_polygons": 73648,
  "flat_materials": 140,
- "join_groups": 152,
+ "join_groups": 156,
  "lights": 18,
  "lights_dynamic_key": 4,
  "lights_realtime_shadow_casters": 2,
  "materials_kept_unrewritten_for_curves_text": 1,
  "modifiers_baked_on_objects": 753,
- "objects_joined_away": 955,
+ "objects_joined_away": 967,
  "palette_polygons": 89825,
  "skipped": {
   "animated": 1,

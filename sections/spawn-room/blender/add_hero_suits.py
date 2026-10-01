@@ -46,7 +46,7 @@ def kill(obj):
 
 
 def clear_old(n):
-    names = [o.name for o in bpy.data.objects if o.name.startswith(("PPE_0%d_suit" % n, "PPE_0%d_helmet" % n, "WORKER_0%d" % n, "PPE_0%d_locker_light" % n))]
+    names = [o.name for o in bpy.data.objects if o.name.startswith(("PPE_0%d_suit" % n, "PPE_0%d_helmet" % n, "WORKER_0%d" % n, "PPE_0%d_locker_light" % n, "PPE_0%d_boot_dock" % n))]
     for pat in ("BELONG_0%d_jacket" % n, "BELONG_0%d_hanger_" % n, "BELONG_0%d_fold_" % n, "BELONG_0%d_bag" % n,
                 "BELONG_0%d_mid_shelf" % n, "PPE_0%d_work_boot" % n):
         names += [o.name for o in bpy.data.objects
@@ -197,6 +197,54 @@ for n in (1, 2, 3, 4):
         if o.name in scene.collection.objects:
             scene.collection.objects.unlink(o)
 
+
+    # ---- boot dock: a low steel dock on the locker floor that the suit boots rest on (the suit no longer floats)
+    bpy.context.view_layer.update()
+    inv = P.matrix_world.inverted()
+    pts = []
+    for o in root.children_recursive:
+        if o.type == "MESH" and o.name.startswith(("SUIT_BOOTS", "SUIT_KIT")) and not o.hide_render:
+            pts += [inv @ (o.matrix_world @ v.co) for v in o.data.vertices]
+    fz = min(p.z for p in pts)                          # lowest point of the boots, locker-local z
+    sole = [p for p in pts if p.z < fz + 0.02]
+    x0, x1 = min(p.x for p in sole) - 0.015, max(p.x for p in sole) + 0.015
+    y0, y1 = max(min(p.y for p in sole) - 0.015, -0.30), min(max(p.y for p in sole) + 0.015, 0.20)
+    droot = bpy.data.objects.new("PPE_0%d_boot_dock" % n, None)
+    droot.empty_display_size = 0.04
+    droot.parent = P
+    droot.matrix_parent_inverse = Matrix.Identity(4)
+    fl, floor_obj = cast(P, (0.0, 0.0, 0.5 - ZO), (0, 0, -1), 0.6)      # top of the locker floor shelf (local z)
+    pad_t = 0.006
+    plate_t = 0.024
+    top = fz + ZO                                       # world z of the sole underside
+    plate_top = top - pad_t
+    plate_bot = plate_top - plate_t
+    cxm, cym = (x0 + x1) / 2, (y0 + y1) / 2
+    box_mesh("PPE_0%d_boot_dock_plate" % n, (cxm, cym, (plate_top + plate_bot) / 2 - ZO), (x1 - x0, y1 - y0, plate_t), droot)
+    pad = box_mesh("PPE_0%d_boot_dock_pad" % n, (cxm, cym, plate_top + pad_t / 2 - ZO), (x1 - x0 - 0.03, y1 - y0 - 0.03, pad_t), droot)
+    pad.data.materials.clear()
+    pad.data.materials.append(bpy.data.materials["rubber"])
+    leg_h = plate_bot - (fl.z + ZO)
+    for i, lx in enumerate((x0 + 0.03, x1 - 0.03)):
+        box_mesh("PPE_0%d_boot_dock_leg_%d" % (n, i), (lx, cym, fl.z + leg_h / 2), (0.03, y1 - y0 - 0.04, leg_h), droot)
+        e = bpy.data.objects.new("PPE_0%d_boot_dock_contact_%02d" % (n, i), None)
+        e.empty_display_size = 0.01
+        e.parent = droot
+        e.matrix_parent_inverse = Matrix.Identity(4)
+        e.location = (lx, cym, fl.z + 0.0004)
+        e["cs_support_anchor"] = True
+        link_cols(e)
+    droot["cs_support_target"] = floor_obj.name
+    droot["cs_support_direction"] = "WORLD_-Z"
+    for cname in ("MODULE_spawn-room", "PPE_STATIONS", "CS_SUPPORT_REQUIRED", "CS_FLOOR_DRESSING"):
+        c = bpy.data.collections.get(cname)
+        if c and droot.name not in c.objects:
+            c.objects.link(droot)
+    for o in [droot] + list(droot.children_recursive):
+        if o.name in scene.collection.objects:
+            scene.collection.objects.unlink(o)
+    report_dock = {"sole_z": round(top, 4), "leg_h": round(leg_h, 3), "x": [round(x0, 3), round(x1, 3)], "y": [round(y0, 3), round(y1, 3)]}
+
     # ---- interior strip light under the upper shelf (visible fixture + baked light), lights the suit and the bay
     lroot = bpy.data.objects.new("PPE_0%d_locker_light" % n, None)
     lroot.empty_display_size = 0.04
@@ -238,7 +286,7 @@ for n in (1, 2, 3, 4):
         if o.name in scene.collection.objects:
             scene.collection.objects.unlink(o)
     P["contents"] = "One hanging crew hazmat suit (the player's own suit, empty) on the hanger rail, personal items on the upper shelf"
-    report[n] = {"rail": ro.name, "z_origin": round(z0, 3), "suit_zmin": round(zmin, 3), "suit_zmax": round(zmax, 3)}
+    report[n] = {"rail": ro.name, "z_origin": round(z0, 3), "suit_zmin": round(zmin, 3), "suit_zmax": round(zmax, 3), "dock": report_dock}
 
 print("SUIT_REPORT", report)
 if OUT:

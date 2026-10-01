@@ -7,7 +7,7 @@
     "CS_FLOOR_DRESSING",
     "CS_CEILING_DRESSING"
   ],
-  "objects_checked": 204,
+  "objects_checked": 208,
   "failures": [],
   "objects": [
     {
@@ -4825,6 +4825,40 @@
       ]
     },
     {
+      "object": "PPE_01_boot_dock",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_01_boot_dock_contact_00",
+          "point_world": [
+            2.819942,
+            6.842066,
+            0.1039
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0004,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_01_boot_dock_contact_01",
+          "point_world": [
+            3.168047,
+            6.842066,
+            0.1039
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0004,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
       "object": "PPE_01_folded_shelf.001_rubbed_paint",
       "status": "PASS",
       "issues": [],
@@ -4997,6 +5031,40 @@
           "status": "PASS",
           "relation": "gap",
           "distance_m": 0.002,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_02_boot_dock",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_02_boot_dock_contact_00",
+          "point_world": [
+            4.319942,
+            6.842066,
+            0.1039
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0004,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_02_boot_dock_contact_01",
+          "point_world": [
+            4.668047,
+            6.842066,
+            0.1039
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0004,
           "normal_alignment": 1.0
         }
       ],
@@ -5185,6 +5253,40 @@
       ]
     },
     {
+      "object": "PPE_03_boot_dock",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_03_boot_dock_contact_00",
+          "point_world": [
+            3.180058,
+            1.157934,
+            0.1039
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0004,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_03_boot_dock_contact_01",
+          "point_world": [
+            2.831953,
+            1.157934,
+            0.1039
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0004,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
       "object": "PPE_03_folded_shelf.001_rubbed_paint",
       "status": "PASS",
       "issues": [],
@@ -5357,6 +5459,40 @@
           "status": "PASS",
           "relation": "gap",
           "distance_m": 0.002,
+          "normal_alignment": 1.0
+        }
+      ],
+      "candidate_collections": [
+        "CS_FLOOR_DRESSING"
+      ]
+    },
+    {
+      "object": "PPE_04_boot_dock",
+      "status": "PASS",
+      "issues": [],
+      "samples": [
+        {
+          "sample": "anchor:PPE_04_boot_dock_contact_00",
+          "point_world": [
+            4.680058,
+            1.157934,
+            0.1039
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0004,
+          "normal_alignment": 1.0
+        },
+        {
+          "sample": "anchor:PPE_04_boot_dock_contact_01",
+          "point_world": [
+            4.331953,
+            1.157934,
+            0.1039
+          ],
+          "status": "PASS",
+          "relation": "gap",
+          "distance_m": 0.0004,
           "normal_alignment": 1.0
         }
       ],
