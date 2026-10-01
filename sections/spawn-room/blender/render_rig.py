@@ -171,8 +171,8 @@ def main():
                 lst = os.path.join(out, "%s_%s_%s.txt" % (a, tag, view))
                 seq = files * 2 if loop else files + [files[-1]] * 12
                 with open(lst, "w") as fh:
-                    for p in seq:
-                        fh.write("file '%s'\nduration %.5f\n" % (p, 1 / 24))
+                    for p in seq:                 # absolute: ffmpeg resolves entries from the list's folder
+                        fh.write("file '%s'\nduration %.5f\n" % (os.path.abspath(p), 1 / 24))
                 subprocess.run([ff, "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-vf",
                                 "fps=24,format=yuv420p", "-c:v", "libx264", "-crf", "20",
                                 os.path.join(out, "%s_%s_%s.mp4" % (a, tag, view))], check=True)
