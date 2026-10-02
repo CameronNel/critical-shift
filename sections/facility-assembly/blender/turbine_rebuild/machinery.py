@@ -136,7 +136,7 @@ def stepped(b, segs, body, flanges=True, nbolt=16):
             ym = (y0 + y1) / 2 + (.28 if k % 2 == 0 else -.28) * (y1 - y0); rm = (r0 + r1) / 2; hz = AZ - .27                                   # low on the flank, off to one side: clear of nameplates and gauge panels
             for sd in (1, -1):
                 hx = CX + sd * (rm * .93 + .012)
-                b.box((hx, ym, hz), (.05, .62, .46), 'trim_black', bev=.02); b.box((hx + sd * .03, ym, hz), (.03, .54, .38), 'steel_dark', bev=.015)
+                b.box((hx, ym, hz), (.05, .7, .54), 'steel_mid', bev=.02); b.box((hx + sd * .02, ym, hz), (.04, .6, .44), 'trim_black', bev=.015); b.box((hx + sd * .04, ym, hz), (.03, .54, .38), 'steel_dark', bev=.012)
                 for q in range(6): b.cyl((hx + sd * .05, ym - .22 + (q % 3) * .22, hz + (.17 if q < 3 else -.17)), .02, .03, 'steel_light', 'X', 8)
                 b.rod((hx + sd * .07, ym - .12, hz), (hx + sd * .07, ym + .12, hz), .024, 'pale_steel', 8)
         if y1 - y0 > .9:                                                                                         # dark banded collars (spawn-room trim language)
@@ -338,7 +338,7 @@ def controls(b):
         b.box((x, 23.55, 2.25), (.98, .8, .1), 'steel_dark', bev=.012)
     b.claim((-3.9, 22.8, 0), (-.7, 24.0, 2.4))
     duct(b, [(CX - 1.9, 20.0, AZ + .1), (CX - 2.5, 20.0, AZ + .1), (CX - 2.5, 20.0, 3.88), (-3.8, 20.0, 3.88), (-3.8, 24.25, 3.88)], .4, .3)
-    for zz in (2.75, 3.3): b.box((CX - 2.5, 20.0, zz), (.46, .46, .06), 'pale_steel', bev=.01)                  # flange bands on the duct riser
+    for zz in (2.75, 3.3): b.box((CX - 2.5, 20.0, zz), (.46, .46, .06), 'pale_steel', bev=.022)                  # flange bands on the duct riser
     for xx in (1.2, -.4, -2.2): b.box((xx, 20.0, 3.88), (.06, .45, .35), 'pale_steel', bev=.01)
     b.box((-3.8, 24.5, 3.88), (.4, .6, .3), 'steel_light', bev=.012); b.box((-4.1, 24.85, 3.88), (.4, .6, .3), 'steel_light', (0, 0, -.9), bev=.012); b.box((-4.32, 25.0, 3.88), (.4, 1.0, .3), 'steel_mid', bev=.012)
     for y in (21.5, 23.0): hanger(b, (-3.8, y, 3.7), top=6.0)
@@ -353,7 +353,7 @@ def maintenance(b):
         b.prism([(-.48, 0), (.48, 0), (.3, .58), (-.3, .58)], .24, 'steel_dark', (rx, y, 0), True, 'Y', bev=.025); b.box((rx, y, .6), (.62, .22, .05), 'orange_dark', bev=.01)
     b.cyl((rx, 17.0, rz + .14), .17, 5.8, 'steel_light', 'Y', 32, bev=.008)
     for ye, sg in ((14.1, -1), (19.9, 1)):                                                                     # shaft end caps with hub bolts and a keyway
-        b.cyl((rx, ye + sg * .03, rz + .14), .21, .07, 'steel_dark', 'Y', 28, bev=.01); b.cyl((rx, ye + sg * .07, rz + .14), .12, .03, 'pale_steel', 'Y', 20, bev=.006)
+        b.cyl((rx, ye + sg * .03, rz + .14), .21, .07, 'steel_mid', 'Y', 28, bev=.02); b.cyl((rx, ye + sg * .07, rz + .14), .12, .03, 'pale_steel', 'Y', 20, bev=.006)
         for q in range(6): a = q * math.pi / 3; b.cyl((rx + .165 * math.cos(a), ye + sg * .07, rz + .14 + .165 * math.sin(a)), .018, .03, 'steel_light', 'Y', 8)
         b.box((rx, ye + sg * -.3, rz + .14 + .17), (.05, .45, .025), 'trim_black', bev=.005)
     for i, yy in enumerate((15.3, 15.75, 16.2, 16.65, 17.1, 17.55, 18.0, 18.45)):

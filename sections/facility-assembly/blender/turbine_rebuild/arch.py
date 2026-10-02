@@ -66,7 +66,10 @@ def wall(b, name, spec):
         b.use(g0)
         for r in rect_minus((u0, u1, 0, .2), [h for h in holes if h[2] < .2]): slab(b, [r], 0.04, .105, 'concrete_dark', bev=.025)                  # chamfered plinth
         for z0, z1, d, sw, bv in ((1.20, 1.27, .075, 'pale_steel', .012), (4.45, 4.52, .07, 'slate_dark', .01)):
-            for r in rect_minus((u0, u1, z0, z1), holes): slab(b, [r], 0.04, d, sw, bev=bv)                                                       # cap rail and dark course
+            for r in rect_minus((u0, u1, z0, z1), holes): slab(b, [r], 0.04, d, sw, bev=bv)
+            if z0 == 1.20:
+                for bu in [u0 + .4 + k * .8 for k in range(int((u1 - u0 - .8) / .8))]:
+                    if not any(h[0] - .1 < bu < h[1] + .1 and h[2] < 1.3 for h in holes): b.cyl((bu, d + .008, 1.235), .018, .016, 'steel_light', 'Y', 8)                                                       # cap rail and dark course
         slab(b, [(u0, u1, H - .2, H)], 0.04, .13, 'steel_dark', bev=.02); slab(b, [(u0, u1, H - .27, H - .2)], 0.04, .16, 'steel_mid', bev=.02)   # cornice with drip lip
         for k, (a, c) in enumerate(zip(st, st[1:])):
             ia, ic = a + .24, c - .24
@@ -149,7 +152,7 @@ def door(b, frame, side_sign, label):
         b.box((0, .1, h + .13), (w + .48, .2, .26), 'trim_black', bev=.022)
         b.box((0, 0, -.01), (w, .3, .03), 'steel_worn', nb=True, bev=.006)
         for dx in (-.9, .9): b.flat((dx, .35), .12, .5, 'yellow', 0, z=.012)
-        b.box((0, .07, h + .6), (3.7, .05, .7), 'trim_black', bev=.012); b.text(label, (.3, .1, h + .6), .26, 'chalk', math.pi, math.pi / 2)
+        b.box((0, .065, h + .6), (3.8, .04, .8), 'steel_mid', bev=.012); b.box((0, .07, h + .6), (3.7, .05, .7), 'trim_black', bev=.012); b.text(label, (.3, .1, h + .6), .26, 'chalk', math.pi, math.pi / 2)
         b.cyl((-1.62, .094, h + .6), .23, .012, 'orange_dark', 'Y', 28, bev=.004)
         if label.startswith('ELECTRICAL'): b.prism([(.0, .16), (-.07, -.02), (-.01, -.02), (-.05, -.16), (.08, .03), (.01, .03)], .006, 'trim_black', (-1.62, .104, h + .6), True, 'Y')
         else: torus(b, (-1.62, .104, h + .6), .12, .018, 'trim_black', 'Y', 24); b.cyl((-1.62, .104, h + .6), .04, .008, 'trim_black', 'Y', 16)
