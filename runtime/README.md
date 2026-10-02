@@ -61,11 +61,17 @@ setup tool wires explicit references and validates required assignments. All 49
 existing take names have code routes; unfinished animation sources and clip assets
 remain untouched. Inspector contact overrides accommodate the final calibration.
 
-The offline verifier executes 765 tests, including 42 movement/cue/input cases, eight
-facility-control cases and nine shared-carry cases. Forty-three native binding/physics
+The offline verifier executes 784 tests, including 42 movement/cue/input cases, eight
+facility-control cases, nine shared-carry cases and 19 bonk contract/pose cases. Fifty-one native binding/physics
 cases exist but are NotRun here. The source/DLL manifest and metadata checks do not
 establish Unity compilation, imported animation compatibility, physical feel or
 Player readiness. See [task scope and evidence](validation/MOVEMENT_ANIMATIONS.md).
+
+The [bonk shovel extension](validation/BONK_SHOVEL.md) adds a receipt-backed swing,
+obstruction-aware player knockdown, procedural arm/grip animation and an original
+cartoon tin sound. Scene binding assigns the sound automatically. Finished animation
+assets remain untouched; native compilation, contact alignment and mixing remain
+unverified.
 
 ## Native foundation remains separately unverified
 

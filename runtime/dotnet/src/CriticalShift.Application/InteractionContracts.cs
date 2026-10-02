@@ -2,14 +2,14 @@ using System;
 
 namespace CriticalShift.Application
 {
-    public enum InteractionKind { Grab, Release, Renew, Production, Reactor, Control, Assist, GripHandle }
+    public enum InteractionKind { Grab, Release, Renew, Production, Reactor, Control, Assist, GripHandle, Bonk }
     public enum AccessDecision { Allowed, OutOfReach, ActorUnavailable, TargetUnavailable }
     public enum InteractionStatus
     {
         Applied, NoChange, NotReady, WorldStopped, WorldFaulted, WrongEpoch,
         UnknownConnection, InvalidPayload, SequenceGap, TooOld, PayloadMismatch,
         OutOfReach, ActorUnavailable, TargetUnavailable, UnknownEntity, EntityRetired,
-        AlreadyClaimed, ActorAlreadyHolding, NotHolder, StaleLease, RevisionConflict, EntitySlotted, UnknownSlot, SlotOccupied, SlotEmpty, ProductionRejected, ReactorRejected, AssistanceDisabled
+        AlreadyClaimed, ActorAlreadyHolding, NotHolder, StaleLease, RevisionConflict, EntitySlotted, UnknownSlot, SlotOccupied, SlotEmpty, ProductionRejected, ReactorRejected, AssistanceDisabled, AttackCoolingDown
     }
 
     /// <summary>
@@ -51,7 +51,7 @@ namespace CriticalShift.Application
              Reactor == null && (Kind == InteractionKind.Production ? Production != null && Production.IsWellFormed && ExpectedRevision == 0 && LeaseGeneration == 0 :
              Production == null && ((Kind == InteractionKind.Grab || Kind == InteractionKind.GripHandle) ? ExpectedRevision >= 0 && LeaseGeneration == 0 :
              Kind == InteractionKind.Assist ? ExpectedRevision >= 0 && LeaseGeneration > 0 :
-             (Kind == InteractionKind.Release || Kind == InteractionKind.Renew) && ExpectedRevision == 0 && LeaseGeneration > 0))));
+             (Kind == InteractionKind.Bonk || Kind == InteractionKind.Release || Kind == InteractionKind.Renew) && ExpectedRevision == 0 && LeaseGeneration > 0))));
 
         internal bool SamePayload(InteractionCommand other) => Epoch == other.Epoch &&
             Sequence == other.Sequence && Kind == other.Kind && EntityId == other.EntityId &&
@@ -89,12 +89,12 @@ namespace CriticalShift.Application
 
     public sealed class InteractionReply
     {
-        internal InteractionReply(InteractionStatus status, bool terminal, ObjectClaimView? state = null, bool replay = false, ProductionReply? production = null, ReactorReply? reactor = null, ControlView? control = null)
+        internal InteractionReply(InteractionStatus status, bool terminal, ObjectClaimView? state = null, bool replay = false, ProductionReply? production = null, ReactorReply? reactor = null, ControlView? control = null, BonkView? bonk = null)
         {
             Status = status;
             IsTerminal = terminal;
             State = state;
-            IsReplay = replay; Production = production; Reactor = reactor; Control = control;
+            Bonk = bonk; IsReplay = replay; Production = production; Reactor = reactor; Control = control;
         }
 
         public InteractionStatus Status { get; }
@@ -104,9 +104,10 @@ namespace CriticalShift.Application
         public ProductionReply? Production { get; }
         public ReactorReply? Reactor { get; }
         public ControlView? Control { get; }
+        public BonkView? Bonk { get; }
         public bool Accepted => Status == InteractionStatus.Applied || Status == InteractionStatus.NoChange;
         // Only this flag may trigger a new binding side effect. Replayed acceptance is historical.
         public bool HasNewCommit => Status == InteractionStatus.Applied && !IsReplay;
-        internal InteractionReply AsReplay() => new InteractionReply(Status, IsTerminal, State, true, Production, Reactor, Control);
+        internal InteractionReply AsReplay() => new InteractionReply(Status, IsTerminal, State, true, Production, Reactor, Control, Bonk);
     }
 }

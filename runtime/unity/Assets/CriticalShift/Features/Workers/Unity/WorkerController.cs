@@ -79,6 +79,7 @@ namespace CriticalShift.Features.Workers.Unity
 
         private void Update()
         {
+            RestoreBonkGrip();
             bool captureChanged = localInput && inputState.UpdateCapture(Input.GetKeyDown(KeyCode.Escape),
                 Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return));
             if (captureChanged) { SetCursor(inputState.Captured); CancelSceneActions(); }
@@ -108,7 +109,7 @@ namespace CriticalShift.Features.Workers.Unity
             {
                 float yaw = Input.GetAxisRaw("Mouse X") * sensitivity;
                 if (Input.GetKey(KeyCode.C)) { gateway.RotateHeld(this, yaw); yaw = 0; }
-                if (acting) yaw = 0;
+                if (acting || Bonking) yaw = 0;
                 transform.Rotate(0, yaw, 0); yawRate = dt > 0 ? Mathf.Clamp(yaw / dt, -1000, 1000) : 0;
                 pitch = Mathf.Clamp(pitch - Input.GetAxisRaw("Mouse Y") * sensitivity, -80, 80);
                 eye.localRotation = Quaternion.Euler(pitch, 0, 0);
@@ -122,7 +123,7 @@ namespace CriticalShift.Features.Workers.Unity
             if (station || Down || recoveryAttempt != 0 || !capsule.enabled || !gateway.Running) return;
             groundGrace = Grounded ? 0.10f : Mathf.Max(0, groundGrace - dt);
             jumpBuffer = Mathf.Max(0, jumpBuffer - dt);
-            if (jumpBuffer > 0 && groundGrace > 0 && !acting && !crouched && pose == MovementPose.Free && jumpTime < 0)
+            if (jumpBuffer > 0 && groundGrace > 0 && !acting && !Bonking && !crouched && pose == MovementPose.Free && jumpTime < 0)
             {
                 if (movement.BeginJump(groundGrace > 0)) { jumpTime = 0; jumpBuffer = groundGrace = 0; }
             }
@@ -135,6 +136,7 @@ namespace CriticalShift.Features.Workers.Unity
             }
             Vector3 desired = Direction(axes, sprint, walk);
             if (acting || jumpTime >= 0) desired = Vector3.zero;
+            if (Bonking) desired *= .35f;
             if (crouched || (input && Input.GetKey(KeyCode.B))) desired *= 0.5f;
             planar = Vector3.MoveTowards(planar, desired, acceleration * (Grounded ? 1 : 0.2f) * dt);
             if (Grounded && vertical < 0) vertical = -2;
@@ -167,6 +169,7 @@ namespace CriticalShift.Features.Workers.Unity
             if (crouched && crouchPose != null) crouchPose.Apply(standingHeight - crouchHeight);
             if (head != null) eye.position = head.position + transform.TransformVector(headOffset);
             if (leftHand != null && rightHand != null) grip.position = (leftHand.position + rightHand.position) * 0.5f;
+            ApplyBonkPose();
             ragdoll.SampleAnimatedPose(Time.deltaTime);
         }
         private Vector3 Direction(Vector2 input, bool sprint, bool walk)
@@ -212,14 +215,15 @@ namespace CriticalShift.Features.Workers.Unity
             if (Input.GetKeyDown(KeyCode.P)) StartAction(null, SceneOperation.Point);
             if (Input.GetKeyDown(KeyCode.Tab)) ShowFeedback(gateway.Describe(lookTarget));
             if (Input.GetKeyDown(KeyCode.R)) StartAction(null, SceneOperation.Radio, WorkerActionInput.Radio);
-            if (Input.GetMouseButtonDown(0) && gateway.Held(this) != null) StartAction(lookTarget, SceneOperation.Dig, WorkerActionInput.Primary);
+            if (Input.GetMouseButtonDown(0) && gateway.Held(this) != null && BonkReady)
+            { if (!gateway.BeginBonk(this, out var reason)) ShowFeedback(reason); }
         }
 
         public bool StartAction(SceneTarget target, SceneOperation value) => StartAction(target, value, WorkerActionInput.Script);
 
         private bool StartAction(SceneTarget target, SceneOperation value, WorkerActionInput source)
         {
-            if (acting || station || jumpTime >= 0 || !Grounded || !gateway.CanAct(this)) return false;
+            if (acting || Bonking || station || jumpTime >= 0 || !Grounded || !gateway.CanAct(this)) return false;
             if (target == null && value != SceneOperation.Point && value != SceneOperation.Radio) return false;
             if (target != null && (!target.Supports(value) || !gateway.CanUse(this, target))) return false;
             if (value == SceneOperation.Push || value == SceneOperation.Pull || value == SceneOperation.Drag)
@@ -265,6 +269,8 @@ namespace CriticalShift.Features.Workers.Unity
           foreach (var renderer in bareMeshes) if (renderer != null) renderer.enabled = !suited; }
         public override void CancelSceneActions()
         {
+            RestoreBonkGrip();
+            if (gateway != null) gateway.CancelBonk(this);
             if (movement != null && acting) movement.StopAction(actionSequence);
             if (movement != null && jumpTime >= 0) movement.CancelJump();
             inputState.ClearHold(); jumpBuffer = 0;
@@ -286,6 +292,8 @@ namespace CriticalShift.Features.Workers.Unity
             if (gateway == null || !gateway.Running) return;
             if (Down) { if (gateway.ConsciousDown(this)) GUI.Label(new Rect(16, Screen.height - 96, Screen.width - 32, 32), "WASD: Crawl   B: Brace   E: Grip/release handle   G: Release   H/P: Help beacon"); return; }
             if (station) return;
+            var held = gateway.Held(this);
+            if (held != null && !string.IsNullOrEmpty(held.PrimaryActionHint)) GUI.Label(new Rect(16, Screen.height - 124, Screen.width - 32, 28), held.PrimaryActionHint);
             GUI.Label(new Rect(Screen.width / 2f - 5, Screen.height / 2f - 10, 20, 20), "+");
             if (lookTarget != null && gateway.CanUse(this, lookTarget))
             {

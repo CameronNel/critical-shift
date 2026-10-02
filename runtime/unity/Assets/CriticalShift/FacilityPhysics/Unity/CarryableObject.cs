@@ -24,6 +24,8 @@ namespace CriticalShift.FacilityPhysics.Unity
         private Quaternion rotationOffset = Quaternion.identity;
         private readonly CollisionIgnoreScope primaryIgnores = new CollisionIgnoreScope(), assistantIgnores = new CollisionIgnoreScope();
         private Collider[] cargoColliders;
+        private BonkShovel bonk;
+        private BonkShovel Bonk => bonk != null ? bonk : bonk = GetComponent<BonkShovel>();
         private Collider[] Shapes => kind == CarryableKind.Body && workerBody != null ? workerBody.PhysicalColliders :
             cargoColliders ?? (cargoColliders = GetComponentsInChildren<Collider>(true));
         private float AttachedMass => kind == CarryableKind.Body && workerBody != null ? workerBody.PhysicalMass : body.mass;
@@ -33,6 +35,7 @@ namespace CriticalShift.FacilityPhysics.Unity
             Positive(maximumAcceleration, 100) && Positive(breakDistance, 3);
         private static bool Positive(float value, float maximum) => float.IsFinite(value) && value > 0 && value <= maximum;
         public bool ValidBodyBinding => kind != CarryableKind.Body || workerBody != null && workerBody.PhysicalBody == body && workerBody.PhysicalMass > 0;
+        public override string PrimaryActionHint => kind == CarryableKind.Shovel && Bonk != null ? "LMB: Bonk" : "";
         public override Transform Contact => kind == CarryableKind.Body && body != null ? body.transform : base.Contact;
         public Rigidbody Body => body;
         public CarryableKind Kind => kind;
@@ -90,8 +93,9 @@ namespace CriticalShift.FacilityPhysics.Unity
         private void FixedUpdate()
         {
             if (holder == null) return;
-            if (body == null || gateway == null || !gateway.Running || !gateway.CanAct(holder) || !isActiveAndEnabled || !ValidForces || !ValidBodyBinding || body.isKinematic || (workerBody != null && !workerBody.Down))
+            if (body == null || gateway == null || !gateway.Running || !gateway.CanAct(holder) || !isActiveAndEnabled || !ValidForces || !ValidBodyBinding || body.isKinematic && !(Bonk != null && Bonk.Animating) || (workerBody != null && !workerBody.Down))
             { if (gateway != null) gateway.AttachmentFailed(this, generation); else ClearBinding(); return; }
+            if (Bonk != null && Bonk.Animating) return;
             Vector3 point = objectGrip != null ? objectGrip.position : body.worldCenterOfMass;
             Vector3 target = holder.Grip.position;
             if (Vector3.Distance(target, point) > breakDistance) { gateway.AttachmentFailed(this, generation); return; }
@@ -129,9 +133,16 @@ namespace CriticalShift.FacilityPhysics.Unity
             worker.SetHaulPose(hauling ? value : kind == CarryableKind.Shovel ? SceneOperation.Dig :
                 kind == CarryableKind.Pickaxe ? SceneOperation.Lever : SceneOperation.Grab);
         }
+        public void GetHoldPose(out Vector3 position, out Quaternion rotation)
+        {
+            rotation = holder != null ? holder.Grip.rotation * rotationOffset : transform.rotation;
+            Vector3 localGrip = body != null && objectGrip != null ? body.transform.InverseTransformPoint(objectGrip.position) : Vector3.zero;
+            position = holder != null ? holder.Grip.position - rotation * Vector3.Scale(localGrip, body.transform.lossyScale) : transform.position;
+        }
         public void RotateGrip(float degrees) { rotationOffset *= Quaternion.Euler(0, degrees, 0); }
         public override void ClearBinding()
         {
+            if (Bonk != null) Bonk.EndMotion();
             SynchronizeAssistant(null);
             if (holder != null)
             {

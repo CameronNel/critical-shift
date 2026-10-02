@@ -64,7 +64,7 @@ namespace CriticalShift.Bootstrap
                     {
                         var batch = target.GetComponent<MaterialBinding>();
                         bool shared = target is CarryableObject cargo && cargo.AllowAssistance;
-                        if (batch == null) world.RegisterObject(target.Id, shared);
+                        if (batch == null) world.RegisterObject(target.Id, shared, allowBonk: target is CarryableObject shovel && shovel.Kind == CarryableKind.Shovel && shovel.GetComponent<BonkShovel>() != null);
                         else world.Production.RegisterBatch(target.Id, Guid.NewGuid(), target.Id, target.Id,
                             batch.Kind, batch.Units, batch.Moisture, batch.Contamination, shared);
                     }
@@ -92,6 +92,7 @@ namespace CriticalShift.Bootstrap
             }
             SynchronizeBindings();
             if (!Running) { ClearPhysicalBindings(); return; }
+            TickBonks();
             if (world.View.HostMilliseconds >= renewAt)
             {
                 renewAt = world.View.HostMilliseconds + 1000;

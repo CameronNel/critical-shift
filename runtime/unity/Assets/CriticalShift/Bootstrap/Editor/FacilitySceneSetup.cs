@@ -101,6 +101,14 @@ namespace CriticalShift.Bootstrap.Editor
             }
             else { Set(item, "body", Add<Rigidbody>(go)); Set(item, "objectGrip", Anchor(go, "ObjectGrip", Vector3.zero)); }
             SetEnum(item, "kind", (int)objectKind); SetEnum(item, "operation", (int)(objectKind == CarryableKind.Cart ? SceneOperation.Push : objectKind == CarryableKind.Body ? SceneOperation.Drag : SceneOperation.Grab));
+            if (objectKind == CarryableKind.Shovel)
+            {
+                var bonk = Add<BonkShovel>(go); Set(bonk, "carry", item);
+                var voice = Add<AudioSource>(Anchor(go, "BonkImpactAudio", Vector3.zero).gameObject);
+                Undo.RecordObject(voice, "Configure bonk audio"); voice.playOnAwake = false; voice.loop = false;
+                voice.spatialBlend = 1; voice.dopplerLevel = 0; voice.rolloffMode = AudioRolloffMode.Logarithmic; voice.minDistance = 1; voice.maxDistance = 14;
+                Set(bonk, "impactAudio", voice); Set(bonk, "bonkSound", AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/CriticalShift/FacilityPhysics/Audio/bonk_shovel_tin.wav"));
+            }
             WireScene();
         }
         private static void BuildRagdoll()
@@ -141,6 +149,7 @@ namespace CriticalShift.Bootstrap.Editor
             SetArray(host, "workers", workers); SetArray(host, "targets", targets);
             foreach (var worker in workers) Set(worker, "gateway", host);
             foreach (var item in Components<CarryableObject>()) Set(item, "gateway", host);
+            foreach (var bonk in Components<BonkShovel>()) Set(bonk, "gateway", host);
             foreach (var handle in Components<RagdollHandle>()) Set(handle, "gateway", host);
             foreach (var hazard in Components<WorkerCollisionHazard>()) Set(hazard, "gateway", host);
             EditorSceneManager.MarkSceneDirty(host.gameObject.scene);
@@ -155,6 +164,7 @@ namespace CriticalShift.Bootstrap.Editor
                 if (target.GetComponentInChildren<Collider>() == null) errors.Add("Interaction target needs a raycast collider: " + target.name);
                 if (target is CarryableObject item)
                 {
+                    if (item.Kind == CarryableKind.Shovel && (item.GetComponent<BonkShovel>() == null || !item.GetComponent<BonkShovel>().Ready)) errors.Add(item.name + ": bind bonk shovel and its impact audio");
                     if (item.Body == null || item.Body.isKinematic && item.Kind != CarryableKind.Body) errors.Add(item.name + ": assign a dynamic object Rigidbody");
                     if (item.Kind == CarryableKind.Body && !item.ValidBodyBinding) errors.Add(item.name + ": bind the represented worker's actual pelvis body");
                 }

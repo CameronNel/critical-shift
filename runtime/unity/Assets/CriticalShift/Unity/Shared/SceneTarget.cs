@@ -12,6 +12,7 @@ namespace CriticalShift.Unity.Shared
         public Guid Id => Guid.Parse(identity);
         public virtual Transform Contact => contact != null ? contact : transform;
         public float Reach => reach;
+        public virtual string PrimaryActionHint => "";
         public SceneOperation Operation => operation;
         public abstract bool Supports(SceneOperation value);
         // Called only by the host after the command has committed. Never an authoritative UnityEvent.

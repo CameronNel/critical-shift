@@ -148,3 +148,13 @@ Editor and finished assets. No acceptance gate advances. Four read-only audit ag
 reviewed separate concerns; root authored fixes. Independent PR/human review remains
 pending and the PR stays draft. No animation source, clip, Animator controller,
 map or art file changed.
+
+## Bonk shovel follow-up, 2 October 2026
+
+The next authorized extension adds shovel hits, a procedural bonk pose and original
+tin sound while preserving unfinished animation assets. Its current 784-test run,
+51-case unexecuted native inventory and exact source/audio hashes are recorded
+separately in [BONK_SHOVEL.md](BONK_SHOVEL.md) and
+[bonk-shovel-evidence.json](bonk-shovel-evidence.json). The results above remain
+historical evidence for the ragdoll baseline `cd51c6a`; neither record establishes
+native compilation, finished-clip acceptance or a multiplayer test.

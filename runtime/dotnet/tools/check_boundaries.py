@@ -28,6 +28,8 @@ LINKS = {
             {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/RagdollTuning.cs', 'Link': 'RagdollTuning.cs'},
             {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerRecoveryTicket.cs', 'Link': 'WorkerRecoveryTicket.cs'},
             {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/RagdollContractTests.cs', 'Link': 'RagdollContractTests.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Unity/Shared/BonkSwingPose.cs', 'Link': 'BonkSwingPose.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/FacilityPhysics/Tests/EditMode/BonkSwingTests.cs', 'Link': 'BonkSwingTests.cs'},
             ],
 }
 ALLOWED = {REACTOR: set(), POWER: set(), PROCESS: set(), DOMAIN: set(), SESSION: set(), WORKERS: set(), MATERIALS: set(), PRODUCTION: set(),

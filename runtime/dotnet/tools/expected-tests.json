@@ -304,5 +304,20 @@
   "DefaultRagdollBudgetIsValid": 1,
   "InvalidPhysicalMassIsRejected": 4,
   "UnboundedSolverMotionAndRecoveryBudgetsAreRejected": 1,
-  "StationTicketCannotMatchAnotherPatientEpochOrImpactEpisode": 1
+  "StationTicketCannotMatchAnotherPatientEpochOrImpactEpisode": 1,
+  "BonkReceiptsReplayWithoutAnotherSwingOrCause": 1,
+  "BonkKnocksDownOtherPlayerAndReleasesTheirCargoOnce": 1,
+  "ContactsOutsideStrikeWindowCannotDamage": 4,
+  "SwingCooldownConsumesRejectionReceiptWithoutWedgingInput": 1,
+  "SelfUnknownAndStaleSwingCannotDamageOrConsumeCurrentHit": 1,
+  "WallContactConsumesStrikeWithoutWorkerDamage": 1,
+  "ReleaseReacquireCannotReuseOldSwingLease": 1,
+  "AttackerImpactCancelDisconnectAndExpiryPreventHits": 1,
+  "OnlyRegisteredHeldShovelAndCurrentLeaseCanStart": 1,
+  "PausedAndWrongEpochBonksCannotChangeHealth": 1,
+  "RepeatedValidSwingsUseOrderedHazardObservationsAndNeverHeal": 1,
+  "ProceduralBonkHasAnticipationStrikeAndReturnsToRest": 1,
+  "ProceduralBonkStaysBoundedAndContinuousAtEveryKeyframe": 1,
+  "NonFiniteSwingPhaseIsRejected": 2,
+  "ContactRecoilReturnsDirectlyToRestWithoutFurtherForwardSwing": 1
 }

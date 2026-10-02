@@ -49,6 +49,7 @@ namespace CriticalShift.Application
             _interaction.BindReactor(Reactor);
             Controls = new FacilityControlOperations(this);
             _interaction.BindControls(Controls);
+            _bonks = new BonkOperations(this); _interaction.BindBonks(_bonks);
         }
 
         public ProductionOperations Production { get; }
@@ -72,12 +73,14 @@ namespace CriticalShift.Application
             _timeline.ElapsedMilliseconds, _timeline.RemainingMilliseconds, _timers.Count,
             _interaction.RegisteredCount, _interaction.ActiveClaimCount, _interaction.ConnectedCount);
 
-        public void RegisterObject(Guid entityId, bool allowAssistance = false, bool allowDownedGrip = false)
+        public void RegisterObject(Guid entityId, bool allowAssistance = false, bool allowDownedGrip = false, bool allowBonk = false)
         {
             RequireIdle(); long next = NextRevision();
+            if (allowBonk && (allowDownedGrip || allowAssistance)) throw new ArgumentException("Bonk shovels require exclusive ordinary custody.");
             if (allowAssistance && allowDownedGrip) throw new ArgumentException("A fixed downed handle cannot be shared cargo.");
             _interaction.RegisterObject(entityId, allowAssistance);
             if (allowDownedGrip) _downedHandles.Add(entityId);
+            if (allowBonk) _bonks.Register(entityId);
             _revision = next;
         }
         public void RegisterConnection(Guid connectionId, Guid actorId)
@@ -174,6 +177,7 @@ namespace CriticalShift.Application
             if (!Configuration.AllowPause) return WorldControlStatus.PauseDisabled;
             long next = NextRevision();
             if (!_timeline.TryPause()) return WorldControlStatus.NoChange;
+            _bonks.CancelAll();
             _revision = next; return WorldControlStatus.Applied;
         }
 
@@ -281,7 +285,7 @@ namespace CriticalShift.Application
                 var released = _interaction.Disconnect(connectionId);
                 if (count != _interaction.ConnectedCount)
                 {
-                    if (actor.HasValue) { _workers.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value); }
+                    if (actor.HasValue) { _workers.Remove(actor.Value); _bonks.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value); }
                     _revision = next;
                     _diagnostics.Append(View, epoch, SessionTraceKind.Disconnected, actor ?? Guid.Empty,
                         released?.EntityId ?? Guid.Empty, changed: true);
@@ -345,7 +349,7 @@ namespace CriticalShift.Application
         private WorldAdvanceResult EmptyAdvance(bool ended) => new WorldAdvanceResult(View,
             Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), ended);
         private long NextRevision() => checked(_revision + 1);
-        private void StopOwnedResources() { Controls.Stop(); Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); _downedHandles.Clear(); }
+        private void StopOwnedResources() { Controls.Stop(); Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); _downedHandles.Clear(); _bonks.Clear(); }
         private void FailClosed()
         {
             _timeline.Fault(); StopOwnedResources();
@@ -404,7 +408,7 @@ namespace CriticalShift.Application
                     return kind == InteractionKind.Renew && _workers.CanGripHandle(actorId) ? _inner.Evaluate(actorId, entityId, kind) : AccessDecision.TargetUnavailable;
                 // Release bypasses access; paused renewal keeps a current validated lease alive.
                 return !_workers.CanInteract(actorId) ||
-                    ((kind == InteractionKind.Grab || kind == InteractionKind.Assist || kind == InteractionKind.Production || kind == InteractionKind.Reactor || kind == InteractionKind.Control) && _timeline.Phase != TimelinePhase.Running) ?
+                    ((kind == InteractionKind.Bonk || kind == InteractionKind.Grab || kind == InteractionKind.Assist || kind == InteractionKind.Production || kind == InteractionKind.Reactor || kind == InteractionKind.Control) && _timeline.Phase != TimelinePhase.Running) ?
                     AccessDecision.ActorUnavailable : _inner.Evaluate(actorId, entityId, kind);
             }
         }

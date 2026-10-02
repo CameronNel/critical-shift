@@ -18,7 +18,7 @@ namespace CriticalShift.Features.Workers.Unity
             Solve(rightThigh, rightShin, rightFoot, right, transform.forward);
             leftFoot.rotation = leftRotation; rightFoot.rotation = rightRotation;
         }
-        private static void Solve(Transform upper, Transform lower, Transform foot, Vector3 target, Vector3 pole)
+        internal static void Solve(Transform upper, Transform lower, Transform foot, Vector3 target, Vector3 pole)
         {
             Vector3 origin = upper.position;
             float a = Vector3.Distance(origin, lower.position), b = Vector3.Distance(lower.position, foot.position);

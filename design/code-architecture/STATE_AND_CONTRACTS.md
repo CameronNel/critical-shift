@@ -22,6 +22,7 @@ The catalogue describes logical responsibilities. It does not authorize creating
 | Mine sector | Mining owner per sector: maximum unlocked depth, collapse generation and uncleared rubble IDs | Submit fictional mining event or rubble-removal intent | Collapsed as a replacement for remembered excavation depth |
 | Physical motion | Host Unity Rigidbody/constraint adapter for the physical entity | Read observations; request controlled force/attachment through explicit ports | A domain transform integrator competing with physics or a client claiming final pose |
 | Worker animation presentation | Bound WorkerMovementAnimator: its Animator/Playables graph and visual transition history only | Supply measured velocity, committed context/actions and physical-owner animation permission | A second locomotion, health, custody or recovery owner; clip completion deciding gameplay |
+| Bonk shovel action | Application BonkOperations in WorldSession: immutable accepted swing identity, current lease generation, host elapsed-time window, cooldown and consumed/cancelled state | Host Unity adapter supplies bounded contact observations; worker/tool adapters project grip/arm motion and sound | A client declaring damage, a cosmetic callback changing health, or copied custody/clock state |
 | Incidents | Incident owner: eligible scheduled consequences, cause IDs, lifecycle and recovery windows | Propose/observe incidents through contracts | Arbitrary scene scripts creating untraceable random disasters |
 | Compliance/evidence | Compliance owner: scrutiny/escalation; evidence records have a named owner and causal relation | Submit discovered facts or approved actions | An observer mutating production state to make a narrative outcome happen |
 | Infiltrator/NPC decisions | NPC owner: objective, memory, decision state | Send the same authorized interaction/workflow requests as other actors | Privileged direct mutation of reactor, inventory or worker internals |
@@ -127,6 +128,17 @@ captures patient/epoch/injury and the physical presentation generation; stale ti
 cannot aid or override a later injury, replacement patient or get-up.
 
 Hazard observations include source, target, epoch, observation/tick identity and configured magnitude. Repeated observations are handled by the authored damage/cooldown rule, not an unqualified rule that every collision callback causes full damage. Gameplay bounds and units are named and testable. Randomness for incidents is owned and seeded explicitly; decorative effects use a separate stream so an extra particle cannot change a failure outcome.
+
+The user-authorized bonk shovel uses a receipt-backed `Bonk` intention with an
+exclusive current tool lease. One swing has a 180–320 ms contact window, 700 ms
+presentation duration and 950 ms cooldown from its start on the canonical shift
+clock. Only the host supplies swept blade/obstruction observations. One confirmed
+contact consumes the swing; the existing WorkerWorkflow applies nonlethal Knockdown
+with a 2 s recovery delay and releases victim custody. Consciousness is preserved.
+Tool ID, ordered per-target hazard observation and one minted swing cause identify
+the impact. Pause cancels swings; actor/lease loss and teardown reject stale hits.
+Action/history storage is bounded by setup-only registered workers and objects.
+Engine animation/audio publish after acceptance and cannot repeat the health write.
 
 ## S08. Causality and bounded events
 

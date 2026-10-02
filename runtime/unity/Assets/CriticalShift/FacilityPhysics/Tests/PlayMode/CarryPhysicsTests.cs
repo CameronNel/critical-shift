@@ -30,6 +30,8 @@ namespace CriticalShift.FacilityPhysics.Tests
     public sealed class PhysicsTestGateway : SceneInteractionGateway
     {
         public int Failures, AssistantFailures;
+        public float Swing = -1;
+        public override float BonkPhase(WorkerScenePort worker) => Swing;
         public override bool Running => true;
         public override bool CanAct(WorkerScenePort worker) => !worker.Down;
         public override bool ConsciousDown(WorkerScenePort worker) => worker.Down;

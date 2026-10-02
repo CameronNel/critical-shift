@@ -19,6 +19,7 @@ namespace CriticalShift.Application
         private ProductionOperations? _production;
         private ReactorOperations? _reactor;
         private FacilityControlOperations? _controls;
+        private BonkOperations? _bonks;
         private bool _started;
         private bool _stopped;
         private bool _faulted;
@@ -77,6 +78,7 @@ namespace CriticalShift.Application
 
         internal void BindProduction(ProductionOperations production) { RequireSetup(); _production = production; }
         internal void BindReactor(ReactorOperations reactor) { RequireSetup(); _reactor = reactor; }
+        internal void BindBonks(BonkOperations bonks) { RequireSetup(); _bonks = bonks; }
         internal void BindControls(FacilityControlOperations controls) { RequireSetup(); _controls = controls; }
         internal void RegisterProductionSlot(Guid slot) { RequireSetup(); _claims.RegisterSlot(slot); }
         internal Guid? SlotOccupant(Guid slot) => _claims.GetSlotOccupant(slot);
@@ -198,6 +200,7 @@ namespace CriticalShift.Application
             }
             switch (command.Kind)
             {
+                case InteractionKind.Bonk: return _bonks?.Begin(actorId, command.EntityId, command.LeaseGeneration) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Control: return _controls?.Apply(command.EntityId, command.Control!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Reactor: return _reactor?.Apply(actorId, command.EntityId, command.Reactor!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Production: return _production?.Apply(actorId, command.EntityId, command.Production!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);

@@ -29,6 +29,9 @@ The build manifest detects stale source/DLL pairs. Do not copy rule source into 
    represented worker and the pelvis Rigidbody, with colliders under the marker's
    hierarchy so raycasts find it. Tools use the worker's Tool-bone socket. Enable
    **Allow assistance** on shared cargo/body objects and assign the second grip.
+   Choose **Shovel** for the bonk shovel. Binding adds BonkShovel, a dedicated
+   spatial AudioSource and the supplied tin-bonk sound; its Rigidbody must be on
+   the bound root. Existing shovels need this binding step once.
 4. Bind buttons, levers, valves, doors, service ports, aid points and suit lockers.
    Place the contact marker at the actual reachable handle, ordinarily chest height.
    Assign moving parts; doors require a collision-enabled Rigidbody/HingeJoint.
@@ -65,7 +68,7 @@ controller because WorkerMovementAnimator owns its manual Playables graph.
 | G / V | Release / place at the authored release cue |
 | T / Alt+T | Chest / underhand throw with authored default velocity |
 | C + mouse | Rotate held cargo |
-| Left mouse | Shovel work at a dig target while holding a shovel |
+| Left mouse | Swing the held bonk shovel; confirmed contact knocks another worker down |
 | P / R | Point/ping / hold radio pose; pingEffect receives the hit position |
 | Tab | Read detached machine/material/control status |
 | Escape | Release cursor and cancel pending input actions; Escape, Enter or a click resumes |
@@ -142,6 +145,30 @@ and one helper under one generation; helper loss, including a broken secondary
 grip, preserves the primary, primary loss
 or expiry frees both. Insertion requires the helper to release first. Neither actor
 can hold a second object. The two configured grip points apply separate force limits.
+
+## Bonk shovel
+
+Left-click starts a host-approved 0.70 s swing, with 0.18 s wind-up and a strike
+window ending at 0.32 s. The next swing is allowed 0.95 s after the previous start.
+The procedural grip/arm pose layers wind-up, strike and follow-through onto the
+existing held-tool pose. First contact recoils directly to rest. It changes no
+animation source, clip or Animator controller. **E** still performs shovel work
+at a bound DigSite using its existing animation and cue.
+
+The host sweeps a bounded blade volume and checks solid obstruction before
+applying a hit. The first contact consumes that swing; a wall blocks a worker
+behind it. Player contact uses canonical Knockdown, releases the victim's held
+claim and enters their existing ragdoll with a bounded impulse. A conscious victim
+remains conscious and can crawl/brace; recovery is permitted after 2 s plus the
+existing quiet-motion/clearance checks. Hitting an unconscious worker does not
+restore consciousness. Misses are silent; confirmed player or solid-object contact
+plays the original 0.54 s tin-bonk sound.
+
+Swing ownership requires the current exclusive shovel lease. Pause, cancellation,
+incapacitation, release, disconnect or expired ownership stops the action and
+restores ordinary dynamic tool carrying. Final rig contact alignment, physical
+feel and scene audio balance need a native Unity playtest. See
+[bonk task and evidence](../../../../../validation/BONK_SHOVEL.md).
 
 ## Ragdoll authoring and controls
 
