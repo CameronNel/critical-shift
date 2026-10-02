@@ -42,7 +42,7 @@ jobs:
           V=5.2.1
           curl -fL --retry 2 --connect-timeout 25 --max-time 300 "https://download.blender.org/release/Blender5.2/blender-${V}-linux-x64.tar.xz" -o "blender-${V}-linux-x64.tar.xz"
           curl -fL --retry 2 --max-time 60 "https://download.blender.org/release/Blender5.2/blender-${V}.sha256" -o "blender-${V}.sha256"
-          rg "blender-${V}-linux-x64.tar.xz" "blender-${V}.sha256" | sha256sum --check -
+          grep -F "blender-${V}-linux-x64.tar.xz" "blender-${V}.sha256" | sha256sum --check -
           tar -xf "blender-${V}-linux-x64.tar.xz"
           echo "/tmp/fuel-toolchain/blender-${V}-linux-x64" >> "$GITHUB_PATH"
           "./blender-${V}-linux-x64/blender" --background --factory-startup --python-expr "import bpy; print('VERIFIED_BLENDER', bpy.app.version_string)"
