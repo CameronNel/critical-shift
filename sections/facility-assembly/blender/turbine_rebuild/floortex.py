@@ -96,8 +96,8 @@ def generate(path_prefix, layout):
     rough += .18 * scr; alb *= 1 + .06 * scr[..., None]
     # ---------- expansion joints and channel edges ----------
     J = np.zeros((H, W), np.float32)
-    for xj in layout['joints_x']: stroke(J, [px(xj, 0), px(xj, 24)], 2.4, 1.0, .9)
-    for yj in layout['joints_y']: stroke(J, [px(-4, yj), px(10, yj)], 2.4, 1.0, .9)
+    for xj in layout['joints_x']: stroke(J, [px(xj, 0), px(xj, 24)], 3.6, 1.0, .9)
+    for yj in layout['joints_y']: stroke(J, [px(-4, yj), px(10, yj)], 3.6, 1.0, .9)
     J *= np.clip(.72 + .5 * fine, 0, 1)
     height -= 2.2 * J; alb *= (1 - .78 * J)[..., None]; rough = np.maximum(rough, .55 * J + rough * (1 - J))
     # ---------- oil, grease, rust ----------

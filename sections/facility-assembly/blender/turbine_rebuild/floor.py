@@ -52,7 +52,7 @@ def _layout():
             ln = R.uniform(.7, 1.6); gap = R.choice((.0, .08, .22, .35)); paint.append((xl - .045, y, xl + .045, y + ln)); y += ln + gap
     paint += [(-2.995, 12.1, -2.905, 21.9), (-2.95, 12.055, 2.35, 12.145), (-2.95, 21.855, 2.35, 21.945)]
     return dict(
-        joints_x=[-1.33], joints_y=[24 * k / 7 for k in range(1, 7)],
+        joints_x=[-2.5, -1.33, 0.1, 8.3], joints_y=[24 * k / 7 for k in range(1, 7)],
         channels=[(CH_X[0], CH_Y0, CH_Y1, CH_W + .02), (CH_X[1], CH_Y0, CH_Y1, CH_W + .02)], sumps=[(sx, sy, .92) for sx, sy in SUMPS], drains=[(dx, dy, .2) for dx, dy in DRAINS],
         flows=flows, wet_runs=[(3.0, 9.5), (11.0, 17.5), (18.5, 22.4)],
         puddles=[],
