@@ -1,0 +1,118 @@
+{
+  "reviewer": "GPT-6 Luna (independent visual critic)",
+  "review": "compliance-dock full-cycle-04",
+  "review_state": "visual categories 1\u20137 locked; category 8 and overall decision pending fresh independent technical evidence",
+  "visual_scores_locked_before_technical_report": true,
+  "source_sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+  "manifest_complete": true,
+  "manifest_shots": 27,
+  "manifest_hashes_verified": 27,
+  "spawn_reference_images_opened": 4,
+  "all_images_opened": true,
+  "resolution": [
+    1067,
+    600
+  ],
+  "scores": [
+    {
+      "category": 1,
+      "name": "Scale, layout and route readability",
+      "score": 87,
+      "evidence": "Floor route markings and openings make the primary inspection path legible in C01, C02, C25 and C26. The fixed views also reveal a congested hero zone where the scanner arch, cart gate and X-ray unit compete; the wall and corner views expose large unarticulated areas."
+    },
+    {
+      "category": 2,
+      "name": "Grounded stylized shape language and object-specific construction",
+      "score": 84,
+      "evidence": "The palette and scale read as an industrial facility, and the covered trolley has a recognizable manufactured frame and fabric cover. The scanner arch and cargo examination housing rely on broad box-like masses with sparse construction cues; repeated slab and beam forms remain conspicuous in C02, C19 and C20."
+    },
+    {
+      "category": 3,
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score": 86,
+      "evidence": "The scanner arch, cargo tunnel and check-in hatch each read as task equipment in their close views. In C02 the scanner takes the strongest foreground position while the cargo line is crowded behind it; the check-in counter appears as a separate, weakly connected focal point in C03 and C27."
+    },
+    {
+      "category": 4,
+      "name": "Tactile material identity and UV/texture discipline",
+      "score": 83,
+      "evidence": "Painted blue equipment, dark structure, canvas cover, floor and wall values are distinguishable by color and broad form, without noisy photoreal textures. Most visible surfaces nevertheless share smooth, low-variation responses; concrete, painted metal, rubber and fabric lack enough distinct tactile cues in C01\u2013C27."
+    },
+    {
+      "category": 5,
+      "name": "Localized lighting, depth and bleak atmosphere without hiding geometry",
+      "score": 87,
+      "evidence": "Practical fixtures and local pools create useful warm/cool separation, especially around the cargo tunnel and office/check-in station (C05, C07, C20, C24). The main bay remains broadly exposed, while the dark ceiling grid and deep shadows in secondary areas reduce form separation in C02, C10 and C25."
+    },
+    {
+      "category": 6,
+      "name": "Approved spawn colour coherence and restrained accents",
+      "score": 93,
+      "evidence": "The dock keeps a restrained steel/navy, warm neutral and orange-red hazard palette. Orange accents and dark blue framing echo the spawn references without turning the room into color confetti. The bay is cooler and more neutral than the warm orange/mauve spawn rooms, so coherence is partial rather than exact."
+    },
+    {
+      "category": 7,
+      "name": "Purposeful worker traces and coercive institutional storytelling",
+      "score": 78,
+      "evidence": "The \u201cState Your Number\u201d hatch, \u201cWe Value Your Time\u201d office sign, custody labels and covered transfer trolley imply institutional control and concealment (C03, C08, C18, C22, C27). Visible work traces are sparse: a clipboard, a few papers and small supplies do not yet make the rooms feel actively worked or deteriorating under pressure."
+    }
+  ],
+  "visual_vetoes": [],
+  "critical_visual_failures": [],
+  "highest_impact_defects": [
+    {
+      "rank": 1,
+      "defect": "Hero inspection forms are still too generic and box-dominant. The arch has large plain uprights and header; the cargo machine is a broad housing with a dark aperture, so their function is carried by labels and color more than distinctive construction.",
+      "evidence": [
+        "C02_HERO_DOCK",
+        "C19_WORKER_INSPECTION_ARCH",
+        "C20_CARGO_EXAMINATION_MACHINE"
+      ],
+      "bounded_target": "Refine only visible construction cues on the existing scanner and cargo assemblies: frame joints, serviceable panel breaks, seals, roller-to-tunnel transition and object-specific edge treatment. Keep footprints, openings, poses, route and room boundaries fixed."
+    },
+    {
+      "rank": 2,
+      "defect": "Material families have too little tactile separation. Most walls, painted equipment, floors and dark structures read as smooth, similarly restrained surfaces; the tarp is the clearest fabric cue.",
+      "evidence": [
+        "C01_ENTRY",
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "C17_SERVICE_WALL_ELEVATION_CUTAWAY",
+        "C22_COVERED_TRANSFER_TROLLEY",
+        "C23_ELECTRICAL_DATA_SERVICES"
+      ],
+      "bounded_target": "Tune material response and localized broad variation on existing surfaces so concrete, painted steel, rubber, glass, paper and canvas separate at this render scale. Retain restrained wear and the current palette; avoid blanket grime or added texture noise."
+    },
+    {
+      "rank": 3,
+      "defect": "Large fixed views show sparse working and narrative dressing, especially the wall elevations and secondary circulation areas. The visual language establishes institutional order but gives limited evidence of workers, repairs or pressure.",
+      "evidence": [
+        "CORNER_SW",
+        "CORNER_SE",
+        "CORNER_NW",
+        "CORNER_NE",
+        "WALL_SOUTH",
+        "WALL_EAST",
+        "PLAYER_PINCH"
+      ],
+      "bounded_target": "Add or refine a small number of purposeful maintenance and shift traces only at existing work stations and quiet wall zones. Preserve the clear routes and negative space; do not fill the floor or relocate equipment."
+    },
+    {
+      "rank": 4,
+      "defect": "The inspection and check-in hierarchy is split across competing focal clusters. The scanner dominates the wide view, the cargo apparatus sits behind/alongside it, and the counter is legible mainly in dedicated close views.",
+      "evidence": [
+        "C02_HERO_DOCK",
+        "C03_CHECKIN_COUNTER",
+        "C19_WORKER_INSPECTION_ARCH",
+        "C20_CARGO_EXAMINATION_MACHINE",
+        "C27_OFFICE_FRONT_ELEVATION"
+      ],
+      "bounded_target": "Strengthen visual continuity using existing signage contrast, task-light emphasis and small construction links at current stations. Preserve all object poses, fixed camera framing, layout and boundaries."
+    }
+  ],
+  "scope_limits": [
+    "Scores 1\u20137 judge visible pixels only.",
+    "No claim is made about runtime performance, navigation, collision or interactions.",
+    "Category 8 and overall score are reserved until fresh technical evidence is received.",
+    "No score is rounded or adjusted to meet an acceptance threshold."
+  ]
+}

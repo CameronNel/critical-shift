@@ -1,0 +1,367 @@
+{
+  "review": "full-c04-spatial",
+  "reviewer": "fresh spatial/composition critic",
+  "timestamp_utc": "2026-10-02T23:32:00.677252+00:00",
+  "scope": "Read-only review of categories 1 and 3 from actual current pixels; report files are the only authored outputs.",
+  "independence": {
+    "prior_critics_or_scores_read": false,
+    "task_state_handoff_rationale_read": false,
+    "builder_code_read": false,
+    "native_processes_run": false,
+    "all_31_images_actually_opened": true
+  },
+  "authorities_read": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "edd0bd2bc1697171241711588be43605d7dc90af4a0e8f139fd4da48901188ae"
+    },
+    {
+      "path": ".agents/skills/blender-headless/SKILL.md",
+      "sha256": "0ba88219874b1a0e9bd023314213d5fb1de44f7120a92c90ef5738f630067c3e"
+    },
+    {
+      "path": "design/ART_DIRECTION.md",
+      "sha256": "a958c7dd68eaff6d73863eafd5566ec92c796a9ef9051395cb45a76ab916b0fe"
+    },
+    {
+      "path": "design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md",
+      "sha256": "1eb6c1c1e545474ce5f5d28485e33c3f939b6e2b362f059df36f158ba933c112"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/scenery/OVERHAUL_BRIEF.md",
+      "sha256": "8ed4b9d1f40429b1cee6d77cea1291e73cd3a3026db35fbcf5c34fcdf3213814"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/RUBRIC.md",
+      "sha256": "2ec6f0ed50e76242628006ec29bd7838044e63da85ab8019596c785900eb5352"
+    }
+  ],
+  "source": {
+    "path": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+    "sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+    "manifest_path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/manifest.json",
+    "manifest_sha256": "c13b7fd2aa87e120be32d991ce30ebe65eb1a2167ceed1ddf80a2f4e4eb312f3",
+    "complete": true,
+    "shot_count": 27,
+    "all_shot_hashes_verified": true,
+    "resolution": [
+      1067,
+      600
+    ],
+    "cold_open": false,
+    "spawn_reference_source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "spawn_reference_provenance_path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/reference-provenance.json",
+    "spawn_reference_hashes_verified": true
+  },
+  "scores": [
+    {
+      "category": 1,
+      "name": "Scale, layout and route readability",
+      "score": 95,
+      "threshold": "strictly greater than 93",
+      "passes_category_threshold": true,
+      "reasons": [
+        "Human-scale office, door, scanner and desk relationships are coherent across player-height views.",
+        "Four corners show distinct worker/cargo lanes and generous quiet circulation without obvious clutter blockage. Closed cart lane is correctly legible as closed.",
+        "The north return is visually plausible; floor markings and separate openings establish route structure.",
+        "Five points withheld for first-arrival check-in branch discoverability and overlapping lane/focal cues. No metric clearance pass is inferred from the images."
+      ]
+    },
+    {
+      "category": 3,
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score": 92,
+      "threshold": "strictly greater than 93",
+      "passes_category_threshold": false,
+      "reasons": [
+        "Worker arch and cargo conveyor have distinct, readable process silhouettes. Counter detail is functionally authored and legible in its local views.",
+        "Secondary storage, utility and concealed support functions remain quiet; broad negative space is well controlled.",
+        "Eight points withheld because the check-in hero is not discoverable in the entry/wide functional read, the scanner shares too much value/line language with the arrival/roof backdrop, and the cargo operator point is partially buried behind the gate post.",
+        "This is a composition quality failure of the strict threshold, not a demonstrated physical navigation failure."
+      ]
+    }
+  ],
+  "assigned_category_mean": 93.5,
+  "assigned_category_gate": "FAIL: category 3 is 92 and must be >93",
+  "owner_overall_99_gate": "Not evaluated: requires all eight categories and independent owner aggregation.",
+  "critical_visual_blockers": [],
+  "critical_visual_blocker_reason": "No catastrophic scale error, unreadable route opening, clear prop-blocked primary lane or dominant visual veto was established in the assigned spatial/composition scope. Category 3 still fails its strict quality gate.",
+  "repair_targets": [
+    {
+      "priority": 1,
+      "id": "S01",
+      "severity": "major_quality",
+      "title": "Make the off-axis check-in discoverable on first arrival",
+      "evidence": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "CORNER_NW",
+        "WALL_OFFICE_FRONT",
+        "VALIDATE_Spawn.png"
+      ],
+      "observed": "In the entry/wide views the left office reads mainly as glazing. The locally strong hatch is around the front face and contributes almost nothing to the first functional read. The orange scanner header and main lane visually imply inspection is the first destination.",
+      "repair": "Preserve the hatch, office wall and all object poses. Add one restrained perpendicular check-in locator at the existing office corner, or an equally concise physical station cue aligned with the existing side branch. Use a modest practical pool/reveal to connect that cue to the hatch. Avoid another large title panel or repeated text.",
+      "verify": "C01 and C02 should identify both the worker inspection destination and the check-in branch at a glance; C03, DETAIL_CHECKIN and WALL_OFFICE_FRONT must retain their local clarity."
+    },
+    {
+      "priority": 2,
+      "id": "S02",
+      "severity": "moderate_quality",
+      "title": "Separate the worker arch from the arrival-door and ceiling backdrop",
+      "evidence": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "C04_SCANNER_APPROACH",
+        "HERO_SCANNER",
+        "C10_ROOF_SERVICES"
+      ],
+      "observed": "Scanner uprights, arrival door framing and ceiling crossings share dark navy/grey values. The orange scanner header and orange arrival header form competing stacked bands. The opening is readable, but hierarchy relies heavily on its title panel.",
+      "repair": "Keep native shapes/poses, openings and roof structure fixed. Tune local light direction and broad value separation so the scanner front edges/inner return are distinct from the dimmer arrival backdrop. Reduce conspicuous ceiling highlights directly behind its crown rather than adding emissive trim or decorative geometry.",
+      "verify": "Same fixed cameras should retain one immediate worker-arch silhouette while the arrival gate remains readable as the secondary endpoint."
+    },
+    {
+      "priority": 3,
+      "id": "S03",
+      "severity": "moderate_quality",
+      "title": "Clarify the cargo operator point within the existing footprint",
+      "evidence": [
+        "C02_HERO_DOCK",
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO"
+      ],
+      "observed": "The orange crate and lit tunnel mouth identify the inspection process, but the smaller side operator controls sit behind the closed-bypass post and low-contrast housing. The machine reads more as a conveyor destination than a staffed examination point.",
+      "repair": "Preserve crate, gate, conveyor and operator-control poses. Use restrained local illumination and material/value separation on the control face and supporting arm; clarify its screen/control face hierarchy without adding another screen, large sign or moving the apparatus.",
+      "verify": "C02 and HERO_CARGO should reveal the operator point as a coherent subordinate function, without making it brighter than the tunnel mouth or worker arch."
+    }
+  ],
+  "runtime_unverified": [
+    "Collision/navigation and measured player/cart clearance",
+    "Gate opening, state changes, interaction affordances and inspection sequence",
+    "Runtime visibility, camera/FOV, performance and lighting"
+  ],
+  "limitations": [
+    "Fixed renders establish authored visual legibility only. Native binary was hashed, not opened or geometrically inspected.",
+    "No objective support/clearance report was read and no technical/category-8 pass is asserted.",
+    "No prior-cycle image comparison was performed; stability/regression gates remain separate.",
+    "Manifest declares cold_open=false; this batch is not evidence of a completed cold-open/render comparison."
+  ],
+  "inspected_files": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C01_ENTRY.png",
+      "sha256": "6d7b17d544b4d0ebf6a4c34e15954db5ed38a430ce8e87fcf43d1cfd3d6541d6",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Worker arch and closed cart lane read immediately. Check-in hatch is outside the visible frontal composition; office glazing gives little evidence of the required first service point."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C02_HERO_DOCK.png",
+      "sha256": "0fe05c82c4e14c3712f05fa7cef9b8b837782e0282233b9a168c97ddc1de3182",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Strong worker/cargo split and open approach. Crate and gate post dominate the cargo control-side silhouette. Check-in remains absent from the main functional composition."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C03_CHECKIN_COUNTER.png",
+      "sha256": "4937a0346bea910039a4cfb1c20d0b7fa505dfea577a1022c4160e15376ce84c",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Locally clear staffed transaction point: counter, grille, document tray and stamp form a coherent human-scale cluster. This clarity does not carry into the entry view."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C04_SCANNER_APPROACH.png",
+      "sha256": "b82b5b357fc28851e3282b93090e6a8b390b0ffc47bff484340b518d6d516896",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Unambiguous opening and threshold plate; route continues through the arch. Door ribs share navy/grey value language with the scanner behind it."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "sha256": "a7822b05471ffb3809cced8ebec4de45317366898d639fc0cdde0d1dce748e9b",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Conveyor, crate and curtain convey cargo inspection clearly. Operator housing is partly hidden by the near gate post and equipment body."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C06_CART_GATE_G1.png",
+      "sha256": "4524265b77befbe89fc0d28f2fbfc3ec523e6dab3a30772e34fbd0112b17db40",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Closed bypass is visibly closed, rather than falsely presented as a clear path. Rail and sliding leaves read as manufactured controls of a reserved cargo lane."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C07_OFFICE_INTERIOR.png",
+      "sha256": "9cb75663563a5f1a7721587816e6f2265c200ec3d5f20fe7c2c490cfb0083656",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Plausible desk, chair and staff door relationships with generous visual space. No visible furniture obstruction of the office door."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C08_CONCEALED_SUPPORT_H1.png",
+      "sha256": "c28d26e314071e85bf890011bfdca48770f55fc7e08603ddf3c03807ef0a665c",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Trolley is recognizable as a covered transfer assembly; screen and bay provide the secondary concealed function. This is a secondary pocket, not a route focal point."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C09_ARRIVAL_GATE_P2.png",
+      "sha256": "d9f6d597484a5d836d4a2a5c7cea5d17df18393aca0dbf88a402b542a4862c0a",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Major endpoint is legible. Its large dark/navy rib pattern and orange header also create the strong backdrop that competes with the smaller scanner."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C10_ROOF_SERVICES.png",
+      "sha256": "00a57e57dadf140245469bda038ad7a376185fbc514e867922344d171649fc1f",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Believable vertical scale cue and overhead construction. Bright structural crossings over the arch increase competing visual lines in the main inspection composition."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/CORNER_SW.png",
+      "sha256": "ed4e7eedb8b0772293940c92ce817c295823ddb6fe2e71cfbcfa4adb841ff185",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Main approach and separate front check-in branch are visible from above. Counter occupies a sensible front corner; large central clearance is preserved."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/CORNER_SE.png",
+      "sha256": "d8a91f52102e77484c7553144db9ff74674828f1c936a69526f75b12eba0d844",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Worker arch and cart bypass divide the same main approach without a prop obstacle in the open floor. Support bay remains secondary."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/CORNER_NW.png",
+      "sha256": "cf71b82ef7c2af8d5ae51e9bb59e922f05a4e40450cf2bfe36ecea9fc87fa7e5",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Entry aperture, office hatch and inspection cluster relationship is clear in cutaway; hatch is around the side of the entry sightline."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/CORNER_NE.png",
+      "sha256": "fc43624ba292c9e33e7f1f2ad7a166487580c249b6dddc714ed2587f76930fa2",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Open entry region and separate office/support pockets confirm quiet space and distinct functional zoning. Layout itself is not the discoverability defect."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/WALL_SOUTH.png",
+      "sha256": "f381dd37bb321d5d27d7b5252075c390fd7890c60abddcdc27b7962ba6806f84",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Entry aperture reads against a quiet wall; one poster avoids visual crowding. Dark aperture is an endpoint, not a demonstrated collision failure."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/WALL_NORTH.png",
+      "sha256": "82fcbe8725e6eb0d65bc91535e0b78de0d02202b423b1edb43af495030a1fbcb",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Arrival gate dominates a restrained elevation; secondary storage/cabinets do not obstruct it."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/WALL_EAST.png",
+      "sha256": "0fe08518e9fe6d82db3279449ca9afdb8b3711cffe07c178377709a2d4c67511",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Utilities are a contained secondary cluster. Large quiet bays preserve hierarchy."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/WALL_WEST.png",
+      "sha256": "1583d41252f423ba43cb7fe10a4c18da24f69f98b7b3c213b2655711a308005a",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Office/support separation is visually coherent; privacy screen occupies the intended secondary bay."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/HERO_SCANNER.png",
+      "sha256": "52d10e1030ea3bad25acc1cf1a2cee0a3ca768dedda8f87335547862496f31ec",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Arch has believable human scale and clear threshold; overlapping arrival-door ribs and ceiling members reduce isolated silhouette clarity."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/HERO_CARGO.png",
+      "sha256": "b2b703ac584868c81398157879be65bbdea1848a88e9eaf040d9a07ea753e57b",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Machine mouth, rollers and sealed crate are readable. Operator control housing is partly obscured and comparatively low contrast."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/HERO_EVIDENCE.png",
+      "sha256": "d6361eb249efcdd67ba8d0b877d5ebabe12ee9e5d7a55d03ce668d2fe36e871a",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Storage doors are readable and distinct from the trolley. Partial foreground trolley overlap is consistent with the pocket arrangement; no evidence of physical intersection is asserted."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/HERO_TROLLEY.png",
+      "sha256": "d5e21462e2dfd7c5de934c4966e3ea38bbffea4c07a703c89394e853e5182d7a",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Complete silhouette identifies a covered wheeled transfer unit; bay composition stays dim and subordinate."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/HERO_UTILITIES.png",
+      "sha256": "5fde73eed84e76ae693a3b71ec358ef7b2ca069bdb770ed0c6d3612e98d5ea4c",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Secondary utility identity is clear. Cabinet colours/status controls share some inspection vocabulary but remain away from the main approach."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/DETAIL_CHECKIN.png",
+      "sha256": "85b1f12104f15b8c027325fc1967621bff31add41f55f2eb4a20ab759e006edd",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Strong functional counter composition with bounded documents, tray, tether and stamp. Specific working objects support the transaction identity."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/PLAYER_REVERSE.png",
+      "sha256": "a7ce31f28343c72c86ba989ea04f3ca7345ab852a6051b299d6333a43ec4957e",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Worker opening remains legible from the rear. Cart lane closure is obvious; orange staff door and glazing offer a clearer office read than the entry approach."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/PLAYER_PINCH.png",
+      "sha256": "61dee99542ebacc9ddef29196ea90bb4352a10efa24cbed07f142716e0da63b7",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "North return visually remains open between arrival gate, screen edge and equipment. Exact collision/body clearance cannot be established from this perspective."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/WALL_OFFICE_FRONT.png",
+      "sha256": "f8efa667311b4071accf8407eb060d49c64af1d0e09dc73c3b82746e4ebc228b",
+      "opened": true,
+      "role": "current_fixed_render",
+      "observation": "Frontal hatch reads well under its practical. Orange staff door is visually stronger than the smaller hatch; header names institutional reassurance rather than identifying check-in at distance."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "opened": true,
+      "role": "approved_spawn_reference",
+      "observation": "A quiet central hero screen is immediately readable; supporting props are clustered at one side. This supports focal hierarchy rather than uniform density."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "opened": true,
+      "role": "approved_spawn_reference",
+      "observation": "Bench/locker rows frame a clear central destination and open lane. Multiple functions remain recognizable before reading labels."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "opened": true,
+      "role": "approved_spawn_reference",
+      "observation": "Specific locker construction and sparse personal effects support authored object identity without forcing every surface to become focal."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "opened": true,
+      "role": "approved_spawn_reference",
+      "observation": "Clear main airlock destination with restrained, physically related branching-room identifiers. An off-axis room function is discoverable from the main approach."
+    }
+  ]
+}

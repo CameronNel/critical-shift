@@ -1,0 +1,162 @@
+{
+  "reviewer": "GPT-6 Luna (independent critic)",
+  "review": "compliance-dock full-cycle-04",
+  "revision": "f09",
+  "source_sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+  "visual_image_review": {
+    "manifest_complete": true,
+    "beauty_images_opened": 27,
+    "beauty_hashes_verified": 27,
+    "spawn_reference_images_opened": 4,
+    "resolution": [
+      1067,
+      600
+    ]
+  },
+  "technical_evidence_review": {
+    "technical_report": "critics/full-c04-technical/verdict.json",
+    "native_sha256_matches": true,
+    "github_fetch_portability_pass": true,
+    "cold_source_open_pass": true,
+    "cold_render_comparison_established": false
+  },
+  "scores": [
+    {
+      "category": 1,
+      "name": "Scale, layout and route readability",
+      "score": 87,
+      "evidence": "Floor route markings and openings make the primary inspection path legible in C01, C02, C25 and C26. The fixed views also reveal a congested hero zone where the scanner arch, cart gate and X-ray unit compete; the wall and corner views expose large unarticulated areas."
+    },
+    {
+      "category": 2,
+      "name": "Grounded stylized shape language and object-specific construction",
+      "score": 84,
+      "evidence": "The palette and scale read as an industrial facility, and the covered trolley has a recognizable manufactured frame and fabric cover. The scanner arch and cargo examination housing rely on broad box-like masses with sparse construction cues; repeated slab and beam forms remain conspicuous in C02, C19 and C20."
+    },
+    {
+      "category": 3,
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score": 86,
+      "evidence": "The scanner arch, cargo tunnel and check-in hatch each read as task equipment in their close views. In C02 the scanner takes the strongest foreground position while the cargo line is crowded behind it; the check-in counter appears as a separate, weakly connected focal point in C03 and C27."
+    },
+    {
+      "category": 4,
+      "name": "Tactile material identity and UV/texture discipline",
+      "score": 83,
+      "evidence": "Painted blue equipment, dark structure, canvas cover, floor and wall values are distinguishable by color and broad form, without noisy photoreal textures. Most visible surfaces nevertheless share smooth, low-variation responses; concrete, painted metal, rubber and fabric lack enough distinct tactile cues in C01\u2013C27."
+    },
+    {
+      "category": 5,
+      "name": "Localized lighting, depth and bleak atmosphere without hiding geometry",
+      "score": 87,
+      "evidence": "Practical fixtures and local pools create useful warm/cool separation, especially around the cargo tunnel and office/check-in station (C05, C07, C20, C24). The main bay remains broadly exposed, while the dark ceiling grid and deep shadows in secondary areas reduce form separation in C02, C10 and C25."
+    },
+    {
+      "category": 6,
+      "name": "Approved spawn colour coherence and restrained accents",
+      "score": 93,
+      "evidence": "The dock keeps a restrained steel/navy, warm neutral and orange-red hazard palette. Orange accents and dark blue framing echo the spawn references without turning the room into color confetti. The bay is cooler and more neutral than the warm orange/mauve spawn rooms, so coherence is partial rather than exact."
+    },
+    {
+      "category": 7,
+      "name": "Purposeful worker traces and coercive institutional storytelling",
+      "score": 78,
+      "evidence": "The \u201cState Your Number\u201d hatch, \u201cWe Value Your Time\u201d office sign, custody labels and covered transfer trolley imply institutional control and concealment (C03, C08, C18, C22, C27). Visible work traces are sparse: a clipboard, a few papers and small supplies do not yet make the rooms feel actively worked or deteriorating under pressure."
+    },
+    {
+      "category": 8,
+      "name": "Technical cleanliness, support contact, reproducibility and dependencies",
+      "score": 92,
+      "evidence": [
+        "Independent native audit matches the frozen source hash; all 1,077 baseline objects remain, original world matrices are unchanged, and no missing dependencies or exact duplicate triangles were found.",
+        "Static support validation passes for 44 assemblies and 91 anchors; 1,095 consumed-UV rows have zero coverage errors. The native is within the planning limits at 367,216 evaluated triangles, 1,148 material submeshes and 36 used material families (the family limit).",
+        "A separate GitHub-fetch portability check cold-opens the unchanged f09 source with all 25 linked libraries present and all 119 referenced image resources packed. This establishes source/dependency cold-open behavior, not a cold-render comparison.",
+        "The manifest sheet still has a repeatable real surface-intersection defect: 225 of 501 sampled header vertices and 18 of 772 first-line vertices are below the curled paper surface. Maximum header intrusion is 1.646 mm; this is visible in C03_CHECKIN_COUNTER and DETAIL_CHECKIN.",
+        "The independent validator passes with one warning about substantial architecture carrying false or missing circulation_solid labels. Dynamic support poses, game collision/navigation and runtime behavior remain unverified."
+      ]
+    }
+  ],
+  "score_arithmetic": {
+    "sum": 690,
+    "category_count": 8,
+    "overall_exact": 86.25,
+    "owner_overall_threshold": 99,
+    "overall_pass": false,
+    "category_gate_strictly_greater_than": 93,
+    "categories_passing_gate": [],
+    "categories_failing_gate": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "critical_assessment": {
+    "automatic_visual_vetoes": [],
+    "definite_structural_critical_defects": [],
+    "repair_required_visible_technical_defects": [
+      {
+        "id": "C04-MANIFEST-INK-BURIAL",
+        "views": [
+          "C03_CHECKIN_COUNTER",
+          "DETAIL_CHECKIN"
+        ],
+        "header_buried_samples": 225,
+        "header_samples": 501,
+        "header_max_intrusion_m": 0.0016461610794067383,
+        "line1_buried_samples": 18,
+        "line1_samples": 772,
+        "line1_max_intrusion_m": 0.00034046173095703125,
+        "cause": "The paper surface curls across the writing area while the retained font planes remain flat."
+      }
+    ],
+    "acceptance": "FAIL \u2014 overall 86.25/100 is below 99; all eight categories are at or below 93 and therefore fail the strict >93 gate. The repeatable print-burial defect is unresolved.",
+    "runtime_unverified": [
+      "engine collision",
+      "navigation",
+      "playtesting",
+      "runtime interaction",
+      "draw calls",
+      "FPS",
+      "dynamic P2 swept poses",
+      "load capacity"
+    ]
+  },
+  "highest_impact_repairs": [
+    {
+      "rank": 1,
+      "defect": "Printed manifest header and first-line glyphs penetrate the curled writing surface in two mandatory check-in views.",
+      "evidence": "Current native sampling finds 225/501 header vertices and 18/772 line-1 vertices buried; header maximum penetration is 1.646 mm. Images: C03_CHECKIN_COUNTER and DETAIL_CHECKIN.",
+      "bounded_target": "Keep the existing counter and paper placement. Either flatten the writing area under the retained glyph planes or conform/place the text above the actual paper surface. Verify every glyph clears the paper, then rerender both fixed views and rerun the contact check."
+    },
+    {
+      "rank": 2,
+      "defect": "The scanner arch and cargo examination housing rely on broad box-like forms with limited construction cues, weakening hero distinction and making the wide inspection view visually crowded.",
+      "evidence": "C02_HERO_DOCK, HERO_SCANNER, HERO_CARGO.",
+      "bounded_target": "Refine joints, service panel breaks, seals and the roller-to-tunnel transition on the existing assemblies. Preserve footprints, apertures, object poses, camera framing, layout and boundaries."
+    },
+    {
+      "rank": 3,
+      "defect": "Most walls, painted equipment, floors and dark structural elements have similar smooth, low-variation material responses.",
+      "evidence": "C01_ENTRY, C05_CONVEYOR_LEAD_TUNNEL, WALL_EAST, HERO_UTILITIES.",
+      "bounded_target": "Adjust existing material response and broad surface variation to separate concrete, painted steel, rubber, glass, paper and canvas at the fixed render scale. Keep wear localized and avoid blanket grime or noise."
+    },
+    {
+      "rank": 4,
+      "defect": "Large wall and secondary-area views give limited evidence of an active, pressured workplace; worker and repair traces are sparse.",
+      "evidence": "CORNER_SW, CORNER_SE, CORNER_NW, CORNER_NE, WALL_SOUTH, WALL_EAST, PLAYER_PINCH.",
+      "bounded_target": "Add or refine a few purposeful shift and maintenance traces at current stations or quiet wall areas. Preserve route clearance, negative space, all equipment poses and room boundaries."
+    }
+  ],
+  "verification_limits": [
+    "The current source passed a cold source-open portability check from the fetched GitHub revision, with its 25 native libraries and 119 packed image resources present.",
+    "A fresh cold-open/render comparison is not established by the supplied reports; render manifests record cold_open=false.",
+    "I did not read prior critic reports or prior cycle scores. Minimum four full cycles and final-two material stability are not certified by this report.",
+    "Runtime collision, navigation, interaction, draw calls and FPS are unverified; no runtime pass is claimed."
+  ],
+  "source_or_scene_modified_by_critic": false
+}

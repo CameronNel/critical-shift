@@ -1,0 +1,246 @@
+{
+  "cycle": 4,
+  "revision": "f09",
+  "native_sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+  "category": 8,
+  "category_name": "Technical cleanliness, support contact, reproducibility and dependencies",
+  "score": 92.0,
+  "category_threshold_strictly_greater_than": 93,
+  "category_pass": false,
+  "overall_score_assigned": false,
+  "acceptance_recommendation": "REPAIR REQUIRED; do not certify 99/100 or ready-for-review gate from this revision",
+  "score_rationale": "Strong native preservation, real static bearing construction, UV coverage and dependency results are offset by a repeatable visible printed-surface penetration in a mandatory hero view. Nearly 45 percent of sampled header vertices are buried. That is unresolved technical geometry cleanliness, not acceptable at this strict category gate. Architecture circulation labels also retain a validator warning. Runtime uncertainties are disclosed, not treated as demonstrated defects or charged as engine failures.",
+  "definite_structural_critical_defects": [],
+  "definite_visible_technical_defects": [
+    {
+      "id": "C04-MANIFEST-INK-BURIAL",
+      "severity": "repair-required visible technical defect",
+      "objects": [
+        "Counter manifest paper",
+        "Manifest header",
+        "Manifest line 1"
+      ],
+      "views": [
+        "C03_CHECKIN_COUNTER",
+        "DETAIL_CHECKIN"
+      ],
+      "paper_z_bounds_m": [
+        1.0509999990463257,
+        1.056986689567566
+      ],
+      "all_manifest_font_plane_z_m": 1.0540000200271606,
+      "extrusion_m": 0,
+      "header_buried_sampled_vertices": [
+        225,
+        501
+      ],
+      "header_signed_gap_range_m": [
+        -0.0016461610794067383,
+        0.0009951591491699219
+      ],
+      "line1_buried_sampled_vertices": [
+        18,
+        772
+      ],
+      "line1_max_burial_m": 0.00034046173095703125,
+      "cause": "Corner curl changes triangulation of the large paper top face across the writing surface while retained FONT planes stay flat. Ink and paper have adequate nominal contrast; the native proves actual occlusion.",
+      "repair_expectation": "Keep the writing surface compatible with the retained flat glyphs or place/conform actual ink above the actual paper. Verify every glyph clears the paper and rerender both affected fixed views."
+    }
+  ],
+  "counters": {
+    "geometry_objects": 1147,
+    "scene_objects": 1316,
+    "evaluated_triangles": 367216,
+    "material_submeshes": 1148,
+    "used_material_count": 36,
+    "used_material_names": [
+      "CD | Crate handling polish",
+      "CD | D1 handled paint",
+      "CD | Floor traffic polish",
+      "CD | Handled linoleum",
+      "CD | Worktop lip wear",
+      "CD | amber_lamp",
+      "CD | blue",
+      "CD | brass",
+      "CD | charcoal",
+      "CD | coffee",
+      "CD | concrete",
+      "CD | coral",
+      "CD | coral | text object metres",
+      "CD | cotton",
+      "CD | fabric",
+      "CD | glass",
+      "CD | green_lamp",
+      "CD | ink",
+      "CD | ink | text object metres",
+      "CD | ivory",
+      "CD | ivory | text object metres",
+      "CD | lens",
+      "CD | navy",
+      "CD | paper",
+      "CD | paper | text object metres",
+      "CD | plaster",
+      "CD | plastic",
+      "CD | red_lamp",
+      "CD | rubber",
+      "CD | screen",
+      "CD | steel",
+      "CD | warm_lamp",
+      "CD | wear",
+      "CD | wood",
+      "CD | yellow",
+      "CD | yellow | text object metres"
+    ],
+    "targets": {
+      "triangles_max": 450000,
+      "material_submeshes_max": 1150,
+      "material_families_max": 36
+    }
+  },
+  "baseline": {
+    "sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+    "objects": 1077,
+    "triangles": 297672,
+    "material_submeshes": 992,
+    "missing_objects": [],
+    "changed_original_matrices": []
+  },
+  "protected_inputs_match": true,
+  "recipe_hashes_match": true,
+  "dependencies_missing": 0,
+  "exact_duplicate_triangles": 0,
+  "uv_consumed_rows": 1095,
+  "uv_coverage_errors": 0,
+  "support": {
+    "validator_pass": true,
+    "registered_assemblies": 44,
+    "anchors": 91,
+    "warnings": [
+      {
+        "code": "unlabelled_substantial_architecture",
+        "message": "Substantial architectural geometry was conservatively included despite its false/missing circulation_solid label.",
+        "objects": [
+          "P1 corridor ceiling",
+          "P1 deep door leaf",
+          "Support screen base curb",
+          "Support screen top cap",
+          "Truss top chord 2.2",
+          "Truss bot chord 2.2",
+          "Truss diag A 2.2_-5.6",
+          "Truss diag B 2.2_-5.6",
+          "Truss diag A 2.2_-2.4",
+          "Truss diag B 2.2_-2.4",
+          "Truss diag A 2.2_0.8",
+          "Truss diag B 2.2_0.8",
+          "Truss diag A 2.2_4.0",
+          "Truss diag B 2.2_4.0",
+          "Truss top chord 5.2",
+          "Truss bot chord 5.2",
+          "Truss diag A 5.2_-5.6",
+          "Truss diag B 5.2_-5.6",
+          "Truss diag A 5.2_-2.4",
+          "Truss diag B 5.2_-2.4",
+          "Truss diag A 5.2_0.8",
+          "Truss diag B 5.2_0.8",
+          "Truss diag A 5.2_4.0",
+          "Truss diag B 5.2_4.0",
+          "Truss top chord 8.2",
+          "Truss bot chord 8.2",
+          "Truss diag A 8.2_-5.6",
+          "Truss diag B 8.2_-5.6",
+          "Truss diag A 8.2_-2.4",
+          "Truss diag B 8.2_-2.4",
+          "Truss diag A 8.2_0.8",
+          "Truss diag B 8.2_0.8",
+          "Truss diag A 8.2_4.0",
+          "Truss diag B 8.2_4.0",
+          "Truss top chord 11.2",
+          "Truss bot chord 11.2",
+          "Truss diag A 11.2_-5.6",
+          "Truss diag B 11.2_-5.6",
+          "Truss diag A 11.2_-2.4",
+          "Truss diag B 11.2_-2.4",
+          "Truss diag A 11.2_0.8",
+          "Truss diag B 11.2_0.8",
+          "Truss diag A 11.2_4.0",
+          "Truss diag B 11.2_4.0",
+          "Truss top chord 13.9",
+          "Truss bot chord 13.9",
+          "Truss diag A 13.9_-5.6",
+          "Truss diag B 13.9_-5.6",
+          "Truss diag A 13.9_-2.4",
+          "Truss diag B 13.9_-2.4",
+          "Truss diag A 13.9_0.8",
+          "Truss diag B 13.9_0.8",
+          "Truss diag A 13.9_4.0",
+          "Truss diag B 13.9_4.0",
+          "Supply diffuser drop 3.0",
+          "Supply diffuser drop 6.0",
+          "Supply diffuser drop 9.0",
+          "Supply diffuser drop 12.0",
+          "Supply diffuser drop 14.5",
+          "Cable tray longitudinal -1.5",
+          "Cable tray longitudinal 0.8",
+          "Cable tray longitudinal 4.8"
+        ]
+      }
+    ],
+    "P2_actual_internal_topology_and_contact_pass_static": true,
+    "P2_dynamic_pose_coverage": "UNVERIFIED"
+  },
+  "pixels": {
+    "beauty_sources_individually_opened": 27,
+    "diagnostics_individually_opened": 8,
+    "spawn_references_individually_opened": 4,
+    "source_resolution_beauty_diagnostics": [
+      1067,
+      600
+    ],
+    "source_resolution_spawn": [
+      1280,
+      720
+    ],
+    "all_current_render_manifest_hashes_independently_verified": true,
+    "additional_definite_pixel_blockers": []
+  },
+  "verification_limits": [
+    "Current native independently cold opened and inspected, but full prescribed cold-open/render comparison is not established by this audit; these 35 render manifests say cold_open=false.",
+    "Prior critic reports/scores were deliberately not read, so this critic cannot certify minimum four complete cycles or final-two material stability.",
+    "Dynamic P2 sweeps, collision/navigation, load capacity, engine draw calls and FPS remain unverified.",
+    "UV diagnostics cover four selected subjects; numeric consumed-layer audit covers 1095 rows, not a baked lightmap packing guarantee."
+  ],
+  "audit_honesty": [
+    "Initial library probe double-applied parent context; corrected direct Library.filepath resolution finds zero missing libraries.",
+    "Initial parity ray step1e-7m fell below world-coordinate float32 precision; corrected2e-5m yields75 interior samples per hanger.",
+    "Initial uncentered signed volume lost small-part precision; corrected centered accumulation.",
+    "One combined audit invocation used obsolete root interface.json; current project validator rerun with contracts/interface.json passed."
+  ],
+  "scene_mutated_or_saved_by_critic": false,
+  "all_native_handles_released": true,
+  "all_critic_blender_processes_exited": true,
+  "evidence_files": [
+    "pixel-inspection-evidence.json",
+    "native-independent.json",
+    "independent-uv.json",
+    "validator-independent.json",
+    "mechanical-native.json",
+    "manifest-paper-ink.json",
+    "numerical-summary.json",
+    "read-only-audit.log",
+    "mechanical-native.log",
+    "manifest-paper-ink.log"
+  ],
+  "raw_evidence_directory": "full-c04-technical",
+  "raw_evidence_links": [
+    "full-c04-technical/pixel-inspection-evidence.json",
+    "full-c04-technical/native-independent.json",
+    "full-c04-technical/independent-uv.json",
+    "full-c04-technical/validator-independent.json",
+    "full-c04-technical/mechanical-native.json",
+    "full-c04-technical/manifest-paper-ink.json",
+    "full-c04-technical/numerical-summary.json",
+    "full-c04-technical/read-only-audit.log",
+    "full-c04-technical/mechanical-native.log",
+    "full-c04-technical/manifest-paper-ink.log"
+  ]
+}

@@ -38,7 +38,9 @@ for rel,expected in json.loads((ROOT/'revamp/production/protected-inputs.json').
 for name,expected in json.loads(S['recipe_sha256']).items():
     actual=sha(ROOT/name);report['recipe_integrity'].append({'path':name,'expected':expected,'actual':actual,'pass':actual==expected})
 for lib in bpy.data.libraries:
-    raw=bpy.path.abspath(lib.filepath,library=lib.parent)
+    # Loaded Library.filepath is already resolved/rebased to the main-file
+    # context; passing its parent again incorrectly adds that context twice.
+    raw=bpy.path.abspath(lib.filepath)
     if not Path(raw).is_file():report['dependency_defects'].append({'type':'library','name':lib.name,'path':raw})
 for image in bpy.data.images:
     if image.source in {'FILE','MOVIE','SEQUENCE','TILED'} and not image.packed_file and not getattr(image,'packed_files',()):
@@ -63,7 +65,8 @@ def contains(tree,point):
         for _ in range(200):
             hit=tree.ray_cast(origin,direction,100)
             if hit[0] is None:break
-            count+=1;origin=hit[0]+direction*1e-7
+            # Native world Y is ~16m: 1e-7m is below float32 precision there.
+            count+=1;origin=hit[0]+direction*2e-5
         votes.append(count%2==1)
     return all(votes)
 islands=[];objects={};triangles=0;submeshes=0;materials=set();seen={};mesh_count=0
@@ -102,7 +105,10 @@ for o in S.objects:
             selected_faces=[f for f in faces if f and f[0] in component]
             iv=[vs[i] for i in sorted(component)];iff=[[mapping[i] for i in f] for f in selected_faces]
             tree=BVHTree.FromPolygons(iv,iff,all_triangles=False) if iff else None
-            volume=sum(vs[t.vertices[0]].dot(vs[t.vertices[1]].cross(vs[t.vertices[2]]))/6 for t in me.loop_triangles if t.vertices[0] in component)
+            origin=sum(iv,Vector())/len(iv)
+            # Translate to a nearby origin before accumulating tiny volumes;
+            # world-coordinate cross products lose precision on small keys.
+            volume=sum((vs[t.vertices[0]]-origin).dot((vs[t.vertices[1]]-origin).cross(vs[t.vertices[2]]-origin))/6 for t in me.loop_triangles if t.vertices[0] in component)
             rec={'object':o.name,'ancestry':ancestor_names(o),'island':len(islands),
                  'world_bounds':box(cv),'vertices':len(cv),'faces':len(selected_faces),'signed_volume_m3':volume}
             report['focused_islands'].append(rec);islands.append((rec,tree,iv))
