@@ -1,7 +1,7 @@
 """Fixed fuel cameras rendered in the actual assembled map, without saving it.
 
 blender -b --factory-startup --disable-autoexec --python-exit-code 1 \
- --python sections/fuel-corridor/blender/render_live_map_views.py -- --cycle F18ci
+ --python sections/fuel-corridor/blender/render_live_map_views.py -- --review-cycle F18ci
 """
 from pathlib import Path
 import argparse,datetime,hashlib,json,os,runpy,sys
@@ -9,7 +9,7 @@ import bpy
 
 ROOT=Path(__file__).resolve().parents[3]
 TASK=ROOT/'sections/fuel-corridor/production'
-parser=argparse.ArgumentParser();parser.add_argument('--cycle',required=True);parser.add_argument('--cameras')
+parser=argparse.ArgumentParser();parser.add_argument('--review-cycle',dest='cycle',required=True);parser.add_argument('--cameras')
 args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
 source=ROOT/'sections/facility-assembly/sources/fuel-corridor/module.blend'
 main=ROOT/'sections/facility-assembly/blender/facility_environment.blend'
@@ -33,6 +33,7 @@ cameras=(args.cameras or default).split(',')
 report={'schema':'fuel-assembled-map-fixed-view-evidence/1','created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
         'scene':str(source.relative_to(ROOT)),'scene_sha256':native_sha,'canonical_map_sha256':main_sha,
         'recipe_sha256':build['recipe_sha256'],'lighting_installer_sha256':sha(ROOT/'open_fuel_overhaul.py'),
+        'renderer_sha256':sha(Path(__file__)),
         'lighting_policy':json.loads(instance['fc_lighting_policy']),'blender':bpy.app.version_string,
         'engine':'CYCLES','device':'CPU','samples':scene.cycles.samples,'seed':7,'denoise':True,
         'resolution':[scene.render.resolution_x,scene.render.resolution_y],'view_transform':scene.view_settings.view_transform,
