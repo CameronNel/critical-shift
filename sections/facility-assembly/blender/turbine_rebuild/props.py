@@ -110,8 +110,8 @@ def build(b):
         for t, p in ((8.4, False),): socket(b, fu(t), .5, plug=p)
     import furniture; furniture.chair(b, 7.0, 22.3, math.pi / 2 + .55, 'steel_dark')                                       # operator chair in front of the desk
     import machinery as MM                                                                           # nameplates on the generator and on the foundation rail
-    b.box((MM.CX + 1.14, 18.65, MM.AZ + .05), (.04, 2.3, .6), 'trim_black', bev=.012); b.box((MM.CX + 1.162, 18.65, MM.AZ + .05), (.006, 2.2, .5), 'oxide_dark')
-    b.text('GENERATOR  G-2', (MM.CX + 1.17, 18.65, MM.AZ + .14), .19, 'chalk', math.pi / 2, math.pi / 2); b.text('24 kV  3 PHASE  50 Hz', (MM.CX + 1.17, 18.65, MM.AZ - .13), .095, 'chalk', math.pi / 2, math.pi / 2)
+    b.box((MM.CX + 1.14, 18.65, MM.AZ + .05), (.04, 1.7, .5), 'trim_black', bev=.012); b.box((MM.CX + 1.162, 18.65, MM.AZ + .05), (.006, 1.6, .42), 'oxide_dark')
+    b.text('GENERATOR  G-2', (MM.CX + 1.17, 18.65, MM.AZ + .1), .15, 'chalk', math.pi / 2, math.pi / 2); b.text('24 kV  3 PHASE', (MM.CX + 1.17, 18.65, MM.AZ - .1), .085, 'chalk', math.pi / 2, math.pi / 2)
     with b.push((6.75, 10.95, 0), math.pi / 2):                                                           # tag sign hung from the foundation rail, facing along the walkway
         b.box((0, 0, 1.78), (.04, 1.0, .34), 'trim_black', bev=.012); b.box((-.022, 0, 1.78), (.006, .94, .28), 'oxide_dark')
         b.text('LP TURBINE  2', (-.026, 0, 1.85), .1, 'chalk', -math.pi / 2, math.pi / 2); b.text('ROTOR  3000 RPM', (-.026, 0, 1.72), .055, 'chalk', -math.pi / 2, math.pi / 2)

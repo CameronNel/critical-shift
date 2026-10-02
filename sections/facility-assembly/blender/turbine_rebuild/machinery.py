@@ -21,7 +21,7 @@ def handwheel(b, c, R=.17, sw='red'):
     for k in range(3): b.box(c, (R * 2 - .02, .018, .014), sw, (0, 0, k * math.pi / 3))
 
 def valve(b, c, r=.14, wheel=True):
-    b.box(c, (r * 2.4, r * 2.2, r * 2.0), 'steel_dark', bev=.02)
+    b.cyl(c, r * 1.15, r * 2.0, 'steel_dark', 'Z', 18, bev=.012)
     for dz in (-r * 1.0, r * 1.0): b.cyl((c[0], c[1], c[2] + dz), r * 1.25, .035, 'steel_light', 'Z', 20, bev=.006)
     for k in range(4): a = k * math.pi / 2 + .4; b.cyl((c[0] + r * 1.0 * math.cos(a), c[1] + r * 1.0 * math.sin(a), c[2] + r * 1.0 + .03), .014, .03, 'steel_dark', 'Z', 6)
     b.cyl((c[0], c[1], c[2] + r * 1.4), r * .7, r * 1.2, 'steel_mid', 'Z', 20, bev=.008)
