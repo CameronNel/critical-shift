@@ -74,6 +74,11 @@ def palette():
     'patch':('#B9B3A2',.9,0,.0010,1.4,.08),
     'cool plaster':('#AABAC4',.89,0,.0014,1.5,.09),
     'warm plaster':('#C0AF99',.89,0,.0010,1.4,.08),
+    'transfer plaster':('#B29A93',.88,0,.0014,1.4,.10),
+    'reactor sheet':('#788D99',.58,.18,.00045,3,.10),
+    'sanitary ceramic':('#BCCBC8',.40,0,.0003,3,.08),
+    'sanitary ceramic light':('#C8D1C6',.43,0,.0003,3,.08),
+    'sanitary grout':('#758585',.9,0,.0007,3,.07),
     'repaired blue enamel':('#697A85',.72,.08,.0004,3,.10),
     'navy enamel':('#384B66',.58,.12,.00045,3,.10),
     'ink enamel':('#272E39',.65,.18,.00035,4,.05),
@@ -82,7 +87,7 @@ def palette():
     'warm enamel':('#D1C7AD',.6,.1,.0003,4,.06),
     'replacement enamel':('#86919A',.65,.12,.0003,3,.07),
     'steel':('#7A8389',.42,.86,.00015,3,.08),
-    'dark steel':('#444C54',.5,.78,.0002,3,.1),
+    'dark steel':('#5A656B',.5,.65,.0002,3,.1),
     'brass':('#A08346',.45,.77,.00015,4,.09),
     'rubber':('#25272A',.94,0,.0008,8,.07),
     'floor':('#8B8478',.55,0,.0004,1,.10),
@@ -99,7 +104,7 @@ def palette():
     'canvas':('#ABA594',.98,0,.0006,8,.1),
     'cotton':('#657A91',.98,0,.00045,12,.08),
     'leather':('#625548',.89,0,.0006,5,.12),
-    'wood':('#9B7650',.75,0,.0005,5,.16),
+    'wood':('#BAAA8A',.75,0,.0005,5,.16),
     'red':('#A84C36',.67,.08,.00045,3,.1),
     'ink':('#282B2C',.94,0,.0001,9,.025),
     'white ink':('#D8D3C2',.92,0,.0001,9,.035),
@@ -128,7 +133,7 @@ def packed_reference_textures():
     with bpy.data.libraries.load(str(source),link=False) as (a,b):
         b.images=[n for n in names if n in a.images]
     images={i.name:i for i in b.images if i}
-    for family,stem,strength,relief in [('wood','wood_table_worn',.78,.0015),('plaster','painted_plaster_wall',.58,.0035),
+    for family,stem,strength,relief in [('wood','wood_table_worn',.94,.0024),('transfer plaster','painted_plaster_wall',.62,.0035),('plaster','painted_plaster_wall',.58,.0035),
                                       ('cool plaster','painted_plaster_wall',.54,.0035),('warm plaster','painted_plaster_wall',.54,.0035),
                                       ('patch','painted_plaster_wall',.20,.0013),('steel','metal_plate',.16,.0002),
                                       ('dark steel','metal_plate',.13,.0002),('navy enamel','metal_plate',.12,.00015),
@@ -147,6 +152,7 @@ def packed_reference_textures():
             height.colorspace_settings.name='Non-Color'
             ht=nodes.new('ShaderNodeTexImage');ht.image=height;links.new(mapping.outputs[0],ht.inputs[0])
             bu=nodes.new('ShaderNodeBump');bu.inputs['Distance'].default_value=relief;bu.inputs['Strength'].default_value=.28
+            if p.inputs['Normal'].links:links.new(p.inputs['Normal'].links[0].from_socket,bu.inputs['Normal'])
             links.new(ht.outputs['Color'],bu.inputs['Height']);links.new(bu.outputs[0],p.inputs['Normal'])
         if rough:
             rough.colorspace_settings.name='Non-Color'
@@ -202,13 +208,18 @@ def add(b,name,collection='FC | Equipment',pos=(0,0,0),angle=0,normal=None,
             world=o.matrix_world.copy();o.parent=p;o.matrix_world=world
     else:o['fc_support_kind']='structural-core'
     # Explicit metre-space UVs for editable source and future authored map baking.
-    uv=o.data.uv_layers.new(name='UVMap')
+    project_uv(o)
+    return o
+
+def project_uv(o):
+    uv=o.data.uv_layers.get('UVMap') or o.data.uv_layers.new(name='UVMap')
+    o.data.uv_layers.active=uv
+    uv.active_render=True
     for p in o.data.polygons:
         axis=max(range(3),key=lambda i:abs(p.normal[i]));axes=[i for i in range(3) if i!=axis]
         for li in p.loop_indices:
             co=o.data.vertices[o.data.loops[li].vertex_index].co
             uv.data[li].uv=(co[axes[0]],co[axes[1]])
-    return o
 
 def polygon(b, pts, depth, material, pos=(0,0,0), rot=None,bevel=0):
     before=set(b.bm.verts);b.prism(pts,depth,material)
