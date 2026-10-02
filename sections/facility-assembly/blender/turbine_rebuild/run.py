@@ -132,6 +132,24 @@ occ_ob = objs.get('OCC')
 if occ_ob:
     om = bpy.data.materials.new('M_occluder'); om.diffuse_color = (.02, .02, .02, 1); om.use_nodes = True
     om.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value = (.02, .02, .02, 1); occ_ob.data.materials.append(om)
+# ---- drum labels: flat texture decal (stripes + stencil text live in the image, zero thickness, no shadow) ----
+import subprocess
+dpng = os.path.join(OUT, 'drum_labels.png'); subprocess.run(['python3', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'drumdecal.py'), dpng], check=True)
+dimg = bpy.data.images.load(dpng); dimg.colorspace_settings.name = 'sRGB'
+dm = bpy.data.materials.new('M_drum_decal'); dm.use_nodes = True; dnt = dm.node_tree; pb = dnt.nodes['Principled BSDF']
+tx = dnt.nodes.new('ShaderNodeTexImage'); tx.image = dimg; tx.interpolation = 'Linear'
+dnt.links.new(tx.outputs['Color'], pb.inputs['Base Color']); dnt.links.new(tx.outputs['Alpha'], pb.inputs['Alpha']); pb.inputs['Roughness'].default_value = .6
+dm.surface_render_method = 'BLENDED'
+NS, SPAN, ZB, ZT = 28, .9, .30, .62
+for di, (dx, dy, _c, _t1, _t2) in enumerate(props.DRUMS):
+    Rr = .27 + .0008; vs, ve = 1 - (di + 1) / len(props.DRUMS), 1 - di / len(props.DRUMS); vt = []; fc = []
+    for i in range(NS + 1):
+        th = -SPAN + 2 * SPAN * i / NS; vt += [(dx + Rr * math.sin(th), dy - Rr * math.cos(th), ZB), (dx + Rr * math.sin(th), dy - Rr * math.cos(th), ZT)]
+    for i in range(NS): fc.append((2 * i, 2 * i + 2, 2 * i + 3, 2 * i + 1))
+    me = bpy.data.meshes.new(f'DRUM_DECAL_{di}'); me.from_pydata(vt, [], fc); me.update(); uv = me.uv_layers.new(name='UVMap'); k = 0
+    for f in fc:
+        for vi in f: uv.data[k].uv = ((vi // 2) / NS, vs if vi % 2 == 0 else ve); k += 1
+    me.materials.append(dm); dob = bpy.data.objects.new(f'DRUM_DECAL_{di}', me); coll.objects.link(dob); dob.visible_shadow = False
 # ---- the floor: one slab with holes + one texture set (wetness, flow, cracks, wear and paint live in the maps) ----
 import floor as floor_layout, floortex, floormesh
 tex_prefix = os.path.join(OUT, 'turbine_floor')

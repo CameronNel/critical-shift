@@ -44,6 +44,8 @@ def vent(b, u, z, w=.9, h=.5):
     for k in range(6): b.box((u, .08, z - h / 2 + .06 + k * (h - .12) / 5), (w - .06, .02, .03), 'steel_dark', (math.radians(-28), 0, 0), bev=.004)
     b.box((u, .09, z), (.03, .02, h), 'steel_dark')
 
+DRUMS = [(9.05, 23.5, 'oxide', 'DIESEL', 'FLAMMABLE'), (9.62, 23.5, 'steel_dark', 'LUBE OIL', 'ISO 46')]   # label art is a texture decal built in run.py
+
 def build(b):
     b.use('PROPS'); R = b.rng
     # --- signage hung over the bay and on the foundation ---
@@ -117,19 +119,12 @@ def build(b):
         for dy in (-.4, .4): b.rod((0, dy, 1.95), (0, dy, 2.05), .012, 'steel_dark', 8)
     b.rod((6.9, 10.95, 2.05), (7.08, 10.95, 2.05), .012, 'steel_dark', 8); b.rod((6.45, 10.95, 2.05), (6.9, 10.95, 2.05), .012, 'steel_dark', 8)
     # --- tidy storage: drum group, pallet with crates, gas cylinders in a rack ---
-    for (x, y, c, t1, t2) in ((9.05, 23.5, 'oxide', 'DIESEL', 'FLAMMABLE'), (9.62, 23.5, 'steel_dark', 'LUBE OIL', 'ISO 46')):   # two drums side by side against the north wall
+    for (x, y, c, t1, t2) in DRUMS:   # two drums side by side against the north wall
         R = .27
         b.cyl((x, y, .45), R, .9, c, 'Z', 32, bev=.02)
         for z in (.2, .7): b.cyl((x, y, z), .277, .03, 'trim_black', 'Z', 32, bev=.006)                               # thin rolled ribs
         b.cyl((x, y, .9), .285, .045, 'steel_mid', 'Z', 32, bev=.01); b.cyl((x, y, .92), .22, .02, 'steel_mid', 'Z', 32)   # chime ring and recessed lid
         b.cyl((x + .1, y + .08, .935), .03, .02, 'steel_light', 'Z', 12); b.cyl((x - .1, y - .06, .935), .022, .016, 'steel_light', 'Z', 12)
-        for z in (.57, .33): b.cyl((x, y, z), R + .0008, .018, 'yellow', 'Z', 32)                                      # flat hazard stripes either side of the stencil
-        for (t, sz, zz) in ((t1, .06, .48), (t2, .04, .40)):                                                          # stencil text placed round the curve, painted straight on the steel
-            adv = sz * .66; n = len(t)
-            for i, ch in enumerate(t):
-                if ch == ' ': continue
-                th = (i - (n - 1) / 2) * adv / R
-                b.text(ch, (x + (R + .0015) * math.sin(th), y - (R + .0015) * math.cos(th), zz), sz, 'pale_steel', th, math.pi / 2, extrude=0)
     for dx in (-.4, 0, .4): b.box((6.8 + dx, 1.2, .06), (.1, .8, .1), 'wood_dark', bev=.01)
     for dy in (-.3, 0, .3): b.box((6.8, 1.2 + dy, .13), (1.0, .12, .03), 'wood', bev=.008)
     b.box((6.8, 1.2, .38), (.8, .6, .4), 'wood', bev=.015); b.box((6.8, 1.2, .79), (.7, .5, .36), 'orange_worn', bev=.015)

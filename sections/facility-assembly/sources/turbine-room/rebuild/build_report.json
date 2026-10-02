@@ -25,12 +25,12 @@
    "tris": 676
   },
   "PROPS": {
-   "faces": 16997,
-   "tris": 31828
+   "faces": 16501,
+   "tris": 31056
   }
  },
- "total_tris_before_cull": 203456,
- "total_tris": 370614,
+ "total_tris_before_cull": 202684,
+ "total_tris": 369842,
  "floor": {
   "top_faces": 9,
   "faces": 222,
@@ -75,10 +75,11 @@
   "MIMIC_FAULT": 12,
   "PROPS": 3662
  },
- "faces_kept": 82875,
+ "faces_kept": 82379,
  "faces_culled": 9369,
- "materials": 23,
+ "materials": 24,
  "images": [
+  "drum_labels.png",
   "turbine_atlas",
   "turbine_atlas_orm",
   "turbine_floor_albedo.png",
@@ -97,5 +98,5 @@
   "turbine_wall_west_normal.png",
   "turbine_wall_west_orm.png"
  ],
- "objects": 90
+ "objects": 92
 }
