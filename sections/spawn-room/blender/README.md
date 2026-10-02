@@ -254,8 +254,8 @@ the upper arm through a pure elbow hinge so the sleeve never twists at the elbow
 Stance (`STANCE`, `TOE_OUT`): the ankles stand 0.17 m either side of the centre line, 0.34 m apart where they were
 0.22 m before, and each foot turns out 5 degrees. This keeps the HZ-01 trouser legs and boots apart in every standing
 and stepping clip. The gait tracks are 0.135 m (walk and plain run) and 0.14 m (\o/ run) either side of the centre.
-Hanging mittens sit 0.365 m out, and the arms swing out from the shoulder (30 to 38 degrees), so they clear the wider
-hips.
+Hanging mittens sit 0.40 m out with the elbow turned out and a little forward (`POLE_HANG`), and the arms swing out
+from the shoulder (30 to 38 degrees), so they clear the wider hips, the belt pouches and the back of the armpit.
 
 ### Clips
 
@@ -290,20 +290,24 @@ targets with pitch and yaw), interpolated with a monotone cubic so nothing overs
   - `JUMP` (17: rise, deep crouch, spring; ends in the fall pose).
   - `FALL` (20 loop, arms up paddling).
   - `LAND` (19: a deep absorb held a beat, then back to standing).
-- Carrying (preview crate 0.34 x 0.30 x 0.28 m, held at the rear of its sides, its top edge in the first-person view):
+- Carrying (preview crate 0.34 x 0.30 x 0.28 m, held near the rear edge of its sides so the cuffs stay out of it,
+  carried 0.50 m out, its top edge in the first-person view):
   - `PICKUP` (36: look down, stoop so the arms come down in front of the knees, grip, brace, stand into the carry) and
     `PLACE` (36, the pickup reversed).
   - `CARRY_IDLE` (48), `CARRY_WALK` (26, 0.58 m/s), `CARRY_RUN` (20, 1.08 m/s).
   - `DROP` (22, a small heave first).
-  - `THROW_UNDER` (33, a deep wind-up held a beat) and `THROW_OVER` (31, a chest heave with a long step: the arms are
-    too short to lift a crate over the hood).
-  - `PUSH_IDLE` (32), `PUSH_WALK` (26, 0.69 m/s), `PULL_WALK` (26, walking backwards, 0.58 m/s).
+  - `THROW_UNDER` (33, a deep stooped wind-up held a beat, the crate swung out past the belly) and `THROW_OVER` (31, a
+    chest heave with a long step, thrust from far enough out to clear the visor: the arms are too short to lift a
+    crate over the hood).
+  - `PUSH_IDLE` (32), `PUSH_WALK` (26, 0.69 m/s), `PULL_WALK` (26, walking backwards, 0.58 m/s); the cart is held at
+    its outer rear corners.
   - `DRAG_BODY` (30, crouched, walking backwards with a body by its shoulder straps, 0.39 m/s).
 - Interactions at the worker's chest height (its shoulders are at 1.06 m and its chin at 1.15 m):
   - `PRESS_BUTTON` (24: look, draw the hand up, press, hold).
   - `PULL_LEVER` (31: look up, grip, drop the weight into an 80 degree pull, hold).
   - `TURN_VALVE` (32 loop, hand over hand, 60 degrees per loop) and `HOLD_VALVE` (32 loop, straining).
-  - `OPEN` (31, sit back, then push a door open stepping into it).
+  - `OPEN` (31, sit back, then push a door open stepping into it; the door is 30 degrees open before the body steps
+    in, so the visor stays clear of it).
   - `INSERT` (31, line a cartridge up, then push it home).
   - `CONNECT_PORT` (36, plugging the service cable into a worker in the OCRU).
   - `POINT` (26, gather, point, hold).
@@ -311,10 +315,11 @@ targets with pitch and yaw), interpolated with a monotone cubic so nothing overs
 - Hits and recovery:
   - `STAGGER_F`/`B`/`L`/`R` (26, a bigger lurch and a longer catch step each way).
   - `GETUP_FRONT` (48, from face down: push up, all fours, kneel, stand).
-  - `GETUP_BACK` (50, from the back: sit up, feet in, rock forward, stand).
+  - `GETUP_BACK` (50, from the back: up onto the hands behind, feet in, push off with the arms swinging forward, rock
+    onto the feet, stand; a hand on the floor beside an upright seated body is out of the arms' 0.45 m reach).
   - Lying bodies lie along +Y from the root and stand up on it.
 - Suit and OCRU:
-  - `SUIT_UP` (64, pull the suit up, settle it, zip, seat the hood).
+  - `SUIT_UP` (64, pull the suit up the outside of the legs and round the hip pockets, settle it, zip, seat the hood).
   - `LOCKER_EXIT` (28, two steps out of a locker 0.45 m behind the root).
   - `REANIM_IDLE` (48 loop, slumped in the upright OCRU cabinet), `REANIM_JOLT` (18, a shock) and `REANIM_EXIT` (28,
     wake and stumble out).
