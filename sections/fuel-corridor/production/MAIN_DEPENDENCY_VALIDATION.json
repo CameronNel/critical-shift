@@ -1,0 +1,73 @@
+{
+  "schema": "fuel-main-dependency-preservation/1",
+  "created_utc": "2026-10-02T20:40:16.296628+00:00",
+  "status": "PASS",
+  "canonical_map_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+  "frozen_R17_sha256": "4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937",
+  "spawn_reference_sha256": "1964d3d16716730631af0d5c77bcc604a64455092142cc57c0283172a563a977",
+  "exterior_libraries": [
+    {
+      "path": "sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend",
+      "sha256": "a2a2a57c6531cd6a4bf6a6d5b92d07b81d1630a4b5ab553ff762771127bb2ccb",
+      "bytes": 186699
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend",
+      "sha256": "48abbe1061e038749aab76e1fb1217a329abdd40592da7fba21d578842c75ade",
+      "bytes": 145527
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend",
+      "sha256": "29241944814b0eb02bd87c627448c2a9a05bfb4832efb786294e1752c722a92e",
+      "bytes": 174852
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend",
+      "sha256": "cf7ed65234a618ae957f4d5254dd0b008761da7a7d3e77cb85da095467b03551",
+      "bytes": 154956
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend",
+      "sha256": "2ecbdb89cf46e6b8b745f7b54d24714e77731fbb5544470ea2102ccbb74f1b29",
+      "bytes": 194359
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+      "sha256": "a123a72256b3f920e28bcdeaf942d3277bd2513fb14267c5686f9a7d9a8a9787",
+      "bytes": 159179
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend",
+      "sha256": "19e2808ff7edfd0415be7f66322568d992a0e67bd02a9e4f7907dfb6ac7a6385",
+      "bytes": 557109
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+      "sha256": "91dc6d076ef5b0a74f9b4931b253e14692081c1d9ec605dfa6ea0d0fd452710c",
+      "bytes": 213291
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+      "sha256": "5c236b25f3fef0243c5d086f71eb33d006a77cedfe05bfd91848d1ff1a245b5a",
+      "bytes": 268244
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend",
+      "sha256": "7483c0eebaacfb479a7a1c65e1da7430079c4332eb5dab836b5ad9259563e40d",
+      "bytes": 231835
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend",
+      "sha256": "c3cacb97088899afbf8202e1d44da0ec3d79d39b1c71408cbb629e8cf4ad2db8",
+      "bytes": 142008
+    }
+  ],
+  "native_sha256": "def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe",
+  "recipe_sha256": "2af15cd9f6915334ed42bad8c53e73b49a18ef7ea043597b49d59c2041e31e19",
+  "render": "sections/fuel-corridor/production/renders/integration/F23ci_complete_main_C03_HERO.png",
+  "render_sha256": "69dde89245f06d653ec4fb3f1ea2745e78e32b4e3897103327b0d4524585b8e0",
+  "frozen_files_byte_exact": true,
+  "missing_fuel_data_ids": 0,
+  "unrelated_missing_spawn_PPE_object_ids": 128,
+  "scope": "Read-only assembled-map render and dependency hashes; no frozen or other-room files saved. Historical unrelated spawn/PPE cache warnings retained. No Unity/runtime acceptance."
+}

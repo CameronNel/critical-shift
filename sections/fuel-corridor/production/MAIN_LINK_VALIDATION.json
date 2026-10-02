@@ -1,0 +1,134 @@
+{
+  "schema": "fuel-live-map-integration/1",
+  "canonical_map_sha256_before": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+  "canonical_map_sha256_after": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+  "module_sha256": "def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe",
+  "linked_collection": "MODULE_fuel-corridor",
+  "module_objects": 520,
+  "placement": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "hidden_old_cache": "VC | Roof-finished MATERIAL_PREVIEW_fuel-corridor",
+  "hidden_old_lights": [
+    "VC | Restored INTERIOR_Transfer_gate_key_pool",
+    "VC | Restored INTERIOR_Staging_warm_key_light",
+    "VC | Restored INTERIOR_Staging_warm_key_ceiling_bounce",
+    "VC | Restored INTERIOR_Staging_front_practical_light",
+    "VC | Restored INTERIOR_Staging_front_practical_ceiling_bounce",
+    "VC | Restored INTERIOR_Service_header_worklight_pool",
+    "VC | Restored INTERIOR_Service_corner_key_pool",
+    "VC | Restored INTERIOR_Route_guide_10_wash",
+    "VC | Restored INTERIOR_Route_guide_09_wash",
+    "VC | Restored INTERIOR_Route_guide_08_wash",
+    "VC | Restored INTERIOR_Route_guide_07_wash",
+    "VC | Restored INTERIOR_Route_guide_06_wash",
+    "VC | Restored INTERIOR_Route_guide_05_wash",
+    "VC | Restored INTERIOR_Route_guide_04_wash",
+    "VC | Restored INTERIOR_Route_guide_03_wash",
+    "VC | Restored INTERIOR_Route_guide_02_wash",
+    "VC | Restored INTERIOR_Route_guide_01_wash",
+    "VC | Restored INTERIOR_Route_guide_00_wash",
+    "VC | Restored INTERIOR_Refinery_approach_key_pool",
+    "VC | Restored INTERIOR_Recess_light_pool",
+    "VC | Restored INTERIOR_Reactor_turn_key_pool",
+    "VC | Restored INTERIOR_Reactor_right_key_pool",
+    "VC | Restored INTERIOR_Reactor_light",
+    "VC | Restored INTERIOR_Reactor_left_key_pool",
+    "VC | Restored INTERIOR_Reactor_ceiling_bounce",
+    "VC | Restored INTERIOR_Plant_light",
+    "VC | Restored INTERIOR_Plant_ceiling_bounce",
+    "VC | Restored INTERIOR_North_service_light",
+    "VC | Restored INTERIOR_North_service_ceiling_bounce",
+    "VC | Restored INTERIOR_North_service_2_light",
+    "VC | Restored INTERIOR_North_service_2_ceiling_bounce",
+    "VC | Restored INTERIOR_Motor_task_pool",
+    "VC | Restored INTERIOR_Medical_side_key_pool",
+    "VC | Restored INTERIOR_Gate_cool_fill_light",
+    "VC | Restored INTERIOR_Gate_cool_fill_ceiling_bounce",
+    "VC | Restored INTERIOR_Entry_wall_key_pool",
+    "VC | Restored INTERIOR_Entry_light",
+    "VC | Restored INTERIOR_Entry_ceiling_bounce",
+    "VC | Restored INTERIOR_East_wall_key_pool",
+    "VC | Restored INTERIOR_East_light",
+    "VC | Restored INTERIOR_East_ceiling_bounce",
+    "VC | Restored INTERIOR_Delivery_wall_key_pool",
+    "VC | Restored INTERIOR_Delivery_light",
+    "VC | Restored INTERIOR_Delivery_ceiling_bounce",
+    "VC | Restored INTERIOR_Cross_wall_key_pool",
+    "VC | Restored INTERIOR_Cross_light",
+    "VC | Restored INTERIOR_Cross_ceiling_bounce",
+    "VC | Restored INTERIOR_Cask_task_light_pool",
+    "VC | Restored INTERIOR_Bypass_light",
+    "VC | Restored INTERIOR_Bypass_ceiling_bounce",
+    "VC | Restored INTERIOR_Bench_worklight_pool"
+  ],
+  "source_registry_and_frozen_snapshots": "unchanged",
+  "saved_main": false,
+  "lighting_policy": {
+    "scope": "Fuel receivers only; no helper suns or sky-bounce lights illuminate the enclosed corridor.",
+    "map_world": "Original physical outdoor sky retained; no room ambient fill added.",
+    "excluded_map_helpers": [
+      {
+        "light": "VC | Southern sky bounce",
+        "receiver_collection": "INTEGRATION | Fuel daylight exclusions",
+        "fuel_receivers_excluded": 421,
+        "energy_retained": 0.2800000011920929,
+        "outside_fuel_receivers": "unchanged"
+      },
+      {
+        "light": "VC | Warm ground bounce",
+        "receiver_collection": "INTEGRATION | Fuel daylight exclusions",
+        "fuel_receivers_excluded": 421,
+        "energy_retained": 0.08399999886751175,
+        "outside_fuel_receivers": "unchanged"
+      },
+      {
+        "light": "Afternoon sun",
+        "receiver_collection": "INTEGRATION | Fuel daylight exclusions",
+        "fuel_receivers_excluded": 421,
+        "energy_retained": 1.7000000476837158,
+        "outside_fuel_receivers": "unchanged"
+      },
+      {
+        "light": "VC | Open sky fill",
+        "receiver_collection": "INTEGRATION | Fuel daylight exclusions",
+        "fuel_receivers_excluded": 421,
+        "energy_retained": 0.25200000405311584,
+        "outside_fuel_receivers": "unchanged"
+      },
+      {
+        "light": "VC | Cliff sky bounce",
+        "receiver_collection": "INTEGRATION | Fuel daylight exclusions",
+        "fuel_receivers_excluded": 421,
+        "energy_retained": 0.26600000262260437,
+        "outside_fuel_receivers": "unchanged"
+      }
+    ]
+  },
+  "lighting_installer_sha256": "9e51c5a64220419197cddacd1d6bda900f880b5383da5acf152acbbc6f72b858",
+  "render": "sections/fuel-corridor/production/renders/integration/F23ci_complete_main_C03_HERO.png",
+  "render_sha256": "69dde89245f06d653ec4fb3f1ea2745e78e32b4e3897103327b0d4524585b8e0"
+}

@@ -1,0 +1,147 @@
+# Fuel corridor fixture-lighting correction
+
+The selected F23ci corridor uses 43 powered sources at modeled emitting optics, with native World ambient zero and five global map helpers excluded from fuel receivers. Fabricated center overlaps and full-depth jamb returns seal the closed boundary portals. Fresh F22ci/F23ci native/map reviews pass the strict still-image gate; four current-source map dim states and eight preview event stills were opened for bounded readability checks. See the final evidence section below. Cadence and Unity/runtime remain unverified.
+
+The owner rejected the broad, unexplained fill in the F17 assembled-map image.
+F17's historical 99 scores do not approve this revision. Updated acceptance
+requires fresh actual renders, all-area review, and the existing strict >98 gate.
+
+## Source diagnosis
+
+The F17 native contains 43 powered emitter objects and one zero-power failed
+lamp. Every powered emitter belongs to a fabricated luminaire and is within
+3.2 cm of an actual emitting optic face. These are real fixture sources, not
+unmounted fill lights. The standalone world had an unmotivated constant 0.012
+contribution. The assembled map additionally retained five global sun/bounce
+lights: Southern sky bounce, Warm ground bounce, Afternoon sun, Open sky fill,
+and Cliff sky bounce.
+
+Actual fixed-camera ablations showed that suppressing those map suns removes
+the broad floor/service-wall wash. Zeroing the remaining physical outdoor sky
+contribution made little further visible difference in the enclosed hero view.
+
+## Correction
+
+- Standalone world ambient contribution is zero.
+- The live installer excludes the corridor instance and all its 420 renderable
+  source surfaces from the five map sun/bounce helpers through light linking.
+- Existing receiver policies are retained on private copies where present.
+  Other map receivers, helper energies and the physical outdoor sky are retained.
+- Real room fixtures, their locations, powers, emitting surfaces and flicker
+  timing remain unchanged. No replacement fill light is added.
+- Cold validation now checks every powered source against real optic geometry.
+  The normal launcher check also verifies all fuel exclusions and repeat-install
+  idempotence.
+
+The actual development C03 exclusion render matches the diagnostic with all
+five map suns disabled to a mean 0.248/255 channel difference (95th percentile
+1/255). This confirms visible behavior, not just collection metadata. Both
+development C03 and C01 were opened by the builder and pessimistic Luna: local
+lamp pools and contact shadows read, with visible paths and floor arrows. These
+640×427 / 16-sample captures receive no final scores.
+
+## Validation scope
+
+Main-map and native area captures must be inspected after the correction.
+Readability through dim states is reviewed from real event stills. Native
+frame/key evaluation and source hashes remain technical evidence. Target-speed
+cadence, Unity, collision, controllers and performance remain unverified.
+No canonical map, immutable preview, exterior or other-room native is saved.
+
+## Fresh F18 native self-critique
+
+The builder opened all 19 full area views, the closed freight pose and all four
+native-lit detail closeups, verifying the 24 PNG hashes against the hosted
+native `e67b4c7e4fc6cbf1d989791040b88d9e515ba5abd0755853119401e8017c1fd4`.
+These are 1280×853 /32-sample captures. The four actual spawn craft references
+and five manifest-listed PR54 mood references were also reopened.
+
+- Entry/refinery: C01/C04 retain visible arrows, door identity and bounded task
+  pools. Roof and service-wall shadows keep the requested gloomy intervals.
+- Staging: D01's undercarriage is low contrast in its close view. C03/C09 show
+  the carrier supports, wheel silhouettes and floor contact; the wider evidence
+  does not substantiate floating or lost support. D02/P01 retain legible tools,
+  connector retention and cable routing. D03's gauge face is subdued but readable.
+- Freight: D05 exposes the motor, rail and mounting contacts; open/closed E03
+  distinguish the passage and seated leaves. The floor path stays visible.
+- East turn: C05's arrows, return housing and reactor/waste destinations remain
+  discernible. The dead east optic is distinct from the nearby live task fixtures.
+- Waste: E01 retains the handoff, arrival paperwork, sealing station and route
+  under local sconces and restrained warning spill.
+- Reactor: C06/D04 keep the portal, inspection hardware, check console and red
+  warning source legible. P03 confirms the mounted call point and its cable.
+- Bypass/recess: C07/D06 are deliberately dark, with a traceable route and a
+  readable locally lit manifold/tag; no pitch-black passage is visible.
+- Plant: C10/P04 show the maintained plant end, pipe/valve construction and flush
+  recessed strainer without an unexplained bright floor patch.
+- Clean: C08/E02 stay cooler and brighter beneath their visible real fixtures;
+  the bounded floor staining and open aisle remain clear.
+
+Pessimistic Luna independently opened the same native set. Its initial bounded
+D01 separation concern was reassessed in C03/C09 and fresh actual-map D01/C03/C09:
+the grounded carrier and local light falloff read, with no confirmed contact
+defect. The builder opened all 19 actual-map F18 views and verified their PNG
+hashes. This complete pass shows removal of the broad service-wall and floor
+wash. It also exposed a closed-door meeting-joint defect, described below;
+F18/F19 do not form an accepted final pair. This self-critique awards no scores
+and does not inherit F17 acceptance.
+
+## Actual-map glazing check
+
+C04's refinery vision pane and C06's round reactor panes are brighter in the
+assembled map than in the standalone module. These highlights remain inside
+the glazing and produce no visible broad floor or wall wash. The builder traced
+C04 sample rays to the fuel glass material (zero emission, transmission 0.96,
+roughness 0.12), with exterior sightlines beyond the pane. Straight rays do not
+establish the exact reflected or refracted light path.
+
+Pessimistic Luna reopened C04/C06 and compared C10's diffused door glazing. It
+withdrew the tentative finish concern: the localized highlights read as
+transmitted or reflected brighter adjacent light, with no concrete repair
+justified by these views. This was a visual reassessment, not a score override
+or technical evidence substituting for visual quality.
+
+## Closed boundary meeting-joint repair
+
+The full F18 actual-map review exposed bright center slits in the closed waste
+and clean double doors. Although adjacent physical illumination can explain
+their brightness, pessimistic Luna identified a concrete finish defect: the
+closed leaves need a fabricated overlapping meeting seal. The builder accepted
+the finding. No score override was used.
+
+The freight gate already has an astragal. The other five closed boundary
+portals now receive a bolted steel spine, a folded painted overlap and a rear
+compressible rubber seal, integrated into the original left-leaf mesh. Leaf and
+frame transforms, outer footprints, light powers and neighboring rooms remain
+unchanged. Cold validation samples three positions across each center joint at
+four heights to verify a physical barrier. Fresh actual-map captures must
+establish the visible result; a geometry test does not award a finish grade.
+Two new complete stable full review cycles after this repair are recorded below.
+
+## Inset jamb finding in the incomplete F20 map pass
+
+All24 F20 native images and11 of19 actual-map images were opened by both reviewers. C05 exposed a tall bright gap around the right side of the closed waste frame. The camera and evaluated instance placement match; exact sample rays at the visible gap bypass the fuel boundary and first hit the exterior connection floor. The door sits0.50m inside the outer wall opening, and its shallow front frame lacked side returns across that depth. This is a real fabrication defect, not a new light or an accepted adjoining passage. [Unedited actual-map diagnostic](renders/integration/F20ci_waste_inset_jamb_gap.png), [paired rays and camera evidence](WASTE_JAMB_DIAGNOSIS.json), and [partial rejection](critics/luna-partial-F20ci.md) preserve the finding. No full score is assigned to incomplete F20/F21.
+
+All five closed boundary frames now have continuous steel backers, three retained enamel return skins per side and folded end trims joining the original outer lining. Upper closures also bridge the complete inset depth. The geometry stays in the existing frame/closure meshes; outer cores, floor footprints, leaves, interfaces, cameras, fixture powers and keys are unchanged. All120 lateral jamb samples and60 center-joint samples pass in the development draft. Actual-map proof and two new stable complete visual cycles remain required; geometry checks do not approve visible finish.
+
+## Final complete visual evidence — F22ci / F23ci
+
+The builder and pessimistic Luna independently opened all 24 native and all 19
+actual assembled-map images in each final cycle. The same corrected receiver
+policy and recipe are used across the materially stable pair. The repaired
+waste, clean and plant meeting joints read as retained fabricated hardware;
+the around-jamb exterior glimpse and broad floor/service-wall wash are absent. Local real-fixture pools preserve
+readable routes, supported equipment, work surfaces and utility controls.
+Deliberate shadow intervals remain. The four fresh selected-source main dim
+states and eight native event/boundary stills were also opened by both reviewers.
+
+Selected native `def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe`. Current build/cold, archived files, normal
+launcher, actual-map hero and dependency evidence agree on these bytes. All 43
+powered sources are mapped to real modeled emitting optics, native World
+ambient is zero, and five global helper suns exclude all 421 fuel receivers.
+The physical outdoor sky and other rooms retain their existing lighting.
+
+[Fresh grades](RUBRIC.md), [all actual images](REVIEW_INDEX.md) and the
+[complete builder critique](SELF_CRITIQUE_DETAILS.md) supply the visual evidence.
+No technical check substitutes for a visual grade. Cadence and Unity/runtime
+remain unverified; these still-image reviews do not establish objective perfection.

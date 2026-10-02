@@ -18,4 +18,10 @@ else:
   sys.path.insert(0, str(fast_auth.parent))
   import facility_fast_authoring
   facility_fast_authoring.register()
+ fuel_build = root/'sections/fuel-corridor/production/BUILD_MANIFEST.json'
+ if fuel_build.exists() and json.loads(fuel_build.read_text())['stage']=='full':
+  sys.path.insert(0,str(root))
+  import open_fuel_overhaul
+  module,inst,cache,lights=open_fuel_overhaul.install_live_fuel()
+  print('LIVE_FUEL_INSTALLED',len(module.all_objects),'objects',flush=True)
 print('CURRENT_MAP_OPENED',scene,flush=True)

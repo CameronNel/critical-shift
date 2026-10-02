@@ -1,0 +1,310 @@
+{
+  "schema": "fuel-fixed-view-stability/3",
+  "cycles": [
+    "F16ci",
+    "F17ci"
+  ],
+  "recipe_sha256": [
+    "4907d580baa67d66a12c02d8ce7598a07ef903de9ded16e8208f0c32a90f087b",
+    "4907d580baa67d66a12c02d8ce7598a07ef903de9ded16e8208f0c32a90f087b"
+  ],
+  "native_sha256": [
+    "e987bf87da2a51b79fbc68d6301d53a5902995623294c9be2dcc73a36b2b5530",
+    "027ab74f9a3928204d7d3e5f2c1af736982aa41063b37078a6fd9db2efec8deb"
+  ],
+  "recipe_inputs_identical": true,
+  "changed_recipe_inputs": [],
+  "camera_transforms_lenses_settings_identical": true,
+  "views_compared": 24,
+  "comparisons": [
+    {
+      "view": "C01_ENTRY",
+      "state": "full",
+      "sha256": [
+        "a448e173822aa290e0d6c83fb361f885410418bb57b3d4d65734c54d27cbff28",
+        "963e8bc0b4c094d0f5106c7a47ab6aa963fcb36919945f3ce99ba8bcd31c0cdd"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0023632888823759282,
+      "maximum_8bit_channel_difference": 5,
+      "changed_channels": 7693,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C02_PRIMARY_ROUTE",
+      "state": "full",
+      "sha256": [
+        "fe585d9343c836a3a5a46e721dad8713bd053d123fa062464350decef7300b3f",
+        "876e4cbe4e5d17752b37cc3f797cd1a481998e01e50ebbc2966c18f63873cc86"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.003236127393513091,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 10589,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C03_HERO",
+      "state": "full",
+      "sha256": [
+        "6c36760bb6025863c10bba96a9e1f3b313b72cd52cd5da2507277b5a233b40e2",
+        "c1f6f66dec95490d47f2762238e5bfa1d5db7e2d347e26a4f30ae9c7aba63395"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.001965184153966393,
+      "maximum_8bit_channel_difference": 4,
+      "changed_channels": 6424,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C04_REVERSE",
+      "state": "full",
+      "sha256": [
+        "6fbce330bfe15f5f85d9c195710303fbaee3a2845d06200d054d1ae388b1e9ed",
+        "2d747141db8926e59f9385facb391f879ab234108d40ad7765a6809ddbbf758f"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0014196219226260257,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 4648,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C05_EAST_TURN",
+      "state": "full",
+      "sha256": [
+        "697402990e8247aa2ed1ba0c70fce1ee61a5b12631842dedf6a9e84760ddc899",
+        "dd5615cdd6c1d3cb79474e0eea0a6b71cb27b4b1cdaf3e9b80e1bdf407e9173c"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0025351699882766704,
+      "maximum_8bit_channel_difference": 5,
+      "changed_channels": 8276,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C06_REACTOR_THRESHOLD",
+      "state": "full",
+      "sha256": [
+        "3f94c8b30c3a89370a8d41d6636a9502a98b98f15a84fbcbb19f95b293a18339",
+        "62054ff84aeaa7f177b3d297909ee89c13d5b7d4ba2e435c346a2cca0f601575"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.000526633939038687,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 1725,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C07_BYPASS",
+      "state": "full",
+      "sha256": [
+        "6e769bd537aaee425da67710deda5c9192246d5a3376d52ca71d644d1d6b4798",
+        "706d2afa0d5f43a920dc3be7a104c83aae47e06b23d47920deb9703d013b51c0"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0005724281946072685,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 1875,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C08_SERVICE_JUNCTION",
+      "state": "full",
+      "sha256": [
+        "8753626b207f6e75889e8cac9f16b7ec781f6a476a0e551e3e9517beb71bc31c",
+        "3e417109aefec8a41ae44e40ab590d5ee1888be3a0c08903d56fdf553a7b0ee6"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0022069778233685033,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 7214,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C09_MATERIALS",
+      "state": "full",
+      "sha256": [
+        "67c372464c4e5b196d66488bb01041f3a072e5e86b822916e8c7a17786e37e13",
+        "26398c28452529553aa94a7dac7009a491c46b5bb6c19d3c1f4d432d2e0ceb8e"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.00037917643610785464,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 1242,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C10_PLANT_HEADER",
+      "state": "full",
+      "sha256": [
+        "7e1abc2234436181bcaa9e8800f2b4a64f3c5b72a107c56157ff81e6e42bcaa2",
+        "5dd746abab3f67efe347bd2b9be3181fd8615b9c744185b8fb583d48b0ca0c7c"
+      ],
+      "mean_absolute_8bit_channel_difference": 8.82302657288003e-05,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 289,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D01_CARRIER_OPERATION",
+      "state": "full",
+      "sha256": [
+        "03575ac3161aa827b0baca715a6bfaf0b365ebba290d1f79a7ea0fb6395d258d",
+        "b7ea219c5ea8d504267f410a1bd0cee21aa8400787bcc9a8340bdebdf5d9166e"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.00026133255177803827,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 856,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D02_WORKBENCH",
+      "state": "full",
+      "sha256": [
+        "1e5c636baffde3be5ed1d2461c7b8beed47a73c70e04e021df5f39cb3dd050b3",
+        "94f140ee2504d134e2dcf4f851deaf8346efce92b0babe2fda146bdb7f102ee0"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.00034345691676436105,
+      "maximum_8bit_channel_difference": 6,
+      "changed_channels": 1101,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D03_UTILITY",
+      "state": "full",
+      "sha256": [
+        "04f9163a6ba0f257725e592fc41b27577e2ee1fb8040740662922ae968e2c7b4",
+        "6edba779412d177f5d8764ade162eac5e8d7424c0c52c41298042174b8c7d7ef"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0002430148495506057,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 796,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D04_REACTOR_WIDE",
+      "state": "full",
+      "sha256": [
+        "586d630e921cae9e339be4594ad813a1b21f88c92fec11025f9771629a13eaba",
+        "eecb3b7e4920a5b335fec206a18d5104687ed6b6333912df3b3099063afbc286"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0005370139703008988,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 1758,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D05_GATE_MECHANISM",
+      "state": "full",
+      "sha256": [
+        "626f5fd4fc134565bf70bd7d79c2e6f9a78f952a44ba2292f46faf66f0e7c973",
+        "255e321b26b978a1f9afa7c7eca9e1b2e340803fa80c13dcbc336dcdeb5f338e"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0018381814185228604,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 6019,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D06_SERVICE_RECESS",
+      "state": "full",
+      "sha256": [
+        "548381b5ef06ff0278bcd84851718895475732322b1c9bcbb71bcd6160c6d688",
+        "26dfa5d002a5f5b13b1ad4be90619934c0b98a61bedfe9158273060f382ae940"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0005709017194216491,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 1870,
+      "total_channels": 3275520
+    },
+    {
+      "view": "E01_WASTE_APPROACH",
+      "state": "full",
+      "sha256": [
+        "b836b081179df05cce1e445bae7dddae07942979b990215ae2dff2b28f47c62d",
+        "b0639081103cba07ceba9af78f9db9fd63173852ba0e49e2074cc18cc84183c9"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0008792497069167644,
+      "maximum_8bit_channel_difference": 15,
+      "changed_channels": 2600,
+      "total_channels": 3275520
+    },
+    {
+      "view": "E02_CLEAN_APPROACH",
+      "state": "full",
+      "sha256": [
+        "7b98927eac5b9db2ece4bccccf9431470b073c810815f5c8257775f607d682d3",
+        "7746f6632d2149a70d08a3b929103990ef7d5fe700deebee4fbdb65880f849f4"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0025922601602188355,
+      "maximum_8bit_channel_difference": 3,
+      "changed_channels": 8449,
+      "total_channels": 3275520
+    },
+    {
+      "view": "E03_FREIGHT_LEAF",
+      "state": "full",
+      "sha256": [
+        "16ef1234166ed2d74656e749abe5dfa51bcc97b3e7d6cc67af7e57948d1e9e90",
+        "8ee1f21215203df3d50b8ff76696b61e15c95df66fe954a0fed675858363e33f"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0037068923407581086,
+      "maximum_8bit_channel_difference": 4,
+      "changed_channels": 12015,
+      "total_channels": 3275520
+    },
+    {
+      "view": "E03_FREIGHT_LEAF",
+      "state": "closed",
+      "sha256": [
+        "16edf2538f9de98ae92db793fed31e970205b94e00f7e376a0450683503fddf7",
+        "b8b2ba97ae8ab9b2c00cf63201ba599c1c8493ab87d489de210324e583b97b9d"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0008029259476357953,
+      "maximum_8bit_channel_difference": 3,
+      "changed_channels": 2619,
+      "total_channels": 3275520
+    },
+    {
+      "view": "P01_BENCH_POWER",
+      "state": "P01_BENCH_POWER",
+      "sha256": [
+        "1e14a134d593ebc2b33a84ba467012c4afb3a2eb04199b09ea2a20c0ddf4e5bc",
+        "45bf9dbf1dc66293485f566efa14741538f7fd7defe2e3d19754fa5f91171e79"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.000373375830402501,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 1223,
+      "total_channels": 3275520
+    },
+    {
+      "view": "P02_PROCESS_JUNCTION",
+      "state": "P02_PROCESS_JUNCTION",
+      "sha256": [
+        "d9640d9e4bde7dbc4ab7f4fad8a500715bb72342dd1d178790950f25c166789f",
+        "411f7c63f0fbacd098f276b2e9fbe6abd4e5b48035a195cd3d4e3563837d67e0"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0026221790738569753,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 8589,
+      "total_channels": 3275520
+    },
+    {
+      "view": "P03_REACTOR_INTERCOM",
+      "state": "P03_REACTOR_INTERCOM",
+      "sha256": [
+        "dec2880da264d21891a7ef5912e0be7c470409041420d732675790ffa8383317",
+        "5012d88fdf240f07434abacf821ee5c61734fd3f8cbf1e8b22538b0a5f63dfa8"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.000491830304806565,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 1611,
+      "total_channels": 3275520
+    },
+    {
+      "view": "P04_FLOOR_STRAINER",
+      "state": "P04_FLOOR_STRAINER",
+      "sha256": [
+        "d0519c36bc273f895518d15ce5592583872d5abf3e0b7ab099f0bd2378a66af6",
+        "6f7f8a04401b7aebc4c531100bc3fcf211e13c83d0975976d12694a885ba4b5f"
+      ],
+      "mean_absolute_8bit_channel_difference": 5.4647811645173895e-05,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 179,
+      "total_channels": 3275520
+    }
+  ],
+  "scope": "Independent rebuilds and unedited fixed PNG comparisons. Numerical agreement does not award art scores; the independent reviewer determines material stability."
+}

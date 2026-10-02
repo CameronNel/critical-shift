@@ -1,0 +1,55 @@
+{
+  "schema": "fuel-detail-view-evidence/1",
+  "scene": "sections/fuel-corridor/production/checkpoints/fuel_full_F15ci.blend",
+  "scene_sha256": "07dbbfd9153b0e732a31ce22a0342eff9dce33111f04b4af091ff55bc2a8b61b",
+  "blender": "5.2.1 LTS",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "samples": 32,
+  "seed": 7,
+  "denoise": true,
+  "resolution": [
+    1280,
+    853
+  ],
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": -0.15000000596046448,
+  "frame": 1,
+  "scope": "Additional fixed closeups only; native lighting and visibility unchanged; full area set still required.",
+  "cameras": [
+    {
+      "name": "P04_FLOOR_STRAINER",
+      "owner": "FC | Wet-service recessed floor strainer",
+      "matrix_world": [
+        [
+          -0.8073914051055908,
+          -0.4661400616168976,
+          0.36170780658721924,
+          -3.243100166320801
+        ],
+        [
+          0.5900161862373352,
+          -0.637876570224762,
+          0.49496909976005554,
+          16.8700008392334
+        ],
+        [
+          3.902442369252412e-09,
+          0.6130473017692566,
+          0.790046215057373,
+          0.8299999833106995
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 48,
+      "image": "P04_FLOOR_STRAINER.png",
+      "sha256": "d42be978b37c3844f1ba332349097939f60183424a5c94623459dd08a9c1237b"
+    }
+  ]
+}

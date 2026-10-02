@@ -1,0 +1,173 @@
+{
+  "schema": "fuel-closed-gate-diagnostic/1",
+  "created_utc": "2026-10-02T06:35:46.217164+00:00",
+  "scene": "sections/fuel-corridor/production/checkpoints/fuel_full_F8ci.blend",
+  "scene_sha256": "3629551c379a87f6ee2983f5ad535036b9a34f783cc0ba9365c210a2c05fa80a",
+  "blender": "5.2.1 LTS",
+  "resolution": [
+    1280,
+    853
+  ],
+  "samples": 32,
+  "seed": 7,
+  "denoise": true,
+  "look": "AgX - Medium High Contrast",
+  "exposure": -0.15000000596046448,
+  "pose_changes": [
+    {
+      "object": "FREIGHT_GATE_LEFT_CARRIAGE",
+      "translation_m": [
+        -0.0,
+        -2.242000102996826,
+        -0.0
+      ],
+      "open_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "diagnostic_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -2.242000102996826
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "object": "FREIGHT_GATE_RIGHT_CARRIAGE",
+      "translation_m": [
+        -0.0,
+        2.242000102996826,
+        -0.0
+      ],
+      "open_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "diagnostic_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          2.242000102996826
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "cameras": [
+    {
+      "name": "E03_FREIGHT_LEAF",
+      "image": "E03_FREIGHT_LEAF.png",
+      "matrix_world": [
+        [
+          7.549789415861596e-08,
+          -0.019604064524173737,
+          -0.9998077154159546,
+          3.799999952316284
+        ],
+        [
+          -0.9999998807907104,
+          -6.048622225307554e-08,
+          -7.432640103388621e-08,
+          10.0
+        ],
+        [
+          -5.9017494891122624e-08,
+          0.9998077154159546,
+          -0.019604064524173737,
+          1.7000000476837158
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 20.0,
+      "sha256": "a59819563d27995a95d52088bd69857872e97b9235f7a88f89a14fb077499d3c"
+    }
+  ],
+  "scope": "Rigid authored-leaf diagnostic; native remains OPEN. Runtime controller and continuous sweep unverified."
+}

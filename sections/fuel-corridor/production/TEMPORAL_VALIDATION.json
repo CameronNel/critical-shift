@@ -1,0 +1,53 @@
+{
+  "schema": "fuel-temporal-authoring-handoff/2",
+  "created_utc": "2026-10-02T20:48:47.173846+00:00",
+  "native_sha256": "def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe",
+  "recipe_sha256": "2af15cd9f6915334ed42bad8c53e73b49a18ef7ea043597b49d59c2041e31e19",
+  "technical_status": "PASS",
+  "native_every_frame_evaluation": "COLD_VALIDATION.json",
+  "frames_evaluated": 241,
+  "closure_key_frame": 241,
+  "playback_frames": [
+    1,
+    240
+  ],
+  "fps": 24,
+  "main_linked_keys_checked_frames": [
+    1,
+    18,
+    29,
+    33,
+    46,
+    110,
+    151,
+    240,
+    241
+  ],
+  "main_fps": 24,
+  "main_fps_base": 1.0,
+  "preview_manifest": "renders/temporal/F23ci-entry-loop/PREVIEW_MANIFEST.json",
+  "preview_video": "sections/fuel-corridor/production/renders/temporal/F23ci-entry-loop.mp4",
+  "preview_video_sha256": "e1f951c7d499d3a48491a7ed9ce9226731123b192110ab9fac138877b27c1851",
+  "encoded_frames": 240,
+  "encoded_fps": 24,
+  "encoded_duration_seconds": 10,
+  "actual_rendered_distinct_states": 112,
+  "exact_identical_state_reuse": true,
+  "inspected_native_preview_frames": [
+    1,
+    28,
+    29,
+    31,
+    32,
+    33,
+    38,
+    240
+  ],
+  "cadence_playback_review": {
+    "status": "NOT_RUN_CAPABILITY_UNAVAILABLE",
+    "reason": "No target-speed visual playback tool; native evaluation, frame count and inspected event stills do not establish perceived rhythm."
+  },
+  "runtime_status": "NOT_RUN",
+  "source_native_saved_by_validation": false,
+  "scope": "Static infrastructure revision preserves native lighting keys. Authoring and encoding evidence only; no Unity, controller, collision, performance or cadence acceptance."
+}

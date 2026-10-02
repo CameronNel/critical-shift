@@ -1,0 +1,212 @@
+{
+  "schema": "fuel-assembled-map-stability/1",
+  "cycles": [
+    "F22ci",
+    "F23ci"
+  ],
+  "native_sha256": [
+    "2cd961279e0a357029ea9be70af38dd602eda61297055ed9971729e179ffb2cc",
+    "def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe"
+  ],
+  "recipe_sha256": [
+    "2af15cd9f6915334ed42bad8c53e73b49a18ef7ea043597b49d59c2041e31e19",
+    "2af15cd9f6915334ed42bad8c53e73b49a18ef7ea043597b49d59c2041e31e19"
+  ],
+  "lighting_installer_sha256": "9e51c5a64220419197cddacd1d6bda900f880b5383da5acf152acbbc6f72b858",
+  "canonical_map_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+  "camera_transforms_lenses_settings_and_policy_identical": true,
+  "views_compared": 19,
+  "comparisons": [
+    {
+      "camera": "C02_PRIMARY_ROUTE",
+      "sha256": [
+        "3082db3b1bef277ad9c6839ea1f15772b3a8a08c75886746ba25b64bf243c7c6",
+        "18e2974e3324e68b1a49cae119eb0c8c4293879fc838362c19991ba02e2b04d3"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.005243598090277778,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 9663
+    },
+    {
+      "camera": "C05_EAST_TURN",
+      "sha256": [
+        "37ead20c7b50ca25c3132d668f1fb572b11027dcb41b2a9fece1be1c30d56c30",
+        "88cfce660ed63e15547247f7320fe50de2eda96bb09d8fddebf7ce81e6b95be4"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.008378363715277778,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 15439
+    },
+    {
+      "camera": "D01_CARRIER_OPERATION",
+      "sha256": [
+        "52aaf04f3770440c084d740f7a1c07070e5cfa7a7055b28bad4e88917b539f0e",
+        "56f719c9dbec3312a14c53647ce5b176e5336a3745ed05d84cd086dd99fa2bbf"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.14527398003472222,
+      "maximum_8bit_channel_difference": 31,
+      "changed_channels": 113966
+    },
+    {
+      "camera": "C03_HERO",
+      "sha256": [
+        "c742ed44c8d3247ca3b1078080413c326d4abc1fddee4a4ffe1e5388836dcc55",
+        "8a91db603b194d54fd31949d27b2dc3b33870861eaf894b47d60ec9e39c1ab11"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.01923122829861111,
+      "maximum_8bit_channel_difference": 16,
+      "changed_channels": 29895
+    },
+    {
+      "camera": "C09_MATERIALS",
+      "sha256": [
+        "4bbff1bd32e8691a4dd92e3d8e45085f1a753bffe98d3068c3a1418598f342b7",
+        "2d2cba4e04f56d57d7dd12b7bf3e1fea040466e938304c93a9a6afecbeb344f0"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.18707790798611112,
+      "maximum_8bit_channel_difference": 26,
+      "changed_channels": 109351
+    },
+    {
+      "camera": "C01_ENTRY",
+      "sha256": [
+        "03f384c845d699068d37e829b78f5804f31b846d574221ad9aa6c06fa4bc7425",
+        "2e44260ae993ac066339c401ee13a8836a42984c4831e14d64ea78e89a764157"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.010671115451388888,
+      "maximum_8bit_channel_difference": 12,
+      "changed_channels": 17139
+    },
+    {
+      "camera": "C04_REVERSE",
+      "sha256": [
+        "fcf431c27a0c30bdacb77dfdb9f5bf6c6487d89f0ca58e561bc85844b7b9dd08",
+        "d0216245f3e5b3e397d0c4f7d39c29b2ee7ef2750cf45022e5abf98cb0313420"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.004912109375,
+      "maximum_8bit_channel_difference": 6,
+      "changed_channels": 8985
+    },
+    {
+      "camera": "C06_REACTOR_THRESHOLD",
+      "sha256": [
+        "c14fee9fe0bb682c49d2235c699a9c9ade9e6289bd80bd8bdec2c8189479cfce",
+        "8980c208a7a2e9537058b08667bb9ba752b65b9a8cf96ee488a7380eb3487d42"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0038612196180555555,
+      "maximum_8bit_channel_difference": 7,
+      "changed_channels": 7017
+    },
+    {
+      "camera": "C07_BYPASS",
+      "sha256": [
+        "5e2c0b6e08af3b36ef90458342b652d9334792d5fb9acc5d408c130ac82c47ac",
+        "f08d66a01293b93a1277545b989ba4c5622620e5023af017a74b46eb55702485"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.003107638888888889,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 5725
+    },
+    {
+      "camera": "C08_SERVICE_JUNCTION",
+      "sha256": [
+        "0bcaf95b728cb5d7f1dc570487c3ecf0516170730db5471c83fadf4c4ac09157",
+        "bc9799830ce3701a590eda431062dc6d553221524d4310aa2d2433ce571c9f2d"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.011163194444444444,
+      "maximum_8bit_channel_difference": 4,
+      "changed_channels": 20504
+    },
+    {
+      "camera": "C10_PLANT_HEADER",
+      "sha256": [
+        "7f428728f11a4fc90cb177d173c7291b0ba178ca870eb780e103b83977bfed1a",
+        "6fb3a7c97b5917c3e33ac79211c67304fee732a89e40545bce176a251f7c6e91"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0007557508680555555,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 1390
+    },
+    {
+      "camera": "D02_WORKBENCH",
+      "sha256": [
+        "ce024902cde35bb53dc6427b05e15b921ffb5ae2930678f3ebbdb92c346ca8e2",
+        "43d7bbf18387af97bb0afc595f144dca7a4e88326f21f796716595f7969d01e8"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0032329644097222224,
+      "maximum_8bit_channel_difference": 17,
+      "changed_channels": 5454
+    },
+    {
+      "camera": "D03_UTILITY",
+      "sha256": [
+        "6f7e775655ff5be730777cdf7b0b44b5bd1bd26362afaa5aae78828aeb98e63b",
+        "11324bb5c0e3e0708adb757a9a2831de2a57a925273de73277fa057d29928197"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.004641927083333333,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 8554
+    },
+    {
+      "camera": "D04_REACTOR_WIDE",
+      "sha256": [
+        "79f54761bcd939cdbbfcbed7be0a16b1dc89d839c18901634be8ed7af3fef514",
+        "d6c97af733ef3c74ee0709340902897bccc9f48a6a7f515b94fcc53eb113f303"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.003403862847222222,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 6245
+    },
+    {
+      "camera": "D05_GATE_MECHANISM",
+      "sha256": [
+        "54e0ba2a6f1d405130117e717a11fe169b76bc53517bdd0bf48d235ddeb00b5b",
+        "189c1ff2f88d15923f1cfa9882293f7a98272b006b65b624ec2fb9d90e1c725c"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.004553493923611111,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 8369
+    },
+    {
+      "camera": "D06_SERVICE_RECESS",
+      "sha256": [
+        "bb3b160491d0dad7363c207df1b35ff777a0e156538b9c731927c32099429717",
+        "29addf5f739f9fabb7882718c9d5111de6fdcb9e4b8d6bf2af50a85c984d2750"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.00030870225694444445,
+      "maximum_8bit_channel_difference": 1,
+      "changed_channels": 569
+    },
+    {
+      "camera": "E01_WASTE_APPROACH",
+      "sha256": [
+        "2a93e405b60ca49136a464b4f7f623f872261af1187b51de9dfbc431d136aaa5",
+        "bed484627c247a5315f08b94ee25b430a1b7aaf1ecefc9ae31e2d462c32d83af"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0012733289930555555,
+      "maximum_8bit_channel_difference": 4,
+      "changed_channels": 2299
+    },
+    {
+      "camera": "E02_CLEAN_APPROACH",
+      "sha256": [
+        "a20e6f08cbeb7c9c2e6794c727d02d76f748aa6f11b9a9b31d3c16e1eec14d22",
+        "51e6eac573e3a87078ccc161cb198d37ac22b1900af1d7347708bd1bddd423dc"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.007230902777777778,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 13194
+    },
+    {
+      "camera": "E03_FREIGHT_LEAF",
+      "sha256": [
+        "bcf9443ef2ad138326a010c06bb96b88c3d589c06c9d87b677e17e5fff992570",
+        "2d10b42eddc3687cd8819d19c063e2264284c210e14425a4a39fa645ff68a93a"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.007593858506944444,
+      "maximum_8bit_channel_difference": 2,
+      "changed_channels": 13858
+    }
+  ],
+  "scope": "Exact unedited actual assembled-map fixed captures. Numerical comparison does not award art scores; independent full visual review determines material stability."
+}
