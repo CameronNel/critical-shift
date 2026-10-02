@@ -46,7 +46,7 @@ def build(c):
     A,M=c.A,c.M; coll=c.coll; R=c.R
     remove_old()
     M["JUG"]=pm("CR jug blue",(0.05,0.24,0.56),0.18,scale=2.0,bump=0.0,var=(0.92,1.05),coat=0.5)
-    M["CARWALL"]=pm("CR lift wall panel",(0.30,0.31,0.29),0.40,edge=(0.55,0.55,0.50),scale=2.5,bump=0.0,var=(0.90,1.04),coat=0.1)      # satin painted car walls: a closed metal box with only specular reads black
+    M["CARWALL"]=pm("CR lift wall panel",(0.50,0.46,0.37),0.40,edge=(0.55,0.55,0.50),scale=2.5,bump=0.0,var=(0.90,1.04),coat=0.1)      # satin painted car walls: a closed metal box with only specular reads black
     M["PLANT"]=pm("CR plant leaf",(0.045,0.16,0.04),0.55,scale=4.0,bump=0.05,var=(0.85,1.10))
     M["TERRA"]=pm("CR terracotta",(0.30,0.12,0.065),0.78,scale=3.0,bump=0.10,var=(0.85,1.08))
     # ---------------------------------------------------------------- control empty with the time-driven schedule
@@ -140,7 +140,6 @@ def build(c):
         g="lift_car"; x0,x1,y0,y1=-8.70,-7.20,-7.15,-5.65
         K.bx((g,"RUBBER"),x0,x1,y0,y1,0.0,0.08,0.006)
         K.bx((g,"CARWALL"),x0,x0+0.07,y0,y1,0.08,2.40,0.004); K.bx((g,"CARWALL"),x0,x1,y0,y0+0.07,0.08,2.40,0.004)                 # west + south walls
-        K.bx((g,"STEEL"),x0+0.07,x1-0.07,y0+0.07,y0+0.09,0.60,0.64,0.002); K.bx((g,"STEEL"),x0+0.07,x0+0.09,y0+0.07,y1-0.07,0.60,0.64,0.002)   # wainscot rails
         for (xa,ya) in ((x0,y1-0.10),(x1-0.10,y1-0.10),(x1-0.10,y0)): K.bx((g,"TRIM"),xa,xa+0.10,ya,ya+0.10,0.08,2.40,0.004)        # corner posts (north + east sides are the doorways)
         K.bx((g,"TRIM"),x0,x1,y1-0.10,y1,2.28,2.40,0.004); K.bx((g,"TRIM"),x1-0.10,x1,y0,y1,2.28,2.40,0.004)                          # door lintels
         K.bx((g,"CARWALL"),x0,x1,y0,y1,2.40,2.48,0.004)                                                                              # roof
@@ -152,16 +151,14 @@ def build(c):
         K.prism((g,"BRUSH"),(x0+0.25,y0+0.07+0.045,0.97),(-7.66,y0+0.07+0.045,0.97),0.0125,0.0125,14,0.0,True,0.0)
         for xx in (x0+0.27,-7.68): K.bx((g,"BRUSH"),xx-0.012,xx+0.012,y0+0.07,y0+0.07+0.045,0.955,0.985,0.003)
         # brushed kick plates, ribbed rubber floor with a steel border, threshold nosings, ceiling frame with vents / speaker
-        K.bx((g,"BRUSH"),x0+0.07,x0+0.077,y0+0.07,y1-0.10,0.09,0.58,0.002); K.bx((g,"BRUSH"),x0+0.07,x1-0.10,y0+0.07,y0+0.077,0.09,0.58,0.002)
         K.bx((g,"STEEL"),x0+0.07,x1-0.07,y0+0.07,y1-0.07,0.078,0.086,0.002)
         for k in range(15): K.bx((g,"RUBBER"),x0+0.10+k*0.0925,x0+0.10+k*0.0925+0.035,y0+0.10,y1-0.10,0.086,0.096,0.0015)
         K.bx((g,"BRUSH"),x0,x1,y1-0.02,y1,0.075,0.09,0.002); K.bx((g,"BRUSH"),x1-0.02,x1,y0,y1,0.075,0.09,0.002)
         for k in range(5): K.bx((g,"BLACK"),-8.50+k*0.05,-8.50+k*0.05+0.025,-5.95,-5.78,2.395,2.402,0.0005)                                 # ceiling vent slots
         K.lathe((g,"BRUSH"),-7.50,-6.12,[(0.052,2.40),(0.052,2.386),(0.046,2.384),(0.0,2.384)],seg=18)
         for k in range(3): K.cyl((g,"BLACK"),-7.50+0.022*math.cos(k*2.094),-6.12+0.022*math.sin(k*2.094),2.384,2.387,0.006,6)                    # speaker grille holes
-        K.bx((g,"BRUSH"),-8.29,-7.61,-6.79,-6.41,2.396,2.403,0.002)                                                                                # cabin light frame
         K.bx((g,"YELLOW"),x0+0.07,x1-0.10,y1-0.10,y1,0.08,0.09,0.0)                                                                   # sill marking
-        K.bx((g,"STEEL"),x0+0.4,x1-0.4,y0+0.08,y0+0.095,1.5,1.62,0.002)                                                               # rear panel plate
+        cr_ante.car_dressing(K,x0,x1,y0,y1)
     cobjs=_mover(c,"lift_car",mkcar)
     for o in cobjs: o.parent=car
     cr_ante.car_interior(c,ctl,car,zv,_mover)

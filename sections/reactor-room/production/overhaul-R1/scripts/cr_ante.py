@@ -66,7 +66,10 @@ def lamp_mats(c,ctl):
     M["LAMP_G"]=emit_mat("CR lift lamp G",(1.0,0.62,0.12),4.0); _drive(M["LAMP_G"],"4.0*max(0,1-z/0.6)",zv)
     M["LAMP_F1"]=emit_mat("CR lift lamp F1",(1.0,0.62,0.12),4.0); _drive(M["LAMP_F1"],"4.0*min(1,max(0,(z-4.8)/0.6))",zv)
     M["LAMP_MOVE"]=emit_mat("CR lift lamp moving",(1.0,0.30,0.05),3.0); _drive(M["LAMP_MOVE"],"3.0*(1 if z>0.15 and z<5.25 else 0)",zv)
-    M["CAB_LIGHT"]=emit_mat("CR lift cabin light",(1.0,0.74,0.46),9.0); _drive(M["CAB_LIGHT"],"9.0*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",[])
+    M["CAB_LIGHT"]=emit_mat("CR lift cabin light",(1.0,0.74,0.46),16.0); _drive(M["CAB_LIGHT"],"16.0*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",[])
+    M["DADO"]=pm("CR lift dado teal",(0.06,0.25,0.24),0.30,edge=(0.30,0.55,0.50),scale=2.0,bump=0.0,coat=0.4,var=(0.92,1.04))
+    M["LPHOTO"]=tex_mat("CR family photo lift",new_image("CR lift photo tex",crt.photo()),rough=0.45)
+    M["COVE"]=emit_mat("CR lift cove",(1.0,0.74,0.42),7.0,expr="7.0*(1-0.35*min(1,fk))*(1-0.5*bw)")
     M["CAM_LED"]=emit_mat("CR lift camera led",(1.0,0.05,0.03),4.0); _drive(M["CAM_LED"],"4.0*(1 if fmod(T,2.4)<0.18 else 0)",[])
     M["LAMP_SHADE"]=emit_mat("CR lamp shade glow",(1.0,0.70,0.40),2.4)
     M["COFFEE"]=pm("CR coffee",(0.03,0.016,0.008),0.12,bump=0.0,scale=2.0)
@@ -205,6 +208,42 @@ def props(c):
         base=(px+r_*ca,py+r_*sa,Z+0.26)
         A.tube((g,"PLANT"),[base,(px+(r_+0.03)*ca,py+(r_+0.03)*sa,Z+0.26+h*0.6),(px+(r_+0.06)*ca,py+(r_+0.06)*sa,Z+0.26+h)],0.0032,5)
         A.leaf((g,"PLANT"),(px+(r_+0.06)*ca,py+(r_+0.06)*sa,Z+0.26+h),(ca,sa),L,0.052,droop=0.55,n=5,t=0.0016)
+def car_dressing(K,x0,x1,y0,y1):
+    """car walls in three tones with sharp raised panels, brushed rails, an amber stripe, a big framed mirror, an emergency phone with a coiled cord, the inspection certificate and
+    capacity plate (south wall), a floor display (G | arrow | 1) over the north door and glowing LED coves.  All inner faces: west x -8.63, south y -7.08, north lintel y -5.75."""
+    g="lift_car"; xw=x0+0.07; ys=y0+0.07; yn=y1-0.10; xe=x1-0.10
+    # olive dado: raised panels with a graphite field, on both wall sides
+    for (ya,yb) in ((-7.04,-6.62),(-6.58,-6.16),(-6.12,-5.79)):
+        K.fb((g,"BRUSH"),'+x',xw,ya,yb,0.12,0.88,0.014,0.004); K.fb((g,"DADO"),'+x',xw+0.014,ya+0.035,yb-0.035,0.16,0.84,0.003,0.002)
+    for (xa,xb) in ((-8.60,-8.20),(-8.16,-7.76),(-7.72,-7.32)):
+        K.fb((g,"BRUSH"),'+y',ys,xa,xb,0.12,0.88,0.014,0.004); K.fb((g,"DADO"),'+y',ys+0.014,xa+0.035,xb-0.035,0.16,0.84,0.003,0.002)
+    K.fb((g,"BRUSH"),'+x',xw,ys,yn,0.90,0.945,0.024,0.004); K.fb((g,"BRUSH"),'+y',ys,xw,xe,0.90,0.945,0.024,0.004)                                  # chair rail
+    K.fb((g,"ORANGE"),'+x',xw,ys,yn,2.10,2.15,0.010,0.003); K.fb((g,"ORANGE"),'+y',ys,xw,xe,2.10,2.15,0.010,0.003)                                 # amber stripe
+    K.fb((g,"BRUSH"),'+x',xw,ys,yn,2.22,2.27,0.028,0.004); K.fb((g,"BRUSH"),'+y',ys,xw,xe,2.22,2.27,0.028,0.004)                                  # crown rail
+    K.fb((g,"COVE"),'+x',xw,ys,yn,2.285,2.325,0.012,0.002); K.fb((g,"COVE"),'+y',ys,xw,xe,2.285,2.325,0.012,0.002)                                 # LED coves
+    # big mirror on the west wall, above the handrail: heavy brushed frame, bevelled glass
+    my0,my1,mz0,mz1=-6.80,-5.95,1.08,2.04; fw=0.045
+    for (ya,yb,za,zb) in ((my0-fw,my1+fw,mz0-fw,mz0),(my0-fw,my1+fw,mz1,mz1+fw),(my0-fw,my0,mz0,mz1),(my1,my1+fw,mz0,mz1)): K.fb((g,"BRUSH"),'+x',xw,ya,yb,za,zb,0.024,0.004)
+    K.fb((g,"MIRROR"),'+x',xw,my0,my1,mz0,mz1,0.010,0.004)
+    # emergency phone box with handset and coiled cord, west wall south strip
+    K.fb((g,"RED"),'+x',xw,-7.03,-6.83,1.05,1.42,0.070,0.006); K.fb((g,"PAPER"),'+x',xw+0.070,-7.00,-6.86,1.34,1.39,0.003,0.001)
+    K.fb((g,"BLACK"),'+x',xw+0.070,-6.975,-6.915,1.12,1.31,0.024,0.008); K.fb((g,"BRUSH"),'+x',xw+0.070,-6.99,-6.90,1.08,1.12,0.012,0.003)
+    pts=[(xw+0.105+0.011*math.cos(t),-6.855+0.011*math.sin(t),1.10-0.0045*t/(2*math.pi)*3.2) for t in [k*0.55 for k in range(32)]]
+    K.tube((g,"BLACK"),pts,0.0024,4)
+    # inspection certificate (expired) in a thin black frame and the brass capacity plate, south wall west end
+    cx,cz,hw,hh=-8.38,1.62,0.085,0.11; yy=ys+0.0005
+    K.plane((g,"LCERT"),(cx+hw,yy,cz-hh),(cx-hw,yy,cz-hh),(cx-hw,yy,cz+hh),(cx+hw,yy,cz+hh))
+    for (xa,xb,za,zb) in ((cx-hw-0.012,cx+hw+0.012,cz-hh-0.012,cz-hh),(cx-hw-0.012,cx+hw+0.012,cz+hh,cz+hh+0.012),(cx-hw-0.012,cx-hw,cz-hh,cz+hh),(cx+hw,cx+hw+0.012,cz-hh,cz+hh)): K.fb((g,"BLACK"),'+y',ys,xa,xb,za,zb,0.006,0.002)
+    K.fb((g,"BRASS"),'+y',ys,cx-0.11,cx+0.11,1.20,1.31,0.004,0.0015)
+    px,pz,pw,ph=-8.08,1.50,0.095,0.125                                                                  # framed staff photo between the certificate and the dial
+    K.plane((g,"LPHOTO"),(px+pw,ys+0.0005,pz-ph),(px-pw,ys+0.0005,pz-ph),(px-pw,ys+0.0005,pz+ph),(px+pw,ys+0.0005,pz+ph))
+    for (xa,xb,za,zb) in ((px-pw-0.014,px+pw+0.014,pz-ph-0.014,pz-ph),(px-pw-0.014,px+pw+0.014,pz+ph,pz+ph+0.014),(px-pw-0.014,px-pw,pz-ph,pz+ph),(px+pw,px+pw+0.014,pz-ph,pz+ph)): K.fb((g,"BRASS"),'+y',ys,xa,xb,za,zb,0.008,0.002)
+    for k in range(12): K.cyly((g,"BRUSH"),xw+0.06+k*0.105,ys+0.024,ys+0.029,0.9225,0.0055,6); K.cylx((g,"BRUSH"),xw+0.024,xw+0.029,ys+0.06+k*0.105,0.9225,0.0055,6) if k<12 else None   # rivets on the chair rail
+    # floor display housing over the north door (letters + arrow are driven by the car height)
+    K.fb((g,"BLACK"),'-y',yn,-8.26,-7.64,2.05,2.255,0.026,0.006)
+    K.hull((g,"LAMP_MOVE"),[(-7.95-0.035,yn-0.027,2.09),(-7.95+0.035,yn-0.027,2.09),(-7.95,yn-0.027,2.215),(-7.95-0.035,yn-0.030,2.09),(-7.95+0.035,yn-0.030,2.09),(-7.95,yn-0.030,2.215)],0.0)
+    # rubber floor: yellow edge strips and a stencilled G | 1 in the corner
+    K.bx((g,"YELLOW"),xw,xw+0.03,ys,yn,0.096,0.100,0.0); K.bx((g,"YELLOW"),xw,xe,ys,ys+0.03,0.096,0.100,0.0)
 def car_interior(c,ctl,car,zv,_mover):
     """everything inside the car that moves with it: control panel with G / F1 lamp buttons, analogue floor dial, security camera, certificate, capacity plate, car lamp"""
     M=c.M; coll=c.coll
@@ -226,15 +265,9 @@ def car_interior(c,ctl,car,zv,_mover):
         K.cyl((g,"STEEL_L"),dx,dy,2.378,2.40,0.070,22,0.003); K.cyl((g,"BLACK"),dx,dy,2.350,2.378,0.058,22,0.003); K.cyl((g,"BLACK"),dx,dy,2.322,2.350,0.045,20,0.003); K.cyl((g,"BLACK"),dx,dy,2.302,2.322,0.028,16,0.002)
         K.cyl((g,"BLACK"),dx+0.012,dy-0.02,2.300,2.306,0.012,10); K.cyl((g,"CAM_LED"),dx+0.082,dy,2.385,2.388,0.0065,8)
         K.tube((g,"CABLE_B"),[(dx-0.07,dy,2.399),(dx-0.13,dy,2.399),(dx-0.13,dy+0.1,2.399)],0.003,6)
-        # expired inspection certificate + capacity plate on the west wall
-        x=-8.629; hw,hh=0.085,0.11; yc,zc=-6.55,1.62
-        K.plane((g,"LCERT"),(x,yc-hw,zc-hh),(x,yc+hw,zc-hh),(x,yc+hw,zc+hh),(x,yc-hw,zc+hh))
-        K.fb((g,"BLACK"),'+x',-8.63,yc-hw-0.01,yc+hw+0.01,zc-hh-0.01,zc+hh+0.01,0.003,0.0005)
-        K.fb((g,"BRASS"),'+x',-8.63,-6.64,-6.46,1.28,1.36,0.004,0.001)
-        K.fb((g,"BRUSH"),'+x',-8.63,-6.36,-5.80,1.08,2.12,0.008,0.003); K.fb((g,"MIRROR"),'+x',-8.622,-6.345,-5.815,1.095,2.105,0.003,0.0)   # mirror in a brushed frame, north half of the west wall
     objs=_mover(c,"lift_car2",fn)
     for o in objs: o.parent=car
-    for body,x,y,z,size,face,key in (("G",-7.46,-7.0575,1.40,0.036,'+y',"YELLOW"),("F1",-7.46,-7.0575,1.28,0.036,'+y',"YELLOW"),("MAX 8 PERSONS\n600 KG",-8.6265,-6.55,1.32,0.017,'+x',"BLACK")):
+    for body,x,y,z,size,face,key in (("G",-7.46,-7.0575,1.40,0.036,'+y',"YELLOW"),("F1",-7.46,-7.0575,1.28,0.036,'+y',"YELLOW"),("MAX 8 PERSONS\n600 KG",-8.38,-7.0745,1.25,0.0145,'+y',"BLACK"),("G",-8.12,-5.7765,2.155,0.085,'-y',"LAMP_G"),("1",-7.80,-5.7765,2.155,0.085,'-y',"LAMP_F1")):
         t=crk.text(coll,body,x,y,z,face,size,M[key],'CENTER',"CR lift label"); t.parent=car
     for body,x,z in (("G",-7.65,1.835),("1",-7.855,1.835)):
         t=crk.text(coll,body,x,-7.0575,z,'+y',0.026,M["YELLOW"],'CENTER',"CR lift dial label"); t.parent=car
@@ -244,5 +277,5 @@ def car_interior(c,ctl,car,zv,_mover):
     ob=_mover(c,"lift_needle",needle)
     for o in ob:
         o.parent=car; o.location=(-7.75,-7.052,1.92); drv(o,'rotation_euler',1,"1.0*(1-2*z/5.4)",var_s=False,extra=zv)
-    lo=crk.light(coll,"CR lift car lamp",(-7.95,-6.40,2.25),(1.0,0.72,0.45),60,'AREA',(0,0,0),size=(0.55,0.28),expr="60*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",var_s=False)
+    lo=crk.light(coll,"CR lift car lamp",(-7.95,-6.40,2.25),(1.0,0.72,0.45),150,'AREA',(0,0,0),size=(0.55,0.28),expr="150*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",var_s=False)
     lo.parent=car

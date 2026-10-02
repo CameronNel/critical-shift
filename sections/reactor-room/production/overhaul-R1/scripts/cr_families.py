@@ -14,7 +14,7 @@ A=sys.argv[sys.argv.index("--")+1:]; SRC,DST=A[0],A[1]
 bpy.ops.wm.open_mainfile(filepath=SRC)
 C=bpy.data.collections["31 CR CONTROL ROOM REDO"]
 FAM=[  # (family, noise scale for the low-frequency variation, regexes of the old materials)
- ("S01 painted metal",2.5,r"hazard|signal red|locker|lamp shade|fridge|aircon|trim charcoal|desk edge|mug|terracotta|ceramic|lift wall"),
+ ("S01 painted metal",2.5,r"hazard|signal red|locker|lamp shade|fridge|aircon|trim charcoal|desk edge|mug|terracotta|ceramic|lift wall|lift dado"),
  ("S02 bare metal",3.0,r"galvanised|graphite|brass|ceiling grid|brushed"),
  ("S03 plaster and tile",2.0,r"wall |ceiling tile"),
  ("S05 plastic and rubber",2.5,r"black plastic|grey plastic|platinum|keycap|rubber|jug|pill"),
