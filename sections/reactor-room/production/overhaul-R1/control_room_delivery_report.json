@@ -1,0 +1,51 @@
+{
+ "source": "N2.blend",
+ "scope_objects": 203,
+ "source_triangles": 97681,
+ "source_bounds_min": [
+  -9.084,
+  -12.03,
+  -0.3
+ ],
+ "source_bounds_max": [
+  2.15,
+  -4.98,
+  10.95
+ ],
+ "materials": {
+  "emit": 21,
+  "keep": 7,
+  "family": 7,
+  "emit_img": 5,
+  "bake": 5,
+  "floor": 1
+ },
+ "baked_tiles": 5,
+ "delivery_images": 20,
+ "delivery_image_megapixels": 8.83,
+ "glb_kib": 12834,
+ "note_tiles": "single-location 256 px albedo bake of procedural materials; not seamless; roughness/metal constant; no normal/AO; screens, LEDs, lamps frozen at frame 1; drivers, stability reactions and TV cycle are not exported",
+ "reimport_objects": 203,
+ "reimport_triangles": 97681,
+ "reimport_bounds_min": [
+  -9.084,
+  -12.03,
+  -0.3
+ ],
+ "reimport_bounds_max": [
+  2.15,
+  -4.98,
+  10.95
+ ],
+ "bounds_max_abs_diff_m": 9.5367431640625e-07,
+ "reimport_materials": 46,
+ "reimport_uv_loops_at_origin_pct": 0.2,
+ "reimport_images": 20,
+ "reimport_objects_with_vertex_colour": 134,
+ "runtime_s": 9,
+ "status": {
+  "technical_roundtrip": "see numbers (objects/triangles/bounds/materials/UV)",
+  "visual_roundtrip": "render written, must be opened and judged",
+  "engine_import_and_player": "Blocked: no asset-specific validator or working Unity target"
+ }
+}
