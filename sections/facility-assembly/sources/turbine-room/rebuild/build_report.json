@@ -13,20 +13,24 @@
    "tris": 96
   },
   "MACH": {
-   "faces": 43575,
-   "tris": 103400
+   "faces": 44273,
+   "tris": 104212
   },
   "SHAFT": {
    "faces": 48,
    "tris": 168
+  },
+  "MIMIC_FAULT": {
+   "faces": 494,
+   "tris": 676
   },
   "PROPS": {
    "faces": 17799,
    "tris": 32960
   }
  },
- "total_tris_before_cull": 203580,
- "total_tris": 374173,
+ "total_tris_before_cull": 205068,
+ "total_tris": 372793,
  "floor": {
   "top_faces": 9,
   "faces": 222,
@@ -66,13 +70,14 @@
  "bevelled_edges": {
   "ARCH": 6099,
   "GLASS": 0,
-  "MACH": 24545,
+  "MACH": 24081,
   "SHAFT": 0,
-  "PROPS": 3728
+  "MIMIC_FAULT": 12,
+  "PROPS": 3724
  },
- "faces_kept": 82554,
- "faces_culled": 9706,
- "materials": 21,
+ "faces_kept": 84352,
+ "faces_culled": 9100,
+ "materials": 23,
  "images": [
   "turbine_atlas",
   "turbine_atlas_orm",
@@ -92,5 +97,5 @@
   "turbine_wall_west_normal.png",
   "turbine_wall_west_orm.png"
  ],
- "objects": 89
+ "objects": 90
 }
