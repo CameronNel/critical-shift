@@ -215,7 +215,7 @@ def apply(mounted):
         if 'Bench' in o.name:o.data.energy*=1.20;o.data.color=(1,.64,.32)
         elif 'Cask' in o.name or 'Staging' in o.name:o.data.color=(1,.78,.49)
         elif any(s in o.name for s in ['Clean','North','Bypass']):o.data.color=(.63,.82,.72)
-    for name,power in [('Crossing fluorescent pool',29),('Entry fluorescent pool',27),('Bypass fluorescent pool',24),('Reactor transfer fluorescent pool',47),('Clean fluorescent pool',20),('North fluorescent pool',16),('Delivery fluorescent pool',31)]:
+    for name,power in [('Crossing fluorescent pool',29),('Entry fluorescent pool',27),('Staging main pool',80),('Bypass fluorescent pool',24),('Reactor transfer fluorescent pool',47),('Clean fluorescent pool',20),('North fluorescent pool',16),('Delivery fluorescent pool',31)]:
         if (o:=bpy.data.objects.get('FC | '+name)):o.data.energy=power
     dead=bpy.data.objects.get('FC | East fluorescent pool')
     if dead:
@@ -223,7 +223,7 @@ def apply(mounted):
         for slot in dead.parent.material_slots:
             if slot.material and 'diffuser' in slot.material.name:slot.material=mat('dead tube')
         dead.parent['fc_failure']='Failed lamp; non-emitting optic and zero associated illumination.'
-    for name,phase in [('Entry fluorescent pool',0),('Crossing fluorescent pool',57),('Bypass fluorescent pool',113),('Reactor transfer fluorescent pool',31)]:
+    for name,phase in [('Entry fluorescent pool',0),('Staging main pool',11),('Bench practical pool',73),('Crossing fluorescent pool',57),('Bypass fluorescent pool',113),('Reactor transfer fluorescent pool',31)]:
         if (o:=bpy.data.objects.get('FC | '+name)):fixture_keys(o,phase)
     red_beacon(mounted,'Transfer alarm beacon','Wall_W-2.2_0_1.2',(1.13,-.004,2.47),18)
     red_beacon(mounted,'Waste alarm beacon','Wall_E16.4_0_17.32',(.10,-.004,2.82),13)

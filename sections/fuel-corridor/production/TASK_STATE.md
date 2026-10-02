@@ -341,3 +341,34 @@ All workers used the identical cold-checked native bytes.
 Independent visual review is pending; no art or Unity acceptance is claimed.
 
 Authoring geometry: {"source_triangles": 985390, "evaluated_triangles": 990670, "mesh_objects": 341, "material_batch_upper_bound": 1428}.
+
+
+## F14 development: visible practical failure
+
+F13c event inspection verified evaluated energy/emission changes but found the
+entry camera's visible staging bar remained steady. Native camera projection
+resolved an initial wrong-fixture attribution: the keyed Entry fluorescent is
+above C01's frame; Staging main is the visible bar. F14 adds phased Staging main
+and Bench practical keys without moving cameras or geometry. The staging base
+reduces to 80 W; existing independent task lights retain route anchors. Luna
+opened native F14a event frames 28/29/30/31 and 32/33/37/38 in C01/C03: staging
+source dimming/dropout/recovery is visibly effective and routes remain legible.
+Bench fluctuation is a subtle secondary variation, not the primary failure cue.
+Cold checks and every-frame 1–241 evaluation pass. Timing review at target speed
+and full F14 visual acceptance remain separate and pending. No score overridden.
+
+## F13ci independent atmosphere review and F14 continuation
+
+Pessimistic Luna opened/hash-verified all 19 published F13ci fixed views, closed
+E03, all four actual spawn references and all five latest PR54 atmosphere
+references. All seven categories and all nine areas score 99 for the requested
+gloomy/rundown still-image set. Report: `critics/luna-full-F13ci.md`. No old F12
+scores were carried into this decision. Native/cold/render SHA is
+`c51f6f1fc397de024fa90cbb3acc3578501a8cb3ae660ea8b40a8a6f810ccf2a`.
+Temporal cadence and whole-map art are outside this still-image decision.
+
+F14 is a bounded temporal refinement, with no intended construction or camera
+change. Full F14 review and comparison to the complete F13 set remain pending;
+the final two full cycles must show no material regression before handoff.
+Thirteen complete full cycles are recorded, including the fresh atmosphere
+review; the protocol's four-cycle minimum remains exceeded.
