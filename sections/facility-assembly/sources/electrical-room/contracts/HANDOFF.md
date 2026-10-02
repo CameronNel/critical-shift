@@ -36,9 +36,11 @@ locally on the task branch (art commit e729d7c). The owner explicitly authorized
 publication and merge if ready. GitHub reads/admin access and the unchanged main
 base are verified; main has no required branch rules. Scoped LFS uploads executed
 but failed with HTTP503 from the managed cloud proxy's HTTPS tunnel. Single-object
-requests reproduce the transport failure. The full asset set is not remotely
-verified, so no published branch, PR or merge is claimed. Authorization is already
-granted; resume publication/merge when the proxy recovers. See overhaul/publication-status.json.
+requests reproduce the transport failure. The owner-directed local main merge is complete;407 reviewed LFS assets are
+hydrated and the accepted scene hashes are preserved. A normal remote main push
+failed at its intact LFS pre-push guard with HTTP503, so GitHub main remains75983b9.
+No remote merge or PR is claimed. Authorization is already granted; resume remote
+publication when the proxy recovers. See overhaul/publication-status.json.
 
 The assembled render/link handoff is
 [facility_electrical_overhaul_candidate.blend](../../../blender/facility_electrical_overhaul_candidate.blend),

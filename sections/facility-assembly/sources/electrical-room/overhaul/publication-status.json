@@ -1,10 +1,10 @@
 {
-  "status": "blocked_network_upload",
+  "status": "merged_local_remote_upload_blocked",
   "branch": "codex/electrical-room-overhaul-20261002",
   "module_sha256": "eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df",
   "local_quality_status": "Complete R11 and separate fresh cold R12: every independent category99; final pair accepted.",
   "git_read_connectivity_with_task_network_permission": "Verified: authenticated ls-remote exit0, task remote branch not yet published",
-  "cloud_spec_revision": "21",
+  "cloud_spec_revision": "22",
   "automatic_approval_rejections": [
     {
       "action": "git lfs push --all origin task-branch",
@@ -21,7 +21,7 @@
   "remote_lfs_completion_verified": false,
   "pull_request_created": false,
   "previous_network_failures": "Historical R10 delivery failures remain in publication-status-R10.json. The new owner authorization resolved the previous approval block; current scoped uploads executed but fail at cloud-proxy authentication/transport. GitHub reads and repository permissions are verified.",
-  "resume": "User has explicitly authorized publication and merge if ready; do not ask again. When the managed cloud proxy transfer recovers, upload and remotely verify only the scoped inventory, publish the existing task branch, create/attach a PR, and merge through the normal GitHub PR path if mergeability/checks pass. Do not bypass proxy policy or publish a branch with missing LFS assets.",
+  "resume": "The owner-directed local main merge is complete; no repeated authorization or local merge is needed. Publish the merged result through normal Git/LFS checks after the managed cloud HTTPS tunnel recovers, then verify GitHub main. Connected GitHub tools are available for metadata/merge but cannot upload these LFS binaries. Do not bypass the LFS guard or create remote refs containing unavailable assets.",
   "candidate_sha256": "623de76b39b9351afbc6cae3cd5d0aa15a49366748616b169670db078ede94c1",
   "independent_reviews": [
     "critics/R11.md",
@@ -55,6 +55,33 @@
     {
       "action": "Single-object upload/download batch diagnostics",
       "failure": "HTTP503, server envoy; upstream tunnel immediate connect error Invalid argument, remote address envoy://cloudflare_https_tunnel/"
+    },
+    {
+      "action": "Revision22 Git ls-remote and gh GraphQL retries",
+      "failure": "HTTP503; Git reports the same cloudflare_https_tunnel Invalid argument"
+    },
+    {
+      "action": "Connected GitHub repository/main/branch/PR/commit verification",
+      "result": "Repository readable, main75983b9; task branch/PR absent, local head commit not found"
+    },
+    {
+      "action": "Normal owner-authorized push of locally merged main with LFS guard intact",
+      "exit_code": 1,
+      "failure": "HTTP503 during required LFS pre-push;0/101 reported complete"
     }
-  ]
+  ],
+  "local_main_merge_completed": true,
+  "local_main_merge_method": "fast-forward",
+  "local_main_reviewed_commit": "17b8d9b06b73e6d1d20506a487a3296517b45245",
+  "local_main_merge_base": "75983b95efb99536b1cda1a5533d9b265a4c581f",
+  "local_main_hydrated_reviewed_assets": 407,
+  "remote_merge_completed": false,
+  "connected_github_verification": "Connected GitHub tools confirm main remains75983b9; no task branch, PR or local head commit exists remotely.",
+  "last_normal_main_push": {
+    "exit_code": 1,
+    "lfs_completed_objects": 0,
+    "lfs_reported_required_objects": 101,
+    "http503_errors": 5,
+    "normal_lfs_pre_push_guard_retained": true
+  }
 }

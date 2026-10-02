@@ -31,7 +31,7 @@
 - [x] Actual-map five-view threshold/context evidence and bounded integration dependency checks.
 - [x] Canonical electrical module byte-promoted under the requested edit scope.
 - [x] Active checkout/provenance and final source/candidate delivery-integrity checks.
-- [ ] Bounded draft PR published for independent review; owner authorized publication/merge; current scoped LFS upload is blocked by cloud-proxy HTTP503 tunnel failure. No published branch, PR or merge.
+- [ ] Bounded draft PR published for independent review; owner authorized publication/merge; current scoped LFS upload is blocked by cloud-proxy HTTP503 tunnel failure. Local main merged under explicit owner authorization; GitHub publication remains blocked.
 
 ## Evidence boundaries
 

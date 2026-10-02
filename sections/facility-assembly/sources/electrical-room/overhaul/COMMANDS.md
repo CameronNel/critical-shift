@@ -245,5 +245,6 @@ reuse is explicit in `supplemental-reuse-R12.json`; those are not new R12 render
 The owner explicitly authorized publication and merge if ready. GitHub reads work,
 but current scoped LFS transfer/single-object requests fail with cloud-proxy HTTP503
 and an HTTPS tunnel immediate-connect Invalid argument. Full remote asset readiness
-is unverified; no branch publication or merge is claimed. Historical failures remain
+is unverified. Local main is merged under the owner instruction; normal remote push
+fails the LFS check with HTTP503, and GitHub main remains unchanged. Historical failures remain
 in `publication-status-R10.json`; current attempts are in `publication-status.json`.
