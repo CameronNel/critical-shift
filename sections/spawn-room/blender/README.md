@@ -355,7 +355,8 @@ nothing over its first and last five frames, so the clip starts and ends exactly
 
 Clips are made to blend into each other:
 - Every one-shot starts and ends on `STAND` (or the carry pose), and the keyed `IDLE` is built on `STAND`. The
-  difference between them is the idle's breathing: at most 9 degrees on any bone, against 19 before.
+  difference between them is the idle's breathing and its arm clearance: at most 13.5 degrees (the right
+  forearm), with the hips within 1 mm.
 - One-shot keys ease in and out.
 - Loops close with no seam (the fastest loops change speed across it by under 8 degrees per frame, as they do
   anywhere else).
@@ -396,54 +397,63 @@ crotch_f, crotch_b, armpit_b, eye), `FRAMES=0,4,...` for a contact sheet, `VIDEO
 twice, one-shots once with a hold), `RES=WxH`, `SAMPLES=N`, `HIDE=<object>`, `EXPORT=<dir>` for the FBX clips.
 
 Checked (headless bpy 5.0.1, Cycles CPU renders reviewed as contact sheets from a close three-quarter camera and the
-first-person eye, plus numeric checks): every clip builds and loops close; no hand target is out of reach by more than 1
-cm except in `PICKUP`/`PLACE` and the get-ups (below); no tool vertex enters the suit; the eye never ends up inside a
-prop; apart from the mittens gripping things, no suit vertex is inside a prop except brief contacts (a few forearm or
-knee vertices on the crate while it is lifted or carried); legs stay within reach (at most 99.8 % extended).
+first-person eye, plus numeric checks): every clip builds and loops close; no tool vertex enters the suit; the eye
+never ends up inside a prop; legs stay within reach (at most 99.8 % extended).
 
-Suit clipping, checked on the evaluated HZ-01 suit at every frame by BVH face overlap:
-- left against right trouser leg below 0.6 m;
-- left against right boot;
-- mittens against the coat and legs;
-- the lowest boot vertex against the floor.
+Suit clipping, checked on the evaluated HZ-01 suit at every frame of every clip:
+- left against right trouser leg below 0.6 m, left against right boot, mittens against the coat and legs, and the
+  lowest boot vertex against the floor (BVH face overlap);
+- sleeves, cuffs and mittens against the torso, legs, boots and hood: signed depth below the surface, with contact up
+  to 8 mm counted as soft fabric touching;
+- sleeves, cuffs and mittens against the kit (straps, pouches, buckles): how far the kit's outer face stands above
+  the arm surface. Contacts within 0.16 m of the shoulder joint are reported apart as the armhole crease (below);
+- the suit, hood and visor against the preview props (a gripping mitten is expected to be in its prop);
+- hand targets out of reach by more than 1 cm.
 
-42 of the 49 clips have no overlaps, and their boots stay within 1 mm of the floor. They include `IDLE`, every walk,
-turn and run (the tool runs included) and every carry, push, pull and drag walk.
+27 of the 49 clips pass every check: `IDLE`, every walk, turn and run, `SPRINT`, `JUMP`, `FALL`, `LAND`, the tool
+holds, `CARRY_IDLE`/`WALK`/`RUN`, `THROW_OVER`, `PUSH_IDLE`, `PRESS_BUTTON`, `INSERT`, `RADIO`, `STAGGER_B`/`L`/`R`,
+`REANIM_IDLE` and `REANIM_EXIT`.
 
-The other seven have contacts:
-- `PICKUP` / `PLACE`: the inner thighs touch in the stooped squat, and a forearm brushes a knee for a few frames on
-  the way down.
-- `SUIT_UP`: the hands grip the suit.
-- `SHOVEL_DIG`: the left mitten touches the belly at the stab.
-- `LOCKER_EXIT`: 6 faces.
-- `GETUP_FRONT` / `GETUP_BACK`: see the known limits below.
+Seven more fail only on the armhole crease (8 to 23 mm, 1 to 10 frames): `RUN_SHOVEL`, `RUN_PICKAXE`, `PUSH_WALK`,
+`DRAG_BODY`, `POINT`, `STAGGER_F` and `OPEN`. When an arm reaches forward, the fully arm-weighted top of the sleeve
+folds over the pack's shoulder strap, which (like the coat under it) only half follows the arm. It lies in the crease
+between the upper arm and the chest and was not visible in the close renders checked; the bind pose itself already
+has a 39 mm kit overlap at the left shoulder. A shoulder corrective is the fix.
 
-Arm audit: the penetration depth of sleeves, cuffs and mittens into the torso, legs, boots and hood, measured at every
-frame.
-- After the arm clearance:
-  - the \o/ forearms in the hood are down from 50 to 26 mm;
-  - the tool runs' pumping arm is down from 42 to 16 mm;
-  - the reaching forearms in the chest are down from 39–46 to 23–39 mm;
-  - `PULL_WALK` is down from 41 to 30 mm, `SHOVEL_DIG` from 50 to 28 mm and the idle from 27 to 20 mm.
-- The wider hanging pose keeps the elbow bands out of the belt pouches. It also presses the back of the right armpit
-  up to 38 mm into the coat when the chest twists (turns, side-steps, staggers). That contact lies between the arm and
-  the back, hidden under the sleeve in the renders.
+The other 15 still have contacts:
+- `SHOVEL_DIG`: the right cuff in the torso (49 mm) and against the hood and the chest straps, mittens touching the
+  coat. The worker's shoulders are only 0.84 to 0.94 m up when it leans in and its arms are 0.45 m long, so the
+  D-handle hand folds against the body; a lower grip was tried and was worse. Needs a different grip or a shorter
+  tool.
+- `SUIT_UP`: the zipping forearm crosses the chest strap (56 mm). Left-hand, elbow-down and elbow-up zips were tried
+  and were no better.
+- `PULL_WALK`: a forearm on the chest strap (21 mm).
+- `TURN_VALVE`, `HOLD_VALVE`, `CONNECT_PORT`: armhole crease (23 to 25 mm) plus a forearm on a strap (12 to 22 mm) in
+  the valve turn and the port; the hands trail their targets by 2 cm in `HOLD_VALVE` and `CONNECT_PORT`.
+- `GETUP_FRONT`: the right cuff touches the hood rim (11 mm, 2 frames), armhole crease, a hand 5 cm short of the floor,
+  a boot 4 mm under the floor.
+- `GETUP_BACK`: the knees touch on the way up, the right sleeve presses the coat lying down (27 mm, 6 frames), a boot
+  5 mm under the floor.
+- `PICKUP` / `PLACE`: the inner thighs touch in the stoop; cuffs inside the crate's sides at the grip (91 vertices).
+- `THROW_UNDER`: 13 cuff vertices inside the crate's side at the bottom of the swing.
+- `DROP` (11 mm, 1 frame), `PULL_LEVER` (8 mm, 1 frame): a sleeve on the coat as the arm comes back down.
+- `LOCKER_EXIT`: a mitten brushes the coat (11 faces).
+- `REANIM_JOLT`: the back of the suit in the cabinet's back wall at the shock; armhole crease.
+
+Earlier summaries of this rig counted kit contacts by vertex count only and did not count the visor against props, so
+they missed the visor going through the door in `OPEN` and through the crate in `THROW_OVER`; both are fixed.
 
 Known limits: not imported into Unity (Humanoid Avatar mapping, clip import and the first-person camera are untested in
 the engine). Clips are in place with no root motion, so planted feet slide back on the treadmill unless playback speed
-is matched. The bare (unsuited) body was not reviewed. In the get-ups the mittens rest on the thighs and knees, and the
-knees touch in `GETUP_BACK` (overlapping faces that read as contact in the renders); a hand trails its target by up to 4
-cm while pushing up, and a lying or kneeling boot dips up to 5 mm under the floor. The raised shovel blade sits beside
-the right of the visor in a front view, so that it shows in the first-person view. Face decals are rigid, so expressions
-do not animate. In `PICKUP`/`PLACE` the hands trail their path for a few frames as the body bends (up to 11 cm short of
-it). Props are stand-ins, so real handle, button and slot positions must be matched to the clips (or the clips
+is matched. The bare (unsuited) body was not reviewed. The raised shovel blade sits beside the right of the visor in a
+front view, so that it shows in the first-person view. Face decals are rigid, so expressions do not animate. Props are
+stand-ins, so real handle, button and slot positions must be matched to the clips (or the clips
 re-keyed). The FBX clips and renders are not committed.
 
 Status: kept on the `claude/character-rig` branch, not merged. Open polish items:
-- Clear the get-up hand and knee contacts.
-- A corrective for the shoulder skinning: the fold behind the armpit and the inner sleeve near the shoulder, which
-  the arm clearance deliberately leaves to the skinning.
-- Re-key the reaches that still bring a forearm into the chest (`CONNECT_PORT`, `INSERT`, `TURN_VALVE`; 23 to 39 mm).
+- The 15 clips with contacts listed above, the dig and the suit-up zip first.
+- A corrective for the shoulder skinning: the armhole crease over the shoulder strap, the fold behind the armpit and
+  the inner sleeve near the shoulder, which the arm clearance deliberately leaves to the skinning.
 - Mittens higher in the \o/ run (they reach about the top of the hood).
 - Round the flank wall that shows under a raised arm, and ease the armpit stretch (up to about 5.5x at the fold).
 - Root motion or foot locking, so the planted foot does not slide on the treadmill.
