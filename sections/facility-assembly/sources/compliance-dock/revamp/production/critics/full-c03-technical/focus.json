@@ -1,0 +1,1020 @@
+{
+  "bearing_targets": [
+    {
+      "object": "Conveyor return belt",
+      "bounds": [
+        [
+          4.070000171661377,
+          5.449999809265137,
+          0.4099999964237213
+        ],
+        [
+          5.230000019073486,
+          9.850000381469727,
+          0.429999977350235
+        ]
+      ],
+      "nearest": [
+        {
+          "other": "CD | Joined Cargo Inspection Conveyor / steel",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 24,
+          "witness": null
+        },
+        {
+          "other": "CD | Joined Cargo Inspection Conveyor / charcoal",
+          "same_assembly": true,
+          "gap_m": 0.04900083690881729,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              4.020999908447266,
+              8.93649959564209,
+              0.41449999809265137
+            ],
+            [
+              4.070000171661377,
+              8.936262130737305,
+              0.4145042300224304
+            ]
+          ]
+        },
+        {
+          "other": "Conveyor leg 3.98_9.9",
+          "same_assembly": true,
+          "gap_m": 0.05217752233147621,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              4.070267200469971,
+              9.8489990234375,
+              0.42799997329711914
+            ],
+            [
+              4.019859790802002,
+              9.86247444152832,
+              0.42799997329711914
+            ]
+          ]
+        },
+        {
+          "other": "Conveyor leg 5.32_9.9",
+          "same_assembly": true,
+          "gap_m": 0.05217776820063591,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              5.229732990264893,
+              9.8489990234375,
+              0.41200000047683716
+            ],
+            [
+              5.280140399932861,
+              9.862475395202637,
+              0.41200003027915955
+            ]
+          ]
+        },
+        {
+          "other": "Conveyor leg 5.32_5.4",
+          "same_assembly": true,
+          "gap_m": 0.052177831530570984,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              5.229732990264893,
+              5.451001167297363,
+              0.41200000047683716
+            ],
+            [
+              5.280139446258545,
+              5.437520980834961,
+              0.41200000047683716
+            ]
+          ]
+        },
+        {
+          "other": "Conveyor leg 3.98_5.4",
+          "same_assembly": true,
+          "gap_m": 0.052177976816892624,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              4.070000171661377,
+              5.452000141143799,
+              0.41200000047683716
+            ],
+            [
+              4.019599437713623,
+              5.438498020172119,
+              0.41200003027915955
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "object": "P2 blast leaf west",
+      "bounds": [
+        [
+          -2.2899999618530273,
+          15.75,
+          0.019999980926513672
+        ],
+        [
+          -0.009999990463256836,
+          15.889999389648438,
+          3.4800000190734863
+        ]
+      ],
+      "nearest": [
+        {
+          "other": "P2 leaf rib -2.0",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 34,
+          "witness": null
+        },
+        {
+          "other": "P2 leaf rib -1.2",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 34,
+          "witness": null
+        },
+        {
+          "other": "P2 leaf rib -0.4",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 34,
+          "witness": null
+        },
+        {
+          "other": "P2 center seal strip",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 49,
+          "witness": null
+        },
+        {
+          "other": "CD | Joined Arrival Gate P2 / steel",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 16,
+          "witness": null
+        },
+        {
+          "other": "CD | Joined P2 blast leaf west / charcoal",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 118,
+          "witness": null
+        },
+        {
+          "other": "CD | Joined P2 blast leaf west / steel",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 57,
+          "witness": null
+        },
+        {
+          "other": "CD | Joined P2 blast leaf east / steel",
+          "same_assembly": true,
+          "gap_m": 0.0011729099787771702,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              -0.011707127094268799,
+              15.751707077026367,
+              0.051000118255615234
+            ],
+            [
+              -0.01253617275506258,
+              15.75253677368164,
+              0.05100226402282715
+            ]
+          ]
+        },
+        {
+          "other": "CD | Joined P2 blast leaf west / navy",
+          "same_assembly": true,
+          "gap_m": 0.008000373840332031,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              -1.9597101211547852,
+              15.741999626159668,
+              0.5706999897956848
+            ],
+            [
+              -1.9597100019454956,
+              15.75,
+              0.5706999897956848
+            ]
+          ]
+        },
+        {
+          "other": "Skirting north west",
+          "same_assembly": false,
+          "gap_m": 0.010000228881835938,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              -2.3000001907348633,
+              15.76200008392334,
+              0.14800000190734863
+            ],
+            [
+              -2.2899999618530273,
+              15.76200008392334,
+              0.14800184965133667
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "object": "P2 blast leaf east",
+      "bounds": [
+        [
+          0.009999990463256836,
+          15.75,
+          0.019999980926513672
+        ],
+        [
+          2.2899999618530273,
+          15.889999389648438,
+          3.4800000190734863
+        ]
+      ],
+      "nearest": [
+        {
+          "other": "P2 leaf rib 0.4",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 34,
+          "witness": null
+        },
+        {
+          "other": "P2 leaf rib 1.2",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 34,
+          "witness": null
+        },
+        {
+          "other": "P2 leaf rib 2.0",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 34,
+          "witness": null
+        },
+        {
+          "other": "P2 center seal strip",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 49,
+          "witness": null
+        },
+        {
+          "other": "CD | Joined Arrival Gate P2 / steel",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 16,
+          "witness": null
+        },
+        {
+          "other": "CD | Joined P2 blast leaf east / charcoal",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 121,
+          "witness": null
+        },
+        {
+          "other": "CD | Joined P2 blast leaf east / steel",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 57,
+          "witness": null
+        },
+        {
+          "other": "CD | Joined P2 blast leaf west / steel",
+          "same_assembly": true,
+          "gap_m": 0.0011732932180166245,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.011707067489624023,
+              15.751707077026367,
+              0.051000118255615234
+            ],
+            [
+              0.012536657974123955,
+              15.75253677368164,
+              0.051000118255615234
+            ]
+          ]
+        },
+        {
+          "other": "CD | Joined P2 blast leaf east / navy",
+          "same_assembly": true,
+          "gap_m": 0.008000373840332031,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.3402899503707886,
+              15.741999626159668,
+              0.5706999897956848
+            ],
+            [
+              0.3402900695800781,
+              15.75,
+              0.5706999897956848
+            ]
+          ]
+        },
+        {
+          "other": "Skirting north east",
+          "same_assembly": false,
+          "gap_m": 0.010000228881835938,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              2.3000001907348633,
+              15.76200008392334,
+              0.14800000190734863
+            ],
+            [
+              2.2899999618530273,
+              15.76200008392334,
+              0.14800000190734863
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Key box glass",
+      "bounds": [
+        [
+          -3.134999990463257,
+          9.46500015258789,
+          1.315000057220459
+        ],
+        [
+          -2.865000009536743,
+          9.475000381469727,
+          1.684999942779541
+        ]
+      ],
+      "nearest": [
+        {
+          "other": "Key box label",
+          "same_assembly": true,
+          "gap_m": 0.0019989013671875,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              -3.075716018676758,
+              9.476999282836914,
+              1.6838363409042358
+            ],
+            [
+              -3.075716018676758,
+              9.475000381469727,
+              1.6838363409042358
+            ]
+          ]
+        },
+        {
+          "other": "Office key box cabinet",
+          "same_assembly": true,
+          "gap_m": 0.015000104904174805,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              -3.134000062942505,
+              9.4660005569458,
+              1.315000057220459
+            ],
+            [
+              -3.134000062942505,
+              9.4660005569458,
+              1.2999999523162842
+            ]
+          ]
+        },
+        {
+          "other": "Office rear wall east",
+          "same_assembly": false,
+          "gap_m": 0.04500007629394531,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              -3.134000062942505,
+              9.475000381469727,
+              1.315999984741211
+            ],
+            [
+              -3.134000062942505,
+              9.520000457763672,
+              1.315999984741211
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Key box label",
+      "bounds": [
+        [
+          -3.0815000534057617,
+          9.476999282836914,
+          1.673819899559021
+        ],
+        [
+          -2.9193599224090576,
+          9.482999801635742,
+          1.6878199577331543
+        ]
+      ],
+      "nearest": [
+        {
+          "other": "Key box glass",
+          "same_assembly": true,
+          "gap_m": 0.0019989013671875,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              -3.075716018676758,
+              9.476999282836914,
+              1.6838363409042358
+            ],
+            [
+              -3.075716018676758,
+              9.475000381469727,
+              1.6838363409042358
+            ]
+          ]
+        },
+        {
+          "other": "Office key box cabinet",
+          "same_assembly": true,
+          "gap_m": 0.012180089950561523,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              -3.0779199600219727,
+              9.482999801635742,
+              1.6878199577331543
+            ],
+            [
+              -3.0779199600219727,
+              9.482999801635742,
+              1.7000000476837158
+            ]
+          ]
+        },
+        {
+          "other": "Office rear wall east",
+          "same_assembly": false,
+          "gap_m": 0.03700065612792969,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              -3.0806708335876465,
+              9.482999801635742,
+              1.6848989725112915
+            ],
+            [
+              -3.0806708335876465,
+              9.520000457763672,
+              1.684898853302002
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Scanner lintel txt",
+      "bounds": [
+        [
+          -0.5019624829292297,
+          6.7870001792907715,
+          2.7199149131774902
+        ],
+        [
+          0.5065125226974487,
+          6.792999744415283,
+          2.7654149532318115
+        ]
+      ],
+      "nearest": [
+        {
+          "other": "Scanner lintel face",
+          "same_assembly": true,
+          "gap_m": 4.76837158203125e-07,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.48763060569763184,
+              6.792999744415283,
+              2.7644429206848145
+            ],
+            [
+              0.48763060569763184,
+              6.793000221252441,
+              2.7644429206848145
+            ]
+          ]
+        },
+        {
+          "other": "Scanner portal lintel",
+          "same_assembly": true,
+          "gap_m": 0.02700042724609375,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.48560830950737,
+              6.792999744415283,
+              2.7647321224212646
+            ],
+            [
+              0.48560830950737,
+              6.820000171661377,
+              2.7647321224212646
+            ]
+          ]
+        },
+        {
+          "other": "CD | Joined Person Scanner Arch / steel",
+          "same_assembly": true,
+          "gap_m": 0.09899395704269409,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.5065125226974487,
+              6.792999744415283,
+              2.7204999923706055
+            ],
+            [
+              0.6050000786781311,
+              6.802999973297119,
+              2.7204999923706055
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Scanner status light 0",
+      "bounds": [
+        [
+          0.7549999952316284,
+          6.789999961853027,
+          1.774999976158142
+        ],
+        [
+          0.8049999475479126,
+          6.810000419616699,
+          1.8249999284744263
+        ]
+      ],
+      "nearest": [
+        {
+          "other": "CD | Joined Person Scanner Arch / charcoal",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 46,
+          "witness": null
+        },
+        {
+          "other": "Scanner portal column 1",
+          "same_assembly": true,
+          "gap_m": 0.009999752044677734,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.810000419616699,
+              1.8199567794799805
+            ],
+            [
+              0.7799999713897705,
+              6.820000171661377,
+              1.8199567794799805
+            ]
+          ]
+        },
+        {
+          "other": "CD | Joined Person Scanner Arch / steel",
+          "same_assembly": true,
+          "gap_m": 0.024003831669688225,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.8049999475479126,
+              6.805000305175781,
+              1.7999999523162842
+            ],
+            [
+              0.828999936580658,
+              6.805001258850098,
+              1.7995704412460327
+            ]
+          ]
+        },
+        {
+          "other": "Scanner column inset 1",
+          "same_assembly": true,
+          "gap_m": 0.04999971389770508,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.810000419616699,
+              1.8199567794799805
+            ],
+            [
+              0.7800000309944153,
+              6.860000133514404,
+              1.8199622631072998
+            ]
+          ]
+        },
+        {
+          "other": "Scanner status light 1",
+          "same_assembly": true,
+          "gap_m": 0.0700000524520874,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              1.8249999284744263
+            ],
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              1.8949999809265137
+            ]
+          ]
+        },
+        {
+          "other": "G1 latch post west",
+          "same_assembly": false,
+          "gap_m": 0.1000877246260643,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.8024783730506897,
+              6.809330463409424,
+              1.7999999523162842
+            ],
+            [
+              0.8725032806396484,
+              6.8806681632995605,
+              1.7950000762939453
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Scanner status light 1",
+      "bounds": [
+        [
+          0.7549999952316284,
+          6.789999961853027,
+          1.8949999809265137
+        ],
+        [
+          0.8049999475479126,
+          6.810000419616699,
+          1.9449999332427979
+        ]
+      ],
+      "nearest": [
+        {
+          "other": "CD | Joined Person Scanner Arch / charcoal",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 48,
+          "witness": null
+        },
+        {
+          "other": "CD | Joined Person Scanner Arch / steel",
+          "same_assembly": true,
+          "gap_m": 0.009841435588896275,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.80750036239624,
+              1.8956756591796875
+            ],
+            [
+              0.7799999713897705,
+              6.809299945831299,
+              1.886000156402588
+            ]
+          ]
+        },
+        {
+          "other": "Scanner portal column 1",
+          "same_assembly": true,
+          "gap_m": 0.009999752044677734,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.810000419616699,
+              1.939956784248352
+            ],
+            [
+              0.7799994945526123,
+              6.820000171661377,
+              1.939955711364746
+            ]
+          ]
+        },
+        {
+          "other": "Scanner column inset 1",
+          "same_assembly": true,
+          "gap_m": 0.04999971389770508,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.810000419616699,
+              1.939956784248352
+            ],
+            [
+              0.7800002098083496,
+              6.860000133514404,
+              1.9399549961090088
+            ]
+          ]
+        },
+        {
+          "other": "Scanner status light 2",
+          "same_assembly": true,
+          "gap_m": 0.06999993324279785,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              1.9449999332427979
+            ],
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              2.0149998664855957
+            ]
+          ]
+        },
+        {
+          "other": "Scanner status light 0",
+          "same_assembly": true,
+          "gap_m": 0.0700000524520874,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              1.8949999809265137
+            ],
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              1.8249999284744263
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Scanner status light 2",
+      "bounds": [
+        [
+          0.7549999952316284,
+          6.789999961853027,
+          2.0149998664855957
+        ],
+        [
+          0.8049999475479126,
+          6.810000419616699,
+          2.065000057220459
+        ]
+      ],
+      "nearest": [
+        {
+          "other": "CD | Joined Person Scanner Arch / charcoal",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 48,
+          "witness": null
+        },
+        {
+          "other": "Scanner portal column 1",
+          "same_assembly": true,
+          "gap_m": 0.009999752044677734,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.810000419616699,
+              2.0599567890167236
+            ],
+            [
+              0.7799995541572571,
+              6.820000171661377,
+              2.0599565505981445
+            ]
+          ]
+        },
+        {
+          "other": "CD | Joined Person Scanner Arch / steel",
+          "same_assembly": true,
+          "gap_m": 0.023999998345971107,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.8049999475479126,
+              6.805000305175781,
+              2.0399999618530273
+            ],
+            [
+              0.828999936580658,
+              6.805001258850098,
+              2.0400216579437256
+            ]
+          ]
+        },
+        {
+          "other": "Scanner column inset 1",
+          "same_assembly": true,
+          "gap_m": 0.04999971389770508,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.810000419616699,
+              2.0599567890167236
+            ],
+            [
+              0.7800000309944153,
+              6.860000133514404,
+              2.0599594116210938
+            ]
+          ]
+        },
+        {
+          "other": "Scanner status light 1",
+          "same_assembly": true,
+          "gap_m": 0.06999993324279785,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              2.0149998664855957
+            ],
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              1.9449999332427979
+            ]
+          ]
+        },
+        {
+          "other": "Scanner status light 3",
+          "same_assembly": true,
+          "gap_m": 0.06999993324279785,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              2.065000057220459
+            ],
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              2.134999990463257
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Scanner status light 3",
+      "bounds": [
+        [
+          0.7549999952316284,
+          6.789999961853027,
+          2.134999990463257
+        ],
+        [
+          0.8049999475479126,
+          6.810000419616699,
+          2.18500018119812
+        ]
+      ],
+      "nearest": [
+        {
+          "other": "CD | Joined Person Scanner Arch / charcoal",
+          "same_assembly": true,
+          "gap_m": 0.0,
+          "overlap_triangles": 48,
+          "witness": null
+        },
+        {
+          "other": "CD | Joined Person Scanner Arch / steel",
+          "same_assembly": true,
+          "gap_m": 0.006609859876334667,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7940000891685486,
+              6.811500072479248,
+              2.134000062942505
+            ],
+            [
+              0.791986346244812,
+              6.80750036239624,
+              2.138861894607544
+            ]
+          ]
+        },
+        {
+          "other": "Scanner portal column 1",
+          "same_assembly": true,
+          "gap_m": 0.009999752044677734,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.810000419616699,
+              2.1799569129943848
+            ],
+            [
+              0.7799994945526123,
+              6.820000171661377,
+              2.1799566745758057
+            ]
+          ]
+        },
+        {
+          "other": "Scanner column inset 1",
+          "same_assembly": true,
+          "gap_m": 0.04999971389770508,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.810000419616699,
+              2.1799569129943848
+            ],
+            [
+              0.7799997329711914,
+              6.860000133514404,
+              2.179957151412964
+            ]
+          ]
+        },
+        {
+          "other": "Scanner status light 2",
+          "same_assembly": true,
+          "gap_m": 0.06999993324279785,
+          "overlap_triangles": 0,
+          "witness": [
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              2.134999990463257
+            ],
+            [
+              0.7799999713897705,
+              6.805000305175781,
+              2.065000057220459
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "fabric_main_face_chart_discontinuous_vertices": [
+    1375,
+    2800,
+    1401,
+    2826,
+    1399,
+    1423,
+    2848,
+    2824
+  ],
+  "source_mesh_name": "TEMP continuous cloth"
+}

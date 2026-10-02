@@ -1,0 +1,98 @@
+{
+  "key_cabinet": {
+    "glasscentre": [
+      -3.0,
+      9.470000267028809,
+      1.5
+    ],
+    "inside_cabinet": true,
+    "cabinet_rays": [
+      {
+        "axis": 0,
+        "sign": -1,
+        "hit": [
+          -3.1500000953674316,
+          9.470000267028809,
+          1.5
+        ],
+        "distance": 0.15000000596046448
+      },
+      {
+        "axis": 0,
+        "sign": 1,
+        "hit": [
+          -2.8499999046325684,
+          9.470000267028809,
+          1.5
+        ],
+        "distance": 0.15000000596046448
+      },
+      {
+        "axis": 1,
+        "sign": -1,
+        "hit": [
+          -3.0,
+          9.369999885559082,
+          1.5
+        ],
+        "distance": 0.1000002846121788
+      },
+      {
+        "axis": 1,
+        "sign": 1,
+        "hit": [
+          -3.0,
+          9.520000457763672,
+          1.5
+        ],
+        "distance": 0.05000009015202522
+      },
+      {
+        "axis": 2,
+        "sign": -1,
+        "hit": [
+          -3.0,
+          9.470000267028809,
+          1.3000000715255737
+        ],
+        "distance": 0.19999994337558746
+      },
+      {
+        "axis": 2,
+        "sign": 1,
+        "hit": [
+          -3.0,
+          9.470000267028809,
+          1.6999999284744263
+        ],
+        "distance": 0.19999994337558746
+      }
+    ]
+  },
+  "fabric": {
+    "top_vertices_index_range": [
+      0,
+      1424
+    ],
+    "top_triangles": 2688,
+    "world_area_m2": 3.290553118258776,
+    "uv_area": 3.290553294199754,
+    "uv_world_area_ratio": 1.0000000534685116,
+    "top_shared_vertex_chart_discontinuities": [
+      1375,
+      1401,
+      1399,
+      1423
+    ],
+    "metadata": {
+      "assembly": "Covered Trolley H1",
+      "support_class": "assembly_component",
+      "circulation_solid": "False",
+      "overhaul_surface": "True",
+      "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+      "textile_grid": "<bpy id property array [2]>",
+      "fabric_uv_contract": "Continuous ANGLE_BASED top island; globally normalized one-metre surface area; sewn hem/thickness seams; physical face chart retained for metric audit",
+      "fabric_uv_normalization": "{\"world_top_area_m2\": 3.290553118258776, \"uv_top_area\": 3.290553294199754, \"factor\": 6.042268091294414}"
+    }
+  }
+}

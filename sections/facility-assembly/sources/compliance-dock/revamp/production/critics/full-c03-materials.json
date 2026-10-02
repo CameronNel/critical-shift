@@ -1,0 +1,322 @@
+{
+  "review": "full-c03-materials",
+  "role": "Independent materials and colour critic",
+  "date_utc": "2026-10-02T22:11:58.835599+00:00",
+  "source_sha256": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+  "scope": "Pixel review of categories 4 and 6 only; no builder code, rationale or earlier scores read.",
+  "requirements_read": [
+    "design/ART_DIRECTION.md",
+    "design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md",
+    "sections/facility-assembly/sources/compliance-dock/revamp/scenery/OVERHAUL_BRIEF.md",
+    "sections/facility-assembly/sources/compliance-dock/revamp/production/RUBRIC.md"
+  ],
+  "inspected_image_count": 39,
+  "manifests": [
+    {
+      "path": "renders/full-cycle-03/manifest.json",
+      "complete": true,
+      "source_sha256": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+      "image_count": 27,
+      "sha256": "ce2fbacfaf9540eb85b5c3c5d225019992979db897d1e14e6f8e2e45579653ce"
+    },
+    {
+      "path": "renders/full-cycle-03-uv/manifest.json",
+      "complete": true,
+      "source_sha256": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+      "image_count": 4,
+      "sha256": "ce6726125e0e7e0f485ec3e291cfe2891bed8cdaa79bc41df2586091a822c0f4"
+    },
+    {
+      "path": "renders/full-cycle-03-neutral/manifest.json",
+      "complete": true,
+      "source_sha256": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+      "image_count": 4,
+      "sha256": "4b9f6def665a12a7bfad7be06c41751bd3cf8a5b77f9ce32423ec0767ba7c95e"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "renders/full-cycle-03/C01_ENTRY.png",
+      "sha256": "fb0ca05924737e26e335120575a3b1cca0466e993028dab39a5803842ba06e59",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/C02_HERO_DOCK.png",
+      "sha256": "c180b25c298dbc6974de9fbff3b717a7a6484fae2e68190952f4e9cd9ab5ee37",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/C03_CHECKIN_COUNTER.png",
+      "sha256": "5804eadd7edbf977d19dd923493de163de18c1bd145a0f2aee1469819028b020",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/C04_SCANNER_APPROACH.png",
+      "sha256": "d2a7f897c3fc81b7073735b042d387dbcc58170eef212c0cf731e86aa425f174",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "sha256": "ccd61cd75da593795756cb0dfccd488f3e2f213f6320f6b4addb73aa988beec4",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/C06_CART_GATE_G1.png",
+      "sha256": "c862e5d6858b30dea15f060b7a61442f01cc880abdea1f81d3a9da11c7821c60",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/C07_OFFICE_INTERIOR.png",
+      "sha256": "4f3638aedfe6144c6bfb145bda49ae51dd29f9fb58bd3a74969e10a33568acdc",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/C08_CONCEALED_SUPPORT_H1.png",
+      "sha256": "8206b242544944e0311b1402ce6f44f3e84a06f4c38c5fe869347f5079cefc0c",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/C09_ARRIVAL_GATE_P2.png",
+      "sha256": "5865cdc53fb17af973393a4a81d1fa01c55db599081173f97c4b21a2242a5917",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/C10_ROOF_SERVICES.png",
+      "sha256": "4d78ff83e29fe0c3756b05c5772c652211025fd754eac0cc137fbb53f819dc06",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/CORNER_SW.png",
+      "sha256": "7beb976d8a7d68365a40f56b4ef6c07f889d724db403eb1fa6accca6a06a8b9d",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/CORNER_SE.png",
+      "sha256": "a463fa88c863c71b643c7af195361bb1ae15f051872b402d24147c42b389674d",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/CORNER_NW.png",
+      "sha256": "6432965a52f47990f5d85d6e07ae161eb3d141e9b8e8c921e78764e04c717e36",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/CORNER_NE.png",
+      "sha256": "4016053a27b97f8ca1486801bc53f392b2ea27455791bd1c4c63ee0a132bb4fb",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/WALL_SOUTH.png",
+      "sha256": "386c218069566554817ab462c47139257b1e2e9563238fecd2c5f574ec1ee80b",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/WALL_NORTH.png",
+      "sha256": "6a2c199d826675e05ec666bb9403aae7acccfe46ea2a1e0bfbcd401d83ec0ed6",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/WALL_EAST.png",
+      "sha256": "a22942f092f81ec7a2b79af59a115441c98170ef58a5c13d2f615a7e8074db8b",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/WALL_WEST.png",
+      "sha256": "a6d5dcca8f168c00b0a060b440b43de2078037cc8ff9cc3872f482906df0a362",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/HERO_SCANNER.png",
+      "sha256": "38d5375062cf0c94e3563dd8d03f5125d2e3d6c81a248e5936fcb28ada75da1d",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/HERO_CARGO.png",
+      "sha256": "8ab3e3376394e692c9e3e7789eef943a4030e5b1eb285ce86b151700782ec1fb",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/HERO_EVIDENCE.png",
+      "sha256": "ebfb6778c1fabf29da720acfa1b747d3a216ea27fbd2631b8e4b3d8f83e13154",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/HERO_TROLLEY.png",
+      "sha256": "30f15b1da732fab6a50ac4aabec3c9b12b08738c4b37b18b9794c3cd094142f5",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/HERO_UTILITIES.png",
+      "sha256": "702a93b181cc442189520c4447f0a1bc801c0ed60955ee20113eeb76703cd779",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/DETAIL_CHECKIN.png",
+      "sha256": "10d4e01bc92f3da0b31ebcf601393ac33cbafe5cb6e5926475857157b7fc6702",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/PLAYER_REVERSE.png",
+      "sha256": "6e45df59228607557600b82c07cd01c6871b91f93b35074168b698527de17b8b",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/PLAYER_PINCH.png",
+      "sha256": "1667dc8b002602b08558fe3fde14709b5206eb06ac1e4fb2e7fa003d1bca9942",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03/WALL_OFFICE_FRONT.png",
+      "sha256": "e2917d91d370a329e892875c9b8b980354dd974b9e341423c121ecdab9bb989a",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03-uv/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "sha256": "fe5afd8b35d1b22b3817ecef99fa3b9b0bcb45fcdef7fab173ac2ff58fbca756",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03-uv/C07_OFFICE_INTERIOR.png",
+      "sha256": "5ca6d4f0c2e1b1d3ff92f5bbfe2bff6e683189b5e5fbd418704c295c881af8a0",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03-uv/HERO_TROLLEY.png",
+      "sha256": "32e7c9c38f4757f5f1996e9ea4ee1d6bc0fd709b440fd465ac96eeeb9dc05f41",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03-uv/HERO_UTILITIES.png",
+      "sha256": "be200433de101372cd609179695d625f14cb3174c464a46b6fb5da249a11102d",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "sha256": "ecc396f0ed0c77788895b0501a767cd79150c4db47fe826dad95f56c860a371c",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03-neutral/C07_OFFICE_INTERIOR.png",
+      "sha256": "f0e87721d9bc2bc4c4cc813f78e790a415b1d0779c63d8227dc2597e9e219ecc",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03-neutral/HERO_TROLLEY.png",
+      "sha256": "6596d26d3e52069a877b893ab59eed7090e55c068aaa2bc71c7dcbbfb37d2ab3",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/full-cycle-03-neutral/HERO_UTILITIES.png",
+      "sha256": "e7f3a9fed2c33896d3f3a439ab8d2a47b641e78321479f7b9a04c9a81140e891",
+      "inspected_with": "view_image"
+    },
+    {
+      "path": "renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "inspected_with": "view_image",
+      "original_reference_pixels": true
+    },
+    {
+      "path": "renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "inspected_with": "view_image",
+      "original_reference_pixels": true
+    },
+    {
+      "path": "renders/spawn-reference/VALIDATE_Material_A.png",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "inspected_with": "view_image",
+      "original_reference_pixels": true
+    },
+    {
+      "path": "renders/spawn-reference/VALIDATE_Spawn.png",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "inspected_with": "view_image",
+      "original_reference_pixels": true
+    }
+  ],
+  "scores": {
+    "4": 92,
+    "6": 95
+  },
+  "categories": [
+    {
+      "id": 4,
+      "name": "Tactile material identity and UV/texture discipline",
+      "score": 92,
+      "strict_threshold": 93,
+      "pass": false,
+      "reason": "Useful material separation and disciplined noise, but broad route flooring and major painted-equipment faces lack enough visible authored finish/usage variation for the strict completion threshold."
+    },
+    {
+      "id": 6,
+      "name": "Approved spawn colour coherence and restrained accents",
+      "score": 95,
+      "strict_threshold": 93,
+      "pass": true,
+      "reason": "Dark navy lower walls, warm off-white, orange doors/signs, grey flooring and concentrated yellow hazards form a coherent extension of the spawn palette. Secondary medium-blue cabinets could be quieter."
+    }
+  ],
+  "critical_vetoes": [],
+  "critical_veto_detected": false,
+  "specialist_gate_pass": false,
+  "strengths": [
+    "Matte trolley cloth, exposed metal conduits/handles, paper, glazing and painted equipment have visible differences; the room does not have a dominant uniform glossy-plastic read.",
+    "Check-in detail shows plaster grain, controlled metal highlights and restrained contact wear.",
+    "Broad colour masses and functional accents remain consistent across all four corners, wall elevations and player-height views."
+  ],
+  "uv_pixel_observations": "Broad wall/floor/panel checkers appear regular in the four UV frames, with no dominant streaking on broad surfaces. Small cylindrical parts show finer bands; these pixels cannot certify native UV island quality or world texel density.",
+  "findings": [
+    {
+      "id": "M1",
+      "severity": "noncritical",
+      "priority": 1,
+      "category": 4,
+      "frames": [
+        "full-cycle-03/C01_ENTRY.png",
+        "full-cycle-03/C04_SCANNER_APPROACH.png",
+        "full-cycle-03/HERO_SCANNER.png",
+        "full-cycle-03/PLAYER_PINCH.png",
+        "full-cycle-03-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+        "full-cycle-03-neutral/C07_OFFICE_INTERIOR.png"
+      ],
+      "observation": "The large route floor stays an exceptionally uniform grey field. Subtle grain and speckled yellow markings exist, but the traffic path has very little readable finish variation or authored contact wear. The floor response remains close to a generic clean matte surface in both beauty and neutral views.",
+      "repair": "Add restrained broad roughness/value variation along the approach, scanner threshold and cart movement route, with a few purposeful patches or scuffs at traffic contacts. Preserve the quiet field; avoid all-over scratches or photographic grime."
+    },
+    {
+      "id": "M2",
+      "severity": "noncritical",
+      "priority": 2,
+      "category": 4,
+      "frames": [
+        "full-cycle-03/C05_CONVEYOR_LEAD_TUNNEL.png",
+        "full-cycle-03/HERO_CARGO.png",
+        "full-cycle-03/HERO_UTILITIES.png",
+        "full-cycle-03/HERO_EVIDENCE.png",
+        "full-cycle-03-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+        "full-cycle-03-neutral/HERO_UTILITIES.png"
+      ],
+      "observation": "The cargo crate, large machine side panels and service/evidence doors rely heavily on their base colour and form. Most painted faces are very smooth and consistently pristine; handles, latch zones and panel lips show little local material change. This leaves a residual asset-pack finish despite useful exposed-metal highlights elsewhere.",
+      "repair": "Give painted metal a restrained low-frequency roughness breakup and a small number of local contact changes at latches, handles, hinge edges and crate corners. Keep broad panel centres quiet and preserve the existing contrast with exposed conduits and matte cloth."
+    },
+    {
+      "id": "C1",
+      "severity": "minor",
+      "priority": 3,
+      "category": 6,
+      "frames": [
+        "full-cycle-03/C02_HERO_DOCK.png",
+        "full-cycle-03/HERO_UTILITIES.png",
+        "full-cycle-03/WALL_NORTH.png",
+        "full-cycle-03-neutral/HERO_UTILITIES.png"
+      ],
+      "observation": "The utility cabinets and cargo machine carry brighter medium blue than the restrained dark navy architecture. This is coherent and functional, but the secondary cabinets sometimes compete with the scanner for chromatic attention.",
+      "repair": "For further polish, slightly mute or darken the secondary cabinet blue while keeping the inspection machinery distinguishable. Retain the orange door/sign family and concentrated yellow hazards."
+    }
+  ],
+  "limitations": [
+    "Native UV correctness, UV-dependent shader usage, packed dependencies, support contact and reproducibility belong to the separate technical review.",
+    "No runtime performance or gameplay claim is made.",
+    "This specialist review does not assign the chief overall score or certify the minimum-cycle, stability or cold-open gates."
+  ]
+}

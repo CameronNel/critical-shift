@@ -1,0 +1,139 @@
+{
+  "review": "full-c03-spatial",
+  "discipline": "Spatial readability and inspection/check-in hierarchy",
+  "independent": true,
+  "source_sha256": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+  "manifest_complete": true,
+  "actual_current_pngs_opened": 27,
+  "manifest_image_hashes_verified": true,
+  "opened_views": [
+    "C01_ENTRY",
+    "C02_HERO_DOCK",
+    "C03_CHECKIN_COUNTER",
+    "C04_SCANNER_APPROACH",
+    "C05_CONVEYOR_LEAD_TUNNEL",
+    "C06_CART_GATE_G1",
+    "C07_OFFICE_INTERIOR",
+    "C08_CONCEALED_SUPPORT_H1",
+    "C09_ARRIVAL_GATE_P2",
+    "C10_ROOF_SERVICES",
+    "CORNER_SW",
+    "CORNER_SE",
+    "CORNER_NW",
+    "CORNER_NE",
+    "WALL_SOUTH",
+    "WALL_NORTH",
+    "WALL_EAST",
+    "WALL_WEST",
+    "HERO_SCANNER",
+    "HERO_CARGO",
+    "HERO_EVIDENCE",
+    "HERO_TROLLEY",
+    "HERO_UTILITIES",
+    "DETAIL_CHECKIN",
+    "PLAYER_REVERSE",
+    "PLAYER_PINCH",
+    "WALL_OFFICE_FRONT"
+  ],
+  "opened_spawn_reference_views": [
+    "VALIDATE_Spawn",
+    "VALIDATE_LockerDoor",
+    "VALIDATE_Material_A",
+    "BRIEFING_INDIRECT"
+  ],
+  "spawn_reference_sha256": {
+    "VALIDATE_Spawn": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+    "VALIDATE_LockerDoor": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+    "VALIDATE_Material_A": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+    "BRIEFING_INDIRECT": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301"
+  },
+  "categories": {
+    "1": {
+      "name": "Scale, layout and route readability",
+      "score": 95,
+      "required": "strictly greater than 93",
+      "pass": true,
+      "basis": "The main worker lane, parallel cart lane, closed gate and cargo conveyor separate clearly. Cutaways confirm coherent spatial grouping and deliberate negative space. The reverse and pinch views remain visually interpretable with no demonstrated obstruction. Believable chair, desk and doorway relationships support visual scale. Minor approach/state differentiation deficiencies remain."
+    },
+    "3": {
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score": 92,
+      "required": "strictly greater than 93",
+      "pass": false,
+      "basis": "Inspection has a strong arch/conveyor/barrier silhouette, and the check-in close views communicate bureaucracy convincingly. However the check-in facade loses invitation to the staff door, cargo mouth depth is weak against the crate, and scanner/gate control hierarchy is insufficiently separated at player distance."
+    }
+  },
+  "assigned_category_mean": 93.5,
+  "overall_score": null,
+  "verdict": "FAIL: category 3 does not satisfy >93. No complete room acceptance or 99 overall finding is made.",
+  "critical_vetoes": [],
+  "critical_veto_assessment": "No spatial critical veto established from these pixels. No dominant unreadable silhouette, route-obscuring clutter or visible unsupported major prop. This does not clear unassigned visual or technical gates.",
+  "exact_score_limiting_views": [
+    "WALL_OFFICE_FRONT",
+    "PLAYER_REVERSE",
+    "C05_CONVEYOR_LEAD_TUNNEL",
+    "HERO_CARGO",
+    "C06_CART_GATE_G1",
+    "C01_ENTRY",
+    "C04_SCANNER_APPROACH",
+    "HERO_SCANNER"
+  ],
+  "fixes": [
+    {
+      "id": "F1",
+      "priority": 1,
+      "views": [
+        "WALL_OFFICE_FRONT",
+        "PLAYER_REVERSE",
+        "CORNER_SW",
+        "CORNER_SE"
+      ],
+      "defect": "Check-in is recognizable close up, but its approach composition gives the saturated STAFF door a stronger room-scale invitation. The dark counter front, pale surround and small hatch treatment do not give check-in equal visual weight to the inspection line.",
+      "fix": "Give the existing check-in surround/counter a broad, restrained value distinction and a warm practical pool concentrated at the public shelf. Reduce competing emphasis on the adjacent staff door. Preserve the hatch, doorway, glazing, boundaries and all existing footprints; do not add a new sign cluster.",
+      "verification": "In the same WALL_OFFICE_FRONT and PLAYER_REVERSE frames, the public service shelf and hatch should attract attention before the staff door, with the door still readable."
+    },
+    {
+      "id": "F2",
+      "priority": 2,
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO",
+        "C02_HERO_DOCK"
+      ],
+      "defect": "The cargo crate is a strong foreground mass while the curtain/tunnel mouth collapses toward black. This weakens the distinction between the cargo being inspected and the inspection mechanism.",
+      "fix": "Separate the existing curtain, tunnel reveal and crate lid through broad values and localized light on the mouth/roller transition. Keep the crate, conveyor and machine footprint fixed. Avoid emissive strips or extra screens.",
+      "verification": "The tunnel depth, flexible curtain edge and roller-to-mouth transition should read without the radiation placard in C05 and HERO_CARGO."
+    },
+    {
+      "id": "F3",
+      "priority": 3,
+      "views": [
+        "C06_CART_GATE_G1",
+        "C02_HERO_DOCK",
+        "HERO_SCANNER"
+      ],
+      "defect": "The cart gate reads clearly as a closed barrier, but its operator identity is weak beside the much more visible scanner controls. The large dark gate post and nearby scanner buttons merge the two interaction domains visually.",
+      "fix": "Use the existing gate operator assembly and route-facing post surface for a restrained physical control-face value accent with a simple shape cue. Reduce competing scanner control brightness where necessary. Preserve all control/world transforms and apertures.",
+      "verification": "C06 should distinguish the gate operator location from the scanner state/button column at a glance; the gate barrier remains the dominant mechanical silhouette."
+    },
+    {
+      "id": "F4",
+      "priority": 4,
+      "views": [
+        "C01_ENTRY",
+        "C04_SCANNER_APPROACH",
+        "HERO_SCANNER"
+      ],
+      "defect": "Several red, amber and green scanner circles carry similar salience at once, so the arch silhouette is clearer than its operational/state hierarchy.",
+      "fix": "Art-direct the existing indicator materials so inactive lamps are subdued and one clear present-state cue leads, with a non-colour shape/label cue only where needed. Keep the scanner geometry and control locations fixed; this is a visual state convention, not a runtime implementation.",
+      "verification": "C01/C04 should show a single primary state cue, while other indicator housings remain identifiable."
+    }
+  ],
+  "limits": [
+    "No prior critic reports, scores, builder code or rationale used.",
+    "Only categories 1 and 3 scored.",
+    "No measured clearance, support contact, collision, navigation, runtime interaction, FPS or native-source validation inferred from pixels.",
+    "Manifest source SHA256 matched the assigned f07 identifier; the native blend itself was not opened by this critic.",
+    "All recommendations retain layout, interfaces, boundaries, apertures, footprints and source object transforms."
+  ]
+}
