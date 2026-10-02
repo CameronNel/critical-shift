@@ -165,3 +165,11 @@ All workers used the identical cold-checked native bytes.
 Independent visual review is pending; no art or Unity acceptance is claimed.
 
 Authoring geometry: {"source_triangles": 784028, "evaluated_triangles": 789308, "mesh_objects": 323, "material_batch_upper_bound": 1283}.
+
+## F6ci independent review and F7 development
+
+Luna independently opened all 19 full F6ci views, the closed-leaf diagnostic and the actual spawn reference, verifying the native and image hashes. Category scores: 96 / 96 / 94 / 90 / 95 / 95 / 93. Area scores: 95 / 96 / 94 / 95 / 95 / 94 / 94 / 95 / 96. No score reaches the strict >98 gate; see critics/luna-full-F6ci.md. The reviewer corrected the earlier continuous-solid-channel attribution: F6 physically and visibly has open bays; remaining support/value separation was a lighting issue. No visual score was overridden.
+
+F7 rebuilds a physically suspended lower entry canopy under the unchanged roof, hollow service crowns over the crossing, a clean-air ceiling spine with gaps for the original fixtures, actual formed crossing-wall jackets and open folded entry heat-recovery fins. It also changes the reactor portal's pressure-jacket section, plant isolation/backflow assembly, supported purge handover position, waste B/017 receipt/bin relation and approach sign/optic construction. These are construction changes, not a material-only pass. The concrete exterior bounds, nominal interfaces, floor cells, fixed cameras and marker transforms remain guarded.
+
+Focused native drafts were cold checked and rendered without changing the original cameras. Luna confirmed the motor fixture is now entirely inside D05, the freight lower channel is visibly open and internally lit, the C07 sign is readable, and the E01 IDs link bin and receipt. These draft observations are not final scores. Full F7ci render and independent review remain pending. The published F6ci native remains the selected remote module until the new hosted build passes its numerical checks and completes all 19+closed evidence records.

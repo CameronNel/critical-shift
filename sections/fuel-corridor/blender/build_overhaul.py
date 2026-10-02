@@ -62,6 +62,9 @@ def wall(r):
     reactor=name.startswith(('Wall_W11.4','Wall_E17.0','Wall_N24'))
     process=name in ['Wall_E16.4_0_7','Wall_S7_1_10']
     plant=name.startswith(('Wall_N18.6','Wall_S16.2'))
+    pocket=name.startswith(('Wall_W6.07','Wall_E6.78','Wall_S6.15','Wall_N13.85'))
+    crossing=name.startswith(('Wall_S7.8','Wall_N12.2'))
+    thermal=name=='Wall_W-2.2_0_1.2'
     opening={
         'Wall_N21_0_7.72':(-1.1075,-.3925,2.2575,2.5625),
         'Wall_S7_1_10':(.2425,.9575,2.9775,3.2825),
@@ -104,13 +107,55 @@ def wall(r):
                 # Broad removable extraction shields with folded horizontal seams.
                 for zz in [2.34,3.48]:
                     polygon(b,[(-pw/2,.035),(-pw/2,-.012),(pw/2,-.012),(pw/2,.035)],.014,mat('warm enamel'),pos=(x,0,zz),bevel=.001)
+        elif crossing:
+            # A hollow impact/service jacket changes the load-transfer throat
+            # in section: angled shoulders lead into a removable raised face.
+            # The rear lining and folded ends physically close its air gap.
+            panel_box((step-.010,.044,h-1.36),(x,.018,(1.32+h-.04)/2),mat('warm plaster'),.003)
+            pw=step-.038
+            front=[(-.014,2.30),(-.112,2.43),(-.112,3.30),(-.014,3.43)]
+            back=[(yy+.006,zz) for yy,zz in reversed(front)]
+            section_rot=Matrix(((0,0,1),(1,0,0),(0,1,0)))
+            polygon(b,front+back,pw,mat('reactor sheet'),pos=(x-pw/2,0,0),rot=section_rot,bevel=.001)
+            closed=front+[(-.004,3.43),(-.004,2.30)]
+            for xx in [x-pw/2,x+pw/2-.012]:
+                polygon(b,closed,.012,mat('dark steel'),pos=(xx,0,0),rot=section_rot,bevel=.001)
+            for zz in [2.315,3.415]:b.box((pw,.032,.028),(x,-.012,zz),mat('steel'),.002)
+            for xx in [x-pw*.36,x+pw*.36]:
+                channel(b,.055,.023,.79,(xx,-.121,2.865),mat('replacement enamel'))
+                for zz in [2.51,3.22]:bolt(b,(xx,-.147,zz),.008)
+        elif pocket:
+            # The slide pockets read as engineered guard housings connected to
+            # the drive, rather than the same plaster used in personnel routes.
+            pw=step-.018
+            for a,z1 in [(1.32,2.62),(2.63,h-.04)]:
+                hh=z1-a
+                pts=[(-pw/2,.030),(-pw/2+.035,.030),(-pw/2+.075,-.004),(pw/2-.075,-.004),(pw/2-.035,.030),(pw/2,.030)]
+                polygon(b,pts+[(xx,yy+.005) for xx,yy in reversed(pts)],hh,mat('reactor sheet'),pos=(x,0,a),bevel=.001)
+                for zz in [a+.044,z1-.044]:
+                    for xx in [x-pw/2+.09,x+pw/2-.09]:bolt(b,(xx,-.008,zz),.007)
+                for xx in [x-pw*.30,x+pw*.30]:b.box((.022,.022,hh-.13),(xx,-.016,a+hh/2),mat('replacement enamel'),.002)
         elif plant:
             # Plant water gallery uses bounded mineral panels and a shallow service
             # chase, rather than continuing the refinery's plaster/dado wall.
             panel_box((step-.010,.044,h-1.36),(x,.018,(1.32+h-.04)/2),mat('warm plaster'),.003)
             for zz in [1.50,2.44]:panel_box((step-.010,.014,.025),(x,-.015,zz),mat('brass'),.002)
             for xx in [x-step/2+.10,x+step/2-.10]:panel_box((.032,.026,h-1.50),(xx,-.010,(1.38+h-.12)/2),mat('warm enamel'),.003)
-        else:panel_box((step-.010,.044,h-(2.44 if clean else 1.36)),(x,.018,((2.40 if clean else 1.32)+h-.04)/2),m,.003)
+        else:
+            panel_box((step-.010,.044,h-(2.44 if clean else 1.36)),(x,.018,((2.40 if clean else 1.32)+h-.04)/2),m,.003)
+            if thermal:
+                # Open, folded heat-recovery fins above the handover/PPE zone.
+                # A connected shallow cassette, not decorative wear or a decal.
+                pw=step-.060
+                b.box((pw,.012,.83),(x,-.010,2.985),mat('oxide enamel'),.002)
+                for zz in [2.578,3.392]:b.box((pw,.080,.016),(x,-.045,zz),mat('warm enamel'),.002)
+                for xx in [x-pw/2+.006,x+pw/2-.006]:b.box((.012,.080,.83),(xx,-.045,2.985),mat('warm enamel'),.002)
+                count_f=max(3,int(pw/.12))
+                for k in range(count_f):
+                    xx=x-pw/2+.065+k*(pw-.13)/(count_f-1)
+                    polygon(b,[(-.036,-.017),(-.008,-.074),(.008,-.074),(.036,-.017),(.030,-.017),(.006,-.068),(-.006,-.068),(-.030,-.017)],.75,mat('warm enamel'),pos=(xx,0,2.61),bevel=.001)
+                for xx in [x-pw/2+.028,x+pw/2-.028]:
+                    for zz in [2.61,3.35]:bolt(b,(xx,-.086,zz),.005)
         coat='warm enamel' if plant else 'repaired blue enamel' if i==count-1 and name in ['Wall_N13.2_1_1.2','Wall_E16.4_0_17.32'] else 'navy enamel'
         if not clean:
             b.box((step-.012,.026,1.06),(x,.005,.69),mat(coat),.004)
@@ -291,8 +336,10 @@ def tile_layout(cell):
     return nx,ny,(xmax-xmin)/nx,(ymax-ymin)/ny,service
 
 def ceiling(cell):
-    b=B();xmin,xmax,ymin,ymax=cell['bounds'];h=cell['height']
+    b=B();xmin,xmax,ymin,ymax=cell['bounds'];roof_h=cell['height'];h=roof_h
     entry=cell['id'] in ['entry','inlet'];clean=cell['id']=='bypass_north';plant=cell['id']=='plant_header'
+    dropped=cell['id']=='entry'
+    if dropped:h=3.80
     nx=max(1,math.ceil((xmax-xmin)/(2.4 if clean else 1.45)));ny=max(1,math.ceil((ymax-ymin)/(1.2 if clean else 1.65)))
     sx=(xmax-xmin)/nx;sy=(ymax-ymin)/ny
     for i in range(nx):
@@ -328,9 +375,36 @@ def ceiling(cell):
             xx=xmin+.12+i*.24
             for a,c,d,e in owned_rectangles((xx-.025,xx+.025,ymin,ymax),cell):
                 b.box((c-a,e-d,.094),((a+c)/2,(d+e)/2,h-.044),mat('warm enamel'),.003)
+    if dropped:
+        # The original roof and all exterior bounds stay put. A physically hung
+        # transfer canopy provides a lower human-scale volume below that roof.
+        for xx in [xmin+.34,xmax-.34]:
+            for yy in [ymin+.32,ymax-.32]:
+                b.cyl(.008,roof_h-h-.017,(xx,yy,h+.023),mat('steel'),seg=12)
+                b.box((.11,.11,.012),(xx,yy,roof_h+.012),mat('steel'),.002)
+                b.box((.10,.10,.012),(xx,yy,h+.023),mat('steel'),.002)
+        # Folded rear fascia closes the change of ceiling height at staging.
+        b.box((xmax-xmin,.030,roof_h-h+.010),((xmin+xmax)/2,ymax-.015,(roof_h+h)/2),mat('transfer plaster'),.003)
+        for zz in [h+.015,roof_h-.015]:b.box((xmax-xmin,.050,.030),((xmin+xmax)/2,ymax-.025,zz),mat('dark steel'),.002)
+    if clean:
+        # A hollow clean-air service spine incorporates the two actual ceiling
+        # luminaires and gives the long route a deliberate continuous silhouette.
+        cy=19.65;bottom=h-.145
+        for yy in [cy-.30,cy+.30]:b.box((xmax-xmin,.014,.14),((xmin+xmax)/2,yy,h-.065),mat('warm enamel'),.003)
+        for xx in [xmin+.009,xmax-.009]:b.box((.018,.60,.14),(xx,cy,h-.065),mat('warm enamel'),.003)
+        gaps=[(3.25,4.35),(9.375,10.425)]
+        spans=[(xmin,3.25),(4.35,9.375),(10.425,xmax)]
+        for a,c in spans:
+            count=max(1,math.ceil((c-a)/.90));step=(c-a)/count
+            for i in range(count):
+                xx=a+(i+.5)*step
+                b.box((step-.006,.585,.012),(xx,cy,bottom),mat('sanitary ceramic light'),.002)
+                for yy in [cy-.25,cy+.25]:bolt(b,(xx,yy,bottom-.007),.005,axis='Z')
+        for a,c in gaps:
+            for xx in [a-.009,c+.009]:b.box((.018,.60,.14),(xx,cy,h-.065),mat('replacement enamel'),.002)
     core='Ceiling_'+cell['id']
     o=add(b,'Ceiling cassettes '+cell['id'],'FC | Floor and ceiling',target=core,
-          anchors=[((xmin+xmax)/2,(ymin+ymax)/2,h+.018)],direction=(0,0,1),kind='ceiling',family='ceiling cassette')
+          anchors=[(xx,yy,roof_h+.018) for xx in [xmin+.34,xmax-.34] for yy in [ymin+.32,ymax-.32]] if dropped else [((xmin+xmax)/2,(ymin+ymax)/2,roof_h+.018)],direction=(0,0,1),kind='ceiling',family='suspended transfer canopy' if dropped else 'clean-air service ceiling' if clean else 'ceiling cassette')
     CEILINGS[cell['id']]=o.name
 
 def overhead(name,pos,length=1.2,energy=220,cool=False,cell='west_turn'):
@@ -449,7 +523,7 @@ def services():
     for name,wn,p,L in [
         ('Staging cable ladder','Wall_W-2.2_0_1.2',(1.8,-.004,3.83),2.0),
         ('Crossing cable ladder','Wall_N12.2_1_6.78',(0,-.004,3.82),2.6),
-        ('Entry cable ladder','Wall_W-2.2_0_1.2',(-3.25,-.004,3.83),2.5),
+        ('Entry cable ladder','Wall_W-2.2_0_1.2',(-3.25,-.004,3.42),2.5),
         ('East cable ladder','Wall_S7_1_10',(-1.2,-.004,3.83),2.8),
         ('Delivery cable ladder','Wall_E16.4_0_7',(-2.1,-.004,3.83),2.2),
         ('North cable ladder','Wall_S18.0_0_1.2',(-1.6,-.004,2.68),3.4),
@@ -514,7 +588,15 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
     # A U frame keeps the sill truly flush. A closed rectangle would create an
     # unacceptable 145mm bar across the freight route.
     for x in [-width/2-.073,width/2+.073]:
-        channel(b,.145,.16,height+.14,(x,-.040,(height+.14)/2),mat('ink enamel'))
+        if name=='Reactor boundary':
+            xx=(1 if x>0 else -1)*(width/2+.125)
+            pts=[(-.12,.060),(-.12,-.036),(-.085,-.153),(.085,-.153),(.12,-.036),(.12,.060)]
+            polygon(b,pts,height+.14,mat('replacement enamel'),pos=(xx,0,0),bevel=.005)
+            b.box((.090,.018,height-.12),(xx,-.159,height/2),mat('navy enamel'),.003)
+            for zz in [.30,1.58,3.24,height-.24]:
+                b.box((.20,.055,.066),(xx,-.169,zz),mat('steel'),.004)
+                for xxx in [xx-.068,xx+.068]:bolt(b,(xxx,-.200,zz),.009)
+        else:channel(b,.145,.16,height+.14,(x,-.040,(height+.14)/2),mat('ink enamel'))
     if name=='Freight gate':
         # The load-bearing lower header itself is now an open formed channel.
         # The original solid U-frame header caused the broad black bar in D05.
@@ -523,11 +605,16 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
         for zz in [height+.018,height+.127]:b.box((outerw,.007,.031),(0,-.1165,zz),mat('replacement enamel'),.0015)
         for xx in [-width/2-.04,-.88,0,.88,width/2+.04]:
             b.box((.009,.149,.128),(xx,-.0365,height+.0725),mat('dark steel'),.0015)
+    elif name=='Reactor boundary':
+        # Chamfered pressure-bulkhead crown shares the wide jacket construction.
+        b.box((width+.49,.24,.145),(0,-.044,height+.0725),mat('replacement enamel'),.018,seg=3)
+        for xx in [-1.62,0,1.62]:b.box((.18,.015,.119),(xx,-.171,height+.0725),mat('navy enamel'),.008)
     else:b.box((outerw,.16,.145),(0,-.040,height+.0725),mat('ink enamel'),.006)
     b.tube([(-width/2-.009,-.136,0),(-width/2-.009,-.136,height+.009),
             (width/2+.009,-.136,height+.009),(width/2+.009,-.136,0)],.009,mat('rubber'),seg=12)
     for x in [-width/2-.075,width/2+.075]:
-        b.box((.185,.27,.028),(x,.006,.014),mat('dark steel'),.003)
+        foot_x=(1 if x>0 else -1)*(width/2+.125) if name=='Reactor boundary' else x
+        b.box((.25 if name=='Reactor boundary' else .185,.27,.028),(foot_x,.006,.014),mat('dark steel'),.003)
         for y in [-.07,.09]:bolt(b,(x,y,.03),.009,axis='Z')
     if name=='Freight gate':
         b.box((width+.36,.006,.16),(0,.132,height+.26),mat('replacement enamel'),.0015)
@@ -639,7 +726,7 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
     if title:
         # A compact plate on the structural face leaves the serviceable drive
         # above it visible from the unchanged mechanism evaluation camera.
-        hw=min(width,2.10 if width>=4 else 1.65 if name=='Clean service' else 1.22)
+        hw=min(width,2.10 if width>=4 else 1.65 if name in ['Clean service','Refinery boundary'] else 1.22)
         top=B();top.box((hw,.025,.19),(0,-.0125,.095),mat('ink enamel'),.004)
         if name=='Freight gate':
             for x in [-hw*.35,hw*.35]:top.box((.08,.020,.065),(x,.010,.15),mat('dark steel'),.002)
@@ -655,7 +742,14 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
             for xx in [-.60,.60]:optic.box((.035,.19,.08),(xx,-.145,height+.365),mat('dark steel'),.002)
             lamp=add(optic,name+' header reading optic','FC | Practicals',pos=pos,normal=n,parent=o.name,family='header-supported sign reading luminaire')
             light('Clean header reading pool',T@Vector((0,-.22,height+.337)),T@Vector((0,-.17,height+.26)),9,(.84,.91,1),size=1.2,shape='RECTANGLE',size_y=.08,parent=lamp.name)
-        else:label(title,a.matrix_world@Vector((0,-.026,.095)), .13 if width>=4 else .10,normal=n,material='white ink',parent=a.name)
+        else:
+            label(title,a.matrix_world@Vector((0,-.026,.095)), .135 if name=='Refinery boundary' else .13 if width>=4 else .10,normal=n,material='white ink',parent=a.name)
+            if name=='Refinery boundary':
+                optic=B();optic.box((1.38,.12,.038),(0,-.22,height+.37),mat('ink enamel'),.004)
+                optic.box((1.29,.090,.008),(0,-.22,height+.345),mat('warm diffuser'),.001)
+                for xx in [-.62,.62]:optic.box((.035,.19,.08),(xx,-.145,height+.365),mat('dark steel'),.002)
+                lamp=add(optic,name+' header reading optic','FC | Practicals',pos=pos,normal=n,parent=o.name,family='header-supported sign reading luminaire')
+                light('Refinery header reading pool',T@Vector((0,-.22,height+.337)),T@Vector((0,-.17,height+.26)),10,(1,.85,.68),size=1.2,shape='RECTANGLE',size_y=.08,parent=lamp.name)
     if state!='PASSAGE':
         ceiling_h=next(c['height'] for c in json.loads(CONTRACT.read_text())['floor_cells'] if c['id']==floorcell)
         hh=ceiling_h-height-.34
@@ -675,7 +769,7 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
 def freight_mechanism(frame_ob):
     p=frame_ob.matrix_world@Vector((0,-.01,3.64))
     drive=add(A.gate_drive(),'Freight gate track and motor','FC | Doors',pos=p,normal=(-1,0,0),parent=frame_ob.name,family='cast sliding-door drive and twin rail')
-    light('Freight drive task pool',drive.matrix_world@Vector((.90,-.427,.548)),drive.matrix_world@Vector((1.07,-.235,.20)),12,(1,.83,.63),size=.39,shape='RECTANGLE',size_y=.17,parent=drive.name)
+    light('Freight drive task pool',drive.matrix_world@Vector((1.13,-.427,.434)),drive.matrix_world@Vector((1.07,-.235,.20)),7,(1,.83,.63),size=.39,shape='RECTANGLE',size_y=.17,parent=drive.name)
     root=bpy.data.objects.new('FREIGHT_GATE',None);coll('FC | Runtime metadata').objects.link(root)
     root['port_id']='INTERNAL_FREIGHT_GATE';root['geometry_owner']='fuel-corridor';root['presentation_cap']=False
     for suffix,carriage_name in [(' left leaf','FREIGHT_GATE_LEFT_CARRIAGE'),(' right leaf','FREIGHT_GATE_RIGHT_CARRIAGE')]:
@@ -695,11 +789,23 @@ def freight_mechanism(frame_ob):
     # A real hood on the portal front illuminates the leaf plane when CLOSED.
     lamp.box((1.28,.25,.075),(0,-.245,3.615),mat('ink enamel'),.008)
     lamp.box((1.15,.185,.012),(0,-.254,3.574),mat('warm diffuser'),.002)
+    lamp.box((.99,.080,.012),(0,-.335,3.660),mat('cool diffuser'),.002,rot=Matrix.Rotation(-.34,3,'X'))
     for x in [-.59,.59]:
         lamp.box((.055,.12,.085),(x,-.178,3.614),mat('dark steel'),.004)
         bolt(lamp,(x,-.375,3.615),.006)
     hood=add(lamp,'Freight leaf inspection hood','FC | Practicals',pos=frame_ob.location,normal=(-1,0,0),parent=frame_ob.name,family='portal-mounted folded inspection luminaire')
     light('Freight closed-leaf inspection pool',hood.matrix_world@Vector((0,-.285,3.562)),hood.matrix_world@Vector((0,-.105,1.6)),70,(1,.88,.73),size=1.1,shape='RECTANGLE',size_y=.17,parent=hood.name)
+    light('Freight channel inspection uplight',hood.matrix_world@Vector((0,-.335,3.674)),hood.matrix_world@Vector((0,-.090,3.88)),5,(.83,.89,1),size=.94,shape='RECTANGLE',size_y=.060,parent=hood.name)
+    # The lower open C-channel needs light inside its own returns, rather than
+    # hoping a roof light reaches it through the track and guard above it.
+    strip=B();spans=[(-1.48,-.91),(-.85,-.03),(.03,.85),(.91,1.48)]
+    for a,c in spans:
+        strip.box((c-a,.037,.010),((a+c)/2,-.066,3.635),mat('replacement enamel'),.002)
+        strip.box((c-a-.045,.024,.003),((a+c)/2,-.066,3.6285),mat('warm diffuser'),.0006)
+    wash=add(strip,'Freight lower-channel service optic','FC | Practicals',pos=frame_ob.location,normal=(-1,0,0),parent=frame_ob.name,family='recessed header inspection strip physically carried by top flange')
+    for i,(a,c) in enumerate(spans):
+        xx=(a+c)/2
+        light('Freight lower-channel inspection pool '+str(i),wash.matrix_world@Vector((xx,-.066,3.625)),wash.matrix_world@Vector((xx,.025,3.56)),.6,(.96,.87,.74),size=c-a-.055,shape='RECTANGLE',size_y=.022,parent=wash.name)
     wallname='Wall_W6.07_1_12.2'
     if wallname in WALLS:
         mounted(A.cabinet(.18,.27,.08),'Freight drive guarded disconnect',wallname,(-.25,-.008,.89),family='guarded disconnect')
@@ -737,13 +843,17 @@ def section_workstations():
     label('EXTRACT / 03',extractor.matrix_world@Vector((0,-.315,.948)),.029,normal=(-1,0,0),parent=extractor.name)
     clean=mounted(A.clean_station(),'Clean transfer wipe station','Wall_N21_0_-1.5',(-2.43,-.004,1.33),'FC | Narrative','clean transfer rack with actual cloth and job sheet')
     label('CLEAN / 02',clean.matrix_world@Vector((-.20,-.053,.535)),.024,normal=(0,-1,0),parent=clean.name)
-    sign('Clean bay large direction','Wall_N21_0_-1.5',(-2.49,-.004,2.25),'CLEAN  >',.148,1.35,coat='warm enamel')
+    sign('Clean bay large direction','Wall_N21_0_-1.5',(-2.49,-.004,2.25),'CLEAN  >',.22,1.45,coat='warm enamel',stand_off=.030)
     water=mounted(A.flow_monitor(),'Plant flow monitor','Wall_N18.6_0_-5.4',(.89,-.004,1.43),'FC | Services','tapped process monitor connected to plant water main')
     label('FLOW / S01',water.matrix_world@Vector((0,-.101,.109)),.030,normal=(0,-1,0),parent=water.name)
-    bin_ob=add(A.sealed_transfer_bin(),'Sealed waste transfer vessel','FC | Narrative',pos=(15.95,17.78,0),target=FLOORS['delivery'],anchors=[(-.15,-.14,0),(.15,-.14,0),(-.15,.13,0),(.15,.13,0)],direction=(0,0,-1),kind='floor',family='gasketed transfer vessel with wheeled base and foot latch')
-    label('SEALED',bin_ob.matrix_world@Vector((0,-.224,.407)),.024,parent=bin_ob.name)
+    vessel=A.sealed_transfer_bin()
+    vessel.box((.185,.018,.104),(0,-.228,.407),mat('warm enamel'),.006)
+    for xx in [-.077,.077]:bolt(vessel,(xx,-.240,.407),.004)
+    bin_ob=add(vessel,'Sealed waste transfer vessel','FC | Narrative',pos=(15.95,17.78,0),normal=(-1,0,0),target=FLOORS['delivery'],anchors=[(-.15,-.14,0),(.15,-.14,0),(-.15,.13,0),(.15,.13,0)],direction=(0,0,-1),kind='floor',family='gasketed transfer vessel with wheeled base and foot latch')
+    label('B / 017',bin_ob.matrix_world@Vector((0,-.238,.407)),.042,normal=(-1,0,0),material='ink',parent=bin_ob.name)
     seal=mounted(A.waste_seal_station(),'Waste seal and receipt station','Wall_E16.4_0_7',(-3.08,-.0085,.78),'FC | Narrative','receipt roll and captive seal tool on a supported folded pan')
     label('SEAL / RECEIPT',seal.matrix_world@Vector((0,-.071,.81)),.054,normal=(-1,0,0),material='ink',parent=seal.name)
+    label('B / 017',seal.matrix_world@Vector((-.16,-.224,.468)),.032,normal=(-1,0,0),material='ink',parent=seal.name)
     sconce('Waste sealing task practical','Wall_E16.4_0_7',(-3.08,-.004,2.02),48,False)
     sconce('Waste receipt inspection practical','Wall_E16.4_0_17.32',(1.39,-.004,2.25),60,True)
 
@@ -778,12 +888,25 @@ def process_bays():
     support(circuit,[WALLS['Wall_N13.2_2_10'],WALLS['Wall_W12_0_13.2']],[(11.45,13.295,3.59),(12.004,14.08,3.59)],(0,1,0),'wall')
     circuit['support_directions']=json.dumps([[0,1,0],[-1,0,0]])
     mounted(A.plant_hose_reel(),'Plant utility wash-down reel','Wall_S16.2_0_-5.4',(.80,-.004,1.0),'FC | Services','formed shallow hose reel with continuous wound hose crank and utility feed')
-    branch=B();branch.tube(rounded_path([(-3.88,18.466,2.55),(-3.88,18.36,2.67),(-3.88,18.20,2.80),(-3.88,16.52,2.80),(-3.88,16.34,2.70),(-3.88,16.260,2.55)]),.013,mat('brass'),seg=16)
-    for y in [18.18,16.54]:ring(branch,.023,.021,(-3.88,y,2.80),mat('brass'),axis='Y',seg=24)
+    branch=B();branch.tube(rounded_path([(-3.88,18.466,2.55),(-3.88,18.36,2.67),(-3.88,18.20,2.80),(-3.88,16.52,2.80),(-3.88,16.34,2.70),(-3.88,16.260,2.55)]),.0255,mat('brass'),seg=20)
+    for y in [18.18,16.54]:ring(branch,.041,.029,(-3.88,y,2.80),mat('brass'),axis='Y',seg=32)
+    # A real flanged backflow/isolator assembly explains the visible utility run.
+    branch.lathe([(0,0),(.035,0),(.058,.018),(.066,.059),(.066,.13),(.058,.17),(.035,.19),(0,.19)],(-3.88,16.955,2.80),mat('repaired blue enamel'),seg=32,rot=Matrix.Rotation(-math.pi/2,3,'X'))
+    for y in [16.955,17.145]:
+        ring(branch,.078,.013,(-3.88,y,2.80),mat('steel'),axis='Y',seg=32)
+        for k in range(6):
+            a=k*math.pi/3;bolt(branch,(-3.88+.061*math.cos(a),y-.013,2.80+.061*math.sin(a)),.006)
+    branch.cyl(.017,.087,(-3.835,17.05,2.80),mat('brass'),seg=20,axis='X')
+    branch.lathe([(.059,0),(.079,0),(.083,.008),(.080,.023),(.059,.023),(.059,0)],(-3.752,17.05,2.80),mat('ochre enamel'),seg=40,rot=Matrix.Rotation(math.pi/2,3,'Y'))
+    for k in range(3):
+        a=k*2*math.pi/3;branch.tube([(-3.741,17.05,2.80),(-3.741,17.05+.069*math.cos(a),2.80+.069*math.sin(a))],.006,mat('ochre enamel'),seg=10)
+    branch.box((.025,.20,.046),(-3.797,17.05,2.685),mat('warm enamel'),.004)
+    branch.box((.016,.052,.10),(-3.831,17.05,2.728),mat('steel'),.003)
     for y,yy in [(18.590,18.48),(16.210,16.26)]:
         branch.box((.066,.012,.11),(-3.88,y,2.55),mat('dark steel'),.002)
         branch.tube([(-3.88,y,2.55),(-3.88,yy,2.55)],.007,mat('dark steel'),seg=12)
     feed=add(branch,'Plant wash-down cross-header','FC | Services',family='clamped utility branch joining north water main to south reel')
+    label('WATER',(-3.782,17.05,2.685),.035,normal=(1,0,0),material='ink',parent=feed.name)
     support(feed,[WALLS['Wall_N18.6_0_-5.4'],WALLS['Wall_S16.2_0_-5.4']],[(-3.88,18.596,2.55),(-3.88,16.204,2.55)],(0,1,0),'wall')
     feed['support_directions']=json.dumps([[0,1,0],[0,-1,0]])
     sign('Plant utility reel identity','Wall_S16.2_0_-5.4',(.8,-.004,1.82),'UTILITY WATER',.065,.86)
@@ -795,7 +918,7 @@ def recess_service_handover():
     for xx in [-.19,.19]:
         polygon(b,[(0,0),(-.16,0),(0,-.12)],.014,mat('dark steel'),pos=(xx,-.012,0),rot=Matrix.Rotation(math.pi/2,3,'Y')@Matrix.Rotation(math.pi/2,3,'Z'))
         bolt(b,(xx,-.014,-.115),.005)
-    shelf=mounted(b,'Recess purge-service handover pan','Wall_W-1.65_0_14.3',(0,-.0085,.79),'FC | Narrative','gusseted service ledge outside the bypass lane')
+    shelf=mounted(b,'Recess purge-service handover pan','Wall_W-1.65_0_14.3',(0,-.0085,1.20),'FC | Narrative','gusseted service ledge outside the bypass lane')
     roll=A.service_roll()
     add(roll,'Purge coupler service roll','FC | Narrative',pos=shelf.matrix_world@Vector((0,-.035,.014)),normal=(1,0,0),parent=shelf.name,family='stitched open canvas roll with spare brass couplers and a checked job slip')
     label('PURGE / CHECK B',shelf.matrix_world@Vector((0,-.188,-.04)),.041,normal=(1,0,0),material='ink',parent=shelf.name)
@@ -811,6 +934,30 @@ def auxiliary_cameras():
         ob.matrix_world=Matrix.Translation(Vector(p))@(Vector(q)-Vector(p)).to_track_quat('-Z','Y').to_matrix().to_4x4()
         ob['fc_revision']='overhaul-20261001';ob['fc_asset_family']='additional branch evidence camera'
         ob['review_scope']='Supplementary player-height view; original 16 preserved'
+
+def crossing_service_bulkheads():
+    """Wall-borne hollow crowns give the transfer route architectural depth."""
+    rot=Matrix(((0,0,1),(1,0,0),(0,1,0)))
+    outline=[(7.804,4.380),(12.196,4.380),(12.196,3.900),(11.74,3.60),(8.26,3.60),(7.804,3.900)]
+    lower=[(7.804,3.900),(8.26,3.600),(11.74,3.600),(12.196,3.900),(12.196,3.918),(11.74,3.618),(8.26,3.618),(7.804,3.918)]
+    for i,xx in enumerate([7.65,9.40]):
+        b=B()
+        for xface in [-.090,.084]:polygon(b,outline,.006,mat('warm enamel' if i==0 else 'reactor sheet'),pos=(xx+xface,0,0),rot=rot,bevel=.001)
+        polygon(b,lower,.18,mat('steel'),pos=(xx-.09,0,0),rot=rot,bevel=.001)
+        b.box((.18,4.392,.016),(xx,10,4.372),mat('dark steel'),.002)
+        for yy in [7.808,12.192]:b.box((.18,.008,.48),(xx,yy,4.140),mat('dark steel'),.002)
+        for yy in [8.36,11.64]:
+            b.box((.016,.065,.58),(xx-.098,yy,3.975),mat('steel'),.003)
+            for zz in [3.76,4.18]:bolt(b,(xx-.108,yy,zz),.009,axis='NX')
+        # Removable formed panel, physical reveal and supported identity plate.
+        b.box((.018,2.34,.036),(xx-.104,10,4.215),mat('replacement enamel'),.003)
+        b.box((.018,2.34,.036),(xx-.104,10,3.75),mat('replacement enamel'),.003)
+        b.box((.016,1.82,.19),(xx-.105,10,3.99),mat('ink enamel'),.005)
+        for yy in [9.16,10.84]:bolt(b,(xx-.116,yy,3.99),.006,axis='NX')
+        ob=add(b,'Crossing hollow service crown '+str(i),'FC | Architecture',family='folded wall-borne service bulkhead with open rear and bolted removable faces')
+        support(ob,[WALLS['Wall_S7.8_1_6.78'],WALLS['Wall_N12.2_1_6.78']],[(xx,7.804,4.18),(xx,12.196,4.18)],(0,-1,0),'wall')
+        ob['support_directions']=json.dumps([[0,-1,0],[0,1,0]])
+        label('FUEL / TRANSFER' if i==0 else 'PROCESS / 02',(xx-.114,10,3.99),.135,normal=(-1,0,0),parent=ob.name)
 
 def floor_graphics():
     # Paint stops at real slab joints: no floating strip across a 20mm recess.
@@ -918,7 +1065,7 @@ def run():
         service_soffit(service_frame)
         fg=portal('Freight gate',(6.35,10,0),(-1,0,0),3.0,3.5,'navy enamel','FREIGHT / FG01',state='OPEN',floorcell='crossing')
         freight_mechanism(fg)
-        services();work_traces();section_workstations();process_bays();auxiliary_cameras()
+        services();work_traces();section_workstations();process_bays();crossing_service_bulkheads();auxiliary_cameras()
         for name,wallname,point,title in [
             ('Service bypass','Wall_N13.2_0_-2.2',(.0,-.004,3.0),'SERVICE'),
             ('Plant direction','Wall_E1.2_0_13.2',(1.39,-.004,2.3),'PLANT  <'),
@@ -938,7 +1085,7 @@ def run():
         for name,wallname,point in [('Entry extract','Wall_E2.2_0_1.2',(0,-.004,3.15)),('East extract','Wall_S7_1_10',(.6,-.004,3.13)),('Clean extract','Wall_N21_0_7.72',(-.75,-.004,2.41))]:
             recessed_vent(name,wallname,point,.77,.36)
         for name,p,L,E,cool,cell in [
-            ('Entry fluorescent',(0,4.6,4.389),1.35,210,False,'entry'),
+            ('Entry fluorescent',(0,4.6,3.789),1.35,160,False,'entry'),
             ('Crossing fluorescent',(8.0,10,4.389),1.15,240,True,'crossing'),
             ('East fluorescent',(14.2,10.4,4.389),1.3,250,False,'east_turn'),
             ('Delivery fluorescent',(14.2,17.2,4.389),1.45,255,True,'delivery'),
