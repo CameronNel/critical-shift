@@ -156,3 +156,12 @@ F5ci hosted build, cold validation and all 19 full views plus the closed-leaf di
 F6 geometry targets: rebuild the lower freight header as an open formed channel, raise/enlarge the motor optic to soften the hotspot, stepped entry ceiling trays, distinct extraction shield wall masses, plant gallery baffles and formed vent guards on its doors, a real waste sealing/receipt step and a supported bypass coupler roll, legible clean signs with a physical reading optic, and distinct transfer/clean floor groups. Outer concrete footprints, fixed cameras, markers, floor cells and interfaces remain guarded.
 
 Hosted rendering is split into three workers using the identical cold-checked native bytes, with all view/settings/hash checks performed before bounded publication. Technical status is not an art score. F6 is pending complete render and independent review.
+
+## F6ci hosted execution
+
+Native SHA256 ae37ef4b7011d32170ca6a95c461f255670df7db7fd9d8ce98db72a438824d0f. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 784028, "evaluated_triangles": 789308, "mesh_objects": 323, "material_batch_upper_bound": 1283}.

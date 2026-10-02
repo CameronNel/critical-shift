@@ -2,15 +2,15 @@
   "stage": "full",
   "base_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
   "output": "sections/facility-assembly/sources/fuel-corridor/module.blend",
-  "sha256": "5f7de9035b966bf1e152f338e25d9cab1b8d5922db36b1e49303b9562aee6536",
+  "sha256": "ae37ef4b7011d32170ca6a95c461f255670df7db7fd9d8ce98db72a438824d0f",
   "recipe_inputs": {
-    "sections/fuel-corridor/blender/build_overhaul.py": "b597b2085a45b412d08d910fd7a217116dc186aaba95a99fee7a4f3757618f9d",
-    "sections/fuel-corridor/blender/fuel_kit.py": "2464799317ce0cdabf2f5599e025c4ddf321e33490bb3a4d60d4abff9ef71237",
-    "sections/fuel-corridor/blender/fuel_assets.py": "c29a7d9ce1ddae01a40b99db3a0e1eb84f52cf0aefa3707424d8f4b24fdc4dfb",
+    "sections/fuel-corridor/blender/build_overhaul.py": "51287ba37de43818678ea4a1669257068cbc392b11416ffe942b28b6dbab88c4",
+    "sections/fuel-corridor/blender/fuel_kit.py": "be28b3f0302c910167c3fa422f73fc5b0ef136b0c2fd7aa1ce4bc942f84279eb",
+    "sections/fuel-corridor/blender/fuel_assets.py": "8644a93e312e5b7fb990319880590f4c2332931f4585fa63c095866b99dd8c62",
     "sections/spawn-room/blender/cozy_geo.py": "408c0eecc9a0dd534e9f5c8f0ace5442077db0c51b1dcbb299484f1ba59b4400",
     "sections/facility-assembly/sources/fuel-corridor/contracts/interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e"
   },
-  "recipe_sha256": "8bc10a24db39cadf8188f976b2bdba07e7ef349b9f1ac65d4fcde8506abd02c9",
+  "recipe_sha256": "239cd5bbf91ce76ac24242862edb621385611e8ffaf14185207c39cfcde60eaa",
   "protected_exterior_cores": [
     {
       "name": "Wall_S16.2_0_-5.4_concrete",
@@ -132174,6 +132174,12 @@
       "attachment": null
     },
     {
+      "name": "FC | Waste seal and receipt station",
+      "family": "receipt roll and captive seal tool on a supported folded pan",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
       "name": "FC | Transfer protective-kit rack",
       "family": "draped canvas apron and moulded respirator on actual hooks",
       "support_kind": "wall",
@@ -132190,6 +132196,18 @@
       "family": "fabricated inspection station with clipped sheets and staged pen",
       "support_kind": "wall",
       "attachment": null
+    },
+    {
+      "name": "FC | Recess purge-service handover pan",
+      "family": "gusseted service ledge outside the bypass lane",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Purge coupler service roll",
+      "family": "stitched open canvas roll with spare brass couplers and a checked job slip",
+      "support_kind": null,
+      "attachment": "FC | Recess purge-service handover pan"
     },
     {
       "name": "FC | Type OK / B",
@@ -132378,6 +132396,12 @@
       "attachment": "FC | Sealed waste transfer vessel"
     },
     {
+      "name": "FC | Type SEAL / RECEIPT",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Waste seal and receipt station"
+    },
+    {
       "name": "FC | Type FILTER / 01",
       "family": "screen-printed lettering",
       "support_kind": null,
@@ -132454,6 +132478,12 @@
       "family": "screen-printed lettering",
       "support_kind": null,
       "attachment": "FC | Reactor approach"
+    },
+    {
+      "name": "FC | Type PURGE / CHECK B",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Recess purge-service handover pan"
     },
     {
       "name": "FC | Sealed cartridge carrier",
@@ -132810,6 +132840,18 @@
       "attachment": null
     },
     {
+      "name": "FC | Clean service header reading optic",
+      "family": "header-supported sign reading luminaire",
+      "support_kind": null,
+      "attachment": "FC | Clean service frame"
+    },
+    {
+      "name": "FC | Clean header reading pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
       "name": "FC | Freight drive task pool",
       "family": null,
       "support_kind": null,
@@ -132847,6 +132889,18 @@
     },
     {
       "name": "FC | Interlock inspection practical pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Waste sealing task practical",
+      "family": "wall task luminaire",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Waste sealing task practical pool",
       "family": null,
       "support_kind": null,
       "attachment": null

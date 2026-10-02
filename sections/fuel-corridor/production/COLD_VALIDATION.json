@@ -1,9 +1,9 @@
 {
   "schema": "fuel-overhaul-cold-validation/1",
-  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F5ci.blend",
-  "sha256": "5f7de9035b966bf1e152f338e25d9cab1b8d5922db36b1e49303b9562aee6536",
-  "build_manifest": "sections/fuel-corridor/production/checkpoints/F5ci_BUILD_MANIFEST.json",
-  "recipe_sha256": "8bc10a24db39cadf8188f976b2bdba07e7ef349b9f1ac65d4fcde8506abd02c9",
+  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F6ci.blend",
+  "sha256": "ae37ef4b7011d32170ca6a95c461f255670df7db7fd9d8ce98db72a438824d0f",
+  "build_manifest": "sections/fuel-corridor/production/checkpoints/F6ci_BUILD_MANIFEST.json",
+  "recipe_sha256": "239cd5bbf91ce76ac24242862edb621385611e8ffaf14185207c39cfcde60eaa",
   "blender": "5.2.1 LTS",
   "status": "PASS",
   "failures": [],
@@ -3448,6 +3448,92 @@
       ]
     },
     {
+      "object": "FC | Waste seal and receipt station",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Waste seal and receipt station",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.391499,
+                14.25,
+                0.85
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.000501,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Waste seal and receipt station",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.391499,
+                14.25,
+                1.58
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.004501,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Waste seal and receipt station",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.391499,
+                13.59,
+                0.85
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.000501,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Waste seal and receipt station",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.391499,
+                13.59,
+                1.58
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.004501,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        }
+      ]
+    },
+    {
       "object": "FC | Transfer protective-kit rack",
       "status": "PASS",
       "anchors": [
@@ -3742,6 +3828,32 @@
             }
           ],
           "anchor_index": 7
+        }
+      ]
+    },
+    {
+      "object": "FC | Recess purge-service handover pan",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Recess purge-service handover pan",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -1.6415,
+                15.0,
+                0.707
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0005,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
         }
       ]
     },
@@ -6654,6 +6766,32 @@
       ]
     },
     {
+      "object": "FC | Waste sealing task practical",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Waste sealing task practical",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.396,
+                13.92,
+                2.02
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
       "object": "FC | Waste receipt inspection practical",
       "status": "PASS",
       "anchors": [
@@ -9034,7 +9172,7 @@
               "sample": "origin",
               "point_world": [
                 16.396,
-                13.099999,
+                12.63,
                 1.72
               ],
               "status": "PASS",
@@ -9054,7 +9192,7 @@
               "sample": "origin",
               "point_world": [
                 16.396,
-                12.86,
+                12.39,
                 1.37
               ],
               "status": "PASS",
@@ -9074,7 +9212,7 @@
               "sample": "origin",
               "point_world": [
                 16.396,
-                12.86,
+                12.39,
                 1.72
               ],
               "status": "PASS",
@@ -9094,7 +9232,7 @@
               "sample": "origin",
               "point_world": [
                 16.396,
-                12.86,
+                12.39,
                 2.07
               ],
               "status": "PASS",
@@ -9114,7 +9252,7 @@
               "sample": "origin",
               "point_world": [
                 16.396,
-                12.62,
+                12.150001,
                 1.72
               ],
               "status": "PASS",
@@ -9580,6 +9718,32 @@
         [
           0.0001499652862548828,
           [
+            -2.0839619636535645,
+            10.617995262145996,
+            0.8953499794006348
+          ],
+          [
+            -2.0839619636535645,
+            10.617995262145996,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
+            -2.090038299560547,
+            10.52199935913086,
+            0.8953499794006348
+          ],
+          [
+            -2.090038299560547,
+            10.52199935913086,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
             -2.117966651916504,
             10.612022399902344,
             0.8953499794006348
@@ -9587,32 +9751,6 @@
           [
             -2.117966651916504,
             10.612022399902344,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
-            -2.056000232696533,
-            10.56997299194336,
-            0.8953499794006348
-          ],
-          [
-            -2.056000232696533,
-            10.56997299194336,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
-            -2.12400484085083,
-            10.564026832580566,
-            0.8953499794006348
-          ],
-          [
-            -2.12400484085083,
-            10.564026832580566,
             0.8954999446868896
           ]
         ]
@@ -10484,6 +10622,54 @@
       "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
     },
     {
+      "object": "FC | Purge coupler service roll",
+      "target": "FC | Recess purge-service handover pan",
+      "status": "PASS",
+      "nearest_gap_m": 0.0,
+      "contact_points": [
+        [
+          0.0,
+          [
+            -1.472499966621399,
+            14.780797004699707,
+            0.8040000200271606
+          ],
+          [
+            -1.472499966621399,
+            14.780797004699707,
+            0.8040000200271606
+          ]
+        ],
+        [
+          0.0,
+          [
+            -1.4724998474121094,
+            15.219202995300293,
+            0.8040000200271606
+          ],
+          [
+            -1.4724998474121094,
+            15.219202995300293,
+            0.8040000200271606
+          ]
+        ],
+        [
+          0.0,
+          [
+            -1.5065547227859497,
+            15.2269868850708,
+            0.8040000200271606
+          ],
+          [
+            -1.5065547227859497,
+            15.2269868850708,
+            0.8040000200271606
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
       "object": "FC | Type OK / B",
       "target": "FC | Checked shift note",
       "status": "PASS",
@@ -11164,40 +11350,40 @@
         [
           0.000759124755859375,
           [
-            6.79184627532959,
+            6.858035087585449,
             20.329240798950195,
-            2.7599496841430664
+            2.757194995880127
           ],
           [
-            6.79184627532959,
+            6.858035087585449,
             20.329999923706055,
-            2.7599496841430664
+            2.757194995880127
           ]
         ],
         [
           0.000759124755859375,
           [
-            6.791136741638184,
+            6.853610992431641,
             20.329240798950195,
-            2.759218454360962
+            2.752650022506714
           ],
           [
-            6.791136741638184,
+            6.853610992431641,
             20.329999923706055,
-            2.759218454360962
+            2.752650022506714
           ]
         ],
         [
           0.000759124755859375,
           [
-            6.789586544036865,
+            6.848236560821533,
             20.329240798950195,
-            2.7576236724853516
+            2.747150421142578
           ],
           [
-            6.789586544036865,
+            6.848236560821533,
             20.329999923706055,
-            2.7576236724853516
+            2.747150421142578
           ]
         ]
       ],
@@ -11836,40 +12022,40 @@
         [
           0.00125885009765625,
           [
-            -0.25144216418266296,
+            -0.28487998247146606,
             20.97374153137207,
-            2.3520617485046387
+            2.3421013355255127
           ],
           [
-            -0.251442015171051,
+            -0.2848796844482422,
             20.975000381469727,
-            2.3520619869232178
+            2.3421013355255127
           ]
         ],
         [
           0.00125885009765625,
           [
-            -0.25144216418266296,
+            -0.3287854790687561,
             20.97374153137207,
-            2.3563599586486816
+            2.357745409011841
           ],
           [
-            -0.25144249200820923,
+            -0.3287853002548218,
             20.975000381469727,
-            2.3563599586486816
+            2.357745409011841
           ]
         ],
         [
           0.00125885009765625,
           [
-            -0.2211645245552063,
+            -0.3287854790687561,
             20.97374153137207,
-            2.3453779220581055
+            2.3655035495758057
           ],
           [
-            -0.2211642861366272,
+            -0.3287857174873352,
             20.975000381469727,
-            2.3453781604766846
+            2.3655037879943848
           ]
         ]
       ],
@@ -11966,6 +12152,54 @@
             15.974593162536621,
             17.559499740600586,
             0.4032532572746277
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type SEAL / RECEIPT",
+      "target": "FC | Waste seal and receipt station",
+      "status": "PASS",
+      "nearest_gap_m": 0.0002593994140625,
+      "contact_points": [
+        [
+          0.0002593994140625,
+          [
+            16.32073974609375,
+            13.800228118896484,
+            1.6021934747695923
+          ],
+          [
+            16.320999145507812,
+            13.800228118896484,
+            1.6021934747695923
+          ]
+        ],
+        [
+          0.0002593994140625,
+          [
+            16.32073974609375,
+            13.780584335327148,
+            1.6021934747695923
+          ],
+          [
+            16.320999145507812,
+            13.780584335327148,
+            1.6021934747695923
+          ]
+        ],
+        [
+          0.0002593994140625,
+          [
+            16.32073974609375,
+            13.780584335327148,
+            1.599549412727356
+          ],
+          [
+            16.320999145507812,
+            13.780584335327148,
+            1.599549412727356
           ]
         ]
       ],
@@ -12596,6 +12830,54 @@
       "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
     },
     {
+      "object": "FC | Type PURGE / CHECK B",
+      "target": "FC | Recess purge-service handover pan",
+      "status": "PASS",
+      "nearest_gap_m": 0.0007599592208862305,
+      "contact_points": [
+        [
+          0.0007599592208862305,
+          [
+            -1.453739881515503,
+            15.113348960876465,
+            0.7500472068786621
+          ],
+          [
+            -1.4544998407363892,
+            15.113348960876465,
+            0.7500472068786621
+          ]
+        ],
+        [
+          0.0007599592208862305,
+          [
+            -1.453739881515503,
+            15.109522819519043,
+            0.7500472068786621
+          ],
+          [
+            -1.4544998407363892,
+            15.109522819519043,
+            0.7500472664833069
+          ]
+        ],
+        [
+          0.0007599592208862305,
+          [
+            -1.453739881515503,
+            15.113962173461914,
+            0.7500253915786743
+          ],
+          [
+            -1.4544998407363892,
+            15.113962173461914,
+            0.7500253319740295
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
       "object": "FC | Staging inlet elbow",
       "target": "FC | Staging service-air manifold",
       "status": "PASS",
@@ -12700,39 +12982,39 @@
         [
           0.0,
           [
-            16.315998077392578,
-            12.859999656677246,
+            16.31599998474121,
+            12.369999885559082,
             2.0799999237060547
           ],
           [
-            16.315998077392578,
-            12.859999656677246,
+            16.31599998474121,
+            12.369999885559082,
             2.0799999237060547
           ]
         ],
         [
           0.0,
           [
-            16.315998077392578,
-            12.84000015258789,
+            16.322179794311523,
+            12.370979309082031,
             2.0799999237060547
           ],
           [
-            16.315998077392578,
-            12.84000015258789,
+            16.322179794311523,
+            12.370979309082031,
             2.0799999237060547
           ]
         ],
         [
           0.0,
           [
-            16.32217788696289,
-            12.840978622436523,
+            16.327754974365234,
+            12.373819351196289,
             2.0799999237060547
           ],
           [
-            16.32217788696289,
-            12.840978622436523,
+            16.327754974365234,
+            12.373819351196289,
             2.0799999237060547
           ]
         ]
@@ -12903,27 +13185,27 @@
           ]
         ],
         [
-          0.0020008091814816,
+          0.0020008087158203125,
           [
-            7.205999851226807,
+            5.7789998054504395,
             20.352998733520508,
             2.765000104904175
           ],
           [
-            7.206001281738281,
+            5.779000282287598,
             20.354999542236328,
-            2.765000820159912
+            2.765000104904175
           ]
         ],
         [
-          0.0020008101128041744,
+          0.0020008087158203125,
           [
-            5.99399995803833,
+            7.421000003814697,
             20.352998733520508,
             2.765000104904175
           ],
           [
-            5.994002342224121,
+            7.4210004806518555,
             20.354999542236328,
             2.765000104904175
           ]
@@ -13076,13 +13358,61 @@
       "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
     },
     {
+      "object": "FC | Clean service header reading optic",
+      "target": "FC | Clean service frame",
+      "status": "PASS",
+      "nearest_gap_m": 8.596304041930125e-07,
+      "contact_points": [
+        [
+          8.596304041930125e-07,
+          [
+            5.983500003814697,
+            20.354999542236328,
+            2.827000141143799
+          ],
+          [
+            5.983499526977539,
+            20.354999542236328,
+            2.827000856399536
+          ]
+        ],
+        [
+          9.830249609876773e-07,
+          [
+            5.984499931335449,
+            20.354999542236328,
+            2.826000213623047
+          ],
+          [
+            5.984500885009766,
+            20.354999542236328,
+            2.826000452041626
+          ]
+        ],
+        [
+          1.1920928955078125e-06,
+          [
+            6.0,
+            20.354999542236328,
+            2.825000047683716
+          ],
+          [
+            5.999999046325684,
+            20.354999542236328,
+            2.8249993324279785
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
       "object": "FC | Freight leaf inspection hood",
       "target": "FC | Freight gate frame",
       "status": "PASS",
-      "nearest_gap_m": 9.5367431640625e-07,
+      "nearest_gap_m": 8.106231689453125e-06,
       "contact_points": [
         [
-          9.5367431640625e-07,
+          8.106231689453125e-06,
           [
             6.230000019073486,
             10.0,
@@ -13091,33 +13421,33 @@
           [
             6.230000019073486,
             10.0,
-            3.6149990558624268
+            3.6149919033050537
           ]
         ],
         [
-          1.922192041092785e-06,
+          1.0185246537730563e-05,
           [
             6.230000019073486,
-            9.368000030517578,
-            3.5855000019073486
+            10.613499641418457,
+            3.614000082015991
           ],
           [
             6.230000019073486,
-            9.367999076843262,
-            3.585498332977295
+            10.613490104675293,
+            3.6139965057373047
           ]
         ],
         [
-          1.9660499219753547e-06,
+          3.264854967710562e-05,
           [
             6.230000019073486,
-            10.631999969482422,
-            3.5855000019073486
+            9.386500358581543,
+            3.614000082015991
           ],
           [
             6.230000019073486,
-            10.632001876831055,
-            3.5854995250701904
+            9.3865327835083,
+            3.6139962673187256
           ]
         ]
       ],
@@ -13559,45 +13889,45 @@
       "object": "FC | Plant service left handling wear",
       "target": "FC | Plant service left leaf",
       "status": "PASS",
-      "nearest_gap_m": 0.0008001327514648438,
+      "nearest_gap_m": 0.00010576867498457432,
       "contact_points": [
         [
-          0.0008001327514648438,
+          0.00010576867498457432,
           [
-            -4.791200160980225,
-            17.0,
-            0.6320000290870667
+            -4.790999889373779,
+            17.020999908447266,
+            0.6335000395774841
           ],
           [
-            -4.7920002937316895,
-            17.0,
-            0.6320000886917114
+            -4.790935516357422,
+            17.020999908447266,
+            0.6334161162376404
           ]
         ],
         [
-          0.0008001327514648438,
+          0.0001730805670376867,
           [
             -4.791200160980225,
-            17.04199981689453,
-            0.6350000500679016
+            17.055999755859375,
+            0.6600000262260437
           ],
           [
-            -4.7920002937316895,
-            17.04199981689453,
-            0.6350000500679016
+            -4.791340351104736,
+            17.055999755859375,
+            0.6601015329360962
           ]
         ],
         [
-          0.0008001327514648438,
+          0.000335117569193244,
           [
-            -4.791200160980225,
-            17.027999877929688,
-            0.6410000324249268
+            -4.790999889373779,
+            17.010000228881836,
+            0.6600000262260437
           ],
           [
-            -4.7920002937316895,
-            17.027999877929688,
-            0.6410000324249268
+            -4.791271209716797,
+            17.010000228881836,
+            0.6601967215538025
           ]
         ]
       ],
@@ -13655,45 +13985,45 @@
       "object": "FC | Plant service right handling wear",
       "target": "FC | Plant service right leaf",
       "status": "PASS",
-      "nearest_gap_m": 0.0008001327514648438,
+      "nearest_gap_m": 0.00010576867498457432,
       "contact_points": [
         [
-          0.0008001327514648438,
+          0.00010576867498457432,
           [
-            -4.791200160980225,
-            18.0,
-            0.6320000290870667
+            -4.790999889373779,
+            18.020999908447266,
+            0.6335000395774841
           ],
           [
-            -4.7920002937316895,
-            18.0,
-            0.6320000886917114
+            -4.790935516357422,
+            18.020999908447266,
+            0.6334161162376404
           ]
         ],
         [
-          0.0008001327514648438,
+          0.0001730805670376867,
           [
             -4.791200160980225,
-            18.04199981689453,
-            0.6350000500679016
+            18.055999755859375,
+            0.6600000262260437
           ],
           [
-            -4.7920002937316895,
-            18.04199981689453,
-            0.6350000500679016
+            -4.791340351104736,
+            18.055999755859375,
+            0.6601015329360962
           ]
         ],
         [
-          0.0008001327514648438,
+          0.000335117569193244,
           [
-            -4.791200160980225,
-            18.027999877929688,
-            0.6410000324249268
+            -4.790999889373779,
+            18.010000228881836,
+            0.6600000262260437
           ],
           [
-            -4.7920002937316895,
-            18.027999877929688,
-            0.6410000324249268
+            -4.791271209716797,
+            18.010000228881836,
+            0.6601967215538025
           ]
         ]
       ],
@@ -14373,10 +14703,10 @@
     }
   ],
   "geometry_budget": {
-    "source_triangles": 746244,
-    "evaluated_triangles": 751524,
-    "mesh_objects": 318,
-    "material_batch_upper_bound": 1243
+    "source_triangles": 784028,
+    "evaluated_triangles": 789308,
+    "mesh_objects": 323,
+    "material_batch_upper_bound": 1283
   },
   "uv": [
     {
@@ -14945,6 +15275,11 @@
       "degenerate_uv_triangles": 0
     },
     {
+      "object": "FC | Waste seal and receipt station",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
       "object": "FC | Transfer protective-kit rack",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
@@ -14956,6 +15291,16 @@
     },
     {
       "object": "FC | Clean-transfer inspection log",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Recess purge-service handover pan",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Purge coupler service roll",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
     },
@@ -15240,6 +15585,11 @@
       "degenerate_uv_triangles": 0
     },
     {
+      "object": "FC | Clean service header reading optic",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
       "object": "FC | Freight leaf inspection hood",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
@@ -15251,6 +15601,11 @@
     },
     {
       "object": "FC | Interlock inspection practical",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Waste sealing task practical",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
     },
@@ -15587,17 +15942,7 @@
   ],
   "dependencies": [
     {
-      "name": "painted_plaster_wall_diff_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "metal_plate_diff_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "wood_table_worn_diff_2k.jpg",
+      "name": "metal_plate_disp_2k.jpg",
       "packed": true,
       "available": true
     },
@@ -15607,7 +15952,17 @@
       "available": true
     },
     {
-      "name": "metal_plate_disp_2k.jpg",
+      "name": "wood_table_worn_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "metal_plate_diff_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "painted_plaster_wall_diff_2k.jpg",
       "packed": true,
       "available": true
     },
@@ -15622,7 +15977,7 @@
       "available": true
     },
     {
-      "name": "wood_table_worn_disp_2k.jpg",
+      "name": "wood_table_worn_diff_2k.jpg",
       "packed": true,
       "available": true
     },
