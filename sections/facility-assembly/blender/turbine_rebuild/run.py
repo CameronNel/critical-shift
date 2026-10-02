@@ -191,7 +191,7 @@ aim(spot('KEY_casing_E', (8.7, 12.0, 3.6), 650, 66, (.62, .74, 1.0), .5), (8.7, 
 aim(spot('POOL_walk_E', (8.0, 13.8, 5.0), 2200, 38, (1.0, .6, .28), .25), (8.0, 13.8, 5.0), (7.6, 13.6, 1.0))             # warm pool on the walkway floor
 aim(spot('KEY2_casing_E', (8.7, 11.0, 1.2), 380, 70, (.62, .74, 1.0), .5), (8.7, 11.0, 1.2), (5.2, 9.0, .6))
 for k, sx in enumerate((2.9, 6.3)):                                                                                # cool moonlit rim strips along the turbine tops so the hero casings keep an edge
-    o = area(f'RIMTOP_{k}', (sx, 14.0, 6.0), (.5, 14.0), 700, (.5, .66, 1.0)); aim(o, (sx, 14.0, 6.0), (4.6, 14.0, 2.6))
+    o = area(f'RIMTOP_{k}', (sx, 14.0, 6.0), (.5, 14.0), 1500, (.74, .8, 1.0)); aim(o, (sx, 14.0, 6.0), (4.6, 14.0, 2.6))
 # cool/warm fills so silhouettes separate and shadows are not dead black (readability pass)
 for k, (fx, fy) in enumerate(((-.5, 5), (3, 12), (7.5, 19), (3, 21))):
     d = bpy.data.lights.new(f'FILL_{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 5.0, 5.0; d.energy = 70; d.color = (.6, .68, .9)
@@ -202,13 +202,13 @@ CAMS = {   # all positions are in open aisle space
     'CAM_B_ne_high':       ((9.1, 23.0, 4.6), (-1, 6, 1.5)),
     'CAM_C_east_aisle':    ((7.7, 12.2, 1.8), (2.8, 20, 2.3)),
     'CAM_D_maintenance':   ((-3.2, 12.6, 1.65), (-.5, 19.5, 1.2)),
-    'CAM_E_controls':      ((2.6, 4.0, 1.55), (-3.5, 4.0, 2.15)),
+    'CAM_E_controls':      ((.9, 4.0, 1.6), (-3.5, 4.0, 2.4)),
     'CAM_F_sw_high':       ((-2.4, 1.6, 4.2), (6, 16, 1.5)),
-    'CAM_G_generator':     ((8.3, 15.0, 1.65), (4.6, 18.5, 2.2)),
+    'CAM_G_generator':     ((8.4, 15.0, 2.4), (4.6, 18.5, 2.0)),
     'CAM_H_roof':          ((1.0, 4.0, 1.65), (4.6, 14, 6.4)),
     'CAM_J_north_back':    ((1.0, 22.3, 1.7), (5, 2, 2.4)),
     'CAM_K_door_d01':      ((1.5, 8.8, 1.65), (-1.8, .3, 1.8)),
-    'CAM_M_turbine_close': ((6.7, 8.5, 2.95), (4.6, 11.6, 2.2)),
+    'CAM_M_turbine_close': ((6.6, 7.4, 2.7), (4.6, 11.6, 2.1)),
     'CAM_P_west_wall':     ((1.0, 12.0, 1.65), (-4, 12, 2.6)),
     'CAM_Q_east_wall':     ((8.6, 3.2, 1.7), (10, 13, 3.0)),
     'CAM_R_south_wall':    ((6.0, 11.5, 1.8), (4.5, 0, 3.4)),

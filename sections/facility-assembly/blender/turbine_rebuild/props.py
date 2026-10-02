@@ -112,8 +112,11 @@ def build(b):
     import machinery as MM                                                                           # nameplates on the generator and on the foundation rail
     b.box((MM.CX + 1.14, 18.65, MM.AZ + .05), (.04, 2.3, .6), 'trim_black', bev=.012); b.box((MM.CX + 1.162, 18.65, MM.AZ + .05), (.006, 2.2, .5), 'oxide_dark')
     b.text('GENERATOR  G-2', (MM.CX + 1.17, 18.65, MM.AZ + .14), .19, 'chalk', math.pi / 2, math.pi / 2); b.text('24 kV  3 PHASE  50 Hz', (MM.CX + 1.17, 18.65, MM.AZ - .13), .095, 'chalk', math.pi / 2, math.pi / 2)
-    b.box((6.97, 10.3, 1.72), (.04, .9, .3), 'trim_black', bev=.012); b.box((6.95, 10.3, 1.72), (.006, .84, .24), 'oxide_dark')
-    b.text('LP TURBINE  2', (6.945, 10.3, 1.78), .085, 'chalk', -math.pi / 2, math.pi / 2); b.text('ROTOR  3000 RPM', (6.945, 10.3, 1.64), .05, 'chalk', -math.pi / 2, math.pi / 2)
+    with b.push((6.75, 10.3, 0), math.pi / 2):                                                           # tag sign hung from the foundation rail, facing along the walkway
+        b.box((0, 0, 1.78), (.04, 1.0, .34), 'trim_black', bev=.012); b.box((-.022, 0, 1.78), (.006, .94, .28), 'oxide_dark')
+        b.text('LP TURBINE  2', (-.026, 0, 1.85), .1, 'chalk', -math.pi / 2, math.pi / 2); b.text('ROTOR  3000 RPM', (-.026, 0, 1.72), .055, 'chalk', -math.pi / 2, math.pi / 2)
+        for dy in (-.4, .4): b.rod((0, dy, 1.95), (0, dy, 2.05), .012, 'steel_dark', 8)
+    b.rod((6.95, 10.3, 2.05), (7.08, 10.3, 2.05), .012, 'steel_dark', 8)
     # --- tidy storage: drum group, pallet with crates, gas cylinders in a rack ---
     for (x, y, c, t1, t2) in ((9.3, 22.45, 'oxide', 'DIESEL', 'FLAMMABLE'), (8.75, 23.15, 'steel_dark', 'LUBE OIL', 'ISO 46')):
         b.cyl((x, y, .45), .27, .9, c, 'Z', 32, bev=.02)
@@ -132,7 +135,6 @@ def build(b):
     # --- broken: a leaking pipe stub, a missing ceiling panel with dangling cable, a lamp off its hanger ---
     b.cyl((1.3, 19.6, 4.95), .12, 2.1, 'lagging', 'Z', 24); b.cyl((1.3, 19.6, 3.9), .18, .06, 'steel_mid', 'Z', 24, bev=.006)
     b.sweep([(1.3, 19.6, 3.88), (1.45, 19.7, 3.5), (1.55, 19.75, 3.1)], .08, 'lagging', 20, .2); b.box((1.57, 19.76, 3.05), (.3, .08, .26), 'primer', (.5, 0, .4), bev=.01)
-    b.box((2.0, 20.5, 5.0), (1.3, .22, .07), 'steel_dark', (.9, 0, 0), bev=.012); b.box((2.0, 20.5, 4.955), (1.15, .15, .02), 'lamp', (.9, 0, 0)); b.rod((1.4, 20.5, 5.35), (1.4, 20.5, 6.06), .008, 'steel_dark', 8)
     b.box((6.5, 6.5, 7.17), (.94, 1.0, .004), 'primer')                                       # panel missing, bare deck showing
     b.sweep([(6.5, 6.5, 7.15), (6.4, 6.6, 6.5), (6.55, 6.9, 5.9), (6.45, 7.1, 5.5)], .014, 'rubber', 8, .25)
 
