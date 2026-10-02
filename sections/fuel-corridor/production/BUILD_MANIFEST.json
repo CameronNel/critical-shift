@@ -2,16 +2,17 @@
   "stage": "full",
   "base_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
   "output": "sections/facility-assembly/sources/fuel-corridor/module.blend",
-  "sha256": "650aec3f1e654e607de0442ae6f2fcf5544b99feb835ff1a709c2fb6b3641484",
+  "sha256": "07dbbfd9153b0e732a31ce22a0342eff9dce33111f04b4af091ff55bc2a8b61b",
   "recipe_inputs": {
-    "sections/fuel-corridor/blender/build_overhaul.py": "2e17bc795175d529b5c373931d3ba212d8c029ffe8790ef2e81e8ec694aee5cb",
-    "sections/fuel-corridor/blender/fuel_kit.py": "be28b3f0302c910167c3fa422f73fc5b0ef136b0c2fd7aa1ce4bc942f84279eb",
-    "sections/fuel-corridor/blender/fuel_assets.py": "5b30a72616c746c25b64cae69dc88c6c924203c59dca698ea610c31376b7625c",
-    "sections/fuel-corridor/blender/fuel_atmosphere.py": "1990f575a675b2a4469bbe3ef76c847a45f6cebcb41efe1bea20e8a25b28ed77",
+    "sections/fuel-corridor/blender/build_overhaul.py": "8cc00a2d90cf205e62322e97bd752b3fb1e96b133e26d33d530f17b259b55885",
+    "sections/fuel-corridor/blender/fuel_kit.py": "c782cb362d8d97b4153e09a958982b884f75234213d969de8eb174b97c748500",
+    "sections/fuel-corridor/blender/fuel_assets.py": "f800055f0e14164d77d49c9e1f91e060676932ba8aabab9f0c35b604f35bf264",
+    "sections/fuel-corridor/blender/fuel_atmosphere.py": "09f3db9af3fe557c75d5aae53f24d6100669bfbc50437241ab8e571b558af4f7",
+    "sections/fuel-corridor/blender/fuel_details.py": "5d6c9cee26380d0286268ff8e9a51fd038afa00d73101f59a2ad10a6923fb0d3",
     "sections/spawn-room/blender/cozy_geo.py": "408c0eecc9a0dd534e9f5c8f0ace5442077db0c51b1dcbb299484f1ba59b4400",
     "sections/facility-assembly/sources/fuel-corridor/contracts/interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e"
   },
-  "recipe_sha256": "68a838a61fd0f2a742389a90cbc04efe49bcc69a349e0660821d5c43377cceeb",
+  "recipe_sha256": "00c2d7f2cf5ede4a524a35b08c7c903b2e4d7795c72df221399f0a3425ee1115",
   "main_cache_material_compatibility": {
     "brass": "brass",
     "chip": "chip",
@@ -132076,7 +132077,7 @@
     },
     {
       "name": "FC | Folded blue wiping cloth",
-      "family": "Folded blue wiping cloth",
+      "family": "folded textile with stitched hems, uneven folds and restrained fraying",
       "support_kind": null,
       "attachment": "FC | Maintenance bench"
     },
@@ -132637,6 +132638,30 @@
       "family": "screen-printed lettering",
       "support_kind": null,
       "attachment": "FC | Recess purge-service handover pan"
+    },
+    {
+      "name": "FC | Type 230V",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Bench weatherproof receptacle bank"
+    },
+    {
+      "name": "FC | Type JB / 04",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Process distribution junction box"
+    },
+    {
+      "name": "FC | Type CALL / R02",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Reactor local call intercom"
+    },
+    {
+      "name": "FC | Type CHECK B",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Purge valve inspection tag and seal"
     },
     {
       "name": "FC | Sealed cartridge carrier",
@@ -133753,6 +133778,96 @@
       "family": "additional branch evidence camera",
       "support_kind": null,
       "attachment": null
+    },
+    {
+      "name": "FC | Bench weatherproof receptacle bank",
+      "family": "gasketed industrial sockets, recessed contacts, plug and hinged cover",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Clean sealed service receptacles",
+      "family": "sealed wash-down socket covers and machined mounting flange",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Bench retained work lead",
+      "family": "moulded strain boot, sagged lead and supported retaining hook",
+      "support_kind": "wall",
+      "attachment": "FC | Bench weatherproof receptacle bank"
+    },
+    {
+      "name": "FC | Bench conduit saddle 1.37",
+      "family": "saddle clip with folded foot and socket screws",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Bench conduit saddle 1.9",
+      "family": "saddle clip with folded foot and socket screws",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Bench conduit saddle 2.54",
+      "family": "saddle clip with folded foot and socket screws",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Bench conduit saddle 3.31",
+      "family": "saddle clip with folded foot and socket screws",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Bench clipped galvanised conduit",
+      "family": "connected service riser, separate saddles and compression collars",
+      "support_kind": null,
+      "attachment": "FC | Bench weatherproof receptacle bank"
+    },
+    {
+      "name": "FC | Process distribution junction box",
+      "family": "gasketed removable junction plate, screws and cable glands",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Process retained junction leads",
+      "family": "machined glands and clipped cabinet supply lead",
+      "support_kind": "wall",
+      "attachment": "FC | Process distribution junction box"
+    },
+    {
+      "name": "FC | Freight motor bond and strain relief",
+      "family": "braided copper earth bond, bolted lugs and retained motor supply",
+      "support_kind": null,
+      "attachment": "FC | Freight gate track and motor"
+    },
+    {
+      "name": "FC | Reactor local call intercom",
+      "family": "formed intercom, inset grille, guarded call button and connected entry",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Staging captive bleed cap",
+      "family": "connected brass bleed petcock, machined cap and captive chain",
+      "support_kind": null,
+      "attachment": "FC | Staging service-air manifold"
+    },
+    {
+      "name": "FC | Wet-service recessed floor strainer",
+      "family": "open lift-out strainer, flange and retained recessed receiver",
+      "support_kind": "floor",
+      "attachment": null
+    },
+    {
+      "name": "FC | Purge valve inspection tag and seal",
+      "family": "tied physical inspection card, eyelet, wire and tamper seal",
+      "support_kind": null,
+      "attachment": "FC | Recess service manifold"
     }
   ],
   "fixed_cameras": [
@@ -136432,5 +136547,93 @@
     "fps": 24,
     "fps_base": 1.0,
     "runtime": "Blender authoring keys only; runtime behaviour unverified."
-  }
+  },
+  "infrastructure_details": [
+    {
+      "id": 1,
+      "idea": "Weatherproof sockets",
+      "objects": [
+        "FC | Bench weatherproof receptacle bank",
+        "FC | Clean sealed service receptacles"
+      ],
+      "scope": "Static authored construction; runtime operation unverified."
+    },
+    {
+      "id": 2,
+      "idea": "Retained work lead",
+      "objects": [
+        "FC | Bench retained work lead"
+      ],
+      "scope": "Static authored construction; runtime operation unverified."
+    },
+    {
+      "id": 3,
+      "idea": "Clipped conduit",
+      "objects": [
+        "FC | Bench clipped galvanised conduit",
+        "FC | Bench conduit saddle 1.37",
+        "FC | Bench conduit saddle 1.9",
+        "FC | Bench conduit saddle 2.54",
+        "FC | Bench conduit saddle 3.31"
+      ],
+      "scope": "Static authored construction; runtime operation unverified."
+    },
+    {
+      "id": 4,
+      "idea": "Junction box and glands",
+      "objects": [
+        "FC | Process distribution junction box",
+        "FC | Process retained junction leads"
+      ],
+      "scope": "Static authored construction; runtime operation unverified."
+    },
+    {
+      "id": 5,
+      "idea": "Motor earth bond and strain relief",
+      "objects": [
+        "FC | Freight motor bond and strain relief"
+      ],
+      "scope": "Static authored construction; runtime operation unverified."
+    },
+    {
+      "id": 6,
+      "idea": "Reactor intercom",
+      "objects": [
+        "FC | Reactor local call intercom"
+      ],
+      "scope": "Static authored construction; runtime operation unverified."
+    },
+    {
+      "id": 7,
+      "idea": "Chained bleed cap",
+      "objects": [
+        "FC | Staging captive bleed cap"
+      ],
+      "scope": "Static authored construction; runtime operation unverified."
+    },
+    {
+      "id": 8,
+      "idea": "Recessed floor strainer",
+      "objects": [
+        "FC | Wet-service recessed floor strainer"
+      ],
+      "scope": "Static authored construction; runtime operation unverified."
+    },
+    {
+      "id": 9,
+      "idea": "Maintenance cloth detail",
+      "objects": [
+        "FC | Folded blue wiping cloth"
+      ],
+      "scope": "Static authored construction; runtime operation unverified."
+    },
+    {
+      "id": 10,
+      "idea": "Inspection tag and tamper seal",
+      "objects": [
+        "FC | Purge valve inspection tag and seal"
+      ],
+      "scope": "Static authored construction; runtime operation unverified."
+    }
+  ]
 }

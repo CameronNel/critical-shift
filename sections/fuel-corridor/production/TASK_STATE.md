@@ -407,3 +407,12 @@ The preview command requires a fresh directory and ffmpeg/ffprobe. Original PNG 
 ## F15 detail revision in progress
 
 Owner requests all-area render inspection, builder self-critique, ten purposeful small details, autonomous repairs and pessimistic Luna review. All20 source-matched F14ci baseline images were opened. Findings and selected additions: [SELF_CRITIQUE_DETAILS.md](SELF_CRITIQUE_DETAILS.md). New native/cold/full-view/independent review are pending; prior F14 scores do not approve these edits. Wall/floor footprint, cameras, interfaces, mood and native flicker schedule remain protected. No score override.
+
+## F15ci hosted execution
+
+Native SHA256 07dbbfd9153b0e732a31ce22a0342eff9dce33111f04b4af091ff55bc2a8b61b. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 1067490, "evaluated_triangles": 1072770, "mesh_objects": 356, "material_batch_upper_bound": 1498}.
