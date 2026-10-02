@@ -13,6 +13,45 @@ from mathutils import Matrix,Vector
 ROOT=Path(__file__).resolve().parent
 MAP=ROOT/'sections/facility-assembly/blender/facility_environment.blend'
 FUEL=ROOT/'sections/facility-assembly/sources/fuel-corridor/module.blend'
+
+def exclude_map_fill_from_fuel(module,instance):
+    """Keep map daylight helpers off fuel receivers without changing other rooms.
+
+    Receiver collections are dependency lists, not extra scene membership.
+    Include both the instance and its prototype surfaces because Cycles evaluates
+    collection instances through the prototype geometry. Preserve any preexisting
+    receiver exclusions on a private copy rather than replacing their policy.
+    """
+    targets=[instance]+[o for o in module.all_objects if o.type in {'MESH','FONT','CURVE','SURFACE'}]
+    shared=bpy.data.collections.get('INTEGRATION | Fuel daylight exclusions')
+    if shared is None:shared=bpy.data.collections.new('INTEGRATION | Fuel daylight exclusions')
+    def exclude(collection):
+        for target in targets:
+            if target.name not in collection.objects:collection.objects.link(target)
+        for target in targets:
+            index=collection.objects.find(target.name)
+            assert index>=0,'Missing fuel light receiver'
+            collection.collection_objects[index].light_linking.link_state='EXCLUDE'
+    exclude(shared)
+    records=[]
+    for light in bpy.context.scene.objects:
+        if light.type!='LIGHT' or light.data.type!='SUN' or light.hide_render:continue
+        previous=light.light_linking.receiver_collection
+        owned_name='INTEGRATION | Fuel daylight exclusions | '+light.name
+        if previous and previous not in [shared,bpy.data.collections.get(owned_name)]:
+            receiver=bpy.data.collections.get(owned_name)
+            if receiver is None:
+                receiver=previous.copy();receiver.name=owned_name
+        else:receiver=previous or shared
+        exclude(receiver);light.light_linking.receiver_collection=receiver
+        records.append({'light':light.name,'receiver_collection':receiver.name,
+                        'fuel_receivers_excluded':len(targets),'energy_retained':light.data.energy,
+                        'outside_fuel_receivers':'unchanged'})
+    instance['fc_lighting_policy']=json.dumps({'scope':'Fuel receivers only; no helper suns or sky-bounce lights illuminate the enclosed corridor.',
+                                              'map_world':'Original physical outdoor sky retained; no room ambient fill added.',
+                                              'excluded_map_helpers':records})
+    return records
+
 def install_live_fuel():
     """Install into the already opened authoring map; safe to call repeatedly."""
     cached=bpy.data.objects.get('VC | Roof-finished MATERIAL_PREVIEW_fuel-corridor')
@@ -40,6 +79,7 @@ def install_live_fuel():
     placement=json.loads((ROOT/'sections/facility-assembly/production/LAYOUT_A12.json').read_text())['placements']['fuel-corridor']
     inst.matrix_world=Matrix.LocRotScale(Vector(placement['translation']),Matrix.Rotation(__import__('math').radians(placement['rotation_z_degrees']),4,'Z').to_quaternion(),Vector(placement['scale']))
     inst['source_module']='//sections/facility-assembly/sources/fuel-corridor/module.blend';inst['scope']='Live fuel replacement; main file untouched'
+    exclude_map_fill_from_fuel(module,inst)
     bpy.context.view_layer.update()
     assert module.library and len(module.all_objects)>100
     return module,inst,cached,hidden
@@ -50,6 +90,8 @@ def main():
     bpy.ops.wm.open_mainfile(filepath=str(MAP),load_ui=False)
     module,inst,cached,hidden=install_live_fuel()
     report={'schema':'fuel-live-map-integration/1','canonical_map_sha256_before':before,'canonical_map_sha256_after':hashlib.sha256(MAP.read_bytes()).hexdigest(),'module_sha256':hashlib.sha256(FUEL.read_bytes()).hexdigest(),'linked_collection':module.name,'module_objects':len(module.all_objects),'placement':[list(r) for r in inst.matrix_world],'hidden_old_cache':cached.name,'hidden_old_lights':hidden,'source_registry_and_frozen_snapshots':'unchanged','saved_main':False}
+    report['lighting_policy']=json.loads(inst['fc_lighting_policy'])
+    report['lighting_installer_sha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     if opts.render:
         camera=next(o for o in module.all_objects if o.name==opts.render and o.type=='CAMERA')
         sc=bpy.context.scene;sc.camera=camera;sc.render.engine='CYCLES';sc.cycles.device='CPU';sc.cycles.samples=32;sc.cycles.seed=7;sc.cycles.use_denoising=True

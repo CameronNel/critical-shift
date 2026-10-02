@@ -249,5 +249,7 @@ def apply(mounted):
     red_beacon(mounted,'Reactor alarm beacon','Wall_E17.0_0_21',(-.25,-.004,3.02),20)
     scene=bpy.context.scene;scene.frame_start=1;scene.frame_end=PERIOD;scene.frame_set(1)
     bg=scene.world.node_tree.nodes.get('Background')
-    if bg:bg.inputs['Color'].default_value=(.095,.13,.12,1);bg.inputs['Strength'].default_value=.012
-    return {'direction':'Owner-requested eerie, rundown dead-shift fuel corridor; latest reactor WIP PR54 atmosphere, spawn craftsmanship reference unchanged.','floor_damage':FLOOR_DAMAGE,'roof_damage':ROOF_DAMAGE,'flicker':FLICKER,'alarms':ALARMS,'frame_start':1,'frame_end':PERIOD,'closure_frame':PERIOD+1,'fps':scene.render.fps,'fps_base':scene.render.fps_base,'runtime':'Blender authoring keys only; runtime behaviour unverified.'}
+    # The enclosed module is lit by its fabricated luminaires and their bounce.
+    # A uniform world contribution has no modeled source inside this room.
+    if bg:bg.inputs['Color'].default_value=(.095,.13,.12,1);bg.inputs['Strength'].default_value=0
+    return {'direction':'Owner-requested eerie, rundown dead-shift fuel corridor; latest reactor WIP PR54 atmosphere, spawn craftsmanship reference unchanged.','floor_damage':FLOOR_DAMAGE,'roof_damage':ROOF_DAMAGE,'flicker':FLICKER,'alarms':ALARMS,'fixture_lighting':{'world_ambient_strength':0,'powered_sources':'Fabricated luminaires with actual emitting optic faces; no unmounted fill lights.','main_map_policy':'Sun/bounce helpers excluded from fuel receivers by the live installer.'},'frame_start':1,'frame_end':PERIOD,'closure_frame':PERIOD+1,'fps':scene.render.fps,'fps_base':scene.render.fps_base,'runtime':'Blender authoring keys only; runtime behaviour unverified.'}

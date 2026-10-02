@@ -1,6 +1,6 @@
 # Fuel corridor overhaul state
 
-Phase: F17ci ten-detail revision delivered; independent still-image gate passed. Playback cadence and Unity/runtime unverified.
+Phase: Fixture-lighting correction in progress. Prior F17 grades are historical; revised main-map illumination needs fresh review.
 Branch: `codex/fuel-corridor-overhaul-20261001` from `75983b9`.
 Source: `sections/facility-assembly/sources/fuel-corridor/module.blend`.
 Baseline SHA256: `f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c`.

@@ -95,6 +95,18 @@ frames 1–240. Lights use irregular holds and brief dropouts; red beacons use
 slow linear pulses. No Python drivers or script auto-run requirement. Runtime
 behaviour and playback review remain separate from still-frame art acceptance.
 
+## Owner fixture-lighting correction · 2026-10-02
+
+The owner rejects the broad assembled-map fill and requests removing lights
+without actual sources while keeping the room readable. Each retained powered
+emitter must correspond to an emitting surface on a modeled fixture. The
+standalone world has no ambient contribution. Main-map sun and sky-bounce helper
+lights exclude fuel receivers through light linking; existing exterior and
+other-room lighting and the physical outdoor sky remain intact. The corrected
+main-map images must demonstrate local falloff and finished contact shadows,
+with readable routes during the authored dim states. Prior F17 scores do not
+approve this correction.
+
 F12ci is the preserved previous-look checkpoint. Its historical 99 reviews do
 not approve the new mood. Review the actual new geometry and all named views,
 plus evaluated flicker states, before recording new acceptance.

@@ -156,6 +156,33 @@ if manifest['stage']=='full':
         route_results.append({'route':name,'width_m':width,'sample_cross_sections':samples,'status':'PASS' if not hits else 'FAIL','obstructions':list(dedup.values())})
         if hits:failures.append('Route '+name)
 
+# Verify illumination originates at a real fabricated optic. This checks source
+# placement, not perceived brightness or art quality.
+fixture_lighting={'status':'NOT_APPLICABLE'}
+if manifest.get('atmosphere',{}).get('fixture_lighting'):
+    lighting_errors=[];source_records=[]
+    for node in scene.world.node_tree.nodes:
+        if node.type=='BACKGROUND' and (node.inputs['Strength'].is_linked or node.inputs['Strength'].default_value!=0):
+            lighting_errors.append('Unmotivated standalone world illumination')
+    for lamp in scene.objects:
+        if lamp.type!='LIGHT' or lamp.data.energy<=0:continue
+        fixture=lamp.parent;optic_distances=[];optic_materials=[]
+        if fixture and fixture.type=='MESH':
+            for index,slot in enumerate(fixture.material_slots):
+                material=slot.material
+                p=material.node_tree.nodes.get('Principled BSDF') if material and material.use_nodes else None
+                if p and p.inputs['Emission Strength'].default_value>0:
+                    faces=[f for f in fixture.data.polygons if f.material_index==index]
+                    if faces:
+                        optic_materials.append(material.name)
+                        optic_distances.extend((fixture.matrix_world@f.center-lamp.matrix_world.translation).length for f in faces)
+        distance=min(optic_distances) if optic_distances else None
+        if lamp.data.type!='AREA' or distance is None or distance>.05:
+            lighting_errors.append('Light has no emitting fixture optic within 5cm: '+lamp.name)
+        source_records.append({'light':lamp.name,'fixture':fixture.name if fixture else None,'optic_materials':optic_materials,'closest_optic_face_center_distance_m':distance,'energy_frame_1_w':lamp.data.energy})
+    fixture_lighting={'status':'PASS' if not lighting_errors else 'FAIL','world_ambient_strength':0,'powered_sources':len(source_records),'sources':source_records,'errors':lighting_errors,'scope':'Real emitting faces and emitter placement; readability and light falloff require actual image review.'}
+    failures.extend(lighting_errors)
+
 # Evaluate authored light/optic keys at every playback frame and the loop seam.
 # This is the temporal extension of the existing cold check, not an art score.
 atmo=manifest.get('atmosphere',{});temporal={'status':'NOT_APPLICABLE'}
@@ -198,7 +225,7 @@ if atmo:
     temporal={'status':'PASS' if not errors else 'FAIL','range_inclusive':[first_frame,last_frame],'frames_evaluated':len(samples),'fps':scene.render.fps,'fps_base':scene.render.fps_base,'errors':sorted(set(errors)),'samples':samples,'scope':'Evaluated light energy, isolated optic emission, static mounted transforms and closure values; visual timing and runtime are separate.'}
     failures.extend(sorted(set(errors)))
 
-report={'schema':'fuel-overhaul-cold-validation/1','file':bpy.data.filepath,'sha256':native_sha,'build_manifest':str(manifest_path.relative_to(ROOT)),'recipe_sha256':manifest.get('recipe_sha256'),'blender':bpy.app.version_string,'status':'PASS' if not failures else 'FAIL','failures':failures,'exterior_bounds':exteriors,'floor_footprints':floor_footprints,'fixed_cameras':fixed_cameras,'runtime_transforms':runtime,'support_contacts':contacts,'attachment_contacts':attachments,'geometry_budget':budget,'uv':uv,'dependencies':packed,'missing_dependencies':missing,'routes':route_results,'temporal':temporal,'limitations':['Sampled geometric clearance is not continuous cart/player simulation.','Unity importer, batching, colliders and controller are not executed in this Blender environment.']}
+report={'schema':'fuel-overhaul-cold-validation/1','file':bpy.data.filepath,'sha256':native_sha,'build_manifest':str(manifest_path.relative_to(ROOT)),'recipe_sha256':manifest.get('recipe_sha256'),'blender':bpy.app.version_string,'status':'PASS' if not failures else 'FAIL','failures':failures,'exterior_bounds':exteriors,'floor_footprints':floor_footprints,'fixed_cameras':fixed_cameras,'runtime_transforms':runtime,'support_contacts':contacts,'attachment_contacts':attachments,'geometry_budget':budget,'uv':uv,'dependencies':packed,'missing_dependencies':missing,'routes':route_results,'fixture_lighting':fixture_lighting,'temporal':temporal,'limitations':['Sampled geometric clearance is not continuous cart/player simulation.','Unity importer, batching, colliders and controller are not executed in this Blender environment.']}
 out=Path(opts.report).resolve() if opts.report else TASK/'production'/('COLD_VALIDATION.json' if manifest['stage']=='full' else 'SLICE_VALIDATION.json');out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(report,indent=2));print('FUEL_VALIDATION',report['status'],len(failures),'failures',budget,flush=True)
 for f in failures:print('FAIL',f,flush=True)
 if failures:raise RuntimeError('Fuel cold validation failed; inspect '+str(out))

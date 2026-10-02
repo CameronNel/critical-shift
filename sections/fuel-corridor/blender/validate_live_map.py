@@ -55,6 +55,13 @@ again, new_instance, new_cache, hidden = open_fuel_overhaul.install_live_fuel()
 assert (again, new_instance, new_cache) == (module, instance, cache)
 assert counts == (len(bpy.data.objects), len(bpy.data.collections))
 assert matrix == [list(row) for row in instance.matrix_world]
+lighting_policy=json.loads(instance['fc_lighting_policy'])
+expected_receivers=[instance]+[o for o in module.all_objects if o.type in {'MESH','FONT','CURVE','SURFACE'}]
+for light in bpy.context.scene.objects:
+    if light.type!='LIGHT' or light.data.type!='SUN' or light.hide_render:continue
+    receiver=light.light_linking.receiver_collection
+    assert receiver and all(receiver.objects.find(o.name)>=0 and receiver.collection_objects[receiver.objects.find(o.name)].light_linking.link_state=='EXCLUDE' for o in expected_receivers),'Map helper can illuminate fuel surfaces'
+assert len(lighting_policy['excluded_map_helpers'])==5,'Map daylight helper inventory changed'
 assert all(bpy.data.objects[name].hide_render for name in hidden)
 assert len(hidden) == len([o for o in build['baseline_asset_inventory'] if o['type'] == 'LIGHT'])
 assert all(sha(p) == expected for p, expected in frozen.items()), 'Frozen dependency changed'
@@ -94,6 +101,8 @@ report = {
     'linked_animation_samples': animation,
     'map_fps': bpy.context.scene.render.fps,
     'map_fps_base': bpy.context.scene.render.fps_base,
+    'fixture_lighting_policy': lighting_policy,
+    'lighting_installer_sha256': sha(ROOT/'open_fuel_overhaul.py'),
     'limits': ['No Unity build, performance, controller or continuous collision test.'],
 }
 (TASK / 'MAP_LAUNCHER_VALIDATION.json').write_text(json.dumps(report, indent=2) + '\n')
