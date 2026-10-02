@@ -89,3 +89,19 @@ A separate bolted cradle supports the connector and has its own explicit wall
 contact anchor. The F15 archived scene/images remain unchanged. The repaired
 source must pass a new cold check and actual closeup before two full, independently
 reviewed stable final cycles can qualify for handoff.
+
+## Full repaired scene inspection — F16ci
+
+I opened all 24 unedited F16ci captures: 19 fixed area views, the closed
+freight diagnostic, and four native-lit detail proofs at 1280×853 / 32 samples.
+Their exact source native is
+`e987bf87da2a51b79fbc68d6301d53a5902995623294c9be2dcc73a36b2b5530`.
+The bench connector now reads as a parked electrical fitting with a grip,
+recessed contacts, cable entry and bolted cradle. The original pale bead is gone.
+The intercom is visible beside the jamb; junction glands and lead routing are
+seated; the open grate has a recessed bed and flush rim. Cloth hems, numbered
+gauges, captive bleed cap and tied inspection tag retain their task-specific
+positions. The routes remain clear and the dark lighting intervals remain.
+I found no further substantiated visible defect in this complete pass. This
+is builder self-review; independent Luna scores and final stability/integration
+evidence remain separate requirements.
