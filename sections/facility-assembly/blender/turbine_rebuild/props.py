@@ -123,13 +123,13 @@ def build(b):
         for z in (.2, .7): b.cyl((x, y, z), .277, .03, 'trim_black', 'Z', 32, bev=.006)                               # thin rolled ribs
         b.cyl((x, y, .9), .285, .045, 'steel_mid', 'Z', 32, bev=.01); b.cyl((x, y, .92), .22, .02, 'steel_mid', 'Z', 32)   # chime ring and recessed lid
         b.cyl((x + .1, y + .08, .935), .03, .02, 'steel_light', 'Z', 12); b.cyl((x - .1, y - .06, .935), .022, .016, 'steel_light', 'Z', 12)
-        for z in (.57, .33): b.cyl((x, y, z), R + .003, .018, 'yellow', 'Z', 32)                                      # flat hazard stripes either side of the stencil
+        for z in (.57, .33): b.cyl((x, y, z), R + .0008, .018, 'yellow', 'Z', 32)                                      # flat hazard stripes either side of the stencil
         for (t, sz, zz) in ((t1, .06, .48), (t2, .04, .40)):                                                          # stencil text placed round the curve, painted straight on the steel
             adv = sz * .66; n = len(t)
             for i, ch in enumerate(t):
                 if ch == ' ': continue
                 th = (i - (n - 1) / 2) * adv / R
-                b.text(ch, (x + (R + .0085) * math.sin(th), y - (R + .0085) * math.cos(th), zz), sz, 'pale_steel', th, math.pi / 2, extrude=.003)
+                b.text(ch, (x + (R + .0015) * math.sin(th), y - (R + .0015) * math.cos(th), zz), sz, 'pale_steel', th, math.pi / 2, extrude=0)
     for dx in (-.4, 0, .4): b.box((6.8 + dx, 1.2, .06), (.1, .8, .1), 'wood_dark', bev=.01)
     for dy in (-.3, 0, .3): b.box((6.8, 1.2 + dy, .13), (1.0, .12, .03), 'wood', bev=.008)
     b.box((6.8, 1.2, .38), (.8, .6, .4), 'wood', bev=.015); b.box((6.8, 1.2, .79), (.7, .5, .36), 'orange_worn', bev=.015)
