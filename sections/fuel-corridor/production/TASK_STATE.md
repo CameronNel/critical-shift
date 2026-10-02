@@ -257,3 +257,11 @@ All workers used the identical cold-checked native bytes.
 Independent visual review is pending; no art or Unity acceptance is claimed.
 
 Authoring geometry: {"source_triangles": 956554, "evaluated_triangles": 961834, "mesh_objects": 338, "material_batch_upper_bound": 1399}.
+
+## F10ci independent acceptance and F11ci stability cycle
+
+Root and pessimistic Luna opened all 19 actual F10ci full views, the closed freight diagnostic and all four frozen spawn references, verifying native and image hashes. After reopening the challenged views, Luna withdrew unsupported smooth-wall and generic coverage deductions: D04 visibly has formed steel pans, horizontal ribs and timber impact boards; C08's opposing clean-stock and linen tasks are linked by the ceiling spine; C06 is fabricated door detail; and C10 has a distinct plant baffle ceiling, water main, valves and fluted construction. No aesthetic grade was forced or overridden. The corrected independent report scores each of seven categories and each of nine areas 99. See critics/luna-full-F10ci.md. F10ci is the first accepted full visual cycle.
+
+The actual published F10ci native 663b7addb307948dc9b65d095af34efc3281abe78ea0e27dacce4d097e82afd5 passes the normal open_map.py launcher: selected source/recipe/cold pairing, identity placement, repeat-install idempotence, 51 old fuel lights hidden, all 30 historical fuel material IDs resolved and zero missing fuel materials. Canonical main, R17 and spawn hashes remain exact. Historical unrelated spawn/PPE ID warnings remain; this does not certify the whole map as warning-free.
+
+F11ci rebuilds the identical construction recipe 1dbefb4c1d5dc85b33d2cc34f4619bb904b3e6c7f85264858503e2cb11af6311 with no modeling, materials, lighting, camera or reviewer-standard change. It will cold-open, render all 19 fixed views and the closed diagnostic, rehash all evidence and receive a new pessimistic Luna review. Second-cycle acceptance and final main-map render proof remain pending. No Unity or final owner acceptance is claimed.

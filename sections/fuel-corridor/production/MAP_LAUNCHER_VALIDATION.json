@@ -1,0 +1,48 @@
+{
+  "schema": "fuel-normal-map-launcher-validation/1",
+  "created_utc": "2026-10-02T09:07:31.413276+00:00",
+  "status": "PASS",
+  "launcher": "open_map.py",
+  "canonical_map_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+  "frozen_R17_sha256": "4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937",
+  "spawn_reference_sha256": "1964d3d16716730631af0d5c77bcc604a64455092142cc57c0283172a563a977",
+  "native_sha256": "663b7addb307948dc9b65d095af34efc3281abe78ea0e27dacce4d097e82afd5",
+  "recipe_sha256": "1dbefb4c1d5dc85b33d2cc34f4619bb904b3e6c7f85264858503e2cb11af6311",
+  "linked_module": "MODULE_fuel-corridor",
+  "module_objects": 495,
+  "hidden_old_fuel_lights": 51,
+  "old_cache_hidden": true,
+  "main_cache_material_ids_resolved": 30,
+  "repeat_install_idempotent": true,
+  "instance_matrix": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "saved_main": false,
+  "source_bytes_unchanged": true,
+  "limits": [
+    "No Unity build, performance, controller or continuous collision test."
+  ]
+}
