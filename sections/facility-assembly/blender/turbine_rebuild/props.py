@@ -69,9 +69,9 @@ def build(b):
     # --- north wall: working desk, flammables sign ---
     (o, rz), fu = FR['N']
     with b.push(o, rz):
-        A.desk(b, fu(8.0))
-        A.sign_board(b, 'sign_desk', fu(8.0), 1.9, .82, .42, depth=.05)
-        A.socket(b, fu(8.4), .5)
+        A.desk(b, fu(7.55))
+        A.sign_board(b, 'sign_desk', fu(7.55), 1.9, .82, .42, depth=.05)
+        A.socket(b, fu(8.05), .5)
         b.decal('sign_flammable', (fu(9.28), .006, 1.7), rot=WALL, scale=1.05)
     import machinery as MM                                                                           # nameplates on the generator and on the foundation rail
     b.box((MM.CX + 1.14, 18.95, MM.AZ + .05), (.04, 1.5, .46), 'trim_black', bev=.012); b.decal('nameplate_gen', (MM.CX + 1.1625, 18.95, MM.AZ + .05), rot=(math.pi / 2, 0, math.pi / 2))
