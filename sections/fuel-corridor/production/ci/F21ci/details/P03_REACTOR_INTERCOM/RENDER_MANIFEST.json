@@ -1,0 +1,55 @@
+{
+  "schema": "fuel-detail-view-evidence/1",
+  "scene": "sections/fuel-corridor/production/checkpoints/fuel_full_F21ci.blend",
+  "scene_sha256": "4168eef541ff47c1a63ca21587d084355a29a5ce5200d7032389da2e3f3de2d7",
+  "blender": "5.2.1 LTS",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "samples": 32,
+  "seed": 7,
+  "denoise": true,
+  "resolution": [
+    1280,
+    853
+  ],
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": -0.15000000596046448,
+  "frame": 1,
+  "scope": "Additional fixed closeups only; native lighting and visibility unchanged; full area set still required.",
+  "cameras": [
+    {
+      "name": "P03_REACTOR_INTERCOM",
+      "owner": "FC | Reactor local call intercom",
+      "matrix_world": [
+        [
+          0.22203806042671204,
+          0.2373713254928589,
+          -0.9457029104232788,
+          15.929999351501465
+        ],
+        [
+          -0.9750379920005798,
+          0.05405489355325699,
+          -0.21535776555538177,
+          22.735000610351562
+        ],
+        [
+          1.0999734456618171e-07,
+          0.969913899898529,
+          0.24344830214977264,
+          1.7000000476837158
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 43,
+      "image": "P03_REACTOR_INTERCOM.png",
+      "sha256": "015e71f6b1d9659daea5188065d34c5ac35f140838b308a0166541e48956f0db"
+    }
+  ]
+}
