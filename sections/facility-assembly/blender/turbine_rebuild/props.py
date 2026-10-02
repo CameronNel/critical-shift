@@ -47,8 +47,8 @@ def vent(b, u, z, w=.9, h=.5):
 def build(b):
     b.use('PROPS'); R = b.rng
     # --- signage hung over the bay and on the foundation ---
-    b.box((-1.2, 13.7, 4.25), (2.6, .05, .5), 'trim_black', bev=.014)
-    for sgn, rz_ in ((-1, 0), (1, math.pi)): b.text('MAINTENANCE BAY', (-.95, 13.7 + (.032 if sgn == 1 else -.032), 4.25), .165, 'chalk', rz_, math.pi / 2)
+    b.box((-1.2, 13.7, 4.25), (3.2, .05, .62), 'trim_black', bev=.014)
+    for sgn, rz_ in ((-1, 0), (1, math.pi)): b.text('MAINTENANCE BAY', (-.85, 13.7 + (.032 if sgn == 1 else -.032), 4.25), .2, 'chalk', rz_, math.pi / 2)
     for sgn in (-1, 1):                                                                                  # gear icon, both faces
         yf = 13.7 + sgn * .033
         b.cyl((-2.2, yf, 4.25), .13, .008, 'yellow', 'Y', 24)
@@ -108,7 +108,7 @@ def build(b):
         b.box((u, .32, .45), (.46, .46, .06), 'rubber', bev=.02) if False else None
         b.box((fu(8.0), .03, 1.9), (.9, .06, .5), 'trim_black', bev=.014); b.box((fu(8.0), .062, 1.9), (.82, .006, .42), 'yellow'); wt(b, 'TURBINE 02', fu(8.0), 2.0, .1, 'trim_black', .068); wt(b, 'CONTROL DESK', fu(8.0), 1.8, .06, 'trim_black', .068)
         for t, p in ((8.4, False),): socket(b, fu(t), .5, plug=p)
-    import furniture; furniture.chair(b, 7.35, 22.65, math.pi / 2 + .15, 'steel_dark')                                       # operator chair in front of the desk
+    import furniture; furniture.chair(b, 6.95, 22.5, math.pi / 2 + .25, 'steel_dark')                                       # operator chair in front of the desk
     import machinery as MM                                                                           # nameplates on the generator and on the foundation rail
     b.box((MM.CX + 1.14, 18.95, MM.AZ + .05), (.04, 1.5, .46), 'trim_black', bev=.012); b.box((MM.CX + 1.162, 18.95, MM.AZ + .05), (.006, 1.4, .38), 'oxide_dark')
     b.text('GENERATOR  G-2', (MM.CX + 1.17, 18.95, MM.AZ + .09), .125, 'chalk', math.pi / 2, math.pi / 2); b.text('24 kV  3 PHASE', (MM.CX + 1.17, 18.95, MM.AZ - .1), .075, 'chalk', math.pi / 2, math.pi / 2)

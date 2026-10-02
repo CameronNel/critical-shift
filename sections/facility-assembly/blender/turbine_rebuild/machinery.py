@@ -316,8 +316,8 @@ def controls(b):
         for j in range(3):
             yy = 2.64 + i * .4
             b.box((-3.842, yy, 2.0 + j * .3), (.014, .35, .25), 'trim_black', bev=.006); b.box((-3.835, yy, 2.0 + j * .3), (.02, .3, .2), cols8[(i + j * 3) % 8], bev=.006); b.text(str(i * 3 + j + 1), (-3.82, yy, 2.0 + j * .3), .06, 'trim_black', math.pi / 2, math.pi / 2)
-    b.box((-3.9, 4.0, 4.2), (.1, 3.0, .5), 'oxide_dark', bev=.02); b.box((-3.846, 4.0, 4.2), (.012, 2.88, .4), 'trim_black', bev=.006)
-    b.text('TURBINE CONTROL', (-3.84, 4.0, 4.2), .22, 'chalk', math.pi / 2, math.pi / 2)
+    b.box((-3.9, 4.0, 4.2), (.1, 3.2, .6), 'oxide_dark', bev=.02); b.box((-3.846, 4.0, 4.2), (.012, 3.08, .5), 'trim_black', bev=.006)
+    b.text('TURBINE CONTROL', (-3.84, 4.0, 4.2), .27, 'chalk', math.pi / 2, math.pi / 2)
     b.claim((-3.95, 2.3, 0), (-1.5, 5.7, 3.9))
     for k, x in enumerate((-3.35, -2.3, -1.25)):
         b.box((x, 23.55, 1.1), (.98, .8, 2.2), 'steel_mid', nb=True, bev=.025); b.box((x, 23.145, 1.1), (.9, .012, 2.1), 'steel_dark', bev=.01)
