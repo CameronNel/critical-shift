@@ -393,7 +393,7 @@ def perforated_board(w=1.12,h=.58):
             b.box((.028,.025,.025),(x,-.0125,z),mat('dark steel'),.003);bolt(b,(x,-.031,z),.006)
     return b
 
-def manifold(w=.68,h=.72):
+def manifold(w=.68,h=.72,compact_hose=False):
     b=B();coat=mat('navy enamel');brass=mat('brass')
     frame(b,w,h,.045,.045,-.0225,h/2,mat('dark steel'),r=.03)
     b.box((w-.025,.012,h-.025),(0,-.047,h/2),coat,.004)
@@ -426,7 +426,12 @@ def manifold(w=.68,h=.72):
     for x in [-.26,.22]:
         b.lathe([(0,0),(.030,0),(.030,.012),(.023,.018),(.023,.050),(0,.050)],(x,-.16,cy),brass,seg=6,rot=rz)
     # Feed inlet and a separate quick-release hose end parked in a retaining clip.
-    b.tube(rounded_path([(.26,-.16,cy),(.30,-.20,.13),(.27,-.23,-.08),(.14,-.23,-.18),(-.09,-.23,-.17),(-.26,-.23,-.04),(-.25,-.19,.19)]),.014,mat('rubber'),seg=16)
+    path=[(.26,-.16,cy),(.30,-.20,.13),(.27,-.23,-.08),(.14,-.23,-.18),(-.09,-.23,-.17),(-.26,-.23,-.04),(-.25,-.19,.19)]
+    if compact_hose:
+        # The recess has a handover roll immediately below: park the shorter
+        # service loop on the panel, leaving the roll's working face unobscured.
+        path=[(.26,-.16,cy),(.29,-.20,.15),(.26,-.23,.03),(.13,-.23,-.015),(-.09,-.23,-.010),(-.24,-.23,.055),(-.25,-.19,.19)]
+    b.tube(rounded_path(path),.014,mat('rubber'),seg=16)
     b.lathe([(0,0),(.017,0),(.024,.013),(.024,.033),(.017,.039),(.014,.062),(0,.062)],(-.25,-.19,.19),mat('steel'),seg=24)
     before=set(b.bm.verts);frame(b,.068,.065,.009,.026,-.174,.21,mat('dark steel'),r=.02)
     for v in b.bm.verts:
@@ -519,21 +524,59 @@ def interlock_console():
     b.box((.055,.027,.032),(.21,-.202,.13),mat('steel'),.004)
     return b
 
-def exhaust_collector(riser=1.55):
-    """A folded extractor with an open heat-exchanger face and flanged riser."""
-    b=B();w=1.02;h=1.18
-    frame(b,w,h,.047,.028,-.014,h/2,mat('dark steel'),r=.032)
-    for x in [-w/2+.02,w/2-.02]:
-        polygon(b,[(-.045,0),(-.31,.075),(-.39,.48),(-.29,1.13),(-.045,h)],.025,mat('oxide enamel'),pos=(x,0,0),rot=Matrix.Rotation(math.pi/2,3,'Y')@Matrix.Rotation(math.pi/2,3,'Z'))
-    for z,y in [(.058,-.17),(1.13,-.165)]:b.box((w-.025,.25,.032),(0,y,z),mat('oxide enamel'),.003)
-    merge(b,vent(.91,.49),(0,-.36,.46))
-    b.box((.84,.012,.44),(0,-.11,.46),mat('rubber'),.003)
-    b.box((.89,.027,.265),(0,-.295,.95),mat('warm enamel'),.005)
-    for x in [-.39,.39]:
-        for z in [.85,1.05]:bolt(b,(x,-.313,z),.008)
-        b.box((.037,.042,.071),(x,-.322,.94),mat('dark steel'),.004)
+def exhaust_collector(riser=1.28):
+    """An entire split extraction bay: intake, blower, inspection and drain.
+
+    The wall-side datum remains Y=0; the large rolled hood connects into the
+    existing horizontal collector, rather than enlarging a decorative grille.
+    """
+    b=B();w=2.12;h=1.95
+    frame(b,w,h,.060,.032,-.016,h/2,mat('dark steel'),r=.047)
+    b.box((w-.11,.014,h-.10),(0,-.04,h/2),mat('reactor sheet'),.004)
+    for x in [-w/2+.025,w/2-.025]:
+        polygon(b,[(0,0),(-.28,0),(-.35,.19),(-.35,1.48),(-.23,1.79),(-.055,h),(0,h)],.025,mat('replacement enamel'),pos=(x,0,0),rot=Matrix.Rotation(math.pi/2,3,'Y')@Matrix.Rotation(math.pi/2,3,'Z'))
+    for z,y in [(.037,-.15),(1.77,-.16)]:b.box((w-.030,.30,.025),(0,y,z),mat('replacement enamel'),.004)
+    # Folded tapering hood, steel face and true diagonal end returns.
+    section=Matrix(((0,0,1),(1,0,0),(0,1,0)))
+    hood=[(-.35,1.48),(-.23,1.79),(-.055,h),(-.048,h),(-.224,1.786),(-.343,1.48)]
+    polygon(b,hood,w-.05,mat('warm enamel'),pos=(-w/2+.025,0,0),rot=section,bevel=.001)
+    # Left filter drawer carries a woven-looking metal screen, removable rails,
+    # and a shallow catch pan. The right bay has a visible caged impeller.
+    merge(b,vent(.83,.83),(-.52,-.348,.89))
+    b.box((.76,.013,.76),(-.52,-.070,.89),mat('rubber'),.004)
+    for x in [-.94,-.10]:
+        channel(b,.042,.030,1.19,(x,-.36,.87),mat('dark steel'))
+        for z in [.35,1.38]:bolt(b,(x,-.397,z),.008)
+    b.box((.84,.023,.19),(-.52,-.363,.29),mat('oxide enamel'),.005)
+    b.tube(rounded_path([(-.68,-.38,.29),(-.68,-.416,.29),(-.36,-.416,.29),(-.36,-.38,.29)]),.009,mat('steel'),seg=12)
+    # Blower is enclosed in a real open wire guard, with blades behind it.
+    fx,fz=.48,.87;ry=Matrix.Rotation(math.pi/2,3,'X')
+    b.lathe([(.322,0),(.357,0),(.371,.025),(.371,.055),(.351,.074),(.322,.074),(.322,0)],(fx,-.279,fz),mat('dark steel'),seg=48,rot=ry)
+    for r in [.10,.19,.27,.345]:
+        ring(b,r,.0035,(fx,-.365,fz),mat('steel'),axis='Y',seg=48)
+    for k in range(12):
+        a=k*math.pi/6;b.tube([(fx+.065*math.cos(a),-.366,fz+.065*math.sin(a)),(fx+.348*math.cos(a),-.366,fz+.348*math.sin(a))],.0035,mat('steel'),seg=8)
+    b.lathe([(0,0),(.062,0),(.077,.023),(.070,.045),(0,.055)],(fx,-.293,fz),mat('ochre enamel'),seg=32,rot=ry)
+    for k in range(6):
+        a=k*math.pi/3+.12
+        polygon(b,[(.04,-.026),(.29,-.053),(.31,.022),(.10,.044)],.009,mat('replacement enamel'),pos=(fx,-.302,fz),rot=ry@Matrix.Rotation(a,3,'Z'),bevel=.002)
+    for x in [.09,.89]:
+        for z in [.46,1.28]:bolt(b,(x,-.349,z),.009)
+    # Cream service instrument above the intake, a brass pressure capillary and
+    # a visible filter-age card make this a maintained process assembly.
+    b.box((w-.15,.025,.195),(0,-.349,1.49),mat('warm enamel'),.004)
+    instrument_dial(b,-.68,-.369,1.49,.060)
+    b.box((.39,.004,.075),(-.07,-.365,1.49),mat('ink enamel'),.003)
+    b.box((.25,.003,.102),(.65,-.366,1.49),mat('paper'),.002)
+    for z in [1.465,1.488,1.511]:b.box((.18,.001,.002),(.65,-.369,z),mat('ink'),.0002)
+    b.box((.065,.017,.014),(.65,-.372,1.553),mat('steel'),.002)
+    b.tube(rounded_path([(-.68,-.14,1.54),(-.68,-.14,1.70),(-.39,-.14,1.70),(-.31,-.12,1.88)]),.008,mat('brass'),seg=16)
+    b.box((1.91,.25,.017),(0,-.18,.116),mat('steel'),.003)
+    for x in [-.94,.94]:b.box((.018,.25,.062),(x,-.18,.14),mat('steel'),.003)
+    b.box((1.91,.018,.043),(0,-.296,.134),mat('steel'),.003)
+    b.tube(rounded_path([(.71,-.11,.13),(.71,-.11,.04),(.80,-.08,.015),(.91,-.055,.015)]),.012,mat('brass'),seg=16)
     # Thin sheet sides surround a real hollow rectangular duct.
-    z0=1.18;z1=z0+riser;dw=.34;dd=.26
+    z0=h;z1=z0+riser;dw=.34;dd=.26
     for x in [-dw/2,dw/2]:b.box((.004,dd,riser),(x,-.16,(z0+z1)/2),mat('steel'),.0006)
     for y in [-.29,-.03]:b.box((dw,.004,riser),(0,y,(z0+z1)/2),mat('steel'),.0006)
     for z in [z0+.025,z0+riser*.46,z1-.025]:
@@ -546,8 +589,87 @@ def exhaust_collector(riser=1.55):
     for z in [1.0,z1-.12]:
         b.box((.46,.018,.073),(0,-.009,z),mat('dark steel'),.003)
         for x in [-.19,.19]:bolt(b,(x,-.021,z),.006)
-    b.tube(rounded_path([(.36,-.07,1.1),(.36,-.09,1.35),(.20,-.09,1.38),(.18,-.05,1.43)]),.010,mat('rubber'),seg=12)
-    b.box((.20,.003,.051),(0,-.312,.948),mat('ink enamel'),.002)
+    b.tube(rounded_path([(.36,-.07,1.66),(.36,-.09,1.90),(.20,-.09,2.03),(.18,-.05,2.08)]),.010,mat('rubber'),seg=12)
+    return b
+
+def thermal_access(w,opened=False):
+    """A fin-bank service break with hollow folded cover or exposed copper coil."""
+    b=B();h=.94
+    b.box((w,.012,h),(0,-.010,h/2),mat('oxide enamel'),.002)
+    for xx in [-w/2+.010,w/2-.010]:b.box((.020,.13,h),(xx,-.071,h/2),mat('replacement enamel'),.003)
+    for zz in [.01,h-.01]:b.box((w,.13,.020),(0,-.071,zz),mat('replacement enamel'),.003)
+    if opened:
+        for zz in [.20,.34,.48,.62]:
+            b.tube(rounded_path([(-w*.36,-.064,zz),(w*.36,-.064,zz),(w*.39,-.064,zz+.055),(w*.36,-.064,zz+.11),(-w*.36,-.064,zz+.11)]),.013,mat('brass'),seg=16)
+        for xx in [-w*.28,w*.28]:
+            b.box((.020,.062,.71),(xx,-.046,.48),mat('dark steel'),.002)
+        frame(b,w-.09,h-.09,.030,.022,-.142,h/2,mat('warm enamel'),r=.023)
+        for xx in [-w*.28,w*.28]:b.tube([(xx,-.158,.105),(xx,-.158,.835)],.003,mat('steel'),seg=8)
+    else:
+        b.box((w-.048,.009,h-.048),(0,-.137,h/2),mat('repaired blue enamel'),.004)
+        merge(b,vent(w-.22,.22),(0,-.145,.65))
+        for xx in [-w*.33,w*.33]:
+            b.box((.035,.024,.11),(xx,-.154,.27),mat('steel'),.004)
+        b.box((.37,.003,.085),(0,-.145,.30),mat('warm enamel'),.003)
+    for xx in [-w/2+.043,w/2-.043]:
+        for zz in [.043,h-.043]:bolt(b,(xx,-.152,zz),.007)
+    return b
+
+def linen_return():
+    """Folded stainless return hood over a sagging, seamed washable cloth bag."""
+    b=B();w=1.05
+    b.box((w,.018,1.80),(0,-.009,.90),mat('dark steel'),.004)
+    # Contrasting rolled side cheeks and a genuine open return mouth.
+    for x in [-w/2+.017,w/2-.017]:
+        polygon(b,[(0,.92),(-.26,.92),(-.26,1.37),(-.17,1.63),(0,1.63)],.027,mat('warm enamel'),pos=(x,0,0),rot=Matrix.Rotation(math.pi/2,3,'Y')@Matrix.Rotation(math.pi/2,3,'Z'))
+    b.box((w,.23,.020),(0,-.13,.93),mat('steel'),.004)
+    b.box((w,.017,.14),(0,-.247,1.015),mat('replacement enamel'),.004)
+    b.box((w,.028,.10),(0,-.165,1.58),mat('warm enamel'),.004)
+    b.box((w-.10,.023,.235),(0,-.22,1.405),mat('warm enamel'),.004)
+    b.box((.68,.003,.075),(0,-.234,1.405),mat('ink enamel'),.003)
+    for x in [-.46,.46]:
+        for z in [1.06,1.49]:bolt(b,(x,-.262 if z<1.2 else -.235,z),.007)
+    # Bag has independently shaped rings and folds, not a scaled solid primitive.
+    rings=[];seg=32
+    for j in range(10):
+        t=j/9;z=.17+t*.72;row=[]
+        for k in range(seg):
+            a=2*math.pi*k/seg;wr=.33*(.81+.19*math.sin(t*math.pi/2));dr=.086*(.75+.25*math.sin(t*math.pi/2))
+            ripple=1+.025*math.sin(a*7+t*4)+.012*math.cos(a*11-t*2)
+            row.append(b.bm.verts.new((wr*math.cos(a)*ripple,-.144+dr*math.sin(a)*ripple,z+.012*math.sin(a*3)*t)))
+        rings.append(row)
+    mi=b._idx(mat('canvas'))
+    for j in range(9):
+        for k in range(seg):
+            f=b.bm.faces.new((rings[j][k],rings[j][(k+1)%seg],rings[j+1][(k+1)%seg],rings[j+1][k]));f.material_index=mi;f.smooth=True
+    f=b.bm.faces.new(tuple(reversed(rings[0])));f.material_index=mi
+    # Mouth rail, suspension tabs and stitched vertical seams all touch the bag.
+    b.tube([(.333*math.cos(2*math.pi*k/32),-.144+.086*math.sin(2*math.pi*k/32),.89+.012*math.sin(6*math.pi*k/32)) for k in range(33)],.005,mat('cotton'),seg=8)
+    for xx in [-.27,.27]:
+        b.box((.045,.014,.135),(xx,-.086,.92),mat('canvas'),.004)
+        b.box((.080,.028,.022),(xx,-.085,.986),mat('steel'),.004)
+        for z in [.23+i*.055 for i in range(12)]:b.tube([(xx,-.201,z),(xx,-.201,z+.025)],.0009,mat('cotton'),seg=6)
+    # A recently returned towel bends over the open slot, with sewn hem.
+    rows=[]
+    for j in range(14):
+        t=j/13;y=-.16-t*.115;z=1.13-.19*max(0,(t-.37)/.63);row=[]
+        for k in range(9):
+            x=-.29+k*.036;row.append(b.bm.verts.new((x,y,z+.007*math.cos(k*.8)+.009*math.sin(t*4+k*.3))))
+        rows.append(row)
+    mi=b._idx(mat('cotton'))
+    for j in range(13):
+        for k in range(8):
+            f=b.bm.faces.new((rows[j][k],rows[j][k+1],rows[j+1][k+1],rows[j+1][k]));f.material_index=mi;f.smooth=True
+    for k in [0,8]:b.tube([tuple(row[k].co) for row in rows],.0012,mat('canvas'),seg=6)
+    # Log clip and durable tally plate share the physical assembly.
+    b.box((.32,.002,.092),(.24,-.036,1.705),mat('paper'),.002)
+    b.box((.075,.015,.018),(.24,-.045,1.755),mat('steel'),.003)
+    for z in [1.684,1.706,1.728]:b.box((.20,.001,.002),(.24,-.038,z),mat('ink'),.0002)
+    for xx in [-.43,.43]:
+        for z in [.07,1.74]:bolt(b,(xx,-.021,z),.008)
+    # The 2 m bypass runs close to this wall. Manufacture a shallow return
+    # station (maximum 184 mm), retaining the slot and suspended fabric bag.
+    for v in b.bm.verts:v.co.y*=.66
     return b
 
 def clean_station():

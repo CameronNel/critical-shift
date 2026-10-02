@@ -143,7 +143,9 @@ def wall(r):
             for xx in [x-step/2+.10,x+step/2-.10]:panel_box((.032,.026,h-1.50),(xx,-.010,(1.38+h-.12)/2),mat('warm enamel'),.003)
         else:
             panel_box((step-.010,.044,h-(2.44 if clean else 1.36)),(x,.018,((2.40 if clean else 1.32)+h-.04)/2),m,.003)
-            if thermal:
+            if thermal and i in [2,5]:
+                merge(b,A.thermal_access(step-.060,opened=i==5),(x,0,2.53))
+            elif thermal:
                 # Open, folded heat-recovery fins above the handover/PPE zone.
                 # A connected shallow cassette, not decorative wear or a decal.
                 pw=step-.060
@@ -163,6 +165,15 @@ def wall(r):
             b.box((step-.014,.016,.015),(x,-.015,1.215),mat('steel'),.0015)
             for z in [.24,1.13]:
                 for xx in [x-step/2+.053,x+step/2-.053]:bolt(b,(xx,-.010,z),.0055,material='dark steel')
+            if thermal and i in [2,3]:
+                # Two transfer bays received replaceable timber impact boards.
+                # Raised shoes, fixed bolts and eased ends record a cart repair;
+                # the other walls retain washable metal crash panels.
+                for zz in [.36,.61,.86]:
+                    b.box((step-.13,.040,.17),(x,-.036,zz),mat('wood'),.010,seg=3)
+                    for xx in [x-step/2+.12,x+step/2-.12]:
+                        b.box((.055,.050,.19),(xx,-.040,zz),mat('dark steel'),.005)
+                        bolt(b,(xx,-.068,zz),.008)
     if clean:
         panel_box((w,.032,2.24),(0,.020,1.28),mat('sanitary grout'),.002)
         nx=max(1,math.ceil(w/.38));nz=9;tw=w/nx;th=2.24/nz
@@ -795,7 +806,7 @@ def freight_mechanism(frame_ob):
         bolt(lamp,(x,-.375,3.615),.006)
     hood=add(lamp,'Freight leaf inspection hood','FC | Practicals',pos=frame_ob.location,normal=(-1,0,0),parent=frame_ob.name,family='portal-mounted folded inspection luminaire')
     light('Freight closed-leaf inspection pool',hood.matrix_world@Vector((0,-.285,3.562)),hood.matrix_world@Vector((0,-.105,1.6)),70,(1,.88,.73),size=1.1,shape='RECTANGLE',size_y=.17,parent=hood.name)
-    light('Freight channel inspection uplight',hood.matrix_world@Vector((0,-.335,3.674)),hood.matrix_world@Vector((0,-.090,3.88)),5,(.83,.89,1),size=.94,shape='RECTANGLE',size_y=.060,parent=hood.name)
+    light('Freight channel inspection uplight',hood.matrix_world@Vector((0,-.335,3.674)),hood.matrix_world@Vector((0,-.090,3.88)),12,(.83,.89,1),size=.94,shape='RECTANGLE',size_y=.060,parent=hood.name)
     # The lower open C-channel needs light inside its own returns, rather than
     # hoping a roof light reaches it through the track and guard above it.
     strip=B();spans=[(-1.48,-.91),(-.85,-.03),(.03,.85),(.91,1.48)]
@@ -809,6 +820,26 @@ def freight_mechanism(frame_ob):
     wallname='Wall_W6.07_1_12.2'
     if wallname in WALLS:
         mounted(A.cabinet(.18,.27,.08),'Freight drive guarded disconnect',wallname,(-.25,-.008,.89),family='guarded disconnect')
+
+def freight_inspection_flood():
+    """A roof-supported angled task optic clears the front rail's shadow."""
+    b=B();centre=Vector((5.18,10.0,4.19))
+    tilt=Matrix.Rotation(math.pi/2,3,'Z')@Matrix.Rotation(-1.20,3,'X')
+    body=B()
+    body.box((1.22,.22,.055),(0,0,0),mat('ink enamel'),.005)
+    body.box((1.13,.17,.009),(0,0,-.031),mat('warm diffuser'),.002)
+    for xx in [-.59,.59]:
+        body.box((.035,.24,.074),(xx,0,0),mat('steel'),.003)
+        for yy in [-.076,.076]:bolt(body,(xx,yy,-.040),.005,axis='Z')
+    for v in body.bm.verts:v.co=tilt@v.co+centre
+    merge(b,body)
+    for yy in [9.58,10.42]:
+        b.box((.12,.12,.014),(5.18,yy,4.382),mat('steel'),.002)
+        b.cyl(.008,.172,(5.18,yy,4.203),mat('steel'),seg=12)
+        b.box((.060,.050,.020),(5.18,yy,4.203),mat('replacement enamel'),.002)
+    optic=add(b,'Freight drive inspection flood','FC | Practicals',target=CEILINGS['crossing'],anchors=[(5.18,9.58,4.389),(5.18,10.42,4.389)],direction=(0,0,1),kind='ceiling',family='hung service light with angled reflector and swivel end supports')
+    source=centre+tilt@Vector((0,0,-.038));direction=tilt@Vector((0,0,-1))
+    light('Freight front-support inspection pool',source,source+direction,75,(1,.87,.72),size=1.10,shape='RECTANGLE',size_y=.16,parent=optic.name)
 
 def service_soffit(frame_ob):
     """Close the height transition above the personnel portal with a service bay."""
@@ -831,16 +862,25 @@ def service_soffit(frame_ob):
     return add(b,'Service height-transition bulkhead','FC | Architecture',pos=frame_ob.matrix_world@Vector((0,0,2.92)),normal=(0,-1,0),parent=frame_ob.name,family='folded service bulkhead with real louvre cavity')
 
 def section_workstations():
-    board=mounted(A.maintenance_notice(),'Transfer handover board','Wall_W-2.2_0_1.2',(-1.2,-.004,1.46),'FC | Narrative','framed handover board with clipped papers')
+    board=mounted(A.maintenance_notice(),'Transfer handover board','Wall_W-2.2_0_1.2',(-2.25,-.004,1.46),'FC | Narrative','framed cart-repair and handover board above replacement impact boards')
     for text,p,size in [('TRANSFER CHECKS',(0,-.0415,.59),.042),('JOB / 017',(.29,-.0435,.427),.029),('SHIFT B',(.26,-.0465,.174),.021)]:
         label(text,board.matrix_world@Vector(p),size,normal=(1,0,0),parent=board.name)
-    sconce('Handover reading practical','Wall_W-2.2_0_1.2',(-1.2,-.004,2.29),65,False)
+    sconce('Handover reading practical','Wall_W-2.2_0_1.2',(-2.25,-.004,2.29),65,False)
+    rail=B();rail.box((.72,.023,.105),(0,-.0115,.0525),mat('warm enamel'),.004)
+    for xx in [-.30,.30]:bolt(rail,(xx,-.026,.0525),.006)
+    for xx,l in [(-.17,.22),(.08,.27)]:
+        # Ring ends sit on real bent pegs; the open jaws hang below the handover.
+        rail.tube([(xx,-.023,.065),(xx,-.042,.065),(xx,-.044,.083)],.0035,mat('steel'),seg=8)
+        merge(rail,A.spanner(l),(xx,-.044,.086),Matrix.Rotation(math.pi,3,'Y'))
+    mounted(rail,'Transfer cart-check wrench rail','Wall_W-2.2_0_1.2',(-2.25,-.004,1.30),'FC | Narrative','two ring spanners on bent retaining pegs above timber cart-impact repairs')
     console=mounted(A.interlock_console(),'Reactor transfer interlock','Wall_E17.0_0_21',(.12,-.0085,.72),'FC | Services','cast and folded interlock console')
     label('TRANSFER / READY',console.matrix_world@Vector((0,-.2145,.39)),.025,normal=(-1,0,0),parent=console.name)
     sconce('Interlock inspection practical','Wall_E17.0_0_21',(.12,-.004,2.00),65,False)
+    tags=mounted(A.lockout_station(),'Reactor arrival isolation tags','Wall_E17.0_0_21',(.72,-.004,1.37),'FC | Narrative','retained keyed locks and shift inspection tags grouped with interlock and fire cylinder')
+    label('ISOLATE / CHECK',tags.matrix_world@Vector((0,-.0202,.345)),.028,normal=(-1,0,0),parent=tags.name)
     sign('Waste bay identification','Wall_E16.4_0_7',(3.5,-.004,2.30),'WASTE / SEALED',.060,.91,coat='oxide enamel')
-    extractor=mounted(A.exhaust_collector(),'East extraction collector','Wall_E16.4_0_7',(.84,-.004,1.65),'FC | Services','folded extractor and hollow flanged duct')
-    label('EXTRACT / 03',extractor.matrix_world@Vector((0,-.315,.948)),.029,normal=(-1,0,0),parent=extractor.name)
+    extractor=mounted(A.exhaust_collector(riser=1.07),'East extraction collector','Wall_E16.4_0_7',(.84,-.004,1.36),'FC | Services','split extraction service bay with caged impeller filter drawer folded hood and connected riser')
+    label('EXTRACT / 03',extractor.matrix_world@Vector((-.07,-.369,1.49)),.037,normal=(-1,0,0),parent=extractor.name)
     clean=mounted(A.clean_station(),'Clean transfer wipe station','Wall_N21_0_-1.5',(-2.43,-.004,1.33),'FC | Narrative','clean transfer rack with actual cloth and job sheet')
     label('CLEAN / 02',clean.matrix_world@Vector((-.20,-.053,.535)),.024,normal=(0,-1,0),parent=clean.name)
     sign('Clean bay large direction','Wall_N21_0_-1.5',(-2.49,-.004,2.25),'CLEAN  >',.22,1.45,coat='warm enamel',stand_off=.030)
@@ -874,10 +914,15 @@ def process_bays():
     label('SHIFT / CHECK',log.matrix_world@Vector((.20,-.068,.62)),.023,normal=(0,1,0),parent=log.name)
     sconce('Clean stock preparation practical','Wall_N21_0_-1.5',(1.81,-.004,2.28),75,True)
     sconce('Clean log reading practical','Wall_S18.0_0_1.2',(.60,-.004,2.33),50,True)
+    laundry=mounted(A.linen_return(),'Clean used-linen return station','Wall_S18.0_0_1.2',(-1.0,-.004,.18),'FC | Narrative','open return slot draped towel hanging stitched canvas bag and clipped exchange tally')
+    label('USED LINEN',laundry.matrix_world@Vector((0,-.158,1.405)),.065,normal=(0,1,0),material='white ink',parent=laundry.name)
+    sconce('Linen exchange practical','Wall_S18.0_0_1.2',(-1.0,-.004,2.34),48,False)
     cooler=mounted(A.coolant_heat_exchanger(),'Reactor return cooling cassette','Wall_N13.2_2_10',(0,-.004,.30),'FC | Services','open heat-exchanger fins with sump guarded pipes and a connected riser')
     label('RETURN / 02',cooler.matrix_world@Vector((.17,-.337,1.66)),.038,normal=(0,-1,0),parent=cooler.name)
     sign('East turn reactor designation','Wall_N13.2_2_10',(0,-.004,2.56),'REACTOR  /  02  >',.13,1.73,coat='oxide enamel',stand_off=.19)
     sconce('Reactor cooling inspection practical','Wall_N13.2_2_10',(0,-.004,2.96),75,True)
+    check=mounted(A.lockout_station(),'Cooling return lockout and check rail','Wall_N13.2_2_10',(.50,-.004,2.10),'FC | Narrative','keyed return-circuit isolation locks and maintenance check tags below reactor direction beam')
+    label('RETURN CHECK',check.matrix_world@Vector((0,-.0202,.345)),.030,normal=(0,-1,0),parent=check.name)
     route=B();route.tube(rounded_path([(11.18,13.153,3.59),(11.98,13.153,3.59),(12.134,13.307,3.59),(12.134,14.08,3.59)]),.023,mat('steel'),seg=20)
     for x in [11.35,11.89]:ring(route,.034,.021,(x,13.153,3.59),mat('brass'),axis='X',seg=24)
     route.box((.072,.015,.12),(11.45,13.2875,3.59),mat('dark steel'),.002)
@@ -891,22 +936,22 @@ def process_bays():
     branch=B();branch.tube(rounded_path([(-3.88,18.466,2.55),(-3.88,18.36,2.67),(-3.88,18.20,2.80),(-3.88,16.52,2.80),(-3.88,16.34,2.70),(-3.88,16.260,2.55)]),.0255,mat('brass'),seg=20)
     for y in [18.18,16.54]:ring(branch,.041,.029,(-3.88,y,2.80),mat('brass'),axis='Y',seg=32)
     # A real flanged backflow/isolator assembly explains the visible utility run.
-    branch.lathe([(0,0),(.035,0),(.058,.018),(.066,.059),(.066,.13),(.058,.17),(.035,.19),(0,.19)],(-3.88,16.955,2.80),mat('repaired blue enamel'),seg=32,rot=Matrix.Rotation(-math.pi/2,3,'X'))
-    for y in [16.955,17.145]:
+    branch.lathe([(0,0),(.035,0),(.058,.018),(.066,.059),(.066,.13),(.058,.17),(.035,.19),(0,.19)],(-3.88,16.705,2.80),mat('repaired blue enamel'),seg=32,rot=Matrix.Rotation(-math.pi/2,3,'X'))
+    for y in [16.705,16.895]:
         ring(branch,.078,.013,(-3.88,y,2.80),mat('steel'),axis='Y',seg=32)
         for k in range(6):
             a=k*math.pi/3;bolt(branch,(-3.88+.061*math.cos(a),y-.013,2.80+.061*math.sin(a)),.006)
-    branch.cyl(.017,.087,(-3.835,17.05,2.80),mat('brass'),seg=20,axis='X')
-    branch.lathe([(.059,0),(.079,0),(.083,.008),(.080,.023),(.059,.023),(.059,0)],(-3.752,17.05,2.80),mat('ochre enamel'),seg=40,rot=Matrix.Rotation(math.pi/2,3,'Y'))
+    branch.cyl(.017,.087,(-3.835,16.80,2.80),mat('brass'),seg=20,axis='X')
+    branch.lathe([(.059,0),(.079,0),(.083,.008),(.080,.023),(.059,.023),(.059,0)],(-3.752,16.80,2.80),mat('ochre enamel'),seg=40,rot=Matrix.Rotation(math.pi/2,3,'Y'))
     for k in range(3):
-        a=k*2*math.pi/3;branch.tube([(-3.741,17.05,2.80),(-3.741,17.05+.069*math.cos(a),2.80+.069*math.sin(a))],.006,mat('ochre enamel'),seg=10)
-    branch.box((.025,.20,.046),(-3.797,17.05,2.685),mat('warm enamel'),.004)
-    branch.box((.016,.052,.10),(-3.831,17.05,2.728),mat('steel'),.003)
+        a=k*2*math.pi/3;branch.tube([(-3.741,16.80,2.80),(-3.741,16.80+.069*math.cos(a),2.80+.069*math.sin(a))],.006,mat('ochre enamel'),seg=10)
+    branch.box((.025,.20,.046),(-3.797,16.80,2.685),mat('warm enamel'),.004)
+    branch.box((.016,.052,.10),(-3.831,16.80,2.728),mat('steel'),.003)
     for y,yy in [(18.590,18.48),(16.210,16.26)]:
         branch.box((.066,.012,.11),(-3.88,y,2.55),mat('dark steel'),.002)
         branch.tube([(-3.88,y,2.55),(-3.88,yy,2.55)],.007,mat('dark steel'),seg=12)
     feed=add(branch,'Plant wash-down cross-header','FC | Services',family='clamped utility branch joining north water main to south reel')
-    label('WATER',(-3.782,17.05,2.685),.035,normal=(1,0,0),material='ink',parent=feed.name)
+    label('WATER',(-3.782,16.80,2.685),.035,normal=(1,0,0),material='ink',parent=feed.name)
     support(feed,[WALLS['Wall_N18.6_0_-5.4'],WALLS['Wall_S16.2_0_-5.4']],[(-3.88,18.596,2.55),(-3.88,16.204,2.55)],(0,1,0),'wall')
     feed['support_directions']=json.dumps([[0,1,0],[0,-1,0]])
     sign('Plant utility reel identity','Wall_S16.2_0_-5.4',(.8,-.004,1.82),'UTILITY WATER',.065,.86)
@@ -1065,16 +1110,16 @@ def run():
         service_soffit(service_frame)
         fg=portal('Freight gate',(6.35,10,0),(-1,0,0),3.0,3.5,'navy enamel','FREIGHT / FG01',state='OPEN',floorcell='crossing')
         freight_mechanism(fg)
-        services();work_traces();section_workstations();process_bays();crossing_service_bulkheads();auxiliary_cameras()
+        services();work_traces();section_workstations();process_bays();crossing_service_bulkheads();freight_inspection_flood();auxiliary_cameras()
         for name,wallname,point,title in [
             ('Service bypass','Wall_N13.2_0_-2.2',(.0,-.004,3.0),'SERVICE'),
             ('Plant direction','Wall_E1.2_0_13.2',(1.39,-.004,2.3),'PLANT  <'),
-            ('Clean direction','Wall_N21_0_-1.5',(-1.20,-.004,2.02),'CLEAN  >'),
+            ('Clean wipe-and-log instruction','Wall_N21_0_-1.5',(-1.20,-.004,2.02),'WIPE / LOG'),
             ('Reactor approach','Wall_W12_0_13.2',(.0,-.004,2.4),'REACTOR  ^')]:
             if wallname in WALLS:sign(name,wallname,point,title,.069,.82)
         mounted(A.cabinet(.39,.52,.11,True),'Bypass first-aid cabinet','Wall_E1.2_0_13.2',(.4,-.004,1.37),family='first-aid cabinet')
         mounted(A.cabinet(.41,.58,.11),'Bypass isolation cabinet','Wall_E1.2_0_13.2',(-.65,-.004,1.37),family='isolation cabinet')
-        mounted(A.manifold(.62,.68),'Recess service manifold','Wall_W-1.65_0_14.3',(.0,-.004,1.38),'FC | Services','cast air manifold')
+        mounted(A.manifold(.62,.68,compact_hose=True),'Recess service manifold','Wall_W-1.65_0_14.3',(.0,-.004,1.38),'FC | Services','cast air manifold with compact parked hose above the open handover roll')
         recess_feed()
         recess_service_handover()
         mounted(A.cabinet(.70,1.02,.21),'East service cabinet','Wall_S7_1_10',(-2.0,-.0115,.18),family='service supply cabinet')
