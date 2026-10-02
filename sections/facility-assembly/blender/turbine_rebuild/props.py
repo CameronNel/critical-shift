@@ -117,25 +117,19 @@ def build(b):
         for dy in (-.4, .4): b.rod((0, dy, 1.95), (0, dy, 2.05), .012, 'steel_dark', 8)
     b.rod((6.9, 10.95, 2.05), (7.08, 10.95, 2.05), .012, 'steel_dark', 8); b.rod((6.45, 10.95, 2.05), (6.9, 10.95, 2.05), .012, 'steel_dark', 8)
     # --- tidy storage: drum group, pallet with crates, gas cylinders in a rack ---
-    for (x, y, c, t1, t2) in ((9.3, 22.45, 'oxide', 'DIESEL', 'FLAMMABLE'), (8.75, 23.15, 'steel_dark', 'LUBE OIL', 'ISO 46')):
-        b.cyl((x, y, .45), .27, .9, c, 'Z', 32, bev=.02)
-        for z in (.2, .7): b.cyl((x, y, z), .283, .045, 'trim_black', 'Z', 32, bev=.012)                      # rolled ribs
-        b.cyl((x, y, .9), .29, .06, 'steel_mid', 'Z', 32, bev=.014); b.cyl((x, y, .93), .22, .02, 'steel_mid', 'Z', 32)       # chime ring and recessed lid
-        b.cyl((x + .1, y + .08, .945), .035, .025, 'steel_light', 'Z', 12); b.cyl((x - .1, y - .06, .945), .025, .02, 'steel_light', 'Z', 12)   # bungs
+    for (x, y, c, t1, t2) in ((9.05, 23.5, 'oxide', 'DIESEL', 'FLAMMABLE'), (9.62, 23.5, 'steel_dark', 'LUBE OIL', 'ISO 46')):   # two drums side by side against the north wall
         R = .27
-        for k in range(-5, 6):                                                                                            # label wrapped on the drum: bevel-free strips following the curvature
-            th = k * .125; px, py = x + (R + .003) * math.sin(th), y - (R + .003) * math.cos(th)
-            b.box((px, py, .5), (.04, .008, .34), 'trim_black', (0, 0, th)); 
-        for k in range(-4, 5):
-            th = k * .125; px, py = x + (R + .0075) * math.sin(th), y - (R + .0075) * math.cos(th)
-            b.box((px, py, .5), (.04, .004, .3), 'chalk', (0, 0, th))
-        b.box((x, y - .277, .6), (.12, .024, .12), 'yellow', (0, .785398, 0), bev=.004); b.text('!', (x, y - .2905, .6), .085, 'trim_black', 0, math.pi / 2, extrude=.003)
-        for (t, sz, zz) in ((t1, .05, .44), (t2, .033, .37)):                                                              # text characters placed round the curve, each facing outward
+        b.cyl((x, y, .45), R, .9, c, 'Z', 32, bev=.02)
+        for z in (.2, .7): b.cyl((x, y, z), .277, .03, 'trim_black', 'Z', 32, bev=.006)                               # thin rolled ribs
+        b.cyl((x, y, .9), .285, .045, 'steel_mid', 'Z', 32, bev=.01); b.cyl((x, y, .92), .22, .02, 'steel_mid', 'Z', 32)   # chime ring and recessed lid
+        b.cyl((x + .1, y + .08, .935), .03, .02, 'steel_light', 'Z', 12); b.cyl((x - .1, y - .06, .935), .022, .016, 'steel_light', 'Z', 12)
+        for z in (.57, .33): b.cyl((x, y, z), R + .003, .018, 'yellow', 'Z', 32)                                      # flat hazard stripes either side of the stencil
+        for (t, sz, zz) in ((t1, .06, .48), (t2, .04, .40)):                                                          # stencil text placed round the curve, painted straight on the steel
             adv = sz * .66; n = len(t)
             for i, ch in enumerate(t):
                 if ch == ' ': continue
                 th = (i - (n - 1) / 2) * adv / R
-                b.text(ch, (x + (R + .0105) * math.sin(th), y - (R + .0105) * math.cos(th), zz), sz, 'trim_black', th, math.pi / 2, extrude=.003)
+                b.text(ch, (x + (R + .0085) * math.sin(th), y - (R + .0085) * math.cos(th), zz), sz, 'pale_steel', th, math.pi / 2, extrude=.003)
     for dx in (-.4, 0, .4): b.box((6.8 + dx, 1.2, .06), (.1, .8, .1), 'wood_dark', bev=.01)
     for dy in (-.3, 0, .3): b.box((6.8, 1.2 + dy, .13), (1.0, .12, .03), 'wood', bev=.008)
     b.box((6.8, 1.2, .38), (.8, .6, .4), 'wood', bev=.015); b.box((6.8, 1.2, .79), (.7, .5, .36), 'orange_worn', bev=.015)
