@@ -248,3 +248,12 @@ Luna opened all five corrected F10c views and verified the actual evidence hashe
 Normal-map development exposed 30 historical fuel material IDs still referenced by the hidden main cache, dropped when old visible art was replaced. F10d preserves those names as compatibility-only unassigned copies of the new materials, after orphan cleanup; the live mesh assignments remain unchanged. The portable normal-map validator now requires these linked IDs to resolve and no missing fuel materials. The frozen main/R17/spawn files are not rewritten. F10d native fbf03257241b03bf9237881f0da7c4e77de239d39bb18da0bedbdd27499d5144, recipe 1dbefb4c1d5dc85b33d2cc34f4619bb904b3e6c7f85264858503e2cb11af6311, cold PASS0. Final normal-map check and actual final-draft renders are pending before hosted source publication.
 
 F10d final candidate proof: root opened all three actual final-draft PNGs (D04/C07/C08), all image/native hashes match, and the compatibility-only change retains the corrected visible result. The normal repository map launcher passes repeat-install identity/count/matrix checks, selected-source/recipe/cold pairing, all 30 historical fuel material IDs resolved and zero missing linked fuel materials. Frozen main/R17/spawn hashes remain exact. Other historical spawn/PPE object-ID warnings remain in the frozen main; no claim is made that all map-linked data are warning-free. Hosted F10ci will now rebuild this exact recipe and render all 19 views plus the closed diagnostic before independent formal scoring.
+
+## F10ci hosted execution
+
+Native SHA256 663b7addb307948dc9b65d095af34efc3281abe78ea0e27dacce4d097e82afd5. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 956554, "evaluated_triangles": 961834, "mesh_objects": 338, "material_batch_upper_bound": 1399}.

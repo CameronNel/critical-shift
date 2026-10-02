@@ -2,15 +2,47 @@
   "stage": "full",
   "base_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
   "output": "sections/facility-assembly/sources/fuel-corridor/module.blend",
-  "sha256": "68d9f2e66a8ed36fd395691a8f0ead9c726a619116000d6e04d6fdf7bbd7ac96",
+  "sha256": "663b7addb307948dc9b65d095af34efc3281abe78ea0e27dacce4d097e82afd5",
   "recipe_inputs": {
-    "sections/fuel-corridor/blender/build_overhaul.py": "3caa5f35847aa7a25caec66f9e77f07526c445a9596fc62a1953f4c2d68492e5",
+    "sections/fuel-corridor/blender/build_overhaul.py": "851836e2e50e16ec69c9017b45cbf96277648bd1b9b1d0818def1abab939d33e",
     "sections/fuel-corridor/blender/fuel_kit.py": "be28b3f0302c910167c3fa422f73fc5b0ef136b0c2fd7aa1ce4bc942f84279eb",
     "sections/fuel-corridor/blender/fuel_assets.py": "5b30a72616c746c25b64cae69dc88c6c924203c59dca698ea610c31376b7625c",
     "sections/spawn-room/blender/cozy_geo.py": "408c0eecc9a0dd534e9f5c8f0ace5442077db0c51b1dcbb299484f1ba59b4400",
     "sections/facility-assembly/sources/fuel-corridor/contracts/interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e"
   },
-  "recipe_sha256": "e7e156f58000a37b3e161fd65caf63df37f486588f149675926ecc2329d0ac20",
+  "recipe_sha256": "1dbefb4c1d5dc85b33d2cc34f4619bb904b3e6c7f85264858503e2cb11af6311",
+  "main_cache_material_compatibility": {
+    "brass": "brass",
+    "chip": "chip",
+    "Closed_cartridge_enamel": "oxide enamel",
+    "cloth": "canvas",
+    "cool_lamp": "cool diffuser",
+    "cotton": "cotton",
+    "floor": "floor",
+    "glove": "leather",
+    "glove_leather": "leather",
+    "header_ink": "white ink",
+    "ink": "ink",
+    "ivory": "warm enamel",
+    "lamp": "warm diffuser",
+    "mineral": "mineral",
+    "motor_coat": "ink enamel",
+    "motor_diffuser": "warm diffuser",
+    "motor_stator": "steel",
+    "ochre": "ochre enamel",
+    "old_teal": "navy enamel",
+    "paper": "paper",
+    "rubber": "rubber",
+    "sign_coat": "ink enamel",
+    "sign_letters": "white ink",
+    "steel": "steel",
+    "structural_coat": "ink enamel",
+    "teal": "navy enamel",
+    "teal_light": "repaired blue enamel",
+    "wall_light": "plaster",
+    "wall_patch": "patch",
+    "wall_protection": "navy enamel"
+  },
   "protected_exterior_cores": [
     {
       "name": "Wall_S16.2_0_-5.4_concrete",
@@ -132966,7 +132998,19 @@
       "attachment": "FC | Refinery boundary frame"
     },
     {
-      "name": "FC | Refinery header reading pool",
+      "name": "FC | Refinery boundary header reading pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Plant service header reading optic",
+      "family": "header-supported sign reading luminaire",
+      "support_kind": null,
+      "attachment": "FC | Plant service frame"
+    },
+    {
+      "name": "FC | Plant service header reading pool",
       "family": null,
       "support_kind": null,
       "attachment": null
@@ -133074,6 +133118,18 @@
       "attachment": null
     },
     {
+      "name": "FC | Plant flow inspection practical",
+      "family": "wall task luminaire",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Plant flow inspection practical pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
       "name": "FC | Waste sealing task practical",
       "family": "wall task luminaire",
       "support_kind": "wall",
@@ -133153,6 +133209,18 @@
     },
     {
       "name": "FC | Reactor cooling inspection practical pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Plant utility inspection practical",
+      "family": "wall task luminaire",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Plant utility inspection practical pool",
       "family": null,
       "support_kind": null,
       "attachment": null
@@ -133309,6 +133377,18 @@
     },
     {
       "name": "FC | East-turn practical pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Extraction inspection practical",
+      "family": "wall task luminaire",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Extraction inspection practical pool",
       "family": null,
       "support_kind": null,
       "attachment": null
