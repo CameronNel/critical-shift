@@ -22,6 +22,9 @@ COLD=CHECK/(CYCLE+'_COLD_VALIDATION.json')
 FULL=TASK/'production/renders/review'/('full-'+CYCLE)
 CLOSED=TASK/'production/renders/review'/('closed-'+CYCLE)
 CAMERAS='C01_ENTRY,C02_PRIMARY_ROUTE,C03_HERO,C04_REVERSE,C05_EAST_TURN,C06_REACTOR_THRESHOLD,C07_BYPASS,C08_SERVICE_JUNCTION,C09_MATERIALS,C10_PLANT_HEADER,D01_CARRIER_OPERATION,D02_WORKBENCH,D03_UTILITY,D04_REACTOR_WIDE,D05_GATE_MECHANISM,D06_SERVICE_RECESS,E01_WASTE_APPROACH,E02_CLEAN_APPROACH,E03_FREIGHT_LEAF'
+# Six workers reduce review latency without changing pixels, samples or coverage.
+# The last worker also renders the closed freight diagnostic.
+CAMERA_GROUPS=[CAMERAS.split(',')[a:c] for a,c in [(0,4),(4,7),(7,10),(10,13),(13,16),(16,19)]]
 
 def git(*args):
     return subprocess.check_output(['git','-C',str(ROOT),*args]).decode().strip()
@@ -90,8 +93,7 @@ def views(group):
     report=json.loads(COLD.read_text())
     sha=hashlib.sha256(NATIVE.read_bytes()).hexdigest()
     assert report['status']=='PASS' and report['sha256']==sha
-    names=CAMERAS.split(',');groups=[names[:7],names[7:13],names[13:]]
-    selected=groups[group]
+    selected=CAMERA_GROUPS[group]
     blender=shutil.which('blender');assert blender
     common=[blender,'-b','-t','4','--disable-autoexec','--python-exit-code','1']
     env=os.environ.copy();env.update(RES='1280x853',SAMPLES='32',OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='4')
@@ -99,7 +101,7 @@ def views(group):
     evidence=json.loads((FULL/'RENDER_MANIFEST.json').read_text())
     assert evidence['scene_sha256']==sha and [c['name'] for c in evidence['cameras']]==selected
     (FULL/'RENDER_MANIFEST.json').rename(FULL/('GROUP_'+str(group)+'.json'))
-    if group==2:
+    if group==len(CAMERA_GROUPS)-1:
         run('closed_render',common+['--factory-startup','--python',str(TASK/'blender/render_closed_gate.py'),'--',str(NATIVE),str(CLOSED)],env)
     assert hashlib.sha256(NATIVE.read_bytes()).hexdigest()==sha
 
@@ -117,14 +119,14 @@ def verify_evidence():
 
 def assemble():
     CHECK.mkdir(parents=True,exist_ok=True);shutil.copy2(SOURCE,NATIVE)
-    groups=[json.loads((FULL/('GROUP_'+str(i)+'.json')).read_text()) for i in range(3)]
+    groups=[json.loads((FULL/('GROUP_'+str(i)+'.json')).read_text()) for i in range(len(CAMERA_GROUPS))]
     settings=['scene','scene_sha256','blender','engine','device','samples','seed','denoise','resolution','view_transform','look','exposure']
     for group in groups[1:]:
         assert all(group[key]==groups[0][key] for key in settings),'Render workers disagree'
     cameras=[camera for group in groups for camera in group['cameras']]
     assert [c['name'] for c in cameras]==CAMERAS.split(',')
     combined=dict(groups[0]);combined['cameras']=cameras
-    combined['worker_manifests']=['GROUP_'+str(i)+'.json' for i in range(3)]
+    combined['worker_manifests']=['GROUP_'+str(i)+'.json' for i in range(len(CAMERA_GROUPS))]
     (FULL/'RENDER_MANIFEST.json').write_text(json.dumps(combined,indent=2)+'\n')
     sha,report=verify_evidence();export_pixel_bytes()
     shutil.copy2(COLD,TASK/'production/COLD_VALIDATION.json')
@@ -136,7 +138,7 @@ def build():
     if CONTROL.get('mode')=='export':
         verify_evidence();export_pixel_bytes();return
     native()
-    for i in range(3):views(i)
+    for i in range(len(CAMERA_GROUPS)):views(i)
     assemble()
 
 def publish():
@@ -163,7 +165,7 @@ def publish():
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('stage',choices=['prepare','native','views','assemble','build','publish'])
-    parser.add_argument('--group',type=int,choices=[0,1,2],default=0)
+    parser.add_argument('--group',type=int,choices=range(len(CAMERA_GROUPS)),default=0)
     args=parser.parse_args()
     if args.stage=='views':views(args.group)
     else:globals()[args.stage]()

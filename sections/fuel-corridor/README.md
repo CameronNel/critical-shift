@@ -18,6 +18,8 @@ The launcher hides the old fuel render cache and its lights, then instances the
 verified live source. The canonical main map and immutable R17 preview stay
 byte-exact; opening the main `.blend` directly still uses its historical cache.
 The preview launcher continues to open the immutable whole-map preview.
+Compatibility-only copies of the new materials retain the hidden fuel cache's
+30 historical library names; live corridor meshes use the rebuilt materials.
 
 For a headless proof from the actual assembled map:
 
@@ -25,6 +27,17 @@ For a headless proof from the actual assembled map:
 blender -b --disable-autoexec --python-exit-code 1 \
   --python open_fuel_overhaul.py -- --render C03_HERO
 ```
+
+Check the normal launcher, repeat-install idempotence, current native/build/cold
+pair and the frozen main/preview/spawn hashes without saving any native scene:
+
+```sh
+blender -b --factory-startup --disable-autoexec --python-exit-code 1 \
+  --python sections/fuel-corridor/blender/validate_live_map.py
+```
+
+This writes `production/MAP_LAUNCHER_VALIDATION.json`; the actual map render
+records its own source and image hashes in `production/MAIN_LINK_VALIDATION.json`.
 
 Rebuild from the byte-guarded original module, then run the cold checks:
 
