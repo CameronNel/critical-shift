@@ -60,13 +60,25 @@ implementation or proof.
 
 ## Sound and actual checks
 
-The [original sound](../unity/Assets/CriticalShift/FacilityPhysics/Audio/bonk_shovel_tin.wav)
-is deterministic modal synthesis: a hollow low tin "tonk", short bright rim and
-cartoon pitch scoop. No external samples or recordings were used. Regenerate with
-`python runtime/tools/make_bonk_sound.py`. The WAV is mono 48 kHz, 16-bit PCM,
-0.54 s; peak 0.820, no clipped samples, zero endpoints. It plays once after accepted
-player/solid-object contact, at pitch 1 with spatial attenuation. Source and import
-details are in the audio folder README.
+**Current sound:** Harrisando's CC0 **Bonk.wav**, selected by the user after the
+initial implementation. The high-quality public MP3 preview is converted to mono
+48 kHz, 16-bit PCM (1.835 s), with headroom applied before quantization. Original
+lossless download requires a Freesound login. The existing asset path/GUID and scene
+bindings are retained. The superseded synthesis generator is removed. Current
+source/conversion hashes and checks are in
+[harrisando-bonk-evidence.json](harrisando-bonk-evidence.json). The sound-swap checks
+do not constitute native Unity import/mix acceptance; those remain unverified.
+
+The following synthesis and 784-test evidence is historical for the initial bonk
+implementation at `a587d9e`; the gameplay/presentation C# is unchanged by this swap.
+
+The initial sound was deterministic modal synthesis: a hollow low tin "tonk",
+short bright rim and cartoon pitch scoop. No external samples or recordings were
+used for that version. Its then-present `runtime/tools/make_bonk_sound.py` produced
+a mono 48 kHz, 16-bit PCM WAV, 0.54 s, peak 0.820, with no clipped samples and zero
+endpoints. Playback still occurs once after accepted player/solid-object contact,
+at pitch 1 with spatial attenuation. Current source/import details are in the audio
+folder README.
 
 The final `python runtime/dotnet/tools/verify.py` run passed **784/784 tests** with
 zero failures/skips: previous 765 plus 14 bonk rule cases and five pose cases linked

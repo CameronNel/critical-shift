@@ -162,7 +162,7 @@ claim and enters their existing ragdoll with a bounded impulse. A conscious vict
 remains conscious and can crawl/brace; recovery is permitted after 2 s plus the
 existing quiet-motion/clearance checks. Hitting an unconscious worker does not
 restore consciousness. Misses are silent; confirmed player or solid-object contact
-plays the original 0.54 s tin-bonk sound.
+plays Harrisando's 1.835 s CC0 pop-can bonk sound.
 
 Swing ownership requires the current exclusive shovel lease. Pause, cancellation,
 incapacitation, release, disconnect or expired ownership stops the action and

@@ -68,8 +68,8 @@ establish Unity compilation, imported animation compatibility, physical feel or
 Player readiness. See [task scope and evidence](validation/MOVEMENT_ANIMATIONS.md).
 
 The [bonk shovel extension](validation/BONK_SHOVEL.md) adds a receipt-backed swing,
-obstruction-aware player knockdown, procedural arm/grip animation and an original
-cartoon tin sound. Scene binding assigns the sound automatically. Finished animation
+obstruction-aware player knockdown, procedural arm/grip animation and Harrisando's
+CC0 tin-bonk recording. Scene binding assigns the sound automatically. Finished animation
 assets remain untouched; native compilation, contact alignment and mixing remain
 unverified.
 

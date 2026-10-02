@@ -139,8 +139,9 @@ checks do not close the networking decision or advance a roadmap gate.
 The user-authorized bonk shovel extension adds Unity's built-in audio module
 `1.0.0` to the manifest/lock for AudioSource and AudioClip. D-03 uses left-click
 for bonking and E for existing DigSite work. It introduces no external audio,
-animation, input or networking framework. The new original tin sound is deterministic
-modal synthesis with documented provenance; procedural arm/grip motion preserves
+animation, input or networking framework. The user subsequently selected Harrisando's
+CC0 pop-can recording to replace the synthesized tin sound; provenance and the
+high-quality-preview conversion are recorded with the audio asset. Procedural arm/grip motion preserves
 the unfinished animation assets. Swing admission/window/cooldown stay in Application;
 host contact queries and tool motion use the existing engine ports. Default timing,
 reach and impulse are implementation fixtures pending final rig/feel acceptance.
