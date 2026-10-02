@@ -284,3 +284,12 @@ The exact F11ci native passes the normal launcher and renders in the actual main
 F12 completes only that existing closure: a wider folded pan covers its jambs, full-depth end/top/bottom returns bridge the 0.50 m inset to the original lining, a real rear sheet closes removable pan seams, and the backing overlaps the original header beam. The initial widened pan and short-return candidate still missed some rays, so they were not promoted. Final F12c candidate a96ff6d12dd333d9c3977bf19c2d9bac387e90e292c048cd7f19fafd0e021ecd, recipe 88857cf4e2d345469647886034c77b0de3fd35ac56f1c95296acd8569b569093, cold PASS0 and 30/30 sampled bright-strip rays hit actual corridor geometry. This is numerical development evidence, not visual acceptance.
 
 No material, light, camera, work assembly, protected core, route or portal contract changes. Hosted F12ci will rebuild that exact recipe, cold-open and render all 19 views plus the closed diagnostic. Independent full review, stability against F11 and actual repaired main-map pixel inspection are required before final handoff.
+
+## F12ci hosted execution
+
+Native SHA256 0a13ff2fe1eadc8608223bd40810285a375a02edacfdfac615263cffe5196f87. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 956486, "evaluated_triangles": 961766, "mesh_objects": 338, "material_batch_upper_bound": 1399}.

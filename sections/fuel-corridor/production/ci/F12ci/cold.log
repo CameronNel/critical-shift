@@ -1,0 +1,7 @@
+00:00.432  blend            | Read blend: "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F12ci.blend"
+/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/blender/validate_overhaul.py:108: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  used_images={n.image for m in bpy.data.materials if m.users and m.use_nodes for n in m.node_tree.nodes if n.type=='TEX_IMAGE' and n.image}
+FUEL_VALIDATION PASS 0 failures {'source_triangles': 956486, 'evaluated_triangles': 961766, 'mesh_objects': 338, 'material_batch_upper_bound': 1399}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:12:34)
+
+Blender quit
