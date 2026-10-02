@@ -29,12 +29,11 @@ def valve(b, c, r=.14, wheel=True):
     if wheel: handwheel(b, (c[0], c[1], c[2] + r * 3.2), r * 1.3)
 
 def gauge(b, c, axis='X', r=.1, face='paper'):
-    """Dial on a vertical panel facing +X (axis X) or -Y (axis Y)."""
-    b.cyl(c, r, .035, 'steel_light', axis, 28, bev=.006); d = (.019 if axis in 'XY' else 0)
-    cc = (c[0] + (d if axis == 'X' else 0), c[1] - (d if axis == 'Y' else 0), c[2])
-    b.cyl(cc, r * .82, .014, face, axis, 28)
-    cn = (c[0] + (.027 if axis == 'X' else 0), c[1] - (.027 if axis == 'Y' else 0), c[2])
-    b.box(cn, (.004 if axis == 'X' else .008, .008 if axis == 'X' else .004, r * .7), 'red', (0, 0, 0))
+    """Dial on a vertical panel facing +X (axis X) or -Y (axis Y): steel bezel + dial decal."""
+    kind = ('gauge_a', 'gauge_b', 'gauge_c', 'gauge_d')[int(abs(c[0] * 7 + c[1] * 13 + c[2] * 3) * 10) % 4]
+    b.cyl(c, r, .035, 'steel_light', axis, 28, bev=.006)
+    if axis == 'X': b.decal(kind, (c[0] + .0185, c[1], c[2]), rot=(math.pi / 2, 0, math.pi / 2), size=(r * 1.8, r * 1.8))
+    else: b.decal(kind, (c[0], c[1] - .0185, c[2]), rot=(math.pi / 2, 0, 0), size=(r * 1.8, r * 1.8))
 
 def pipe_lagged(b, path, r, body='lagging', flange=True, bend=.35):
     b.sweep(path, r, body, 28, bend)
@@ -74,7 +73,7 @@ def manway(b, c, r=.28):
 def gauge_plate(b, x, y, z):
     b.box((x, y, z), (.04, .8, .34), 'steel_dark', bev=.012)
     for i in range(3): gauge(b, (x + .03, y - .26 + i * .26, z), 'X', .08)
-    b.box((x + .025, y, z - .25), (.012, .74, .14), 'trim_black', bev=.004); b.box((x + .029, y + .0, z - .31), (.008, .7, .012), 'yellow'); b.text('MAIN STEAM  T-2', (x + .036, y, z - .245), .066, 'chalk', math.pi / 2, math.pi / 2)
+    b.box((x + .025, y, z - .25), (.012, .74, .14), 'trim_black', bev=.004); b.box((x + .029, y + .0, z - .31), (.008, .7, .012), 'yellow'); b.decal('plate_main_steam', (x + .0315, y, z - .25), rot=(math.pi / 2, 0, math.pi / 2), size=(.7, .12))
 
 def bypass(b, x, y, z):
     b.sweep([(x, y, z), (x + .45, y, z), (x + .45, y, z - .5)], .05, 'steel_mid', 16, .12); valve(b, (x + .45, y, z - .35), .08)
@@ -119,7 +118,7 @@ def foundation(b):
                 b.box((sx + sgn * .018, y, .6), (.012, 1.0, .34), 'backing')
                 for q in range(5): b.box((sx + sgn * .026, y, .47 + q * .065), (.012, .96, .02), 'steel_dark', bev=.004)
             else:
-                b.text('%02d' % (idx + 1), (sx + sgn * .02, y, .6), .26, 'chalk', sgn * math.pi / 2, math.pi / 2)
+                b.decal('num_%02d' % (idx + 1), (sx + sgn * .0235, y, .6), rot=(math.pi / 2, 0, sgn * math.pi / 2), scale=.78)
     handrails(b, xa, xb, ya, yb, z1)
     b.claim((xa - .5, ya - 1.6, 0), (xb + .5, yb + 1.6, 3.9))
 
@@ -214,9 +213,9 @@ def train(b):
     b.box((CX, 18.6, 3.77), (1.0, 2.2, .012), 'backing')
     for k in range(10): b.box((CX, 17.55 + k * .2, 3.785), (.9, .07, .02), 'steel_dark', bev=.004)
     b.box((CX, 16.43, 3.55), (.9, .02, .24), 'steel_dark', bev=.006); b.cyl((CX, 16.41, 3.55), .08, .02, 'chalk', 'Y', 20)
-    b.box((CX - 1.2, 15.98, 1.55), (.5, .01, .26), 'chalk'); b.text('TG-3', (CX - 1.2, 15.97, 1.55), .1, 'trim_black', 0, math.pi / 2)
+    b.box((CX - 1.2, 15.99, 1.55), (.5, .01, .26), 'chalk'); b.decal('label_tg3', (CX - 1.2, 15.9835, 1.55), rot=(math.pi / 2, 0, 0))
     b.box((CX - 1.45, 20.0, AZ + .1), (.9, 1.1, 1.0), 'steel_dark', bev=.05); b.box((CX - 1.45, 20.0, AZ + .62), (.8, 1.0, .05), 'red', bev=.012)
-    b.box((CX - 1.91, 20.0, AZ + .1), (.03, .7, .5), 'yellow', bev=.008); b.text('HV', (CX - 1.94, 20.0, AZ + .12), .24, 'trim_black', -math.pi / 2, math.pi / 2)
+    b.box((CX - 1.91, 20.0, AZ + .1), (.03, .7, .5), 'yellow', bev=.008); b.decal('plate_hv', (CX - 1.9265, 20.0, AZ + .1), rot=(math.pi / 2, 0, -math.pi / 2))
     for sx_ in (-.36, 0, .36):
         for sy_ in (-.44, .44): b.cyl((CX - 1.45 + sx_, 20.0 + sy_, AZ + .66), .03, .035, 'steel_light', 'Z', 6)
     for k in range(3):                                                                                           # HV bushings on the terminal box
@@ -229,7 +228,7 @@ def train(b):
     for s in (-1, 1): b.sweep([(CX + s * 1.3, 17.4, 1.14), (CX + s * 1.3, 19.8, 1.14)], .06, 'steel_mid', 16, .1, caps=False)
     stepped(b, [(21.3, 22.3, .78, .62)], 'steel_light', nbolt=12); bearing(b, 22.35, 22.9)
     b.box((CX, 21.85, AZ + .86), (.5, .6, .26), 'steel_dark', bev=.04); b.cyl((CX, 21.85, AZ + .62), .2, .5, 'orange', 'Y', 28, bev=.01)   # slip-ring housing
-    b.box((CX + .55, 22.65, AZ - .55), (.5, .01, .26), 'chalk'); b.text('GEN-3', (CX + .55, 22.66, AZ - .55), .1, 'trim_black', 0, math.pi / 2)
+    b.box((CX + .55, 22.66, AZ - .55), (.5, .01, .26), 'chalk'); b.decal('label_gen3', (CX + .55, 22.6535, AZ - .55), rot=(math.pi / 2, 0, 0))
     b.use('SHAFT'); b.cyl((CX, 7.55, AZ), .22, .9, 'steel_light', 'Y', 24); b.cyl((CX, 22.65, AZ), .22, .5, 'steel_light', 'Y', 24)
     b.use('MACH')
     pipe_lagged(b, [(8.4, -.25, 4.9), (8.4, 4.0, 4.9), (8.4, 4.0, 3.55), (CX + .2, 4.0, 3.55), (CX + .2, 4.2, 3.55)], .22, bend=.55)
@@ -264,7 +263,7 @@ def services(b):
         for j in range(2): gauge(b, (9.31, 10.1 + .4 * j + .2, 1.25 + i * .32), 'X', .09)
     b.claim((9.0, 9.6, 0), (9.9, 11.4, 2.1))
     b.box((9.75, 20.9, 1.2), (.3, .9, 1.4), 'red', bev=.025); b.box((9.58, 20.9, 1.2), (.03, .7, 1.2), 'red_dark', bev=.01)
-    b.box((9.57, 20.9, 1.5), (.02, .5, .3), 'chalk'); b.text('HOSE', (9.56, 20.9, 1.5), .12, 'trim_black', -math.pi / 2, math.pi / 2); b.claim((9.2, 20.3, 0), (9.9, 21.6, 1.9))
+    b.box((9.57, 20.9, 1.5), (.02, .5, .3), 'chalk'); b.decal('label_hose', (9.5595, 20.9, 1.5), rot=(math.pi / 2, 0, -math.pi / 2)); b.claim((9.2, 20.3, 0), (9.9, 21.6, 1.9))
     for x in (-3.55, 9.55):
         b.box((x, 12, 3.4), (.36, 23, .04), 'steel_dark', bev=.006)
         for s in (-.17, .17): b.box((x + s, 12, 3.45), (.02, 23, .1), 'steel_dark')
@@ -293,7 +292,7 @@ def controls(b):
         nrm = (.62, .78)
         def on_panel(t, dy, size, sw, lift=.012):
             px, pz = sl(t); b.box((px + nrm[0] * lift, yc + dy, pz + nrm[1] * lift), size, sw, (0, .675, 0), bev=.004)
-        on_panel(.5, 0, (.6, .86, .01), 'trim_black', .004)                                                                  # bezel plate
+        px_, pz_ = sl(.5); b.decal('panel_u%d' % k, (px_ + nrm[0] * .0095, yc, pz_ + nrm[1] * .0095), rot=(0, .675, 0), spin=math.pi / 2)           # printed bezel (legends under every control)
         if k == 0:
             for i in range(6): on_panel(.22, -.32 + i * .128, (.07, .07, .03), cols[i], .016)
             for i in range(3): on_panel(.55, -.3 + i * .1, (.015, .07, .12), 'chalk', .02); on_panel(.55, -.3 + i * .1, (.04, .045, .02), 'red', .035)
@@ -309,42 +308,29 @@ def controls(b):
         for j in range(2):                                                                                                   # two monitors per unit on the riser, tilted to the operator
             yy = yc - .24 + .48 * j
             b.box((cx - .335, yy, 1.58), (.05, .4, .27), 'trim_black', (0, -.22, 0), bev=.012)
-            b.box((cx - .309, yy, 1.58), (.008, .35, .22), 'screen_dim', (0, -.22, 0))
-            lab = [['PRESS 84', 'TEMP 512'], ['RPM 3000', 'LOAD 62'], ['TRIP OK', 'VIB LOW']][k][j]
-            b.text(lab, (cx - .3125, yy, 1.625), .06, 'screen_hi', math.pi / 2, math.pi / 2, extrude=.004)
-            for q in range(3): b.box((cx - .304, yy, 1.555 - q * .04), (.006, .30 - q * .07 - (.04 if j else 0), .014), 'screen', (0, -.22, 0))
+            with b.push((cx - .309, yy, 1.58)):
+                b.push_m(Matrix.Rotation(-.22, 4, 'Y')); b.decal('mon_' + [['press', 'temp'], ['rpm', 'load'], ['trip', 'vib']][k][j], (0, 0, 0), rot=(math.pi / 2, 0, math.pi / 2)); b.pop()
         b.box((cx - .37, yc, 1.28), (.04, .96, .035), 'steel_light', bev=.006)                                              # stencilled unit tag strip
-        b.text(['UNIT 1  STEAM', 'UNIT 2  GOVERNOR', 'UNIT 3  TRIP'][k], (cx + .408, yc, .62), .05, 'chalk', math.pi / 2, math.pi / 2)
+        b.decal('label_unit%d' % k, (cx + .4075, yc, .62), rot=(math.pi / 2, 0, math.pi / 2), scale=.8)
     b.box((cx + .4, 4.0, .98), (.02, 3.1, .03), 'steel_light', bev=.004) if False else None
     furniture.chair(b, -1.75, 5.75, math.pi + .6)                                                                                   # operator chair, facing the station
     b.box((-2.45, 6.02, .74), (.5, .8, .04), 'wood_dark', bev=.01)                                                           # side shelf on the column face with a binder stack
     for q in range(3): b.box((-2.45, 5.85 + q * .12, .79), (.3, .09, .06), ['red_dark', 'steel_mid', 'oxide'][q], bev=.008)
-    # mimic screen (between columns y = 2 and 6): schematic plan of the hall, one dim amber fault marker as its own object
-    b.box((-3.9, 4.0, 2.45), (.1, 2.7, 1.5), 'steel_dark', bev=.02); b.box((-3.85, 4.0, 2.45), (.012, 2.5, 1.32), 'trim_black', bev=.006); b.box((-3.842, 4.0, 2.45), (.008, 2.44, 1.26), 'screen_bg', bev=.004)
+    # mimic screen (between columns y = 2 and 6): a real UI texture (decals.mimic) with its fault overlay as its own object for runtime flicker
+    b.box((-3.9, 4.0, 2.45), (.1, 2.7, 1.5), 'steel_dark', bev=.02); b.box((-3.85, 4.0, 2.45), (.012, 2.5, 1.32), 'trim_black', bev=.006)
     for dy in (-1.28, 1.28):
         for dz in (-.66, .66): b.cyl((-3.84, 4.0 + dy, 2.45 + dz), .028, .02, 'steel_light', 'X', 8)
-    S = 2.2 / 24; Y0 = 4.0 - 1.1; Z0 = 1.81; WX = -3.838
-    def mp(x, y): return (WX, Y0 + y * S, Z0 + (x + 4) * S)
-    def mline(x0, y0, x1, y1, sw='screen', t=.016):
-        a_, b_ = mp(x0, y0), mp(x1, y1); b.box(((a_[0]), (a_[1] + b_[1]) / 2, (a_[2] + b_[2]) / 2), (.006, abs(b_[1] - a_[1]) + t, abs(b_[2] - a_[2]) + t), sw)
-    for (x0, y0, x1, y1) in ((-4, 0, 10, 0), (-4, 24, 10, 24), (-4, 0, -4, 24), (10, 0, 10, 24)): mline(x0, y0, x1, y1)           # hall outline
-    for (x0, y0, x1, y1) in ((3.6, 7.5, 5.6, 16.5), (3.4, 17.2, 5.8, 21.4)):                                                       # turbine train, generator
-        mline(x0, y0, x1, y0); mline(x0, y1, x1, y1); mline(x0, y0, x0, y1); mline(x1, y0, x1, y1)
-    mline(4.6, 5.0, 4.6, 22.5, 'screen_dim', .008)                                                                                      # shaft line
-    for (x, y) in ((-4, 7.5), (10, 3.0), (3.5, 24)): a_ = mp(x, y); b.box((a_[0], a_[1], a_[2]), (.007, .12, .12), 'screen')         # door ticks
-    b.box((-3.833, 4.0 - .72, 1.95), (.006, .8, .12), 'screen_dim'); b.text('HALL PLAN T-2', (-3.829, 4.0 - .72, 1.95), .085, 'screen_hi', math.pi / 2, math.pi / 2)
-    b.use('MIMIC_FAULT'); fz = mp(4.6, 19.3)
-    b.box((fz[0] + .002, fz[1], fz[2]), (.012, .17, .17), 'screen_hi', rot=(0, 0, 0), bev=.004)                                          # runtime: flicker this object's emission
-    b.text('FAULT: ZONE 3', (-3.829, fz[1] + .05, fz[2] - .21), .075, 'screen_hi', math.pi / 2, math.pi / 2)
+    b.decal('mimic_main', (-3.8435, 4.0, 2.45), rot=(math.pi / 2, 0, math.pi / 2))
+    b.decal('mimic_fault', (-3.8405, 4.0, 2.45), rot=(math.pi / 2, 0, math.pi / 2), group='MIMIC_FAULT')                                    # runtime: flicker this object's emission
     b.use('MACH')
     b.box((-3.9, 4.0, 4.2), (.1, 3.2, .6), 'oxide_dark', bev=.02); b.box((-3.846, 4.0, 4.2), (.012, 3.08, .5), 'trim_black', bev=.006)
-    b.text('TURBINE CONTROL', (-3.84, 4.0, 4.2), .27, 'chalk', math.pi / 2, math.pi / 2)
+    b.decal('sign_turbine_control', (-3.8385, 4.0, 4.2), rot=(math.pi / 2, 0, math.pi / 2))
     for dy in (-1.5, 1.5):
         for dz in (-.2, .2): b.cyl((-3.83, 4.0 + dy, 4.2 + dz), .028, .02, 'steel_light', 'X', 8)
     b.claim((-3.95, 2.3, 0), (-1.5, 5.7, 3.9))
     for k, x in enumerate((-3.35, -2.3, -1.25)):
         b.box((x, 23.55, 1.1), (.98, .8, 2.2), 'steel_mid', nb=True, bev=.025); b.box((x, 23.145, 1.1), (.9, .012, 2.1), 'steel_dark', bev=.01)
-        b.box((x, 23.135, 1.55), (.62, .01, .5), 'chalk'); b.text(['PROT A', 'PROT B', 'EXCITER'][k], (x, 23.13, 1.55), .08, 'trim_black', 0, math.pi / 2)
+        b.box((x, 23.135, 1.55), (.62, .01, .5), 'chalk'); b.decal('plate_prot%d' % k, (x, 23.1285, 1.55), rot=(math.pi / 2, 0, 0))
         for i in range(3): b.cyl((x - .2 + i * .2, 23.13, 1.9), .03, .02, ['led_green', 'screen', 'led_green'][(i + k) % 3], 'Y', 14)
         for i in range(5): b.box((x, 23.135, .35 + i * .07), (.5, .01, .02), 'backing')
         b.rod((x + .38, 23.1, .95), (x + .38, 23.1, 1.25), .014, 'steel_light', 10)
@@ -356,7 +342,8 @@ def controls(b):
     b.box((-3.8, 24.5, 3.88), (.4, .6, .3), 'steel_light', bev=.012); b.box((-4.1, 24.85, 3.88), (.4, .6, .3), 'steel_light', (0, 0, -.9), bev=.012); b.box((-4.32, 25.0, 3.88), (.4, 1.0, .3), 'steel_mid', bev=.012)
     for y in (21.5, 23.0): hanger(b, (-3.8, y, 3.7), top=6.0)
     hanger(b, (-2.0, 20.0, 3.7), top=6.0); hanger(b, (0.8, 20.0, 3.7), top=6.0)
-    b.text('HV BUS  /  U03', (-.7, 19.98, 4.15), .27, 'chalk', 0, math.pi / 2)
+    b.box((-.7, 19.99, 4.15), (2.36, .03, .5), 'trim_black', bev=.01); b.decal('sign_hv_bus', (-.7, 19.9735, 4.15), rot=(math.pi / 2, 0, 0))
+    for dx in (-.95, .95): b.rod((-.7 + dx, 19.99, 4.4), (-.7 + dx, 19.99, 4.7), .01, 'steel_dark', 6)
 
 # ---------- maintenance bay ----------
 def maintenance(b):
@@ -383,17 +370,20 @@ def maintenance(b):
     for y in (14.9, 16.9): b.box((-3.35, y, .22), (.62, .06, .44), 'steel_dark', bev=.008)
     b.box((-3.35, 15.9, .12), (.62, 2.1, .04), 'steel_dark', bev=.008)
     b.box((-3.45, 15.1, .6), (.18, .26, .14), 'steel_dark', bev=.012); b.box((-3.45, 15.1, .7), (.1, .26, .05), 'steel_mid', bev=.008)
+    import assets as A
     b.box((-3.78, 16.0, 1.5), (.03, 2.9, 1.0), 'slate_blue', bev=.01); b.box((-3.7, 16.0, 1.98), (.18, 2.9, .035), 'wood', bev=.008)
-    for i in range(6):                                                         # tidy tool wall: wrenches and screwdrivers on a rail
-        y = 14.85 + i * .46
-        b.box((-3.755, y, 1.62), (.008, .075, .5), 'trim_black'); b.box((-3.755, y + .22, 1.5), (.008, .08, .3), 'trim_black')
-        b.box((-3.74, y, 1.62), (.02, .035, .42), 'steel_mid', bev=.006); b.box((-3.74, y, 1.4), (.02, .09, .08), 'steel_mid', bev=.006); b.box((-3.74, y, 1.37), (.02, .04, .05), 'wood_dark')
-        b.box((-3.74, y + .22, 1.5), (.025, .04, .24), ['orange', 'yellow'][i % 2], bev=.008); b.box((-3.74, y + .22, 1.34), (.012, .012, .1), 'steel_light')
+    b.decal('toolboard', (-3.7635, 16.0, 1.5), rot=(math.pi / 2, 0, math.pi / 2))                                                     # painted shadow board, tools hang inside the outlines
+    for i in range(6): A.spanner(b, 16.0 - 1.2 + .22 * i, 1.86, .4 - .025 * i); A.screwdriver(b, 16.0 - 1.2 + .2 * i, 1.4, .3, grip=['orange', 'yellow', 'red'][i % 3])
+    A.hammer(b, 16.12, 1.82); A.pliers(b, 16.38, 1.8); A.mallet(b, 16.0 + .36 + .0, 1.8)
+    for u in (1.0, 1.2, 1.4): A.ring(b, (-3.752, 16.0 + u, 1.65), .065, .011, 'rubber', 'X', 16); b.rod((-3.752, 16.0 + u, 1.72), (-3.745, 16.0 + u, 1.74), .004, 'steel_dark', 6)
     b.claim((-3.9, 14.2, 0), (-2.9, 17.9, 2.3))
     for yc in (19.9, 21.2):
         for z in (.1, .7, 1.3, 1.9): b.box((-3.45, yc, z), (.6, 1.1, .035), 'orange_dark', bev=.006)
         for y in (yc - .53, yc + .53):
             for dx in (0, .6): b.box((-3.7 + dx, y, 1.0), (.045, .045, 2.0), 'steel_dark', bev=.005)
-        for i, z in enumerate((.1, .7, 1.3)): b.box((-3.45, yc + (.15 if i % 2 else -.15), z + .15), (.4, .4, .26), ['wood', 'steel_mid', 'orange'][i], bev=.01)
+        A.jerry_can(b, -3.5, yc - .27, .1175, 'orange', .1); A.jerry_can(b, -3.5, yc + .22, .1175, 'steel_mid' if yc < 20 else 'orange', -.08)
+        for j in range(3): A.parts_bin(b, -3.45, yc - .33 + .33 * j, .7175, .3, .28, .13 + .02 * (j % 2), ['yellow', 'steel_dark', 'red_dark'][(j + (yc > 20)) % 3], rz=0.0)
+        A.carton(b, -3.45, yc - .22, 1.3175, .34, .38, .24, .06); A.carton(b, -3.45, yc + .2, 1.3175, .3, .34, .3, -.05); A.carton(b, -3.45, yc + .2, 1.6175, .26, .3, .2, .1, label=False)
+        A.parts_bin(b, -3.45, yc, 1.9175, .4, .5, .14, 'steel_dark')
     b.claim((-3.9, 19.2, 0), (-3.0, 21.9, 2.2))
     b.claim((-2.9, 20.6, 0), (-1.9, 22.0, 1.4))

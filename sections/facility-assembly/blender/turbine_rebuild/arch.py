@@ -152,10 +152,7 @@ def door(b, frame, side_sign, label):
         b.box((0, .1, h + .13), (w + .48, .2, .26), 'trim_black', bev=.022)
         b.box((0, 0, -.01), (w, .3, .03), 'steel_worn', nb=True, bev=.006)
         for dx in (-.9, .9): b.flat((dx, .35), .12, .5, 'yellow', 0, z=.012)
-        b.box((0, .065, h + .6), (3.8, .04, .8), 'steel_mid', bev=.012); b.box((0, .07, h + .6), (3.7, .05, .7), 'trim_black', bev=.012); b.text(label, (.3, .1, h + .6), .26, 'chalk', math.pi, math.pi / 2)
-        b.cyl((-1.62, .094, h + .6), .23, .012, 'orange_dark', 'Y', 28, bev=.004)
-        if label.startswith('ELECTRICAL'): b.prism([(.0, .16), (-.07, -.02), (-.01, -.02), (-.05, -.16), (.08, .03), (.01, .03)], .006, 'trim_black', (-1.62, .104, h + .6), True, 'Y')
-        else: torus(b, (-1.62, .104, h + .6), .12, .018, 'trim_black', 'Y', 24); b.cyl((-1.62, .104, h + .6), .04, .008, 'trim_black', 'Y', 16)
+        b.box((0, .065, h + .6), (3.8, .04, .8), 'steel_mid', bev=.012); b.box((0, .07, h + .6), (3.7, .05, .7), 'trim_black', bev=.012); b.decal('door_reactor' if label.startswith('REACTOR') else 'door_electrical', (0, .0955, h + .6), rot=(math.pi / 2, 0, math.pi))
         lx = side_sign * (w / 2 + .2 + 1.2)
         b.box((lx, .22, h / 2), (2.4, .08, h - .08), 'steel_mid', bev=.02)
         for dx in (-.6, .6): b.box((lx + dx, .27, h / 2 - .1), (1.0, .02, h - .6), 'steel_dark', bev=.012)
@@ -183,7 +180,7 @@ def passage(b, frame, label):
             for k in range(8): b.cyl((s * .62, -d + .04, .25 + k * .22), .014, .015, 'steel_light', 'Y', 8)
         b.box((0, -d + .02, h - .14), (w * .9, .04, .05), 'screen'); b.box((0, -.9, h - .02), (1.6, .2, .03), 'screen'); b.box((0, -d + .02, h - .3), (w * .9, .03, .04), 'red_dark')
         for k in range(8): b.box((-.9 + k * .26, -d + .06, .005), (.12, .5, .006), 'yellow' if k % 2 == 0 else 'trim_black', (0, 0, .5), nb=True)
-        b.text(label, (0, -d + .045, 2.45), .27, 'chalk', math.pi, math.pi / 2)
+        b.decal('pass_reactor' if 'REACTOR' in label else 'pass_electrical', (0, -d + .0445, 2.45), rot=(math.pi / 2, 0, math.pi))
 
 def floor(b):
     """The floor is one slab with real holes (floormesh.py); only the exhaust pit below it is built here."""

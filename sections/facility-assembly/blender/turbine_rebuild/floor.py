@@ -73,4 +73,4 @@ def build(b):
     for dx, dy in DRAINS: round_drain(b, dx, dy)
     b.cyl((-2.1, 10.2, .004), .36, .012, 'steel_dark', 'Z', 40, bev=.006); torus(b, (-2.1, 10.2, .012), .27, .012, 'trim_black', 'Z', 28)       # manhole cover (a lid, not a hole)
     for k in range(2): b.box((-2.1 + (-.12 if k == 0 else .12), 10.2, .012), (.1, .03, .008), 'backing')
-    b.text('DRAIN', (-2.1, 10.2, .0125), .075, 'steel_light', 0, 0)
+    b.decal('drain', (-2.1, 10.2, .0132), rot=(0, 0, 0))

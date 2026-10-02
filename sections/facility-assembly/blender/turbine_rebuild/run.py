@@ -23,41 +23,25 @@ _looks = [i.identifier for i in sc.view_settings.bl_rna.properties['look'].enum_
 sc.view_settings.look = next((l for l in _looks if 'Medium High Contrast' in l), 'None'); sc.view_settings.exposure = 0.0
 atlas, orm = lib.make_atlas(os.path.join(OUT, 'turbine_atlas.png'))
 
-RIM_STRENGTH = {'MACH': .24, 'PROPS': .21, 'ARCH': .14, 'SHAFT': .24}
-def make_mats(grp):
-    """Bake-ready PBR material (albedo atlas on UV0) and the emissive twin for lamps / screens."""
-    def mk(name, emissive):
-        m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
-        out = nt.nodes.new('ShaderNodeOutputMaterial'); out.location = (700, 0)
-        uvn = nt.nodes.new('ShaderNodeUVMap'); uvn.uv_map = 'UVMap'; uvn.location = (-500, 0)
-        tex = nt.nodes.new('ShaderNodeTexImage'); tex.image = atlas; tex.interpolation = 'Linear'; tex.name = 'ALBEDO'; tex.location = (-250, 0)
-        nt.links.new(uvn.outputs[0], tex.inputs[0])
-        if emissive:
-            e = nt.nodes.new('ShaderNodeEmission'); e.inputs['Strength'].default_value = 2.0; e.location = (300, 0)
-            nt.links.new(tex.outputs[0], e.inputs['Color']); nt.links.new(e.outputs[0], out.inputs['Surface'])
-        else:
-            p = nt.nodes.new('ShaderNodeBsdfPrincipled'); p.location = (300, 0)
-            nt.links.new(tex.outputs[0], p.inputs['Base Color'])
-            ot = nt.nodes.new('ShaderNodeTexImage'); ot.image = orm; ot.name = 'ORM'; ot.location = (-250, -300); nt.links.new(uvn.outputs[0], ot.inputs[0])
-            sp = nt.nodes.new('ShaderNodeSeparateColor'); sp.location = (50, -300); nt.links.new(ot.outputs[0], sp.inputs[0])
-            nt.links.new(sp.outputs['Green'], p.inputs['Roughness']); nt.links.new(sp.outputs['Blue'], p.inputs['Metallic'])
-            # stylised silhouette rim (cool, thin, grazing-angle only): keeps dark hero forms readable. Must be reproduced in the runtime shader.
-            lw = nt.nodes.new('ShaderNodeLayerWeight'); lw.inputs['Blend'].default_value = .3; lw.location = (50, 300)
-            cr = nt.nodes.new('ShaderNodeValToRGB'); cr.location = (250, 300); cr.color_ramp.elements[0].position = .78; cr.color_ramp.elements[1].position = .985
-            nt.links.new(lw.outputs['Facing'], cr.inputs['Fac'])
-            mu = nt.nodes.new('ShaderNodeMath'); mu.operation = 'MULTIPLY'; mu.inputs[1].default_value = RIM_STRENGTH.get(grp, .5); mu.location = (450, 300); nt.links.new(cr.outputs['Color'], mu.inputs[0])
-            em = nt.nodes.new('ShaderNodeEmission'); em.inputs['Color'].default_value = (.5, .6, .8, 1); em.inputs['Strength'].default_value = 1.5; em.location = (450, 150)
-            mx = nt.nodes.new('ShaderNodeMixShader'); mx.location = (550, 0)
-            nt.links.new(mu.outputs[0], mx.inputs['Fac']); nt.links.new(p.outputs[0], mx.inputs[1]); nt.links.new(em.outputs[0], mx.inputs[2]); nt.links.new(mx.outputs[0], out.inputs['Surface'])
-        return m
-    return mk(f'M_{grp}', False), mk(f'M_{grp}_emissive', True)
+import matlib, subprocess
+make_mats = lambda grp: matlib.make_mats(atlas, orm, grp)
+# ---- decal sheets (signs, labels, posters, dials, screens): real texture art, no geometry ----
+subprocess.run(['python3', os.path.join(HERE, 'decals.py'), OUT], check=True)
+DECAL_META = json.load(open(os.path.join(OUT, 'decals.json'))); lib.DECALS.update(DECAL_META)
+def _img(n, cs='sRGB'):
+    im = bpy.data.images.load(os.path.join(OUT, n)); im.colorspace_settings.name = cs; im.alpha_mode = 'STRAIGHT'; return im
+dec_lit, dec_emit = _img('turbine_decals.png'), _img('turbine_decals_emit.png')
 
 coll = bpy.data.collections.new('TURBINE_ROOM_V2'); sc.collection.children.link(coll)
 b = lib.Builder()
 arch.build(b)
 machinery.train(b); machinery.services(b); machinery.controls(b); machinery.maintenance(b)
 props.build(b); walldress.build(b)
-mats = {g: make_mats(g) for g in b.g if g not in ('OCC', 'GLASS')}
+DECAL_GROUPS = ('DECAL', 'DECAL_E', 'MIMIC_FAULT')
+mats = {g: make_mats(g) for g in b.g if g not in ('OCC', 'GLASS') + DECAL_GROUPS}
+_ml, _me = matlib.make_decal_mat('M_decal', dec_lit, False), matlib.make_decal_mat('M_decal_emit', dec_emit, True)
+for g in DECAL_GROUPS:
+    if g in b.g: mats[g] = ((_ml, _ml) if g == 'DECAL' else (_me, _me))
 def make_glass():
     m = bpy.data.materials.new('M_GLASS'); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
     out = nt.nodes.new('ShaderNodeOutputMaterial'); tr = nt.nodes.new('ShaderNodeBsdfTransparent'); gl = nt.nodes.new('ShaderNodeBsdfGlossy')
@@ -66,6 +50,8 @@ def make_glass():
     nt.links.new(tr.outputs[0], mx.inputs[1]); nt.links.new(gl.outputs[0], mx.inputs[2]); nt.links.new(mx.outputs[0], out.inputs['Surface']); return m
 if 'GLASS' in b.g: gm = make_glass(); mats['GLASS'] = (gm, gm)
 objs = b.build(coll, mats)
+for _g in DECAL_GROUPS:
+    if _g in objs: objs[_g].visible_shadow = False
 
 
 # ---- cull invisible faces (outside the shell, buried against other solids). Culled faces are kept in a
@@ -132,24 +118,9 @@ occ_ob = objs.get('OCC')
 if occ_ob:
     om = bpy.data.materials.new('M_occluder'); om.diffuse_color = (.02, .02, .02, 1); om.use_nodes = True
     om.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value = (.02, .02, .02, 1); occ_ob.data.materials.append(om)
-# ---- drum labels: flat texture decal (stripes + stencil text live in the image, zero thickness, no shadow) ----
-import subprocess
-dpng = os.path.join(OUT, 'drum_labels.png'); subprocess.run(['python3', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'drumdecal.py'), dpng], check=True)
-dimg = bpy.data.images.load(dpng); dimg.colorspace_settings.name = 'sRGB'
-dm = bpy.data.materials.new('M_drum_decal'); dm.use_nodes = True; dnt = dm.node_tree; pb = dnt.nodes['Principled BSDF']
-tx = dnt.nodes.new('ShaderNodeTexImage'); tx.image = dimg; tx.interpolation = 'Linear'
-dnt.links.new(tx.outputs['Color'], pb.inputs['Base Color']); dnt.links.new(tx.outputs['Alpha'], pb.inputs['Alpha']); pb.inputs['Roughness'].default_value = .6
-dm.surface_render_method = 'BLENDED'
-NS, SPAN, ZB, ZT = 28, .9, .30, .62
-for di, (dx, dy, _c, _t1, _t2) in enumerate(props.DRUMS):
-    Rr = .27 + .0008; vs, ve = 1 - (di + 1) / len(props.DRUMS), 1 - di / len(props.DRUMS); vt = []; fc = []
-    for i in range(NS + 1):
-        th = -SPAN + 2 * SPAN * i / NS; vt += [(dx + Rr * math.sin(th), dy - Rr * math.cos(th), ZB), (dx + Rr * math.sin(th), dy - Rr * math.cos(th), ZT)]
-    for i in range(NS): fc.append((2 * i, 2 * i + 2, 2 * i + 3, 2 * i + 1))
-    me = bpy.data.meshes.new(f'DRUM_DECAL_{di}'); me.from_pydata(vt, [], fc); me.update(); uv = me.uv_layers.new(name='UVMap'); k = 0
-    for f in fc:
-        for vi in f: uv.data[k].uv = ((vi // 2) / NS, vs if vi % 2 == 0 else ve); k += 1
-    me.materials.append(dm); dob = bpy.data.objects.new(f'DRUM_DECAL_{di}', me); coll.objects.link(dob); dob.visible_shadow = False
+# ---- oil drums: lathe-turned objects with their own painted + worn texture sets ----
+import drums
+drum_objs = drums.build(coll, OUT, props.DRUMS)
 # ---- the floor: one slab with holes + one texture set (wetness, flow, cracks, wear and paint live in the maps) ----
 import floor as floor_layout, floortex, floormesh
 tex_prefix = os.path.join(OUT, 'turbine_floor')

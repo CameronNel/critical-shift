@@ -324,6 +324,48 @@ class Builder:
             g['f'].append(tuple(range(base, base + len(P)))); g['uv'].append([(ox + s_ / 2, oy + s_ / 2)] * len(P))
             g['sw'].append(0); g['swi'].append(idx); g['bev'].append(0.0)
         ob.evaluated_get(dg).to_mesh_clear(); bpy.data.objects.remove(ob); bpy.data.curves.remove(cu)
+
+    def decal(self, name, loc, rot=(0, 0, 0), spin=0.0, scale=1.0, size=None, group=None, lift=0.0):
+        """Flat textured quad (alpha-blended decal) in the local XY plane facing +Z; rot is an XYZ Euler (same convention as box),
+        spin rotates in-plane. Wall convention (text-style): rot=(pi/2, 0, rz). Lives in group DECAL (lit) or DECAL_E (emissive)."""
+        sheet = 'turbine_decals' if name in DECALS['turbine_decals'] else 'turbine_decals_emit'
+        d = DECALS[sheet][name]; w, h = (size or d['size']); w *= scale; h *= scale
+        keep = self.group; self.group = group or ('DECAL' if sheet == 'turbine_decals' else 'DECAL_E'); g = self._g(); self.group = keep
+        R = self.m @ Matrix.Translation(loc) @ Euler(rot, 'XYZ').to_matrix().to_4x4() @ Matrix.Rotation(spin, 4, 'Z')
+        P = [R @ Vector(p) for p in ((-w / 2, -h / 2, lift), (w / 2, -h / 2, lift), (w / 2, h / 2, lift), (-w / 2, h / 2, lift))]
+        u0, v0, u1, v1 = d['uv']; base = len(g['v']); g['v'].extend(tuple(p) for p in P); g['f'].append((base, base + 1, base + 2, base + 3))
+        g['uv'].append([(u0, v0), (u1, v0), (u1, v1), (u0, v1)]); g['sw'].append(0); g['swi'].append(0); g['bev'].append(0.0)
+    def decal_wrap(self, name, c, r, z0, z1, a_mid, span, group=None, n=12, lift=.0008):
+        """Decal bent around a vertical cylinder (axis Z through c, radius r) centred on angle a_mid, covering `span` radians."""
+        sheet = 'turbine_decals' if name in DECALS['turbine_decals'] else 'turbine_decals_emit'
+        d = DECALS[sheet][name]; u0, v0, u1, v1 = d['uv']
+        keep = self.group; self.group = group or ('DECAL' if sheet == 'turbine_decals' else 'DECAL_E'); g = self._g(); self.group = keep
+        rr = r + lift; ring = []
+        for i in range(n + 1):
+            a = a_mid - span / 2 + span * i / n; ring.append((a, c[0] + rr * math.cos(a), c[1] + rr * math.sin(a)))
+        for i in range(n):
+            (a0, x0, y0), (a1, x1, y1) = ring[i], ring[i + 1]; base = len(g['v'])
+            g['v'].extend(tuple(self.m @ Vector(p)) for p in ((x0, y0, z0), (x1, y1, z0), (x1, y1, z1), (x0, y0, z1)))
+            g['f'].append((base, base + 1, base + 2, base + 3)); ua, ub = u0 + (u1 - u0) * (i / n), u0 + (u1 - u0) * ((i + 1) / n)
+            g['uv'].append([(ua, v0), (ub, v0), (ub, v1), (ua, v1)]); g['sw'].append(0); g['swi'].append(0); g['bev'].append(0.0)
+    def lathe(self, c, prof, sw, seg=32, axis='Z', bev=0.0, closed_cap=True):
+        """Revolve a (radius, height) profile about the axis through c. Profile runs along the outside surface bottom->top
+        (outward normals); sw is one swatch or a list (one per profile segment). Smooth, flat-coloured faces."""
+        n = len(prof); sws = sw if isinstance(sw, (list, tuple)) else [sw] * (n - 1)
+        def P(r, z, i):
+            a = 2 * math.pi * i / seg + math.pi / seg; x, y = r * math.cos(a), r * math.sin(a)
+            if axis == 'Z': return (c[0] + x, c[1] + y, c[2] + z)
+            if axis == 'Y': return (c[0] + x, c[1] + z, c[2] + y)
+            return (c[0] + z, c[1] + x, c[2] + y)
+        for k in range(n - 1):
+            (r0, z0), (r1, z1) = prof[k], prof[k + 1]
+            for i in range(seg):
+                j = (i + 1) % seg
+                if r0 < 1e-6 and r1 < 1e-6: continue
+                q = [P(r0, z0, i), P(r0, z0, j), P(r1, z1, j), P(r1, z1, i)]
+                if r0 < 1e-6: q = [q[0], q[2], q[3]]
+                elif r1 < 1e-6: q = [q[0], q[1], q[2]]
+                self.poly(q, sws[k], flip=(axis == 'Y'), bev=bev, fit=False)
     # -- placement registry --
     def free(self, lo, hi, pad=0.1):
         for a, b in self.reg:
@@ -349,6 +391,8 @@ class Builder:
         return out
     def stats(self):
         return {k: dict(faces=len(g['f']), tris=sum(len(f) - 2 for f in g['f'])) for k, g in self.g.items()}
+
+DECALS = {}   # filled by run.py from decals.json: {sheet: {name: {uv, size}}}
 
 SHARP = math.radians(48)
 

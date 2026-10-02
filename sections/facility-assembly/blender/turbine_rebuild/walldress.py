@@ -6,7 +6,7 @@ import arch
 PI = math.pi
 FR = {k: v['frame'] for k, v in arch.wall_specs().items()}
 
-def txt(b, s, u, z, size, sw='chalk', y=.0): b.text(s, (u, y, z), size, sw, PI, PI / 2)
+WALL = (PI / 2, 0, PI)
 
 def pipe_run(b, u0, u1, z, r, d, sw, bands=(), brackets=1.3):
     b.rod((u0, d, z), (u1, d, z), r, sw, 14)
@@ -21,8 +21,8 @@ def wheel_valve(b, u, z, d, r=.15):
     for k in range(4): b.rod((u, d, z + .32), (u + r * math.cos(k * PI / 2), d + r * math.sin(k * PI / 2), z + .32), .008, 'red', 6)
 
 def gauge(b, u, z, d, r=.09):
-    b.cyl((u, d + .02, z), r + .015, .04, 'steel_dark', 'Y', 20, bev=.005); b.cyl((u, d + .045, z), r, .006, 'chalk', 'Y', 20)
-    b.box((u + .012, d + .052, z + .012), (.005, .004, .07), 'trim_black', (0, -.7, 0)); b.rod((u, d, z - .1), (u, d, z - r), .01, 'steel_mid', 6)
+    kind = ('gauge_a', 'gauge_b', 'gauge_c', 'gauge_d')[int(abs(u * 7 + z * 13) * 10) % 4]
+    b.cyl((u, d + .02, z), r + .015, .04, 'steel_dark', 'Y', 20, bev=.005); b.decal(kind, (u, d + .0405, z), rot=WALL, size=(r * 1.9, r * 1.9)); b.rod((u, d, z - .1), (u, d, z - r), .01, 'steel_mid', 6)
 
 def ladder(b, u0, u1, z, d, w=.34, rung=.3):
     """horizontal cable ladder lying flat against the wall: two rails and rungs across them"""
@@ -43,15 +43,10 @@ def fan(b, u, z, d_out=.5):
     b.cyl((u + .5, .17, z - .56), .035, .02, 'red', 'Y', 12)
 
 def exit_sign(b, u, z):
-    b.box((u, .04, z), (.62, .08, .24), 'trim_black', bev=.012); b.box((u, .085, z), (.54, .006, .17), 'led_green')
-    txt(b, 'EXIT', u + .04, z, .09, 'trim_black', .092)
-    b.prism([(.05, 0), (-.03, .04), (-.03, -.04)], .004, 'trim_black', (u - .2, .091, z), True, 'Y')
+    b.box((u, .04, z), (.62, .08, .24), 'trim_black', bev=.012); b.decal('exit_sign', (u, .0865, z), rot=WALL)
 
 def hazard_plaque(b, u, z, kind='bolt'):
-    b.box((u, .03, z), (.4, .05, .4), 'trim_black', bev=.012)
-    b.prism([(-.17, -.14), (.17, -.14), (0, .17)], .008, 'yellow', (u, .06, z + .0), True, 'Y')
-    if kind == 'bolt': b.prism([(.0, .1), (-.045, -.015), (-.005, -.015), (-.03, -.09), (.05, .015), (.01, .015)], .006, 'trim_black', (u, .068, z - .01), True, 'Y')
-    else: b.cyl((u, .068, z - .02), .03, .006, 'trim_black', 'Y', 12)
+    b.box((u, .03, z), (.4, .05, .4), 'trim_black', bev=.012); b.decal('hazard_bolt' if kind == 'bolt' else 'hazard_warn', (u, .0565, z), rot=WALL)
 
 def strobe(b, u, z):
     b.cyl((u, .05, z), .075, .06, 'trim_black', 'Y', 16, bev=.006); b.sphere((u, .1, z), .06, 'lamp', 12)
@@ -68,20 +63,18 @@ def db_board(b, u, z):
     for k in range(4): b.box((u - .27 + k * .18, .2, z + .3), (.1, .01, .1), 'chalk' if k != 1 else 'yellow')
     for k in range(3): b.cyl((u - .24 + k * .24, .2, z - .05), .035, .02, 'trim_black', 'Y', 12)
     b.box((u, .2, z - .3), (.5, .01, .14), 'screen_cool'); b.box((u + .3, .2, z + .3), (.04, .01, .04), 'led_green')
-    b.box((u + .46, .1, z), (.04, .04, .6), 'trim_black'); b.text('DB-04', (u, .2, z + .45), .07, 'chalk', PI, PI / 2)
+    b.box((u + .46, .1, z), (.04, .04, .6), 'trim_black'); b.decal('label_db04', (u, .1965, z + .42), rot=WALL, scale=.9)
     for dx in (-.2, .2): b.rod((u + dx, .1, z + .55), (u + dx, .1, 4.4), .022, 'steel_mid', 8)                          # conduit risers
 
 def eyewash(b, u):
     b.box((u, .04, 1.3), (.5, .08, .7), 'green', bev=.015); b.cyl((u, .1, 1.05), .13, .14, 'steel_light', 'Z', 18, bev=.006)
     for dx in (-.07, .07): b.cyl((u + dx, .1, 1.17), .018, .1, 'yellow', 'Z', 10)
     b.rod((u, .08, 1.45), (u, .22, 1.6), .015, 'steel_light', 8); b.cyl((u, .22, 1.62), .035, .02, 'green', 'Z', 10)
-    b.box((u, .09, 1.55), (.3, .01, .12), 'chalk'); txt(b, 'EYEWASH', u, 1.55, .045, 'green', .096)
-    b.box((u, .03, 2.15), (.5, .05, .5), 'green', bev=.012); b.box((u, .062, 2.15), (.05, .01, .3), 'chalk'); b.box((u, .062, 2.15), (.3, .01, .05), 'chalk')
+    b.decal('label_eyewash', (u, .0815, 1.5), rot=WALL, scale=.95)
+    b.box((u, .03, 2.15), (.52, .05, .52), 'green', bev=.012); b.decal('sign_eyewash', (u, .0565, 2.15), rot=WALL, scale=.98)
 
 def evac_plan(b, u, z):
-    b.box((u, .03, z), (.8, .05, .58), 'trim_black', bev=.012); b.box((u, .062, z), (.74, .01, .52), 'paper')
-    b.box((u, .07, z), (.5, .004, .34), 'poster_a'); b.box((u - .08, .074, z), (.12, .003, .2), 'chalk'); b.box((u + .12, .074, z - .06), (.2, .003, .08), 'chalk')
-    b.cyl((u - .14, .076, z + .1), .018, .004, 'led_green', 'Y', 8); b.cyl((u + .2, .076, z + .1), .018, .004, 'red', 'Y', 8)
+    b.box((u, .03, z), (.8, .05, .58), 'trim_black', bev=.012); b.decal('evac_plan', (u, .0565, z), rot=WALL, scale=1.0)
 
 def bump_rail(b, u0, u1, z=.78):
     b.box(((u0 + u1) / 2, .09, z), (u1 - u0, .1, .14), 'rubber', bev=.02); b.box(((u0 + u1) / 2, .09, z + .09), (u1 - u0, .1, .025), 'yellow')
@@ -109,7 +102,7 @@ def build(b):
     with b.push(*FR['north']):
         fan(b, -5.0, 5.2)
         quilt(b, -3.6, 1.0, 4.75, 5.95)
-        b.box((-7.7, .03, 3.55), (1.9, .06, .62), 'trim_black', bev=.016); b.box((-7.7, .064, 3.8), (1.8, .006, .03), 'yellow'); b.box((-7.7, .064, 3.3), (1.8, .006, .03), 'yellow'); txt(b, 'TURBINE HALL 02', -7.7, 3.6, .14, 'chalk', .07); txt(b, 'AUTHORISED PERSONNEL ONLY', -7.7, 3.4, .06, 'chalk', .07)
+        b.box((-7.7, .03, 3.55), (1.9, .06, .66), 'trim_black', bev=.016); b.decal('sign_hall02', (-7.7, .0645, 3.55), rot=WALL, size=(1.78, .6))
         for u in (1.25, 2.3, 3.35):
             b.rod((u, .09, 2.6), (u, .09, 6.15), .03, 'steel_mid', 10)
         ladder(b, 1.0, 4.0, 6.15, .14)
