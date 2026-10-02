@@ -1,9 +1,9 @@
 {
   "schema": "fuel-overhaul-cold-validation/1",
-  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F19ci.blend",
-  "sha256": "f479c2071d560d7e8be2a4e9b0e613fb46782593a568f9b28d58c4bd2ceee565",
-  "build_manifest": "sections/fuel-corridor/production/checkpoints/F19ci_BUILD_MANIFEST.json",
-  "recipe_sha256": "39f7ab0248c95e3d2bfd917ba72ff76311e0e898024c377de5123181d121bdec",
+  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F20ci.blend",
+  "sha256": "bd497c63408a406086bbfb744f68fe1c67b2375e65bc1104750836dc2d0f4177",
+  "build_manifest": "sections/fuel-corridor/production/checkpoints/F20ci_BUILD_MANIFEST.json",
+  "recipe_sha256": "947f7742ec32595eabb4b000560b9615fd1d2251dbb623c595a40273797d6c25",
   "blender": "5.2.1 LTS",
   "status": "PASS",
   "failures": [],
@@ -10582,19 +10582,6 @@
         [
           0.0001499652862548828,
           [
-            -2.117966651916504,
-            10.612022399902344,
-            0.8953499794006348
-          ],
-          [
-            -2.117966651916504,
-            10.612022399902344,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
             -2.056000232696533,
             10.56997299194336,
             0.8953499794006348
@@ -10615,6 +10602,19 @@
           [
             -2.12400484085083,
             10.564026832580566,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
+            -2.0839619636535645,
+            10.617995262145996,
+            0.8953499794006348
+          ],
+          [
+            -2.0839619636535645,
+            10.617995262145996,
             0.8954999446868896
           ]
         ]
@@ -15425,45 +15425,45 @@
       "object": "FC | Refinery boundary left leaf",
       "target": "FC | Refinery boundary frame",
       "status": "PASS",
-      "nearest_gap_m": 0.0009999275207519531,
+      "nearest_gap_m": 0.00021089000802021474,
       "contact_points": [
         [
-          0.0009999275207519531,
+          0.00021089000802021474,
           [
-            0.03299998492002487,
-            0.5989999771118164,
-            2.999000072479248
+            0.03299998119473457,
+            0.628000020980835,
+            3.01200008392334
           ],
           [
-            0.03299987316131592,
-            0.5989999771118164,
-            3.0
+            0.03300011157989502,
+            0.6282057762145996,
+            3.011953830718994
           ]
         ],
         [
-          0.0009999275207519531,
+          0.00021094814292155206,
           [
-            1.2669999599456787,
-            0.599000096321106,
-            2.999000072479248
+            -0.033000003546476364,
+            0.6279999613761902,
+            3.01200008392334
           ],
           [
-            1.2669999599456787,
-            0.599000096321106,
-            3.0
+            -0.03300011157989502,
+            0.6282057762145996,
+            3.011953830718994
           ]
         ],
         [
-          0.0009999275207519531,
+          0.0005133272497914732,
           [
-            0.03299998864531517,
-            0.5270000100135803,
-            2.999000072479248
+            -0.032000016421079636,
+            0.6309999823570251,
+            3.0139999389648438
           ],
           [
-            0.03299987316131592,
-            0.5270000100135803,
-            3.0
+            -0.032000064849853516,
+            0.6315000057220459,
+            3.014116048812866
           ]
         ]
       ],
@@ -15617,45 +15617,45 @@
       "object": "FC | Reactor boundary left leaf",
       "target": "FC | Reactor boundary frame",
       "status": "PASS",
-      "nearest_gap_m": 0.0009999275207519531,
+      "nearest_gap_m": 0.0002765626704785973,
       "contact_points": [
         [
-          0.0009999275207519531,
+          0.0002765626704785973,
           [
-            14.166999816894531,
-            23.400999069213867,
-            4.999000072479248
+            14.232999801635742,
+            23.371999740600586,
+            5.01200008392334
           ],
           [
-            14.166999816894531,
-            23.400999069213867,
-            5.0
+            14.232999801635742,
+            23.371793746948242,
+            5.0121846199035645
           ]
         ],
         [
-          0.0009999275207519531,
+          0.0002765626704785973,
           [
-            11.732999801635742,
-            23.400999069213867,
-            4.999000072479248
+            14.166999816894531,
+            23.371999740600586,
+            5.01200008392334
           ],
           [
-            11.732999801635742,
-            23.400999069213867,
-            5.0
+            14.166999816894531,
+            23.371793746948242,
+            5.0121846199035645
           ]
         ],
         [
-          0.0009999275207519531,
+          0.0007186163566075265,
           [
-            14.166999816894531,
-            23.472999572753906,
-            4.999000072479248
+            14.232000350952148,
+            23.368999481201172,
+            5.013999938964844
           ],
           [
-            14.166999816894531,
-            23.472999572753906,
-            5.0
+            14.232000350952148,
+            23.368499755859375,
+            5.014516353607178
           ]
         ]
       ],
@@ -15809,45 +15809,45 @@
       "object": "FC | Plant service left leaf",
       "target": "FC | Plant service frame",
       "status": "PASS",
-      "nearest_gap_m": 0.0009999275207519531,
+      "nearest_gap_m": 0.00027304497780278325,
       "contact_points": [
         [
-          0.0009999275207519531,
+          0.00027304497780278325,
           [
-            -4.801000118255615,
-            17.36699867248535,
-            2.499000072479248
+            -4.771999835968018,
+            17.432998657226562,
+            2.51200008392334
           ],
           [
-            -4.801000118255615,
-            17.36699867248535,
-            2.5
+            -4.771794319152832,
+            17.432998657226562,
+            2.5118203163146973
           ]
         ],
         [
-          0.0009999275207519531,
+          0.00027304497780278325,
           [
-            -4.801000118255615,
-            16.432998657226562,
-            2.499000072479248
+            -4.771999835968018,
+            17.36699867248535,
+            2.51200008392334
           ],
           [
-            -4.801000118255615,
-            16.432998657226562,
-            2.5
+            -4.771794319152832,
+            17.36699867248535,
+            2.5118203163146973
           ]
         ],
         [
-          0.0009999275207519531,
+          0.0005127684562467039,
           [
-            -4.873000144958496,
-            17.36699867248535,
-            2.499000072479248
+            -4.769000053405762,
+            17.368000030517578,
+            2.5139999389648438
           ],
           [
-            -4.873000144958496,
-            17.36699867248535,
-            2.5
+            -4.768500328063965,
+            17.368000030517578,
+            2.513885021209717
           ]
         ]
       ],
@@ -16001,45 +16001,45 @@
       "object": "FC | Clean service left leaf",
       "target": "FC | Clean service frame",
       "status": "PASS",
-      "nearest_gap_m": 0.0009999275207519531,
+      "nearest_gap_m": 0.00027340406086295843,
       "contact_points": [
         [
-          0.0009999275207519531,
+          0.00027340406086295843,
           [
-            6.566999912261963,
-            20.400999069213867,
-            2.499000072479248
+            6.632999897003174,
+            20.371999740600586,
+            2.51200008392334
           ],
           [
-            6.566999912261963,
-            20.400999069213867,
-            2.5
+            6.632999897003174,
+            20.371793746948242,
+            2.5118203163146973
           ]
         ],
         [
-          0.0009999275207519531,
+          0.00027340406086295843,
           [
-            5.632999897003174,
-            20.400999069213867,
-            2.499000072479248
+            6.566999912261963,
+            20.371999740600586,
+            2.51200008392334
           ],
           [
-            5.632999897003174,
-            20.400999069213867,
-            2.5
+            6.566999912261963,
+            20.371793746948242,
+            2.5118203163146973
           ]
         ],
         [
-          0.0009999275207519531,
+          0.0005127684562467039,
           [
-            6.566999912261963,
-            20.472999572753906,
-            2.499000072479248
+            6.631999969482422,
+            20.368999481201172,
+            2.5139999389648438
           ],
           [
-            6.566999912261963,
-            20.472999572753906,
-            2.5
+            6.631999969482422,
+            20.368499755859375,
+            2.513885021209717
           ]
         ]
       ],
@@ -16193,45 +16193,45 @@
       "object": "FC | Waste transfer left leaf",
       "target": "FC | Waste transfer frame",
       "status": "PASS",
-      "nearest_gap_m": 0.0009999275207519531,
+      "nearest_gap_m": 0.00027363141998648643,
       "contact_points": [
         [
-          0.0009999275207519531,
+          0.00027363141998648643,
           [
-            15.800999641418457,
-            16.033000946044922,
-            2.999000072479248
+            15.77199935913086,
+            15.967000007629395,
+            3.01200008392334
           ],
           [
-            15.800999641418457,
-            16.033000946044922,
-            3.0
+            15.771794319152832,
+            15.967000007629395,
+            3.0118188858032227
           ]
         ],
         [
-          0.0009999275207519531,
+          0.0002743467630352825,
           [
-            15.800999641418457,
-            17.16699981689453,
-            2.999000072479248
+            15.77199935913086,
+            16.033000946044922,
+            3.01200008392334
           ],
           [
-            15.800999641418457,
-            17.16699981689453,
-            3.0
+            15.771793365478516,
+            16.033000946044922,
+            3.0118188858032227
           ]
         ],
         [
-          0.0009999275207519531,
+          0.0005142909940332174,
           [
-            15.87299919128418,
-            16.033000946044922,
-            2.999000072479248
+            15.769000053405762,
+            15.968000411987305,
+            3.0139999389648438
           ],
           [
-            15.87299919128418,
-            16.033000946044922,
-            3.0
+            15.768499374389648,
+            15.968000411987305,
+            3.0138823986053467
           ]
         ]
       ],
@@ -16958,11 +16958,533 @@
       "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
     }
   ],
+  "closed_meeting_seals": [
+    {
+      "leaf": "FC | Refinery boundary left leaf",
+      "frame": "FC | Refinery boundary frame",
+      "status": "PASS",
+      "samples": [
+        {
+          "local_joint_sample": [
+            -0.007,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670000493526459
+        },
+        {
+          "local_joint_sample": [
+            0,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669999599456787
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669999599456787
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            1.0499999999999998
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670000195503235
+        },
+        {
+          "local_joint_sample": [
+            0,
+            1.0499999999999998
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669999599456787
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            1.0499999999999998
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669999599456787
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            2.0999999999999996
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669999897480011
+        },
+        {
+          "local_joint_sample": [
+            0,
+            2.0999999999999996
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669999897480011
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            2.0999999999999996
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669999599456787
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            2.988
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669999897480011
+        },
+        {
+          "local_joint_sample": [
+            0,
+            2.988
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669999599456787
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            2.988
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669999599456787
+        }
+      ],
+      "scope": "Native geometry blocks the closed center sightline; actual-map renders judge visible finish."
+    },
+    {
+      "leaf": "FC | Reactor boundary left leaf",
+      "frame": "FC | Reactor boundary frame",
+      "status": "PASS",
+      "samples": [
+        {
+          "local_joint_sample": [
+            -0.007,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670002281665802
+        },
+        {
+          "local_joint_sample": [
+            0,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670002281665802
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670002281665802
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            1.75
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0,
+            1.75
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670002281665802
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            1.75
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670002281665802
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            3.5
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670002281665802
+        },
+        {
+          "local_joint_sample": [
+            0,
+            3.5
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670002281665802
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            3.5
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            4.988
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670002281665802
+        },
+        {
+          "local_joint_sample": [
+            0,
+            4.988
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670002281665802
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            4.988
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670002281665802
+        }
+      ],
+      "scope": "Native geometry blocks the closed center sightline; actual-map renders judge visible finish."
+    },
+    {
+      "leaf": "FC | Plant service left leaf",
+      "frame": "FC | Plant service frame",
+      "status": "PASS",
+      "samples": [
+        {
+          "local_joint_sample": [
+            -0.007,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001685619354
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001685619354
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            0.875
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0,
+            0.875
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            0.875
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            1.75
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001685619354
+        },
+        {
+          "local_joint_sample": [
+            0,
+            1.75
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            1.75
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            2.488
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001685619354
+        },
+        {
+          "local_joint_sample": [
+            0,
+            2.488
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            2.488
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        }
+      ],
+      "scope": "Native geometry blocks the closed center sightline; actual-map renders judge visible finish."
+    },
+    {
+      "leaf": "FC | Clean service left leaf",
+      "frame": "FC | Clean service frame",
+      "status": "PASS",
+      "samples": [
+        {
+          "local_joint_sample": [
+            -0.007,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            0.875
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0,
+            0.875
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            0.875
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            1.75
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0,
+            1.75
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            1.75
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            2.488
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        },
+        {
+          "local_joint_sample": [
+            0,
+            2.488
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670002281665802
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            2.488
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2670001983642578
+        }
+      ],
+      "scope": "Native geometry blocks the closed center sightline; actual-map renders judge visible finish."
+    },
+    {
+      "leaf": "FC | Waste transfer left leaf",
+      "frame": "FC | Waste transfer frame",
+      "status": "PASS",
+      "samples": [
+        {
+          "local_joint_sample": [
+            -0.007,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992744922638
+        },
+        {
+          "local_joint_sample": [
+            0,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992744922638
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            0.012
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992446899414
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            1.0499999999999998
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992744922638
+        },
+        {
+          "local_joint_sample": [
+            0,
+            1.0499999999999998
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992446899414
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            1.0499999999999998
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992744922638
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            2.0999999999999996
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992446899414
+        },
+        {
+          "local_joint_sample": [
+            0,
+            2.0999999999999996
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992744922638
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            2.0999999999999996
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992744922638
+        },
+        {
+          "local_joint_sample": [
+            -0.007,
+            2.988
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992744922638
+        },
+        {
+          "local_joint_sample": [
+            0,
+            2.988
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992744922638
+        },
+        {
+          "local_joint_sample": [
+            0.007,
+            2.988
+          ],
+          "blocked": true,
+          "surface_distance_m": 0.2669992446899414
+        }
+      ],
+      "scope": "Native geometry blocks the closed center sightline; actual-map renders judge visible finish."
+    }
+  ],
   "geometry_budget": {
-    "source_triangles": 1070382,
-    "evaluated_triangles": 1075662,
+    "source_triangles": 1074642,
+    "evaluated_triangles": 1079922,
     "mesh_objects": 356,
-    "material_batch_upper_bound": 1500
+    "material_batch_upper_bound": 1501
   },
   "uv": [
     {
@@ -18368,16 +18890,6 @@
       "available": true
     },
     {
-      "name": "painted_plaster_wall_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "metal_plate_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
       "name": "painted_plaster_wall_diff_2k.jpg",
       "packed": true,
       "available": true
@@ -18388,17 +18900,27 @@
       "available": true
     },
     {
-      "name": "wood_table_worn_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
       "name": "metal_plate_rough_2k.jpg",
       "packed": true,
       "available": true
     },
     {
+      "name": "metal_plate_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "painted_plaster_wall_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
       "name": "painted_plaster_wall_rough_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "wood_table_worn_disp_2k.jpg",
       "packed": true,
       "available": true
     },

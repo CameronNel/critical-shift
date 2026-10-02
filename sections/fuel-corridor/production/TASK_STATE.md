@@ -470,3 +470,12 @@ Authoring geometry: {"source_triangles": 1070382, "evaluated_triangles": 1075662
 Pessimistic Luna independently reviewed all24 native/detail and all19actual-map F18 captures. Lighting scored99, but bright center slits in waste/clean and the subtler plant portal caused honest finish/area scores below the strict98 gate. F18/F19 are not an accepted final pair.
 
 Five closed boundary portals now receive a folded bolted meeting lip and compressible rear seal integrated into the original left-leaf mesh. Temporary F20a cold validation passes with zero failures, including60 blocked center-joint ray samples, preserved footprints/cameras/interfaces and all43 powered sources mapped to real optics. Actual-map affected-door renders are in progress; full F20ci and an unchanged second cycle must be reviewed before acceptance. No score override was used.
+
+## F20ci hosted execution
+
+Native SHA256 bd497c63408a406086bbfb744f68fe1c67b2375e65bc1104750836dc2d0f4177. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 1074642, "evaluated_triangles": 1079922, "mesh_objects": 356, "material_batch_upper_bound": 1501}.
