@@ -1,0 +1,54 @@
+{
+  "review": "independent pre-repair visual diagnosis",
+  "date": "2026-10-02",
+  "source_views": {
+    "full_cycle_02": 27,
+    "spawn_reference": 4
+  },
+  "basis": "Rendered pixels plus current overhaul brief, global art direction, autonomous build protocol, and local rubric. No scene or technical inspection was performed.",
+  "strict_local_threshold": ">93 in every scored category",
+  "scores": {
+    "1_scale_layout_route_readability": 82,
+    "2_grounded_stylized_shape_language_object_specific_construction": 65,
+    "3_inspection_checkin_hero_hierarchy_functional_composition": 68,
+    "4_tactile_material_identity_uv_texture_discipline": 69,
+    "5_localized_lighting_depth_bleak_atmosphere": 66,
+    "6_approved_spawn_colour_coherence_restrained_accents": 77,
+    "7_purposeful_worker_traces_coercive_institutional_storytelling": 64,
+    "8_technical_cleanliness_support_contact_reproducibility_dependencies": null
+  },
+  "technical_category_status": "UNVERIFIED — render-only review cannot establish technical cleanliness, support contact, reproducibility, dependencies, or cold-start behavior.",
+  "top_fixes": [
+    {
+      "priority": 1,
+      "issue": "Inspection machinery repeats a beveled-box kit language.",
+      "frames": ["C01_ENTRY", "C02_HERO_DOCK", "C04_SCANNER_APPROACH", "HERO_SCANNER", "C05_CONVEYOR_LEAD_TUNNEL", "HERO_CARGO", "C06_CART_GATE_G1", "C09_ARRIVAL_GATE_P2"],
+      "construction_change": "Preserve all envelopes, openings, route lanes and placements. Build visible equipment as distinct frames and folded sheet-metal skins with returns, seams, inset service covers, credible hinges/latches, gaskets and selective material breaks. Avoid decorative greebles."
+    },
+    {
+      "priority": 2,
+      "issue": "Check-in does not read as a controlled worker/evidence handoff.",
+      "frames": ["C03_CHECKIN_COUNTER", "DETAIL_CHECKIN"],
+      "construction_change": "Preserve counter, hatch, glazing and footprint. Clarify the transaction edge with an integrated pass-through sill, document intake, worker ID/evidence setting surface and staff-side record area; arrange existing paperwork/tools into a legible sequence and make restrained sign/screen content readable at room distance."
+    },
+    {
+      "priority": 3,
+      "issue": "Dark recesses and inconsistent pools hide important construction; office lighting feels separate.",
+      "frames": ["C01_ENTRY", "C02_HERO_DOCK", "C04_SCANNER_APPROACH", "C05_CONVEYOR_LEAD_TUNNEL", "C08_CONCEALED_SUPPORT_H1", "C10_ROOF_SERVICES", "CORNER_NE", "CORNER_NW", "CORNER_SE", "CORNER_SW", "C07_OFFICE_INTERIOR"],
+      "construction_change": "Keep fixture positions and routes. Tune existing practicals and restrained indirect fill to reveal scanner frames, cargo aperture, supports and contacts, retain dim secondary storage, and link the cool inspection light with a softer related warm office/check-in practical."
+    },
+    {
+      "priority": 4,
+      "issue": "Cargo tunnel, conveyor and inspected load lack convincing mechanical and handling construction.",
+      "frames": ["C05_CONVEYOR_LEAD_TUNNEL", "HERO_CARGO"],
+      "construction_change": "Preserve aperture, roller path, supports and load position. Add a framed/sealed tunnel mouth, restrained inner shielding/sensor elements, accessible service panels, a believable infeed/outfeed, case seams/corner protection/latches/handling wear, and visible roller shafts, bearings and rails; make the crank visibly functional."
+    },
+    {
+      "priority": 5,
+      "issue": "Blank wall expanses and scarce work traces weaken the pressured-institution story and spawn connection.",
+      "frames": ["WALL_SOUTH", "WALL_EAST", "WALL_WEST", "C01_ENTRY", "CORNER_NE", "CORNER_NW", "CORNER_SE", "VALIDATE_Spawn", "VALIDATE_LockerDoor", "VALIDATE_Material_A", "BRIEFING_INDIRECT"],
+      "construction_change": "Keep layout and palette restrained. Add shallow wall panel joints, selected access covers and believable base/kick transitions; place a few localized paperwork, route-wear, repair and maintenance traces at existing work areas. Add limited muted warm accents/practical response to relate to spawn while blue remains the inspection identifier."
+    }
+  ],
+  "acceptance": "FAIL — all seven visually scored categories are below the strict >93 threshold; technical category is unverified."
+}

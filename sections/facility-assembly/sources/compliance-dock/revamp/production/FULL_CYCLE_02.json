@@ -1,0 +1,58 @@
+{
+  "cycle": "full-cycle-02",
+  "native_revision": "f06",
+  "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+  "complete_rendered_and_reviewed_views": 27,
+  "critics": {
+    "spatial": {
+      "report": "critics/full-c02-spatial.json",
+      "sha256": "1bf607838345890823745f6a4b557d62fcf0e1e8b539aaaf4853c183f21eef70"
+    },
+    "art": {
+      "report": "critics/full-c02-art.json",
+      "sha256": "d5eecd5f22aedcdb0cd953a27c8c4c083ffd1a8a487e849364722ed2c529ac97"
+    },
+    "materials": {
+      "report": "critics/full-c02-materials.json",
+      "sha256": "60b54517e90571fe6111fe55420905d4d249d5b3144ea8590f57d34be02cd11d"
+    },
+    "lighting": {
+      "report": "critics/full-c02-lighting.json",
+      "sha256": "12c780e8ec808b2aae21e9a96edabfa91dbb4d79f4677ec9b4dd0ded21a38d63"
+    },
+    "story": {
+      "report": "critics/full-c02-story.json",
+      "sha256": "123c3d7a836e098f24aa30f8b01c1e27107ea65cb132e10bb16c988863e3ac26"
+    },
+    "technical": {
+      "report": "critics/full-c02-technical.json",
+      "sha256": "f5dfd566299f801e4b487a940de04d5b8da2bc7408b3dc163aa48de084dc6e03"
+    }
+  },
+  "per_category_conservative_scores": {
+    "1": 92,
+    "2": 89,
+    "3": 91,
+    "4": 94,
+    "5": 91,
+    "6": 92,
+    "7": 89,
+    "8": 90
+  },
+  "aggregation": "Minimum of independent assigned disciplines, no self-scoring. Additional Luna pre-repair diagnosis is separately retained and not hidden.",
+  "verdict": "FAIL",
+  "full_room_accepted": false,
+  "critical_defects": [
+    "Generic repeated primary inspection construction",
+    "Unsupported conveyor return belt",
+    "Scanner lens backing gap5.9996mm",
+    "Raised scanner inscription backing gap6.99997mm"
+  ],
+  "noncritical": [
+    "Consumed cloth UV units about6x too large",
+    "Check-in visibility",
+    "Custody trail and active maintenance",
+    "Lighting hierarchy"
+  ],
+  "next_candidate": "f07"
+}

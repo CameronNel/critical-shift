@@ -1,0 +1,1495 @@
+{
+  "schema_version": 1,
+  "review": "Compliance dock full cycle 02 independent technical critic",
+  "generated_utc": "2026-10-01T21:22:50.397092+00:00",
+  "candidate": "full-f06",
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+  "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+  "category": {
+    "number": 8,
+    "name": "Technical cleanliness, support contact, reproducibility and dependencies",
+    "score": 90,
+    "required_score_strictly_greater_than": 93,
+    "passes_score_gate": false
+  },
+  "verdict": "FAIL",
+  "critical_defect_count": 3,
+  "visual_veto": false,
+  "verdict_reason": "Three required-contact defects remain inside otherwise registered/support-anchored assemblies. A seven-check validator pass is not a pass for these exposed internal components.",
+  "critical_defects": [
+    {
+      "id": "T8-C1",
+      "severity": "critical",
+      "surface": "Conveyor return belt",
+      "assembly": "Cargo Inspection Conveyor",
+      "defect": "Exposed return slab has no real roller/end-wrap/frame bearing or lower support path.",
+      "gap_m": 0.05217752233147621,
+      "witness": {
+        "distance_m": 0.05217752233147621,
+        "source_object": "Conveyor return belt",
+        "source_point": [
+          4.0702672,
+          9.84899902,
+          0.42799997
+        ],
+        "source_normal": [
+          -0.96603757,
+          0.25840181,
+          0.0
+        ],
+        "other_object": "Conveyor leg 3.98_9.9",
+        "other_point": [
+          4.01985979,
+          9.86247444,
+          0.42799997
+        ],
+        "other_normal": [
+          0.96602368,
+          -0.25845352,
+          0.0
+        ],
+        "other_triangle": 139
+      },
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO"
+      ],
+      "pixel_evidence": "Exposed black horizontal slab below conveyor frame in beauty and neutral C05; physical detachment established by native triangles/rays.",
+      "fix": "Keep preserved parts/world poses and add a credible continuous return path/end wrap and bearing interface to existing supported conveyor geometry."
+    },
+    {
+      "id": "T8-C2",
+      "severity": "critical",
+      "surfaces": [
+        "Scanner status light 0",
+        "Scanner status light 1",
+        "Scanner status light 2",
+        "Scanner status light 3"
+      ],
+      "assembly": "Person Scanner Arch",
+      "defect": "Four rear lens faces remain 5.9996 mm in front of the actual supported blue backing, without containment or connecting mount.",
+      "gap_m": 0.005999565124511719,
+      "witnesses": [
+        {
+          "distance_m": 0.005999565124511719,
+          "source_object": "Scanner status light 0",
+          "source_point": [
+            0.77999997,
+            6.81000042,
+            1.81995678
+          ],
+          "source_normal": [
+            0.03378272,
+            0.96592581,
+            0.25660479
+          ],
+          "other_object": "CD | Joined Person Scanner Arch / blue",
+          "other_point": [
+            0.78000021,
+            6.81599998,
+            1.81995618
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 779
+        },
+        {
+          "distance_m": 0.005999565124511719,
+          "source_object": "Scanner status light 1",
+          "source_point": [
+            0.77999997,
+            6.81000042,
+            1.93995678
+          ],
+          "source_normal": [
+            0.03378272,
+            0.96592581,
+            0.25660479
+          ],
+          "other_object": "CD | Joined Person Scanner Arch / blue",
+          "other_point": [
+            0.78000009,
+            6.81599998,
+            1.93995678
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 779
+        },
+        {
+          "distance_m": 0.005999565124511719,
+          "source_object": "Scanner status light 2",
+          "source_point": [
+            0.77999997,
+            6.81000042,
+            2.05995679
+          ],
+          "source_normal": [
+            0.03378272,
+            0.96592581,
+            0.25660479
+          ],
+          "other_object": "CD | Joined Person Scanner Arch / blue",
+          "other_point": [
+            0.77999979,
+            6.81599998,
+            2.05995679
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 779
+        },
+        {
+          "distance_m": 0.005999565124511719,
+          "source_object": "Scanner status light 3",
+          "source_point": [
+            0.79728311,
+            6.81000042,
+            2.15002155
+          ],
+          "source_normal": [
+            0.0,
+            1.0,
+            4e-08
+          ],
+          "other_object": "CD | Joined Person Scanner Arch / blue",
+          "other_point": [
+            0.79728311,
+            6.81599998,
+            2.15002155
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 776
+        }
+      ],
+      "views": [
+        "C04_SCANNER_APPROACH",
+        "HERO_SCANNER",
+        "C06_CART_GATE_G1"
+      ],
+      "pixel_evidence": "Lenses are visible in scanner views, but a 6 mm rear gap is not reliably measurable from the beauty frame. Oriented +Y backing probes supply the decisive evidence.",
+      "fix": "Add seated rear housings/mount bridges to the blue backing while preserving original lens world poses."
+    },
+    {
+      "id": "T8-C3",
+      "severity": "critical",
+      "surface": "Scanner lintel txt",
+      "assembly": "Person Scanner Arch",
+      "defect": "Rear raised inscription surface is 7.0000 mm in front of Scanner lintel face, with no seated glyph backs or bridging mount.",
+      "gap_m": 0.006999969482421875,
+      "witness": {
+        "distance_m": 0.006999969482421875,
+        "source_object": "Scanner lintel txt",
+        "source_point": [
+          0.48560831,
+          6.79299974,
+          2.76473212
+        ],
+        "source_normal": [
+          0.0,
+          1.0,
+          4e-08
+        ],
+        "other_object": "Scanner lintel face",
+        "other_point": [
+          0.48560828,
+          6.79999971,
+          2.76473212
+        ],
+        "other_normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "other_triangle": 156
+      },
+      "views": [
+        "C04_SCANNER_APPROACH",
+        "HERO_SCANNER"
+      ],
+      "pixel_evidence": "Inscription is present on the scanner head; image pixels alone do not resolve this rear gap. The actual glyph rear surface and opposed backing normal prove detachment.",
+      "fix": "Back or seat the raised inscription against the actual scanner lintel face without changing the original text world pose."
+    }
+  ],
+  "noncritical_defects": [
+    {
+      "id": "T8-N1",
+      "severity": "noncritical",
+      "surface": "Covered Trolley Draped Tarp",
+      "material": "CD | cotton",
+      "defect": "Consumed CD_Fabric_Cut_1m is approximately 0.165 UV/m, inconsistent with the named one-metre chart/normalization claim; retained CD_Physical_1m is not the cotton shader input.",
+      "consumed_chart": {
+        "name": "CD_Fabric_Cut_1m",
+        "actual_material_triangle_count": 5696,
+        "zero_uv_area_triangles": [],
+        "zero_uv_area_count": 0,
+        "nonfinite_uv_count": 0,
+        "uv_area": 0.1805905032691726,
+        "world_surface_area_m2": 6.5931865359855095,
+        "uv_edge_per_world_m": {
+          "min": 0.14034120965216398,
+          "p01": 0.14734328535371308,
+          "median": 0.1650453902252345,
+          "p99": 0.17703182443424798,
+          "max": 0.1794985948239012
+        }
+      },
+      "views": [
+        "HERO_TROLLEY"
+      ],
+      "pixel_evidence": "Actual consumed UV checker shows roughly six-times-larger checks on the drape. Island continuity follows the folds; beauty/neutral cloth remains coherent and matte.",
+      "fix": "Correct actual chart/shader physical scale or explicitly document an intentional nonmetric fabric mapping; validate the consumed chart, not only the retained face audit."
+    },
+    {
+      "id": "T8-N2",
+      "severity": "noncritical",
+      "surfaces": [
+        "Skirting east",
+        "Skirting south east",
+        "Skirting south west",
+        "Skirting west"
+      ],
+      "defect": "A few tiny coincident outer corner bevel triangles survive at south skirting joins. Most other coincident dado/wainscot faces are intentionally buried interfaces.",
+      "witness_world": [
+        6.79924393,
+        0.00051133,
+        0.05066667
+      ],
+      "witness_normal": [
+        0.70720816,
+        -0.70700544,
+        0.0
+      ],
+      "method": "World triangle coincidence plus front/back other-surface probes; this witness has no covering other surface within 50 mm in either normal direction.",
+      "pixel_evidence": "No discernible flicker or dominant duplicate-skin artifact in current fixed views. Runtime z-fighting remains untested.",
+      "fix": "Trim/weld exposed corner seam faces in an allowed mesh construction repair before engine export."
+    }
+  ],
+  "objective_evidence": {
+    "planning_targets": {
+      "triangles": 450000,
+      "material_submeshes": 1150,
+      "local_material_families": 36
+    },
+    "baseline_counts": {
+      "source": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend",
+      "sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+      "scene": "Scene",
+      "scene_objects": 1077,
+      "evaluated_triangles": 297672,
+      "authoring_material_submeshes": 992,
+      "used_material_families": 24,
+      "saved": false
+    },
+    "current_counts": {
+      "objects": 1278,
+      "triangles": 433934,
+      "material_submeshes": 1119,
+      "local_material_families": 36
+    },
+    "source_planning_pass": true,
+    "counts_are_runtime_budgets": false,
+    "protected_input_hashes": [
+      {
+        "path": "sections/facility-assembly/blender/facility_environment.blend",
+        "expected_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "actual_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "matches": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/module.blend",
+        "expected_sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "actual_sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "matches": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/accepted.blend",
+        "expected_sha256": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "actual_sha256": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "matches": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/contracts/interface.json",
+        "expected_sha256": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "actual_sha256": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "matches": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/spawn-room/module.blend",
+        "expected_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "actual_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "matches": true
+      }
+    ],
+    "preserved_world_pose_comparison": {
+      "baseline_scene": "Scene",
+      "baseline_objects": 1077,
+      "missing_objects": [],
+      "changed_world_matrices": [],
+      "maximum_matrix_element_delta": 1.2371138828673793e-07
+    },
+    "independent_validator_summary": {
+      "failures": 0,
+      "warnings": 1,
+      "unverified_checks": 5,
+      "passed_checks": 7,
+      "failed_checks": 0
+    },
+    "independent_validator_checks": [
+      {
+        "name": "scene_inventory_transforms_material_assignment",
+        "status": "pass"
+      },
+      {
+        "name": "external_resource_integrity",
+        "status": "pass"
+      },
+      {
+        "name": "contact_registry_ancestry_and_measured_support",
+        "status": "pass",
+        "assemblies": 41,
+        "anchors": 87
+      },
+      {
+        "name": "exact_duplicate_geometry",
+        "status": "pass",
+        "comparison": "world matrix + evaluated local bounds + vertices/topology, rounded to 1e-7 m"
+      },
+      {
+        "name": "fixed_camera_inventory",
+        "status": "pass",
+        "total": 12,
+        "full_cameras": 10
+      },
+      {
+        "name": "full_interior_portal_and_route_clearance",
+        "status": "pass",
+        "routes": 3,
+        "portals": 7
+      },
+      {
+        "name": "overhaul_shader_uv_and_noncollapsed_geometry",
+        "status": "pass",
+        "surfaces": 1118,
+        "metric_edge_min_m": 0.0001,
+        "metric_relative_tolerance": 0.01,
+        "interpretation": "Physical repeating face charts permit seams/overlaps; editable text uses declared object-metre mapping. Not a lightmap or runtime shader proof."
+      }
+    ],
+    "registry": {
+      "supported_roots": 41,
+      "anchors": 87,
+      "interpretation": "Metadata/selected anchors pass; does not establish every internal component bearing."
+    },
+    "native_libraries": {
+      "count": 25,
+      "all_exist": true,
+      "scope": "Only exact saved native library list; each separately SHA hashed in raw evidence."
+    },
+    "local_geometry": {
+      "local_scene_objects": 1278,
+      "linked_scene_objects": 0,
+      "linked_object_data": 0
+    },
+    "images": {
+      "count": 119,
+      "packed": 119,
+      "required_unpacked_missing": []
+    },
+    "topology": {
+      "zero_area_evaluated_triangles": 0,
+      "missing_consumed_uv_charts": [],
+      "collapsed_consumed_uv_charts": [],
+      "closed_normals_followup": "Centred float64 shell volumes clear all eight false negative float32 absolute-coordinate flags; raw follow-up is authoritative."
+    },
+    "actual_contact_graph_groups": [
+      {
+        "root": "CD | Main ventilation supply trunk suspension",
+        "geometry_members": 2,
+        "disconnected_at_5mm": []
+      },
+      {
+        "root": "CD | Return ventilation trunk suspension",
+        "geometry_members": 2,
+        "disconnected_at_5mm": []
+      },
+      {
+        "root": "Cargo Inspection Conveyor",
+        "geometry_members": 224,
+        "disconnected_at_5mm": [
+          "Conveyor return belt"
+        ]
+      },
+      {
+        "root": "Covered Trolley H1",
+        "geometry_members": 51,
+        "disconnected_at_5mm": []
+      },
+      {
+        "root": "G1 Cart Bypass Gate",
+        "geometry_members": 62,
+        "disconnected_at_5mm": []
+      },
+      {
+        "root": "Person Scanner Arch",
+        "geometry_members": 52,
+        "disconnected_at_5mm": [
+          "Scanner column inset -1",
+          "Scanner status light 0",
+          "Scanner status light 2",
+          "Scanner column inset 1",
+          "Scanner status light 3",
+          "Scanner lintel txt",
+          "Scanner status light 1"
+        ]
+      }
+    ],
+    "buried_interfaces": [
+      "Scanner column inset -1 and 1: centres and 12/12 sampled vertices inside corresponding solid columns, not exposed unsupported panels.",
+      "Gate motor/beam tower overlaps and most dado/wainscot/floor seams are intentional manufactured joints or buried interfaces."
+    ],
+    "oriented_bearing_witnesses": [
+      {
+        "label": "conveyor motor to mounting plate",
+        "source": "Drive motor housing",
+        "requested_target": "Drive motor mounting plate",
+        "witness_world": [
+          5.68,
+          9.2,
+          0.535
+        ],
+        "direction_world": [
+          0,
+          0,
+          -1
+        ],
+        "source_nearest_surface": {
+          "point": [
+            5.67999983,
+            9.19999981,
+            0.53500003
+          ],
+          "triangle": 288,
+          "normal": [
+            0.0,
+            4e-08,
+            -1.0
+          ],
+          "distance_from_witness_m": 0.0
+        },
+        "target_surface_hits": [
+          {
+            "object": "Drive motor mounting plate",
+            "point": [
+              5.67999983,
+              9.19999981,
+              0.53500009
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "triangle": 159,
+            "signed_gap_from_witness_m": -5.960464477539063e-08
+          }
+        ]
+      },
+      {
+        "label": "conveyor mounting plate to side frame",
+        "source": "Drive motor mounting plate",
+        "requested_target": null,
+        "witness_world": [
+          5.44,
+          9.2,
+          0.52
+        ],
+        "direction_world": [
+          -1,
+          0,
+          0
+        ],
+        "source_nearest_surface": {
+          "point": [
+            5.44000006,
+            9.19999981,
+            0.53499997
+          ],
+          "triangle": 158,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "distance_from_witness_m": 0.014999985694885254
+        },
+        "target_surface_hits": []
+      },
+      {
+        "label": "control panel underside to mount",
+        "source": "Conveyor control panel",
+        "requested_target": null,
+        "witness_world": [
+          3.42,
+          7.65,
+          0.93
+        ],
+        "direction_world": [
+          0,
+          0,
+          -1
+        ],
+        "source_nearest_surface": {
+          "point": [
+            3.42000008,
+            7.6500001,
+            0.93000001
+          ],
+          "triangle": 152,
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "distance_from_witness_m": 0.0
+        },
+        "target_surface_hits": [
+          {
+            "object": "Conveyor operator desk arm",
+            "point": [
+              3.42000008,
+              7.6500001,
+              0.94
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "triangle": 159,
+            "signed_gap_from_witness_m": -0.009999990463256836
+          }
+        ]
+      },
+      {
+        "label": "gate motor into guide tower",
+        "source": "G1 motor drive housing",
+        "requested_target": "G1 guide tower east",
+        "witness_world": [
+          3.02,
+          6.9,
+          1.85
+        ],
+        "direction_world": [
+          0,
+          1,
+          0
+        ],
+        "source_nearest_surface": {
+          "point": [
+            3.01999998,
+            6.9000001,
+            1.85000002
+          ],
+          "triangle": 161,
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "distance_from_witness_m": 0.0
+        },
+        "target_surface_hits": [
+          {
+            "object": "G1 guide tower east",
+            "point": [
+              3.01999998,
+              7.17000008,
+              1.85000002
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "triangle": 160,
+            "signed_gap_from_witness_m": 0.26999998092651367
+          }
+        ]
+      },
+      {
+        "label": "gate pedestal head to column",
+        "source": "G1 pedestal head",
+        "requested_target": "G1 pedestal column",
+        "witness_world": [
+          0.65,
+          6.75,
+          1.0
+        ],
+        "direction_world": [
+          0,
+          0,
+          -1
+        ],
+        "source_nearest_surface": {
+          "point": [
+            0.64999998,
+            6.75,
+            1.0
+          ],
+          "triangle": 152,
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "distance_from_witness_m": 0.0
+        },
+        "target_surface_hits": [
+          {
+            "object": "G1 pedestal column",
+            "point": [
+              0.64999998,
+              6.75,
+              1.00000012
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "triangle": 158,
+            "signed_gap_from_witness_m": -1.1920928955078125e-07
+          }
+        ]
+      },
+      {
+        "label": "gate beam into east guide tower",
+        "source": "G1 overhead slide beam",
+        "requested_target": "G1 guide tower east",
+        "witness_world": [
+          3.02,
+          7.0,
+          1.62
+        ],
+        "direction_world": [
+          1,
+          0,
+          0
+        ],
+        "source_nearest_surface": {
+          "point": [
+            3.01999998,
+            7.0,
+            1.62
+          ],
+          "triangle": 163,
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "distance_from_witness_m": 0.0
+        },
+        "target_surface_hits": [
+          {
+            "object": "G1 guide tower east",
+            "point": [
+              3.14999986,
+              7.0,
+              1.62
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "triangle": 162,
+            "signed_gap_from_witness_m": 0.12999987602233887
+          }
+        ]
+      },
+      {
+        "label": "gate beam into west latch post",
+        "source": "G1 overhead slide beam",
+        "requested_target": "G1 latch post west",
+        "witness_world": [
+          0.95,
+          7.0,
+          1.62
+        ],
+        "direction_world": [
+          -1,
+          0,
+          0
+        ],
+        "source_nearest_surface": {
+          "point": [
+            0.95000005,
+            7.0,
+            1.62
+          ],
+          "triangle": 155,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "distance_from_witness_m": 5.960464477539063e-08
+        },
+        "target_surface_hits": [
+          {
+            "object": "G1 latch post west",
+            "point": [
+              0.87000012,
+              7.0,
+              1.62
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "triangle": 154,
+            "signed_gap_from_witness_m": 0.07999986410140991
+          }
+        ]
+      },
+      {
+        "label": "supply trunk suspension bearing",
+        "source": "Main ventilation supply trunk",
+        "requested_target": "CD | Joined CD | Main ventilation supply trunk suspension / steel",
+        "witness_world": [
+          3.2,
+          1.0,
+          4.175
+        ],
+        "direction_world": [
+          0,
+          0,
+          1
+        ],
+        "source_nearest_surface": {
+          "point": [
+            3.19999933,
+            1.00000143,
+            4.17500019
+          ],
+          "triangle": 159,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "distance_from_witness_m": 1.599360416548734e-06
+        },
+        "target_surface_hits": [
+          {
+            "object": "CD | Joined CD | Main ventilation supply trunk suspension / steel",
+            "point": [
+              3.20000005,
+              1.0,
+              4.17500019
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "triangle": 513,
+            "signed_gap_from_witness_m": 0.0
+          }
+        ]
+      },
+      {
+        "label": "return trunk suspension bearing",
+        "source": "Return ventilation trunk",
+        "requested_target": "CD | Joined CD | Return ventilation trunk suspension / steel",
+        "witness_world": [
+          -3.8,
+          1.0,
+          4.125
+        ],
+        "direction_world": [
+          0,
+          0,
+          1
+        ],
+        "source_nearest_surface": {
+          "point": [
+            -3.80000138,
+            1.00000238,
+            4.125
+          ],
+          "triangle": 159,
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "distance_from_witness_m": 2.7804144338006154e-06
+        },
+        "target_surface_hits": [
+          {
+            "object": "CD | Joined CD | Return ventilation trunk suspension / steel",
+            "point": [
+              -3.79999995,
+              1.0,
+              4.125
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "triangle": 513,
+            "signed_gap_from_witness_m": 0.0
+          }
+        ]
+      },
+      {
+        "label": "trolley drape on bed",
+        "source": "Covered Trolley Draped Tarp",
+        "requested_target": "Trolley bed perimeter",
+        "witness_world": [
+          -6.2,
+          12.2,
+          0.808
+        ],
+        "direction_world": [
+          0,
+          0,
+          -1
+        ],
+        "source_nearest_surface": {
+          "point": [
+            -6.2183671,
+            12.19999981,
+            0.82143468
+          ],
+          "triangle": 57,
+          "normal": [
+            0.80712759,
+            0.0,
+            -0.59037709
+          ],
+          "distance_from_witness_m": 0.02275625430047512
+        },
+        "target_surface_hits": [
+          {
+            "object": "Trolley bed perimeter",
+            "point": [
+              -6.19999981,
+              12.19999981,
+              0.81000006
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "triangle": 159,
+            "signed_gap_from_witness_m": -0.0020000338554382324
+          }
+        ]
+      }
+    ],
+    "webbing_drape_samples": [
+      {
+        "object": "Trolley strap 0",
+        "samples": [
+          {
+            "world_x": -6.1,
+            "y": 12.550000190734863,
+            "strap_point": [
+              -6.0999999,
+              12.55000019,
+              0.96464157
+            ],
+            "tarp_point": [
+              -6.0999999,
+              12.55000019,
+              0.96233726
+            ],
+            "strap_top_minus_tarp_m": 0.0023043155670166016,
+            "strap_normal": [
+              -0.62031204,
+              -0.00543271,
+              0.78433639
+            ],
+            "tarp_normal": [
+              -0.61756563,
+              0.00425073,
+              0.78650796
+            ]
+          },
+          {
+            "world_x": -5.85,
+            "y": 12.550000190734863,
+            "strap_point": [
+              -5.8499999,
+              12.55000019,
+              1.04068661
+            ],
+            "tarp_point": [
+              -5.8499999,
+              12.55000019,
+              1.03838623
+            ],
+            "strap_top_minus_tarp_m": 0.0023003816604614258,
+            "strap_normal": [
+              0.13401398,
+              0.00240203,
+              0.99097657
+            ],
+            "tarp_normal": [
+              0.13319199,
+              0.00236249,
+              0.9910875
+            ]
+          },
+          {
+            "world_x": -5.6,
+            "y": 12.550000190734863,
+            "strap_point": [
+              -5.5999999,
+              12.55000019,
+              0.97704273
+            ],
+            "tarp_point": [
+              -5.5999999,
+              12.55000019,
+              0.9747237
+            ],
+            "strap_top_minus_tarp_m": 0.002319037914276123,
+            "strap_normal": [
+              0.67298663,
+              -0.00065946,
+              0.73965436
+            ],
+            "tarp_normal": [
+              0.67400783,
+              -0.00058435,
+              0.73872399
+            ]
+          }
+        ]
+      },
+      {
+        "object": "Trolley strap 1",
+        "samples": [
+          {
+            "world_x": -6.1,
+            "y": 13.050000190734863,
+            "strap_point": [
+              -6.0999999,
+              13.05000019,
+              0.97530162
+            ],
+            "tarp_point": [
+              -6.0999999,
+              13.05000019,
+              0.97298044
+            ],
+            "strap_top_minus_tarp_m": 0.002321183681488037,
+            "strap_normal": [
+              -0.72382849,
+              -0.03103219,
+              0.68928176
+            ],
+            "tarp_normal": [
+              -0.72520703,
+              -0.03165554,
+              0.68780279
+            ]
+          },
+          {
+            "world_x": -5.85,
+            "y": 13.050000190734863,
+            "strap_point": [
+              -5.8499999,
+              13.05000019,
+              1.04071391
+            ],
+            "tarp_point": [
+              -5.8499999,
+              13.05000019,
+              1.03838384
+            ],
+            "strap_top_minus_tarp_m": 0.0023300647735595703,
+            "strap_normal": [
+              -0.02274805,
+              -0.01732781,
+              0.99959105
+            ],
+            "tarp_normal": [
+              -0.01174886,
+              -0.01482408,
+              0.99982107
+            ]
+          },
+          {
+            "world_x": -5.6,
+            "y": 13.050000190734863,
+            "strap_point": [
+              -5.5999999,
+              13.05000019,
+              0.96920037
+            ],
+            "tarp_point": [
+              -5.5999999,
+              13.05000019,
+              0.96688962
+            ],
+            "strap_top_minus_tarp_m": 0.0023107528686523438,
+            "strap_normal": [
+              0.70828587,
+              0.03184375,
+              0.70520717
+            ],
+            "tarp_normal": [
+              0.70317245,
+              0.00853124,
+              0.71096814
+            ]
+          }
+        ]
+      },
+      {
+        "object": "Trolley strap 2",
+        "samples": [
+          {
+            "world_x": -6.1,
+            "y": 13.550000190734863,
+            "strap_point": [
+              -6.0999999,
+              13.55000019,
+              0.98777658
+            ],
+            "tarp_point": [
+              -6.0999999,
+              13.55000019,
+              0.9854753
+            ],
+            "strap_top_minus_tarp_m": 0.0023012757301330566,
+            "strap_normal": [
+              -0.29982495,
+              -0.02842553,
+              0.95357066
+            ],
+            "tarp_normal": [
+              -0.29994613,
+              -0.02842448,
+              0.95353258
+            ]
+          },
+          {
+            "world_x": -5.85,
+            "y": 13.550000190734863,
+            "strap_point": [
+              -5.8499999,
+              13.55000019,
+              1.07717991
+            ],
+            "tarp_point": [
+              -5.8499999,
+              13.55000019,
+              1.07479858
+            ],
+            "strap_top_minus_tarp_m": 0.0023813247680664062,
+            "strap_normal": [
+              0.18782145,
+              -0.09457455,
+              0.97763944
+            ],
+            "tarp_normal": [
+              0.18820177,
+              -0.09456873,
+              0.97756684
+            ]
+          },
+          {
+            "world_x": -5.6,
+            "y": 13.550000190734863,
+            "strap_point": [
+              -5.5999999,
+              13.55000019,
+              0.98951536
+            ],
+            "tarp_point": [
+              -5.5999999,
+              13.55000019,
+              0.98720944
+            ],
+            "strap_top_minus_tarp_m": 0.002305924892425537,
+            "strap_normal": [
+              0.32169122,
+              -0.09907665,
+              0.94164675
+            ],
+            "tarp_normal": [
+              0.32232678,
+              -0.09905538,
+              0.94143158
+            ]
+          }
+        ]
+      },
+      {
+        "object": "Trolley strap 3",
+        "samples": [
+          {
+            "world_x": -6.1,
+            "y": 14.050000190734863,
+            "strap_point": [
+              -6.0999999,
+              14.05000019,
+              0.98001778
+            ],
+            "tarp_point": [
+              -6.0999999,
+              14.05000019,
+              0.97772372
+            ],
+            "strap_top_minus_tarp_m": 0.0022940635681152344,
+            "strap_normal": [
+              -0.42007297,
+              0.05843121,
+              0.90560722
+            ],
+            "tarp_normal": [
+              -0.41957274,
+              0.05844696,
+              0.90583807
+            ]
+          },
+          {
+            "world_x": -5.85,
+            "y": 14.050000190734863,
+            "strap_point": [
+              -5.8499999,
+              14.05000019,
+              1.07059133
+            ],
+            "tarp_point": [
+              -5.8499999,
+              14.05000019,
+              1.06829143
+            ],
+            "strap_top_minus_tarp_m": 0.0022999048233032227,
+            "strap_normal": [
+              0.2152065,
+              0.10086501,
+              0.97134566
+            ],
+            "tarp_normal": [
+              0.21553864,
+              0.10085601,
+              0.97127301
+            ]
+          },
+          {
+            "world_x": -5.6,
+            "y": 14.050000190734863,
+            "strap_point": [
+              -5.5999999,
+              14.05000019,
+              0.99293935
+            ],
+            "tarp_point": [
+              -5.5999999,
+              14.05000019,
+              0.99064815
+            ],
+            "strap_top_minus_tarp_m": 0.0022912025451660156,
+            "strap_normal": [
+              0.51130831,
+              0.04936207,
+              0.85797864
+            ],
+            "tarp_normal": [
+              0.51063722,
+              0.04938748,
+              0.85837668
+            ]
+          }
+        ]
+      }
+    ],
+    "uv_distortion_threshold_invented": false
+  },
+  "pixels_consumed": {
+    "beauty_overviews": [
+      "C01_ENTRY",
+      "C02_HERO_DOCK",
+      "C03_CHECKIN_COUNTER",
+      "C04_SCANNER_APPROACH",
+      "C05_CONVEYOR_LEAD_TUNNEL",
+      "C06_CART_GATE_G1",
+      "C07_OFFICE_INTERIOR",
+      "C08_CONCEALED_SUPPORT_H1",
+      "C09_ARRIVAL_GATE_P2",
+      "C10_ROOF_SERVICES",
+      "CORNER_SW",
+      "CORNER_SE",
+      "CORNER_NW",
+      "CORNER_NE",
+      "WALL_SOUTH",
+      "WALL_NORTH",
+      "WALL_EAST",
+      "WALL_WEST",
+      "HERO_SCANNER",
+      "HERO_CARGO",
+      "HERO_EVIDENCE",
+      "HERO_TROLLEY",
+      "HERO_UTILITIES",
+      "DETAIL_CHECKIN",
+      "PLAYER_REVERSE",
+      "PLAYER_PINCH",
+      "WALL_OFFICE_FRONT"
+    ],
+    "beauty_native_resolution": [
+      "C05_CONVEYOR_LEAD_TUNNEL",
+      "HERO_CARGO",
+      "HERO_SCANNER",
+      "C06_CART_GATE_G1",
+      "C10_ROOF_SERVICES",
+      "HERO_TROLLEY",
+      "C07_OFFICE_INTERIOR",
+      "DETAIL_CHECKIN",
+      "HERO_UTILITIES",
+      "WALL_OFFICE_FRONT"
+    ],
+    "overview_method": "Five contact sheets, 533x300 per fixed frame, then named close views reopened at original 1067x600.",
+    "diagnostic_batches": [
+      {
+        "batch": "full-cycle-02-uv",
+        "manifest_complete": true,
+        "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+        "diagnostic": "uv",
+        "images": [
+          {
+            "id": "C05_CONVEYOR_LEAD_TUNNEL",
+            "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02-uv/C05_CONVEYOR_LEAD_TUNNEL.png",
+            "sha256": "f1c5f86857d3dcd0bc6817e443a7ab1a83a42474fb3c2185d4c7c79eeed0c1a3",
+            "expected_sha256": "f1c5f86857d3dcd0bc6817e443a7ab1a83a42474fb3c2185d4c7c79eeed0c1a3",
+            "hash_matches": true,
+            "resolution": [
+              1067,
+              600
+            ],
+            "actual_pixels_opened": true
+          },
+          {
+            "id": "C07_OFFICE_INTERIOR",
+            "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02-uv/C07_OFFICE_INTERIOR.png",
+            "sha256": "ee48d80157ec847ed836553cc7ceeba3cc59c730316dc9d645ad1fbcfc694955",
+            "expected_sha256": "ee48d80157ec847ed836553cc7ceeba3cc59c730316dc9d645ad1fbcfc694955",
+            "hash_matches": true,
+            "resolution": [
+              1067,
+              600
+            ],
+            "actual_pixels_opened": true
+          },
+          {
+            "id": "HERO_TROLLEY",
+            "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02-uv/HERO_TROLLEY.png",
+            "sha256": "6c7636a5068fdcdc074488e67eee6ad8a9b13edf09be0b628caa00e8c6d3aa75",
+            "expected_sha256": "6c7636a5068fdcdc074488e67eee6ad8a9b13edf09be0b628caa00e8c6d3aa75",
+            "hash_matches": true,
+            "resolution": [
+              1067,
+              600
+            ],
+            "actual_pixels_opened": true
+          },
+          {
+            "id": "HERO_UTILITIES",
+            "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02-uv/HERO_UTILITIES.png",
+            "sha256": "f55059416d4d4c5d1e4cb8477e64bd0e95f6d3ad4318673a4fdaf44b01714f1f",
+            "expected_sha256": "f55059416d4d4c5d1e4cb8477e64bd0e95f6d3ad4318673a4fdaf44b01714f1f",
+            "hash_matches": true,
+            "resolution": [
+              1067,
+              600
+            ],
+            "actual_pixels_opened": true
+          }
+        ]
+      },
+      {
+        "batch": "full-cycle-02-neutral",
+        "manifest_complete": true,
+        "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+        "diagnostic": "neutral",
+        "images": [
+          {
+            "id": "C05_CONVEYOR_LEAD_TUNNEL",
+            "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+            "sha256": "a3e332787f2a862429fca428eae4ab7e9ba95393f568ee6f5e295c4a326ca431",
+            "expected_sha256": "a3e332787f2a862429fca428eae4ab7e9ba95393f568ee6f5e295c4a326ca431",
+            "hash_matches": true,
+            "resolution": [
+              1067,
+              600
+            ],
+            "actual_pixels_opened": true
+          },
+          {
+            "id": "C07_OFFICE_INTERIOR",
+            "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02-neutral/C07_OFFICE_INTERIOR.png",
+            "sha256": "ce4cf2f59092d27370b45800d693e7510d366ec851640f6bdbc6ad4000d104ee",
+            "expected_sha256": "ce4cf2f59092d27370b45800d693e7510d366ec851640f6bdbc6ad4000d104ee",
+            "hash_matches": true,
+            "resolution": [
+              1067,
+              600
+            ],
+            "actual_pixels_opened": true
+          },
+          {
+            "id": "HERO_TROLLEY",
+            "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02-neutral/HERO_TROLLEY.png",
+            "sha256": "17c45d1c5f34a85457831ae18f705bea5bae09095b321943e2f1089be2dc0c0f",
+            "expected_sha256": "17c45d1c5f34a85457831ae18f705bea5bae09095b321943e2f1089be2dc0c0f",
+            "hash_matches": true,
+            "resolution": [
+              1067,
+              600
+            ],
+            "actual_pixels_opened": true
+          },
+          {
+            "id": "HERO_UTILITIES",
+            "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02-neutral/HERO_UTILITIES.png",
+            "sha256": "01489e04602f3347b493987e05e33e7c85e6714ecf5cf17b93c47df3f39e6b22",
+            "expected_sha256": "01489e04602f3347b493987e05e33e7c85e6714ecf5cf17b93c47df3f39e6b22",
+            "hash_matches": true,
+            "resolution": [
+              1067,
+              600
+            ],
+            "actual_pixels_opened": true
+          }
+        ]
+      }
+    ],
+    "approved_spawn_originals": [
+      "VALIDATE_Spawn",
+      "BRIEFING_INDIRECT",
+      "VALIDATE_LockerDoor",
+      "VALIDATE_Material_A"
+    ],
+    "coverage_complete": true,
+    "no_full_verdict_from_counters_alone": true
+  },
+  "view_failures": [
+    {
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO"
+      ],
+      "defect": "T8-C1",
+      "evidence": "Exposed black horizontal slab below conveyor frame in beauty and neutral C05; physical detachment established by native triangles/rays."
+    },
+    {
+      "views": [
+        "C04_SCANNER_APPROACH",
+        "HERO_SCANNER",
+        "C06_CART_GATE_G1"
+      ],
+      "defect": "T8-C2",
+      "evidence": "Lenses are visible in scanner views, but a 6 mm rear gap is not reliably measurable from the beauty frame. Oriented +Y backing probes supply the decisive evidence."
+    },
+    {
+      "views": [
+        "C04_SCANNER_APPROACH",
+        "HERO_SCANNER"
+      ],
+      "defect": "T8-C3",
+      "evidence": "Inscription is present on the scanner head; image pixels alone do not resolve this rear gap. The actual glyph rear surface and opposed backing normal prove detachment."
+    },
+    {
+      "views": [
+        "HERO_TROLLEY"
+      ],
+      "defect": "T8-N1",
+      "evidence": "Actual consumed UV checker shows roughly six-times-larger checks on the drape. Island continuity follows the folds; beauty/neutral cloth remains coherent and matte."
+    },
+    {
+      "views": [],
+      "defect": "T8-N2",
+      "evidence": "No discernible flicker or dominant duplicate-skin artifact in current fixed views. Runtime z-fighting remains untested."
+    }
+  ],
+  "unverified": [
+    "Engine collision meshes, navigation, gameplay interaction, FPS, draw calls, shader portability and performance.",
+    "Curved cart/body turns, moving-door swept collisions, handler space, ragdoll paths and structural load capacities.",
+    "Completeness of authored circulation_solid classifications; inherited warning is conservative architectural inclusion, not a measured route obstruction.",
+    "Sealed external access opening proof: authored sealed boundary, no current open geometric proof.",
+    "Independent factory rebuild from the archived full recipe and final same-camera fresh-checkout cold-render pixel comparison. Native cold opening alone does not pass this gate.",
+    "Owner art approval and map promotion; no authority to approve either.",
+    "Minimum four complete full review cycles and final two materially stable cycles: this report covers current cycle 02 only."
+  ],
+  "independence": {
+    "earlier_reports_or_scores_read": false,
+    "scene_or_asset_writes": false,
+    "subagents_spawned": false,
+    "blender_max_threads": 1,
+    "source_save_called": false,
+    "source_read_handles_released": true
+  },
+  "final_integrity": {
+    "native": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+    "checkpoint": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+    "expected_source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+    "protected_inputs": [
+      {
+        "path": "sections/facility-assembly/blender/facility_environment.blend",
+        "expected_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "actual_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "matches": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/module.blend",
+        "expected_sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "actual_sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "matches": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/accepted.blend",
+        "expected_sha256": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "actual_sha256": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "matches": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/contracts/interface.json",
+        "expected_sha256": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "actual_sha256": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "matches": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/spawn-room/module.blend",
+        "expected_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "actual_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "matches": true
+      }
+    ],
+    "source_unchanged": true
+  },
+  "raw_evidence_directory": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/critics/full-c02-technical"
+}

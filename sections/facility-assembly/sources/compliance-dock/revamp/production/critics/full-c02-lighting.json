@@ -1,0 +1,200 @@
+{
+  "review": "Compliance dock full cycle 02 — independent lighting/atmosphere critic",
+  "scope": "Category 5 only. Current beauty pixels against the art direction, overhaul brief, rubric and four approved spawn references. No scene, code or map edits; no earlier review or score used.",
+  "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+  "renderer_sha256": "1c15a22298abfeb4af36a71ed24ccb3a729a05cb56a829bdfa23fa61d6c66597",
+  "manifest_path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/manifest.json",
+  "manifest_complete": true,
+  "current_frame_count": 27,
+  "approved_reference_count": 4,
+  "images_opened_count": 31,
+  "resolution": [
+    1067,
+    600
+  ],
+  "category_scores": {
+    "5": 91
+  },
+  "category_names": {
+    "5": "Localized lighting, depth and bleak atmosphere without hiding geometry"
+  },
+  "threshold": "Every category must be strictly greater than 93/100.",
+  "verdict": "FAIL_CATEGORY_5",
+  "verdict_detail": "91/100 does not meet the strict >93 category gate. No dominant flat-lighting veto or critical lighting defect is evident, but the remaining hierarchy and atmosphere issues prevent acceptance.",
+  "critical_defects": [],
+  "visual_veto": false,
+  "strengths": [
+    "Inspection arch, bypass controls, check-in paperwork and seals remain readable; darkness is generally reserved for roof, lower-wall masses and sealed arrival.",
+    "Check-in has the strongest motivated work pool: warm sill/paper/stamp surfaces, darker counter front and subdued office behind (C03_CHECKIN_COUNTER, DETAIL_CHECKIN, WALL_OFFICE_FRONT).",
+    "Cool blue inspection against the restrained warm office is coherent with the approved spawn material and colour families while producing a colder institutional character.",
+    "Visible practicals influence nearby roof and wall surfaces; amber beacons and small control lamps stay restrained.",
+    "C09_ARRIVAL_GATE_P2 and PLAYER_PINCH show a convincing dark, closed, coercive arrival mass without losing route and gate edges."
+  ],
+  "view_failures": [
+    {
+      "view_id": "C08_CONCEALED_SUPPORT_H1",
+      "severity": "moderate",
+      "defect_ids": [
+        "L1"
+      ],
+      "observation": "The broad warm wall reads brighter and calmer than the concealed trolley; the support bay lacks a convincingly dim secondary-space atmosphere."
+    },
+    {
+      "view_id": "HERO_TROLLEY",
+      "severity": "moderate",
+      "defect_ids": [
+        "L1"
+      ],
+      "observation": "The tarp and locks are readable, but the even warm wall and floor make the covered transfer feel openly displayed."
+    },
+    {
+      "view_id": "HERO_EVIDENCE",
+      "severity": "minor",
+      "defect_ids": [
+        "L1"
+      ],
+      "observation": "The evidence fronts receive a broad comfortable wash rather than a restrained secondary task pool; sufficient shape remains visible."
+    },
+    {
+      "view_id": "C02_HERO_DOCK",
+      "severity": "moderate",
+      "defect_ids": [
+        "L2",
+        "L4"
+      ],
+      "observation": "The inspection forms are clear, but much of the floor/wall/adjacent gate shares a broad cool illumination band; bright roof structure also competes with the hero."
+    },
+    {
+      "view_id": "C01_ENTRY",
+      "severity": "minor",
+      "defect_ids": [
+        "L2"
+      ],
+      "observation": "The arch reads immediately, but the broadly lit foreground route and pale office fascia weaken its practical-pool separation."
+    },
+    {
+      "view_id": "HERO_SCANNER",
+      "severity": "minor",
+      "defect_ids": [
+        "L2"
+      ],
+      "observation": "Readable arch/control geometry has limited light-value isolation from the nearby bypass gate and open floor."
+    },
+    {
+      "view_id": "PLAYER_REVERSE",
+      "severity": "minor",
+      "defect_ids": [
+        "L2",
+        "L4"
+      ],
+      "observation": "The reverse arch remains readable; the broad route wash and bright upper beam are stronger than the differentiated inspection work pool."
+    },
+    {
+      "view_id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "severity": "minor",
+      "defect_ids": [
+        "L3"
+      ],
+      "observation": "The curtain and internal conveyor entry merge into near-black; the crate label claims disproportionate local attention."
+    },
+    {
+      "view_id": "HERO_CARGO",
+      "severity": "minor",
+      "defect_ids": [
+        "L3"
+      ],
+      "observation": "The mouth is identifiable, but the first curtain strips and entry transition lose their form in darkness."
+    },
+    {
+      "view_id": "C10_ROOF_SERVICES",
+      "severity": "moderate",
+      "defect_ids": [
+        "L4"
+      ],
+      "observation": "Visible practical tubes and foreground beams read well; deeper roof/service layers merge, while a near-beam hotspot is overly prominent."
+    }
+  ],
+  "highest_impact_repairs": [
+    {
+      "id": "L1",
+      "priority": 1,
+      "views": [
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_TROLLEY",
+        "HERO_EVIDENCE",
+        "CORNER_SE",
+        "CORNER_NE"
+      ],
+      "repair": "Pull down the broad warm backdrop and floor illumination in the concealed support/evidence bay. Retain a restrained side or grazing pool on the tarp upper folds, straps, handle and selected lock faces so those forms remain readable.",
+      "reason": "The bay currently reads as openly serviced and comfortable as the staff office. The luminous beige wall dominates the darker trolley and removes the intended secondary-space unease."
+    },
+    {
+      "id": "L2",
+      "priority": 2,
+      "views": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "HERO_SCANNER",
+        "PLAYER_REVERSE"
+      ],
+      "repair": "Increase the value separation between the inspection work pool and the surrounding route/wall fill. Keep the scanner threshold, control face and yellow route marks legible; lower the broad cool wash beyond that work zone while preserving the warm check-in pool.",
+      "reason": "The arch is identifiable, but floor, gate fronts and adjacent pale walls often sit in one broad middle-light band. The practical-lit inspection zone therefore feels less deliberately isolated than the hatch."
+    },
+    {
+      "id": "L3",
+      "priority": 3,
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO"
+      ],
+      "repair": "Use a very low external graze or bounce to reveal the first curtain strip edges, mouth lip and first roller contours. Keep the cargo tunnel dark and let the housing/entry remain more important than the white crate label.",
+      "reason": "The curtain face and inner entry compress into a near-black rectangle. The opening remains recognizable, but the strip construction and transition into the conveyor lose form."
+    },
+    {
+      "id": "L4",
+      "priority": 4,
+      "views": [
+        "C10_ROOF_SERVICES",
+        "C02_HERO_DOCK",
+        "PLAYER_REVERSE"
+      ],
+      "repair": "Soften the brightest near-beam patch and preserve a weak, selective bounce on a second truss/service plane. Keep the remote ceiling deck dark; stage overlapping layers rather than raising the whole roof.",
+      "reason": "The near beam and tubes are clear, while several deeper service/bracing layers merge into black. The bright foreground beam patch can attract attention before the inspection assembly."
+    }
+  ],
+  "reference_comparison": "The spawn references support dark ceilings, broad but controlled fill, legible metal/PPE silhouettes and warm/cool room zoning. The dock matches the family relationships. Its bleak contrast is strongest at the hatch and sealed gate, but the concealed bay's broad warm wash is too similar to the comfortable office and the inspection route could have clearer localized hierarchy.",
+  "technical_runtime_claims": "Not assessed from pixels. Manifest metadata records evidence identity/completeness only; no support, dimensions, reproducibility, dependencies, runtime, FPS, navigation or export pass is claimed.",
+  "images_opened": [
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C01_ENTRY.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C02_HERO_DOCK.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C03_CHECKIN_COUNTER.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C04_SCANNER_APPROACH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C05_CONVEYOR_LEAD_TUNNEL.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C06_CART_GATE_G1.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C07_OFFICE_INTERIOR.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C08_CONCEALED_SUPPORT_H1.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C09_ARRIVAL_GATE_P2.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C10_ROOF_SERVICES.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_NE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_NW.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_SE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_SW.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_NORTH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_SOUTH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_EAST.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_WEST.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_SCANNER.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_CARGO.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_EVIDENCE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_TROLLEY.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_UTILITIES.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/DETAIL_CHECKIN.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/PLAYER_REVERSE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/PLAYER_PINCH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_OFFICE_FRONT.png"
+  ]
+}

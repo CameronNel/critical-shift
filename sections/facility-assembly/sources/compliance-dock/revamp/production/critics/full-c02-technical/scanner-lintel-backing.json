@@ -1,0 +1,938 @@
+{
+  "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+  "backing_gap_witnesses": [
+    {
+      "object": "Scanner lintel txt",
+      "root": "Person Scanner Arch",
+      "nearest_connected_surfaces": [
+        {
+          "distance_m": 0.006999969482421875,
+          "source_object": "Scanner lintel txt",
+          "source_point": [
+            0.48560831,
+            6.79299974,
+            2.76473212
+          ],
+          "source_normal": [
+            0.0,
+            1.0,
+            4e-08
+          ],
+          "other_object": "Scanner lintel face",
+          "other_point": [
+            0.48560828,
+            6.79999971,
+            2.76473212
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 156
+        },
+        {
+          "distance_m": 0.02700042724609375,
+          "source_object": "Scanner lintel txt",
+          "source_point": [
+            0.48560831,
+            6.79299974,
+            2.76473212
+          ],
+          "source_normal": [
+            0.0,
+            1.0,
+            4e-08
+          ],
+          "other_object": "Scanner portal lintel",
+          "other_point": [
+            0.48560831,
+            6.82000017,
+            2.76473212
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 271
+        },
+        {
+          "distance_m": 0.09899395704269409,
+          "source_object": "Scanner lintel txt",
+          "source_point": [
+            0.50651252,
+            6.79299974,
+            2.72049999
+          ],
+          "source_normal": [
+            0.0,
+            4e-08,
+            -1.0
+          ],
+          "other_object": "CD | Joined Person Scanner Arch / steel",
+          "other_point": [
+            0.60500008,
+            6.80299997,
+            2.72049999
+          ],
+          "other_normal": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "other_triangle": 5030
+        },
+        {
+          "distance_m": 0.12991175055503845,
+          "source_object": "Scanner lintel txt",
+          "source_point": [
+            0.50651252,
+            6.79299974,
+            2.72049999
+          ],
+          "source_normal": [
+            0.0,
+            4e-08,
+            -1.0
+          ],
+          "other_object": "Scanner portal column 1",
+          "other_point": [
+            0.6104008,
+            6.82299995,
+            2.64849806
+          ],
+          "other_normal": [
+            -0.92799801,
+            -0.26345363,
+            0.26346147
+          ],
+          "other_triangle": 200
+        },
+        {
+          "distance_m": 0.13357828557491302,
+          "source_object": "Scanner lintel txt",
+          "source_point": [
+            -0.50196248,
+            6.79299974,
+            2.72049999
+          ],
+          "source_normal": [
+            0.0,
+            4e-08,
+            -1.0
+          ],
+          "other_object": "Scanner portal column -1",
+          "other_point": [
+            -0.6104008,
+            6.82299995,
+            2.64849806
+          ],
+          "other_normal": [
+            0.93528038,
+            -0.2502467,
+            0.25025415
+          ],
+          "other_triangle": 53
+        }
+      ],
+      "closed_surface_containment_screen": [
+        {
+          "object": "CD | Joined Person Scanner Arch / steel",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Scanner lintel face",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Scanner portal lintel",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Scanner portal column 1",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Scanner portal column -1",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        }
+      ],
+      "oriented_ray_direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ray_from_world": [
+        0.00227502,
+        6.73999977,
+        2.74266481
+      ],
+      "oriented_ray_hits": [
+        {
+          "object": "Scanner lintel face",
+          "point": [
+            0.00227502,
+            6.79999971,
+            2.74266481
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.009999752044677734
+        },
+        {
+          "object": "Scanner portal lintel",
+          "point": [
+            0.00227502,
+            6.82000017,
+            2.74266481
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.03000020980834961
+        }
+      ]
+    }
+  ],
+  "actual_cotton_shader_nodes": [
+    {
+      "name": "Principled BSDF",
+      "type": "BSDF_PRINCIPLED",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Base Color",
+          "default": [
+            0.0729999989271164,
+            0.0949999988079071,
+            0.11500000208616257,
+            1.0
+          ],
+          "linked_from": [
+            {
+              "node": "Color Ramp",
+              "socket": "Color"
+            }
+          ]
+        },
+        {
+          "name": "Metallic",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Roughness",
+          "default": 0.9700000286102295,
+          "linked_from": [
+            {
+              "node": "Map Range",
+              "socket": "Result"
+            }
+          ]
+        },
+        {
+          "name": "IOR",
+          "default": 1.5,
+          "linked_from": []
+        },
+        {
+          "name": "Alpha",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Thin Wall",
+          "default": false,
+          "linked_from": []
+        },
+        {
+          "name": "Normal",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": [
+            {
+              "node": "Bump.001",
+              "socket": "Normal"
+            }
+          ]
+        },
+        {
+          "name": "Weight",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Diffuse Roughness",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Subsurface Weight",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Subsurface Radius",
+          "default": [
+            1.0,
+            0.20000000298023224,
+            0.10000000149011612
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Subsurface Scale",
+          "default": 0.004999999888241291,
+          "linked_from": []
+        },
+        {
+          "name": "Subsurface IOR",
+          "default": 1.399999976158142,
+          "linked_from": []
+        },
+        {
+          "name": "Subsurface Anisotropy",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Specular IOR Level",
+          "default": 0.30000001192092896,
+          "linked_from": []
+        },
+        {
+          "name": "Specular Tint",
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Anisotropic",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Anisotropic Rotation",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Tangent",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Transmission Weight",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Coat Weight",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Coat Roughness",
+          "default": 0.029999999329447746,
+          "linked_from": []
+        },
+        {
+          "name": "Coat IOR",
+          "default": 1.5,
+          "linked_from": []
+        },
+        {
+          "name": "Coat Tint",
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Coat Normal",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Sheen Weight",
+          "default": 0.2800000011920929,
+          "linked_from": []
+        },
+        {
+          "name": "Sheen Roughness",
+          "default": 0.5,
+          "linked_from": []
+        },
+        {
+          "name": "Sheen Tint",
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Emission Color",
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Emission Strength",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Thin Film Thickness",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Thin Film IOR",
+          "default": 1.3300000429153442,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Material Output",
+      "type": "OUTPUT_MATERIAL",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Surface",
+          "default": null,
+          "linked_from": [
+            {
+              "node": "Principled BSDF",
+              "socket": "BSDF"
+            }
+          ]
+        },
+        {
+          "name": "Volume",
+          "default": null,
+          "linked_from": []
+        },
+        {
+          "name": "Displacement",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Thickness",
+          "default": 0.0,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "UV Map",
+      "type": "UVMAP",
+      "uv_map": "CD_Fabric_Cut_1m",
+      "inputs": []
+    },
+    {
+      "name": "Noise Texture",
+      "type": "TEX_NOISE",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Vector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": [
+            {
+              "node": "UV Map",
+              "socket": "UV"
+            }
+          ]
+        },
+        {
+          "name": "W",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Scale",
+          "default": 1.7000000476837158,
+          "linked_from": []
+        },
+        {
+          "name": "Detail",
+          "default": 2.0,
+          "linked_from": []
+        },
+        {
+          "name": "Roughness",
+          "default": 0.5,
+          "linked_from": []
+        },
+        {
+          "name": "Lacunarity",
+          "default": 2.0,
+          "linked_from": []
+        },
+        {
+          "name": "Offset",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Gain",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Distortion",
+          "default": 0.0,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Color Ramp",
+      "type": "VALTORGB",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Factor",
+          "default": 0.5,
+          "linked_from": [
+            {
+              "node": "Noise Texture",
+              "socket": "Factor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Map Range",
+      "type": "MAP_RANGE",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Value",
+          "default": 1.0,
+          "linked_from": [
+            {
+              "node": "Noise Texture",
+              "socket": "Factor"
+            }
+          ]
+        },
+        {
+          "name": "From Min",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "From Max",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "To Min",
+          "default": 0.925000011920929,
+          "linked_from": []
+        },
+        {
+          "name": "To Max",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Steps",
+          "default": 4.0,
+          "linked_from": []
+        },
+        {
+          "name": "Vector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "From Min",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "From Max",
+          "default": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "To Min",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "To Max",
+          "default": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Steps",
+          "default": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Noise Texture.001",
+      "type": "TEX_NOISE",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Vector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": [
+            {
+              "node": "UV Map",
+              "socket": "UV"
+            }
+          ]
+        },
+        {
+          "name": "W",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Scale",
+          "default": 180.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Roughness",
+          "default": 0.5,
+          "linked_from": []
+        },
+        {
+          "name": "Lacunarity",
+          "default": 2.0,
+          "linked_from": []
+        },
+        {
+          "name": "Offset",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Gain",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Distortion",
+          "default": 0.0,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Bump",
+      "type": "BUMP",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Strength",
+          "default": 0.25,
+          "linked_from": []
+        },
+        {
+          "name": "Distance",
+          "default": 0.0007999999797903001,
+          "linked_from": []
+        },
+        {
+          "name": "Filter Width",
+          "default": 0.10000000149011612,
+          "linked_from": []
+        },
+        {
+          "name": "Height",
+          "default": 1.0,
+          "linked_from": [
+            {
+              "node": "Noise Texture.001",
+              "socket": "Factor"
+            }
+          ]
+        },
+        {
+          "name": "Normal",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "UV Map.001",
+      "type": "UVMAP",
+      "uv_map": "CD_Fabric_Cut_1m",
+      "inputs": []
+    },
+    {
+      "name": "Wave Texture",
+      "type": "TEX_WAVE",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Vector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": [
+            {
+              "node": "UV Map.001",
+              "socket": "UV"
+            }
+          ]
+        },
+        {
+          "name": "Scale",
+          "default": 180.0,
+          "linked_from": []
+        },
+        {
+          "name": "Distortion",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail",
+          "default": 2.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail Scale",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail Roughness",
+          "default": 0.5,
+          "linked_from": []
+        },
+        {
+          "name": "Phase Offset",
+          "default": 0.0,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Wave Texture.001",
+      "type": "TEX_WAVE",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Vector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": [
+            {
+              "node": "UV Map.001",
+              "socket": "UV"
+            }
+          ]
+        },
+        {
+          "name": "Scale",
+          "default": 180.0,
+          "linked_from": []
+        },
+        {
+          "name": "Distortion",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail",
+          "default": 2.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail Scale",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail Roughness",
+          "default": 0.5,
+          "linked_from": []
+        },
+        {
+          "name": "Phase Offset",
+          "default": 0.0,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Math",
+      "type": "MATH",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Value",
+          "default": 0.5,
+          "linked_from": [
+            {
+              "node": "Wave Texture",
+              "socket": "Factor"
+            }
+          ]
+        },
+        {
+          "name": "Value",
+          "default": 0.5,
+          "linked_from": [
+            {
+              "node": "Wave Texture.001",
+              "socket": "Factor"
+            }
+          ]
+        },
+        {
+          "name": "Value",
+          "default": 0.5,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Bump.001",
+      "type": "BUMP",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Strength",
+          "default": 0.44999998807907104,
+          "linked_from": []
+        },
+        {
+          "name": "Distance",
+          "default": 0.0012000000569969416,
+          "linked_from": []
+        },
+        {
+          "name": "Filter Width",
+          "default": 0.10000000149011612,
+          "linked_from": []
+        },
+        {
+          "name": "Height",
+          "default": 1.0,
+          "linked_from": [
+            {
+              "node": "Math",
+              "socket": "Value"
+            }
+          ]
+        },
+        {
+          "name": "Normal",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        }
+      ]
+    }
+  ],
+  "saved": false
+}

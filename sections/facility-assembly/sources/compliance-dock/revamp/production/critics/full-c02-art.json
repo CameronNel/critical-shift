@@ -1,0 +1,176 @@
+{
+  "review_type": "independent_art_direction",
+  "cycle": "full-cycle-02",
+  "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+  "manifest_complete": true,
+  "current_frames_opened": 27,
+  "approved_reference_frames_opened": 4,
+  "category_scores": {
+    "2": 89,
+    "3": 91,
+    "6": 92
+  },
+  "threshold": "Every assigned category must be strictly greater than 93.",
+  "verdict": "FAIL. None of the three assigned categories exceeds 93; the primary inspection ensemble also retains a critical visual craft defect.",
+  "category_assessments": {
+    "2": "The counter, office door, covered trolley and evidence storage show recognizable functional construction. The dominant inspection ensemble still uses too much repeated rectangular body, shallow clipped-corner plate and broad blue face language. The rear gate leaves are particularly weak, and the arrival-door strips read more as graphic frames than weight-bearing construction. Sharp edges alone do not establish believable manufacture.",
+    "3": "The inspection route and worker/cargo distinction are clear, and the negative space is useful. The scanner and cargo housing lead the room. Check-in reads strongly in its dedicated views but becomes a dark secondary wall element from the wide and reverse player views. The bright machinery remains the dominant family rather than a coordinated inspection/check-in pair.",
+    "6": "Warm institutional walls, dark navy lower walls, orange doors and yellow route marks are broadly coherent with the actual spawn reference. The current scene nevertheless gives almost every equipment family the same bright cool-blue paint. Compared with the references' rich warm orange, muted cool walls and neutral manufactured hardware, this produces an equipment-kit impression and weakens restrained accent hierarchy."
+  },
+  "critical_defects": [
+    {
+      "id": "ART-C02-01",
+      "categories": [
+        2
+      ],
+      "severity": "critical_visual_craft",
+      "issue": "The main inspection ensemble is still dominated by repeated box-and-faceplate construction rather than enough object-specific secondary form.",
+      "evidence_views": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "C04_SCANNER_APPROACH",
+        "C06_CART_GATE_G1",
+        "HERO_SCANNER",
+        "HERO_CARGO",
+        "PLAYER_REVERSE"
+      ],
+      "explanation": "The worker scanner, sliding gate leaves and cargo tunnel differ principally by overall rectangular size, attached plates, colour and text. Their broad, highly exposed surfaces need visibly distinct casing, throat, rail, closure and service-edge construction. This is the dominant region in the actual player-height inspection views, so the deficiency cannot be hidden by the stronger counter and trolley."
+    }
+  ],
+  "view_failures": [
+    {
+      "views": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "HERO_SCANNER"
+      ],
+      "categories": [
+        2,
+        3,
+        6
+      ],
+      "issue": "The scanner is legible as a portal, but its large blue liners, block frame and coloured dots carry more identity than manufactured sensing/casing structure. Bright-blue machinery overwhelms the check-in presence."
+    },
+    {
+      "views": [
+        "C04_SCANNER_APPROACH",
+        "C06_CART_GATE_G1"
+      ],
+      "categories": [
+        2
+      ],
+      "issue": "Close gameplay views expose broad shallow panel treatment. Gate rail/leaf/locking relationships need to read more clearly as a particular manufactured bypass gate."
+    },
+    {
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO"
+      ],
+      "categories": [
+        2,
+        6
+      ],
+      "issue": "Curtains, rollers and lifting eyes provide a recognizable cargo-scanner vocabulary, but the hero still resolves mainly into a blue ribbed box behind an orange-ended box. Casing thickness, throat assembly and transit-crate closure need stronger functional separation."
+    },
+    {
+      "views": [
+        "PLAYER_REVERSE"
+      ],
+      "categories": [
+        2,
+        3,
+        6
+      ],
+      "issue": "The scanner and gate reverse faces become broad uninterrupted blue masses. The counter is largely lost through its side/back relationship and dark frontage, while the inspection frame retains the visual lead."
+    },
+    {
+      "views": [
+        "C09_ARRIVAL_GATE_P2",
+        "WALL_NORTH",
+        "PLAYER_PINCH"
+      ],
+      "categories": [
+        2
+      ],
+      "issue": "Arrival-door bracing reads as repeated blue graphic outlines over a flat dark slab. The exposed views do not make the heavy door's edge, closure or guide construction convincingly readable."
+    },
+    {
+      "views": [
+        "HERO_UTILITIES",
+        "WALL_EAST"
+      ],
+      "categories": [
+        2,
+        6
+      ],
+      "issue": "Cabinets and wall boxes repeat the hero-blue housing language. The short straight conduits read as arbitrary capped stubs against the backing plate rather than a clearly continuing utility route."
+    }
+  ],
+  "highest_impact_repairs": [
+    {
+      "rank": 1,
+      "repair": "Give the worker scanner and cart gate visibly different manufacturing logic.",
+      "detail": "Within the unchanged aperture and equipment footprint, distinguish the scanner's painted casing from a dark sensing liner and neutral-metal service edges. Give the gate leaves thin folded returns, readable leaf overlap and a small but convincing rail/stop/locking assembly, including their reverse faces. Make the secondary forms visible at the current gameplay cameras before adding tiny fasteners."
+    },
+    {
+      "rank": 2,
+      "repair": "Resolve the cargo machine and crate as specific assemblies.",
+      "detail": "Keep the tunnel and conveyor dimensions. Build a clearer layered throat around the heavy curtains, readable casing seams and selected access closures; separate these from the roller frame. Give the crate a practical lid/closure and corner construction rather than relying on its orange end and label. Retain quiet broad surfaces."
+    },
+    {
+      "rank": 3,
+      "repair": "Strengthen the check-in counter's contribution to the room hierarchy.",
+      "detail": "Keep its wall opening, counter and office positions. Use a tighter warm practical pool on its reveal, grille and counter edge so the established work cluster is discernible from the wide and reverse route views. Reduce the relative brightness of broad cargo-roof and scanner-face areas. Keep the existing restrained institutional sign cluster."
+    },
+    {
+      "rank": 4,
+      "repair": "Separate equipment colours into restrained material/functional families.",
+      "detail": "Keep the warm cream/navy architecture and existing orange/yellow accents. Make peripheral utility cabinets and selected gate hardware neutral steel, charcoal or more muted slate rather than matching the bright hero-blue paint. Retain a controlled blue inspection grouping and a richer restrained orange family consistent with the actual spawn pixels. Avoid introducing more accent colours."
+    },
+    {
+      "rank": 5,
+      "repair": "Finish the visible arrival-door and utility-route construction.",
+      "detail": "Without changing the door's usable opening, add readable edge/guide/closure relationships so the ribs feel structurally attached. Continue the utility conduits into a believable trunk, entry or terminal fitting within the existing wall zone. Use the approved spawn door's clear hardware hierarchy as the craft benchmark."
+    }
+  ],
+  "positives": [
+    "The check-in counter and office front are the strongest craft anchor: restrained paper/stamp/fabric cluster, physical grille, door hardware and localized warm light.",
+    "The covered trolley has a recognizable human-scale silhouette, fabric volume, straps and caster frame.",
+    "The cream/navy architecture, orange doors and large quiet wall areas preserve institutional character and useful negative space.",
+    "The images avoid photographic texture noise and excessive random greebling; higher craft should come from functional shape refinement."
+  ],
+  "inspection_scope": "Requirements and actual current/reference pixels only. Manifest metadata was used only to verify batch completeness and source identity. No scene, code, map, geometry, support registry, dependencies or runtime inspection was conducted.",
+  "images_opened": [
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C01_ENTRY.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C02_HERO_DOCK.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C03_CHECKIN_COUNTER.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C04_SCANNER_APPROACH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C05_CONVEYOR_LEAD_TUNNEL.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C06_CART_GATE_G1.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C07_OFFICE_INTERIOR.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C08_CONCEALED_SUPPORT_H1.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C09_ARRIVAL_GATE_P2.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C10_ROOF_SERVICES.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_NE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_NW.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_SE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_SW.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_EAST.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_NORTH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_SOUTH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_WEST.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_SCANNER.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_CARGO.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_EVIDENCE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_TROLLEY.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_UTILITIES.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/DETAIL_CHECKIN.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/PLAYER_REVERSE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/PLAYER_PINCH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_OFFICE_FRONT.png"
+  ]
+}

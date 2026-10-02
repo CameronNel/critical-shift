@@ -1,0 +1,182 @@
+{
+  "review": "Independent environmental storytelling critic — full cycle 02",
+  "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+  "renderer_sha256": "1c15a22298abfeb4af36a71ed24ccb3a729a05cb56a829bdfa23fa61d6c66597",
+  "manifest_complete": true,
+  "current_frames_opened": 27,
+  "approved_reference_frames_opened": 4,
+  "resolution": [
+    1067,
+    600
+  ],
+  "category_scores": {
+    "7": 89
+  },
+  "category_names": {
+    "7": "Purposeful worker traces and coercive institutional storytelling"
+  },
+  "threshold": "Every category must be strictly greater than 93",
+  "verdict": "FAIL_CATEGORY_7",
+  "scope": "Visible environmental storytelling only. No scene, code or map edits. No technical, runtime, dimension-preservation or support-validation conclusions are inferred from pixels.",
+  "rationale": "The dock clearly controls passage and separates public procedure from screened support. The office-front reassurance has a successful coercive second meaning. Worker traces are restrained and purposeful, but mainly describe routine office work; evidence custody lacks a visible linked trail, and no specific active repair resolves in the current views.",
+  "successful_evidence": [
+    {
+      "views": [
+        "C03_CHECKIN_COUNTER",
+        "DETAIL_CHECKIN"
+      ],
+      "evidence": "Screened speech hatch, STATE YOUR NUMBER sign, chained pen, stamp and ink pad, form tray, folded document pouch and clipboard make submission physically bureaucratic. UNPROCESSED is legible on the tray sheet in DETAIL_CHECKIN."
+    },
+    {
+      "views": [
+        "WALL_OFFICE_FRONT"
+      ],
+      "evidence": "WE VALUE YOUR TIME / ALL DELAYS ARE YOUR RESPONSIBILITY is readable and gives reassurance an unmistakably coercive second meaning. It is the strongest authored institutional story detail."
+    },
+    {
+      "views": [
+        "C07_OFFICE_INTERIOR"
+      ],
+      "evidence": "Mug, writing pad, CRT, desk controls and chair angled away from the desk imply an occupied clerk station without random clutter."
+    },
+    {
+      "views": [
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_TROLLEY",
+        "HERO_EVIDENCE",
+        "CORNER_SE",
+        "CORNER_NW"
+      ],
+      "evidence": "A covered, strapped transfer trolley and a closed six-door cabinet occupy the screened bay. The taped DO NOT RELEASE note selects one cabinet door; the partition separates the load from the public lane. This supports concealment and withholding without exposed gore."
+    },
+    {
+      "views": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "C04_SCANNER_APPROACH",
+        "C06_CART_GATE_G1",
+        "C09_ARRIVAL_GATE_P2"
+      ],
+      "evidence": "Sealed arrival, personnel arch, separate cart gate, yellow route boundaries and cargo tunnel communicate controlled movement before text is read."
+    },
+    {
+      "views": [
+        "HERO_SCANNER",
+        "HERO_EVIDENCE"
+      ],
+      "evidence": "Wear is sparse: worn route paint and mild localized cabinet marks suggest continuing use rather than abandonment. Quiet walls preserve deliberate negative space."
+    }
+  ],
+  "critical_defects": [],
+  "critical_defect_judgement": "No category 7 hard visual veto identified from these pixels. The category fails the numerical acceptance threshold because its task-specific storytelling is incomplete.",
+  "view_failures": [
+    {
+      "views": [
+        "C03_CHECKIN_COUNTER",
+        "DETAIL_CHECKIN"
+      ],
+      "failure": "The clipboard's smaller black and red copy merges into letter-like bands even in the detail frame. The paperwork is recognizable, but a specific contradictory requirement cannot be read from these pixels. Most sheets also appear neatly staged rather than in the middle of a disputed transaction."
+    },
+    {
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO",
+        "HERO_EVIDENCE"
+      ],
+      "failure": "The crate label does not yield a reliably readable shared identifier; the cabinet's DO NOT RELEASE note has no visually obvious matching cargo/document code or seal across a latch. Inspection and storage are clear, but an evidentiary chain is not."
+    },
+    {
+      "views": [
+        "HERO_UTILITIES",
+        "C04_SCANNER_APPROACH",
+        "PLAYER_PINCH"
+      ],
+      "failure": "Closed service housings and an empty hand cart read as installed, available equipment. There is no clearly readable repair relationship among a replacement part, tool and affected component. Visible pressure on a maintained institution remains mostly atmospheric."
+    },
+    {
+      "views": [
+        "C07_OFFICE_INTERIOR"
+      ],
+      "failure": "The mug and displaced chair supply human occupancy, but the almost empty desk gives little specific shift history, backlog or interrupted work. It is routine clerk use rather than a worker trace distinctive to this strained dock."
+    },
+    {
+      "views": [
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_TROLLEY"
+      ],
+      "failure": "The cover, straps and screen establish concealment well, but no readable local trace indicates that the load was recently moved or withheld for an arrival condition. The trolley docket is too small to carry that distinction."
+    }
+  ],
+  "highest_impact_repairs": [
+    {
+      "priority": 1,
+      "repair": "Connect custody with one short, large identifier repeated on the current crate label, a check-in document and the held cabinet door. Add a physical tamper/release strip across one existing latch or lid seam. Reuse the current objects and preserve their footprints.",
+      "target_views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO",
+        "HERO_EVIDENCE",
+        "DETAIL_CHECKIN"
+      ]
+    },
+    {
+      "priority": 2,
+      "repair": "Author one specific active repair at the existing service cluster: a visibly mismatched replacement cover, a restrained maintenance tape attachment, and one tool or spare component staged on the existing hand cart. Make the cause and task readable as a single cluster; retain quiet surrounding walls.",
+      "target_views": [
+        "HERO_UTILITIES",
+        "PLAYER_PINCH"
+      ]
+    },
+    {
+      "priority": 3,
+      "repair": "Revise the existing check-in clipboard to a short readable condition and show a partly completed transaction: a clear crossed field or red HOLD stamp, a shifted sheet and the chained pen left across it. Add a hand-corrected shift slip or used work glove within the existing counter/desk cluster so the trace belongs to a worker rather than generic office dressing.",
+      "target_views": [
+        "C03_CHECKIN_COUNTER",
+        "DETAIL_CHECKIN",
+        "C07_OFFICE_INTERIOR"
+      ]
+    },
+    {
+      "priority": 4,
+      "repair": "Give concealment a small physical history: a localized caster scrub or wheel arc ending behind the screen, plus a partly stowed transfer docket on the existing trolley tied to the same custody identifier. Keep the load covered and retain the screen, layout and bay footprint.",
+      "target_views": [
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_TROLLEY",
+        "HERO_EVIDENCE"
+      ]
+    }
+  ],
+  "images_opened": [
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C01_ENTRY.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C02_HERO_DOCK.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C03_CHECKIN_COUNTER.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C04_SCANNER_APPROACH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C05_CONVEYOR_LEAD_TUNNEL.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C06_CART_GATE_G1.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C07_OFFICE_INTERIOR.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C08_CONCEALED_SUPPORT_H1.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C09_ARRIVAL_GATE_P2.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C10_ROOF_SERVICES.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_NE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_NW.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_SE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_SW.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_NORTH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_EAST.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_SOUTH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_WEST.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_SCANNER.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_CARGO.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_EVIDENCE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_TROLLEY.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_UTILITIES.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/DETAIL_CHECKIN.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/PLAYER_REVERSE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/PLAYER_PINCH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_OFFICE_FRONT.png"
+  ]
+}
+
