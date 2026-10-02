@@ -168,7 +168,7 @@ def exposed_lp(b, y0, y1):
         for q in range(32):
             a = 2 * math.pi * q / 32; ca, sa = math.cos(a), math.sin(a)
             M = Matrix(((0, -sa, ca, CX + R * ca), (1, 0, 0, y), (0, ca, sa, AZ + R * sa), (0, 0, 0, 1))) @ Matrix.Rotation(math.radians(24), 4, 'Z')
-            b.push_m(M); b.prism([(.14 * math.cos(t * math.pi / 5), .036 * math.sin(t * math.pi / 5)) for t in range(10)], .17, 'brass_blade', (0, 0, .09), True, 'Z', bev=.004); b.pop()
+            b.push_m(M); b.prism([(.1 * math.cos(t * math.pi / 5), .034 * math.sin(t * math.pi / 5)) for t in range(10)], .13, 'brass_blade', (0, 0, .09), True, 'Z', bev=.004); b.pop()
         b.arc_shell((CX, y, AZ), R + .2, R + .16, .05, 0, 2 * math.pi, 'steel_light', 40)                        # shroud band
         b.cyl((CX, y + .22, AZ), .3, .06, 'brass', 'Y', 32, bev=.006)                                              # seal collar on the shaft
     b.reserve_box((CX, yc, AZ), (2.7, L, 1.5))
@@ -343,9 +343,10 @@ def maintenance(b):
         R = .55 - .02 * abs(i - 3.5)
         b.cyl((rx, yy, rz + .14), R, .36, 'steel_mid' if i % 2 else 'steel_light', 'Y', 48, bev=.01)
         if i in (1, 3, 5, 6):                                                   # turbine blades on four rotor discs
-            for k in range(16):
-                a = 2 * math.pi * k / 16
-                b.box((rx + (R + .05) * math.cos(a), yy, rz + .14 + (R + .05) * math.sin(a)), (.18, .26, .06), 'steel_dark', (0, -a, 0), bev=.004)
+            b.arc_shell((rx, yy, rz + .14), R + .27, R + .235, .22, 0, 2 * math.pi, 'steel_light', 36)                       # tip shroud so the blades read as a ring
+            for k in range(24):
+                a = 2 * math.pi * k / 24
+                b.box((rx + (R + .05) * math.cos(a), yy, rz + .14 + (R + .05) * math.sin(a)), (.14, .24, .05), 'steel_dark', (0, -a, 0), bev=.004)
     for y in (15.5, 18.5): torus(b, (rx, y, rz + .74), .06, .012, 'yellow', 'X', 16)
     b.claim((-1.9, 14.2, 0), (.3, 19.7, 1.3))
     b.box((-3.35, 15.9, .46), (.7, 2.2, .07), 'steel_dark', bev=.014); b.box((-3.0, 15.9, .46), (.012, 2.2, .075), 'orange')

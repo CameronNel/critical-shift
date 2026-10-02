@@ -238,6 +238,7 @@ class Builder:
             cs = sws[0] if sws else sw
             self.poly(lo[::-1], cs, flip=(axis == 'Y'), bev=bev); self.poly(hi, cs, flip=(axis == 'Y'), bev=bev)
     def cyl(self, c, r, h, sw, axis='Z', seg=32, r2=None, caps=True, bev=0.0):
+        seg = max(8, min(seg, int(10 + r * 56)))                                                   # triangle budget: small radii need fewer segments
         ring = [(r * math.cos(2 * math.pi * i / seg + math.pi / seg), r * math.sin(2 * math.pi * i / seg + math.pi / seg)) for i in range(seg)]
         if r2 is None or abs(r2 - r) < 1e-9: return self.prism(ring, h, sw, c, caps, axis, bev, flat=True)
         k = r2 / r; hi = [(x * k, y * k) for x, y in ring]
@@ -313,7 +314,7 @@ class Builder:
         self.box((c[0], c[1], z), (sx, sy, 0.004), sw, (0, 0, rz), nb=True)
     def text(self, s, loc, size, sw='chalk', rz=0.0, rx=math.pi / 2, align='CENTER', extrude=.004):
         cu = bpy.data.curves.new('t', 'FONT'); cu.body = s; cu.size = size; cu.align_x = align; cu.align_y = 'CENTER'
-        cu.extrude = extrude; ob = bpy.data.objects.new('t', cu); bpy.context.scene.collection.objects.link(ob)
+        cu.extrude = extrude; cu.resolution_u = 3; ob = bpy.data.objects.new('t', cu); bpy.context.scene.collection.objects.link(ob)
         dg = bpy.context.evaluated_depsgraph_get(); me = ob.evaluated_get(dg).to_mesh()
         R = self.m @ Matrix.Translation(loc) @ Matrix.Rotation(rz, 4, 'Z') @ Matrix.Rotation(rx, 4, 'X')
         g = self._g(); idx = SWATCH[sw]; ox, oy = uv_origin(idx); s_ = 1.0 / GRID

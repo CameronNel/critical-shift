@@ -48,7 +48,7 @@ def build(b):
     b.use('PROPS'); R = b.rng
     # --- signage hung over the bay and on the foundation ---
     b.box((-1.2, 13.7, 4.25), (2.6, .05, .5), 'trim_black', bev=.014)
-    for sgn, rz_ in ((-1, 0), (1, math.pi)): b.text('MAINTENANCE BAY', (-.95, 13.7 + (.032 if sgn == 1 else -.032), 4.25), .112, 'chalk', rz_, math.pi / 2)
+    for sgn, rz_ in ((-1, 0), (1, math.pi)): b.text('MAINTENANCE BAY', (-.95, 13.7 + (.032 if sgn == 1 else -.032), 4.25), .165, 'chalk', rz_, math.pi / 2)
     for sgn in (-1, 1):                                                                                  # gear icon, both faces
         yf = 13.7 + sgn * .033
         b.cyl((-2.2, yf, 4.25), .13, .008, 'yellow', 'Y', 24)
@@ -108,11 +108,21 @@ def build(b):
         b.box((u, .32, .45), (.46, .46, .06), 'rubber', bev=.02) if False else None
         b.box((fu(8.0), .03, 1.9), (.9, .06, .5), 'trim_black', bev=.014); b.box((fu(8.0), .062, 1.9), (.82, .006, .42), 'yellow'); wt(b, 'TURBINE 02', fu(8.0), 2.0, .1, 'trim_black', .068); wt(b, 'CONTROL DESK', fu(8.0), 1.8, .06, 'trim_black', .068)
         for t, p in ((8.4, False),): socket(b, fu(t), .5, plug=p)
-    import furniture; furniture.chair(b, 8.0, 22.65, math.pi / 2, 'steel_dark')                                       # operator chair in front of the desk
+    import furniture; furniture.chair(b, 7.0, 22.3, math.pi / 2 + .55, 'steel_dark')                                       # operator chair in front of the desk
+    import machinery as MM                                                                           # nameplates on the generator and on the foundation rail
+    b.box((MM.CX + 1.14, 18.65, MM.AZ + .05), (.04, 2.3, .6), 'trim_black', bev=.012); b.box((MM.CX + 1.162, 18.65, MM.AZ + .05), (.006, 2.2, .5), 'oxide_dark')
+    b.text('GENERATOR  G-2', (MM.CX + 1.17, 18.65, MM.AZ + .14), .19, 'chalk', math.pi / 2, math.pi / 2); b.text('24 kV  3 PHASE  50 Hz', (MM.CX + 1.17, 18.65, MM.AZ - .13), .095, 'chalk', math.pi / 2, math.pi / 2)
+    b.box((6.97, 10.3, 1.72), (.04, .9, .3), 'trim_black', bev=.012); b.box((6.95, 10.3, 1.72), (.006, .84, .24), 'oxide_dark')
+    b.text('LP TURBINE  2', (6.945, 10.3, 1.78), .085, 'chalk', -math.pi / 2, math.pi / 2); b.text('ROTOR  3000 RPM', (6.945, 10.3, 1.64), .05, 'chalk', -math.pi / 2, math.pi / 2)
     # --- tidy storage: drum group, pallet with crates, gas cylinders in a rack ---
-    for (x, y, c) in ((9.35, 22.4, 'red_dark'), (8.75, 22.9, 'orange_dark'), (9.4, 23.3, 'steel_dark')):
-        b.box((x, y - .272, .5), (.3, .01, .26), 'chalk'); b.box((x, y - .278, .5), (.3, .006, .05), 'trim_black'); b.prism([(-.06, -.05), (.06, -.05), (0, .06)], .004, 'trim_black', (x, y - .28, .56), True, 'Y')
-        b.cyl((x, y, .45), .27, .9, c, 'Z', 32, bev=.01); b.cyl((x, y, .75), .285, .035, 'steel_dark', 'Z', 32); b.cyl((x, y, .3), .285, .035, 'steel_dark', 'Z', 32)
+    for (x, y, c, t1, t2) in ((9.3, 22.45, 'oxide', 'DIESEL', 'FLAMMABLE'), (8.75, 23.15, 'steel_dark', 'LUBE OIL', 'ISO 46')):
+        b.cyl((x, y, .45), .27, .9, c, 'Z', 32, bev=.02)
+        for z in (.2, .45, .7): b.cyl((x, y, z), .283, .045, 'trim_black', 'Z', 32, bev=.012)                      # rolled ribs
+        b.cyl((x, y, .9), .285, .05, 'steel_dark', 'Z', 32, bev=.012); b.cyl((x, y, .93), .22, .02, 'steel_mid', 'Z', 32)       # chime ring and recessed lid
+        b.cyl((x + .1, y + .08, .945), .035, .025, 'steel_light', 'Z', 12); b.cyl((x - .1, y - .06, .945), .025, .02, 'steel_light', 'Z', 12)   # bungs
+        b.box((x, y - .278, .5), (.34, .012, .34), 'trim_black', bev=.008); b.box((x, y - .286, .5), (.3, .006, .3), 'chalk')
+        b.prism([(0, .095), (.095, 0), (0, -.095), (-.095, 0)], .004, 'yellow', (x, y - .291, .56), True, 'Y'); b.prism([(0, .05), (.03, -.03), (-.03, -.03)], .004, 'trim_black', (x, y - .295, .56), True, 'Y')
+        b.text(t1, (x, y - .292, .42), .05, 'trim_black', 0, math.pi / 2); b.text(t2, (x, y - .292, .36), .033, 'trim_black', 0, math.pi / 2)
     for dx in (-.4, 0, .4): b.box((6.8 + dx, 1.2, .06), (.1, .8, .1), 'wood_dark', bev=.01)
     for dy in (-.3, 0, .3): b.box((6.8, 1.2 + dy, .13), (1.0, .12, .03), 'wood', bev=.008)
     b.box((6.8, 1.2, .38), (.8, .6, .4), 'wood', bev=.015); b.box((6.8, 1.2, .79), (.7, .5, .36), 'orange_worn', bev=.015)
@@ -120,8 +130,8 @@ def build(b):
     for k in range(2): b.cyl((-3.55 + .3 * k, 1.5, .65), .1, 1.2, ['orange', 'steel_light'][k], 'Z', 24, bev=.008); b.sphere((-3.55 + .3 * k, 1.5, 1.25), .1, ['orange', 'steel_light'][k], 14); b.cyl((-3.55 + .3 * k, 1.5, 1.35), .03, .08, 'steel_dark', 'Z', 10)
     b.box((-3.4, 1.5, .5), (.7, .03, .05), 'yellow'); b.box((-3.4, 1.38, .3), (.7, .03, .05), 'steel_dark')
     # --- broken: a leaking pipe stub, a missing ceiling panel with dangling cable, a lamp off its hanger ---
-    b.cyl((-.6, 9.0, 4.95), .12, 2.1, 'lagging', 'Z', 24); b.cyl((-.6, 9.0, 3.9), .18, .06, 'steel_mid', 'Z', 24, bev=.006)
-    b.sweep([(-.6, 9.0, 3.88), (-.45, 9.1, 3.5), (-.35, 9.15, 3.1)], .08, 'lagging', 20, .2); b.box((-.33, 9.16, 3.05), (.3, .08, .26), 'primer', (.5, 0, .4), bev=.01)
+    b.cyl((1.3, 19.6, 4.95), .12, 2.1, 'lagging', 'Z', 24); b.cyl((1.3, 19.6, 3.9), .18, .06, 'steel_mid', 'Z', 24, bev=.006)
+    b.sweep([(1.3, 19.6, 3.88), (1.45, 19.7, 3.5), (1.55, 19.75, 3.1)], .08, 'lagging', 20, .2); b.box((1.57, 19.76, 3.05), (.3, .08, .26), 'primer', (.5, 0, .4), bev=.01)
     b.box((2.0, 20.5, 5.0), (1.3, .22, .07), 'steel_dark', (.9, 0, 0), bev=.012); b.box((2.0, 20.5, 4.955), (1.15, .15, .02), 'lamp', (.9, 0, 0)); b.rod((1.4, 20.5, 5.35), (1.4, 20.5, 6.06), .008, 'steel_dark', 8)
     b.box((6.5, 6.5, 7.17), (.94, 1.0, .004), 'primer')                                       # panel missing, bare deck showing
     b.sweep([(6.5, 6.5, 7.15), (6.4, 6.6, 6.5), (6.55, 6.9, 5.9), (6.45, 7.1, 5.5)], .014, 'rubber', 8, .25)
