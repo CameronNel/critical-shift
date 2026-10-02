@@ -133,7 +133,7 @@ def stepped(b, segs, body, flanges=True, nbolt=16):
     for k, (y0, y1, r0, r1) in enumerate(segs):
         b.cyl((CX, (y0 + y1) / 2, AZ), r0, y1 - y0, body, 'Y', 48, r2=r1)
         if y1 - y0 > .8:                                                                                         # access hatches on both flanks (frame, raised door, bolts, handle)
-            ym = (y0 + y1) / 2 + (.28 if k % 2 == 1 else -.28) * (y1 - y0); rm = (r0 + r1) / 2; hz = AZ - .27                                   # low on the flank, off to one side: clear of nameplates and gauge panels
+            ym = (y0 + y1) / 2 + (.28 if k % 2 == 1 else -.28) * (y1 - y0); rm = (r0 + r1) / 2; hz = AZ - .33                                   # low on the flank, off to one side: clear of nameplates and gauge panels
             for sd in (1, -1):
                 hx = CX + sd * (rm * .93 + .012)
                 b.box((hx, ym, hz), (.05, .7, .54), 'steel_mid', bev=.02); b.box((hx + sd * .02, ym, hz), (.04, .6, .44), 'trim_black', bev=.015); b.box((hx + sd * .04, ym, hz), (.03, .54, .38), 'steel_dark', bev=.012)

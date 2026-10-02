@@ -210,7 +210,7 @@ for k, (fx, fy) in enumerate(((-.5, 5), (3, 12), (7.5, 19), (3, 21))):
 # ---- named review cameras ----
 CAMS = {   # all positions are in open aisle space
     'CAM_A_entry_north':   ((1.0, 1.4, 1.65), (3.5, 14, 2.0)),
-    'CAM_B_ne_high':       ((8.7, 22.7, 4.5), (1.7, 6, 1.0)),
+    'CAM_B_ne_high':       ((8.8, 22.6, 4.6), (2.4, 6, 1.2)),
     'CAM_C_east_aisle':    ((7.7, 12.2, 1.8), (2.8, 20, 2.3)),
     'CAM_D_maintenance':   ((-3.2, 12.6, 1.65), (-.5, 19.5, 1.7)),
     'CAM_E_controls':      ((.9, 4.0, 1.55), (-3.5, 4.0, 1.9)),

@@ -120,7 +120,7 @@ def build(b):
     for (x, y, c, t1, t2) in ((9.3, 22.45, 'oxide', 'DIESEL', 'FLAMMABLE'), (8.75, 23.15, 'steel_dark', 'LUBE OIL', 'ISO 46')):
         b.cyl((x, y, .45), .27, .9, c, 'Z', 32, bev=.02)
         for z in (.2, .45, .7): b.cyl((x, y, z), .283, .045, 'trim_black', 'Z', 32, bev=.012)                      # rolled ribs
-        b.cyl((x, y, .9), .29, .06, 'steel_light', 'Z', 32, bev=.014); b.cyl((x, y, .93), .22, .02, 'steel_mid', 'Z', 32)       # chime ring and recessed lid
+        b.cyl((x, y, .9), .29, .06, 'steel_mid', 'Z', 32, bev=.014); b.cyl((x, y, .93), .22, .02, 'steel_mid', 'Z', 32)       # chime ring and recessed lid
         b.cyl((x + .1, y + .08, .945), .035, .025, 'steel_light', 'Z', 12); b.cyl((x - .1, y - .06, .945), .025, .02, 'steel_light', 'Z', 12)   # bungs
         b.box((x, y - .278, .5), (.34, .012, .34), 'trim_black', bev=.008); b.box((x, y - .286, .5), (.3, .006, .3), 'chalk')
         b.prism([(0, .095), (.095, 0), (0, -.095), (-.095, 0)], .004, 'yellow', (x, y - .291, .56), True, 'Y'); b.prism([(0, .05), (.03, -.03), (-.03, -.03)], .004, 'trim_black', (x, y - .295, .56), True, 'Y')
