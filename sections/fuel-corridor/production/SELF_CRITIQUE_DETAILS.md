@@ -124,7 +124,7 @@ resolved. No material regression or additional visible repair was identified.
 Luna independently inspected the complete second set; its final scores and
 source pairing are recorded separately in the final rubric/report.
 
-## Actual assembled-map inspection
+## Historical F17 assembled-map inspection
 
 I opened the current-source `F17ci_complete_main_C03_HERO.png` after the
 ordinary map launcher and assembled-map render passed. The carrier, bench,
@@ -138,7 +138,12 @@ preserves the main, spawn, R17 and eleven exterior files byte for byte.
 The main still reports 128 historical unrelated spawn/PPE cache warnings;
 there are zero missing fuel object IDs.
 
-## Current-source event and boundary stills
+The owner subsequently rejected the assembled-map illumination. The F17
+assessment above is historical and does not approve the fixture-lighting
+correction. Fresh all-area map captures and dim-state evidence are required;
+see [lighting correction](LIGHTING_CORRECTION.md).
+
+## Historical F17 event and boundary stills
 
 I opened actual preview frames 1, 28, 29, 31, 32, 33, 38 and 240. Frame 29
 shows the intended light drop; the floor arrows, service opening and task
@@ -151,3 +156,21 @@ This is bounded still-image inspection. No target-speed visual playback tool
 was available, so perceived cadence and Unity/runtime behavior remain
 unverified. The complete full-resolution area/detail images supply the craft
 assessment; these small event stills supply lighting-state evidence.
+
+## Fixture-lighting revision: complete F18 map self-critique
+
+I opened the 24 fresh F18 native captures and all 19 actual assembled-map views,
+paired with native `e67b4c7e4fc6cbf1d989791040b88d9e515ba5abd0755853119401e8017c1fd4`.
+The unmotivated ambient and map-helper wash is removed. Visible fixture pools
+retain the entry arrows, staging contacts, workbench detail, gate mechanism,
+east-turn destinations, inspection recess, plant header and clean corridor.
+The reactor threshold and waste receipt station remain legible. Deliberately
+dark recess edges do not turn the routes pitch black.
+
+This pass nevertheless exposed bright full-height center slits in the closed
+waste and clean doors. Pessimistic Luna correctly required overlapping meeting
+seals; plausible adjacent lighting does not resolve the fabrication defect.
+The builder is repairing all five closed boundary portals with folded metal
+lips, retained fasteners and compressible rear seals. F18/F19 are development
+evidence, with new complete stable passes required before final acceptance.
+See [the lighting correction and seam repair](LIGHTING_CORRECTION.md).

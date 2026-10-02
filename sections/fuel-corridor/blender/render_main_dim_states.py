@@ -22,6 +22,7 @@ bpy.ops.wm.open_mainfile(filepath=str(main),load_ui=False)
 module,instance,cache,hidden=runpy.run_path(str(ROOT/'open_fuel_overhaul.py'),run_name='fuel_dim_import')['install_live_fuel']()
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.device='CPU'
 scene.cycles.samples=32;scene.cycles.seed=7;scene.cycles.use_denoising=True
+scene.render.use_persistent_data=True
 scene.render.resolution_x=960;scene.render.resolution_y=640
 scene.render.resolution_percentage=100;scene.render.image_settings.file_format='PNG'
 scene.view_settings.view_transform='AgX';scene.view_settings.look='AgX - Medium High Contrast';scene.view_settings.exposure=-.15
@@ -30,7 +31,7 @@ report={'schema':'fuel-assembled-map-dim-state-evidence/1','created_utc':datetim
         'lighting_installer_sha256':sha(ROOT/'open_fuel_overhaul.py'),'renderer_sha256':sha(Path(__file__)),
         'lighting_policy':json.loads(instance['fc_lighting_policy']),'source_saved':False,
         'settings':{'blender':bpy.app.version_string,'resolution':[960,640],'samples':32,'seed':7,'denoise':True,
-                    'engine':'CYCLES','device':'CPU','view_transform':'AgX','look':'AgX - Medium High Contrast','exposure':-.15},
+                    'engine':'CYCLES','device':'CPU','persistent_data':True,'view_transform':'AgX','look':'AgX - Medium High Contrast','exposure':-.15},
         'scope':'Sampled still readability and local light response; no continuous cadence or runtime acceptance.','images':[]}
 for name,frame in [('C01_ENTRY',110),('C03_HERO',29),('C05_EAST_TURN',1),('C08_SERVICE_JUNCTION',1)]:
     scene.frame_set(frame);graph=bpy.context.evaluated_depsgraph_get()

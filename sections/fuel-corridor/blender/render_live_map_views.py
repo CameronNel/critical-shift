@@ -25,6 +25,7 @@ module,instance,cache,hidden=installer['install_live_fuel']()
 scene=bpy.context.scene;scene.frame_set(1)
 scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=int(os.environ.get('SAMPLES','32'))
 scene.cycles.seed=7;scene.cycles.use_denoising=True
+scene.render.use_persistent_data=True
 scene.render.resolution_x,scene.render.resolution_y=map(int,os.environ.get('RES','960x640').split('x'))
 scene.render.resolution_percentage=100;scene.render.image_settings.file_format='PNG'
 scene.view_settings.view_transform='AgX';scene.view_settings.look='AgX - Medium High Contrast';scene.view_settings.exposure=-.15
@@ -35,7 +36,7 @@ report={'schema':'fuel-assembled-map-fixed-view-evidence/1','created_utc':dateti
         'recipe_sha256':build['recipe_sha256'],'lighting_installer_sha256':sha(ROOT/'open_fuel_overhaul.py'),
         'renderer_sha256':sha(Path(__file__)),
         'lighting_policy':json.loads(instance['fc_lighting_policy']),'blender':bpy.app.version_string,
-        'engine':'CYCLES','device':'CPU','samples':scene.cycles.samples,'seed':7,'denoise':True,
+        'engine':'CYCLES','device':'CPU','samples':scene.cycles.samples,'seed':7,'denoise':True,'persistent_data':True,
         'resolution':[scene.render.resolution_x,scene.render.resolution_y],'view_transform':scene.view_settings.view_transform,
         'look':scene.view_settings.look,'exposure':scene.view_settings.exposure,'frames':[1],
         'fps':scene.render.fps,'fps_base':scene.render.fps_base,'source_saved':False,'cameras':[]}

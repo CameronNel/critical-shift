@@ -79,6 +79,25 @@ for o in list(scene.objects):
         if not good:failures.append('Attachment: '+o.name)
     finally:e.to_mesh_clear()
 
+meeting_seals=[]
+for o in scene.objects:
+    if not o.get('fc_closed_meeting_seal'):continue
+    record=json.loads(o['fc_closed_meeting_seal']);frame=bpy.data.objects[record['frame']]
+    direction=(frame.matrix_world.to_3x3()@Vector((0,1,0))).normalized()
+    h=record['height_m'];samples=[]
+    for z in [.012,h*.35,h*.70,h-.012]:
+        for x in [-.007,0,.007]:
+            origin=frame.matrix_world@Vector((x,-.4,z))
+            hit,normal,index,distance=bvh(o).ray_cast(origin,direction,1.0)
+            samples.append({'local_joint_sample':[x,z],'blocked':hit is not None,
+                            'surface_distance_m':float(distance) if hit is not None else None})
+    good=all(r['blocked'] for r in samples)
+    meeting_seals.append({'leaf':o.name,'frame':frame.name,'status':'PASS' if good else 'FAIL',
+                          'samples':samples,'scope':'Native geometry blocks the closed center sightline; actual-map renders judge visible finish.'})
+    if not good:failures.append('Closed meeting seal: '+o.name)
+if manifest['stage']=='full' and len(meeting_seals)!=5:
+    failures.append('Expected five sealed closed boundary portals')
+
 exteriors=[]
 for before in manifest['protected_exterior_cores']:
     o=bpy.data.objects.get(before['name']);after=bounds(o) if o else None
@@ -225,7 +244,7 @@ if atmo:
     temporal={'status':'PASS' if not errors else 'FAIL','range_inclusive':[first_frame,last_frame],'frames_evaluated':len(samples),'fps':scene.render.fps,'fps_base':scene.render.fps_base,'errors':sorted(set(errors)),'samples':samples,'scope':'Evaluated light energy, isolated optic emission, static mounted transforms and closure values; visual timing and runtime are separate.'}
     failures.extend(sorted(set(errors)))
 
-report={'schema':'fuel-overhaul-cold-validation/1','file':bpy.data.filepath,'sha256':native_sha,'build_manifest':str(manifest_path.relative_to(ROOT)),'recipe_sha256':manifest.get('recipe_sha256'),'blender':bpy.app.version_string,'status':'PASS' if not failures else 'FAIL','failures':failures,'exterior_bounds':exteriors,'floor_footprints':floor_footprints,'fixed_cameras':fixed_cameras,'runtime_transforms':runtime,'support_contacts':contacts,'attachment_contacts':attachments,'geometry_budget':budget,'uv':uv,'dependencies':packed,'missing_dependencies':missing,'routes':route_results,'fixture_lighting':fixture_lighting,'temporal':temporal,'limitations':['Sampled geometric clearance is not continuous cart/player simulation.','Unity importer, batching, colliders and controller are not executed in this Blender environment.']}
+report={'schema':'fuel-overhaul-cold-validation/1','file':bpy.data.filepath,'sha256':native_sha,'build_manifest':str(manifest_path.relative_to(ROOT)),'recipe_sha256':manifest.get('recipe_sha256'),'blender':bpy.app.version_string,'status':'PASS' if not failures else 'FAIL','failures':failures,'exterior_bounds':exteriors,'floor_footprints':floor_footprints,'fixed_cameras':fixed_cameras,'runtime_transforms':runtime,'support_contacts':contacts,'attachment_contacts':attachments,'closed_meeting_seals':meeting_seals,'geometry_budget':budget,'uv':uv,'dependencies':packed,'missing_dependencies':missing,'routes':route_results,'fixture_lighting':fixture_lighting,'temporal':temporal,'limitations':['Sampled geometric clearance is not continuous cart/player simulation.','Unity importer, batching, colliders and controller are not executed in this Blender environment.']}
 out=Path(opts.report).resolve() if opts.report else TASK/'production'/('COLD_VALIDATION.json' if manifest['stage']=='full' else 'SLICE_VALIDATION.json');out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(report,indent=2));print('FUEL_VALIDATION',report['status'],len(failures),'failures',budget,flush=True)
 for f in failures:print('FAIL',f,flush=True)
 if failures:raise RuntimeError('Fuel cold validation failed; inspect '+str(out))

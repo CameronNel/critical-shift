@@ -896,6 +896,16 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
             leaf.box((.066,.009,height-.055),(edge+.008,-.128,height/2),mat('replacement enamel'),.002)
             leaf.box((.027,.023,height-.075),(edge+.025,-.112,height/2),mat('rubber'),.003)
             for zz in [.18,.92,1.78,height-.18]:bolt(leaf,(edge-.010,-.136,zz),.005)
+        elif side<0 and state=='CLOSED':
+            # A folded meeting stile physically covers the 16 mm sightline.
+            # Its rear rubber lip compresses against the opposite leaf rim;
+            # the full-height overlap also closes the header/sill end gaps.
+            edge=w/2;seal_h=height+.010;seal_z=height/2-.003
+            leaf.box((.020,.033,seal_h),(edge-.010,-.107,seal_z),mat('steel'),.002)
+            leaf.box((.068,.010,seal_h),(edge+.008,-.128,seal_z),m,.002)
+            leaf.box((.038,.027,seal_h),(edge+.017,-.112,seal_z),mat('rubber'),.003)
+            for zz in [.13,height*.35,height*.70,height-.13]:
+                bolt(leaf,(edge-.010,-.137,zz),.005)
         if state=='OPEN':
             for xx in [-w*.29,w*.29]:
                 leaf.box((.052,.035,.277),(xx,-.172,height+.111),mat('dark steel'),.003)
@@ -907,6 +917,11 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
         obj=add(leaf,name+(' left leaf' if side<0 else ' right leaf'),'FC | Doors',pos=p,normal=n,parent=o.name,family='fabricated pressure leaf' if width>=3 else 'fabricated service leaf')
         obj['current_pose']=state;obj['collision_handoff']='kinematic_geometry'
         obj['controller_status']='authoring pose; engine controller not verified'
+        if side<0 and state=='CLOSED':
+            obj['fc_closed_meeting_seal']=json.dumps({'frame':o.name,'height_m':height,
+                'profile':'folded painted astragal with bolted spine and compressible rear seal',
+                'overlap_width_m':.068,'sealed_joint_width_m':.016,
+                'scope':'physical authoring geometry; no door-controller or runtime acceptance'})
         if width>=3:
             label('L / 01' if side<0 else 'R / 02',obj.matrix_world@Vector((-side*.30,-.146,.65)),.039,normal=n,parent=obj.name)
         if width>=4:label('REACTOR' if side<0 else '02',obj.matrix_world@Vector((0,-.109,height-.56)),.19 if side<0 else .32,normal=n,material='ink',parent=obj.name)
