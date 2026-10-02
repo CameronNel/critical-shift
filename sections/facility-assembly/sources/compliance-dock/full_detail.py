@@ -30,7 +30,7 @@ def full_palette():
         elif 'Locker door' in o.name:assign(o,'blue')
         elif 'Fixture Housing' in o.name:assign(o,'ivory')
         elif 'Tube ' in o.name:assign(o,'warm_lamp')
-    handling_wear(S.objects['Floor slab'],'Floor traffic polish',(1.1,7.9,0),(2.15,6.4,.015),(.24,.245,.25),.24)
+    handling_wear(S.objects['Floor slab'],'Floor traffic polish',(1.1,7.9,0),(2.15,6.4,.015),(.25,.235,.205),.30)
 
 def octagon(w,h,cut):
     return [(-w/2+cut,-h/2),(w/2-cut,-h/2),(w/2,-h/2+cut),(w/2,h/2-cut),
@@ -291,10 +291,10 @@ def architectural_detail():
 
 def full_lighting():
     # Existing authored practical locations are immutable; energy is purpose-led.
-    powers={'Warm Fluorescent SW':28,'Warm Fluorescent S-Mid':45,'Warm Fluorescent SE':22,
-        'Office Task Fluorescent':55,'Office Rear Fluorescent':20,'Scanner Overhead Key':90,
-        'Conveyor Hero Key':70,'Arrival Bay Key':58,'Bay Utility Key':60,
-        'Support Concealed Accent':18,'Ambient Fill Center':15,'Ceiling Wash 4.0':12,
+    powers={'Warm Fluorescent SW':28,'Warm Fluorescent S-Mid':38,'Warm Fluorescent SE':32,
+        'Office Task Fluorescent':45,'Office Rear Fluorescent':20,'Scanner Overhead Key':90,
+        'Conveyor Hero Key':70,'Arrival Bay Key':78,'Bay Utility Key':60,
+        'Support Concealed Accent':28,'Ambient Fill Center':11,'Ceiling Wash 4.0':12,
         'Ceiling Wash 11.0':10,'P2 Gate Amber Spotlight':12,'Lead Tunnel Hazard Spotlight':5,
         'G1 Gate Amber Downlight':5}
     for o in S.objects:

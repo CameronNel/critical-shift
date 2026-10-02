@@ -145,7 +145,7 @@ for item in shots:
     hidden=[]
     if item['group'] in {'corners','wall-cutaway','wall-elevation'}:
         for o in scene.objects:
-            if o.type!='MESH' or o.name.startswith('TEMP '):continue
+            if o.type not in {'MESH','CURVE','FONT'} or o.name.startswith('TEMP '):continue
             v=[o.matrix_world @ Vector(c) for c in o.bound_box]
             lo=[min(p[k] for p in v) for k in range(3)];hi=[max(p[k] for p in v) for k in range(3)]
             roof='ceiling slab' in o.name.lower() or 'roof deck' in o.name.lower()

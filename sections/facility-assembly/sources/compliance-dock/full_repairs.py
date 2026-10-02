@@ -315,7 +315,7 @@ def repair_gate_construction():
 def repair_full_candidate():
     for n in ['Scanner portal column -1','Scanner portal column 1']:
         world_edit(S.objects[n],lambda q:(q.x,q.y,min(q.z,2.65)),'Inspection columns butt into header underside at Z2.65; remove duplicated front skin, same outer arch envelope/clearance')
-    repair_screens();repair_structure();repair_internal_bearing();repair_utilities();repair_tarp();repair_surfaces_story();repair_lighting();repair_gate_construction();repair_second_review()
+    repair_screens();repair_structure();repair_internal_bearing();repair_utilities();repair_tarp();repair_surfaces_story();repair_lighting();repair_gate_construction();repair_second_review();repair_third_review()
     S['first_full_cycle_repairs']='Actual internal mount contact, real screen apertures/frame pockets, continuous cloth/cut coordinates, purposeful wear/handover, fitted face keys'
 
 def finish_full_repairs():
@@ -493,3 +493,200 @@ def repair_second_review():
     box('CD | Entry locator diffuser',(0,-1.0,2.552),(1.02,.075,.004),'warm_lamp',.0005)
     l=light('CD | Entry reverse practical',(0,-1.0,2.549),(0,-1.95,1.45),16,(1,.74,.48),1.0,.07);reposition_parent(l,root)
     S['second_full_review_repairs']='Distinct scanner/gate/cargo manufacture and paired check-in hierarchy; annular return bearings, seated lenses/inscription, linked731-A chain, continuing utilities/lockout; active fabric normalized after unwrap'
+
+
+def annular_bearing(name,loc,outer,inner,depth,axis,key,foot=False):
+    # Closed bearing with a true journal bore. A cast hanger has a flat foot
+    # seated on the door top; its eye and neck are ONE continuous solid.
+    n=16;other=[k for k in range(3) if k!=axis];vs=[];fs=[]
+    for dd,r in [(-depth/2,outer),(depth/2,outer),(-depth/2,inner),(depth/2,inner)]:
+        for j in range(n):
+            xx=r*sin(2*pi*j/n);zz=r*cos(2*pi*j/n)
+            if foot and r==outer and j in [7,8,9]:
+                xx={7:.027,8:0,9:-.027}[j];zz=-.080
+            q=list(loc);q[axis]+=dd;q[other[0]]+=xx;q[other[1]]+=zz;vs.append(q)
+    for a,b in [(0,1),(1,3),(3,2),(2,0)]:
+        fs.extend((a*n+j,a*n+(j+1)%n,b*n+(j+1)%n,b*n+j) for j in range(n))
+    o=mesh(name,vs,fs,key,0)
+    bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()
+    o['bearing_contract']='Closed journal bore, 0.5mm radial running clearance; continuous cast hanger foot' if foot else 'Closed annular roller; 0.5mm radial running clearance'
+    return o
+
+
+def repair_arrival_load_path():
+    use_root('Arrival Gate P2')
+    # Retained header envelope now contains a real horizontal C rail; both
+    # bottom lips rest on the original jambs. No change to the usable aperture.
+    pts=[(15.8,3.5),(16.08,3.5),(16.08,3.7),(15.8,3.7),
+         (15.8,3.68),(16.06,3.68),(16.06,3.52),(15.8,3.52)]
+    replace('P2 frame head lintel',profile('TEMP captured arrival rail',pts,4.92,0,(0,0,0),'steel',0),
+            'Original header becomes a closed C-section load rail within identical bounds; lower flange bears on both original jamb tops')
+    for side in [-1,1]:
+        leaf=S.objects['P2 blast leaf '+('west' if side<0 else 'east')]
+        for xx in [side*.65,side*1.75]:
+            hanger=annular_bearing('CD | P2 cast leaf hanger',(xx,15.813,3.56),.019,.0085,.026,1,'steel',True)
+            reposition_parent(hanger,leaf)
+            shaft=cyl('CD | P2 hanger journal',(xx,15.90,3.56),.008,.195,'steel','Y',vertices=16,w=0)
+            reposition_parent(shaft,leaf)
+            wheel=annular_bearing('CD | P2 captured trolley roller',(xx,15.94,3.56),.04,.0085,.060,1,'charcoal')
+            reposition_parent(wheel,leaf)
+            # Flat hanger foot meets leaf Z3.48, eye captures the axle; roller
+            # bottom Z3.52 rests on the anchored rail flange, not ancestry.
+        for zz in [.20,3.20]:
+            # Guide pad closes the inherited 10mm lateral gap, with a declared
+            # 0.5mm running clearance from the anchored jamb inner surface.
+            q=box('CD | P2 lateral guide wear pad',(side*2.29475,15.837,zz),(.0095,.045,.09),'rubber',0)
+            reposition_parent(q,leaf)
+    world_edit(S.objects['P2 gate sign plate'],lambda q:(q.x,min(q.y,15.68005) if q.y<15.7 else q.y,q.z),
+               'Printed glyph rear seats on extended real sign face; original sign/font world poses retained')
+    world_edit(S.objects['P2 security console'],lambda q:(q.x,min(q.y,15.59) if q.y<15.7 else q.y,q.z),
+               'Console face backs retained screen at actual Y15.59, removing inherited 10mm mounting gap')
+
+
+def repair_key_cabinet():
+    use_root('CD | Office key cabinet')
+    replace('Office key box cabinet',shell('TEMP real glazed key cabinet',(-3,9.445,1.5),(.30,.15,.40),1,'charcoal',opening=.96,taper=1,cut=.003),
+            'Hollow wall-mounted cabinet exposes retained glazing and real interior; original pose, outer front/back datums and wall support preserved')
+    ring('CD | Key pane retaining ledge',(-3,9.4775,1.5),.288,.384,.250,.350,.005,1,'steel')
+    # Pane rear is Y9.475: it sits on the real inner retaining ledge. Key hooks
+    # extend from the hollow back web and retain actual separate key rings.
+    for xx in [-3.075,-3,-2.925]:
+        cyl('CD | Key hook wall journal',(xx,9.495,1.55),.003,.038,'steel','Y',vertices=8,w=0)
+        annular_bearing('CD | Key retained bow',(xx,9.479,1.547),.013,.006,.003,1,'brass')
+        box('CD | Key blade',(xx,9.479,1.514),(.008,.003,.041),'brass',0)
+        box('CD | Key tooth',(xx+.004,9.479,1.494),(.008,.003,.012),'brass',0)
+    # Correct the inherited backward internal lettering through authored mesh
+    # geometry, retaining its original object matrix/name rather than moving it.
+    box('CD | Key cabinet nameband',(-3,9.373,1.677),(.30,.006,.042),'charcoal',0)
+    label=txt('TEMP correctly facing key label','KEYS',(-3,9.3694,1.660),.035,'ivory',align='CENTER')
+    label.data.extrude=0
+    for o in list(bpy.context.selected_objects):o.select_set(False)
+    label.select_set(True);bpy.context.view_layer.objects.active=label;bpy.ops.object.convert(target='MESH')
+    label=bpy.context.object;label.select_set(False)
+    replace('Key box label',label,'Retained label matrix/name; actual readable flat inscription placed against cabinet upper front rim, correct outward facing geometry')
+
+
+def repair_printed_graphics():
+    # Printed letters are ink, not six-millimetre-thick sculpted glyphs. This
+    # removes shadowed sidewalls which destroyed microcopy at 600p. Existing
+    # names and every original object world pose survive.
+    for o in S.objects:
+        if o.type!='FONT':continue
+        o.data.extrude=0;o.data.bevel_depth=0
+        o['print_contract']='Flat editable ink glyphs; typography scaled for actual evidence cameras; no thick microtype sides'
+    edits={
+        'Manifest header':('DUTY CLEARANCE',.024),
+        'Manifest line 1':('SECTOR 04 / ARRIVAL',.013),
+        'Manifest line 2':('CUSTODY: 731-A',.014),
+        'Manifest line 3':('RELEASE: DENIED',.014),
+        'Cargo crate text 1':('SECTOR 04',.050),
+        'Cargo crate text 2':('CUSTODY 731-A',.034),
+        'Screen line 1':('COMPLIANCE OS',.022),
+        'Screen line 2':('SHIFT 041 / ACTIVE',.018),
+        'Screen line 3':('GATE SEALED',.018),
+        'CD | Reassurance qualification':('RELEASE BY MANAGEMENT ONLY',.012),
+        'CD | Handover issue':('NO RELIEF ASSIGNED',.021),
+        'CD | Handover incident':('731-A / HOLD',.021),
+        'CD | Lockout task':('PART PENDING',.019),
+    }
+    for name,(body,size) in edits.items():
+        if name in S.objects and S.objects[name].type=='FONT':
+            S.objects[name].data.body=body;S.objects[name].data.size=size
+    # Retain one coherent identifier on the existing transfer docket rather
+    # than multiple new competing captions on the same small paper.
+    for name in ['CD | Transfer custody match','CD | Transfer linked ID']:
+        if name in S.objects:bpy.data.objects.remove(S.objects[name],do_unlink=True)
+    for o in S.objects:
+        if o.type=='FONT' and o.name.startswith('Specimen tag text'):
+            o.data.body={'Specimen tag text 1':'731-A / HOLD','Specimen tag text 2':'CUSTODY TRANSFER','Specimen tag text 3':'RELEASE DENIED'}.get(o.name,o.data.body)
+            o.data.size={'Specimen tag text 1':.026,'Specimen tag text 2':.016,'Specimen tag text 3':.016}.get(o.name,o.data.size)
+
+
+def repair_working_surfaces():
+    # Restrained contact wear follows actual actions; clean broad walls remain
+    # deliberate negative space rather than being carpeted in arbitrary grunge.
+    for o in S.objects:
+        if o.type!='MESH':continue
+        if o.name.startswith(('G1 leaf','CD | G1 pressed panel bay')) and 'panel' in o.name:
+            if MATERIALS['charcoal'] in o.data.materials[:]:assign(o,'wear')
+        elif o.name.startswith('CD | Arrival leaf pressed cassette'):assign(o,'wear')
+    floor=S.objects['Floor slab'].data.materials[0]
+    material_patch(floor,(0,6.45,0),(.48,.70,.009),(.09,.085,.076),.62,True)
+    material_patch(floor,(1.9,6.2,0),(.35,1.55,.009),(.30,.28,.23),.55,True)
+    material_patch(floor,(-3.5,2.95,0),(.65,.40,.009),(.10,.095,.08),.64,True)
+    for key,p,r,color in [
+        ('rubbed_coral',(4.65,5.35,1.35),(.40,.09,.12),(.32,.25,.17)),
+        ('blue',(5.05,14.765,1.04),(.22,.035,.20),(.28,.285,.275)),
+        ('navy',(.73,6.812,.23),(.15,.045,.22),(.24,.25,.255)),
+        ('wear',(0,15.74,1.12),(1.30,.04,.12),(.32,.32,.29)),
+        ('ivory',(6.51,13.8,1.45),(.05,.16,.16),(.40,.37,.30)),
+    ]:material_patch(MATERIALS[key],p,r,color,.65,True)
+    # Soft removed-notice paint shadow on the inspection wall. This changes the
+    # plaster response in place; it creates no detached floating decal plane.
+    material_patch(MATERIALS['plaster'],(6.80,5.95,2.00),(.009,.80,.60),(.51,.485,.425),.42,False)
+
+
+def repair_personal_and_institutional_traces():
+    use_root('Staff Desk Assembly')
+    # An interrupted case file and an off-shift folded work jacket sit on the
+    # measured desk top. Paper layers and cloth bottoms genuinely bear there.
+    box('CD | Open case folder cover',(-3.86,7.18,.761),(.36,.34,.002),'coral',0)
+    for j in range(3):
+        box('CD | Unfinished case pages',(-3.85+.004*j,7.175-.004*j,.7625+.001*j),(.30,.28,.001),'paper',0)
+    # Broad angular folds give fabric a distinct silhouette without noisy
+    # micro-tessellation; folded, supported underside is Z.760 everywhere.
+    nx,ny=16,14;vs=[];fs=[]
+    for layer in [0,1]:
+        for j in range(ny+1):
+            yy=6.15+j*.34/ny
+            for i in range(nx+1):
+                xx=-4.09+i*.34/nx
+                z=.760 if layer==0 else .781+.009*sin(i*pi/4)*sin(j*pi/ny)+.012*(1-abs(2*i/nx-1))
+                vs.append((xx,yy,z))
+    count=(nx+1)*(ny+1)
+    for j in range(ny):
+        for i in range(nx):
+            q=j*(nx+1)+i;fs.extend([(q,q+nx+1,q+nx+2,q+1),(q+count,q+count+1,q+count+nx+2,q+count+nx+1)])
+    border=list(range(nx+1))+[j*(nx+1)+nx for j in range(1,ny+1)]+[ny*(nx+1)+i for i in range(nx-1,-1,-1)]+[j*(nx+1) for j in range(ny-1,0,-1)]
+    fs.extend((q,border[(k+1)%len(border)],border[(k+1)%len(border)]+count,q+count) for k,q in enumerate(border))
+    jacket=mesh('CD | Clerk folded work jacket',vs,fs,'fabric',0)
+    bm=bmesh.new();bm.from_mesh(jacket.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(jacket.data);bm.free()
+    jacket['support_geometry']='Closed folded jacket; measured entire bottom bears on Staff desk top at Z.760'
+    # One faded reassurance poster has a coercive second meaning. It is mounted
+    # to the retained south wall, outside circulation and all asset footprints.
+    root=asset_root('Faded duty poster','South wall east',[(3.7,0,2.05)],(0,-1,0))
+    box('CD | Duty poster stock',(3.7,.0008,2.05),(.92,.0016,1.18),'paper',0)
+    # Angular native graphic: simplified factory roof and rays, using existing
+    # warm institutional ink families instead of a round cartoon emblem.
+    profile('CD | Poster factory silhouette',[(-.35,-.09),(-.35,.10),(-.15,.02),(-.15,.15),(.03,.05),(.03,.18),(.29,.07),(.29,-.09)],.0002,1,(3.7,.0017,2.12),'coral',0)
+    for xx in [3.37,3.46,3.55,3.64,3.73,3.82,3.91]:
+        box('CD | Poster factory windows',(xx,.0019,2.08),(.031,.0002,.043),'paper',0)
+    txt('CD | Poster reassurance','YOUR WORK\nMATTERS',(3.7,.00205,2.48),.083,'ink',rot=(pi/2,0,pi),align='CENTER')
+    txt('CD | Poster coercive line','CONTINUED DUTY\nIS YOUR REWARD',(3.7,.00205,1.84),.041,'ink',rot=(pi/2,0,pi),align='CENTER')
+    # A bolted replacement sleeve has different finish and a physical repair
+    # seam on a working conduit; this is an unfinished job, not a label alone.
+    use_root('Wall Utilities Rack')
+    annular_bearing('CD | Replacement conduit sleeve',(6.65,13.1,2.62),.043,.0355,.10,2,'brass')
+    for zz in [2.58,2.66]:
+        cyl('CD | Sleeve clamp captive stud',(6.602,13.1,zz),.004,.014,'steel','X',vertices=6,w=0)
+
+
+def repair_practical_hierarchy():
+    # Existing lamps keep their authored positions. Local pool changes expose
+    # the cabinet/trolley without turning the support bay into a bright stage.
+    for name,power in [('CD | Inspection face practical',82),('CD | Custody transfer practical',22),
+                       ('CD | Scanner practical roof bounce',34),('CD | Check-in practical',62)]:
+        S.objects[name].data.energy=power
+    use_root('Cargo Inspection Conveyor')
+    # Real shallow task-light cartridge seats on the existing curtain clamp.
+    # The broad warm lip separates the dark rubber mouth from the shield body.
+    box('CD | Cargo lip task housing',(4.65,6.445,1.772),(.90,.030,.025),'charcoal',.0005)
+    box('CD | Cargo lip task diffuser',(4.65,6.4285,1.772),(.84,.003,.016),'warm_lamp',0)
+    lamp=light('CD | Cargo mouth practical',(4.65,6.4265,1.772),(4.65,6.46,1.15),9,(1,.82,.61),.84,.016)
+    reposition_parent(lamp,ASM)
+
+
+def repair_third_review():
+    repair_arrival_load_path();repair_key_cabinet();repair_working_surfaces()
+    repair_personal_and_institutional_traces();repair_practical_hierarchy();repair_printed_graphics()
+    S['third_full_review_repairs']='Actual captured P2 carriages and backing; hollow glazed key cabinet; flat readable ink and coherent custody731-A; mid-value gate leaves, selective contact wear, supported interrupted file/jacket and faded coercive duty poster; motivated cargo mouth and custody light'
