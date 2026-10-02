@@ -64,3 +64,37 @@ measured evidence; a builder override cannot be recorded as independent acceptan
 
 The default four complete review cycles and two stable final cycles still apply.
 Technical, visual and Unity/runtime gates remain separate.
+
+## Owner atmosphere revision · 2026-10-02
+
+The owner now requests gloomy, eerie, rundown and ominous fuel-corridor art,
+including flickering lights, red practicals, dark intervals, worn/missing floor
+tiles and gaping roof construction. This explicit direction supersedes this
+section's previous maintained/clean mood; geometry craftsmanship, original
+wall/floor footprints, interfaces and the strict >98 review bar remain.
+
+Atmosphere reference: actual work-in-progress reactor PR54, commit
+`c555e4e0f08eeb73edcc9115f185223badc194e5`, especially the new control-room
+wide, brownout, hall, door and lift-anteroom images. The newer reference removes
+purple and uses dark green/amber values, sparse red beacons and visible practical
+falloff. Its unapproved status does not replace spawn's craftsmanship bar.
+Frozen reference PNG hashes are recorded in the read-only reference manifest.
+
+Construction intent: retain the original exterior and route geometry; expose two
+bounded ceiling cavities with capped weather/service backing, torn edges,
+retained bent sheets, rusty straps and routed hanging cables; omit selected
+floor tiles above the retained slab and author fractured pieces with exposed
+biscuit/adhesive; wear traffic zones selectively. Red lamps are mounted and
+guarded, with illumination originating at their lenses. Failed lamps have
+non-emitting optics; flickering fixtures isolate their material users and key
+both light energy and optic emission. No generalized grunge or random debris.
+
+Animation scope: the module had no Actions or drivers. Preserve 24 fps / fps_base
+1; author a 240-interval (10 s) loop, with a closure key at 241 and playback
+frames 1–240. Lights use irregular holds and brief dropouts; red beacons use
+slow linear pulses. No Python drivers or script auto-run requirement. Runtime
+behaviour and playback review remain separate from still-frame art acceptance.
+
+F12ci is the preserved previous-look checkpoint. Its historical 99 reviews do
+not approve the new mood. Review the actual new geometry and all named views,
+plus evaluated flicker states, before recording new acceptance.

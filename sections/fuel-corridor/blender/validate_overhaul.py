@@ -156,7 +156,49 @@ if manifest['stage']=='full':
         route_results.append({'route':name,'width_m':width,'sample_cross_sections':samples,'status':'PASS' if not hits else 'FAIL','obstructions':list(dedup.values())})
         if hits:failures.append('Route '+name)
 
-report={'schema':'fuel-overhaul-cold-validation/1','file':bpy.data.filepath,'sha256':native_sha,'build_manifest':str(manifest_path.relative_to(ROOT)),'recipe_sha256':manifest.get('recipe_sha256'),'blender':bpy.app.version_string,'status':'PASS' if not failures else 'FAIL','failures':failures,'exterior_bounds':exteriors,'floor_footprints':floor_footprints,'fixed_cameras':fixed_cameras,'runtime_transforms':runtime,'support_contacts':contacts,'attachment_contacts':attachments,'geometry_budget':budget,'uv':uv,'dependencies':packed,'missing_dependencies':missing,'routes':route_results,'limitations':['Sampled geometric clearance is not continuous cart/player simulation.','Unity importer, batching, colliders and controller are not executed in this Blender environment.']}
+# Evaluate authored light/optic keys at every playback frame and the loop seam.
+# This is the temporal extension of the existing cold check, not an art score.
+atmo=manifest.get('atmosphere',{});temporal={'status':'NOT_APPLICABLE'}
+if atmo:
+    records=atmo['flicker']+atmo.get('alarms',[])
+    first_frame=atmo['frame_start'];last_frame=atmo['closure_frame'];saved_frame=scene.frame_current
+    samples=[];errors=[];first_values={};static={r['fixture']:bpy.data.objects[r['fixture']].matrix_world.copy() for r in records}
+    for frame in range(first_frame,last_frame+1):
+        scene.frame_set(frame);graph=bpy.context.evaluated_depsgraph_get();values=[]
+        for r in records:
+            light=bpy.data.objects[r['light']];energy=float(light.evaluated_get(graph).data.energy)
+            keys=r['keys'];previous=max((f,v) for f,v in keys if f<=frame);expected=previous[1]
+            if r.get('interpolation')=='LINEAR':
+                following=next(((f,v) for f,v in keys if f>frame),None)
+                if following:
+                    alpha=(frame-previous[0])/(following[0]-previous[0]);expected+=alpha*(following[1]-previous[1])
+            factor=energy/r['energy_base_w'];optic_values=[]
+            if not math.isfinite(energy) or abs(factor-expected)>1e-5:errors.append(f'Light evaluation {r["light"]} frame {frame}')
+            for optic in r.get('optics',[]):
+                material=bpy.data.materials[optic['material']]
+                strength=float(material.node_tree.nodes.get('Principled BSDF').inputs['Emission Strength'].default_value)
+                if not math.isfinite(strength) or abs(strength/optic['emission_base']-factor)>1e-5:errors.append(f'Optic/light mismatch {optic["material"]} frame {frame}')
+                if material.users!=1:errors.append('Animated optic is not isolated '+material.name)
+                optic_values.append(strength)
+            obj=bpy.data.objects[r['fixture']].evaluated_get(graph)
+            drift=max(abs(obj.matrix_world[j][i]-static[r['fixture']][j][i]) for i in range(4) for j in range(4))
+            if not math.isfinite(drift) or drift>1e-6:errors.append('Animated fixture mount drift '+r['fixture'])
+            values.append({'light':r['light'],'energy_w':energy,'factor':factor,'optic_strengths':optic_values,'matrix_drift':drift})
+            current=[energy]+optic_values
+            if frame==first_frame:first_values[r['light']]=current
+            if frame==last_frame and any(abs(a-b)>1e-5 for a,b in zip(current,first_values[r['light']])):errors.append('Loop value seam '+r['light'])
+        samples.append({'frame':frame,'values':values})
+    dead=bpy.data.objects['FC | East fluorescent pool']
+    if dead.data.energy!=0:errors.append('Failed east fluorescent emits light')
+    for slot in dead.parent.material_slots:
+        if slot.material and slot.material.name.startswith('FC | dead tube'):
+            if slot.material.node_tree.nodes.get('Principled BSDF').inputs['Emission Strength'].default_value!=0:errors.append('Failed east optic emits')
+    scene.frame_set(saved_frame)
+    if (scene.frame_start,scene.frame_end,scene.render.fps,scene.render.fps_base)!=(atmo['frame_start'],atmo['frame_end'],atmo['fps'],atmo['fps_base']):errors.append('Authored playback contract changed')
+    temporal={'status':'PASS' if not errors else 'FAIL','range_inclusive':[first_frame,last_frame],'frames_evaluated':len(samples),'fps':scene.render.fps,'fps_base':scene.render.fps_base,'errors':sorted(set(errors)),'samples':samples,'scope':'Evaluated light energy, isolated optic emission, static mounted transforms and closure values; visual timing and runtime are separate.'}
+    failures.extend(sorted(set(errors)))
+
+report={'schema':'fuel-overhaul-cold-validation/1','file':bpy.data.filepath,'sha256':native_sha,'build_manifest':str(manifest_path.relative_to(ROOT)),'recipe_sha256':manifest.get('recipe_sha256'),'blender':bpy.app.version_string,'status':'PASS' if not failures else 'FAIL','failures':failures,'exterior_bounds':exteriors,'floor_footprints':floor_footprints,'fixed_cameras':fixed_cameras,'runtime_transforms':runtime,'support_contacts':contacts,'attachment_contacts':attachments,'geometry_budget':budget,'uv':uv,'dependencies':packed,'missing_dependencies':missing,'routes':route_results,'temporal':temporal,'limitations':['Sampled geometric clearance is not continuous cart/player simulation.','Unity importer, batching, colliders and controller are not executed in this Blender environment.']}
 out=Path(opts.report).resolve() if opts.report else TASK/'production'/('COLD_VALIDATION.json' if manifest['stage']=='full' else 'SLICE_VALIDATION.json');out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(report,indent=2));print('FUEL_VALIDATION',report['status'],len(failures),'failures',budget,flush=True)
 for f in failures:print('FAIL',f,flush=True)
 if failures:raise RuntimeError('Fuel cold validation failed; inspect '+str(out))

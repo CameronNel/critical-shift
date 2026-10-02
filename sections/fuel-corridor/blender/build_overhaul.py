@@ -12,6 +12,7 @@ from mathutils import Matrix, Vector
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from fuel_kit import *
 import fuel_assets as A
+import fuel_atmosphere as ATM
 
 TASK=ROOT/'sections/fuel-corridor'
 SOURCE=ROOT/'sections/facility-assembly/sources/fuel-corridor/module.blend'
@@ -489,7 +490,7 @@ def floor(cell):
             if (j in [0,ny-1] if along_x else i in [0,nx-1]):k='service border' if service else 'floor border'
             if cell['id']=='west_turn' and i==nx-2 and j==ny-2:k='floor repair'
             for a,c,d,e in owned_rectangles((x-sx/2+.003,x+sx/2-.003,y-sy/2+.003,y+sy/2-.003),cell):
-                b.box((c-a,e-d,.020),((a+c)/2,(d+e)/2,-.010),mat(k),.0014,seg=3)
+                ATM.worn_tile(b,(a,c,d,e),k,ATM.damage_at(cell,i,j),cell,i,j)
     o=add(b,'Floor finish '+cell['id'],'FC | Floor and ceiling',target=old.name,
           anchors=[((xmin+xmax)/2,(ymin+ymax)/2,-.020)],direction=(0,0,-1),kind='floor',family='flush industrial floor')
     FLOORS[cell['id']]=o.name
@@ -514,7 +515,8 @@ def ceiling(cell):
         for j in range(ny):
             x=xmin+(i+.5)*sx;y=ymin+(j+.5)*sy
             for a,c,d,e in owned_rectangles((x-sx/2+.014,x+sx/2-.014,y-sy/2+.014,y+sy/2-.014),cell):
-                b.box((c-a,e-d,.034),((a+c)/2,(d+e)/2,h+.006),mat('sanitary ceramic light' if clean else 'warm plaster' if entry else 'mineral'),.002)
+                if ATM.roof_tile_missing(cell,i,j):ATM.roof_void(b,(a,c,d,e),h,cell)
+                else:b.box((c-a,e-d,.034),((a+c)/2,(d+e)/2,h+.006),mat('sanitary ceramic light' if clean else 'warm plaster' if entry else 'mineral'),.002)
             if j==0 and i==nx//2:
                 # Separate hatch leaf sits in a continuous sheet lip with a reveal.
                 b.box((sx*.62,sy*.56,.018),(x,y,h-.018),mat('replacement enamel'),.003)
@@ -1240,6 +1242,7 @@ def floor_graphics():
         b=B();anchors=[];xmin,xmax,ymin,ymax=cell['bounds'];nx,ny,sx,sy,_=tile_layout(cell)
         for i in range(nx):
             for j in range(ny):
+                if ATM.damage_at(cell,i,j):continue
                 for shape,material in shapes:
                     poly=shape
                     for axis,bound,lower in [(0,xmin+i*sx+.004,True),(0,xmin+(i+1)*sx-.004,False),(1,ymin+j*sy+.004,True),(1,ymin+(j+1)*sy-.004,False)]:
@@ -1281,11 +1284,11 @@ def run():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',choices=['slice','full'],default='full')
     parser.add_argument('--output');opts=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     assert hashlib.sha256(BASE.read_bytes()).hexdigest()==BASE_HASH,'Baseline changed'
-    recipe_paths=[Path(__file__).resolve(),Path(__file__).with_name('fuel_kit.py'),Path(A.__file__).resolve(),ROOT/'sections/spawn-room/blender/cozy_geo.py',CONTRACT]
+    recipe_paths=[Path(__file__).resolve(),Path(__file__).with_name('fuel_kit.py'),Path(A.__file__).resolve(),Path(ATM.__file__).resolve(),ROOT/'sections/spawn-room/blender/cozy_geo.py',CONTRACT]
     recipe_inputs={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in recipe_paths}
     recipe_hash=hashlib.sha256(json.dumps(recipe_inputs,sort_keys=True).encode()).hexdigest()
     bpy.ops.wm.open_mainfile(filepath=str(BASE),load_ui=False)
-    contract=json.loads(CONTRACT.read_text());palette()
+    contract=json.loads(CONTRACT.read_text());palette();ATM.palette_age()
     # Asset/core inventory is recorded before mutation, never inferred from output names.
     original=[{'name':o.name,'type':o.type,'bounds':bounds(o) if o.type=='MESH' else None,
                'geometry':digest(o) if o.type=='MESH' else None} for o in bpy.context.scene.objects]
@@ -1388,6 +1391,7 @@ def run():
     scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=48;scene.cycles.use_denoising=True;scene.cycles.seed=7
     scene.view_settings.view_transform='AgX';scene.view_settings.look='AgX - Medium High Contrast';scene.view_settings.exposure=-.15
     scene.render.resolution_x=1440;scene.render.resolution_y=960;scene.render.resolution_percentage=100
+    atmosphere=ATM.apply(mounted) if full else {}
     if full:bpy.data.orphans_purge(do_local_ids=True,do_linked_ids=False,do_recursive=True)
     compatibility=main_cache_material_compatibility() if full else {}
     # No dependency on host-only font paths. Packed source fonts survive cold open.
@@ -1409,7 +1413,7 @@ def run():
             'fixed_cameras':[o.name for o in scene.objects if o.type=='CAMERA'],
             'baseline_cameras':baseline_cameras,'baseline_runtime':baseline_runtime,
             'wall_assets':WALLS,'floor_assets':FLOORS,'ceiling_assets':CEILINGS,'original_ports':contract['ports'],
-            'localized_recesses':RECESSES}
+            'localized_recesses':RECESSES,'atmosphere':atmosphere}
     p=TASK/'production'/('SLICE_BUILD.json' if not full else 'BUILD_MANIFEST.json');p.write_text(json.dumps(report,indent=2))
     print('FUEL_BUILD',opts.stage,len(scene.objects),'objects',report['sha256'],flush=True)
 

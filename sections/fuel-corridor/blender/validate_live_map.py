@@ -59,6 +59,26 @@ assert all(bpy.data.objects[name].hide_render for name in hidden)
 assert len(hidden) == len([o for o in build['baseline_asset_inventory'] if o['type'] == 'LIGHT'])
 assert all(sha(p) == expected for p, expected in frozen.items()), 'Frozen dependency changed'
 assert sha(source) == build['sha256'], 'Source changed'
+animation=[]
+atmo=build.get('atmosphere',{})
+if atmo:
+    # The actual linked collection must retain light and isolated optic keys.
+    # Preserve the main scene's timeline; only evaluate in this disposable run.
+    scene=bpy.context.scene;saved_frame=scene.frame_current
+    for frame in [1,18,46,110,151,240,241]:
+        scene.frame_set(frame);graph=bpy.context.evaluated_depsgraph_get();values=[]
+        for record in atmo['flicker']+atmo.get('alarms',[]):
+            obj=next(o for o in module.all_objects if o.name==record['light'])
+            energy=float(obj.evaluated_get(graph).data.energy);factor=energy/record['energy_base_w']
+            assert obj.data.animation_data and obj.data.animation_data.action,'Linked light keys absent'
+            for optic in record['optics']:
+                m=next(m for m in linked_materials.values() if m.name==optic['material'])
+                assert m.node_tree.animation_data and m.node_tree.animation_data.action,'Linked optic keys absent'
+                emission=m.node_tree.nodes.get('Principled BSDF').inputs['Emission Strength'].default_value
+                assert abs(emission/optic['emission_base']-factor)<1e-5,'Linked optic/light mismatch'
+            values.append({'light':obj.name,'energy_w':energy,'factor':factor})
+        animation.append({'frame':frame,'values':values})
+    scene.frame_set(saved_frame)
 report = {
     'schema': 'fuel-normal-map-launcher-validation/1',
     'created_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -71,6 +91,7 @@ report = {
     'main_cache_material_ids_resolved': len(compatibility),
     'repeat_install_idempotent': True, 'instance_matrix': matrix,
     'saved_main': False, 'source_bytes_unchanged': True,
+    'linked_animation_samples': animation,
     'limits': ['No Unity build, performance, controller or continuous collision test.'],
 }
 (TASK / 'MAP_LAUNCHER_VALIDATION.json').write_text(json.dumps(report, indent=2) + '\n')

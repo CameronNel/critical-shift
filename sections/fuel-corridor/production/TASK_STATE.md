@@ -1,12 +1,12 @@
 # Fuel corridor overhaul state
 
-Phase: full visual and authoring-map validation complete; independent owner review/merge pending.
+Phase: owner-requested eerie/rundown atmosphere revision in progress; F12 is a historical accepted checkpoint.
 Branch: `codex/fuel-corridor-overhaul-20261001` from `75983b9`.
 Source: `sections/facility-assembly/sources/fuel-corridor/module.blend`.
 Baseline SHA256: `f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c`.
 Baseline saved at `checkpoints/fuel_corridor_baseline.blend`.
 
-Current result: F12ci is the selected editable module. Pessimistic Luna's F11ci
+Historical result: F12ci was the selected editable module before the atmosphere revision. Pessimistic Luna's F11ci
 and F12ci full reviews each score all seven categories and all nine areas 99,
 using the actual reworked spawn reference as 100. These final two full cycles
 are materially stable; the bounded F12 closure repair changes the recipe and
@@ -327,3 +327,8 @@ blender -b -t 4 --disable-autoexec --python-exit-code 1 --python open_fuel_overh
 The hosted cold/native/view commands and exact logs remain under `ci/F12ci/`, along with the exact final normal-map, assembled-render and ray-check logs. Read-only pixel comparisons and the targeted geometry rays passed; no PNG was retouched. The initial incomplete F12a/F12b closure candidates remain local development evidence and were not promoted. F12c's full closure recipe was selected only after cold and sightline checks, then rebuilt into F12ci and independently reviewed.
 
 Published for independent review in [draft PR70](https://github.com/CameronNel/critical-shift/pull/70); no agent merge. Open the delivered module through `blender --python open_map.py`. Directly opening the canonical map file retains its historical cache. Visual/authoring acceptance does not certify Unity, motion/controllers, continuous collision, adjacent-room traversal or runtime performance. Owner art approval and merge remain separate.
+
+
+## Owner atmosphere revision — F13 development
+
+The owner requests gloomy, eerie, rundown and ominous atmosphere, failing and red lights, dark intervals, worn/missing tiles and open ceiling damage. Latest reactor WIP PR54 (`c555e4e0f08eeb73edcc9115f185223badc194e5`) is the atmosphere reference; reworked spawn remains the craft reference. The previous F12 scores do not approve this new revision. Native floor/wall footprints, original cameras and interfaces remain protected. F13a builds actual recessed missing/broken floor tiles and two bounded open ceiling service bays, isolates keyed failing optics/light energy and mounts three red alarm fixtures. New cold, visual and temporal checks are pending. No new acceptance score is claimed.

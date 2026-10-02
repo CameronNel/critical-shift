@@ -55,13 +55,11 @@ review bar are in [`scenery/OVERHAUL_BRIEF.md`](scenery/OVERHAUL_BRIEF.md).
 Native checkpoints, hashes, render settings, numerical checks and independent
 Luna reports are recorded under `production/`.
 
-The selected F12ci module has passed cold validation and the normal map launcher.
-Pessimistic Luna's final F11ci/F12ci full reviews each score every category and
-every area **99**, using the actual reworked spawn reference as 100, with no
-material regression. The existing outer-wall footprint remains exact.
-See the [final independent report](production/critics/luna-full-F12ci.md),
-[paired-cycle evidence](production/F11_F12_STABILITY.json) and
-[actual assembled-map render](production/renders/integration/F12ci_complete_main_C03_HERO.png).
+The owner-requested gloomy/rundown revision is in progress. F12ci remains the
+historical accepted clean-room checkpoint; its 99 scores do not approve the new
+atmosphere. Latest reactor WIP PR54 is the mood reference, while the reworked
+spawn room remains the craft reference. See the production state for current
+native, fixed-view, temporal and independent-review status.
 
 Current acceptance is tracked in [`production/TASK_STATE.md`](production/TASK_STATE.md).
 Development-gate approval does not accept the whole corridor. Final visual
