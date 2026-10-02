@@ -199,3 +199,25 @@ All workers used the identical cold-checked native bytes.
 Independent visual review is pending; no art or Unity acceptance is claimed.
 
 Authoring geometry: {"source_triangles": 895022, "evaluated_triangles": 900302, "mesh_objects": 333, "material_batch_upper_bound": 1358}.
+
+
+## F8ci independent review and F9 construction
+
+Luna opened the actual hosted F8ci native/render evidence and all four actual spawn references. Category scores: 98 / 98 / 97 / 97 / 98 / 98 / 97. Area scores: 98 / 98 / 98 / 98 / 97 / 98 / 98 / 98 / 98. Every score remains below the strictly greater-than-98 gate. See critics/luna-full-F8ci.md. There are no accepted stable cycles.
+
+Factual challenges corrected two unsupported deductions: E03 has all route-essential cues and D05 supports are readable; the staging assemblies also read and foreground crop alone is analogous to spawn. The report preserves its independent scores/FAIL and now cites broader composition/material/light gaps. Cart boards are impact boards, not shelves, and deep freight recess/contact shadows require no additional fill. No art score was overridden.
+
+F9 connects existing work groups through actual construction: a bounded, backed cart-service bay containing transfer checks, retained spanners, PPE and replaceable timber impact boards; a rolled washable linen-exchange bay combining the return hood, draped towel, stitched bag and retained log; a cooler-frame-supported return lockout rack with a formed primary state plate; and a spent sealed cartridge physically staged on the waste receipt pan with tied receipt and matching B/017 identity. The handover board is relocated within the fixed entry view, and key isolation/linen words grow while secondary engineering labels remain restrained.
+
+A real F8 candidate main-map render, with canonical main, R17 and the required 11 current exterior libraries restored and LFS-hash verified, revealed small ceiling/wall corner light leaks. F9 adds internal folded junction closures without moving the protected exterior cores. A formed freight meeting astragal and compliant seal close the 16 mm closed-pose sightline. Runtime actuation is still unverified.
+
+The first F9 draft exposed one unsupported PPE bracket outside the new bay backing; the backing was extended and a corrected build is undergoing cold and pixel checks. Local drafts remain development evidence. F8ci is the published selected native until F9 hosted checks and all-view manifests pass. Independent F9 review and final acceptance remain pending.
+
+F9b local native SHA256 c290c555da23cae06fdd58a29468018d31b4521b6308285c299218e4f1e85b1b. Cold validation PASS with zero failures; 49 exterior cores, floor cells, original camera/marker transforms, support/attachment contacts, packed dependencies and sampled route envelopes remain guarded. Affected fixed-view drafts are rendering. No visual acceptance is claimed.
+
+
+F9 pixel development corrected a new board/post intersection by placing the board between structural posts; the complete board is visible in both C01 and C04. The closed freight diagnostic shows the real meeting seal closing the sightline. The normal map launcher on the F9c candidate passed repeat-install idempotence, module/source/recipe pairing, identity placement and hiding 51 old fuel lights; canonical main/R17/spawn hashes remained unchanged. Its actual assembled C03 render proved the ceiling-corner closures worked, and exposed smaller residual slots beside the service bulkhead grille. Subsequent construction closes those slots by overlapping the side sheets with the grille/frame and adjoining sheet.
+
+Later F9 construction gives the waste seal station and distribution cabinet their own rolled handoff bay, clearly separate from reactor RETURN; fits that frame between structural posts; integrates the existing delivery paperwork ledge into a rolled arrivals/receipt bay with retained papers and a practical; and groups reactor interlock, keyed isolation and fire equipment on a bounded cream arrival checkpoint. These are task-specific construction changes, leaving the intervening wall fields quiet. Final candidate cold/pixel/main integration and hosted F9ci evidence remain pending.
+
+F9f candidate native SHA256 4840cad9bb84950f7da48b4077f035710c3c00674db63a7d9656c43b38cb6cd8, recipe e7e156f58000a37b3e161fd65caf63df37f486588f149675926ecc2329d0ac20. Cold validation PASS with zero failures. Root opened all six affected F9f fixed draft images and verified native/image hashes, plus both earlier unchanged C01/C04 corrections and the sealed freight diagnostic. Final candidate map integration is pending. Hosted F9ci will rebuild the identical recipe and produce its own cold-checked native and full 19+closed evidence; technical completion is not an art score.

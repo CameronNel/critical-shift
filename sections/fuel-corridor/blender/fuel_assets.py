@@ -616,9 +616,22 @@ def thermal_access(w,opened=False):
     return b
 
 def linen_return():
-    """Folded stainless return hood over a sagging, seamed washable cloth bag."""
+    """One washable exchange bay: return hood/bag, retained log and rolled frame."""
     b=B();w=1.05
-    b.box((w,.018,1.80),(0,-.009,.90),mat('dark steel'),.004)
+    # A continuous removable backing links the return mouth to its inspection
+    # log. Folded margins close the bay; adjacent ceramic walls remain quiet.
+    b.box((2.80,.018,2.10),(.67,-.009,1.05),mat('repaired blue enamel'),.007)
+    for x,s in [(-.73,1),(2.07,-1)]:
+        profile=[(0,0),(0,-.040),(.025,-.052),(.070,-.052),(.077,-.045),(.068,-.035),(.014,-.035),(.014,0)]
+        polygon(b,[(s*xx,yy) for xx,yy in profile],2.10,mat('warm enamel'),pos=(x,0,0),bevel=.001)
+    for z in [.012,2.088]:b.box((2.80,.062,.024),(.67,-.026,z),mat('warm enamel'),.004)
+    # The ledge is a folded washable drip lip, behind the suspended cloth.
+    b.box((2.76,.13,.014),(.67,-.072,.020),mat('steel'),.003)
+    for x in [-.61,.63,1.94]:
+        for z in [.11,2.01]:bolt(b,(x,-.021,z),.007)
+    for x,ww in [(0,1.25),(1.60,.90)]:
+        b.box((ww,.016,.158),(x,-.027,1.925),mat('ink enamel'),.006)
+        for xx in [x-ww/2+.025,x+ww/2-.025]:bolt(b,(xx,-.038,1.925),.004)
     # Contrasting rolled side cheeks and a genuine open return mouth.
     for x in [-w/2+.017,w/2-.017]:
         polygon(b,[(0,.92),(-.26,.92),(-.26,1.37),(-.17,1.63),(0,1.63)],.027,mat('warm enamel'),pos=(x,0,0),rot=Matrix.Rotation(math.pi/2,3,'Y')@Matrix.Rotation(math.pi/2,3,'Z'))
@@ -634,8 +647,8 @@ def linen_return():
     for j in range(10):
         t=j/9;z=.17+t*.72;row=[]
         for k in range(seg):
-            a=2*math.pi*k/seg;wr=.33*(.81+.19*math.sin(t*math.pi/2));dr=.086*(.75+.25*math.sin(t*math.pi/2))
-            ripple=1+.025*math.sin(a*7+t*4)+.012*math.cos(a*11-t*2)
+            a=2*math.pi*k/seg;wr=.40*(.77+.23*math.sin(t*math.pi/2));dr=.080*(.75+.25*math.sin(t*math.pi/2))
+            ripple=1+.052*math.sin(a*7+t*4)+.020*math.cos(a*11-t*2)
             row.append(b.bm.verts.new((wr*math.cos(a)*ripple,-.144+dr*math.sin(a)*ripple,z+.012*math.sin(a*3)*t)))
         rings.append(row)
     mi=b._idx(mat('canvas'))
@@ -644,7 +657,7 @@ def linen_return():
             f=b.bm.faces.new((rings[j][k],rings[j][(k+1)%seg],rings[j+1][(k+1)%seg],rings[j+1][k]));f.material_index=mi;f.smooth=True
     f=b.bm.faces.new(tuple(reversed(rings[0])));f.material_index=mi
     # Mouth rail, suspension tabs and stitched vertical seams all touch the bag.
-    b.tube([(.333*math.cos(2*math.pi*k/32),-.144+.086*math.sin(2*math.pi*k/32),.89+.012*math.sin(6*math.pi*k/32)) for k in range(33)],.005,mat('cotton'),seg=8)
+    b.tube([(.400*math.cos(2*math.pi*k/32),-.144+.080*math.sin(2*math.pi*k/32),.89+.012*math.sin(6*math.pi*k/32)) for k in range(33)],.005,mat('cotton'),seg=8)
     for xx in [-.27,.27]:
         b.box((.045,.014,.135),(xx,-.086,.92),mat('canvas'),.004)
         b.box((.080,.028,.022),(xx,-.085,.986),mat('steel'),.004)
@@ -670,6 +683,7 @@ def linen_return():
     # The 2 m bypass runs close to this wall. Manufacture a shallow return
     # station (maximum 184 mm), retaining the slot and suspended fabric bag.
     for v in b.bm.verts:v.co.y*=.66
+    merge(b,clean_log_board(),(1.60,-.012,1.24))
     return b
 
 def clean_station():
@@ -842,7 +856,7 @@ def extinguisher():
     for z in [.34,.365,.39,.415]:b.box((.038,.001,.002),(0,-.206,z),mat('ink'),.0002)
     return b
 
-def lockout_station():
+def lockout_station(primary=False):
     b=B();coat=mat('warm enamel')
     frame(b,.45,.39,.016,.019,-.010,.195,coat,r=.022)
     b.box((.426,.009,.366),(0,-.015,.195),mat('patch'),.002)
@@ -857,6 +871,11 @@ def lockout_station():
             polygon(b,[(-.023,0),(.023,0),(.025,.065),(.012,.083),(-.012,.083),(-.025,.065)],.0008,mat('paper'),pos=(x,-.064,.112),rot=Matrix.Rotation(math.pi/2,3,'X'))
             b.tube([(x,-.058,.231),(x,-.065,.191)],.001,mat('canvas'),seg=6)
             for z in [.133,.143,.154]:b.box((.027,.0008,.0018),(x,-.065,z),mat('ink'),.0002)
+    if primary:
+        # Overhanging rolled state plate is physically seated on the original
+        # rack. Only the main state cue grows; the retained shift tags do not.
+        b.box((.64,.028,.093),(0,-.023,.335),mat('ink enamel'),.005)
+        for x in [-.29,.29]:bolt(b,(x,-.039,.335),.004)
     return b
 
 def cable_ladder(length=1.7):
@@ -1050,6 +1069,22 @@ def waste_seal_station():
         b.tube(rounded_path([(x,-.062,.71),(x,-.12,.71),(x,-.12,.66)]),.0025,mat('ochre enamel'),seg=8)
         b.box((.033,.0015,.059),(x,-.122,.63),mat('paper'),.002)
     b.box((.53,.013,.092),(0,-.064,.81),mat('warm enamel'),.005)
+    # A spent cartridge is actually staged on the supported wiping pan. Its
+    # rolled sealed lid, captive dogs and tied receipt bridge inspection and
+    # the adjacent matching transfer vessel; this is a work step, not a decal.
+    x=-.17;y=-.164;z=.022
+    b.lathe([(0,0),(.058,0),(.075,.012),(.078,.035),(.078,.170),(.074,.185),(.069,.188),(0,.188)],(x,y,z),mat('warm enamel'),seg=40)
+    for zz in [.045,.178]:ring(b,.081,.008,(x,y,z+zz),mat('steel'),seg=40)
+    b.lathe([(0,0),(.076,0),(.085,.005),(.085,.018),(.074,.026),(0,.026)],(x,y,z+.188),mat('repaired blue enamel'),seg=40)
+    ring(b,.081,.006,(x,y,z+.191),mat('rubber'),seg=40)
+    for xx in [x-.069,x+.069]:
+        b.box((.018,.030,.046),(xx,y,z+.185),mat('steel'),.004)
+        bolt(b,(xx,y-.018,z+.188),.005)
+    b.tube(rounded_path([(x-.041,y,z+.214),(x-.041,y,z+.253),(x+.041,y,z+.253),(x+.041,y,z+.214)]),.006,mat('dark steel'),seg=10)
+    b.box((.110,.002,.055),(x,y-.079,z+.105),mat('ink enamel'),.004)
+    b.tube([(x+.069,y-.018,z+.209),(x+.055,y-.083,z+.179),(x+.039,y-.085,z+.153)],.0018,mat('ochre enamel'),seg=6)
+    polygon(b,[(-.025,0),(.025,0),(.025,.057),(.015,.070),(-.018,.066)],.001,mat('paper'),pos=(x+.037,y-.085,z+.083),rot=Matrix.Rotation(math.pi/2,3,'X'))
+    for zz in [z+.115,z+.128,z+.141]:b.box((.032,.0007,.0015),(x+.037,y-.087,zz),mat('ink'),.0002)
     wear(b,(-.13,-.271,.037),(1,0,0),.15,.002,4)
     return b
 

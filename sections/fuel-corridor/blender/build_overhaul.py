@@ -170,10 +170,10 @@ def wall(r):
                 # Raised shoes, fixed bolts and eased ends record a cart repair;
                 # the other walls retain washable metal crash panels.
                 for zz in [.36,.61,.86]:
-                    b.box((step-.13,.040,.17),(x,-.036,zz),mat('wood'),.010,seg=3)
+                    b.box((step-.13,.040,.17),(x,-.048,zz),mat('wood'),.010,seg=3)
                     for xx in [x-step/2+.12,x+step/2-.12]:
-                        b.box((.055,.050,.19),(xx,-.040,zz),mat('dark steel'),.005)
-                        bolt(b,(xx,-.068,zz),.008)
+                        b.box((.055,.050,.19),(xx,-.052,zz),mat('dark steel'),.005)
+                        bolt(b,(xx,-.080,zz),.008)
     if clean:
         panel_box((w,.032,2.24),(0,.020,1.28),mat('sanitary grout'),.002)
         nx=max(1,math.ceil(w/.38));nz=9;tw=w/nx;th=2.24/nz
@@ -206,17 +206,78 @@ def wall(r):
             x=-w*.27+i*.038;z=.40+(i%3)*.021
             polygon(b,[(0,0),(.09,.004),(.061,.014),(.032,.01),(-.012,.007)],.0006,mat('chip'),pos=(x,-.0085,z),rot=Matrix.Rotation(math.pi/2,3,'X'))
     # Meter scale subtle material identity, not an artificial orange band on every wall.
+    if thermal:
+        # One fabricated cart-service bay contains the existing check board,
+        # repair tools, PPE and replaceable impact boards. The broad wall
+        # outside this bounded bay keeps its transfer plaster finish.
+        bx=-1.41;bw=3.24;low=.16;high=2.28
+        for xx in [-2.25,-.75]:
+            b.box((step-.012,.020,high-low),(xx,-.014,(low+high)/2),mat('warm enamel'),.004)
+        b.box((.20,.020,high-low),(.10,-.014,(low+high)/2),mat('warm enamel'),.004)
+        for xx in [bx-bw/2+.025,bx+bw/2-.025]:
+            channel(b,.050,.061,high-low,(xx,-.015,(low+high)/2),mat('dark steel'))
+            for zz in [low+.06,high-.06]:bolt(b,(xx,-.050,zz),.008)
+        for zz in [low+.013,high-.013]:b.box((bw,.051,.026),(bx,-.024,zz),mat('steel'),.003)
+        b.box((.65,.015,.070),(-2.33,-.031,2.215),mat('ink enamel'),.004)
+    if name=='Wall_E16.4_0_7':
+        # The waste handoff and its distribution cabinet share their own
+        # fabricated service bay. It is deliberately distinct from the reactor
+        # RETURN installation across the turn and the extractor farther south.
+        bx=-2.304;bw=2.78;low=.20;high=2.43
+        # Fit inside the actual structural posts, rather than running a new
+        # frame through them. A narrow folded centre seam joins the two sheets.
+        for xx in [bx-bw/4,bx+bw/4]:
+            b.box((bw/2-.008,.016,high-low),(xx,-.012,(low+high)/2),mat('repaired blue enamel'),.004)
+        b.box((.021,.020,high-low),(bx,-.014,(low+high)/2),mat('steel'),.002)
+        border=B();frame(border,bw,high-low,.033,.065,-.023,(low+high)/2,mat('dark steel'),r=.045)
+        merge(b,border,(bx,0,0))
+        for xx in [bx-bw/2+.055,bx+bw/2-.055]:
+            for zz in [low+.08,high-.08]:bolt(b,(xx,-.047,zz),.008)
+        b.box((1.23,.014,.090),(-2.44,-.026,2.345),mat('ink enamel'),.005)
+    if name=='Wall_E17.0_0_21':
+        # The adapter's interlock, fire cylinder and retained isolation keys
+        # form one arrival checkpoint, on a distinct removable cream backing.
+        bx=.37;bw=1.92;low=.18;high=2.38
+        for xx in [bx-bw/4,bx+bw/4]:
+            b.box((bw/2-.008,.016,high-low),(xx,-.012,(low+high)/2),mat('warm enamel'),.004)
+        b.box((.021,.020,high-low),(bx,-.014,(low+high)/2),mat('steel'),.002)
+        border=B();frame(border,bw,high-low,.030,.059,-.021,(low+high)/2,mat('dark steel'),r=.035)
+        merge(b,border,(bx,0,0))
+        for xx in [bx-bw/2+.065,bx+bw/2-.065]:
+            for zz in [low+.07,high-.07]:bolt(b,(xx,-.045,zz),.007)
+        b.box((1.39,.012,.105),(bx,-.026,2.292),mat('ink enamel'),.005)
+    # Closed folded coves bridge the lining-to-roof junction. The visible
+    # cassette is inset from the nominal wall plane while the concrete is
+    # 40 mm behind it; leaving that joint open leaked the assembled-map sky.
+    # The rear flange stays on the internal concrete face and the upper lip
+    # overlaps the roof finish, without moving any protected core or outline.
+    section=Matrix(((0,0,1),(1,0,0),(0,1,0)))
+    profile=[(.040,h+.014),(-.058,h+.014),(-.058,h-.025),(-.050,h-.040),(-.025,h-.056),(-.025,h-.060),(.040,h-.060)]
+    polygon(b,profile,w,mat('warm enamel' if clean or plant else 'ink enamel'),pos=(-w/2,0,0),rot=section,bevel=.001)
+    for i in range(count):bolt(b,(-w/2+(i+.5)*step,-.059,h-.018),.0045)
     o=add(b,name+' · lined bay','FC | Architecture',pos=pos,normal=n,
           target=r['core'],anchors=[(-w/2+step/2,.036 if clean else .04,min(1.8,h*.65))],direction=(0,1,0),family='layered wall bay')
     WALLS[name]=o.name
     if clean:o['fc_mount_offset_m']=-.004;o['fc_mount_offset_height_range']='[0.16,2.40]'
+    if thermal:
+        o['fc_mount_offset_m']=-.021;o['fc_mount_offset_height_range']='[0.16,2.28]'
+        o['fc_mount_offset_x_range']='[-3.00,0.20]'
+    if name=='Wall_E16.4_0_7':
+        o['fc_mount_offset_m']=-.016;o['fc_mount_offset_height_range']='[0.20,2.43]'
+        o['fc_mount_offset_x_range']='[-3.80,-0.80]'
+    if name=='Wall_E17.0_0_21':
+        o['fc_mount_offset_m']=-.016;o['fc_mount_offset_height_range']='[0.18,2.38]'
+        o['fc_mount_offset_x_range']='[-0.56,1.30]'
     return o
 
 def fitted_point(o,point):
     p=Vector(point)
     if o.get('fc_mount_offset_height_range'):
         lo,hi=json.loads(o['fc_mount_offset_height_range'])
-        if lo<p.z<hi:p.y+=o['fc_mount_offset_m']
+        inside=True
+        if o.get('fc_mount_offset_x_range'):
+            a,c=json.loads(o['fc_mount_offset_x_range']);inside=a<p.x<c
+        if lo<p.z<hi and inside:p.y+=o['fc_mount_offset_m']
     return p
 
 def staging_process_recess(name='Wall_N13.2_1_1.2'):
@@ -570,7 +631,7 @@ def work_traces():
     # not arbitrary duplicate props placed at every corner.
     mounted(A.extinguisher(),'Entry fire station','Wall_E2.2_0_1.2',(1.6,-.008,.37),family='shaped fire cylinder and retaining rack')
     mounted(A.lockout_station(),'Bypass lockout rail','Wall_E1.2_0_13.2',(-1.72,-.004,1.42),family='lockout station with paper tags')
-    mounted(A.extinguisher(),'Reactor fire station','Wall_E17.0_0_21',(.72,-.008,.40),family='shaped fire cylinder and retaining rack')
+    mounted(A.extinguisher(),'Reactor fire station','Wall_E17.0_0_21',(.72,-.004,.40),family='shaped fire cylinder and retaining rack seated on arrival checkpoint backing')
     bucket=add(A.pail(),'Spill absorbent pail','FC | Narrative',pos=(10.67,7.6,0),target=FLOORS['east_turn'],anchors=[(0,0,0)],direction=(0,0,-1),kind='floor',family='lidded absorbent pail')
     plate=B();plate.box((.14,.012,.065),(0,-.151,.212),mat('warm enamel'),.003)
     plaque=add(plate,'Spill pail embossed plaque','FC | Narrative',pos=bucket.location,parent=bucket.name,family='formed pail label plate')
@@ -588,7 +649,21 @@ def work_traces():
     for x in [-.236,.236]:b.box((.008,.26,.075),(x,-.13,.029),mat('warm enamel'),.002)
     b.box((.48,.013,.18),(0,-.0065,-.055),mat('dark steel'),.003)
     for x in [-.18,.18]:bolt(b,(x,-.016,-.09),.006)
-    shelf=mounted(b,'Delivery paperwork shelf','Wall_E16.4_0_17.32',(.1,-.008,1.05),'FC | Narrative','folded dispatch shelf')
+    # A framed receipt/check panel turns the existing delivery ledge into a
+    # legible arrival destination at the end of the clean route. Its papers,
+    # shelf and task light share an actual backed, rolled assembly.
+    board=A.maintenance_notice()
+    backing=B();backing.box((1.30,.018,2.08),(0,-.009,1.04),mat('reactor sheet'),.006)
+    frame(backing,1.34,2.12,.030,.040,-.018,1.04,mat('warm enamel'),r=.025)
+    merge(backing,board,(0,-.019,1.13))
+    backing.box((.93,.012,.13),(0,-.026,1.945),mat('ink enamel'),.005)
+    for xx in [-.57,.57]:
+        for zz in [.09,1.99]:bolt(backing,(xx,-.022,zz),.007)
+    receipt=mounted(backing,'Delivery arrival receipt bay','Wall_E16.4_0_17.32',(.1,-.004,.18),'FC | Narrative','rolled dispatch bay with retained route paperwork and original supported receipt ledge')
+    label('ARRIVALS',receipt.matrix_world@Vector((0,-.0325,1.945)),.115,normal=(-1,0,0),parent=receipt.name)
+    label('SHIFT / CHECK',receipt.matrix_world@Vector((0,-.0605,1.72)),.040,normal=(-1,0,0),parent=receipt.name)
+    shelf=add(b,'Delivery paperwork shelf','FC | Narrative',pos=receipt.matrix_world@Vector((0,-.019,.87)),normal=(-1,0,0),parent=receipt.name,family='original folded dispatch shelf seated on receipt bay backing')
+    sconce('Delivery receipt task practical','Wall_E16.4_0_17.32',(.1,-.004,2.40),55,False)
     clip=A.clipboard();minz=min(v.co.z for v in clip.bm.verts)
     for v in clip.bm.verts:v.co.z-=minz
     add(clip,'Reactor receipt clipboard','FC | Narrative',pos=shelf.matrix_world@Vector((0,-.13,.009)),angle=-1.4,parent=shelf.name,family='layered manifest clipboard')
@@ -713,6 +788,15 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
         for z in [height*.15,height*.85]:
             leaf.box((.073,.041,.094),(-hx,-.113,z),mat('dark steel'),.006)
             bolt(leaf,(-hx,-.14,z),.011)
+        if name=='Freight gate' and side<0:
+            # A real meeting astragal closes the 16 mm inter-leaf sightline in
+            # the diagnostic closed pose. Its formed lip overlaps the opposite
+            # leaf face and carries a compliant rear seal; no controller claim.
+            edge=w/2
+            leaf.box((.020,.033,height-.055),(edge-.010,-.107,height/2),mat('steel'),.002)
+            leaf.box((.066,.009,height-.055),(edge+.008,-.128,height/2),mat('replacement enamel'),.002)
+            leaf.box((.027,.023,height-.075),(edge+.025,-.112,height/2),mat('rubber'),.003)
+            for zz in [.18,.92,1.78,height-.18]:bolt(leaf,(edge-.010,-.136,zz),.005)
         if state=='OPEN':
             for xx in [-w*.29,w*.29]:
                 leaf.box((.052,.035,.277),(xx,-.172,height+.111),mat('dark steel'),.003)
@@ -849,7 +933,9 @@ def service_soffit(frame_ob):
     b.box((1.25,.020,.09),(0,.145,.045),mat('dark steel'),.002)
     b.box((w-.105,.025,.69),(0,.105,.365),mat('cool plaster'),.003)
     b.box((w-.105,.025,.265),(0,.105,1.30),mat('warm enamel'),.003)
-    for x in [-.865,.865]:b.box((.53,.025,.475),(x,.105,.956),mat('warm enamel'),.003)
+    # Full-width side sheets overlap the grille lip and outer frame, and meet
+    # the lower sheet. The former 30/8 mm slots leaked the map sky beside them.
+    for x in [-.865,.865]:b.box((.590,.025,.500),(x,.105,.949),mat('warm enamel'),.003)
     grille=A.vent(1.16,.40)
     for v in grille.bm.verts:v.co+=Vector((0,.083,.96))
     material_map={i:b._idx(m) for i,m in enumerate(grille.mats)}
@@ -862,22 +948,26 @@ def service_soffit(frame_ob):
     return add(b,'Service height-transition bulkhead','FC | Architecture',pos=frame_ob.matrix_world@Vector((0,0,2.92)),normal=(0,-1,0),parent=frame_ob.name,family='folded service bulkhead with real louvre cavity')
 
 def section_workstations():
-    board=mounted(A.maintenance_notice(),'Transfer handover board','Wall_W-2.2_0_1.2',(-2.25,-.004,1.46),'FC | Narrative','framed cart-repair and handover board above replacement impact boards')
+    board=mounted(A.maintenance_notice(),'Transfer handover board','Wall_W-2.2_0_1.2',(-1.90,-.004,1.46),'FC | Narrative','framed cart-repair and handover board above replacement impact boards')
     for text,p,size in [('TRANSFER CHECKS',(0,-.0415,.59),.042),('JOB / 017',(.29,-.0435,.427),.029),('SHIFT B',(.26,-.0465,.174),.021)]:
         label(text,board.matrix_world@Vector(p),size,normal=(1,0,0),parent=board.name)
-    sconce('Handover reading practical','Wall_W-2.2_0_1.2',(-2.25,-.004,2.29),65,False)
+    sconce('Handover reading practical','Wall_W-2.2_0_1.2',(-1.90,-.004,2.40),65,False)
+    bay=bpy.data.objects[WALLS['Wall_W-2.2_0_1.2']]
+    label('CART / CHECK',bay.matrix_world@Vector((-2.33,-.039,2.215)),.060,normal=(1,0,0),parent=bay.name)
     rail=B();rail.box((.72,.023,.105),(0,-.0115,.0525),mat('warm enamel'),.004)
     for xx in [-.30,.30]:bolt(rail,(xx,-.026,.0525),.006)
     for xx,l in [(-.17,.22),(.08,.27)]:
         # Ring ends sit on real bent pegs; the open jaws hang below the handover.
         rail.tube([(xx,-.023,.065),(xx,-.042,.065),(xx,-.044,.083)],.0035,mat('steel'),seg=8)
         merge(rail,A.spanner(l),(xx,-.044,.086),Matrix.Rotation(math.pi,3,'Y'))
-    mounted(rail,'Transfer cart-check wrench rail','Wall_W-2.2_0_1.2',(-2.25,-.004,1.30),'FC | Narrative','two ring spanners on bent retaining pegs above timber cart-impact repairs')
+    mounted(rail,'Transfer cart-check wrench rail','Wall_W-2.2_0_1.2',(-1.90,-.004,1.30),'FC | Narrative','two ring spanners on bent retaining pegs above timber cart-impact repairs')
     console=mounted(A.interlock_console(),'Reactor transfer interlock','Wall_E17.0_0_21',(.12,-.0085,.72),'FC | Services','cast and folded interlock console')
     label('TRANSFER / READY',console.matrix_world@Vector((0,-.2145,.39)),.025,normal=(-1,0,0),parent=console.name)
     sconce('Interlock inspection practical','Wall_E17.0_0_21',(.12,-.004,2.00),65,False)
-    tags=mounted(A.lockout_station(),'Reactor arrival isolation tags','Wall_E17.0_0_21',(.72,-.004,1.37),'FC | Narrative','retained keyed locks and shift inspection tags grouped with interlock and fire cylinder')
-    label('ISOLATE / CHECK',tags.matrix_world@Vector((0,-.0202,.345)),.028,normal=(-1,0,0),parent=tags.name)
+    tags=mounted(A.lockout_station(primary=True),'Reactor arrival isolation tags','Wall_E17.0_0_21',(.72,-.004,1.37),'FC | Narrative','retained keyed locks with a formed primary isolation-state plate and shift inspection tags')
+    label('ISOLATE',tags.matrix_world@Vector((0,-.0375,.335)),.068,normal=(-1,0,0),parent=tags.name)
+    arrival=bpy.data.objects[WALLS['Wall_E17.0_0_21']]
+    label('ARRIVAL / CHECK',arrival.matrix_world@Vector((.37,-.0325,2.292)),.097,normal=(-1,0,0),parent=arrival.name)
     sign('Waste bay identification','Wall_E16.4_0_7',(3.5,-.004,2.30),'WASTE / SEALED',.060,.91,coat='oxide enamel')
     extractor=mounted(A.exhaust_collector(riser=1.07),'East extraction collector','Wall_E16.4_0_7',(.84,-.004,1.36),'FC | Services','split extraction service bay with caged impeller filter drawer folded hood and connected riser')
     label('EXTRACT / 03',extractor.matrix_world@Vector((-.07,-.369,1.49)),.037,normal=(-1,0,0),parent=extractor.name)
@@ -891,9 +981,12 @@ def section_workstations():
     for xx in [-.077,.077]:bolt(vessel,(xx,-.240,.407),.004)
     bin_ob=add(vessel,'Sealed waste transfer vessel','FC | Narrative',pos=(15.95,17.78,0),normal=(-1,0,0),target=FLOORS['delivery'],anchors=[(-.15,-.14,0),(.15,-.14,0),(-.15,.13,0),(.15,.13,0)],direction=(0,0,-1),kind='floor',family='gasketed transfer vessel with wheeled base and foot latch')
     label('B / 017',bin_ob.matrix_world@Vector((0,-.238,.407)),.042,normal=(-1,0,0),material='ink',parent=bin_ob.name)
-    seal=mounted(A.waste_seal_station(),'Waste seal and receipt station','Wall_E16.4_0_7',(-3.08,-.0085,.78),'FC | Narrative','receipt roll and captive seal tool on a supported folded pan')
+    seal=mounted(A.waste_seal_station(),'Waste seal and receipt station','Wall_E16.4_0_7',(-3.08,-.004,.78),'FC | Narrative','receipt roll and captive seal tool on a supported folded pan within the waste handoff bay')
+    wastebay=bpy.data.objects[WALLS['Wall_E16.4_0_7']]
+    label('WASTE / HANDOFF',wastebay.matrix_world@Vector((-2.44,-.0335,2.345)),.083,normal=(-1,0,0),parent=wastebay.name)
     label('SEAL / RECEIPT',seal.matrix_world@Vector((0,-.071,.81)),.054,normal=(-1,0,0),material='ink',parent=seal.name)
     label('B / 017',seal.matrix_world@Vector((-.16,-.224,.468)),.032,normal=(-1,0,0),material='ink',parent=seal.name)
+    label('B / 017',seal.matrix_world@Vector((-.17,-.2455,.127)),.025,normal=(-1,0,0),parent=seal.name)
     sconce('Waste sealing task practical','Wall_E16.4_0_7',(-3.08,-.004,2.02),48,False)
     sconce('Waste receipt inspection practical','Wall_E16.4_0_17.32',(1.39,-.004,2.25),60,True)
 
@@ -910,19 +1003,25 @@ def process_bays():
     mounted(A.extraction_header(2.1),'North clean-air service header','Wall_N21_0_7.72',(.52,-.004,2.70),'FC | Services','hollow clean-air header with inspection hatch')
     rack=add(A.linen_rack(),'Clean-transfer open linen rack','FC | Narrative',pos=(3.80,20.985,0),target=FLOORS['bypass_north'],anchors=[(-.40,-.055,0),(.40,-.055,0),(-.40,-.29,0),(.40,-.29,0)],direction=(0,0,-1),kind='floor',family='open supply rack with folded cloth canvas bag and refill bottles')
     label('CLEAN STOCK',rack.matrix_world@Vector((0,-.0555,1.37)),.031,parent=rack.name)
-    log=mounted(A.clean_log_board(),'Clean-transfer inspection log','Wall_S18.0_0_1.2',(.60,-.004,1.42),'FC | Narrative','fabricated inspection station with clipped sheets and staged pen')
-    label('SHIFT / CHECK',log.matrix_world@Vector((.20,-.068,.62)),.023,normal=(0,1,0),parent=log.name)
     sconce('Clean stock preparation practical','Wall_N21_0_-1.5',(1.81,-.004,2.28),75,True)
     sconce('Clean log reading practical','Wall_S18.0_0_1.2',(.60,-.004,2.33),50,True)
-    laundry=mounted(A.linen_return(),'Clean used-linen return station','Wall_S18.0_0_1.2',(-1.0,-.004,.18),'FC | Narrative','open return slot draped towel hanging stitched canvas bag and clipped exchange tally')
-    label('USED LINEN',laundry.matrix_world@Vector((0,-.158,1.405)),.065,normal=(0,1,0),material='white ink',parent=laundry.name)
+    laundry=mounted(A.linen_return(),'Clean used-linen return station','Wall_S18.0_0_1.2',(-1.0,-.004,.18),'FC | Narrative','one rolled washable exchange bay linking return slot sewn bag towel and retained inspection log')
+    label('USED LINEN',laundry.matrix_world@Vector((0,-.0235,1.925)),.115,normal=(0,1,0),material='white ink',parent=laundry.name)
+    label('WIPE / LOG',laundry.matrix_world@Vector((1.60,-.0235,1.925)),.080,normal=(0,1,0),material='white ink',parent=laundry.name)
+    label('SHIFT / CHECK',laundry.matrix_world@Vector((1.80,-.080,1.86)),.023,normal=(0,1,0),parent=laundry.name)
     sconce('Linen exchange practical','Wall_S18.0_0_1.2',(-1.0,-.004,2.34),48,False)
     cooler=mounted(A.coolant_heat_exchanger(),'Reactor return cooling cassette','Wall_N13.2_2_10',(0,-.004,.30),'FC | Services','open heat-exchanger fins with sump guarded pipes and a connected riser')
     label('RETURN / 02',cooler.matrix_world@Vector((.17,-.337,1.66)),.038,normal=(0,-1,0),parent=cooler.name)
     sign('East turn reactor designation','Wall_N13.2_2_10',(0,-.004,2.56),'REACTOR  /  02  >',.13,1.73,coat='oxide enamel',stand_off=.19)
     sconce('Reactor cooling inspection practical','Wall_N13.2_2_10',(0,-.004,2.96),75,True)
-    check=mounted(A.lockout_station(),'Cooling return lockout and check rail','Wall_N13.2_2_10',(.50,-.004,2.10),'FC | Narrative','keyed return-circuit isolation locks and maintenance check tags below reactor direction beam')
-    label('RETURN CHECK',check.matrix_world@Vector((0,-.0202,.345)),.030,normal=(0,-1,0),parent=check.name)
+    keys=A.lockout_station(primary=True)
+    # The state rack belongs to the cooler's right service frame. Its folded
+    # rear leg and seated foot visibly connect the tag rack to that frame.
+    keys.box((.080,.014,.10),(-.006,.040,-.060),mat('dark steel'),.003)
+    keys.box((.024,.043,.28),(-.006,.024,.075),mat('dark steel'),.002)
+    keys.box((.074,.008,.31),(-.006,.002,.14),mat('steel'),.002)
+    check=add(keys,'Cooling return lockout and check rail','FC | Narrative',pos=cooler.matrix_world@Vector((.50,-.058,1.80)),normal=(0,-1,0),parent=cooler.name,family='frame-attached return-circuit state rack with keyed isolation locks and retained check tags')
+    label('RETURN',check.matrix_world@Vector((0,-.0375,.335)),.074,normal=(0,-1,0),parent=check.name)
     route=B();route.tube(rounded_path([(11.18,13.153,3.59),(11.98,13.153,3.59),(12.134,13.307,3.59),(12.134,14.08,3.59)]),.023,mat('steel'),seg=20)
     for x in [11.35,11.89]:ring(route,.034,.021,(x,13.153,3.59),mat('brass'),axis='X',seg=24)
     route.box((.072,.015,.12),(11.45,13.2875,3.59),mat('dark steel'),.002)
