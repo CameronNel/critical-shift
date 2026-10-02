@@ -1,7 +1,7 @@
 """Anteroom dressing and lift interior (owner brief 2026-10-01, second pass).  Called from cr_lift.build.
 Anteroom (interior x -6.83..-4.83, y -7.70..-5.70, floor z 5.4): water cooler with a labelled 19 l jug and cups, loveseat with throw cushion and folded blanket,
 small coffee table (magazine, remote, bowl of sweets, coffee on a coaster), a wall-mounted TV on the control room wall, a slim floor lamp, small potted plant, dark red worn Persian rug.  Lift: G / F1 button lamps and floor-indicator lamps that light for the ACTIVE floor, a flickering cabin
-light and car lamp, a dome security camera with a blinking red LED, an expired inspection certificate, a capacity plate, and an analogue floor-position dial whose needle
+light and car lamp, a dome security camera with a blinking red LED, an expired inspection certificate, a capacity plate, and a wall clock (hands driven by scene time in seconds), formerly an analogue floor dial whose needle
 swings with the car.  Everything that moves or lights up is driven by the CR_LIFT car height (seconds-based schedule), never by frames."""
 import bpy,math
 import numpy as np
@@ -53,6 +53,20 @@ def wood_tex(W=512,seed=5):
     pores/=9; streak=np.clip(0.5+0.5*np.sin(2*np.pi*(31*y+3*w)),0,1)**6
     t=np.clip(0.55*ring+0.35*pores+0.1,0,1); lo=np.array((0.20,0.115,0.065),np.float32); hi=np.array((0.46,0.29,0.17),np.float32)
     a=lo+(hi-lo)*t[...,None]; a*=(1-0.30*streak[...,None]); return np.clip(a,0,1).astype(np.float32)
+def burl_tex(W=512,seed=9):
+    """tileable polished burl walnut for the lift panelling: swirling figured grain with dark 'eyes' and a warm red-brown ground (1980s luxury car trim)"""
+    rng=np.random.default_rng(seed); y,x=np.mgrid[0:W,0:W].astype(np.float32)/W
+    w=0.035*np.sin(2*np.pi*(2*x+1*y))+0.02*np.sin(2*np.pi*(3*y-2*x+0.3))+0.012*np.sin(2*np.pi*(6*x+5*y+0.7))
+    ring=0.5+0.5*np.sin(2*np.pi*(22*(y+w)+1.2*np.sin(2*np.pi*x)))
+    eyes=np.zeros((W,W),np.float32)
+    for _ in range(22):
+        cx,cy=rng.random(2); r=0.008+0.012*rng.random(); dx=np.abs(x-cx); dx=np.minimum(dx,1-dx); dy=np.abs(y-cy); dy=np.minimum(dy,1-dy)
+        d=np.hypot(dx,dy)/r; eyes=np.maximum(eyes,np.clip(1-d,0,1)*(0.5+0.5*np.cos(d*9)))
+    fine=rng.random((W,W)).astype(np.float32)
+    for k in range(1,5): fine+=np.roll(fine,k,axis=1)
+    fine/=5; t=np.clip(0.38*ring+0.40*fine+0.2*w*8+0.12,0,1)
+    lo=np.array((0.20,0.10,0.05),np.float32); hi=np.array((0.46,0.26,0.12),np.float32)
+    a=lo+(hi-lo)*t[...,None]; a=a*(1-0.28*eyes[...,None]); return np.clip(a,0,1).astype(np.float32)
 def weave_tex(base,W=128,n=10,seed=7,var=0.10):
     """tileable plain-weave cloth: alternating over/under threads, per-thread tint, soft thread profile"""
     rng=np.random.default_rng(seed); y,x=np.mgrid[0:W,0:W].astype(np.float32); u=x/W*n; v=y/W*n; iu=np.floor(u).astype(int)%n; iv=np.floor(v).astype(int)%n
@@ -67,7 +81,7 @@ def lamp_mats(c,ctl):
     M["LAMP_F1"]=emit_mat("CR lift lamp F1",(1.0,0.62,0.12),4.0); _drive(M["LAMP_F1"],"4.0*min(1,max(0,(z-4.8)/0.6))",zv)
     M["LAMP_MOVE"]=emit_mat("CR lift lamp moving",(1.0,0.30,0.05),3.0); _drive(M["LAMP_MOVE"],"3.0*(1 if z>0.15 and z<5.25 else 0)",zv)
     M["CAB_LIGHT"]=emit_mat("CR lift cabin light",(1.0,0.74,0.46),16.0); _drive(M["CAB_LIGHT"],"16.0*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",[])
-    M["DADO"]=pm("CR lift dado teal",(0.06,0.25,0.24),0.30,edge=(0.30,0.55,0.50),scale=2.0,bump=0.0,coat=0.4,var=(0.92,1.04))
+    M["DADO"]=tex_mat("CR lift burl wood",new_image("CR lift burl tex",burl_tex()),rough=0.08,bump=0.05,scale=(1.5,1.5),clamp=False,coat=1.0)
     M["LPHOTO"]=tex_mat("CR family photo lift",new_image("CR lift photo tex",crt.photo()),rough=0.45)
     M["COVE"]=emit_mat("CR lift cove",(1.0,0.74,0.42),7.0,expr="7.0*(1-0.35*min(1,fk))*(1-0.5*bw)")
     M["CAM_LED"]=emit_mat("CR lift camera led",(1.0,0.05,0.03),4.0); _drive(M["CAM_LED"],"4.0*(1 if fmod(T,2.4)<0.18 else 0)",[])
@@ -214,10 +228,10 @@ def car_dressing(K,x0,x1,y0,y1):
     g="lift_car"; xw=x0+0.07; ys=y0+0.07; yn=y1-0.10; xe=x1-0.10
     # olive dado: raised panels with a graphite field, on both wall sides
     for (ya,yb) in ((-7.04,-6.62),(-6.58,-6.16),(-6.12,-5.79)):
-        K.fb((g,"BRUSH"),'+x',xw,ya,yb,0.12,0.88,0.014,0.004); K.fb((g,"DADO"),'+x',xw+0.014,ya+0.035,yb-0.035,0.16,0.84,0.003,0.002)
+        K.fb((g,"BRASS"),'+x',xw,ya,yb,0.12,0.88,0.014,0.004); K.fb((g,"DADO"),'+x',xw+0.014,ya+0.03,yb-0.03,0.15,0.85,0.003,0.002)
     for (xa,xb) in ((-8.60,-8.20),(-8.16,-7.76),(-7.72,-7.32)):
-        K.fb((g,"BRUSH"),'+y',ys,xa,xb,0.12,0.88,0.014,0.004); K.fb((g,"DADO"),'+y',ys+0.014,xa+0.035,xb-0.035,0.16,0.84,0.003,0.002)
-    K.fb((g,"BRUSH"),'+x',xw,ys,yn,0.90,0.945,0.024,0.004); K.fb((g,"BRUSH"),'+y',ys,xw,xe,0.90,0.945,0.024,0.004)                                  # chair rail
+        K.fb((g,"BRASS"),'+y',ys,xa,xb,0.12,0.88,0.014,0.004); K.fb((g,"DADO"),'+y',ys+0.014,xa+0.035,xb-0.035,0.16,0.84,0.003,0.002)
+    K.fb((g,"BRASS"),'+x',xw,ys,yn,0.90,0.945,0.024,0.004); K.fb((g,"BRASS"),'+y',ys,xw,xe,0.90,0.945,0.024,0.004)                                  # chair rail
     K.fb((g,"ORANGE"),'+x',xw,ys,yn,2.10,2.15,0.010,0.003); K.fb((g,"ORANGE"),'+y',ys,xw,xe,2.10,2.15,0.010,0.003)                                 # amber stripe
     K.fb((g,"BRUSH"),'+x',xw,ys,yn,2.22,2.27,0.028,0.004); K.fb((g,"BRUSH"),'+y',ys,xw,xe,2.22,2.27,0.028,0.004)                                  # crown rail
     K.fb((g,"COVE"),'+x',xw,ys,yn,2.285,2.325,0.012,0.002); K.fb((g,"COVE"),'+y',ys,xw,xe,2.285,2.325,0.012,0.002)                                 # LED coves
@@ -254,12 +268,12 @@ def car_interior(c,ctl,car,zv,_mover):
             K.cyly((g,"STEEL_L"),-7.42,-7.062,-7.052,z,0.024,18,0.002); K.cyly((g,key),-7.42,-7.052,-7.047,z,0.017,18)
         K.cyly((g,"STEEL_L"),-7.42,-7.062,-7.054,1.14,0.020,16,0.002); K.cyly((g,"RED"),-7.42,-7.054,-7.049,1.14,0.014,14)                                       # alarm
         for k in range(5): K.bx((g,"STEEL"),-7.52,-7.32,-7.062,-7.056,0.945+k*0.018,0.953+k*0.018,0.001)                                                         # intercom grille
-        cx,cz=-7.75,1.92                                                                                                                                            # analogue floor dial
-        K.cyly((g,"STEEL_L"),cx,-7.08,-7.064,cz,0.125,30,0.003); K.cyly((g,"BLACK"),cx,-7.064,-7.058,cz,0.108,30)
-        for k in range(9):
-            th=math.radians(-57+k*14.25); r0,r1=0.074,0.098 if k in (0,4,8) else 0.090
-            K.tube((g,"PAPER"),[(cx+math.sin(th)*r0,-7.0585,cz+math.cos(th)*r0),(cx+math.sin(th)*r1,-7.0585,cz+math.cos(th)*r1)],0.0028,4)
-        K.cyly((g,"STEEL_L"),cx,-7.058,-7.050,cz,0.012,10)
+        cx,cz=-7.75,1.92                                                                                                                                            # wall clock (replaces the analogue floor dial: the display over the door shows the floor)
+        K.cyly((g,"BRASS"),cx,-7.08,-7.060,cz,0.128,40,0.003); K.cyly((g,"PAPER"),cx,-7.060,-7.056,cz,0.108,40)
+        for k in range(12):
+            th=math.radians(k*30); big=(k%3==0); r0=0.082 if big else 0.090; r1=0.103
+            K.tube((g,"BLACK"),[(cx-math.sin(th)*r0,-7.0555,cz+math.cos(th)*r0),(cx-math.sin(th)*r1,-7.0555,cz+math.cos(th)*r1)],0.0030 if big else 0.0016,4)
+        K.cyly((g,"BRASS"),cx,-7.056,-7.046,cz,0.009,12)
         # security dome camera in the south-west ceiling corner, red LED beside it
         dx,dy=-8.50,-6.95
         K.cyl((g,"STEEL_L"),dx,dy,2.378,2.40,0.070,22,0.003); K.cyl((g,"BLACK"),dx,dy,2.350,2.378,0.058,22,0.003); K.cyl((g,"BLACK"),dx,dy,2.322,2.350,0.045,20,0.003); K.cyl((g,"BLACK"),dx,dy,2.302,2.322,0.028,16,0.002)
@@ -269,13 +283,16 @@ def car_interior(c,ctl,car,zv,_mover):
     for o in objs: o.parent=car
     for body,x,y,z,size,face,key in (("G",-7.46,-7.0575,1.40,0.036,'+y',"YELLOW"),("F1",-7.46,-7.0575,1.28,0.036,'+y',"YELLOW"),("MAX 8 PERSONS\n600 KG",-8.38,-7.0745,1.25,0.0145,'+y',"BLACK"),("G",-8.12,-5.7765,2.155,0.085,'-y',"LAMP_G"),("1",-7.80,-5.7765,2.155,0.085,'-y',"LAMP_F1")):
         t=crk.text(coll,body,x,y,z,face,size,M[key],'CENTER',"CR lift label"); t.parent=car
-    for body,x,z in (("G",-7.65,1.835),("1",-7.855,1.835)):
-        t=crk.text(coll,body,x,-7.0575,z,'+y',0.026,M["YELLOW"],'CENTER',"CR lift dial label"); t.parent=car
-    # dial needle: pivot at the dial centre, driven by the car height (G on the east side, F1 on the west side as seen from the doors)
-    def needle(K):
-        g="lift_needle"; K.bx((g,"RED"),-0.0025,0.0025,-0.0015,0.0015,-0.012,0.088,0.0005); K.cyl((g,"RED"),0,0,-0.0015,0.0015,0.0,6) if False else None
-    ob=_mover(c,"lift_needle",needle)
-    for o in ob:
-        o.parent=car; o.location=(-7.75,-7.052,1.92); drv(o,'rotation_euler',1,"1.0*(1-2*z/5.4)",var_s=False,extra=zv)
+    for body,dx,dz in (("12",0.0,0.066),("3",-0.066,0.0),("6",0.0,-0.066),("9",0.066,0.0)):
+        t=crk.text(coll,body,-7.75+dx,-7.0558,1.92+dz,'+y',0.020,M["BLACK"],'CENTER',"CR lift clock numeral"); t.parent=car
+    # clock hands: pivots at the clock centre, driven by scene time in seconds (second hand 60 s per turn, minute hand 1 h, hour hand 12 h); the clock reads 10:08:35 at t = 0
+    def hand(name,ln,w,tail,key,yoff,expr):
+        def fn2(K):
+            g="lift_hand"; K.bx((g,key),-w,w,-0.0006,0.0006,-tail,ln,0.0003)
+        for o in _mover(c,name,fn2):
+            o.parent=car; o.location=(-7.75,-7.0545+yoff,1.92); drv(o,'rotation_euler',1,expr,var_s=False,extra=[])
+    hand("lift_clock_hour",0.060,0.0045,0.012,"BLACK",0.0,"-6.28319*(0.84167+T/43200)")
+    hand("lift_clock_min",0.092,0.0030,0.016,"BLACK",0.0007,"-6.28319*(0.14333+T/3600)")
+    hand("lift_clock_sec",0.100,0.0012,0.028,"RED",0.0014,"-6.28319*(0.58333+T/60)")
     lo=crk.light(coll,"CR lift car lamp",(-7.95,-6.40,2.25),(1.0,0.72,0.45),150,'AREA',(0,0,0),size=(0.55,0.28),expr="150*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",var_s=False)
     lo.parent=car

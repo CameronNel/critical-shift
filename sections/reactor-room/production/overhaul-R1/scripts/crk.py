@@ -249,10 +249,11 @@ def pm(name,base,rough=0.5,metal=0.0,var=(0.87,1.05),scale=2.5,bump=0.06,edge=No
         bp=_n(nt,"ShaderNodeBump",1300,-750); bp.inputs['Strength'].default_value=bump; bp.inputs['Distance'].default_value=0.02
         nt.links.new(bz.outputs['Fac'],bp.inputs['Height']); nt.links.new(bp.outputs['Normal'],b.inputs['Normal'])
     return m
-def tex_mat(name,img,rough=0.7,metal=0.0,emit=0.0,scale=(1,1),bump=0.0,clamp=True):
+def tex_mat(name,img,rough=0.7,metal=0.0,emit=0.0,scale=(1,1),bump=0.0,clamp=True,coat=0.0):
     m=_new(name); nt=m.node_tree
     out=_n(nt,"ShaderNodeOutputMaterial",900,0); b=_n(nt,"ShaderNodeBsdfPrincipled",600,0); nt.links.new(b.outputs['BSDF'],out.inputs['Surface'])
     b.inputs['Roughness'].default_value=rough; b.inputs['Metallic'].default_value=metal
+    if coat>0: b.inputs['Coat Weight'].default_value=coat; b.inputs['Coat Roughness'].default_value=0.03
     uv=_n(nt,"ShaderNodeTexCoord",-700,0); vec=uv.outputs['UV']
     if tuple(scale)!=(1,1):
         mp=_n(nt,"ShaderNodeMapping",-500,0); mp.inputs['Scale'].default_value=(scale[0],scale[1],1.0); nt.links.new(vec,mp.inputs['Vector']); vec=mp.outputs['Vector']

@@ -667,6 +667,27 @@
    }
   },
   {
+   "owner": "CR lift_clock_hour",
+   "kind": "Object",
+   "target": "rotation_euler[1]",
+   "expression": "-6.28319*(0.84167+T/43200)",
+   "inputs": {}
+  },
+  {
+   "owner": "CR lift_clock_min",
+   "kind": "Object",
+   "target": "rotation_euler[1]",
+   "expression": "-6.28319*(0.14333+T/3600)",
+   "inputs": {}
+  },
+  {
+   "owner": "CR lift_clock_sec",
+   "kind": "Object",
+   "target": "rotation_euler[1]",
+   "expression": "-6.28319*(0.58333+T/60)",
+   "inputs": {}
+  },
+  {
    "owner": "CR lift_dgL BLACK",
    "kind": "Object",
    "target": "location[0]",
@@ -808,15 +829,6 @@
    "expression": "+0.50*d",
    "inputs": {
     "d": "CR_LIFT[\"du\"]"
-   }
-  },
-  {
-   "owner": "CR lift_needle",
-   "kind": "Object",
-   "target": "rotation_euler[1]",
-   "expression": "1.0*(1-2*z/5.4)",
-   "inputs": {
-    "z": "CR_LIFT[\"car_z\"]"
    }
   },
   {
