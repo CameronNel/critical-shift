@@ -52,7 +52,12 @@ for idx in (0, 3):
 board = D.get("V_HALL_shift_board")
 if board is not None:
     board.scale = (0.9, 1.0, 0.78)  # was (1.3, 1.0, 1.1)
-for o in [o for o in D if o.name.startswith(("HALL_notice_", "LIFE_changed_shift"))]:
+# the duplicate notice board: its root is named exactly HALL_notice (the prefix match below does not catch it), so take
+# the root's whole tree first, then any stragglers
+root = D.get("HALL_notice")
+if root is not None:
+    remove_tree(root)
+for o in [o for o in D if o.name == "HALL_notice" or o.name.startswith(("HALL_notice_", "LIFE_changed_shift"))]:
     bpy.data.objects.remove(o, do_unlink=True)
 
 # ---------------------------------------------------------------- 3. locker door inside faces

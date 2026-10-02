@@ -7,7 +7,7 @@
     "CS_FLOOR_DRESSING",
     "CS_CEILING_DRESSING"
   ],
-  "objects_checked": 198,
+  "objects_checked": 197,
   "failures": [],
   "objects": [
     {
@@ -3390,28 +3390,6 @@
       ],
       "candidate_collections": [
         "CS_CEILING_DRESSING"
-      ]
-    },
-    {
-      "object": "HALL_notice",
-      "status": "PASS",
-      "issues": [],
-      "samples": [
-        {
-          "sample": "origin",
-          "point_world": [
-            1.7,
-            0.95,
-            1.62
-          ],
-          "status": "PASS",
-          "relation": "gap",
-          "distance_m": 0.0,
-          "normal_alignment": 1.0
-        }
-      ],
-      "candidate_collections": [
-        "CS_WALL_DRESSING"
       ]
     },
     {
