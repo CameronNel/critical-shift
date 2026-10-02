@@ -187,7 +187,7 @@ for k, y in enumerate((9.0, 12.5, 16.0, 19.5)):                                 
     aim(spot(f'WASH_W{k}', (-3.25, y, 4.4), 110, 52, (1.0, .66, .32), .3), (-3.25, y, 4.4), (-4.0, y, 2.0))
 point('RED_gen', (machinery.CX - 1.9, 20.0, machinery.AZ + 1.4), 18, RED, .05); point('RED_hood', (machinery.CX, 16.6, 4.0), 12, RED, .05)
 point('GLOW_consoles', (-2.6, 4.0, 1.9), 22, (1.0, .6, .25), .15)
-for nm, loc in (('RED_D01', (1.7, .25, 3.35)), ('RED_D02', (1.7, 23.75, 3.35))): point(nm, loc, 8, RED, .05)
+for nm, loc in (('RED_D01', (1.7, 1.6, 3.0)), ('RED_D02', (1.7, 22.4, 3.0))): point(nm, loc, 22, RED, .1)
 for nm, yy in (('PASS_D01', -.9), ('PASS_D02', 24.9)): point(nm, (0, yy, 2.5), 25, (1.0, .55, .25), .1)
 for k, yy in enumerate((4, 12, 20)):
     d = bpy.data.lights.new(f'RIM_W{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 2.0, .6; d.energy = 420; d.color = (.6, .7, .95)
@@ -224,7 +224,7 @@ CAMS = {   # all positions are in open aisle space
     'CAM_Q_east_wall':     ((8.6, 3.2, 1.7), (10, 13, 3.0)),
     'CAM_R_south_wall':    ((6.0, 11.5, 1.8), (4.5, 0, 3.4)),
     'CAM_N_floor':         ((.2, 3.6, .95), (1.5, 13.5, .08)),
-    'CAM_L_desk':          ((7.9, 19.8, 1.6), (8.7, 23.5, 1.1)),
+    'CAM_L_desk':          ((7.8, 19.8, 1.6), (8.55, 23.5, 1.05)),
 }
 for name, (loc, tgt) in CAMS.items():
     cd = bpy.data.cameras.new(name); cd.lens = {'CAM_E_controls': 16, 'CAM_K_door_d01': 19, 'CAM_J_north_back': 20, 'CAM_H_roof': 20, 'CAM_B_ne_high': 26, 'CAM_A_entry_north': 22}.get(name, 24); co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc

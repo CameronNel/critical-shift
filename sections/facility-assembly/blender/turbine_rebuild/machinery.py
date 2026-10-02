@@ -176,6 +176,7 @@ def exposed_lp(b, y0, y1):
 
 def coupling(b, y):
     b.cyl((CX, y, AZ), .42, .5, 'orange', 'Y', 40, bev=.015)
+    for dy in (-.19, .19): b.cyl((CX, y + dy, AZ), .435, .05, 'trim_black', 'Y', 40, bev=.008)                          # clamp bands on the coupling
     for i in range(12):
         a = 2 * math.pi * i / 12; hexbolt(b, (CX + .36 * math.cos(a), y - .27, AZ + .36 * math.sin(a)), 'Y', .026, .03, 'steel_dark')
     b.cyl((CX, y, AZ), .445, .05, 'lamp', 'Y', 40)                                                              # hot glow band
@@ -328,7 +329,7 @@ def controls(b):
         b.box((x, 23.55, 2.25), (.98, .8, .1), 'steel_dark', bev=.012)
     b.claim((-3.9, 22.8, 0), (-.7, 24.0, 2.4))
     duct(b, [(CX - 1.9, 20.0, AZ + .1), (CX - 2.5, 20.0, AZ + .1), (CX - 2.5, 20.0, 3.88), (-3.8, 20.0, 3.88), (-3.8, 24.25, 3.88)], .4, .3)
-    for zz in (1.3, 2.2, 3.1): b.box((CX - 2.5, 20.0, zz), (.46, .46, .06), 'pale_steel', bev=.01)                  # flange bands on the duct riser
+    for zz in (2.75, 3.3): b.box((CX - 2.5, 20.0, zz), (.46, .46, .06), 'pale_steel', bev=.01)                  # flange bands on the duct riser
     for xx in (1.2, -.4, -2.2): b.box((xx, 20.0, 3.88), (.06, .45, .35), 'pale_steel', bev=.01)
     b.box((-3.8, 24.5, 3.88), (.4, .6, .3), 'steel_light', bev=.012); b.box((-4.1, 24.85, 3.88), (.4, .6, .3), 'steel_light', (0, 0, -.9), bev=.012); b.box((-4.32, 25.0, 3.88), (.4, 1.0, .3), 'steel_mid', bev=.012)
     for y in (21.5, 23.0): hanger(b, (-3.8, y, 3.7), top=6.0)
