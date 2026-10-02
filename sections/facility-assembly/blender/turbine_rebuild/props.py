@@ -102,16 +102,16 @@ def build(b):
         for dx in (-.68, .68):
             for dy in (.08, .68): b.box((u + dx, dy, .36), (.05, .05, .7), 'steel_dark', bev=.006)
         b.box((u, .62, .775), (.4, .24, .012), 'charcoal', bev=.006)
-        b.box((u + .05, .68, .93), (.5, .03, .3), 'trim_black', bev=.012); b.box((u + .05, .700, .93), (.46, .006, .26), 'screen_cool'); b.box((u + .05, .704, .98), (.3, .004, .02), 'screen'); b.box((u + .05, .704, .93), (.36, .004, .02), 'screen'); b.box((u + .05, .704, .88), (.2, .004, .02), 'screen'); b.box((u + .05, .45, .0) if False else (u + .05, .4, .78), (.34, .14, .014), 'charcoal', bev=.005); b.box((u + .05, .68, .78), (.1, .08, .02), 'steel_dark'); b.box((u + .05, .68, .83), (.03, .03, .1), 'steel_dark')
+        b.box((u + .05, .68, .93), (.5, .03, .3), 'trim_black', bev=.012); b.box((u + .05, .700, .93), (.46, .006, .26), 'screen_dim'); b.box((u + .05, .704, .98), (.3, .004, .02), 'screen'); b.box((u + .05, .704, .93), (.36, .004, .02), 'screen'); b.box((u + .05, .704, .88), (.2, .004, .02), 'screen'); b.box((u + .05, .45, .0) if False else (u + .05, .4, .78), (.34, .14, .014), 'charcoal', bev=.005); b.box((u + .05, .68, .78), (.1, .08, .02), 'steel_dark'); b.box((u + .05, .68, .83), (.03, .03, .1), 'steel_dark')
         b.box((u - .1, .35, .766), (.38, .14, .018), 'charcoal', bev=.008); b.cyl((u + .55, .3, .8), .04, .09, 'chalk', 'Z', 20, bev=.004)
         b.cyl((u - .55, .55, .765), .06, .03, 'steel_dark', 'Z', 20); b.sweep([(u - .55, .55, .78), (u - .55, .55, 1.05), (u - .4, .5, 1.15)], .008, 'steel_dark', 8, .1); b.box((u - .37, .49, 1.14), (.14, .08, .04), 'yellow', bev=.01)
         b.box((u, .32, .45), (.46, .46, .06), 'rubber', bev=.02) if False else None
         b.box((fu(8.0), .03, 1.9), (.9, .06, .5), 'trim_black', bev=.014); b.box((fu(8.0), .062, 1.9), (.82, .006, .42), 'yellow'); wt(b, 'TURBINE 02', fu(8.0), 2.0, .1, 'trim_black', .068); wt(b, 'CONTROL DESK', fu(8.0), 1.8, .06, 'trim_black', .068)
         for t, p in ((8.4, False),): socket(b, fu(t), .5, plug=p)
-    import furniture; furniture.chair(b, 6.55, 23.35, math.pi / 2 - .3, 'steel_dark')                                       # operator chair in front of the desk
+    import furniture; furniture.chair(b, 7.35, 22.65, math.pi / 2 + .15, 'steel_dark')                                       # operator chair in front of the desk
     import machinery as MM                                                                           # nameplates on the generator and on the foundation rail
-    b.box((MM.CX + 1.14, 18.65, MM.AZ + .05), (.04, 1.7, .5), 'trim_black', bev=.012); b.box((MM.CX + 1.162, 18.65, MM.AZ + .05), (.006, 1.6, .42), 'oxide_dark')
-    b.text('GENERATOR  G-2', (MM.CX + 1.17, 18.65, MM.AZ + .1), .15, 'chalk', math.pi / 2, math.pi / 2); b.text('24 kV  3 PHASE', (MM.CX + 1.17, 18.65, MM.AZ - .1), .085, 'chalk', math.pi / 2, math.pi / 2)
+    b.box((MM.CX + 1.14, 18.95, MM.AZ + .05), (.04, 1.5, .46), 'trim_black', bev=.012); b.box((MM.CX + 1.162, 18.95, MM.AZ + .05), (.006, 1.4, .38), 'oxide_dark')
+    b.text('GENERATOR  G-2', (MM.CX + 1.17, 18.95, MM.AZ + .09), .125, 'chalk', math.pi / 2, math.pi / 2); b.text('24 kV  3 PHASE', (MM.CX + 1.17, 18.95, MM.AZ - .1), .075, 'chalk', math.pi / 2, math.pi / 2)
     with b.push((6.75, 10.95, 0), math.pi / 2):                                                           # tag sign hung from the foundation rail, facing along the walkway
         b.box((0, 0, 1.78), (.04, 1.0, .34), 'trim_black', bev=.012); b.box((-.022, 0, 1.78), (.006, .94, .28), 'oxide_dark')
         b.text('LP TURBINE  2', (-.026, 0, 1.85), .1, 'chalk', -math.pi / 2, math.pi / 2); b.text('ROTOR  3000 RPM', (-.026, 0, 1.72), .055, 'chalk', -math.pi / 2, math.pi / 2)
