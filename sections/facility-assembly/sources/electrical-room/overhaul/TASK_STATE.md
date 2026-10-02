@@ -28,11 +28,14 @@ one 8-bit step. The raw comparison is retained and the fresh reviewer
 independently accepts visual stability. Eleven same-byte supplemental views
 are explicitly reused rather than counted as new R12 renders.
 
-The complete reviewed source, linked-map candidate and evidence are local on
-the task branch. Authenticated Git reads work with task network permission.
-Automatic approval review rejected the LFS upload pending explicit user
-authorization for the scoped payload and GitHub destination. No remote
-branch or PR is claimed. See overhaul/publication-status.json.
+The complete reviewed source, linked-map candidate and evidence are committed
+locally on the task branch (art commit e729d7c). The owner explicitly authorized
+publication and merge if ready. GitHub reads/admin access and the unchanged main
+base are verified; main has no required branch rules. Scoped LFS uploads executed
+but failed with HTTP503 from the managed cloud proxy's HTTPS tunnel. Single-object
+requests reproduce the transport failure. The full asset set is not remotely
+verified, so no published branch, PR or merge is claimed. Authorization is already
+granted; resume publication/merge when the proxy recovers. See overhaul/publication-status.json.
 Map-owner adoption/preview-control registration and engine runtime remain separate.
 
 ## Previous art iteration history, before the owner palette correction

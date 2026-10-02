@@ -242,6 +242,8 @@ exactly at identical source bytes and camera/render settings.
 `critics/R12-FRESH.md` independently assesses visual stability. The final candidate
 SHA is `623de76b39b9351afbc6cae3cd5d0aa15a49366748616b169670db078ede94c1`. Same-byte supplemental11
 reuse is explicit in `supplemental-reuse-R12.json`; those are not new R12 renders.
-Publication remains blocked by automatic approval review pending explicit user
-authorization; current Git read connectivity works, and old proxy failures are
-retained only as history in `publication-status-R10.json`.
+The owner explicitly authorized publication and merge if ready. GitHub reads work,
+but current scoped LFS transfer/single-object requests fail with cloud-proxy HTTP503
+and an HTTPS tunnel immediate-connect Invalid argument. Full remote asset readiness
+is unverified; no branch publication or merge is claimed. Historical failures remain
+in `publication-status-R10.json`; current attempts are in `publication-status.json`.

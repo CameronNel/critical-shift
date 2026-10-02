@@ -1,4 +1,4 @@
-# Prepared draft PR — not published
+# Prepared PR — publication blocked by cloud LFS transport
 
 Title: Overhaul electrical room construction and dark industrial palette
 
@@ -14,8 +14,8 @@ Validation and independent review:
 - The palette receipt verifies all 3,177 object signatures, fixed cameras, assignments and color management are preserved; exactly eighteen existing material definitions and selected practical powers change.
 - Saved-source checks cover protected interfaces, explicit cosmetic replacements, manufactured meshes, 59 registered support assemblies and 303 sampled route positions. Native checkout, relative-link containment and all 26 requested legacy electrical material IDs pass. Script checks cover 29 Python scripts and the shell runner.
 
-The candidate inherits the map's exact 128 missing Spawn-wrapper IDs; bounded audits establish no new missing electrical IDs. Map-owner focus/preview controls, Unity import, runtime behavior/navigation/physics and measured performance remain untested. This draft is for independent review; no self merge.
+The candidate inherits the map's exact 128 missing Spawn-wrapper IDs; bounded audits establish no new missing electrical IDs. Map-owner focus/preview controls, Unity import, runtime behavior/navigation/physics and measured performance remain untested. The final independent visual reviews and bounded authoring checks are complete. The owner requested merge after readiness checks.
 
 Start with `sections/facility-assembly/sources/electrical-room/contracts/HANDOFF.md`, the current independent critic reports and the fresh `overhaul/renders/map-R12/` images.
 
-Final R12 cold checks pass. All fourteen source views are decoded-pixel identical; 2/5 map views match exactly and maximum channel difference is 1 8-bit steps, retained and independently judged visually stable. Eleven same-source supplements are explicitly reused. The final source/candidate/image/dependency/staged-LFS integrity receipts pass.
+Final R12 cold checks pass. All fourteen source views are decoded-pixel identical; 2/5 map views match exactly and maximum channel difference is one 8-bit step, retained and independently judged visually stable. Eleven same-source supplements are explicitly reused. The final source/candidate/image/dependency/staged-LFS integrity receipts pass.
