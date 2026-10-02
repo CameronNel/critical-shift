@@ -392,7 +392,13 @@ def _face_classes(bm, weight_at, mw, side_only=False):
             if d > 0.10 + 0.06 * _ss(0.70, 0.95, c.z):
                 k = "core"
         if (c.z < Z_LEG or side_only) and not k.startswith("arm"):
-            k = "leg" + _side_of(c.x)[0]
+            n = (mw.to_3x3() @ f.normal).normalized()
+            if abs(c.x) < 0.05 and abs(n.x) > 0.35:
+                # a trouser leg's inner wall near the middle (the two legs may overlap there, the inner walls crossing
+                # the midline): it belongs to the leg it faces away from
+                k = "leg" + _side_of(-n.x)[0]
+            else:
+                k = "leg" + _side_of(c.x)[0]
         elif k.startswith("leg"):
             k = "core"
         cls.append(k)
@@ -483,6 +489,95 @@ def _chains(edges):
     return out
 
 
+def _tuck_leg_flaps(bm, lay, mw):
+    """The two trouser legs were fused from the crotch down towards the knee, and the cut leaves each leg the half of
+    that shared web nearest it: a flap standing out towards the other leg, which shreds into torn-looking slivers when
+    the legs part. Per height, pull each leg's inner side back to the radius of its own outer side (measured from the
+    leg bones at rest), fading out at the crotch where the legs really do meet the body."""
+    mwi = mw.inverted()
+    for side, sx in SIDES:
+        k = _CLS.index("leg" + side[0])
+        segs = [SEGMENTS[side + b] for b in ("UpperLeg", "LowerLeg")]
+
+        def nearest(p):
+            best = None
+            for a, b in segs:
+                ab = b - a
+                q = a + ab * max(0.0, min(1.0, (p - a).dot(ab) / ab.length_squared))
+                if best is None or (p - q).length < best[0]:
+                    best = ((p - q).length, q)
+            return best
+        rows = []
+        for v in bm.verts:
+            if v.link_faces and all(f[lay] == k for f in v.link_faces):
+                p = mw @ v.co
+                if 0.16 < p.z < Z_LEG:
+                    d, q = nearest(p)
+                    rows.append((v, p, d, q, (p.x - q.x) * sx < 0))         # last: on the inner side
+        for v, p, d, q, inner in rows:
+            if not inner:
+                continue
+            outer = sorted(r[2] for r in rows if not r[4] and abs(r[1].z - p.z) < 0.03)
+            if len(outer) < 6:
+                continue
+            rad = outer[int(len(outer) * 0.5)]
+            if d > rad:
+                nd = d - (d - rad) * 0.9 * _ss(Z_LEG, Z_LEG - 0.08, p.z)
+                v.co = mwi @ (q + (p - q) * (nd / d))
+
+
+def _cap_leg(bm, lay, k, edges, mw):
+    """Close the hole a leg is left with where the two trouser legs shared a flat contact patch (in the middle plane,
+    from the crotch down towards the knee): fill each closed boundary loop flat, subdivide it, then round the fill out
+    onto the leg's own radius (that of its outer side at the same height, from the leg bones at rest) so the inner leg
+    is a smooth tube rather than a flat panel. Returns the new faces (none if the boundary is not closed loops)."""
+    res = bmesh.ops.triangle_fill(bm, use_beauty=True, use_dissolve=False, edges=edges, normal=Vector((1, 0, 0)))
+    faces = [g for g in res["geom"] if isinstance(g, bmesh.types.BMFace)]
+    if not faces:
+        return []
+    rim = {v for e in edges for v in e.verts}
+    inner = list({e for f in faces for e in f.edges if not (e.verts[0] in rim and e.verts[1] in rim and e in edges)})
+    sub = bmesh.ops.subdivide_edges(bm, edges=inner, cuts=2, use_grid_fill=True)
+    faces = list({f for f in faces if f.is_valid} | {g for g in sub["geom"] if isinstance(g, bmesh.types.BMFace)})
+    side = "Left" if _CLS[k] == "legL" else "Right"
+    segs = [SEGMENTS[side + b] for b in ("UpperLeg", "LowerLeg")]
+
+    def axis(p):
+        best = None
+        for a, b in segs:
+            ab = b - a
+            q = a + ab * max(0.0, min(1.0, (p - a).dot(ab) / ab.length_squared))
+            if best is None or (p - q).length < (p - best).length:
+                best = q
+        return best
+    own = [mw @ v.co for v in bm.verts if v.link_faces and all(f[lay] == k for f in v.link_faces)
+           and v not in rim and 0.16 < (mw @ v.co).z < Z_LEG + 0.05]
+    outer = [(p.z, (p - axis(p)).length) for p in own if (p.x - axis(p).x) * SX[side] > 0.02]
+    mwi = mw.inverted()
+    free = {v for f in faces for v in f.verts if v not in rim}
+    for _ in range(6):                         # relax, then round out onto the leg's radius
+        for v in free:
+            nb = [e.other_vert(v) for e in v.link_edges]
+            if nb:
+                v.co = v.co * 0.4 + sum((u.co for u in nb), Vector()) * (0.6 / len(nb))
+        for v in free:
+            p = mw @ v.co
+            rs = sorted(r for z, r in outer if abs(z - p.z) < 0.03)
+            if len(rs) < 4:
+                continue
+            q = axis(p)
+            d = p - q
+            if d.length > 1e-5:
+                v.co = mwi @ (q + d.normalized() * rs[len(rs) // 2])
+    for f in faces:
+        f[lay] = k
+        f.smooth = True
+        c = mw @ f.calc_center_median()
+        if f.normal.dot(c - axis(c)) < 0:
+            f.normal_flip()
+    return faces
+
+
 def _tuck_arm_flaps(bm, lay, mw):
     """Where the arm was fused to the flank the cut leaves flaps of the shared web: on the arm they stand out towards
     where the hip was (torn claws beside the head once the arm is raised), on the flank they bulge where the arm was.
@@ -556,6 +651,7 @@ def _separate_limbs(o, weight_at, mw, side_only=False):
     bmesh.ops.split_edges(bm, edges=cut)
     if not side_only:
         _tuck_arm_flaps(bm, lay, mw)
+        _tuck_leg_flaps(bm, lay, mw)
     groups = {}
     for e in bm.edges:
         if e.is_boundary and key(e) not in old_open:
@@ -563,6 +659,24 @@ def _separate_limbs(o, weight_at, mw, side_only=False):
             groups.setdefault((k, (mw @ e.verts[0].co).x > 0 if _CLS[k] == "core" else None), []).append(e)
     walls = 0
     for (k, _), edges in groups.items():
+        if _CLS[k].startswith("leg") and not side_only:
+            capped = _cap_leg(bm, lay, k, edges, mw)
+            walls += len(capped)
+            edges = [e for e in bm.edges if e.is_valid and e.is_boundary and key(e) not in old_open
+                     and e.link_faces[0][lay] == k]
+            small = []                         # small closed leftover holes the flat fill missed: fill them as they are
+            for ch in _chains(edges):
+                ring = [e for e in edges if e.verts[0] in ch and e.verts[1] in ch]
+                if len(ring) == len(ch) and sum(e.calc_length() for e in ring) < 0.25:
+                    small += ring
+            if small:
+                res = bmesh.ops.holes_fill(bm, edges=small, sides=0)
+                for f in res["faces"]:
+                    f[lay] = k
+                    f.smooth = True
+                    walls += 1
+                bmesh.ops.triangulate(bm, faces=res["faces"])
+            continue
         chains = sorted(_chains(edges), key=len, reverse=True)
         pairs = []
         if len(chains) >= 2 and len(chains[1]) > 2:   # two cuts reaching an existing opening (the legs, front and back)
@@ -570,8 +684,12 @@ def _separate_limbs(o, weight_at, mw, side_only=False):
             chains = chains[2:]
         for ch in chains:                             # one U-shaped cut (the arm), or a stray piece: close it on itself
             low = min(range(len(ch)), key=lambda i: ch[i].co.z)
+            high = max(range(len(ch)), key=lambda i: ch[i].co.z)
             if 0 < low < len(ch) - 1:
                 pairs.append((ch[:low + 1], ch[low:][::-1]))
+            elif _CLS[k].startswith("leg") and 0 < high < len(ch) - 1:
+                # a leg's cut runs up the front to the crotch and down the back: split it at the crotch
+                pairs.append((ch[:high + 1][::-1], ch[high:]))
             elif len(ch) > 2:
                 pairs.append((ch[:len(ch) // 2 + 1], ch[len(ch) // 2:][::-1]))
         for a, b in pairs:
@@ -682,6 +800,117 @@ def _densify(o, keep, max_len=0.03):
     o.data.update()
 
 
+# The owner-reference (HZ-01) suit is the base suit narrowed in x (coat and arms 0.90, gloves 0.91; the boots are built
+# at the worker's own feet). Each piece is skinned in the worker's unnarrowed space, where its sleeves and legs line
+# up with the worker the weights and bones come from, then narrowed back.
+REFERENCE_X_SCALE = {"SUIT_GLOVES": 0.91, "SUIT_BOOTS": 1.0}
+
+
+def _suit_x_scale(root, o):
+    if not str(root.get("cs_suit_style", "")).startswith("owner-reference") or not o.name.startswith("SUIT_"):
+        return 1.0
+    return REFERENCE_X_SCALE.get(o.name, 0.90)
+
+
+def _scale_x(o, f):
+    mw = o.matrix_world
+    mwi = mw.inverted()
+    for v in o.data.vertices:
+        p = mw @ v.co
+        v.co = mwi @ Vector((p.x * f, p.y, p.z))
+    o.data.update()
+
+
+def _hug_torso(o, mw, core, gap=0.010):
+    """The reference belt is a ring cast round the whole cross-section at belt height, which there includes the
+    hanging forearms. Pull every such ring onto the torso (`core`: rest points of the suit's own torso, arms cut off),
+    `gap` outside it, so it stays on the waist instead of trailing flat wings when the arms move. Returns the count."""
+    mwi = mw.inverted()
+    done = 0
+    bins = 72
+    for isl in _islands(o.data):
+        pts = [mw @ o.data.vertices[i].co for i in isl]
+        xs, ys, zs = ([p[a] for p in pts] for a in range(3))
+        zc = sum(zs) / len(zs)
+        if not (min(xs) < -0.15 and max(xs) > 0.15 and max(ys) - min(ys) > 0.3 and max(zs) - min(zs) < 0.08
+                and 0.5 < zc < 1.0):
+            continue
+        rad = [0.0] * bins
+        for q in core:
+            if abs(q.z - zc) < 0.04:
+                b = int((math.atan2(q.y, q.x) / (2 * math.pi)) % 1.0 * bins) % bins
+                rad[b] = max(rad[b], math.hypot(q.x, q.y))
+        if not any(rad):
+            continue
+        for _ in range(bins):                  # fill empty bins from their neighbours
+            if all(rad):
+                break
+            rad = [r or max(rad[i - 1], rad[(i + 1) % bins]) for i, r in enumerate(rad)]
+        for _ in range(2):                     # soften the corners of the cut line
+            rad = [(rad[i - 1] + 2 * rad[i] + rad[(i + 1) % bins]) / 4 for i in range(bins)]
+        for i, p in zip(isl, pts):
+            t = (math.atan2(p.y, p.x) / (2 * math.pi)) % 1.0 * bins
+            b0 = int(t) % bins
+            f = t - int(t)
+            want = rad[b0] * (1 - f) + rad[(b0 + 1) % bins] * f + gap
+            r = math.hypot(p.x, p.y)
+            if r > want:
+                o.data.vertices[i].co = mwi @ Vector((p.x * want / r, p.y * want / r, p.z))
+        done += 1
+    o.data.update()
+    return done
+
+
+def _tuck_into_boots(o, mw, boots, margin=0.007):
+    """Trouser fabric below a boot's rim sits at nearly the boot's own radius, so the two surfaces cross in a ragged
+    zigzag. Pull it inside the boot (`margin` in from its wall) so the rim reads as one clean edge. `boots`: the boots
+    object, one closed island per boot. Returns the number of vertices moved."""
+    bw = boots.matrix_world
+    shells = []
+    for isl in _islands(boots.data):
+        pts = [bw @ boots.data.vertices[i].co for i in isl]
+        top = max(p.z for p in pts)
+        cx = sum(p.x for p in pts) / len(pts)
+        cy = sum(p.y for p in pts) / len(pts)
+        shells.append((cx, cy, top, pts))
+    mwi = mw.inverted()
+    moved = 0
+    for v in o.data.vertices:
+        p = mw @ v.co
+        for cx, cy, top, pts in shells:
+            if p.z >= top - 0.004 or (p.x > 0) != (cx > 0):
+                continue
+            ring = [q for q in pts if abs(q.z - p.z) < 0.012]
+            if len(ring) < 8:
+                continue
+            ox = sum(q.x for q in ring) / len(ring)
+            oy = sum(q.y for q in ring) / len(ring)
+            d = Vector((p.x - ox, p.y - oy, 0.0))
+            if d.length < 1e-6:
+                continue
+            u = d.normalized()
+            wall = max(Vector((q.x - ox, q.y - oy, 0.0)).dot(u) for q in ring)     # the boot's radius this way
+            if d.length > wall - margin:
+                d = u * (wall - margin)
+                v.co = mwi @ Vector((ox + d.x, oy + d.y, p.z))
+                moved += 1
+    o.data.update()
+    return moved
+
+
+def _boot_islands(o, mw):
+    """Per-vertex leg class for a boots mesh made of one closed island per boot (each wholly on its own side), or None
+    when the boots are fused and have to be cut apart."""
+    vcls = {}
+    for isl in _islands(o.data):
+        cx = sum((mw @ o.data.vertices[i].co).x for i in isl) / len(isl)
+        if abs(cx) < 0.05:
+            return None
+        for i in isl:
+            vcls[i] = "leg" + _side_of(cx)[0]
+    return vcls
+
+
 def skin_worker(root, arm):
     weight_at = _make_weight_fn(root, arm)
     meshes = sorted((o for o in root.children_recursive if o.type == "MESH"), key=lambda o: o.name != "SUIT_BODY")
@@ -693,18 +922,28 @@ def skin_worker(root, arm):
             c = sum(pts, Vector()) / len(pts)
             hood = (c, sum((q - c).length for q in pts) / len(pts))
     n_meshes = 0
+    core = []
     for o in meshes:
         head_rigid = o.parent is not None and o.parent.name.endswith("_HEAD_PIVOT")
         mw = o.matrix_world.copy()
+        xs = 1.0 if head_rigid else _suit_x_scale(root, o)
+        if xs != 1.0:
+            _scale_x(o, 1.0 / xs)
         for n in DEFORM:
             o.vertex_groups.new(name=n)
         vg = o.vertex_groups
         fixed = {}
         vcls = None
         if o.name == "SUIT_BODY":
+            boots = next((b for b in meshes if b.name == "SUIT_BOOTS"), None)
+            if boots is not None and _boot_islands(boots, boots.matrix_world) is not None:
+                _tuck_into_boots(o, mw, boots)
             vcls, near = _separate_limbs(o, weight_at, mw)
+            core = [mw @ v.co for v in o.data.vertices if vcls[v.index] == "core" and 0.5 < (mw @ v.co).z < 1.05]
         elif o.name == "SUIT_BOOTS":
-            vcls, _ = _separate_limbs(o, weight_at, mw, side_only=True)   # the two boots touch at the instep
+            vcls = _boot_islands(o, mw)            # one island per boot: each goes wholly with its own foot
+            if vcls is None:
+                vcls, _ = _separate_limbs(o, weight_at, mw, side_only=True)   # fused boots touch at the instep
 
         def w_at(p, i=None, k=None):
             """Weights for a point on this mesh: its own class on a cut mesh, or class `k` (the class of the suit under
@@ -714,11 +953,28 @@ def skin_worker(root, arm):
             if k is not None:
                 return _restricted(weight_at, p, k, hood)
             return weight_at(p)
+        if o.name == "SUIT_COLLAR":                # the neck collar: torso only, moving as one piece
+            w = {}
+            for v in o.data.vertices:
+                for n, x in weight_at(mw @ v.co, no_arm=True).items():
+                    w[n] = w.get(n, 0.0) + x / len(o.data.vertices)
+            fixed = {v.index: w for v in o.data.vertices}
+
+        def mode_of(pts):
+            """The island's kit mode; a long piece lying along a sleeve (piping, tape) bends with it."""
+            mode = _kit_mode(pts, near)
+            if mode == "rigid":
+                ks = [near(q, 0.05)[0] for q in pts]
+                if sum(1 for k in ks if k.startswith("arm")) > 0.5 * len(ks):
+                    mode = "follow"
+            return mode
         if o.name == "SUIT_KIT" and near is not None:
-            _densify(o, lambda pts: _kit_mode(pts, near) == "follow")
+            if core:
+                _hug_torso(o, mw, core)
+            _densify(o, lambda pts: mode_of(pts) == "follow")
             for isl in _islands(o.data):
                 pts = [mw @ o.data.vertices[i].co for i in isl]
-                mode = _kit_mode(pts, near)
+                mode = mode_of(pts)
                 ks = [near(q, 0.05)[0] for q in pts if q.z < Z_ARM and near(q, 0.05)[1] is not None]
                 # one class per island: the arm and flank (and the two legs) coincide at rest where they were fused
                 k = max(sorted(set(ks)), key=ks.count) if ks else "core"
@@ -747,8 +1003,16 @@ def skin_worker(root, arm):
                 w = fixed[v.index]
             else:
                 w = w_at(p, v.index)
+            if o.name == "SUIT_BOOTS" and vcls is not None:
+                t = _ss(0.15, 0.09, p.z)              # the sole and toe box are rigid to the foot, the shaft blends up
+                if t > 0.0:
+                    foot = vcls[v.index].replace("legL", "LeftFoot").replace("legR", "RightFoot")
+                    w = {n: x * (1.0 - t) for n, x in w.items()}
+                    w[foot] = w.get(foot, 0.0) + t
             for n, x in w.items():
                 vg[n].add([v.index], x, "REPLACE")
+        if xs != 1.0:
+            _scale_x(o, xs)
         o.parent = None
         o.matrix_world = mw
         o.parent = arm
@@ -759,6 +1023,13 @@ def skin_worker(root, arm):
     for o in root.children_recursive:
         if o.type == "EMPTY" and o.name.endswith("_HEAD_PIVOT"):
             o.hide_viewport = True
+    boots = next((o for o in meshes if o.name == "SUIT_BOOTS"), None)
+    if boots is not None:                      # sole points from each ankle, so the animation keeps them on the floor
+        mw = boots.matrix_world
+        for side, sx in SIDES:
+            ankle = SEGMENTS[side + "Foot"][0]
+            pts = [mw @ v.co - ankle for v in boots.data.vertices if (mw @ v.co).z < 0.20 and (mw @ v.co).x * sx > 0]
+            arm["cs_sole_" + side] = [c for p in pts[::max(1, len(pts) // 150)] for c in p]
     return n_meshes, 0
 
 
@@ -916,8 +1187,13 @@ def _ik_arm(arm, side, S, T, pole):
 
 # ------------------------------------------------------------------------------------------------------ feet and gait
 
-ANKLE_REST = {side: Vector((sx * 0.110, 0.014, 0.13)) for side, sx in SIDES}
-_HEEL, _TOE = (-0.10, -0.13), (0.20, -0.13)       # (y, z) of the boot sole's heel and toe edges from the ankle
+# Standing feet. The boots are about 0.24 m wide and the trouser legs are thick, so the ankles stand 0.16 m either side
+# of the middle (the bind pose has them at 0.110, where the boots and the inner thighs overlap), leaving a gap between
+# the boots and between the knees.
+STANCE = 0.17
+ANKLE_REST = {side: Vector((sx * STANCE, 0.014, 0.13)) for side, sx in SIDES}
+_HEEL, _TOE = (-0.11, -0.127), (0.23, -0.127)     # (y, z) of the HZ-01 boot sole's heel and toe from the ankle
+TOE_OUT = 5.0                                      # degrees each foot turns out (standing and in the gaits)
 
 
 def _ankle(c, clear, pitch):
@@ -961,12 +1237,12 @@ def _loop(keys, t):
 # (p, flat-ankle y, sole clearance, pitch): toe-off, heel kicked up behind, knee drive, reach, then the foot pulls back
 # into the strike. `hips` (per step, u = 0 at a strike): low at mid-stance, high in the flight phase, so one foot at
 # most is ever on the floor. Everything is in metres and degrees for this 0.72 m-legged worker.
-GAIT_PLAIN = dict(strides=1, duty=0.36, stride=(0.07, -0.25), land=6.0, push=24.0, width=0.095,
+GAIT_PLAIN = dict(strides=1, duty=0.36, stride=(0.07, -0.25), land=6.0, push=24.0, width=0.135,
                   swing=[(0.45, -0.31, 0.06, -38), (0.56, -0.26, 0.16, -30), (0.68, -0.08, 0.21, -10),
                          (0.80, 0.10, 0.17, 6), (0.90, 0.17, 0.05, 10)],
                   hips=[(0.0, -0.005), (0.30, -0.030), (0.72, 0.028), (0.86, 0.034), (1.0, -0.005)],
                   lean=-9.0, yaw=8.0, roll=3.0, waddle=0.0, sway=0.012, nod=2.5, belly=10.0, pack=7.0)
-GAIT_CARTOON = dict(GAIT_PLAIN, strides=2, duty=0.34, land=8.0, push=26.0, width=0.10,
+GAIT_CARTOON = dict(GAIT_PLAIN, strides=2, duty=0.34, land=8.0, push=26.0, width=0.14,
                     swing=[(0.44, -0.31, 0.08, -40), (0.55, -0.25, 0.25, -34), (0.67, -0.06, 0.31, -10),
                            (0.79, 0.12, 0.21, 8), (0.90, 0.18, 0.07, 12)],
                     hips=[(0.0, -0.008), (0.30, -0.042), (0.70, 0.030), (0.85, 0.040), (1.0, -0.008)],
@@ -1040,10 +1316,16 @@ def _compose(arm, frames, name, body, arms, loop=True):
         ev = _eval_bones(arm)
         for side, sgn in SIDES:
             T, rot = feet[side]
+            rot = rot if isinstance(rot, Matrix) else _rot("Z", -sgn * TOE_OUT) @ _rot("X", rot)
+            sole = arm.get("cs_sole_" + side)
+            if sole:                                  # lift the foot so no boot sole point goes under the floor
+                low = min((rot @ Vector(sole[i:i + 3])).z for i in range(0, len(sole), 3)) + T.z
+                if low < 0.0:
+                    T = T + Vector((0.0, 0.0, -low))
             D[side + "UpperLeg"], D[side + "LowerLeg"] = _ik_two(
                 arm, side + "UpperLeg", side + "LowerLeg", ev[side + "UpperLeg"].head.copy(), T,
-                D["Hips"] @ Vector((sgn * 0.15, 1.0, 0.0)))
-            D[side + "Foot"] = rot if isinstance(rot, Matrix) else _rot("X", rot)
+                D["Hips"] @ Vector((sgn * 0.30, 1.0, 0.0)))      # knees bend forward and a little out, never in
+            D[side + "Foot"] = rot
         chest_def = ev["Chest"].matrix @ arm.data.bones["Chest"].matrix_local.inverted()
         M = arms(ph, D, ev, chest_def)
         _key(arm, f, D)
@@ -1096,16 +1378,19 @@ def _stand_body(ph):
 
 # ------------------------------------------------------------------------------------------------------ arms
 
-def _arm_neutral(arm, side, sgn, ph, D, swing=0.0, bend=14.0):
-    """Arm hanging by the side. `swing` (degrees, + forward) and `bend` (elbow, forward) pose it; used for idle and for
-    the free arm while running."""
+def _arm_neutral(arm, side, sgn, ph, D, swing=0.0, bend=14.0, out=30.0):
+    """Arm hanging by the side. `swing` (degrees, + forward), `bend` (elbow, forward) and `out` (the upper arm away from
+    the body; the rest pose has about 40) pose it; used for idle and for the free arm while running. The suit's coat is
+    round and the sleeves hang close to it, so the arm must stay out from the body or the sleeve sinks into the coat."""
     ch = D["Chest"]
     D[side + "Shoulder"] = ch
-    fw = math.sin(math.radians(swing))
-    up_dir = ch @ Vector((sgn * 0.13, fw, -math.cos(math.radians(swing))))
+    a, o = math.radians(swing), math.radians(out)
+    up_dir = ch @ Vector((sgn * math.sin(o) * math.cos(a), math.sin(a), -math.cos(o) * math.cos(a)))
     D[side + "UpperArm"] = _aim_bone(arm, side + "UpperArm", up_dir, up=False)
-    b = math.radians(swing + bend)
-    lo_dir = ch @ Vector((sgn * 0.09, math.sin(b), -math.cos(b)))
+    b, o2 = math.radians(swing + bend), math.radians(out * 0.4)
+    # the forearm always angles a little outward, so a hand pumped forward passes beside the round coat, not across it
+    lo_dir = ch @ Vector((sgn * (math.sin(o2) * abs(math.cos(b)) + 0.25 * max(0.0, math.sin(b))), math.sin(b),
+                          -math.cos(o2) * math.cos(b)))
     D[side + "LowerArm"] = _aim_bone(arm, side + "LowerArm", lo_dir, up=False)
     D[side + "Hand"] = D[side + "LowerArm"]
 
@@ -1115,7 +1400,8 @@ def _arms_idle(arm):
 
     def arms(ph, D, ev, chest_def):
         for side, sgn in SIDES:
-            _arm_neutral(arm, side, sgn, ph, D, swing=2.5 * math.sin(tp * (ph + 0.2 * sgn)), bend=10 + 3 * math.sin(tp * ph))
+            _arm_neutral(arm, side, sgn, ph, D, swing=2.5 * math.sin(tp * (ph + 0.2 * sgn)), bend=10 + 3 * math.sin(tp * ph),
+                         out=38.0)
         return None
     return arms
 
@@ -1161,11 +1447,11 @@ def _arms_cheer(arm, c=None):
 # 60 degree first-person view in a natural pose; the tool's business end is. The hand holds the tool at chest height in
 # front of the right shoulder and the blade or pick head rises into the lower right of the view.
 TOOL_HOLD = {
-    "SHOVEL": dict(grip=(0.30, 0.38, 1.00), shaft=(0.25, -0.80, -0.55), side=(1, 0, 0), at=-0.16),  # blade up-forward
+    "SHOVEL": dict(grip=(0.32, 0.38, 1.00), shaft=(0.22, -0.80, -0.55), side=(1, 0, 0), at=-0.16),  # blade up-forward
     "PICKAXE": dict(grip=(0.28, 0.36, 1.00), shaft=(-0.12, 0.84, 0.50), side=(0, 0, 1), at=-0.14),  # head up-forward
 }
 TOOL_RUN = {                                      # running: the same, a little closer, bobbing with the stride
-    "SHOVEL": dict(grip=(0.30, 0.36, 1.02), shaft=(0.25, -0.72, -0.65), side=(1, 0, 0), at=-0.16),
+    "SHOVEL": dict(grip=(0.32, 0.36, 1.02), shaft=(0.17, -0.74, -0.65), side=(1, 0, 0), at=-0.16),
     "PICKAXE": dict(grip=(0.28, 0.31, 0.96), shaft=(-0.10, 0.76, 0.64), side=(0, 0, 1), at=-0.14),
 }
 _HAND_GRIP = 0.065                                # wrist to the middle of the mitten
@@ -1192,9 +1478,10 @@ def _arms_tool(arm, kind, running, gait=GAIT_PLAIN):
             swing = Matrix.Translation(g + Vector((0.0, -0.035 * pump, 0.008 * math.cos(tp * 2 * q))))
             M = swing @ _rot("X", 5 * pump).to_4x4() @ Matrix.Translation(-g) @ M
         if running:
-            _arm_neutral(arm, "Left", SX["Left"], ph, D, swing=36 * pump, bend=78 + 14 * pump)
+            _arm_neutral(arm, "Left", SX["Left"], ph, D, swing=30 * pump, bend=78 + 14 * pump, out=36.0)
         else:
-            _arm_neutral(arm, "Left", SX["Left"], ph, D, swing=2.5 * math.sin(tp * (ph + 0.2)), bend=10 + 3 * math.sin(tp * ph))
+            _arm_neutral(arm, "Left", SX["Left"], ph, D, swing=2.5 * math.sin(tp * (ph + 0.2)), bend=10 + 3 * math.sin(tp * ph),
+                         out=38.0)
         grip = M @ Vector((0, 0, (TOOL_RUN if running else TOOL_HOLD)[kind]["at"]))
         D["RightShoulder"] = D["Chest"]
         S = ev["RightUpperArm"].head.copy()
