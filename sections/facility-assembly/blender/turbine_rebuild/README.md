@@ -56,7 +56,14 @@ The reviewer's ranked gap (about 16 points per view): surface materials (~4: sme
 silhouette/shape language (~3), trim and panel logic (~2), lighting (~2), artifacts (~1: cropped edge objects), signage (~0.5). Incremental polish now yields about +0.3 mean per round; closing the rest needs larger work (a real trim-sheet / higher-resolution material system and a hero prop kit), not more small fixes.
 These scores are one model's opinion against a fixed rubric, with the owner's dark-ambience direction applied, and have not been confirmed by a human art review.
 Late-round additions: control station off the west wall (sloped panels, monitors, operator chair), annunciator wall and sign, per-wall texture sets and wall dressing, casing access hatches, hung tag signs, pale trim colour, a stylised grazing-angle rim in every material
-(a material feature that the runtime shader must reproduce), per-view warm light pools and cool wall rim spots. Triangle count about 370k (budget 400k). Text meshes use low curve resolution to save about 50k triangles.
+(a material feature that the runtime shader must reproduce), per-view warm light pools and cool wall rim spots. Triangle count about 395k including the drums (budget 400k).
+
+## Props and decals (v4 pass, owner request: purposeful small assets, no text-as-shapes)
+
+- **Decal sheets** (`decals.py`, system python + PIL, run by `run.py`): `turbine_decals.png` (lit: signs, labels, posters, dials, notices, evacuation plan, console bezels, tool shadow board) and `turbine_decals_emit.png` (emissive: the control-room mimic, six console monitors, the desk monitor, the exit sign), plus `decals.json` (UV rect and size in metres per decal). Every sign, label, dial and screen is texture art on a flat quad (`Builder.decal`, or `decal_wrap` for curved bodies); no text is geometry any more. Objects `TURBINE_DECAL` (lit) and `TURBINE_DECAL_E` (emissive) are alpha-blended with shadows off. **Runtime needs:** alpha-blend (or alpha-test) decal materials, a small depth bias, and an emissive path for the second sheet.
+- **Mimic screen:** a rendered UI (title bar, heads-up hall plan with zones, plant-status panel, alarms, navigation bar). The zone-3 alarm highlight is the separate object `TURBINE_MIMIC_FAULT` so the runtime can flicker or hide it.
+- **Drums:** two 200 L drums are lathe-turned objects (`drums.py`): rolled chimes, pressed rolling hoops, recessed head with reinforcing bead, 2 in and 3/4 in bungs. They carry their own painted and worn albedo/ORM maps (`drumtex.py`, label stencilled in the paint) and stand on a modelled spill pallet with a hand pump.
+- **Hero props** (`assets.py`): extinguishers (lathe body, valve, lever, pin, hose, horn, bracket), gas cylinders in a chained rack, hose reel with a spiral hose, tool trolley with drawers, casters and tools, working desk set (pedestal, monitor, keyboard decal, lamp, mug, papers), pallet + slatted crate + steel case, notice board, posters, first-aid box, industrial sockets, wall clock, cage work lamp, shadow-board hand tools and shelf stock. Chair rebuilt with a curved shell backrest.
 
 ## Not done
 

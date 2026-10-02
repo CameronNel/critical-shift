@@ -1,8 +1,8 @@
 {
  "group_stats": {
   "ARCH": {
-   "faces": 30790,
-   "tris": 66428
+   "faces": 26730,
+   "tris": 59756
   },
   "OCC": {
    "faces": 264,
@@ -12,25 +12,33 @@
    "faces": 48,
    "tris": 96
   },
+  "DECAL": {
+   "faces": 139,
+   "tris": 278
+  },
   "MACH": {
-   "faces": 43867,
-   "tris": 103732
+   "faces": 38812,
+   "tris": 100252
   },
   "SHAFT": {
    "faces": 48,
    "tris": 168
   },
+  "DECAL_E": {
+   "faces": 10,
+   "tris": 20
+  },
   "MIMIC_FAULT": {
-   "faces": 494,
-   "tris": 676
+   "faces": 1,
+   "tris": 2
   },
   "PROPS": {
-   "faces": 16501,
-   "tris": 31056
+   "faces": 24770,
+   "tris": 51544
   }
  },
- "total_tris_before_cull": 202684,
- "total_tris": 369842,
+ "total_tris_before_cull": 212644,
+ "total_tris": 390012,
  "floor": {
   "top_faces": 9,
   "faces": 222,
@@ -58,30 +66,29 @@
    "tris": 72
   }
  },
- "floor_textures": {
-  "size": [
-   2240,
-   3840
-  ],
-  "px_per_m": 160,
-  "wet_fraction": 0.01580543154761905,
-  "damp_fraction": 0.07213971819196428
- },
+ "floor_textures": null,
  "bevelled_edges": {
-  "ARCH": 6099,
+  "ARCH": 6011,
   "GLASS": 0,
-  "MACH": 24081,
+  "DECAL": 0,
+  "MACH": 25024,
   "SHAFT": 0,
-  "MIMIC_FAULT": 12,
-  "PROPS": 3662
+  "DECAL_E": 0,
+  "MIMIC_FAULT": 0,
+  "PROPS": 4430
  },
- "faces_kept": 82379,
- "faces_culled": 9369,
- "materials": 24,
+ "faces_kept": 81472,
+ "faces_culled": 9086,
+ "materials": 25,
  "images": [
-  "drum_labels.png",
+  "drum_a_albedo.png",
+  "drum_a_orm.png",
+  "drum_b_albedo.png",
+  "drum_b_orm.png",
   "turbine_atlas",
   "turbine_atlas_orm",
+  "turbine_decals.png",
+  "turbine_decals_emit.png",
   "turbine_floor_albedo.png",
   "turbine_floor_normal.png",
   "turbine_floor_orm.png",
@@ -98,5 +105,5 @@
   "turbine_wall_west_normal.png",
   "turbine_wall_west_orm.png"
  ],
- "objects": 92
+ "objects": 94
 }

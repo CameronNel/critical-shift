@@ -297,7 +297,7 @@ def controls(b):
             for i in range(6): on_panel(.22, -.32 + i * .128, (.07, .07, .03), cols[i], .016)
             for i in range(3): on_panel(.55, -.3 + i * .1, (.015, .07, .12), 'chalk', .02); on_panel(.55, -.3 + i * .1, (.04, .045, .02), 'red', .035)
             for dy in (.2, .34): on_panel(.7, dy, (.055, .055, .03), 'steel_light', .018)
-            on_panel(.62, 0, (.016, .3, .004), 'chalk', .016); on_panel(.62, -.15, (.14, .016, .004), 'chalk', .016); on_panel(.62, .15, (.14, .016, .004), 'chalk', .016)   # mimic diagram
+            pass
         elif k == 1:
             for i in range(8): on_panel(.3, -.35 + i * .1, (.025, .035, .06), 'steel_light', .03); on_panel(.3, -.35 + i * .1, (.04, .04, .018), cols[i % 6], .06)    # toggle switches
             for i in range(2): on_panel(.7, -.22 + i * .44, (.1, .1, .028), 'trim_black', .018); on_panel(.7, -.22 + i * .44, (.012, .012, .08), 'chalk', .04)

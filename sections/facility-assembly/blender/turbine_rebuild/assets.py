@@ -23,7 +23,7 @@ def gauge_dial(b, c, kind='gauge_a', face='Y', r=.09, flip=1):
         b.cyl(c, r + .012, .034, 'steel_light', 'X', 28, bev=.006); b.decal(kind, (c[0] + .0175, c[1], c[2]), rot=(PI / 2, 0, PI / 2), scale=r / .095)
 
 # ------------------------------------------------------------------ safety equipment
-def extinguisher(b, u, z0=.8, y=.125):
+def extinguisher(b, u, z0=.5, y=.125):
     """5 kg CO2 extinguisher on a wall bracket (wall frame)."""
     b.box((u, .015, z0 + .3), (.14, .03, .78), 'steel_dark', bev=.008)
     body = [(0, 0), (.07, 0), (.083, .012), (.09, .04), (.09, .40), (.088, .44), (.076, .48), (.056, .505), (.036, .516), (.03, .53), (.03, .56)]
@@ -40,8 +40,8 @@ def extinguisher(b, u, z0=.8, y=.125):
     b.lathe((u + .09, y + .125, z0 + .12), [(0, 0), (.02, 0), (.026, .035), (.018, .08), (.014, .12), (0, .12)], 'steel_dark', 12)                  # horn on the wall hook
     b.box((u + .09, .05, z0 + .22), (.04, .1, .03), 'steel_dark', bev=.005)
     b.decal_wrap('ext_label', (u, y), .09, z0 + .1, z0 + .4, PI / 2, .17 / .09 * .95)
-    b.decal('sign_ext', (u, .006, z0 + 1.2), rot=WALL, scale=.62)
-    b.box((u, .003, z0 + 1.2), (.34, .006, .34), 'trim_black', bev=.003)
+    b.decal('sign_ext', (u, .006, z0 + 1.55), rot=WALL, scale=.62)
+    b.box((u, .003, z0 + 1.55), (.34, .006, .34), 'trim_black', bev=.003)
 
 def gas_cylinder(b, x, y, body='orange', shoulder='steel_light', label='label_gas_ac', rz=0.0):
     prof = [(0, 0), (.07, 0), (.093, .016), (.099, .05), (.1, .08), (.1, 1.0), (.098, 1.06), (.09, 1.12), (.07, 1.175), (.045, 1.215), (.036, 1.235), (.035, 1.255)]
@@ -177,7 +177,7 @@ def crate(b, x, y, w=.8, d=.6, h=.4, z0=.145, rz=0.0, stencil=True):
             for sx in (-1, 1): b.box((sx * (w / 2 - .01), 0, zz + .02), (.02, d - .1, .11), 'wood', bev=.004)
         for k in range(4): b.box((0, -d / 2 + .08 + k * (d - .16) / 3, h + .012), (w + .02, .13, .024), 'wood', bev=.004)
         b.box((0, 0, h + .036), (.05, d + .02, .024), 'wood_dark', bev=.004); b.box((-w / 4, 0, h + .036), (.05, d + .02, .024), 'wood_dark', bev=.004)
-        if stencil: b.decal('stencil_fragile', (0, d / 2 + .0105, h * .45), rot=(PI / 2, 0, 0), scale=.7 * w / .8 * .9)
+        if stencil: b.decal('stencil_fragile', (0, d / 2 + .0105, h * .45), rot=(PI / 2, 0, PI), scale=.7 * w / .8 * .9)
 
 def steel_case(b, x, y, z0, w=.7, d=.5, h=.36, rz=0.0):
     with b.push((x, y, z0), rz):
@@ -186,7 +186,7 @@ def steel_case(b, x, y, z0, w=.7, d=.5, h=.36, rz=0.0):
         for sx in (-1, 1): b.box((sx * (w / 2 + .005), 0, h * .7), (.018, .1, .05), 'steel_mid', bev=.004)
         for sx in (-.2, .2): b.box((sx, d / 2 + .012, h * .72), (.06, .025, .05), 'steel_light', bev=.004)                       # latches
         b.sweep([(-.1, 0, h + .012), (-.1, 0, h + .07), (.1, 0, h + .07), (.1, 0, h + .012)], .01, 'steel_dark', 6, .03)         # carry handle
-        b.decal('label_ship', (0, d / 2 + .0105, h * .38), rot=(PI / 2, 0, 0), scale=.95)
+        b.decal('label_ship', (0, d / 2 + .0105, h * .38), rot=(PI / 2, 0, PI), scale=.95)
 
 def desk(b, u):
     """working desk (north wall frame): wood top, drawer pedestal, legs, monitor with a live-looking screen, keyboard, mouse, lamp, mug, papers"""

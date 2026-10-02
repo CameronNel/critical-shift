@@ -48,11 +48,11 @@ def build(b):
     # --- west wall: notice board, posters, first aid, sockets, conduit, extinguisher ---
     (o, rz), fu = FR['W']
     with b.push(o, rz):
-        A.notice_board(b, fu(9.4), 1.75)
-        A.poster(b, fu(11.2), 1.8, 0); A.poster(b, fu(12.3), 1.8, 1)
-        A.first_aid(b, fu(13.3), 1.5)
+        A.notice_board(b, fu(9.4), 2.05)
+        A.poster(b, fu(11.2), 2.1, 0); A.poster(b, fu(12.3), 2.1, 1)
+        A.first_aid(b, fu(13.3), 1.85)
         for t in (8.4, 10.1, 12.0): A.socket(b, fu(t), .5, plug=(t == 10.1))
-        A.extinguisher(b, fu(3.0))
+        A.extinguisher(b, fu(7.0))
         b.rod((fu(8.0), .04, 2.9), (fu(13.5), .04, 2.9), .022, 'steel_mid', 12)
         for t in (8.4, 10.2, 12.0, 13.4): b.box((fu(t), .035, 2.9), (.06, .05, .08), 'steel_dark', bev=.006)
         b.box((fu(13.5), .08, 2.9), (.18, .14, .2), 'steel_dark', bev=.012); b.rod((fu(13.5), .08, 2.8), (fu(13.5), .08, 1.9), .022, 'steel_mid', 12)
