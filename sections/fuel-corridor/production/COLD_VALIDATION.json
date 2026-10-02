@@ -1,9 +1,9 @@
 {
   "schema": "fuel-overhaul-cold-validation/1",
-  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F6ci.blend",
-  "sha256": "ae37ef4b7011d32170ca6a95c461f255670df7db7fd9d8ce98db72a438824d0f",
-  "build_manifest": "sections/fuel-corridor/production/checkpoints/F6ci_BUILD_MANIFEST.json",
-  "recipe_sha256": "239cd5bbf91ce76ac24242862edb621385611e8ffaf14185207c39cfcde60eaa",
+  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F7ci.blend",
+  "sha256": "30e4ca9bc23c03c87fe460b5754f6abfc438853237e0c4253c7357bddb7ef3cb",
+  "build_manifest": "sections/fuel-corridor/production/checkpoints/F7ci_BUILD_MANIFEST.json",
+  "recipe_sha256": "5d9decbbe50dd5e0575e1ad036dd442c61173baf0da0755fb8a3f6e50d218177",
   "blender": "5.2.1 LTS",
   "status": "PASS",
   "failures": [],
@@ -1960,6 +1960,98 @@
       ]
     },
     {
+      "object": "FC | Crossing hollow service crown 0",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Crossing hollow service crown 0",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                7.65,
+                7.804,
+                4.18
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Crossing hollow service crown 0",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                7.65,
+                12.196,
+                4.18
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        }
+      ]
+    },
+    {
+      "object": "FC | Crossing hollow service crown 1",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Crossing hollow service crown 1",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                9.4,
+                7.804,
+                4.18
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Crossing hollow service crown 1",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                9.4,
+                12.196,
+                4.18
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        }
+      ]
+    },
+    {
       "object": "FC | Floor finish inlet",
       "status": "PASS",
       "anchors": [
@@ -2049,8 +2141,8 @@
             {
               "sample": "origin",
               "point_world": [
-                0.0,
-                4.1,
+                -1.86,
+                1.52,
                 4.418
               ],
               "status": "PASS",
@@ -2060,6 +2152,66 @@
             }
           ],
           "anchor_index": 0
+        },
+        {
+          "object": "FC | Ceiling cassettes entry",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -1.86,
+                6.68,
+                4.418
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Ceiling cassettes entry",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.86,
+                1.52,
+                4.418
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Ceiling cassettes entry",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.86,
+                6.68,
+                4.418
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
         }
       ]
     },
@@ -3373,8 +3525,8 @@
             {
               "sample": "origin",
               "point_world": [
-                15.8,
-                17.640001,
+                15.809999,
+                17.93,
                 0.0
               ],
               "status": "PASS",
@@ -3393,8 +3545,8 @@
             {
               "sample": "origin",
               "point_world": [
-                16.1,
-                17.640001,
+                15.809999,
+                17.630001,
                 0.0
               ],
               "status": "PASS",
@@ -3413,8 +3565,8 @@
             {
               "sample": "origin",
               "point_world": [
-                15.8,
-                17.91,
+                16.08,
+                17.93,
                 0.0
               ],
               "status": "PASS",
@@ -3433,8 +3585,8 @@
             {
               "sample": "origin",
               "point_world": [
-                16.1,
-                17.91,
+                16.08,
+                17.630001,
                 0.0
               ],
               "status": "PASS",
@@ -3845,7 +3997,7 @@
               "point_world": [
                 -1.6415,
                 15.0,
-                0.707
+                1.117
               ],
               "status": "PASS",
               "relation": "gap",
@@ -4697,7 +4849,7 @@
               "point_world": [
                 -2.196,
                 3.025,
-                3.8
+                3.39
               ],
               "status": "PASS",
               "relation": "gap",
@@ -4717,7 +4869,7 @@
               "point_world": [
                 -2.196,
                 4.875,
-                3.8
+                3.39
               ],
               "status": "PASS",
               "relation": "gap",
@@ -6373,7 +6525,7 @@
             {
               "sample": "origin",
               "point_world": [
-                -0.5,
+                -1.08,
                 20.992001,
                 2.345
               ],
@@ -6384,6 +6536,26 @@
             }
           ],
           "anchor_index": 0
+        },
+        {
+          "object": "FC | Clean bay large direction",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                0.08,
+                20.992001,
+                2.345
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
         }
       ]
     },
@@ -6935,7 +7107,7 @@
               "point_world": [
                 -0.4185,
                 4.56,
-                4.389
+                3.789
               ],
               "status": "PASS",
               "relation": "gap",
@@ -6955,7 +7127,7 @@
               "point_world": [
                 0.4185,
                 4.64,
-                4.389
+                3.789
               ],
               "status": "PASS",
               "relation": "gap",
@@ -9718,6 +9890,19 @@
         [
           0.0001499652862548828,
           [
+            -2.12400484085083,
+            10.564026832580566,
+            0.8953499794006348
+          ],
+          [
+            -2.12400484085083,
+            10.564026832580566,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
             -2.0839619636535645,
             10.617995262145996,
             0.8953499794006348
@@ -9738,19 +9923,6 @@
           [
             -2.090038299560547,
             10.52199935913086,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
-            -2.117966651916504,
-            10.612022399902344,
-            0.8953499794006348
-          ],
-          [
-            -2.117966651916504,
-            10.612022399902344,
             0.8954999446868896
           ]
         ]
@@ -10632,12 +10804,12 @@
           [
             -1.472499966621399,
             14.780797004699707,
-            0.8040000200271606
+            1.2140001058578491
           ],
           [
             -1.472499966621399,
             14.780797004699707,
-            0.8040000200271606
+            1.2140001058578491
           ]
         ],
         [
@@ -10645,12 +10817,12 @@
           [
             -1.4724998474121094,
             15.219202995300293,
-            0.8040000200271606
+            1.2140001058578491
           ],
           [
             -1.4724998474121094,
             15.219202995300293,
-            0.8040000200271606
+            1.2140001058578491
           ]
         ],
         [
@@ -10658,12 +10830,12 @@
           [
             -1.5065547227859497,
             15.2269868850708,
-            0.8040000200271606
+            1.2140001058578491
           ],
           [
             -1.5065547227859497,
             15.2269868850708,
-            0.8040000200271606
+            1.2140001058578491
           ]
         ]
       ],
@@ -11014,40 +11186,40 @@
         [
           0.0007599592208862305,
           [
-            -0.2294614315032959,
+            -0.24776780605316162,
             0.6707599759101868,
-            3.244579553604126
+            3.264004945755005
           ],
           [
-            -0.22946125268936157,
+            -0.24776804447174072,
             0.6700000166893005,
-            3.244579553604126
+            3.264004945755005
           ]
         ],
         [
           0.0007599592208862305,
           [
-            -0.2294614315032959,
+            -0.011767595075070858,
             0.6707599759101868,
-            3.2494759559631348
+            3.2638638019561768
           ],
           [
-            -0.2294614613056183,
+            -0.011767566204071045,
             0.6700000166893005,
-            3.2494759559631348
+            3.2638638019561768
           ]
         ],
         [
           0.0007599592208862305,
           [
-            -0.23896604776382446,
+            -0.013407140038907528,
             0.6707599759101868,
-            3.2494759559631348
+            3.2626454830169678
           ],
           [
-            -0.23896589875221252,
+            -0.013406991958618164,
             0.6700000166893005,
-            3.2494759559631348
+            3.2626454830169678
           ]
         ]
       ],
@@ -12022,40 +12194,40 @@
         [
           0.00125885009765625,
           [
-            -0.28487998247146606,
-            20.97374153137207,
-            2.3421013355255127
+            -0.18022698163986206,
+            20.943740844726562,
+            2.340691328048706
           ],
           [
-            -0.2848796844482422,
-            20.975000381469727,
-            2.3421013355255127
+            -0.18022704124450684,
+            20.94499969482422,
+            2.340691328048706
           ]
         ],
         [
           0.00125885009765625,
           [
-            -0.3287854790687561,
-            20.97374153137207,
-            2.357745409011841
+            -0.24549195170402527,
+            20.943740844726562,
+            2.363945960998535
           ],
           [
-            -0.3287853002548218,
-            20.975000381469727,
-            2.357745409011841
+            -0.24549180269241333,
+            20.94499969482422,
+            2.363945960998535
           ]
         ],
         [
           0.00125885009765625,
           [
-            -0.3287854790687561,
-            20.97374153137207,
-            2.3655035495758057
+            -0.16425922513008118,
+            20.943740844726562,
+            2.3460137844085693
           ],
           [
-            -0.3287857174873352,
-            20.975000381469727,
-            2.3655037879943848
+            -0.16425961256027222,
+            20.94499969482422,
+            2.3460137844085693
           ]
         ]
       ],
@@ -12110,48 +12282,48 @@
       "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
     },
     {
-      "object": "FC | Type SEALED",
+      "object": "FC | Type B / 017",
       "target": "FC | Sealed waste transfer vessel",
       "status": "PASS",
-      "nearest_gap_m": 0.0032596588134765625,
+      "nearest_gap_m": 0.000759124755859375,
       "contact_points": [
         [
-          0.0032596588134765625,
+          0.000759124755859375,
           [
-            15.972558975219727,
-            17.55624008178711,
-            0.40324655175209045
+            15.712240219116211,
+            17.743240356445312,
+            0.41442742943763733
           ],
           [
-            15.972558975219727,
-            17.559499740600586,
-            0.40324655175209045
+            15.71299934387207,
+            17.743240356445312,
+            0.41442742943763733
           ]
         ],
         [
-          0.0032596588134765625,
+          0.000759124755859375,
           [
-            15.974245071411133,
-            17.55624008178711,
-            0.40324655175209045
+            15.712240219116211,
+            17.743240356445312,
+            0.41648387908935547
           ],
           [
-            15.974245071411133,
-            17.559499740600586,
-            0.40324655175209045
+            15.71299934387207,
+            17.743240356445312,
+            0.41648387908935547
           ]
         ],
         [
-          0.0032596588134765625,
+          0.000759124755859375,
           [
-            15.974593162536621,
-            17.55624008178711,
-            0.4032532572746277
+            15.712240219116211,
+            17.73162841796875,
+            0.41648387908935547
           ],
           [
-            15.974593162536621,
-            17.559499740600586,
-            0.4032532572746277
+            15.71299934387207,
+            17.73162841796875,
+            0.41648387908935547
           ]
         ]
       ],
@@ -12200,6 +12372,54 @@
             16.320999145507812,
             13.780584335327148,
             1.599549412727356
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type B / 017.001",
+      "target": "FC | Waste seal and receipt station",
+      "status": "PASS",
+      "nearest_gap_m": 0.001010894775390625,
+      "contact_points": [
+        [
+          0.001010894775390625,
+          [
+            16.16773796081543,
+            14.051992416381836,
+            1.2536588907241821
+          ],
+          [
+            16.16874885559082,
+            14.051992416381836,
+            1.2536588907241821
+          ]
+        ],
+        [
+          0.001010894775390625,
+          [
+            16.16773796081543,
+            14.051992416381836,
+            1.255225658416748
+          ],
+          [
+            16.16874885559082,
+            14.051992416381836,
+            1.255225658416748
+          ]
+        ],
+        [
+          0.001010894775390625,
+          [
+            16.16773796081543,
+            14.043144226074219,
+            1.255225658416748
+          ],
+          [
+            16.16874885559082,
+            14.043144226074219,
+            1.255225658416748
           ]
         ]
       ],
@@ -12590,6 +12810,54 @@
       "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
     },
     {
+      "object": "FC | Type WATER",
+      "target": "FC | Plant wash-down cross-header",
+      "status": "PASS",
+      "nearest_gap_m": 0.0022597312927246094,
+      "contact_points": [
+        [
+          0.0022597312927246094,
+          [
+            -3.782240152359009,
+            17.087505340576172,
+            2.6862096786499023
+          ],
+          [
+            -3.7844998836517334,
+            17.087505340576172,
+            2.6862096786499023
+          ]
+        ],
+        [
+          0.0022597312927246094,
+          [
+            -3.782240152359009,
+            17.087392807006836,
+            2.6860573291778564
+          ],
+          [
+            -3.7844998836517334,
+            17.087392807006836,
+            2.6860573291778564
+          ]
+        ],
+        [
+          0.0022597312927246094,
+          [
+            -3.782240152359009,
+            17.087268829345703,
+            2.6859130859375
+          ],
+          [
+            -3.7844998836517334,
+            17.087268829345703,
+            2.6859130859375
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
       "object": "FC | Plant utility reel identity type",
       "target": "FC | Plant utility reel identity",
       "status": "PASS",
@@ -12632,6 +12900,102 @@
             -4.25946044921875,
             16.22100067138672,
             1.9166959524154663
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type FUEL / TRANSFER",
+      "target": "FC | Crossing hollow service crown 0",
+      "status": "PASS",
+      "nearest_gap_m": 0.0007605552673339844,
+      "contact_points": [
+        [
+          0.0007605552673339844,
+          [
+            7.5362396240234375,
+            9.617653846740723,
+            3.9940786361694336
+          ],
+          [
+            7.5370001792907715,
+            9.617653846740723,
+            3.9940786361694336
+          ]
+        ],
+        [
+          0.0007605552673339844,
+          [
+            7.5362396240234375,
+            9.618631362915039,
+            3.9929964542388916
+          ],
+          [
+            7.5370001792907715,
+            9.618631362915039,
+            3.9929964542388916
+          ]
+        ],
+        [
+          0.0007605552673339844,
+          [
+            7.5362396240234375,
+            9.622335433959961,
+            3.9904885292053223
+          ],
+          [
+            7.5370001792907715,
+            9.622335433959961,
+            3.9904885292053223
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type PROCESS / 02",
+      "target": "FC | Crossing hollow service crown 1",
+      "status": "PASS",
+      "nearest_gap_m": 0.000759124755859375,
+      "contact_points": [
+        [
+          0.000759124755859375,
+          [
+            9.286240577697754,
+            9.7223482131958,
+            3.9690423011779785
+          ],
+          [
+            9.286999702453613,
+            9.7223482131958,
+            3.9690423011779785
+          ]
+        ],
+        [
+          0.000759124755859375,
+          [
+            9.286240577697754,
+            9.731796264648438,
+            3.962432384490967
+          ],
+          [
+            9.286999702453613,
+            9.731796264648438,
+            3.962432384490967
+          ]
+        ],
+        [
+          0.000759124755859375,
+          [
+            9.286240577697754,
+            9.73102855682373,
+            3.9698355197906494
+          ],
+          [
+            9.286999702453613,
+            9.73102855682373,
+            3.9698355197906494
           ]
         ]
       ],
@@ -12840,12 +13204,12 @@
           [
             -1.453739881515503,
             15.113348960876465,
-            0.7500472068786621
+            1.1600472927093506
           ],
           [
             -1.4544998407363892,
             15.113348960876465,
-            0.7500472068786621
+            1.1600472927093506
           ]
         ],
         [
@@ -12853,12 +13217,12 @@
           [
             -1.453739881515503,
             15.109522819519043,
-            0.7500472068786621
+            1.1600472927093506
           ],
           [
             -1.4544998407363892,
             15.109522819519043,
-            0.7500472664833069
+            1.1600472927093506
           ]
         ],
         [
@@ -12866,12 +13230,12 @@
           [
             -1.453739881515503,
             15.113962173461914,
-            0.7500253915786743
+            1.1600254774093628
           ],
           [
             -1.4544998407363892,
             15.113962173461914,
-            0.7500253319740295
+            1.1600254774093628
           ]
         ]
       ],
@@ -13041,29 +13405,29 @@
           ]
         ],
         [
-          0.0019999751821160316,
+          0.0019999805372208357,
           [
-            0.6060000061988831,
-            0.6470000147819519,
+            -0.8209999799728394,
+            0.6469998955726624,
             3.265000104904175
           ],
           [
-            0.6059982180595398,
-            0.6450000405311584,
-            3.2649993896484375
+            -0.8210049867630005,
+            0.6449999213218689,
+            3.265000343322754
           ]
         ],
         [
-          0.002000036183744669,
+          0.002000034088268876,
           [
-            -0.6060000061988831,
-            0.6469999551773071,
+            0.8209999799728394,
+            0.6470000743865967,
             3.265000104904175
           ],
           [
-            -0.6060031056404114,
-            0.6449999213218689,
-            3.265000104904175
+            0.820999026298523,
+            0.6450000405311584,
+            3.265000343322754
           ]
         ]
       ],
@@ -13358,6 +13722,54 @@
       "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
     },
     {
+      "object": "FC | Refinery boundary header reading optic",
+      "target": "FC | Refinery boundary frame",
+      "status": "PASS",
+      "nearest_gap_m": 1.5645509847672656e-06,
+      "contact_points": [
+        [
+          1.5645509847672656e-06,
+          [
+            -0.6365000009536743,
+            0.6449999213218689,
+            3.327000141143799
+          ],
+          [
+            -0.6364985108375549,
+            0.6449999213218689,
+            3.327000617980957
+          ]
+        ],
+        [
+          1.6784820218163077e-06,
+          [
+            0.6365000009536743,
+            0.6450000405311584,
+            3.327000141143799
+          ],
+          [
+            0.6365016102790833,
+            0.6450000405311584,
+            3.327000617980957
+          ]
+        ],
+        [
+          1.90827972801344e-06,
+          [
+            0.6035000085830688,
+            0.6450000405311584,
+            3.327000141143799
+          ],
+          [
+            0.6034981608390808,
+            0.6450000405311584,
+            3.327000617980957
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
       "object": "FC | Clean service header reading optic",
       "target": "FC | Clean service frame",
       "status": "PASS",
@@ -13448,6 +13860,54 @@
             6.230000019073486,
             9.3865327835083,
             3.6139962673187256
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Freight lower-channel service optic",
+      "target": "FC | Freight gate frame",
+      "status": "PASS",
+      "nearest_gap_m": 0.0009999275207519531,
+      "contact_points": [
+        [
+          0.0009999275207519531,
+          [
+            6.265499591827393,
+            11.477999687194824,
+            3.638000011444092
+          ],
+          [
+            6.265499591827393,
+            11.477999687194824,
+            3.63700008392334
+          ]
+        ],
+        [
+          0.0009999275207519531,
+          [
+            6.267499923706055,
+            11.479999542236328,
+            3.638000011444092
+          ],
+          [
+            6.267499923706055,
+            11.479999542236328,
+            3.63700008392334
+          ]
+        ],
+        [
+          0.0009999275207519531,
+          [
+            6.267499923706055,
+            11.477999687194824,
+            3.638000011444092
+          ],
+          [
+            6.267499923706055,
+            11.477999687194824,
+            3.63700008392334
           ]
         ]
       ],
@@ -14703,10 +15163,10 @@
     }
   ],
   "geometry_budget": {
-    "source_triangles": 784028,
-    "evaluated_triangles": 789308,
-    "mesh_objects": 323,
-    "material_batch_upper_bound": 1283
+    "source_triangles": 872344,
+    "evaluated_triangles": 877624,
+    "mesh_objects": 327,
+    "material_batch_upper_bound": 1312
   },
   "uv": [
     {
@@ -14986,6 +15446,16 @@
     },
     {
       "object": "FC | Freight gate folded roof closure",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Crossing hollow service crown 0",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Crossing hollow service crown 1",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
     },
@@ -15585,12 +16055,22 @@
       "degenerate_uv_triangles": 0
     },
     {
+      "object": "FC | Refinery boundary header reading optic",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
       "object": "FC | Clean service header reading optic",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
     },
     {
       "object": "FC | Freight leaf inspection hood",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Freight lower-channel service optic",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
     },
@@ -15942,12 +16422,12 @@
   ],
   "dependencies": [
     {
-      "name": "metal_plate_disp_2k.jpg",
+      "name": "painted_plaster_wall_disp_2k.jpg",
       "packed": true,
       "available": true
     },
     {
-      "name": "painted_plaster_wall_disp_2k.jpg",
+      "name": "metal_plate_disp_2k.jpg",
       "packed": true,
       "available": true
     },

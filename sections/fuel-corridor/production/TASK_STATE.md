@@ -173,3 +173,12 @@ Luna independently opened all 19 full F6ci views, the closed-leaf diagnostic and
 F7 rebuilds a physically suspended lower entry canopy under the unchanged roof, hollow service crowns over the crossing, a clean-air ceiling spine with gaps for the original fixtures, actual formed crossing-wall jackets and open folded entry heat-recovery fins. It also changes the reactor portal's pressure-jacket section, plant isolation/backflow assembly, supported purge handover position, waste B/017 receipt/bin relation and approach sign/optic construction. These are construction changes, not a material-only pass. The concrete exterior bounds, nominal interfaces, floor cells, fixed cameras and marker transforms remain guarded.
 
 Focused native drafts were cold checked and rendered without changing the original cameras. Luna confirmed the motor fixture is now entirely inside D05, the freight lower channel is visibly open and internally lit, the C07 sign is readable, and the E01 IDs link bin and receipt. These draft observations are not final scores. Full F7ci render and independent review remain pending. The published F6ci native remains the selected remote module until the new hosted build passes its numerical checks and completes all 19+closed evidence records.
+
+## F7ci hosted execution
+
+Native SHA256 30e4ca9bc23c03c87fe460b5754f6abfc438853237e0c4253c7357bddb7ef3cb. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 872344, "evaluated_triangles": 877624, "mesh_objects": 327, "material_batch_upper_bound": 1312}.
