@@ -1,0 +1,59 @@
+{
+  "scope": "Final delivery byte/hash and bounded evidence consistency only. Independent visual acceptance is recorded separately; no runtime or whole-map certification.",
+  "module_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
+  "candidate_sha256": "132dde7f53a067b4eff75f1eabe7469991e053dff722499197011a78623a9a6d",
+  "approved_checkpoint_byte_match": true,
+  "evidence": [
+    {
+      "directory": "renders/R9",
+      "images": 14,
+      "manifest_sha256": "098b5f779b715bcfc84f029c4bf27a69171a53e5ea379cee606afe970a26d02f"
+    },
+    {
+      "directory": "renders/R10",
+      "images": 14,
+      "manifest_sha256": "ea7e144241359796bbab771dd30cc60de4674d41274aaeecbd54bb3b4538c167"
+    },
+    {
+      "directory": "renders/diagnostics-R9",
+      "images": 6,
+      "manifest_sha256": "fd2b0f7088936290611542f7d0c9a60790e822c752bc8df1a5e03be9f855c9bd"
+    },
+    {
+      "directory": "renders/optical-R9",
+      "images": 2,
+      "manifest_sha256": "a05bee2e8a266f71d1e17decd2bad8ac12dce3fad628f82518fda1f50db2f309"
+    },
+    {
+      "directory": "renders/map-R10",
+      "images": 5,
+      "manifest_sha256": "f426b49df2522c84caf469400d5fce93bf4ebc5771fdb80c92e73c9729534631"
+    },
+    {
+      "directory": "renders/floor-proof-R10",
+      "images": 1,
+      "manifest_sha256": "f4424819a9272c56766f7d50951ad93de5bfc5982d1e02dbeeceedf2f1c4354c"
+    }
+  ],
+  "formal14_same_source_decoded_pixels_identical": true,
+  "map5_provenance_pass": true,
+  "map5_all_decoded_pixels_identical": false,
+  "map5_maximum_channel_difference_8bit": 1,
+  "unchanged_frozen_provenance": [
+    {
+      "file": "sections/facility-assembly/production/SOURCES.json",
+      "sha256": "d944dbe9c8d77d3a71a4c059bdc6290f5558a772e34b4b6f527232f144dc1bb8",
+      "byte_unchanged_from_base": true
+    },
+    {
+      "file": "sections/facility-assembly/production/MASTER_MANIFEST.json",
+      "sha256": "c683e4d87fafce084ef06b8265283e646fdcbddc5acd89ce7982794d0906d0c0",
+      "byte_unchanged_from_base": true
+    }
+  ],
+  "dependency_file_hashes_match": true,
+  "registered_inherited_missing_ids": 128,
+  "static_script_hashes_match": true,
+  "scoped_git_changes": true,
+  "pass": true
+}

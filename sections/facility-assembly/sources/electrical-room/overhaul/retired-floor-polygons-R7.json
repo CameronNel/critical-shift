@@ -1,0 +1,21 @@
+{
+  "repair_kind": "retire_new_floor_polygons",
+  "input_sha256": "0af8ba32e214023cbf67c7e89063eedce9e30fc36f5bccb99c248eeef1d35948",
+  "output_sha256": "00bdb79fcbe46af64320b02c56b7cbcb4f2cf218ca5d737a755c19e4face37be",
+  "removed_new_object_names": [
+    "EOH | Individual service floor contact 0",
+    "EOH | Individual service floor contact 1",
+    "EOH | Individual service floor contact 2",
+    "EOH | Individual service floor contact 3",
+    "EOH | Individual service floor contact 4",
+    "EOH | Individual service floor contact 5",
+    "EOH | Localized service plinth contacts"
+  ],
+  "removed_new_meshes": 6,
+  "removed_support_roots": 1,
+  "unused_new_material_removed": true,
+  "checked_unchanged_objects": 3033,
+  "all_other_matrices_geometry_material_assignments_visibility_lights_unchanged": true,
+  "source_bytes_unchanged": true,
+  "scope": "Remove only the rejected six new polygon floor patches and their support root/material. All original assets, existing floor wear, door history, shader response, cameras and practicals retained."
+}

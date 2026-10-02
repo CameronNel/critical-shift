@@ -1,0 +1,56 @@
+{
+  "repair_kind": "service_floor_contact_height_repair",
+  "input_sha256": "0af8ba32e214023cbf67c7e89063eedce9e30fc36f5bccb99c248eeef1d35948",
+  "output_sha256": "503b38226e9a7c7984fff88d39346f29eb805bf8dc5b935a9bb90aaa64029523",
+  "declared_changes": {
+    "moved_contacts": [
+      {
+        "object": "EOH | Individual service floor contact 0",
+        "vertical_shift_m": 0.0013000000035390258,
+        "support_target": "EOH | Service zone epoxy panel.002",
+        "support_anchor": [
+          -3.24,
+          3.48,
+          0.0013000000035390258
+        ]
+      },
+      {
+        "object": "EOH | Individual service floor contact 1",
+        "vertical_shift_m": 0.0013000000035390258,
+        "support_target": "EOH | Service zone epoxy panel.005",
+        "support_anchor": [
+          -3.17,
+          3.61,
+          0.0013000000035390258
+        ]
+      },
+      {
+        "object": "EOH | Individual service floor contact 2",
+        "vertical_shift_m": 0.0013000000035390258,
+        "support_target": "EOH | Service zone epoxy panel.011",
+        "support_anchor": [
+          -3.1,
+          6.95,
+          0.0013000000035390258
+        ]
+      },
+      {
+        "object": "EOH | Individual service floor contact 3",
+        "vertical_shift_m": 0.0013000000035390258,
+        "support_target": "EOH | Service zone epoxy panel.020",
+        "support_anchor": [
+          -3.24,
+          9.56,
+          0.0013000000035390258
+        ]
+      }
+    ],
+    "remaining_original_floor_contacts": 2,
+    "new_registered_support_roots": 4,
+    "existing_floor_root_restricted_to_its_two_contacts": true
+  },
+  "checked_unchanged_objects": 3036,
+  "all_other_matrices_geometry_material_assignments_visibility_lights_unchanged": true,
+  "source_bytes_unchanged": true,
+  "scope": "Raise exactly four new contact contours by the measured1.3mm epoxy height and register actual supporting panels. Original room/cameras, all shader nodes and practicals unchanged."
+}

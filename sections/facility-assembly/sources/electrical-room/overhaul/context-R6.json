@@ -1,0 +1,14 @@
+{
+  "map_candidate_sha256": "0a985d45bbb77a9cb9cd60cdd1b6cef3a0815e3aeba01c15d7e57a0c51fa03c9",
+  "electrical_module_sha256": "0af8ba32e214023cbf67c7e89063eedce9e30fc36f5bccb99c248eeef1d35948",
+  "context_views": [
+    "EI_C01_Entry",
+    "EI_C03_Reverse",
+    "EI_C04_Route",
+    "EI_W01_Turbine_Return",
+    "EI_W02_Waste_Approach"
+  ],
+  "all5_complete": true,
+  "pixels_match_manifest": true,
+  "purpose": "Actual-map candidate at A12 electrical pose. No neighboring-art, focus-mode or runtime certification. D01 opens onto the existing exterior route at this placement; inherited missing spawn-wrapper IDs are audited separately."
+}

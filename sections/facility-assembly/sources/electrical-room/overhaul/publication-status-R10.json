@@ -1,0 +1,22 @@
+{
+  "status": "blocked_network",
+  "checked_utc": "2026-10-02 15:45:00 UTC",
+  "branch": "codex/electrical-room-overhaul-20261002",
+  "accepted_art_commit": "d424ad161777a3479909b59338e628bd0ecc27ec",
+  "accepted_stable_cycles": ["R9", "R10"],
+  "every_independent_category_score": 99,
+  "review_receipts": ["critics/R9.md", "critics/R10-FRESH.md"],
+  "module_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
+  "candidate_sha256": "132dde7f53a067b4eff75f1eabe7469991e053dff722499197011a78623a9a6d",
+  "local_assets_verified": 336,
+  "local_assets_total_bytes": 861611721,
+  "local_integrity_receipts": ["delivery-integrity.json", "staged-lfs-integrity.json"],
+  "successful_push_observed": false,
+  "remote_lfs_completion_verified": false,
+  "pull_request_created": false,
+  "authentication": "Existing GitHub CLI identity has push permission. API-host LFS authentication accepted an existing-object download request. No credentials copied into repository or printed.",
+  "current_blocker": "Inherited cloud proxy returns HTTP503: upstream connect error or disconnect/reset before headers; immediate connect error Invalid argument at envoy cloudflare_https_tunnel. Both uncached repository GET and LFS batch POST fail.",
+  "backoff_connection_attempts": 10,
+  "standards_preserved": "No missing-object guard bypass, no changed LFS pointers, no numeric or visual-standard override, no main merge. Complete reviewed scene and evidence are committed locally.",
+  "resume": "After the cloud connection recovers, upload the verified task LFS assets, push this branch, create a draft PR from the prepared final handoff, attach its URL, and mark publication complete. No scene change or new visual scoring is required unless the reviewed bytes change."
+}

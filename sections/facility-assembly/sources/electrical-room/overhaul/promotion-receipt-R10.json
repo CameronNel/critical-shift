@@ -1,0 +1,49 @@
+{
+  "authorization": "Owner directly requested editing the existing electrical module on a new branch. Canonical whole-map ownership remains with map owner.",
+  "base_commit": "75983b95efb99536b1cda1a5533d9b265a4c581f",
+  "module_before_sha256": "10b37b1ca5c5abee8a3f781205327edcc8fb1ff23e9d41632e3c5579b0f08476",
+  "module_after_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
+  "approved_checkpoint_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
+  "byte_identical_promotion": true,
+  "main_map_sha256_unchanged": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+  "frozen_accepted_sha256": "01447dce65a406afa84448e440176aefd37cdda702dc0a4cd51cee366c298dfd",
+  "independent_review_receipts": [
+    "critics/R9.md",
+    "critics/R10-FRESH.md"
+  ],
+  "cold_final_cycle": "R10 accepted; fresh pessimistic gpt-6-luna independently scores99 in all seven categories",
+  "accepted_stable_pair": ["R9", "R10"],
+  "final_candidate_sha256": "132dde7f53a067b4eff75f1eabe7469991e053dff722499197011a78623a9a6d",
+  "final_evidence_receipts": [
+    "validation-R10.json",
+    "active-checkout-R10.json",
+    "R9-to-R10-render-comparison.json",
+    "supplemental-reuse-R10.json",
+    "integration-R10.json",
+    "candidate-audit-R10.json",
+    "context-R10.json",
+    "R9-to-R10-map-pixel-comparison.json",
+    "renders/floor-proof-R10/manifest.json",
+    "delivery-integrity.json"
+  ],
+  "formal14_decoded_pixels_identical": true,
+  "map5_all_decoded_pixels_identical": false,
+  "map5_visual_stability": "Fresh reviewer inspected all five images; a few one-step8-bit channel differences in EI_C03/EI_W01 are visually immaterial. Exact receipt retained.",
+  "numeric_score_override_used": false,
+  "promotion_history": [
+    {
+      "source_sha256": "2ebf7d15af65d62b869e1d1b438f04b965cde4a0c95f3c87a898e6aebba8e364",
+      "reviews": [
+        "critics/R4.md",
+        "critics/R4-FRESH.md"
+      ]
+    },
+    {
+      "source_sha256": "00bdb79fcbe46af64320b02c56b7cbcb4f2cf218ca5d737a755c19e4face37be",
+      "reviews": [
+        "critics/R7.md"
+      ],
+      "subsequent_cold_visual_review": "R8 failed; recorded in critics/R8-FRESH.md"
+    }
+  ]
+}

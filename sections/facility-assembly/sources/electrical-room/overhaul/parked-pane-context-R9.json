@@ -1,0 +1,127 @@
+{
+  "source_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
+  "inventory_sha256": "a72f020aedb76c80d0fac50f60028326607fe000481064f38f91e5a594c60d78",
+  "fully_parked_panes": [
+    {
+      "pane": "Door wired vision glass",
+      "pane_world_bounds": [
+        [
+          1.6299999952316284,
+          0.3590001165866852,
+          1.8250000476837158
+        ],
+        [
+          2.0899999141693115,
+          0.3690001666545868,
+          2.075000047683716
+        ]
+      ],
+      "backing_return": "Portal wall return.001",
+      "backing_return_world_bounds": [
+        [
+          1.1999998092651367,
+          -0.25,
+          0.0
+        ],
+        [
+          5.5,
+          0.0,
+          4.800000190734863
+        ]
+      ],
+      "pane_to_return_gap_m": 0.3590001165866852,
+      "pane_xz_inside_solid_return": true
+    },
+    {
+      "pane": "Door wired vision glass.001",
+      "pane_world_bounds": [
+        [
+          -2.0899999141693115,
+          0.3589998185634613,
+          1.8250000476837158
+        ],
+        [
+          -1.6299999952316284,
+          0.3689998686313629,
+          2.075000047683716
+        ]
+      ],
+      "backing_return": "Portal wall return",
+      "backing_return_world_bounds": [
+        [
+          -5.5,
+          -0.25,
+          0.0
+        ],
+        [
+          -1.1999998092651367,
+          0.0,
+          4.800000190734863
+        ]
+      ],
+      "pane_to_return_gap_m": 0.3589998185634613,
+      "pane_xz_inside_solid_return": true
+    },
+    {
+      "pane": "Door wired vision glass.002",
+      "pane_world_bounds": [
+        [
+          -2.0899999141693115,
+          16.0310001373291,
+          1.8250000476837158
+        ],
+        [
+          -1.6299999952316284,
+          16.040998458862305,
+          2.075000047683716
+        ]
+      ],
+      "backing_return": "Portal wall return.002",
+      "backing_return_world_bounds": [
+        [
+          -5.5,
+          16.399999618530273,
+          0.0
+        ],
+        [
+          -1.1999998092651367,
+          16.649999618530273,
+          4.800000190734863
+        ]
+      ],
+      "pane_to_return_gap_m": 0.35900115966796875,
+      "pane_xz_inside_solid_return": true
+    },
+    {
+      "pane": "Door wired vision glass.003",
+      "pane_world_bounds": [
+        [
+          1.6299999952316284,
+          16.0310001373291,
+          1.8250000476837158
+        ],
+        [
+          2.0899999141693115,
+          16.040998458862305,
+          2.075000047683716
+        ]
+      ],
+      "backing_return": "Portal wall return.003",
+      "backing_return_world_bounds": [
+        [
+          1.1999998092651367,
+          16.399999618530273,
+          0.0
+        ],
+        [
+          5.5,
+          16.649999618530273,
+          4.800000190734863
+        ]
+      ],
+      "pane_to_return_gap_m": 0.35900115966796875,
+      "pane_xz_inside_solid_return": true
+    }
+  ],
+  "scope": "Saved scene bounds establish that the current parked panes are in front of solid end-wall returns, not the open center aperture. This does not assign visual quality or claim runtime door visibility; use the controlled optical pair for large-form transmission."
+}

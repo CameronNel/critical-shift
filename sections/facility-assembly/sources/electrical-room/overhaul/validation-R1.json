@@ -1,0 +1,770 @@
+{
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R1.blend",
+  "source_sha256": "cd726ff5828760d744d9cd411810be15d716023f073ab78ae23064a226ec051f",
+  "failures": [],
+  "scope": "Blender source checks, registered assembly support anchors and sampled 0.60 m route envelopes. Not exhaustive intersection/physics, Unity/navmesh or runtime performance certification.",
+  "protected_geometry_and_cameras": {
+    "checked": 318,
+    "changed": [],
+    "pass": true
+  },
+  "support": {
+    "registered_assemblies": 32,
+    "unregistered": [],
+    "results": [
+      {
+        "assembly": "EOH | Repair bench frame",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              -3.809999942779541,
+              12.800000190734863,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.03000020980835,
+              12.800000190734863,
+              0.0
+            ],
+            "gap_m": 1.9669532773380904e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -3.809999942779541,
+              14.960000038146973,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.03000020980835,
+              14.960000038146973,
+              0.0
+            ],
+            "gap_m": -8.270144465083451e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Workshop wall panels",
+        "target": "West wall",
+        "samples": [
+          {
+            "anchor": [
+              -5.5,
+              13.630000114440918,
+              2.200000047683716
+            ],
+            "gap_m": 8.39233398435002e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.5,
+              15.0,
+              2.200000047683716
+            ],
+            "gap_m": 8.485466241811568e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Bench tool rack",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              -5.050000190734863,
+              12.800000190734863,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.050000190734863,
+              14.960000038146973,
+              0.0
+            ],
+            "gap_m": 1.035630702722612e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Bench task lamp",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -4.820000171661377,
+              14.739999771118164,
+              1.0199999809265137
+            ],
+            "gap_m": -3.528594970728105e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Mug assembly",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -4.760000228881836,
+              12.979999542236328,
+              1.0199999809265137
+            ],
+            "gap_m": -3.528594970728105e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Clipboard assembly",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -4.610000133514404,
+              13.319999694824219,
+              1.0199999809265137
+            ],
+            "gap_m": -3.621727228189653e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.1920928955078125e-07,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Spare fuses",
+        "target": "EOH | Bench insulating service mat",
+        "samples": [
+          {
+            "anchor": [
+              -4.190000057220459,
+              13.75,
+              1.031999945640564
+            ],
+            "gap_m": -1.5542656183267778e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -4.050000190734863,
+              14.039999961853027,
+              1.031999945640564
+            ],
+            "gap_m": -1.544952392580623e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Folded insulating gloves",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -4.710000038146973,
+              14.3100004196167,
+              1.0199999809265137
+            ],
+            "gap_m": -3.528594970728105e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00023070545285008848,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Canvas service bag",
+        "target": "EOH | Bench lower shelf",
+        "samples": [
+          {
+            "anchor": [
+              -4.349999904632568,
+              13.880000114440918,
+              0.3824999928474426
+            ],
+            "gap_m": -3.528594970728105e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Open tool case",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -4.489999771118164,
+              14.75,
+              1.0199999809265137
+            ],
+            "gap_m": -3.528594970728105e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Bench wear",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -3.7100000381469727,
+              13.039999961853027,
+              1.0199999809265137
+            ],
+            "gap_m": -3.621727228189653e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | West wall finish",
+        "target": "West wall",
+        "samples": [
+          {
+            "anchor": [
+              -5.5,
+              1.0,
+              2.0
+            ],
+            "gap_m": 8.485466241811568e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.1920928955078125e-07,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.5,
+              10.0,
+              2.0
+            ],
+            "gap_m": 8.299201726888472e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | East wall finish",
+        "target": "East structural wall",
+        "samples": [
+          {
+            "anchor": [
+              5.5,
+              2.0,
+              2.0
+            ],
+            "gap_m": 8.39233398435002e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Aisle floor finish",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              -0.6000000238418579,
+              0.6000000238418579,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              0.6000000238418579,
+              15.680000305175781,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 1",
+        "target": "Anchored channel plinth",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              3.9000000953674316,
+              0.12999999523162842
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 2",
+        "target": "Anchored channel plinth.001",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              5.099999904632568,
+              0.12999999523162842
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 3",
+        "target": "Anchored channel plinth.002",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              6.300000190734863,
+              0.12999999523162842
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 4",
+        "target": "Anchored channel plinth.003",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              7.5,
+              0.12999999523162842
+            ],
+            "gap_m": -4.552304744970259e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 5",
+        "target": "Anchored channel plinth.004",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              8.699999809265137,
+              0.12999999523162842
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 6",
+        "target": "Anchored channel plinth.005",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              9.899999618530273,
+              0.12999999523162842
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Transformer coil 1",
+        "target": "Coil insulating saddle.004",
+        "samples": [
+          {
+            "anchor": [
+              4.295000076293945,
+              5.489999771118164,
+              0.7850000262260437
+            ],
+            "gap_m": 2.4318695068109575e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Transformer coil 2",
+        "target": "Coil insulating saddle.002",
+        "samples": [
+          {
+            "anchor": [
+              4.295000076293945,
+              6.400000095367432,
+              0.7850000262260437
+            ],
+            "gap_m": 2.3387372493494096e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Transformer coil 3",
+        "target": "Coil insulating saddle",
+        "samples": [
+          {
+            "anchor": [
+              4.295000076293945,
+              7.309999942779541,
+              0.7850000262260437
+            ],
+            "gap_m": 2.3387372493494096e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Transformer earth braid",
+        "target": "Transformer earth anchor",
+        "samples": [
+          {
+            "anchor": [
+              5.085000038146973,
+              4.949999809265137,
+              0.36000001430511475
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0009999871253967285,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | TX lift bracket 5.05",
+        "target": "Laminated core yoke.001",
+        "samples": [
+          {
+            "anchor": [
+              4.315000057220459,
+              5.050000190734863,
+              2.5
+            ],
+            "gap_m": 8.39233398435002e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | TX lift bracket 7.73",
+        "target": "Laminated core yoke.001",
+        "samples": [
+          {
+            "anchor": [
+              4.315000057220459,
+              7.730000019073486,
+              2.5
+            ],
+            "gap_m": 8.39233398435002e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Reserve service rack 1",
+        "target": "Reserve anchored base",
+        "samples": [
+          {
+            "anchor": [
+              7.449999809265137,
+              12.180000305175781,
+              0.20000000298023224
+            ],
+            "gap_m": -6.414949894201216e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Reserve service rack 2",
+        "target": "Reserve anchored base.001",
+        "samples": [
+          {
+            "anchor": [
+              7.449999809265137,
+              13.199999809265137,
+              0.20000000298023224
+            ],
+            "gap_m": -6.414949894201216e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Reserve service rack 3",
+        "target": "Reserve anchored base.002",
+        "samples": [
+          {
+            "anchor": [
+              7.449999809265137,
+              14.220000267028809,
+              0.20000000298023224
+            ],
+            "gap_m": -6.414949894201216e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Transfer panel bezel",
+        "target": "Transfer base",
+        "samples": [
+          {
+            "anchor": [
+              4.414000034332275,
+              10.300000190734863,
+              0.18000000715255737
+            ],
+            "gap_m": -3.6209821703547806e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Maintenance trolley",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              -4.710000038146973,
+              1.5,
+              0.0
+            ],
+            "gap_m": 1.9669532773380904e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -4.190000057220459,
+              1.5,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -4.710000038146973,
+              2.0999999046325684,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -4.190000057220459,
+              2.0999999046325684,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Workbench service conduit",
+        "target": "West wall",
+        "samples": [
+          {
+            "anchor": [
+              -5.5,
+              12.0,
+              2.4000000953674316
+            ],
+            "gap_m": 8.299201726888472e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.5,
+              15.399999618530273,
+              2.4000000953674316
+            ],
+            "gap_m": 8.39233398435002e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      }
+    ],
+    "pass": true
+  },
+  "dependencies": {
+    "missing": [],
+    "pass": true
+  },
+  "authoring_cost": {
+    "triangles": 469340,
+    "estimated_material_submesh_draws": 2606,
+    "objects": 2708,
+    "measured_engine_draw_calls": null,
+    "budget_status": "No room overhaul budget supplied; record cost, do not invent a pass."
+  },
+  "routes": [
+    {
+      "route": "main",
+      "sampled_positions": 237,
+      "defects": [],
+      "pass": true
+    },
+    {
+      "route": "reserve",
+      "sampled_positions": 25,
+      "defects": [],
+      "pass": true
+    },
+    {
+      "route": "bench",
+      "sampled_positions": 12,
+      "defects": [],
+      "pass": true
+    },
+    {
+      "route": "switchgear",
+      "sampled_positions": 12,
+      "defects": [],
+      "pass": true
+    },
+    {
+      "route": "transfer",
+      "sampled_positions": 17,
+      "defects": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

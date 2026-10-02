@@ -1,0 +1,2072 @@
+{
+  "scope": "Changed staged LFS pointers from the authorized task base and their actual local assets; not a whole-repository fsck.",
+  "base_commit": "75983b95efb99536b1cda1a5533d9b265a4c581f",
+  "lfs_asset_count": 407,
+  "total_asset_bytes": 976034999,
+  "assets": [
+    {
+      "file": "sections/facility-assembly/blender/facility_electrical_overhaul_candidate.blend",
+      "sha256": "623de76b39b9351afbc6cae3cd5d0aa15a49366748616b169670db078ede94c1",
+      "size": 336040014
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/module.blend",
+      "sha256": "eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df",
+      "size": 1966640
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/baseline.blend",
+      "sha256": "10b37b1ca5c5abee8a3f781205327edcc8fb1ff23e9d41632e3c5579b0f08476",
+      "size": 1188185
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R1.blend",
+      "sha256": "cd726ff5828760d744d9cd411810be15d716023f073ab78ae23064a226ec051f",
+      "size": 1505436
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R11.blend",
+      "sha256": "eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df",
+      "size": 1966640
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R2.blend",
+      "sha256": "50051cefe9ba0dba752b180f4d7aa2dcb620ddf5d158eead2dd773e64222db59",
+      "size": 1721639
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R3.blend",
+      "sha256": "692f589b6bf99b8181920183bdb57e6855b6b6dded143923908094a31dba3fe5",
+      "size": 1786196
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R4.blend",
+      "sha256": "2ebf7d15af65d62b869e1d1b438f04b965cde4a0c95f3c87a898e6aebba8e364",
+      "size": 1809745
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R6.blend",
+      "sha256": "2449094c75ac6e886ae5669d8dc8615c356edc8b20135e841908f10ee735c3f6",
+      "size": 1778856
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R6b.blend",
+      "sha256": "c871d27cfdc045c6badc89833d563b3b9579dbd5848569da26f54007b2a713c1",
+      "size": 1790232
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R6c.blend",
+      "sha256": "53fc5d9fc446bd8eaa9b8fc7649240df029eb6d671d9601da8a230ae47a3404b",
+      "size": 1791840
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R6d.blend",
+      "sha256": "ef37817e24635e0e4793ee32ed14dc253dab5638ca5c190ca010b3131f25dce3",
+      "size": 1803701
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R6e.blend",
+      "sha256": "0af8ba32e214023cbf67c7e89063eedce9e30fc36f5bccb99c248eeef1d35948",
+      "size": 1803682
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R7.blend",
+      "sha256": "503b38226e9a7c7984fff88d39346f29eb805bf8dc5b935a9bb90aaa64029523",
+      "size": 1800125
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R7b.blend",
+      "sha256": "7b33f684561975689a820caaff5ba9a85bd530d4cff2b9b3e4821696dba080cf",
+      "size": 1799800
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R7c.blend",
+      "sha256": "00bdb79fcbe46af64320b02c56b7cbcb4f2cf218ca5d737a755c19e4face37be",
+      "size": 1793012
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R9.blend",
+      "sha256": "70216c22c3fb7716150b5f1670a3228bf36afd78a32db42734bb382e77fc371f",
+      "size": 1921092
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R9b.blend",
+      "sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
+      "size": 1960410
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/palette-P1.blend",
+      "sha256": "a46f1bc6fb61ea6a5e5f2d299f7d3d96b99fd02893e9437f802114e0dd4f1a51",
+      "size": 1964371
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/palette-P2.blend",
+      "sha256": "eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df",
+      "size": 1966640
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/preflight-R3.blend",
+      "sha256": "579f4613c9dd4b8e56a34ba217d689e5ac6248440bebe027d4d0cfac665124b6",
+      "size": 1790639
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/slice.blend",
+      "sha256": "2c3a13ce2f468c9d3298babf8a2567d723200f326da6ffcb0cda810fb9023e3c",
+      "size": 1305766
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/C01_Entry.png",
+      "sha256": "9aedd6fe6fc1ce819e97748457ca61c3abed35895cd88514786cde86ed31c86f",
+      "size": 1105245
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/C02_Hero.png",
+      "sha256": "1ccc894bb22171302bfdb9c2b121c469b54108e6f5486c8460ab937ff1d60875",
+      "size": 1004433
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/C03_Reverse.png",
+      "sha256": "e8f5050550fad057e9c82daa103d96359bfa1c9cab7ad9436ae89093dcdbd5d3",
+      "size": 1079805
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/C04_Route.png",
+      "sha256": "a40d0986fc1ffff9a883a8168a4357237d2ec056b0a20a6dc91f38252bd539cf",
+      "size": 940266
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/C05_Drawout_Clearance.png",
+      "sha256": "32a68101ba1d1a9826ace150c36cec45579ea8670c0df81ddf989d41db434b04",
+      "size": 1077538
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/C06_Transformer.png",
+      "sha256": "7472bb3d830b383f7febea936c8f892bb7366c3d9cc80878296674b947713ca1",
+      "size": 1166469
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/C07_Reserve_Bay.png",
+      "sha256": "2bb290ad85270f0644bfdbb3e8351462ce739b0a62a366321abe1018d9367aa3",
+      "size": 864659
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/C08_Material_Detail.png",
+      "sha256": "8b5c975113e95a576b463150746bdc72c8460530ae41648ff36af08e26de24b7",
+      "size": 920336
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/C09_Workbench.png",
+      "sha256": "4ed75c14ff70e1764437560c01cfed4d8f4367847617524e24417ca976186e89",
+      "size": 886919
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/C10_Transfer.png",
+      "sha256": "4f6f605405096c5ff874654b79977fc6033c0b4c7376d65bc57fcf341fdf0655",
+      "size": 927214
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/W01_Turbine_Return.png",
+      "sha256": "2660fa494e363791e0954c30e47f44bf4307f2f099683da302525946bde5b383",
+      "size": 803579
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/W02_Waste_Approach.png",
+      "sha256": "5db8d43c4d584ed08e49b3ece941ff63aad7e265b4df7549a4206a524325f8ba",
+      "size": 804059
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/W03_Reserve_Return.png",
+      "sha256": "5f4c5e595c46eff218cad7148c0954079dced93b706d4aee971d470fd150992d",
+      "size": 976763
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/W04_Switchgear_Approach.png",
+      "sha256": "b16501760531801cd7d98dd4f6ddefac81f7d57df143594efe9ddef11ff8f30c",
+      "size": 1130284
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R1/inspection.json",
+      "sha256": "57bf56a2d83732a1a18be01717bf98b795b378b499160a6c3210d1cc1d3fe040",
+      "size": 2419440
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/C01_Entry.png",
+      "sha256": "ff391d2adad0eb1424a8a0f1ce4baa17e88f932afa7d7683c7c9437a92f70fae",
+      "size": 1123437
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/C02_Hero.png",
+      "sha256": "d4c14d076c7c68b060f14e76619423a31ba7770546f4cf0d7cc35fa569337bc3",
+      "size": 985674
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/C03_Reverse.png",
+      "sha256": "6fd8db2539778fe599912b2c00e35049459e666a0ca561a8c7d53bb06b8a79b8",
+      "size": 1105607
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/C04_Route.png",
+      "sha256": "8aa448567bb8bb5fc2a3d4ea8642e91607fc34a5327cc8bbbfb48fb444027c3f",
+      "size": 980813
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/C05_Drawout_Clearance.png",
+      "sha256": "b1b30dd394d3b22cca0f06d88bf05c7bae286acdf4a8c11855ebe8625e57ca4b",
+      "size": 1068404
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/C06_Transformer.png",
+      "sha256": "5b9c868cc490df3d6118d60e0ea3d9a54774935f6af3b78083ad8dbf22aad14a",
+      "size": 1189601
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/C07_Reserve_Bay.png",
+      "sha256": "6986de9358639b6b83e0bcf87cb9c73ee4b7dc63a813b48550bb8d8493cfa172",
+      "size": 976392
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/C08_Material_Detail.png",
+      "sha256": "a1fd327a3bf9c509273214ebc97af1bbf990b56fb32b3add5d911eb3c47daf2b",
+      "size": 930518
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/C09_Workbench.png",
+      "sha256": "391128b1de7bf555606537b212888662bc3118e9319f148c27647b127e5dc556",
+      "size": 897286
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/C10_Transfer.png",
+      "sha256": "e11c774ca02bdb1247f9188811e72afe22b2e68d4f5cabdcef37d005262e4de7",
+      "size": 966861
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/W01_Turbine_Return.png",
+      "sha256": "96546ffb61dd09df47b4b4cbd8558556c60fb48d4e70b5749896e686fc804a89",
+      "size": 827765
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/W02_Waste_Approach.png",
+      "sha256": "6b52cac4a1ce8325592cfa2ed2623266eaa242bb27c02d261ce626d7b835a261",
+      "size": 823579
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/W03_Reserve_Return.png",
+      "sha256": "6e94430ab9f064a0a98a88a0a5725978af9f08a4388dc1d19f9f998445ec7be4",
+      "size": 999393
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/W04_Switchgear_Approach.png",
+      "sha256": "23b8ef87cc0bfa9e9502a6c527bc07437d0f9623a5a6c199bbd4f930bd72d693",
+      "size": 1125601
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R10/inspection.json",
+      "sha256": "dc64e4052126d4fcb95c7c6e58920ffd3f7cfdc71961dda775b9665619189e5f",
+      "size": 2822422
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/C01_Entry.png",
+      "sha256": "6601772dbc8e202dc92096f573ba734fea059475084177efa6ed0b2a180f9d3b",
+      "size": 1060236
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/C02_Hero.png",
+      "sha256": "622e02ef578e26c5454edf7e59ba759f0fe0fbc46390615f95e06baf10406a78",
+      "size": 947592
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/C03_Reverse.png",
+      "sha256": "8dee603d8496f3c88c9ad6b290a28dcb04fc7c835bbd2c8adbd35dd49c007984",
+      "size": 1029413
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/C04_Route.png",
+      "sha256": "6253065079f6abb01515f47170e6199875ff9ef8059ed239f04b8e2bac817af5",
+      "size": 894526
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/C05_Drawout_Clearance.png",
+      "sha256": "8711a76c62517ee28f65dcdf5bf3f5383eee802b1d15faf48251919fca2b067d",
+      "size": 1027825
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/C06_Transformer.png",
+      "sha256": "1491b343fec543f15ef7249fd8e5101ed54c9d5f2d75b9e8a7622588f10d1db9",
+      "size": 1149761
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/C07_Reserve_Bay.png",
+      "sha256": "37be4419edef190edfd993e6c90b5a2b01e90545c1b0fee882b837b8ba27c714",
+      "size": 936450
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/C08_Material_Detail.png",
+      "sha256": "77a5265af28cd954f0e3fe7d3fb7a84a3f598799bc6338e68aeb85a5c4de9d64",
+      "size": 905603
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/C09_Workbench.png",
+      "sha256": "8cf02ee631857206c7b161eca883317d804470bbc881949a5b5350e497b07944",
+      "size": 846869
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/C10_Transfer.png",
+      "sha256": "44daaeca26fa5f27b1ff50785081cbe8f8727f541ad2ba5b67e8b46c555557de",
+      "size": 920494
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/W01_Turbine_Return.png",
+      "sha256": "a56e344c7a598f698c42a8ba35beb4366dde47e9c9cc1c87ad192680e003d7f0",
+      "size": 784513
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/W02_Waste_Approach.png",
+      "sha256": "6aba150b694a9a53c2c6fb9140b594d8ad1e5db9e6981412dff8c3abe7810533",
+      "size": 770759
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/W03_Reserve_Return.png",
+      "sha256": "0c892b1cdded76f2de41e19f05bdf768cfad793e9adb3350bbce390688f19456",
+      "size": 911330
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/W04_Switchgear_Approach.png",
+      "sha256": "2379ec6761e1bca0d384d2bd830db8b39845d7b6a769d8671141c1ab0ba78f1c",
+      "size": 1083787
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R11/inspection.json",
+      "sha256": "3e25b7795a36443afccc7badb77ac02914a344da4ce9361aa8f5d362739fb730",
+      "size": 2822445
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/C01_Entry.png",
+      "sha256": "93ca19451b7ae0d6695309a4daf38cb5e5bd8491dd21f0adb177c3d2a18fcba5",
+      "size": 1060213
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/C02_Hero.png",
+      "sha256": "1a270179ea1bb9bb12f89513913f0d9780724001e9adf88358eefd65a97def13",
+      "size": 947569
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/C03_Reverse.png",
+      "sha256": "5b6d9c3cf39f9937d7bb53f7e7c6c203ee33ff922c4825f486a2483fbaea1682",
+      "size": 1029390
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/C04_Route.png",
+      "sha256": "554e123e8f2bb4471366c52cc53a67f385ec1fb7ea54241c621b25c6cf91a68b",
+      "size": 894503
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/C05_Drawout_Clearance.png",
+      "sha256": "f6ed975a5b46fb3be0d338b7e32c4bad51c8ddb37ef365d31e163590b2a7ce39",
+      "size": 1027802
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/C06_Transformer.png",
+      "sha256": "bae462f951d57a8a41fafbad63783d1b25e4ef8faafc307c17018ec89c52a1bc",
+      "size": 1149738
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/C07_Reserve_Bay.png",
+      "sha256": "2b74a9e88c035d1a8b3addf1b6bf66b80eee0b85ac9be859a7d42f5b3edd29a3",
+      "size": 936427
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/C08_Material_Detail.png",
+      "sha256": "899c45ffcd5ca96baefbd05c3bbcc9db0ef5cf02e387196041f85294301f96f4",
+      "size": 905580
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/C09_Workbench.png",
+      "sha256": "6ddc6be5d63183e9809862d1819a9c5e1fc9f5c4b1b1ed5daa32582bb0a1c195",
+      "size": 846846
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/C10_Transfer.png",
+      "sha256": "350569f21122c12e2630dda9c2fade3bc41ed13c593d47b7f19512b25a151760",
+      "size": 920471
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/W01_Turbine_Return.png",
+      "sha256": "7e33631aa95db1653eb94e993d02a369ac8c91acfabe89890dd48c5cb487e7a0",
+      "size": 784490
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/W02_Waste_Approach.png",
+      "sha256": "b10e07a65784082861a370519a0b425e595e305fb82c6819396e0d2457544041",
+      "size": 770736
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/W03_Reserve_Return.png",
+      "sha256": "b71503fcd5f561427870628d20e47098209b8b8abe1b02dce7e4c9183f312835",
+      "size": 911307
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/W04_Switchgear_Approach.png",
+      "sha256": "717ef1732f0cf7683f259dc360080f482d82da7bc624f84d0ca5d57018997f28",
+      "size": 1083764
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R12/inspection.json",
+      "sha256": "50661b8c68b562d2a608b86ca8ee2333da5a3a3b8e2ecbbee7939ade9fbcc66c",
+      "size": 2822422
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/C01_Entry.png",
+      "sha256": "10795cc01010a06c5f7382d361175036cf2193bf67019a6b9078021ab82f620f",
+      "size": 1108042
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/C02_Hero.png",
+      "sha256": "c7331bf5c673ce3c8774cbe6118a69780000a9390c3b2ec606140aebcb7280a0",
+      "size": 981417
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/C03_Reverse.png",
+      "sha256": "bebfd8b2fcac103af3f4fab449d9dca584cfb9ee47517efe10a78fb737d292b2",
+      "size": 1087931
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/C04_Route.png",
+      "sha256": "92a2753ec09862d0796a651530bee11ec7748c9fc0f94c899cf88bc6c070c8bd",
+      "size": 954121
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/C05_Drawout_Clearance.png",
+      "sha256": "687130717be4f95052321d0380d71309ecebb69377fd7e5bd9062c3451133951",
+      "size": 1064887
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/C06_Transformer.png",
+      "sha256": "297f71e7715eb69e7c5111b8e59944cdd00f783e34e3c0f232aaadb4cdb3462b",
+      "size": 1176259
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/C07_Reserve_Bay.png",
+      "sha256": "2cf3417f3a92d1bbd215094a9b6bef217c657609d221e3297fa859c136e3c06c",
+      "size": 912943
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/C08_Material_Detail.png",
+      "sha256": "54eaee477ec70db098f8f8547978c01a6b399173525d9442e0a19c90e236dc01",
+      "size": 925084
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/C09_Workbench.png",
+      "sha256": "6fb90a754f9d92c65010c48b4e6f26f8983272b354ef086952393ee6e3262c88",
+      "size": 889470
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/C10_Transfer.png",
+      "sha256": "584bb181257e122625e98064df00b6d0835d9bb9abc53ce25af21eeeab968095",
+      "size": 941197
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/W01_Turbine_Return.png",
+      "sha256": "baccd26909f58021c8d2236ab1c135c213128eb742e6e7a9ffae88d3c3be17fd",
+      "size": 819120
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/W02_Waste_Approach.png",
+      "sha256": "2d7a7122f9ef552dd3a4678c3b3fafb4ed075ba74917bea9206dad4c33a7144a",
+      "size": 820369
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/W03_Reserve_Return.png",
+      "sha256": "1cd56e32f4e82b8685e5759ee7569b9d255959eafc846cb05b560b4983536944",
+      "size": 979839
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/W04_Switchgear_Approach.png",
+      "sha256": "af50e85b34472a03717daf2799eb41aa75552453a5c7a1ab4af4438a7d29ac0f",
+      "size": 1120364
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R2/inspection.json",
+      "sha256": "914c06e57660f52bf0a2d10baabf2410f6f24839146241fe3a1d37a499d18cfe",
+      "size": 2679878
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/C01_Entry.png",
+      "sha256": "cccbf3739c2ec7df19b91851a53bd5b374dd9290b72b2350bd4cad71af9abbcf",
+      "size": 1109153
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/C02_Hero.png",
+      "sha256": "fe35ce215209a85ab58625f6257ca29bf5a1bda9826d87f4affcdf68817e2e14",
+      "size": 981227
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/C03_Reverse.png",
+      "sha256": "29c7396f948e83dc9080471413f9ff2d53d9fd1bdd81cab3ee886c4493d599ab",
+      "size": 1088114
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/C04_Route.png",
+      "sha256": "8cd9191125d446230fe46ca76a3c4cce59f3338b7c7813deb0633169bf1b3351",
+      "size": 956184
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/C05_Drawout_Clearance.png",
+      "sha256": "e174859aa8e0b5688711f71130eb6d3717451d83bed0b89009224f472fdd86f0",
+      "size": 1065327
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/C06_Transformer.png",
+      "sha256": "39944efbab64f866cf72988ba336a653062e9adc9cdc8e13b225acb0dbc8a31e",
+      "size": 1176133
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/C07_Reserve_Bay.png",
+      "sha256": "5ca11b0e4174778cbb544c6b3d7404be22f46abbc93dd55c6a0a472cd7b5380d",
+      "size": 913347
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/C08_Material_Detail.png",
+      "sha256": "bedd5d2678d685da9b35a429057b8a6c00fc5450bddd6e72aa57c8f7dcfd44db",
+      "size": 925009
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/C09_Workbench.png",
+      "sha256": "2b37ee758b00b957834814172c61a5b2327180fdfc1c766fceff7cfa430d4d4b",
+      "size": 889592
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/C10_Transfer.png",
+      "sha256": "cfb00c03f5bbb70e9227b47f13a028e69f59083777bdc4ea605f1eeedf877356",
+      "size": 941399
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/W01_Turbine_Return.png",
+      "sha256": "301c0075b74614ec6707094e63740312372d1620f49b8ba9b0a20a77fa5196dc",
+      "size": 820304
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/W02_Waste_Approach.png",
+      "sha256": "4f62e0b4caa1e200f75b366246e3077cad896f16550b211f2ad7ccba5339e5bf",
+      "size": 821735
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/W03_Reserve_Return.png",
+      "sha256": "54d7b5e810942e3bedb258cdc547a4fc70873c69b9b5103012283886569544b8",
+      "size": 979925
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/W04_Switchgear_Approach.png",
+      "sha256": "74fec91732bdf428e5aebf89f3fd488dec0d565ec558d8b04b6c0a6e572b7839",
+      "size": 1120688
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R3/inspection.json",
+      "sha256": "72d13944613f458db7d7576e98b9bd7803c72d03f5ed87c05ed13cbcb28d67fd",
+      "size": 2753540
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/C01_Entry.png",
+      "sha256": "5ac87acf664f6a6997fa7b0a596a00dc3b44845e1fa5448f3c9569139b45b96d",
+      "size": 1109153
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/C02_Hero.png",
+      "sha256": "0accf2221510407530de0cab29b2379620816ae40678d23005e870728493f24a",
+      "size": 981227
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/C03_Reverse.png",
+      "sha256": "62f0645f281c2dec9caf6ffe2fb67ac216f90ef3b4ef2b9288a5c2037cf18c86",
+      "size": 1088114
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/C04_Route.png",
+      "sha256": "3f86d0f3aa84a3b8fcd14446e5cd2a1d946ff4b2178350fd12cfa869b4e4c487",
+      "size": 956184
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/C05_Drawout_Clearance.png",
+      "sha256": "b4eecda3a84363c5b71b7b5c7b9f757364c556067aca46380915dd957e1df42a",
+      "size": 1065327
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/C06_Transformer.png",
+      "sha256": "461689a6b6dd253ee3261c20cc2bf6a433739aac4248b94fe5cf7862b096c4fd",
+      "size": 1176133
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/C07_Reserve_Bay.png",
+      "sha256": "cd76fd4fe0d09090396438db6b8a3243e3902db427694069c0ca64afcc0c0a03",
+      "size": 913347
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/C08_Material_Detail.png",
+      "sha256": "9d67285cc062de7e425146f263f86c0313819dc9da190d254ac75fe412daa1f2",
+      "size": 925009
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/C09_Workbench.png",
+      "sha256": "db658be0964eb7d7bd411c30b22543c1d2513e373bada1a364c110f40a7c648e",
+      "size": 889592
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/C10_Transfer.png",
+      "sha256": "dc7fba4d61eed028cacb4a8803cf3da20be147cb3e6c15e596557ddc4665130e",
+      "size": 941399
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/W01_Turbine_Return.png",
+      "sha256": "5f1659badb7356e24fbb7cf8329b3a49eb02bdfc4a2b2a3e3d55e5f4518d2838",
+      "size": 820304
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/W02_Waste_Approach.png",
+      "sha256": "f3945a30b36f19161132b7703154ba244d0fa099d8c94f2ac2382e6c34ed5efe",
+      "size": 821735
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/W03_Reserve_Return.png",
+      "sha256": "83e32b87b5961c3fdbb32506d0aef9439ddb975dccad9ae377b49301300f5384",
+      "size": 979925
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/W04_Switchgear_Approach.png",
+      "sha256": "9a67c205187bb10bc06643527f032d5c6a2d6d90e0b268c7359b35a8e3e304d9",
+      "size": 1120688
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R4/inspection.json",
+      "sha256": "d9e377fb9db55c3fea5bffd65b252e4ced2ae79fd67dcd81059ec82d1256c86a",
+      "size": 2753540
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/C01_Entry.png",
+      "sha256": "7c1122e0ef09e92dc265d182e8d9804540d1d4f14a0af09ea4697c03bcb26538",
+      "size": 1109131
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/C02_Hero.png",
+      "sha256": "2acb83675f2d83c4e34f7eb7e3576c9ec25b9cbc86278af5135a0491a4f26ed2",
+      "size": 981205
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/C03_Reverse.png",
+      "sha256": "be1c98319609305f7ef4f5a7216dbb35bed255d096c38b6ccd4b4d5d26de83c5",
+      "size": 1088092
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/C04_Route.png",
+      "sha256": "e2f3815b770c97903278c9e089a96ca091c7f64247017e5ea55118f692a8410c",
+      "size": 956162
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/C05_Drawout_Clearance.png",
+      "sha256": "f07e7ef1dd1b044f4cf2f39ed06830b3d3e6e0fdab14e035b7036a3440b61417",
+      "size": 1065305
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/C06_Transformer.png",
+      "sha256": "577f9dde7426396bd012951596c39783274242d1fc64319cfa8d222580457ae1",
+      "size": 1176111
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/C07_Reserve_Bay.png",
+      "sha256": "a3b8f9bcb75ad425e7f8c6af79258f020fc208e8ea03d65bd793156616ad0727",
+      "size": 913325
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/C08_Material_Detail.png",
+      "sha256": "6761689c9002a0e82ef9ad87b3b1c0b70a7db891c7d3ee256cede6e5565a4de5",
+      "size": 924987
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/C09_Workbench.png",
+      "sha256": "e570786b6b4c7bc78f4810ba066f86aa26b9f66087ede45515e93830d2b5d721",
+      "size": 889570
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/C10_Transfer.png",
+      "sha256": "b6389500d8908b6f62e204c14b859039ce148ff6c9ad5ab94f47c027fc7d0fe3",
+      "size": 941377
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/W01_Turbine_Return.png",
+      "sha256": "18e6ec24f1b5cc439fd07d19e07a659767efc309692b63e970d756e5dc87277c",
+      "size": 820282
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/W02_Waste_Approach.png",
+      "sha256": "adf9f0bef8fd0c8fb461d1b6facf1e7d3df5e41aeb1582cce5f0fc18f8c3dbfa",
+      "size": 821713
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/W03_Reserve_Return.png",
+      "sha256": "83394d625775b718eda17dd5dbc6cced0bd28c3db574b82d2b1098821040d7ea",
+      "size": 979903
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/W04_Switchgear_Approach.png",
+      "sha256": "82410cb1457a8692f67b95b60ebef5fa3d1bb0e692d0be631627c4eea99eb7f6",
+      "size": 1120666
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R5/inspection.json",
+      "sha256": "5089f66c3dd1caeac97a482d183d5998c414f2f8aadee3daa14a54ca4f598d30",
+      "size": 2753518
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/C01_Entry.png",
+      "sha256": "c249ac1abc4e70994e853c5b8854be2c736e3842789d3fafcdb6690fcdb1cbb6",
+      "size": 1122559
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/C02_Hero.png",
+      "sha256": "299971c0aafbe917ef1d46cc5307b31b09c6cde3d87fbefde72154d22f4b5dc9",
+      "size": 985877
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/C03_Reverse.png",
+      "sha256": "13ae1ea0853059b18f507d021c52609b40cf61938b0fa05a2fd753dadedcaa7f",
+      "size": 1105178
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/C04_Route.png",
+      "sha256": "da0b78a3eeefd12bed4f9c237a78d05e236e2c13ceabc8615c1145b34d857154",
+      "size": 980333
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/C05_Drawout_Clearance.png",
+      "sha256": "a0372811897f65f20e1a7b3a7aa5430daa58abe3b8054c875987c3acbba007b4",
+      "size": 1069405
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/C06_Transformer.png",
+      "sha256": "6b3b36e9606e8f26ac6dd3dd0389b9ee60fc7404973eab5bd33d4c0c0742904b",
+      "size": 1189204
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/C07_Reserve_Bay.png",
+      "sha256": "ac5a25cd1f654fdaec33e4f44860793dda659bff7b7a4ea52db51aa3ad90ff1c",
+      "size": 922216
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/C08_Material_Detail.png",
+      "sha256": "afc66d6241ba16e4eb7e862b31a1c4021a674177cf92db2b9653439b3bde3aad",
+      "size": 930750
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/C09_Workbench.png",
+      "sha256": "d651dd126ca7804fdd4970163ca0aa0859bec5a8df5df77ca6a89371fbfba875",
+      "size": 898200
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/C10_Transfer.png",
+      "sha256": "e6bf311bdeaa6130c539f1b3b3e8726d69cef445fa8a189b523b37051d0d89d0",
+      "size": 953243
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/W01_Turbine_Return.png",
+      "sha256": "77cc331aadded760debe196a5bdf86364b6c0745b410848a5e0bee85a0b0393e",
+      "size": 826121
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/W02_Waste_Approach.png",
+      "sha256": "e29a62d20aed1143116dba58c5b33656dc786e0dc76a8cec5808dfded6861b78",
+      "size": 824647
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/W03_Reserve_Return.png",
+      "sha256": "cc12bff8446c36fc02060f00e27302cda985e8fec1e8840c93e2d18f1da20c1c",
+      "size": 999995
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/W04_Switchgear_Approach.png",
+      "sha256": "33730bb44182ffa40a5aebf59bd5b097e9c5e1cd9483aa8d3992869b5cf1e6da",
+      "size": 1125770
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R6/inspection.json",
+      "sha256": "67f42abfd2dade08528adfa061d020d260ffc553251c5a533c199aea09f48c0a",
+      "size": 2705744
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/C01_Entry.png",
+      "sha256": "9fe83a56dbf9129964a3c7e9455d1c70e8dd78396f9dbcb85a3fed69175ec6c4",
+      "size": 1122819
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/C02_Hero.png",
+      "sha256": "74f00c84efb8fb93175bd0ffde7d81467ce8eaf7e25420216446f30c33e2e9a7",
+      "size": 985960
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/C03_Reverse.png",
+      "sha256": "c3ee2b25c130dfc35adcaf171007e6f0e27c0297078f0fefbee38efa6cd4bed3",
+      "size": 1105114
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/C04_Route.png",
+      "sha256": "4707b423f0ee9ea748081562413711f21bda70944800f3264a30ac7fccc93c33",
+      "size": 980162
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/C05_Drawout_Clearance.png",
+      "sha256": "a7c9bb4908a15c21d7f318c4c7f290ead853c2598c4b730c3f8eb77326567ab1",
+      "size": 1069686
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/C06_Transformer.png",
+      "sha256": "9afcd9b41169e4e5ea20a72b98507194830e08a088105d592ce16a9eed41256d",
+      "size": 1189170
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/C07_Reserve_Bay.png",
+      "sha256": "193127d0049c77e203473e248818d14aa079950fa0007078531176bfdd01fc13",
+      "size": 922326
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/C08_Material_Detail.png",
+      "sha256": "b1455ce345c1f4fc0dfd9b829e96ad3d42fe7ffe6b0b323124dd902e4efb139b",
+      "size": 930858
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/C09_Workbench.png",
+      "sha256": "8aa343ef01f08b9653466e110318f970ca0057e8b2bf158d6d1d6f5277892248",
+      "size": 898322
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/C10_Transfer.png",
+      "sha256": "727ae4dd67aa78ed084e518a673c0c3a9f11b51f543ea6559335183f29f4afab",
+      "size": 953391
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/W01_Turbine_Return.png",
+      "sha256": "b3a31809f612d165854c37c2baced74d570cd50ae4b4937442a68fb5a227f460",
+      "size": 825931
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/W02_Waste_Approach.png",
+      "sha256": "f6e182bbd9203d2bcb5f1f6c59096421c4d73ab1dbd356f3e93b288058faf8d1",
+      "size": 824831
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/W03_Reserve_Return.png",
+      "sha256": "9fd4595e99c711b8404035b70cfdb915e9d1f6a9f2bc5c7d33681f220b42ee09",
+      "size": 999828
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/W04_Switchgear_Approach.png",
+      "sha256": "668d4eb8464d40078e4d5ca976a06a297b0ad87d8b94e10462ff4270178e03c7",
+      "size": 1125730
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R7/inspection.json",
+      "sha256": "dcfbf77f3f4d1235fc37930dffa3574816c099fedb84c3a0dbf46afb75cddb21",
+      "size": 2699543
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/C01_Entry.png",
+      "sha256": "6a6237b4d8ffc209beddc7e29ca87e3692c81e2cb62a61f8d3e933e3d1d47382",
+      "size": 1122796
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/C02_Hero.png",
+      "sha256": "d38a548f92c164616e614b2d5217f1ee31610b88b057a3835e16e1cab3de9730",
+      "size": 985937
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/C03_Reverse.png",
+      "sha256": "ad0a76f4fa0b1945895bf96e4e1ea41496594db4420ce426c58ea6bfe8ee91e3",
+      "size": 1105091
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/C04_Route.png",
+      "sha256": "ce1a0dd42665c7a00f9a53c0a373fdb8be862908c92eab9fe338301f59824926",
+      "size": 980139
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/C05_Drawout_Clearance.png",
+      "sha256": "a813b0cfecd2e7cc882774cb7d04e69bd97a96b33e0ee846a637322b3efbfa60",
+      "size": 1069663
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/C06_Transformer.png",
+      "sha256": "b898d10af52ad52b0051c4a2ec7690b80f21ea080579e59a7b32ec779295f858",
+      "size": 1189147
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/C07_Reserve_Bay.png",
+      "sha256": "d8cb0545ab5c6e6e1a674e303eb9e45b2fa6dc1d43174c58b064d9ce2b13eba8",
+      "size": 922303
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/C08_Material_Detail.png",
+      "sha256": "d7fd0f09c1f8c8aad77bddf2eb49ba210bb72bd54dd30110cc7579cab91aa563",
+      "size": 930835
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/C09_Workbench.png",
+      "sha256": "056db0159325c1b933483d8fa938222a1aa2c742a4661c74ddd62b54fc873aca",
+      "size": 898299
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/C10_Transfer.png",
+      "sha256": "d816d8b6d29817b6041a19e72d0e6a399b8eabd3b427c756f74370926334690d",
+      "size": 953368
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/W01_Turbine_Return.png",
+      "sha256": "a7659debd3ed0e793756cd80c65a4dc53a896d18e61910bc8768e56943684aee",
+      "size": 825908
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/W02_Waste_Approach.png",
+      "sha256": "945a9005048951d4371b0379fbbf7a59e297655b65f6bcad0cd46ae12d9d0ae3",
+      "size": 824808
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/W03_Reserve_Return.png",
+      "sha256": "147aed65e74046fd2ac9882b0144678d05d3b73db6716291dbc91053dc8f237c",
+      "size": 999805
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/W04_Switchgear_Approach.png",
+      "sha256": "9552573ff655e8ee55d0edfba060f030fe0fe65614a96115febf0984af449fc9",
+      "size": 1125707
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R8/inspection.json",
+      "sha256": "f81d379e170251b394511ee47f79e563900161adecb3eb63a1a8e4cc2410de59",
+      "size": 2699520
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/C01_Entry.png",
+      "sha256": "0e51dcef6cb318b1776c5965122579ef4af6f409b15eda9a8b03be42235fc32b",
+      "size": 1123460
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/C02_Hero.png",
+      "sha256": "38f47e0517665f7f87793796862570db18b48754d5dfebb1691480adc42eeb31",
+      "size": 985697
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/C03_Reverse.png",
+      "sha256": "f981a31a1343a0ed143d9f7b06e5edefb2faaf29420c3e3d83c751b5f1574dca",
+      "size": 1105630
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/C04_Route.png",
+      "sha256": "63772cc400537b94e1b3924b4c7dc07b9ec8eec9e476a3ab894a24507259f238",
+      "size": 980836
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/C05_Drawout_Clearance.png",
+      "sha256": "639941b82695c6e3e6f94cfb51a6c32fa17da2e7db713b97cfc10594b9d4b0e3",
+      "size": 1068427
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/C06_Transformer.png",
+      "sha256": "abbba70d4005729fdf19921de46664881fa00a3d0715401d7b163c5f89ced175",
+      "size": 1189624
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/C07_Reserve_Bay.png",
+      "sha256": "b01c8744adf1c7c297a92f385150f1b463c8eb6ed09ceef3a8723030a8bec133",
+      "size": 976415
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/C08_Material_Detail.png",
+      "sha256": "e74938294290fe840d5609c5c24f835a0f316f70607a9dc2abb1d605aa505ca4",
+      "size": 930541
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/C09_Workbench.png",
+      "sha256": "f487b5769f1335ad00baa7b7de19e21b228332b9cef3c7661efefa370245d808",
+      "size": 897309
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/C10_Transfer.png",
+      "sha256": "c6541963535fdb3c90b5361a39027f3d17d941ffa8f0fad4c542b3bedccf0855",
+      "size": 966884
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/W01_Turbine_Return.png",
+      "sha256": "1b5dee937d7819a3211aa04969bd68a954caa65171b415c1c721ca1daf1b6ca8",
+      "size": 827788
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/W02_Waste_Approach.png",
+      "sha256": "6f1be32c6cc8cdf3865bf546dbb1cb8c4248742a083d5bf7633d72304c0e3ec9",
+      "size": 823602
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/W03_Reserve_Return.png",
+      "sha256": "469938d21c40ce7bfe2e2e1749ddb861f5e1439633ecf603a26508aa691f9e08",
+      "size": 999416
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/W04_Switchgear_Approach.png",
+      "sha256": "1de65d7903327a1ff30ab12022d74f51aef5c0f788f0e13119091c2365f6e9a7",
+      "size": 1125624
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/R9/inspection.json",
+      "sha256": "a72f020aedb76c80d0fac50f60028326607fe000481064f38f91e5a594c60d78",
+      "size": 2822445
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/baseline/C01_Entry.png",
+      "sha256": "cbe3f734e2d2b34bf6e45bdcc025b3c15a468f68dc5b52f2ecfdf820b90841ad",
+      "size": 1106853
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/baseline/C06_Transformer.png",
+      "sha256": "7cf71232081d050ed7b8f55eb7015653a4aed860565ac870549bfafc63cc4612",
+      "size": 1208817
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/baseline/C07_Reserve_Bay.png",
+      "sha256": "559241215afbf720324987f223ab81996f362282eae08e21bfd995fd357e5c40",
+      "size": 856632
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/baseline/C09_Workbench.png",
+      "sha256": "3e861bf6a0a2edecc5bea79ce01492736ee46463db8c879c2f22f17b76e0f1a2",
+      "size": 875875
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/baseline/inspection.json",
+      "sha256": "161d4eda72459cde8ac655a3c74ec1f3e009472bdf77f899712f5f5a7d0fa63a",
+      "size": 2042420
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/contact-exposure-preflight-R7b/DG06_Service_Contact.png",
+      "sha256": "bb3fbd50ab2bdbd3d49dee878f18ff3b86fcd459fb7d6396c30cb5c3fc8e4663",
+      "size": 799066
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/contact-exposure-preflight-R7b/inspection.json",
+      "sha256": "df411f68ebfbcf1762876f700dda636d710d6aaa67215457424c19033af76758",
+      "size": 2711819
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R11/DG01_Rescue.png",
+      "sha256": "aa01cdd0bb25f8c64a1395455382e186ef9d983002c843a7058392ee8184c0e7",
+      "size": 831254
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R11/DG02_Lead_Storage.png",
+      "sha256": "d857c136bd3d18d42cc86ffcc078ddbdc32b7f4ea4fe1e4b50742a8554d9f5e0",
+      "size": 829045
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R11/DG03_Trolley.png",
+      "sha256": "2ea9f1faa8f4a03ba274290a7ee2ff145f272dd05fd25bc0650f008c66256d3c",
+      "size": 818742
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R11/DG04_Meter.png",
+      "sha256": "871010f2ccb4ccd5b4113525e50514af2b42b64707dffea64e3065cd570930ba",
+      "size": 860384
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R11/DG05_Door_Glass.png",
+      "sha256": "43366b09c790fc2da543bca2a34f4cea1020d69c66637f0519d83c337c144c45",
+      "size": 816636
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R11/DG07_Probe_Junction.png",
+      "sha256": "4792d3f1d65e32ca486b437c60908fc032e76f66a2b9f1ed25ae761da0a5faa7",
+      "size": 865960
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R11/inspection.json",
+      "sha256": "b959116e0f277e9be388a9155866af09a6c2bafebce77c9c17cc9b3383f61d07",
+      "size": 2825679
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R2/DG01_Rescue.png",
+      "sha256": "8586f5199e19674fd3ebfd339e85531fb8301879144acdd50417f6726b29b9ac",
+      "size": 833212
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R2/DG02_Lead_Storage.png",
+      "sha256": "d7fad139796ab22dde997eeff992a3171f9113ea4b56a2ad82db4d7c9a20a05b",
+      "size": 833610
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R2/DG03_Trolley.png",
+      "sha256": "33aec7da17757992579cac8027bbc9f8ef21dfaa67384e6dc7eb71f0bb4e2d74",
+      "size": 855722
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R2/DG04_Meter.png",
+      "sha256": "ee29079312792a5c4cdc46c8020237a0508f229a570fcd5d813926ad7e2a3844",
+      "size": 881296
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R2/DG05_Door_Glass.png",
+      "sha256": "51985f55bf5b2c13ccd249eecedfd6d8c2985513adc6b8095efb68dbf2f5e2c8",
+      "size": 775471
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R2/inspection.json",
+      "sha256": "416923fd1fc11b0369d361287f365695a6cceaaafca87116c419f6cd909bc199",
+      "size": 2682566
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R3/DG01_Rescue.png",
+      "sha256": "fbc2ca9c20bfc1593a302b0e8f8ea3113238f121c97cc3c7ed8007a7091720ab",
+      "size": 834701
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R3/DG02_Lead_Storage.png",
+      "sha256": "d59a1383fbacd2c7347388b5ee9d0c3c373fd6985a2be1b74dc5736a88a543fa",
+      "size": 852376
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R3/DG03_Trolley.png",
+      "sha256": "ad97d41be94fea8ab64fa57dd9e7598e3fe97bda43f01f6d7731355aba26f62e",
+      "size": 857732
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R3/DG04_Meter.png",
+      "sha256": "1a5aadc73042d1e6be58699dd55fd0c696e41aaac1b4151c6141935d20de46e6",
+      "size": 877026
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R3/DG05_Door_Glass.png",
+      "sha256": "282875b44a10dd840f129d040d05b60339152dc11014efa656e6e6811c3f7bf6",
+      "size": 777076
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R3/inspection.json",
+      "sha256": "5caef40e35ad045e2cd98d787ce3d04eb23baf5e38c75c67320607c9a6507a98",
+      "size": 2756227
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R4/DG01_Rescue.png",
+      "sha256": "e370e9a70c03aa6002dffa504dac12f89707119af10405a8f568dd531da2397d",
+      "size": 834701
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R4/DG02_Lead_Storage.png",
+      "sha256": "36e7e657b22dc0ced9c930a12041c21d557703a38214573917977d8707d9ccc9",
+      "size": 852376
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R4/DG03_Trolley.png",
+      "sha256": "794594f79ee9f004e25bc13b22c444aafe50f7028ce22632cf86ae88c9be38a6",
+      "size": 857732
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R4/DG04_Meter.png",
+      "sha256": "83ec25f9a3b5dcb579055a557526d07151ca448d05009d4f319cf563ff770c5c",
+      "size": 877026
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R4/DG05_Door_Glass.png",
+      "sha256": "173088ca0616e836c55e3f1a36f6f1ea1a0a02202ed7c6864575f280a8a779d1",
+      "size": 777076
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R4/inspection.json",
+      "sha256": "84f7068a18712294c5eb54e258c139859734345e3de735a3117c1b104e6500ca",
+      "size": 2756227
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R6/DG01_Rescue.png",
+      "sha256": "8337aa72eefaeffe0c31ada21bbbc3161289f280ea0b7c0af5b9ff4f014d9f5b",
+      "size": 851058
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R6/DG02_Lead_Storage.png",
+      "sha256": "ad7e664c13334456f218fbfa08b820568c051202ed48def600287b05ab63b7cc",
+      "size": 857712
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R6/DG03_Trolley.png",
+      "sha256": "13a5ed274c1041bd8721d380ed054eaee0ff15a89e9ad3d044dbc9e833cacc4c",
+      "size": 867667
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R6/DG04_Meter.png",
+      "sha256": "ce648ea680110f02fa6923fef4c2be25ab2237dd3b6d9988b68ddb9664516369",
+      "size": 878277
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R6/DG05_Door_Glass.png",
+      "sha256": "aab82a0dc8906c87262e3a671df374e9a58ad321c3bce6e072942a7b587df657",
+      "size": 782877
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R6/inspection.json",
+      "sha256": "e732f996a448060267e88363b9a66bd20048fdeb978826a5652034b1a8c8b3fe",
+      "size": 2708431
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R7/DG01_Rescue.png",
+      "sha256": "f4dec4a76e8e782ca8e0aaca831e28cede8ff6062a9a197e63064456e9fd561f",
+      "size": 851489
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R7/DG02_Lead_Storage.png",
+      "sha256": "f53530d91aa019dbc94c3e78badc9a3806de70f5de3765c84405a65b593901f3",
+      "size": 857746
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R7/DG03_Trolley.png",
+      "sha256": "1ab9d096c37bfd63a6f9eaa63178119bd88f6d7488d84c340474de3047ff7dad",
+      "size": 867667
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R7/DG04_Meter.png",
+      "sha256": "236f8609b01ce56a79a2f471bc8785c6297f2f3961d79a81d8f92880fba8cc19",
+      "size": 878380
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R7/DG05_Door_Glass.png",
+      "sha256": "f0df5338103a8799e2dcb05e36e5971e88e4e605bef651094cb86ff7adeb51e1",
+      "size": 782763
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R7/inspection.json",
+      "sha256": "c47aca1651f9f2049bae68b9d8eaa3a516375ed48f9de14c81421f2aca1277f0",
+      "size": 2702230
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R9/DG01_Rescue.png",
+      "sha256": "3811ae556f708398b33e2815a753b48c8acfad629988292195350a85a085b311",
+      "size": 850763
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R9/DG02_Lead_Storage.png",
+      "sha256": "fb04d8c1ddd258a8631d3a06f9f05a6f25f4aeca7e57a04f66e950e5b685b4d8",
+      "size": 876408
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R9/DG03_Trolley.png",
+      "sha256": "a47a0ca8460c4578f80d3285ac0249c26a21cf432f9be5857d072d7991f8e3ac",
+      "size": 865891
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R9/DG04_Meter.png",
+      "sha256": "93b40eeec060855a3236280340421b36c274dbdae09ded49eec4db24bdd096cc",
+      "size": 877367
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R9/DG05_Door_Glass.png",
+      "sha256": "9f939c08cc69b0a501c1e68f20f14bff4f008cc8bf0cef376c8adf0022d922ec",
+      "size": 791125
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R9/DG07_Probe_Junction.png",
+      "sha256": "816b2635b2c1f260ff94b15f5f3a218d0f30ed738cac6b1180cb8cffb48e1950",
+      "size": 877335
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R9/inspection.json",
+      "sha256": "3d576d8d7b8fa2914f5d8e5261efe3929a0d1335236c4c97878ee78343793d07",
+      "size": 2825679
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-lead-preflight-R9/DG01_Rescue.png",
+      "sha256": "dad62658a6b0682be42c03eaf81684e14e7f7102d6be5635d9e7f38e24dc5ecf",
+      "size": 851293
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-lead-preflight-R9/DG02_Lead_Storage.png",
+      "sha256": "2c9e5c683d37102e57f7a121f74d8d0ef8a918a6a08abf221e075091804f338a",
+      "size": 877232
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-lead-preflight-R9/DG03_Trolley.png",
+      "sha256": "c4991bda178160715b8bf79c6d143a917cef0cc4ae6bc427e3c6bdbf67db8ab9",
+      "size": 867047
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-lead-preflight-R9/DG04_Meter.png",
+      "sha256": "679cfa97545981147f7a8ad6ed3ce89777bdce52585019fe45714078df7f09e1",
+      "size": 877328
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-lead-preflight-R9/DG05_Door_Glass.png",
+      "sha256": "4ef98a73a28e290396e9c003197159ddd0802ba68de3b0c9ce215acb681bd798",
+      "size": 791464
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-lead-preflight-R9/inspection.json",
+      "sha256": "70134b75952c61a22f9dab76645e5aa8301994b24dc3fd4b400e2a761b24a618",
+      "size": 2732562
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-preflight-R3/DG01_Rescue.png",
+      "sha256": "468298ed9fed4b4e9d9a05ec4b3fba93d5768c35f0c73a640f348ae7c76ea536",
+      "size": 834846
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-preflight-R3/DG02_Lead_Storage.png",
+      "sha256": "4ee3cdbc0b8097002aa2802bd618d6aab37c6507877aa95e0da3cd51a49794cb",
+      "size": 851943
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-preflight-R3/DG03_Trolley.png",
+      "sha256": "dce962ae81f2d43aae8c29fd04fe10d46b210c992fb55526f4dafb554721a0ad",
+      "size": 857498
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-preflight-R3/DG04_Meter.png",
+      "sha256": "dcef39da648854d4cf8878442d3775c5b655d1f922f174e2fdb481a0140427d6",
+      "size": 876869
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-preflight-R3/DG05_Door_Glass.png",
+      "sha256": "99b84ea0290b8bf75ca2b63715b953387540a0bc2c0d5fce270905e0a49c392a",
+      "size": 781006
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-preflight-R3/inspection.json",
+      "sha256": "55ac64bd4e8444e141987e18fe36319411f431ee3f0d000104311004ad2b04fa",
+      "size": 2768246
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/door-preflight-R6/W01_Turbine_Return.png",
+      "sha256": "1de66df768585e81ab108e59c7be4f831cc130c5e88f5e7711ff32494ad5b250",
+      "size": 811992
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/door-preflight-R6/W02_Waste_Approach.png",
+      "sha256": "e9619a88500e86eb916da1c2083679c6222d6b8df80e7e5dfb79dcb9b90ae7bd",
+      "size": 813141
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/door-preflight-R6/inspection.json",
+      "sha256": "9853893d430795250722fac90b74b96034eda4e41c4efdd499334be26b5f98f7",
+      "size": 2699466
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-diagnostics-preflight-R7/DG01_Rescue.png",
+      "sha256": "4ab5cbd46ccf592d2be25e431f881986a0238376c5ad3afb3ed97bd820d9fd5d",
+      "size": 851057
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-diagnostics-preflight-R7/DG02_Lead_Storage.png",
+      "sha256": "81afae81ae4bc21a90f72300a5956fedbd1d37598a4fab5051557f7310fc5b9b",
+      "size": 857711
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-diagnostics-preflight-R7/inspection.json",
+      "sha256": "4e35a4aed0b214bb9024e4c2404662991fe5ae8261ef2ecf71b228afb095dd04",
+      "size": 2711822
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/C01_Entry.png",
+      "sha256": "2a222160e8777a703e99f13e953b28b7e5c0039c036fb9f7e482d922ec35322f",
+      "size": 1122558
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/C02_Hero.png",
+      "sha256": "926aad5a631cd1b58691aaae3ecc58bf3ef03d0af8f1064ec60d7589ed2f38fc",
+      "size": 985876
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/C03_Reverse.png",
+      "sha256": "e2d277eb1ef81b2e13cd59b136062d52ca9f50f4686954d37fa12205b7b1ec4b",
+      "size": 1105177
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/C04_Route.png",
+      "sha256": "724b9ed786a1648b597a7b08f5dc546c3c4909897ea7ef75581c3909e91e9239",
+      "size": 980332
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/C05_Drawout_Clearance.png",
+      "sha256": "cc476e1b155c5e4bdb16ebdaab8dd9cc9a433d4f7247e5bcd57727c638fcd65a",
+      "size": 1069404
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/C06_Transformer.png",
+      "sha256": "336cebe2a837517d84d6326182a29223608cd44425c3e70cb7796c85595e1179",
+      "size": 1189203
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/C07_Reserve_Bay.png",
+      "sha256": "dbfc4600d9184ca7e6ce0d77c1ae31cef263ca6db4d5eee93e6ed61501d6f7c9",
+      "size": 922215
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/C08_Material_Detail.png",
+      "sha256": "bc9fb9b4d66612cd25cf2c94ab2940e617c9487f31659a4a773f614f917bf395",
+      "size": 930749
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/C09_Workbench.png",
+      "sha256": "a436f5a614eadf75076c9ecc583c313727c46ea27a2f6d43f29496c1e2d70413",
+      "size": 898199
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/C10_Transfer.png",
+      "sha256": "ebb0f177b044535b9baeb899f37b2b0f3a0555725ca0b8113bed419986740a6e",
+      "size": 953242
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/W01_Turbine_Return.png",
+      "sha256": "e71b23930319f1b7a0a53cafad84d51f4258b7c27eaa04fe84929b79d0c51409",
+      "size": 826120
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/W02_Waste_Approach.png",
+      "sha256": "c88bf5df76978a35415148cb780ed84976ffffb14839a88f5968c701bd0af3cf",
+      "size": 824646
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/W03_Reserve_Return.png",
+      "sha256": "51e3086144b604f610c19fddddd7f64a00c69e2db3c49ed041de83bfa064c62f",
+      "size": 999994
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/W04_Switchgear_Approach.png",
+      "sha256": "b647d714e5ec89eae04979ead2204c0def38e77a6e8f0404e023cb280b32af5a",
+      "size": 1125769
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-height-preflight-R7/inspection.json",
+      "sha256": "bee8fc018bac096b4887be75de2fa00366ce3c33c8314cc07028c05771458647",
+      "size": 2708587
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-proof-R10/FP01_Route_Surface.png",
+      "sha256": "7da91c20850c71c1b63d879d107c3c90b9ee54d1dfac71cef8ea8923398c0033",
+      "size": 789640
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/floor-proof-R10/inspection.json",
+      "sha256": "5eb85785c5cf8cc0ef9b97c7fecd14ef66e1e406c23c40d9a5510493a9b37ba4",
+      "size": 2822969
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/junction-preflight-R9/DG07_Probe_Junction.png",
+      "sha256": "817f93176bac8f004023b0541c3b615c432be2607539c3b67c30d7ce74977f0f",
+      "size": 877335
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/junction-preflight-R9/inspection.json",
+      "sha256": "3d576d8d7b8fa2914f5d8e5261efe3929a0d1335236c4c97878ee78343793d07",
+      "size": 2825679
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R10/EI_C01_Entry.png",
+      "sha256": "2014a4636a46508e3f6dd4da849069b14d9772f3887e8f1852ef52d1e56cfc5a",
+      "size": 1133068
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R10/EI_C03_Reverse.png",
+      "sha256": "8dbbc760beb5ee7adf271e0b0b29e6b1a7a6bdf909b33d8ea7d0f5055b2a0b88",
+      "size": 1115003
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R10/EI_C04_Route.png",
+      "sha256": "24b5ef1b864f4ccf99d5cdb15807817b24054e6bf3d44b797cd8ace17023edd1",
+      "size": 1007790
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R10/EI_W01_Turbine_Return.png",
+      "sha256": "e1d7de9737142a9e5f35397fe70e1795fb9a071615b2bde30d038e1f8c5eb0aa",
+      "size": 978201
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R10/EI_W02_Waste_Approach.png",
+      "sha256": "8d8a2dee58a07d2e5671c43a74461a8afebb012784f2cc47b302ffb904086f51",
+      "size": 896254
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R10/inspection.json",
+      "sha256": "42a23fdda16797145a1b8de7755e8c894fa64418dd0539be8f7a0fd8c7f2106c",
+      "size": 16168472
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R11/EI_C01_Entry.png",
+      "sha256": "49271ada5a12caa8826ba1ad7b619ae802054c4ae1fdface1f7380c14fe90692",
+      "size": 1080824
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R11/EI_C03_Reverse.png",
+      "sha256": "60835c57ffdfad8c9371afc096c6bd9f06bea25f5c418094a4af1bd0cf774852",
+      "size": 1053212
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R11/EI_C04_Route.png",
+      "sha256": "da884e18194f149fa5e9595069e07d16aa454a102d4e42a4f4f2d4c44ff05528",
+      "size": 933695
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R11/EI_W01_Turbine_Return.png",
+      "sha256": "d2595fc8e75cd36bff71e0ebd2803e489762f41ce146925b1e39a4c5698722c8",
+      "size": 954714
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R11/EI_W02_Waste_Approach.png",
+      "sha256": "25f67424da48fd97ca652f95df135820d9405bb8e8479190b6441fbd57b9a348",
+      "size": 856152
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R11/inspection.json",
+      "sha256": "2c9d7011da4e05df4150f1acf4eaa307a12ddcd9ef137332889dd26f793f2cd6",
+      "size": 16168501
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R12/EI_C01_Entry.png",
+      "sha256": "ec84b7714b9d05f761069d5be95d5c255b5da4712ce2a4d38d07ee82e7bd38ca",
+      "size": 1080818
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R12/EI_C03_Reverse.png",
+      "sha256": "facc0150e91d9656e7cd3de899b6f2d18bfbc2950a1a109291ec65016e4558eb",
+      "size": 1053190
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R12/EI_C04_Route.png",
+      "sha256": "aa65bdfee444a5344e331da5d51ba8bd9133a6f29bd50d900724d4900073e69f",
+      "size": 933689
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R12/EI_W01_Turbine_Return.png",
+      "sha256": "5d33812c9008caee0e9a28fd7ece45434ba7f51006106ec6e4c6fe6cb1c62b89",
+      "size": 954576
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R12/EI_W02_Waste_Approach.png",
+      "sha256": "d7913f8a7205c8700d24bf1f98b62fcf0a5fa90525538a778a9fa9808cee3c77",
+      "size": 856264
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R12/inspection.json",
+      "sha256": "96c95961a70ef860ea5732a47fa2c645dfbc814571e2951b6a47ced6f5384d53",
+      "size": 16168472
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R2/EI_C01_Entry.png",
+      "sha256": "9844546a919cd17e827068cac39903d111e36eea0312a160a5d73eaf413cd3d3",
+      "size": 1118436
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R2/EI_C03_Reverse.png",
+      "sha256": "8a4f9e375110cf028bd7e5943e477211c5caad27070a4555baf29c662c678950",
+      "size": 1099763
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R2/EI_C04_Route.png",
+      "sha256": "a2b901803bd7f779a0273815abecabd31ef2db61af5c18d371568bd3fcb0d05b",
+      "size": 984174
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R2/EI_W01_Turbine_Return.png",
+      "sha256": "3ed3f41fd3ef3b20ae77c549b12f820e1941dd8c79178c7b9fb41b2aca6e68e7",
+      "size": 974651
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R2/EI_W02_Waste_Approach.png",
+      "sha256": "147317e742d7fadf502aa5ea9467250f7e70e373a78b76dfcb7b1c974ba72f2d",
+      "size": 894961
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R2/inspection.json",
+      "sha256": "2437e2187f815b705e94b400cd13d8fc5ba7f2cdf49c7c8c0bfaaa7516dcebd1",
+      "size": 16168450
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R3/EI_C01_Entry.png",
+      "sha256": "c41122b875b3521a1b90715384c207fd6dec9733edcb18f05631fa9969dec246",
+      "size": 1119026
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R3/EI_C03_Reverse.png",
+      "sha256": "008929ce77dbce907ff1008701ff3b64e1b2710aee4c4bc56f1ac287b8386969",
+      "size": 1100311
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R3/EI_C04_Route.png",
+      "sha256": "24b22105df95bc55c4c965572c112d4d3db91904e9f77603371212e92ae16435",
+      "size": 984700
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R3/EI_W01_Turbine_Return.png",
+      "sha256": "bf0e379e1db76d7fa3958cf8e3e1c67606a2aa68c8b3017a09a9df8a6348cff3",
+      "size": 975354
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R3/EI_W02_Waste_Approach.png",
+      "sha256": "21068502d7cf1eec595f42704006c1c639f2d29e659a1f631f82f0d284cdb449",
+      "size": 895020
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R3/inspection.json",
+      "sha256": "2d882a8bf38fd620ef0e1be2819177bf4901747295bd29707db591ff89a500cb",
+      "size": 16168499
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R4/EI_C01_Entry.png",
+      "sha256": "e20e7f5df0f37790d7c0c3ff505fe8c85705c968229052056ce9340e6e9e42db",
+      "size": 1119026
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R4/EI_C03_Reverse.png",
+      "sha256": "a0801c3540eed2f15fa9ee4091aabec74681f645df6bbc5945228b157c5ae23e",
+      "size": 1100321
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R4/EI_C04_Route.png",
+      "sha256": "a6b45975f7df905a55a0d9b9b374139d852203d1660b7a80bd8834b855a6cdeb",
+      "size": 984700
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R4/EI_W01_Turbine_Return.png",
+      "sha256": "368cea95f5521ab1f834d0e16f82357fc90b3bc50c10b98dba8a2246c464749b",
+      "size": 975354
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R4/EI_W02_Waste_Approach.png",
+      "sha256": "6f762cb006aa6135138b4751fce63cc1ea6e64bb7de1d78e1318b548271dbbb8",
+      "size": 894860
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R4/inspection.json",
+      "sha256": "cb5515794138412a09d6a62f41466ea17a115860d2ac5635fc7df62aaa7f8862",
+      "size": 16168499
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R5/EI_C01_Entry.png",
+      "sha256": "0d42e2957d43b9d89f8a9bcc4357ff3c5f6ea5b509f2af2114cd6b6422686985",
+      "size": 1119021
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R5/EI_C03_Reverse.png",
+      "sha256": "973968e8f5a96e0f3eb3a272f3c2421e0036eb5a5980180cbf74eb872dcf4083",
+      "size": 1100316
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R5/EI_C04_Route.png",
+      "sha256": "6423752397ebb83d3e5a2b263aaa4f7c9c5f196be9c62a7a03384546c0f07749",
+      "size": 984695
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R5/EI_W01_Turbine_Return.png",
+      "sha256": "1eb9cda8bd6aa162ff1a169be122ecbda6c35b3b4d1c4f50cbf0ff264ae44aac",
+      "size": 975365
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R5/EI_W02_Waste_Approach.png",
+      "sha256": "bb984ce10ace477f0965d1c5c4c1b24586a172ba875180387a409fb69552d3b4",
+      "size": 895015
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R5/inspection.json",
+      "sha256": "290ebd547011b289c1af1adc170e72479bb70410a55bb502ea23775fc9bb876e",
+      "size": 16168472
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R6/EI_C01_Entry.png",
+      "sha256": "022e6aa47ffbed2b93729b0098044dd2b01435eff33965ac58416d4f9d918648",
+      "size": 1133772
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R6/EI_C03_Reverse.png",
+      "sha256": "3bc8d5824464f1b3873aaf76c1b6ded31e766a7970899ad068bd61f147a18ef3",
+      "size": 1116796
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R6/EI_C04_Route.png",
+      "sha256": "8900c74ab4659e19482bb2ea598900cfcd13f4dd8502dbd37efcd2f7d43346a7",
+      "size": 1008676
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R6/EI_W01_Turbine_Return.png",
+      "sha256": "44351bad3075a105a73c394784f512a1856f7acc15d95c34166b47a030ce16d4",
+      "size": 977890
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R6/EI_W02_Waste_Approach.png",
+      "sha256": "25eae2601b6227f35226010a8f2a592ad64e2edc220dbbdb94ef04af44a928f1",
+      "size": 897553
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R6/inspection.json",
+      "sha256": "d720bbfc0535aea1fec9331d26e150135fcbfe5ba396fa34d70b15b54c7a8e9a",
+      "size": 16168500
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R7/EI_C01_Entry.png",
+      "sha256": "366a1b581ad2224fdd24e51002657eb15e0dbcf8c066194e3e30b7df0766b598",
+      "size": 1133800
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R7/EI_C03_Reverse.png",
+      "sha256": "e2a3a826c0a5d3a6a28291abc83542e6f74b899d4f762589f57911b620246d5c",
+      "size": 1116762
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R7/EI_C04_Route.png",
+      "sha256": "7d8548451cfc4d4a4aeb3576cd7ec102a1fdcc3e50973a9e7a0d4987ce473819",
+      "size": 1008655
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R7/EI_W01_Turbine_Return.png",
+      "sha256": "cd38c6777c5f38b3cf46936557ac199528c2be340ed0299f233885581585caad",
+      "size": 977872
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R7/EI_W02_Waste_Approach.png",
+      "sha256": "611aed954e3672d9fe68cde23861a48f379c3c93cfeb95963ad396317190b8fe",
+      "size": 897618
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R7/inspection.json",
+      "sha256": "1aa28c3831cf08e14ecffbe4e3281dcff45be9781c0e7a01b6154e8ed9e88c96",
+      "size": 16168500
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R8/EI_C01_Entry.png",
+      "sha256": "92b1ae61a1148545b81ff3faa0dabc7ae15ed7c749a145c4f983f0975b0207be",
+      "size": 1133795
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R8/EI_C03_Reverse.png",
+      "sha256": "50893f5dea1bf49074d7bbd9b4a6d8580be5ffc8da1dcf58633956f11d6fcf56",
+      "size": 1116757
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R8/EI_C04_Route.png",
+      "sha256": "435c5375ed06dafb827a71e9f4e4aa7d270613086c490b0a147e3e8c1f61dcfc",
+      "size": 1008650
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R8/EI_W01_Turbine_Return.png",
+      "sha256": "24351ae4724e883be8dc362a0b191839fff1510dc329b574f35fd429682e272b",
+      "size": 977874
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R8/EI_W02_Waste_Approach.png",
+      "sha256": "b1352547546dae5d0096169fbd06b3f230dabcb8933e7f29dc143ea2a7c3518c",
+      "size": 897613
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R8/inspection.json",
+      "sha256": "8c9bbe0b53d3832d08a1fffea57c1ecf392c8bbfbede6d4abb21903b0c5358b2",
+      "size": 16168472
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R9/EI_C01_Entry.png",
+      "sha256": "be16f3c4960ca901534965a221718ed37edc8474c5d5040cf223dfc6f2c78eb9",
+      "size": 1133073
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R9/EI_C03_Reverse.png",
+      "sha256": "22594dffa2b51526dc2fb7a6ea5d6f2e285dbc0fe199e497531598218357f792",
+      "size": 1115123
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R9/EI_C04_Route.png",
+      "sha256": "1a317f7a49fe3a2fc5fddbcaca0369b58f6d9c1dd39e828bc4c5adb71d8aeeb6",
+      "size": 1007795
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R9/EI_W01_Turbine_Return.png",
+      "sha256": "0b56447c9dc6e99ce0d45ddba510ec06a60ee6abae38a69ef92616a73e9c7dfb",
+      "size": 978261
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R9/EI_W02_Waste_Approach.png",
+      "sha256": "35813a01061a77c8ee9a4fbeabce6f7db972c61f03980378c25984257b8ad55a",
+      "size": 896259
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/map-R9/inspection.json",
+      "sha256": "e31883c03a2a5d55038c4e42e5acea34032d36ea748e5d84485fbc7eeb0c5654",
+      "size": 16168500
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R11/OP01_Through_Glass.png",
+      "sha256": "ce671395a56d63cecd6b0666e28d823d6db2e2d15baee30968a6b201e104d8db",
+      "size": 836908
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R11/OP02_No_Pane_Control.png",
+      "sha256": "aa65e42d693ebebd3633d5bf5647d92f4fb649b6e2e0f914a6764647c8ea020e",
+      "size": 832888
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R3/OP01_Through_Glass.png",
+      "sha256": "93811a47ac510fce246e925d44adcdacbb82ed7eb7a451175c55490f8b795f92",
+      "size": 785283
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R3/OP02_No_Pane_Control.png",
+      "sha256": "5f471c9827ccfb774a84583a036182505252bee10b393aef01944f0cab7cd48a",
+      "size": 804571
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R6/OP01_Through_Glass.png",
+      "sha256": "3cb0b67ef19e5eef00d7325de4af33d6facd5c8ed6bd4b27547fb6391455161a",
+      "size": 791148
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R6/OP02_No_Pane_Control.png",
+      "sha256": "3f771e277a16199a5a9abb65a6276bbfbfb9534d3249c9cb947659f8edc7fd58",
+      "size": 810863
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R7/OP01_Through_Glass.png",
+      "sha256": "966708f08c86b438a8bb6a01763b4bf97413471c58a83026beb9ac3142ae975e",
+      "size": 790715
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R7/OP02_No_Pane_Control.png",
+      "sha256": "f1923828e04649ce71230002e9ffe67b23478334ceea74fb50d18e603f978609",
+      "size": 810778
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R9/OP01_Through_Glass.png",
+      "sha256": "eb0634be33d9c8b97e1aa3aed5b64b166e77768d74723da2cef22961ca3d0ec9",
+      "size": 800747
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R9/OP02_No_Pane_Control.png",
+      "sha256": "a178b4ad8f2c625ed01c25434269e6d0393a07731fe2d0778e5b7d011ea2a30a",
+      "size": 810839
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-lead-preflight-R9/OP01_Through_Glass.png",
+      "sha256": "d13492f3cd6b55b42843fc1c2552aab1b987ff130afa487cbfc0f1a5e523b218",
+      "size": 800675
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-lead-preflight-R9/OP02_No_Pane_Control.png",
+      "sha256": "fd6882978ef9988f88bd61b7168f16707c75031f00baf8cd7d66a8b071c89c5a",
+      "size": 810753
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-metadata-preflight-R7/OP01_Through_Glass.png",
+      "sha256": "7fc47ff0541eacc93aecf20a2b55e62a63814211b9c3f6128b32f143ac120166",
+      "size": 790715
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-metadata-preflight-R7/OP02_No_Pane_Control.png",
+      "sha256": "beb91e71d3d155f873713529f08f80b8da4b7f4c929d635d5a9045e064aad666",
+      "size": 810778
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-P1/C01_Entry.png",
+      "sha256": "58ddee9a9d710efdf827910a7b3bc9f26d1ae5d5c926322570f7c6a2707305f8",
+      "size": 1058554
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-P1/C04_Route.png",
+      "sha256": "bf4400c3b64d362e8815b40e83ea482d7ef0f5d47b67c29321f36d3b7c453205",
+      "size": 898378
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-P1/C09_Workbench.png",
+      "sha256": "577ee81263e5865abcd9cf4cbba4bbb0548323d47a9a45ad70a1434becbdb0fe",
+      "size": 844908
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-P1/inspection.json",
+      "sha256": "a1983ff8a100b12eefe524b672073b5441ba9cf0087429c93ab1186d7c640b7e",
+      "size": 2822447
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-P2/C01_Entry.png",
+      "sha256": "644dda0428cd9e6579f01b858cf5b2de16ec8f8a8cb2a216c23ce3134cb2a62b",
+      "size": 1060238
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-P2/C04_Route.png",
+      "sha256": "82989509750ef2625ba8b4845fde55c7e69b857e6f6a6c2cd8e475be01714937",
+      "size": 894528
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-P2/C09_Workbench.png",
+      "sha256": "c33fd412ade283d05f6bdedbf7d555f74b9e068c2734e7b3424d8cfc52aab38a",
+      "size": 846871
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-P2/inspection.json",
+      "sha256": "76b700e1c9a80739d7a4563de82f1743d09051a3c0692c0a1bd620ef888757b2",
+      "size": 2822447
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-proof-P2/PF01_Damp_Concrete.png",
+      "sha256": "67fb12a8580a2a830a802fe02956ae15bdf6537a0825fdb87d06bf96fd329ff7",
+      "size": 812097
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-proof-P2/PF02_Rough_Wall.png",
+      "sha256": "b10c38b5149c8efb2454dbb192c145e86c102094c90237542060c981b1ce28fe",
+      "size": 798673
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-proof-P2/inspection.json",
+      "sha256": "3536431d94584c1649c4b914cfe110f8ea5c09756bc82e64f3dc3aec4e71dff2",
+      "size": 2823521
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-proof-R11/PF01_Damp_Concrete.png",
+      "sha256": "33bccdcbbe100e28c21a0b2f0ac794a567651a3d31b1b2d7d411eb370e654be9",
+      "size": 812095
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-proof-R11/PF02_Rough_Wall.png",
+      "sha256": "c5c916a31eb215611ceb8daeb4a97ae84599a34566c9aceb176746aaeebb10c2",
+      "size": 798671
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-proof-R11/PF03_Grazing_Damp_Response.png",
+      "sha256": "ee76c23bcb8cfdbb6307c803687f61905792f297de6960f7ad657ad2b1c19732",
+      "size": 891866
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-proof-R11/inspection.json",
+      "sha256": "884d8d7a0697892505d25dab62591af05d04f5951f7b119e6248a5917949ea12",
+      "size": 2824059
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-response-P2/PF03_Grazing_Damp_Response.png",
+      "sha256": "fcefdd87ee19bca6196f8a16c705f6f39b54b13156e2c0673f03b57ff2fd664a",
+      "size": 891868
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-response-P2/inspection.json",
+      "sha256": "42476d0d821ba043561409d5f22299b28a39fef988a6a0cdd14ae2dfdc616742",
+      "size": 2824061
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/reserve-preflight-R9/C07_Reserve_Bay.png",
+      "sha256": "3fba9b68d19fc6a4e4ed9bdcc753dfc2f25033b0ad6dbafbc5634d98e78f4d2a",
+      "size": 976415
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/reserve-preflight-R9/inspection.json",
+      "sha256": "a72f020aedb76c80d0fac50f60028326607fe000481064f38f91e5a594c60d78",
+      "size": 2822445
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/slice-R2/C08_Material_Detail.png",
+      "sha256": "7663909a465ca7264604f298414db954da40f2f04a5873e7190b63689526550e",
+      "size": 927917
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/slice-R2/C09_Workbench.png",
+      "sha256": "83fe974292b868aa26294d42372393fa8a01d8c77cc87efb096df2761ff7b6ed",
+      "size": 886711
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/slice-R2/inspection.json",
+      "sha256": "cedc0241914c563eb453a450584ce410511f61f2c1c8fe91a5e515a4962cb81e",
+      "size": 2132353
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/slice/C08_Material_Detail.png",
+      "sha256": "cdd855d3f86d3db25dcf267e13a1fe84ecd4a4489599de7c916fd595c3448c57",
+      "size": 919665
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/slice/C09_Workbench.png",
+      "sha256": "8da8ee4fed303db04112ceed164ca190ccfa2db4f3d162e0c31df7d79553dc11",
+      "size": 891230
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/slice/inspection.json",
+      "sha256": "7412d85df68f9f935e4fa97c3822ad82e3171fba364cf4f7724a4c03568ccca1",
+      "size": 2115676
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6/C01_Entry.png",
+      "sha256": "613f74f45ce8d12a66f4e05358c0a97f143642bc916daa418532e7f8d04302ee",
+      "size": 1108481
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6/C04_Route.png",
+      "sha256": "9936242fd07e34a8767a25cb8118db7a1252dcc96f587a56a5d5ac55a25ae8a0",
+      "size": 953628
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6/C07_Reserve_Bay.png",
+      "sha256": "2e4540384fb7a5d3d46398e2d4732a35dad25cefeac925d3069b6ad9e29b4d26",
+      "size": 924576
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6/C09_Workbench.png",
+      "sha256": "768fc36370d10cc9e6baf8f06027783954e9732987029d55530903f494393b17",
+      "size": 889840
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6/inspection.json",
+      "sha256": "fd6c2bad6deecfc1a79b1af2870d47c732b7b44fc32ba0965af8fa95a8495dbe",
+      "size": 2705668
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6c/C01_Entry.png",
+      "sha256": "b29a506bc7d975bb5f491b8a64778799522e9aa6aa980fa322dc5f1e22da2ae8",
+      "size": 1117575
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6c/C04_Route.png",
+      "sha256": "ccab3e41f4618b93ce8a75acd79dbc9573bc999f1348eeb87a4b92d218aff775",
+      "size": 970202
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6c/C09_Workbench.png",
+      "sha256": "62a88e950852d8b90e1d680ae8ead39146e98d7280c16f99b023ad7c89b45405",
+      "size": 893419
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6c/inspection.json",
+      "sha256": "77dda63d3229a6517e77ec54c76e0e80fab98f813148722dd7c6d48b9f73b219",
+      "size": 2705668
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6e/C04_Route.png",
+      "sha256": "e01b764d833313952f468f94baa1e03a92db1f55d7ffb72e9b20f72ea6574249",
+      "size": 980333
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6e/C09_Workbench.png",
+      "sha256": "7297dc23b5930d76245df36f490fd51396b46bbcbba39b98a54be6ebca767f8b",
+      "size": 898200
+    },
+    {
+      "file": "sections/facility-assembly/sources/electrical-room/overhaul/renders/surface-preflight-R6e/inspection.json",
+      "sha256": "67f42abfd2dade08528adfa061d020d260ffc553251c5a533c199aea09f48c0a",
+      "size": 2705744
+    }
+  ],
+  "independent_reviews": [
+    {
+      "file": "critics/R11.md",
+      "scores": [
+        99,
+        99,
+        99,
+        99,
+        99,
+        99,
+        99
+      ]
+    },
+    {
+      "file": "critics/R12-FRESH.md",
+      "scores": [
+        99,
+        99,
+        99,
+        99,
+        99,
+        99,
+        99
+      ]
+    }
+  ],
+  "two_independent_reviews_seven99_verified": true,
+  "all_paths_within_authorized_scope": true,
+  "pass": true
+}

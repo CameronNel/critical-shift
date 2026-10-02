@@ -1,0 +1,59 @@
+{
+  "source_sha256": "eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df",
+  "purpose": "Controlled optical experiment only; duplicated existing fuse behind parked pane is temporary and is never saved as room dressing.",
+  "temporary_specimen_objects": [
+    "OPTICAL SPECIMEN | EOH | Fuse cradle",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic barrel",
+    "OPTICAL SPECIMEN | EOH | Fuse crimped end cap",
+    "OPTICAL SPECIMEN | EOH | Fuse knife contact blade",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw washer",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw hex head",
+    "OPTICAL SPECIMEN | EOH | Fuse crimped end cap.001",
+    "OPTICAL SPECIMEN | EOH | Fuse knife contact blade.001",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw washer.001",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw hex head.001",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic shoulder",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic shoulder.001",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic batch imprint",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic stamp"
+  ],
+  "specimen_translation": [
+    2.3199996948242188,
+    -13.549999237060547,
+    0.8530000448226929
+  ],
+  "camera_matrix": [
+    -0.9932631254196167,
+    -0.001918115303851664,
+    0.11586490273475647,
+    -1.649999976158142,
+    0.11588077992200851,
+    -0.016440371051430702,
+    0.9931270480155945,
+    2.0999999046325684,
+    -7.019668402108437e-08,
+    0.9998630285263062,
+    0.01655188761651516,
+    1.9800000190734863,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "lens": 70.0,
+  "samples": 24,
+  "transmission_weight": 0.9599999785423279,
+  "views": [
+    {
+      "file": "OP01_Through_Glass.png",
+      "pane_hidden": false,
+      "sha256": "ce671395a56d63cecd6b0666e28d823d6db2e2d15baee30968a6b201e104d8db"
+    },
+    {
+      "file": "OP02_No_Pane_Control.png",
+      "pane_hidden": true,
+      "sha256": "aa65e42d693ebebd3633d5bf5647d92f4fb649b6e2e0f914a6764647c8ea020e"
+    }
+  ],
+  "saved_source_unchanged": true
+}

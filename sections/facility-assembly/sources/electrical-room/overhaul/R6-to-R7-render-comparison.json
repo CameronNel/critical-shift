@@ -1,0 +1,224 @@
+{
+  "scope": "Hash-valid images, explicit source provenance, identical toolchain/settings/cameras and measured decoded-pixel differences. Declared source transitions are not same-source cold repeats. Independent visual review determines improvement and stability.",
+  "mode": "declared_visual_finish_iteration",
+  "source_sha256": "00bdb79fcbe46af64320b02c56b7cbcb4f2cf218ca5d737a755c19e4face37be",
+  "previous_source_sha256": "0af8ba32e214023cbf67c7e89063eedce9e30fc36f5bccb99c248eeef1d35948",
+  "source_bytes_identical": false,
+  "previous": "/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/renders/R6",
+  "cold": "/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/renders/R7",
+  "views": [
+    {
+      "camera": "C01_Entry",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        0.000302734375,
+        0.00028428819444444443,
+        0.0003298611111111111
+      ],
+      "rms_difference_8bit_rgb": [
+        0.01866299256996762,
+        0.01875,
+        0.01926379375927805
+      ],
+      "maximum_channel_difference_8bit": 4
+    },
+    {
+      "camera": "C02_Hero",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        2.170138888888889e-06,
+        5.4253472222222224e-06,
+        3.2552083333333335e-06
+      ],
+      "rms_difference_8bit_rgb": [
+        0.001473139127471974,
+        0.002329237476562281,
+        0.0018042195912175807
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "C03_Reverse",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        0.00014214409722222222,
+        0.00013346354166666666,
+        0.00011176215277777778
+      ],
+      "rms_difference_8bit_rgb": [
+        0.011922419939853747,
+        0.011552642194176475,
+        0.010571762046971063
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "C04_Route",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        0.0005674913194444445,
+        0.0005848524305555556,
+        0.0005750868055555556
+      ],
+      "rms_difference_8bit_rgb": [
+        0.03279182549728582,
+        0.03731144726785899,
+        0.03420094824871251
+      ],
+      "maximum_channel_difference_8bit": 9
+    },
+    {
+      "camera": "C05_Drawout_Clearance",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        0.0002072482638888889,
+        0.00021592881944444445,
+        0.00020290798611111112
+      ],
+      "rms_difference_8bit_rgb": [
+        0.014396119751130473,
+        0.014694516645485297,
+        0.014244577428309733
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "C06_Transformer",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        1.8446180555555556e-05,
+        1.4105902777777777e-05,
+        8.680555555555556e-06
+      ],
+      "rms_difference_8bit_rgb": [
+        0.00429490169335173,
+        0.003755782578608322,
+        0.002946278254943948
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "C07_Reserve_Bay",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        6.401909722222223e-05,
+        4.8828125e-05,
+        9.223090277777778e-05
+      ],
+      "rms_difference_8bit_rgb": [
+        0.008001193487363134,
+        0.006987712429686843,
+        0.009603692143013424
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "C08_Material_Detail",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        0.00017361111111111112,
+        0.00014214409722222222,
+        0.00014539930555555554
+      ],
+      "rms_difference_8bit_rgb": [
+        0.013176156917368247,
+        0.011922419939853747,
+        0.012058163440406484
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "C09_Workbench",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        0.00041015625,
+        0.0004654947916666667,
+        0.0004633246527777778
+      ],
+      "rms_difference_8bit_rgb": [
+        0.02025231468252456,
+        0.021575328309591645,
+        0.021524977416428986
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "C10_Transfer",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        0.00010525173611111111,
+        6.401909722222223e-05,
+        7.921006944444444e-05
+      ],
+      "rms_difference_8bit_rgb": [
+        0.010259226876870942,
+        0.008001193487363134,
+        0.008900003901372428
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "W01_Turbine_Return",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        9.765625e-06,
+        9.765625e-06,
+        1.5190972222222222e-05
+      ],
+      "rms_difference_8bit_rgb": [
+        0.003125,
+        0.003125,
+        0.0038975597778895224
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "W02_Waste_Approach",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        0.00026584201388888887,
+        0.00026041666666666666,
+        0.00028103298611111113
+      ],
+      "rms_difference_8bit_rgb": [
+        0.016304662335935968,
+        0.01613743060919757,
+        0.016764038478574043
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "W03_Reserve_Return",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        0.0004470486111111111,
+        0.0004427083333333333,
+        0.00043836805555555556
+      ],
+      "rms_difference_8bit_rgb": [
+        0.030297999108852055,
+        0.034579568068120486,
+        0.031560952932381495
+      ],
+      "maximum_channel_difference_8bit": 16
+    },
+    {
+      "camera": "W04_Switchgear_Approach",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        0.00042317708333333335,
+        0.0004318576388888889,
+        0.00045355902777777777
+      ],
+      "rms_difference_8bit_rgb": [
+        0.02263079269000045,
+        0.023616216768238822,
+        0.023844839879707494
+      ],
+      "maximum_channel_difference_8bit": 5
+    }
+  ],
+  "all_decoded_pixels_identical": false,
+  "failures": [],
+  "provenance_pass": true
+}

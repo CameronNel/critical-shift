@@ -1,0 +1,126 @@
+{
+  "scope": "Python syntax and bash parser checks only; Blender behavioral and visual evidence are separate.",
+  "python": "3.11.16",
+  "python_script_count": 29,
+  "scripts": [
+    {
+      "file": "scripts/audit_candidate.py",
+      "sha256": "1e5886751443efb57476916467365a55441ed3cff68d7b0ddcf87c07f55b066f"
+    },
+    {
+      "file": "scripts/build.py",
+      "sha256": "000f7d6e44d39894deea547bc380cf285fc528d5dc0924a7ef97c2ab72fc296d"
+    },
+    {
+      "file": "scripts/capture.py",
+      "sha256": "1c059310eede81e9629550a4249bce701c78b7d716229061d543e2960c99486a"
+    },
+    {
+      "file": "scripts/compare_captures.py",
+      "sha256": "a09347470284df6c115d37b497596e010ec86cc2eaf988b419829d90e3892de2"
+    },
+    {
+      "file": "scripts/compare_map_captures.py",
+      "sha256": "d0c6fb09a57389e6d480a62d0a2a090de30d2a283153c466731d846a6505b1ed"
+    },
+    {
+      "file": "scripts/door_history.py",
+      "sha256": "8609092902219abb88c1bc36db4ea2edc08be977d12c221b2eba18a0f7925809"
+    },
+    {
+      "file": "scripts/expand.py",
+      "sha256": "15f0171d1f6abb4875400d41c8eaa4118a626246af526beddddd2c7107b39b0d"
+    },
+    {
+      "file": "scripts/floor_contacts.py",
+      "sha256": "ffffe711494be589a1a670ba722f7d64f60542a2570b68e2ec357bf92cb475e2"
+    },
+    {
+      "file": "scripts/inspect_map.py",
+      "sha256": "9b1d511edd5ed7a2f7d46084fd71fc134ad2607e779e4a0b92cbbe38b6b36991"
+    },
+    {
+      "file": "scripts/integrate_candidate.py",
+      "sha256": "36f431168ac8059f8a7b6c165d18224c919ce1c606624d27bd693a9d4b798ad0"
+    },
+    {
+      "file": "scripts/kit.py",
+      "sha256": "bd1c810d873bc86f76d97a8369769dc2626ad1977a1e981adeb9d25996ae10d9"
+    },
+    {
+      "file": "scripts/lead_finish.py",
+      "sha256": "8e02ae86cff1a94b19b1ba9b1069babff92fa02a810ca05f714a5eaa4390e443"
+    },
+    {
+      "file": "scripts/optical_proof.py",
+      "sha256": "2843d9ed07fe7eae987aab580972320c767a9e2df906a12260c6848666014dc1"
+    },
+    {
+      "file": "scripts/palette_finish.py",
+      "sha256": "46ddd0c31b6f0867bb9f312b31ed8a2ff7968b4c3cf7c82b62b643140ee27914"
+    },
+    {
+      "file": "scripts/preserve_legacy.py",
+      "sha256": "0d8e7975f0731dab3affb170a4ed88b88228ad6ea397df4fb56d337b0046e191"
+    },
+    {
+      "file": "scripts/refine_doors.py",
+      "sha256": "19f6b03a958bc05edd4e96033bd42aadbb3b313431b80ee4a9e5b5bc71962471"
+    },
+    {
+      "file": "scripts/repair_door_history.py",
+      "sha256": "b5fdb7de9706cd78d7a50f64e5c90f7cae21d0351d7b46ba500086632523e248"
+    },
+    {
+      "file": "scripts/repair_floor_contacts.py",
+      "sha256": "6a25ed3b1d6955f554e0b013b683f05e8fce5e95f093fc1d0bf86fa0c7ec65b2"
+    },
+    {
+      "file": "scripts/repair_lead_finish.py",
+      "sha256": "1fa7e5cf869580cf071d51b95f506ef567021702e768fb8ee0763310f5f9e1f0"
+    },
+    {
+      "file": "scripts/repair_palette_finish.py",
+      "sha256": "6f0fae9804e1c2695b5d3b68b6c167f2a5848c291fa062e652a4961ae8ff5a4f"
+    },
+    {
+      "file": "scripts/repair_reserve_finish.py",
+      "sha256": "b5f0a1e0b899959c74af88d4a2a77c768f9b13fd7413da4ad2ddef7cd084923d"
+    },
+    {
+      "file": "scripts/repair_surface_finish.py",
+      "sha256": "3a508dd6c4833f5a95de190b540cd971e2ed38c350a702ed8e2007e57cbedd58"
+    },
+    {
+      "file": "scripts/reserve_finish.py",
+      "sha256": "d6fc8d0ca4338ec91a476f69296ad4bd3a97a56f242c0af561c1ef4474f123eb"
+    },
+    {
+      "file": "scripts/retire_floor_polygons.py",
+      "sha256": "92431046f1340ccdf26791d65d014c5b3eca790b628977bc38ca578d5fa9f138"
+    },
+    {
+      "file": "scripts/surface_finish.py",
+      "sha256": "16b198fa8e1bf00b86362a3a3cafa340549f0c4a3ee95e51aaa7fdc6eae53c62"
+    },
+    {
+      "file": "scripts/use_history.py",
+      "sha256": "5bb7eef84453657dacd9d848b5df3fc2a330a2ca03fc9e4afb60a60df7ecd80c"
+    },
+    {
+      "file": "scripts/validate.py",
+      "sha256": "576ecd39600b7114e720d8aa87a68c2fdb9354a8dd2da13f880077b515c8bf78"
+    },
+    {
+      "file": "scripts/verify_active_checkout.py",
+      "sha256": "83969a7815e164e89bf7067cc449545650f099914d7ab783fcaf75dfc8c1dcc6"
+    },
+    {
+      "file": "scripts/vision_finish.py",
+      "sha256": "5bc7162708728b8f64746e8af6764090dc96cb921e9af824f2fbc859e96bbf8f"
+    }
+  ],
+  "python_ast_pass": true,
+  "bash_parser_pass": true,
+  "run_sh_sha256": "ee7cdf069b3b81fc317301f1f7d8e01d11f79382c2eb33b1ad0f9a35fc7bef6f"
+}

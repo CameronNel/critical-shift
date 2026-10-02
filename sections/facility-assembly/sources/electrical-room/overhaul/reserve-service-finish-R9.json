@@ -1,0 +1,411 @@
+{
+  "repair_kind": "additive_reserve_service_lighting",
+  "input_sha256": "70216c22c3fb7716150b5f1670a3228bf36afd78a32db42734bb382e77fc371f",
+  "output_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
+  "declared_changes": {
+    "new_supported_object_names": [
+      "EOH | Reserve compartment service light",
+      "EOH | Reserve compartment service light.001",
+      "EOH | Reserve compartment service light.002",
+      "EOH | Reserve compartment service light.003",
+      "EOH | Reserve compartment service light.004",
+      "EOH | Reserve compartment service light.005",
+      "EOH | Reserve compartment service light.006",
+      "EOH | Reserve compartment service light.007",
+      "EOH | Reserve compartment service light.008",
+      "EOH | Reserve lighting junction cover",
+      "EOH | Reserve lighting junction cover.001",
+      "EOH | Reserve lighting junction cover.002",
+      "EOH | Reserve lighting raceway",
+      "EOH | Reserve lighting raceway returned lid",
+      "EOH | Reserve lighting raceway returned lid.001",
+      "EOH | Reserve lighting raceway returned lid.002",
+      "EOH | Reserve lighting raceway.001",
+      "EOH | Reserve lighting raceway.002",
+      "EOH | Reserve service strip extruded housing",
+      "EOH | Reserve service strip extruded housing.001",
+      "EOH | Reserve service strip extruded housing.002",
+      "EOH | Reserve service strip extruded housing.003",
+      "EOH | Reserve service strip extruded housing.004",
+      "EOH | Reserve service strip extruded housing.005",
+      "EOH | Reserve service strip extruded housing.006",
+      "EOH | Reserve service strip extruded housing.007",
+      "EOH | Reserve service strip extruded housing.008",
+      "EOH | Reserve service strip glare return",
+      "EOH | Reserve service strip glare return.001",
+      "EOH | Reserve service strip glare return.002",
+      "EOH | Reserve service strip glare return.003",
+      "EOH | Reserve service strip glare return.004",
+      "EOH | Reserve service strip glare return.005",
+      "EOH | Reserve service strip glare return.006",
+      "EOH | Reserve service strip glare return.007",
+      "EOH | Reserve service strip glare return.008",
+      "EOH | Reserve service strip recessed diffuser",
+      "EOH | Reserve service strip recessed diffuser.001",
+      "EOH | Reserve service strip recessed diffuser.002",
+      "EOH | Reserve service strip recessed diffuser.003",
+      "EOH | Reserve service strip recessed diffuser.004",
+      "EOH | Reserve service strip recessed diffuser.005",
+      "EOH | Reserve service strip recessed diffuser.006",
+      "EOH | Reserve service strip recessed diffuser.007",
+      "EOH | Reserve service strip recessed diffuser.008",
+      "EOH | Reserve service strip retained end shoe",
+      "EOH | Reserve service strip retained end shoe.001",
+      "EOH | Reserve service strip retained end shoe.002",
+      "EOH | Reserve service strip retained end shoe.003",
+      "EOH | Reserve service strip retained end shoe.004",
+      "EOH | Reserve service strip retained end shoe.005",
+      "EOH | Reserve service strip retained end shoe.006",
+      "EOH | Reserve service strip retained end shoe.007",
+      "EOH | Reserve service strip retained end shoe.008",
+      "EOH | Reserve service strip retained end shoe.009",
+      "EOH | Reserve service strip retained end shoe.010",
+      "EOH | Reserve service strip retained end shoe.011",
+      "EOH | Reserve service strip retained end shoe.012",
+      "EOH | Reserve service strip retained end shoe.013",
+      "EOH | Reserve service strip retained end shoe.014",
+      "EOH | Reserve service strip retained end shoe.015",
+      "EOH | Reserve service strip retained end shoe.016",
+      "EOH | Reserve service strip retained end shoe.017",
+      "EOH | Reserve strip fixing hex head",
+      "EOH | Reserve strip fixing hex head.001",
+      "EOH | Reserve strip fixing hex head.002",
+      "EOH | Reserve strip fixing hex head.003",
+      "EOH | Reserve strip fixing hex head.004",
+      "EOH | Reserve strip fixing hex head.005",
+      "EOH | Reserve strip fixing hex head.006",
+      "EOH | Reserve strip fixing hex head.007",
+      "EOH | Reserve strip fixing hex head.008",
+      "EOH | Reserve strip fixing hex head.009",
+      "EOH | Reserve strip fixing hex head.010",
+      "EOH | Reserve strip fixing hex head.011",
+      "EOH | Reserve strip fixing hex head.012",
+      "EOH | Reserve strip fixing hex head.013",
+      "EOH | Reserve strip fixing hex head.014",
+      "EOH | Reserve strip fixing hex head.015",
+      "EOH | Reserve strip fixing hex head.016",
+      "EOH | Reserve strip fixing hex head.017",
+      "EOH | Reserve strip fixing washer",
+      "EOH | Reserve strip fixing washer.001",
+      "EOH | Reserve strip fixing washer.002",
+      "EOH | Reserve strip fixing washer.003",
+      "EOH | Reserve strip fixing washer.004",
+      "EOH | Reserve strip fixing washer.005",
+      "EOH | Reserve strip fixing washer.006",
+      "EOH | Reserve strip fixing washer.007",
+      "EOH | Reserve strip fixing washer.008",
+      "EOH | Reserve strip fixing washer.009",
+      "EOH | Reserve strip fixing washer.010",
+      "EOH | Reserve strip fixing washer.011",
+      "EOH | Reserve strip fixing washer.012",
+      "EOH | Reserve strip fixing washer.013",
+      "EOH | Reserve strip fixing washer.014",
+      "EOH | Reserve strip fixing washer.015",
+      "EOH | Reserve strip fixing washer.016",
+      "EOH | Reserve strip fixing washer.017",
+      "EOH | Reserve strip retained supply lead",
+      "EOH | Reserve strip retained supply lead.001",
+      "EOH | Reserve strip retained supply lead.002",
+      "EOH | Reserve strip retained supply lead.003",
+      "EOH | Reserve strip retained supply lead.004",
+      "EOH | Reserve strip retained supply lead.005",
+      "EOH | Reserve strip retained supply lead.006",
+      "EOH | Reserve strip retained supply lead.007",
+      "EOH | Reserve strip retained supply lead.008"
+    ],
+    "new_material_names": [
+      "EOH | Reserve service LED diffuser"
+    ],
+    "new_service_lights": [
+      "EOH | Reserve compartment service light",
+      "EOH | Reserve compartment service light.001",
+      "EOH | Reserve compartment service light.002",
+      "EOH | Reserve compartment service light.003",
+      "EOH | Reserve compartment service light.004",
+      "EOH | Reserve compartment service light.005",
+      "EOH | Reserve compartment service light.006",
+      "EOH | Reserve compartment service light.007",
+      "EOH | Reserve compartment service light.008"
+    ],
+    "watts_per_light": 3.5,
+    "measured_jamb_contacts": [
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe",
+        "target": "Reserve folded vertical.001",
+        "point": [
+          7.458,
+          11.7675,
+          0.834
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "support_gap_m": 9.5367431640625e-07
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.001",
+        "target": "Reserve folded vertical",
+        "point": [
+          7.458,
+          12.5925,
+          0.834
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "support_gap_m": 0.0
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.002",
+        "target": "Reserve folded vertical.001",
+        "point": [
+          7.458,
+          11.7675,
+          1.384
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "support_gap_m": 9.5367431640625e-07
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.003",
+        "target": "Reserve folded vertical",
+        "point": [
+          7.458,
+          12.5925,
+          1.384
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "support_gap_m": 0.0
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.004",
+        "target": "Reserve folded vertical.001",
+        "point": [
+          7.458,
+          11.7675,
+          1.843
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "support_gap_m": 9.5367431640625e-07
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.005",
+        "target": "Reserve folded vertical",
+        "point": [
+          7.458,
+          12.5925,
+          1.843
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "support_gap_m": 0.0
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.006",
+        "target": "Reserve folded vertical.003",
+        "point": [
+          7.458,
+          12.7875,
+          0.834
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "support_gap_m": 0.0
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.007",
+        "target": "Reserve folded vertical.002",
+        "point": [
+          7.458,
+          13.612499999999999,
+          0.834
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "support_gap_m": 9.5367431640625e-07
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.008",
+        "target": "Reserve folded vertical.003",
+        "point": [
+          7.458,
+          12.7875,
+          1.384
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "support_gap_m": 0.0
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.009",
+        "target": "Reserve folded vertical.002",
+        "point": [
+          7.458,
+          13.612499999999999,
+          1.384
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "support_gap_m": 9.5367431640625e-07
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.010",
+        "target": "Reserve folded vertical.003",
+        "point": [
+          7.458,
+          12.7875,
+          1.843
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "support_gap_m": 0.0
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.011",
+        "target": "Reserve folded vertical.002",
+        "point": [
+          7.458,
+          13.612499999999999,
+          1.843
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "support_gap_m": 9.5367431640625e-07
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.012",
+        "target": "Reserve folded vertical.005",
+        "point": [
+          7.458,
+          13.807500000000001,
+          0.834
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "support_gap_m": 9.5367431640625e-07
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.013",
+        "target": "Reserve folded vertical.004",
+        "point": [
+          7.458,
+          14.6325,
+          0.834
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "support_gap_m": 0.0
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.014",
+        "target": "Reserve folded vertical.005",
+        "point": [
+          7.458,
+          13.807500000000001,
+          1.384
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "support_gap_m": 9.5367431640625e-07
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.015",
+        "target": "Reserve folded vertical.004",
+        "point": [
+          7.458,
+          14.6325,
+          1.384
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "support_gap_m": 0.0
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.016",
+        "target": "Reserve folded vertical.005",
+        "point": [
+          7.458,
+          13.807500000000001,
+          1.843
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "support_gap_m": 9.5367431640625e-07
+      },
+      {
+        "fixture": "EOH | Reserve service strip retained end shoe.017",
+        "target": "Reserve folded vertical.004",
+        "point": [
+          7.458,
+          14.6325,
+          1.843
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "support_gap_m": 0.0
+      }
+    ],
+    "existing_rack_support_roots_reused": 3,
+    "existing_objects_and_material_definitions_unchanged": true
+  },
+  "unchanged_object_signatures": 3069,
+  "all_existing_object_signatures_unchanged": true,
+  "all_existing_material_definitions_unchanged": true,
+  "source_bytes_unchanged": true,
+  "scope": "Nine supported low-voltage strips, raceways and supplies added to three existing reserve racks. No existing mesh, transform, light, material, interface or camera changed."
+}

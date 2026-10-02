@@ -1,0 +1,11 @@
+Failed to create secure directory (/home/agent/.config/pulse): Read-only file system
+00:00.672  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R3.blend"
+Traceback (most recent call last):
+  File "/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/scripts/preserve_legacy.py", line 25, in <module>
+    assert material is not None and material.name in missing
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+Error: script failed, file: '/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/scripts/preserve_legacy.py', exiting.
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:12:34)
+pa_write() failed while trying to wake up the mainloop: Operation not permitted

@@ -1,0 +1,27 @@
+{
+  "input_sha256": "2449094c75ac6e886ae5669d8dc8615c356edc8b20135e841908f10ee735c3f6",
+  "output_sha256": "53fc5d9fc446bd8eaa9b8fc7649240df029eb6d671d9601da8a230ae47a3404b",
+  "declared_changes": {
+    "material_profiles": [
+      "cream",
+      "slate",
+      "enamel",
+      "floor",
+      "route"
+    ],
+    "practical_powers_watts": {
+      "Entry fluorescent light": 85,
+      "Rear hall practical light": 105,
+      "West rear practical light": 250,
+      "Transformer task practical light": 375,
+      "Reserve bay practical light": 255,
+      "EOH | Bench practical": 42
+    },
+    "new_registered_service_assemblies": 1,
+    "localized_floor_contacts": 6
+  },
+  "original_geometry_matrices_unchanged": true,
+  "checked_objects": 3033,
+  "source_bytes_unchanged": true,
+  "scope": "Declared broad material response, existing practical powers and six supported service-floor contact additions; no shell/camera/interface edits"
+}

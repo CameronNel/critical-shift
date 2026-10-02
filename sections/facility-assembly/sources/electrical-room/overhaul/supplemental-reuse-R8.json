@@ -1,0 +1,19 @@
+{
+  "source_sha256": "00bdb79fcbe46af64320b02c56b7cbcb4f2cf218ca5d737a755c19e4face37be",
+  "same_source_bytes": true,
+  "reused_evidence": [
+    {
+      "kind": "diagnostics",
+      "directory": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R7",
+      "manifest_sha256": "2898dc6d43edc43b9cce622f9cf7f2d8d2f248b33d430dd95820d1ec5f52d7fe",
+      "image_count": 5
+    },
+    {
+      "kind": "optical",
+      "directory": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R7",
+      "manifest_sha256": "7778d6f52e025d92da3fa5d2d7cee48c328dde281694f979b1fdfaf3f09da984",
+      "image_count": 2
+    }
+  ],
+  "scope": "Existing hash-valid supplemental evidence at identical source bytes. Formal14 and map5 are freshly captured for this cycle; reused details are explicitly not new renders."
+}

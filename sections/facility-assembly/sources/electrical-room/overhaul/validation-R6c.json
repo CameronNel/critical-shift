@@ -1,0 +1,2183 @@
+{
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R6c.blend",
+  "source_sha256": "53fc5d9fc446bd8eaa9b8fc7649240df029eb6d671d9601da8a230ae47a3404b",
+  "failures": [],
+  "scope": "Blender source checks, registered assembly support anchors and sampled 0.60 m route envelopes. Not exhaustive intersection/physics, Unity/navmesh or runtime performance certification.",
+  "protected_geometry_and_cameras": {
+    "checked": 318,
+    "changed": [],
+    "explicit_cosmetic_retirements": 104,
+    "geometry_checks_excluding_retired_cosmetic_wear": 214,
+    "pass": true
+  },
+  "replaced_original_door_finish": [
+    {
+      "object": "Localized chipped paint",
+      "baseline_geometry_sha256": "42be315c14a2c4fa703c4a113fa0c560d17cca8c204ef2a177d7f30732741f35",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Localized chipped paint.001",
+      "baseline_geometry_sha256": "2039ad8253e17b351253141e26e87959790795748351f314249eefce09a29bd2",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge",
+      "baseline_geometry_sha256": "ee47e0447309fcbf531c2158a79fa943d85145786f4b02ec81b32da478a198cb",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.001",
+      "baseline_geometry_sha256": "cea7b170ffa5b1d7b8922d4d6525aae3c6fd28c00fd460231e16129106b3069d",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.002",
+      "baseline_geometry_sha256": "3699d670a7e5228f37b9878a675c6c6654cef3b1b5797c2a1e4906126331a034",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.003",
+      "baseline_geometry_sha256": "9c8dc9c3d31a209a63152a6ab67d102777751185303ae48eeb158c25b484b3d0",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.004",
+      "baseline_geometry_sha256": "fc59632d4c0953892d299374b9f4cacd28a8a63c6332ae3887eb69f3f71bc07d",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.005",
+      "baseline_geometry_sha256": "9e5d6698536dd4aec66c5b30b05d744bd125320af58096c55f3301e413edc0ce",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.006",
+      "baseline_geometry_sha256": "6cf7f4ff08653f592ded9c8c1b85704c73a7d10f0fa0ef18c496a8360ffec62d",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.007",
+      "baseline_geometry_sha256": "bd3b04446357c82957404530e497b6b81e37138e7e09a7aaa0f027b1a34f934c",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.008",
+      "baseline_geometry_sha256": "4cab5bb8935e092d0b152462dae5888f63236a608aa024aba09c223a2490021d",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.009",
+      "baseline_geometry_sha256": "05b5777db0eda778eec4fe2ae3dcb70abf95bed10bf9c2c198509139b7f50b44",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.010",
+      "baseline_geometry_sha256": "98ee812473f737ecba1eb3726ff189672290bcd8abe48f042e2a56fe704bc489",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.011",
+      "baseline_geometry_sha256": "89ed0d07e41ab5ba753d1e4cfa17ab36dc2f7f7b5f2700610e3e84df1d46f2a3",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.012",
+      "baseline_geometry_sha256": "45fa955575693fd73aa8e973cb72bb33c86145f686393467e2dc4cf3ee46afec",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.013",
+      "baseline_geometry_sha256": "e7ac785cf9c9d8cf5e36e00616e444dea86b41d473fb386da8f640e1620f6323",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.014",
+      "baseline_geometry_sha256": "26da4a7ca673226171f4b31aa06b86fa6d739b284d433ea6985ca4c3049ddc13",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.015",
+      "baseline_geometry_sha256": "9261a9cfa256656298877105fbf7b0936b505b4f331ae7a86c8be4a204aba499",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.016",
+      "baseline_geometry_sha256": "abea2c8bf666f527be7556913689f9cfc782976c502d408f5c8e213200e69ba0",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.017",
+      "baseline_geometry_sha256": "95efa68c4bb04108b512ae7f80beeab9e701f81ef38cf6e64aef17e514a7f411",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.018",
+      "baseline_geometry_sha256": "23f25f63d03ab2cd83e78754b9c4f899066a1c8ba3f1f1753b09057e3ae23837",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.019",
+      "baseline_geometry_sha256": "1a8540b019c5a292d853a1ab91dc0cc55d35cbe28d4708c9a526580ecedf6513",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.020",
+      "baseline_geometry_sha256": "5ce76aed09257ecfff1881c8bd022f6ed0d3543870b96f1939327cea25685c2b",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.021",
+      "baseline_geometry_sha256": "6ca7ff5c52d9aa08a0c27bb9b404d9768066ad2f20773b89da66f4c88da3dab7",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.022",
+      "baseline_geometry_sha256": "e562389376562f04c0a524b8b699897063cc7a2b579d7326d5abeb4fab9e2df9",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.023",
+      "baseline_geometry_sha256": "4ebf33e7eaefd042aaa81df3be97411c3516f13afed12ae46848e62ea251beb8",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Localized chipped paint.002",
+      "baseline_geometry_sha256": "121e6f6848df4112354cc3ecbdc3f9e12ef4aa5c2cf38621a4760cedd2738493",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Localized chipped paint.003",
+      "baseline_geometry_sha256": "71641020d926db138b3c3d5873486b08ed1d29305fe0e14a47efde428524cd8f",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.024",
+      "baseline_geometry_sha256": "08b2d5ac6319cdfa04c5b3123dedd08149143cbc66101f0987c77dc7e54f46ce",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.025",
+      "baseline_geometry_sha256": "cce0366b8c3ff0caf9ee0368e722d874435104357dec477659b9c6a69ab4cf0d",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.026",
+      "baseline_geometry_sha256": "9603bd578ba2119983b28220362e3f475e9146363d50380383aca88493b84bc6",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.027",
+      "baseline_geometry_sha256": "68c1e149db50074662866195fce148e608dd2770327aab36ef121b60265a0ab4",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.028",
+      "baseline_geometry_sha256": "02e76042aedc2ccefecddd00a45183abdb5fd498a33e9295d22534210cba3c9e",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.029",
+      "baseline_geometry_sha256": "b1cd806834ab9b33d864e44d90ab85b25b14c257748b00d7813d1b1eb10cc3c5",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.030",
+      "baseline_geometry_sha256": "c7c1dff906a0fd567f08f6f4c2ece3c635d8aba389d8e630cbc013fcda4abfe3",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.031",
+      "baseline_geometry_sha256": "fbef4fa7a30e971b9f157b986acaac6ea4714ebe0627feecdbfb34ef49e96cd2",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.032",
+      "baseline_geometry_sha256": "72e215cbe2c19b243432ba4450afd650e9de51875782cb9db327a4f4041d2fe8",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.033",
+      "baseline_geometry_sha256": "5bcb597caf65d0ee6cff495e3dca365edb1278601642eb45f65a200ad52b39f0",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.034",
+      "baseline_geometry_sha256": "cada633600c086173dad3ae483d2fc0dd58930825bf7d72b6538c781c47ab10b",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.035",
+      "baseline_geometry_sha256": "d6f7d5639a615cc71eaab7faaff273d32d7373a1cbd892e8153e9dce00002dc1",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.036",
+      "baseline_geometry_sha256": "c5525474cd812541c74edac4d51cda2ff2a21f1eaa292e40259149a5ac292321",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.037",
+      "baseline_geometry_sha256": "4efd82a9a71d93b5f09cca97f9ec464636e6c5f8e92ba77e28a9a14e28b44ed5",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.038",
+      "baseline_geometry_sha256": "31a143cc517e4c082147a8b1329d938f91152af76a62e895e4224307b6433922",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.039",
+      "baseline_geometry_sha256": "ba7113499fe35148a1e038cd270597137a454c806e9234dd6b0fa5752214d683",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.040",
+      "baseline_geometry_sha256": "58c0f58be611df30829e79b40fe49c038830cef0bd90af9874b3e3689498df0a",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.041",
+      "baseline_geometry_sha256": "8c2421c78e182de791e6f2407b5c20a1888c2bd22782e4554bd76062da851962",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.042",
+      "baseline_geometry_sha256": "c2abe64dac63284109d9563ba6e912db82c2d72284f4dcaf510fc7e2875b4599",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.043",
+      "baseline_geometry_sha256": "4e7930f809a2b509093fded5569599a07bbeffd3d093b7cad7ece32e4bd262ca",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.044",
+      "baseline_geometry_sha256": "a8622d5e3a39ede08c758b04948f97dbb87be68222231ec3d1539cf0ed3d1b2e",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.045",
+      "baseline_geometry_sha256": "ecf9767de532b67ce403918ecc9a8ff68f6efe0f71ecee1d97e19cc80dcaecf4",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.046",
+      "baseline_geometry_sha256": "01a86eab41dbc7b595a196481971e40f8c312da43715b39fa67b9ed327ab8211",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.047",
+      "baseline_geometry_sha256": "1db975d5eb6feffd1acc1f72f66e6efda2e4a0aa564da0dc3fe6a5076d80ad54",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Localized chipped paint.004",
+      "baseline_geometry_sha256": "fede79c33a73681a9970579e2e09a76014320ca6b937cc134d75897f0aee0237",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Localized chipped paint.005",
+      "baseline_geometry_sha256": "f45bb84498e01ba5973383a32ad6ba2d186a307d61f052019491f4329d167c48",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.048",
+      "baseline_geometry_sha256": "332d12ccc4ff59b9cfb95e2d4e630ae754a8b05c25d9c5008158e8555103f6f1",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.049",
+      "baseline_geometry_sha256": "65c06fa2b23f970180dfe639f64ed63d128c0875ac89f8d3475e66463aab6806",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.050",
+      "baseline_geometry_sha256": "aae2cf5acb2f05eadea1ef48f54f823aa955deb24594bf45deb06c180229eb4a",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.051",
+      "baseline_geometry_sha256": "a7a6b7e9e0fad80e482e13e8f607a1f21f4eb023b19a81bd346bcd3e355cf8b6",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.052",
+      "baseline_geometry_sha256": "0c393f524f779eaf0a470a1988b4b6f7938f85ac83eb06222cefa3c791476ce9",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.053",
+      "baseline_geometry_sha256": "ba1844774cd21fcae36f7078f0f01606d77603d4796cbec5fd9f02f06b586f14",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.054",
+      "baseline_geometry_sha256": "87382de67666cd46ef815fa17687d5c4bf571a132d5ac83518fbda7b10658ccc",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.055",
+      "baseline_geometry_sha256": "ccbf0fa08fc19d0d4290dfb51478eea255d8405dd7bf3ab3b5af5f323cde2f9f",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.056",
+      "baseline_geometry_sha256": "939251143dd8860bdaf8e42976eadf8ff33f0c1663bfb14674f54f4bf4f38275",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.057",
+      "baseline_geometry_sha256": "c86c62367747d87b2c6a24d1056f6b2214fdf180e44fca89fbef0fb910df39b1",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.058",
+      "baseline_geometry_sha256": "777b82adcbc7d79d8a54782e7ad393ec80071eb4650c8c62111e84f72785cff4",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.059",
+      "baseline_geometry_sha256": "d70974e6530577fae9dc21d39cec72e1530cc0d2cb86a5287cd842d96e68e2e8",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.060",
+      "baseline_geometry_sha256": "685af8c1cc1bd71bb9e94d3095986d33b77dfa7fbaac44b41340197fd9fda076",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.061",
+      "baseline_geometry_sha256": "1969d9099bb5f4a06928226c27699dfc196620e1be26be29d87e63bb62f627dd",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.062",
+      "baseline_geometry_sha256": "2af392c7ec648c133737b1f4cedaa53785cb91e99237d67b8c33a5c1e0ad43ec",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.063",
+      "baseline_geometry_sha256": "faa83a273fd51087012801d7dce396505efb173ae80d8cc527c16d9713221dbe",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.064",
+      "baseline_geometry_sha256": "599da72e3b6e8266592f44b60c1ff850e7501a70ba52f91964f1b6f05b9bed34",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.065",
+      "baseline_geometry_sha256": "222b1f2a3f0487e31eedb7ca871acf85d97cd92f29aec808e75f52baf35807d2",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.066",
+      "baseline_geometry_sha256": "e6c16e6fc9b252b91979cf7516670ceb6eb60bd50dcd7108075ec6df153ec3d3",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.067",
+      "baseline_geometry_sha256": "70119ab44a5ef0f0f7cad878a9de0d52e4a3662447e9265ac7a1390a926a92d4",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.068",
+      "baseline_geometry_sha256": "40cc2b96a8ec5f65ec1e68d2b841c588f2058fe833c1030101394b8151730d13",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.069",
+      "baseline_geometry_sha256": "d200fd550abb6ce2f458652703141b111b40b560830f33b571e895c5730a07e0",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.070",
+      "baseline_geometry_sha256": "a1eb9d65ade038d8bbb42d507f9c1ff733a4360b3f7e877fc08ada1d9cd2806a",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.071",
+      "baseline_geometry_sha256": "899a944d32b9c1807df5461cd6623071b74f1ab4ff2c0d53e4dac269286536ce",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Localized chipped paint.006",
+      "baseline_geometry_sha256": "b8fc62f6194291af9e22e69aff0fe0c235006705a82869094a09d9a447eb6913",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Localized chipped paint.007",
+      "baseline_geometry_sha256": "d3e1f0e60cc30871b38f84f174abc9836643a91160d67587107e784ec30efe88",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.072",
+      "baseline_geometry_sha256": "3cd7fd59dcb1b79aacd6dee9769552139eb295dccf362d91a1c31a539b8fc93a",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.073",
+      "baseline_geometry_sha256": "474352882aec0555b282ae503dd0ddb8f60be8815f86ec79ce061fba740d765d",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.074",
+      "baseline_geometry_sha256": "0a7b31b5bc932d5aee5cbd069ecc1c2822a62a4955b7aae18a1784ea45b13337",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.075",
+      "baseline_geometry_sha256": "226d783e4ef32bb220e643632cf09f58f33681723e859f965355c42b6edfb52b",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.076",
+      "baseline_geometry_sha256": "5badb12a222d930e8c4da11d16c83c0c5b94e95f8ad1881f2fd37330f57ab1ef",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.077",
+      "baseline_geometry_sha256": "747351f71a0e07ea04275e9e18db3cd5c640391157f04e84516141f358edaa88",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.078",
+      "baseline_geometry_sha256": "382cf97f38d67fd639904719ce12b09729d6acb538442e350861071e6ef2ddcd",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.079",
+      "baseline_geometry_sha256": "87cbc218f1a828cbbad6c7cc3665ce91b90d7fc30fa0e50548407e4a6fbf25aa",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.080",
+      "baseline_geometry_sha256": "32a8ba8293d7954dcf341eecb60037f758b4111101f8e676362f7164bad34a06",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.081",
+      "baseline_geometry_sha256": "e9102e6d5eeaa57f8113b7b9da41eff62ef027901da5283c16f995f7960524f9",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.082",
+      "baseline_geometry_sha256": "7feef761a9a1ccd2c720f1115d6a9e6a31450e68a464e361b0dd88aaa061605a",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.083",
+      "baseline_geometry_sha256": "39b4d26411494907cafabfb905c99c9094d53cddeb4cf21c47c9b013d9718d3d",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.084",
+      "baseline_geometry_sha256": "3b46152d27773d4b74a7f6debda274c45d36ddcbb72b473df879d28b433aad99",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.085",
+      "baseline_geometry_sha256": "86228b52fabdd3de29f84953c16569b6df547a57bfc6b8d9536b211a14497c79",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.086",
+      "baseline_geometry_sha256": "eb5a4bc6c2367c3d38d74462ae2f2da72a9bb91d52dc92054477eaa74cb59c11",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.087",
+      "baseline_geometry_sha256": "0d598e6fb56d9766ea8a67f4d4010704814e4599f4563642dd7aa915199eaeeb",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.088",
+      "baseline_geometry_sha256": "429658a261b8f8b52712e8e6808da3c0ad24c284a4eb3cc9c5c6e8ffd3c290cd",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.089",
+      "baseline_geometry_sha256": "f5a71fabec3995c8f70f790cd3890e1cbe7cde002639f525da9f8705907377af",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.090",
+      "baseline_geometry_sha256": "572b30157a022ac732d61c34f0191a0a31136da98f9a05aef66405272e2a773c",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.091",
+      "baseline_geometry_sha256": "94a94148191ffab84b58b2e8b8990c8a5ec523b353ee5ff01378701fb6fbc0bd",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.092",
+      "baseline_geometry_sha256": "a00b02834547312ea7df94ff40502fc7fd7276bbe68a0c7120658200014ca351",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.093",
+      "baseline_geometry_sha256": "6663d7129444bbc8d5dd46ce15c361746fac501c50a7e3c546e2b576b6fc11b2",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.094",
+      "baseline_geometry_sha256": "d025167f6ad15cf5e90991526a273b1b659b60562a7d10c607379f2148b7634d",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    },
+    {
+      "object": "Wear at repeatedly handled edge.095",
+      "baseline_geometry_sha256": "676bfaae3568f22c18af15954d1ea0d459ec70c2695258b39ca8c4d3bed7c1a1",
+      "reason": "Replaced duplicated decorative door wear with individual supported contact history"
+    }
+  ],
+  "remodelled_door_apertures": [
+    {
+      "object": "Parked sliding leaf",
+      "outer_bounds_error_m": 1.1920928955078125e-07,
+      "matrix_error": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Door recessed vision trim",
+      "outer_bounds_error_m": 5.960464477539063e-08,
+      "matrix_error": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Parked sliding leaf.001",
+      "outer_bounds_error_m": 1.1920928955078125e-07,
+      "matrix_error": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Door recessed vision trim.001",
+      "outer_bounds_error_m": 5.960464477539063e-08,
+      "matrix_error": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Parked sliding leaf.002",
+      "outer_bounds_error_m": 0.0,
+      "matrix_error": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Door recessed vision trim.002",
+      "outer_bounds_error_m": 0.0,
+      "matrix_error": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Parked sliding leaf.003",
+      "outer_bounds_error_m": 0.0,
+      "matrix_error": 0.0,
+      "pass": true
+    },
+    {
+      "object": "Door recessed vision trim.003",
+      "outer_bounds_error_m": 0.0,
+      "matrix_error": 0.0,
+      "pass": true
+    }
+  ],
+  "recessed_existing_vision_wires": [
+    {
+      "object": "Vision glass wire",
+      "pane": "Door wired vision glass",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 7.152557435219364e-10,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    },
+    {
+      "object": "Vision glass wire.001",
+      "pane": "Door wired vision glass",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 7.152557435219364e-10,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    },
+    {
+      "object": "Vision glass wire.002",
+      "pane": "Door wired vision glass",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 7.152557435219364e-10,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    },
+    {
+      "object": "Vision glass wire.003",
+      "pane": "Door wired vision glass.001",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 7.152557435219364e-10,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    },
+    {
+      "object": "Vision glass wire.004",
+      "pane": "Door wired vision glass.001",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 7.152557435219364e-10,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    },
+    {
+      "object": "Vision glass wire.005",
+      "pane": "Door wired vision glass.001",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 7.152557435219364e-10,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    },
+    {
+      "object": "Vision glass wire.006",
+      "pane": "Door wired vision glass.002",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 3.051757957450718e-08,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    },
+    {
+      "object": "Vision glass wire.007",
+      "pane": "Door wired vision glass.002",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 3.051757957450718e-08,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    },
+    {
+      "object": "Vision glass wire.008",
+      "pane": "Door wired vision glass.002",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 3.051757957450718e-08,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    },
+    {
+      "object": "Vision glass wire.009",
+      "pane": "Door wired vision glass.003",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 3.051757957450718e-08,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    },
+    {
+      "object": "Vision glass wire.010",
+      "pane": "Door wired vision glass.003",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 3.051757957450718e-08,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    },
+    {
+      "object": "Vision glass wire.011",
+      "pane": "Door wired vision glass.003",
+      "permitted_depth_shift_m": 0.007,
+      "other_geometry_error_m": 3.051757957450718e-08,
+      "matrix_error": 0.0,
+      "topology_same": true,
+      "entirely_inside_glass": true,
+      "pass": true
+    }
+  ],
+  "support": {
+    "registered_assemblies": 60,
+    "unregistered": [],
+    "results": [
+      {
+        "assembly": "EOH | Repair bench frame",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              -3.809999942779541,
+              12.800000190734863,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.03000020980835,
+              12.800000190734863,
+              0.0
+            ],
+            "gap_m": 1.9669532773380904e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -3.809999942779541,
+              14.960000038146973,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.03000020980835,
+              14.960000038146973,
+              0.0
+            ],
+            "gap_m": -8.270144465083451e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Workshop wall panels",
+        "target": "West wall",
+        "samples": [
+          {
+            "anchor": [
+              -5.5,
+              13.630000114440918,
+              2.200000047683716
+            ],
+            "gap_m": 8.39233398435002e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.5,
+              15.0,
+              2.200000047683716
+            ],
+            "gap_m": 8.485466241811568e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Bench tool rack",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              -5.050000190734863,
+              12.800000190734863,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.050000190734863,
+              14.960000038146973,
+              0.0
+            ],
+            "gap_m": 1.035630702722612e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Bench task lamp",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -4.820000171661377,
+              14.739999771118164,
+              1.0199999809265137
+            ],
+            "gap_m": -3.528594970728105e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Mug assembly",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -4.760000228881836,
+              12.979999542236328,
+              1.0199999809265137
+            ],
+            "gap_m": -3.528594970728105e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Clipboard assembly",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -4.610000133514404,
+              13.319999694824219,
+              1.0199999809265137
+            ],
+            "gap_m": -3.621727228189653e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.1920928955078125e-07,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Spare fuses",
+        "target": "EOH | Bench insulating service mat",
+        "samples": [
+          {
+            "anchor": [
+              -4.190000057220459,
+              13.75,
+              1.031999945640564
+            ],
+            "gap_m": -1.5542656183267778e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -4.050000190734863,
+              14.039999961853027,
+              1.031999945640564
+            ],
+            "gap_m": -1.544952392580623e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Folded insulating gloves",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -4.710000038146973,
+              14.3100004196167,
+              1.0199999809265137
+            ],
+            "gap_m": -3.528594970728105e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00023070545285008848,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Canvas service bag",
+        "target": "EOH | Bench lower shelf",
+        "samples": [
+          {
+            "anchor": [
+              -4.349999904632568,
+              13.880000114440918,
+              0.3824999928474426
+            ],
+            "gap_m": -3.528594970728105e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Open tool case",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -4.489999771118164,
+              14.75,
+              1.0199999809265137
+            ],
+            "gap_m": -3.528594970728105e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Bench wear",
+        "target": "EOH | Bench thick phenolic top",
+        "samples": [
+          {
+            "anchor": [
+              -3.7100000381469727,
+              13.039999961853027,
+              1.0199999809265137
+            ],
+            "gap_m": -3.621727228189653e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | West wall finish",
+        "target": "West wall",
+        "samples": [
+          {
+            "anchor": [
+              -5.5,
+              1.0,
+              2.0
+            ],
+            "gap_m": 8.485466241811568e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.1920928955078125e-07,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.5,
+              10.0,
+              2.0
+            ],
+            "gap_m": 8.299201726888472e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | East wall finish",
+        "target": "East structural wall",
+        "samples": [
+          {
+            "anchor": [
+              5.5,
+              2.0,
+              2.0
+            ],
+            "gap_m": 8.39233398435002e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Aisle floor finish",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              -0.6000000238418579,
+              0.6000000238418579,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              0.6000000238418579,
+              15.680000305175781,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 1",
+        "target": "Anchored channel plinth",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              3.9000000953674316,
+              0.12999999523162842
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 2",
+        "target": "Anchored channel plinth.001",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              5.099999904632568,
+              0.12999999523162842
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 3",
+        "target": "Anchored channel plinth.002",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              6.300000190734863,
+              0.12999999523162842
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 4",
+        "target": "Anchored channel plinth.003",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              7.5,
+              0.12999999523162842
+            ],
+            "gap_m": -4.552304744970259e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 5",
+        "target": "Anchored channel plinth.004",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              8.699999809265137,
+              0.12999999523162842
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Switchgear 6",
+        "target": "Anchored channel plinth.005",
+        "samples": [
+          {
+            "anchor": [
+              -3.694999933242798,
+              9.899999618530273,
+              0.12999999523162842
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Transformer coil 1",
+        "target": "Coil insulating saddle.004",
+        "samples": [
+          {
+            "anchor": [
+              4.295000076293945,
+              5.489999771118164,
+              0.7850000262260437
+            ],
+            "gap_m": 2.4318695068109575e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Transformer coil 2",
+        "target": "Coil insulating saddle.002",
+        "samples": [
+          {
+            "anchor": [
+              4.295000076293945,
+              6.400000095367432,
+              0.7850000262260437
+            ],
+            "gap_m": 2.3387372493494096e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Transformer coil 3",
+        "target": "Coil insulating saddle",
+        "samples": [
+          {
+            "anchor": [
+              4.295000076293945,
+              7.309999942779541,
+              0.7850000262260437
+            ],
+            "gap_m": 2.3387372493494096e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Transformer earth braid",
+        "target": "Transformer earth anchor",
+        "samples": [
+          {
+            "anchor": [
+              5.085000038146973,
+              4.949999809265137,
+              0.36000001430511475
+            ],
+            "gap_m": -5.483627319585738e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0009999871253967285,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | TX lift bracket 5.05",
+        "target": "Laminated core yoke.001",
+        "samples": [
+          {
+            "anchor": [
+              4.315000057220459,
+              5.050000190734863,
+              2.5
+            ],
+            "gap_m": 8.39233398435002e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | TX lift bracket 7.73",
+        "target": "Laminated core yoke.001",
+        "samples": [
+          {
+            "anchor": [
+              4.315000057220459,
+              7.730000019073486,
+              2.5
+            ],
+            "gap_m": 8.39233398435002e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Reserve service rack 1",
+        "target": "Reserve anchored base",
+        "samples": [
+          {
+            "anchor": [
+              7.449999809265137,
+              12.180000305175781,
+              0.20000000298023224
+            ],
+            "gap_m": -6.414949894201216e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Reserve service rack 2",
+        "target": "Reserve anchored base.001",
+        "samples": [
+          {
+            "anchor": [
+              7.449999809265137,
+              13.199999809265137,
+              0.20000000298023224
+            ],
+            "gap_m": -6.414949894201216e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Reserve service rack 3",
+        "target": "Reserve anchored base.002",
+        "samples": [
+          {
+            "anchor": [
+              7.449999809265137,
+              14.220000267028809,
+              0.20000000298023224
+            ],
+            "gap_m": -6.414949894201216e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Transfer panel bezel",
+        "target": "Transfer base",
+        "samples": [
+          {
+            "anchor": [
+              4.414000034332275,
+              10.300000190734863,
+              0.18000000715255737
+            ],
+            "gap_m": -3.6209821703547806e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.4901161193847656e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Maintenance trolley",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              -4.710000038146973,
+              1.5,
+              0.0
+            ],
+            "gap_m": 1.9669532773380904e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -4.190000057220459,
+              1.5,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -4.710000038146973,
+              2.0999999046325684,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -4.190000057220459,
+              2.0999999046325684,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Tray seated multimeter",
+        "target": "EOH | Trolley tray floor.001",
+        "samples": [
+          {
+            "anchor": [
+              -4.5,
+              1.75,
+              0.8730000257492065
+            ],
+            "gap_m": 2.5250017642725053e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0009999871253967285,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Tray seated probe 0",
+        "target": "EOH | Trolley tray floor.001",
+        "samples": [
+          {
+            "anchor": [
+              -4.25,
+              1.8799999952316284,
+              0.8730000257492065
+            ],
+            "gap_m": 2.4318695068109575e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -4.25,
+              1.9889999628067017,
+              0.8730000257492065
+            ],
+            "gap_m": 2.5250017642725053e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Tray seated probe 1",
+        "target": "EOH | Trolley tray floor.001",
+        "samples": [
+          {
+            "anchor": [
+              -4.300000190734863,
+              1.9199999570846558,
+              0.8730000257492065
+            ],
+            "gap_m": 2.4318695068109575e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -4.300000190734863,
+              2.0290000438690186,
+              0.8730000257492065
+            ],
+            "gap_m": 2.4318695068109575e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Tray clipped service record",
+        "target": "EOH | Trolley tray floor.001",
+        "samples": [
+          {
+            "anchor": [
+              -4.619999885559082,
+              2.0399999618530273,
+              0.8730000257492065
+            ],
+            "gap_m": 2.5250017642725053e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 5.960464477539063e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Lower tray folded wiping cloth",
+        "target": "EOH | Trolley tray floor",
+        "samples": [
+          {
+            "anchor": [
+              -4.429999828338623,
+              1.7699999809265137,
+              0.28299999237060547
+            ],
+            "gap_m": -3.435462713266557e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0006678742938674986,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Workbench service conduit",
+        "target": "West wall",
+        "samples": [
+          {
+            "anchor": [
+              -5.5,
+              12.0,
+              2.4000000953674316
+            ],
+            "gap_m": 8.299201726888472e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -5.5,
+              15.399999618530273,
+              2.4000000953674316
+            ],
+            "gap_m": 8.39233398435002e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Suspended door Parked sliding leaf",
+        "target": "Sliding door rail hood",
+        "samples": [
+          {
+            "anchor": [
+              1.6399999856948853,
+              0.3000001609325409,
+              2.8499999046325684
+            ],
+            "gap_m": 3.232732415196782e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 2.384185791015625e-07,
+            "pass": true
+          },
+          {
+            "anchor": [
+              2.0799999237060547,
+              0.3000001609325409,
+              2.8499999046325684
+            ],
+            "gap_m": 3.214105963704472e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 2.384185791015625e-07,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Suspended door Parked sliding leaf.001",
+        "target": "Sliding door rail hood",
+        "samples": [
+          {
+            "anchor": [
+              -2.0799999237060547,
+              0.299999862909317,
+              2.8499999046325684
+            ],
+            "gap_m": 3.2420456409429366e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 2.384185791015625e-07,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -1.6399999856948853,
+              0.299999862909317,
+              2.8499999046325684
+            ],
+            "gap_m": 3.232732415196782e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 2.384185791015625e-07,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Suspended door Parked sliding leaf.002",
+        "target": "Sliding door rail hood.001",
+        "samples": [
+          {
+            "anchor": [
+              -2.0799999237060547,
+              16.100000381469727,
+              2.8499999046325684
+            ],
+            "gap_m": 3.223419189450627e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 2.384185791015625e-07,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -1.6399999856948853,
+              16.100000381469727,
+              2.8499999046325684
+            ],
+            "gap_m": 3.232732415196782e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 2.384185791015625e-07,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Suspended door Parked sliding leaf.003",
+        "target": "Sliding door rail hood.001",
+        "samples": [
+          {
+            "anchor": [
+              1.6399999856948853,
+              16.100000381469727,
+              2.8499999046325684
+            ],
+            "gap_m": 3.232732415196782e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 2.384185791015625e-07,
+            "pass": true
+          },
+          {
+            "anchor": [
+              2.0799999237060547,
+              16.100000381469727,
+              2.8499999046325684
+            ],
+            "gap_m": 3.232732415196782e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 2.384185791015625e-07,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | East ceiling joint closure",
+        "target": "Ceiling",
+        "samples": [
+          {
+            "anchor": [
+              5.445000171661377,
+              12.0,
+              4.800000190734863
+            ],
+            "gap_m": 8.485466241811568e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.001974106067791581,
+            "pass": true
+          },
+          {
+            "anchor": [
+              5.445000171661377,
+              15.800000190734863,
+              4.800000190734863
+            ],
+            "gap_m": 8.485466241811568e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 2.9579281545011327e-05,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Portal return finish (0, -1)",
+        "target": "Portal wall return",
+        "samples": [
+          {
+            "anchor": [
+              -3.5999999046325684,
+              0.0,
+              0.800000011920929
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.1920928955078125e-07,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Portal return finish (0, 1)",
+        "target": "Portal wall return.001",
+        "samples": [
+          {
+            "anchor": [
+              3.5999999046325684,
+              0.0,
+              0.800000011920929
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 5.960464477539063e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Portal return finish (16.4, -1)",
+        "target": "Portal wall return.002",
+        "samples": [
+          {
+            "anchor": [
+              -3.5999999046325684,
+              16.399999618530273,
+              0.800000011920929
+            ],
+            "gap_m": -8.706822991373653e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 5.960464477539063e-08,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Portal return finish (16.4, 1)",
+        "target": "Portal wall return.003",
+        "samples": [
+          {
+            "anchor": [
+              3.5999999046325684,
+              16.399999618530273,
+              0.800000011920929
+            ],
+            "gap_m": -8.697509765627498e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 1.1920928955078125e-07,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Electrical rescue station",
+        "target": "Portal wall return.001",
+        "samples": [
+          {
+            "anchor": [
+              3.059999942779541,
+              0.0,
+              0.7200000286102295
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              4.849999904632568,
+              0.0,
+              0.8999999761581421
+            ],
+            "gap_m": -8.270144465083451e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Rear test lead storage",
+        "target": "Portal wall return.003",
+        "samples": [
+          {
+            "anchor": [
+              3.5,
+              16.399999618530273,
+              1.5499999523162842
+            ],
+            "gap_m": -8.697509765627498e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              4.449999809265137,
+              16.399999618530273,
+              1.5499999523162842
+            ],
+            "gap_m": -8.697509765627498e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Stored insulating runner",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              3.619999885559082,
+              15.880000114440918,
+              0.0
+            ],
+            "gap_m": -8.270144465083451e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              4.579999923706055,
+              15.880000114440918,
+              0.0
+            ],
+            "gap_m": 1.035630702722612e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              3.619999885559082,
+              16.149999618530273,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              4.579999923706055,
+              16.149999618530273,
+              0.0
+            ],
+            "gap_m": 1.9669532773380904e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Service approach floor",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              2.0,
+              5.0,
+              0.0
+            ],
+            "gap_m": 1.9669532773380904e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -2.0,
+              6.0,
+              0.0
+            ],
+            "gap_m": 1.9669532773380904e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Trolley and service floor history",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              -3.4000000953674316,
+              2.5999999046325684,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0015999999595806003,
+            "pass": true
+          },
+          {
+            "anchor": [
+              2.049999952316284,
+              8.25,
+              0.0
+            ],
+            "gap_m": 1.9669532773380904e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0015999999595806003,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Leaf 1 handle contact",
+        "target": "Parked sliding leaf",
+        "samples": [
+          {
+            "anchor": [
+              1.524999976158142,
+              0.33500030636787415,
+              1.1799999475479126
+            ],
+            "gap_m": 8.39233398435002e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00012001395225524902,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Leaf 1 shoe contact",
+        "target": "Door impact shoe",
+        "samples": [
+          {
+            "anchor": [
+              1.600000023841858,
+              0.36800020933151245,
+              0.1899999976158142
+            ],
+            "gap_m": 8.019804954503829e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00012001395225524902,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Leaf 2 handle contact",
+        "target": "Parked sliding leaf.001",
+        "samples": [
+          {
+            "anchor": [
+              -1.4579999446868896,
+              0.33500003814697266,
+              1.2200000286102295
+            ],
+            "gap_m": 1.1372566223119551e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00012001395225524902,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Leaf 2 shoe contact",
+        "target": "Door impact shoe.001",
+        "samples": [
+          {
+            "anchor": [
+              -2.2100000381469727,
+              0.3679999113082886,
+              0.3100000023841858
+            ],
+            "gap_m": 9.044259786580855e-08,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00012001395225524902,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Leaf 3 handle contact",
+        "target": "Parked sliding leaf.002",
+        "samples": [
+          {
+            "anchor": [
+              -1.527999997138977,
+              16.065000534057617,
+              1.149999976158142
+            ],
+            "gap_m": -8.706822991373653e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0001201629638671875,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Leaf 3 shoe contact",
+        "target": "Door impact shoe.002",
+        "samples": [
+          {
+            "anchor": [
+              -2.200000047683716,
+              16.031999588012695,
+              0.3799999952316284
+            ],
+            "gap_m": -8.688196539881343e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0001201629638671875,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Leaf 4 handle contact",
+        "target": "Parked sliding leaf.003",
+        "samples": [
+          {
+            "anchor": [
+              1.5180000066757202,
+              16.065000534057617,
+              1.0399999618530273
+            ],
+            "gap_m": -8.716136217119808e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0001201629638671875,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Leaf 4 shoe contact",
+        "target": "Door impact shoe.003",
+        "samples": [
+          {
+            "anchor": [
+              2.140000104904175,
+              16.031999588012695,
+              0.2800000011920929
+            ],
+            "gap_m": -8.688196539881343e-07,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.0001201629638671875,
+            "pass": true
+          }
+        ],
+        "failures": []
+      },
+      {
+        "assembly": "EOH | Localized service plinth contacts",
+        "target": "Floor",
+        "samples": [
+          {
+            "anchor": [
+              -3.240000009536743,
+              3.4800000190734863,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00011999999696854502,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -3.1700000762939453,
+              3.609999895095825,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00011999999696854502,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -3.0999999046325684,
+              6.949999809265137,
+              0.0
+            ],
+            "gap_m": -8.270144465083451e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00011999999696854502,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -3.240000009536743,
+              9.5600004196167,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00011999999696854502,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -3.380000114440918,
+              13.5,
+              0.0
+            ],
+            "gap_m": 1.9669532773380904e-09,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00011999999696854502,
+            "pass": true
+          },
+          {
+            "anchor": [
+              -3.549999952316284,
+              14.029999732971191,
+              0.0
+            ],
+            "gap_m": 1.0430812810713341e-10,
+            "support_angle_deg": 0.0,
+            "assembly_surface_distance_m": 0.00011999999696854502,
+            "pass": true
+          }
+        ],
+        "failures": []
+      }
+    ],
+    "pass": true
+  },
+  "dependencies": {
+    "missing": [],
+    "pass": true
+  },
+  "authoring_cost": {
+    "triangles": 553607,
+    "estimated_material_submesh_draws": 2910,
+    "objects": 3040,
+    "measured_engine_draw_calls": null,
+    "budget_status": "No room overhaul budget supplied; record cost, do not invent a pass."
+  },
+  "manufactured_meshes": {
+    "issues": [],
+    "pass": true
+  },
+  "routes": [
+    {
+      "route": "main",
+      "sampled_positions": 237,
+      "defects": [],
+      "pass": true
+    },
+    {
+      "route": "reserve",
+      "sampled_positions": 25,
+      "defects": [],
+      "pass": true
+    },
+    {
+      "route": "bench",
+      "sampled_positions": 12,
+      "defects": [],
+      "pass": true
+    },
+    {
+      "route": "switchgear",
+      "sampled_positions": 12,
+      "defects": [],
+      "pass": true
+    },
+    {
+      "route": "transfer",
+      "sampled_positions": 17,
+      "defects": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}
