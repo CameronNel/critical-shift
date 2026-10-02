@@ -1,7 +1,7 @@
 {
   "stage": "full",
-  "revision": "f09",
-  "source_sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+  "revision": "f08",
+  "source_sha256": "9c8085bcc8594a6b49fdd96612597388207eafb581e43d25b52f039ca3016659",
   "source_saved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
   "editable_scene": "COMPLIANCE_EDIT_LOCAL",
   "original_objects": 1077,
@@ -296,19 +296,7 @@
   "recipe_sha256": {
     "overhaul_dock.py": "f0533724e82a2d43de4e707d5eb4943b6b840b390248050403ebb7241012cad9",
     "full_detail.py": "780cd89543a7a026372a2a6e2cb4eb747395bf728fe874e637bafca7ffa19f09",
-    "full_repairs.py": "a93b6ddbd64ebcbdda07cd89ec5d15e86aeb61dfee16669b076bcb8fd27b9028",
-    "render_dock.py": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57",
-    "repair_contact_wear.py": "e671aeaff409fabd5b62af3ec208d2d1d09aac3c3785fdcaa4a2fd047de98fb8"
-  },
-  "finish_repair_lineage": {
-    "base_revision": "f08",
-    "base_sha256": "9c8085bcc8594a6b49fdd96612597388207eafb581e43d25b52f039ca3016659",
-    "geometry_digest_before": "f1cf079398b27a8ec858d30f12f792047031d7a289c6776e8da412e4eccdd0a7",
-    "geometry_digest_after": "f1cf079398b27a8ec858d30f12f792047031d7a289c6776e8da412e4eccdd0a7",
-    "changed_material_graphs": [
-      "CD | coral",
-      "CD | coral | text object metres"
-    ],
-    "recipe": "repair_contact_wear.py calls full_repairs.repair_working_surfaces(crate_only=True)"
+    "full_repairs.py": "054aa387320d3bdec7b9469e47e6a623ac7da5b55a0cd3469a6ecc0fe598ccf0",
+    "render_dock.py": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57"
   }
 }

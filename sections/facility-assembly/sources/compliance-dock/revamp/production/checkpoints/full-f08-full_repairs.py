@@ -624,11 +624,7 @@ def repair_printed_graphics():
             o.data.size={'Specimen tag text 1':.026,'Specimen tag text 2':.016,'Specimen tag text 3':.016}.get(o.name,o.data.size)
 
 
-def repair_working_surfaces(crate_only=False):
-    # Active shared transit-case paint, not the unused slice-only colour.
-    # The bounded finish repair uses this exact canonical operation.
-    material_patch(MATERIALS['coral'],(4.65,5.35,1.35),(.40,.09,.12),(.32,.25,.17),.65,True)
-    if crate_only:return
+def repair_working_surfaces():
     # Restrained contact wear follows actual actions; clean broad walls remain
     # deliberate negative space rather than being carpeted in arbitrary grunge.
     for o in S.objects:
@@ -641,6 +637,7 @@ def repair_working_surfaces(crate_only=False):
     material_patch(floor,(1.9,6.2,0),(.35,1.55,.009),(.30,.28,.23),.55,True)
     material_patch(floor,(-3.5,2.95,0),(.65,.40,.009),(.10,.095,.08),.64,True)
     for key,p,r,color in [
+        ('rubbed_coral',(4.65,5.35,1.35),(.40,.09,.12),(.32,.25,.17)),
         ('blue',(5.05,14.765,1.04),(.22,.035,.20),(.28,.285,.275)),
         ('navy',(.73,6.812,.23),(.15,.045,.22),(.24,.25,.255)),
         ('wear',(0,15.74,1.12),(1.30,.04,.12),(.32,.32,.29)),

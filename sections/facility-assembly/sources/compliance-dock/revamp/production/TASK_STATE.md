@@ -1,6 +1,9 @@
 # Compliance dock overhaul production state
 
-Branch `codex/compliance-dock-overhaul-20261001`, draft PR66. Sole author root. Phase: f07 saved and frozen; full cycle3 rendering and independent technical review. Full-room acceptance pending.
+Branch `codex/compliance-dock-overhaul-20261001`, draft PR66. Sole author root. Phase: f09 saved and frozen; full cycle04 rendering and independent technical review. Full-room acceptance pending.
+
+
+Current source revision **f09**, SHA-256 `2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6`:1316objects/367216evaluatedtriangles/1148materialsubmeshes/36usedmaterialdatablocks. All planning targets pass. Fresh static validator7PASS/0failures/1classificationwarning/5unverified. F08 complete geometry/typography/practical/art repair and f09 active-paint-only correction are archived; f09 has identical geometry/UV/object/pose digest to f08. Source and recipes are frozen until render/review consumers release them. Full-cycle-04 is the same27 cameras at600p; no score or acceptance yet. Latest completed independent Luna score remains72.5 FAIL from full-cycle-03.
 
 Read HANDOFF.md for reproducible commands and transfer details. Read build-state.json for the exact currently saved native; do not assume an in-progress build succeeded. Canonical map, selected dock, spawn, interface and frozen accepted input remain byte-identical. The main map still selects the original dock.
 
