@@ -5,3 +5,5 @@ sections/condenser-bay/**/*.blend filter=lfs diff=lfs merge=lfs -text
 sections/condenser-bay/**/*.png filter=lfs diff=lfs merge=lfs -text
 sections/condenser-bay/**/*.jpg filter=lfs diff=lfs merge=lfs -text
 sections/reactor-room/production/overhaul-R1/engine/** filter=lfs diff=lfs merge=lfs -text
+# Scoped GitHub Git Data API delivery while this environment's LFS authentication is unavailable.
+sections/facility-assembly/sources/fuel-corridor/module.blend -filter -diff -merge -text

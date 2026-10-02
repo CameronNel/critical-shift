@@ -1,0 +1,21 @@
+"""Task evidence wrapper around the existing fixed-camera render tool.
+
+RES=1280x853 SAMPLES=48 blender -b --python render_review.py -- scene out cams
+Writes PNGs plus hash/camera/settings manifest; does not save the native scene.
+"""
+import sys,json,hashlib,datetime
+from pathlib import Path
+import bpy
+ROOT=Path(__file__).resolve().parents[3]
+sys.path.insert(0,str(ROOT/'sections/spawn-room/production/optimise'))
+import render_cams
+args=sys.argv[sys.argv.index('--')+1:];src=Path(args[0]).resolve();out=Path(args[1]).resolve();cams=args[2].split(',')
+assert src.is_file() and src.stat().st_size>1000
+render_cams.main()
+scene=bpy.context.scene
+assert all((out/(n+'.png')).is_file() for n in cams),'Missing requested render'
+report={'schema':'fuel-fixed-view-evidence/1','created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'scene':str(src.relative_to(ROOT)),'scene_sha256':hashlib.sha256(src.read_bytes()).hexdigest(),'blender':bpy.app.version_string,'engine':scene.render.engine,'device':scene.cycles.device,'samples':scene.cycles.samples,'seed':scene.cycles.seed,'denoise':scene.cycles.use_denoising,'resolution':[scene.render.resolution_x,scene.render.resolution_y],'view_transform':scene.view_settings.view_transform,'look':scene.view_settings.look,'exposure':scene.view_settings.exposure,'cameras':[]}
+for name in cams:
+    cam=bpy.data.objects[name];png=out/(name+'.png')
+    report['cameras'].append({'name':name,'matrix_world':[list(r) for r in cam.matrix_world],'lens':cam.data.lens,'image':png.name,'sha256':hashlib.sha256(png.read_bytes()).hexdigest()})
+(out/'RENDER_MANIFEST.json').write_text(json.dumps(report,indent=2));print('REVIEW_MANIFEST',out,flush=True)

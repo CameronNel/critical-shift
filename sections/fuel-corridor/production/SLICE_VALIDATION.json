@@ -1,0 +1,4270 @@
+{
+  "schema": "fuel-overhaul-cold-validation/1",
+  "file": "/workspace/fuel-overhaul/sections/fuel-corridor/production/checkpoints/fuel_style_slice_S5.blend",
+  "sha256": "49d7f6aade13c6dd21d2c9786cf2bf0207ac0377b79feb4bd45ac7923a2215b4",
+  "blender": "5.2.1 LTS",
+  "status": "PASS",
+  "failures": [],
+  "exterior_bounds": [
+    {
+      "object": "Wall_S16.2_0_-5.4_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W-5.4_0_16.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W-5.4_0_18.52_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N18.6_0_-5.4_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S1.2_0_-2.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S1.2_1_1.6_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W-2.2_0_1.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N13.2_0_-2.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N13.2_1_1.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N13.2_2_10_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S14.3_0_-1.65_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N15.7_0_-1.65_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W-1.65_0_14.3_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S0_0_-1.6_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S0_0_1.42_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W-1.6_0_0_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N21_0_-1.5_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N21_0_7.72_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W-1.5_0_18.6_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_E1.2_0_13.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W-1.2_0_13.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W-1.2_1_15.7_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_E1.6_0_0_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S18.0_0_1.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_E2.2_0_1.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S7_0_2.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S7_1_10_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_E4.4_0_7_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_E4.4_1_12.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S7.8_0_4.4_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S7.8_1_6.78_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N12.2_0_4.4_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N12.2_1_6.78_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S6.15_0_6.07_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_E6.78_0_6.15_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_E6.78_1_12.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W6.07_0_6.15_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W6.07_1_12.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N13.85_0_6.07_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W10_0_7_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W10_1_12.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N24_0_11.4_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_N24_0_16.82_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W11.4_0_21_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_E16.4_0_7_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_E16.4_0_17.32_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_W12_0_13.2_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_S21_0_16.4_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "Wall_E17.0_0_21_concrete",
+      "max_bound_delta_m": 0.0,
+      "status": "PASS"
+    }
+  ],
+  "floor_footprints": [
+    {
+      "cell": "inlet",
+      "xy_bound_delta_m": 4.768371586472142e-08,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "entry",
+      "xy_bound_delta_m": 1.9073486323684108e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "west_turn",
+      "xy_bound_delta_m": 7.629394538355427e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "crossing",
+      "xy_bound_delta_m": 3.8146972691777137e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "east_turn",
+      "xy_bound_delta_m": 7.629394538355427e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "delivery",
+      "xy_bound_delta_m": 7.629394538355427e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "reactor_adapter",
+      "xy_bound_delta_m": 3.8146972691777137e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "bypass_west",
+      "xy_bound_delta_m": 7.629394538355427e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "bypass_turn",
+      "xy_bound_delta_m": 4.768371586472142e-08,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "bypass_north",
+      "xy_bound_delta_m": 1.9073486323684108e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "plant_header",
+      "xy_bound_delta_m": 7.629394538355427e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "service_air_recess",
+      "xy_bound_delta_m": 1.9073486257070726e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "freight_gate_south_pocket",
+      "xy_bound_delta_m": 2.861022947442393e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    },
+    {
+      "cell": "freight_gate_north_pocket",
+      "xy_bound_delta_m": 5.722045894884786e-07,
+      "walking_height_m": 0,
+      "status": "PASS"
+    }
+  ],
+  "fixed_cameras": [
+    {
+      "object": "C01_ENTRY",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "C02_PRIMARY_ROUTE",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "C03_HERO",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "C04_REVERSE",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "C05_EAST_TURN",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "C06_REACTOR_THRESHOLD",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "C07_BYPASS",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "C08_SERVICE_JUNCTION",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "C09_MATERIALS",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "C10_PLANT_HEADER",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "D01_CARRIER_OPERATION",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "D02_WORKBENCH",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "D03_UTILITY",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "D04_REACTOR_WIDE",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "D05_GATE_MECHANISM",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    },
+    {
+      "object": "D06_SERVICE_RECESS",
+      "matrix_delta": 0.0,
+      "lens_delta": 0.0,
+      "status": "PASS"
+    }
+  ],
+  "runtime_transforms": [
+    {
+      "object": "FC_ENTRY_START",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_EAST_REENTRY",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_SERVICE_RESCUE",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_HOOK_AIR_LEAK",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_HOOK_GATE_JAM",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_HOOK_RESTRAINT",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_inlet",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_inlet",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_entry",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_entry",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_west_turn",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_west_turn",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_crossing",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_crossing",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_east_turn",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_east_turn",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_delivery",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_delivery",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_reactor_adapter",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_reactor_adapter",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_bypass_west",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_bypass_west",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_bypass_turn",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_bypass_turn",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_bypass_north",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_bypass_north",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_plant_header",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_plant_header",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_service_air_recess",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_service_air_recess",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_freight_gate_south_pocket",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_freight_gate_south_pocket",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_AUDIO_freight_gate_north_pocket",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    },
+    {
+      "object": "FC_NET_freight_gate_north_pocket",
+      "matrix_delta": 0.0,
+      "lens_delta": 0,
+      "status": "PASS"
+    }
+  ],
+  "support_contacts": [
+    {
+      "object": "FC | Wall_W-2.2_0_1.2 \u00b7 lined bay",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Wall_W-2.2_0_1.2 \u00b7 lined bay",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.24,
+                7.2,
+                1.8
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Wall_N13.2_0_-2.2 \u00b7 lined bay",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Wall_N13.2_0_-2.2 \u00b7 lined bay",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -1.7,
+                13.24,
+                1.8
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Wall_N13.2_1_1.2 \u00b7 lined bay",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Wall_N13.2_1_1.2 \u00b7 lined bay",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.8,
+                13.239999,
+                1.8
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 1e-06,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Wall_S6.15_0_6.07 \u00b7 lined bay",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Wall_S6.15_0_6.07 \u00b7 lined bay",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.425,
+                6.11,
+                1.8
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Wall_E6.78_0_6.15 \u00b7 lined bay",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Wall_E6.78_0_6.15 \u00b7 lined bay",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.82,
+                6.975,
+                1.8
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Wall_E6.78_1_12.2 \u00b7 lined bay",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Wall_E6.78_1_12.2 \u00b7 lined bay",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.82,
+                13.025001,
+                1.8
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Wall_W6.07_0_6.15 \u00b7 lined bay",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Wall_W6.07_0_6.15 \u00b7 lined bay",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.03,
+                6.975,
+                1.8
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Wall_W6.07_1_12.2 \u00b7 lined bay",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Wall_W6.07_1_12.2 \u00b7 lined bay",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.03,
+                13.025001,
+                1.8
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Wall_N13.85_0_6.07 \u00b7 lined bay",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Wall_N13.85_0_6.07 \u00b7 lined bay",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.425,
+                13.89,
+                1.8
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Floor finish west_turn",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Floor finish west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.1,
+                10.1,
+                -0.02
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Ceiling cassettes west_turn",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Ceiling cassettes west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.1,
+                10.1,
+                4.418
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Floor finish crossing",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Floor finish crossing",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                7.2,
+                10.0,
+                -0.02
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Ceiling cassettes crossing",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Ceiling cassettes crossing",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                7.2,
+                10.0,
+                4.418
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Floor finish freight_gate_south_pocket",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Floor finish freight_gate_south_pocket",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.425,
+                6.975,
+                -0.02
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Ceiling cassettes freight_gate_south_pocket",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Ceiling cassettes freight_gate_south_pocket",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.425,
+                6.975,
+                4.418
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Floor finish freight_gate_north_pocket",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Floor finish freight_gate_north_pocket",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.425,
+                13.025,
+                -0.02
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Ceiling cassettes freight_gate_north_pocket",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Ceiling cassettes freight_gate_north_pocket",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.425,
+                13.025,
+                4.418
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Maintenance bench",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Maintenance bench",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -1.69,
+                9.95,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Maintenance bench",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.125,
+                9.95,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Maintenance bench",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -1.69,
+                11.21,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Maintenance bench",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.125,
+                11.21,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        }
+      ]
+    },
+    {
+      "object": "FC | Perforated tool rack",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Perforated tool rack",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.196,
+                10.045,
+                1.529
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Perforated tool rack",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.196,
+                10.045,
+                2.051
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Perforated tool rack",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.196,
+                11.094999,
+                1.529
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Perforated tool rack",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.196,
+                11.094999,
+                2.051
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        }
+      ]
+    },
+    {
+      "object": "FC | Dispatch writing ledge",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Dispatch writing ledge",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.079,
+                13.191998,
+                1.12
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Dispatch writing ledge",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.2,
+                13.191998,
+                0.975
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Dispatch writing ledge",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.339,
+                13.191998,
+                1.12
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        }
+      ]
+    },
+    {
+      "object": "FC | Sealed cartridge carrier",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Sealed cartridge carrier",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.04,
+                12.03,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Sealed cartridge carrier",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.04,
+                12.61,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Sealed cartridge carrier",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.26,
+                12.03,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Sealed cartridge carrier",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.26,
+                12.61,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        }
+      ]
+    },
+    {
+      "object": "FC | Staging service-air manifold",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Staging service-air manifold",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.4825,
+                13.195999,
+                1.73
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Staging service-air manifold",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.483605,
+                13.195999,
+                2.055125
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Staging service-air manifold",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.48773,
+                13.195999,
+                2.06227
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Staging service-air manifold",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.494875,
+                13.195999,
+                2.066395
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        },
+        {
+          "object": "FC | Staging service-air manifold",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.8,
+                13.195999,
+                2.0675
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 4
+        },
+        {
+          "object": "FC | Staging service-air manifold",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                4.105125,
+                13.195999,
+                2.066395
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 5
+        },
+        {
+          "object": "FC | Staging service-air manifold",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                4.11227,
+                13.195999,
+                2.06227
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 6
+        },
+        {
+          "object": "FC | Staging service-air manifold",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                4.116395,
+                13.195999,
+                2.055125
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 7
+        }
+      ]
+    },
+    {
+      "object": "FC | Staging air feed",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Staging air feed",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.409595,
+                13.195999,
+                3.037005
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Staging air feed",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.413055,
+                13.195999,
+                3.025598
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Staging air feed",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.420618,
+                13.195999,
+                3.016383
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Staging air feed",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.431131,
+                13.195999,
+                3.010763
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        },
+        {
+          "object": "FC | Staging air feed",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.442995,
+                13.195999,
+                3.009595
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 4
+        },
+        {
+          "object": "FC | Staging air feed",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.454402,
+                13.195999,
+                3.013055
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 5
+        },
+        {
+          "object": "FC | Staging air feed",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.463617,
+                13.195999,
+                3.020618
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 6
+        },
+        {
+          "object": "FC | Staging air feed",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.469237,
+                13.195999,
+                3.048869
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 7
+        }
+      ]
+    },
+    {
+      "object": "FC | Staging extraction grille",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Staging extraction grille",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.521,
+                13.195999,
+                2.536
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Staging extraction grille",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.521,
+                13.195999,
+                2.764
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Staging extraction grille",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                4.079,
+                13.195999,
+                2.536
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Staging extraction grille",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                4.079,
+                13.195999,
+                2.764
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        }
+      ]
+    },
+    {
+      "object": "FC | Staging service header",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Staging service header",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.14,
+                13.195999,
+                3.475
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Bench practical",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Bench practical",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.196,
+                10.57,
+                2.23
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Cartridge practical",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Cartridge practical",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.7,
+                13.195999,
+                2.31
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Staging main",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Staging main",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -0.4805,
+                10.0,
+                4.389
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Staging main",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                0.4805,
+                10.0,
+                4.389
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        }
+      ]
+    },
+    {
+      "object": "FC | Freight paint west_turn",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.043,
+                11.84,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.78,
+                12.076333,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.043,
+                12.81,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.78,
+                12.410334,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.237,
+                11.84,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 4
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.65,
+                11.84,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 5
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.163,
+                11.84,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 6
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.237,
+                12.81,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 7
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.65,
+                12.81,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 8
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.163,
+                12.81,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 9
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.704667,
+                9.978666,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 10
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.7455,
+                10.132,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 11
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.357,
+                11.84,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 12
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.52,
+                12.076333,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 13
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.357,
+                12.81,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 14
+        },
+        {
+          "object": "FC | Freight paint west_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.52,
+                12.410334,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 15
+        }
+      ]
+    },
+    {
+      "object": "FC | Freight paint crossing",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Freight paint crossing",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                8.80175,
+                9.918,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Freight paint crossing",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                8.80175,
+                10.082,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        }
+      ]
+    },
+    {
+      "object": "FC | Freight gate frame",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Freight gate frame",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.28,
+                11.575,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Freight gate frame",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.44,
+                8.425,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        }
+      ]
+    },
+    {
+      "object": "FC | Personnel bypass frame",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Personnel bypass frame",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -1.275,
+                12.98,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Personnel bypass frame",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                1.275,
+                13.14,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        }
+      ]
+    },
+    {
+      "object": "FC | Freight drive guarded disconnect",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Freight drive guarded disconnect",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.078,
+                12.695001,
+                1.025
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Freight drive guarded disconnect",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.078,
+                12.775001,
+                0.9
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Freight drive guarded disconnect",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.078,
+                12.775001,
+                1.025
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Freight drive guarded disconnect",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.078,
+                12.775001,
+                1.15
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        },
+        {
+          "object": "FC | Freight drive guarded disconnect",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                6.078,
+                12.855,
+                1.025
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 4
+        }
+      ]
+    }
+  ],
+  "attachment_contacts": [
+    {
+      "object": "FC | Checked shift note",
+      "target": "FC | Maintenance bench",
+      "status": "PASS",
+      "nearest_gap_m": 0.0001499652862548828,
+      "contact_points": [
+        [
+          0.0001499652862548828,
+          [
+            -2.117966651916504,
+            10.612022399902344,
+            0.8953499794006348
+          ],
+          [
+            -2.117966651916504,
+            10.612022399902344,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
+            -2.056000232696533,
+            10.56997299194336,
+            0.8953499794006348
+          ],
+          [
+            -2.056000232696533,
+            10.56997299194336,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
+            -2.12400484085083,
+            10.564026832580566,
+            0.8953499794006348
+          ],
+          [
+            -2.12400484085083,
+            10.564026832580566,
+            0.8954999446868896
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Bench service radio",
+      "target": "FC | Maintenance bench",
+      "status": "PASS",
+      "nearest_gap_m": 0.0004999637603759766,
+      "contact_points": [
+        [
+          0.0004999637603759766,
+          [
+            -2.0333712100982666,
+            10.908432006835938,
+            0.8949999809265137
+          ],
+          [
+            -2.0333712100982666,
+            10.908432006835938,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0004999637603759766,
+          [
+            -2.0008513927459717,
+            10.902823448181152,
+            0.8949999809265137
+          ],
+          [
+            -2.0008513927459717,
+            10.902823448181152,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0004999637603759766,
+          [
+            -2.02374005317688,
+            10.867195129394531,
+            0.8949999809265137
+          ],
+          [
+            -2.02374005317688,
+            10.867195129394531,
+            0.8954999446868896
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Open field-service tool case",
+      "target": "FC | Maintenance bench",
+      "status": "PASS",
+      "nearest_gap_m": 0.0004999637603759766,
+      "contact_points": [
+        [
+          0.0004999637603759766,
+          [
+            -1.7680646181106567,
+            10.011590003967285,
+            0.8949999809265137
+          ],
+          [
+            -1.7680646181106567,
+            10.011590003967285,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0004999637603759766,
+          [
+            -2.009629011154175,
+            9.997078895568848,
+            0.8949999809265137
+          ],
+          [
+            -2.009629011154175,
+            9.997078895568848,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0004999637603759766,
+          [
+            -1.790371060371399,
+            10.382920265197754,
+            0.8949999809265137
+          ],
+          [
+            -1.790371060371399,
+            10.382920265197754,
+            0.8954999446868896
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Folded blue wiping cloth",
+      "target": "FC | Maintenance bench",
+      "status": "PASS",
+      "nearest_gap_m": 0.00015242693189065903,
+      "contact_points": [
+        [
+          0.00015242693189065903,
+          [
+            -1.919373869895935,
+            10.746848106384277,
+            0.8959000706672668
+          ],
+          [
+            -1.9193968772888184,
+            10.746697425842285,
+            0.8959000110626221
+          ]
+        ],
+        [
+          0.00015368482854682952,
+          [
+            -1.919390320777893,
+            10.746850967407227,
+            0.8955990076065063
+          ],
+          [
+            -1.9193968772888184,
+            10.746697425842285,
+            0.8956000208854675
+          ]
+        ],
+        [
+          0.00015368482854682952,
+          [
+            -1.919390320777893,
+            10.746850967407227,
+            0.8955990076065063
+          ],
+          [
+            -1.9193968772888184,
+            10.746697425842285,
+            0.8956000208854675
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Workshop flask",
+      "target": "FC | Maintenance bench",
+      "status": "PASS",
+      "nearest_gap_m": 0.0004999637603759766,
+      "contact_points": [
+        [
+          0.0004999637603759766,
+          [
+            -2.1000001430511475,
+            9.930000305175781,
+            0.8949999809265137
+          ],
+          [
+            -2.1000001430511475,
+            9.930000305175781,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0004999637603759766,
+          [
+            -2.1000001430511475,
+            9.970000267028809,
+            0.8949999809265137
+          ],
+          [
+            -2.1000001430511475,
+            9.970000267028809,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0004999637603759766,
+          [
+            -2.1078038215637207,
+            9.969231605529785,
+            0.8949999809265137
+          ],
+          [
+            -2.1078038215637207,
+            9.969231605529785,
+            0.8954999446868896
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Work mug",
+      "target": "FC | Maintenance bench",
+      "status": "PASS",
+      "nearest_gap_m": 0.0004999637603759766,
+      "contact_points": [
+        [
+          0.0004999637603759766,
+          [
+            -1.8100000619888306,
+            10.6899995803833,
+            0.8949999809265137
+          ],
+          [
+            -1.8100000619888306,
+            10.6899995803833,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0004999637603759766,
+          [
+            -1.8165560960769653,
+            10.722341537475586,
+            0.8949999809265137
+          ],
+          [
+            -1.8165560960769653,
+            10.722341537475586,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0004999637603759766,
+          [
+            -1.822739839553833,
+            10.720440864562988,
+            0.8949999809265137
+          ],
+          [
+            -1.822739839553833,
+            10.720440864562988,
+            0.8954999446868896
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Right work glove",
+      "target": "FC | Maintenance bench",
+      "status": "PASS",
+      "nearest_gap_m": 7.927417755126953e-05,
+      "contact_points": [
+        [
+          7.927417755126953e-05,
+          [
+            -1.671096682548523,
+            10.455246925354004,
+            0.8955792188644409
+          ],
+          [
+            -1.671096682548523,
+            10.455246925354004,
+            0.8954999446868896
+          ]
+        ],
+        [
+          7.927417755126953e-05,
+          [
+            -1.6699559688568115,
+            10.463973045349121,
+            0.8955792188644409
+          ],
+          [
+            -1.6699559688568115,
+            10.463973045349121,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0004999637603759766,
+          [
+            -1.6865400075912476,
+            10.461703300476074,
+            0.8949999809265137
+          ],
+          [
+            -1.686540126800537,
+            10.461703300476074,
+            0.8954999446868896
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Left work glove",
+      "target": "FC | Maintenance bench",
+      "status": "PASS",
+      "nearest_gap_m": 7.927417755126953e-05,
+      "contact_points": [
+        [
+          7.927417755126953e-05,
+          [
+            -1.7112531661987305,
+            10.385565757751465,
+            0.8955792188644409
+          ],
+          [
+            -1.7112531661987305,
+            10.385565757751465,
+            0.8954999446868896
+          ]
+        ],
+        [
+          7.927417755126953e-05,
+          [
+            -1.7134302854537964,
+            10.394092559814453,
+            0.8955792188644409
+          ],
+          [
+            -1.7134302854537964,
+            10.394092559814453,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0004999637603759766,
+          [
+            -1.727989673614502,
+            10.385833740234375,
+            0.8949999809265137
+          ],
+          [
+            -1.727989673614502,
+            10.385833740234375,
+            0.8954999446868896
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Spare parts case 0",
+      "target": "FC | Maintenance bench",
+      "status": "PASS",
+      "nearest_gap_m": 0.0010000020265579224,
+      "contact_points": [
+        [
+          0.0010000020265579224,
+          [
+            -1.7690001726150513,
+            10.008999824523926,
+            0.24199999868869781
+          ],
+          [
+            -1.7690001726150513,
+            10.008999824523926,
+            0.2409999966621399
+          ]
+        ],
+        [
+          0.0010000020265579224,
+          [
+            -2.0510001182556152,
+            10.008999824523926,
+            0.24199999868869781
+          ],
+          [
+            -2.0510001182556152,
+            10.008999824523926,
+            0.2409999966621399
+          ]
+        ],
+        [
+          0.0010000020265579224,
+          [
+            -1.7690000534057617,
+            10.470999717712402,
+            0.24199999868869781
+          ],
+          [
+            -1.7690000534057617,
+            10.470999717712402,
+            0.2409999966621399
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Spare parts case 1",
+      "target": "FC | Maintenance bench",
+      "status": "PASS",
+      "nearest_gap_m": 0.0010000020265579224,
+      "contact_points": [
+        [
+          0.0010000020265579224,
+          [
+            -1.7690001726150513,
+            10.678999900817871,
+            0.24199999868869781
+          ],
+          [
+            -1.7690002918243408,
+            10.678999900817871,
+            0.2409999966621399
+          ]
+        ],
+        [
+          0.0010000020265579224,
+          [
+            -2.0510001182556152,
+            10.678999900817871,
+            0.24199999868869781
+          ],
+          [
+            -2.0510001182556152,
+            10.678999900817871,
+            0.2409999966621399
+          ]
+        ],
+        [
+          0.0010000020265579224,
+          [
+            -1.7690000534057617,
+            11.140999794006348,
+            0.24199999868869781
+          ],
+          [
+            -1.7690000534057617,
+            11.140999794006348,
+            0.2409999966621399
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Combination wrench",
+      "target": "FC | Perforated tool rack",
+      "status": "PASS",
+      "nearest_gap_m": 0.003000020980834961,
+      "contact_points": [
+        [
+          0.003000020980834961,
+          [
+            -2.1639997959136963,
+            10.167519569396973,
+            1.6499998569488525
+          ],
+          [
+            -2.1669998168945312,
+            10.167519569396973,
+            1.6499998569488525
+          ]
+        ],
+        [
+          0.003000020980834961,
+          [
+            -2.1639997959136963,
+            10.167519569396973,
+            1.7827999591827393
+          ],
+          [
+            -2.1669998168945312,
+            10.167519569396973,
+            1.7827999591827393
+          ]
+        ],
+        [
+          0.003000020980834961,
+          [
+            -2.1639997959136963,
+            10.136799812316895,
+            1.8163999319076538
+          ],
+          [
+            -2.1669998168945312,
+            10.136799812316895,
+            1.8163999319076538
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Driver",
+      "target": "FC | Perforated tool rack",
+      "status": "PASS",
+      "nearest_gap_m": 0.0,
+      "contact_points": [
+        [
+          0.0,
+          [
+            -2.170999765396118,
+            10.409133911132812,
+            1.6714999675750732
+          ],
+          [
+            -2.170999765396118,
+            10.409133911132812,
+            1.6714999675750732
+          ]
+        ],
+        [
+          0.0,
+          [
+            -2.170999765396118,
+            10.410865783691406,
+            1.6714999675750732
+          ],
+          [
+            -2.170999765396118,
+            10.410865783691406,
+            1.6714999675750732
+          ]
+        ],
+        [
+          4.76837158203125e-07,
+          [
+            -2.17099928855896,
+            10.40999984741211,
+            1.7000350952148438
+          ],
+          [
+            -2.170999765396118,
+            10.40999984741211,
+            1.7000350952148438
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Long-nose pliers",
+      "target": "FC | Perforated tool rack",
+      "status": "PASS",
+      "nearest_gap_m": 7.892843132140115e-05,
+      "contact_points": [
+        [
+          7.892843132140115e-05,
+          [
+            -2.1669442653656006,
+            10.72394847869873,
+            1.6359777450561523
+          ],
+          [
+            -2.1669998168945312,
+            10.723999977111816,
+            1.6359999179840088
+          ]
+        ],
+        [
+          7.892843132140115e-05,
+          [
+            -2.1669442653656006,
+            10.72394847869873,
+            1.6359777450561523
+          ],
+          [
+            -2.1669998168945312,
+            10.723999977111816,
+            1.6359999179840088
+          ]
+        ],
+        [
+          7.892843132140115e-05,
+          [
+            -2.1669442653656006,
+            10.72394847869873,
+            1.6359777450561523
+          ],
+          [
+            -2.1669998168945312,
+            10.723999977111816,
+            1.6359999179840088
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Small wrench",
+      "target": "FC | Perforated tool rack",
+      "status": "PASS",
+      "nearest_gap_m": 0.003000020980834961,
+      "contact_points": [
+        [
+          0.003000020980834961,
+          [
+            -2.1639997959136963,
+            10.87063980102539,
+            1.684999942779541
+          ],
+          [
+            -2.1669998168945312,
+            10.87063980102539,
+            1.684999942779541
+          ]
+        ],
+        [
+          0.003000020980834961,
+          [
+            -2.1639997959136963,
+            10.87063980102539,
+            1.7746000289916992
+          ],
+          [
+            -2.1669998168945312,
+            10.87063980102539,
+            1.7746000289916992
+          ]
+        ],
+        [
+          0.003000020980834961,
+          [
+            -2.1639997959136963,
+            10.847599983215332,
+            1.799799919128418
+          ],
+          [
+            -2.1669998168945312,
+            10.847599983215332,
+            1.799799919128418
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Tool-rack hooks",
+      "target": "FC | Perforated tool rack",
+      "status": "PASS",
+      "nearest_gap_m": 0.0,
+      "contact_points": [
+        [
+          0.0,
+          [
+            -2.1669998168945312,
+            10.176499366760254,
+            1.8420000076293945
+          ],
+          [
+            -2.1669998168945312,
+            10.176499366760254,
+            1.8420000076293945
+          ]
+        ],
+        [
+          0.0,
+          [
+            -2.1669998168945312,
+            10.17752456665039,
+            1.8395251035690308
+          ],
+          [
+            -2.1669998168945312,
+            10.17752456665039,
+            1.8395251035690308
+          ]
+        ],
+        [
+          0.0,
+          [
+            -2.1669998168945312,
+            10.179999351501465,
+            1.8385000228881836
+          ],
+          [
+            -2.1669998168945312,
+            10.179999351501465,
+            1.8385000228881836
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Dispatch manifest",
+      "target": "FC | Dispatch writing ledge",
+      "status": "PASS",
+      "nearest_gap_m": 0.0004999646916985512,
+      "contact_points": [
+        [
+          0.0004999646916985512,
+          [
+            2.1999998092651367,
+            13.041998863220215,
+            1.0379999876022339
+          ],
+          [
+            2.1999998092651367,
+            13.041999816894531,
+            1.037500023841858
+          ]
+        ],
+        [
+          0.0013873542193323374,
+          [
+            2.3239262104034424,
+            13.17529296875,
+            1.0379999876022339
+          ],
+          [
+            2.3239262104034424,
+            13.173998832702637,
+            1.037500023841858
+          ]
+        ],
+        [
+          0.0025496482849121094,
+          [
+            2.0905494689941406,
+            13.052980422973633,
+            1.0410000085830688
+          ],
+          [
+            2.0879998207092285,
+            13.052980422973633,
+            1.0410000085830688
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type OK / B",
+      "target": "FC | Checked shift note",
+      "status": "PASS",
+      "nearest_gap_m": 5.996227264404297e-05,
+      "contact_points": [
+        [
+          5.996227264404297e-05,
+          [
+            -2.090007781982422,
+            10.583511352539062,
+            0.8957599401473999
+          ],
+          [
+            -2.090007781982422,
+            10.583511352539062,
+            0.8956999778747559
+          ]
+        ],
+        [
+          5.996227264404297e-05,
+          [
+            -2.0900089740753174,
+            10.58201789855957,
+            0.8957599401473999
+          ],
+          [
+            -2.0900089740753174,
+            10.58201789855957,
+            0.8956999778747559
+          ]
+        ],
+        [
+          5.996227264404297e-05,
+          [
+            -2.0874881744384766,
+            10.582015991210938,
+            0.8957599401473999
+          ],
+          [
+            -2.0874881744384766,
+            10.582015991210938,
+            0.8956999778747559
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Cartridge identity",
+      "target": "FC | Sealed cartridge carrier",
+      "status": "PASS",
+      "nearest_gap_m": 5.91278076171875e-05,
+      "contact_points": [
+        [
+          5.91278076171875e-05,
+          [
+            2.711918830871582,
+            12.15294075012207,
+            0.7275978922843933
+          ],
+          [
+            2.711918830871582,
+            12.152999877929688,
+            0.7275978922843933
+          ]
+        ],
+        [
+          5.91278076171875e-05,
+          [
+            2.711918830871582,
+            12.15294075012207,
+            0.7288709282875061
+          ],
+          [
+            2.711918830871582,
+            12.152999877929688,
+            0.7288709282875061
+          ]
+        ],
+        [
+          5.91278076171875e-05,
+          [
+            2.7191078662872314,
+            12.15294075012207,
+            0.7288709282875061
+          ],
+          [
+            2.7191078662872314,
+            12.152999877929688,
+            0.7288709282875061
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type AIR / 07",
+      "target": "FC | Staging service-air manifold",
+      "status": "PASS",
+      "nearest_gap_m": 0.0002593994140625,
+      "contact_points": [
+        [
+          0.0002593994140625,
+          [
+            3.6540939807891846,
+            13.134739875793457,
+            2.014244318008423
+          ],
+          [
+            3.6540939807891846,
+            13.13499927520752,
+            2.014244318008423
+          ]
+        ],
+        [
+          0.0002593994140625,
+          [
+            3.6540939807891846,
+            13.134739875793457,
+            2.0154192447662354
+          ],
+          [
+            3.6540939807891846,
+            13.13499927520752,
+            2.0154192447662354
+          ]
+        ],
+        [
+          0.0002593994140625,
+          [
+            3.6607298851013184,
+            13.134739875793457,
+            2.0154192447662354
+          ],
+          [
+            3.6607298851013184,
+            13.13499927520752,
+            2.0154192447662354
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Staging service header type",
+      "target": "FC | Staging service header",
+      "status": "PASS",
+      "nearest_gap_m": 0.0012598037719726562,
+      "contact_points": [
+        [
+          0.0012598037719726562,
+          [
+            2.360348701477051,
+            13.177739143371582,
+            3.477937936782837
+          ],
+          [
+            2.360348701477051,
+            13.178998947143555,
+            3.477937936782837
+          ]
+        ],
+        [
+          0.0012598037719726562,
+          [
+            2.3600711822509766,
+            13.177739143371582,
+            3.4775681495666504
+          ],
+          [
+            2.3600709438323975,
+            13.178998947143555,
+            3.4775681495666504
+          ]
+        ],
+        [
+          0.0012598037719726562,
+          [
+            2.359773635864258,
+            13.177739143371582,
+            3.477217674255371
+          ],
+          [
+            2.359773635864258,
+            13.178998947143555,
+            3.477217674255371
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type FREIGHT / FG01",
+      "target": "FC | Freight gate header",
+      "status": "PASS",
+      "nearest_gap_m": 0.0007600784301757812,
+      "contact_points": [
+        [
+          0.0007600784301757812,
+          [
+            6.179239749908447,
+            9.813435554504395,
+            3.7527360916137695
+          ],
+          [
+            6.179999828338623,
+            9.813435554504395,
+            3.7527360916137695
+          ]
+        ],
+        [
+          0.0007600784301757812,
+          [
+            6.179239749908447,
+            9.805926322937012,
+            3.7527360916137695
+          ],
+          [
+            6.179999828338623,
+            9.805926322937012,
+            3.7527360916137695
+          ]
+        ],
+        [
+          0.0007600784301757812,
+          [
+            6.179239749908447,
+            9.805926322937012,
+            3.7786521911621094
+          ],
+          [
+            6.179999828338623,
+            9.805926322937012,
+            3.7786521911621094
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type SERVICE",
+      "target": "FC | Personnel bypass header",
+      "status": "PASS",
+      "nearest_gap_m": 0.0007600784301757812,
+      "contact_points": [
+        [
+          0.0007600784301757812,
+          [
+            0.08648134022951126,
+            12.879240036010742,
+            2.882838726043701
+          ],
+          [
+            0.08648118376731873,
+            12.880000114440918,
+            2.882838726043701
+          ]
+        ],
+        [
+          0.0007600784301757812,
+          [
+            0.10796059668064117,
+            12.879240036010742,
+            2.8789706230163574
+          ],
+          [
+            0.10796073079109192,
+            12.880000114440918,
+            2.8789706230163574
+          ]
+        ],
+        [
+          0.0007600784301757812,
+          [
+            0.0910775363445282,
+            12.879240036010742,
+            2.8789706230163574
+          ],
+          [
+            0.09107765555381775,
+            12.880000114440918,
+            2.8789706230163574
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Staging inlet elbow",
+      "target": "FC | Staging service-air manifold",
+      "status": "PASS",
+      "nearest_gap_m": 0.0,
+      "contact_points": [
+        [
+          0.0,
+          [
+            3.5399999618530273,
+            13.035999298095703,
+            1.597000002861023
+          ],
+          [
+            3.5399999618530273,
+            13.035999298095703,
+            1.597000002861023
+          ]
+        ],
+        [
+          0.0,
+          [
+            3.5399999618530273,
+            13.035999298095703,
+            1.6430000066757202
+          ],
+          [
+            3.5399999618530273,
+            13.035999298095703,
+            1.6430000066757202
+          ]
+        ],
+        [
+          0.0,
+          [
+            3.5399999618530273,
+            13.035999298095703,
+            1.6200000047683716
+          ],
+          [
+            3.5399999618530273,
+            13.035999298095703,
+            1.6200000047683716
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Freight gate header",
+      "target": "FC | Freight gate frame",
+      "status": "PASS",
+      "nearest_gap_m": 0.0,
+      "contact_points": [
+        [
+          0.0,
+          [
+            6.204999923706055,
+            10.0,
+            3.765000104904175
+          ],
+          [
+            6.204999923706055,
+            10.0,
+            3.765000104904175
+          ]
+        ],
+        [
+          0.001999855972826481,
+          [
+            6.203000068664551,
+            10.496000289916992,
+            3.765000104904175
+          ],
+          [
+            6.204999923706055,
+            10.49599838256836,
+            3.7649993896484375
+          ]
+        ],
+        [
+          0.001999855972826481,
+          [
+            6.203000068664551,
+            9.503999710083008,
+            3.765000104904175
+          ],
+          [
+            6.204999923706055,
+            9.50400161743164,
+            3.7649998664855957
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Personnel bypass header",
+      "target": "FC | Personnel bypass frame",
+      "status": "PASS",
+      "nearest_gap_m": 4.915124804938387e-07,
+      "contact_points": [
+        [
+          4.915124804938387e-07,
+          [
+            0.0,
+            12.904999732971191,
+            2.865000009536743
+          ],
+          [
+            -1.1920928955078125e-07,
+            12.904999732971191,
+            2.864999532699585
+          ]
+        ],
+        [
+          0.0019998562056571245,
+          [
+            0.4959999918937683,
+            12.902999877929688,
+            2.865000009536743
+          ],
+          [
+            0.4959977865219116,
+            12.904999732971191,
+            2.864999771118164
+          ]
+        ],
+        [
+          0.001999856438487768,
+          [
+            -0.4959999918937683,
+            12.902999877929688,
+            2.865000009536743
+          ],
+          [
+            -0.4959977865219116,
+            12.904999732971191,
+            2.864999294281006
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Freight gate left leaf",
+      "target": "FC | Freight gate track and motor",
+      "status": "PASS",
+      "nearest_gap_m": 2.384185791015625e-07,
+      "contact_points": [
+        [
+          2.384185791015625e-07,
+          [
+            6.136499881744385,
+            13.42236042022705,
+            3.687999963760376
+          ],
+          [
+            6.136499881744385,
+            13.42236042022705,
+            3.688000202178955
+          ]
+        ],
+        [
+          2.384185791015625e-07,
+          [
+            6.116499900817871,
+            13.42236042022705,
+            3.687999963760376
+          ],
+          [
+            6.116499900817871,
+            13.42236042022705,
+            3.688000202178955
+          ]
+        ],
+        [
+          2.384185791015625e-07,
+          [
+            6.136499881744385,
+            12.561640739440918,
+            3.687999963760376
+          ],
+          [
+            6.136499881744385,
+            12.561640739440918,
+            3.688000202178955
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Freight gate right leaf",
+      "target": "FC | Freight gate track and motor",
+      "status": "PASS",
+      "nearest_gap_m": 2.384185791015625e-07,
+      "contact_points": [
+        [
+          2.384185791015625e-07,
+          [
+            6.136499881744385,
+            7.43835973739624,
+            3.687999963760376
+          ],
+          [
+            6.136499881744385,
+            7.43835973739624,
+            3.688000202178955
+          ]
+        ],
+        [
+          2.384185791015625e-07,
+          [
+            6.116499900817871,
+            7.43835973739624,
+            3.687999963760376
+          ],
+          [
+            6.116499900817871,
+            7.43835973739624,
+            3.688000202178955
+          ]
+        ],
+        [
+          2.384185791015625e-07,
+          [
+            6.136499881744385,
+            6.577640056610107,
+            3.687999963760376
+          ],
+          [
+            6.136499881744385,
+            6.577640056610107,
+            3.688000202178955
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Freight gate track and motor",
+      "target": "FC | Freight gate frame",
+      "status": "PASS",
+      "nearest_gap_m": 0.0,
+      "contact_points": [
+        [
+          0.0,
+          [
+            6.270999908447266,
+            10.0,
+            3.680000066757202
+          ],
+          [
+            6.270999908447266,
+            10.0,
+            3.680000066757202
+          ]
+        ],
+        [
+          0.0,
+          [
+            6.244999885559082,
+            10.0,
+            3.680000066757202
+          ],
+          [
+            6.244999885559082,
+            10.0,
+            3.680000066757202
+          ]
+        ],
+        [
+          0.0005598068237304688,
+          [
+            6.37999963760376,
+            11.49425983428955,
+            3.839440107345581
+          ],
+          [
+            6.37999963760376,
+            11.49425983428955,
+            3.8399999141693115
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Freight drive clevis mounts",
+      "target": "FC | Freight gate frame",
+      "status": "PASS",
+      "nearest_gap_m": 0.0020003318786621094,
+      "contact_points": [
+        [
+          0.0020003318786621094,
+          [
+            6.202999591827393,
+            11.351999282836914,
+            3.7170000076293945
+          ],
+          [
+            6.204999923706055,
+            11.351999282836914,
+            3.7169997692108154
+          ]
+        ],
+        [
+          0.0020003318786621094,
+          [
+            6.202999591827393,
+            11.248000144958496,
+            3.7200000286102295
+          ],
+          [
+            6.204999923706055,
+            11.248000144958496,
+            3.7200002670288086
+          ]
+        ],
+        [
+          0.0020003318786621094,
+          [
+            6.202999591827393,
+            11.248000144958496,
+            3.7170000076293945
+          ],
+          [
+            6.204999923706055,
+            11.248000144958496,
+            3.7169995307922363
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    }
+  ],
+  "geometry_budget": {
+    "source_triangles": 249163,
+    "evaluated_triangles": 871611,
+    "mesh_objects": 5900,
+    "material_batch_upper_bound": 6084
+  },
+  "uv": [
+    {
+      "object": "FC | Wall_W-2.2_0_1.2 \u00b7 lined bay",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Wall_N13.2_0_-2.2 \u00b7 lined bay",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Wall_N13.2_1_1.2 \u00b7 lined bay",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Wall_S6.15_0_6.07 \u00b7 lined bay",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Wall_E6.78_0_6.15 \u00b7 lined bay",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Wall_E6.78_1_12.2 \u00b7 lined bay",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Wall_W6.07_0_6.15 \u00b7 lined bay",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Wall_W6.07_1_12.2 \u00b7 lined bay",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Wall_N13.85_0_6.07 \u00b7 lined bay",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Floor finish west_turn",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Ceiling cassettes west_turn",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Floor finish crossing",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Ceiling cassettes crossing",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Floor finish freight_gate_south_pocket",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Ceiling cassettes freight_gate_south_pocket",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Floor finish freight_gate_north_pocket",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Ceiling cassettes freight_gate_north_pocket",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Maintenance bench",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Perforated tool rack",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Checked shift note",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Bench service radio",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Open field-service tool case",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Folded blue wiping cloth",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Workshop flask",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Work mug",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Right work glove",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Left work glove",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Spare parts case 0",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Spare parts case 1",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Combination wrench",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Driver",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Long-nose pliers",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Small wrench",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Tool-rack hooks",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Dispatch writing ledge",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Dispatch manifest",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Sealed cartridge carrier",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Staging service-air manifold",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Staging air feed",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Staging inlet elbow",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Staging extraction grille",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Staging service header",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Freight gate header",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Personnel bypass header",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Bench practical",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Cartridge practical",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Staging main",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Freight paint west_turn",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Freight paint crossing",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Freight gate frame",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Freight gate left leaf",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Freight gate right leaf",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Freight gate track and motor",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Freight drive clevis mounts",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Personnel bypass frame",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Freight drive guarded disconnect",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "metal_plate_rough_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "painted_plaster_wall_rough_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "wood_table_worn_diff_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "T02-wall-albedo-r01.png",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "metal_plate_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "painted_plaster_wall_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "metal_plate_diff_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "painted_plaster_wall_diff_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "wood_table_worn_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "wood_table_worn_rough_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "T01-floor-albedo-r01.png",
+      "packed": true,
+      "available": true
+    }
+  ],
+  "missing_dependencies": [],
+  "routes": [],
+  "limitations": [
+    "Sampled geometric clearance is not continuous cart/player simulation.",
+    "Unity importer, batching, colliders and controller are not executed in this Blender environment."
+  ]
+}
