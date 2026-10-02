@@ -1,8 +1,8 @@
 {
   "schema": "fuel-overhaul-cold-validation/1",
-  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F18ci.blend",
-  "sha256": "e67b4c7e4fc6cbf1d989791040b88d9e515ba5abd0755853119401e8017c1fd4",
-  "build_manifest": "sections/fuel-corridor/production/checkpoints/F18ci_BUILD_MANIFEST.json",
+  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F19ci.blend",
+  "sha256": "f479c2071d560d7e8be2a4e9b0e613fb46782593a568f9b28d58c4bd2ceee565",
+  "build_manifest": "sections/fuel-corridor/production/checkpoints/F19ci_BUILD_MANIFEST.json",
   "recipe_sha256": "39f7ab0248c95e3d2bfd917ba72ff76311e0e898024c377de5123181d121bdec",
   "blender": "5.2.1 LTS",
   "status": "PASS",
@@ -10582,19 +10582,6 @@
         [
           0.0001499652862548828,
           [
-            -2.090038299560547,
-            10.52199935913086,
-            0.8953499794006348
-          ],
-          [
-            -2.090038299560547,
-            10.52199935913086,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
             -2.117966651916504,
             10.612022399902344,
             0.8953499794006348
@@ -10615,6 +10602,19 @@
           [
             -2.056000232696533,
             10.56997299194336,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
+            -2.12400484085083,
+            10.564026832580566,
+            0.8953499794006348
+          ],
+          [
+            -2.12400484085083,
+            10.564026832580566,
             0.8954999446868896
           ]
         ]
@@ -18363,12 +18363,12 @@
   ],
   "dependencies": [
     {
-      "name": "painted_plaster_wall_disp_2k.jpg",
+      "name": "metal_plate_diff_2k.jpg",
       "packed": true,
       "available": true
     },
     {
-      "name": "metal_plate_diff_2k.jpg",
+      "name": "painted_plaster_wall_disp_2k.jpg",
       "packed": true,
       "available": true
     },
