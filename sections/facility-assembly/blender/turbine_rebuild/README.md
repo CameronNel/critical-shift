@@ -51,9 +51,10 @@ e-stops, eyewash, PA horns and strobes, evacuation plan, bump rails, quilted aco
 ## Review status (agent self-review, not a human review)
 
 A single rubric reviewer (a Claude subagent, 100-point rubric: value separation 15, silhouette 15, trim/panels 15, signage 10, props 15, materials 15, lighting 10, artifacts 5; spawn room as the finish bar; dark ambience accepted by the owner) scored 12 named cameras round by round on hash-checked renders.
-Mean progression: about 52 (first pass) -> 66.8 -> 72.3 -> 74.1 -> 76.3 -> 77.1. **No view has reached 95; the best views score about 82.** The remaining deductions are small repeated items
-(cropped edge objects, small plates, floor seams, accent heat), not a missing system. These scores are one model's opinion and have not been confirmed by a human art review.
-
+Mean progression: about 52 (first pass) -> 66.8 -> 72.3 -> 74.1 -> 76.3 -> 77.1 -> 78.0 -> 79.2 (round 26). **No view has reached 95; the best views score 83-84 (door D01, entry north), the weakest 75-77.**
+The reviewer's ranked gap (about 16 points per view): surface materials (~4: smeared grey gradients on floors and casings, denoiser softness), prop specificity (~3.5: sparse blades, small hatches, clutter pockets), value separation (~3: dark hero masses read only by a thin rim),
+silhouette/shape language (~3), trim and panel logic (~2), lighting (~2), artifacts (~1: cropped edge objects), signage (~0.5). Incremental polish now yields about +0.3 mean per round; closing the rest needs larger work (a real trim-sheet / higher-resolution material system and a hero prop kit), not more small fixes.
+These scores are one model's opinion against a fixed rubric, with the owner's dark-ambience direction applied, and have not been confirmed by a human art review.
 Late-round additions: control station off the west wall (sloped panels, monitors, operator chair), annunciator wall and sign, per-wall texture sets and wall dressing, casing access hatches, hung tag signs, pale trim colour, a stylised grazing-angle rim in every material
 (a material feature that the runtime shader must reproduce), per-view warm light pools and cool wall rim spots. Triangle count about 370k (budget 400k). Text meshes use low curve resolution to save about 50k triangles.
 
