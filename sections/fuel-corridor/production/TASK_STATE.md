@@ -332,3 +332,12 @@ Published for independent review in [draft PR70](https://github.com/CameronNel/c
 ## Owner atmosphere revision — F13 development
 
 The owner requests gloomy, eerie, rundown and ominous atmosphere, failing and red lights, dark intervals, worn/missing tiles and open ceiling damage. Latest reactor WIP PR54 (`c555e4e0f08eeb73edcc9115f185223badc194e5`) is the atmosphere reference; reworked spawn remains the craft reference. The previous F12 scores do not approve this new revision. Native floor/wall footprints, original cameras and interfaces remain protected. F13a builds actual recessed missing/broken floor tiles and two bounded open ceiling service bays, isolates keyed failing optics/light energy and mounts three red alarm fixtures. New cold, visual and temporal checks are pending. No new acceptance score is claimed.
+
+## F13ci hosted execution
+
+Native SHA256 c51f6f1fc397de024fa90cbb3acc3578501a8cb3ae660ea8b40a8a6f810ccf2a. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 985390, "evaluated_triangles": 990670, "mesh_objects": 341, "material_batch_upper_bound": 1428}.

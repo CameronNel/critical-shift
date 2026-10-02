@@ -2,15 +2,16 @@
   "stage": "full",
   "base_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
   "output": "sections/facility-assembly/sources/fuel-corridor/module.blend",
-  "sha256": "0a13ff2fe1eadc8608223bd40810285a375a02edacfdfac615263cffe5196f87",
+  "sha256": "c51f6f1fc397de024fa90cbb3acc3578501a8cb3ae660ea8b40a8a6f810ccf2a",
   "recipe_inputs": {
-    "sections/fuel-corridor/blender/build_overhaul.py": "05b9076f474e5c61cf7a3ceaac62ae10524ac3acf10ce83d9719c8e1065adefd",
+    "sections/fuel-corridor/blender/build_overhaul.py": "2e17bc795175d529b5c373931d3ba212d8c029ffe8790ef2e81e8ec694aee5cb",
     "sections/fuel-corridor/blender/fuel_kit.py": "be28b3f0302c910167c3fa422f73fc5b0ef136b0c2fd7aa1ce4bc942f84279eb",
     "sections/fuel-corridor/blender/fuel_assets.py": "5b30a72616c746c25b64cae69dc88c6c924203c59dca698ea610c31376b7625c",
+    "sections/fuel-corridor/blender/fuel_atmosphere.py": "4bd310393755d5a79684e71b424a132fd33e2891785c1d1f5ef27f4f931008c6",
     "sections/spawn-room/blender/cozy_geo.py": "408c0eecc9a0dd534e9f5c8f0ace5442077db0c51b1dcbb299484f1ba59b4400",
     "sections/facility-assembly/sources/fuel-corridor/contracts/interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e"
   },
-  "recipe_sha256": "88857cf4e2d345469647886034c77b0de3fd35ac56f1c95296acd8569b569093",
+  "recipe_sha256": "febd101481ad3a760e35f965423602acd5399dd35c5d59d85798e62402e08ee6",
   "main_cache_material_compatibility": {
     "brass": "brass",
     "chip": "chip",
@@ -133418,6 +133419,42 @@
       "attachment": null
     },
     {
+      "name": "FC | Transfer alarm beacon",
+      "family": "guarded wall-mounted red emergency beacon",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Transfer alarm beacon pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Waste alarm beacon",
+      "family": "guarded wall-mounted red emergency beacon",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Waste alarm beacon pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Reactor alarm beacon",
+      "family": "guarded wall-mounted red emergency beacon",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Reactor alarm beacon pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
       "name": "FC | Freight paint entry",
       "family": "joint-clipped floor stencil",
       "support_kind": "floor",
@@ -135506,5 +135543,720 @@
         ]
       ]
     }
-  ]
+  ],
+  "atmosphere": {
+    "direction": "Owner-requested eerie, rundown dead-shift fuel corridor; latest reactor WIP PR54 atmosphere, spawn craftsmanship reference unchanged.",
+    "floor_damage": [
+      {
+        "cell": "entry",
+        "tile": [
+          1,
+          5
+        ],
+        "state": "missing",
+        "bounds": [
+          -1.647,
+          -1.103,
+          4.103,
+          4.677
+        ],
+        "bed_z": -0.02
+      },
+      {
+        "cell": "entry",
+        "tile": [
+          2,
+          5
+        ],
+        "state": "broken",
+        "bounds": [
+          -1.0970000000000002,
+          -0.5530000000000002,
+          4.103,
+          4.677
+        ],
+        "bed_z": -0.02
+      },
+      {
+        "cell": "west_turn",
+        "tile": [
+          1,
+          3
+        ],
+        "state": "broken",
+        "bounds": [
+          -1.2541428571428574,
+          -0.31728571428571434,
+          10.103000000000002,
+          11.130333333333333
+        ],
+        "bed_z": -0.02
+      },
+      {
+        "cell": "west_turn",
+        "tile": [
+          2,
+          3
+        ],
+        "state": "missing",
+        "bounds": [
+          -0.31128571428571444,
+          0.6255714285714286,
+          10.103000000000002,
+          11.130333333333333
+        ],
+        "bed_z": -0.02
+      },
+      {
+        "cell": "west_turn",
+        "tile": [
+          3,
+          2
+        ],
+        "state": "broken",
+        "bounds": [
+          0.6315714285714286,
+          1.5684285714285717,
+          9.069666666666667,
+          10.096999999999998
+        ],
+        "bed_z": -0.02
+      },
+      {
+        "cell": "east_turn",
+        "tile": [
+          0,
+          2
+        ],
+        "state": "broken",
+        "bounds": [
+          10.003,
+          10.911285714285714,
+          9.069666666666667,
+          10.096999999999998
+        ],
+        "bed_z": -0.02
+      },
+      {
+        "cell": "east_turn",
+        "tile": [
+          1,
+          2
+        ],
+        "state": "missing",
+        "bounds": [
+          10.917285714285713,
+          11.825571428571427,
+          9.069666666666667,
+          10.096999999999998
+        ],
+        "bed_z": -0.02
+      },
+      {
+        "cell": "bypass_north",
+        "tile": [
+          8,
+          6
+        ],
+        "state": "missing",
+        "bounds": [
+          3.9030000000000005,
+          4.234500000000001,
+          20.003,
+          20.330333333333336
+        ],
+        "bed_z": -0.02
+      },
+      {
+        "cell": "bypass_north",
+        "tile": [
+          9,
+          6
+        ],
+        "state": "broken",
+        "bounds": [
+          4.2405,
+          4.572,
+          20.003,
+          20.330333333333336
+        ],
+        "bed_z": -0.02
+      },
+      {
+        "cell": "bypass_north",
+        "tile": [
+          19,
+          3
+        ],
+        "state": "missing",
+        "bounds": [
+          7.615500000000001,
+          7.947000000000001,
+          19.003,
+          19.330333333333336
+        ],
+        "bed_z": -0.02
+      },
+      {
+        "cell": "bypass_north",
+        "tile": [
+          20,
+          3
+        ],
+        "state": "broken",
+        "bounds": [
+          7.953,
+          8.2845,
+          19.003,
+          19.330333333333336
+        ],
+        "bed_z": -0.02
+      }
+    ],
+    "roof_damage": [
+      {
+        "cell": "entry",
+        "opening": [
+          -1.086,
+          -0.014,
+          2.6639999999999997,
+          4.085999999999999
+        ],
+        "underside_z": 3.8,
+        "enclosed_void_top_z": 4.36,
+        "scope": "Authored opening with capped service/weather enclosure; no unintended open sky seam."
+      },
+      {
+        "cell": "west_turn",
+        "opening": [
+          -0.8660000000000002,
+          0.4259999999999998,
+          10.113999999999999,
+          11.636000000000001
+        ],
+        "underside_z": 4.4,
+        "enclosed_void_top_z": 4.83,
+        "scope": "Authored opening with capped service/weather enclosure; no unintended open sky seam."
+      }
+    ],
+    "flicker": [
+      {
+        "fixture": "FC | Entry fluorescent",
+        "light": "FC | Entry fluorescent pool",
+        "optics": [
+          {
+            "material": "FC | warm diffuser | FC | Entry fluorescent",
+            "emission_base": 0.6800000071525574
+          }
+        ],
+        "keys": [
+          [
+            1,
+            0.82
+          ],
+          [
+            17,
+            0.78
+          ],
+          [
+            18,
+            0.12
+          ],
+          [
+            20,
+            0.76
+          ],
+          [
+            45,
+            0.77
+          ],
+          [
+            46,
+            0.1
+          ],
+          [
+            49,
+            0.72
+          ],
+          [
+            109,
+            0.78
+          ],
+          [
+            110,
+            0.07
+          ],
+          [
+            116,
+            0.75
+          ],
+          [
+            148,
+            0.65
+          ],
+          [
+            151,
+            0.16
+          ],
+          [
+            154,
+            0.8
+          ],
+          [
+            198,
+            0.7
+          ],
+          [
+            200,
+            0.18
+          ],
+          [
+            205,
+            0.79
+          ],
+          [
+            241,
+            0.82
+          ]
+        ],
+        "energy_base_w": 27.0,
+        "period_frames": 240,
+        "channel_scope": "Individual light energy and isolated fixture optic emission; constant interpolation, Cycles repeat."
+      },
+      {
+        "fixture": "FC | Crossing fluorescent",
+        "light": "FC | Crossing fluorescent pool",
+        "optics": [
+          {
+            "material": "FC | cool diffuser | FC | Crossing fluorescent",
+            "emission_base": 0.5440000295639038
+          }
+        ],
+        "keys": [
+          [
+            1,
+            0.8
+          ],
+          [
+            15,
+            0.7
+          ],
+          [
+            17,
+            0.18
+          ],
+          [
+            22,
+            0.79
+          ],
+          [
+            58,
+            0.82
+          ],
+          [
+            74,
+            0.78
+          ],
+          [
+            75,
+            0.12
+          ],
+          [
+            77,
+            0.76
+          ],
+          [
+            102,
+            0.77
+          ],
+          [
+            103,
+            0.1
+          ],
+          [
+            106,
+            0.72
+          ],
+          [
+            166,
+            0.78
+          ],
+          [
+            167,
+            0.07
+          ],
+          [
+            173,
+            0.75
+          ],
+          [
+            205,
+            0.65
+          ],
+          [
+            208,
+            0.16
+          ],
+          [
+            211,
+            0.8
+          ],
+          [
+            241,
+            0.8
+          ]
+        ],
+        "energy_base_w": 29.0,
+        "period_frames": 240,
+        "channel_scope": "Individual light energy and isolated fixture optic emission; constant interpolation, Cycles repeat."
+      },
+      {
+        "fixture": "FC | Bypass fluorescent",
+        "light": "FC | Bypass fluorescent pool",
+        "optics": [
+          {
+            "material": "FC | cool diffuser | FC | Bypass fluorescent",
+            "emission_base": 0.5440000295639038
+          }
+        ],
+        "keys": [
+          [
+            1,
+            0.75
+          ],
+          [
+            21,
+            0.65
+          ],
+          [
+            24,
+            0.16
+          ],
+          [
+            27,
+            0.8
+          ],
+          [
+            71,
+            0.7
+          ],
+          [
+            73,
+            0.18
+          ],
+          [
+            78,
+            0.79
+          ],
+          [
+            114,
+            0.82
+          ],
+          [
+            130,
+            0.78
+          ],
+          [
+            131,
+            0.12
+          ],
+          [
+            133,
+            0.76
+          ],
+          [
+            158,
+            0.77
+          ],
+          [
+            159,
+            0.1
+          ],
+          [
+            162,
+            0.72
+          ],
+          [
+            222,
+            0.78
+          ],
+          [
+            223,
+            0.07
+          ],
+          [
+            229,
+            0.75
+          ],
+          [
+            241,
+            0.75
+          ]
+        ],
+        "energy_base_w": 24.0,
+        "period_frames": 240,
+        "channel_scope": "Individual light energy and isolated fixture optic emission; constant interpolation, Cycles repeat."
+      },
+      {
+        "fixture": "FC | Reactor transfer fluorescent",
+        "light": "FC | Reactor transfer fluorescent pool",
+        "optics": [
+          {
+            "material": "FC | warm diffuser | FC | Reactor transfer fluorescent",
+            "emission_base": 0.6800000071525574
+          }
+        ],
+        "keys": [
+          [
+            1,
+            0.79
+          ],
+          [
+            32,
+            0.82
+          ],
+          [
+            48,
+            0.78
+          ],
+          [
+            49,
+            0.12
+          ],
+          [
+            51,
+            0.76
+          ],
+          [
+            76,
+            0.77
+          ],
+          [
+            77,
+            0.1
+          ],
+          [
+            80,
+            0.72
+          ],
+          [
+            140,
+            0.78
+          ],
+          [
+            141,
+            0.07
+          ],
+          [
+            147,
+            0.75
+          ],
+          [
+            179,
+            0.65
+          ],
+          [
+            182,
+            0.16
+          ],
+          [
+            185,
+            0.8
+          ],
+          [
+            229,
+            0.7
+          ],
+          [
+            231,
+            0.18
+          ],
+          [
+            236,
+            0.79
+          ],
+          [
+            241,
+            0.79
+          ]
+        ],
+        "energy_base_w": 47.0,
+        "period_frames": 240,
+        "channel_scope": "Individual light energy and isolated fixture optic emission; constant interpolation, Cycles repeat."
+      }
+    ],
+    "alarms": [
+      {
+        "fixture": "FC | Transfer alarm beacon",
+        "light": "FC | Transfer alarm beacon pool",
+        "optics": [
+          {
+            "material": "FC | Transfer alarm beacon isolated lens",
+            "emission_base": 3
+          }
+        ],
+        "keys": [
+          [
+            1,
+            0.7
+          ],
+          [
+            25,
+            0.7
+          ],
+          [
+            32,
+            1
+          ],
+          [
+            38,
+            0.45
+          ],
+          [
+            48,
+            0.7
+          ],
+          [
+            100,
+            0.7
+          ],
+          [
+            108,
+            0.96
+          ],
+          [
+            116,
+            0.45
+          ],
+          [
+            126,
+            0.7
+          ],
+          [
+            241,
+            0.7
+          ]
+        ],
+        "energy_base_w": 18,
+        "period_frames": 240,
+        "interpolation": "LINEAR"
+      },
+      {
+        "fixture": "FC | Waste alarm beacon",
+        "light": "FC | Waste alarm beacon pool",
+        "optics": [
+          {
+            "material": "FC | Waste alarm beacon isolated lens",
+            "emission_base": 3
+          }
+        ],
+        "keys": [
+          [
+            1,
+            0.7
+          ],
+          [
+            25,
+            0.7
+          ],
+          [
+            32,
+            1
+          ],
+          [
+            38,
+            0.45
+          ],
+          [
+            48,
+            0.7
+          ],
+          [
+            100,
+            0.7
+          ],
+          [
+            108,
+            0.96
+          ],
+          [
+            116,
+            0.45
+          ],
+          [
+            126,
+            0.7
+          ],
+          [
+            241,
+            0.7
+          ]
+        ],
+        "energy_base_w": 13,
+        "period_frames": 240,
+        "interpolation": "LINEAR"
+      },
+      {
+        "fixture": "FC | Reactor alarm beacon",
+        "light": "FC | Reactor alarm beacon pool",
+        "optics": [
+          {
+            "material": "FC | Reactor alarm beacon isolated lens",
+            "emission_base": 3
+          }
+        ],
+        "keys": [
+          [
+            1,
+            0.7
+          ],
+          [
+            25,
+            0.7
+          ],
+          [
+            32,
+            1
+          ],
+          [
+            38,
+            0.45
+          ],
+          [
+            48,
+            0.7
+          ],
+          [
+            100,
+            0.7
+          ],
+          [
+            108,
+            0.96
+          ],
+          [
+            116,
+            0.45
+          ],
+          [
+            126,
+            0.7
+          ],
+          [
+            241,
+            0.7
+          ]
+        ],
+        "energy_base_w": 20,
+        "period_frames": 240,
+        "interpolation": "LINEAR"
+      }
+    ],
+    "frame_start": 1,
+    "frame_end": 240,
+    "closure_frame": 241,
+    "fps": 24,
+    "fps_base": 1.0,
+    "runtime": "Blender authoring keys only; runtime behaviour unverified."
+  }
 }
