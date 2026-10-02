@@ -206,3 +206,110 @@ Counted per mesh (faces split into triangles), suit on and skin regions hidden:
 lod 2 (body remesh 3,300, coarse head/hood, fewer segments, no bevels on small parts) looks faceted up close, so it is
 for distance only. lod 1 is nearly indistinguishable from lod 0 but saves only about 16 percent. Not yet measured on a
 3050 or in Unity, and no LOD switching distances are set.
+
+## Crew worker rig and animation clips
+
+`character_rig.py` builds a Unity Humanoid-compatible skeleton (Root, Hips, Spine, Chest, Neck, Head, shoulders, arms,
+hands, legs, feet; Unity naming so the Avatar auto-maps; A-pose rest; no Toes bone because the feet are toeless) plus
+extra bones `Belly` (jiggle), `Pack` (backpack lag) and `Tool` (carries a hand tool rigidly). The worker faces +Y, so
+its own left side, and the `Left*` bones, are at -X (`SIDES`); earlier revisions had the sides swapped, which put the
+"right-hand" tool in the anatomical left hand and would have mirrored the Humanoid Avatar. Skin weights are a pure
+function of position (bone heat on the welded body for torso and arms, same-side distance weights for the legs, the
+glutes and crotch riding the pelvis), so region seams and outfit pieces deform together.
+
+The suit body is one fused mesh: the legs touch from the knee to the crotch and each inner arm touches the flank below
+the armpit. `_separate_limbs` cuts those creases open along a smoothed limb classification and closes each side with its
+own wall (a strip of triangles between the front and back cut lines), and each side is then weighted to its own limb
+only (the flank gets torso weights computed as if the arm were not there). Only faces within the sleeve's own radius
+count as arm; the web that joined arm and flank stays on the flank, and what is left of it is tucked back, so neither a
+claw on the raised arm nor a bulge on the flank remains. Fabric under the rigid hood never follows the arm. The two boot
+shells are kept to their own foot the same way. Kit on the suit: pieces lying flat on the fabric follow it vertex by
+vertex with long edges subdivided; bands round the legs and small raised items move as one piece; long hard parts
+(belt, tank) are rigid to one bone; everything behind the back rides `Pack`. Head, hood, visor and face decals
+are rigid to `Head` (tagged `cs_head_rigid`, hidden in the first-person view).
+
+Legs are two-bone IK to planned foot paths (planted stance foot sliding back at treadmill speed, heel strike, toe roll,
+swing); arms are two-bone IK to where the mitten closes, the forearm following the upper arm through a pure elbow hinge
+so the sleeve never twists at the elbow.
+
+### Clips
+
+All clips are in place at 24 fps. Loops have their last frame equal to the first; one-shots (`act["cs_loop"]` false)
+start and end on the pose the game blends from and to (standing, or the crate carry). Speeds are the floor speed of the
+planted foot, so the game can match playback to the character's velocity.
+
+In `character_rig.py` (`ACTIONS`):
+- `IDLE` (48): standing, breathing, slow weight shift.
+- `RUN` (32, two strides, 1.4 m/s): cartoon run, arms up beside the head like \o/, mittens waving.
+- `HOLD_SHOVEL`, `HOLD_PICKAXE` (48): the tool in the right hand at chest height in front of the right shoulder, blade
+  or pick head raised forward so it shows in the lower right of the first-person view (`TOOL_HOLD`); left arm hanging.
+- `RUN_SHOVEL`, `RUN_PICKAXE` (18, 1.2 m/s): a plain run holding the tool the same way (`TOOL_RUN`), left arm pumping.
+
+In `character_clips.py` (`CLIPS`, registered into `ACTIONS` on import), built as keyed poses (pelvis, spine, chest and
+head angles, hips offset, mitten targets on the chest or fixed in the world or held on a prop, elbow poles, ankle
+targets with pitch and yaw), interpolated with a monotone cubic so nothing overshoots and equal keys hold:
+- Locomotion: `WALK_F` (24, 0.63 m/s), `WALK_B` (24, the walk reversed so the toe lands first), `WALK_L`/`WALK_R`
+  (16, side-steps that never cross, 0.40 m/s), `TURN_L`/`TURN_R` (20, stepping on the spot, 64 deg/s), `SPRINT` (24,
+  the \o/ run longer and quicker, 2.6 m/s), `JUMP` (14, crouch and spring, ends in the fall pose), `FALL` (20 loop,
+  arms up paddling), `LAND` (16, knees take it, back to standing).
+- Carrying (preview crate 0.34 x 0.30 x 0.28 m, held at the rear of its sides, its top edge in the first-person view):
+  `PICKUP` (30, squat, grip, stand into the carry), `CARRY_IDLE` (48), `CARRY_WALK` (24, 0.50 m/s), `CARRY_RUN` (18,
+  0.96 m/s), `PLACE` (30, the pickup reversed), `DROP` (18), `THROW_UNDER` (28, underhand heave), `THROW_OVER` (26, a
+  chest heave with a step: the arms are too short to lift a crate over the hood), `PUSH_IDLE` (32), `PUSH_WALK` (24,
+  0.60 m/s), `PULL_WALK` (24, walking backwards, 0.50 m/s), `DRAG_BODY` (28, crouched, walking backwards with a body by
+  its shoulder straps, 0.34 m/s).
+- Interactions at the worker's chest height (its shoulders are at 1.06 m and its chin at 1.15 m): `PRESS_BUTTON` (20),
+  `PULL_LEVER` (26), `TURN_VALVE` (32 loop, hand over hand, 60 degrees per loop), `HOLD_VALVE` (32 loop, straining),
+  `OPEN` (26, pushing a door open), `INSERT` (26, a cartridge into a slot), `CONNECT_PORT` (30, plugging the service
+  cable into a worker in the OCRU), `POINT` (22), `RADIO` (48 loop, radio held to the hood).
+- Hits and recovery: `STAGGER_F`/`B`/`L`/`R` (22, a catch step each way), `GETUP_FRONT` (42, from face down: push up,
+  all fours, kneel, stand), `GETUP_BACK` (44, from the back: sit up, feet in, rock forward, stand); lying bodies lie
+  along +Y from the root and stand up on it.
+- Suit and OCRU: `SUIT_UP` (56, pull the suit up, settle it, zip, seat the hood), `LOCKER_EXIT` (24, two steps out of a
+  locker 0.45 m behind the root), `REANIM_IDLE` (48 loop, slumped in the upright OCRU cabinet), `REANIM_JOLT` (16, a
+  shock), `REANIM_EXIT` (24, wake and stumble out).
+- Tool work: `SHOVEL_DIG` (36 loop, both hands, right on the D-handle: stab, lever, lift, toss to the right).
+
+Props (crate, panels, lever, valve wheel, door, cartridge, radio, a body stand-in, cabinets) are preview-only stand-ins
+for the renders (`character_clips.PROPS`); they are not exported. `SHOVEL_DIG` drives the real shovel on the `Tool`
+bone.
+
+### First-person view
+
+The game is first-person with the body visible. `render_rig.py` renders an `eye` view: a camera at the eyes (0, 0.20,
+1.40 at rest) following the `Head` bone, 60 degree vertical field of view at 16:9, with the head-rigid meshes hidden.
+The worker's eyes are 0.34 m above its shoulders and its arms are short, so in a 60 degree view the mittens show only
+when they reach forward at chest height or above (pointing, buttons, levers, the valve wheel, throws); a hand at the hip
+is 66 degrees below the eye line. The tool holds therefore keep the hand at chest height and raise the tool's working
+end into the lower right of the view (measured: 56 % of the shovel's vertices and 73 % of the pickaxe's are on screen
+when standing, 41 to 73 % while running), and the carried crate's top edge sits at the bottom of the view.
+
+### Tools, export and rendering
+
+`character_tools.py` builds the shovel and pickaxe (origin at the right grip, shaft along +Z). `add_tools` skins them
+100% to the `Tool` bone and hides them; `show_tool` shows one. `export_fbx` exports the rigged worker and one action per
+file, baked over that action's own frames, with the FBX take (Unity clip) named after the action and only the tool that
+action holds. `render_rig.py` renders posed frames: `SUIT=1`, `ACTIONS=...`, `VIEWS=` (close, close_side, three_q,
+front, side, side_r, back, wide, shoulders, sh_side, sh_back, legs, legs_b, flank_r, flank_l, eye), `FRAMES=0,4,...` for
+a contact sheet, `VIDEO=1` for every frame plus an mp4 (loops twice, one-shots once with a hold), `RES=WxH`,
+`SAMPLES=N`, `HIDE=<object>`, `EXPORT=<dir>` for the FBX clips.
+
+Checked (headless bpy 5.0.1, Cycles CPU renders reviewed as contact sheets from a close three-quarter camera and the
+first-person eye, plus numeric checks): every clip builds and loops close; no hand target is out of reach by more than
+1 cm except where noted below; no tool vertex enters the suit; the eye never ends up inside a prop; apart from the
+mittens gripping things, no suit vertex is inside a prop except brief contacts (a few forearm or knee vertices on the
+crate while it is lifted or carried); legs stay within reach (at most 99.8 % extended).
+
+Known limits: not imported into Unity (Humanoid Avatar mapping, clip import and the first-person camera are untested in
+the engine). Clips are in place with no root motion, so planted feet slide back on the treadmill unless playback speed
+is matched. The bare (unsuited) body was not reviewed. Face decals are rigid, so expressions do not animate. In
+`PICKUP`/`PLACE` the hands trail their path for a few frames as the body bends (up to 11 cm short of it). Props are
+stand-ins, so real handle, button and slot positions must be matched to the clips (or the clips re-keyed). The FBX
+clips and renders are not committed.
+
+Status: kept on the `claude/character-rig` branch, not merged. Open polish items:
+- Mittens higher in the \o/ run (they reach about the top of the hood).
+- Round the flank wall that shows under a raised arm, and ease the armpit stretch (up to about 5.5x at the fold).
+- Root motion or foot locking, so the planted foot does not slide on the treadmill.
+- Import the FBX clips into Unity and check the Humanoid Avatar mapping, clip loop settings and the first-person camera.
+- Review the bare (unsuited) body in these animations.
