@@ -84,7 +84,7 @@ def bypass(b, x, y, z):
 def handrails(b, xa, xb, ya, yb, z1):
     for xr in (xa + .12, xb - .12):
         n = int((yb - ya) / 2.0) + 1; ys = [ya + .12 + i * (yb - ya - .24) / n for i in range(n + 1)]
-        for y in ys: b.cyl((xr, y, z1 + .55), .042, 1.1, 'trim_black', 'Z', 14, bev=.006); b.cyl((xr, y, z1 + .02), .1, .03, 'steel_dark', 'Z', 16, bev=.006); b.cyl((xr, y, z1 + 1.1), .05, .03, 'gold_paint', 'Z', 14, bev=.006)
+        for y in ys: b.cyl((xr, y, z1 + .55), .042, 1.1, 'trim_black', 'Z', 14, bev=.006); b.cyl((xr, y, z1 + .02), .1, .03, 'steel_dark', 'Z', 16, bev=.006); b.cyl((xr, y, z1 + 1.1), .05, .03, 'orange_dark', 'Z', 14, bev=.006)
         b.rod((xr, ys[0], z1 + 1.05), (xr, ys[-1], z1 + 1.05), .032, 'orange_dark', 12); b.rod((xr, ys[0], z1 + .55), (xr, ys[-1], z1 + .55), .024, 'trim_black', 12)
         b.box((xr, (ya + yb) / 2, z1 + .08), (.022, yb - ya - .2, .14), 'pale_steel', bev=.005)
     for yr in (ya + .12, yb - .12):
@@ -133,12 +133,12 @@ def stepped(b, segs, body, flanges=True, nbolt=16):
     for k, (y0, y1, r0, r1) in enumerate(segs):
         b.cyl((CX, (y0 + y1) / 2, AZ), r0, y1 - y0, body, 'Y', 48, r2=r1)
         if y1 - y0 > .8:                                                                                         # access hatches on both flanks (frame, raised door, bolts, handle)
-            ym = (y0 + y1) / 2 + .28 * (y1 - y0); rm = (r0 + r1) / 2; hz = AZ - .45                                   # low on the flank, off to one side: clear of nameplates and gauge panels
+            ym = (y0 + y1) / 2 + (.28 if k % 2 == 0 else -.28) * (y1 - y0); rm = (r0 + r1) / 2; hz = AZ - .36                                   # low on the flank, off to one side: clear of nameplates and gauge panels
             for sd in (1, -1):
                 hx = CX + sd * (rm * .93 + .012)
-                b.box((hx, ym, hz), (.05, .62, .5), 'trim_black', bev=.02); b.box((hx + sd * .03, ym, hz), (.03, .54, .42), 'steel_mid', bev=.015)
+                b.box((hx, ym, hz), (.05, .62, .5), 'trim_black', bev=.02); b.box((hx + sd * .03, ym, hz), (.03, .54, .42), 'steel_dark', bev=.015)
                 for q in range(6): b.cyl((hx + sd * .05, ym - .22 + (q % 3) * .22, hz + (.17 if q < 3 else -.17)), .02, .03, 'steel_light', 'X', 8)
-                b.rod((hx + sd * .07, ym - .1, hz), (hx + sd * .07, ym + .1, hz), .016, 'pale_steel', 8)
+                b.rod((hx + sd * .07, ym - .12, hz), (hx + sd * .07, ym + .12, hz), .024, 'pale_steel', 8)
         if y1 - y0 > .9:                                                                                         # dark banded collars (spawn-room trim language)
             b.cyl((CX, y0 + .07, AZ), r0 + .03, .14, 'steel_light', 'Y', 48, bev=.01)                           # pale base band so the lower casing reads
             for t in (.3, .7):
@@ -326,6 +326,8 @@ def controls(b):
             b.box((-3.842, yy, 2.0 + j * .3), (.014, .35, .25), 'trim_black', bev=.006); b.box((-3.835, yy, 2.0 + j * .3), (.02, .3, .2), cols8[(i + j * 3) % 8], bev=.006); b.text(str(i * 3 + j + 1), (-3.82, yy, 2.0 + j * .3), .06, 'trim_black', math.pi / 2, math.pi / 2)
     b.box((-3.9, 4.0, 4.2), (.1, 3.2, .6), 'oxide_dark', bev=.02); b.box((-3.846, 4.0, 4.2), (.012, 3.08, .5), 'trim_black', bev=.006)
     b.text('TURBINE CONTROL', (-3.84, 4.0, 4.2), .27, 'chalk', math.pi / 2, math.pi / 2)
+    for dy in (-1.5, 1.5):
+        for dz in (-.2, .2): b.cyl((-3.83, 4.0 + dy, 4.2 + dz), .028, .02, 'steel_light', 'X', 8)
     b.claim((-3.95, 2.3, 0), (-1.5, 5.7, 3.9))
     for k, x in enumerate((-3.35, -2.3, -1.25)):
         b.box((x, 23.55, 1.1), (.98, .8, 2.2), 'steel_mid', nb=True, bev=.025); b.box((x, 23.145, 1.1), (.9, .012, 2.1), 'steel_dark', bev=.01)
