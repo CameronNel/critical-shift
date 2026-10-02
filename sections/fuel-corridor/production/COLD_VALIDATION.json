@@ -1,8 +1,8 @@
 {
   "schema": "fuel-overhaul-cold-validation/1",
-  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F16ci.blend",
-  "sha256": "e987bf87da2a51b79fbc68d6301d53a5902995623294c9be2dcc73a36b2b5530",
-  "build_manifest": "sections/fuel-corridor/production/checkpoints/F16ci_BUILD_MANIFEST.json",
+  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F17ci.blend",
+  "sha256": "027ab74f9a3928204d7d3e5f2c1af736982aa41063b37078a6fd9db2efec8deb",
+  "build_manifest": "sections/fuel-corridor/production/checkpoints/F17ci_BUILD_MANIFEST.json",
   "recipe_sha256": "4907d580baa67d66a12c02d8ce7598a07ef903de9ded16e8208f0c32a90f087b",
   "blender": "5.2.1 LTS",
   "status": "PASS",
@@ -10582,6 +10582,19 @@
         [
           0.0001499652862548828,
           [
+            -2.056000232696533,
+            10.56997299194336,
+            0.8953499794006348
+          ],
+          [
+            -2.056000232696533,
+            10.56997299194336,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
             -2.12400484085083,
             10.564026832580566,
             0.8953499794006348
@@ -10602,19 +10615,6 @@
           [
             -2.0839619636535645,
             10.617995262145996,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
-            -2.090038299560547,
-            10.52199935913086,
-            0.8953499794006348
-          ],
-          [
-            -2.090038299560547,
-            10.52199935913086,
             0.8954999446868896
           ]
         ]
@@ -18368,16 +18368,6 @@
       "available": true
     },
     {
-      "name": "metal_plate_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "painted_plaster_wall_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
       "name": "painted_plaster_wall_diff_2k.jpg",
       "packed": true,
       "available": true
@@ -18388,7 +18378,12 @@
       "available": true
     },
     {
-      "name": "wood_table_worn_disp_2k.jpg",
+      "name": "painted_plaster_wall_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "metal_plate_disp_2k.jpg",
       "packed": true,
       "available": true
     },
@@ -18399,6 +18394,11 @@
     },
     {
       "name": "painted_plaster_wall_rough_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "wood_table_worn_disp_2k.jpg",
       "packed": true,
       "available": true
     },
