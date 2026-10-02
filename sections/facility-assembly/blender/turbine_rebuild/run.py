@@ -23,7 +23,7 @@ _looks = [i.identifier for i in sc.view_settings.bl_rna.properties['look'].enum_
 sc.view_settings.look = next((l for l in _looks if 'Medium High Contrast' in l), 'None'); sc.view_settings.exposure = 0.0
 atlas, orm = lib.make_atlas(os.path.join(OUT, 'turbine_atlas.png'))
 
-RIM_STRENGTH = {'MACH': .5, 'PROPS': .45, 'ARCH': .22, 'SHAFT': .5}
+RIM_STRENGTH = {'MACH': .5, 'PROPS': .45, 'ARCH': .4, 'SHAFT': .5}
 def make_mats(grp):
     """Bake-ready PBR material (albedo atlas on UV0) and the emissive twin for lamps / screens."""
     def mk(name, emissive):
@@ -174,7 +174,7 @@ def aim(o, frm, to):
     o.rotation_euler = (Vector(to) - Vector(frm)).to_track_quat('-Z', 'Y').to_euler()
 spot('LAMP_rotor', (machinery.CX, 11.25, 4.1), 1300, 62, (1.0, .66, .3), .4)
 aim(spot('WORK_rotor', (6.38, 7.36, 3.55), 1800, 42, (1.0, .5, .2), .3), (6.38, 7.36, 3.55), (4.6, 11.0, 2.2))                     # work lamp on its stand
-aim(spot('SPOT_desk', (8.0, 22.3, 4.8), 420, 42, (1.0, .66, .32), .3), (8.0, 22.3, 4.8), (8.0, 23.4, .8))                    # lights the exposed gold blading
+aim(spot('SPOT_desk', (8.0, 22.3, 4.8), 1300, 36, (1.0, .66, .32), .3), (8.0, 22.3, 4.8), (8.0, 23.4, .8))                    # lights the exposed gold blading
 point('GLOW_coupling', (machinery.CX, 15.6, machinery.AZ + .35), 150, (1.0, .55, .18))
 for k, y in enumerate((5.0, 11.0, 18.0)):                                                      # warm floor uplights give the casings a rim
     aim(spot(f'UP_W{k}', (1.35, y, .2), 180, 42, AMBER, .3), (1.35, y, .2), (3.2, y, 2.2)); aim(spot(f'UP_E{k}', (7.65, y, .2), 180, 42, AMBER, .3), (7.65, y, .2), (6.0, y, 2.2))
@@ -206,16 +206,16 @@ for k, (fx, fy) in enumerate(((-.5, 5), (3, 12), (7.5, 19), (3, 21))):
     o = bpy.data.objects.new(f'FILL_{k}', d); o.location = (fx, fy, 6.0); coll.objects.link(o)
 # ---- named review cameras ----
 CAMS = {   # all positions are in open aisle space
-    'CAM_A_entry_north':   ((0.0, 1.4, 1.65), (3.9, 14, 2.0)),
+    'CAM_A_entry_north':   ((0.7, 1.4, 1.65), (4.3, 14, 2.0)),
     'CAM_B_ne_high':       ((9.1, 23.0, 4.6), (-1, 6, 1.5)),
     'CAM_C_east_aisle':    ((7.7, 12.2, 1.8), (2.8, 20, 2.3)),
-    'CAM_D_maintenance':   ((-3.2, 12.6, 1.65), (-.5, 19.5, 1.2)),
-    'CAM_E_controls':      ((.9, 4.0, 1.6), (-3.5, 4.0, 2.0)),
+    'CAM_D_maintenance':   ((-3.2, 12.6, 1.65), (-.5, 19.5, 1.7)),
+    'CAM_E_controls':      ((.9, 4.0, 1.6), (-3.5, 4.0, 1.7)),
     'CAM_F_sw_high':       ((-2.4, 1.6, 4.2), (5.0, 16, 1.5)),
     'CAM_G_generator':     ((8.4, 15.0, 2.4), (4.6, 18.5, 2.0)),
     'CAM_H_roof':          ((1.0, 4.0, 1.65), (3.4, 14, 6.4)),
-    'CAM_J_north_back':    ((1.2, 22.8, 1.8), (5.0, 2, 2.1)),
-    'CAM_K_door_d01':      ((1.5, 8.8, 1.65), (-3.4, .3, 1.9)),
+    'CAM_J_north_back':    ((2.4, 22.8, 1.8), (5.6, 2, 2.1)),
+    'CAM_K_door_d01':      ((1.5, 8.8, 1.65), (-3.9, .3, 1.9)),
     'CAM_M_turbine_close': ((6.6, 7.4, 2.7), (4.6, 11.6, 2.1)),
     'CAM_P_west_wall':     ((1.0, 12.0, 1.65), (-4, 12, 2.6)),
     'CAM_Q_east_wall':     ((8.6, 3.2, 1.7), (10, 13, 3.0)),
@@ -224,7 +224,7 @@ CAMS = {   # all positions are in open aisle space
     'CAM_L_desk':          ((7.7, 19.8, 1.6), (8.4, 23.5, 1.0)),
 }
 for name, (loc, tgt) in CAMS.items():
-    cd = bpy.data.cameras.new(name); cd.lens = {'CAM_E_controls': 18, 'CAM_K_door_d01': 19, 'CAM_J_north_back': 21, 'CAM_H_roof': 20, 'CAM_B_ne_high': 22, 'CAM_A_entry_north': 22}.get(name, 24); co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
+    cd = bpy.data.cameras.new(name); cd.lens = {'CAM_E_controls': 18, 'CAM_K_door_d01': 19, 'CAM_J_north_back': 21, 'CAM_H_roof': 20, 'CAM_B_ne_high': 24, 'CAM_A_entry_north': 22}.get(name, 24); co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
     co.rotation_euler = (Vector(tgt) - Vector(loc)).to_track_quat('-Z', 'Y').to_euler()
 sc.camera = bpy.data.objects['CAM_A_entry_north']
 for _o in coll.objects:

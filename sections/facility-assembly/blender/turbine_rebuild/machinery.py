@@ -101,6 +101,7 @@ def foundation(b):
     for sy in (ya + .07, yb - .07): b.box(((xa + xb) / 2, sy, z1 + .012), (xb - xa - .02, .1, .006), 'yellow_worn', nb=True)
     b.box((CX, ya - .06, .07), (xb - xa + .24, .12, .14), 'concrete_dark', nb=True, bev=.015); b.box((CX, yb + .06, .07), (xb - xa + .24, .12, .14), 'concrete_dark', nb=True, bev=.015)
     for sx in (xa - .06, xb + .06): b.box((sx, (ya + yb) / 2, .07), (.12, yb - ya, .14), 'concrete_dark', nb=True, bev=.015)
+    for sx_, sg in ((xb + .012, 1), (xa - .012, -1)): b.box((sx_, (ya + yb) / 2, .9), (.03, yb - ya - .3, .06), 'steel_light', nb=True, bev=.008); b.box((sx_ + sg * .004, (ya + yb) / 2, .12), (.04, yb - ya - .3, .05), 'trim_black', nb=True, bev=.008)   # pale plinth band + dark toe plate
     for y in range(3, 23, 3):
         for x in (xa + .3, xb - .3): b.cyl((x, y, z1 + .02), .055, .03, 'steel_dark', 'Z', 14)
     for k in range(4):                                                        # steps, south end
