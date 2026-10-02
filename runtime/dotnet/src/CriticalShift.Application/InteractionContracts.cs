@@ -2,7 +2,7 @@ using System;
 
 namespace CriticalShift.Application
 {
-    public enum InteractionKind { Grab, Release, Renew, Production, Reactor, Control, Assist }
+    public enum InteractionKind { Grab, Release, Renew, Production, Reactor, Control, Assist, GripHandle }
     public enum AccessDecision { Allowed, OutOfReach, ActorUnavailable, TargetUnavailable }
     public enum InteractionStatus
     {
@@ -49,7 +49,7 @@ namespace CriticalShift.Application
             (Kind == InteractionKind.Control ? Control != null && Control.IsWellFormed && Reactor == null && Production == null && ExpectedRevision == 0 && LeaseGeneration == 0 :
              Control == null && (Kind == InteractionKind.Reactor ? Reactor != null && Reactor.IsWellFormed && Production == null && ExpectedRevision == 0 && LeaseGeneration == 0 :
              Reactor == null && (Kind == InteractionKind.Production ? Production != null && Production.IsWellFormed && ExpectedRevision == 0 && LeaseGeneration == 0 :
-             Production == null && (Kind == InteractionKind.Grab ? ExpectedRevision >= 0 && LeaseGeneration == 0 :
+             Production == null && ((Kind == InteractionKind.Grab || Kind == InteractionKind.GripHandle) ? ExpectedRevision >= 0 && LeaseGeneration == 0 :
              Kind == InteractionKind.Assist ? ExpectedRevision >= 0 && LeaseGeneration > 0 :
              (Kind == InteractionKind.Release || Kind == InteractionKind.Renew) && ExpectedRevision == 0 && LeaseGeneration > 0))));
 

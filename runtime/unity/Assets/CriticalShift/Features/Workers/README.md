@@ -143,11 +143,59 @@ grip, preserves the primary, primary loss
 or expiry frees both. Insertion requires the helper to release first. Neither actor
 can hold a second object. The two configured grip points apply separate force limits.
 
-Recovery uses the ragdoll pelvis to find a floor and choose front/back get-up. The frozen bone pose blends into the get-up without evaluating an intermediate
-standing pose. The real standing capsule is checked before starting and again by IWorkerRecoveryPolicy
-before completing the current attempt. Blocked recovery remains Down. The scene OCRU
-adapter connects, jolts, waits, stabilizes and requests a cleared exit; disabled
-stations cancel their timer and return the patient to a downed physical state.
+## Ragdoll authoring and controls
+
+In **Critical Shift > Scene bindings**, bind the worker, then run **Build selected
+ragdoll physics**. It reads the Humanoid or exact generic bone names and creates
+16 weighted limb bodies, capsule shapes, 15 limited CharacterJoints and collision
+relays. The pelvis stays free; the motion root stays upright at unit world scale
+with a CharacterController and no Rigidbody. The builder preserves bone transforms
+and animation files. Elbow flex axes derive from the calibrated hanging A-pose;
+knees bend backward. Rebuilding reuses components. Bind the worker as a Body object
+for dragging/carrying; its body/contact and two grip anchors use the physical pelvis.
+
+The default profile is 70 kg, 12 m/s linear and 18 rad/s angular motion bounds,
+a maximum impact velocity change of 7 m/s, 12/4 solver iterations and a 0.2 s
+recovery blend. Inspector tuning has finite bounds; manually assigned body mass
+must total 10–200 kg. All owned bodies and solid shapes must be declared. Supported
+shapes are box/sphere/capsule; the limb graph uses CharacterJoint. Unbounded/foreign
+joints, undeclared solid geometry and a scaled or pitched root fail validation.
+
+Knockdown suspends playback and disables the capsule before enabling limb physics.
+It preserves measured motor velocity and sampled limb/angular motion. Additional
+impacts preserve active motion, with bounded aggregate impulse. Normal closing speed
+classifies hazards; tangential/receding contact does not create a knockdown. A worker
+uses one hazard identity across its limb relays, bounded observation cooldowns and
+canonical episode/receipt fences. Broken/disabled bodies or non-finite motion stop
+physics and latch the adapter fault. Host synchronization stops the world on an
+unexpected physical binding failure. Teardown freezes limbs and restores captured
+collision policy; map collisions remain enabled during carrying.
+
+An alert downed local worker uses WASD to crawl (default 0.25 m/s), B to brace,
+H/P for help/beacon feedback and E to grip/release a nearby fixed handle (G also
+releases). **Bind selected downed handle** wires a RagdollHandle to the host;
+assign a solid raycast shape/contact. This is a force-limited compliant hand
+constraint, with equal reaction on a dynamic anchor. It uses the nearest declared
+hand, falling back to the pelvis if hands are absent. GripHandle reuses canonical
+claims, revision checks, contention, leases and receipts; ordinary cargo/control
+use remains unavailable while Down. Unconscious workers have no input agency.
+Accepted impact, expiry, disconnect and recovery release handles. Local auto-recovery
+waits while a handle remains held. The camera follows the actual downed head/pelvis.
+
+Recovery requires quiet limb motion, supported current pelvis position, acceptable
+floor slope/motion and clear standing space. It chooses front/back from anatomical
+axes, moves the root while preserving parent-first bone world poses, then blends
+into the get-up. The host checks the same attempt and standing clearance before
+completing. Imported get-up/exit durations must fit the 4.5 s adapter budget inside
+the 5 s canonical window; frame hitches use elapsed real time. A blocked attempt
+returns Down; an obstructed locker exit waits for space.
+
+Use Alt+E to connect a reanimation station, deliver and release its assigned
+unconscious patient inside the chamber, then E to start. Chamber/patient exclusivity,
+epoch, injury episode, timer identity and presentation generation fence completion.
+Disabling/swapping a station cancels its timer without overriding a newer physical
+transition. Cosmetic effects publish last, catch their own failures and cannot
+reenter Execute. Alt+E also selects pull for a held cart.
 
 ## Validation and limits
 

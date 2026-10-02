@@ -61,8 +61,8 @@ setup tool wires explicit references and validates required assignments. All 49
 existing take names have code routes; unfinished animation sources and clip assets
 remain untouched. Inspector contact overrides accommodate the final calibration.
 
-The offline verifier executes 747 tests, including 42 movement/cue/input cases, eight
-facility-control cases and nine shared-carry cases. Fourteen native binding/physics
+The offline verifier executes 765 tests, including 42 movement/cue/input cases, eight
+facility-control cases and nine shared-carry cases. Forty-three native binding/physics
 cases exist but are NotRun here. The source/DLL manifest and metadata checks do not
 establish Unity compilation, imported animation compatibility, physical feel or
 Player readiness. See [task scope and evidence](validation/MOVEMENT_ANIMATIONS.md).
@@ -81,4 +81,4 @@ That runner needs Python 3.12+, an already activated matching Editor and matchin
 
 ## Scope boundary
 
-This is useful, user-authorized editor-free source prework, not a Gate 0/1 pass, accepted Unity foundation, production-ready reactor, complete power station or human fun test. It adds no physical interactions, transport, Steam, voice, UI/input framework, persistence, save schema, terrain or art changes. Single-threaded host policy, physical bindings, native compatibility and independently reviewed integration remain necessary. Read the reactor guide's fixture limits before using its values as game balance.
+This is useful, user-authorized editor-free source prework, not a Gate 0/1 pass, accepted Unity foundation, production-ready reactor, complete power station or human fun test. The OFFLINE-005 logical spike added no physical interactions. The later authorized scene extension adds movement and ragdoll physics code; transport, Steam/voice, persistence, save schema, terrain and art remain outside that implementation. Single-threaded host policy, physical bindings, native compatibility and independently reviewed integration remain necessary. Read the reactor guide's fixture limits before using its values as game balance.

@@ -290,5 +290,19 @@
   "ScriptedHeldActionDoesNotDependOnLocalKeys": 1,
   "ShortLoopDoesNotQueueMissedWorkAfterAHitch": 1,
   "CancelledJumpAnticipationReturnsToGroundedLocomotion": 1,
-  "HelperAttachmentReleaseIsFencedByReceiptAndGeneration": 1
+  "HelperAttachmentReleaseIsFencedByReceiptAndGeneration": 1,
+  "ConsciousDownGripsOnlyTaggedHandleThroughExistingClaim": 1,
+  "UprightUnconsciousRecoveringAndPausedCannotGrip": 2,
+  "UntaggedCargoAndNormalGrabCannotBypassDownedGate": 1,
+  "GripStillRequiresPhysicalAccessAndCurrentObjectRevision": 1,
+  "GripReplayMalformedPayloadAndContentionUseExistingReceiptStream": 1,
+  "DownedLeaseRenewalAndStaleReleasePreserveGeneration": 1,
+  "AcceptedNewImpactReleasesGripButDuplicatePreservesReplacement": 1,
+  "RecoveryBeginReleasesGripOnlyAfterAcceptedTransition": 1,
+  "DisconnectAndStopClearDownedGripCustody": 1,
+  "FixedHandlesRejectSharedCargoCapabilityAndLateRegistration": 1,
+  "DefaultRagdollBudgetIsValid": 1,
+  "InvalidPhysicalMassIsRejected": 4,
+  "UnboundedSolverMotionAndRecoveryBudgetsAreRejected": 1,
+  "StationTicketCannotMatchAnotherPatientEpochOrImpactEpisode": 1
 }

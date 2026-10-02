@@ -2,7 +2,8 @@
   "name": "CriticalShift.Features.Workers.Editor",
   "rootNamespace": "CriticalShift.Features.Workers.Editor",
   "references": [
-    "CriticalShift.Features.Workers.Unity"
+    "CriticalShift.Features.Workers.Unity",
+    "CriticalShift.Unity.Shared"
   ],
   "includePlatforms": [
     "Editor"

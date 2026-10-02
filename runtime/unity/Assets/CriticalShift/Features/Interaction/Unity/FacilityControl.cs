@@ -23,6 +23,9 @@ namespace CriticalShift.Features.Interaction.Unity
         public bool Active { get; private set; }
         public bool Connected { get; private set; }
         public float ValveDegrees { get; private set; }
+        public bool CanApply(SceneOperation value) => Supports(value) &&
+            (kind != ControlKind.Door || doorHinge != null && doorHinge.GetComponent<Rigidbody>() != null) &&
+            float.IsFinite(travelDegrees) && float.IsFinite(localAxis.x) && float.IsFinite(localAxis.y) && float.IsFinite(localAxis.z);
         public void Project(ControlView state)
         { Active = state.Active; Connected = state.Connected; ValveDegrees = state.Turns * 60; }
         private void Awake() { if (movingPart != null) rest = movingPart.localRotation; }
@@ -44,7 +47,7 @@ namespace CriticalShift.Features.Interaction.Unity
         }
         public override bool Apply(WorkerScenePort worker, SceneOperation value, long generation)
         {
-            if (!Supports(value)) return false;
+            if (!CanApply(value)) return false;
             if (kind == ControlKind.Door)
             {
                 if (doorHinge == null) return false;
@@ -53,9 +56,10 @@ namespace CriticalShift.Features.Interaction.Unity
             }
             else if (movingPart != null && localAxis.sqrMagnitude > 0)
                 movingPart.localRotation = rest * Quaternion.AngleAxis(kind == ControlKind.Valve ? ValveDegrees : Active ? travelDegrees : 0, localAxis.normalized);
-            committedEffect?.Invoke(); // Cosmetic/audio only. Host operations never use this callback.
             return true;
         }
+        public void PublishEffect()
+        { try { committedEffect?.Invoke(); } catch (System.Exception error) { Debug.LogException(error, this); } }
         public override void ClearBinding() { Active = Connected = false; ValveDegrees = 0; if (doorHinge != null) { var spring = doorHinge.spring; spring.targetPosition = 0; doorHinge.spring = spring; } else if (movingPart != null) movingPart.localRotation = rest; }
     }
 }

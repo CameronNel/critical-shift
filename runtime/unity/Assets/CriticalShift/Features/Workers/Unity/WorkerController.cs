@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace CriticalShift.Features.Workers.Unity
 {
     [RequireComponent(typeof(CharacterController)), DisallowMultipleComponent]
-    public sealed class WorkerController : WorkerScenePort
+    public sealed partial class WorkerController : WorkerScenePort
     {
         [SerializeField] private SceneInteractionGateway gateway;
         [SerializeField] private WorkerMovementAnimator movement;
@@ -50,12 +50,18 @@ namespace CriticalShift.Features.Workers.Unity
         public override Collider[] BodyColliders => colliders ?? (colliders = GetComponentsInChildren<Collider>());
         public override bool Grounded => capsule.enabled && capsule.isGrounded;
         public override bool Down => ragdoll != null && ragdoll.Active;
-        public override Vector3 Velocity => velocity;
+        public override Vector3 Velocity => Down ? ragdoll.Pelvis.linearVelocity : velocity;
+        public override Rigidbody PhysicalBody => ragdoll != null ? ragdoll.Pelvis : null;
+        public override float PhysicalMass => ragdoll != null ? ragdoll.TotalMass : 0;
+        public override Collider[] PhysicalColliders => ragdoll != null ? ragdoll.Colliders : BodyColliders;
         public override bool RecoveryClear => ClearCapsule(transform.position, standingHeight);
 
         private void Start()
         {
-            if (gateway == null || movement == null || movement.ModelRoot == transform || capsule == null || eye == null || grip == null || ragdoll == null || !ragdoll.Valid)
+            if (gateway == null || movement == null || movement.transform != transform || movement.ModelRoot == null ||
+                movement.ModelRoot == transform || !movement.ModelRoot.IsChildOf(transform) || capsule == null || capsule.transform != transform ||
+                eye == null || !eye.IsChildOf(transform) || grip == null || !grip.IsChildOf(transform) || ragdoll == null || ragdoll.transform != transform || !ragdoll.Valid ||
+                !float.IsFinite(standingHeight) || standingHeight <= capsule.radius * 2 || !float.IsFinite(crouchHeight) || crouchHeight < capsule.radius * 2 || crouchHeight > standingHeight)
             { Debug.LogError("Assign gateway, movement, capsule, eye, grip and ragdoll.", this); enabled = false; return; }
             colliders = GetComponentsInChildren<Collider>();
             eyeHeight = eye.localPosition.y;
@@ -77,18 +83,19 @@ namespace CriticalShift.Features.Workers.Unity
                 Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return));
             if (captureChanged) { SetCursor(inputState.Captured); CancelSceneActions(); }
             if (Time.realtimeSinceStartupAsDouble >= feedbackUntil) LastFeedback = "";
-            if (gateway == null || !gateway.Running || !movement.Ready) { CancelSceneActions(); return; }
+            if (gateway == null || !gateway.Running || !movement.Ready) { StopSceneSimulation(); return; }
+            if (ragdoll.Faulted) { StopSceneSimulation(); enabled = false; return; }
             lookTarget = null;
             float dt = Mathf.Min(Time.deltaTime, 0.1f);
-            if (station) { TickStation(dt); return; }
-            if (Down) { TickRecovery(dt); return; }
+            if (station) { TickStation(); return; }
+            if (Down) { TickDowned(); TickRecovery(); return; }
             if (recoveryAttempt != 0)
             {
-                recoveryRemaining -= dt;
-                movement.ApplySample(new MovementAnimationSample(0, 0, 0, true), dt);
+                float phase = PhaseDelta();
+                ApplyPhaseSample(Mathf.Min(phase, recoveryRemaining)); recoveryRemaining -= phase;
                 if (recoveryRemaining <= 0)
                 {
-                    if (!gateway.CompleteRecovery(this, recoveryAttempt)) ragdoll.Activate(Vector3.zero);
+                    if (!gateway.CompleteRecovery(this, recoveryAttempt)) KnockDown(Vector3.zero);
                     recoveryAttempt = 0;
                 }
                 return;
@@ -112,6 +119,7 @@ namespace CriticalShift.Features.Workers.Unity
             }
             else yawRate = 0;
             TickAction(dt);
+            if (station || Down || recoveryAttempt != 0 || !capsule.enabled || !gateway.Running) return;
             groundGrace = Grounded ? 0.10f : Mathf.Max(0, groundGrace - dt);
             jumpBuffer = Mathf.Max(0, jumpBuffer - dt);
             if (jumpBuffer > 0 && groundGrace > 0 && !acting && !crouched && pose == MovementPose.Free && jumpTime < 0)
@@ -132,9 +140,14 @@ namespace CriticalShift.Features.Workers.Unity
             if (Grounded && vertical < 0) vertical = -2;
             vertical -= gravity * dt;
             Vector3 beforePosition = transform.position;
-            var flags = capsule.Move((planar + Vector3.up * vertical) * dt);
+            CollisionFlags flags;
+            movingCapsule = true;
+            try { flags = capsule.Move((planar + Vector3.up * vertical) * dt); }
+            finally { movingCapsule = false; }
             if ((flags & CollisionFlags.Above) != 0 && vertical > 0) vertical = 0;
             velocity = dt > 0 ? (transform.position - beforePosition) / dt : Vector3.zero;
+            if (pendingKnockdown) { var force = pendingImpulse; var point = pendingPoint; pendingKnockdown = false; pendingImpulse = Vector3.zero; pendingPoint = null; KnockDown(force, point); return; }
+            if (Down || !capsule.enabled || !gateway.Running) return;
             Vector3 local = transform.InverseTransformDirection(velocity);
             movement.ApplySample(new MovementAnimationSample(local.x, local.z, velocity.y, Grounded, pose, yawRate), dt);
             if (Grounded)
@@ -148,11 +161,13 @@ namespace CriticalShift.Features.Workers.Unity
         private float Key(KeyCode key) => Input.GetKey(key) ? 1 : 0;
         private void LateUpdate()
         {
-            if (!enabled || !gateway || !gateway.Running || Down) return;
+            if (!enabled || !gateway || !gateway.Running) return;
+            if (Down) { TrackDownedCamera(); return; }
             ragdoll.BlendToAnimation(Time.deltaTime);
             if (crouched && crouchPose != null) crouchPose.Apply(standingHeight - crouchHeight);
             if (head != null) eye.position = head.position + transform.TransformVector(headOffset);
             if (leftHand != null && rightHand != null) grip.position = (leftHand.position + rightHand.position) * 0.5f;
+            ragdoll.SampleAnimatedPose(Time.deltaTime);
         }
         private Vector3 Direction(Vector2 input, bool sprint, bool walk)
         {
@@ -187,7 +202,13 @@ namespace CriticalShift.Features.Workers.Unity
             if (Input.GetKeyDown(KeyCode.V)) StartAction(gateway.Held(this), SceneOperation.Place);
             if (Input.GetKeyDown(KeyCode.T)) StartAction(gateway.Held(this), Input.GetKey(KeyCode.LeftAlt) ? SceneOperation.ThrowUnder : SceneOperation.ThrowOver);
             if (Input.GetKeyDown(KeyCode.F)) StartAction(lookTarget, SceneOperation.Grab);
-            if (Input.GetKeyDown(KeyCode.E) && lookTarget != null) StartAction(lookTarget, lookTarget.Operation, WorkerActionInput.Interact);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                var target = lookTarget != null ? lookTarget : gateway.Held(this);
+                bool alternate = Input.GetKey(KeyCode.LeftAlt);
+                if (target != null) StartAction(target, alternate && target.Supports(SceneOperation.Connect) ? SceneOperation.Connect :
+                    alternate && target.Supports(SceneOperation.Pull) ? SceneOperation.Pull : target.Operation, WorkerActionInput.Interact);
+            }
             if (Input.GetKeyDown(KeyCode.P)) StartAction(null, SceneOperation.Point);
             if (Input.GetKeyDown(KeyCode.Tab)) ShowFeedback(gateway.Describe(lookTarget));
             if (Input.GetKeyDown(KeyCode.R)) StartAction(null, SceneOperation.Radio, WorkerActionInput.Radio);
@@ -251,78 +272,9 @@ namespace CriticalShift.Features.Workers.Unity
             if (!gateway || !gateway.Running) { planar = velocity = Vector3.zero; station = false; recoveryAttempt = 0; }
         }
 
-        private bool ClearCapsule(Vector3 position, float height)
-        {
-            float radius = capsule.radius - capsule.skinWidth;
-            var hits = Physics.OverlapCapsule(position + Vector3.up * (radius + 0.02f),
-                position + Vector3.up * (height - radius), radius, clearanceMask, QueryTriggerInteraction.Ignore);
-            foreach (var hit in hits) if (Array.IndexOf(BodyColliders, hit) < 0) return false;
-            return Physics.Raycast(position + Vector3.up * 0.1f, Vector3.down, 0.2f, clearanceMask, QueryTriggerInteraction.Ignore);
-        }
-        private void TickRecovery(float dt)
-        {
-            movement.ApplySample(default, dt);
-            if (!gateway.RecoveryReady(this)) return;
-            ragdoll.PrepareRoot(transform, clearanceMask);
-            if (!RecoveryClear) return;
-            long attempt = gateway.BeginRecovery(this);
-            if (attempt == 0) return;
-            bool front = ragdoll.FaceDown;
-            ragdoll.BeginRecoveryBlend(); ragdoll.Freeze(); capsule.enabled = false;
-            recoveryAttempt = attempt;
-            var clip = front ? MovementClip.GETUP_FRONT : MovementClip.GETUP_BACK;
-            recoveryRemaining = movement.Duration(clip);
-            movement.PrimeGroundedAction(clip, ++actionSequence);
-        }
-
-        public void KnockDown(Vector3 impulse)
-        { CancelSceneActions(); station = false; recoveryAttempt = 0; if (movement.Ready) movement.ApplySample(default, 0); capsule.enabled = false; ragdoll.Activate(impulse); }
-        public void Stagger(Vector3 worldDirection)
-        {
-            if (!gateway.CanAct(this) || !Grounded) return;
-            CancelSceneActions();
-            Vector3 local = transform.InverseTransformDirection(worldDirection);
-            var clip = Mathf.Abs(local.x) > Mathf.Abs(local.z) ? local.x < 0 ? MovementClip.STAGGER_L : MovementClip.STAGGER_R :
-                local.z < 0 ? MovementClip.STAGGER_B : MovementClip.STAGGER_F;
-            movement.TryPlayAction(clip, ++actionSequence); reactionRemaining = movement.Duration(clip);
-        }
-        private void OnControllerColliderHit(ControllerColliderHit hit)
-        {
-            var hazard = hit.collider.GetComponentInParent<WorkerCollisionHazard>();
-            var body = hit.collider.attachedRigidbody;
-            if (hazard != null && body != null) hazard.Observe(this, body.GetPointVelocity(hit.point) - velocity);
-        }
-        public void BecomeUpright() { ragdoll.Freeze(); capsule.enabled = true; vertical = -2; }
-        public override void PresentStation(SceneOperation value, Transform anchor)
-        {
-            CancelSceneActions(); ragdoll.Freeze(); capsule.enabled = false;
-            transform.SetPositionAndRotation(anchor.position, anchor.rotation);
-            station = true; stationTime = 0;
-            if (value == SceneOperation.Reanimation) movement.PrimeGroundedAction(MovementClip.REANIM_IDLE, ++actionSequence);
-            else { movement.PrimeGroundedAction(MovementClip.LOCKER_EXIT, ++actionSequence); stationTime = -movement.Duration(MovementClip.LOCKER_EXIT); }
-        }
-        public void ReanimationJolt()
-        { movement.TryPlayAction(MovementClip.REANIM_JOLT, ++actionSequence, MovementClip.REANIM_IDLE); }
-        public void ReanimationExit(long attempt)
-        { recoveryAttempt = attempt; movement.TryPlayAction(MovementClip.REANIM_EXIT, ++actionSequence); stationTime = -movement.Duration(MovementClip.REANIM_EXIT); }
-        private void TickStation(float dt)
-        {
-            movement.ApplySample(new MovementAnimationSample(0, 0, 0, true), dt);
-            if (stationTime < 0)
-            {
-                stationTime = Mathf.Min(0, stationTime + dt);
-                if (stationTime == 0)
-                {
-                    station = false;
-                    if (recoveryAttempt == 0) BecomeUpright();
-                    else if (!gateway.CompleteRecovery(this, recoveryAttempt)) KnockDown(Vector3.zero);
-                    recoveryAttempt = 0;
-                }
-            }
-        }
         private void OnApplicationFocus(bool value)
         { inputState.SetApplicationFocus(value); if (!value) CancelSceneActions(); if (localInput) SetCursor(inputState.Captured); }
-        private void OnDisable() { CancelSceneActions(); if (localInput) SetCursor(false); }
+        private void OnDisable() { StopSceneSimulation(); if (localInput) SetCursor(false); }
         private void ShowFeedback(string message)
         { LastFeedback = message; feedbackUntil = Time.realtimeSinceStartupAsDouble + 3.5; }
         private void OnGUI()
@@ -330,15 +282,19 @@ namespace CriticalShift.Features.Workers.Unity
             if (!localInput || !enabled) return;
             if (!inputState.Captured)
             { GUI.Label(new Rect(16, Screen.height - 48, Screen.width - 32, 32), "Click, Enter or Escape to resume."); return; }
-            if (gateway == null || !gateway.Running || Down || station) return;
+            if (!string.IsNullOrEmpty(LastFeedback)) GUI.Label(new Rect(16, Screen.height - 56, Screen.width - 32, 40), LastFeedback);
+            if (gateway == null || !gateway.Running) return;
+            if (Down) { if (gateway.ConsciousDown(this)) GUI.Label(new Rect(16, Screen.height - 96, Screen.width - 32, 32), "WASD: Crawl   B: Brace   E: Grip/release handle   G: Release   H/P: Help beacon"); return; }
+            if (station) return;
             GUI.Label(new Rect(Screen.width / 2f - 5, Screen.height / 2f - 10, 20, 20), "+");
             if (lookTarget != null && gateway.CanUse(this, lookTarget))
             {
                 string prompt = lookTarget.name + "   E: " + ActionVerb(lookTarget.Operation) + "   Tab: Inspect";
+                if (lookTarget.Supports(SceneOperation.Connect)) prompt += "   Alt+E: Connect";
+                else if (lookTarget.Supports(SceneOperation.Pull)) prompt += "   Alt+E: Pull";
                 if (lookTarget.Supports(SceneOperation.Grab)) prompt += "   F: Pick up / assist";
                 GUI.Label(new Rect(16, Screen.height - 96, Screen.width - 32, 32), prompt);
             }
-            if (!string.IsNullOrEmpty(LastFeedback)) GUI.Label(new Rect(16, Screen.height - 56, Screen.width - 32, 40), LastFeedback);
         }
         private static string ActionVerb(SceneOperation value)
         {

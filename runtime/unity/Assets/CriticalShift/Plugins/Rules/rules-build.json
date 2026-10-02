@@ -5,8 +5,8 @@
     "dotnet/src/CriticalShift.Application/ControlContracts.cs": "61ccb391e444a1dcc45bcfb29440fc1a266eefb9612d1ccc7622ce53b251b04f",
     "dotnet/src/CriticalShift.Application/CriticalShift.Application.csproj": "c678f7c3fdd2c027d4e0e9291fb82c48f820aa79590916528ef74ba89bc27fce",
     "dotnet/src/CriticalShift.Application/FacilityControlOperations.cs": "515cdb870dbba42b05b73c5ad7f1b04a8b1fa826349d168d6d99920e9b1b4c13",
-    "dotnet/src/CriticalShift.Application/InteractionContracts.cs": "57ffecb6b4c5b705b064080c22905f72c67b86f35c2a11c3f3b1c124c1f6ad65",
-    "dotnet/src/CriticalShift.Application/InteractionWorld.cs": "902c2c6a20bda584f9705af1e8ef495f2031cfae8edbd0f0c99d1322ebca27ca",
+    "dotnet/src/CriticalShift.Application/InteractionContracts.cs": "9f9967c58e665a01d543d36be9bf112877d3d4ded462def1ad3116fd78f8f035",
+    "dotnet/src/CriticalShift.Application/InteractionWorld.cs": "f036739107e2f555d9b0b6e4a2f1e8a0217644284ca3242b4e3754a65a1d0a00",
     "dotnet/src/CriticalShift.Application/ProductionContracts.cs": "729ed17fa933b1a550b5d5ac0939de7906adb39e98f986eeeb46161a511dd135",
     "dotnet/src/CriticalShift.Application/ProductionOperations.Fuel.cs": "3b0d19dd8ff510e7fde275648ca1f1eeb7ee413b925b0f361737636d12fe9ceb",
     "dotnet/src/CriticalShift.Application/ProductionOperations.Lifecycle.cs": "4df02c4516019b4571985417c5e13e4078658d144a2331339f0984abc56629a6",
@@ -15,9 +15,9 @@
     "dotnet/src/CriticalShift.Application/ReactorOperations.cs": "4528ae18ae005d248ca6a39082ec1bc3e5697c6374dff21ebaee1b356c9a7f51",
     "dotnet/src/CriticalShift.Application/SessionDiagnostics.cs": "b0eb6201fe5cc1b0be89667a10a17eb12c98a9189424036fbc335405254179f9",
     "dotnet/src/CriticalShift.Application/WorkerContracts.cs": "54d1a55363e46dd30f6503598400c10b402887c0d6d56f19daf70afad3429711",
-    "dotnet/src/CriticalShift.Application/WorkerWorkflow.cs": "d3de1474776dc87762937d4df83584b3e89314f56d597ba5d39e6a73e3d35b1e",
-    "dotnet/src/CriticalShift.Application/WorldSession.Workers.cs": "f43517066bbdbbce73a9de44798451295034daf69b3aa2d5505c6e41b55dc74f",
-    "dotnet/src/CriticalShift.Application/WorldSession.cs": "96f258e2a094b63bb58ec1ee1ef70d5a25a425faa45ca254be3aab70c1b46f1e",
+    "dotnet/src/CriticalShift.Application/WorkerWorkflow.cs": "8ab6813a238e2db8d3c193095844dd6b3551cb62f8713af7f149b1420930e375",
+    "dotnet/src/CriticalShift.Application/WorldSession.Workers.cs": "4a73fcd12697a392ccd622191c3663dc80ccc1b0729a96822d2a20fccd7dc048",
+    "dotnet/src/CriticalShift.Application/WorldSession.cs": "0c21d2a25f2ddf875e184049a105a35b87f5e15315411f21d9b43bed8faead61",
     "dotnet/src/CriticalShift.Application/WorldSessionContracts.cs": "2771cdda35e0711bb6ca6cc14eb062a233d239ee6b8fb47df3d7ae53102a1015",
     "dotnet/src/CriticalShift.Features.Interaction.Domain/ClaimTypes.cs": "b7c2c2e03b118a41161968c837f8488f4fae727397f24b006730ba4d8e72d6df",
     "dotnet/src/CriticalShift.Features.Interaction.Domain/ControlState.cs": "87791071b8e648aebaf6edfd48b1d1366cb2ea5b0ce0acae1b24c50eb2e9e026",
@@ -43,13 +43,13 @@
     "dotnet/global.json": "0503dacfc3e664e4b7fc0ac7da920e5939da4ee62ab852ce7aec1a0bdbdf38a2"
   },
   "assemblies": {
-    "CriticalShift.Application.dll": "cfce179e26204f1ec7075e886e871cd2a41011ebb47aa62f67f14357518eadba",
-    "CriticalShift.Features.Interaction.Domain.dll": "739242baa6c62faed19a56b720baa44365a3572475c381dfd1062aba8d792370",
-    "CriticalShift.Features.Materials.Domain.dll": "362089d21cd45e24fd657b08d6da33ce5efd09719d0315c92a1e872b87a6b654",
-    "CriticalShift.Features.Power.Domain.dll": "fe0f280f5f51faf9fbdf91b2334c9bc733ba9e56b1980eed8d8c1064b692be2e",
-    "CriticalShift.Features.Production.Domain.dll": "e122093bb3fedd9fd206f851dc332327fbcf5370fc886ccae4a1198a2d138d28",
-    "CriticalShift.Features.Reactor.Domain.dll": "bc2ae9e6a0d7a9c4ba67eada00c1df2926fb77a7ffc1142711961c6cedfc8dcc",
-    "CriticalShift.Features.Session.Domain.dll": "320c6093de0ac122617fc36e1ddde3e115424d80fbea04b8a74efe95565d8b76",
-    "CriticalShift.Features.Workers.Domain.dll": "52aa95f00564157fa97742a65f15dd49e235bc44858c6b5a11fc7266bf0c6d32"
+    "CriticalShift.Application.dll": "1aa5b787f147a4e5d6ebd0dc9c5e0a90c9ff0c8d68ca88108c7c66832ab23322",
+    "CriticalShift.Features.Interaction.Domain.dll": "de70e7a1d58aba2980167a84c3f04a247ba3912a33ef499dd1fbe1520008edd7",
+    "CriticalShift.Features.Materials.Domain.dll": "d989739d1fcc6261467050ad561f28b8f5df6879a9d9ca03cb1ffa8cc5722c5f",
+    "CriticalShift.Features.Power.Domain.dll": "ecd6d02469beca999f14340f58cd9e2e005518eb90470e4187945360ded5081e",
+    "CriticalShift.Features.Production.Domain.dll": "0bb89bf1803212bfeb2a634e10c42dcb35f3f2cf103d72e76c5439954b6429dd",
+    "CriticalShift.Features.Reactor.Domain.dll": "707e4ed092e6a1ee492459c1c4ea0218ccf30c1b09e2c1a45ae0fa10a03f01e3",
+    "CriticalShift.Features.Session.Domain.dll": "037a52550733817db54fb9a466134507c7669265949a04923303ad0b4036a58b",
+    "CriticalShift.Features.Workers.Domain.dll": "a2dc3b3670e74b502ce3372dd9c93d6e7fe8e0e558740ac9eace97f4f16a4780"
   }
 }

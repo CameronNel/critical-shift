@@ -15,7 +15,10 @@ namespace CriticalShift.Unity.Shared
         public abstract bool RecoveryReady(WorkerScenePort worker);
         public abstract long BeginRecovery(WorkerScenePort worker);
         public abstract bool CompleteRecovery(WorkerScenePort worker, long attempt);
-        public abstract void Impact(WorkerScenePort worker, Guid hazard, bool incapacitating, float delaySeconds);
+        public virtual void CancelRecovery(WorkerScenePort worker, long attempt) { }
+        public abstract void Impact(WorkerScenePort worker, Guid hazard, bool incapacitating, float delaySeconds,
+            Vector3 impulse = default, Vector3? contactPoint = null);
+        public virtual bool ConsciousDown(WorkerScenePort worker) => false;
         public abstract void AttachmentFailed(SceneTarget target, long generation, WorkerScenePort assistant = null);
     }
 }

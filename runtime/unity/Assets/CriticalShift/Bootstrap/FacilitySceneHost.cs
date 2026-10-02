@@ -10,7 +10,7 @@ using UnityEngine;
 namespace CriticalShift.Bootstrap
 {
     [DefaultExecutionOrder(-200), DisallowMultipleComponent]
-    public sealed class FacilitySceneHost : SceneInteractionGateway, IInteractionAccessPolicy, IWorkerRecoveryPolicy
+    public sealed partial class FacilitySceneHost : SceneInteractionGateway, IInteractionAccessPolicy, IWorkerRecoveryPolicy
     {
         [SerializeField] private WorkerController[] workers = Array.Empty<WorkerController>();
         [SerializeField] private SceneTarget[] targets = Array.Empty<SceneTarget>();
@@ -21,13 +21,12 @@ namespace CriticalShift.Bootstrap
         private readonly Dictionary<Guid, long> sequences = new Dictionary<Guid, long>();
         private readonly RaycastHit[] reachHits = new RaycastHit[64];
         private readonly Dictionary<string, long> impacts = new Dictionary<string, long>();
-        private readonly Dictionary<Guid, FacilityControl> stations = new Dictionary<Guid, FacilityControl>();
-        private readonly Dictionary<Guid, WorldTimerHandle> stationTimers = new Dictionary<Guid, WorldTimerHandle>();
         private readonly List<Guid> disconnected = new List<Guid>(4);
         private readonly List<Guid> cancelledStations = new List<Guid>(4);
         private WorldSession world;
         private double origin;
         private long renewAt;
+        private bool executing;
         private SceneTarget policyContact;
         private Guid policyActor;
         public override bool Running => world != null && world.View.Phase == WorldPhase.Running;
@@ -58,6 +57,7 @@ namespace CriticalShift.Bootstrap
                         if (machine.Kind == MachineBindingKind.Production) world.Production.RegisterMachine(machine.Id, machine.Recipe);
                         else world.Reactor.Register(machine.Id, machine.Definition);
                     }
+                    else if (target is RagdollHandle) world.RegisterObject(target.Id, allowDownedGrip: true);
                     else if (target is FacilityControl control) world.Controls.Register(target.Id, ControlActionFor(control.Operation),
                         control.Kind == ControlKind.ReanimationStation ? ControlAction.Connect : control.Kind == ControlKind.Valve ? ControlAction.Hold : (ControlAction?)null);
                     else
@@ -77,42 +77,45 @@ namespace CriticalShift.Bootstrap
         private void Update()
         {
             if (!Running) return;
+            try { TickWorld(); } catch (Exception error) { Debug.LogException(error, this); Shutdown(); enabled = false; }
+        }
+        private void TickWorld()
+        {
             disconnected.Clear();
             foreach (var actor in actors) if (actor.Value == null || !actor.Value.isActiveAndEnabled) disconnected.Add(actor.Key);
             foreach (var id in disconnected) { actors.Remove(id); world.Disconnect(world.Epoch, id); }
-            cancelledStations.Clear();
-            foreach (var binding in stations) if (binding.Value == null || !binding.Value.isActiveAndEnabled || binding.Value.Patient == null)
-                cancelledStations.Add(binding.Key);
-            foreach (var id in cancelledStations)
-            {
-                if (stationTimers.TryGetValue(id, out var timer)) world.CancelTimer(timer);
-                var station = stations[id];
-                if (station != null && station.Patient != null) actors[station.Patient.Id].KnockDown(Vector3.zero);
-                stations.Remove(id); stationTimers.Remove(id);
-            }
+            CancelInvalidStations();
             var advance = world.AdvanceTo((long)((Time.realtimeSinceStartupAsDouble - origin) * 1000));
             foreach (var signal in advance.Signals)
             {
-                if (signal.Signal == "reanimation" && stations.TryGetValue(signal.OwnerId, out var station)) FinishStation(station);
+                if (signal.Signal == "reanimation") FinishStation(signal);
             }
             SynchronizeBindings();
             if (!Running) { ClearPhysicalBindings(); return; }
             if (world.View.HostMilliseconds >= renewAt)
             {
                 renewAt = world.View.HostMilliseconds + 1000;
-                foreach (var target in targets) if (target is CarryableObject carry && carry.Holder != null)
+                foreach (var target in targets)
                 {
-                    var reply = Command(carry.Holder, carry.Id, InteractionKind.Renew, lease: carry.Generation);
-                    if (!reply.Accepted) AttachmentFailed(carry, carry.Generation);
+                    var owner = target is CarryableObject carry ? carry.Holder : target is RagdollHandle handle ? handle.Holder : null;
+                    long generation = target is CarryableObject item ? item.Generation : target is RagdollHandle grip ? grip.Generation : 0;
+                    if (owner == null) continue;
+                    var reply = Command(owner, target.Id, InteractionKind.Renew, lease: generation);
+                    if (!reply.Accepted) AttachmentFailed(target, generation);
                 }
             }
         }
         public override bool CanAct(WorkerScenePort worker) => Running && worker != null &&
             actors.TryGetValue(worker.Id, out var bound) && bound == worker && bound.isActiveAndEnabled &&
             world.GetWorker(worker.Id)?.CanInteract == true;
+        public override bool ConsciousDown(WorkerScenePort worker) => Running && worker != null &&
+            actors.TryGetValue(worker.Id, out var bound) && bound == worker && bound.isActiveAndEnabled &&
+            world.GetWorker(worker.Id)?.Pose == WorkerPose.Down && world.GetWorker(worker.Id)?.Awareness == WorkerAwareness.Alert;
         public override SceneTarget Held(WorkerScenePort worker)
         {
-            foreach (var target in targets) if (target is CarryableObject carry && (carry.Holder == worker || carry.Assistant == worker)) return target;
+            foreach (var target in targets)
+                if (target is CarryableObject carry && (carry.Holder == worker || carry.Assistant == worker) ||
+                    target is RagdollHandle handle && handle.Holder == worker) return target;
             return null;
         }
         public override bool CanUse(WorkerScenePort worker, SceneTarget target)
@@ -158,26 +161,31 @@ namespace CriticalShift.Bootstrap
 
         public override bool Execute(WorkerScenePort worker, SceneTarget target, SceneOperation operation, out string reason)
         {
+            if (executing) { reason = "An interaction is already being committed."; return false; }
+            executing = true;
             try { return ExecuteBound(worker, target, operation, out reason); }
             catch { Shutdown(); throw; }
+            finally { executing = false; }
         }
         private bool ExecuteBound(WorkerScenePort worker, SceneTarget target, SceneOperation operation, out string reason)
         {
             reason = "Interaction unavailable.";
+            if (target is RagdollHandle handle && ConsciousDown(worker)) return GripHandle(worker, handle, operation, out reason);
             if (!CanAct(worker)) return false;
             if (operation == SceneOperation.Point || operation == SceneOperation.Radio) { reason = ""; return true; }
             if (!CanUse(worker, target) || !target.Supports(operation)) return false;
             if (target is CarryableObject carry) return Carry(worker, carry, operation, out reason);
             if (target is MachineBinding machine) return Machine(worker, machine, out reason);
             if (!(target is FacilityControl control)) return false;
+            if (!control.CanApply(operation)) { reason = "This control needs its physical binding completed."; return false; }
             if (operation == SceneOperation.Dig && !(Held(worker) is CarryableObject tool && tool.Kind == CarryableKind.Shovel))
             { reason = "Hold a shovel to dig."; return false; }
-            if (operation == SceneOperation.Help && (control.Patient == null || !control.Patient.Down))
-            { reason = "No downed worker at this aid point."; return false; }
-            if (operation == SceneOperation.LockerExit && (control.WorkerAnchor == null || Held(worker) != null)) return false;
-            if (operation == SceneOperation.Reanimation && (!control.Connected || control.Patient == null ||
-                !control.Patient.Down || control.WorkerAnchor == null || stations.ContainsKey(control.Id) || BodyHeld(control.Patient)))
-            { reason = "Connect a service port and release the patient at the chamber first."; return false; }
+            if (operation == SceneOperation.Help && !AidReady(control)) { reason = "Bring an unconscious worker to this aid point."; return false; }
+            if (operation == SceneOperation.Suit && world.GetWorker(worker.Id).Suit == WorkerSuit.Intact) { reason = "Suit already ready."; return true; }
+            if (operation == SceneOperation.LockerExit && (control.WorkerAnchor == null || Held(worker) != null || !actors[worker.Id].CanStandAt(control.WorkerAnchor.position)))
+            { reason = "Clear the locker exit first."; return false; }
+            if (operation == SceneOperation.Reanimation && !StationReady(control))
+            { reason = "Connect this station with Alt+E, then deliver and release the patient in a clear chamber."; return false; }
             var view = world.Controls.Get(target.Id);
             var reply = Command(worker, target.Id, InteractionKind.Control, control: new ControlRequest(ControlActionFor(operation), view.Revision));
             reason = reply.Status.ToString();
@@ -186,28 +194,38 @@ namespace CriticalShift.Bootstrap
             {
                 var state = world.GetWorker(worker.Id);
                 var suited = world.SetWorkerEnvironment(world.Epoch, worker.Id, state.Revision, WorkerSuit.Intact, state.Contamination);
-                if (!suited.Changed) { reason = suited.Status.ToString(); return false; }
+                if (!suited.Changed) throw new InvalidOperationException("Prevalidated suit transition failed: " + suited.Status);
             }
             if (operation == SceneOperation.Help)
             {
                 var patient = world.GetWorker(control.Patient.Id);
                 var aid = world.StabilizeWorker(world.Epoch, patient.Id, patient.Revision, 1000);
-                if (!aid.Changed) { reason = aid.Status.ToString(); return false; }
+                if (!aid.Changed) throw new InvalidOperationException("Prevalidated aid transition failed: " + aid.Status);
             }
             control.Project(reply.Control);
-            if (!target.Apply(worker, operation, 0)) return false;
+            if (!target.Apply(worker, operation, 0)) throw new InvalidOperationException("Prevalidated physical control binding failed.");
             if (operation == SceneOperation.LockerExit) worker.PresentStation(operation, control.WorkerAnchor);
             if (operation == SceneOperation.Reanimation)
-            {
-                control.Patient.PresentStation(operation, control.WorkerAnchor);
-                actors[control.Patient.Id].ReanimationJolt();
-                var timer = world.Schedule(world.Epoch, control.Id, "reanimation", WorldTimeBasis.ShiftTime, 3000);
-                if (timer.Status != WorldControlStatus.Applied) { reason = timer.Status.ToString(); Shutdown(); return false; }
-                stations.Add(control.Id, control); stationTimers.Add(control.Id, timer.Handle);
-            }
+                StartStation(control);
+            control.PublishEffect();
             return true;
         }
 
+        private bool GripHandle(WorkerScenePort worker, RagdollHandle handle, SceneOperation operation, out string reason)
+        {
+            reason = "Grip a nearby fixed handle, or release your current handle.";
+            if (!CanUse(worker, handle) || !handle.Supports(operation)) return false;
+            var state = world.GetObject(handle.Id); if (state == null) return false;
+            bool grab = operation == SceneOperation.Grab;
+            if (grab && !handle.CanGrip(worker)) return false;
+            var reply = Command(worker, handle.Id, grab ? InteractionKind.GripHandle : InteractionKind.Release,
+                grab ? state.Revision : 0, grab ? 0 : state.LeaseGeneration);
+            reason = reply.Status.ToString();
+            if (!reply.HasNewCommit) return reply.Accepted;
+            if (!handle.Apply(worker, operation, grab ? reply.State.LeaseGeneration : state.LeaseGeneration))
+            { AttachmentFailed(handle, grab ? reply.State.LeaseGeneration : state.LeaseGeneration); return false; }
+            return true;
+        }
         private InteractionReply Command(WorkerScenePort worker, Guid entity, InteractionKind kind,
             long revision = 0, long lease = 0, ProductionRequest production = null, ReactorRequest reactor = null, ControlRequest control = null, SceneTarget contact = null)
         {
@@ -302,7 +320,7 @@ namespace CriticalShift.Bootstrap
             foreach (var target in targets) if (target is CarryableObject item)
             {
                 var claim = world.GetObject(item.Id);
-                if (item.Holder != null && (claim == null || claim.HolderId != item.Holder.Id || claim.LeaseGeneration != item.Generation)) item.ClearBinding();
+                if (item.Generation > 0 && (item.Holder == null || claim == null || claim.HolderId != item.Holder.Id || claim.LeaseGeneration != item.Generation)) item.ClearBinding();
                 WorkerScenePort helper = null;
                 if (claim?.AssistantId != null && actors.TryGetValue(claim.AssistantId.Value, out var actor)) helper = actor;
                 item.SynchronizeAssistant(helper);
@@ -310,9 +328,15 @@ namespace CriticalShift.Bootstrap
                 if (claim?.SlotId != null && entities.TryGetValue(claim.SlotId.Value, out var slot) && slot is MachineBinding machine) anchor = machine.Slot;
                 item.SynchronizeSlot(anchor);
             }
+            foreach (var target in targets) if (target is RagdollHandle handle && handle.Generation > 0)
+            {
+                var claim = world.GetObject(handle.Id);
+                if (handle.Holder == null || claim == null || claim.HolderId != handle.Holder.Id || claim.LeaseGeneration != handle.Generation) handle.ClearBinding();
+            }
             foreach (var worker in workers)
             {
                 if (worker == null || !worker.isActiveAndEnabled) continue;
+                if (worker.PhysicsFaulted) throw new InvalidOperationException("Worker physics adapter faulted: " + worker.name);
                 var state = world.GetWorker(worker.Id);
                 if (state == null) continue;
                 worker.ProjectSuit(state.Suit != WorkerSuit.None);
@@ -341,12 +365,13 @@ namespace CriticalShift.Bootstrap
         {
             var state = world?.GetWorker(worker.Id);
             return Running && state != null && state.Pose == WorkerPose.Down && state.Awareness == WorkerAwareness.Alert &&
-                world.View.ElapsedMilliseconds >= state.RecoveryNotBeforeMilliseconds && !BodyHeld(worker) && !IsInStation(worker);
+                world.View.ElapsedMilliseconds >= state.RecoveryNotBeforeMilliseconds && !BodyHeld(worker) && !(Held(worker) is RagdollHandle) && !IsInStation(worker);
         }
         public override long BeginRecovery(WorkerScenePort worker)
         {
             var state = world.GetWorker(worker.Id);
             var reply = world.BeginWorkerRecovery(world.Epoch, worker.Id, state.RecoveryEpisode, state.Revision);
+            if (reply.Changed) SynchronizeBindings();
             return reply.Changed ? reply.Worker.RecoveryAttempt : 0;
         }
         public override bool CompleteRecovery(WorkerScenePort worker, long attempt)
@@ -355,36 +380,26 @@ namespace CriticalShift.Bootstrap
             if (reply.Changed && reply.Worker.Pose == WorkerPose.Upright) { actors[worker.Id].BecomeUpright(); return true; }
             return false;
         }
-        public override void Impact(WorkerScenePort worker, Guid hazard, bool incapacitating, float delaySeconds)
+        public override void CancelRecovery(WorkerScenePort worker, long attempt) { world?.CancelWorkerRecovery(world.Epoch, worker.Id, attempt); }
+        public override void Impact(WorkerScenePort worker, Guid hazard, bool incapacitating, float delaySeconds,
+            Vector3 impulse = default, Vector3? contactPoint = null)
         {
-            if (!Running || !actors.ContainsKey(worker.Id) || !float.IsFinite(delaySeconds) || delaySeconds < 0) return;
+            if (!Running || worker == null || !actors.TryGetValue(worker.Id, out var bound) || bound != worker || !worker.isActiveAndEnabled ||
+                !float.IsFinite(delaySeconds) || delaySeconds < 0 || delaySeconds > 60 || hazard == Guid.Empty ||
+                !Finite(impulse) || contactPoint.HasValue && !Finite(contactPoint.Value)) return;
             string key = worker.Id + ":" + hazard;
             impacts.TryGetValue(key, out long before);
             var reply = world.ApplyWorkerImpact(world.Epoch, worker.Id, before + 1,
                 incapacitating ? WorkerImpact.Incapacitating : WorkerImpact.Knockdown, (long)(delaySeconds * 1000), hazard, Guid.NewGuid());
-            if (reply.Changed) { impacts[key] = before + 1; SynchronizeBindings(); }
+            if (reply.Changed) { impacts[key] = before + 1; bound.KnockDown(impulse, contactPoint); SynchronizeBindings(); }
         }
-        private void FinishStation(FacilityControl station)
-        {
-            stations.Remove(station.Id); stationTimers.Remove(station.Id);
-            if (station.Patient == null || !actors.ContainsKey(station.Patient.Id)) return;
-            var state = world.GetWorker(station.Patient.Id);
-            if (state == null) return;
-            if (state.Awareness == WorkerAwareness.Unconscious)
-            {
-                var reply = world.StabilizeWorker(world.Epoch, state.Id, state.Revision, 0);
-                if (!reply.Changed) return;
-            }
-            long attempt = BeginRecovery(station.Patient);
-            if (attempt != 0) actors[station.Patient.Id].ReanimationExit(attempt);
-            else actors[station.Patient.Id].KnockDown(Vector3.zero);
-        }
+        private static bool Finite(Vector3 value) => float.IsFinite(value.x) && float.IsFinite(value.y) && float.IsFinite(value.z);
         private static ControlAction ControlActionFor(SceneOperation value) => value == SceneOperation.ValveTurn ? ControlAction.Turn :
             value == SceneOperation.ValveHold ? ControlAction.Hold : value == SceneOperation.Connect ? ControlAction.Connect :
             value == SceneOperation.Dig ? ControlAction.Work : ControlAction.Toggle;
         private void ClearPhysicalBindings()
         { foreach (var target in targets) if (target != null) { if (target is CarryableObject item) item.SynchronizeSlot(null); target.ClearBinding(); }
-          foreach (var worker in workers) if (worker != null) worker.CancelSceneActions(); stations.Clear(); stationTimers.Clear(); }
+          foreach (var worker in workers) if (worker != null) worker.StopSceneSimulation(); stations.Clear(); }
         private void Shutdown() { world?.Stop(); ClearPhysicalBindings(); }
         private void OnDisable() { Shutdown(); }
     }

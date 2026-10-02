@@ -4,6 +4,7 @@ using System.Linq;
 using CriticalShift.FacilityPhysics.Unity;
 using CriticalShift.Features.Interaction.Unity;
 using CriticalShift.Features.Workers.Unity;
+using CriticalShift.Features.Workers.Editor;
 using CriticalShift.Unity.Shared;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -23,10 +24,12 @@ namespace CriticalShift.Bootstrap.Editor
             EditorGUILayout.HelpBox("Select a worker, physical object, or interaction marker. These tools add gameplay components and explicit scene references. Animation sources and clips are never changed.", MessageType.Info);
             library = (WorkerAnimationLibrary)EditorGUILayout.ObjectField("Finished clip library", library, typeof(WorkerAnimationLibrary), false);
             if (GUILayout.Button("Bind selected worker")) BindWorker();
+            if (GUILayout.Button("Build selected ragdoll physics")) BuildRagdoll();
             objectKind = (CarryableKind)EditorGUILayout.EnumPopup("Object kind", objectKind);
             if (GUILayout.Button("Bind selected physical object")) BindObject();
             controlKind = (ControlKind)EditorGUILayout.EnumPopup("Control kind", controlKind);
             if (GUILayout.Button("Bind selected control marker")) BindControl();
+            if (GUILayout.Button("Bind selected downed handle")) BindHandle();
             if (GUILayout.Button("Bind selected production machine")) BindMachine();
             if (GUILayout.Button("Wire scene references")) WireScene();
             if (GUILayout.Button("Validate scene bindings")) ValidateScene();
@@ -72,10 +75,8 @@ namespace CriticalShift.Bootstrap.Editor
             Set(worker, "capsule", capsule); Set(worker, "movement", movement); Set(worker, "ragdoll", ragdoll); Set(worker, "eye", eye);
             Set(worker, "grip", Anchor(go, "CarryGrip", new Vector3(0, 1.02f, 0.48f)));
             Set(movement, "animator", animator); if (library != null) Set(movement, "library", library);
-            var bones = go.GetComponentsInChildren<Rigidbody>(); SetArray(ragdoll, "bones", bones);
-            SetArray(ragdoll, "colliders", go.GetComponentsInChildren<Collider>().Where(c => c != capsule).Cast<UnityEngine.Object>().ToArray());
             var hips = animator.isHuman ? animator.GetBoneTransform(HumanBodyBones.Hips) : go.GetComponentsInChildren<Transform>().FirstOrDefault(t => t.name == "Hips");
-            if (hips != null) Set(ragdoll, "pelvis", hips.GetComponent<Rigidbody>());
+
             Set(crouch, "hips", hips);
             foreach (var pair in new[] { ("leftThigh", "LeftUpperLeg", HumanBodyBones.LeftUpperLeg), ("leftShin", "LeftLowerLeg", HumanBodyBones.LeftLowerLeg),
                 ("leftFoot", "LeftFoot", HumanBodyBones.LeftFoot), ("rightThigh", "RightUpperLeg", HumanBodyBones.RightUpperLeg),
@@ -84,14 +85,31 @@ namespace CriticalShift.Bootstrap.Editor
             foreach (var pair in new[] { ("leftHand", "LeftHand", HumanBodyBones.LeftHand), ("rightHand", "RightHand", HumanBodyBones.RightHand), ("head", "Head", HumanBodyBones.Head) })
             { var bone = animator.isHuman ? animator.GetBoneTransform(pair.Item3) : go.GetComponentsInChildren<Transform>().FirstOrDefault(t => t.name == pair.Item2); Set(worker, pair.Item1, bone); }
             var tool = go.GetComponentsInChildren<Transform>().FirstOrDefault(t => t.name == "Tool"); if (tool != null) Set(worker, "toolGrip", tool);
-            Debug.Log("Worker binding added. Assign/build ragdoll colliders and joints using Unity's Ragdoll Wizard; assign final clip library and mesh visibility references.", go);
+            Debug.Log("Worker binding added. Use Build selected ragdoll physics to generate limb bodies, shapes and joints; assign final clip library and mesh visibility references.", go);
             WireScene();
         }
         private void BindObject()
         {
-            var go = Selected(); var item = Add<CarryableObject>(go); Set(item, "body", Add<Rigidbody>(go));
+            var go = Selected(); var item = Add<CarryableObject>(go);
+            if (objectKind == CarryableKind.Body)
+            {
+                var worker = go.GetComponent<WorkerController>();
+                if (worker == null || worker.PhysicalBody == null) throw new InvalidOperationException("Select a worker root with built ragdoll physics for a body binding.");
+                Set(item, "body", worker.PhysicalBody); Set(item, "workerBody", worker); Set(item, "contact", worker.PhysicalBody.transform);
+                Set(item, "objectGrip", Anchor(worker.PhysicalBody.gameObject, "BodyGrip", Vector3.up * .1f));
+                Set(item, "assistantObjectGrip", Anchor(worker.PhysicalBody.gameObject, "BodyAssistantGrip", Vector3.down * .1f));
+            }
+            else { Set(item, "body", Add<Rigidbody>(go)); Set(item, "objectGrip", Anchor(go, "ObjectGrip", Vector3.zero)); }
             SetEnum(item, "kind", (int)objectKind); SetEnum(item, "operation", (int)(objectKind == CarryableKind.Cart ? SceneOperation.Push : objectKind == CarryableKind.Body ? SceneOperation.Drag : SceneOperation.Grab));
-            Set(item, "objectGrip", Anchor(go, "ObjectGrip", Vector3.zero)); WireScene();
+            WireScene();
+        }
+        private static void BuildRagdoll()
+        {
+            var worker = Selected().GetComponentInParent<WorkerController>();
+            if (worker == null) throw new InvalidOperationException("Bind/select the worker first.");
+            Undo.IncrementCurrentGroup(); int group = Undo.GetCurrentGroup(); Undo.SetCurrentGroupName("Build worker ragdoll physics");
+            try { WorkerRagdollBuilder.Build(worker, worker.GetComponentInChildren<Animator>(), worker.GetComponent<WorkerRagdoll>()); WireScene(); Undo.CollapseUndoOperations(group); }
+            catch { Undo.RevertAllDownToGroup(group); throw; }
         }
         private void BindControl()
         {
@@ -102,6 +120,8 @@ namespace CriticalShift.Bootstrap.Editor
                 controlKind == ControlKind.ReanimationStation ? SceneOperation.Reanimation : controlKind == ControlKind.Aid ? SceneOperation.Help : SceneOperation.Button;
             SetEnum(control, "operation", (int)op); Set(control, "contact", go.transform); WireScene();
         }
+        private void BindHandle()
+        { var go = Selected(); var handle = Add<RagdollHandle>(go); Set(handle, "contact", go.transform); SetEnum(handle, "operation", (int)SceneOperation.Grab); WireScene(); }
         private void BindMachine()
         {
             var go = Selected(); var machine = Add<MachineBinding>(go); Set(machine, "slot", Anchor(go, "ContainerSlot", Vector3.up));
@@ -121,6 +141,7 @@ namespace CriticalShift.Bootstrap.Editor
             SetArray(host, "workers", workers); SetArray(host, "targets", targets);
             foreach (var worker in workers) Set(worker, "gateway", host);
             foreach (var item in Components<CarryableObject>()) Set(item, "gateway", host);
+            foreach (var handle in Components<RagdollHandle>()) Set(handle, "gateway", host);
             foreach (var hazard in Components<WorkerCollisionHazard>()) Set(hazard, "gateway", host);
             EditorSceneManager.MarkSceneDirty(host.gameObject.scene);
         }
@@ -135,7 +156,7 @@ namespace CriticalShift.Bootstrap.Editor
                 if (target is CarryableObject item)
                 {
                     if (item.Body == null || item.Body.isKinematic && item.Kind != CarryableKind.Body) errors.Add(item.name + ": assign a dynamic object Rigidbody");
-                    if (item.Kind == CarryableKind.Body && item.WorkerBody == null) errors.Add(item.name + ": assign the worker represented by this body");
+                    if (item.Kind == CarryableKind.Body && !item.ValidBodyBinding) errors.Add(item.name + ": bind the represented worker's actual pelvis body");
                 }
                 if (target is MachineBinding machine)
                 {
@@ -167,8 +188,7 @@ namespace CriticalShift.Bootstrap.Editor
                 var ragdoll = worker.GetComponent<WorkerRagdoll>();
                 if (ragdoll == null) { errors.Add(worker.name + ": add WorkerRagdoll"); continue; }
                 var ragdollData = new SerializedObject(ragdoll);
-                if (ragdollData.FindProperty("pelvis").objectReferenceValue == null || ragdollData.FindProperty("bones").arraySize == 0)
-                    errors.Add(worker.name + ": assign a complete ragdoll");
+                if (!ragdoll.TryValidate(out var ragdollError)) errors.Add(worker.name + ": " + ragdollError);
             }
             if (Components<WorkerController>().Length == 0) errors.Add("Bind at least one worker.");
             if (Components<WorkerController>().Count(w => new SerializedObject(w).FindProperty("localInput").boolValue) != 1)

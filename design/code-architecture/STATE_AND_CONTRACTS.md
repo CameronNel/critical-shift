@@ -115,6 +115,17 @@ Do not flatten the game specification's list into one mutually exclusive enum. A
 
 Normal locomotion and full ragdoll cannot simultaneously drive the same body. The host authorizes incapacitation/recovery; the Unity adapter switches the physical controllers. Recovery requires a validated pose/clearance and a single ownership handoff. A visual interpolation arriving late cannot resurrect an incapacitated worker. Body dragging is a controlled Interaction attachment to a worker entity, not a second health system.
 
+The scene adapter may expose conscious downed crawl/brace and explicitly tagged
+fixed handles without granting normal `CanInteract`. `GripHandle` uses the existing
+claim owner and per-connection receipt stream; eligibility requires Alert + Down,
+a registered handle and the normal host reach policy. Renewal/release use its current
+lease generation. An accepted recovery begin releases the handle through the same
+claim store; a rejected begin preserves it. Handles cannot also be tagged shared cargo.
+WorkerWorkflow remains the health/posture owner. Unity owns only bounded forces,
+sampled pose handoff, limb geometry and clearance observations. Station admission
+captures patient/epoch/injury and the physical presentation generation; stale timers
+cannot aid or override a later injury, replacement patient or get-up.
+
 Hazard observations include source, target, epoch, observation/tick identity and configured magnitude. Repeated observations are handled by the authored damage/cooldown rule, not an unqualified rule that every collision callback causes full damage. Gameplay bounds and units are named and testable. Randomness for incidents is owned and seeded explicitly; decorative effects use a separate stream so an extra particle cannot change a failure outcome.
 
 ## S08. Causality and bounded events

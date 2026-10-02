@@ -10,7 +10,7 @@ namespace CriticalShift.Unity.Shared
         [SerializeField, Min(0.1f)] private float reach = 1.8f;
         [SerializeField] private SceneOperation operation = SceneOperation.Button;
         public Guid Id => Guid.Parse(identity);
-        public Transform Contact => contact != null ? contact : transform;
+        public virtual Transform Contact => contact != null ? contact : transform;
         public float Reach => reach;
         public SceneOperation Operation => operation;
         public abstract bool Supports(SceneOperation value);

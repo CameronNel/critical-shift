@@ -132,6 +132,7 @@ namespace CriticalShift.Features.Workers.Unity
         }
 
         public bool StopAction(ulong sequence) => Ready && selector.StopAction(sequence);
+        public void SuspendPlayback() { if (Ready) { selector.Step(default, 0); Suspend(); } }
 
         private void Suspend()
         {

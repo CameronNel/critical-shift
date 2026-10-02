@@ -103,3 +103,48 @@ Deliberately untouched: authored animations and map/art files. Validated: canoni
 offline logic and scoped static checks. Not run/blocked: native checks above.
 Open: D-02 and missing broader gameplay owners. Review/merge: draft, pending independent
 review, no self-merge.
+
+
+## Ragdoll audit and implementation, 2 October 2026
+
+The user authorized a physics audit, fixes and complete ragdoll code while preserving
+unfinished animation assets. The adapter now has a repeatable 16-segment weighted
+rig builder; bounded CharacterJoint/solid-shape inventory, mass and root-convention
+validation; sampled linear/angular momentum handoff; capped aggregate impacts;
+continuous dynamic collision for supported shapes; fault latching and clean teardown.
+Body carrying targets the actual pelvis and applies aggregate-mass force/gravity
+support. Collision scopes preserve their original policy across owned lifetimes.
+Conscious Down adds bounded crawl/brace, camera tracking, help feedback and nearby
+fixed-handle gripping through the canonical claim/lease/receipt stream. Recovery
+uses current supported pelvis placement, front/back anatomical axes, standing
+clearance, a pose-preserving root move and elapsed-time bounded playback.
+
+Audit fixes include the wrong Schedule argument order, interaction reentry within a
+capsule move, stale motor state after get-up, body reach tied to the old root,
+reset momentum on repeated hits, tangential impact classification, root Rigidbody
+competition, missing Editor assembly reference, destroyed held-body cleanup,
+helper collision policy restoration, and malformed/unbounded rigs. Station cycles
+now fence patient/epoch/injury/timer/presentation and reserve before cosmetic effects;
+blocked locker exits wait rather than enabling a capsule in obstructed space.
+The calibrated A-pose elbow axis was corrected without editing bone transforms or
+animation files. Setup/control instructions live in the worker binding guide.
+
+Latest verifier: **765/765 offline tests passed**, including the previous 747 plus
+11 downed-handle cases and seven ragdoll tuning/station-ticket cases; 27 guards,
+intentional failing controls, report-safety checks and twelve scenarios repeated
+twice passed. All eight shipped canonical rule libraries rebuilt with zero warnings
+or errors. Static inventory: 93 metadata GUIDs, 13 asmdefs, 46 C# files; C# 8 syntax
+parsing reports zero errors. Exact input/source hashes and earlier runs remain in
+the evidence JSON. The first focused compile used a nonexistent `InteractionReply.Claim`
+member; the corrected `State` access passed the focused and full checks.
+
+There are **43 native feature cases written but NotRun**: four animation binding,
+14 carry/handle/targeting, 23 ragdoll physics/validation and two rig builder cases.
+Native station callback admission/complete-scene regression fixtures remain Planned;
+source review/ticket tests cover only their stated portion. Native import/type
+compilation, physics/Player execution, all finished 49-clip contacts, multiplayer,
+performance and human feel remain **Blocked/unverified** without the pinned activated
+Editor and finished assets. No acceptance gate advances. Four read-only audit agents
+reviewed separate concerns; root authored fixes. Independent PR/human review remains
+pending and the PR stays draft. No animation source, clip, Animator controller,
+map or art file changed.

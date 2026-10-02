@@ -12,12 +12,16 @@ namespace CriticalShift.FacilityPhysics.Tests
     public sealed class PhysicsTestWorker : WorkerScenePort
     {
         public SceneOperation? Pose;
+        public bool IsDown;
+        public Rigidbody PhysicsBody;
+        public override Rigidbody PhysicalBody => PhysicsBody;
+        public override Collider[] PhysicalColliders => PhysicsBody != null ? PhysicsBody.GetComponents<Collider>() : BodyColliders;
         public override Transform Eye => transform;
         public override Transform Grip => transform;
         public override Collider[] BodyColliders => GetComponents<Collider>();
         public override bool Grounded => true;
         public override bool RecoveryClear => true;
-        public override bool Down => false;
+        public override bool Down => IsDown;
         public override Vector3 Velocity => Vector3.zero;
         public override void SetHaulPose(SceneOperation? operation) { Pose = operation; }
         public override void PresentStation(SceneOperation operation, Transform anchor) { }
@@ -27,7 +31,8 @@ namespace CriticalShift.FacilityPhysics.Tests
     {
         public int Failures, AssistantFailures;
         public override bool Running => true;
-        public override bool CanAct(WorkerScenePort worker) => true;
+        public override bool CanAct(WorkerScenePort worker) => !worker.Down;
+        public override bool ConsciousDown(WorkerScenePort worker) => worker.Down;
         public override SceneTarget Held(WorkerScenePort worker) => null;
         public override bool CanUse(WorkerScenePort worker, SceneTarget target) => true;
         public override string Describe(SceneTarget target) => "";
@@ -36,7 +41,8 @@ namespace CriticalShift.FacilityPhysics.Tests
         public override bool RecoveryReady(WorkerScenePort worker) => false;
         public override long BeginRecovery(WorkerScenePort worker) => 0;
         public override bool CompleteRecovery(WorkerScenePort worker, long attempt) => false;
-        public override void Impact(WorkerScenePort worker, Guid hazard, bool incapacitating, float delaySeconds) { }
+        public override void Impact(WorkerScenePort worker, Guid hazard, bool incapacitating, float delaySeconds,
+            Vector3 impulse = default, Vector3? contactPoint = null) { }
         public override void AttachmentFailed(SceneTarget target, long generation, WorkerScenePort assistant = null)
         {
             if (assistant != null) { AssistantFailures++; ((CarryableObject)target).SynchronizeAssistant(null); }
@@ -100,6 +106,39 @@ namespace CriticalShift.FacilityPhysics.Tests
             item.Apply(worker, SceneOperation.Grab, 1); item.Apply(worker, SceneOperation.ThrowUnder, 1);
             yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
             Assert.That(body.linearVelocity.z, Is.EqualTo(2.6f).Within(0.05f)); Assert.That(body.linearVelocity.y, Is.EqualTo(3.2f).Within(0.05f));
+        }
+        [UnityTest] public IEnumerator DestroyedHeldBodyReleasesWithoutException()
+        {
+            item.Apply(worker, SceneOperation.Grab, 1); UnityEngine.Object.DestroyImmediate(body);
+            yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
+            Assert.That(gateway.Failures, Is.EqualTo(1)); Assert.That(item.Holder, Is.Null);
+        }
+        [Test] public void AuthoredCollisionIgnoreSurvivesCarryRelease()
+        {
+            var cargo = cargoObject.GetComponent<Collider>(); var actor = workerObject.GetComponent<Collider>();
+            Physics.IgnoreCollision(cargo, actor, true); item.Apply(worker, SceneOperation.Grab, 1); item.ClearBinding();
+            Assert.That(Physics.GetIgnoreCollision(cargo, actor), Is.True);
+        }
+        [Test] public void DisplacedBodyContactTracksPhysicalPelvis()
+        {
+            targetObject = new GameObject("represented worker"); var patient = targetObject.AddComponent<PhysicsTestWorker>();
+            patient.PhysicsBody = body; patient.IsDown = true;
+            Set(item, "kind", CarryableKind.Body); Set(item, "workerBody", patient);
+            body.position = Vector3.right * 5; workerObject.transform.position = body.position - Vector3.forward;
+            Physics.SyncTransforms(); var hits = new RaycastHit[64];
+            Assert.That(item.ValidBodyBinding, Is.True); Assert.That(item.Contact.position, Is.EqualTo(body.position));
+            Assert.That(SceneTargeting.CanReach(worker, null, item, ~0, hits), Is.True);
+            workerObject.transform.position = targetObject.transform.position - Vector3.forward;
+            Assert.That(SceneTargeting.CanReach(worker, null, item, ~0, hits), Is.False);
+        }
+        [Test] public void DownedHandleGripUsesOwnedPhysicalBodyAndGeneration()
+        {
+            targetObject = GameObject.CreatePrimitive(PrimitiveType.Cube); targetObject.transform.position = body.position + Vector3.up * .5f;
+            var handle = targetObject.AddComponent<RagdollHandle>(); Set(handle, "gateway", gateway);
+            worker.IsDown = true; worker.PhysicsBody = body;
+            Assert.That(handle.Apply(worker, SceneOperation.Grab, 5), Is.True);
+            Assert.That(handle.Apply(worker, SceneOperation.Release, 4), Is.False);
+            Assert.That(handle.Holder, Is.SameAs(worker)); Assert.That(handle.Apply(worker, SceneOperation.Release, 5), Is.True);
         }
         private PhysicsTestWorker AddHelper()
         {

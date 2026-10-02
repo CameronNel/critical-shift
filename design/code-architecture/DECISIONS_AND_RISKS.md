@@ -121,10 +121,20 @@ primary loss, timeout or primary-attachment failure releases both. Secondary-gri
 failure uses the helper's existing receipt-backed, generation-fenced Release
 command. Slot insertion requires helper release first.
 Host receipts fence assistance and stale releases; two force-limited grip points
-drive one authoritative Rigidbody. This does not select a transport: D-02 remains
+drive one cargo Rigidbody or the represented worker’s actual pelvis under its jointed ragdoll. This does not select a transport: D-02 remains
 open. Recommissioning economy/medical-resource contracts are not present
 in the existing rules and are not implied by the scene recovery adapter.
 
+
+The ragdoll audit extension adds explicit 16-segment authoring, bounded joint/shape
+validation, animated-to-physics momentum handoff, fault latching and cleared recovery.
+D-03 gains local conscious-down crawl, brace, help feedback and handle controls.
+Registered fixed handles use the existing claim/lease workflow via GripHandle;
+normal Down interaction restrictions remain. This adds no second health or custody
+owner. S07 records the handoff and station fences. Cosmetic UnityEvents publish
+only after required transitions and cannot reenter the host Execute path.
+Native physics/Player/feel acceptance remains blocked; source review and offline
+checks do not close the networking decision or advance a roadmap gate.
 
 Impact describes consequence if the risk occurs. Likelihood is not quantified: no current runtime evidence exists in this revision from which to derive probabilities.
 

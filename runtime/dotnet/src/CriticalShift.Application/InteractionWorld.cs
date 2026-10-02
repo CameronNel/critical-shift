@@ -201,6 +201,7 @@ namespace CriticalShift.Application
                 case InteractionKind.Control: return _controls?.Apply(command.EntityId, command.Control!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Reactor: return _reactor?.Apply(actorId, command.EntityId, command.Reactor!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Production: return _production?.Apply(actorId, command.EntityId, command.Production!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
+                case InteractionKind.GripHandle:
                 case InteractionKind.Grab: return Map(_claims.TryGrab(command.EntityId, actorId, command.ExpectedRevision), true);
                 case InteractionKind.Assist: return Map(_claims.TryAssist(command.EntityId, actorId, command.ExpectedRevision, command.LeaseGeneration), true);
                 case InteractionKind.Release: return Map(_claims.TryRelease(command.EntityId, actorId, command.LeaseGeneration), true);
