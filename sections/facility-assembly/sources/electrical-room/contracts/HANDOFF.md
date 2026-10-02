@@ -24,6 +24,11 @@ in the overhaul package. The source-hash-bound floor close-up resolves the fresh
 reviewer's remaining finish question without a scene change. Supplemental six
 details and optical pair are explicitly reused at identical source bytes.
 
+The accepted scene and evidence are committed locally as d424ad1 on the task
+branch. GitHub publication is blocked by cloud-proxy HTTP503 failures, including
+ten paused uncached connection checks. No published PR is claimed; the complete
+local source/candidate and reviews remain ready. See overhaul/publication-status.json.
+
 The assembled render/link handoff is
 [facility_electrical_overhaul_candidate.blend](../../../blender/facility_electrical_overhaul_candidate.blend),
 prepared beside the canonical map to preserve relative library paths. Its

@@ -198,6 +198,17 @@ cannot normalize a source-promotion regression into a new baseline.
   Successful saved-output scripts flush and terminate after writing/verifying
   outputs; validator exit status still reflects failures. This does not turn a
   failed command, unfinished render or rejected review into a pass.
+- Initial Git push lacked a credential helper. The existing authenticated GitHub
+  CLI resolved Git authentication; the normal GitHub-host LFS endpoint rejected
+  that authentication. GitHub's API LFS endpoint accepted the configured identity
+  and returned a valid existing-object download action. Temporary per-command
+  endpoint/authentication settings preserved ordinary Git LFS pointers and never
+  changed repository/global configuration or printed credentials.
+- Subsequent Git/LFS upload and uncached GitHub requests failed with HTTP503 from
+  the inherited cloud proxy's upstream tunnel. Serial transfers, smaller batches,
+  HTTP/1.1 and ten paused uncached connection checks did not recover publication.
+  GitHub's missing-LFS-object guard was not bypassed. The local accepted commit
+  and complete verified assets remain available; no successful push/PR is claimed.
 
 Hash-bound manifests/validation and independent reviews are the acceptance
 evidence. Process success or a build/mesh count alone is not visual acceptance.

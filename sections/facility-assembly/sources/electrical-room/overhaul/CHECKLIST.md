@@ -21,7 +21,7 @@
 - [x] Actual-map five-view threshold/context evidence and bounded integration dependency checks.
 - [x] Canonical electrical module byte-promoted under the requested edit scope.
 - [x] Active checkout/provenance and final source/candidate delivery-integrity checks.
-- [ ] Bounded draft PR published for independent review; no self merge.
+- [ ] Bounded draft PR published for independent review; blocked by cloud proxy HTTP503 during Git/LFS upload. No self merge.
 
 ## Evidence boundaries
 

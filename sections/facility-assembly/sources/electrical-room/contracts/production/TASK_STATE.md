@@ -18,6 +18,9 @@ pixel-identical. The five assembled views are independently judged materially
 stable, with the measured one-step differences in two images retained. Final
 two-cycle and fresh cold acceptance are complete. Submit through the task branch
 for independent PR review; do not self merge. Runtime remains untested.
+The accepted art commit is d424ad1. GitHub publication is blocked by cloud-proxy
+HTTP503 failures; no successful push or draft PR is claimed. Local reviewed files
+are intact. The overhaul publication-status.json records the failed handoff.
 
 Original shell, floor, interfaces, utility/interaction anchors and fixed cameras
 are protected. The canonical source has no missing dependencies and retains the

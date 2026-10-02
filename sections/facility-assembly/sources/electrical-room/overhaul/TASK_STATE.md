@@ -43,6 +43,10 @@ each revision's validation report. No measured engine performance claim.
 Final accepted pair is R9/R10. R7/R8 do not form an accepted pair because R8 fails
 its independent visual review. Deliver the bounded branch through a draft PR for
 independent owner review; do not self-merge. Runtime remains untested.
+The accepted art/evidence are committed locally as d424ad1. GitHub publication is
+blocked by the cloud proxy returning HTTP503 on uncached GitHub and LFS requests.
+Ten paused connection checks also fail. No successful push or PR creation is
+claimed; see publication-status.json. All reviewed files remain available locally.
 
 Reviewed R9 source is `checkpoints/full-R9b.blend`, SHA-256
 `382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279`.
