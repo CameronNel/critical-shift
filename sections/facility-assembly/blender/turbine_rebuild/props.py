@@ -108,7 +108,7 @@ def build(b):
         b.box((u, .32, .45), (.46, .46, .06), 'rubber', bev=.02) if False else None
         b.box((fu(8.0), .03, 1.9), (.9, .06, .5), 'trim_black', bev=.014); b.box((fu(8.0), .062, 1.9), (.82, .006, .42), 'yellow'); wt(b, 'TURBINE 02', fu(8.0), 2.0, .1, 'trim_black', .068); wt(b, 'CONTROL DESK', fu(8.0), 1.8, .06, 'trim_black', .068)
         for t, p in ((8.4, False),): socket(b, fu(t), .5, plug=p)
-    import furniture; furniture.chair(b, 7.0, 22.3, math.pi / 2 + .55, 'steel_dark')                                       # operator chair in front of the desk
+    import furniture; furniture.chair(b, 6.55, 23.35, math.pi / 2 - .3, 'steel_dark')                                       # operator chair in front of the desk
     import machinery as MM                                                                           # nameplates on the generator and on the foundation rail
     b.box((MM.CX + 1.14, 18.65, MM.AZ + .05), (.04, 1.7, .5), 'trim_black', bev=.012); b.box((MM.CX + 1.162, 18.65, MM.AZ + .05), (.006, 1.6, .42), 'oxide_dark')
     b.text('GENERATOR  G-2', (MM.CX + 1.17, 18.65, MM.AZ + .1), .15, 'chalk', math.pi / 2, math.pi / 2); b.text('24 kV  3 PHASE', (MM.CX + 1.17, 18.65, MM.AZ - .1), .085, 'chalk', math.pi / 2, math.pi / 2)

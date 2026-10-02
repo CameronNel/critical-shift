@@ -330,7 +330,7 @@ def controls(b):
     b.box((-3.8, 24.5, 3.88), (.4, .6, .3), 'steel_light', bev=.012); b.box((-4.1, 24.85, 3.88), (.4, .6, .3), 'steel_light', (0, 0, -.9), bev=.012); b.box((-4.32, 25.0, 3.88), (.4, 1.0, .3), 'steel_mid', bev=.012)
     for y in (21.5, 23.0): hanger(b, (-3.8, y, 3.7), top=6.0)
     hanger(b, (-2.0, 20.0, 3.7), top=6.0); hanger(b, (0.8, 20.0, 3.7), top=6.0)
-    b.text('HV BUS  /  U03', (-3.2, 19.98, 4.15), .27, 'chalk', 0, math.pi / 2)
+    b.text('HV BUS  /  U03', (-.7, 19.98, 4.15), .27, 'chalk', 0, math.pi / 2)
 
 # ---------- maintenance bay ----------
 def maintenance(b):

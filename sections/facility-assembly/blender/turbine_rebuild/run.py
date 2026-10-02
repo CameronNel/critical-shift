@@ -214,8 +214,8 @@ CAMS = {   # all positions are in open aisle space
     'CAM_F_sw_high':       ((-2.4, 1.6, 4.2), (5.0, 16, 1.5)),
     'CAM_G_generator':     ((8.4, 15.0, 2.4), (4.6, 18.5, 2.0)),
     'CAM_H_roof':          ((1.0, 4.0, 1.65), (3.4, 14, 6.4)),
-    'CAM_J_north_back':    ((.3, 22.8, 1.8), (4.2, 2, 2.3)),
-    'CAM_K_door_d01':      ((1.5, 8.8, 1.65), (-2.8, .3, 1.9)),
+    'CAM_J_north_back':    ((1.2, 22.8, 1.8), (5.0, 2, 2.1)),
+    'CAM_K_door_d01':      ((1.5, 8.8, 1.65), (-3.4, .3, 1.9)),
     'CAM_M_turbine_close': ((6.6, 7.4, 2.7), (4.6, 11.6, 2.1)),
     'CAM_P_west_wall':     ((1.0, 12.0, 1.65), (-4, 12, 2.6)),
     'CAM_Q_east_wall':     ((8.6, 3.2, 1.7), (10, 13, 3.0)),
@@ -224,7 +224,7 @@ CAMS = {   # all positions are in open aisle space
     'CAM_L_desk':          ((7.7, 19.8, 1.6), (8.4, 23.5, 1.0)),
 }
 for name, (loc, tgt) in CAMS.items():
-    cd = bpy.data.cameras.new(name); cd.lens = {'CAM_E_controls': 18, 'CAM_K_door_d01': 19, 'CAM_J_north_back': 20, 'CAM_H_roof': 20}.get(name, 24); co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
+    cd = bpy.data.cameras.new(name); cd.lens = {'CAM_E_controls': 18, 'CAM_K_door_d01': 19, 'CAM_J_north_back': 21, 'CAM_H_roof': 20, 'CAM_B_ne_high': 22, 'CAM_A_entry_north': 22}.get(name, 24); co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
     co.rotation_euler = (Vector(tgt) - Vector(loc)).to_track_quat('-Z', 'Y').to_euler()
 sc.camera = bpy.data.objects['CAM_A_entry_north']
 for _o in coll.objects:
