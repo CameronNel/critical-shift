@@ -1706,7 +1706,7 @@ def _arms_idle(arm):
 # \\o/ arms: upper arm `spread` degrees out from the chest's up axis, forearm `elbow` degrees further out (negative
 # bends it back up), shoulders shrugged `shrug` degrees, hand `flick` degrees. The hood is big, so the upper arm must
 # splay wide enough for the sleeve to pass outside it; the forearm then turns up beside the head.
-CHEER = dict(spread=56.0, spread_amp=(5.0, 2.5), elbow=-14.0, elbow_amp=(6.0, 3.0), shrug=4.0, flick=8.0)
+CHEER = dict(spread=59.0, spread_amp=(5.0, 2.5), elbow=-6.0, elbow_amp=(6.0, 3.0), shrug=4.0, flick=8.0)
 
 
 def _arms_cheer(arm, c=None):
@@ -1776,10 +1776,10 @@ def _arms_tool(arm, kind, running, gait=GAIT_PLAIN):
             swing = Matrix.Translation(g + Vector((0.0, -0.035 * pump, 0.008 * math.cos(tp * 2 * q))))
             M = swing @ _rot("X", 5 * pump).to_4x4() @ Matrix.Translation(-g) @ M
         if running:
-            _arm_neutral(arm, "Left", SX["Left"], ph, D, swing=30 * pump, bend=78 + 14 * pump, out=36.0)
+            _arm_neutral(arm, "Left", SX["Left"], ph, D, swing=30 * pump, bend=78 + 14 * pump, out=50.0)
         else:
             _arm_neutral(arm, "Left", SX["Left"], ph, D, swing=2.5 * math.sin(tp * (ph + 0.2)), bend=10 + 3 * math.sin(tp * ph),
-                         out=38.0)
+                         out=50.0)                # out far enough that the sleeve clears the back and the belt kit
         grip = M @ Vector((0, 0, (TOOL_RUN if running else TOOL_HOLD)[kind]["at"]))
         D["RightShoulder"] = D["Chest"]
         S = ev["RightUpperArm"].head.copy()
