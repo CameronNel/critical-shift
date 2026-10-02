@@ -163,7 +163,7 @@ def aim(o, frm, to):
     o.rotation_euler = (Vector(to) - Vector(frm)).to_track_quat('-Z', 'Y').to_euler()
 spot('LAMP_rotor', (machinery.CX, 11.25, 4.1), 1300, 62, (1.0, .66, .3), .4)
 aim(spot('WORK_rotor', (6.38, 7.36, 3.55), 1000, 42, (1.0, .5, .2), .3), (6.38, 7.36, 3.55), (4.6, 11.0, 2.2))                     # work lamp on its stand
-aim(spot('SPOT_desk', (9.0, 22.3, 4.8), 2600, 32, (1.0, .66, .32), .3), (9.0, 22.3, 4.8), (9.0, 23.4, .8))                    # lights the exposed gold blading
+aim(spot('SPOT_desk', (9.0, 22.3, 4.8), 2600, 32, (1.0, .66, .32), .3), (9.0, 22.3, 4.8), (9.46, 22.4, .8))                    # lights the exposed gold blading
 point('GLOW_coupling', (machinery.CX, 15.6, machinery.AZ + .35), 150, (1.0, .55, .18))
 for k, y in enumerate((5.0, 11.0, 18.0)):                                                      # warm floor uplights give the casings a rim
     aim(spot(f'UP_W{k}', (1.35, y, .2), 180, 42, AMBER, .3), (1.35, y, .2), (3.2, y, 2.2)); aim(spot(f'UP_E{k}', (7.65, y, .2), 180, 42, AMBER, .3), (7.65, y, .2), (6.0, y, 2.2))
@@ -213,7 +213,7 @@ CAMS = {   # all positions are in open aisle space
     'CAM_Q_east_wall':     ((8.6, 3.2, 1.7), (10, 13, 3.0)),
     'CAM_R_south_wall':    ((6.0, 11.5, 1.8), (4.5, 0, 3.4)),
     'CAM_N_floor':         ((.2, 3.6, .95), (1.5, 13.5, .08)),
-    'CAM_L_desk':          ((7.9, 20.0, 1.7), (9.0, 23.4, 1.0)),
+    'CAM_L_desk':          ((7.6, 19.6, 1.6), (9.4, 22.4, .8)),
 }
 for name, (loc, tgt) in CAMS.items():
     cd = bpy.data.cameras.new(name); cd.lens = {'CAM_E_controls': 16, 'CAM_K_door_d01': 19, 'CAM_J_north_back': 20, 'CAM_H_roof': 20, 'CAM_A_entry_north': 22}.get(name, 24); co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc

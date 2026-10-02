@@ -188,39 +188,6 @@ def steel_case(b, x, y, z0, w=.7, d=.5, h=.36, rz=0.0):
         b.sweep([(-.1, 0, h + .012), (-.1, 0, h + .07), (.1, 0, h + .07), (.1, 0, h + .012)], .01, 'steel_dark', 6, .03)         # carry handle
         b.decal('label_ship', (0, d / 2 + .0105, h * .38), rot=(PI / 2, 0, PI), scale=.95)
 
-def desk(b, u):
-    """working desk (north wall frame): wood top, drawer pedestal, legs, monitor with a live-looking screen, keyboard, mouse, lamp, mug, papers"""
-    b.box((u, .38, .74), (1.5, .72, .04), 'wood', bev=.01); b.box((u, .38, .705), (1.42, .64, .035), 'wood_dark', bev=.006)
-    b.box((u - .52, .38, .36), (.4, .62, .68), 'steel_dark', bev=.012)
-    for k, zc in enumerate((.6, .42, .24)):
-        b.box((u - .52, .695, zc), (.36, .014, .15), 'steel_mid', bev=.005); b.rod((u - .6, .715, zc + .03), (u - .44, .715, zc + .03), .008, 'steel_light', 8)
-        for sx in (-.6, -.44): b.box((u + sx, .705, zc + .03), (.012, .02, .012), 'steel_light')
-    for dy in (.08, .68): b.box((u + .69, dy, .36), (.05, .05, .7), 'steel_dark', bev=.006)
-    b.box((u + .15, .08, .42), (1.0, .02, .55), 'steel_dark', bev=.006)
-    b.box((u + .69, .38, .12), (.04, .6, .04), 'steel_dark', bev=.004)
-    # monitor
-    mx = u + .1
-    b.lathe((mx, .54, .76), [(0, 0), (.095, 0), (.1, .008), (.09, .016), (0, .016)], 'trim_black', 20); b.box((mx, .56, .86), (.045, .03, .2), 'trim_black', bev=.006)
-    b.box((mx, .55, 1.0), (.54, .036, .33), 'trim_black', bev=.012); b.box((mx, .52, 1.0), (.2, .05, .2), 'trim_black', bev=.01)
-    b.decal('desk_monitor', (mx, .5695, 1.0), rot=WALL, scale=1.0)
-    b.box((mx, .573, .852), (.03, .008, .008), 'led_green')
-    # keyboard + mouse
-    b.box((mx, .3, .768), (.38, .14, .018), 'charcoal', bev=.007); b.decal('keyboard', (mx, .3, .7775), rot=(0, 0, 0), spin=PI, scale=1.0)
-    b.box((mx + .31, .3, .77), (.06, .1, .026), 'charcoal', bev=.012); b.sweep([(mx + .31, .35, .775), (mx + .31, .45, .775), (mx + .12, .56, .78)], .003, 'rubber', 6, .05)
-    # lamp
-    lx = u - .1
-    b.lathe((lx, .58, .76), [(0, 0), (.07, 0), (.074, .008), (.06, .02), (0, .02)], 'steel_dark', 20); b.rod((lx, .58, .77), (lx - .03, .52, .98), .007, 'steel_mid', 8); b.sphere((lx - .03, .52, .98), .014, 'steel_dark', 8)
-    b.rod((lx - .03, .52, .98), (lx - .13, .46, 1.12), .007, 'steel_mid', 8)
-    b.lathe((lx - .13, .46, 1.12), [(.012, 0), (.04, -.02), (.075, -.08), (.082, -.085), (.078, -.085), (.04, -.04), (.012, -.01)], 'yellow', 16)
-    b.sphere((lx - .13, .46, 1.07), .022, 'lamp', 8)
-    # mug, papers, binder
-    b.lathe((u + .56, .3, .76), [(0, 0), (.036, 0), (.04, .005), (.04, .09), (.0375, .092), (.0345, .09), (.0345, .012), (0, .012)], 'chalk', 18)
-    b.sweep([(u + .6, .3, .84), (u + .64, .3, .84), (u + .64, .3, .79), (u + .6, .3, .79)], .006, 'chalk', 6, .02)
-    for k, (dx, dy, r) in enumerate(((.0, .0, .08), (.01, .0, -.1), (-.01, .02, .05))): b.box((u - .02 + dx, .28 + dy, .765 + k * .003), (.22, .3, .002), 'paper', (0, 0, r))
-    b.box((u - .32, .32, .78), (.24, .3, .05), 'red_dark', bev=.008); b.box((u - .32, .32, .81), (.22, .28, .012), 'paper')
-    # phone
-    b.box((u + .36, .56, .775), (.2, .14, .04), 'trim_black', bev=.01); b.box((u + .36, .56, .805), (.22, .05, .026), 'trim_black', bev=.008)
-
 # ------------------------------------------------------------------ oil store
 def spill_pallet(b, cx, cy, w=1.42, d=.82, rz=0.0):
     """polyethylene two-drum spill pallet: rounded sump, steel grating on corner posts, fork pockets, drain plug"""

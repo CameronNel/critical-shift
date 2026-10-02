@@ -288,15 +288,6 @@ def monitor(kind, ppm=1100):
         pts = [(24 + i * (W - 48) / 60, H - 36 + 8 * math.sin(i * .6) * (1 if kind == 'vib' else 0)) for i in range(61)]; c.line(pts, spec[3] + (255,), 2)
     return scanlines(c.done(), .12)
 
-def desk_monitor(ppm=800):
-    c = C(.46, .26, ppm); W, H = c.W, c.H; screen_bg(c, 4, True, (9, 17, 18))
-    c.rect(0, 0, W, 34, fill=(18, 36, 37, 255)); c.text((12, 17), 'TURBINE 02  -  LOG', 20, AMB + (255,), FB, 'lm')
-    for i in range(7):
-        y = 56 + i * 34; c.text((14, y), '02:%02d' % (41 - i * 3), 16, TEAL + (255,), FMB, 'lm'); c.rect(86, y - 6, 86 + 120 + (i * 53) % 130, y + 6, fill=(60, 122, 124, 255) if i % 3 else AMB_D + (255,))
-    pts = [(W * .62 + i * (W * .34) / 30, H * .6 + 30 * math.sin(i * .5) - 12 * math.sin(i * 1.7)) for i in range(31)]; c.line(pts, AMB + (255,), 2)
-    c.rect(W * .6, 52, W - 14, H - 24, outline=TEAL_D + (255,), w=1)
-    return scanlines(c.done(), .1)
-
 def exit_sign(ppm=560):
     c = C(.54, .17, ppm, (6, 40, 24, 255)); W, H = c.W, c.H
     c.rect(4, 4, W - 4, H - 4, outline=(72, 206, 120, 255), w=3, r=6)
@@ -314,7 +305,6 @@ def build_lit(add):
     add('sign_hall', 1.8, .5, S('x', 1.8, .5, (28, 32, 38, 255), CHALK, [('TURBINE HALL', 1.0, None, FB)], 360, border=(150, 124, 56, 255), left=0, right=.42, pad=.07, seed=7,
         icon=lambda c, W, H: arrow(c, W - H * .75, H * .5, H * .62, YEL + (255,))))
     add('sign_hall02', 1.8, .62, S('x', 1.8, .62, (28, 32, 38, 255), CHALK, [('TURBINE HALL 02', 1.0, None, FB), ('AUTHORISED PERSONNEL ONLY', .5, (230, 184, 60, 255), FB)], 360, border=(150, 124, 56, 255), hazard=.04, pad=.07, seed=8))
-    add('sign_desk', .82, .42, S('x', .82, .42, (214, 172, 52, 255), BLK, [('TURBINE 02', 1.0, None, FB), ('CONTROL DESK', .62, None, FB)], 380, border=BLK + (255,), seed=9, pad=.04))
     add('nameplate_gen', 1.4, .38, S('x', 1.4, .38, (36, 24, 20, 255), CHALK, [('GENERATOR  G-2', 1.0, None, FB), ('24 kV  /  3 PHASE  /  50 Hz', .52, (212, 176, 100, 255), FM), ('SER. NO.  GT-2-0419', .4, (150, 140, 124, 255), FM)], 360, border=(150, 100, 70, 255), seed=10, pad=.045))
     add('tag_lp', .94, .28, S('x', .94, .28, (36, 24, 20, 255), CHALK, [('LP TURBINE  2', 1.0, None, FB), ('ROTOR  3000 RPM', .62, (212, 176, 100, 255), FB)], 380, border=(150, 100, 70, 255), seed=11, pad=.03))
     add('plate_main_steam', .74, .14, S('x', .74, .14, (18, 20, 22, 255), CHALK, [('MAIN STEAM  T-2', 1.0, None, FB)], 460, seed=12, pad=.012))
@@ -456,21 +446,10 @@ def toolboard(ppm=330):
     c.rect(X(-1.45), Y(-.47), X(1.45), Y(-.5), fill=(214, 170, 52, 255))
     return weather(c.done(), 90, .35, True, False, True)
 
-def keyboard(ppm=600):
-    c = C(.34, .12, ppm, (30, 32, 35, 255)); W, H = c.W, c.H; r = random.Random(5)
-    for row in range(5):
-        n = 14 if row < 4 else 1; x = W * .03
-        for k in range(n):
-            kw = (W * .94 / 14 - 3) if row < 4 else W * .5
-            if row == 4: x = W * .25
-            c.rect(x, H * .08 + row * H * .17, x + kw, H * .08 + row * H * .17 + H * .14, fill=(52, 55, 60, 255), r=3); x += kw + 3
-    return c.done()
-
 def build_emit(add):
     add('mimic_main', 2.44, 1.26, mimic())
     add('mimic_fault', 2.44, 1.26, mimic_fault())
     for k in ('press', 'temp', 'rpm', 'load', 'trip', 'vib'): add('mon_' + k, .35, .22, monitor(k))
-    add('desk_monitor', .46, .26, desk_monitor())
     add('exit_sign', .54, .17, exit_sign())
 
 # ---------------------------------------------------------------- packing
@@ -494,7 +473,6 @@ def generate(out):
         def add(name, w, h, im): items.append((name, im)); sizes[name] = (w, h)
         builder(add)
         if sheet_name == 'turbine_decals':
-            add('keyboard', .34, .12, keyboard())
             for k in range(3): add('panel_u%d' % k, .84, .56, console_panel(k))
             add('toolboard', 2.9, 1.0, toolboard())
         sheet, place = pack(items, width); sheet.save(os.path.join(out, sheet_name + '.png'))

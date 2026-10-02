@@ -1,4 +1,4 @@
-"""Curated set dressing (v3). Deliberate placements only: signage, notices, safety gear, a working desk, tidy storage, and a few
+"""Curated set dressing (v3). Deliberate placements only: signage, notices, safety gear, tidy storage, and a few
 storytelling wear marks. Text convention: in wall frames text faces +Y (into the room) with rz=pi, rx=pi/2."""
 import math
 from mathutils import Vector
@@ -67,12 +67,6 @@ def build(b):
         A.sign_board(b, 'sign_hall', fu(5.5), 2.6, 1.8, .5, depth=.05)
     # --- tool trolley in the bay ---
     A.tool_trolley(b, .75, 13.0)
-    # --- north wall: working desk, flammables sign ---
-    (o, rz), fu = FR['N']
-    with b.push(o, rz):
-        A.desk(b, fu(9.1))
-        A.sign_board(b, 'sign_desk', fu(9.1), 1.9, .82, .42, depth=.05)
-        A.socket(b, fu(9.6), .5)
     import machinery as MM                                                                           # nameplates on the generator and on the foundation rail
     b.box((MM.CX + 1.14, 18.95, MM.AZ + .05), (.04, 1.5, .46), 'trim_black', bev=.012); b.decal('nameplate_gen', (MM.CX + 1.1625, 18.95, MM.AZ + .05), rot=(math.pi / 2, 0, math.pi / 2))
     with b.push((6.45, 10.95, 0), math.pi / 2):                                                           # tag sign hung from the foundation rail, facing along the walkway
@@ -84,7 +78,6 @@ def build(b):
     A.drum_pump(b, OIL_X + .125, OIL_Y - .3 + .085, .215 + .848)
     (o, rz), fu = FR['E']
     with b.push(o, rz): b.decal('sign_flammable', (fu(OIL_Y), .006, 1.7), rot=WALL, scale=1.05)
-    A.chair_reactor(b, 8.45, 22.5, -.55)                                                                 # operator chair at the desk (reactor control-room model)
     A.pallet(b, 6.8, 1.2, 1.0, 1.2); A.crate(b, 6.8, 1.2, .8, .6, .42, z0=.158); A.steel_case(b, 6.8, 1.2, .158 + .42 + .05, .5, .36, .26, rz=.15)
     with b.push((-3.55, 1.3, 0), math.pi / 2): A.gas_rack(b, 0, 0)
     # --- broken: a leaking pipe stub, a missing ceiling panel with dangling cable ---
