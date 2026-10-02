@@ -1,7 +1,6 @@
 """Anteroom dressing and lift interior (owner brief 2026-10-01, second pass).  Called from cr_lift.build.
 Anteroom (interior x -6.83..-4.83, y -7.70..-5.70, floor z 5.4): water cooler with a labelled 19 l jug and cups, loveseat with throw cushion and folded blanket,
-small coffee table (magazine, remote, bowl of sweets, paper cup), bedside table (lamp, wireless charger with cable to a wall socket, coaster with a coffee cup, paperback,
-keys, pill bottle), small potted plant, dark red worn Persian rug.  Lift: G / F1 button lamps and floor-indicator lamps that light for the ACTIVE floor, a flickering cabin
+small coffee table (magazine, remote, bowl of sweets, coffee on a coaster), a wall-mounted TV on the control room wall, a slim floor lamp, small potted plant, dark red worn Persian rug.  Lift: G / F1 button lamps and floor-indicator lamps that light for the ACTIVE floor, a flickering cabin
 light and car lamp, a dome security camera with a blinking red LED, an expired inspection certificate, a capacity plate, and an analogue floor-position dial whose needle
 swings with the car.  Everything that moves or lights up is driven by the CR_LIFT car height (seconds-based schedule), never by frames."""
 import bpy,math
@@ -45,6 +44,22 @@ def magazine_cover(W=168,H=224):
     for k in range(3): crt.over(a,crt.m_line(X,Y,W/2-34,118+k*12,W/2+34,118+k*12,2),(0.12,0.13,0.12))
     crt.put_text(a,"THE LIGHTS STAY ON:\nINSIDE THE NIGHT SHIFT",W/2,196,10.5,(0.12,0.13,0.12),line=1.05); crt.put_text(a,"ISSUE 04   $1.50",W/2,215,8,(0.30,0.12,0.06))
     return a
+def wood_tex(W=512,seed=5):
+    """tileable walnut grain (u runs along the grain): warped growth rings, long pores, a few darker streaks"""
+    rng=np.random.default_rng(seed); y=(np.arange(W)[:,None]/W).astype(np.float32); x=(np.arange(W)[None,:]/W).astype(np.float32)
+    w=0.16*np.sin(2*np.pi*(2*y+0.5*np.sin(2*np.pi*x)))+0.07*np.sin(2*np.pi*(5*y+np.sin(2*np.pi*(2*x+0.3))))
+    ring=0.5+0.5*np.sin(2*np.pi*(9*y+w*2.2)); pores=rng.random((W,W)).astype(np.float32)
+    for k in range(1,9): pores+=np.roll(pores,k,axis=1)
+    pores/=9; streak=np.clip(0.5+0.5*np.sin(2*np.pi*(31*y+3*w)),0,1)**6
+    t=np.clip(0.55*ring+0.35*pores+0.1,0,1); lo=np.array((0.20,0.115,0.065),np.float32); hi=np.array((0.46,0.29,0.17),np.float32)
+    a=lo+(hi-lo)*t[...,None]; a*=(1-0.30*streak[...,None]); return np.clip(a,0,1).astype(np.float32)
+def weave_tex(base,W=128,n=10,seed=7,var=0.10):
+    """tileable plain-weave cloth: alternating over/under threads, per-thread tint, soft thread profile"""
+    rng=np.random.default_rng(seed); y,x=np.mgrid[0:W,0:W].astype(np.float32); u=x/W*n; v=y/W*n; iu=np.floor(u).astype(int)%n; iv=np.floor(v).astype(int)%n
+    fu=u-np.floor(u); fv=v-np.floor(v); over=((iu+iv)%2==0)
+    h=np.where(over,np.sin(np.pi*fu),np.sin(np.pi*fv))*0.5+0.5
+    tu=rng.normal(0,var,n).astype(np.float32); tv=rng.normal(0,var,n).astype(np.float32); tint=np.where(over,tv[iu],tu[iv])
+    a=np.array(base,np.float32)[None,None,:]*(0.62+0.5*h[...,None])*(1+tint[...,None]); return np.clip(a,0,1).astype(np.float32)
 def _drive(m,expr,extra): drv(m.node_tree,'nodes["Principled BSDF"].inputs["Emission Strength"].default_value',None,expr,var_s=False,extra=extra)
 def lamp_mats(c,ctl):
     zv=[("z",ctl,'["car_z"]')]; M=c.M
@@ -55,6 +70,15 @@ def lamp_mats(c,ctl):
     M["CAM_LED"]=emit_mat("CR lift camera led",(1.0,0.05,0.03),4.0); _drive(M["CAM_LED"],"4.0*(1 if fmod(T,2.4)<0.18 else 0)",[])
     M["LAMP_SHADE"]=emit_mat("CR lamp shade glow",(1.0,0.70,0.40),2.4)
     M["COFFEE"]=pm("CR coffee",(0.03,0.016,0.008),0.12,bump=0.0,scale=2.0)
+    M["WOODG"]=tex_mat("CR wood grain",new_image("CR wood grain tex",wood_tex()),rough=0.42,bump=0.5,scale=(2.0,2.0),clamp=False)
+    M["COUCH"]=tex_mat("CR couch weave teal",new_image("CR couch weave tex",weave_tex((0.20,0.36,0.37),seed=3)),rough=0.92,bump=1.0,scale=(24.0,24.0),clamp=False)
+    M["COUCH_O"]=tex_mat("CR cushion weave mustard",new_image("CR cushion weave tex",weave_tex((0.72,0.43,0.10),seed=4)),rough=0.9,bump=1.0,scale=(24.0,24.0),clamp=False)
+    M["BLANKET_W"]=tex_mat("CR blanket weave rust",new_image("CR blanket weave tex",weave_tex((0.55,0.19,0.08),n=6,seed=5,var=0.14)),rough=0.95,bump=1.4,scale=(16.0,16.0),clamp=False)
+    M["MIRROR"]=pm("CR lift mirror",(0.80,0.84,0.86),0.035,metal=1.0,scale=2.0,bump=0.0,var=(0.97,1.0),grain=0.0)
+    M["CERAMIC"]=pm("CR glazed ceramic",(0.52,0.50,0.44),0.12,scale=2.0,bump=0.0,coat=0.6,var=(0.96,1.02))
+    M["ATVSCR"]=tex_mat("CR tv anteroom screen",new_image("CR tv anteroom tex",crt.tv_broadcast(384,216)),rough=0.25,emit=1.3); crk.drv(M["ATVSCR"].node_tree,'nodes["Principled BSDF"].inputs["Emission Strength"].default_value',None,"1.3*(1-0.30*min(1,fk))*(1-0.55*bw)",var_s=False)
+    M["POSTER_A"]=tex_mat("CR poster anteroom shift",new_image("CR poster anteroom tex",crt.poster("shift",seed=61)),rough=0.5)
+    M["BRUSH"]=pm("CR brushed steel panel",(0.50,0.51,0.51),0.34,metal=1.0,scale=3.0,bump=0.0,var=(0.88,1.04),aniso=(40.0,1.0,1.0))
     M["BOOK"]=pm("CR book cover",(0.045,0.085,0.06),0.6,scale=3.0,bump=0.04)
     M["PILL"]=pm("CR pill bottle",(0.38,0.14,0.02),0.18,bump=0.0,scale=2.0,coat=0.3)
     M["RUG"]=decal_mat("CR rug persian",new_image("CR rug persian tex",persian_rug()),0.95)
@@ -73,78 +97,114 @@ def indicators(c,ctl):
     for (x0,key,lab) in ((-7.25,"LAMP_G","G"),(-7.14,"LAMP_MOVE",None),(-7.03,"LAMP_F1","1")):
         A.fb((gh,key),'+y',wy+0.024,x0,x0+0.08,2.60,2.69,0.004,0.0)
         if lab: crk.text(c.coll,lab,x0+0.04,wy+0.0285,2.515,'+y',0.045,M["YELLOW"],'CENTER',"CR lift floor label")
+def trim(c,yn):
+    """skirting, picture rail style coving and the framed print above the couch (absolute coordinates, interior of the anteroom + alcove)"""
+    A=c.A; g="antetrim"; AXW,AX0,AX1,AY0,AY1=-7.70,-6.83,-4.83,-8.95,-5.70; CZ=8.50
+    H=0.10
+    A.fb((g,"WOODG"),'+y',AY0,AXW,AX1,FZ,FZ+H,0.017,0.003); A.fb((g,"WOODG"),'+x',AXW,AY0,yn,FZ,FZ+H,0.017,0.003); A.fb((g,"WOODG"),'-y',yn,AXW,AX0,FZ,FZ+H,0.017,0.003)
+    A.fb((g,"WOODG"),'+x',AX0,yn,-7.10,FZ,FZ+H,0.017,0.003); A.fb((g,"WOODG"),'+x',AX0,-5.70,AY1,FZ,FZ+H,0.017,0.003)
+    A.fb((g,"WOODG"),'-y',AY1,AX0,AX1,FZ,FZ+H,0.017,0.003)
+    A.fb((g,"WOODG"),'-x',-5.0,AY0,-7.34,FZ,FZ+H,0.017,0.003); A.fb((g,"WOODG"),'-x',-5.0,-6.26,AY1,FZ,FZ+H,0.017,0.003)
+    K=0.055                                                                                       # ceiling coving
+    A.fb((g,"WALL_HI"),'+y',AY0,AXW,AX1,CZ-K,CZ,0.03,0.006); A.fb((g,"WALL_HI"),'+x',AXW,AY0,yn,CZ-K,CZ,0.03,0.006); A.fb((g,"WALL_HI"),'-y',yn,AXW,AX0,CZ-K,CZ,0.03,0.006)
+    A.fb((g,"WALL_HI"),'-y',AY1,AX0,AX1,CZ-K,CZ,0.03,0.006)
+    # framed print over the couch (alcove west wall, seen from the east): wood frame, white mat, the poster decal
+    cy,cz,w,h=-8.24,FZ+1.55,0.56,0.76
+    for (y0,y1,z0,z1) in ((cy-w/2-0.03,cy+w/2+0.03,cz-h/2-0.03,cz-h/2),(cy-w/2-0.03,cy+w/2+0.03,cz+h/2,cz+h/2+0.03),(cy-w/2-0.03,cy-w/2,cz-h/2,cz+h/2),(cy+w/2,cy+w/2+0.03,cz-h/2,cz+h/2)):
+        A.fb((g,"WOODG"),'+x',AXW+0.02,y0,y1,z0,z1,0.026,0.004)
+    A.fb((g,"PAPER"),'+x',AXW+0.02,cy-w/2,cy+w/2,cz-h/2,cz+h/2,0.012,0.002)
+    xp=AXW+0.0325
+    A.plane((g,"POSTER_A"),(xp,cy-w/2+0.05,cz-h/2+0.05),(xp,cy+w/2-0.05,cz-h/2+0.05),(xp,cy+w/2-0.05,cz+h/2-0.05),(xp,cy-w/2+0.05,cz+h/2-0.05))      # viewed from the east: +y is on the viewer's right
+    tv(c)
+def tv(c):
+    """slim wall-mounted TV on the control room's west wall (anteroom east wall), south of the door, facing the couch; the screen plays the management broadcast, flickering with the shared tube signal"""
+    A,M=c.A,c.M; g="antetv"; X=-5.0; y0,y1=-8.62,-7.66; z0,z1=FZ+1.12,FZ+1.66
+    A.pillow((g,"BLACK"),X-0.040,X-0.004,y0-0.012,y1+0.012,z0-0.012,z1+0.012,0.008,2)                         # body + bezel
+    A.bx((g,"GREY"),X-0.012,X-0.004,y0+0.25,y1-0.25,z0+0.10,z1-0.10,0.002)                                      # wall bracket
+    A.plane((g,"ATVSCR"),(X-0.0425,y1,z0),(X-0.0425,y0,z0),(X-0.0425,y0,z1),(X-0.0425,y1,z1),uv=((0,0),(1,0),(1,1),(0,1)))
+    A.bx((g,"BLACK"),X-0.040,X-0.039,(y0+y1)/2-0.06,(y0+y1)/2+0.06,z0-0.014,z0-0.006,0.0005)
+    tvl=crk.light(c.coll,"CR anteroom tv glow",(X-0.35,(y0+y1)/2,FZ+1.40),(0.62,0.88,0.90),5,'AREA',(0,math.radians(90),0),size=(0.9,0.5))
+    tvl.visible_camera=False                                                                       # the area light is only illumination: its dark back panel must not show in shot
+def _bead(A,key,x,y,z,r,seg=8):
+    A.lathe(key,x,y,[(0.0,z-r),(r*0.8,z-r*0.55),(r,z),(r*0.8,z+r*0.55),(0.0,z+r)],seg=seg)
+def _leg(A,key,x,y,h,w0,w1,ch=0.002,sp=(0.0,0.0)):
+    """tapered, slightly splayed furniture leg from the floor (z FZ) up to height h"""
+    pts=[(x+sx*w0/2,y+sy*w0/2,FZ+h) for sx,sy in ((-1,-1),(1,-1),(1,1),(-1,1))]+[(x+sx*w1/2+sp[0],y+sy*w1/2+sp[1],FZ) for sx,sy in ((-1,-1),(1,-1),(1,1),(-1,1))]
+    A.hull(key,pts,ch)
 def props(c):
-    A,M=c.A,c.M; g="anteprop"
-    # everything that hugs the south (back) wall is built in a shifted frame: the back wall was pushed 1.25 m south
-    DY=-1.25; A.begin(0,DY,0,0)
-    # ---------------- dark red worn Persian rug (alpha fringe in the texture)
-    A.plane((g,"RUG"),(-6.76,-6.98,FZ+0.005),(-5.28,-6.98,FZ+0.005),(-5.28,-6.00,FZ+0.005),(-6.76,-6.00,FZ+0.005))
-    A.end()
-    # ---------------- water cooler on the north wall (label, cups, drip tray, taps)
+    A,M=c.A,c.M; g="anteprop"; Z=FZ; AY0=-8.95
+    # ---------------- dark red worn Persian rug (alpha fringe in the texture) between the couch and the TV
+    A.plane((g,"RUG"),(-6.88,-8.60,Z+0.006),(-5.43,-8.60,Z+0.006),(-5.43,-7.63,Z+0.006),(-6.88,-7.63,Z+0.006))
+    # ---------------- water cooler on the north wall: rounded body, recessed tap bay, drip grille, cup dispenser, ribbed 19 l jug
     cx0,cx1,cy0,cy1=-5.62,-5.28,-6.08,-5.70; jx,jy=(cx0+cx1)/2,(cy0+cy1)/2
-    A.bx((g,"PORC"),cx0,cx1,cy0,cy1,FZ+0.05,FZ+1.15,0.012); A.bx((g,"BLACK"),cx0+0.02,cx1-0.02,cy0+0.01,cy1-0.02,FZ,FZ+0.05,0.004)
-    A.bx((g,"PORC_O"),cx0-0.003,cx1+0.003,cy0-0.004,cy0+0.012,FZ+1.00,FZ+1.15,0.004)
-    A.bx((g,"GREY"),cx0+0.04,cx1-0.04,cy0-0.045,cy0+0.004,FZ+0.52,FZ+0.57,0.005); A.bx((g,"BLACK"),cx0+0.05,cx1-0.05,cy0-0.004,cy0+0.004,FZ+0.58,FZ+0.84,0.003)
-    A.bx((g,"JUG"),cx0+0.08,cx0+0.14,cy0-0.022,cy0-0.004,FZ+0.74,FZ+0.79,0.004); A.bx((g,"RED"),cx1-0.14,cx1-0.08,cy0-0.022,cy0-0.004,FZ+0.74,FZ+0.79,0.004)
-    A.cyl((g,"JUG"),jx,jy,FZ+1.15,FZ+1.60,0.135,28,0.006); A.cyl((g,"JUG"),jx,jy,FZ+1.60,FZ+1.67,0.060,18,0.004); A.cyl((g,"PORC"),jx,jy,FZ+1.67,FZ+1.70,0.075,18,0.003)
-    A.cyl((g,"PAPER"),jx,jy,FZ+1.28,FZ+1.48,0.1365,28)                                                   # white label band
-    crk.text(c.coll,"FAMILY CO.\nSPRING WATER",jx,jy-0.1385,FZ+1.38,'-y',0.023,M["BLACK"],'CENTER',"CR jug label",spacing=1.0)
-    A.cyl((g,"PORC"),cx1+0.045,cy1-0.075,FZ+0.55,FZ+1.05,0.035,16,0.003)
-    for k in range(4): A.cyl((g,"PORC_O"),cx1+0.045,cy1-0.075,FZ+0.55+k*0.12,FZ+0.58+k*0.12,0.032,16,0.0)
-    A.begin(0,DY,0,0)
-    # ---------------- loveseat on the south wall
-    sx0,sx1,sy0,sy1=-6.72,-5.62,-7.70,-7.00
-    A.bx((g,"BLACK"),sx0,sx1,sy0+0.02,sy1-0.02,FZ+0.09,FZ+0.30,0.012)
-    for xa,xb in ((sx0+0.10,(sx0+sx1)/2-0.005),((sx0+sx1)/2+0.005,sx1-0.10)): A.bx((g,"FABRIC"),xa,xb,sy0+0.17,sy1-0.03,FZ+0.30,FZ+0.46,0.03)
-    A.bx((g,"FABRIC"),sx0+0.10,sx1-0.10,sy0+0.03,sy0+0.25,FZ+0.46,FZ+0.90,0.04)
-    for xa,xb in ((sx0,sx0+0.10),(sx1-0.10,sx1)): A.bx((g,"FABRIC"),xa,xb,sy0+0.03,sy1-0.03,FZ+0.30,FZ+0.64,0.03)
-    for (x,y) in ((sx0+0.06,sy0+0.06),(sx1-0.06,sy0+0.06),(sx0+0.06,sy1-0.06),(sx1-0.06,sy1-0.06)): A.cyl((g,"BLACK"),x,y,FZ,FZ+0.09,0.022,10)
-    A.bx((g,"FABRIC_O"),sx0+0.14,sx0+0.46,sy0+0.25,sy0+0.33,FZ+0.46,FZ+0.78,0.02)                         # orange throw cushion
-    A.bx((g,"BLANKET"),sx1-0.10,sx1+0.0,sy0+0.05,sy1-0.04,FZ+0.64,FZ+0.665,0.012); A.bx((g,"BLANKET"),sx1-0.10,sx1-0.02,sy1-0.20,sy1-0.04,FZ+0.46,FZ+0.64,0.01)   # folded blanket over the right arm
-    # ---------------- coffee table with things on it
-    tx0,tx1,ty0,ty1=-6.45,-5.90,-6.88,-6.58; tz=FZ+0.38
-    A.bx((g,"WOOD"),tx0,tx1,ty0,ty1,tz-0.025,tz,0.004); A.bx((g,"WOOD"),tx0+0.03,tx1-0.03,ty0+0.03,ty1-0.03,FZ+0.10,FZ+0.115,0.003)
-    for (x,y) in ((tx0+0.02,ty0+0.02),(tx1-0.02,ty0+0.02),(tx0+0.02,ty1-0.02),(tx1-0.02,ty1-0.02)): A.bx((g,"BLACK"),x-0.012,x+0.012,y-0.012,y+0.012,FZ,tz-0.025,0.002)
-    mx,my,ma=-6.31,-6.76,0.18; hw,hh=0.14,0.105                                                         # magazine
-    A.box((g,"PAPER"),mx,my,tz,tz+0.006,2*hw,2*hh,ma,0.0008)
-    pts=[_rot(mx,my,dx,dy,ma) for (dx,dy) in ((-hw,-hh),(hw,-hh),(hw,hh),(-hw,hh))]
-    A.plane((g,"MAG"),*[(p[0],p[1],tz+0.0063) for p in pts])
-    A.box((g,"BLACK"),-6.10,-6.63,tz,tz+0.014,0.15,0.042,-0.25,0.004); A.box((g,"GREY"),-6.11,-6.627,tz+0.014,tz+0.0155,0.10,0.026,-0.25,0.0)     # remote
-    A.cyl((g,"PORC"),-5.99,-6.80,tz,tz+0.012,0.040,16,0.003); A.prism((g,"PORC"),(-5.99,-6.80,tz+0.012),(-5.99,-6.80,tz+0.05),0.038,0.058,18,0.0,False,0.0)   # bowl
-    for (dx,dy,key) in ((-0.012,0.008,"RED"),(0.014,-0.006,"YELLOW"),(0.0,0.018,"ORANGE"),(-0.02,-0.014,"RED")): A.cyl((g,key),-5.99+dx,-6.80+dy,tz+0.012,tz+0.026,0.010,8)   # sweets
-    A.cyl((g,"PAPER"),-6.00,-6.65,tz,tz+0.075,0.028,14)                                                 # paper cup
-    # ---------------- bedside table: lamp, charger + cable, coaster + cup, paperback, keys, pills
-    bx0,bx1,by0,by1=-5.56,-5.22,-7.70,-7.34; bz=FZ+0.525
-    A.bx((g,"WOOD"),bx0,bx1,by0,by1,bz-0.025,bz,0.004); A.bx((g,"WOOD"),bx0+0.01,bx1-0.01,by0+0.01,by1-0.01,FZ+0.30,FZ+0.50,0.004); A.bx((g,"WOOD"),bx0+0.015,bx1-0.015,by0+0.015,by1-0.015,FZ+0.12,FZ+0.135,0.003)
-    for (x,y) in ((bx0+0.02,by0+0.02),(bx1-0.02,by0+0.02),(bx0+0.02,by1-0.02),(bx1-0.02,by1-0.02)): A.bx((g,"BLACK"),x-0.014,x+0.014,y-0.014,y+0.014,FZ,FZ+0.50,0.002)
-    A.fb((g,"WOOD"),'+y',by1-0.012,bx0+0.012,bx1-0.012,FZ+0.31,FZ+0.49,0.012,0.003); A.cyly((g,"BRASS"),(bx0+bx1)/2,by1,by1+0.016,FZ+0.40,0.011,12)
-    lx,ly=-5.47,-7.61                                                                                   # table lamp
-    A.cyl((g,"BRASS"),lx,ly,bz,bz+0.015,0.032,16); A.cyl((g,"BRASS"),lx,ly,bz+0.015,bz+0.13,0.007,10); A.prism((g,"LAMP_SHADE"),(lx,ly,bz+0.11),(lx,ly,bz+0.22),0.085,0.052,20,0.0,True,0.0)
-    crk.light(c.coll,"CR bedside lamp",(lx,ly+DY,bz+0.17),(1.0,0.70,0.38),5,'POINT',soft=0.04)
-    qx,qy=-5.30,-7.62                                                                                   # wireless charger + cable to the wall socket
-    A.cyl((g,"BLACK"),qx,qy,bz,bz+0.009,0.045,22,0.002); A.cyl((g,"LED_ON"),qx,qy+0.040,bz+0.009,bz+0.0115,0.004,8)
-    A.tube((g,"CABLE_B"),[(qx,qy-0.04,bz+0.004),(qx,by0+0.005,bz+0.004),(qx,by0+0.005,FZ+0.36)],0.0028,6)
-    A.fb((g,"PORC"),'+y',by0,qx-0.04,qx+0.04,FZ+0.30,FZ+0.37,0.008,0.002); A.bx((g,"BLACK"),qx-0.012,qx+0.012,by0+0.008,by0+0.013,FZ+0.318,FZ+0.332,0.001); A.bx((g,"BLACK"),qx-0.012,qx+0.012,by0+0.008,by0+0.013,FZ+0.338,FZ+0.352,0.001)
-    kx,ky=-5.285,-7.455                                                                                 # coaster with a coffee cup
-    A.cyl((g,"CORK"),kx,ky,bz,bz+0.004,0.043,20); A.cyl((g,"PORC_O"),kx,ky,bz+0.004,bz+0.088,0.036,20,0.003); A.cyl((g,"COFFEE"),kx,ky,bz+0.082,bz+0.0855,0.031,20)
-    A.tube((g,"PORC_O"),[(kx+0.034,ky,bz+0.07),(kx+0.058,ky,bz+0.068),(kx+0.058,ky,bz+0.034),(kx+0.034,ky,bz+0.024)],0.006,6)
-    A.box((g,"PAPER"),-5.465,-7.455,bz,bz+0.026,0.10,0.155,0.2,0.0015); A.box((g,"BOOK"),-5.465,-7.455,bz+0.0,bz+0.003,0.103,0.158,0.2,0.0008); A.box((g,"BOOK"),-5.465,-7.455,bz+0.023,bz+0.026,0.103,0.158,0.2,0.0008)   # paperback
-    A.tube((g,"BRASS"),[(-5.395+0.014*math.cos(t),-7.40+0.014*math.sin(t),bz+0.003) for t in np.linspace(0,2*math.pi,11)],0.0022,5)                                 # keys
-    A.box((g,"BRASS"),-5.365,-7.385,bz,bz+0.004,0.05,0.012,0.7,0.001); A.box((g,"STEEL_L"),-5.405,-7.375,bz,bz+0.004,0.045,0.012,-0.5,0.001)
-    A.cyl((g,"PILL"),-5.385,-7.575,bz,bz+0.058,0.016,12,0.002); A.cyl((g,"PORC"),-5.385,-7.575,bz+0.058,bz+0.07,0.0175,12)
+    A.pillow((g,"PORC"),cx0,cx1,cy0,cy1,Z+0.07,Z+1.10,0.022,3); A.pillow((g,"BLACK"),cx0+0.015,cx1-0.015,cy0+0.012,cy1-0.015,Z,Z+0.075,0.01,2)
+    A.fb((g,"BLACK"),'-y',cy0+0.004,cx0+0.035,cx1-0.035,Z+0.34,Z+0.86,0.012,0.004)                    # recessed tap bay
+    A.pillow((g,"PORC_O"),cx0+0.03,cx1-0.03,cy0-0.006,cy0+0.012,Z+0.90,Z+1.05,0.006,2)                # control strip
+    A.cyly((g,"LED_ON"),cx0+0.075,cy0-0.006,cy0-0.010,Z+0.98,0.007,10); A.cyly((g,"LED_AON"),cx0+0.105,cy0-0.006,cy0-0.010,Z+0.98,0.007,10)
+    A.cyly((g,"CERAMIC"),cx0+0.19,cy0-0.006,cy0-0.012,Z+0.98,0.012,12)
+    for (x,key) in ((cx0+0.085,"JUG"),(cx1-0.085,"RED")):                                             # cold (blue) / hot (red) taps
+        A.pillow((g,key),x-0.020,x+0.020,cy0-0.052,cy0-0.004,Z+0.70,Z+0.745,0.008,2); A.cyly((g,"STEEL_L"),x,cy0-0.052,cy0-0.036,Z+0.69,0.010,10); A.pillow((g,key),x-0.007,x+0.007,cy0-0.058,cy0-0.030,Z+0.745,Z+0.80,0.004,1)
+    A.pillow((g,"GREY"),cx0+0.03,cx1-0.03,cy0-0.075,cy0+0.012,Z+0.55,Z+0.585,0.008,2)                  # drip tray
+    for k in range(7): A.bx((g,"BLACK"),cx0+0.045+k*0.0385,cx0+0.045+k*0.0385+0.012,cy0-0.070,cy0+0.004,Z+0.585,Z+0.592,0.001)   # grille bars
+    A.lathe((g,"GREY"),cx1+0.045,cy1-0.085,[(0.030,Z+0.56),(0.036,Z+0.575),(0.036,Z+1.05),(0.031,Z+1.062),(0.028,Z+1.062),(0.0,Z+1.062)] ,seg=14)   # cup dispenser tube
+    A.lathe((g,"PAPER"),cx1+0.045,cy1-0.085,[(0.026,Z+1.045),(0.034,Z+1.085),(0.036,Z+1.092),(0.0,Z+1.092)],seg=12)   # top cup of the stack
+    A.lathe((g,"GREY"),jx,jy,[(0.0,Z+1.10),(0.135,Z+1.10),(0.150,Z+1.115),(0.150,Z+1.15),(0.128,Z+1.155),(0.0,Z+1.155)],seg=26)   # bottle seat
+    z0=Z+1.155
+    A.lathe((g,"JUG"),jx,jy,[(0.0,z0),(0.095,z0),(0.122,z0+0.012),(0.130,z0+0.030),(0.136,z0+0.048),(0.136,z0+0.075),(0.128,z0+0.085),(0.136,z0+0.095),(0.136,z0+0.110),(0.128,z0+0.120),(0.136,z0+0.130),
+                           (0.136,z0+0.305),(0.128,z0+0.320),(0.113,z0+0.348),(0.088,z0+0.376),(0.067,z0+0.392),(0.062,z0+0.402),(0.062,z0+0.428),(0.0,z0+0.428)],seg=28)
+    A.lathe((g,"CERAMIC"),jx,jy,[(0.0,z0+0.440),(0.060,z0+0.428),(0.070,z0+0.436),(0.070,z0+0.452),(0.0,z0+0.452)],seg=20)                        # cap
+    A.cyl((g,"PAPER"),jx,jy,z0+0.145,z0+0.305,0.1375,28)                                               # white label band
+    crk.text(c.coll,"FAMILY CO.\nSPRING WATER",jx,jy-0.1385,z0+0.225,'-y',0.023,M["BLACK"],'CENTER',"CR jug label",spacing=1.0)
+    # ---------------- couch in the alcove on the rug, back to the west wall, facing the TV (teal weave): tapered wooden legs, frame, arms, two seat + two back cushions, throw cushion, blanket
+    A.begin(-7.30,-8.24,-math.pi/2,0.0)                                                                  # local frame: back at local y -0.38, front at +0.38, +y faces the TV (east)
+    x0,x1,y0,y1=-0.68,0.68,-0.38,0.38; w=x1-x0
+    for (lx_,ly_,sx) in ((x0+0.07,y0+0.07,-1),(x1-0.07,y0+0.07,1),(x0+0.07,y1-0.07,-1),(x1-0.07,y1-0.07,1)): _leg(A,(g,"WOODG"),lx_,ly_,0.13,0.05,0.032,0.002,(0.012*sx,0.0))
+    A.pillow((g,"COUCH"),x0+0.02,x1-0.02,y0+0.01,y1-0.03,Z+0.11,Z+0.28,0.025,2)
+    for (xa,xb) in ((x0,x0+0.14),(x1-0.14,x1)): A.pillow((g,"COUCH"),xa,xb,y0+0.01,y1-0.01,Z+0.11,Z+0.63,0.055,3)
+    A.pillow((g,"COUCH"),x0+0.13,x1-0.13,y0+0.01,y0+0.20,Z+0.27,Z+0.80,0.05,2,tilt=0.10)
+    cw=(w-0.28-0.01)/2
+    for k in range(2):
+        xa=x0+0.14+k*(cw+0.01)
+        A.pillow((g,"COUCH"),xa,xa+cw,y0+0.17,y1-0.015,Z+0.27,Z+0.46,0.055,3)
+        A.pillow((g,"COUCH"),xa+0.01,xa+cw-0.01,y0+0.07,y0+0.25,Z+0.42,Z+0.84,0.06,3,tilt=0.16)
+    A.pillow((g,"COUCH_O"),x0+0.17,x0+0.47,y0+0.27,y0+0.39,Z+0.47,Z+0.79,0.05,3,yaw=0.38,tilt=0.24)
+    A.pillow((g,"BLANKET_W"),x1-0.15,x1+0.012,y0+0.03,y1-0.01,Z+0.628,Z+0.668,0.016,2)
+    A.pillow((g,"BLANKET_W"),x1+0.002,x1+0.022,y1-0.30,y1-0.01,Z+0.36,Z+0.66,0.012,2); A.pillow((g,"BLANKET_W"),x1-0.158,x1-0.138,y1-0.30,y1-0.01,Z+0.30,Z+0.64,0.012,2)
+    A.pillow((g,"BLANKET_W"),x1-0.35,x1-0.15,y1-0.28,y1-0.03,Z+0.46,Z+0.49,0.014,2,yaw=-0.2)
+    A.pillow((g,"BOOK"),x0+0.55,x0+0.66,y0+0.40,y0+0.56,Z+0.46,Z+0.485,0.003,1,yaw=0.3)                      # paperback left on the seat
     A.end()
-    # ---------------- small potted plant in the north-west corner
-    px,py,s=-6.60,-5.93,0.62
-    A.prism((g,"TERRA"),(px,py,FZ),(px,py,FZ+0.30),0.095,0.135,20,0.0,True,0.003); A.cyl((g,"SOIL"),px,py,FZ+0.30,FZ+0.32,0.12,18)
-    for k in range(8):
-        a=k*2*math.pi/8+0.3; ca,sa=math.cos(a),math.sin(a); nx,ny=-sa,ca; h=(0.34+0.18*((k*7)%3)/2)
-        top=(px+0.13*s*ca,py+0.13*s*sa,FZ+0.32+h)
-        A.tube((g,"PLANT"),[(px+0.015*ca,py+0.015*sa,FZ+0.32),(px+0.06*s*ca,py+0.06*s*sa,FZ+0.32+h*0.6),top],0.0045,6)
-        L=0.22; d=(0.80*ca,0.80*sa,0.35); k1=0.15*L*1.2; k2=0.5*L*1.2
-        pts=[top,(top[0]+k1*d[0]+0.02*nx,top[1]+k1*d[1]+0.02*ny,top[2]+0.15*L*d[2]),(top[0]+k1*d[0]-0.02*nx,top[1]+k1*d[1]-0.02*ny,top[2]+0.15*L*d[2]),
-             (top[0]+k2*d[0]+0.058*nx,top[1]+k2*d[1]+0.058*ny,top[2]+0.5*L*d[2]+0.008),(top[0]+k2*d[0]-0.058*nx,top[1]+k2*d[1]-0.058*ny,top[2]+0.5*L*d[2]+0.008),
-             (top[0]+L*d[0]*1.2,top[1]+L*d[1]*1.2,top[2]+L*d[2]-0.04)]
-        A.hull((g,"PLANT"),pts,0.0015)
+    # ---------------- coffee table (walnut), long side along the couch: magazine, remote, coffee on a coaster, bowl of sweets
+    tx0,tx1,ty0,ty1=-6.55,-6.15,-8.42,-7.72; tz=Z+0.40
+    A.pillow((g,"WOODG"),tx0,tx1,ty0,ty1,tz-0.03,tz,0.010,2)
+    for (xa,xb,ya,yb) in ((tx0+0.035,tx0+0.055,ty0+0.04,ty1-0.04),(tx1-0.055,tx1-0.035,ty0+0.04,ty1-0.04)): A.bx((g,"WOODG"),xa,xb,ya,yb,tz-0.085,tz-0.03,0.002)
+    A.pillow((g,"WOODG"),tx0+0.04,tx1-0.04,ty0+0.05,ty1-0.05,Z+0.095,Z+0.115,0.005,1)
+    for (lx_,ly_,sx) in ((tx0+0.04,ty0+0.045,-1),(tx1-0.04,ty0+0.045,1),(tx0+0.04,ty1-0.045,-1),(tx1-0.04,ty1-0.045,1)): _leg(A,(g,"WOODG"),lx_,ly_,0.37,0.04,0.026,0.002,(0.014*sx,0.0))
+    mx,my,ma=-6.35,-8.24,math.pi/2+0.22; hw,hh=0.14,0.105
+    A.box((g,"PAPER"),mx,my,tz,tz+0.007,2*hw,2*hh,ma,0.001)
+    pts=[_rot(mx,my,dx,dy,ma) for (dx,dy) in ((-hw,-hh),(hw,-hh),(hw,hh),(-hw,hh))]
+    A.plane((g,"MAG"),*[(p[0],p[1],tz+0.0073) for p in pts])
+    A.pillow((g,"BLACK"),-6.30,-6.26,-8.02,-7.86,tz,tz+0.016,0.006,2,yaw=0.12)   # remote
+    kx,ky=-6.43,-7.80                                                                                    # coaster with a coffee cup
+    A.lathe((g,"CORK"),kx,ky,[(0.0,tz),(0.042,tz),(0.044,tz+0.002),(0.044,tz+0.005),(0.0,tz+0.005)],seg=22)
+    A.lathe((g,"PORC_O"),kx,ky,[(0.0,tz+0.005),(0.024,tz+0.005),(0.028,tz+0.010),(0.036,tz+0.030),(0.038,tz+0.085),(0.035,tz+0.088),(0.033,tz+0.084),(0.0335,tz+0.072),(0.0,tz+0.072)],seg=22)
+    A.cyl((g,"COFFEE"),kx,ky,tz+0.070,tz+0.0735,0.0335,22)
+    A.tube((g,"PORC_O"),[(kx+0.036,ky,tz+0.070),(kx+0.060,ky,tz+0.066),(kx+0.062,ky,tz+0.038),(kx+0.037,ky,tz+0.026)],0.0058,6)
+    A.lathe((g,"PORC_O"),-6.35,-7.98,[(0.0,tz),(0.032,tz),(0.040,tz+0.006),(0.070,tz+0.030),(0.078,tz+0.050),(0.074,tz+0.052),(0.066,tz+0.032),(0.034,tz+0.014),(0.0,tz+0.014)],seg=24)   # bowl
+    for (dx,dy,dz,key) in ((-0.018,0.010,0.0,"RED"),(0.020,-0.008,0.0,"YELLOW"),(0.000,0.026,0.0,"ORANGE"),(-0.030,-0.018,0.0,"RED"),(0.026,0.022,0.012,"YELLOW"),(-0.004,-0.004,0.020,"ORANGE"),(0.034,-0.026,0.0,"RED")): _bead(A,(g,key),-6.35+dx,-7.98+dy,tz+0.030+dz,0.0105)
+    # ---------------- slim floor lamp beside the plant in the south-east corner (replaces the bedside table lamp: the alcove has no room for a table)
+    lx,ly=-5.55,-8.80
+    A.lathe((g,"BRASS"),lx,ly,[(0.0,Z),(0.095,Z),(0.100,Z+0.008),(0.080,Z+0.020),(0.014,Z+0.030),(0.010,Z+0.045),(0.010,Z+1.30),(0.0,Z+1.31)],seg=22)
+    A.lathe((g,"LAMP_SHADE"),lx,ly,[(0.150,Z+1.22),(0.085,Z+1.46),(0.081,Z+1.46),(0.146,Z+1.22)],seg=26)
+    crk.light(c.coll,"CR floor lamp",(lx,ly,Z+1.36),(1.0,0.70,0.40),9,'POINT',soft=0.06)
+    # ---------------- potted plant in the south-east corner (terracotta pot, 12 curved leaves)
+    px,py=-5.17,-8.72
+    A.lathe((g,"TERRA"),px,py,[(0.0,Z),(0.075,Z),(0.082,Z+0.01),(0.118,Z+0.20),(0.128,Z+0.24),(0.128,Z+0.275),(0.120,Z+0.285),(0.108,Z+0.275),(0.106,Z+0.255),(0.0,Z+0.255)],seg=24)
+    A.cyl((g,"SOIL"),px,py,Z+0.250,Z+0.262,0.107,22)
+    for k in range(12):
+        a=k*2*math.pi/12+0.35; ca,sa=math.cos(a),math.sin(a); r_=0.02+0.012*(k%3); L=0.20+0.07*((k*5)%4)/3; h=0.18+0.14*((k*7)%5)/4
+        base=(px+r_*ca,py+r_*sa,Z+0.26)
+        A.tube((g,"PLANT"),[base,(px+(r_+0.03)*ca,py+(r_+0.03)*sa,Z+0.26+h*0.6),(px+(r_+0.06)*ca,py+(r_+0.06)*sa,Z+0.26+h)],0.0032,5)
+        A.leaf((g,"PLANT"),(px+(r_+0.06)*ca,py+(r_+0.06)*sa,Z+0.26+h),(ca,sa),L,0.052,droop=0.55,n=5,t=0.0016)
 def car_interior(c,ctl,car,zv,_mover):
     """everything inside the car that moves with it: control panel with G / F1 lamp buttons, analogue floor dial, security camera, certificate, capacity plate, car lamp"""
     M=c.M; coll=c.coll
@@ -171,6 +231,7 @@ def car_interior(c,ctl,car,zv,_mover):
         K.plane((g,"LCERT"),(x,yc-hw,zc-hh),(x,yc+hw,zc-hh),(x,yc+hw,zc+hh),(x,yc-hw,zc+hh))
         K.fb((g,"BLACK"),'+x',-8.63,yc-hw-0.01,yc+hw+0.01,zc-hh-0.01,zc+hh+0.01,0.003,0.0005)
         K.fb((g,"BRASS"),'+x',-8.63,-6.64,-6.46,1.28,1.36,0.004,0.001)
+        K.fb((g,"BRUSH"),'+x',-8.63,-6.36,-5.80,1.08,2.12,0.008,0.003); K.fb((g,"MIRROR"),'+x',-8.622,-6.345,-5.815,1.095,2.105,0.003,0.0)   # mirror in a brushed frame, north half of the west wall
     objs=_mover(c,"lift_car2",fn)
     for o in objs: o.parent=car
     for body,x,y,z,size,face,key in (("G",-7.46,-7.0575,1.40,0.036,'+y',"YELLOW"),("F1",-7.46,-7.0575,1.28,0.036,'+y',"YELLOW"),("MAX 8 PERSONS\n600 KG",-8.6265,-6.55,1.32,0.017,'+x',"BLACK")):
@@ -183,5 +244,5 @@ def car_interior(c,ctl,car,zv,_mover):
     ob=_mover(c,"lift_needle",needle)
     for o in ob:
         o.parent=car; o.location=(-7.75,-7.052,1.92); drv(o,'rotation_euler',1,"1.0*(1-2*z/5.4)",var_s=False,extra=zv)
-    lo=crk.light(coll,"CR lift car lamp",(-7.95,-6.40,2.25),(1.0,0.72,0.45),30,'AREA',(0,0,0),size=(0.55,0.28),expr="30*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",var_s=False)
+    lo=crk.light(coll,"CR lift car lamp",(-7.95,-6.40,2.25),(1.0,0.72,0.45),60,'AREA',(0,0,0),size=(0.55,0.28),expr="60*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",var_s=False)
     lo.parent=car

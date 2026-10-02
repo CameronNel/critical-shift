@@ -6,8 +6,8 @@ print("STAIRS: objects named stair:",len(st),"| collections:",[c.name for c in b
 el=[o for o in bpy.data.objects if o.name.startswith(("CR lift","CR ante"))]
 print("LIFT: objects",len(el),"| car/cw/ropes/doors driven (seconds):",bool(bpy.data.objects['CR lift car'].animation_data),bool(bpy.data.objects['CR lift cw'].animation_data),sum(1 for o in bpy.data.objects if o.name.startswith("CR lift rope") and o.animation_data),sum(1 for o in bpy.data.objects if o.name.startswith(("CR lift_dg","CR lift_du")) and o.animation_data))
 for fr in (1,240,330):                          # scene fps 30: t = (frame-1)/30 s -> ground, 8 s (riding up), 11 s (upper)
-    sc.frame_set(fr); dg=[o for o in bpy.data.objects if o.name.startswith("CR lift_dgL")][0]; du=[o for o in bpy.data.objects if o.name.startswith("CR lift_duL")][0]
-    print("  frame",fr,"car z=%.2f"%bpy.data.objects['CR lift car'].location.z,"| ground door L dx=%.2f upper door L dy=%.2f"%(dg.location.x,du.location.y))
+    sc.frame_set(fr); dgl=[o for o in bpy.data.objects if o.name.startswith("CR lift_dgL")][0]; du=[o for o in bpy.data.objects if o.name.startswith("CR lift_duL")][0]
+    print("  frame",fr,"car z=%.2f"%bpy.data.objects['CR lift car'].location.z,"| ground door L dx=%.2f upper door L dy=%.2f"%(dgl.location.x,du.location.y))
 sc.frame_set(1)
 glass=set(o.name for o in bpy.data.objects if o.type=='MESH' and ("glass" in o.name.lower() or o.name.startswith(("LP haze","CR haze","COL "))))   # haze volume and collision proxies are not visible geometry
 def cast(o,d,maxd=60):

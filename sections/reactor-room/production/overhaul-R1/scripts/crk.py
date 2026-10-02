@@ -115,6 +115,63 @@ class Kit:
     def screws(s,key,face,p,l0,l1,z0,z1,r=0.006,inset=0.02):
         for l in (l0+inset,l1-inset):
             for z in (z0+inset,z1-inset): s.screw(key,face,p,l,z,r)
+
+    def lathe(s,key,cx,cy,prof,seg=28,rot=0.0,sharp=38):
+        """revolve a (radius, z) profile about the vertical axis through (cx,cy); profile runs bottom to top, radius 0 allowed at either end (closed cap).
+        Smooth shaded round the axis; ring edges where the profile bends by more than `sharp` degrees are marked sharp (crisp lips, bases, shoulders)."""
+        bm=s.get(key); bm.loops.layers.uv.verify(); rings=[]
+        for (r,z) in prof:
+            if r<1e-6: rings.append([bm.verts.new(Vector((cx,cy,z)))])
+            else: rings.append([bm.verts.new(Vector((cx+r*math.cos(rot+2*math.pi*k/seg),cy+r*math.sin(rot+2*math.pi*k/seg),z))) for k in range(seg)])
+        faces=[]
+        for a,b in zip(rings[:-1],rings[1:]):
+            if len(a)==1 and len(b)==1: continue
+            if len(a)==1: faces+=[bm.faces.new((a[0],b[(k+1)%seg],b[k])) for k in range(seg)]
+            elif len(b)==1: faces+=[bm.faces.new((a[k],a[(k+1)%seg],b[0])) for k in range(seg)]
+            else: faces+=[bm.faces.new((a[k],a[(k+1)%seg],b[(k+1)%seg],b[k])) for k in range(seg)]
+        for f in faces: f.smooth=True
+        for i in range(1,len(prof)-1):
+            (r0,z0),(r1,z1),(r2,z2)=prof[i-1],prof[i],prof[i+1]
+            a0=math.atan2(z1-z0,r1-r0); a1=math.atan2(z2-z1,r2-r1); d=abs(math.degrees(math.atan2(math.sin(a1-a0),math.cos(a1-a0))))
+            if d>sharp and len(rings[i])>1:
+                for k in range(seg):
+                    e=bm.edges.get((rings[i][k],rings[i][(k+1)%seg]))
+                    if e: e.smooth=False
+        for ring in (rings[0],rings[-1]):                                  # flat caps stay crisp
+            if len(ring)>1:
+                for k in range(seg):
+                    e=bm.edges.get((ring[k],ring[(k+1)%seg]))
+                    if e: e.smooth=False
+    def pillow(s,key,x0,x1,y0,y1,z0,z1,r,seg=3,yaw=0.0,tilt=0.0,smooth=True):
+        """soft rounded block (cushions, blankets, book spines): every edge bevelled by r with `seg` segments, all faces smooth.  yaw about z, tilt about x, both about the centre."""
+        bm=s.get(key); res=bmesh.ops.create_cube(bm,size=1.0); vs=res['verts']; cx,cy,cz=(x0+x1)/2,(y0+y1)/2,(z0+z1)/2
+        for v in vs: v.co=Vector(((v.co.x)*(x1-x0),(v.co.y)*(y1-y0),(v.co.z)*(z1-z0)))
+        es=list({e for v in vs for e in v.link_edges}); rr=min(r,0.45*min(x1-x0,y1-y0,z1-z0))
+        try: out=bmesh.ops.bevel(bm,geom=es,offset=rr,segments=seg,affect='EDGES',profile=0.5,clamp_overlap=True)
+        except Exception: out={'faces':[]}
+        ct,st=math.cos(tilt),math.sin(tilt); cy_,sy_=math.cos(yaw),math.sin(yaw)
+        allv={v for f in out['faces'] for v in f.verts}|set(v for v in vs if v.is_valid)
+        allv|={v for v in bm.verts if v.is_valid and all(f in set(out['faces']) or True for f in v.link_faces) and False}
+        verts=set()
+        for f in out['faces']: verts|=set(f.verts)
+        for v in vs:
+            if v.is_valid: verts.add(v)
+        for v in verts:
+            x,y,z=v.co.x,v.co.y,v.co.z; y,z=y*ct-z*st,y*st+z*ct; x,y=x*cy_-y*sy_,x*sy_+y*cy_; v.co=Vector((cx+x,cy+y,cz+z))
+        if smooth:
+            for f in set(out['faces'])|{f for v in verts for f in v.link_faces}: f.smooth=True
+    def leaf(s,key,base,d,length,width,droop=0.25,n=6,t=0.002):
+        """a bent, tapered leaf blade with a raised midrib, solidified to thickness t.  base = point, d = horizontal direction (dx,dy)."""
+        bm=s.get(key); bm.loops.layers.uv.verify(); b=Vector(base); dl=math.hypot(d[0],d[1]); dx,dy=d[0]/dl,d[1]/dl; nx,ny=-dy,dx; rows=[]
+        for i in range(n+1):
+            u=i/n; w=width*math.sin(math.pi*min(1.0,u*0.9+0.08))**0.8*(1-0.35*u); lift=0.35*length*u-droop*length*u*u
+            c=b+Vector((dx*length*u*0.95,dy*length*u*0.95,lift)); rows.append([bm.verts.new(c+Vector((nx*w,ny*w,-0.004))),bm.verts.new(c+Vector((0,0,0.006*(1-u)))),bm.verts.new(c+Vector((-nx*w,-ny*w,-0.004)))])
+        fs=[]
+        for a,c in zip(rows[:-1],rows[1:]):
+            for j in range(2): fs.append(bm.faces.new((a[j],a[j+1],c[j+1],c[j])))
+        for f in fs: f.smooth=True
+        try: bmesh.ops.solidify(bm,geom=fs,thickness=t)
+        except Exception: pass
     def build(s,collection,prefix,mats):
         coll=collection if not isinstance(collection,str) else (bpy.data.collections.get(collection) or bpy.data.collections.new(collection))
         if coll.name not in bpy.context.scene.collection.children_recursive and coll.name not in [c.name for c in bpy.context.scene.collection.children]:
@@ -196,10 +253,16 @@ def tex_mat(name,img,rough=0.7,metal=0.0,emit=0.0,scale=(1,1),bump=0.0,clamp=Tru
     m=_new(name); nt=m.node_tree
     out=_n(nt,"ShaderNodeOutputMaterial",900,0); b=_n(nt,"ShaderNodeBsdfPrincipled",600,0); nt.links.new(b.outputs['BSDF'],out.inputs['Surface'])
     b.inputs['Roughness'].default_value=rough; b.inputs['Metallic'].default_value=metal
-    uv=_n(nt,"ShaderNodeTexCoord",-500,0)
+    uv=_n(nt,"ShaderNodeTexCoord",-700,0); vec=uv.outputs['UV']
+    if tuple(scale)!=(1,1):
+        mp=_n(nt,"ShaderNodeMapping",-500,0); mp.inputs['Scale'].default_value=(scale[0],scale[1],1.0); nt.links.new(vec,mp.inputs['Vector']); vec=mp.outputs['Vector']
     tx=_n(nt,"ShaderNodeTexImage",-200,0); tx.image=img; tx.interpolation='Linear'
     if clamp: tx.extension='EXTEND'
-    nt.links.new(uv.outputs['UV'],tx.inputs[0]); nt.links.new(tx.outputs['Color'],b.inputs['Base Color'])
+    else: tx.extension='REPEAT'
+    nt.links.new(vec,tx.inputs[0]); nt.links.new(tx.outputs['Color'],b.inputs['Base Color'])
+    if bump>0:
+        bp=_n(nt,"ShaderNodeBump",300,-250); bp.inputs['Strength'].default_value=bump; bp.inputs['Distance'].default_value=0.01
+        nt.links.new(tx.outputs['Color'],bp.inputs['Height']); nt.links.new(bp.outputs['Normal'],b.inputs['Normal'])
     if emit>0:
         nt.links.new(tx.outputs['Color'],b.inputs['Emission Color']); b.inputs['Emission Strength'].default_value=emit
     return m

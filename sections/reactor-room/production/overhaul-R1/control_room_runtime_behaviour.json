@@ -616,7 +616,7 @@
    "owner": "CR lift car lamp",
    "kind": "Object",
    "target": "energy[0]",
-   "expression": "30*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",
+   "expression": "60*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",
    "inputs": {
     "bw": "REACTOR_STATE[\"cr_brown\"]"
    }
@@ -667,6 +667,15 @@
    }
   },
   {
+   "owner": "CR lift_dgL BLACK",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
    "owner": "CR lift_dgL STEEL",
    "kind": "Object",
    "target": "location[0]",
@@ -689,6 +698,15 @@
    "kind": "Object",
    "target": "location[0]",
    "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgR BLACK",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "+0.50*d",
    "inputs": {
     "d": "CR_LIFT[\"dg\"]"
    }
@@ -721,6 +739,15 @@
    }
   },
   {
+   "owner": "CR lift_duL BLACK",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
    "owner": "CR lift_duL STEEL",
    "kind": "Object",
    "target": "location[1]",
@@ -743,6 +770,15 @@
    "kind": "Object",
    "target": "location[1]",
    "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duR BLACK",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "+0.50*d",
    "inputs": {
     "d": "CR_LIFT[\"du\"]"
    }
@@ -1189,6 +1225,16 @@
    }
   },
   {
+   "owner": "CR tv anteroom screen",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "1.3*(1-0.30*min(1,fk))*(1-0.55*bw)",
+   "inputs": {
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
    "owner": "CR tv screen",
    "kind": "Material",
    "target": "nodes[\"Value\"].outputs[0].default_value[0]",
@@ -1296,7 +1342,7 @@
    "owner": "CR lift car lamp",
    "kind": "AreaLight",
    "target": "energy[0]",
-   "expression": "30*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",
+   "expression": "60*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",
    "inputs": {
     "bw": "REACTOR_STATE[\"cr_brown\"]"
    }

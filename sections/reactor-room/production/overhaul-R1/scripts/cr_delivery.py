@@ -35,7 +35,8 @@ def uv_image(m):
     for n in m.node_tree.nodes:
         if n.type=='TEX_IMAGE' and n.image and n.inputs[0].is_linked:
             f=n.inputs[0].links[0].from_node
-            if f.type in('UVMAP',) or (f.type=='TEX_COORD' and n.inputs[0].links[0].from_socket.name=='UV'): return n.image
+            while f.type=='MAPPING' and f.inputs[0].is_linked: f=f.inputs[0].links[0].from_node            # a tiling Mapping node in between is fine
+            if f.type in('UVMAP',) or (f.type=='TEX_COORD'): return n.image
     return None
 def emission_strength(m):
     b=principled(m); return (b.inputs['Emission Strength'].default_value if b else 0.0)
