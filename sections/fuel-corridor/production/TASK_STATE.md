@@ -6,10 +6,10 @@ Source: `sections/facility-assembly/sources/fuel-corridor/module.blend`.
 Baseline SHA256: `f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c`.
 Baseline saved at `checkpoints/fuel_corridor_baseline.blend`.
 
-The source has 7,978 objects, 34 materials, 16 cameras, 3 packed images and no
+The baseline has 7,978 objects, 34 materials, 16 cameras, 3 packed images and no
 libraries. The task preserves exterior shell footprints/ports while replacing
 visible asset construction. Native baseline entry, hero, bypass and reactor views
-have been captured. The reworked spawn reference is being rendered from this base.
+and the reworked spawn reference were captured from this base.
 
 The initial `git lfs pull` failed because this runtime lacks usable LFS credentials.
 Required public assets were downloaded through GitHub's public media endpoint and
@@ -23,9 +23,8 @@ has replaced the original visible assemblies and preserved the outer-wall bounds
 
 F1 cold validation found four physical contact defects: a cable-ladder sample at a
 panel joint, a luminaire mounting on a ceiling seam, a cabinet bracket at a lining
-transition, and a floating pail label. Construction fixes are in progress while
-all 16 immutable F1 views render. Full-scene visual scoring and main-map live-link
-validation remain pending. Final acceptance requires every category and every
+transition, and a floating pail label. They were corrected in F2. F1–F3 full reviews
+are complete and remain below the target. Final acceptance requires every category and every
 area strictly above 98, with at least four complete review cycles and two stable
 final cycles. No final acceptance is claimed.
 
@@ -82,4 +81,36 @@ Cold validation PASS, zero failures, including new service assemblies and routes
 548,744 source / 553,832 evaluated triangles, 298 mesh objects. Render pack now
 uses 1280×853 at 32 samples to improve inspection of surfacing. It includes the
 original 16 plus three documented supplementary cameras. Independent F3 review
-remains pending. The current native is not accepted as final art.
+was completed. F3 is not accepted as final art.
+
+## Full review F3 and current F4 development
+
+Independent report `critics/luna-full-F3.md`; all 19 native-state images plus the
+closed-pose freight diagnostic were opened and their hashes verified. Categories:
+90 / 91 / 86 / 86 / 89 / 90 / 86. Areas:
+89 / 92 / 91 / 87 / 89 / 90 / 89 / 89 / 85. FAIL against >98 throughout.
+The reviewer accepted the builder's ray evidence correcting a false C03 floor
+outline attribution: the dark frame belongs to the wall bay; pale lines beneath
+the carrier identify its parking berth. Scores were not forced upward. The report
+also corrects the clean-label attribution: white-on-cream direction text is in C07;
+E02's white-on-dark portal header is weak through shadow and top-edge cropping.
+
+F4 adds distinct physically tiled personnel and freight routes, revised tactile
+plaster and paint response, a connected twin fuel-conditioning bank, a draped
+canvas/respirator rack, hollow extraction/clean-air headers, a real portal-mounted
+leaf-inspection hood, and a clean stock/log cluster with cloth, a canvas bag and
+refill bottles. F4a exposed two mounting faults; F4b corrected them and passed
+cold validation. F4c includes the complete clean cluster and is archived as
+`fuel_full_F4.blend`, SHA256
+`dabe7628ee596e93df007326373cf9ef05776a657e59ca77755b1dabee0d7278`.
+Its official cold checks PASS with zero failures: 668,636 source / 673,724
+evaluated triangles, 309 mesh objects. All 19 full views are rendering at
+1280×853 / 32 samples; independent visual review remains pending. Build inputs are
+now fingerprinted in the native collection and manifest; a build rejects inputs
+that change while it runs. Historical cold checks can select the matching archived
+manifest and output path explicitly. No visual acceptance is claimed.
+
+The task is durably published in draft PR
+https://github.com/CameronNel/critical-shift/pull/70 through verified Git Data API
+blobs/tree/branch, with an exact match to the local committed tree. The draft is a
+development checkpoint and ongoing iteration continues on the same branch.

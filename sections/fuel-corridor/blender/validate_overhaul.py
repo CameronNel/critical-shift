@@ -4,7 +4,7 @@ Reuse spawn's support-ray validator, plus task-specific interface/route checks.
 Run: blender -b module.blend --python-exit-code 1 --python validate_overhaul.py
 """
 from pathlib import Path
-import sys,json,math,hashlib
+import sys,json,math,hashlib,argparse
 import bpy
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
@@ -12,7 +12,15 @@ ROOT=Path(__file__).resolve().parents[3]
 sys.path.insert(0,str(ROOT/'sections/spawn-room/blender'))
 from validate_contacts import TargetBVH,validate_object
 TASK=ROOT/'sections/fuel-corridor'
-manifest=json.loads((TASK/'production/BUILD_MANIFEST.json').read_text()) if (TASK/'production/BUILD_MANIFEST.json').exists() else json.loads((TASK/'production/SLICE_BUILD.json').read_text())
+ap=argparse.ArgumentParser();ap.add_argument('--manifest');ap.add_argument('--report')
+opts=ap.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
+manifest_path=Path(opts.manifest).resolve() if opts.manifest else TASK/'production/BUILD_MANIFEST.json'
+if not manifest_path.exists():manifest_path=TASK/'production/SLICE_BUILD.json'
+manifest=json.loads(manifest_path.read_text())
+native_sha=hashlib.sha256(Path(bpy.data.filepath).read_bytes()).hexdigest()
+assert native_sha==manifest['sha256'],'Loaded native and build manifest differ; pass the matching archived --manifest'
+if manifest.get('recipe_sha256'):
+    assert bpy.data.collections['MODULE_fuel-corridor'].get('fc_recipe_sha256')==manifest['recipe_sha256'],'Embedded construction fingerprint differs'
 scene=bpy.context.scene;deps=bpy.context.evaluated_depsgraph_get();cache={};failures=[]
 def bvh(o):
     if o.name not in cache:cache[o.name]=TargetBVH(o,deps)
@@ -148,7 +156,7 @@ if manifest['stage']=='full':
         route_results.append({'route':name,'width_m':width,'sample_cross_sections':samples,'status':'PASS' if not hits else 'FAIL','obstructions':list(dedup.values())})
         if hits:failures.append('Route '+name)
 
-report={'schema':'fuel-overhaul-cold-validation/1','file':bpy.data.filepath,'sha256':hashlib.sha256(Path(bpy.data.filepath).read_bytes()).hexdigest(),'blender':bpy.app.version_string,'status':'PASS' if not failures else 'FAIL','failures':failures,'exterior_bounds':exteriors,'floor_footprints':floor_footprints,'fixed_cameras':fixed_cameras,'runtime_transforms':runtime,'support_contacts':contacts,'attachment_contacts':attachments,'geometry_budget':budget,'uv':uv,'dependencies':packed,'missing_dependencies':missing,'routes':route_results,'limitations':['Sampled geometric clearance is not continuous cart/player simulation.','Unity importer, batching, colliders and controller are not executed in this Blender environment.']}
-out=TASK/'production'/('COLD_VALIDATION.json' if manifest['stage']=='full' else 'SLICE_VALIDATION.json');out.write_text(json.dumps(report,indent=2));print('FUEL_VALIDATION',report['status'],len(failures),'failures',budget,flush=True)
+report={'schema':'fuel-overhaul-cold-validation/1','file':bpy.data.filepath,'sha256':native_sha,'build_manifest':str(manifest_path.relative_to(ROOT)),'recipe_sha256':manifest.get('recipe_sha256'),'blender':bpy.app.version_string,'status':'PASS' if not failures else 'FAIL','failures':failures,'exterior_bounds':exteriors,'floor_footprints':floor_footprints,'fixed_cameras':fixed_cameras,'runtime_transforms':runtime,'support_contacts':contacts,'attachment_contacts':attachments,'geometry_budget':budget,'uv':uv,'dependencies':packed,'missing_dependencies':missing,'routes':route_results,'limitations':['Sampled geometric clearance is not continuous cart/player simulation.','Unity importer, batching, colliders and controller are not executed in this Blender environment.']}
+out=Path(opts.report).resolve() if opts.report else TASK/'production'/('COLD_VALIDATION.json' if manifest['stage']=='full' else 'SLICE_VALIDATION.json');out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(report,indent=2));print('FUEL_VALIDATION',report['status'],len(failures),'failures',budget,flush=True)
 for f in failures:print('FAIL',f,flush=True)
 if failures:raise RuntimeError('Fuel cold validation failed; inspect '+str(out))

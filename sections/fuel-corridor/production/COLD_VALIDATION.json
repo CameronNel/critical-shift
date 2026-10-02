@@ -1,7 +1,9 @@
 {
   "schema": "fuel-overhaul-cold-validation/1",
-  "file": "/workspace/fuel-overhaul/sections/fuel-corridor/production/checkpoints/fuel_full_F3.blend",
-  "sha256": "8d6af812aee50cfabe9d9dc5ceb12d64e3dbc5d9503134b8fecb0ad99c71140d",
+  "file": "/workspace/fuel-overhaul/sections/fuel-corridor/production/checkpoints/fuel_full_F4.blend",
+  "sha256": "dabe7628ee596e93df007326373cf9ef05776a657e59ca77755b1dabee0d7278",
+  "build_manifest": "sections/fuel-corridor/production/checkpoints/F4_BUILD_MANIFEST.json",
+  "recipe_sha256": "d915306a6482ccfe6083ceb47e01c71d08700ee86fc46e5c549d52b5d3e24fe7",
   "blender": "5.2.1 LTS",
   "status": "PASS",
   "failures": [],
@@ -3406,6 +3408,304 @@
       ]
     },
     {
+      "object": "FC | Transfer protective-kit rack",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Transfer protective-kit rack",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.196,
+                5.65,
+                1.64
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Transfer protective-kit rack",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.196,
+                6.23,
+                1.64
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        }
+      ]
+    },
+    {
+      "object": "FC | Clean-transfer open linen rack",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Clean-transfer open linen rack",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.4,
+                20.93,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Clean-transfer open linen rack",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                4.2,
+                20.93,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Clean-transfer open linen rack",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.4,
+                20.695,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Clean-transfer open linen rack",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                4.2,
+                20.695,
+                0.0
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        }
+      ]
+    },
+    {
+      "object": "FC | Clean-transfer inspection log",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Clean-transfer inspection log",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                4.2325,
+                18.004,
+                1.78
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Clean-transfer inspection log",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                4.231562,
+                18.004,
+                2.112
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Clean-transfer inspection log",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                4.228062,
+                18.004,
+                2.118062
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Clean-transfer inspection log",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                4.222,
+                18.004,
+                2.121562
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        },
+        {
+          "object": "FC | Clean-transfer inspection log",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.8,
+                18.004,
+                2.1225
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 4
+        },
+        {
+          "object": "FC | Clean-transfer inspection log",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.378,
+                18.004,
+                2.121562
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 5
+        },
+        {
+          "object": "FC | Clean-transfer inspection log",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.371938,
+                18.004,
+                2.118062
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 6
+        },
+        {
+          "object": "FC | Clean-transfer inspection log",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.368438,
+                18.004,
+                2.112
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 7
+        }
+      ]
+    },
+    {
       "object": "FC | Sealed cartridge carrier",
       "status": "PASS",
       "anchors": [
@@ -4640,6 +4940,344 @@
       ]
     },
     {
+      "object": "FC | Fuel conditioning and purge bank",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Fuel conditioning and purge bank",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.1915,
+                4.33,
+                0.44
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0005,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Fuel conditioning and purge bank",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.1915,
+                4.33,
+                1.96
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0045,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Fuel conditioning and purge bank",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.1915,
+                4.26,
+                2.28
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0045,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Fuel conditioning and purge bank",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.1915,
+                4.26,
+                2.78
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0045,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        },
+        {
+          "object": "FC | Fuel conditioning and purge bank",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.1915,
+                4.171,
+                0.3
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0005,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 4
+        },
+        {
+          "object": "FC | Fuel conditioning and purge bank",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.1915,
+                3.91,
+                0.98
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0005,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 5
+        },
+        {
+          "object": "FC | Fuel conditioning and purge bank",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.1915,
+                3.91,
+                1.43
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0045,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 6
+        },
+        {
+          "object": "FC | Fuel conditioning and purge bank",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.1915,
+                3.19,
+                0.98
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0005,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 7
+        }
+      ]
+    },
+    {
+      "object": "FC | East extraction service header",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | East extraction service header",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.396,
+                11.056,
+                3.825
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | East extraction service header",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.396,
+                11.056,
+                4.02
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | East extraction service header",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.396,
+                8.944,
+                3.825
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | East extraction service header",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.396,
+                8.944,
+                4.02
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        }
+      ]
+    },
+    {
+      "object": "FC | North clean-air service header",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | North clean-air service header",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                9.408,
+                20.996,
+                2.7
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | North clean-air service header",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                9.408,
+                20.996,
+                2.505
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | North clean-air service header",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                10.752,
+                20.996,
+                2.505
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | North clean-air service header",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                10.752,
+                20.996,
+                2.7
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
+        }
+      ]
+    },
+    {
       "object": "FC | Recess service manifold",
       "status": "PASS",
       "anchors": [
@@ -5188,6 +5826,58 @@
       ]
     },
     {
+      "object": "FC | Fuel conditioning identity",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Fuel conditioning identity",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.196,
+                3.54,
+                2.295
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Protective kit identity",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Protective kit identity",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.196,
+                5.94,
+                2.055
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
       "object": "FC | Service bypass",
       "status": "PASS",
       "anchors": [
@@ -5456,6 +6146,58 @@
                 16.396,
                 17.77,
                 2.25
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Filter bank reading practical",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Filter bank reading practical",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                2.196,
+                3.55,
+                2.62
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Clean stock preparation practical",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Clean stock preparation practical",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                3.8,
+                20.996,
+                2.28
               ],
               "status": "PASS",
               "relation": "gap",
@@ -6023,8 +6765,8 @@
             {
               "sample": "origin",
               "point_world": [
-                -0.148942,
-                3.007083,
+                -0.162,
+                2.99825,
                 0.0001
               ],
               "status": "PASS",
@@ -6043,8 +6785,8 @@
             {
               "sample": "origin",
               "point_world": [
-                -0.032059,
-                3.163639,
+                -0.311385,
+                4.814,
                 0.0001
               ],
               "status": "PASS",
@@ -6063,8 +6805,8 @@
             {
               "sample": "origin",
               "point_world": [
-                -0.163164,
-                4.980417,
+                -0.186462,
+                4.9702,
                 0.0001
               ],
               "status": "PASS",
@@ -6074,26 +6816,6 @@
             }
           ],
           "anchor_index": 2
-        },
-        {
-          "object": "FC | Freight paint entry",
-          "status": "PASS",
-          "issues": [],
-          "samples": [
-            {
-              "sample": "origin",
-              "point_world": [
-                -0.055763,
-                5.119195,
-                0.0001
-              ],
-              "status": "PASS",
-              "relation": "gap",
-              "distance_m": 0.0001,
-              "normal_alignment": 1.0
-            }
-          ],
-          "anchor_index": 3
         },
         {
           "object": "FC | Freight paint entry",
@@ -6113,6 +6835,26 @@
               "normal_alignment": 1.0
             }
           ],
+          "anchor_index": 3
+        },
+        {
+          "object": "FC | Freight paint entry",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                0.162,
+                2.99825,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
           "anchor_index": 4
         },
         {
@@ -6123,8 +6865,8 @@
             {
               "sample": "origin",
               "point_world": [
-                0.148942,
-                3.007083,
+                0.311385,
+                4.814,
                 0.0001
               ],
               "status": "PASS",
@@ -6143,8 +6885,8 @@
             {
               "sample": "origin",
               "point_world": [
-                0.032059,
-                3.163639,
+                0.186462,
+                4.9702,
                 0.0001
               ],
               "status": "PASS",
@@ -6154,46 +6896,6 @@
             }
           ],
           "anchor_index": 6
-        },
-        {
-          "object": "FC | Freight paint entry",
-          "status": "PASS",
-          "issues": [],
-          "samples": [
-            {
-              "sample": "origin",
-              "point_world": [
-                0.163164,
-                4.980417,
-                0.0001
-              ],
-              "status": "PASS",
-              "relation": "gap",
-              "distance_m": 0.0001,
-              "normal_alignment": 1.0
-            }
-          ],
-          "anchor_index": 7
-        },
-        {
-          "object": "FC | Freight paint entry",
-          "status": "PASS",
-          "issues": [],
-          "samples": [
-            {
-              "sample": "origin",
-              "point_world": [
-                0.055763,
-                5.119195,
-                0.0001
-              ],
-              "status": "PASS",
-              "relation": "gap",
-              "distance_m": 0.0001,
-              "normal_alignment": 1.0
-            }
-          ],
-          "anchor_index": 8
         },
         {
           "object": "FC | Freight paint entry",
@@ -6213,7 +6915,7 @@
               "normal_alignment": 1.0
             }
           ],
-          "anchor_index": 9
+          "anchor_index": 7
         }
       ]
     },
@@ -6250,7 +6952,7 @@
               "sample": "origin",
               "point_world": [
                 1.78,
-                12.076333,
+                12.248555,
                 0.0001
               ],
               "status": "PASS",
@@ -6290,7 +6992,7 @@
               "sample": "origin",
               "point_world": [
                 1.78,
-                12.410334,
+                12.582556,
                 0.0001
               ],
               "status": "PASS",
@@ -6349,8 +7051,8 @@
             {
               "sample": "origin",
               "point_world": [
-                3.163,
-                11.84,
+                2.237,
+                12.81,
                 0.0001
               ],
               "status": "PASS",
@@ -6369,7 +7071,7 @@
             {
               "sample": "origin",
               "point_world": [
-                2.237,
+                2.65,
                 12.81,
                 0.0001
               ],
@@ -6389,8 +7091,8 @@
             {
               "sample": "origin",
               "point_world": [
-                2.65,
-                12.81,
+                3.628444,
+                10.0,
                 0.0001
               ],
               "status": "PASS",
@@ -6409,8 +7111,8 @@
             {
               "sample": "origin",
               "point_world": [
-                3.163,
-                12.81,
+                3.22,
+                11.84,
                 0.0001
               ],
               "status": "PASS",
@@ -6429,8 +7131,8 @@
             {
               "sample": "origin",
               "point_world": [
-                3.681333,
-                9.925333,
+                3.52,
+                12.248555,
                 0.0001
               ],
               "status": "PASS",
@@ -6449,8 +7151,8 @@
             {
               "sample": "origin",
               "point_world": [
-                3.7455,
-                10.212,
+                3.22,
+                12.81,
                 0.0001
               ],
               "status": "PASS",
@@ -6469,8 +7171,8 @@
             {
               "sample": "origin",
               "point_world": [
-                3.357,
-                11.84,
+                3.52,
+                12.582556,
                 0.0001
               ],
               "status": "PASS",
@@ -6489,8 +7191,8 @@
             {
               "sample": "origin",
               "point_world": [
-                3.52,
-                12.076333,
+                3.808694,
+                9.715777,
                 0.0001
               ],
               "status": "PASS",
@@ -6509,8 +7211,8 @@
             {
               "sample": "origin",
               "point_world": [
-                3.357,
-                12.81,
+                3.737931,
+                10.019889,
                 0.0001
               ],
               "status": "PASS",
@@ -6520,26 +7222,6 @@
             }
           ],
           "anchor_index": 14
-        },
-        {
-          "object": "FC | Freight paint west_turn",
-          "status": "PASS",
-          "issues": [],
-          "samples": [
-            {
-              "sample": "origin",
-              "point_world": [
-                3.52,
-                12.410334,
-                0.0001
-              ],
-              "status": "PASS",
-              "relation": "gap",
-              "distance_m": 0.0001,
-              "normal_alignment": 1.0
-            }
-          ],
-          "anchor_index": 15
         }
       ]
     },
@@ -6555,8 +7237,8 @@
             {
               "sample": "origin",
               "point_world": [
-                8.80175,
-                9.838,
+                8.591917,
+                9.991645,
                 0.0001
               ],
               "status": "PASS",
@@ -6575,8 +7257,8 @@
             {
               "sample": "origin",
               "point_world": [
-                8.80175,
-                10.162,
+                8.591917,
+                10.008355,
                 0.0001
               ],
               "status": "PASS",
@@ -6586,6 +7268,46 @@
             }
           ],
           "anchor_index": 1
+        },
+        {
+          "object": "FC | Freight paint crossing",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                8.76625,
+                9.86528,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Freight paint crossing",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                8.76625,
+                10.13472,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
         }
       ]
     },
@@ -6601,8 +7323,8 @@
             {
               "sample": "origin",
               "point_world": [
-                12.681334,
-                9.925333,
+                12.793451,
+                9.715777,
                 0.0001
               ],
               "status": "PASS",
@@ -6621,8 +7343,8 @@
             {
               "sample": "origin",
               "point_world": [
-                12.7455,
-                10.212,
+                12.731667,
+                10.057973,
                 0.0001
               ],
               "status": "PASS",
@@ -6632,6 +7354,46 @@
             }
           ],
           "anchor_index": 1
+        },
+        {
+          "object": "FC | Freight paint east_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                12.858755,
+                9.721313,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Freight paint east_turn",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                12.858755,
+                10.083132,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
         }
       ]
     },
@@ -6647,8 +7409,8 @@
             {
               "sample": "origin",
               "point_world": [
-                14.038,
-                14.79825,
+                13.885818,
+                14.609454,
                 0.0001
               ],
               "status": "PASS",
@@ -6667,8 +7429,8 @@
             {
               "sample": "origin",
               "point_world": [
-                14.038,
-                17.79825,
+                14.01186,
+                14.767472,
                 0.0001
               ],
               "status": "PASS",
@@ -6688,7 +7450,7 @@
               "sample": "origin",
               "point_world": [
                 14.038,
-                20.498249,
+                17.79825,
                 0.0001
               ],
               "status": "PASS",
@@ -6707,8 +7469,8 @@
             {
               "sample": "origin",
               "point_world": [
-                14.362,
-                14.79825,
+                14.038,
+                20.498249,
                 0.0001
               ],
               "status": "PASS",
@@ -6718,6 +7480,46 @@
             }
           ],
           "anchor_index": 3
+        },
+        {
+          "object": "FC | Freight paint delivery",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                14.514182,
+                14.609454,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 4
+        },
+        {
+          "object": "FC | Freight paint delivery",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                14.38814,
+                14.767472,
+                0.0001
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0001,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 5
         },
         {
           "object": "FC | Freight paint delivery",
@@ -6737,7 +7539,7 @@
               "normal_alignment": 1.0
             }
           ],
-          "anchor_index": 4
+          "anchor_index": 6
         },
         {
           "object": "FC | Freight paint delivery",
@@ -6757,7 +7559,7 @@
               "normal_alignment": 1.0
             }
           ],
-          "anchor_index": 5
+          "anchor_index": 7
         }
       ]
     },
@@ -8204,32 +9006,6 @@
         [
           0.0001499652862548828,
           [
-            -2.117966651916504,
-            10.612022399902344,
-            0.8953499794006348
-          ],
-          [
-            -2.117966651916504,
-            10.612022399902344,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
-            -2.056000232696533,
-            10.56997299194336,
-            0.8953499794006348
-          ],
-          [
-            -2.056000232696533,
-            10.56997299194336,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
             -2.12400484085083,
             10.564026832580566,
             0.8953499794006348
@@ -8237,6 +9013,32 @@
           [
             -2.12400484085083,
             10.564026832580566,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
+            -2.0839619636535645,
+            10.617995262145996,
+            0.8953499794006348
+          ],
+          [
+            -2.0839619636535645,
+            10.617995262145996,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
+            -2.090038299560547,
+            10.52199935913086,
+            0.8953499794006348
+          ],
+          [
+            -2.090038299560547,
+            10.52199935913086,
             0.8954999446868896
           ]
         ]
@@ -10356,6 +11158,294 @@
       "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
     },
     {
+      "object": "FC | Type FILTER / 01",
+      "target": "FC | Fuel conditioning and purge bank",
+      "status": "PASS",
+      "nearest_gap_m": 0.0007599592208862305,
+      "contact_points": [
+        [
+          0.0007599592208862305,
+          [
+            1.8527401685714722,
+            3.8779520988464355,
+            1.105915904045105
+          ],
+          [
+            1.8535001277923584,
+            3.8779520988464355,
+            1.105915904045105
+          ]
+        ],
+        [
+          0.0007599592208862305,
+          [
+            1.8527401685714722,
+            3.8779520988464355,
+            1.1068952083587646
+          ],
+          [
+            1.8535001277923584,
+            3.8779520988464355,
+            1.1068952083587646
+          ]
+        ],
+        [
+          0.0007599592208862305,
+          [
+            1.8527401685714722,
+            3.876051187515259,
+            1.1068952083587646
+          ],
+          [
+            1.8535001277923584,
+            3.876051187515259,
+            1.1068952083587646
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type SKIM / 02",
+      "target": "FC | Fuel conditioning and purge bank",
+      "status": "PASS",
+      "nearest_gap_m": 0.0007600784301757812,
+      "contact_points": [
+        [
+          0.0007600784301757812,
+          [
+            1.8527401685714722,
+            3.1613800525665283,
+            1.1091272830963135
+          ],
+          [
+            1.853500247001648,
+            3.1613800525665283,
+            1.1091272830963135
+          ]
+        ],
+        [
+          0.0007600784301757812,
+          [
+            1.8527401685714722,
+            3.161513090133667,
+            1.108989953994751
+          ],
+          [
+            1.853500247001648,
+            3.161513090133667,
+            1.108989953994751
+          ]
+        ],
+        [
+          0.0007600784301757812,
+          [
+            1.8527401685714722,
+            3.1616549491882324,
+            1.1088436841964722
+          ],
+          [
+            1.853500247001648,
+            3.1616549491882324,
+            1.1088436841964722
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Fuel conditioning identity type",
+      "target": "FC | Fuel conditioning identity",
+      "status": "PASS",
+      "nearest_gap_m": 0.0012598037719726562,
+      "contact_points": [
+        [
+          0.0012598037719726562,
+          [
+            2.1777400970458984,
+            3.2252390384674072,
+            2.2799437046051025
+          ],
+          [
+            2.178999900817871,
+            3.2252390384674072,
+            2.2799437046051025
+          ]
+        ],
+        [
+          0.0012598037719726562,
+          [
+            2.1777400970458984,
+            3.224865674972534,
+            2.2800395488739014
+          ],
+          [
+            2.178999900817871,
+            3.224865674972534,
+            2.2800395488739014
+          ]
+        ],
+        [
+          0.0012598037719726562,
+          [
+            2.1777400970458984,
+            3.224498748779297,
+            2.2801434993743896
+          ],
+          [
+            2.178999900817871,
+            3.2244985103607178,
+            2.2801434993743896
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Protective kit identity type",
+      "target": "FC | Protective kit identity",
+      "status": "PASS",
+      "nearest_gap_m": 0.0012598037719726562,
+      "contact_points": [
+        [
+          0.0012598037719726562,
+          [
+            -2.1777398586273193,
+            6.083621025085449,
+            2.0675559043884277
+          ],
+          [
+            -2.178999662399292,
+            6.083621025085449,
+            2.0675559043884277
+          ]
+        ],
+        [
+          0.0012598037719726562,
+          [
+            -2.1777398586273193,
+            6.083621025085449,
+            2.0710322856903076
+          ],
+          [
+            -2.178999662399292,
+            6.083621025085449,
+            2.0710322856903076
+          ]
+        ],
+        [
+          0.0012598037719726562,
+          [
+            -2.1777398586273193,
+            6.0986104011535645,
+            2.0675559043884277
+          ],
+          [
+            -2.178999662399292,
+            6.0986104011535645,
+            2.0675559043884277
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type CLEAN STOCK",
+      "target": "FC | Clean-transfer open linen rack",
+      "status": "PASS",
+      "nearest_gap_m": 0.0002593994140625,
+      "contact_points": [
+        [
+          0.0002593994140625,
+          [
+            3.861772298812866,
+            20.92974090576172,
+            1.3636696338653564
+          ],
+          [
+            3.861772298812866,
+            20.93000030517578,
+            1.3636696338653564
+          ]
+        ],
+        [
+          0.0002593994140625,
+          [
+            3.861772298812866,
+            20.92974090576172,
+            1.3769999742507935
+          ],
+          [
+            3.861772298812866,
+            20.93000030517578,
+            1.3769999742507935
+          ]
+        ],
+        [
+          0.0002593994140625,
+          [
+            3.8635759353637695,
+            20.92974090576172,
+            1.3769999742507935
+          ],
+          [
+            3.8635759353637695,
+            20.93000030517578,
+            1.3769999742507935
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type SHIFT / CHECK",
+      "target": "FC | Clean-transfer inspection log",
+      "status": "PASS",
+      "nearest_gap_m": 0.0017604827880859375,
+      "contact_points": [
+        [
+          0.0017604827880859375,
+          [
+            3.5513064861297607,
+            18.071760177612305,
+            2.0353033542633057
+          ],
+          [
+            3.5513062477111816,
+            18.06999969482422,
+            2.0353033542633057
+          ]
+        ],
+        [
+          0.0017604827880859375,
+          [
+            3.5513064861297607,
+            18.071760177612305,
+            2.0451934337615967
+          ],
+          [
+            3.5513064861297607,
+            18.06999969482422,
+            2.0451934337615967
+          ]
+        ],
+        [
+          0.0017604827880859375,
+          [
+            3.5499682426452637,
+            18.071760177612305,
+            2.0451934337615967
+          ],
+          [
+            3.5499682426452637,
+            18.06999969482422,
+            2.0451934337615967
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
       "object": "FC | Service bypass type",
       "target": "FC | Service bypass",
       "status": "PASS",
@@ -11022,6 +12112,54 @@
             6.204999923706055,
             9.50400161743164,
             3.7649998664855957
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Freight leaf inspection hood",
+      "target": "FC | Freight gate frame",
+      "status": "PASS",
+      "nearest_gap_m": 9.5367431640625e-07,
+      "contact_points": [
+        [
+          9.5367431640625e-07,
+          [
+            6.230000019073486,
+            10.0,
+            3.615000009536743
+          ],
+          [
+            6.230000019073486,
+            10.0,
+            3.6149990558624268
+          ]
+        ],
+        [
+          1.922192041092785e-06,
+          [
+            6.230000019073486,
+            9.368000030517578,
+            3.5855000019073486
+          ],
+          [
+            6.230000019073486,
+            9.367999076843262,
+            3.585498332977295
+          ]
+        ],
+        [
+          1.9660499219753547e-06,
+          [
+            6.230000019073486,
+            10.631999969482422,
+            3.5855000019073486
+          ],
+          [
+            6.230000019073486,
+            10.632001876831055,
+            3.5854995250701904
           ]
         ]
       ],
@@ -12277,10 +13415,10 @@
     }
   ],
   "geometry_budget": {
-    "source_triangles": 548744,
-    "evaluated_triangles": 553832,
-    "mesh_objects": 298,
-    "material_batch_upper_bound": 1087
+    "source_triangles": 668636,
+    "evaluated_triangles": 673724,
+    "mesh_objects": 309,
+    "material_batch_upper_bound": 1185
   },
   "uv": [
     {
@@ -12849,6 +13987,21 @@
       "degenerate_uv_triangles": 0
     },
     {
+      "object": "FC | Transfer protective-kit rack",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Clean-transfer open linen rack",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 8
+    },
+    {
+      "object": "FC | Clean-transfer inspection log",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
       "object": "FC | Sealed cartridge carrier",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
@@ -12949,6 +14102,21 @@
       "degenerate_uv_triangles": 0
     },
     {
+      "object": "FC | Fuel conditioning and purge bank",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | East extraction service header",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | North clean-air service header",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
       "object": "FC | Recess service manifold",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
@@ -13034,6 +14202,16 @@
       "degenerate_uv_triangles": 0
     },
     {
+      "object": "FC | Fuel conditioning identity",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Protective kit identity",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
       "object": "FC | Service bypass",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
@@ -13069,6 +14247,11 @@
       "degenerate_uv_triangles": 0
     },
     {
+      "object": "FC | Freight leaf inspection hood",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
       "object": "FC | Handover reading practical",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
@@ -13080,6 +14263,16 @@
     },
     {
       "object": "FC | Waste receipt inspection practical",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Filter bank reading practical",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Clean stock preparation practical",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
     },
@@ -13161,7 +14354,7 @@
     {
       "object": "FC | Freight paint west_turn",
       "finite_uv": true,
-      "degenerate_uv_triangles": 0
+      "degenerate_uv_triangles": 4
     },
     {
       "object": "FC | Freight paint crossing",
@@ -13171,7 +14364,7 @@
     {
       "object": "FC | Freight paint east_turn",
       "finite_uv": true,
-      "degenerate_uv_triangles": 0
+      "degenerate_uv_triangles": 12
     },
     {
       "object": "FC | Freight paint delivery",
@@ -13396,27 +14589,7 @@
       "available": true
     },
     {
-      "name": "metal_plate_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "painted_plaster_wall_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
       "name": "metal_plate_diff_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "wood_table_worn_diff_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "wood_table_worn_disp_2k.jpg",
       "packed": true,
       "available": true
     },
@@ -13431,7 +14604,27 @@
       "available": true
     },
     {
+      "name": "wood_table_worn_diff_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
       "name": "wood_table_worn_rough_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "metal_plate_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "painted_plaster_wall_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "wood_table_worn_disp_2k.jpg",
       "packed": true,
       "available": true
     }

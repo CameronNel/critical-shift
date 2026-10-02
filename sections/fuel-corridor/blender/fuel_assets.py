@@ -3,6 +3,188 @@ import math
 from mathutils import Matrix, Vector
 from fuel_kit import B, mat, frame, bolt, ring, polygon, rounded_path, wear, channel,merge
 
+def instrument_dial(b,x,y,z,r=.085):
+    rot=Matrix.Rotation(math.pi/2,3,'X')
+    b.lathe([(0,0),(r*.91,0),(r,.010),(r,.044),(r*.88,.055),
+             (r*.80,.055),(r*.80,.050),(0,.050)],(x,y,z),mat('steel'),seg=48,rot=rot)
+    b.cyl(r*.79,.001,(x,y-.051,z),mat('paper'),seg=48,axis='Y')
+    for i in range(17):
+        a=math.radians(30+i*18)
+        rr=r*.64
+        b.tube([(x+rr*math.cos(a),y-.0525,z+rr*math.sin(a)),
+                (x+(rr-r*.10)*math.cos(a),y-.0525,z+(rr-r*.10)*math.sin(a))],
+               .0012 if i%4 else .0018,mat('ink'),seg=6)
+    b.tube([(x+r*.10,y-.054,z-r*.065),(x-r*.49,y-.054,z+r*.30)],.0018,mat('red'),seg=8)
+    b.cyl(r*.050,.003,(x,y-.054,z),mat('dark steel'),seg=16,axis='Y')
+    b.lathe([(0,0),(r*.79,0),(r*.79,.002),(0,.002)],(x,y-.056,z),mat('glass'),seg=48,rot=rot)
+
+def fuel_conditioner():
+    """Supported twin filter/skimmer bank with connected purge and drain headers."""
+    b=B();steel=mat('dark steel');w=1.76
+    for x in [-.78,.78]:
+        channel(b,.095,.075,1.78,(x,-.012,.89),steel)
+        for z in [.13,1.65]:
+            b.box((.13,.022,.135),(x,-.011,z),steel,.003)
+            for zz in [z-.044,z+.044]:bolt(b,(x,-.029,zz),.007)
+    for z in [.08,1.73]:b.box((w,.065,.095),(0,-.045,z),mat('navy enamel'),.006)
+    # An open drip tray has folded returns and two real cantilever brackets.
+    b.box((1.63,.40,.016),(0,-.205,.052),mat('replacement enamel'),.003)
+    for x in [-.81,.81]:b.box((.018,.40,.08),(x,-.205,.085),mat('replacement enamel'),.003)
+    b.box((1.63,.016,.074),(0,-.398,.086),mat('replacement enamel'),.003)
+    for x in [-.63,.63]:
+        polygon(b,[(0,0),(-.33,0),(0,-.14)],.018,steel,pos=(x,0,.06),
+                rot=Matrix.Rotation(math.pi/2,3,'Y')@Matrix.Rotation(math.pi/2,3,'Z'))
+    # Two formed pressure bowls, rolled end caps and separate clamped joints.
+    for i,x in enumerate([-.36,.36]):
+        profile=[(0,0),(.06,0),(.104,.034),(.119,.086),(.12,.95),(.109,1.005),(.06,1.035),(0,1.035)]
+        b.lathe(profile,(x,-.215,.355),mat('warm enamel' if i==0 else 'repaired blue enamel'),seg=48)
+        for z in [.45,1.265]:
+            b.lathe([(.116,0),(.13,0),(.133,.010),(.13,.037),(.116,.037),(.116,0)],(x,-.215,z),mat('steel'),seg=48)
+            for a in [0,math.pi/2,math.pi,3*math.pi/2]:
+                bolt(b,(x+.115*math.cos(a),-.215+.115*math.sin(a),z+.039),.006,axis='Z')
+        for z in [.67,1.12]:
+            b.box((.29,.12,.040),(x,-.060,z),steel,.004)
+            b.lathe([(.119,0),(.128,0),(.128,.026),(.119,.026),(.119,0)],(x,-.215,z),mat('navy enamel'),seg=40)
+        b.cyl(.022,.165,(x,-.215,1.391),mat('brass'),seg=20)
+        b.cyl(.020,.077,(x,-.215,.282),mat('brass'),seg=20)
+        # Front process ID is attached to a real curved stand-off plate.
+        b.box((.115,.012,.055),(x,-.332,.80),mat('ink enamel'),.004)
+        for xx in [x-.049,x+.049]:bolt(b,(xx,-.340,.80),.0035)
+    for z in [.282,1.53]:
+        b.tube([(-.70,-.215,z),(.69,-.215,z)],.029,mat('steel'),seg=24)
+        for x in [-.60,0,.59]:ring(b,.040,.027,(x,-.215,z),mat('brass'),axis='X',seg=24)
+    b.tube(rounded_path([(-.69,-.215,.282),(-.75,-.215,.36),(-.75,-.215,1.53),(-.69,-.215,1.53)]),.026,mat('steel'),seg=24)
+    # Inlet rises from the bank and has real wall saddle clamps along its height.
+    b.tube(rounded_path([(-.69,-.215,1.53),(-.71,-.215,1.65),(-.71,-.13,3.06),(-.65,-.13,3.16),(.11,-.13,3.16)]),.029,mat('steel'),seg=24)
+    for z in [1.97,2.47]:
+        b.box((.14,.025,.10),(-.71,-.0125,z),steel,.003)
+        b.box((.07,.12,.025),(-.71,-.075,z),steel,.003)
+        ring(b,.036,.010,(-.71,-.13,z-.005),mat('brass'),seg=24)
+        for xx in [-.76,-.66]:bolt(b,(xx,-.029,z),.006)
+    # Isolation bonnet/handwheel and a connected analog pressure dial.
+    b.cyl(.014,.075,(.59,-.250,1.53),mat('brass'),seg=20,axis='Y')
+    b.lathe([(0,0),(.028,0),(.037,.012),(.027,.043),(.014,.054),(0,.054)],(.59,-.245,1.53),mat('brass'),seg=24,rot=Matrix.Rotation(math.pi/2,3,'X'))
+    b.tube([(.59+.08*math.cos(i*2*math.pi/36),-.326,1.53+.08*math.sin(i*2*math.pi/36)) for i in range(37)],.008,mat('ochre enamel'),seg=10)
+    for a in [0,2.094,4.189]:b.tube([(.59,-.326,1.53),(.59+.075*math.cos(a),-.326,1.53+.075*math.sin(a))],.006,mat('ochre enamel'),seg=8)
+    b.tube([(.11,-.215,1.53),(.11,-.215,1.65)],.011,mat('brass'),seg=16)
+    instrument_dial(b,.11,-.222,1.72,.086)
+    # A single retained hose with a closed quick-release end, not loose clutter.
+    b.tube(rounded_path([(.69,-.215,.282),(.76,-.30,.23),(.70,-.31,.16),(.45,-.31,.12),(.08,-.31,.15),(-.15,-.31,.24),(-.20,-.28,.32)]),.014,mat('rubber'),seg=16)
+    b.lathe([(0,0),(.019,0),(.025,.009),(.025,.03),(.016,.044),(0,.044)],(-.20,-.28,.32),mat('brass'),seg=24)
+    wear(b,(-.66,-.408,.096),(1,0,0),.16,.002,7)
+    return b
+
+def extraction_header(length=3.5):
+    """Hollow sheet-metal horizontal duct with folded seams and service hatch."""
+    b=B();w=length;d=.31;h=.27
+    for y in [-.032,-d]:b.box((w,.018,h),(0,y,0),mat('replacement enamel'),.003)
+    for z in [-h/2,h/2]:b.box((w,d-.018,.018),(0,-d/2-.009,z),mat('replacement enamel'),.003)
+    for x in [-w/2+.014,0,w/2-.014]:
+        # The four sides form a hollow flange rather than a solid plate through the duct.
+        for z in [-h/2-.012,h/2+.012]:b.box((.03,d+.05,.024),(x,-d/2,z),mat('steel'),.003)
+        for y in [-d-.015,.007]:b.box((.03,.024,h+.025),(x,y,0),mat('steel'),.003)
+        for z in [-h/2-.010,h/2+.010]:bolt(b,(x,-d-.030,z),.006)
+    for x in [-w*.32,w*.32]:
+        b.box((.14,.030,.39),(x,-.015,0),mat('dark steel'),.003)
+        b.box((.11,.34,.022),(x,-.17,-.195),mat('dark steel'),.003)
+        for z in [-.155,.155]:bolt(b,(x,-.034,z),.008)
+    frame(b,.59,.18,.012,.012,-d-.008,0,mat('dark steel'),r=.014)
+    b.box((.555,.015,.145),(0,-d-.009,0),mat('warm enamel'),.004)
+    for x in [-.25,.25]:bolt(b,(x,-d-.020,0),.005)
+    return b
+
+def protective_kit():
+    """Open PPE rack with a draped canvas apron, straps, mask and gloves."""
+    b=B();steel=mat('dark steel')
+    for x in [-.29,.29]:
+        b.box((.07,.020,.14),(x,-.010,.75),steel,.003)
+        for z in [.71,.79]:bolt(b,(x,-.023,z),.006)
+    b.tube([(-.33,-.085,.76),(.33,-.085,.76)],.013,steel,seg=16)
+    for x in [-.22,.20]:b.tube(rounded_path([(x,-.04,.76),(x,-.12,.76),(x,-.135,.68),(x,-.08,.65)]),.007,mat('steel'),seg=12)
+    # Panels follow sagged folds; bound seams and pockets are actual geometry.
+    profile=[(-.205,0),(-.16,-.018),(-.09,-.005),(-.03,-.025),(.04,-.016),(.12,-.032),(.20,-.019)]
+    cloth=[];grid=[]
+    for layer in [0,1]:
+        rows=[]
+        for z in [.03,.16,.30,.43,.55]:
+            row=[]
+            for x,y in profile:
+                v=b.bm.verts.new((x*(1-.20*z/.55),-.13+y*(1+.4*z/.55)+layer*.003,z))
+                row.append(v);cloth.append(v)
+            rows.append(row)
+        grid.append(rows)
+    for layer in [0,1]:
+        for j in range(4):
+            for i in range(6):
+                vs=[grid[layer][j][i],grid[layer][j][i+1],grid[layer][j+1][i+1],grid[layer][j+1][i]]
+                b.bm.faces.new(vs if layer==0 else list(reversed(vs)))
+    for j in range(4):
+        for i in [0,6]:b.bm.faces.new([grid[0][j][i],grid[1][j][i],grid[1][j+1][i],grid[0][j+1][i]])
+    for j in [0,4]:
+        for i in range(6):b.bm.faces.new([grid[0][j][i],grid[0][j][i+1],grid[1][j][i+1],grid[1][j][i]])
+    b._fin(cloth,mat('canvas'),True)
+    b.tube([(-.20,-.130,.035),(-.09,-.142,.024),(.04,-.15,.031),(.20,-.15,.025)],.003,mat('leather'),seg=8)
+    for x in [-.20,.20]:b.tube([(x,-.135,.04),(x,-.135,.55)],.003,mat('leather'),seg=8)
+    b.tube(rounded_path([(-.15,-.14,.55),(-.11,-.13,.66),(0,-.085,.73),(.10,-.13,.65),(.15,-.14,.55)]),.012,mat('canvas'),seg=12)
+    b.box((.16,.012,.13),(-.02,-.174,.24),mat('cotton'),.007)
+    b.tube([(-.10,-.183,.30),(.06,-.183,.30)],.002,mat('canvas'),seg=8)
+    # A moulded half-mask has a shaped central seal and two filter cassettes.
+    b.sph(1,(.22,-.13,.58),mat('rubber'),scale=(.066,.041,.053),seg=32,ring=20)
+    for x in [.18,.26]:
+        b.lathe([(0,0),(.029,0),(.032,.007),(.032,.025),(.026,.034),(0,.034)],(x,-.17,.58),mat('warm enamel'),seg=32,rot=Matrix.Rotation(math.pi/2,3,'X'))
+        for j in range(4):b.box((.034,.002,.002),(x,-.205,.567+j*.008),mat('ink'),.0002)
+    b.tube(rounded_path([(.17,-.11,.60),(.14,-.10,.69),(.20,-.08,.75),(.28,-.10,.67),(.28,-.11,.59)]),.006,mat('rubber'),seg=10)
+    return b
+
+def linen_rack():
+    """Open clean-transfer storage: shaped frame, cloth, paper and supply bottles."""
+    b=B();coat=mat('navy enamel');w=.88
+    for x in [-.40,.40]:
+        for y in [-.055,-.29]:
+            b.box((.045,.042,1.51),(x,y,.785),coat,.006)
+            b.box((.067,.061,.030),(x,y,.015),mat('rubber'),.006)
+            b.lathe([(0,0),(.030,0),(.030,.008),(.025,.016),(0,.016)],(x,y,1.538),mat('steel'),seg=24)
+    for z in [.16,.68,1.20,1.49]:
+        b.box((w,.34,.022),(0,-.17,z),mat('replacement enamel'),.003)
+        b.box((w-.018,.016,.056),(0,-.325,z+.017),coat,.004)
+        for x in [-.424,.424]:b.box((.017,.33,.048),(x,-.17,z+.016),coat,.003)
+    b.box((.76,.017,.30),(0,-.039,1.365),mat('wood'),.006)
+    # Folded stacks show rounded compression, stitched edges and alternate cloth.
+    for x,z in [(-.225,.704),(.15,1.224),(-.19,1.224)]:
+        for i in range(3):
+            b.pillow(.265,.228,.043,(x,-.173,z+i*.037),mat('canvas' if i%2==0 else 'cotton'),n=9,seam=.002)
+    # A canvas supply bag occupies the lowest shelf with a soft lid and real straps.
+    b.pillow(.40,.255,.265,(-.15,-.18,.308),mat('canvas'),n=11,seam=.003)
+    for x in [-.27,-.03]:
+        b.tube(rounded_path([(x,-.302,.23),(x,-.312,.43),(x,-.26,.447),(x,-.07,.43)]),.009,mat('leather'),seg=12)
+        b.box((.035,.012,.049),(x,-.323,.30),mat('steel'),.004)
+    # Lathed refill bottles have moulded shoulders, recessed caps and bent spouts.
+    for x in [.11,.28]:
+        b.lathe([(0,0),(.040,0),(.047,.007),(.047,.16),(.039,.188),(.017,.207),(.017,.235),(0,.235)],(x,-.18,.702),mat('warm enamel'),seg=32)
+        ring(b,.023,.021,(x,-.18,.91),mat('navy enamel'),seg=24)
+        b.tube(rounded_path([(x,-.18,.944),(x,-.18,.969),(x,-.22,.974),(x,-.25,.963)]),.005,mat('dark steel'),seg=12)
+        b.box((.053,.007,.071),(x,-.227,.79),mat('oxide enamel'),.003)
+    b.box((.35,.004,.073),(0,-.053,1.37),mat('ink enamel'),.003)
+    for x in [-.34,.34]:
+        for z in [.58,1.04]:
+            bolt(b,(x,-.041,z),.006)
+    return b
+
+def clean_log_board():
+    b=B();frame(b,.90,.72,.035,.028,-.014,.36,mat('navy enamel'),r=.025)
+    b.box((.84,.014,.66),(0,-.033,.36),mat('warm enamel'),.004)
+    for x in [-.385,.385]:
+        for z in [.072,.648]:bolt(b,(x,-.043,z),.006)
+    # Real inspection sheet and envelope tray; the route drawing is raised ink.
+    merge(b,clipboard(),(-.21,-.051,.32),Matrix.Rotation(math.pi/2,3,'X'))
+    for z in [.21,.34,.47]:
+        b.box((.055,.002,.037),(.25,-.043,z),mat('navy enamel'),.003)
+    b.tube([(.25,-.045,.21),(.25,-.045,.47)],.003,mat('ink'),seg=8)
+    b.box((.11,.015,.021),(.09,-.052,.09),mat('dark steel'),.003)
+    b.cyl(.010,.14,(.09,-.060,.091),mat('ochre enamel'),seg=16,axis='X')
+    b.box((.33,.020,.044),(.20,-.056,.62),mat('ink enamel'),.003)
+    return b
+
 def tool_case(w=.38,d=.25,h=.18,opened=False):
     b=B();coat=mat('oxide enamel');edge=mat('dark steel')
     # Folded open shell, rolled rim, inset removable lid and split catch hardware.

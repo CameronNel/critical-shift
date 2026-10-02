@@ -164,19 +164,29 @@ def floor(cell):
         if abs(world.z)<.005:
             world.z=-.020;v.co=old.matrix_world.inverted()@world
     old.data.materials.clear();old.data.materials.append(mat('bed'))
-    b=B();nx=max(1,math.ceil((xmax-xmin)/1.1));ny=max(1,math.ceil((ymax-ymin)/1.1))
-    sx=(xmax-xmin)/nx;sy=(ymax-ymin)/ny
+    b=B();nx,ny,sx,sy,service=tile_layout(cell)
     for i in range(nx):
         for j in range(ny):
             x=xmin+(i+.5)*sx;y=ymin+(j+.5)*sy
-            k='floor border' if cell['id'] in ['entry','inlet','delivery'] and i in [0,nx-1] else 'floor'
+            variation=(i*17+j*7)%11
+            k=(['service tile','service tile light','service tile dark'][variation%3] if service else
+               'fuel tile light' if variation==2 else 'fuel tile dark' if variation==5 else 'floor')
+            if i in [0,nx-1]:k='service border' if service else 'floor border'
             if cell['id']=='west_turn' and i==nx-2 and j==ny-2:k='floor repair'
             for a,c,d,e in owned_rectangles((x-sx/2+.003,x+sx/2-.003,y-sy/2+.003,y+sy/2-.003),cell):
-                b.box((c-a,e-d,.020),((a+c)/2,(d+e)/2,-.010),mat(k),.0008,seg=2)
+                b.box((c-a,e-d,.020),((a+c)/2,(d+e)/2,-.010),mat(k),.0014,seg=3)
     o=add(b,'Floor finish '+cell['id'],'FC | Floor and ceiling',target=old.name,
           anchors=[((xmin+xmax)/2,(ymin+ymax)/2,-.020)],direction=(0,0,-1),kind='floor',family='flush industrial floor')
     FLOORS[cell['id']]=o.name
     return o
+
+def tile_layout(cell):
+    """Different physical scales for personnel ceramic and freight mineral tile."""
+    xmin,xmax,ymin,ymax=cell['bounds']
+    service=cell['id'].startswith(('bypass','plant','service_air'))
+    scale=.34 if service else .74
+    nx=max(1,math.ceil((xmax-xmin)/scale));ny=max(1,math.ceil((ymax-ymin)/scale))
+    return nx,ny,(xmax-xmin)/nx,(ymax-ymin)/ny,service
 
 def ceiling(cell):
     b=B();xmin,xmax,ymin,ymax=cell['bounds'];h=cell['height']
@@ -232,7 +242,7 @@ def sign(name,wallname,point,title,size=.09,width=1.1,coat='ink enamel'):
     for x in [-w/2+.03,w/2-.03]:bolt(b,(x,-.019,h/2),.0045)
     o=mounted(b,name,wallname,point,'FC | Signage','folded wayfinding plate')
     p=o.matrix_world@Vector((0,-.0185,h/2));normal=tuple(-(o.matrix_world.to_3x3()@Vector((0,1,0))))
-    label(title,p,size,name=name+' type',normal=normal,parent=o.name)
+    label(title,p,size,name=name+' type',normal=normal,material='ink' if coat in ['warm enamel','replacement enamel'] else 'white ink',parent=o.name)
     return o
 
 def dispatch():
@@ -500,6 +510,15 @@ def freight_mechanism(frame_ob):
     b=B()
     for x in [-1.30,1.30]:b.box((.11,.20,.20),(x,-.04,-.02),mat('dark steel'),.003)
     add(b,'Freight drive clevis mounts','FC | Doors',pos=p,normal=(-1,0,0),parent=frame_ob.name,family='drive load-bearing clevis')
+    lamp=B()
+    # A real hood on the portal front illuminates the leaf plane when CLOSED.
+    lamp.box((1.28,.25,.075),(0,-.245,3.615),mat('ink enamel'),.008)
+    lamp.box((1.15,.185,.012),(0,-.254,3.574),mat('warm diffuser'),.002)
+    for x in [-.59,.59]:
+        lamp.box((.055,.12,.085),(x,-.178,3.614),mat('dark steel'),.004)
+        bolt(lamp,(x,-.375,3.615),.006)
+    hood=add(lamp,'Freight leaf inspection hood','FC | Practicals',pos=frame_ob.location,normal=(-1,0,0),parent=frame_ob.name,family='portal-mounted folded inspection luminaire')
+    light('Freight closed-leaf inspection pool',hood.matrix_world@Vector((0,-.285,3.562)),hood.matrix_world@Vector((0,-.105,1.6)),70,(1,.88,.73),size=1.1,shape='RECTANGLE',size_y=.17,parent=hood.name)
     wallname='Wall_W6.07_1_12.2'
     if wallname in WALLS:
         mounted(A.cabinet(.18,.27,.08),'Freight drive guarded disconnect',wallname,(-.25,-.008,.89),family='guarded disconnect')
@@ -544,6 +563,23 @@ def section_workstations():
     label('SEALED',bin_ob.matrix_world@Vector((0,-.224,.407)),.024,parent=bin_ob.name)
     sconce('Waste receipt inspection practical','Wall_E16.4_0_17.32',(1.39,-.004,2.25),60,True)
 
+def process_bays():
+    bank=mounted(A.fuel_conditioner(),'Fuel conditioning and purge bank','Wall_E2.2_0_1.2',(.55,-.0085,.31),'FC | Services','connected twin filter bank with real drain tray and isolation valve')
+    for txt,p in [('FILTER / 01',(-.36,-.339,.80)),('SKIM / 02',(.36,-.339,.80))]:
+        label(txt,bank.matrix_world@Vector(p),.020,normal=(-1,0,0),parent=bank.name)
+    sign('Fuel conditioning identity','Wall_E2.2_0_1.2',(.56,-.004,2.20),'FUEL CONDITIONING',.095,1.63,coat='oxide enamel')
+    sconce('Filter bank reading practical','Wall_E2.2_0_1.2',(.55,-.004,2.62),85,False)
+    ppe=mounted(A.protective_kit(),'Transfer protective-kit rack','Wall_W-2.2_0_1.2',(-1.26,-.004,.89),'FC | Narrative','draped canvas apron and moulded respirator on actual hooks')
+    sign('Protective kit identity','Wall_W-2.2_0_1.2',(-1.26,-.004,1.96),'TRANSFER KIT',.071,.86,coat='warm enamel')
+    # The horizontal collector overlaps the existing riser at its sealed flanged joint.
+    mounted(A.extraction_header(3.3),'East extraction service header','Wall_E16.4_0_7',(.84,-.004,4.02),'FC | Services','hollow extraction header with service hatch and cantilever saddles')
+    mounted(A.extraction_header(2.1),'North clean-air service header','Wall_N21_0_7.72',(.52,-.004,2.70),'FC | Services','hollow clean-air header with inspection hatch')
+    rack=add(A.linen_rack(),'Clean-transfer open linen rack','FC | Narrative',pos=(3.80,20.985,0),target=FLOORS['bypass_north'],anchors=[(-.40,-.055,0),(.40,-.055,0),(-.40,-.29,0),(.40,-.29,0)],direction=(0,0,-1),kind='floor',family='open supply rack with folded cloth canvas bag and refill bottles')
+    label('CLEAN STOCK',rack.matrix_world@Vector((0,-.0555,1.37)),.031,parent=rack.name)
+    log=mounted(A.clean_log_board(),'Clean-transfer inspection log','Wall_S18.0_0_1.2',(2.8,-.004,1.42),'FC | Narrative','fabricated inspection station with clipped sheets and staged pen')
+    label('SHIFT / CHECK',log.matrix_world@Vector((.20,-.068,.62)),.023,normal=(0,1,0),parent=log.name)
+    sconce('Clean stock preparation practical','Wall_N21_0_-1.5',(1.81,-.004,2.28),75,True)
+
 def auxiliary_cameras():
     # Additional branch evidence. Original 16 camera transforms/lenses stay fixed.
     for name,p,q,lens in [
@@ -578,7 +614,7 @@ def floor_graphics():
         return result
     for cell in contract['floor_cells']:
         if cell['id'] not in FLOORS:continue
-        b=B();anchors=[];xmin,xmax,ymin,ymax=cell['bounds'];nx=math.ceil((xmax-xmin)/1.1);ny=math.ceil((ymax-ymin)/1.1);sx=(xmax-xmin)/nx;sy=(ymax-ymin)/ny
+        b=B();anchors=[];xmin,xmax,ymin,ymax=cell['bounds'];nx,ny,sx,sy,_=tile_layout(cell)
         for i in range(nx):
             for j in range(ny):
                 for shape,material in shapes:
@@ -596,6 +632,9 @@ def run():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',choices=['slice','full'],default='full')
     parser.add_argument('--output');opts=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     assert hashlib.sha256(BASE.read_bytes()).hexdigest()==BASE_HASH,'Baseline changed'
+    recipe_paths=[Path(__file__).resolve(),Path(__file__).with_name('fuel_kit.py'),Path(A.__file__).resolve(),ROOT/'sections/spawn-room/blender/cozy_geo.py',CONTRACT]
+    recipe_inputs={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in recipe_paths}
+    recipe_hash=hashlib.sha256(json.dumps(recipe_inputs,sort_keys=True).encode()).hexdigest()
     bpy.ops.wm.open_mainfile(filepath=str(BASE),load_ui=False)
     contract=json.loads(CONTRACT.read_text());palette()
     # Asset/core inventory is recorded before mutation, never inferred from output names.
@@ -657,7 +696,7 @@ def run():
         service_soffit(service_frame)
         fg=portal('Freight gate',(6.35,10,0),(-1,0,0),3.0,3.5,'navy enamel','FREIGHT / FG01',state='OPEN',floorcell='crossing')
         freight_mechanism(fg)
-        services();work_traces();section_workstations();auxiliary_cameras()
+        services();work_traces();section_workstations();process_bays();auxiliary_cameras()
         for name,wallname,point,title in [
             ('Service bypass','Wall_N13.2_0_-2.2',(.0,-.004,3.0),'SERVICE'),
             ('Plant direction','Wall_E1.2_0_13.2',(1.39,-.004,2.3),'PLANT  <'),
@@ -703,10 +742,13 @@ def run():
         before=next(p for p in PROTECTED if p['name']==o.name)
         assert max(abs(bounds(o)[j][i]-before['bounds'][j][i]) for i in range(3) for j in range(2))<.00001,'Outer wall footprint changed: '+o.name
         if not any(x['wall']+'_concrete'==o.name for x in RECESSES):assert digest(o)==before['geometry']
+    assert recipe_inputs=={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in recipe_paths},'Construction inputs changed during build; rerun from a stable snapshot'
+    bpy.data.collections['MODULE_fuel-corridor']['fc_recipe_sha256']=recipe_hash
     bpy.context.preferences.filepaths.save_version=0
     out=(Path(opts.output) if opts.output else (SOURCE if full else TASK/'production/checkpoints/fuel_style_slice.blend')).resolve()
     bpy.ops.wm.save_as_mainfile(filepath=str(out),check_existing=False,compress=True)
     report={'stage':opts.stage,'base_sha256':BASE_HASH,'output':str(out.relative_to(ROOT)),'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),
+            'recipe_inputs':recipe_inputs,'recipe_sha256':recipe_hash,
             'protected_exterior_cores':PROTECTED,'baseline_asset_inventory':original,
             'new_assets':[{'name':o.name,'family':o.get('fc_asset_family'),'support_kind':o.get('fc_support_kind'),'attachment':o.get('fc_attachment_to')} for o in scene.objects if o.get('fc_revision')],
             'fixed_cameras':[o.name for o in scene.objects if o.type=='CAMERA'],

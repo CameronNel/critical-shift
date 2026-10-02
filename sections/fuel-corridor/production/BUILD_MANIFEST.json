@@ -2,7 +2,15 @@
   "stage": "full",
   "base_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
   "output": "sections/facility-assembly/sources/fuel-corridor/module.blend",
-  "sha256": "8d6af812aee50cfabe9d9dc5ceb12d64e3dbc5d9503134b8fecb0ad99c71140d",
+  "sha256": "dabe7628ee596e93df007326373cf9ef05776a657e59ca77755b1dabee0d7278",
+  "recipe_inputs": {
+    "sections/fuel-corridor/blender/build_overhaul.py": "b2d770936d82e6b3dfc98c0b9bcc22aa13ea51da1edb44c66527b00cadff12c1",
+    "sections/fuel-corridor/blender/fuel_kit.py": "3c4a9bcf4a858afec513939cab6814df7c8d7be429c8e9672a8d007cef9c86aa",
+    "sections/fuel-corridor/blender/fuel_assets.py": "0bf22d145df31c3495e8731eb9645632981e6d1da4c17ee5bf671b263722bd1f",
+    "sections/spawn-room/blender/cozy_geo.py": "408c0eecc9a0dd534e9f5c8f0ace5442077db0c51b1dcbb299484f1ba59b4400",
+    "sections/facility-assembly/sources/fuel-corridor/contracts/interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e"
+  },
+  "recipe_sha256": "d915306a6482ccfe6083ceb47e01c71d08700ee86fc46e5c549d52b5d3e24fe7",
   "protected_exterior_cores": [
     {
       "name": "Wall_S16.2_0_-5.4_concrete",
@@ -132166,6 +132174,24 @@
       "attachment": null
     },
     {
+      "name": "FC | Transfer protective-kit rack",
+      "family": "draped canvas apron and moulded respirator on actual hooks",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Clean-transfer open linen rack",
+      "family": "open supply rack with folded cloth canvas bag and refill bottles",
+      "support_kind": "floor",
+      "attachment": null
+    },
+    {
+      "name": "FC | Clean-transfer inspection log",
+      "family": "fabricated inspection station with clipped sheets and staged pen",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
       "name": "FC | Type OK / B",
       "family": "screen-printed lettering",
       "support_kind": null,
@@ -132322,6 +132348,42 @@
       "attachment": "FC | Sealed waste transfer vessel"
     },
     {
+      "name": "FC | Type FILTER / 01",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Fuel conditioning and purge bank"
+    },
+    {
+      "name": "FC | Type SKIM / 02",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Fuel conditioning and purge bank"
+    },
+    {
+      "name": "FC | Fuel conditioning identity type",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Fuel conditioning identity"
+    },
+    {
+      "name": "FC | Protective kit identity type",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Protective kit identity"
+    },
+    {
+      "name": "FC | Type CLEAN STOCK",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Clean-transfer open linen rack"
+    },
+    {
+      "name": "FC | Type SHIFT / CHECK",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Clean-transfer inspection log"
+    },
+    {
       "name": "FC | Service bypass type",
       "family": "screen-printed lettering",
       "support_kind": null,
@@ -132466,6 +132528,24 @@
       "attachment": null
     },
     {
+      "name": "FC | Fuel conditioning and purge bank",
+      "family": "connected twin filter bank with real drain tray and isolation valve",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | East extraction service header",
+      "family": "hollow extraction header with service hatch and cantilever saddles",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | North clean-air service header",
+      "family": "hollow clean-air header with inspection hatch",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
       "name": "FC | Recess service manifold",
       "family": "cast air manifold",
       "support_kind": "wall",
@@ -132568,6 +132648,18 @@
       "attachment": null
     },
     {
+      "name": "FC | Fuel conditioning identity",
+      "family": "folded wayfinding plate",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Protective kit identity",
+      "family": "folded wayfinding plate",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
       "name": "FC | Service bypass",
       "family": "folded wayfinding plate",
       "support_kind": "wall",
@@ -132634,6 +132726,18 @@
       "attachment": null
     },
     {
+      "name": "FC | Freight leaf inspection hood",
+      "family": "portal-mounted folded inspection luminaire",
+      "support_kind": null,
+      "attachment": "FC | Freight gate frame"
+    },
+    {
+      "name": "FC | Freight closed-leaf inspection pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
       "name": "FC | Handover reading practical",
       "family": "wall task luminaire",
       "support_kind": "wall",
@@ -132665,6 +132769,30 @@
     },
     {
       "name": "FC | Waste receipt inspection practical pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Filter bank reading practical",
+      "family": "wall task luminaire",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Filter bank reading practical pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Clean stock preparation practical",
+      "family": "wall task luminaire",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Clean stock preparation practical pool",
       "family": null,
       "support_kind": null,
       "attachment": null
