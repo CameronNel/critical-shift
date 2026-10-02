@@ -2,15 +2,15 @@
   "stage": "full",
   "base_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
   "output": "sections/facility-assembly/sources/fuel-corridor/module.blend",
-  "sha256": "30e4ca9bc23c03c87fe460b5754f6abfc438853237e0c4253c7357bddb7ef3cb",
+  "sha256": "3629551c379a87f6ee2983f5ad535036b9a34f783cc0ba9365c210a2c05fa80a",
   "recipe_inputs": {
-    "sections/fuel-corridor/blender/build_overhaul.py": "818c5cfd14af78d9503de415955ef1e182bf6ee1f096bf7d95349c6406aea25b",
+    "sections/fuel-corridor/blender/build_overhaul.py": "6b8d853e82f63d0fb93aa5313473b9283925efa15615fdd5378dc933c15f33c0",
     "sections/fuel-corridor/blender/fuel_kit.py": "be28b3f0302c910167c3fa422f73fc5b0ef136b0c2fd7aa1ce4bc942f84279eb",
-    "sections/fuel-corridor/blender/fuel_assets.py": "66830a41eb66ba35515ae73944115ff43d8a66688061f4331c2b4a80186b8d02",
+    "sections/fuel-corridor/blender/fuel_assets.py": "62e1fa095d9bb1033fb61e6078f56da9a828f46ae046b5c9e3e7026f8888a563",
     "sections/spawn-room/blender/cozy_geo.py": "408c0eecc9a0dd534e9f5c8f0ace5442077db0c51b1dcbb299484f1ba59b4400",
     "sections/facility-assembly/sources/fuel-corridor/contracts/interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e"
   },
-  "recipe_sha256": "5d9decbbe50dd5e0575e1ad036dd442c61173baf0da0755fb8a3f6e50d218177",
+  "recipe_sha256": "5817c1524cd27f6ad0ea8b9e35e3e985d79eee62f3ff46d535743ea701f70f10",
   "protected_exterior_cores": [
     {
       "name": "Wall_S16.2_0_-5.4_concrete",
@@ -132169,7 +132169,19 @@
     },
     {
       "name": "FC | Transfer handover board",
-      "family": "framed handover board with clipped papers",
+      "family": "framed cart-repair and handover board above replacement impact boards",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Transfer cart-check wrench rail",
+      "family": "two ring spanners on bent retaining pegs above timber cart-impact repairs",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Reactor arrival isolation tags",
+      "family": "retained keyed locks and shift inspection tags grouped with interlock and fire cylinder",
       "support_kind": "wall",
       "attachment": null
     },
@@ -132206,6 +132218,18 @@
     {
       "name": "FC | Clean-transfer inspection log",
       "family": "fabricated inspection station with clipped sheets and staged pen",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Clean used-linen return station",
+      "family": "open return slot draped towel hanging stitched canvas bag and clipped exchange tally",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Cooling return lockout and check rail",
+      "family": "keyed return-circuit isolation locks and maintenance check tags below reactor direction beam",
       "support_kind": "wall",
       "attachment": null
     },
@@ -132372,6 +132396,12 @@
       "attachment": "FC | Reactor transfer interlock"
     },
     {
+      "name": "FC | Type ISOLATE / CHECK",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Reactor arrival isolation tags"
+    },
+    {
       "name": "FC | Waste bay identification type",
       "family": "screen-printed lettering",
       "support_kind": null,
@@ -132456,6 +132486,12 @@
       "attachment": "FC | Clean-transfer inspection log"
     },
     {
+      "name": "FC | Type USED LINEN",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Clean used-linen return station"
+    },
+    {
       "name": "FC | Type RETURN / 02",
       "family": "screen-printed lettering",
       "support_kind": null,
@@ -132466,6 +132502,12 @@
       "family": "screen-printed lettering",
       "support_kind": null,
       "attachment": "FC | East turn reactor designation"
+    },
+    {
+      "name": "FC | Type RETURN CHECK",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Cooling return lockout and check rail"
     },
     {
       "name": "FC | Type WATER",
@@ -132504,10 +132546,10 @@
       "attachment": "FC | Plant direction"
     },
     {
-      "name": "FC | Clean direction type",
+      "name": "FC | Clean wipe-and-log instruction type",
       "family": "screen-printed lettering",
       "support_kind": null,
-      "attachment": "FC | Clean direction"
+      "attachment": "FC | Clean wipe-and-log instruction"
     },
     {
       "name": "FC | Reactor approach type",
@@ -132637,7 +132679,7 @@
     },
     {
       "name": "FC | East extraction collector",
-      "family": "folded extractor and hollow flanged duct",
+      "family": "split extraction service bay with caged impeller filter drawer folded hood and connected riser",
       "support_kind": "wall",
       "attachment": null
     },
@@ -132691,7 +132733,7 @@
     },
     {
       "name": "FC | Recess service manifold",
-      "family": "cast air manifold",
+      "family": "cast air manifold with compact parked hose above the open handover roll",
       "support_kind": "wall",
       "attachment": null
     },
@@ -132828,7 +132870,7 @@
       "attachment": null
     },
     {
-      "name": "FC | Clean direction",
+      "name": "FC | Clean wipe-and-log instruction",
       "family": "folded wayfinding plate",
       "support_kind": "wall",
       "attachment": null
@@ -133038,6 +133080,18 @@
       "attachment": null
     },
     {
+      "name": "FC | Linen exchange practical",
+      "family": "wall task luminaire",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Linen exchange practical pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
       "name": "FC | Reactor cooling inspection practical",
       "family": "wall task luminaire",
       "support_kind": "wall",
@@ -133045,6 +133099,18 @@
     },
     {
       "name": "FC | Reactor cooling inspection practical pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Freight drive inspection flood",
+      "family": "hung service light with angled reflector and swivel end supports",
+      "support_kind": "ceiling",
+      "attachment": null
+    },
+    {
+      "name": "FC | Freight front-support inspection pool",
       "family": null,
       "support_kind": null,
       "attachment": null

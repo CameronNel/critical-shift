@@ -1,9 +1,9 @@
 {
   "schema": "fuel-overhaul-cold-validation/1",
-  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F7ci.blend",
-  "sha256": "30e4ca9bc23c03c87fe460b5754f6abfc438853237e0c4253c7357bddb7ef3cb",
-  "build_manifest": "sections/fuel-corridor/production/checkpoints/F7ci_BUILD_MANIFEST.json",
-  "recipe_sha256": "5d9decbbe50dd5e0575e1ad036dd442c61173baf0da0755fb8a3f6e50d218177",
+  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F8ci.blend",
+  "sha256": "3629551c379a87f6ee2983f5ad535036b9a34f783cc0ba9365c210a2c05fa80a",
+  "build_manifest": "sections/fuel-corridor/production/checkpoints/F8ci_BUILD_MANIFEST.json",
+  "recipe_sha256": "5817c1524cd27f6ad0ea8b9e35e3e985d79eee62f3ff46d535743ea701f70f10",
   "blender": "5.2.1 LTS",
   "status": "PASS",
   "failures": [],
@@ -3394,7 +3394,7 @@
               "sample": "origin",
               "point_world": [
                 -2.196,
-                6.0,
+                4.95,
                 1.8
               ],
               "status": "PASS",
@@ -3404,6 +3404,118 @@
             }
           ],
           "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Transfer cart-check wrench rail",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Transfer cart-check wrench rail",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.196,
+                4.95,
+                1.3525
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Reactor arrival isolation tags",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Reactor arrival isolation tags",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.995501,
+                21.997,
+                1.565
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.000499,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Reactor arrival isolation tags",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.995501,
+                21.780001,
+                1.378
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.000499,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Reactor arrival isolation tags",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.995501,
+                21.780001,
+                1.752
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.000499,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Reactor arrival isolation tags",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                16.995501,
+                21.563,
+                1.565
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.000499,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
         }
       ]
     },
@@ -3980,6 +4092,158 @@
             }
           ],
           "anchor_index": 7
+        }
+      ]
+    },
+    {
+      "object": "FC | Clean used-linen return station",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Clean used-linen return station",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                8.0945,
+                18.007999,
+                1.455
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Clean used-linen return station",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                7.6,
+                18.007999,
+                1.08
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Clean used-linen return station",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                7.0785,
+                18.007999,
+                1.455
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        }
+      ]
+    },
+    {
+      "object": "FC | Cooling return lockout and check rail",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Cooling return lockout and check rail",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                11.283,
+                13.2945,
+                2.295
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0005,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Cooling return lockout and check rail",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                11.5,
+                13.2945,
+                2.108
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0005,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
+        },
+        {
+          "object": "FC | Cooling return lockout and check rail",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                11.5,
+                13.2945,
+                2.482
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0005,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 2
+        },
+        {
+          "object": "FC | Cooling return lockout and check rail",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                11.717,
+                13.2945,
+                2.295
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0005,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 3
         }
       ]
     },
@@ -5230,8 +5494,8 @@
               "sample": "origin",
               "point_world": [
                 16.396,
-                10.4865,
-                2.24
+                11.03,
+                2.335
               ],
               "status": "PASS",
               "relation": "gap",
@@ -5250,8 +5514,8 @@
               "sample": "origin",
               "point_world": [
                 16.396,
-                10.485328,
-                2.793375
+                11.028325,
+                3.26125
               ],
               "status": "PASS",
               "relation": "gap",
@@ -5270,8 +5534,8 @@
               "sample": "origin",
               "point_world": [
                 16.396,
-                10.480952,
-                1.679047
+                11.022076,
+                1.397925
               ],
               "status": "PASS",
               "relation": "gap",
@@ -5290,8 +5554,8 @@
               "sample": "origin",
               "point_world": [
                 16.396,
-                10.473375,
-                2.805328
+                11.01125,
+                1.391675
               ],
               "status": "PASS",
               "relation": "gap",
@@ -5311,7 +5575,7 @@
               "point_world": [
                 16.396,
                 10.0,
-                2.65
+                1.39
               ],
               "status": "PASS",
               "relation": "gap",
@@ -5331,7 +5595,7 @@
               "point_world": [
                 16.396,
                 10.0,
-                1.6735
+                2.36
               ],
               "status": "PASS",
               "relation": "gap",
@@ -5350,8 +5614,8 @@
               "sample": "origin",
               "point_world": [
                 16.396,
-                9.526625,
-                2.805328
+                10.0,
+                4.26
               ],
               "status": "PASS",
               "relation": "gap",
@@ -5370,8 +5634,8 @@
               "sample": "origin",
               "point_world": [
                 16.396,
-                9.519047,
-                1.679047
+                8.98875,
+                3.278326
               ],
               "status": "PASS",
               "relation": "gap",
@@ -6736,11 +7000,11 @@
       ]
     },
     {
-      "object": "FC | Clean direction",
+      "object": "FC | Clean wipe-and-log instruction",
       "status": "PASS",
       "anchors": [
         {
-          "object": "FC | Clean direction",
+          "object": "FC | Clean wipe-and-log instruction",
           "status": "PASS",
           "issues": [],
           "samples": [
@@ -6898,7 +7162,7 @@
               "sample": "origin",
               "point_world": [
                 -2.196,
-                6.0,
+                4.95,
                 2.29
               ],
               "status": "PASS",
@@ -7068,6 +7332,32 @@
       ]
     },
     {
+      "object": "FC | Linen exchange practical",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Linen exchange practical",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                7.6,
+                18.007999,
+                2.34
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        }
+      ]
+    },
+    {
       "object": "FC | Reactor cooling inspection practical",
       "status": "PASS",
       "anchors": [
@@ -7090,6 +7380,52 @@
             }
           ],
           "anchor_index": 0
+        }
+      ]
+    },
+    {
+      "object": "FC | Freight drive inspection flood",
+      "status": "PASS",
+      "anchors": [
+        {
+          "object": "FC | Freight drive inspection flood",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                5.18,
+                9.58,
+                4.389
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 0
+        },
+        {
+          "object": "FC | Freight drive inspection flood",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                5.18,
+                10.42,
+                4.389
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
         }
       ]
     },
@@ -9890,19 +10226,6 @@
         [
           0.0001499652862548828,
           [
-            -2.12400484085083,
-            10.564026832580566,
-            0.8953499794006348
-          ],
-          [
-            -2.12400484085083,
-            10.564026832580566,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
             -2.0839619636535645,
             10.617995262145996,
             0.8953499794006348
@@ -9923,6 +10246,19 @@
           [
             -2.090038299560547,
             10.52199935913086,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
+            -2.117966651916504,
+            10.612022399902344,
+            0.8953499794006348
+          ],
+          [
+            -2.117966651916504,
+            10.612022399902344,
             0.8954999446868896
           ]
         ]
@@ -11859,12 +12195,12 @@
           0.002259969711303711,
           [
             -2.1547398567199707,
-            6.129231929779053,
+            5.079232215881348,
             2.0595805644989014
           ],
           [
             -2.1569998264312744,
-            6.129231929779053,
+            5.079232215881348,
             2.0595805644989014
           ]
         ],
@@ -11872,12 +12208,12 @@
           0.002259969711303711,
           [
             -2.1547398567199707,
-            6.129451751708984,
+            5.079452037811279,
             2.0595407485961914
           ],
           [
             -2.1569998264312744,
-            6.129451751708984,
+            5.079452037811279,
             2.0595407485961914
           ]
         ],
@@ -11885,12 +12221,12 @@
           0.002259969711303711,
           [
             -2.1547398567199707,
-            6.129673004150391,
+            5.0796732902526855,
             2.059497594833374
           ],
           [
             -2.1569998264312744,
-            6.129673004150391,
+            5.0796732902526855,
             2.059497594833374
           ]
         ]
@@ -11907,12 +12243,12 @@
           0.001359701156616211,
           [
             -2.152740001678467,
-            6.326085567474365,
+            5.27608585357666,
             1.892128586769104
           ],
           [
             -2.154099702835083,
-            6.326085567474365,
+            5.27608585357666,
             1.892128586769104
           ]
         ],
@@ -11920,12 +12256,12 @@
           0.001359701156616211,
           [
             -2.152740001678467,
-            6.326085567474365,
+            5.27608585357666,
             1.8935484886169434
           ],
           [
             -2.154099702835083,
-            6.326085567474365,
+            5.27608585357666,
             1.8935484886169434
           ]
         ],
@@ -11933,12 +12269,12 @@
           0.001359701156616211,
           [
             -2.152740001678467,
-            6.334104061126709,
+            5.284104347229004,
             1.8935484886169434
           ],
           [
             -2.154099702835083,
-            6.334104061126709,
+            5.284104347229004,
             1.8935484886169434
           ]
         ]
@@ -11955,12 +12291,12 @@
           0.0002598762512207031,
           [
             -2.149739980697632,
-            6.283027172088623,
+            5.233027458190918,
             1.6340242624282837
           ],
           [
             -2.1499998569488525,
-            6.283027172088623,
+            5.233027458190918,
             1.6340242624282837
           ]
         ],
@@ -11968,12 +12304,12 @@
           0.0002598762512207031,
           [
             -2.149739980697632,
-            6.281067848205566,
+            5.231068134307861,
             1.6340242624282837
           ],
           [
             -2.1499998569488525,
-            6.281067848205566,
+            5.231068134307861,
             1.6340242624282837
           ]
         ],
@@ -11981,12 +12317,12 @@
           0.0002598762512207031,
           [
             -2.149739980697632,
-            6.281067848205566,
+            5.231068134307861,
             1.6307158470153809
           ],
           [
             -2.1499998569488525,
-            6.281067848205566,
+            5.231068134307861,
             1.6307158470153809
           ]
         ]
@@ -12036,6 +12372,54 @@
             16.77800178527832,
             22.307029724121094,
             1.115645170211792
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
+      "object": "FC | Type ISOLATE / CHECK",
+      "target": "FC | Reactor arrival isolation tags",
+      "status": "PASS",
+      "nearest_gap_m": 0.0004596710205078125,
+      "contact_points": [
+        [
+          0.0004596710205078125,
+          [
+            16.97603988647461,
+            21.70831298828125,
+            1.7092822790145874
+          ],
+          [
+            16.976499557495117,
+            21.70831298828125,
+            1.7092822790145874
+          ]
+        ],
+        [
+          0.0004596710205078125,
+          [
+            16.97603988647461,
+            21.70831298828125,
+            1.7213226556777954
+          ],
+          [
+            16.976499557495117,
+            21.70831298828125,
+            1.7213226556777954
+          ]
+        ],
+        [
+          0.0004596710205078125,
+          [
+            16.97603988647461,
+            21.706684112548828,
+            1.7213226556777954
+          ],
+          [
+            16.976499557495117,
+            21.706684112548828,
+            1.7213226556777954
           ]
         ]
       ],
@@ -12093,45 +12477,45 @@
       "object": "FC | Type EXTRACT / 03",
       "target": "FC | East extraction collector",
       "status": "PASS",
-      "nearest_gap_m": 0.0012607574462890625,
+      "nearest_gap_m": 0.001758575439453125,
       "contact_points": [
         [
-          0.0012607574462890625,
+          0.001758575439453125,
           [
-            16.081239700317383,
-            9.935599327087402,
-            2.5997917652130127
+            16.027240753173828,
+            9.987833023071289,
+            2.852285861968994
           ],
           [
-            16.082500457763672,
-            9.935599327087402,
-            2.5997917652130127
+            16.02899932861328,
+            9.987833023071289,
+            2.852285861968994
           ]
         ],
         [
-          0.0012607574462890625,
+          0.001758575439453125,
           [
-            16.081239700317383,
-            9.935701370239258,
-            2.5996756553649902
+            16.027240753173828,
+            9.987963676452637,
+            2.852137804031372
           ],
           [
-            16.082500457763672,
-            9.935701370239258,
-            2.5996756553649902
+            16.02899932861328,
+            9.987963676452637,
+            2.852137804031372
           ]
         ],
         [
-          0.0012607574462890625,
+          0.001758575439453125,
           [
-            16.081239700317383,
-            9.935811042785645,
-            2.5995657444000244
+            16.027240753173828,
+            9.988103866577148,
+            2.8519976139068604
           ],
           [
-            16.082500457763672,
-            9.935811042785645,
-            2.5995657444000244
+            16.02899932861328,
+            9.988103866577148,
+            2.8519976139068604
           ]
         ]
       ],
@@ -12714,6 +13098,54 @@
       "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
     },
     {
+      "object": "FC | Type USED LINEN",
+      "target": "FC | Clean used-linen return station",
+      "status": "PASS",
+      "nearest_gap_m": 0.002330780029296875,
+      "contact_points": [
+        [
+          0.002330780029296875,
+          [
+            7.493996620178223,
+            18.165760040283203,
+            1.571726679801941
+          ],
+          [
+            7.493996620178223,
+            18.163429260253906,
+            1.571726679801941
+          ]
+        ],
+        [
+          0.002330780029296875,
+          [
+            7.4889044761657715,
+            18.165760040283203,
+            1.5996774435043335
+          ],
+          [
+            7.48890495300293,
+            18.163429260253906,
+            1.5996774435043335
+          ]
+        ],
+        [
+          0.002330780029296875,
+          [
+            7.476511001586914,
+            18.165760040283203,
+            1.5762946605682373
+          ],
+          [
+            7.476511001586914,
+            18.163429260253906,
+            1.5762947797775269
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
       "object": "FC | Type RETURN / 02",
       "target": "FC | Reactor return cooling cassette",
       "status": "PASS",
@@ -12810,6 +13242,54 @@
       "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
     },
     {
+      "object": "FC | Type RETURN CHECK",
+      "target": "FC | Cooling return lockout and check rail",
+      "status": "PASS",
+      "nearest_gap_m": 0.0004596710205078125,
+      "contact_points": [
+        [
+          0.0004596710205078125,
+          [
+            11.567981719970703,
+            13.275040626525879,
+            2.438873767852783
+          ],
+          [
+            11.567981719970703,
+            13.275500297546387,
+            2.438873767852783
+          ]
+        ],
+        [
+          0.0004596710205078125,
+          [
+            11.567981719970703,
+            13.275040626525879,
+            2.4517741203308105
+          ],
+          [
+            11.567981719970703,
+            13.275500297546387,
+            2.4517741203308105
+          ]
+        ],
+        [
+          0.0004596710205078125,
+          [
+            11.569727897644043,
+            13.275040626525879,
+            2.4517741203308105
+          ],
+          [
+            11.569727897644043,
+            13.275500297546387,
+            2.4517741203308105
+          ]
+        ]
+      ],
+      "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
+    },
+    {
       "object": "FC | Type WATER",
       "target": "FC | Plant wash-down cross-header",
       "status": "PASS",
@@ -12819,12 +13299,12 @@
           0.0022597312927246094,
           [
             -3.782240152359009,
-            17.087505340576172,
+            16.837505340576172,
             2.6862096786499023
           ],
           [
             -3.7844998836517334,
-            17.087505340576172,
+            16.837505340576172,
             2.6862096786499023
           ]
         ],
@@ -12832,12 +13312,12 @@
           0.0022597312927246094,
           [
             -3.782240152359009,
-            17.087392807006836,
+            16.837392807006836,
             2.6860573291778564
           ],
           [
             -3.7844998836517334,
-            17.087392807006836,
+            16.837392807006836,
             2.6860573291778564
           ]
         ],
@@ -12845,12 +13325,12 @@
           0.0022597312927246094,
           [
             -3.782240152359009,
-            17.087268829345703,
+            16.837268829345703,
             2.6859130859375
           ],
           [
             -3.7844998836517334,
-            17.087268829345703,
+            16.837268829345703,
             2.6859130859375
           ]
         ]
@@ -13098,48 +13578,48 @@
       "scope": "evaluated vertex/face-center and reverse surface proximity; intended assembly overlaps checked in fixed oblique views"
     },
     {
-      "object": "FC | Clean direction type",
-      "target": "FC | Clean direction",
+      "object": "FC | Clean wipe-and-log instruction type",
+      "target": "FC | Clean wipe-and-log instruction",
       "status": "PASS",
       "nearest_gap_m": 0.00125885009765625,
       "contact_points": [
         [
           0.00125885009765625,
           [
-            0.8902924060821533,
+            0.909382700920105,
             20.97374153137207,
-            2.1136486530303955
+            2.1040000915527344
           ],
           [
-            0.8902924060821533,
+            0.909382700920105,
             20.975000381469727,
-            2.1136486530303955
+            2.1040000915527344
           ]
         ],
         [
           0.00125885009765625,
           [
-            0.8698229193687439,
+            0.9096585512161255,
             20.97374153137207,
-            2.1209421157836914
+            2.1040642261505127
           ],
           [
-            0.8698229193687439,
+            0.9096585512161255,
             20.975000381469727,
-            2.1209421157836914
+            2.1040642261505127
           ]
         ],
         [
           0.00125885009765625,
           [
-            0.8698229193687439,
+            0.9099297523498535,
             20.97374153137207,
-            2.124559164047241
+            2.1041340827941895
           ],
           [
-            0.8698229789733887,
+            0.909929633140564,
             20.975000381469727,
-            2.124559164047241
+            2.1041340827941895
           ]
         ]
       ],
@@ -15127,9 +15607,9 @@
             3.7100000381469727
           ],
           [
-            6.2099995613098145,
+            6.209499835968018,
             11.227499961853027,
-            3.709500312805176
+            3.7100000381469727
           ]
         ],
         [
@@ -15140,9 +15620,9 @@
             3.7100000381469727
           ],
           [
-            6.2099995613098145,
+            6.209499835968018,
             11.229499816894531,
-            3.709500312805176
+            3.7100000381469727
           ]
         ],
         [
@@ -15153,9 +15633,9 @@
             3.7100000381469727
           ],
           [
-            6.2099995613098145,
+            6.209499835968018,
             11.372499465942383,
-            3.709500312805176
+            3.7100000381469727
           ]
         ]
       ],
@@ -15163,10 +15643,10 @@
     }
   ],
   "geometry_budget": {
-    "source_triangles": 872344,
-    "evaluated_triangles": 877624,
-    "mesh_objects": 327,
-    "material_batch_upper_bound": 1312
+    "source_triangles": 895022,
+    "evaluated_triangles": 900302,
+    "mesh_objects": 333,
+    "material_batch_upper_bound": 1358
   },
   "uv": [
     {
@@ -15735,6 +16215,16 @@
       "degenerate_uv_triangles": 0
     },
     {
+      "object": "FC | Transfer cart-check wrench rail",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Reactor arrival isolation tags",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
       "object": "FC | Clean transfer wipe station",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
@@ -15761,6 +16251,16 @@
     },
     {
       "object": "FC | Clean-transfer inspection log",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Clean used-linen return station",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Cooling return lockout and check rail",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
     },
@@ -16030,7 +16530,7 @@
       "degenerate_uv_triangles": 0
     },
     {
-      "object": "FC | Clean direction",
+      "object": "FC | Clean wipe-and-log instruction",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
     },
@@ -16110,7 +16610,17 @@
       "degenerate_uv_triangles": 0
     },
     {
+      "object": "FC | Linen exchange practical",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
       "object": "FC | Reactor cooling inspection practical",
+      "finite_uv": true,
+      "degenerate_uv_triangles": 0
+    },
+    {
+      "object": "FC | Freight drive inspection flood",
       "finite_uv": true,
       "degenerate_uv_triangles": 0
     },
@@ -16422,31 +16932,6 @@
   ],
   "dependencies": [
     {
-      "name": "painted_plaster_wall_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "metal_plate_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "wood_table_worn_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "metal_plate_diff_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "painted_plaster_wall_diff_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
       "name": "painted_plaster_wall_rough_2k.jpg",
       "packed": true,
       "available": true
@@ -16457,12 +16942,37 @@
       "available": true
     },
     {
+      "name": "wood_table_worn_rough_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "painted_plaster_wall_diff_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "metal_plate_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "metal_plate_diff_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "painted_plaster_wall_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
       "name": "wood_table_worn_diff_2k.jpg",
       "packed": true,
       "available": true
     },
     {
-      "name": "wood_table_worn_rough_2k.jpg",
+      "name": "wood_table_worn_disp_2k.jpg",
       "packed": true,
       "available": true
     }

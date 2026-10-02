@@ -190,3 +190,12 @@ Luna opened and hash-verified all 19 F7ci views, the closed leaf and all four ac
 F8 develops connected process compositions: a complete split extraction bay with a caged impeller, replaceable filter drawer, folded collector hood, service instruments, age card, catch pan and continuous riser; fin-bank breaks with a closed access cassette and an exposed guarded copper coil; timber cart-impact repairs grouped with a handover board and retained ring spanners; a shallow used-linen return hood over an actually sagging sewn bag and draped towel; keyed cooling-return and reactor-arrival check stations. The bypass hose is shortened and parked above the open purge roll, preserving visible labels and working access. A real roof-supported inspection flood exposes freight rear supports without flattening the route lighting, and the inline plant valve is spaced away from the fluorescent. The redundant small clean direction plate becomes a wipe/log instruction; the large CLEAN arrow and bright S02 header remain.
 
 Local drafts are development evidence only. An initial new extractor mount/kick-panel penetration and a 68 mm linen hood lane intrusion were caught by cold validation, then repaired by relocating the extractor onto the upper lining and manufacturing a shallower return enclosure. Final F8ci native, all-view evidence and independent scores are pending. F7ci remains the published selected native until the new hosted cycle passes all numerical and image-manifest checks. No final art acceptance or Unity readiness is claimed.
+
+## F8ci hosted execution
+
+Native SHA256 3629551c379a87f6ee2983f5ad535036b9a34f783cc0ba9365c210a2c05fa80a. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 895022, "evaluated_triangles": 900302, "mesh_objects": 333, "material_batch_upper_bound": 1358}.
