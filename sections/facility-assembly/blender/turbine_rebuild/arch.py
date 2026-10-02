@@ -65,7 +65,7 @@ def wall(b, name, spec):
         slab(b, rect_minus((u0 - T, u1 + T, -0.4, H + 0.25), holes), -T, 0, 'concrete_dark')
         b.use(g0)
         for r in rect_minus((u0, u1, 0, .2), [h for h in holes if h[2] < .2]): slab(b, [r], 0.04, .105, 'concrete_dark', bev=.025)                  # chamfered plinth
-        for z0, z1, d, sw, bv in ((1.20, 1.27, .075, 'steel_mid', .012), (4.45, 4.52, .07, 'slate_dark', .01)):
+        for z0, z1, d, sw, bv in ((1.20, 1.27, .075, 'pale_steel', .012), (4.45, 4.52, .07, 'slate_dark', .01)):
             for r in rect_minus((u0, u1, z0, z1), holes): slab(b, [r], 0.04, d, sw, bev=bv)                                                       # cap rail and dark course
         slab(b, [(u0, u1, H - .2, H)], 0.04, .13, 'steel_dark', bev=.02); slab(b, [(u0, u1, H - .27, H - .2)], 0.04, .16, 'steel_mid', bev=.02)   # cornice with drip lip
         for k, (a, c) in enumerate(zip(st, st[1:])):
@@ -109,7 +109,7 @@ def truss(b, y):
     b.box((3, y, 6.08), (14, .2, .16), 'steel_light', bev=.012); b.box((3, y, 7.12), (14, .2, .16), 'steel_light', bev=.012)
     for i in range(n):
         xa, xb, xc = x0 + i * st, x0 + (i + .5) * st, x0 + (i + 1) * st
-        b.rod((xa, y, 7.14), (xb, y, 6.06), .07, 'steel_light', 12); b.rod((xb, y, 6.06), (xc, y, 7.14), .07, 'steel_light', 12)
+        b.rod((xa, y, 7.14), (xb, y, 6.06), .07, 'pale_steel', 12); b.rod((xb, y, 6.06), (xc, y, 7.14), .07, 'pale_steel', 12)
     for i in range(n + 1): b.box((x0 + i * st, y, 6.6), (.05, .1, 1.0), 'steel_dark', bev=.005); b.box((x0 + i * st, y, 6.06), (.2, .2, .03), 'steel_light', bev=.006)
     b.box((x0 + .3, y, 6.1), (.5, .3, .04), 'steel_light', bev=.008); b.box((x1 - .3, y, 6.1), (.5, .3, .04), 'steel_light', bev=.008)
 
@@ -126,7 +126,7 @@ def crane(b, ybridge=10.0, zr=5.55):
     for x in (-3.35, 9.35):
         b.box((x, 12, zr), (.28, 23, .05), 'steel_dark', bev=.006); b.box((x, 12, zr + .22), (.05, 23, .38), 'steel_dark'); b.box((x, 12, zr + .43), (.28, 23, .05), 'steel_dark', bev=.006)
     for yb in (ybridge - .5, ybridge + .5):
-        b.box((3, yb, zr - .3), (12.7, .22, .5), 'steel_dark', bev=.012); b.box((3, yb, zr - .56), (12.7, .3, .04), 'steel_light', bev=.006); b.box((3, yb, zr - .03), (12.7, .26, .035), 'steel_light', bev=.006)
+        b.box((3, yb, zr - .3), (12.7, .22, .5), 'steel_dark', bev=.012); b.box((3, yb, zr - .56), (12.7, .3, .04), 'pale_steel', bev=.006); b.box((3, yb, zr - .03), (12.7, .26, .035), 'pale_steel', bev=.006)
         for i in range(13): b.box((-3.2 + i, yb, zr - .3), (.04, .235, .5), 'steel_mid')
     for x in (-3.35, 9.35):
         b.box((x, ybridge, zr - .22), (.45, 1.5, .55), 'oxide_dark', bev=.015); b.reserve_box((x, ybridge, zr), (.5, 1.5, 1))

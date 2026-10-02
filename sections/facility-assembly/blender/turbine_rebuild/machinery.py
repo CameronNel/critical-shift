@@ -86,7 +86,7 @@ def handrails(b, xa, xb, ya, yb, z1):
         n = int((yb - ya) / 2.0) + 1; ys = [ya + .12 + i * (yb - ya - .24) / n for i in range(n + 1)]
         for y in ys: b.cyl((xr, y, z1 + .55), .042, 1.1, 'trim_black', 'Z', 14, bev=.006); b.cyl((xr, y, z1 + .02), .1, .03, 'steel_dark', 'Z', 16, bev=.006); b.cyl((xr, y, z1 + 1.1), .05, .03, 'gold_paint', 'Z', 14, bev=.006)
         b.rod((xr, ys[0], z1 + 1.05), (xr, ys[-1], z1 + 1.05), .032, 'orange_dark', 12); b.rod((xr, ys[0], z1 + .55), (xr, ys[-1], z1 + .55), .024, 'trim_black', 12)
-        b.box((xr, (ya + yb) / 2, z1 + .06), (.02, yb - ya - .2, .1), 'steel_light', bev=.004)
+        b.box((xr, (ya + yb) / 2, z1 + .08), (.022, yb - ya - .2, .14), 'pale_steel', bev=.005)
     for yr in (ya + .12, yb - .12):
         for (x0, x1) in ((xa + .12, CX - .95), (CX + .95, xb - .12)):
             for z in (z1 + .55, z1 + 1.05): b.rod((x0, yr, z), (x1, yr, z), .032 if z > z1 + .6 else .024, 'orange_dark' if z > z1 + .6 else 'trim_black', 12)
@@ -342,7 +342,7 @@ def maintenance(b):
     b.cyl((rx, 17.0, rz + .14), .17, 5.8, 'steel_light', 'Y', 32, bev=.008)
     for i, yy in enumerate((15.3, 15.75, 16.2, 16.65, 17.1, 17.55, 18.0, 18.45)):
         R = .55 - .02 * abs(i - 3.5)
-        b.cyl((rx, yy, rz + .14), R, .36, 'steel_mid' if i % 2 else 'steel_light', 'Y', 48, bev=.01)
+        b.cyl((rx, yy, rz + .14), R, .36, 'steel_mid' if i % 2 else 'pale_steel', 'Y', 48, bev=.01)
         if i in (1, 3, 5, 6):                                                   # turbine blades on four rotor discs
             b.arc_shell((rx, yy, rz + .14), R + .27, R + .235, .22, 0, 2 * math.pi, 'steel_light', 36)                       # tip shroud so the blades read as a ring
             for k in range(24):
