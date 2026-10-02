@@ -61,6 +61,23 @@ Common remaining findings:
 5. The LockerReverse chamber glass reflection reads as an artefact to both critics.
 Reaching 90 needs owner-level decisions (suit style and fabric detail, plants, signage, door sizes) rather than more material tweaks.
 
+## Update: 90+ pass (owner request: fix plants, signage, door sizes, hall lighting)
+`../../blender/pass_90plus.py` (idempotent, run after `polish_spawn.py`) applied to the canonical module. I chose the defaults below; each is a one-line change in the script if the owner wants it differently.
+- **Plants:** seven of the nine low-poly plants are removed (hall ficus, snake plant and pothos; locker-room ficus, snake plant and two pothos). The briefing ficus and the briefing sideboard pothos stay, so the briefing room keeps its one planted corner.
+- **Signage:** the two slogan notices on the hall shift board ("SAME TEAM A BRIGHTER TOMORROW", "SAFETY BUILDS CONFIDENCE") are removed; the board keeps "DAILY CHECKS" and "SHIFT ROTA" and is scaled from 1.30 x 1.10 to 0.90 x 0.78. The duplicate hall notice board by the spawn doors (`HALL_notice_*`) and the "changed shift" paper are removed. Wayfinding plates, posters and the briefing board are unchanged.
+- **Locker doors:** the door sizes and the 108 degree open angle are unchanged. I tried 160, 85 and 60 degrees for the outer doors and 25 degrees for the inner doors; none was kept. A door open near 90 degrees faces a camera looking down the room axis, so folding it back left it face-on, and ajar inner doors hid the suits. What the critics called flat slabs were the blank inside faces of the open leaves, so each of the eight leaves now has a raised, bevelled stiffener panel (`DOORIN_*_panel`) and the four left-hand leaves a polished plate (`DOORIN_*_mirror`) in the upper third.
+- **Hall lighting:** the three ceiling tubes (`HALL_light_0n_area`) change from 135 W each to 150 W (spawn end), 70 W (middle) and 105 W (airlock end), so the hall has falloff instead of an even wash. They stay baked emissive fixtures; the light count (20), dynamic lights (4) and shadow casters (2) are unchanged.
+
+Checks that ran on this pass:
+- `validate_contacts.py`: PASS (198 tagged objects, 0 failures) on the canonical module and on the regenerated `module_optimised.blend` (the object count fell from 208 because the removed plants carried contacts); output `contact_validation_90plus.json`.
+- `check_layout.py`: 6 PASS; the Geiger check stays N/A by owner decision.
+- `compare_signatures.py` canonical vs optimised: PASS (worst relative area difference 1.98e-05 over 224 materials).
+- Six-camera Cycles comparison canonical vs optimised (960x540, 48 samples): mean absolute difference 0.0054 to 0.0086, at most 0.30% of pixels over 8%. Canonical renders are in `renders_90plus/`.
+- `module_optimised.blend` regenerated: 791 objects, 814 draw calls, 34 materials, 378,341 triangles, 20 lights, no library.
+- I looked at the ExitReverse, Spawn, LockerDoor, LockerReverse and Hero_A renders. BriefingDoor and Material_A were compared by numbers only.
+
+Not done: **not re-scored.** The critics have not seen these renders, so the 85 and 82 above still stand and the room is NOT accepted. The suits still read as the HZ-01 suit from PR #68, which the critics have not scored. Hall wear is unchanged; a 90 needs the critic rescore on the HZ-01 suit and these changes.
+
 ## Update: the locker suits are linked to the hero suit (owner request)
 The owner asked that the placed suits link to the hero suit and that the original hero suit is kept. So:
 - `hero_suit.blend` (built by `../../blender/build_hero_suit.py`) is the one library the lockers link: the collection `HERO_SUIT` is the player character's own hazmat suit as `character_worker` + `character_suit` build it (default colours, A-pose rest), minus the wearer. (Superseded in part by the HZ-01 redesign (#68) and its locker LOD (#69): the library is now the reduced locker copy of the HZ-01 suit, about 22,000 triangles; the full-detail wearable hero is `../../blender/crew_hazmat_reference.blend`; rebuild in two stages, `build_hero_suit.py` then `lod_hero_suit.py`.)

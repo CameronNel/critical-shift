@@ -1,19 +1,19 @@
 {
  "after": {
-  "draw_call_estimate": 822,
+  "draw_call_estimate": 814,
   "materials_in_use": 34,
-  "objects": 799,
-  "triangles": 390642
+  "objects": 791,
+  "triangles": 378341
  },
  "before": {
-  "draw_call_estimate": 1966,
-  "materials_in_use": 253,
-  "objects": 1614,
-  "triangles": 390642
+  "draw_call_estimate": 1903,
+  "materials_in_use": 250,
+  "objects": 1582,
+  "triangles": 378341
  },
  "blender": "5.2.2 LTS",
  "coord_dependent_materials": 75,
- "curves_text_converted": 315,
+ "curves_text_converted": 309,
  "families": {
   "BELONG_02_crew_photo_ink_on_paper": [
    "BELONG_02_crew_photo_ink_on_paper",
@@ -131,22 +131,22 @@
   ]
  },
  "family_attributes": 4,
- "family_polygons": 95970,
- "flat_materials": 174,
- "join_groups": 156,
+ "family_polygons": 93586,
+ "flat_materials": 171,
+ "join_groups": 150,
  "lights": 20,
  "lights_dynamic_key": 4,
  "lights_realtime_shadow_casters": 2,
  "materials_kept_unrewritten_for_curves_text": 1,
- "modifiers_baked_on_objects": 753,
- "objects_joined_away": 971,
- "palette_polygons": 87767,
+ "modifiers_baked_on_objects": 737,
+ "objects_joined_away": 941,
+ "palette_polygons": 81938,
  "skipped": {
   "animated": 1,
   "asset: moving/interactive asset": 124,
   "interactive name": 100,
-  "own properties": 188,
-  "support-contact target": 78
+  "own properties": 193,
+  "support-contact target": 75
  },
- "source": "/home/user/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+ "source": "sections/facility-assembly/sources/spawn-room/module.blend"
 }

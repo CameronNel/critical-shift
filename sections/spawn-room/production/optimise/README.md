@@ -20,27 +20,27 @@ Regenerate with Blender 5.2 (the module is a 5.2 file; the `bpy` wheel on PyPI i
 
 | | module.blend | module_optimised.blend |
 |---|---:|---:|
-| Render-visible geometry objects | 1,614 | 799 |
-| Triangles | 390,642 | 390,642 |
-| Draw-call estimate (objects x material slots, before any engine batching) | 1,966 | 822 |
-| Materials in use | 253 | 34 (33 visible plus one untouched copy for animated labels; the 24-material spawn-room cap comes from the per-room budget in PR #59, branch `claude/eloquent-rubin-5y6lnu`, `design/MATERIAL_BUDGETS.md`, where the owner's approval of 2026-10-01 is recorded; that document is not on `main` yet) |
+| Render-visible geometry objects | 1,582 | 791 |
+| Triangles | 378,341 | 378,341 |
+| Draw-call estimate (objects x material slots, before any engine batching) | 1,903 | 814 |
+| Materials in use | 250 | 34 (33 visible plus one untouched copy for animated labels; the 24-material spawn-room cap comes from the per-room budget in PR #59, branch `claude/eloquent-rubin-5y6lnu`, `design/MATERIAL_BUDGETS.md`, where the owner's approval of 2026-10-01 is recorded; that document is not on `main` yet) |
 | Lights | 20 | 20 (the optimisation changes none, it only tags roles; the 20 are the 14 original lights, 4 baked locker strip lights and 2 baked doorway spill lights added by the hero and polish passes) |
 
-Numbers reflect the module after the hero-suit pass (`../../blender/add_hero_suits.py`: the crew worker's own hazmat suit hung in each of the four PPE lockers) and the polish pass (`../../blender/polish_spawn.py`). The hero suit is **linked** into `module.blend` from `hero_suit.blend`; `optimise_spawn.py` first makes the linked instances local (`realize_instances.py`) so the derivative is self-contained (no library).
+Numbers reflect the module after the hero-suit pass (`../../blender/add_hero_suits.py`: the crew worker's own hazmat suit hung in each of the four PPE lockers) the polish pass (`../../blender/polish_spawn.py`) and the 90+ pass (`../../blender/pass_90plus.py`: seven plants, two slogan notices and the duplicate hall notice board removed, door inside-face panels and mirrors added, hall tubes graded). The hero suit is **linked** into `module.blend` from `hero_suit.blend`; `optimise_spawn.py` first makes the linked instances local (`realize_instances.py`) so the derivative is self-contained (no library).
 
 Every number below (objects, joins, conversions, draw calls, materials) comes from one run, recorded in
 `optimise_report.json` next to this file.
 
 ## What it does (each step is meant to leave the look unchanged)
 
-1. 315 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept). Curve/text objects that are animated, driven, in NLA, constrained or have an animated data block or shape keys
+1. 309 curve/text objects become meshes (evaluated, with name, parent, collections, properties and children kept). Curve/text objects that are animated, driven, in NLA, constrained or have an animated data block or shape keys
    (for example the POD_state_* labels) are NOT converted, because a mesh copy would freeze them;
-   modifiers are baked on 753 objects (the parts that get merged or touched).
+   modifiers are baked on 737 objects (the parts that get merged or touched).
 2. Procedural patterns that depend on the object (Generated / Object coordinates, 75 materials) are frozen into per-vertex
    attributes `CS_GEN` / `CS_OBJ`, on every mesh including hidden ones, and those materials read the attributes, so joining
    parts cannot change a pattern. Curve/text objects that stay curves cannot carry attributes, so they keep an
    untouched copy of the material (`<name>__noattr`).
-3. The 174 constant-colour Principled materials are folded into one `PAL_flat` material: three packed 16x16 float images
+3. The 171 constant-colour Principled materials are folded into one `PAL_flat` material: three packed 16x16 float images
    (albedo, roughness+metal, emission), `Closest` sampling, a `CS_PAL` UV layer. Cell mapping is in text block `OPT_PALETTE`.
 3b. **Material families** (the method of the reactor control room, PR #54; budgets in PR #59): materials with exactly the same node graph that differ only in
    constants become one `FAM ...` material. The constants (every differing socket value, and the two stop colours of each
@@ -48,7 +48,7 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
    same, so the shading is the same (the structural key includes the colour-ramp interpolation and colour mode, so ramps that differ never share a family): a 2-stop LINEAR/EASE ramp becomes a clamped Map Range (smoothstep for EASE) plus a Mix.
    Read-back of every attribute is checked at build time. 17 families replace 80 materials; members are listed in text block
    `OPT_FAMILIES`. Materials with different graphs are left alone.
-4. Parts of the same asset that share material and object flags are joined (971 objects into 156); shell parts outside any
+4. Parts of the same asset that share material and object flags are joined (941 objects into 150); shell parts outside any
    asset are joined per collection, material and 5 m cell. Left exactly as they were: every object that is animated, has
    children, carries its own properties, is in a support-checked collection, is named by any `cs_support_target`,
    looks interactive (door, hinge, hatch, lever, button, handle, switch...) or belongs to an asset with
@@ -59,7 +59,7 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
 ## Evidence
 
 - `signature.py` / `compare_signatures.py` (per-member: every polygon of a family material is decoded back to the source material whose constants it carries, from text block `OPT_FAMILY_ROWS`; members with identical constants form one class; verified to fail when constants of one member are put on another member's faces): triangles identical; scene and per-asset bounding boxes within 0.1 mm; area per
-  original material (palette cells decoded back) within 8e-6 relative; every world vertex of each file has a match in the
+  original material (palette cells decoded back) within 2e-5 relative; every world vertex of each file has a match in the
   other within about 2 mm; every object with properties, and every empty, keeps name, properties, transform and parent. PASS.
 - Animation inventory, compared as a multiset: for every owner (objects, material node trees, meshes, curves, lights,
   cameras, worlds, shape keys) a digest of a generic deep dump of its whole animation data: owner settings and assigned
@@ -96,7 +96,7 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
   amber signal and the three floors) or come from the HZ-01 suit: `HZ01_yellow coated fabric`, `HZ01_rubber boot`, `HZ01_clear visor` (blended alpha, not folded) and the family `FAM HZ01_black seals`, so merging them would change the look and needs owner approval. Texture memory (12 x 2K images, about 50 MP, including 4 displacement maps)
   is not reduced.
 - Door, hatch and interaction assets, support-contact targets and anything with its own properties are intentionally
-  left unmerged, which is why the count is 822 and not lower.
+  left unmerged, which is why the count is 814 and not lower.
 - The merged meshes are an export-oriented derivative: authoring edits belong in `module.blend`.
 
 
