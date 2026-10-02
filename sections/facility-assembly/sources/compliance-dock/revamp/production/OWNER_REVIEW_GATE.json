@@ -1,0 +1,15 @@
+{
+  "instruction_date": "2026-10-02",
+  "review_model": "gpt-6-luna",
+  "review_tone": "Exceptionally strict, direct, evidence-based; no personal insults",
+  "overall_pass_minimum": 99,
+  "each_category_strictly_above": 93,
+  "zero_critical": true,
+  "minimum_complete_full_cycles": 4,
+  "final_two_materially_stable": true,
+  "cold_github_verification_required": true,
+  "action_after_pass": "Mark existing PR66 ready for review automatically",
+  "self_merge_authorized": false,
+  "map_promotion_authorized": false,
+  "actual_pass": false
+}
