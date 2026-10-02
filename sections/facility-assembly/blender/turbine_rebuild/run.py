@@ -179,22 +179,22 @@ point('GLOW_consoles', (-2.6, 4.0, 1.9), 22, (1.0, .6, .25), .15)
 for nm, loc in (('RED_D01', (1.7, .25, 3.35)), ('RED_D02', (1.7, 23.75, 3.35))): point(nm, loc, 8, RED, .05)
 for nm, yy in (('PASS_D01', -.9), ('PASS_D02', 24.9)): point(nm, (0, yy, 2.5), 25, (1.0, .55, .25), .1)
 for k, yy in enumerate((4, 12, 20)):
-    d = bpy.data.lights.new(f'RIM_W{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 2.0, .6; d.energy = 420; d.color = (.45, .58, .95)
+    d = bpy.data.lights.new(f'RIM_W{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 2.0, .6; d.energy = 420; d.color = (.6, .7, .95)
     o = bpy.data.objects.new(f'RIM_W{k}', d); o.location = (-3.7, yy, 5.8); o.rotation_euler = (0, math.radians(50), 0); coll.objects.link(o)
 sun = bpy.data.lights.new('MOON_EAST', 'SUN'); sun.energy = 4.5; sun.angle = math.radians(2.0); sun.color = (.38, .55, 1.0)
 so = bpy.data.objects.new('MOON_EAST', sun); coll.objects.link(so)
 so.rotation_euler = Vector((-.62, .40, -.67)).to_track_quat('-Z', 'Y').to_euler()
 w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
-bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.05, .07, .12, 1); bg.inputs['Strength'].default_value = 1.15
+bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.075, .08, .095, 1); bg.inputs['Strength'].default_value = 1.15
 
 aim(spot('KEY_casing_E', (8.7, 12.0, 3.6), 650, 66, (.62, .74, 1.0), .5), (8.7, 12.0, 3.6), (5.2, 10.0, 1.6))          # cool key on the casing flank so it separates from the dark hall
 aim(spot('POOL_walk_E', (8.0, 13.8, 5.0), 2200, 38, (1.0, .6, .28), .25), (8.0, 13.8, 5.0), (7.6, 13.6, 1.0))             # warm pool on the walkway floor
 aim(spot('KEY2_casing_E', (8.7, 11.0, 1.2), 380, 70, (.62, .74, 1.0), .5), (8.7, 11.0, 1.2), (5.2, 9.0, .6))
 for k, sx in enumerate((2.9, 6.3)):                                                                                # cool moonlit rim strips along the turbine tops so the hero casings keep an edge
-    o = area(f'RIMTOP_{k}', (sx, 14.0, 6.0), (.5, 14.0), 1500, (.74, .8, 1.0)); aim(o, (sx, 14.0, 6.0), (4.6, 14.0, 2.6))
+    o = area(f'RIMTOP_{k}', (sx, 14.0, 6.0), (.5, 14.0), 1500, (.86, .88, 1.0)); aim(o, (sx, 14.0, 6.0), (4.6, 14.0, 2.6))
 # cool/warm fills so silhouettes separate and shadows are not dead black (readability pass)
 for k, (fx, fy) in enumerate(((-.5, 5), (3, 12), (7.5, 19), (3, 21))):
-    d = bpy.data.lights.new(f'FILL_{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 5.0, 5.0; d.energy = 70; d.color = (.6, .68, .9)
+    d = bpy.data.lights.new(f'FILL_{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 5.0, 5.0; d.energy = 70; d.color = (.8, .84, .95)
     o = bpy.data.objects.new(f'FILL_{k}', d); o.location = (fx, fy, 6.0); coll.objects.link(o)
 # ---- named review cameras ----
 CAMS = {   # all positions are in open aisle space
@@ -202,12 +202,12 @@ CAMS = {   # all positions are in open aisle space
     'CAM_B_ne_high':       ((9.1, 23.0, 4.6), (-1, 6, 1.5)),
     'CAM_C_east_aisle':    ((7.7, 12.2, 1.8), (2.8, 20, 2.3)),
     'CAM_D_maintenance':   ((-3.2, 12.6, 1.65), (-.5, 19.5, 1.2)),
-    'CAM_E_controls':      ((.9, 4.0, 1.6), (-3.5, 4.0, 2.4)),
+    'CAM_E_controls':      ((.9, 4.0, 1.6), (-3.5, 4.0, 2.0)),
     'CAM_F_sw_high':       ((-2.4, 1.6, 4.2), (6, 16, 1.5)),
     'CAM_G_generator':     ((8.4, 15.0, 2.4), (4.6, 18.5, 2.0)),
-    'CAM_H_roof':          ((1.0, 4.0, 1.65), (4.6, 14, 6.4)),
-    'CAM_J_north_back':    ((1.0, 22.3, 1.7), (5, 2, 2.4)),
-    'CAM_K_door_d01':      ((1.5, 8.8, 1.65), (-1.8, .3, 1.8)),
+    'CAM_H_roof':          ((1.0, 4.0, 1.65), (3.4, 14, 6.4)),
+    'CAM_J_north_back':    ((1.0, 22.3, 1.7), (6.2, 2, 2.4)),
+    'CAM_K_door_d01':      ((1.5, 8.8, 1.65), (-2.8, .3, 1.9)),
     'CAM_M_turbine_close': ((6.6, 7.4, 2.7), (4.6, 11.6, 2.1)),
     'CAM_P_west_wall':     ((1.0, 12.0, 1.65), (-4, 12, 2.6)),
     'CAM_Q_east_wall':     ((8.6, 3.2, 1.7), (10, 13, 3.0)),
@@ -219,6 +219,8 @@ for name, (loc, tgt) in CAMS.items():
     cd = bpy.data.cameras.new(name); cd.lens = 24; co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
     co.rotation_euler = (Vector(tgt) - Vector(loc)).to_track_quat('-Z', 'Y').to_euler()
 sc.camera = bpy.data.objects['CAM_A_entry_north']
+for _o in coll.objects:
+    if _o.type == 'LIGHT': _o.visible_camera = False                                  # area lights must not show up as white shards in the frame
 
 hz = bpy.data.materials.new('M_haze'); hz.use_nodes = True; hn = hz.node_tree; hn.nodes.clear()
 vs = hn.nodes.new('ShaderNodeVolumeScatter'); vs.inputs['Density'].default_value = .006; vs.inputs['Anisotropy'].default_value = .45; vs.inputs['Color'].default_value = (1, .78, .55, 1)

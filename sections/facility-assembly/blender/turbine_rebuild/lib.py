@@ -21,8 +21,8 @@ PALETTE = {
     'terra_b': ('1D2228', .88, .05, .028, 0),
     'terra_c': ('252A31', .88, .04, .024, 0),
     'terra_worn': ('2D3239', .90, .14, .045, 0),
-    'casing': ('5B5E63', 1.10, .10, .040, 0),
-    'casing_dark': ('4A4D52', 1.10, .14, .040, 0),
+    'casing': ('4C4E52', 1.10, .10, .040, 0),
+    'casing_dark': ('3E4044', 1.10, .14, .040, 0),
     'hood_orange': ('2F5750', 1.12, .08, .030, 0),
     'sand': ('46423D', 1.06, .08, .030, 0),
     'sand_dark': ('34312E', 1.08, .12, .035, 0),
@@ -33,13 +33,13 @@ PALETTE = {
     'trim_black': ('101215', 1.30, .03, .020, 0),
     'charcoal': ('22262B', 1.25, .06, .030, 0),
     'steel_dark': ('2B2D31', 1.30, .08, .040, 0),
-    'steel_mid': ('4A4C51', 1.25, .08, .040, 0),
-    'steel_light': ('686A6F', 1.15, .06, .035, 0),
+    'steel_mid': ('434549', 1.25, .08, .040, 0),
+    'steel_light': ('5A5C60', 1.15, .06, .035, 0),
     'steel_worn': ('55575B', 1.40, .18, .060, 0),
-    'orange': ('C79A3C', 1.18, .07, .028, 0),
+    'orange': ('B58A32', 1.18, .07, .028, 0),
     'orange_dark': ('8E692A', 1.18, .12, .035, 0),
     'orange_worn': ('A57F36', 1.40, .22, .060, 0),
-    'yellow': ('C99A36', 1.12, .07, .028, 0),
+    'yellow': ('B68A2E', 1.12, .07, .028, 0),
     'yellow_worn': ('8F7030', 1.35, .20, .055, 0),
     'red':          ('C2392B', 1.12, .07, .028, 0),
     'red_dark':     ('8E2A20', 1.12, .10, .032, 0),
@@ -88,7 +88,7 @@ PALETTE = {
     # emissive swatches
     'lamp': ('FFA84A', 1.0, 0., .01, 1),
     'screen': ('B8641C', 1.0, 0., .02, 1),
-    'screen_cool':  ('4A7C96', 1.0, 0., .02, 1),
+    'screen_cool':  ('3F7F78', 1.0, 0., .02, 1),
     'led_red':      ('D83A24', 1.0, 0., .01, 1),
     'led_green':    ('2FA553', 1.0, 0., .01, 1),
 }
@@ -138,15 +138,12 @@ def make_atlas(path):
             e = np.minimum(np.minimum(u, 1 - u), np.minimum(v, 1 - v)); ef = np.clip(e / 0.10, 0, 1)[..., None]
             mul = (1 - ef) * edge + ef * 1.0
             shade = (1 - dirt * (1 - v[..., None]) ** 2) * (1 + .05 * (v[..., None] - .5))
-            grime = 1 + (vnoise(3) - .5) * nz * 14 + (vnoise(9) - .5) * nz * 7
+            grime = 1 + (vnoise(3) - .5) * nz * 9 + (vnoise(9) - .5) * nz * 4
             speck = 1 + (rng.random((CELL, CELL, 1)).astype(np.float32) - .5) * nz
             col = base * mul * shade * grime[..., None] * speck
             sg = rng.random((1, 14)).astype(np.float32); sg = np.repeat(sg, CELL // 14 + 1, axis=1)[:, :CELL]; sg = np.repeat(sg, CELL, axis=0)    # vertical weathering streaks
             streak = np.clip((sg - .45) * 2.2, 0, 1) * np.clip(1 - v, 0, 1) ** .7
-            col = col * (1 - .42 * streak[..., None])
-            if PBR.get(name, (.62, 0))[1] > .3 or name in ('concrete', 'concrete_dark', 'lagging'):
-                rm = np.clip((vnoise(6) - .62) * 5, 0, 1)                                                                                  # rust blooms on bare metal
-                col = col * (1 - .6 * rm[..., None]) + np.array([.11, .045, .02], np.float32) * rm[..., None]
+            col = col * (1 - .3 * streak[..., None])
         r, m = PBR.get(name, (.62, 0.0))
         rough = np.clip(r + (vnoise(5) - .5) * .18, .05, 1)
         cx, cy = i % GRID, i // GRID

@@ -179,7 +179,7 @@ def passage(b, frame, label):
             for k in range(8): b.cyl((s * .62, -d + .04, .25 + k * .22), .014, .015, 'steel_light', 'Y', 8)
         b.box((0, -d + .02, h - .14), (w * .9, .04, .05), 'lamp'); b.box((0, -.9, h - .02), (1.6, .2, .03), 'lamp'); b.box((0, -d + .02, h - .3), (w * .9, .03, .04), 'led_red')
         for k in range(8): b.box((-.9 + k * .26, -d + .06, .005), (.12, .5, .006), 'yellow' if k % 2 == 0 else 'trim_black', (0, 0, .5), nb=True)
-        b.text(label, (0, -d + .045, 2.45), .09, 'chalk', math.pi, math.pi / 2)
+        b.text(label, (0, -d + .045, 2.45), .15, 'chalk', math.pi, math.pi / 2)
 
 def floor(b):
     """The floor is one slab with real holes (floormesh.py); only the exhaust pit below it is built here."""
