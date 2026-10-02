@@ -108,20 +108,14 @@ def build(b):
         b.box((u, .32, .45), (.46, .46, .06), 'rubber', bev=.02) if False else None
         b.box((fu(8.0), .03, 1.9), (.9, .06, .5), 'trim_black', bev=.014); b.box((fu(8.0), .062, 1.9), (.82, .006, .42), 'yellow'); wt(b, 'TURBINE 02', fu(8.0), 2.0, .1, 'trim_black', .068); wt(b, 'CONTROL DESK', fu(8.0), 1.8, .06, 'trim_black', .068)
         for t, p in ((8.4, False),): socket(b, fu(t), .5, plug=p)
-    import furniture; furniture.chair(b, 7.45, 22.45, math.pi / 2 + .1, 'steel_dark')                                       # operator chair in front of the desk
     import machinery as MM                                                                           # nameplates on the generator and on the foundation rail
     b.box((MM.CX + 1.14, 18.95, MM.AZ + .05), (.04, 1.5, .46), 'trim_black', bev=.012); b.box((MM.CX + 1.162, 18.95, MM.AZ + .05), (.006, 1.4, .38), 'oxide_dark')
     b.text('GENERATOR  G-2', (MM.CX + 1.17, 18.95, MM.AZ + .09), .125, 'chalk', math.pi / 2, math.pi / 2); b.text('24 kV  3 PHASE', (MM.CX + 1.17, 18.95, MM.AZ - .1), .075, 'chalk', math.pi / 2, math.pi / 2)
-    with b.push((6.75, 10.95, 0), math.pi / 2):                                                           # tag sign hung from the foundation rail, facing along the walkway
+    with b.push((6.45, 10.95, 0), math.pi / 2):                                                           # tag sign hung from the foundation rail, facing along the walkway
         b.box((0, 0, 1.78), (.04, 1.0, .34), 'trim_black', bev=.012); b.box((-.022, 0, 1.78), (.006, .94, .28), 'oxide_dark')
         b.text('LP TURBINE  2', (-.026, 0, 1.85), .1, 'chalk', -math.pi / 2, math.pi / 2); b.text('ROTOR  3000 RPM', (-.026, 0, 1.72), .055, 'chalk', -math.pi / 2, math.pi / 2)
         for dy in (-.4, .4): b.rod((0, dy, 1.95), (0, dy, 2.05), .012, 'steel_dark', 8)
-    b.rod((6.95, 10.95, 2.05), (7.08, 10.95, 2.05), .012, 'steel_dark', 8)
-    with b.push((6.75, 18.3, 0), math.pi / 2):                                                           # generator tag, hung on the rail so it reads along the walkway
-        b.box((0, 0, 1.78), (.04, 1.0, .34), 'trim_black', bev=.012); b.box((-.022, 0, 1.78), (.006, .94, .28), 'oxide_dark')
-        b.text('GENERATOR  G-2', (-.026, 0, 1.85), .095, 'chalk', -math.pi / 2, math.pi / 2); b.text('24 kV  3 PHASE', (-.026, 0, 1.72), .055, 'chalk', -math.pi / 2, math.pi / 2)
-        for dy in (-.4, .4): b.rod((0, dy, 1.95), (0, dy, 2.05), .012, 'steel_dark', 8)
-    b.rod((6.95, 18.3, 2.05), (7.08, 18.3, 2.05), .012, 'steel_dark', 8)
+    b.rod((6.9, 10.95, 2.05), (7.08, 10.95, 2.05), .012, 'steel_dark', 8); b.rod((6.45, 10.95, 2.05), (6.9, 10.95, 2.05), .012, 'steel_dark', 8)
     # --- tidy storage: drum group, pallet with crates, gas cylinders in a rack ---
     for (x, y, c, t1, t2) in ((9.3, 22.45, 'oxide', 'DIESEL', 'FLAMMABLE'), (8.75, 23.15, 'steel_dark', 'LUBE OIL', 'ISO 46')):
         b.cyl((x, y, .45), .27, .9, c, 'Z', 32, bev=.02)

@@ -109,7 +109,7 @@ def truss(b, y):
     b.box((3, y, 6.08), (14, .2, .16), 'steel_light', bev=.012); b.box((3, y, 7.12), (14, .2, .16), 'steel_light', bev=.012)
     for i in range(n):
         xa, xb, xc = x0 + i * st, x0 + (i + .5) * st, x0 + (i + 1) * st
-        b.rod((xa, y, 7.14), (xb, y, 6.06), .07, 'steel_dark', 12); b.rod((xb, y, 6.06), (xc, y, 7.14), .07, 'steel_dark', 12)
+        b.rod((xa, y, 7.14), (xb, y, 6.06), .07, 'steel_mid', 12); b.rod((xb, y, 6.06), (xc, y, 7.14), .07, 'steel_mid', 12)
     for i in range(n + 1): b.box((x0 + i * st, y, 6.6), (.05, .1, 1.0), 'steel_dark', bev=.005); b.box((x0 + i * st, y, 6.06), (.2, .2, .03), 'steel_light', bev=.006)
     b.box((x0 + .3, y, 6.1), (.5, .3, .04), 'steel_light', bev=.008); b.box((x1 - .3, y, 6.1), (.5, .3, .04), 'steel_light', bev=.008)
 
