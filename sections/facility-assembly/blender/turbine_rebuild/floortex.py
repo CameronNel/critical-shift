@@ -149,7 +149,7 @@ def generate(path_prefix, layout):
             xx = x + side * (w_ / 2 + .22)
             for (a, b) in layout['wet_runs']: seg_field(Dm, px(xx, a), px(xx, b), .14 * PXM, .6, 5.0)
     Dm = np.clip(blur(np.clip(Dm, 0, 1), 1.5), 0, 1); Wm = np.clip(blur(np.clip(Wm, 0, 1), 1.0), 0, 1)
-    alb *= (1 - .1 * Dm - .2 * Wm)[..., None]
+    alb *= (1 - .06 * Dm - .12 * Wm)[..., None]
     rough = rough * (1 - .3 * Dm) + .2 * .3 * Dm; rough = rough * (1 - Wm) + .035 * Wm
     height *= (1 - .55 * np.clip(Wm + .5 * Dm, 0, 1))
     # ---------- write ----------
