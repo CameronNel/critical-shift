@@ -178,7 +178,7 @@ def passage(b, frame, label):
         for s in (-1, 1):
             b.box((s * .35, -d + .04, 1.75), (.3, .015, .45), 'glass', bev=.01); b.rod((s * .12, -d + .045, .9), (s * .12, -d + .045, 1.3), .015, 'brass', 10)
             for k in range(8): b.cyl((s * .62, -d + .04, .25 + k * .22), .014, .015, 'steel_light', 'Y', 8)
-        b.box((0, -d + .02, h - .14), (w * .9, .04, .05), 'screen'); b.box((0, -.9, h - .02), (1.6, .2, .03), 'screen'); b.box((0, -d + .02, h - .3), (w * .9, .03, .04), 'led_red')
+        b.box((0, -d + .02, h - .14), (w * .9, .04, .05), 'screen'); b.box((0, -.9, h - .02), (1.6, .2, .03), 'screen'); b.box((0, -d + .02, h - .3), (w * .9, .03, .04), 'red_dark')
         for k in range(8): b.box((-.9 + k * .26, -d + .06, .005), (.12, .5, .006), 'yellow' if k % 2 == 0 else 'trim_black', (0, 0, .5), nb=True)
         b.text(label, (0, -d + .045, 2.45), .27, 'chalk', math.pi, math.pi / 2)
 

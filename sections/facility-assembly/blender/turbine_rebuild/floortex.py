@@ -133,7 +133,7 @@ def generate(path_prefix, layout):
     PA = np.zeros((H, W), np.float32)
     for (x0, y0, x1, y1) in layout['paint']: rect(PA, *px(x0, y0), *px(x1, y1), 1.0, 1.2)
     PA *= np.clip((fine + .9 * low * 0 + gnoise(rng, 5) * .8) * .6 + .85, 0, 1) * np.clip(.6 + .8 * mid, 0, 1)
-    PA = np.clip(PA, 0, 1) * .7; alb = alb * (1 - PA[..., None]) + PA[..., None] * gold * (1 + .08 * mid[..., None]); rough = rough * (1 - PA) + .7 * PA
+    PA = np.clip(PA, 0, 1) * .4; alb = alb * (1 - PA[..., None]) + PA[..., None] * gold * (1 + .08 * mid[..., None]); rough = rough * (1 - PA) + .7 * PA
     # ---------- wetness and flow ----------
     Wm = np.zeros((H, W), np.float32); Dm = np.zeros((H, W), np.float32)
     for pts, w0, w1 in layout['flows']:
