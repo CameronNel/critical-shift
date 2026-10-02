@@ -2,15 +2,15 @@
   "stage": "full",
   "base_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
   "output": "sections/facility-assembly/sources/fuel-corridor/module.blend",
-  "sha256": "3629551c379a87f6ee2983f5ad535036b9a34f783cc0ba9365c210a2c05fa80a",
+  "sha256": "68d9f2e66a8ed36fd395691a8f0ead9c726a619116000d6e04d6fdf7bbd7ac96",
   "recipe_inputs": {
-    "sections/fuel-corridor/blender/build_overhaul.py": "6b8d853e82f63d0fb93aa5313473b9283925efa15615fdd5378dc933c15f33c0",
+    "sections/fuel-corridor/blender/build_overhaul.py": "3caa5f35847aa7a25caec66f9e77f07526c445a9596fc62a1953f4c2d68492e5",
     "sections/fuel-corridor/blender/fuel_kit.py": "be28b3f0302c910167c3fa422f73fc5b0ef136b0c2fd7aa1ce4bc942f84279eb",
-    "sections/fuel-corridor/blender/fuel_assets.py": "62e1fa095d9bb1033fb61e6078f56da9a828f46ae046b5c9e3e7026f8888a563",
+    "sections/fuel-corridor/blender/fuel_assets.py": "5b30a72616c746c25b64cae69dc88c6c924203c59dca698ea610c31376b7625c",
     "sections/spawn-room/blender/cozy_geo.py": "408c0eecc9a0dd534e9f5c8f0ace5442077db0c51b1dcbb299484f1ba59b4400",
     "sections/facility-assembly/sources/fuel-corridor/contracts/interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e"
   },
-  "recipe_sha256": "5817c1524cd27f6ad0ea8b9e35e3e985d79eee62f3ff46d535743ea701f70f10",
+  "recipe_sha256": "e7e156f58000a37b3e161fd65caf63df37f486588f149675926ecc2329d0ac20",
   "protected_exterior_cores": [
     {
       "name": "Wall_S16.2_0_-5.4_concrete",
@@ -132156,10 +132156,16 @@
       "attachment": "FC | Gate service-kit parking rack"
     },
     {
-      "name": "FC | Delivery paperwork shelf",
-      "family": "folded dispatch shelf",
+      "name": "FC | Delivery arrival receipt bay",
+      "family": "rolled dispatch bay with retained route paperwork and original supported receipt ledge",
       "support_kind": "wall",
       "attachment": null
+    },
+    {
+      "name": "FC | Delivery paperwork shelf",
+      "family": "original folded dispatch shelf seated on receipt bay backing",
+      "support_kind": null,
+      "attachment": "FC | Delivery arrival receipt bay"
     },
     {
       "name": "FC | Reactor receipt clipboard",
@@ -132181,7 +132187,7 @@
     },
     {
       "name": "FC | Reactor arrival isolation tags",
-      "family": "retained keyed locks and shift inspection tags grouped with interlock and fire cylinder",
+      "family": "retained keyed locks with a formed primary isolation-state plate and shift inspection tags",
       "support_kind": "wall",
       "attachment": null
     },
@@ -132199,7 +132205,7 @@
     },
     {
       "name": "FC | Waste seal and receipt station",
-      "family": "receipt roll and captive seal tool on a supported folded pan",
+      "family": "receipt roll and captive seal tool on a supported folded pan within the waste handoff bay",
       "support_kind": "wall",
       "attachment": null
     },
@@ -132216,22 +132222,16 @@
       "attachment": null
     },
     {
-      "name": "FC | Clean-transfer inspection log",
-      "family": "fabricated inspection station with clipped sheets and staged pen",
-      "support_kind": "wall",
-      "attachment": null
-    },
-    {
       "name": "FC | Clean used-linen return station",
-      "family": "open return slot draped towel hanging stitched canvas bag and clipped exchange tally",
+      "family": "one rolled washable exchange bay linking return slot sewn bag towel and retained inspection log",
       "support_kind": "wall",
       "attachment": null
     },
     {
       "name": "FC | Cooling return lockout and check rail",
-      "family": "keyed return-circuit isolation locks and maintenance check tags below reactor direction beam",
-      "support_kind": "wall",
-      "attachment": null
+      "family": "frame-attached return-circuit state rack with keyed isolation locks and retained check tags",
+      "support_kind": null,
+      "attachment": "FC | Reactor return cooling cassette"
     },
     {
       "name": "FC | Recess purge-service handover pan",
@@ -132372,6 +132372,18 @@
       "attachment": "FC | Spill pail embossed plaque"
     },
     {
+      "name": "FC | Type ARRIVALS",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Delivery arrival receipt bay"
+    },
+    {
+      "name": "FC | Type SHIFT / CHECK",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Delivery arrival receipt bay"
+    },
+    {
       "name": "FC | Type TRANSFER CHECKS",
       "family": "screen-printed lettering",
       "support_kind": null,
@@ -132390,16 +132402,28 @@
       "attachment": "FC | Transfer handover board"
     },
     {
+      "name": "FC | Type CART / CHECK",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Wall_W-2.2_0_1.2 \u00b7 lined bay"
+    },
+    {
       "name": "FC | Type TRANSFER / READY",
       "family": "screen-printed lettering",
       "support_kind": null,
       "attachment": "FC | Reactor transfer interlock"
     },
     {
-      "name": "FC | Type ISOLATE / CHECK",
+      "name": "FC | Type ISOLATE",
       "family": "screen-printed lettering",
       "support_kind": null,
       "attachment": "FC | Reactor arrival isolation tags"
+    },
+    {
+      "name": "FC | Type ARRIVAL / CHECK",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Wall_E17.0_0_21 \u00b7 lined bay"
     },
     {
       "name": "FC | Waste bay identification type",
@@ -132438,6 +132462,12 @@
       "attachment": "FC | Sealed waste transfer vessel"
     },
     {
+      "name": "FC | Type WASTE / HANDOFF",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Wall_E16.4_0_7 \u00b7 lined bay"
+    },
+    {
       "name": "FC | Type SEAL / RECEIPT",
       "family": "screen-printed lettering",
       "support_kind": null,
@@ -132445,6 +132475,12 @@
     },
     {
       "name": "FC | Type B / 017.001",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Waste seal and receipt station"
+    },
+    {
+      "name": "FC | Type B / 017.002",
       "family": "screen-printed lettering",
       "support_kind": null,
       "attachment": "FC | Waste seal and receipt station"
@@ -132480,13 +132516,19 @@
       "attachment": "FC | Clean-transfer open linen rack"
     },
     {
-      "name": "FC | Type SHIFT / CHECK",
+      "name": "FC | Type USED LINEN",
       "family": "screen-printed lettering",
       "support_kind": null,
-      "attachment": "FC | Clean-transfer inspection log"
+      "attachment": "FC | Clean used-linen return station"
     },
     {
-      "name": "FC | Type USED LINEN",
+      "name": "FC | Type WIPE / LOG",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Clean used-linen return station"
+    },
+    {
+      "name": "FC | Type SHIFT / CHECK.001",
       "family": "screen-printed lettering",
       "support_kind": null,
       "attachment": "FC | Clean used-linen return station"
@@ -132504,7 +132546,7 @@
       "attachment": "FC | East turn reactor designation"
     },
     {
-      "name": "FC | Type RETURN CHECK",
+      "name": "FC | Type RETURN.001",
       "family": "screen-printed lettering",
       "support_kind": null,
       "attachment": "FC | Cooling return lockout and check rail"
@@ -132991,6 +133033,18 @@
     },
     {
       "name": "FC | Freight lower-channel inspection pool 3",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Delivery receipt task practical",
+      "family": "wall task luminaire",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Delivery receipt task practical pool",
       "family": null,
       "support_kind": null,
       "attachment": null
@@ -133531,7 +133585,7 @@
     },
     {
       "name": "FC | Reactor fire station",
-      "family": "shaped fire cylinder and retaining rack",
+      "family": "shaped fire cylinder and retaining rack seated on arrival checkpoint backing",
       "support_kind": "wall",
       "attachment": null
     },

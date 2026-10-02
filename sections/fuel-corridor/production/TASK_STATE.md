@@ -221,3 +221,12 @@ F9 pixel development corrected a new board/post intersection by placing the boar
 Later F9 construction gives the waste seal station and distribution cabinet their own rolled handoff bay, clearly separate from reactor RETURN; fits that frame between structural posts; integrates the existing delivery paperwork ledge into a rolled arrivals/receipt bay with retained papers and a practical; and groups reactor interlock, keyed isolation and fire equipment on a bounded cream arrival checkpoint. These are task-specific construction changes, leaving the intervening wall fields quiet. Final candidate cold/pixel/main integration and hosted F9ci evidence remain pending.
 
 F9f candidate native SHA256 4840cad9bb84950f7da48b4077f035710c3c00674db63a7d9656c43b38cb6cd8, recipe e7e156f58000a37b3e161fd65caf63df37f486588f149675926ecc2329d0ac20. Cold validation PASS with zero failures. Root opened all six affected F9f fixed draft images and verified native/image hashes, plus both earlier unchanged C01/C04 corrections and the sealed freight diagnostic. Final candidate map integration is pending. Hosted F9ci will rebuild the identical recipe and produce its own cold-checked native and full 19+closed evidence; technical completion is not an art score.
+
+## F9ci hosted execution
+
+Native SHA256 68d9f2e66a8ed36fd395691a8f0ead9c726a619116000d6e04d6fdf7bbd7ac96. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 937758, "evaluated_triangles": 943038, "mesh_objects": 334, "material_batch_upper_bound": 1385}.
