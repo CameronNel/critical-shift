@@ -16,15 +16,17 @@ so a striding leg or a raised arm never drags the shared fabric into torn-lookin
 decals are rigid to Head; kit that lies flat on the suit follows it (long edges subdivided), bands round the legs and
 small raised items move as one piece, long hard parts (belt, tank) are rigid to one bone.
 
-Legs are two-bone IK to planned foot targets, so a planted foot stays planted. Animations (all loop, in place, 24 fps):
-    IDLE          standing, arms hanging, breathing and a slow weight shift (48 frames)
+Legs are two-bone IK to planned foot targets, so a planted foot stays planted; arms are then moved out of the suit as
+it deforms in each frame (see "arm clearance"). Animations (all loop, in place, 24 fps):
+    IDLE          standing, arms hanging, breathing and a slow weight shift (48 frames; character_clips replaces it
+                  with a keyed IDLE on the same standing pose as every one-shot)
     RUN           cartoon run, arms up beside the head like \\o/, mittens waving (mixed harmonics, arms out of step),
-                  bouncy flight phase, waddle, belly and pack lag (32 frames = two strides)
+                  bouncy flight phase, waddle, belly and pack lag (18 frames = one stride, 1.57 m/s)
     HOLD_SHOVEL   standing, shovel in the right hand at chest height, blade raised forward into the lower right of the
                   first-person view (48 frames)
     HOLD_PICKAXE  the same with the pickaxe, head up and forward (48 frames)
-    RUN_SHOVEL    plain run holding the shovel the same way, left arm pumping (18 frames)
-    RUN_PICKAXE   plain run holding the pickaxe the same way, left arm pumping (18 frames)
+    RUN_SHOVEL    plain run holding the shovel the same way, left arm pumping (20 frames, 1.33 m/s)
+    RUN_PICKAXE   plain run holding the pickaxe the same way, left arm pumping (20 frames, 1.33 m/s)
 character_clips adds the gameplay clips (walks, jumps, carrying, interactions, hits, get-ups, OCRU, digging).
 """
 
@@ -1151,6 +1153,240 @@ def _finish(arm, act, frames, loop=True):
     sc.render.fps = 24
 
 
+# ------------------------------------------------------------------------------------------------------ arm clearance
+
+# The suit is puffy (sleeves about 0.13 m in radius, the coat about 0.26 m), so arms posed by their targets alone sink
+# into the coat, the legs or the hood. Once a frame's legs are solved, the body is evaluated as it really deforms (coat,
+# trousers, boots, hood and the closed kit pieces, leaving out everything that follows an arm) and each arm is moved
+# out of it: the whole arm turns about the line from its shoulder to its mitten, so the elbow swings round while the
+# hand stays on its target, and a hand that holds nothing may also swing out from the shoulder. The corrections are
+# spread over neighbouring frames so they never pop.
+_ARMB = ("Shoulder", "UpperArm", "LowerArm", "Hand")
+_COLL = {}
+CLEAR_TOL = 0.008                       # soft contact allowed before an arm counts as inside the body (m)
+_SWIVEL = [a for k in range(1, 13) for a in (8.0 * k, -8.0 * k)]
+
+
+def _face_islands(me):
+    """(face indices, closed, vertex set) per vertex island; closed when every edge is shared by two faces."""
+    edge_faces = {}
+    for p in me.polygons:
+        for k in p.edge_keys:
+            edge_faces[k] = edge_faces.get(k, 0) + 1
+    owner = {}
+    out = []
+    for verts in _islands(me):
+        rec = [[], True, set(verts)]
+        out.append(rec)
+        for i in verts:
+            owner[i] = rec
+    for p in me.polygons:
+        rec = owner[p.vertices[0]]
+        rec[0].append(p.index)
+        if any(edge_faces[k] != 2 for k in p.edge_keys):
+            rec[1] = False
+    return out
+
+
+def _collider(arm):
+    """Arm sample points (armature-space rest position, weights over that side's arm bones) and obstacle faces (all of
+    a face's vertices weighted under 0.1 to any arm, on a closed or large island) of the visible meshes skinned to
+    `arm`. Upper-arm samples that already touch the body in the bind pose (the armpit fold, the hood's rim over the
+    shoulder) are left out: that contact is built into the suit."""
+    from mathutils.bvhtree import BVHTree
+    meshes = sorted((o for o in arm.children if o.type == "MESH" and "_TOOL_" not in o.name and not o.hide_render
+                     and any(m.type == "ARMATURE" for m in o.modifiers)), key=lambda o: o.name)
+    sig = tuple((o.name, len(o.data.vertices)) for o in meshes)
+    c = _COLL.get(arm.name)
+    if c and c["sig"] == sig:
+        return c
+    inv = arm.matrix_world.inverted()
+    samples = {"Left": [], "Right": []}
+    obstacles, rest_pts, rest_faces = [], [], []
+    for o in meshes:
+        M = inv @ o.matrix_world
+        names = {g.index: g.name for g in o.vertex_groups}
+        aw = []
+        for v in o.data.vertices:
+            w = {}
+            for g in v.groups:
+                w[names[g.group]] = w.get(names[g.group], 0.0) + g.weight
+            tot = sum(w.values()) or 1.0
+            a = 0.0
+            for side, _ in SIDES:
+                ws = [(n[len(side):], x) for n, x in w.items() if n.startswith(side) and n[len(side):] in _ARMB]
+                sw = sum(x for _, x in ws)
+                a += sw
+                if sw / tot > 0.9:
+                    samples[side].append((M @ v.co, [(n, x / sw) for n, x in ws], o.name))
+            aw.append(a / tot)
+        faces = []
+        for fl, closed, verts in _face_islands(o.data):
+            if not (closed or len(verts) >= 500):
+                continue
+            for fi in fl:
+                pv = o.data.polygons[fi].vertices
+                if all(aw[i] < 0.1 for i in pv):
+                    faces.append(tuple(pv))
+        if faces:
+            used = sorted({i for f in faces for i in f})
+            remap = {i: k for k, i in enumerate(used)}
+            obstacles.append((o, used, [tuple(remap[i] for i in f) for f in faces]))
+            base = len(rest_pts)
+            rest_pts.extend(M @ o.data.vertices[i].co for i in used)
+            rest_faces.extend(tuple(base + remap[i] for i in f) for f in faces)
+    rest = BVHTree.FromPolygons(rest_pts, rest_faces) if rest_faces else None
+    for side in samples:
+        S = arm.data.bones[side + "UpperArm"].head_local
+        keep = []
+        for p, ws, src in samples[side]:
+            if rest is not None and (p - S).length < 0.25 and rest.find_nearest(p, 0.03)[0] is not None:
+                continue
+            keep.append((p, ws, src))
+        samples[side] = keep[::max(1, len(keep) // 500)]
+    c = {"sig": sig, "samples": samples, "obstacles": obstacles}
+    _COLL[arm.name] = c
+    return c
+
+
+def _obstacle_tree(arm, col):
+    """BVH of the obstacle faces as the meshes are deformed in the current frame (armature space)."""
+    from mathutils.bvhtree import BVHTree
+    dg = bpy.context.evaluated_depsgraph_get()
+    inv = arm.matrix_world.inverted()
+    pts, faces = [], []
+    for o, used, fl in col["obstacles"]:
+        oe = o.evaluated_get(dg)
+        me = oe.to_mesh()
+        M = inv @ oe.matrix_world
+        base = len(pts)
+        vs = me.vertices
+        pts.extend(M @ vs[i].co for i in used)
+        faces.extend(tuple(base + i for i in f) for f in fl)
+        oe.to_mesh_clear()
+    return BVHTree.FromPolygons(pts, faces) if faces else None
+
+
+def _arm_mats(arm, side, D, chest_def):
+    """Armature-space 4x4 deform matrices of one side's arm bones for the rotation deltas in D."""
+    bones = arm.data.bones
+    out = {}
+    h = bones[side + "Shoulder"].head_local
+    out["Shoulder"] = (Matrix.Translation(chest_def @ h) @ D[side + "Shoulder"].to_4x4()
+                       @ Matrix.Translation(-h))
+    prev = out["Shoulder"]
+    for b in ("UpperArm", "LowerArm", "Hand"):
+        h = bones[side + b].head_local
+        out[b] = Matrix.Translation(prev @ h) @ D[side + b].to_4x4() @ Matrix.Translation(-h)
+        prev = out[b]
+    return out
+
+
+def _arm_samples(arm, side, D, chest_def, col):
+    """(shoulder joint, mitten grip point, sample points relative to the shoulder) of one arm as posed by D."""
+    mats = _arm_mats(arm, side, D, chest_def)
+    bones = arm.data.bones
+    S = mats["UpperArm"] @ bones[side + "UpperArm"].head_local
+    hb = bones[side + "Hand"]
+    G = mats["Hand"] @ (hb.head_local + (hb.tail_local - hb.head_local).normalized() * _HAND_GRIP)
+    pts = []
+    for rest, ws, _ in col["samples"][side]:
+        p = sum((mats[b] @ rest * x for b, x in ws), Vector())
+        if (p - S).length > 0.20:                 # nearer the shoulder the skinning, not the pose, decides
+            pts.append(p - S)
+    return S, G, pts
+
+
+def _penetration(tree, pts):
+    """(sum of squared depths, worst depth, depth-weighted outward normal) of points inside the obstacles."""
+    tot, worst, push = 0.0, 0.0, Vector()
+    for p in pts:
+        co, n, _, _ = tree.find_nearest(p, 0.06)
+        if co is None:
+            continue
+        d = -(p - co).dot(n) - CLEAR_TOL
+        if d > 0.0:
+            tot += d * d
+            worst = max(worst, d)
+            push += n * d
+    return tot, worst, push
+
+
+def _solve_clear(tree, S, G, pts, free, prev):
+    """(rotation about the shoulder joint, swivel degrees) taking the arm out of the body: a swivel about the
+    shoulder-to-mitten line (preferring small turns and the previous frame's turn), then, for a free hand, swings out
+    from the shoulder while they still help. Identity when the arm is clear."""
+    def pen(R):
+        return _penetration(tree, [S + R @ q for q in pts])
+    I3 = Matrix.Identity(3)
+    res0 = pen(I3)
+    if res0[0] == 0.0 and abs(prev) < 1e-6:
+        return I3, 0.0
+    axis = (G - S).normalized()
+
+    def cost(a, res):
+        return res[0] * 1e4 + 0.05 * (a / 90.0) ** 2 + 0.5 * ((a - prev) / 90.0) ** 2
+    best_a, best_res, best_c = 0.0, res0, cost(0.0, res0)
+    for a in sorted({prev + d for d in (-8.0, -4.0, 4.0, 8.0)} | set(_SWIVEL)):
+        if abs(a) > 100.0:
+            continue
+        res = pen(Matrix.Rotation(math.radians(a), 3, axis))
+        c = cost(a, res)
+        if c < best_c:
+            best_a, best_res, best_c = a, res, c
+    if res0[1] - best_res[1] < 0.003:              # a turn that barely helps is not worth taking: ease back
+        best_a = prev * 0.6 if abs(prev) > 1.0 else 0.0
+        best_res = pen(Matrix.Rotation(math.radians(best_a), 3, axis))
+    R = Matrix.Rotation(math.radians(best_a), 3, axis)
+    if free:
+        for _ in range(3):
+            tot, worst, push = best_res
+            if tot == 0.0 or push.length < 1e-9:
+                break
+            g = R @ (G - S)
+            R2 = g.rotation_difference(g + push.normalized() * (worst + 0.004)).to_matrix() @ R
+            res = pen(R2)
+            if res[0] >= tot:
+                break
+            R, best_res = R2, res
+    return R, best_a
+
+
+def _rotvec(R):
+    q = R.to_quaternion()
+    if q.w < 0:
+        q.negate()
+    ax, ang = q.to_axis_angle()
+    return Vector(ax) * ang
+
+
+def _ease_fixes(vecs, loop, limit=math.radians(4.0)):
+    """Per-frame arm corrections (rotation vectors) made smooth: a 1-2-3-2-1 average, then at most `limit` radians of
+    change per frame (forward and backward passes, round the seam for a loop). A one-shot's corrections are also faded
+    to nothing over its first and last five frames, so it starts and ends exactly on the pose it blends with."""
+    n = len(vecs)
+    if n == 0:
+        return vecs
+
+    def at(v, i):
+        return v[i % n] if loop else v[min(max(i, 0), n - 1)]
+    out = [sum((at(vecs, i + k) * w for k, w in zip(range(-2, 3), (1, 2, 3, 2, 1))), Vector()) / 9.0
+           for i in range(n)]
+    for _ in range(3 if loop else 1):
+        for order in (range(n), range(n - 1, -1, -1)):
+            prev = out[order[-1]] if loop else None          # a loop's limit also holds across its seam
+            for i in order:
+                if prev is not None:
+                    d = out[i] - prev
+                    if d.length > limit:
+                        out[i] = prev + d * (limit / d.length)
+                prev = out[i]
+    if not loop:
+        for i in range(n):
+            out[i] = out[i] * (_ss(0.0, 5.0, i) * _ss(0.0, 5.0, n - 1 - i))
+    return out
+
+
 # ------------------------------------------------------------------------------------------------------ two-bone IK
 
 def _ik_two(arm, upper, lower, S, T, pole):
@@ -1237,16 +1473,38 @@ def _loop(keys, t):
 # (p, flat-ankle y, sole clearance, pitch): toe-off, heel kicked up behind, knee drive, reach, then the foot pulls back
 # into the strike. `hips` (per step, u = 0 at a strike): low at mid-stance, high in the flight phase, so one foot at
 # most is ever on the floor. Everything is in metres and degrees for this 0.72 m-legged worker.
-GAIT_PLAIN = dict(strides=1, duty=0.36, stride=(0.07, -0.25), land=6.0, push=24.0, width=0.135,
-                  swing=[(0.45, -0.31, 0.06, -38), (0.56, -0.26, 0.16, -30), (0.68, -0.08, 0.21, -10),
-                         (0.80, 0.10, 0.17, 6), (0.90, 0.17, 0.05, 10)],
-                  hips=[(0.0, -0.005), (0.30, -0.030), (0.72, 0.028), (0.86, 0.034), (1.0, -0.005)],
-                  lean=-9.0, yaw=8.0, roll=3.0, waddle=0.0, sway=0.012, nod=2.5, belly=10.0, pack=7.0)
-GAIT_CARTOON = dict(GAIT_PLAIN, strides=2, duty=0.34, land=8.0, push=26.0, width=0.14,
-                    swing=[(0.44, -0.31, 0.08, -40), (0.55, -0.25, 0.25, -34), (0.67, -0.06, 0.31, -10),
-                           (0.79, 0.12, 0.21, 8), (0.90, 0.18, 0.07, 12)],
-                    hips=[(0.0, -0.008), (0.30, -0.042), (0.70, 0.030), (0.85, 0.040), (1.0, -0.008)],
-                    lean=-4.0, yaw=10.0, roll=4.0, waddle=6.0, sway=0.026, nod=5.0, belly=16.0, pack=10.0)
+def restride(g, k=1.25, lift=1.15):
+    """Gait `g` with a stride `k` times longer about its middle, the swing path stretched with it and lifted `lift`
+    times higher, so the foot still lands where the stance starts."""
+    c0, c1 = g["stride"]
+    mid = 0.5 * (c0 + c1)
+
+    def y(v):
+        return mid + (v - mid) * k
+    return dict(g, stride=(y(c0), y(c1)), swing=[(p, y(c), cl * lift, pitch) for p, c, cl, pitch in g["swing"]])
+
+
+def with_stride(g, c0, c1):
+    """Gait `g` with the stride (c0, c1), its swing path mapped onto the new range."""
+    b0, b1 = g["stride"]
+
+    def y(v):
+        return c1 + (v - b1) * (c0 - c1) / (b0 - b1)
+    return dict(g, stride=(c0, c1), swing=[(p, y(c), cl, pitch) for p, c, cl, pitch in g["swing"]])
+
+
+# Strides are deliberate: 25 % longer than a first pass had them, with the hips a little lower so the legs reach, and
+# every gait loops over exactly one stride with the right foot striking at its start, so gaits blend in step.
+GAIT_PLAIN = restride(dict(strides=1, duty=0.36, stride=(0.07, -0.25), land=7.0, push=27.0, width=0.135,
+                           swing=[(0.45, -0.31, 0.06, -38), (0.56, -0.26, 0.16, -30), (0.68, -0.08, 0.21, -10),
+                                  (0.80, 0.10, 0.17, 6), (0.90, 0.17, 0.05, 10)],
+                           hips=[(0.0, -0.022), (0.30, -0.048), (0.72, 0.012), (0.86, 0.018), (1.0, -0.022)],
+                           lean=-9.0, yaw=9.0, roll=3.5, waddle=0.0, sway=0.014, nod=2.5, belly=10.0, pack=7.0))
+GAIT_CARTOON = restride(dict(GAIT_PLAIN, strides=1, duty=0.34, land=9.0, push=29.0, width=0.14, stride=(0.07, -0.25),
+                             swing=[(0.44, -0.31, 0.08, -40), (0.55, -0.25, 0.25, -34), (0.67, -0.06, 0.31, -10),
+                                    (0.79, 0.12, 0.21, 8), (0.90, 0.18, 0.07, 12)],
+                             hips=[(0.0, -0.025), (0.30, -0.060), (0.70, 0.014), (0.85, 0.024), (1.0, -0.025)],
+                             lean=-4.0, yaw=11.0, roll=4.5, waddle=6.0, sway=0.028, nod=5.0, belly=16.0, pack=10.0))
 
 
 def _run_foot(p, g):
@@ -1289,11 +1547,12 @@ def _slerp3(a, b, t):
 
 
 def _compose(arm, frames, name, body, arms, loop=True):
-    """Build one action in two passes. Pass 1 keys the torso and the hips (sway, height). Pass 2 evaluates each frame,
-    solves both legs with two-bone IK to the body's foot targets (so a planted foot stays planted; the knee bends
-    towards the pelvis's front) and lets `arms(ph, D, ev, chest_def)` set the arm deltas and return the tool's
-    armature-space matrix (or None), so legs, arms and tools all follow the final body. `loop`: phase wraps (frame N is
-    frame 0 again); otherwise a one-shot from phase 0 to 1."""
+    """Build one action in three passes. Pass 1 keys the torso and the hips (sway, height). Pass 2 evaluates each
+    frame and solves both legs with two-bone IK to the body's foot targets (so a planted foot stays planted; the knee
+    bends towards the pelvis's front). Pass 3 lets `arms(ph, D, ev, chest_def)` set the arm deltas and return the tool's
+    armature-space matrix (or None), then moves each arm out of the body as it deforms in that frame (`_solve_clear`;
+    `arms` may put {side: True} in D["_free"] for hands that hold nothing), so legs, arms and tools all follow the final
+    body. `loop`: phase wraps (frame N is frame 0 again); otherwise a one-shot from phase 0 to 1."""
     act = _new_action(arm, name)
     sc = bpy.context.scene
 
@@ -1326,9 +1585,46 @@ def _compose(arm, frames, name, body, arms, loop=True):
                 arm, side + "UpperLeg", side + "LowerLeg", ev[side + "UpperLeg"].head.copy(), T,
                 D["Hips"] @ Vector((sgn * 0.30, 1.0, 0.0)))      # knees bend forward and a little out, never in
             D[side + "Foot"] = rot
+        for side in ("Left", "Right"):
+            for b in ("Shoulder", "UpperArm", "LowerArm", "Hand"):
+                D[side + b] = D["Chest"]
+        _key(arm, f, D)
+    col = _collider(arm)
+    solved = []
+    for f in range(frames + 1):
+        ph = phase(f)
+        D, _, _ = body(ph)
+        sc.frame_set(f)
+        bpy.context.view_layer.update()
+        ev = _eval_bones(arm)
         chest_def = ev["Chest"].matrix @ arm.data.bones["Chest"].matrix_local.inverted()
         M = arms(ph, D, ev, chest_def)
-        _key(arm, f, D)
+        free = D.pop("_free", {})
+        tree = _obstacle_tree(arm, col) if col["obstacles"] else None
+        geo = {side: _arm_samples(arm, side, D, chest_def, col) for side, _ in SIDES} if tree is not None else None
+        solved.append((D, M, free, tree, geo))
+    n = frames if loop else frames + 1
+    fix = {side: [Matrix.Identity(3)] * (frames + 1) for side, _ in SIDES}
+    for side, _ in SIDES:
+        prev = 0.0
+        for sweep in range(2 if loop else 1):     # a loop's second sweep starts from where the first one ended
+            for f in range(n):
+                D, M, free, tree, geo = solved[f]
+                if tree is None:
+                    continue
+                S, G, pts = geo[side]
+                fix[side][f], prev = _solve_clear(tree, S, G, pts, free.get(side, False), prev)
+        eased = _ease_fixes([_rotvec(R) for R in fix[side][:n]], loop)
+        fix[side] = [Matrix.Rotation(v.length, 3, v.normalized()) if v.length > 1e-7 else Matrix.Identity(3)
+                     for v in eased]
+        if loop:
+            fix[side].append(fix[side][0])
+    for f, (D, M, free, tree, geo) in enumerate(solved):
+        for side, _ in SIDES:
+            R = fix[side][f]
+            for b in ("UpperArm", "LowerArm", "Hand"):
+                D[side + b] = R @ D[side + b]
+        _key(arm, f, D)                         # torso (unchanged) and arms; the legs keep their pass-2 keys
         _key_tool(arm, f, M if M is not None else Matrix.Identity(4))
     _finish(arm, act, frames, loop)
     return act
@@ -1402,6 +1698,7 @@ def _arms_idle(arm):
         for side, sgn in SIDES:
             _arm_neutral(arm, side, sgn, ph, D, swing=2.5 * math.sin(tp * (ph + 0.2 * sgn)), bend=10 + 3 * math.sin(tp * ph),
                          out=38.0)
+        D["_free"] = {"Left": True, "Right": True}
         return None
     return arms
 
@@ -1409,7 +1706,7 @@ def _arms_idle(arm):
 # \\o/ arms: upper arm `spread` degrees out from the chest's up axis, forearm `elbow` degrees further out (negative
 # bends it back up), shoulders shrugged `shrug` degrees, hand `flick` degrees. The hood is big, so the upper arm must
 # splay wide enough for the sleeve to pass outside it; the forearm then turns up beside the head.
-CHEER = dict(spread=48.0, spread_amp=(6.0, 3.0), elbow=-12.0, elbow_amp=(7.0, 3.0), shrug=4.0, flick=8.0)
+CHEER = dict(spread=56.0, spread_amp=(5.0, 2.5), elbow=-14.0, elbow_amp=(6.0, 3.0), shrug=4.0, flick=8.0)
 
 
 def _arms_cheer(arm, c=None):
@@ -1423,19 +1720,20 @@ def _arms_cheer(arm, c=None):
         for side, sgn in SIDES:
             off = 0.0 if sgn == 1 else 0.37
             spread = (c["spread"] + c["spread_amp"][0] * math.sin(tp * (ph + off + 0.1))
-                      + c["spread_amp"][1] * math.sin(tp * (3 * ph + off)))
-            fwd = 0.06 * math.sin(tp * (2 * ph + off + 0.3))
-            el = (c["elbow"] + c["elbow_amp"][0] * math.sin(tp * (3 * ph + off + 0.25))
-                  + c["elbow_amp"][1] * math.sin(tp * (2 * ph + off)))
+                      + c["spread_amp"][1] * math.sin(tp * (2 * ph + off)))
+            fwd = 0.06 * math.sin(tp * (ph + off + 0.3))
+            el = (c["elbow"] + c["elbow_amp"][0] * math.sin(tp * (2 * ph + off + 0.25))
+                  + c["elbow_amp"][1] * math.sin(tp * (ph + off)))
             sp, e = math.radians(spread), math.radians(el)
             D[side + "Shoulder"] = ch @ _rot("Y", -sgn * c["shrug"])
             upper = ch @ Vector((sgn * math.sin(sp), fwd, math.cos(sp)))
             D[side + "UpperArm"] = _aim_bone(arm, side + "UpperArm", upper)
             fa = ch @ Vector((sgn * math.sin(sp + e), fwd * 1.5, math.cos(sp + e)))
             D[side + "LowerArm"] = _aim_bone(arm, side + "LowerArm", fa)
-            fl = math.radians(sgn * c["flick"] * math.sin(tp * (4 * ph + off)))
+            fl = math.radians(sgn * c["flick"] * math.sin(tp * (2 * ph + off)))
             hand = ch @ Vector((sgn * math.sin(sp + e + fl), 0.0, math.cos(sp + e + fl)))
             D[side + "Hand"] = _aim_bone(arm, side + "Hand", hand)
+        D["_free"] = {"Left": True, "Right": True}
         return None
     return arms
 
@@ -1493,6 +1791,7 @@ def _arms_tool(arm, kind, running, gait=GAIT_PLAIN):
             fore = Dl @ (lb.tail_local - lb.head_local).normalized()
             wrist = grip - fore * _HAND_GRIP
         D["RightUpperArm"], D["RightLowerArm"], D["RightHand"] = Du, Dl, Dl
+        D["_free"] = {"Left": True}
         return M
     return arms
 
@@ -1504,8 +1803,8 @@ def make_idle(arm, frames=48, name="IDLE"):
     return _compose(arm, frames, name, _stand_body, _arms_idle(arm))
 
 
-def make_run_cycle(arm, frames=32, name="RUN"):
-    """Cartoon run (two strides per loop), arms up beside the head like \\o/, hands waving a little. Bouncy flight
+def make_run_cycle(arm, frames=18, name="RUN"):
+    """Cartoon run (one stride per loop), arms up beside the head like \\o/, hands waving a little. Bouncy flight
     phase, waddle, belly and pack lag. Loops seamlessly."""
     return _compose(arm, frames, name, lambda ph: _run_body(ph, GAIT_CARTOON), _arms_cheer(arm))
 
@@ -1520,12 +1819,12 @@ def make_pickaxe_hold(arm, frames=48, name="HOLD_PICKAXE"):
     return _compose(arm, frames, name, _stand_body, _arms_tool(arm, "PICKAXE", False))
 
 
-def make_shovel_run(arm, frames=18, name="RUN_SHOVEL"):
+def make_shovel_run(arm, frames=20, name="RUN_SHOVEL"):
     """A plain run, shovel held up in the right hand as in HOLD_SHOVEL, left arm pumping."""
     return _compose(arm, frames, name, lambda ph: _run_body(ph, GAIT_PLAIN), _arms_tool(arm, "SHOVEL", True))
 
 
-def make_pickaxe_run(arm, frames=18, name="RUN_PICKAXE"):
+def make_pickaxe_run(arm, frames=20, name="RUN_PICKAXE"):
     """A plain run, pickaxe held up in the right hand as in HOLD_PICKAXE, left arm pumping."""
     return _compose(arm, frames, name, lambda ph: _run_body(ph, GAIT_PLAIN), _arms_tool(arm, "PICKAXE", True))
 

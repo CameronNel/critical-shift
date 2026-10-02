@@ -263,41 +263,112 @@ All clips are in place at 24 fps. Loops have their last frame equal to the first
 start and end on the pose the game blends from and to (standing, or the crate carry). Speeds are the floor speed of the
 planted foot, so the game can match playback to the character's velocity.
 
+Movement is deliberate:
+- Strides are 25 % longer than the first pass (`restride`), and each step takes about 10 % longer, so floor speeds
+  rose by 11 to 17 %.
+- The hips sit lower so the legs reach.
+- The arms swing wider.
+- One-shots wind up before they act, hold a beat at the contact, and settle into the end pose. They are 15 to 25 %
+  longer than before.
+
 In `character_rig.py` (`ACTIONS`):
-- `IDLE` (48): standing, breathing, slow weight shift.
-- `RUN` (32, two strides, 1.4 m/s): cartoon run, arms up beside the head like \o/, mittens waving.
+- `RUN` (18, one stride, 1.57 m/s): cartoon run, arms up beside the head like \o/, mittens waving.
 - `HOLD_SHOVEL`, `HOLD_PICKAXE` (48): the tool in the right hand at chest height in front of the right shoulder, blade
   or pick head raised forward so it shows in the lower right of the first-person view (`TOOL_HOLD`); left arm hanging.
-- `RUN_SHOVEL`, `RUN_PICKAXE` (18, 1.2 m/s): a plain run holding the tool the same way (`TOOL_RUN`), left arm pumping.
+- `RUN_SHOVEL`, `RUN_PICKAXE` (20, 1.33 m/s): a plain run holding the tool the same way (`TOOL_RUN`), left arm pumping.
 
 In `character_clips.py` (`CLIPS`, registered into `ACTIONS` on import), built as keyed poses (pelvis, spine, chest and
 head angles, hips offset, mitten targets on the chest or fixed in the world or held on a prop, elbow poles, ankle
 targets with pitch and yaw), interpolated with a monotone cubic so nothing overshoots and equal keys hold:
-- Locomotion: `WALK_F` (24, 0.63 m/s), `WALK_B` (24, the walk reversed so the toe lands first), `WALK_L`/`WALK_R`
-  (16, side-steps that never cross, 0.40 m/s), `TURN_L`/`TURN_R` (20, stepping on the spot, 48 deg/s), `SPRINT` (24,
-  the \o/ run longer and quicker, 2.6 m/s), `JUMP` (14, crouch and spring, ends in the fall pose), `FALL` (20 loop,
-  arms up paddling), `LAND` (16, knees take it, back to standing).
+- Standing: `IDLE` (48 loop, breathing and a slow weight shift, keyed on the same `STAND` pose every one-shot starts
+  and ends on; it replaces the rig's procedural idle).
+- Locomotion:
+  - `WALK_F` (26, 0.73 m/s) and `WALK_B` (26, the walk reversed so the toe lands first).
+  - `WALK_L`/`WALK_R` (18, side-steps that never cross, 0.44 m/s).
+  - `TURN_L`/`TURN_R` (22, stepping on the spot, 51 deg/s).
+  - `SPRINT` (14, one stride, the \o/ run longer and quicker, 2.75 m/s).
+  - `JUMP` (17: rise, deep crouch, spring; ends in the fall pose).
+  - `FALL` (20 loop, arms up paddling).
+  - `LAND` (19: a deep absorb held a beat, then back to standing).
 - Carrying (preview crate 0.34 x 0.30 x 0.28 m, held at the rear of its sides, its top edge in the first-person view):
-  `PICKUP` (30, squat, grip, stand into the carry), `CARRY_IDLE` (48), `CARRY_WALK` (24, 0.50 m/s), `CARRY_RUN` (18,
-  0.96 m/s), `PLACE` (30, the pickup reversed), `DROP` (18), `THROW_UNDER` (28, underhand heave), `THROW_OVER` (26, a
-  chest heave with a step: the arms are too short to lift a crate over the hood), `PUSH_IDLE` (32), `PUSH_WALK` (24,
-  0.60 m/s), `PULL_WALK` (24, walking backwards, 0.50 m/s), `DRAG_BODY` (28, crouched, walking backwards with a body by
-  its shoulder straps, 0.33 m/s).
-- Interactions at the worker's chest height (its shoulders are at 1.06 m and its chin at 1.15 m): `PRESS_BUTTON` (20),
-  `PULL_LEVER` (26), `TURN_VALVE` (32 loop, hand over hand, 60 degrees per loop), `HOLD_VALVE` (32 loop, straining),
-  `OPEN` (26, pushing a door open), `INSERT` (26, a cartridge into a slot), `CONNECT_PORT` (30, plugging the service
-  cable into a worker in the OCRU), `POINT` (22), `RADIO` (48 loop, radio held to the hood).
-- Hits and recovery: `STAGGER_F`/`B`/`L`/`R` (22, a catch step each way), `GETUP_FRONT` (42, from face down: push up,
-  all fours, kneel, stand), `GETUP_BACK` (44, from the back: sit up, feet in, rock forward, stand); lying bodies lie
-  along +Y from the root and stand up on it.
-- Suit and OCRU: `SUIT_UP` (56, pull the suit up, settle it, zip, seat the hood), `LOCKER_EXIT` (24, two steps out of a
-  locker 0.45 m behind the root), `REANIM_IDLE` (48 loop, slumped in the upright OCRU cabinet), `REANIM_JOLT` (16, a
-  shock), `REANIM_EXIT` (24, wake and stumble out).
-- Tool work: `SHOVEL_DIG` (36 loop, both hands, right on the D-handle: stab, lever, lift, toss to the right).
+  - `PICKUP` (36: look down, stoop so the arms come down in front of the knees, grip, brace, stand into the carry) and
+    `PLACE` (36, the pickup reversed).
+  - `CARRY_IDLE` (48), `CARRY_WALK` (26, 0.58 m/s), `CARRY_RUN` (20, 1.08 m/s).
+  - `DROP` (22, a small heave first).
+  - `THROW_UNDER` (33, a deep wind-up held a beat) and `THROW_OVER` (31, a chest heave with a long step: the arms are
+    too short to lift a crate over the hood).
+  - `PUSH_IDLE` (32), `PUSH_WALK` (26, 0.69 m/s), `PULL_WALK` (26, walking backwards, 0.58 m/s).
+  - `DRAG_BODY` (30, crouched, walking backwards with a body by its shoulder straps, 0.39 m/s).
+- Interactions at the worker's chest height (its shoulders are at 1.06 m and its chin at 1.15 m):
+  - `PRESS_BUTTON` (24: look, draw the hand up, press, hold).
+  - `PULL_LEVER` (31: look up, grip, drop the weight into an 80 degree pull, hold).
+  - `TURN_VALVE` (32 loop, hand over hand, 60 degrees per loop) and `HOLD_VALVE` (32 loop, straining).
+  - `OPEN` (31, sit back, then push a door open stepping into it).
+  - `INSERT` (31, line a cartridge up, then push it home).
+  - `CONNECT_PORT` (36, plugging the service cable into a worker in the OCRU).
+  - `POINT` (26, gather, point, hold).
+  - `RADIO` (48 loop, radio held to the hood).
+- Hits and recovery:
+  - `STAGGER_F`/`B`/`L`/`R` (26, a bigger lurch and a longer catch step each way).
+  - `GETUP_FRONT` (48, from face down: push up, all fours, kneel, stand).
+  - `GETUP_BACK` (50, from the back: sit up, feet in, rock forward, stand).
+  - Lying bodies lie along +Y from the root and stand up on it.
+- Suit and OCRU:
+  - `SUIT_UP` (64, pull the suit up, settle it, zip, seat the hood).
+  - `LOCKER_EXIT` (28, two steps out of a locker 0.45 m behind the root).
+  - `REANIM_IDLE` (48 loop, slumped in the upright OCRU cabinet), `REANIM_JOLT` (18, a shock) and `REANIM_EXIT` (28,
+    wake and stumble out).
+- Tool work: `SHOVEL_DIG` (40 loop, both hands, right on the D-handle: stab, lever, lift, toss to the right).
 
 Props (crate, panels, lever, valve wheel, door, cartridge, radio, a body stand-in, cabinets) are preview-only stand-ins
 for the renders (`character_clips.PROPS`); they are not exported. `SHOVEL_DIG` drives the real shovel on the `Tool`
 bone.
+
+### Arm clearance
+
+The suit is puffy: the sleeves are about 0.13 m in radius and the coat about 0.26 m. An arm posed by its target alone
+sinks into the coat, the thighs or the hood.
+
+`_compose` therefore works in three passes:
+1. It keys the torso.
+2. It solves and keys the legs.
+3. It solves the arms, then evaluates the body as it really deforms in that frame and moves each arm out of it.
+
+The body here is the coat, trousers, boots, hood and the closed kit pieces, leaving out everything that follows an arm.
+Moving an arm out of it (`_solve_clear`) works like this:
+- The arm turns about the line from its shoulder to its mitten. The elbow swings round while the hand stays on its
+  target.
+- A hand that holds nothing (hanging, swinging or \o/) may also swing out from the shoulder.
+
+Contact up to 8 mm is allowed as soft fabric touching. Upper-arm points that already touch the body in the bind pose
+(the armpit fold, the hood's rim over the shoulder) and points within 0.20 m of the shoulder are left to the skinning.
+
+Corrections are averaged over five frames and limited to 4 degrees of change per frame. In a one-shot they fade to
+nothing over its first and last five frames, so the clip starts and ends exactly on the pose it blends with.
+
+### Transitions
+
+Clips are made to blend into each other:
+- Every one-shot starts and ends on `STAND` (or the carry pose), and the keyed `IDLE` is built on `STAND`. The
+  difference between them is the idle's breathing: at most 9 degrees on any bone, against 19 before.
+- One-shot keys ease in and out.
+- Loops close with no seam (the fastest loops change speed across it by under 8 degrees per frame, as they do
+  anywhere else).
+- Every gait loops over exactly one stride with the right foot striking at its first frame, so a blend between gaits,
+  or a speed-synced blend tree, keeps the feet in step.
+
+`chain.py` (in the review scratch area, not committed) renders a chain of clips with 6-frame cross-fades in the NLA as
+an engine would blend them.
+
+### Bones
+
+No bones were added. The audit traced the arm clipping to arm paths and to the skinning at the shoulder, not to a
+missing joint:
+- Twist bones would not move a sleeve out of the coat.
+- An `UpperChest` would not keep the elbow band off the hip.
+- Toes would add nothing: the boots are stiff and toeless.
+
+The skeleton stays the same 23 bones.
 
 ### First-person view
 
@@ -331,19 +402,27 @@ Suit clipping, checked on the evaluated HZ-01 suit at every frame by BVH face ov
 - mittens against the coat and legs;
 - the lowest boot vertex against the floor.
 
-40 of the 49 clips have no overlaps, and their boots stay within 1 mm of the floor. They include `IDLE`, every walk,
-turn and run, the tool runs, the carry, push, pull and drag walks, `JUMP`, `LAND` and the holds.
+42 of the 49 clips have no overlaps, and their boots stay within 1 mm of the floor. They include `IDLE`, every walk,
+turn and run (the tool runs included) and every carry, push, pull and drag walk.
 
-The other nine have contacts:
-- `PICKUP` / `PLACE`: the mittens brush the knees on the way down to the crate.
-- `SUIT_UP`: the hands grip the suit legs.
+The other seven have contacts:
+- `PICKUP` / `PLACE`: the inner thighs touch in the stooped squat, and a forearm brushes a knee for a few frames on
+  the way down.
+- `SUIT_UP`: the hands grip the suit.
 - `SHOVEL_DIG`: the left mitten touches the belly at the stab.
-- `STAGGER_L` / `STAGGER_R`: the hanging mitten brushes the thigh.
-- `LOCKER_EXIT`: 7 faces.
+- `LOCKER_EXIT`: 6 faces.
 - `GETUP_FRONT` / `GETUP_BACK`: see the known limits below.
 
-Reaches start forward and outward (`via`), so the mittens go round the belly rather than through it. The shovel
-butt clears the hip.
+Arm audit: the penetration depth of sleeves, cuffs and mittens into the torso, legs, boots and hood, measured at every
+frame.
+- After the arm clearance:
+  - the \o/ forearms in the hood are down from 50 to 26 mm;
+  - the tool runs' pumping arm is down from 42 to 16 mm;
+  - the reaching forearms in the chest are down from 39–46 to 23–39 mm;
+  - `PULL_WALK` is down from 41 to 30 mm, `SHOVEL_DIG` from 50 to 28 mm and the idle from 27 to 20 mm.
+- The wider hanging pose keeps the elbow bands out of the belt pouches. It also presses the back of the right armpit
+  up to 38 mm into the coat when the chest twists (turns, side-steps, staggers). That contact lies between the arm and
+  the back, hidden under the sleeve in the renders.
 
 Known limits: not imported into Unity (Humanoid Avatar mapping, clip import and the first-person camera are untested in
 the engine). Clips are in place with no root motion, so planted feet slide back on the treadmill unless playback speed
@@ -357,6 +436,9 @@ re-keyed). The FBX clips and renders are not committed.
 
 Status: kept on the `claude/character-rig` branch, not merged. Open polish items:
 - Clear the get-up hand and knee contacts.
+- A corrective for the shoulder skinning: the fold behind the armpit and the inner sleeve near the shoulder, which
+  the arm clearance deliberately leaves to the skinning.
+- Re-key the reaches that still bring a forearm into the chest (`CONNECT_PORT`, `INSERT`, `TURN_VALVE`; 23 to 39 mm).
 - Mittens higher in the \o/ run (they reach about the top of the hood).
 - Round the flank wall that shows under a raised arm, and ease the armpit stretch (up to about 5.5x at the fold).
 - Root motion or foot locking, so the planted foot does not slide on the treadmill.
