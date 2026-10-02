@@ -82,7 +82,7 @@ def generate(path_prefix, layout):
     for xa, xb in zip(xs, xs[1:]):
         for ya, yb in zip(ys, ys[1:]):
             x0, y0 = px(xa, ya); x1, y1 = px(xb, yb); alb[int(y0):int(y1), int(x0):int(x1)] *= 1 + rng.uniform(-.07, .07)
-    rough = np.clip(.34 + .08 * mid + .05 * low, .12, .9).astype(np.float32)
+    rough = np.clip(.52 + .05 * mid + .03 * low, .12, .9).astype(np.float32)
     height = (.05 * mid + .02 * fine + .04 * low).astype(np.float32)
     # polished traffic corridors (door to bay, along the channels) and general wear
     pol = np.zeros((H, W), np.float32)
@@ -150,7 +150,7 @@ def generate(path_prefix, layout):
             for (a, b) in layout['wet_runs']: seg_field(Dm, px(xx, a), px(xx, b), .14 * PXM, .6, 5.0)
     Dm = np.clip(blur(np.clip(Dm, 0, 1), 1.5), 0, 1); Wm = np.clip(blur(np.clip(Wm, 0, 1), 1.0), 0, 1)
     alb *= (1 - .22 * Dm - .38 * Wm)[..., None]
-    rough = rough * (1 - .65 * Dm) + .12 * .65 * Dm; rough = rough * (1 - Wm) + .035 * Wm
+    rough = rough * (1 - .3 * Dm) + .2 * .3 * Dm; rough = rough * (1 - Wm) + .035 * Wm
     height *= (1 - .55 * np.clip(Wm + .5 * Dm, 0, 1))
     # ---------- write ----------
     alb_s = np.power(np.clip(alb, 0, 1), 1.0)                                    # already authored in sRGB-like space

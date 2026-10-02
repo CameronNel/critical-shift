@@ -168,7 +168,7 @@ def exposed_lp(b, y0, y1):
         for q in range(32):
             a = 2 * math.pi * q / 32; ca, sa = math.cos(a), math.sin(a)
             M = Matrix(((0, -sa, ca, CX + R * ca), (1, 0, 0, y), (0, ca, sa, AZ + R * sa), (0, 0, 0, 1))) @ Matrix.Rotation(math.radians(24), 4, 'Z')
-            b.push_m(M); b.prism([(-.17, 0), (-.09, .035), (.09, .035), (.17, 0), (.09, -.035), (-.09, -.035)], .17, 'brass_blade', (0, 0, .09), True, 'Z', bev=.004); b.pop()
+            b.push_m(M); b.prism([(.14 * math.cos(t * math.pi / 5), .036 * math.sin(t * math.pi / 5)) for t in range(10)], .17, 'brass_blade', (0, 0, .09), True, 'Z', bev=.004); b.pop()
         b.arc_shell((CX, y, AZ), R + .2, R + .16, .05, 0, 2 * math.pi, 'steel_light', 40)                        # shroud band
         b.cyl((CX, y + .22, AZ), .3, .06, 'brass', 'Y', 32, bev=.006)                                              # seal collar on the shaft
     b.reserve_box((CX, yc, AZ), (2.7, L, 1.5))
