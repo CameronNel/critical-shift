@@ -132,6 +132,13 @@ def stepped(b, segs, body, flanges=True, nbolt=16):
     """segs: [(y0, y1, r0, r1), ...] frustums joined by flange rings."""
     for k, (y0, y1, r0, r1) in enumerate(segs):
         b.cyl((CX, (y0 + y1) / 2, AZ), r0, y1 - y0, body, 'Y', 48, r2=r1)
+        if y1 - y0 > .8:                                                                                         # access hatches on both flanks (frame, raised door, bolts, handle)
+            ym = (y0 + y1) / 2; rm = (r0 + r1) / 2
+            for sd in (1, -1):
+                hx = CX + sd * (rm + .012)
+                b.box((hx, ym, AZ + .1), (.05, .62, .5), 'trim_black', bev=.02); b.box((hx + sd * .03, ym, AZ + .1), (.03, .54, .42), 'steel_mid', bev=.015)
+                for q in range(6): b.cyl((hx + sd * .05, ym - .22 + (q % 3) * .22, AZ + .1 + (.17 if q < 3 else -.17)), .02, .03, 'steel_light', 'X', 8)
+                b.rod((hx + sd * .07, ym - .1, AZ + .1), (hx + sd * .07, ym + .1, AZ + .1), .016, 'pale_steel', 8)
         if y1 - y0 > .9:                                                                                         # dark banded collars (spawn-room trim language)
             b.cyl((CX, y0 + .07, AZ), r0 + .03, .14, 'steel_light', 'Y', 48, bev=.01)                           # pale base band so the lower casing reads
             for t in (.3, .7):

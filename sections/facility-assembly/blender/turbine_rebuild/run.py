@@ -33,7 +33,7 @@ def make_mats(grp):
         tex = nt.nodes.new('ShaderNodeTexImage'); tex.image = atlas; tex.interpolation = 'Linear'; tex.name = 'ALBEDO'; tex.location = (-250, 0)
         nt.links.new(uvn.outputs[0], tex.inputs[0])
         if emissive:
-            e = nt.nodes.new('ShaderNodeEmission'); e.inputs['Strength'].default_value = 2.6; e.location = (300, 0)
+            e = nt.nodes.new('ShaderNodeEmission'); e.inputs['Strength'].default_value = 2.0; e.location = (300, 0)
             nt.links.new(tex.outputs[0], e.inputs['Color']); nt.links.new(e.outputs[0], out.inputs['Surface'])
         else:
             p = nt.nodes.new('ShaderNodeBsdfPrincipled'); p.location = (300, 0)

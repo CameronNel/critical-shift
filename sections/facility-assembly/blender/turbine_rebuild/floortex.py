@@ -113,7 +113,7 @@ def generate(path_prefix, layout):
         P = np.zeros((H, W), np.float32); a, b = px(x - w_ / 2, y - h_ / 2); c, d = px(x + w_ / 2, y + h_ / 2); rect(P, a, b, c, d, 1.0, 1.0)
         E = np.zeros((H, W), np.float32)
         for A, B in (((a, b), (c, b)), ((c, b), (c, d)), ((c, d), (a, d)), ((a, d), (a, b))): seg_field(E, A, B, 3.0, 1.0, .8)
-        alb = alb * (1 - .6 * P[..., None]) + P[..., None] * np.array([.15, .17, .20], np.float32) * (1 + .1 * mid[..., None]); rough = rough * (1 - P) + .62 * P
+        alb = alb * (1 - .6 * P[..., None]) + P[..., None] * np.array([.085, .085, .09], np.float32) * (1 + .1 * mid[..., None]); rough = rough * (1 - P) + .62 * P
         alb *= (1 - .85 * E)[..., None]; height += .8 * P - 1.2 * E
     # ---------- tyre scuffs ----------
     S = np.zeros((H, W), np.float32)
