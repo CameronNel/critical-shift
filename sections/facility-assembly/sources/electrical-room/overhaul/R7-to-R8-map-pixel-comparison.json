@@ -1,0 +1,68 @@
+{
+  "mode": "same_module_assembled_candidate_stability",
+  "scope": "Two separately saved assembled candidates with the same electrical source and canonical base/dependencies. Candidate bytes may differ through relative source paths or save metadata; this is not a same-candidate-byte cold test or runtime certification.",
+  "module_sha256": "00bdb79fcbe46af64320b02c56b7cbcb4f2cf218ca5d737a755c19e4face37be",
+  "base_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+  "previous_candidate_sha256": "41cc99b45e7789b4b2f07214800da62b451f367e38b871e93ac0f8c3dd5c6261",
+  "current_candidate_sha256": "cf2b68b1f1b4757792e7f998d97c1e6ea4278f88b160a1ade3b05d1191c1bbd5",
+  "candidate_bytes_identical": false,
+  "views": [
+    {
+      "camera": "EI_C01_Entry",
+      "decoded_pixels_identical": true,
+      "mean_absolute_difference_8bit_rgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maximum_channel_difference_8bit": 0
+    },
+    {
+      "camera": "EI_C03_Reverse",
+      "decoded_pixels_identical": true,
+      "mean_absolute_difference_8bit_rgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maximum_channel_difference_8bit": 0
+    },
+    {
+      "camera": "EI_C04_Route",
+      "decoded_pixels_identical": true,
+      "mean_absolute_difference_8bit_rgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maximum_channel_difference_8bit": 0
+    },
+    {
+      "camera": "EI_W01_Turbine_Return",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        4.340277777777778e-06,
+        0.0,
+        2.170138888888889e-06
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "EI_W02_Waste_Approach",
+      "decoded_pixels_identical": true,
+      "mean_absolute_difference_8bit_rgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maximum_channel_difference_8bit": 0
+    }
+  ],
+  "all_decoded_pixels_identical": false,
+  "failures": [
+    "assembled-map pixels differ:EI_W01_Turbine_Return"
+  ],
+  "pass": false,
+  "require_identical_pixels": true,
+  "visual_acceptance": "Not assigned; retained strict bit-exact preflight."
+}

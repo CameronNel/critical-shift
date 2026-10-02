@@ -1,0 +1,66 @@
+{
+  "mode": "same_module_assembled_candidate_stability",
+  "scope": "Two separately saved assembled candidates with the same electrical source and canonical base/dependencies. Candidate bytes may differ through relative source paths or save metadata; this is not a same-candidate-byte cold test or runtime certification.",
+  "module_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
+  "base_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+  "previous_candidate_sha256": "9526b3392b133a2f09059eda6c14a5a28b107e0e4d7d369173491357be04b234",
+  "current_candidate_sha256": "132dde7f53a067b4eff75f1eabe7469991e053dff722499197011a78623a9a6d",
+  "candidate_bytes_identical": false,
+  "views": [
+    {
+      "camera": "EI_C01_Entry",
+      "decoded_pixels_identical": true,
+      "mean_absolute_difference_8bit_rgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maximum_channel_difference_8bit": 0
+    },
+    {
+      "camera": "EI_C03_Reverse",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        4.340277777777778e-06,
+        0.0,
+        3.2552083333333335e-06
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "EI_C04_Route",
+      "decoded_pixels_identical": true,
+      "mean_absolute_difference_8bit_rgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maximum_channel_difference_8bit": 0
+    },
+    {
+      "camera": "EI_W01_Turbine_Return",
+      "decoded_pixels_identical": false,
+      "mean_absolute_difference_8bit_rgb": [
+        8.680555555555556e-06,
+        2.170138888888889e-06,
+        7.595486111111111e-06
+      ],
+      "maximum_channel_difference_8bit": 1
+    },
+    {
+      "camera": "EI_W02_Waste_Approach",
+      "decoded_pixels_identical": true,
+      "mean_absolute_difference_8bit_rgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "maximum_channel_difference_8bit": 0
+    }
+  ],
+  "all_decoded_pixels_identical": false,
+  "require_identical_pixels": false,
+  "visual_acceptance": "Not assigned by this script. Independent reviewer must assess the complete images and measured differences.",
+  "failures": [],
+  "pass": true
+}

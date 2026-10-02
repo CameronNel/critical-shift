@@ -1,0 +1,218 @@
+{
+  "source": "/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend",
+  "sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+  "objects": [
+    {
+      "name": "MATERIAL_PREVIEW_EXTERIOR_INSTANCE_electrical-room",
+      "type": "MESH",
+      "render_hidden": false,
+      "viewport_hidden": false,
+      "library": "//facility_spawn_material_preview_R17.blend",
+      "instance_collection": null,
+      "instance_library": null,
+      "properties": {
+        "preview_source": "EXTERIOR_INSTANCE_electrical-room"
+      }
+    },
+    {
+      "name": "VC | Restored INTERIOR_D02 electrical threshold light",
+      "type": "LIGHT",
+      "render_hidden": false,
+      "viewport_hidden": false,
+      "library": null,
+      "instance_collection": null,
+      "instance_library": null,
+      "properties": {
+        "construction": "authored structural or assembly component"
+      }
+    },
+    {
+      "name": "VC | Restored Electrical entry light.001",
+      "type": "LIGHT",
+      "render_hidden": false,
+      "viewport_hidden": false,
+      "library": null,
+      "instance_collection": null,
+      "instance_library": null,
+      "properties": {}
+    },
+    {
+      "name": "VC | Restored Electrical entry light",
+      "type": "LIGHT",
+      "render_hidden": false,
+      "viewport_hidden": false,
+      "library": null,
+      "instance_collection": null,
+      "instance_library": null,
+      "properties": {}
+    },
+    {
+      "name": "VC | Roof-finished MATERIAL_PREVIEW_electrical-room",
+      "type": "MESH",
+      "render_hidden": false,
+      "viewport_hidden": false,
+      "library": null,
+      "instance_collection": null,
+      "instance_library": null,
+      "properties": {
+        "preview_source": "electrical-room",
+        "source_object": "MATERIAL_PREVIEW_electrical-room",
+        "scope": "Only upward exterior ceiling faces recoloured; original geometry retained"
+      }
+    },
+    {
+      "name": "RFX | Pump electrical pedestal",
+      "type": "MESH",
+      "render_hidden": false,
+      "viewport_hidden": false,
+      "library": null,
+      "instance_collection": null,
+      "instance_library": null,
+      "properties": {}
+    },
+    {
+      "name": "RFS | Electrical caution",
+      "type": "FONT",
+      "render_hidden": false,
+      "viewport_hidden": false,
+      "library": null,
+      "instance_collection": null,
+      "instance_library": null,
+      "properties": {}
+    },
+    {
+      "name": "RFS | Electrical caution.001",
+      "type": "FONT",
+      "render_hidden": false,
+      "viewport_hidden": false,
+      "library": null,
+      "instance_collection": null,
+      "instance_library": null,
+      "properties": {}
+    }
+  ],
+  "collections": [],
+  "layers": [],
+  "libraries": [
+    {
+      "stored": "//../exteriors/refinery/exterior-R01.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../exteriors/refinery/exterior-R01.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../exteriors/waste-storage/exterior-R01.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../exteriors/waste-storage/exterior-R01.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../exteriors/condenser-bay/exterior-R02.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../exteriors/condenser-bay/exterior-R02.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../exteriors/fuel-corridor/exterior-R02.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../exteriors/fuel-corridor/exterior-R02.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../exteriors/cooling-plant/exterior-R03.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../exteriors/cooling-plant/exterior-R03.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../exteriors/electrical-room/exterior-R03.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../exteriors/electrical-room/exterior-R03.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../exteriors/medical-reanimation/exterior-R04.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../exteriors/medical-reanimation/exterior-R04.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../exteriors/turbine-room/exterior-R04.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../exteriors/turbine-room/exterior-R04.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../exteriors/reactor-room/exterior-R05.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../exteriors/reactor-room/exterior-R05.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../exteriors/spawn-room/exterior-R05.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../exteriors/spawn-room/exterior-R05.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../exteriors/compliance-dock/exterior-R08.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../exteriors/compliance-dock/exterior-R08.blend",
+      "exists": true
+    },
+    {
+      "stored": "//facility_spawn_material_preview_R17.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/compliance-dock/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/compliance-dock/module.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/condenser-bay/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/condenser-bay/module.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/cooling-plant/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/cooling-plant/module.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/electrical-room/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/electrical-room/module.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/fuel-corridor/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/fuel-corridor/module.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/medical-reanimation/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/medical-reanimation/module.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/mine/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/mine/module.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/reactor-room/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/reactor-room/module.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/refinery/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/refinery/module.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/spawn-room/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/spawn-room/module.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/turbine-room/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/turbine-room/module.blend",
+      "exists": true
+    },
+    {
+      "stored": "//../sources/waste-storage/module.blend",
+      "resolved": "/workspace/critical-shift/sections/facility-assembly/blender/../sources/waste-storage/module.blend",
+      "exists": true
+    }
+  ]
+}

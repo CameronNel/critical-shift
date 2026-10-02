@@ -1,0 +1,138 @@
+{
+  "repair_kind": "service_lead_and_vision_finish",
+  "input_sha256": "00bdb79fcbe46af64320b02c56b7cbcb4f2cf218ca5d737a755c19e4face37be",
+  "output_sha256": "70216c22c3fb7716150b5f1670a3228bf36afd78a32db42734bb382e77fc371f",
+  "declared_changes": {
+    "changed_existing_mesh_objects": [
+      "EOH | Coiled test lead",
+      "EOH | Lead reel hook",
+      "EOH | Test lead hanging tail",
+      "EOH | Lead terminal insulated grip",
+      "EOH | Coiled test lead.001",
+      "EOH | Lead reel hook.001",
+      "EOH | Test lead hanging tail.001",
+      "EOH | Lead terminal insulated grip.001",
+      "EOH | Resting test lead",
+      "EOH | Resting test lead.001"
+    ],
+    "added_objects": [
+      "EOH | Lead plug clip returned stem",
+      "EOH | Lead plug clip returned stem.001",
+      "EOH | Lead plug open spring clip",
+      "EOH | Lead plug open spring clip.001",
+      "EOH | Lead saddle cleat fixing hex head",
+      "EOH | Lead saddle cleat fixing hex head.001",
+      "EOH | Lead saddle cleat fixing hex head.002",
+      "EOH | Lead saddle cleat fixing hex head.003",
+      "EOH | Lead saddle cleat fixing washer",
+      "EOH | Lead saddle cleat fixing washer.001",
+      "EOH | Lead saddle cleat fixing washer.002",
+      "EOH | Lead saddle cleat fixing washer.003",
+      "EOH | Lead saddle keeper fixing hex head",
+      "EOH | Lead saddle keeper fixing hex head.001",
+      "EOH | Lead saddle keeper fixing washer",
+      "EOH | Lead saddle keeper fixing washer.001",
+      "EOH | Lead saddle mounting cleat",
+      "EOH | Lead saddle mounting cleat.001",
+      "EOH | Lead saddle returned keeper",
+      "EOH | Lead saddle returned keeper.001",
+      "EOH | Stored lead plug contact",
+      "EOH | Stored lead plug contact.001",
+      "EOH | Stored lead second-end bend",
+      "EOH | Stored lead second-end bend.001",
+      "EOH | Stored lead shrouded plug",
+      "EOH | Stored lead shrouded plug.001",
+      "EOH | Stored probe grip rib",
+      "EOH | Stored probe grip rib.001",
+      "EOH | Stored probe grip rib.002",
+      "EOH | Stored probe grip rib.003",
+      "EOH | Stored probe grip rib.004",
+      "EOH | Stored probe grip rib.005",
+      "EOH | Stored probe grip rib.006",
+      "EOH | Stored probe grip rib.007",
+      "EOH | Stored probe tapered strain relief",
+      "EOH | Stored probe tapered strain relief.001"
+    ],
+    "measured_winding_supports": [
+      {
+        "coil": 0,
+        "winding": 0,
+        "support_gap_m": 6.6757201988565384e-09
+      },
+      {
+        "coil": 0,
+        "winding": 1,
+        "support_gap_m": 6.6757201988565384e-09
+      },
+      {
+        "coil": 0,
+        "winding": 2,
+        "support_gap_m": 6.6757201988565384e-09
+      },
+      {
+        "coil": 0,
+        "winding": 3,
+        "support_gap_m": 6.6757201988565384e-09
+      },
+      {
+        "coil": 1,
+        "winding": 0,
+        "support_gap_m": 6.6757201988565384e-09
+      },
+      {
+        "coil": 1,
+        "winding": 1,
+        "support_gap_m": 6.6757201988565384e-09
+      },
+      {
+        "coil": 1,
+        "winding": 2,
+        "support_gap_m": 6.6757201988565384e-09
+      },
+      {
+        "coil": 1,
+        "winding": 3,
+        "support_gap_m": 6.6757201988565384e-09
+      }
+    ],
+    "measured_trolley_endpoints": [
+      {
+        "cable": "EOH | Resting test lead",
+        "endpoint_errors_m": [
+          1.1920928955078125e-07,
+          2.6656007498500226e-07
+        ]
+      },
+      {
+        "cable": "EOH | Resting test lead.001",
+        "endpoint_errors_m": [
+          1.6858739404357614e-07,
+          2.384185791015625e-07
+        ]
+      }
+    ],
+    "trolley_jack_and_probe_endpoints_preserved": true
+  },
+  "vision_finish": {
+    "material": "EOH | Wired vision glass",
+    "previous_roughness_min_max_coat": [
+      0.10000000149011612,
+      0.23000000417232513,
+      0.10999999940395355
+    ],
+    "roughness_min_max_coat": [
+      0.02500000037252903,
+      0.07500000298023224,
+      0.07500000298023224
+    ],
+    "existing_color_variation_micro_normal_transmission_and_wires_preserved": true
+  },
+  "unchanged_object_signatures": 3023,
+  "changed_material_definitions": [
+    "EOH | Wired vision glass"
+  ],
+  "all_other_material_definitions_unchanged": true,
+  "all_other_matrices_geometry_material_assignments_visibility_lights_unchanged": true,
+  "source_bytes_unchanged": true,
+  "scope": "Ten cable/hook/boot meshes rebuilt, supported retainers/second ends added and one existing wired-glass roughness profile refined. All other geometry, material definitions, lights, interfaces and cameras preserved."
+}

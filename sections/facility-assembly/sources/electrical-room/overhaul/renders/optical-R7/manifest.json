@@ -1,0 +1,59 @@
+{
+  "source_sha256": "00bdb79fcbe46af64320b02c56b7cbcb4f2cf218ca5d737a755c19e4face37be",
+  "purpose": "Controlled optical experiment only; duplicated existing fuse behind parked pane is temporary and is never saved as room dressing.",
+  "temporary_specimen_objects": [
+    "OPTICAL SPECIMEN | EOH | Fuse cradle",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic barrel",
+    "OPTICAL SPECIMEN | EOH | Fuse crimped end cap",
+    "OPTICAL SPECIMEN | EOH | Fuse knife contact blade",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw washer",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw hex head",
+    "OPTICAL SPECIMEN | EOH | Fuse crimped end cap.001",
+    "OPTICAL SPECIMEN | EOH | Fuse knife contact blade.001",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw washer.001",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw hex head.001",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic shoulder",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic shoulder.001",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic batch imprint",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic stamp"
+  ],
+  "specimen_translation": [
+    2.3199996948242188,
+    -13.549999237060547,
+    0.8530000448226929
+  ],
+  "camera_matrix": [
+    -0.9932631254196167,
+    -0.001918115303851664,
+    0.11586490273475647,
+    -1.649999976158142,
+    0.11588077992200851,
+    -0.016440371051430702,
+    0.9931270480155945,
+    2.0999999046325684,
+    -7.019668402108437e-08,
+    0.9998630285263062,
+    0.01655188761651516,
+    1.9800000190734863,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "lens": 70.0,
+  "samples": 24,
+  "transmission_weight": 0.9599999785423279,
+  "views": [
+    {
+      "file": "OP01_Through_Glass.png",
+      "pane_hidden": false,
+      "sha256": "966708f08c86b438a8bb6a01763b4bf97413471c58a83026beb9ac3142ae975e"
+    },
+    {
+      "file": "OP02_No_Pane_Control.png",
+      "pane_hidden": true,
+      "sha256": "f1923828e04649ce71230002e9ffe67b23478334ceea74fb50d18e603f978609"
+    }
+  ],
+  "saved_source_unchanged": true
+}

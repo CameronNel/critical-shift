@@ -1,0 +1,870 @@
+{
+  "scope": "Candidate link containment, canonical electrical library ID compatibility, intended electrical instance, retired cache and unchanged inherited missing-ID set. Not a clean whole-map/runtime certification.",
+  "base_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+  "candidate_sha256": "32108597ac441c4c3f857e0942b553229d38be02f46c22f3ce6478b7e626e1f2",
+  "module_sha256": "2ebf7d15af65d62b869e1d1b438f04b965cde4a0c95f3c87a898e6aebba8e364",
+  "electrical_instance_module": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R4.blend",
+  "libraries": [
+    {
+      "stored": "//../../../../exteriors/refinery/exterior-R01.blend",
+      "relative_to_checkout": "sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "91dc6d076ef5b0a74f9b4931b253e14692081c1d9ec605dfa6ea0d0fd452710c"
+    },
+    {
+      "stored": "//../../../../exteriors/waste-storage/exterior-R01.blend",
+      "relative_to_checkout": "sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "c3cacb97088899afbf8202e1d44da0ec3d79d39b1c71408cbb629e8cf4ad2db8"
+    },
+    {
+      "stored": "//../../../../exteriors/condenser-bay/exterior-R02.blend",
+      "relative_to_checkout": "sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "48abbe1061e038749aab76e1fb1217a329abdd40592da7fba21d578842c75ade"
+    },
+    {
+      "stored": "//../../../../exteriors/fuel-corridor/exterior-R02.blend",
+      "relative_to_checkout": "sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "2ecbdb89cf46e6b8b745f7b54d24714e77731fbb5544470ea2102ccbb74f1b29"
+    },
+    {
+      "stored": "//../../../../exteriors/cooling-plant/exterior-R03.blend",
+      "relative_to_checkout": "sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "29241944814b0eb02bd87c627448c2a9a05bfb4832efb786294e1752c722a92e"
+    },
+    {
+      "stored": "//../../../../exteriors/electrical-room/exterior-R03.blend",
+      "relative_to_checkout": "sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "cf7ed65234a618ae957f4d5254dd0b008761da7a7d3e77cb85da095467b03551"
+    },
+    {
+      "stored": "//../../../../exteriors/medical-reanimation/exterior-R04.blend",
+      "relative_to_checkout": "sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "a123a72256b3f920e28bcdeaf942d3277bd2513fb14267c5686f9a7d9a8a9787"
+    },
+    {
+      "stored": "//../../../../exteriors/turbine-room/exterior-R04.blend",
+      "relative_to_checkout": "sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "7483c0eebaacfb479a7a1c65e1da7430079c4332eb5dab836b5ad9259563e40d"
+    },
+    {
+      "stored": "//../../../../exteriors/reactor-room/exterior-R05.blend",
+      "relative_to_checkout": "sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "19e2808ff7edfd0415be7f66322568d992a0e67bd02a9e4f7907dfb6ac7a6385"
+    },
+    {
+      "stored": "//../../../../exteriors/spawn-room/exterior-R05.blend",
+      "relative_to_checkout": "sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "5c236b25f3fef0243c5d086f71eb33d006a77cedfe05bfd91848d1ff1a245b5a"
+    },
+    {
+      "stored": "//../../../../exteriors/compliance-dock/exterior-R08.blend",
+      "relative_to_checkout": "sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "a2a2a57c6531cd6a4bf6a6d5b92d07b81d1630a4b5ab553ff762771127bb2ccb"
+    },
+    {
+      "stored": "//../../../../blender/facility_spawn_material_preview_R17.blend",
+      "relative_to_checkout": "sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937"
+    },
+    {
+      "stored": "//full-R4.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R4.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "2ebf7d15af65d62b869e1d1b438f04b965cde4a0c95f3c87a898e6aebba8e364"
+    },
+    {
+      "stored": "//../../../compliance-dock/module.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/compliance-dock/module.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947"
+    },
+    {
+      "stored": "//../../../condenser-bay/module.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/condenser-bay/module.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "7a58204e39fd0a4f7a3dde05632caa6f001a30611ad8d00b7fc29e1452a7a2d0"
+    },
+    {
+      "stored": "//../../../cooling-plant/module.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/cooling-plant/module.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "253d60c86c70a239637d39193c2a8a888ddcddb1246eef1450332d76a5b56bcb"
+    },
+    {
+      "stored": "//../../../fuel-corridor/module.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/fuel-corridor/module.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c"
+    },
+    {
+      "stored": "//../../../medical-reanimation/module.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/medical-reanimation/module.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523"
+    },
+    {
+      "stored": "//../../../mine/module.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/mine/module.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "10f50d0593bf4924f945d90e0fd2a7c512efe66ff8e5306aeaae20dd81c26445"
+    },
+    {
+      "stored": "//../../../reactor-room/module.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/reactor-room/module.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "27100e235b26b874a5206671bdb8934c3726a22bd3d7c75514606b2e8f686278"
+    },
+    {
+      "stored": "//../../../refinery/module.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/refinery/module.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "de064242c534a12e69e7aac3c46c7118a285024626fdd423bb20eef339079ff8"
+    },
+    {
+      "stored": "//../../../spawn-room/module.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/spawn-room/module.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "1964d3d16716730631af0d5c77bcc604a64455092142cc57c0283172a563a977"
+    },
+    {
+      "stored": "//../../../turbine-room/module.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/turbine-room/module.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "841646bdecd9699c26ff463afcb7eee231d17b64f9e7cc379c3a05137ecd6110"
+    },
+    {
+      "stored": "//../../../waste-storage/module.blend",
+      "relative_to_checkout": "sections/facility-assembly/sources/waste-storage/module.blend",
+      "inside_checkout": true,
+      "exists": true,
+      "sha256": "8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d4449caecedf"
+    }
+  ],
+  "inherited_missing_id_count": 128,
+  "candidate_missing_id_count": 128,
+  "inherited_missing_ids_unchanged": true,
+  "inherited_missing_ids": [
+    [
+      "objects",
+      "BELONG_01_fold_0",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_fold_0_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_fold_0_fold_edge",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_fold_0_fold_edge.001",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_fold_0_folded_fabric",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_fold_1",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_fold_1_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_fold_1_fold_edge",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_fold_1_fold_edge.001",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_fold_1_folded_fabric",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_0",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_0_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_0_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_0_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_0_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_1",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_1_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_1_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_1_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_1_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_2",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_2_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_2_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_2_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_hanger_2_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_jacket",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_jacket_body",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_01_mid_shelf",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_bag",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_bag_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_bag_mesh",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_fold_0",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_fold_0_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_fold_0_fold_edge",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_fold_0_fold_edge.001",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_fold_0_folded_fabric",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_0",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_0_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_0_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_0_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_0_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_1",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_1_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_1_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_1_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_1_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_2",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_2_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_2_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_2_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_hanger_2_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_02_mid_shelf",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_fold_0",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_fold_0_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_fold_0_fold_edge",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_fold_0_fold_edge.001",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_fold_0_folded_fabric",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_0",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_0_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_0_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_0_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_0_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_1",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_1_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_1_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_1_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_1_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_2",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_2_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_2_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_2_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_hanger_2_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_jacket",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_jacket_body",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_03_mid_shelf",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_bag",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_bag_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_bag_mesh",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_fold_0",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_fold_0_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_fold_0_fold_edge",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_fold_0_fold_edge.001",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_fold_0_folded_fabric",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_fold_1",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_fold_1_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_fold_1_fold_edge",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_fold_1_fold_edge.001",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_fold_1_folded_fabric",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_0",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_0_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_0_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_0_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_0_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_1",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_1_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_1_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_1_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_1_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_2",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_2_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_2_crossbar",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_2_hook",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_hanger_2_shoulders",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "BELONG_04_mid_shelf",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_01_work_boot",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_01_work_boot.001",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_01_work_boot.001_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_01_work_boot.001_mesh",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_01_work_boot_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_01_work_boot_mesh",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_02_work_boot",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_02_work_boot.001",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_02_work_boot.001_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_02_work_boot.001_mesh",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_02_work_boot_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_02_work_boot_mesh",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_03_work_boot",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_03_work_boot.001",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_03_work_boot.001_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_03_work_boot.001_mesh",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_03_work_boot_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_03_work_boot_mesh",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_04_work_boot",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_04_work_boot.001",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_04_work_boot.001_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_04_work_boot.001_mesh",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_04_work_boot_contact_00",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ],
+    [
+      "objects",
+      "PPE_04_work_boot_mesh",
+      "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend"
+    ]
+  ],
+  "pre_promotion_missing_id_receipt": "sections/facility-assembly/sources/electrical-room/overhaul/candidate-audit-R3.json",
+  "pre_promotion_base_missing_ids_unchanged": true,
+  "pre_promotion_receipt_available": true,
+  "canonical_map_electrical_id_requests": {
+    "objects": [],
+    "meshes": [],
+    "materials": [
+      "Brushed galvanized steel",
+      "Bus copper - aged",
+      "Cotton electrician rag",
+      "Dry ground concrete",
+      "Elastomer joint filler",
+      "Energized pilot lens",
+      "Exposed ochre primer",
+      "Exposed steel at contact wear",
+      "Galvanized bus casing",
+      "Instrument glass",
+      "Insulating rubber",
+      "Isolator vermilion",
+      "Localized contact abrasion",
+      "Ochre safety enamel",
+      "Oxide orange painted steel",
+      "Porcelain standoff",
+      "Printed charcoal",
+      "Replacement concrete",
+      "Standby ochre enamel",
+      "Structural warm graphite",
+      "Switch housing phenolic",
+      "Transfer pilot lens",
+      "Warm grey enamel",
+      "Warm precast concrete",
+      "Warm prismatic diffuser",
+      "Work order paper"
+    ],
+    "curves": [],
+    "collections": [],
+    "lights": [],
+    "node_groups": [],
+    "images": [],
+    "armatures": [],
+    "worlds": [],
+    "cameras": []
+  },
+  "module_absent_legacy_ids": [],
+  "module_legacy_id_compatibility_pass": true,
+  "missing_object_data": [],
+  "failures": [],
+  "pass": true
+}

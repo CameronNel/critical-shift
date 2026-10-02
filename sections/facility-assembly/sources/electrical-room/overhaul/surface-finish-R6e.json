@@ -1,0 +1,65 @@
+{
+  "input_sha256": "2449094c75ac6e886ae5669d8dc8615c356edc8b20135e841908f10ee735c3f6",
+  "output_sha256": "0af8ba32e214023cbf67c7e89063eedce9e30fc36f5bccb99c248eeef1d35948",
+  "declared_changes": {
+    "material_profiles": [
+      "cream",
+      "slate",
+      "enamel",
+      "floor",
+      "route"
+    ],
+    "practical_powers_watts": {
+      "Entry fluorescent light": 85,
+      "Rear hall practical light": 105,
+      "West rear practical light": 250,
+      "Transformer task practical light": 375,
+      "Reserve bay practical light": 255,
+      "EOH | Bench practical": 42
+    },
+    "individual_leaf_coating_phases": [
+      {
+        "leaf": "Parked sliding leaf",
+        "coordinate_offset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "material": "EOH | Leaf 1 individual coating"
+      },
+      {
+        "leaf": "Parked sliding leaf.001",
+        "coordinate_offset": [
+          1.43,
+          0.57,
+          0.23
+        ],
+        "material": "EOH | Leaf 2 individual coating"
+      },
+      {
+        "leaf": "Parked sliding leaf.002",
+        "coordinate_offset": [
+          2.86,
+          1.14,
+          0.46
+        ],
+        "material": "EOH | Leaf 3 individual coating"
+      },
+      {
+        "leaf": "Parked sliding leaf.003",
+        "coordinate_offset": [
+          4.29,
+          1.71,
+          0.6900000000000001
+        ],
+        "material": "EOH | Leaf 4 individual coating"
+      }
+    ],
+    "new_registered_service_assemblies": 1,
+    "localized_floor_contacts": 6
+  },
+  "original_geometry_matrices_unchanged": true,
+  "checked_objects": 3033,
+  "source_bytes_unchanged": true,
+  "scope": "Declared broad material response, existing practical powers and six supported service-floor contact additions; no shell/camera/interface edits"
+}

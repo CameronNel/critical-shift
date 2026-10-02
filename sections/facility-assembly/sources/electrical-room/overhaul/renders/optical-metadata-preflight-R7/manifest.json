@@ -1,0 +1,59 @@
+{
+  "source_sha256": "00bdb79fcbe46af64320b02c56b7cbcb4f2cf218ca5d737a755c19e4face37be",
+  "purpose": "Controlled optical experiment only; duplicated existing fuse behind parked pane is temporary and is never saved as room dressing.",
+  "temporary_specimen_objects": [
+    "OPTICAL SPECIMEN | EOH | Fuse cradle",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic barrel",
+    "OPTICAL SPECIMEN | EOH | Fuse crimped end cap",
+    "OPTICAL SPECIMEN | EOH | Fuse knife contact blade",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw washer",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw hex head",
+    "OPTICAL SPECIMEN | EOH | Fuse crimped end cap.001",
+    "OPTICAL SPECIMEN | EOH | Fuse knife contact blade.001",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw washer.001",
+    "OPTICAL SPECIMEN | EOH | Fuse contact retaining screw hex head.001",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic shoulder",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic shoulder.001",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic batch imprint",
+    "OPTICAL SPECIMEN | EOH | Fuse ceramic stamp"
+  ],
+  "specimen_translation": [
+    2.3199996948242188,
+    -13.549999237060547,
+    0.8530000448226929
+  ],
+  "camera_matrix": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "lens": 70.0,
+  "samples": 24,
+  "transmission_weight": 0.9599999785423279,
+  "views": [
+    {
+      "file": "OP01_Through_Glass.png",
+      "pane_hidden": false,
+      "sha256": "7fc47ff0541eacc93aecf20a2b55e62a63814211b9c3f6128b32f143ac120166"
+    },
+    {
+      "file": "OP02_No_Pane_Control.png",
+      "pane_hidden": true,
+      "sha256": "beb91e71d3d155f873713529f08f80b8da4b7f4c929d635d5a9045e064aad666"
+    }
+  ],
+  "saved_source_unchanged": true
+}

@@ -1,0 +1,2 @@
+# Raw scene surveys are large evidence assets; preserve them through existing LFS.
+renders/**/inspection.json filter=lfs diff=lfs merge=lfs -text
