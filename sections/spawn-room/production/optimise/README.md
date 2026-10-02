@@ -1,8 +1,8 @@
 # Spawn room delivery optimisation (look-preserving derivative)
 
-> **Current as of the HZ-01 locker suit (2026-10-01):** this derivative was regenerated from the linked module with the HZ-01 locker LOD
+> **Current as of the 90+ pass on the HZ-01 locker suit (2026-10-02):** this derivative was regenerated from the linked module with the HZ-01 locker LOD
 > (see [Hero suit LOD](#hero-suit-lod-hz-01) below and [the reference suit handoff](../hero-suit-reference/README.md)); the contact,
-> signature and six-camera render checks below were re-run on it.
+> signature and seven-camera render checks below were re-run on it after the 90+ pass.
 
 `module_optimised.blend` (next to `module.blend` in `sections/facility-assembly/sources/spawn-room/`) is a **separate
 delivery derivative**. The approved `module.blend`, `accepted.blend`, the assembled map and `SOURCES.json` are not touched.
@@ -71,22 +71,23 @@ Every number below (objects, joins, conversions, draw calls, materials) comes fr
   lost the keyframes of
   `POD_state_READY` (an animated text object converted to a mesh); Codex's review of #60 caught this class of bug and the
   comparison now fails on it, and also fails if the derivative gains an action, driver or NLA entry the original did not have.
-- `validate_contacts.py` on the derivative: PASS (208 tagged objects, 0 failures) on the post-polish module, same as the original (the count was 224 before the suit pass removed the belongings and added the hooks, docks and strip lights). (An earlier
-  version of this script merged support targets and failed 48 of them; targets are now kept by name.)
-- Render comparison (Cycles, 48 samples, denoised, fixed seed, 960x540) on six fixed validation cameras, original vs
-  derivative; `renders/<camera>.png` shows before | after | difference amplified 6x:
+- `validate_contacts.py` on the derivative: PASS (197 tagged objects, 0 failures) on the 90+ module, same as the canonical module. (The count was 224 before the suit pass removed the belongings and added the hooks, docks and strip lights, 208 after the polish pass, and 197 after the 90+ pass removed seven plants and the duplicate notice board with their contacts.) An earlier version of this script merged support targets and failed 48 of them; targets are now kept by name. Output for the 90+ module: `../final-pass/contact_validation_90plus.json`.
+- Render comparison (Cycles, 48 samples, denoised, fixed seed, 960x540) on seven fixed validation cameras, original vs
+  derivative, both rendered on the 90+ module; `renders/<camera>.png` shows before | after | difference amplified 6x:
 
   | Camera | mean abs diff | 99th percentile | pixels differing by more than 8% |
   |---|---:|---:|---:|
-  | VALIDATE_Spawn | 0.0067 | 0.047 | 0.192% |
-  | VALIDATE_LockerDoor | 0.0070 | 0.043 | 0.132% |
-  | VALIDATE_BriefingDoor | 0.0086 | 0.051 | 0.291% |
-  | VALIDATE_ExitReverse | 0.0060 | 0.039 | 0.103% |
-  | VALIDATE_Hero_A | 0.0065 | 0.043 | 0.150% |
-  | VALIDATE_Material_A | 0.0080 | 0.047 | 0.177% |
+  | VALIDATE_Spawn | 0.0065 | 0.043 | 0.174% |
+  | VALIDATE_LockerDoor | 0.0074 | 0.043 | 0.138% |
+  | VALIDATE_LockerReverse | 0.0079 | 0.051 | 0.292% |
+  | VALIDATE_BriefingDoor | 0.0086 | 0.051 | 0.303% |
+  | VALIDATE_ExitReverse | 0.0054 | 0.035 | 0.066% |
+  | VALIDATE_Hero_A | 0.0065 | 0.043 | 0.139% |
+  | VALIDATE_Material_A | 0.0081 | 0.047 | 0.181% |
 
-  The differences sit on edges (anti-aliasing and denoiser noise from a different object order); there are no
-  colour or pattern shifts. Rendered again on the post-polish module (wear layer, doorway spill, reframed Material_A) and its regenerated derivative; I looked at the Hero_A montage (the linked suit, neck collar, dock and strip light match, differences on edges only); the other five were checked by the numbers only. This is a Cycles comparison, not engine rendering, and not art approval.
+  The differences sit on edges (anti-aliasing and denoiser noise from a different object order); I found no
+  colour or pattern shifts in the views I looked at (the canonical renders of Spawn, LockerDoor, LockerReverse, ExitReverse and Hero_A in `../final-pass/renders_90plus/`); BriefingDoor and Material_A were checked by the numbers only. This is a Cycles comparison of the Blender scenes, not an engine measurement.
+- Signature comparison canonical vs derivative on the 90+ module: PASS, worst relative area difference 1.98e-05 over 224 materials.
 
 ## Not done / not claimed
 

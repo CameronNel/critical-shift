@@ -12,7 +12,7 @@ Idempotent: every step removes by name or sets absolute values.
      CONFIDENCE") are removed and the board is scaled down; the duplicate hall notice board by the spawn doors is removed.
   3. Locker doors: the open doors keep their 108 degree angle (the suits stay visible) but their inside faces were blank
      red slabs filling the foreground of LockerDoor/LockerReverse. Each of the eight leaves gets a raised, bevelled stiffener
-     panel; the four left-hand leaves also get a polished plate (mirror) in the upper third. Parented to the leaf, so they
+     panel; the four left-hand leaves also get a polished plate (mirror) above the panel. Parented to the leaf, so they
      follow it. Door sizes are unchanged.
   4. Hall lighting: the three ceiling tubes get graded power (bright at the spawn end, dim in the middle, mid at the
      airlock end) so the hall has falloff instead of an even wash. They stay baked emissive fixtures; light budget unchanged.
@@ -95,7 +95,9 @@ for lk in (1, 2, 3, 4):
         base = "DOORIN_%02d_%s" % (lk, side)
         box(base + "_panel", door, (sx * 0.25, 0.0165, 0.95), (0.33, 0.013, 1.30), "V_locker_steel", 0.004)
         if side == "L":
-            box(base + "_mirror", door, (sx * 0.25, 0.0145, 1.62), (0.24, 0.009, 0.34), "steel", 0.002)
+            # wholly above the panel (panel top at local z 1.60) and clear of the leaf face (local y 0.010), so it shares no
+            # surface with either
+            box(base + "_mirror", door, (sx * 0.25, 0.0155, 1.82), (0.24, 0.009, 0.34), "steel", 0.002)
 
 # ---------------------------------------------------------------- 4. hall lighting
 for name, watts in (("HALL_light_00_area", 150.0), ("HALL_light_01_area", 70.0), ("HALL_light_02_area", 105.0)):
