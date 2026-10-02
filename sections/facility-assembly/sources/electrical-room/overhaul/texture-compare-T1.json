@@ -1,0 +1,428 @@
+{
+  "objects_before": 3177,
+  "objects_after": 3193,
+  "unchanged_objects": 2225,
+  "objects_with_bevel_changes_only": 952,
+  "distinct_bevel_changes": [
+    [
+      [
+        "BEVEL",
+        0.0003,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.001,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.00112,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.0012,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.00144,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.00168,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.0018,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.00184,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.00192,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.002,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.003,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.004,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.005,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.006,
+        2
+      ],
+      [
+        "BEVEL",
+        0.006,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.007,
+        2
+      ],
+      [
+        "BEVEL",
+        0.007,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.008,
+        2
+      ],
+      [
+        "BEVEL",
+        0.008,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.009,
+        2
+      ],
+      [
+        "BEVEL",
+        0.009,
+        1
+      ]
+    ],
+    [
+      [
+        "BEVEL",
+        0.012,
+        2
+      ],
+      [
+        "BEVEL",
+        0.012,
+        1
+      ]
+    ]
+  ],
+  "objects_changed_in_other_ways": [],
+  "objects_added": [
+    "Grip pad draw-out end",
+    "Grip pad draw-out end moulded body",
+    "Grip pad entry side",
+    "Grip pad entry side moulded body",
+    "Grip pad rear side",
+    "Grip pad rear side moulded body",
+    "Grip pad reserve threshold",
+    "Grip pad reserve threshold moulded body",
+    "Grip pad transfer cabinet",
+    "Grip pad transfer cabinet moulded body",
+    "Grip pad transformer gate",
+    "Grip pad transformer gate moulded body",
+    "Grip pad transformer service",
+    "Grip pad transformer service moulded body",
+    "Grip pad workbench",
+    "Grip pad workbench moulded body"
+  ],
+  "added_are_only_grip_pads": true,
+  "materials_added": [
+    "EOH | grip rubber"
+  ],
+  "materials_removed": [],
+  "cameras_and_lights_unchanged": true,
+  "colour_management_unchanged": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "grip_pads": [
+    {
+      "pad": "Grip pad draw-out end",
+      "floor_top_z_under_samples": [
+        0.0,
+        0.0013,
+        0.0013,
+        0.0,
+        0.0013,
+        0.0013,
+        0.0,
+        0.0013,
+        0.0013
+      ],
+      "footprint_xy": [
+        -2.93,
+        2.23,
+        -2.17,
+        2.87
+      ],
+      "equipment_overlapping_footprint_below_4cm": []
+    },
+    {
+      "pad": "Grip pad entry side",
+      "floor_top_z_under_samples": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "footprint_xy": [
+        1.55,
+        0.67,
+        2.35,
+        1.23
+      ],
+      "equipment_overlapping_footprint_below_4cm": []
+    },
+    {
+      "pad": "Grip pad rear side",
+      "floor_top_z_under_samples": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "footprint_xy": [
+        -2.39,
+        15.15,
+        -1.51,
+        15.75
+      ],
+      "equipment_overlapping_footprint_below_4cm": []
+    },
+    {
+      "pad": "Grip pad reserve threshold",
+      "floor_top_z_under_samples": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "footprint_xy": [
+        4.35,
+        12.05,
+        5.05,
+        12.95
+      ],
+      "equipment_overlapping_footprint_below_4cm": []
+    },
+    {
+      "pad": "Grip pad transfer cabinet",
+      "floor_top_z_under_samples": [
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "footprint_xy": [
+        3.18,
+        8.66,
+        4.02,
+        9.34
+      ],
+      "equipment_overlapping_footprint_below_4cm": []
+    },
+    {
+      "pad": "Grip pad transformer gate",
+      "floor_top_z_under_samples": [
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013
+      ],
+      "footprint_xy": [
+        1.88,
+        6.03,
+        2.82,
+        6.77
+      ],
+      "equipment_overlapping_footprint_below_4cm": []
+    },
+    {
+      "pad": "Grip pad transformer service",
+      "floor_top_z_under_samples": [
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013,
+        0.0013
+      ],
+      "footprint_xy": [
+        2.18,
+        4.02,
+        2.82,
+        4.58
+      ],
+      "equipment_overlapping_footprint_below_4cm": []
+    },
+    {
+      "pad": "Grip pad workbench",
+      "floor_top_z_under_samples": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "footprint_xy": [
+        -3.69,
+        11.87,
+        -2.71,
+        12.53
+      ],
+      "equipment_overlapping_footprint_below_4cm": []
+    }
+  ],
+  "grip_pads_on_floor_and_clear_of_equipment": true,
+  "texture_revision": "Rustic paint / wet concrete / grip pads / crisp hero edges T1",
+  "pass": true
+}
