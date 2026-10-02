@@ -1,6 +1,6 @@
 # Fuel corridor overhaul state
 
-Phase: gloomy/rundown Blender authoring revision delivered as F14ci; independent still-image gate passed. Target-speed playback and Unity/runtime remain unverified.
+Phase: owner-requested self-critique and ten-detail revision in progress; F14ci is the preserved previous deliverable.
 Branch: `codex/fuel-corridor-overhaul-20261001` from `75983b9`.
 Source: `sections/facility-assembly/sources/fuel-corridor/module.blend`.
 Baseline SHA256: `f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c`.
@@ -403,3 +403,7 @@ blender -b -t 4 --factory-startup --disable-autoexec --python-exit-code 1 --pyth
 ```
 
 The preview command requires a fresh directory and ffmpeg/ffprobe. Original PNG sequence captures remain local; the durable MP4, manifest, native source and reproduction script are published. The F13 fixture-attribution correction and pre-final temporal drafts remain development evidence. [CHECKLIST.md](CHECKLIST.md) separates completed authoring checks from unavailable playback and unrun runtime gates. Published in [draft PR70](https://github.com/CameronNel/critical-shift/pull/70); no agent merge. Open the delivered live module through `blender --python open_map.py`; direct opening of the canonical map retains its historical render cache. Owner art approval, merge and Unity acceptance are separate.
+
+## F15 detail revision in progress
+
+Owner requests all-area render inspection, builder self-critique, ten purposeful small details, autonomous repairs and pessimistic Luna review. All20 source-matched F14ci baseline images were opened. Findings and selected additions: [SELF_CRITIQUE_DETAILS.md](SELF_CRITIQUE_DETAILS.md). New native/cold/full-view/independent review are pending; prior F14 scores do not approve these edits. Wall/floor footprint, cameras, interfaces, mood and native flicker schedule remain protected. No score override.

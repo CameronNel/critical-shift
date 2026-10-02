@@ -4,7 +4,7 @@ No runtime controllers or external material assets. Damage is authored in a few
 measured clusters; original wall/floor/port contracts stay fixed. Flicker keys
 belong to each fixture's isolated optic material and its own light data.
 """
-import json, math
+import json, math, random, hashlib
 import bpy
 from mathutils import Matrix, Vector
 from fuel_kit import *
@@ -51,6 +51,23 @@ def worn_tile(b,rect,material,state,cell,i,j):
         b.box((w,h,.020),((a+c)/2,(d+e)/2,-.010),mat(material),.0014,seg=3)
         return
     FLOOR_DAMAGE.append({'cell':cell['id'],'tile':[i,j],'state':state,'bounds':list(rect),'bed_z':-.020})
+    seed=int(hashlib.sha256((cell['id']+str(i)+','+str(j)).encode()).hexdigest()[:8],16)
+    rng=random.Random(seed)
+    def fracture(pts):
+        result=[]
+        for p,q in zip(pts,pts[1:]+pts[:1]):
+            result.append(p)
+            # Retain the tile's original outside boundaries; fracture only the
+            # newly exposed edges. Secondary chips stay inside the old tile.
+            boundary=(abs(p[0]-q[0])<1e-8 and min(abs(p[0]-a),abs(p[0]-c))<1e-8) or (abs(p[1]-q[1])<1e-8 and min(abs(p[1]-d),abs(p[1]-e))<1e-8)
+            if boundary:continue
+            dx=q[0]-p[0];dy=q[1]-p[1];length=math.hypot(dx,dy)
+            if length<.035:continue
+            for t in [.24,.49,.73]:
+                nick=rng.uniform(-.009,.009)
+                xx=p[0]+t*dx-dy/length*nick;yy=p[1]+t*dy+dx/length*nick
+                result.append((min(c-.0005,max(a+.0005,xx)),min(e-.0005,max(d+.0005,yy))))
+        return result
     # Rough mineral adhesive, with combed ridges ending beneath retained shards.
     b.box((w,h,.001),( (a+c)/2,(d+e)/2,-.0195),mat('tile mortar'),0)
     for k in range(max(2,int(w/.08))):
@@ -63,6 +80,7 @@ def worn_tile(b,rect,material,state,cell,i,j):
                     [(c,d+h*.12),(c-w*.075,d+h*.24),(c-w*.045,d+h*.34),(c-w*.11,d+h*.43),(c,d+h*.57)],
                     [(a+w*.42,d),(a+w*.64,d),(a+w*.58,d+h*.065),(a+w*.48,d+h*.11)],
                     [(a+w*.32,e),(a+w*.58,e),(a+w*.49,e-h*.10),(a+w*.37,e-h*.045)]]:
+            pts=fracture(pts)
             polygon(b,pts,.018,mat('tile exposed biscuit'),pos=(0,0,-.019),bevel=.0008)
             polygon(b,pts,.001,mat(material),pos=(0,0,-.001),bevel=.0003)
         for k in range(7):
@@ -74,6 +92,7 @@ def worn_tile(b,rect,material,state,cell,i,j):
         pieces=[[(a,d),(c,d),(c,d+h*.32),(a+w*.63,d+h*.38),(a+w*.39,d+h*.61),(a,d+h*.52)],
                 [(a,e),(a,d+h*.66),(a+w*.30,d+h*.74),(a+w*.53,d+h*.56),(c,e-h*.20),(c,e)]]
         for pts in pieces:
+            pts=fracture(pts)
             polygon(b,pts,.019,mat('tile exposed biscuit'),pos=(0,0,-.020),bevel=.0006)
             polygon(b,pts,.001,mat(material),pos=(0,0,-.001),bevel=.0002)
 

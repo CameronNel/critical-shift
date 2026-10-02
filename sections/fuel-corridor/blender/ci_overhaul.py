@@ -25,6 +25,7 @@ CAMERAS='C01_ENTRY,C02_PRIMARY_ROUTE,C03_HERO,C04_REVERSE,C05_EAST_TURN,C06_REAC
 # Six workers reduce review latency without changing pixels, samples or coverage.
 # The last worker also renders the closed freight diagnostic.
 CAMERA_GROUPS=[CAMERAS.split(',')[a:c] for a,c in [(0,4),(4,7),(7,10),(10,13),(13,16),(16,19)]]
+DETAIL_CAMERAS=['P01_BENCH_POWER','P02_PROCESS_JUNCTION','P03_REACTOR_INTERCOM','P04_FLOOR_STRAINER']
 
 def git(*args):
     return subprocess.check_output(['git','-C',str(ROOT),*args]).decode().strip()
@@ -103,6 +104,9 @@ def views(group):
     (FULL/'RENDER_MANIFEST.json').rename(FULL/('GROUP_'+str(group)+'.json'))
     if group==len(CAMERA_GROUPS)-1:
         run('closed_render',common+['--factory-startup','--python',str(TASK/'blender/render_closed_gate.py'),'--',str(NATIVE),str(CLOSED)],env)
+    if group<len(DETAIL_CAMERAS):
+        detail=DETAIL_CAMERAS[group]
+        run('detail_render_'+str(group),common+['--factory-startup','--python',str(TASK/'blender/render_detail_proofs.py'),'--',str(NATIVE),str(LOGS/'details'/detail),detail],env)
     assert hashlib.sha256(NATIVE.read_bytes()).hexdigest()==sha
 
 def verify_evidence():
@@ -115,6 +119,14 @@ def verify_evidence():
         if folder==FULL:assert [c['name'] for c in evidence['cameras']]==CAMERAS.split(',')
         for camera in evidence['cameras']:
             assert hashlib.sha256((folder/camera['image']).read_bytes()).hexdigest()==camera['sha256']
+    full_evidence=json.loads((FULL/'RENDER_MANIFEST.json').read_text())
+    for name in DETAIL_CAMERAS:
+        folder=LOGS/'details'/name
+        evidence=json.loads((folder/'RENDER_MANIFEST.json').read_text())
+        assert evidence['scene_sha256']==sha and len(evidence['cameras'])==1
+        camera=evidence['cameras'][0];assert camera['name']==name
+        assert all(evidence[k]==full_evidence[k] for k in ['blender','engine','device','samples','seed','denoise','resolution','view_transform','look','exposure'])
+        assert hashlib.sha256((folder/camera['image']).read_bytes()).hexdigest()==camera['sha256']
     return sha,report
 
 def assemble():

@@ -13,6 +13,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from fuel_kit import *
 import fuel_assets as A
 import fuel_atmosphere as ATM
+import fuel_details as DETAILS
 
 TASK=ROOT/'sections/fuel-corridor'
 SOURCE=ROOT/'sections/facility-assembly/sources/fuel-corridor/module.blend'
@@ -911,8 +912,15 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
         if width>=4:label('REACTOR' if side<0 else '02',obj.matrix_world@Vector((0,-.109,height-.56)),.19 if side<0 else .32,normal=n,material='ink',parent=obj.name)
         # Sparse handling marks at the active grip/kick region, asymmetric in use.
         damage=B()
-        for j in range(4 if side<0 else 2):
-            polygon(damage,[(0,0),(.042,.003),(.028,.009),(-.008,.006)],.0004,mat('chip'),pos=(.10+j*.014,-.139 if width>=3 else -.1088,(.78 if width>=3 else .62)+j*.025),rot=Matrix.Rotation(math.pi/2,3,'X'))
+        import random
+        rng=random.Random(int(hashlib.sha256((name+str(side)).encode()).hexdigest()[:8],16))
+        for j in range(rng.randint(3,6)):
+            length=rng.uniform(.013,.054);high=rng.uniform(.003,.012)
+            pts=[(0,0),(length*.27,-high*.17),(length,high*.13),
+                 (length*.78,high*.48),(length*.37,high),(-length*.10,high*.60)]
+            xx=-side*w*.19+rng.uniform(-.059,.059)
+            zz=(.54 if width>=3 else .41)+rng.uniform(-.050,.069)
+            polygon(damage,pts,.0004,mat('chip'),pos=(xx,-.139 if width>=3 else -.1088,zz),rot=Matrix.Rotation(math.pi/2,3,'X'))
         add(damage,name+(' left handling wear' if side<0 else ' right handling wear'),'FC | Doors',pos=p,normal=n,parent=obj.name,family='localized handled paint loss')
         stroke=side*((width/2+w/2+.75)-width/4)
         obj['closed_to_open_translation_m']=list(T.to_3x3()@Vector((stroke,0,0)))
@@ -1284,7 +1292,7 @@ def run():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',choices=['slice','full'],default='full')
     parser.add_argument('--output');opts=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     assert hashlib.sha256(BASE.read_bytes()).hexdigest()==BASE_HASH,'Baseline changed'
-    recipe_paths=[Path(__file__).resolve(),Path(__file__).with_name('fuel_kit.py'),Path(A.__file__).resolve(),Path(ATM.__file__).resolve(),ROOT/'sections/spawn-room/blender/cozy_geo.py',CONTRACT]
+    recipe_paths=[Path(__file__).resolve(),Path(__file__).with_name('fuel_kit.py'),Path(A.__file__).resolve(),Path(ATM.__file__).resolve(),Path(DETAILS.__file__).resolve(),ROOT/'sections/spawn-room/blender/cozy_geo.py',CONTRACT]
     recipe_inputs={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in recipe_paths}
     recipe_hash=hashlib.sha256(json.dumps(recipe_inputs,sort_keys=True).encode()).hexdigest()
     bpy.ops.wm.open_mainfile(filepath=str(BASE),load_ui=False)
@@ -1391,6 +1399,7 @@ def run():
     scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=48;scene.cycles.use_denoising=True;scene.cycles.seed=7
     scene.view_settings.view_transform='AgX';scene.view_settings.look='AgX - Medium High Contrast';scene.view_settings.exposure=-.15
     scene.render.resolution_x=1440;scene.render.resolution_y=960;scene.render.resolution_percentage=100
+    infrastructure_details=DETAILS.install(mounted,WALLS,FLOORS,wall_pos) if full else []
     atmosphere=ATM.apply(mounted) if full else {}
     if full:bpy.data.orphans_purge(do_local_ids=True,do_linked_ids=False,do_recursive=True)
     compatibility=main_cache_material_compatibility() if full else {}
@@ -1413,7 +1422,7 @@ def run():
             'fixed_cameras':[o.name for o in scene.objects if o.type=='CAMERA'],
             'baseline_cameras':baseline_cameras,'baseline_runtime':baseline_runtime,
             'wall_assets':WALLS,'floor_assets':FLOORS,'ceiling_assets':CEILINGS,'original_ports':contract['ports'],
-            'localized_recesses':RECESSES,'atmosphere':atmosphere}
+            'localized_recesses':RECESSES,'atmosphere':atmosphere,'infrastructure_details':infrastructure_details}
     p=TASK/'production'/('SLICE_BUILD.json' if not full else 'BUILD_MANIFEST.json');p.write_text(json.dumps(report,indent=2))
     print('FUEL_BUILD',opts.stage,len(scene.objects),'objects',report['sha256'],flush=True)
 

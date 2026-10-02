@@ -3,19 +3,39 @@ import math
 from mathutils import Matrix, Vector
 from fuel_kit import B, mat, frame, bolt, ring, polygon, rounded_path, wear, channel,merge
 
+def dial_scale(b,x,y,z,r):
+    """Sparse physical scale printing, retained inside the glazing aperture."""
+    strokes={
+        '0':'abcedf','2':'abged','4':'fgbc','6':'afgedc','8':'abcdefg',
+    }
+    segments={
+        'a':((-1,1),(1,1)),'b':((1,1),(1,0)),
+        'c':((1,0),(1,-1)),'d':((1,-1),(-1,-1)),
+        'e':((-1,-1),(-1,0)),'f':((-1,0),(-1,1)),
+        'g':((-1,0),(1,0)),
+    }
+    for digit,a in zip('02468',[225,157.5,90,22.5,-45]):
+        ang=math.radians(a);xx=x+r*.48*math.cos(ang);zz=z+r*.48*math.sin(ang)
+        width=r*.050;height=r*.085
+        for seg in strokes[digit]:
+            p,q=segments[seg]
+            b.tube([(xx+p[0]*width,y,zz+p[1]*height),
+                    (xx+q[0]*width,y,zz+q[1]*height)],r*.0065,mat('ink'),seg=6)
+
 def instrument_dial(b,x,y,z,r=.085):
     rot=Matrix.Rotation(math.pi/2,3,'X')
     b.lathe([(0,0),(r*.91,0),(r,.010),(r,.044),(r*.88,.055),
              (r*.80,.055),(r*.80,.050),(0,.050)],(x,y,z),mat('steel'),seg=48,rot=rot)
-    b.cyl(r*.79,.001,(x,y-.051,z),mat('paper'),seg=48,axis='Y')
+    b.cyl(r*.79,.001,(x,y-.051,z),mat('dial face'),seg=48,axis='Y')
     for i in range(17):
-        a=math.radians(30+i*18)
+        a=math.radians(225-i*270/16)
         rr=r*.64
         b.tube([(x+rr*math.cos(a),y-.0525,z+rr*math.sin(a)),
                 (x+(rr-r*.10)*math.cos(a),y-.0525,z+(rr-r*.10)*math.sin(a))],
                .0012 if i%4 else .0018,mat('ink'),seg=6)
     b.tube([(x+r*.10,y-.054,z-r*.065),(x-r*.49,y-.054,z+r*.30)],.0018,mat('red'),seg=8)
     b.cyl(r*.050,.003,(x,y-.054,z),mat('dark steel'),seg=16,axis='Y')
+    dial_scale(b,x,y-.0528,z,r)
     b.lathe([(0,0),(r*.79,0),(r*.79,.002),(0,.002)],(x,y-.056,z),mat('glass'),seg=48,rot=rot)
 
 def fuel_conditioner():
@@ -417,11 +437,12 @@ def manifold(w=.68,h=.72,compact_hose=False):
     gx,gz=.025,h-.11
     b.tube(rounded_path([(0,-.16,cy+.030),(0,-.16,.43),(gx,-.12,gz-.12),(gx,-.12,gz)]),.009,brass,seg=16)
     b.lathe([(0,0),(.068,0),(.074,.012),(.074,.037),(.065,.049),(.056,.049),(.056,.045),(0,.045)],(gx,-.15,gz),mat('steel'),seg=40,rot=Matrix.Rotation(math.pi/2,3,'X'))
-    b.cyl(.055,.001,(gx,-.196,gz),mat('paper'),seg=40,axis='Y')
-    for i in range(15):
-        a=math.radians(40+i*20);p=(gx+.044*math.cos(a),-.198,gz+.044*math.sin(a))
+    b.cyl(.055,.001,(gx,-.196,gz),mat('dial face'),seg=40,axis='Y')
+    for i in range(17):
+        a=math.radians(225-i*270/16);p=(gx+.044*math.cos(a),-.198,gz+.044*math.sin(a))
         b.box((.003,.0012,.007),p,mat('ink'),.0002,rot=Matrix.Rotation(-a+math.pi/2,3,'Y'))
-    b.tube([(gx,-.199,gz),(gx-.032,-.199,gz+.018)],.0015,mat('ink'),seg=6)
+    b.tube([(gx,-.199,gz),(gx-.032,-.199,gz+.018)],.0015,mat('red'),seg=8)
+    dial_scale(b,gx,-.1988,gz,.068)
     b.lathe([(0,0),(.055,0),(.055,.0015),(0,.0015)],(gx,-.200,gz),mat('glass'),seg=40,rot=Matrix.Rotation(math.pi/2,3,'X'))
     for x in [-.26,.22]:
         b.lathe([(0,0),(.030,0),(.030,.012),(.023,.018),(.023,.050),(0,.050)],(x,-.16,cy),brass,seg=6,rot=rz)
@@ -780,7 +801,18 @@ def rag():
                 a=-math.pi/2+(math.pi if i%2==0 else -math.pi)*j/5
                 pts.append((y+.008*math.cos(a),z+.008+.008*math.sin(a)))
     b.ribbon(pts,-.13,.13,.004,mat('cotton'))
-    b.box((.014,.19,.001),(.075,0,.042),mat('canvas'),.0002)
+    # Rolled hems follow the actual folded section. Small offsets break the
+    # ruler-straight edges while keeping the compressed stacked-cloth form.
+    for x in [-.128,.128]:
+        b.tube([(x+.001*math.sin(i*1.3),yy,zz+.001) for i,(yy,zz) in enumerate(pts)],
+               .0012,mat('cotton'),seg=8)
+    for x in [(-.118+i*.009) for i in range(27)]:
+        b.tube([(x,-.109,.037),(x+.003,-.107,.038)],.00045,mat('canvas'),seg=6)
+    for i in range(9):
+        x=-.074+i*.007
+        b.tube([(x,.107,.037),(x+.001,.111,.034),
+                (x-.002,.116+(i%3)*.002,.030)],.00045,mat('cotton'),seg=6)
+    b.box((.014,.076,.001),(.075,.045,.042),mat('canvas'),.0002)
     return b
 
 def glove():
