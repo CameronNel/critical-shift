@@ -537,7 +537,7 @@ clip("LAND", 19, [
 
 CRATE = ("crate", (0.34, 0.30, 0.28))
 CRATE_GRIPS = {"L": (-0.22, -0.13, -0.01), "R": (0.22, -0.13, -0.01)}  # near the rear edge of the sides
-BOX_CARRY = (0.0, 0.46, 1.05, 0.0, 0.0, 0.0)      # crate in front of the chest, top edge in the first-person view
+BOX_CARRY = (0.0, 0.50, 1.05, 0.0, 0.0, 0.0)      # crate in front of the chest, top edge in the first-person view
 BOX_FLOOR = (0.0, 0.61, 0.15, 0.0, 0.0, 0.0)
 POLE_BOX = (1.0, -0.2, -0.6)
 CARRY = dict(prop=BOX_CARRY, pk=1.0, Lb=1.0, Rb=1.0, Lp=M(POLE_BOX, "Left"), Rp=M(POLE_BOX, "Right"),
@@ -593,12 +593,13 @@ _FALL_Z = [1.05 - 4.9 * (i / 24.0) ** 2 for i in range(11)]
 clip("DROP", 22, [(0.0, CARRY), (T(2, 22), dict(spine=(-5.0, 0.0, 0.0), head=(6.0, 0.0, 0.0))),   # a heave up first
                   (T(4, 22), dict(pk=0.0, Lb=0.6, Rb=0.6))]
      + [(T(4 + i, 22), dict(prop=(0.0, 0.46 + 0.006 * i, max(0.15, z), 0.0, -0.8 * i, 0.0), Lb=0.0, Rb=0.0,
-                            L=M((0.40, 0.30 - 0.018 * i, 0.90 - 0.025 * i), "Left"),
-                            R=M((0.40, 0.30 - 0.018 * i, 0.90 - 0.025 * i), "Right"), spine=STAND["spine"],
+                            L=M((0.42, 0.30 - 0.018 * i, 0.90 - 0.025 * i), "Left"),
+                            R=M((0.42, 0.30 - 0.018 * i, 0.90 - 0.025 * i), "Right"), spine=STAND["spine"],
                             Lp=STAND["Lp"], Rp=STAND["Rp"],
                             head=(14.0, 0.0, 0.0)))
         for i, z in enumerate(_FALL_Z) if i in (2, 4, 6, 8, 10)]
-     + [(T(15, 22), dict(prop=(0.0, 0.53, 0.15, 0.0, -8.0, 0.0))),
+     + [(T(15, 22), dict(prop=(0.0, 0.53, 0.15, 0.0, -8.0, 0.0), L=M((0.41, 0.13, 0.66), "Left"),
+                         R=M((0.41, 0.13, 0.66), "Right"))),
         (T(18, 22), dict(head=(10.0, 0.0, 0.0))),                                              # watch it land
         (1.0, dict(STAND, prop=(0.0, 0.53, 0.15, 0.0, -8.0, 0.0)))],
      prop=CRATE, grips=CRATE_GRIPS,
@@ -643,15 +644,15 @@ clip("THROW_OVER", 31, [
                      lf=foot("Left", y=-0.13), rf=foot("Right", y=0.20))),
     (T(12, 31), dict(hips=(0.0, -0.035, -0.075))),                                             # cocked, a beat
     (T(16, 31), dict(hips=(0.0, 0.07, -0.03), pelvis=(14.0, 0.0, 0.0), spine=(5.0, 0.0, 0.0), chest=(0.0, 0.0, 0.0),
-                     head=(-6.0, 0.0, 0.0), prop=(0.0, 0.62, 1.06, 8.0, 0.0, 0.0), Lb=1.0, Rb=1.0,
+                     head=(-6.0, 0.0, 0.0), prop=(0.0, 0.68, 1.06, 8.0, 0.0, 0.0), Lb=1.0, Rb=1.0,
                      lf=foot("Left", y=-0.13, pitch=-20.0))),
     (T(18, 31), dict(Lb=0.0, Rb=0.0, L=M((0.26, 0.62, 1.20), "Left"), R=M((0.26, 0.62, 1.20), "Right"), Ls=0.0, Rs=0.0,
                      Lsh=0.0, Rsh=0.0))]
-    + _fly(16, 31, (0.0, 0.62, 1.06), (0.0, 4.0, 2.2), spin=-120.0)[1:]
+    + _fly(16, 31, (0.0, 0.68, 1.06), (0.0, 4.0, 2.2), spin=-120.0)[1:]
     + [(T(25, 31), dict(hips=STAND["hips"], pelvis=(2.0, 0.0, 0.0), spine=STAND["spine"], chest=(0.0, 0.0, 0.0),
                         head=(0.0, 0.0, 0.0), lf=foot("Left"), rf=foot("Right"), L=STAND["L"], R=STAND["R"],
                         Ls=1.0, Rs=1.0, Lp=STAND["Lp"], Rp=STAND["Rp"])),
-       (1.0, dict(STAND, prop=_fly(16, 31, (0.0, 0.62, 1.06), (0.0, 4.0, 2.2), spin=-120.0)[-1][1]["prop"]))],
+       (1.0, dict(STAND, prop=_fly(16, 31, (0.0, 0.68, 1.06), (0.0, 4.0, 2.2), spin=-120.0)[-1][1]["prop"]))],
     prop=CRATE, grips=CRATE_GRIPS,
     doc="Chest heave: the arms are too short to lift a crate over the hood, so it is pulled back to the chest, held a "
         "beat and thrust forward-up with a long step (31 frames).")
@@ -778,8 +779,8 @@ clip("OPEN", 31, [
     (T(9, 31), dict(LOOK, pelvis=(4.0, 0.0, 0.0), hips=STAND["hips"], R=(0.24, 0.38, 1.0), Rs=0.0,
                     Rp=(0.9, -0.3, -1.0))),
     (T(11, 31), dict(Rb=1.0)),
-    (T(18, 31), dict(prop=(-0.42, 0.44, 0.0, 0.0, 0.0, 22.0), pelvis=(12.0, 0.0, 0.0), hips=(0.0, 0.14, -0.04),
-                     rf=foot("Right", y=0.27), head=(4.0, 0.0, 0.0))),
+    (T(18, 31), dict(prop=(-0.42, 0.44, 0.0, 0.0, 0.0, 30.0), pelvis=(6.0, 0.0, 0.0), hips=(0.0, 0.20, -0.04),
+                     rf=foot("Right", y=0.36), head=(4.0, 0.0, 0.0))),
     (T(20, 31), dict(Rb=0.0, R=(0.26, 0.56, 1.0))),
     (T(24, 31), dict(prop=(-0.42, 0.44, 0.0, 0.0, 0.0, 70.0))),
     (1.0, dict(STAND, prop=(-0.42, 0.44, 0.0, 0.0, 0.0, 85.0)))],
@@ -917,7 +918,7 @@ clip("SUIT_UP", 64, [
     (T(8, 56), dict(hips=(0.0, -0.05, -0.20), pelvis=(28.0, 0.0, 0.0), spine=(14.0, 0.0, 0.0), chest=(6.0, 0.0, 0.0),
                     head=(-20.0, 0.0, 0.0), L=(-0.37, 0.04, 0.46), R=(0.37, 0.04, 0.46), Ls=0.0, Rs=0.0,
                     Lp=(-1.0, -0.2, -0.3), Rp=(1.0, -0.2, -0.3))),              # hands on the outside of the thighs
-    (T(14, 56), dict(L=(-0.40, 0.06, 0.70), R=(0.40, 0.06, 0.70))),               # up round the hip pockets
+    (T(14, 56), dict(L=(-0.38, 0.08, 0.66), R=(0.38, 0.08, 0.66))),               # up round the hip pockets
     (T(20, 56), dict(hips=STAND["hips"], pelvis=(0.0, 0.0, 0.0), spine=(-2.0, 0.0, 0.0), chest=(0.0, 0.0, 0.0),
                      head=(10.0, 0.0, 0.0), L=(-0.30, 0.34, 1.00), R=(0.30, 0.34, 1.00))),
     (T(24, 56), dict(L=(-0.27, 0.36, 1.04), R=(0.27, 0.36, 1.04))),                # tug the straps out in front
