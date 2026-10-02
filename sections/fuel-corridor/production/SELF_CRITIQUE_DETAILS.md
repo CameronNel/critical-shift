@@ -1,12 +1,19 @@
 # Fuel corridor self-critique and detail pass
 
+Final state: all nine areas were re-rendered, the ten selected detail families
+were built, and the visible connector defect was repaired. Independent
+F16ci/F17ci reports score every category and area 99, with a materially stable
+final pair. The [render index](REVIEW_INDEX.md) and [rubric](RUBRIC.md) link the
+actual evidence. The following entries retain the original critique and repair
+history.
+
 Baseline: selected F14ci native SHA256
 `650aec3f1e654e607de0442ae6f2fcf5544b99feb835ff1a709c2fb6b3641484`.
 I opened all 19 native fixed-camera renders and the closed freight diagnostic,
-and verified their hashes against the saved source. These are the current
-source's existing full-resolution captures. The same named views will be
-rendered again from the revised native, rather than changing framing to hide
-weaknesses. Existing F14 scores do not approve this additional work.
+and verified their hashes against the saved source. These were the baseline
+source's full-resolution captures. The revised native was rendered from the
+same named views, preserving the framing. Existing F14 scores were not used
+to approve this additional work.
 
 ## Findings by area
 
@@ -68,10 +75,10 @@ with two connected tails. The conduit now joins the existing cable ladder and
 has a physical capped inspection tee. The strainer proof camera was moved into
 the room after its original eye position landed outside the south wall.
 
-F15d development cold validation passes with zero failures. These development
+F15d development cold validation passed with zero failures. These development
 images are labeled 768×512 / 16 samples and do not replace final full-area
-rendering or independent review. The F14 selected native remains paired with
-its original build manifest until the new hosted result is selected.
+rendering or independent review. The F14 selected native remained paired with
+its original build manifest until the new hosted result was selected.
 
 ## Full-quality F15 critique and repair
 
@@ -87,8 +94,8 @@ The F16 repair replaces that cap with a stepped connector shell, raised grip
 ribs, recessed three-contact insert, brass contact rims and rear strain boot.
 A separate bolted cradle supports the connector and has its own explicit wall
 contact anchor. The F15 archived scene/images remain unchanged. The repaired
-source must pass a new cold check and actual closeup before two full, independently
-reviewed stable final cycles can qualify for handoff.
+source passed a new cold check and actual closeup, followed by two full,
+independently reviewed stable final cycles.
 
 ## Full repaired scene inspection — F16ci
 
@@ -105,3 +112,42 @@ positions. The routes remain clear and the dark lighting intervals remain.
 I found no further substantiated visible defect in this complete pass. This
 is builder self-review; independent Luna scores and final stability/integration
 evidence remain separate requirements.
+
+## Complete unchanged F17 inspection
+
+I also opened all 24 actual F17ci captures at the same full review quality,
+paired with native SHA256
+`027ab74f9a3928204d7d3e5f2c1af736982aa41063b37078a6fd9db2efec8deb`.
+Comparing the same views with F16, the connector/cradle, intercom, junction
+feeds, carrier, utility cap, inspection tag and recessed strainer remain
+resolved. No material regression or additional visible repair was identified.
+Luna independently inspected the complete second set; its final scores and
+source pairing are recorded separately in the final rubric/report.
+
+## Actual assembled-map inspection
+
+I opened the current-source `F17ci_complete_main_C03_HERO.png` after the
+ordinary map launcher and assembled-map render passed. The carrier, bench,
+service threshold, utility fixtures, chipped floor and roof opening retain
+their composition and material separation under the assembled-map lighting.
+I found no visible integration regression. This C03 view crops some bench
+hardware; the fixed D02 and P01 captures supply its dedicated inspection.
+The dark intervals and cooler clean corridor remain readable without a
+global light lift. The dependency record verifies the same F17 source and
+preserves the main, spawn, R17 and eleven exterior files byte for byte.
+The main still reports 128 historical unrelated spawn/PPE cache warnings;
+there are zero missing fuel object IDs.
+
+## Current-source event and boundary stills
+
+I opened actual preview frames 1, 28, 29, 31, 32, 33, 38 and 240. Frame 29
+shows the intended light drop; the floor arrows, service opening and task
+fixtures retain their silhouettes. Neighboring event stills and the final
+frame retain the same composition, without a new visible artifact. The preview
+manifest matches the selected F17 native, all 240 PNG hashes and the encoded
+240-frame, 24 fps, ten-second video. Its 112 rendered states preserve the
+native timing, with identical held states reusing unedited image bytes.
+This is bounded still-image inspection. No target-speed visual playback tool
+was available, so perceived cadence and Unity/runtime behavior remain
+unverified. The complete full-resolution area/detail images supply the craft
+assessment; these small event stills supply lighting-state evidence.

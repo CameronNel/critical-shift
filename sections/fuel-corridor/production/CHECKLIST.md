@@ -1,20 +1,16 @@
 # Fuel corridor handoff checklist
 
-- [x] Existing selected linked module edited; original checkpoint retained.
-- [x] All 49 original wall bounds, 14 floor footprints, 16 camera transforms/lenses and 34 interface transforms preserved.
-- [x] Native cold open: zero failures; physical support and attachment checks pass.
-- [x] Packed surface images, UV checks and nominal sampled route envelopes pass.
-- [x] Eleven missing/broken tile locations with physical fractured edges and recessed beds; two backed ceiling cavities with retained torn layers and service leads.
-- [x] Six irregular keyed practicals, three pulsing red beacons and a dead fixture; isolated optics track light energy.
-- [x] Native frames 1–241 evaluated, closure checked; no drivers or auto-run dependency.
-- [x] All 19 full views and closed freight diagnostic hash-verified for selected native 650aec3f1e654e607de0442ae6f2fcf5544b99feb835ff1a709c2fb6b3641484.
-- [x] Independent F13ci and F14ci scores strictly >98 for all seven categories and nine areas; final two visually stable.
-- [x] Normal map launcher and repeat installation pass; old fuel cache and 51 old lights hidden, 30 historical material names resolve.
-- [x] Actual assembled-map render paired with the final native; main, R17, spawn and 11 exterior-library bytes unchanged.
-- [x] Exact native 240-frame / 24-fps / 10-second MP4 encoded; every frame mapped to an unedited render of its identical evaluated state.
-- [x] Event and boundary stills inspected. Rendering and encoding preserve native timing.
-- [ ] Target-speed visual playback: unavailable in this execution environment; no cadence acceptance claimed.
-- [ ] Unity/controller/collision/performance validation: outside this Blender authoring task; not run.
+- [x] Existing linked fuel module rebuilt; original checkpoint retained.
+- [x] 49 exterior core bounds, 14 floor footprints, 16 original cameras and 34 interface transforms preserved.
+- [x] Ten authored infrastructure detail families, localized fracture/wear refinements and physical gauge numerals completed.
+- [x] Cold validation passes with zero failures; support/attachment, packed resource, UV and sampled route checks pass.
+- [x] 19 full area views, closed gate and four native-lit closeups hash-verified against selected native.
+- [x] Independent F16ci/F17ci grades all strictly exceed98; final pair reviewed for material stability.
+- [x] Normal map launcher and repeated install pass; old cache and 51 old lights hidden; 30 historical fuel material IDs resolve.
+- [x] Actual assembled-map render paired with current native; canonical main, R17, spawn and 11 exteriors remain byte-exact.
+- [x] Native every-frame evaluation and linked key samples pass; 240-frame / 24 fps / 10-second preview encoded from current native.
+- [x] Actual preview event and boundary stills inspected.
+- [ ] Target-speed visual playback unavailable; no cadence acceptance.
+- [ ] Unity/controller/collision/performance not run.
 
-Evidence: [cold](COLD_VALIDATION.json), [launcher](MAP_LAUNCHER_VALIDATION.json), [main](MAIN_LINK_VALIDATION.json), [dependencies](MAIN_DEPENDENCY_VALIDATION.json), [temporal](TEMPORAL_VALIDATION.json), [rubric](RUBRIC.md), [fixed cameras](CAMERAS.md).
-The canonical main retains 128 pre-existing unrelated spawn/PPE object-ID warnings. There are zero missing fuel data IDs; no other-room assets were rewritten to silence warnings.
+[All rendered areas](REVIEW_INDEX.md), [cold](COLD_VALIDATION.json), [map launcher](MAP_LAUNCHER_VALIDATION.json), [main](MAIN_LINK_VALIDATION.json), [dependencies](MAIN_DEPENDENCY_VALIDATION.json), [temporal](TEMPORAL_VALIDATION.json), [rubric](RUBRIC.md). The canonical main retains 128 historical unrelated spawn/PPE object-ID warnings; zero missing fuel IDs. No other room was rewritten.

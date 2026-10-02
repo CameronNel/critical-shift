@@ -55,16 +55,11 @@ review bar are in [`scenery/OVERHAUL_BRIEF.md`](scenery/OVERHAUL_BRIEF.md).
 Native checkpoints, hashes, render settings, numerical checks and independent
 Luna reports are recorded under `production/`.
 
-The selected F14ci module follows the latest reactor WIP atmosphere: deeper
-dark intervals, sparse red warning lights, failing practicals, worn traffic
-surfaces, eleven physical missing/broken tile sites and two torn ceiling bays.
-Original wall/floor footprints and map interfaces remain fixed. Pessimistic
-Luna independently scores every category and area 99 for both final full
-still-image cycles; see [the final rubric](production/RUBRIC.md).
+The selected F17ci module preserves the eerie, rundown atmosphere and adds ten modeled infrastructure detail families: sockets, retained lead, clipped conduit, gland/junction connections, motor bond, intercom, captive bleed cap, open recessed strainer, cloth hems and tied inspection tag. Local wear/fracture outlines and gauge scales are refined. See [all rendered areas and closeups](production/REVIEW_INDEX.md) and the [self-critique](production/SELF_CRITIQUE_DETAILS.md). Pessimistic Luna independently clears every category and area above 98 in the two stable final full cycles; [the rubric](production/RUBRIC.md) records actual grades.
 
 The native light loop plays frames **1–240 at 24 fps**, with a closure key at
-241, without drivers or auto-run. Watch the [10-second preview](production/renders/temporal/F14ci-entry-loop.mp4)
-or inspect the [assembled-map render](production/renders/integration/F14ci_complete_main_C03_HERO.png).
+241, without drivers or auto-run. Watch the [10-second preview](production/renders/temporal/F17ci-entry-loop.mp4)
+or inspect the [assembled-map render](production/renders/integration/F17ci_complete_main_C03_HERO.png).
 Every-frame technical evaluation and encoded timing pass. Target-speed visual
 playback could not be reviewed here; Unity/runtime behaviour is unverified.
 Preview provenance and reproduction are in the [temporal report](production/TEMPORAL_VALIDATION.json).

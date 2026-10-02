@@ -1,6 +1,6 @@
 # Fuel corridor overhaul state
 
-Phase: owner-requested self-critique and ten-detail revision in progress; F14ci is the preserved previous deliverable.
+Phase: F17ci ten-detail revision delivered; independent still-image gate passed. Playback cadence and Unity/runtime unverified.
 Branch: `codex/fuel-corridor-overhaul-20261001` from `75983b9`.
 Source: `sections/facility-assembly/sources/fuel-corridor/module.blend`.
 Baseline SHA256: `f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c`.
@@ -434,3 +434,15 @@ All workers used the identical cold-checked native bytes.
 Independent visual review is pending; no art or Unity acceptance is claimed.
 
 Authoring geometry: {"source_triangles": 1070382, "evaluated_triangles": 1075662, "mesh_objects": 356, "material_batch_upper_bound": 1500}.
+
+## F17ci final infrastructure handoff
+
+All nine areas were self-critiqued against 20 baseline captures, then re-rendered after ten detail families and localized repairs. The outlet/lead/conduit, cabinet glands, motor bond, intercom, captive bleed cap, flush grate, cloth hems and tied inspection tag are authored geometry. All outer footprints, interfaces, fixed area cameras and the existing gloomy lighting keys are preserved.
+
+Selected native SHA256 `027ab74f9a3928204d7d3e5f2c1af736982aa41063b37078a6fd9db2efec8deb`; construction fingerprint `4907d580baa67d66a12c02d8ce7598a07ef903de9ded16e8208f0c32a90f087b` across seven byte-exact inputs. Current and archived native/build/cold evidence agree. Geometry is 1,070,382 source /1,075,662 evaluated triangles and 356 meshes; no runtime budget acceptance is implied.
+
+Hosted full review runs: [F16ci](https://github.com/CameronNel/critical-shift/actions/runs/37023474762), [F17ci](https://github.com/CameronNel/critical-shift/actions/runs/37026115273). Each captured all 19 fixed views, closed gate and four full-quality detail proofs from identical per-cycle native bytes. [Pessimistic Luna reports](RUBRIC.md) independently clear every category and area above 98. 17 full cycles exist; the final two are materially stable in independent review. No score override was used.
+
+[Rendered area index](REVIEW_INDEX.md), [builder critique](SELF_CRITIQUE_DETAILS.md) and [checklist](CHECKLIST.md) provide the reviewable handoff. The ordinary `blender --python open_map.py` launcher selects this fuel module; the canonical main and immutable R17 bytes remain untouched. Current main-link and dependency evidence report zero missing fuel IDs, with the 128 unrelated historical spawn/PPE warnings retained.
+
+The current-source preview encodes 240 frames at 24 fps for 10 seconds, with exact reuse of identical held-state PNGs. Native keys are checked every frame and in the linked map. Target-speed visual playback and Unity/runtime are unverified; these do not receive still-image art grades. Draft [PR70](https://github.com/CameronNel/critical-shift/pull/70) is updated; no agent merge.
