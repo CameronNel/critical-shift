@@ -140,3 +140,11 @@ build and cold/visual evidence are pending a bounded hosted Blender run. The
 published native remains the numerically verified F4 checkpoint until that run
 passes its cold checks and completes all render manifests. No final art acceptance
 is claimed.
+
+## F5ci hosted execution
+
+Native SHA256 5f7de9035b966bf1e152f338e25d9cab1b8d5922db36b1e49303b9562aee6536. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 746244, "evaluated_triangles": 751524, "mesh_objects": 318, "material_batch_upper_bound": 1243}.

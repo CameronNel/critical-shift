@@ -2,15 +2,15 @@
   "stage": "full",
   "base_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
   "output": "sections/facility-assembly/sources/fuel-corridor/module.blend",
-  "sha256": "dabe7628ee596e93df007326373cf9ef05776a657e59ca77755b1dabee0d7278",
+  "sha256": "5f7de9035b966bf1e152f338e25d9cab1b8d5922db36b1e49303b9562aee6536",
   "recipe_inputs": {
-    "sections/fuel-corridor/blender/build_overhaul.py": "b2d770936d82e6b3dfc98c0b9bcc22aa13ea51da1edb44c66527b00cadff12c1",
-    "sections/fuel-corridor/blender/fuel_kit.py": "3c4a9bcf4a858afec513939cab6814df7c8d7be429c8e9672a8d007cef9c86aa",
-    "sections/fuel-corridor/blender/fuel_assets.py": "0bf22d145df31c3495e8731eb9645632981e6d1da4c17ee5bf671b263722bd1f",
+    "sections/fuel-corridor/blender/build_overhaul.py": "b597b2085a45b412d08d910fd7a217116dc186aaba95a99fee7a4f3757618f9d",
+    "sections/fuel-corridor/blender/fuel_kit.py": "2464799317ce0cdabf2f5599e025c4ddf321e33490bb3a4d60d4abff9ef71237",
+    "sections/fuel-corridor/blender/fuel_assets.py": "c29a7d9ce1ddae01a40b99db3a0e1eb84f52cf0aefa3707424d8f4b24fdc4dfb",
     "sections/spawn-room/blender/cozy_geo.py": "408c0eecc9a0dd534e9f5c8f0ace5442077db0c51b1dcbb299484f1ba59b4400",
     "sections/facility-assembly/sources/fuel-corridor/contracts/interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e"
   },
-  "recipe_sha256": "d915306a6482ccfe6083ceb47e01c71d08700ee86fc46e5c549d52b5d3e24fe7",
+  "recipe_sha256": "8bc10a24db39cadf8188f976b2bdba07e7ef349b9f1ac65d4fcde8506abd02c9",
   "protected_exterior_cores": [
     {
       "name": "Wall_S16.2_0_-5.4_concrete",
@@ -131545,13 +131545,13 @@
     },
     {
       "name": "FC | Wall_N13.2_1_1.2 \u00b7 lined bay",
-      "family": "layered wall bay",
+      "family": "deep backed staging process architecture",
       "support_kind": "wall",
       "attachment": null
     },
     {
       "name": "FC | Wall_N13.2_2_10 \u00b7 lined bay",
-      "family": "layered wall bay",
+      "family": "deep backed staging process architecture",
       "support_kind": "wall",
       "attachment": null
     },
@@ -132210,6 +132210,24 @@
       "attachment": "FC | Staging service-air manifold"
     },
     {
+      "name": "FC | Type PURGE / BALANCE",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Purge test and pressure balance panel"
+    },
+    {
+      "name": "FC | Type INLET",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Purge test and pressure balance panel"
+    },
+    {
+      "name": "FC | Type RETURN",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Purge test and pressure balance panel"
+    },
+    {
       "name": "FC | Staging service header type",
       "family": "screen-printed lettering",
       "support_kind": null,
@@ -132228,7 +132246,19 @@
       "attachment": "FC | Reactor boundary left leaf"
     },
     {
+      "name": "FC | Type REACTOR",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Reactor boundary left leaf"
+    },
+    {
       "name": "FC | Type R / 02",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Reactor boundary right leaf"
+    },
+    {
+      "name": "FC | Type 02",
       "family": "screen-printed lettering",
       "support_kind": null,
       "attachment": "FC | Reactor boundary right leaf"
@@ -132384,6 +132414,24 @@
       "attachment": "FC | Clean-transfer inspection log"
     },
     {
+      "name": "FC | Type RETURN / 02",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Reactor return cooling cassette"
+    },
+    {
+      "name": "FC | East turn reactor designation type",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | East turn reactor designation"
+    },
+    {
+      "name": "FC | Plant utility reel identity type",
+      "family": "screen-printed lettering",
+      "support_kind": null,
+      "attachment": "FC | Plant utility reel identity"
+    },
+    {
       "name": "FC | Service bypass type",
       "family": "screen-printed lettering",
       "support_kind": null,
@@ -132416,6 +132464,12 @@
     {
       "name": "FC | Staging service-air manifold",
       "family": "cast air manifold",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Purge test and pressure balance panel",
+      "family": "tapped dual-gauge calibration board connected to the staging air main",
       "support_kind": "wall",
       "attachment": null
     },
@@ -132546,6 +132600,30 @@
       "attachment": null
     },
     {
+      "name": "FC | Reactor return cooling cassette",
+      "family": "open heat-exchanger fins with sump guarded pipes and a connected riser",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Cooling return corner union",
+      "family": "clamped corner return circuit joining heat exchanger and delivery cooling main",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Plant utility wash-down reel",
+      "family": "formed shallow hose reel with continuous wound hose crank and utility feed",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Plant wash-down cross-header",
+      "family": "clamped utility branch joining north water main to south reel",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
       "name": "FC | Recess service manifold",
       "family": "cast air manifold",
       "support_kind": "wall",
@@ -132655,6 +132733,18 @@
     },
     {
       "name": "FC | Protective kit identity",
+      "family": "folded wayfinding plate",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | East turn reactor designation",
+      "family": "folded wayfinding plate",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Plant utility reel identity",
       "family": "folded wayfinding plate",
       "support_kind": "wall",
       "attachment": null
@@ -132793,6 +132883,30 @@
     },
     {
       "name": "FC | Clean stock preparation practical pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Clean log reading practical",
+      "family": "wall task luminaire",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Clean log reading practical pool",
+      "family": null,
+      "support_kind": null,
+      "attachment": null
+    },
+    {
+      "name": "FC | Reactor cooling inspection practical",
+      "family": "wall task luminaire",
+      "support_kind": "wall",
+      "attachment": null
+    },
+    {
+      "name": "FC | Reactor cooling inspection practical pool",
       "family": null,
       "support_kind": null,
       "attachment": null
@@ -134938,6 +135052,46 @@
     }
   ],
   "localized_recesses": [
+    {
+      "object": "FC | Wall_N13.2_1_1.2 \u00b7 lined bay",
+      "wall": "Wall_N13.2_1_1.2",
+      "width": 2.98,
+      "height": 2.9400000000000004,
+      "depth_m": 0.106,
+      "purpose": "real blind process bay with folded returns and back pan",
+      "protected_external_bounds": [
+        [
+          1.2000001668930054,
+          13.239998817443848,
+          0.0
+        ],
+        [
+          4.400000095367432,
+          13.539999961853027,
+          4.400000095367432
+        ]
+      ]
+    },
+    {
+      "object": "FC | Wall_N13.2_2_10 \u00b7 lined bay",
+      "wall": "Wall_N13.2_2_10",
+      "width": 1.78,
+      "height": 4.12,
+      "depth_m": 0.106,
+      "purpose": "real blind process bay with folded returns and back pan",
+      "protected_external_bounds": [
+        [
+          10.0,
+          13.239999771118164,
+          0.0
+        ],
+        [
+          12.0,
+          13.539999008178711,
+          4.400000095367432
+        ]
+      ]
+    },
     {
       "object": "FC | Staging extraction grille",
       "wall": "Wall_N13.2_1_1.2",
