@@ -60,7 +60,13 @@ def wall(r):
     count=max(1,math.ceil(w/1.65));step=w/count
     clean=name.startswith(('Wall_N21','Wall_S18.0'))
     reactor=name.startswith(('Wall_W11.4','Wall_E17.0','Wall_N24'))
-    opening=(-1.1075,-.3925,2.2575,2.5625) if name=='Wall_N21_0_7.72' else None
+    process=name in ['Wall_E16.4_0_7','Wall_S7_1_10']
+    plant=name.startswith(('Wall_N18.6','Wall_S16.2'))
+    opening={
+        'Wall_N21_0_7.72':(-1.1075,-.3925,2.2575,2.5625),
+        'Wall_S7_1_10':(.2425,.9575,2.9775,3.2825),
+        'Wall_E2.2_0_1.2':(-.3575,.3575,2.9975,3.3025),
+    }.get(name)
     def panel_box(dim,p,material,bevel=.002,seg=2):
         dx,dy,dz=dim;x,y,z=p
         pieces=[(x-dx/2,x+dx/2,z-dz/2,z+dz/2)]
@@ -78,17 +84,34 @@ def wall(r):
         upper='cool plaster' if name.startswith(('Wall_E1.2','Wall_W-1.2','Wall_W-1.5','Wall_N21','Wall_S18.0')) else 'warm plaster' if name.startswith(('Wall_S16.2','Wall_N18.6','Wall_W-5.4','Wall_E17.0','Wall_W11.4','Wall_N24')) else 'plaster'
         if name in ['Wall_W-2.2_0_1.2','Wall_E2.2_0_1.2']:upper='transfer plaster'
         m=mat('patch') if (i==count-1 and ('13.2_1' in name or '18.0' in name)) else mat(upper)
-        if reactor:
+        if reactor or process:
             hh=h-1.36;pw=step-.010
             front=[(-pw/2,.034),(-pw/2+.029,.034),(-pw/2+.064,-.004),(pw/2-.064,-.004),(pw/2-.029,.034),(pw/2,.034)]
             back=[(xx,yy+.005) for xx,yy in reversed(front)]
-            polygon(b,front+back,hh,mat('reactor sheet'),pos=(x,0,1.32),bevel=.001)
+            if process:
+                # Separate face and folded edge returns allow the real extraction
+                # aperture to be built in, avoiding a Boolean on a multi-part bay.
+                panel_box((pw-.128,.005,hh),(x,-.0015,1.32+hh/2),mat('oxide enamel'),.001)
+                for path in [front[:3],front[3:]]:
+                    tail=[(xx,yy+.005) for xx,yy in reversed(path)]
+                    polygon(b,path+tail,hh,mat('oxide enamel'),pos=(x,0,1.32),bevel=.001)
+            else:polygon(b,front+back,hh,mat('reactor sheet'),pos=(x,0,1.32),bevel=.001)
             for zz in [1.324,h-.044]:b.box((pw,.038,.008),(x,.020,zz),mat('dark steel'),.001)
             for zz in [1.8,h-.30]:
                 b.box((.075,.039,.11),(x,.0205,zz),mat('dark steel'),.002)
                 for xx in [x-pw/2+.024,x+pw/2-.024]:bolt(b,(xx,.031,zz),.008)
+            if process:
+                # Broad removable extraction shields with folded horizontal seams.
+                for zz in [2.34,3.48]:
+                    polygon(b,[(-pw/2,.035),(-pw/2,-.012),(pw/2,-.012),(pw/2,.035)],.014,mat('warm enamel'),pos=(x,0,zz),bevel=.001)
+        elif plant:
+            # Plant water gallery uses bounded mineral panels and a shallow service
+            # chase, rather than continuing the refinery's plaster/dado wall.
+            panel_box((step-.010,.044,h-1.36),(x,.018,(1.32+h-.04)/2),mat('warm plaster'),.003)
+            for zz in [1.50,2.44]:panel_box((step-.010,.014,.025),(x,-.015,zz),mat('brass'),.002)
+            for xx in [x-step/2+.10,x+step/2-.10]:panel_box((.032,.026,h-1.50),(xx,-.010,(1.38+h-.12)/2),mat('warm enamel'),.003)
         else:panel_box((step-.010,.044,h-(2.44 if clean else 1.36)),(x,.018,((2.40 if clean else 1.32)+h-.04)/2),m,.003)
-        coat='repaired blue enamel' if i==count-1 and name in ['Wall_N13.2_1_1.2','Wall_E16.4_0_17.32'] else 'navy enamel'
+        coat='warm enamel' if plant else 'repaired blue enamel' if i==count-1 and name in ['Wall_N13.2_1_1.2','Wall_E16.4_0_17.32'] else 'navy enamel'
         if not clean:
             b.box((step-.012,.026,1.06),(x,.005,.69),mat(coat),.004)
             if step>.34:frame(b,step-.10,.91,.013,.014,-.009,.69,mat(coat),r=.032)
@@ -200,7 +223,8 @@ def recessed_vent(name,wallname,point,w,h):
     if ceramic_opening:cut_point.y-=.004
     b=B();b.box((w-.055,.17,h-.055),(cut_point.x,cut_point.y+.065,cut_point.z),mat('bed'),bevel=0)
     cut=add(b,name+' cavity cutter','FC | Construction helpers');cut.matrix_world=world
-    for target in ([bpy.data.objects[wallname+'_concrete']] if ceramic_opening else [wallob,bpy.data.objects[wallname+'_concrete']]):
+    built_opening=wallname in ['Wall_N21_0_7.72','Wall_S7_1_10','Wall_E2.2_0_1.2']
+    for target in ([bpy.data.objects[wallname+'_concrete']] if built_opening else [wallob,bpy.data.objects[wallname+'_concrete']]):
         mod=target.modifiers.new(name+' actual cavity','BOOLEAN');mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cut
         bpy.context.view_layer.objects.active=target;target.select_set(True)
         bpy.ops.object.modifier_apply(modifier=mod.name);target.select_set(False)
@@ -246,6 +270,8 @@ def floor(cell):
             variation=(i*17+j*7)%11
             k=(['service tile','service tile light','service tile dark'][variation%3] if service else
                'fuel tile light' if variation==2 else 'fuel tile dark' if variation==5 else 'floor')
+            if cell['id'] in ['entry','inlet']:k=['transfer tile','transfer tile light','transfer tile dark'][variation%3]
+            elif cell['id']=='bypass_north':k=['clean floor','clean floor light','clean floor dark'][variation%3]
             along_x=cell['id'] in ['crossing','bypass_north','plant_header']
             if (j in [0,ny-1] if along_x else i in [0,nx-1]):k='service border' if service else 'floor border'
             if cell['id']=='west_turn' and i==nx-2 and j==ny-2:k='floor repair'
@@ -266,13 +292,14 @@ def tile_layout(cell):
 
 def ceiling(cell):
     b=B();xmin,xmax,ymin,ymax=cell['bounds'];h=cell['height']
-    nx=max(1,math.ceil((xmax-xmin)/1.45));ny=max(1,math.ceil((ymax-ymin)/1.65))
+    entry=cell['id'] in ['entry','inlet'];clean=cell['id']=='bypass_north';plant=cell['id']=='plant_header'
+    nx=max(1,math.ceil((xmax-xmin)/(2.4 if clean else 1.45)));ny=max(1,math.ceil((ymax-ymin)/(1.2 if clean else 1.65)))
     sx=(xmax-xmin)/nx;sy=(ymax-ymin)/ny
     for i in range(nx):
         for j in range(ny):
             x=xmin+(i+.5)*sx;y=ymin+(j+.5)*sy
             for a,c,d,e in owned_rectangles((x-sx/2+.014,x+sx/2-.014,y-sy/2+.014,y+sy/2-.014),cell):
-                b.box((c-a,e-d,.034),((a+c)/2,(d+e)/2,h+.006),mat('mineral'),.002)
+                b.box((c-a,e-d,.034),((a+c)/2,(d+e)/2,h+.006),mat('sanitary ceramic light' if clean else 'warm plaster' if entry else 'mineral'),.002)
             if j==0 and i==nx//2:
                 # Separate hatch leaf sits in a continuous sheet lip with a reveal.
                 b.box((sx*.62,sy*.56,.018),(x,y,h-.018),mat('replacement enamel'),.003)
@@ -280,7 +307,27 @@ def ceiling(cell):
     for j in range(ny+1):
         y=ymin+j*sy
         for a,c,d,e in owned_rectangles((xmin,xmax,y-.026,y+.026),cell):
-            b.box((c-a,e-d,.065),((a+c)/2,(d+e)/2,h-.013),mat('ink enamel'),.003)
+            b.box((c-a,e-d,.065),((a+c)/2,(d+e)/2,h-.013),mat('replacement enamel' if clean else 'ink enamel'),.003)
+    if entry:
+        # Stepped perimeter service trays leave the centre route open and retain
+        # the measured ceiling plane for suspended fittings. Hollow folded pans,
+        # angled shoulders, removable undersides and grounded end returns.
+        for side in [-1,1]:
+            edge=xmin if side<0 else xmax;centre=edge-side*.22
+            for a,c,d,e in owned_rectangles((centre-.22,centre+.22,ymin,ymax),cell):
+                b.box((c-a,e-d,.018),((a+c)/2,(d+e)/2,h-.205),mat('transfer plaster'),.002)
+                b.box((.018,e-d,.19),(centre-side*.211,(d+e)/2,h-.109),mat('warm enamel'),.002)
+                for yy in [d+.013,e-.013]:b.box((c-a,.026,.19),((a+c)/2,yy,h-.109),mat('dark steel'),.002)
+                for yy in [d+.32+i*1.42 for i in range(max(1,int((e-d)/1.42)))]:
+                    b.box((c-a-.03,.018,.017),((a+c)/2,yy,h-.216),mat('steel'),.002)
+                    for xx in [a+.06,c-.06]:bolt(b,(xx,yy,h-.226),.006,axis='Z')
+                b.box((.045,e-d,.014),(centre-side*.18,(d+e)/2,h-.226),mat('brass'),.002)
+    if plant:
+        # Narrow bolted plant baffles provide a distinct service-gallery ceiling.
+        for i in range(max(1,int((xmax-xmin)/.24))):
+            xx=xmin+.12+i*.24
+            for a,c,d,e in owned_rectangles((xx-.025,xx+.025,ymin,ymax),cell):
+                b.box((c-a,e-d,.094),((a+c)/2,(d+e)/2,h-.044),mat('warm enamel'),.003)
     core='Ceiling_'+cell['id']
     o=add(b,'Ceiling cassettes '+cell['id'],'FC | Floor and ceiling',target=core,
           anchors=[((xmin+xmax)/2,(ymin+ymax)/2,h+.018)],direction=(0,0,1),kind='ceiling',family='ceiling cassette')
@@ -468,7 +515,15 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
     # unacceptable 145mm bar across the freight route.
     for x in [-width/2-.073,width/2+.073]:
         channel(b,.145,.16,height+.14,(x,-.040,(height+.14)/2),mat('ink enamel'))
-    b.box((outerw,.16,.145),(0,-.040,height+.0725),mat('ink enamel'),.006)
+    if name=='Freight gate':
+        # The load-bearing lower header itself is now an open formed channel.
+        # The original solid U-frame header caused the broad black bar in D05.
+        b.box((outerw,.008,.145),(0,.035,height+.0725),mat('replacement enamel'),.0015)
+        for zz in [height+.004,height+.141]:b.box((outerw,.16,.008),(0,-.040,zz),mat('steel'),.0015)
+        for zz in [height+.018,height+.127]:b.box((outerw,.007,.031),(0,-.1165,zz),mat('replacement enamel'),.0015)
+        for xx in [-width/2-.04,-.88,0,.88,width/2+.04]:
+            b.box((.009,.149,.128),(xx,-.0365,height+.0725),mat('dark steel'),.0015)
+    else:b.box((outerw,.16,.145),(0,-.040,height+.0725),mat('ink enamel'),.006)
     b.tube([(-width/2-.009,-.136,0),(-width/2-.009,-.136,height+.009),
             (width/2+.009,-.136,height+.009),(width/2+.009,-.136,0)],.009,mat('rubber'),seg=12)
     for x in [-width/2-.075,width/2+.075]:
@@ -498,7 +553,7 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
             for side_x in [-1,1]:leaf.box((sidew,.025,height-.112),(side_x*(hole/2+sidew/2),-.057,height/2),m,.002)
             for a,zz in [(.056,z0),(z1,height-.056)]:leaf.box((hole,.025,zz-a),(0,-.057,(a+zz)/2),m,.002)
         else:circular_aperture_sheet(leaf,w-.093,height-.112,-.057,.025,win_z,.155,m)
-        leaf.box((w-.145,.032,height*.29),(0,-.092,height*.19),mat('dark steel'),.003)
+        leaf.box((w-.145,.032,height*.29),(0,-.092,height*.19),mat('steel' if name=='Plant service' else 'dark steel'),.003)
         # Pressed lower access plates, folded diagonal ribs and bolted lock dogs
         # distinguish a transfer leaf from a scaled-up personnel door.
         if width>=3:
@@ -517,12 +572,22 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
                 leaf.box((.106,.081,.14),(xx,-.123,zz),mat('dark steel'),.008)
                 bolt(leaf,(xx,-.169,zz),.018)
             leaf.box((.22,.003,.085),(-side*.30,-.143,.65),mat('ink enamel'),.004)
+        elif name=='Plant service':
+            # Utility leaves have a formed lower vent guard and vertically
+            # mounted vision lights, not the generic three cross-bar grammar.
+            frame(leaf,w-.15,.76,.025,.025,-.108,.57,mat('steel'),r=.036)
+            for i in range(8):
+                zz=.282+i*.079
+                polygon(leaf,[(-.018,0),(-.018,-.015),(-.041,-.045),(-.063,-.045),(-.063,-.031),(-.034,-.010)],w-.23,mat('warm enamel'),pos=(-(w-.23)/2,-.087,zz),rot=Matrix.Rotation(math.pi/2,3,'Y'))
+            for xx in [-w/2+.12,w/2-.12]:
+                for zz in [.24,.90]:bolt(leaf,(xx,-.140,zz),.006)
+            leaf.box((w-.19,.022,.040),(0,-.093,height-.28),mat('brass'),.002)
         else:
             frame(leaf,w-.15,.66,.020,.021,-.108,.57,mat('steel'),r=.026)
             for xx in [-w/2+.12,w/2-.12]:
                 for zz in [.31,.83]:bolt(leaf,(xx,-.13,zz),.006)
             leaf.box((w-.19,.022,.040),(0,-.093,height-.28),mat('ink enamel'),.002)
-        for z in [win_z-.38,win_z+.32]:
+        for z in ([] if name=='Plant service' else [win_z-.38,win_z+.32]):
             leaf.box((w-.078,.065,.065),(0,-.090,z),mat('replacement enamel') if coat=='navy enamel' else mat('steel'),.003)
         # Every portal has a smaller engineered aperture rather than a pasted dial.
         if width<3:
@@ -574,13 +639,23 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
     if title:
         # A compact plate on the structural face leaves the serviceable drive
         # above it visible from the unchanged mechanism evaluation camera.
-        hw=min(width,2.10 if width>=4 else 1.22)
+        hw=min(width,2.10 if width>=4 else 1.65 if name=='Clean service' else 1.22)
         top=B();top.box((hw,.025,.19),(0,-.0125,.095),mat('ink enamel'),.004)
         if name=='Freight gate':
             for x in [-hw*.35,hw*.35]:top.box((.08,.020,.065),(x,.010,.15),mat('dark steel'),.002)
         for x in [-hw/2+.025,hw/2-.025]:bolt(top,(x,-.027,.095),.004)
         a=add(top,name+' header','FC | Signage',pos=T@Vector((0,-.145,height+.17)),normal=n,parent=o.name,family='wayfinding plate')
-        label(title,a.matrix_world@Vector((0,-.026,.095)), .13 if width>=4 else .10,normal=n,material='white ink',parent=a.name)
+        if name=='Clean service':
+            # Physical ivory face with dark ink stays readable in the shadow of
+            # this low, fully framed header. The plate carries its own optic.
+            a.data.materials[0]=mat('warm enamel')
+            label(title,a.matrix_world@Vector((0,-.026,.095)),.135,normal=n,material='ink',parent=a.name)
+            optic=B();optic.box((1.34,.12,.04),(0,-.22,height+.37),mat('warm enamel'),.004)
+            optic.box((1.25,.090,.009),(0,-.22,height+.345),mat('cool diffuser'),.001)
+            for xx in [-.60,.60]:optic.box((.035,.19,.08),(xx,-.145,height+.365),mat('dark steel'),.002)
+            lamp=add(optic,name+' header reading optic','FC | Practicals',pos=pos,normal=n,parent=o.name,family='header-supported sign reading luminaire')
+            light('Clean header reading pool',T@Vector((0,-.22,height+.337)),T@Vector((0,-.17,height+.26)),9,(.84,.91,1),size=1.2,shape='RECTANGLE',size_y=.08,parent=lamp.name)
+        else:label(title,a.matrix_world@Vector((0,-.026,.095)), .13 if width>=4 else .10,normal=n,material='white ink',parent=a.name)
     if state!='PASSAGE':
         ceiling_h=next(c['height'] for c in json.loads(CONTRACT.read_text())['floor_cells'] if c['id']==floorcell)
         hh=ceiling_h-height-.34
@@ -600,7 +675,7 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
 def freight_mechanism(frame_ob):
     p=frame_ob.matrix_world@Vector((0,-.01,3.64))
     drive=add(A.gate_drive(),'Freight gate track and motor','FC | Doors',pos=p,normal=(-1,0,0),parent=frame_ob.name,family='cast sliding-door drive and twin rail')
-    light('Freight drive task pool',drive.matrix_world@Vector((.90,-.427,.441)),drive.matrix_world@Vector((1.0,-.33,.27)),20,(1,.84,.66),size=.24,shape='RECTANGLE',size_y=.10,parent=drive.name)
+    light('Freight drive task pool',drive.matrix_world@Vector((.90,-.427,.548)),drive.matrix_world@Vector((1.07,-.235,.20)),12,(1,.83,.63),size=.39,shape='RECTANGLE',size_y=.17,parent=drive.name)
     root=bpy.data.objects.new('FREIGHT_GATE',None);coll('FC | Runtime metadata').objects.link(root)
     root['port_id']='INTERNAL_FREIGHT_GATE';root['geometry_owner']='fuel-corridor';root['presentation_cap']=False
     for suffix,carriage_name in [(' left leaf','FREIGHT_GATE_LEFT_CARRIAGE'),(' right leaf','FREIGHT_GATE_RIGHT_CARRIAGE')]:
@@ -662,11 +737,14 @@ def section_workstations():
     label('EXTRACT / 03',extractor.matrix_world@Vector((0,-.315,.948)),.029,normal=(-1,0,0),parent=extractor.name)
     clean=mounted(A.clean_station(),'Clean transfer wipe station','Wall_N21_0_-1.5',(-2.43,-.004,1.33),'FC | Narrative','clean transfer rack with actual cloth and job sheet')
     label('CLEAN / 02',clean.matrix_world@Vector((-.20,-.053,.535)),.024,normal=(0,-1,0),parent=clean.name)
-    sign('Clean bay large direction','Wall_N21_0_-1.5',(-2.49,-.004,2.25),'CLEAN TRANSFER  >',.082,1.35,coat='warm enamel')
+    sign('Clean bay large direction','Wall_N21_0_-1.5',(-2.49,-.004,2.25),'CLEAN  >',.148,1.35,coat='warm enamel')
     water=mounted(A.flow_monitor(),'Plant flow monitor','Wall_N18.6_0_-5.4',(.89,-.004,1.43),'FC | Services','tapped process monitor connected to plant water main')
     label('FLOW / S01',water.matrix_world@Vector((0,-.101,.109)),.030,normal=(0,-1,0),parent=water.name)
     bin_ob=add(A.sealed_transfer_bin(),'Sealed waste transfer vessel','FC | Narrative',pos=(15.95,17.78,0),target=FLOORS['delivery'],anchors=[(-.15,-.14,0),(.15,-.14,0),(-.15,.13,0),(.15,.13,0)],direction=(0,0,-1),kind='floor',family='gasketed transfer vessel with wheeled base and foot latch')
     label('SEALED',bin_ob.matrix_world@Vector((0,-.224,.407)),.024,parent=bin_ob.name)
+    seal=mounted(A.waste_seal_station(),'Waste seal and receipt station','Wall_E16.4_0_7',(-3.08,-.0085,.78),'FC | Narrative','receipt roll and captive seal tool on a supported folded pan')
+    label('SEAL / RECEIPT',seal.matrix_world@Vector((0,-.071,.81)),.054,normal=(-1,0,0),material='ink',parent=seal.name)
+    sconce('Waste sealing task practical','Wall_E16.4_0_7',(-3.08,-.004,2.02),48,False)
     sconce('Waste receipt inspection practical','Wall_E16.4_0_17.32',(1.39,-.004,2.25),60,True)
 
 def process_bays():
@@ -709,6 +787,18 @@ def process_bays():
     support(feed,[WALLS['Wall_N18.6_0_-5.4'],WALLS['Wall_S16.2_0_-5.4']],[(-3.88,18.596,2.55),(-3.88,16.204,2.55)],(0,1,0),'wall')
     feed['support_directions']=json.dumps([[0,1,0],[0,-1,0]])
     sign('Plant utility reel identity','Wall_S16.2_0_-5.4',(.8,-.004,1.82),'UTILITY WATER',.065,.86)
+
+def recess_service_handover():
+    b=B();b.box((.53,.18,.014),(0,-.10,.007),mat('warm enamel'),.003)
+    b.box((.53,.012,.18),(0,-.006,-.083),mat('dark steel'),.003)
+    b.box((.53,.014,.10),(0,-.18,-.04),mat('warm enamel'),.003)
+    for xx in [-.19,.19]:
+        polygon(b,[(0,0),(-.16,0),(0,-.12)],.014,mat('dark steel'),pos=(xx,-.012,0),rot=Matrix.Rotation(math.pi/2,3,'Y')@Matrix.Rotation(math.pi/2,3,'Z'))
+        bolt(b,(xx,-.014,-.115),.005)
+    shelf=mounted(b,'Recess purge-service handover pan','Wall_W-1.65_0_14.3',(0,-.0085,.79),'FC | Narrative','gusseted service ledge outside the bypass lane')
+    roll=A.service_roll()
+    add(roll,'Purge coupler service roll','FC | Narrative',pos=shelf.matrix_world@Vector((0,-.035,.014)),normal=(1,0,0),parent=shelf.name,family='stitched open canvas roll with spare brass couplers and a checked job slip')
+    label('PURGE / CHECK B',shelf.matrix_world@Vector((0,-.188,-.04)),.041,normal=(1,0,0),material='ink',parent=shelf.name)
 
 def auxiliary_cameras():
     # Additional branch evidence. Original 16 camera transforms/lenses stay fixed.
@@ -839,11 +929,12 @@ def run():
         mounted(A.cabinet(.41,.58,.11),'Bypass isolation cabinet','Wall_E1.2_0_13.2',(-.65,-.004,1.37),family='isolation cabinet')
         mounted(A.manifold(.62,.68),'Recess service manifold','Wall_W-1.65_0_14.3',(.0,-.004,1.38),'FC | Services','cast air manifold')
         recess_feed()
+        recess_service_handover()
         mounted(A.cabinet(.70,1.02,.21),'East service cabinet','Wall_S7_1_10',(-2.0,-.0115,.18),family='service supply cabinet')
-        mounted(A.cabinet(.50,.72,.15),'East electrical distribution','Wall_E16.4_0_7',(-2.02,-.004,1.36),family='distribution cabinet')
+        mounted(A.cabinet(.50,.72,.15),'East electrical distribution','Wall_E16.4_0_7',(-1.55,-.004,1.36),family='distribution cabinet')
         mounted(A.cabinet(.49,.62,.13),'Clean service distribution','Wall_S18.0_0_1.2',(-2.4,-.004,1.37),family='distribution cabinet')
         cabinet_feed('Clean cabinet feed','Wall_S18.0_0_1.2',(-2.4,-.142,2.68),(-2.4,-.07,1.99),'FC | Clean service distribution')
-        cabinet_feed('East distribution feed','Wall_E16.4_0_7',(-2.02,-.142,3.83),(-2.02,-.08,2.08),'FC | East electrical distribution')
+        cabinet_feed('East distribution feed','Wall_E16.4_0_7',(-1.55,-.142,3.83),(-1.55,-.08,2.08),'FC | East electrical distribution')
         for name,wallname,point in [('Entry extract','Wall_E2.2_0_1.2',(0,-.004,3.15)),('East extract','Wall_S7_1_10',(.6,-.004,3.13)),('Clean extract','Wall_N21_0_7.72',(-.75,-.004,2.41))]:
             recessed_vent(name,wallname,point,.77,.36)
         for name,p,L,E,cool,cell in [
@@ -860,7 +951,7 @@ def run():
                                 ('Bypass corner practical','Wall_N21_0_-1.5',(-2.9,-.004,2.30),45,False),
                                 ('East-turn practical','Wall_E16.4_0_7',(0,-.004,2.50),80,False),
                                 ('Reactor approach practical','Wall_W12_0_13.2',(0,-.004,2.67),85,True),
-                                ('Recess practical','Wall_W-1.65_0_14.3',(0,-.004,2.20),48,False)]:sconce(name,wn,point,e,c)
+                                ('Recess practical','Wall_W-1.65_0_14.3',(0,-.004,2.20),62,False)]:sconce(name,wn,point,e,c)
     bpy.context.scene.world.use_nodes=True
     bg=bpy.context.scene.world.node_tree.nodes.get('Background')
     if bg:bg.inputs['Color'].default_value=(.24,.27,.31,1);bg.inputs['Strength'].default_value=.055

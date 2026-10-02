@@ -53,7 +53,29 @@ def prepare():
         with open(os.environ['GITHUB_ENV'],'a') as out:out.write('FUEL_CYCLE='+CYCLE+'\n')
     print('FUEL_CI_PREPARED',CYCLE,sys.version,flush=True)
 
-def build():
+def export_pixel_bytes():
+    """Expose large repository renders as exact-byte text chunks for connector review."""
+    import base64
+    destination=LOGS/'pixel_bytes'
+    destination.mkdir(parents=True,exist_ok=True)
+    records=[]
+    images=list((TASK/'production/renders/reference').glob('*.png'))
+    images += [p for folder in [FULL,CLOSED] for p in folder.glob('*.png') if p.stat().st_size>=1000000]
+    for source in images:
+        data=source.read_bytes()
+        encoded=base64.b64encode(data).decode('ascii')
+        chunks=[]
+        stem=source.parent.name+'__'+source.stem
+        for i,start in enumerate(range(0,len(encoded),720000)):
+            part=destination/(stem+'.'+str(i)+'.base64.txt')
+            part.write_text(encoded[start:start+720000])
+            chunks.append(str(part.relative_to(ROOT)))
+        records.append({'source':str(source.relative_to(ROOT)),'sha256':hashlib.sha256(data).hexdigest(),'bytes':len(data),'chunks':chunks})
+    (destination/'INDEX.json').write_text(json.dumps({'schema':'fuel-exact-render-bytes/1','editing':'None; base64 is a reversible representation of the original PNG bytes','images':records},indent=2)+'\n')
+    print('FUEL_CI_EXACT_BYTES',len(records),flush=True)
+
+
+def native():
     blender=shutil.which('blender');assert blender
     common=[blender,'-b','-t','4','--disable-autoexec','--python-exit-code','1']
     run('build',common+['--factory-startup','--python',str(TASK/'blender/build_overhaul.py'),'--','--stage','full'])
@@ -61,19 +83,61 @@ def build():
     shutil.copy2(SOURCE,NATIVE);shutil.copy2(TASK/'production/BUILD_MANIFEST.json',MANIFEST)
     run('cold',common+[str(NATIVE),'--python',str(TASK/'blender/validate_overhaul.py'),'--','--manifest',str(MANIFEST),'--report',str(COLD)])
     report=json.loads(COLD.read_text());assert report['status']=='PASS' and not report['failures']
-    env=os.environ.copy();env.update(RES='1280x853',SAMPLES='32',OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='4')
-    run('full_render',common+['--factory-startup','--python',str(TASK/'blender/render_review.py'),'--',str(NATIVE),str(FULL),CAMERAS],env)
-    run('closed_render',common+['--factory-startup','--python',str(TASK/'blender/render_closed_gate.py'),'--',str(NATIVE),str(CLOSED)],env)
+
+def views(group):
+    # Every worker restores exactly the native bytes produced by the cold-checked job.
+    CHECK.mkdir(parents=True,exist_ok=True);shutil.copy2(SOURCE,NATIVE)
+    report=json.loads(COLD.read_text())
     sha=hashlib.sha256(NATIVE.read_bytes()).hexdigest()
+    assert report['status']=='PASS' and report['sha256']==sha
+    names=CAMERAS.split(',');groups=[names[:7],names[7:13],names[13:]]
+    selected=groups[group]
+    blender=shutil.which('blender');assert blender
+    common=[blender,'-b','-t','4','--disable-autoexec','--python-exit-code','1']
+    env=os.environ.copy();env.update(RES='1280x853',SAMPLES='32',OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='4')
+    run('full_render_'+str(group),common+['--factory-startup','--python',str(TASK/'blender/render_review.py'),'--',str(NATIVE),str(FULL),','.join(selected)],env)
+    evidence=json.loads((FULL/'RENDER_MANIFEST.json').read_text())
+    assert evidence['scene_sha256']==sha and [c['name'] for c in evidence['cameras']]==selected
+    (FULL/'RENDER_MANIFEST.json').rename(FULL/('GROUP_'+str(group)+'.json'))
+    if group==2:
+        run('closed_render',common+['--factory-startup','--python',str(TASK/'blender/render_closed_gate.py'),'--',str(NATIVE),str(CLOSED)],env)
+    assert hashlib.sha256(NATIVE.read_bytes()).hexdigest()==sha
+
+def verify_evidence():
+    sha=hashlib.sha256(NATIVE.read_bytes()).hexdigest()
+    report=json.loads(COLD.read_text())
+    assert report['status']=='PASS' and not report['failures'] and report['sha256']==sha
     for folder,count in [(FULL,19),(CLOSED,1)]:
         evidence=json.loads((folder/'RENDER_MANIFEST.json').read_text())
         assert evidence['scene_sha256']==sha and len(evidence['cameras'])==count
+        if folder==FULL:assert [c['name'] for c in evidence['cameras']]==CAMERAS.split(',')
         for camera in evidence['cameras']:
             assert hashlib.sha256((folder/camera['image']).read_bytes()).hexdigest()==camera['sha256']
+    return sha,report
+
+def assemble():
+    CHECK.mkdir(parents=True,exist_ok=True);shutil.copy2(SOURCE,NATIVE)
+    groups=[json.loads((FULL/('GROUP_'+str(i)+'.json')).read_text()) for i in range(3)]
+    settings=['scene','scene_sha256','blender','engine','device','samples','seed','denoise','resolution','view_transform','look','exposure']
+    for group in groups[1:]:
+        assert all(group[key]==groups[0][key] for key in settings),'Render workers disagree'
+    cameras=[camera for group in groups for camera in group['cameras']]
+    assert [c['name'] for c in cameras]==CAMERAS.split(',')
+    combined=dict(groups[0]);combined['cameras']=cameras
+    combined['worker_manifests']=['GROUP_'+str(i)+'.json' for i in range(3)]
+    (FULL/'RENDER_MANIFEST.json').write_text(json.dumps(combined,indent=2)+'\n')
+    sha,report=verify_evidence();export_pixel_bytes()
     shutil.copy2(COLD,TASK/'production/COLD_VALIDATION.json')
     state=TASK/'production/TASK_STATE.md'
-    state.write_text(state.read_text()+'\n## '+CYCLE+' hosted execution\n\nNative SHA256 '+sha+'. Cold validation PASS, zero failures.\nAll 19 full views and the closed-leaf diagnostic are rendered and hash-verified.\nIndependent visual review is pending; no art or Unity acceptance is claimed.\n\nAuthoring geometry: '+json.dumps(report['geometry_budget'])+'.\n')
+    state.write_text(state.read_text()+'\n## '+CYCLE+' hosted execution\n\nNative SHA256 '+sha+'. Cold validation PASS, zero failures.\nAll 19 full views and the closed-leaf diagnostic are rendered and hash-verified.\nAll workers used the identical cold-checked native bytes.\nIndependent visual review is pending; no art or Unity acceptance is claimed.\n\nAuthoring geometry: '+json.dumps(report['geometry_budget'])+'.\n')
     print('FUEL_CI_EVIDENCE_READY',CYCLE,sha,flush=True)
+
+def build():
+    if CONTROL.get('mode')=='export':
+        verify_evidence();export_pixel_bytes();return
+    native()
+    for i in range(3):views(i)
+    assemble()
 
 def publish():
     assert os.environ.get('GITHUB_REF_NAME')==BRANCH,'This runner may only publish the owned task branch'
@@ -95,6 +159,11 @@ def publish():
     subprocess.run(['git','push','origin','HEAD:'+BRANCH],cwd=ROOT,check=True)
     print('FUEL_CI_PUBLISHED',git('rev-parse','HEAD'),flush=True)
 
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('stage',choices=['prepare','build','publish'])
-    args=parser.parse_args();globals()[args.stage]()
+    parser=argparse.ArgumentParser()
+    parser.add_argument('stage',choices=['prepare','native','views','assemble','build','publish'])
+    parser.add_argument('--group',type=int,choices=[0,1,2],default=0)
+    args=parser.parse_args()
+    if args.stage=='views':views(args.group)
+    else:globals()[args.stage]()

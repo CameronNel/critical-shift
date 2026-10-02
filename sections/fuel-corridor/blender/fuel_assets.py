@@ -885,9 +885,68 @@ def gate_drive(width=3.0):
     b.lathe([(0,0),(.020,0),(.020,.010),(.017,.013),(.017,.027),(0,.027)],(x+.297,-.13,.385),mat('dark steel'),seg=6,rot=Matrix.Rotation(math.pi/2,3,'Y'))
     b.tube(rounded_path([(x+.21,-.12,.42),(x+.31,-.14,.48),(x+.36,-.13,.44),(x+.324,-.13,.385)]),.009,mat('rubber'),seg=12)
     b.box((.026,.017,.20),(x-.15,-.22,.36),dark,.002)
-    b.tube([(x-.15,-.22,.448),(x-.15,-.425,.448)],.009,dark,seg=12)
-    b.box((.20,.12,.05),(x-.10,-.425,.478),mat('navy enamel'),.004)
-    b.box((.165,.084,.007),(x-.10,-.427,.450),mat('warm diffuser'),.001)
+    b.tube([(x-.15,-.22,.448),(x-.15,-.22,.555),(x-.15,-.425,.555)],.009,dark,seg=12)
+    b.box((.43,.21,.05),(x-.10,-.425,.585),mat('navy enamel'),.005)
+    b.box((.395,.178,.007),(x-.10,-.427,.557),mat('warm diffuser'),.001)
+    return b
+
+def waste_seal_station():
+    """Receipt pan, actual tag roll, captive ties and retained sealing tool."""
+    b=B();steel=mat('dark steel');w=.76
+    for x in [-.33,.33]:
+        channel(b,.055,.06,.88,(x,-.01,.44),steel)
+        for z in [.07,.80]:
+            b.box((.09,.014,.075),(x,-.007,z),steel,.003)
+            bolt(b,(x,-.020,z),.006)
+    # Folded wiping pan and supported raised back are open, not a box silhouette.
+    b.box((w,.25,.016),(0,-.145,.014),mat('replacement enamel'),.002)
+    for x in [-w/2+.008,w/2-.008]:b.box((.016,.25,.045),(x,-.145,.039),mat('steel'),.002)
+    b.box((w,.016,.035),(0,-.262,.032),mat('steel'),.002)
+    b.box((w,.018,.58),(0,-.047,.51),mat('oxide enamel'),.005)
+    for x in [-.28,.28]:
+        polygon(b,[(0,0),(-.23,0),(0,-.17)],.014,steel,pos=(x,-.018,.004),rot=Matrix.Rotation(math.pi/2,3,'Y')@Matrix.Rotation(math.pi/2,3,'Z'))
+    # Real roll with hollow bore, cheek plates, axle and folded tear lip.
+    for x in [-.29,-.03]:
+        polygon(b,[(0,0),(-.14,0),(-.14,.13),(-.05,.17),(0,.14)],.013,steel,pos=(x,-.055,.44),rot=Matrix.Rotation(math.pi/2,3,'Y'))
+    b.cyl(.011,.30,(-.31,-.159,.54),mat('steel'),seg=16,axis='X')
+    b.lathe([(.017,0),(.068,0),(.070,.012),(.070,.20),(.067,.21),(.017,.21),(.017,0)],(-.269,-.159,.54),mat('paper'),seg=48,rot=Matrix.Rotation(math.pi/2,3,'Y'))
+    b.box((.185,.0015,.19),(-.16,-.222,.417),mat('paper'),.0004)
+    for z in [.375,.389,.403,.417,.431]:b.box((.098,.0006,.002),(-.16,-.223,.0+z),mat('ink'),.0002)
+    b.box((.205,.02,.012),(-.16,-.233,.315),mat('steel'),.001)
+    # Retained crimp tool with actual pivot, jaw and two insulated grips.
+    b.tube(rounded_path([(.08,-.17,.21),(.12,-.17,.38),(.16,-.17,.43),(.19,-.17,.38),(.23,-.17,.21)]),.012,mat('steel'),seg=12)
+    for x,a in [(.092,-.18),(.216,.18)]:b.box((.035,.033,.125),(x,-.17,.265),mat('rubber'),.008,rot=Matrix.Rotation(a,3,'Y'))
+    b.lathe([(0,0),(.026,0),(.026,.017),(0,.017)],(.16,-.163,.416),mat('steel'),seg=24,rot=Matrix.Rotation(math.pi/2,3,'X'))
+    b.box((.075,.013,.055),(.16,-.154,.45),mat('steel'),.003)
+    b.tube([(.16,-.056,.48),(.16,-.14,.48)],.006,steel,seg=10)
+    # Coiled tether is a real line from the mounted eye to the tool.
+    path=[(.29,-.10,.62)]
+    for i in range(97):
+        a=8*math.pi*i/96;path.append((.265+.017*math.cos(a),-.115+.017*math.sin(a),.60-.15*i/96))
+    path.append((.18,-.165,.43));b.tube(path,.0023,mat('rubber'),seg=8)
+    for x in [.19,.24,.29]:
+        b.tube(rounded_path([(x,-.062,.71),(x,-.12,.71),(x,-.12,.66)]),.0025,mat('ochre enamel'),seg=8)
+        b.box((.033,.0015,.059),(x,-.122,.63),mat('paper'),.002)
+    b.box((.53,.013,.092),(0,-.064,.81),mat('warm enamel'),.005)
+    wear(b,(-.13,-.271,.037),(1,0,0),.15,.002,4)
+    return b
+
+def service_roll():
+    """Partly open canvas roll with stitched pockets, brass couplers and job chit."""
+    b=B()
+    # Folded canvas follows a small waved profile with a bound outer seam.
+    pts=[(-.22,-.135),(.22,-.135),(.228,-.10),(.211,.045),(-.211,.045),(-.228,-.10)]
+    polygon(b,pts,.006,mat('canvas'),bevel=.001)
+    for x in [-.16,-.08,0,.08,.16]:
+        b.box((.061,.095,.003),(x,-.030,.007),mat('cotton'),.003)
+        for xx in [x-.024,x+.024]:
+            for y in [-.065,-.051,-.037,-.023,-.009]:b.tube([(xx,y,.009),(xx,y+.006,.009)],.00055,mat('paper'),seg=4)
+    for x in [-.14,.01,.15]:
+        b.lathe([(0,0),(.013,0),(.020,.005),(.020,.017),(.014,.025),(.014,.058),(.018,.069),(.018,.074),(0,.074)],(x,-.035,.012),mat('brass'),seg=24,rot=Matrix.Rotation(math.pi/2,3,'X'))
+    b.lathe([(0,0),(.033,0),(.033,.08),(0,.08)],(-.18,-.115,.039),mat('canvas'),seg=24,rot=Matrix.Rotation(math.pi/2,3,'Y'))
+    for x in [-.175,-.115]:b.lathe([(.029,0),(.034,0),(.034,.010),(.029,.010),(.029,0)],(x,-.115,.039),mat('leather'),seg=24,rot=Matrix.Rotation(math.pi/2,3,'Y'))
+    polygon(b,[(-.04,-.03),(.04,-.03),(.04,.029),(-.034,.029),(-.04,.020)],.0007,mat('paper'),pos=(.09,-.102,.016))
+    for y in [-.116,-.108,-.100]:b.box((.045,.001,.0005),(.09,y,.017),mat('ink'),.0001)
     return b
 
 

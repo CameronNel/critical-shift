@@ -148,3 +148,11 @@ All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
 Independent visual review is pending; no art or Unity acceptance is claimed.
 
 Authoring geometry: {"source_triangles": 746244, "evaluated_triangles": 751524, "mesh_objects": 318, "material_batch_upper_bound": 1243}.
+
+## F5ci independent review and F6 target
+
+F5ci hosted build, cold validation and all 19 full views plus the closed-leaf diagnostic passed evidence checks. Native SHA256 5f7de9035b966bf1e152f338e25d9cab1b8d5922db36b1e49303b9562aee6536. Independent Luna category scores: 95 / 95 / 93 / 89 / 94 / 94 / 92. Area scores: 94 / 96 / 93 / 94 / 93 / 93 / 93 / 94 / 95. No acceptance threshold reached. See critics/luna-full-F5ci.md.
+
+F6 geometry targets: rebuild the lower freight header as an open formed channel, raise/enlarge the motor optic to soften the hotspot, stepped entry ceiling trays, distinct extraction shield wall masses, plant gallery baffles and formed vent guards on its doors, a real waste sealing/receipt step and a supported bypass coupler roll, legible clean signs with a physical reading optic, and distinct transfer/clean floor groups. Outer concrete footprints, fixed cameras, markers, floor cells and interfaces remain guarded.
+
+Hosted rendering is split into three workers using the identical cold-checked native bytes, with all view/settings/hash checks performed before bounded publication. Technical status is not an art score. F6 is pending complete render and independent review.
