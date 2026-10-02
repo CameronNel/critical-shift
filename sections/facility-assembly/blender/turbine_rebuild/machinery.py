@@ -310,10 +310,9 @@ def controls(b):
             yy = yc - .24 + .48 * j
             b.box((cx - .335, yy, 1.58), (.05, .4, .27), 'trim_black', (0, -.22, 0), bev=.012)
             b.box((cx - .309, yy, 1.58), (.008, .35, .22), 'screen_dim', (0, -.22, 0))
-            lab = [['PRESS 84 BAR', 'TEMP 512 C'], ['SPEED 3000', 'LOAD 62 MW'], ['TRIP  OK', 'VIB  LOW']][k][j]
-            b.text(lab, (cx - .303, yy, 1.64), .035, 'screen', 0, math.pi / 2) if False else None
-            b.text(lab, (cx - .3035, yy, 1.64), .033, 'screen', math.pi / 2, math.pi / 2, extrude=.001)
-            for q in range(3): b.box((cx - .304, yy, 1.58 - q * .045), (.006, .30 - q * .07 - (.04 if j else 0), .012), 'screen_cool' if q else 'screen', (0, -.22, 0))
+            lab = [['PRESS 84', 'TEMP 512'], ['RPM 3000', 'LOAD 62'], ['TRIP OK', 'VIB LOW']][k][j]
+            b.text(lab, (cx - .3125, yy, 1.625), .06, 'screen_hi', math.pi / 2, math.pi / 2, extrude=.004)
+            for q in range(3): b.box((cx - .304, yy, 1.555 - q * .04), (.006, .30 - q * .07 - (.04 if j else 0), .014), 'screen', (0, -.22, 0))
         b.box((cx - .37, yc, 1.28), (.04, .96, .035), 'steel_light', bev=.006)                                              # stencilled unit tag strip
         b.text(['UNIT 1  STEAM', 'UNIT 2  GOVERNOR', 'UNIT 3  TRIP'][k], (cx + .408, yc, .62), .05, 'chalk', math.pi / 2, math.pi / 2)
     b.box((cx + .4, 4.0, .98), (.02, 3.1, .03), 'steel_light', bev=.004) if False else None
@@ -321,20 +320,22 @@ def controls(b):
     b.box((-2.45, 6.02, .74), (.5, .8, .04), 'wood_dark', bev=.01)                                                           # side shelf on the column face with a binder stack
     for q in range(3): b.box((-2.45, 5.85 + q * .12, .79), (.3, .09, .06), ['red_dark', 'steel_mid', 'oxide'][q], bev=.008)
     # mimic screen (between columns y = 2 and 6): schematic plan of the hall, one dim amber fault marker as its own object
-    b.box((-3.9, 4.0, 2.45), (.1, 2.7, 1.5), 'trim_black', bev=.015); b.box((-3.846, 4.0, 2.45), (.012, 2.5, 1.32), 'trim_black', bev=.006)
+    b.box((-3.9, 4.0, 2.45), (.1, 2.7, 1.5), 'steel_dark', bev=.02); b.box((-3.85, 4.0, 2.45), (.012, 2.5, 1.32), 'trim_black', bev=.006); b.box((-3.842, 4.0, 2.45), (.008, 2.44, 1.26), 'screen_bg', bev=.004)
+    for dy in (-1.28, 1.28):
+        for dz in (-.66, .66): b.cyl((-3.84, 4.0 + dy, 2.45 + dz), .028, .02, 'steel_light', 'X', 8)
     S = 2.2 / 24; Y0 = 4.0 - 1.1; Z0 = 1.81; WX = -3.838
     def mp(x, y): return (WX, Y0 + y * S, Z0 + (x + 4) * S)
-    def mline(x0, y0, x1, y1, sw='screen_dim', t=.012):
+    def mline(x0, y0, x1, y1, sw='screen', t=.016):
         a_, b_ = mp(x0, y0), mp(x1, y1); b.box(((a_[0]), (a_[1] + b_[1]) / 2, (a_[2] + b_[2]) / 2), (.006, abs(b_[1] - a_[1]) + t, abs(b_[2] - a_[2]) + t), sw)
     for (x0, y0, x1, y1) in ((-4, 0, 10, 0), (-4, 24, 10, 24), (-4, 0, -4, 24), (10, 0, 10, 24)): mline(x0, y0, x1, y1)           # hall outline
     for (x0, y0, x1, y1) in ((3.6, 7.5, 5.6, 16.5), (3.4, 17.2, 5.8, 21.4)):                                                       # turbine train, generator
         mline(x0, y0, x1, y0); mline(x0, y1, x1, y1); mline(x0, y0, x0, y1); mline(x1, y0, x1, y1)
-    mline(4.6, 5.0, 4.6, 22.5, 'screen_dim', .006)                                                                                      # shaft line
-    for (x, y) in ((-4, 7.5), (10, 3.0), (3.5, 24)): a_ = mp(x, y); b.box((a_[0], a_[1], a_[2]), (.007, .1, .1), 'screen_dim')         # door ticks
-    b.text('HALL PLAN  T-2', (-3.832, 4.0 - .85, 2.45 - .62), .05, 'screen_dim', math.pi / 2, math.pi / 2)
+    mline(4.6, 5.0, 4.6, 22.5, 'screen_dim', .008)                                                                                      # shaft line
+    for (x, y) in ((-4, 7.5), (10, 3.0), (3.5, 24)): a_ = mp(x, y); b.box((a_[0], a_[1], a_[2]), (.007, .12, .12), 'screen')         # door ticks
+    b.box((-3.833, 4.0 - .72, 1.95), (.006, .8, .12), 'screen_dim'); b.text('HALL PLAN T-2', (-3.829, 4.0 - .72, 1.95), .085, 'screen_hi', math.pi / 2, math.pi / 2)
     b.use('MIMIC_FAULT'); fz = mp(4.6, 19.3)
-    b.box((fz[0] + .002, fz[1], fz[2]), (.01, .13, .13), 'screen', rot=(0, 0, 0), bev=.004)                                          # runtime: flicker this object's emission
-    b.text('FAULT: ZONE 3', (-3.832, fz[1] + .05, fz[2] - .17), .045, 'screen', math.pi / 2, math.pi / 2)
+    b.box((fz[0] + .002, fz[1], fz[2]), (.012, .17, .17), 'screen_hi', rot=(0, 0, 0), bev=.004)                                          # runtime: flicker this object's emission
+    b.text('FAULT: ZONE 3', (-3.829, fz[1] + .05, fz[2] - .21), .075, 'screen_hi', math.pi / 2, math.pi / 2)
     b.use('MACH')
     b.box((-3.9, 4.0, 4.2), (.1, 3.2, .6), 'oxide_dark', bev=.02); b.box((-3.846, 4.0, 4.2), (.012, 3.08, .5), 'trim_black', bev=.006)
     b.text('TURBINE CONTROL', (-3.84, 4.0, 4.2), .27, 'chalk', math.pi / 2, math.pi / 2)

@@ -23,7 +23,7 @@ _looks = [i.identifier for i in sc.view_settings.bl_rna.properties['look'].enum_
 sc.view_settings.look = next((l for l in _looks if 'Medium High Contrast' in l), 'None'); sc.view_settings.exposure = 0.0
 atlas, orm = lib.make_atlas(os.path.join(OUT, 'turbine_atlas.png'))
 
-RIM_STRENGTH = {'MACH': .34, 'PROPS': .3, 'ARCH': .2, 'SHAFT': .34}
+RIM_STRENGTH = {'MACH': .24, 'PROPS': .21, 'ARCH': .14, 'SHAFT': .24}
 def make_mats(grp):
     """Bake-ready PBR material (albedo atlas on UV0) and the emissive twin for lamps / screens."""
     def mk(name, emissive):
@@ -219,7 +219,7 @@ CAMS = {   # all positions are in open aisle space
     'CAM_H_roof':          ((1.0, 4.0, 1.65), (3.4, 14, 6.4)),
     'CAM_J_north_back':    ((.9, 23.0, 2.1), (1.3, 2, 1.8)),
     'CAM_K_door_d01':      ((1.5, 8.8, 1.65), (-3.9, .3, 1.9)),
-    'CAM_M_turbine_close': ((6.6, 7.4, 2.8), (4.6, 11.6, 1.8)),
+    'CAM_M_turbine_close': ((6.6, 7.4, 3.0), (4.6, 11.6, 1.45)),
     'CAM_P_west_wall':     ((1.0, 12.0, 1.65), (-4, 12, 2.6)),
     'CAM_Q_east_wall':     ((8.6, 3.2, 1.7), (10, 13, 3.0)),
     'CAM_R_south_wall':    ((6.0, 11.5, 1.8), (4.5, 0, 3.4)),
@@ -227,7 +227,7 @@ CAMS = {   # all positions are in open aisle space
     'CAM_L_desk':          ((7.8, 19.8, 1.6), (8.55, 23.5, 1.05)),
 }
 for name, (loc, tgt) in CAMS.items():
-    cd = bpy.data.cameras.new(name); cd.lens = {'CAM_E_controls': 16, 'CAM_K_door_d01': 19, 'CAM_J_north_back': 20, 'CAM_H_roof': 20, 'CAM_B_ne_high': 26, 'CAM_A_entry_north': 22}.get(name, 24); co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
+    cd = bpy.data.cameras.new(name); cd.lens = {'CAM_E_controls': 16, 'CAM_K_door_d01': 19, 'CAM_J_north_back': 20, 'CAM_H_roof': 20, 'CAM_A_entry_north': 22}.get(name, 24); co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
     co.rotation_euler = (Vector(tgt) - Vector(loc)).to_track_quat('-Z', 'Y').to_euler()
 sc.camera = bpy.data.objects['CAM_A_entry_north']
 for _o in coll.objects:

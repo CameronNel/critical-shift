@@ -119,12 +119,23 @@ def build(b):
     # --- tidy storage: drum group, pallet with crates, gas cylinders in a rack ---
     for (x, y, c, t1, t2) in ((9.3, 22.45, 'oxide', 'DIESEL', 'FLAMMABLE'), (8.75, 23.15, 'steel_dark', 'LUBE OIL', 'ISO 46')):
         b.cyl((x, y, .45), .27, .9, c, 'Z', 32, bev=.02)
-        for z in (.2, .45, .7): b.cyl((x, y, z), .283, .045, 'trim_black', 'Z', 32, bev=.012)                      # rolled ribs
+        for z in (.2, .7): b.cyl((x, y, z), .283, .045, 'trim_black', 'Z', 32, bev=.012)                      # rolled ribs
         b.cyl((x, y, .9), .29, .06, 'steel_mid', 'Z', 32, bev=.014); b.cyl((x, y, .93), .22, .02, 'steel_mid', 'Z', 32)       # chime ring and recessed lid
         b.cyl((x + .1, y + .08, .945), .035, .025, 'steel_light', 'Z', 12); b.cyl((x - .1, y - .06, .945), .025, .02, 'steel_light', 'Z', 12)   # bungs
-        b.box((x, y - .278, .5), (.34, .012, .34), 'trim_black', bev=.008); b.box((x, y - .286, .5), (.3, .006, .3), 'chalk')
-        b.prism([(0, .095), (.095, 0), (0, -.095), (-.095, 0)], .004, 'yellow', (x, y - .291, .56), True, 'Y'); b.prism([(0, .05), (.03, -.03), (-.03, -.03)], .004, 'trim_black', (x, y - .295, .56), True, 'Y')
-        b.text(t1, (x, y - .292, .42), .05, 'trim_black', 0, math.pi / 2); b.text(t2, (x, y - .292, .36), .033, 'trim_black', 0, math.pi / 2)
+        R = .27
+        for k in range(-5, 6):                                                                                            # label wrapped on the drum: bevel-free strips following the curvature
+            th = k * .125; px, py = x + (R + .003) * math.sin(th), y - (R + .003) * math.cos(th)
+            b.box((px, py, .5), (.04, .008, .34), 'trim_black', (0, 0, th)); 
+        for k in range(-4, 5):
+            th = k * .125; px, py = x + (R + .0075) * math.sin(th), y - (R + .0075) * math.cos(th)
+            b.box((px, py, .5), (.04, .004, .3), 'chalk', (0, 0, th))
+        b.box((x, y - .277, .6), (.12, .024, .12), 'yellow', (0, .785398, 0), bev=.004); b.text('!', (x, y - .2905, .6), .085, 'trim_black', 0, math.pi / 2, extrude=.003)
+        for (t, sz, zz) in ((t1, .05, .44), (t2, .033, .37)):                                                              # text characters placed round the curve, each facing outward
+            adv = sz * .66; n = len(t)
+            for i, ch in enumerate(t):
+                if ch == ' ': continue
+                th = (i - (n - 1) / 2) * adv / R
+                b.text(ch, (x + (R + .0105) * math.sin(th), y - (R + .0105) * math.cos(th), zz), sz, 'trim_black', th, math.pi / 2, extrude=.003)
     for dx in (-.4, 0, .4): b.box((6.8 + dx, 1.2, .06), (.1, .8, .1), 'wood_dark', bev=.01)
     for dy in (-.3, 0, .3): b.box((6.8, 1.2 + dy, .13), (1.0, .12, .03), 'wood', bev=.008)
     b.box((6.8, 1.2, .38), (.8, .6, .4), 'wood', bev=.015); b.box((6.8, 1.2, .79), (.7, .5, .36), 'orange_worn', bev=.015)
