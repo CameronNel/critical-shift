@@ -416,3 +416,12 @@ All workers used the identical cold-checked native bytes.
 Independent visual review is pending; no art or Unity acceptance is claimed.
 
 Authoring geometry: {"source_triangles": 1067490, "evaluated_triangles": 1072770, "mesh_objects": 356, "material_batch_upper_bound": 1498}.
+
+## F16ci hosted execution
+
+Native SHA256 e987bf87da2a51b79fbc68d6301d53a5902995623294c9be2dcc73a36b2b5530. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 1070382, "evaluated_triangles": 1075662, "mesh_objects": 356, "material_batch_upper_bound": 1500}.

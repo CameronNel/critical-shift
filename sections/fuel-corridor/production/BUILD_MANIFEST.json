@@ -2,17 +2,17 @@
   "stage": "full",
   "base_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
   "output": "sections/facility-assembly/sources/fuel-corridor/module.blend",
-  "sha256": "07dbbfd9153b0e732a31ce22a0342eff9dce33111f04b4af091ff55bc2a8b61b",
+  "sha256": "e987bf87da2a51b79fbc68d6301d53a5902995623294c9be2dcc73a36b2b5530",
   "recipe_inputs": {
     "sections/fuel-corridor/blender/build_overhaul.py": "8cc00a2d90cf205e62322e97bd752b3fb1e96b133e26d33d530f17b259b55885",
     "sections/fuel-corridor/blender/fuel_kit.py": "c782cb362d8d97b4153e09a958982b884f75234213d969de8eb174b97c748500",
     "sections/fuel-corridor/blender/fuel_assets.py": "f800055f0e14164d77d49c9e1f91e060676932ba8aabab9f0c35b604f35bf264",
     "sections/fuel-corridor/blender/fuel_atmosphere.py": "09f3db9af3fe557c75d5aae53f24d6100669bfbc50437241ab8e571b558af4f7",
-    "sections/fuel-corridor/blender/fuel_details.py": "5d6c9cee26380d0286268ff8e9a51fd038afa00d73101f59a2ad10a6923fb0d3",
+    "sections/fuel-corridor/blender/fuel_details.py": "b066dc3dd8cbfb05701feb7366d0b9f99b970fe3f94323b3d0950f117c6d0e7d",
     "sections/spawn-room/blender/cozy_geo.py": "408c0eecc9a0dd534e9f5c8f0ace5442077db0c51b1dcbb299484f1ba59b4400",
     "sections/facility-assembly/sources/fuel-corridor/contracts/interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e"
   },
-  "recipe_sha256": "00c2d7f2cf5ede4a524a35b08c7c903b2e4d7795c72df221399f0a3425ee1115",
+  "recipe_sha256": "4907d580baa67d66a12c02d8ce7598a07ef903de9ded16e8208f0c32a90f087b",
   "main_cache_material_compatibility": {
     "brass": "brass",
     "chip": "chip",
@@ -133793,7 +133793,7 @@
     },
     {
       "name": "FC | Bench retained work lead",
-      "family": "moulded strain boot, sagged lead and supported retaining hook",
+      "family": "ribbed recessed-contact connector, strain boot, continuous sagged lead and wall-supported hook/cradle",
       "support_kind": "wall",
       "attachment": "FC | Bench weatherproof receptacle bank"
     },

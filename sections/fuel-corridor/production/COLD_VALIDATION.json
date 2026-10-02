@@ -1,9 +1,9 @@
 {
   "schema": "fuel-overhaul-cold-validation/1",
-  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F15ci.blend",
-  "sha256": "07dbbfd9153b0e732a31ce22a0342eff9dce33111f04b4af091ff55bc2a8b61b",
-  "build_manifest": "sections/fuel-corridor/production/checkpoints/F15ci_BUILD_MANIFEST.json",
-  "recipe_sha256": "00c2d7f2cf5ede4a524a35b08c7c903b2e4d7795c72df221399f0a3425ee1115",
+  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F16ci.blend",
+  "sha256": "e987bf87da2a51b79fbc68d6301d53a5902995623294c9be2dcc73a36b2b5530",
+  "build_manifest": "sections/fuel-corridor/production/checkpoints/F16ci_BUILD_MANIFEST.json",
+  "recipe_sha256": "4907d580baa67d66a12c02d8ce7598a07ef903de9ded16e8208f0c32a90f087b",
   "blender": "5.2.1 LTS",
   "status": "PASS",
   "failures": [],
@@ -9924,6 +9924,26 @@
             }
           ],
           "anchor_index": 0
+        },
+        {
+          "object": "FC | Bench retained work lead",
+          "status": "PASS",
+          "issues": [],
+          "samples": [
+            {
+              "sample": "origin",
+              "point_world": [
+                -2.191999,
+                11.292,
+                0.99
+              ],
+              "status": "PASS",
+              "relation": "gap",
+              "distance_m": 0.0,
+              "normal_alignment": 1.0
+            }
+          ],
+          "anchor_index": 1
         }
       ]
     },
@@ -10562,19 +10582,6 @@
         [
           0.0001499652862548828,
           [
-            -2.056000232696533,
-            10.56997299194336,
-            0.8953499794006348
-          ],
-          [
-            -2.056000232696533,
-            10.56997299194336,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
             -2.12400484085083,
             10.564026832580566,
             0.8953499794006348
@@ -10595,6 +10602,19 @@
           [
             -2.0839619636535645,
             10.617995262145996,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
+            -2.090038299560547,
+            10.52199935913086,
+            0.8953499794006348
+          ],
+          [
+            -2.090038299560547,
+            10.52199935913086,
             0.8954999446868896
           ]
         ]
@@ -16939,10 +16959,10 @@
     }
   ],
   "geometry_budget": {
-    "source_triangles": 1067490,
-    "evaluated_triangles": 1072770,
+    "source_triangles": 1070382,
+    "evaluated_triangles": 1075662,
     "mesh_objects": 356,
-    "material_batch_upper_bound": 1498
+    "material_batch_upper_bound": 1500
   },
   "uv": [
     {
