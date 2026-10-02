@@ -91,8 +91,15 @@ MINE cases do not require implementing mining before the roadmap's small-mine mi
 The authorized worker visual adapter has 26 canonical NUnit cases for authored
 velocities, normalized directional blends, carry/tool/haul context, airborne/landing
 transitions, duplicate visual events, physics suspension, reset and invalid inputs.
-Three native EditMode cases cover missing/duplicate/wrong-loop clip bindings and ten
-Playable graph lifecycle cycles. See the [task evidence](../../runtime/validation/MOVEMENT_ANIMATIONS.md).
+Four native EditMode cases cover missing/duplicate/wrong-loop clip bindings, ten
+Playable graph lifecycle cycles and recovery priming without an idle-pose flash. See the [task evidence](../../runtime/validation/MOVEMENT_ANIMATIONS.md).
+The scene extension adds eight offline mechanics cases (stride distance, diagonal
+calibration, jump anticipation, jolt resumption, contact timing), eight control
+receipt/revision/lifecycle cases, and eight tagged shared-carry cases. Four native
+physical attachment/throw cases are written but NotRun. Editor binding validation
+checks identity, required scene references and clip tables; it is not visual or
+physics acceptance. Native C# compilation, final 49-clip import/contacts, obstruction,
+joint forces, crouch IK, clearance and Player execution remain Blocked here.
 Offline execution is not native animation/rig proof. Actual asset import, physical
 handoff/Player evidence and human feel remain required; PHYS-01 and production gates
 are not passed by these isolated presentation tests.

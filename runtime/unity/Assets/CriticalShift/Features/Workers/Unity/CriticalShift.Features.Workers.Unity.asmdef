@@ -1,7 +1,9 @@
 {
   "name": "CriticalShift.Features.Workers.Unity",
   "rootNamespace": "CriticalShift.Features.Workers.Unity",
-  "references": [],
+  "references": [
+    "CriticalShift.Unity.Shared"
+  ],
   "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,

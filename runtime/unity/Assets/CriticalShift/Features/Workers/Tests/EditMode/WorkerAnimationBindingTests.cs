@@ -73,6 +73,22 @@ namespace CriticalShift.Features.Workers.Tests
         }
 
         [Test]
+        public void RecoveryPrimingDoesNotEvaluateIdleOverThePhysicsPose()
+        {
+            var worker = new GameObject("Recovery priming fixture"); owned.Add(worker); worker.SetActive(false);
+            var animator = worker.AddComponent<Animator>(); var driver = worker.AddComponent<WorkerMovementAnimator>();
+            var serialized = new SerializedObject(driver);
+            serialized.FindProperty("animator").objectReferenceValue = animator;
+            serialized.FindProperty("library").objectReferenceValue = Library(); serialized.ApplyModifiedPropertiesWithoutUndo();
+            worker.SetActive(true); worker.transform.position = new Vector3(3, 0, 0);
+            Assert.That(driver.PrimeGroundedAction(MovementClip.GETUP_FRONT, 1), Is.True);
+            Assert.That(driver.ActiveAction, Is.EqualTo(MovementClip.GETUP_FRONT));
+            Assert.That(animator.enabled, Is.False); Assert.That(worker.transform.position.x, Is.EqualTo(3));
+            driver.ApplySample(new MovementAnimationSample(0, 0, 0, true), 0.1f);
+            Assert.That(animator.enabled, Is.True);
+        }
+
+        [Test]
         public void PlayableLifetimeSuspendsAndRestartsWithoutOldActions()
         {
             var library = Library();

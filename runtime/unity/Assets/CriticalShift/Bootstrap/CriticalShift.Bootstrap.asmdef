@@ -2,13 +2,19 @@
   "name": "CriticalShift.Bootstrap",
   "rootNamespace": "CriticalShift.Bootstrap",
   "references": [
-    "CriticalShift.ProcessLifetime"
+    "CriticalShift.ProcessLifetime",
+    "CriticalShift.Unity.Shared",
+    "CriticalShift.Features.Workers.Unity",
+    "CriticalShift.Features.Interaction.Unity",
+    "CriticalShift.FacilityPhysics.Unity"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,
   "overrideReferences": true,
-  "precompiledReferences": [],
+  "precompiledReferences": [
+    "CriticalShift.Application.dll"
+  ],
   "autoReferenced": false,
   "defineConstraints": [],
   "versionDefines": [],

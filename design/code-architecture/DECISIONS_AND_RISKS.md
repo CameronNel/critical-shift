@@ -94,6 +94,35 @@ or gate acceptance is implied. Independent review remains pending.
 
 ## 4. Risk register
 
+### 2 October 2026: assignable movement and scene interactions (PR 72 extension)
+
+The user explicitly authorized movement and interaction code for map assignment.
+D-03 is bounded here to Unity's built-in legacy keyboard/mouse input, using the
+physics and inputlegacy modules at `1.0.0`; no third-party input, UI or transport
+framework is selected. A02's existing Workers, Interaction, FacilityPhysics,
+Unity.Shared and Bootstrap roles host real consumers. Unity.Shared carries only
+scene ports; Bootstrap constructs a single canonical WorldSession. The canonical
+Application plus seven Domain libraries are built as .NET Standard 2.1 DLLs with
+explicit PluginImporter/asmdef references and a source hash manifest. No duplicate
+Unity rule source is introduced.
+
+Facility controls gain a revisioned, receipt-backed Application command in the
+existing per-connection stream; switches, doors, valves and service connections
+have one logical owner. Unity owns their physical projection. Worker awareness,
+suit and recovery continue through existing WorkerWorkflow; production/reactor
+use their existing typed requests. Authoring animations, FBX exports and clips
+remain untouched, as explicitly required by the user. Contact defaults are
+provisional code configuration until final animation calibration is supplied.
+D-08 is bounded to tagged cargo/body objects with one primary and one helper under
+the same lease generation. Either participant occupies their one-object allowance;
+helper release/disconnect preserves the primary, while primary loss, timeout or
+attachment failure releases both. Slot insertion requires helper release first.
+Host receipts fence assistance and stale releases; two force-limited grip points
+drive one authoritative Rigidbody. This does not select a transport: D-02 remains
+open. Recommissioning economy/medical-resource contracts are not present
+in the existing rules and are not implied by the scene recovery adapter.
+
+
 Impact describes consequence if the risk occurs. Likelihood is not quantified: no current runtime evidence exists in this revision from which to derive probabilities.
 
 | Risk | Impact and concrete failure | Mitigation and detection | Gate/owner |

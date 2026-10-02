@@ -19,7 +19,11 @@ LINKS = {
     TESTS: [{"Include": "../../../unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs", "Link": "ProcessLifetimeTests.cs"},
             {"Include": "../../../unity/Assets/CriticalShift/Features/Workers/Unity/MovementClips.cs", "Link": "MovementClips.cs"},
             {"Include": "../../../unity/Assets/CriticalShift/Features/Workers/Unity/MovementAnimationSelector.cs", "Link": "MovementAnimationSelector.cs"},
-            {"Include": "../../../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/MovementAnimationTests.cs", "Link": "MovementAnimationTests.cs"}],
+            {"Include": "../../../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/MovementAnimationTests.cs", "Link": "MovementAnimationTests.cs"},
+            {'Include': '../../../unity/Assets/CriticalShift/Unity/Shared/SceneOperation.cs', 'Link': 'SceneOperation.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/GaitCalibration.cs', 'Link': 'GaitCalibration.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerActionPlan.cs', 'Link': 'WorkerActionPlan.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/WorkerMechanicsTests.cs', 'Link': 'WorkerMechanicsTests.cs'},],
 }
 ALLOWED = {REACTOR: set(), POWER: set(), PROCESS: set(), DOMAIN: set(), SESSION: set(), WORKERS: set(), MATERIALS: set(), PRODUCTION: set(),
            APPLICATION: {DOMAIN, SESSION, WORKERS, MATERIALS, PRODUCTION, REACTOR, POWER},

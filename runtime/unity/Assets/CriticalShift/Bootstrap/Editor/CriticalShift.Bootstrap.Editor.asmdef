@@ -3,7 +3,11 @@
   "rootNamespace": "CriticalShift.Bootstrap.Editor",
   "references": [
     "CriticalShift.Bootstrap",
-    "CriticalShift.ProcessLifetime"
+    "CriticalShift.ProcessLifetime",
+    "CriticalShift.Unity.Shared",
+    "CriticalShift.Features.Workers.Unity",
+    "CriticalShift.Features.Interaction.Unity",
+    "CriticalShift.FacilityPhysics.Unity"
   ],
   "includePlatforms": [
     "Editor"

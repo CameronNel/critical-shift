@@ -46,10 +46,13 @@ namespace CriticalShift.Application
             _interaction.BindProduction(Production);
             Reactor = new ReactorOperations(this, _interaction);
             _interaction.BindReactor(Reactor);
+            Controls = new FacilityControlOperations(this);
+            _interaction.BindControls(Controls);
         }
 
         public ProductionOperations Production { get; }
         public ReactorOperations Reactor { get; }
+        public FacilityControlOperations Controls { get; }
 
         // Bounded setup transaction; public callers cannot submit arbitrary mutation delegates.
         internal void RegisterProduction(Action registration)
@@ -68,10 +71,10 @@ namespace CriticalShift.Application
             _timeline.ElapsedMilliseconds, _timeline.RemainingMilliseconds, _timers.Count,
             _interaction.RegisteredCount, _interaction.ActiveClaimCount, _interaction.ConnectedCount);
 
-        public void RegisterObject(Guid entityId)
+        public void RegisterObject(Guid entityId, bool allowAssistance = false)
         {
             RequireIdle(); long next = NextRevision();
-            _interaction.RegisterObject(entityId); _revision = next;
+            _interaction.RegisterObject(entityId, allowAssistance); _revision = next;
         }
         public void RegisterConnection(Guid connectionId, Guid actorId)
         {
@@ -338,7 +341,7 @@ namespace CriticalShift.Application
         private WorldAdvanceResult EmptyAdvance(bool ended) => new WorldAdvanceResult(View,
             Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), ended);
         private long NextRevision() => checked(_revision + 1);
-        private void StopOwnedResources() { Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
+        private void StopOwnedResources() { Controls.Stop(); Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
         private void FailClosed()
         {
             _timeline.Fault(); StopOwnedResources();
@@ -391,7 +394,7 @@ namespace CriticalShift.Application
                 // Rejections use the existing receipt stream; pause cannot create a sequence gap.
                 // Release and host-approved renewal remain possible while simulation is paused.
                 return !_workers.CanInteract(actorId) ||
-                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production || kind == InteractionKind.Reactor) && _timeline.Phase != TimelinePhase.Running) ?
+                    ((kind == InteractionKind.Grab || kind == InteractionKind.Assist || kind == InteractionKind.Production || kind == InteractionKind.Reactor || kind == InteractionKind.Control) && _timeline.Phase != TimelinePhase.Running) ?
                     AccessDecision.ActorUnavailable : _inner.Evaluate(actorId, entityId, kind);
             }
         }

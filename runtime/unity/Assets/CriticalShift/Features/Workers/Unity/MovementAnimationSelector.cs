@@ -43,8 +43,8 @@ namespace CriticalShift.Features.Workers.Unity
     {
         private readonly float[] durations;
         private bool wasAirborne, wasAnimated;
-        private float airTime, landingTime, actionTime;
-        private MovementClip? action;
+        private float airTime, landingTime, actionTime, jumpTime = -1;
+        private MovementClip? action, resumeAction;
         private ulong lastActionSequence;
         public MovementClip? ActiveAction => action;
         public ulong ActionSequence => lastActionSequence;
@@ -62,12 +62,15 @@ namespace CriticalShift.Features.Workers.Unity
         }
 
         // Sequence is increasing within this worker binding. Duplicate/old presentation events do not restart a clip.
-        public bool TryPlayAction(MovementClip clip, ulong sequence)
+        public bool TryPlayAction(MovementClip clip, ulong sequence, MovementClip? resume = null)
         {
+            if (resume.HasValue && (!MovementClipInfo.For(resume.Value).Action || !MovementClipInfo.For(resume.Value).Loop))
+                throw new ArgumentException("A resumed action must be a held loop.", nameof(resume));
             if (!MovementClipInfo.For(clip).Action || !wasAnimated || wasAirborne ||
                 sequence == 0 || sequence <= lastActionSequence) return false;
             lastActionSequence = sequence;
             action = clip;
+            resumeAction = resume;
             actionTime = 0;
             landingTime = 0;
             return true;
@@ -77,6 +80,15 @@ namespace CriticalShift.Features.Workers.Unity
         {
             if (sequence != lastActionSequence || !action.HasValue) return false;
             action = null;
+            resumeAction = null;
+            return true;
+        }
+
+        public bool BeginJump(bool allowCoyote = false)
+        {
+            if (!wasAnimated || (wasAirborne && !allowCoyote) || action.HasValue || jumpTime >= 0) return false;
+            jumpTime = 0;
+            landingTime = 0;
             return true;
         }
 
@@ -85,6 +97,8 @@ namespace CriticalShift.Features.Workers.Unity
             wasAirborne = wasAnimated = false;
             airTime = landingTime = actionTime = 0;
             action = null;
+            resumeAction = null;
+            jumpTime = -1;
             lastActionSequence = 0;
         }
 
@@ -97,16 +111,30 @@ namespace CriticalShift.Features.Workers.Unity
                 wasAirborne = wasAnimated = false;
                 airTime = landingTime = 0;
                 action = null;
+                resumeAction = null;
+                jumpTime = -1;
                 return default;
             }
             bool first = !wasAnimated;
             wasAnimated = true;
+            if (jumpTime >= 0)
+            {
+                jumpTime += deltaTime;
+                if (jumpTime <= durations[(int)MovementClip.JUMP])
+                {
+                    wasAirborne = !sample.Grounded;
+                    if (wasAirborne) airTime += deltaTime;
+                    return Single(MovementClip.JUMP);
+                }
+                jumpTime = -1;
+            }
             if (!sample.Grounded)
             {
                 if (!wasAirborne) airTime = 0;
                 wasAirborne = true;
                 airTime += deltaTime;
                 action = null;
+                resumeAction = null;
                 landingTime = 0;
                 return Single(sample.Vertical > 0.1f && airTime < durations[(int)MovementClip.JUMP]
                     ? MovementClip.JUMP : MovementClip.FALL);
@@ -122,7 +150,10 @@ namespace CriticalShift.Features.Workers.Unity
                     actionTime += deltaTime;
                     return Single(action.Value);
                 }
-                action = null;
+                action = resumeAction;
+                resumeAction = null;
+                actionTime = 0;
+                if (action.HasValue) return Single(action.Value);
             }
             if (landingTime > 0)
             {

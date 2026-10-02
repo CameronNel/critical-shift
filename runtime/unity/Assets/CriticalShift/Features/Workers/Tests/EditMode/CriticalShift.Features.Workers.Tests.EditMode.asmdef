@@ -2,7 +2,8 @@
   "name": "CriticalShift.Features.Workers.Tests.EditMode",
   "rootNamespace": "CriticalShift.Features.Workers.Tests.EditMode",
   "references": [
-    "CriticalShift.Features.Workers.Unity"
+    "CriticalShift.Features.Workers.Unity",
+    "CriticalShift.Unity.Shared"
   ],
   "includePlatforms": [
     "Editor"

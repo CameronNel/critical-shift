@@ -21,10 +21,12 @@ namespace CriticalShift.Features.Workers.Unity
         private readonly float[] rates = new float[MovementClipInfo.Count];
         private readonly double[] times = new double[MovementClipInfo.Count];
         private readonly bool[] targeted = new bool[MovementClipInfo.Count];
+        private float[] lengths;
         private double stridePhase;
         private ulong playedActionSequence;
         private bool playing, capturedRootMotion, originalRootMotion;
         public bool Ready => graph.IsValid();
+        public Transform ModelRoot => animator != null ? animator.transform : null;
         public MovementClip? ActiveAction => selector?.ActiveAction;
 
         // Inspector references are explicit. Call ApplySample once per visual frame from the motion binding.
@@ -39,7 +41,7 @@ namespace CriticalShift.Features.Workers.Unity
                 if (!MovementAnimationSample.Finite(blendSeconds) || blendSeconds < 0)
                     throw new InvalidOperationException("Blend duration must be finite and nonnegative.");
                 clips = library.CreateClipTable();
-                var lengths = new float[clips.Length];
+                lengths = new float[clips.Length];
                 for (int i = 0; i < clips.Length; i++) lengths[i] = clips[i].length;
                 selector = new MovementAnimationSelector(lengths);
                 originalRootMotion = animator.applyRootMotion;
@@ -74,39 +76,34 @@ namespace CriticalShift.Features.Workers.Unity
             var blend = selector.Step(sample, deltaTime);
             if (blend.Count == 0) { Suspend(); return; }
             Array.Clear(targets, 0, targets.Length);
-            float gaitWeight = 0, strideFrequency = 0;
             for (int j = 0; j < blend.Count; j++)
             {
                 var entry = blend[j];
                 int i = (int)entry.Clip;
                 targets[i] = entry.Weight;
                 rates[i] = entry.Rate;
-                var info = MovementClipInfo.For(entry.Clip);
-                if (info.Strides > 0)
-                {
-                    gaitWeight += entry.Weight;
-                    strideFrequency += entry.Weight * entry.Rate * info.Strides / clips[i].length;
-                }
             }
-            // Bounded phase, with two-stride RUN/SPRINT aligned to the one-stride walks.
-            if (gaitWeight > 0) stridePhase = (stridePhase + deltaTime * strideFrequency / gaitWeight) % 2;
             float smoothing = !playing || blendSeconds == 0 ? 1 : 1 - Mathf.Exp(-deltaTime / blendSeconds);
             float total = 0;
             bool newAction = playedActionSequence != selector.ActionSequence;
             for (int i = 0; i < weights.Length; i++)
             {
+                weights[i] = Mathf.Lerp(weights[i], targets[i], smoothing);
+                if (weights[i] < 0.0001f && targets[i] == 0) weights[i] = 0;
+                total += weights[i];
+            }
+            stridePhase = (stridePhase + deltaTime * GaitCalibration.Frequency(sample.Speed, weights, lengths, sample.Pose)) % 2;
+            for (int i = 0; i < weights.Length; i++)
+            {
                 var info = MovementClipInfo.For((MovementClip)i);
                 bool target = targets[i] > 0;
                 bool restart = target && (!targeted[i] || (newAction && selector.ActiveAction == (MovementClip)i));
-                if (restart && !info.Loop) times[i] = 0;
+                if (restart && (!info.Loop || info.Action)) times[i] = 0;
                 if (info.Strides > 0) times[i] = (stridePhase % info.Strides) * clips[i].length / info.Strides;
-                else if (!restart || info.Loop)
+                else
                     times[i] = info.Loop ? (times[i] + deltaTime * rates[i]) % clips[i].length
                         : Math.Min(clips[i].length, times[i] + deltaTime * rates[i]);
                 targeted[i] = target;
-                weights[i] = Mathf.Lerp(weights[i], targets[i], smoothing);
-                if (weights[i] < 0.0001f && !target) weights[i] = 0;
-                total += weights[i];
                 players[i].SetTime(times[i]);
             }
             for (int i = 0; i < weights.Length; i++) mixer.SetInputWeight(i, weights[i] / total);
@@ -117,8 +114,21 @@ namespace CriticalShift.Features.Workers.Unity
             playing = true;
         }
 
-        public bool TryPlayAction(MovementClip clip, ulong sequence) =>
-            isActiveAndEnabled && Ready && selector.TryPlayAction(clip, sequence);
+        public float Duration(MovementClip clip) => Ready ? clips[(int)clip].length : 0;
+        public bool BeginJump(bool allowCoyote = false) => Ready && selector.BeginJump(allowCoyote);
+        public bool TryPlayAction(MovementClip clip, ulong sequence, MovementClip? resume = null) =>
+            isActiveAndEnabled && Ready && selector.TryPlayAction(clip, sequence, resume);
+
+        // Physics/cabinet owners prime selection without evaluating a standing pose over a frozen body.
+        public bool PrimeGroundedAction(MovementClip clip, ulong sequence)
+        {
+            if (!isActiveAndEnabled || !Ready) return false;
+            selector.Step(new MovementAnimationSample(0, 0, 0, true), 0);
+            if (!selector.TryPlayAction(clip, sequence)) return false;
+            Array.Clear(weights, 0, weights.Length); Array.Clear(targeted, 0, targeted.Length);
+            playing = false;
+            return true;
+        }
 
         public bool StopAction(ulong sequence) => Ready && selector.StopAction(sequence);
 

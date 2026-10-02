@@ -1,111 +1,150 @@
-# Worker movement animation adapter
+# Assignable worker movement and scene interactions
 
-Uses the 49 exact action/take names authored on `claude/character-rig` at
-`6792f25d89430c5b1ff701d37957f88f3ae20e8a`. That branch is unmerged. Its
-`sections/spawn-room/blender/README.md`, `character_rig.py` and `character_clips.py`
-remain the animation source. This feature does not copy or merge that authoring work.
+Unity 6000.4.3f1, Built-in pipeline. Gameplay scripts bind to the 49 named takes;
+Blender animation sources, keyframes, exports and clip assets are **untouched**.
+The animation work is still in progress. Current code calibration comes from
+`claude/character-rig` revision `6792f25`; final visual/contact acceptance requires
+finished assets and a native Unity run.
 
-## Import and bind
+## Map binding workflow
 
-1. Export the actions with the rig branch's existing `render_rig.py` `EXPORT=<dir>`
-   option, and import the FBX files into this Unity project's content folder. Keep
-   the exact uppercase take names. Review scale/axes and configure a compatible
-   shared Generic rig or verified Humanoid Avatar. Blender's forward +Y must become
-   Unity forward +Z. The authored extra Belly, Pack and Tool bones need explicit
-   import/retarget review; no Avatar configuration is silently selected here.
-2. In the FBX Animation import tab enable **Loop Time** for all walks, runs, turns,
-   idles, holds, `FALL`, `TURN_VALVE`, `RADIO` and `SHOVEL_DIG`. Disable it for the
-   one-shots. `MovementClipInfo.For` is the complete loop catalogue. Apply import
-   changes. All clips must be nonlegacy and have positive lengths.
-3. Select the imported folder and run **Critical Shift > Workers > Create animation
-   library from selected folder**. It finds FBX sub-clips and standalone clips by
-   exact name, rejects duplicates/missing clips/wrong loop flags, and creates a
-   uniquely named library. It does not rewrite import settings or assets. The
-   library Inspector also has a validation button.
-4. Add `WorkerMovementAnimator` to the worker. Assign its Animator and library in
-   the Inspector; leave the Animator controller empty. This component is the sole
-   animation writer. It creates a manual Playables mixer, disables root motion,
-   and waits for the first movement sample. No Animator controller asset is needed.
+Open `runtime/unity` in the pinned activated editor. Select exactly one worker as
+Local Input; other workers need a separately implemented transport/input adapter. Canonical Application and seven
+Domain DLLs are included under `Assets/CriticalShift/Plugins/Rules`; their importers
+use explicit references. After changing pure rules, rebuild them from the repository
+root with `python runtime/tools/build_unity_rules.py` using the pinned .NET SDK.
+The build manifest detects stale source/DLL pairs. Do not copy rule source into Unity.
 
-## Feed the actual motion
+1. Use **Critical Shift → Scene bindings**. Select the worker root and choose **Bind
+   selected worker**. Assign the final animation library when ready. The tool adds
+   a separate capsule root, visual child, camera, grip, movement, crouch and ragdoll
+   components and resolves
+   existing bone names; it does not edit a clip, Avatar or character mesh.
+2. Build/assign ragdoll joints and limb colliders using Unity's Ragdoll Wizard.
+   Assign the pelvis and all ragdoll Rigidbody/collider references. A complete
+   ragdoll is required. Assign suited/bare meshes and local head meshes separately;
+   the local camera excludes the chosen head layer while other cameras can see it.
+3. Select cargo, tools, carts or body markers and bind the appropriate physical
+   object kind. Assign its actual Rigidbody and grip anchor. Body markers need the
+   represented worker and the pelvis Rigidbody, with colliders under the marker's
+   hierarchy so raycasts find it. Tools use the worker's Tool-bone socket. Enable
+   **Allow assistance** on shared cargo/body objects and assign the second grip.
+4. Bind buttons, levers, valves, doors, service ports, aid points and suit lockers.
+   Place the contact marker at the actual reachable handle, ordinarily chest height.
+   Assign moving parts; doors require a collision-enabled Rigidbody/HingeJoint.
+   Set the component's Operation to the intended action. Reanimation stations need
+   a patient, chamber/exit anchor and a connected service port.
+5. Bind production machines/reactors. A machine root owns its slot and authored
+   recipe/definition. Additional control markers reference that root and choose a
+   typed ProductionAction/ReactorAction plus the animation Operation: e.g. Insert,
+   Button, Lever, ValveTurn. Material containers also need MaterialBinding. Insertion
+   requires the held container within 0.8 m of a clear slot; slot overlap/path checks
+   prevent pushing cargo through a wall. The collider layout must leave the slot free.
+6. Run **Wire scene references**, then **Validate scene bindings**. Each scene has
+   one FacilitySceneHost with explicit worker/target arrays. Duplicate object IDs,
+   missing references, unsupported operations and incomplete clips fail validation.
+   Duplicated prefab instances need distinct serialized identities; clearing an ID
+   in the Inspector regenerates it through OnValidate.
 
-The existing/future physical binding calls this once per visual frame before
-Animator evaluation. Use **actual velocity**, including blocked movement and
-carrying slowdown. Transform world velocity with the worker root's
-`InverseTransformDirection`, not a rotating camera or animated hip bone:
+When animations are finished, use the existing **Workers → Create animation library
+from selected folder** command on their imported folder, or assign the 49 clips
+manually to WorkerAnimationLibrary. This creates a binding asset and validates names
+and loop flags; it does not rewrite import settings. Preserve +Z Unity forward,
++Y up, metre scale and compatible skeleton/Avatar mapping. Remove the Animator
+controller because WorkerMovementAnimator owns its manual Playables graph.
 
-```csharp
-Vector3 local = workerRoot.InverseTransformDirection(actualWorldVelocity);
-animationDriver.ApplySample(new MovementAnimationSample(
-    local.x, local.z, local.y, grounded, MovementPose.Carry,
-    yawDegreesPerSecond: measuredYawRate,
-    animated: motionOwnerPermitsAnimation), Mathf.Min(Time.deltaTime, 1f));
-```
+## Controls and explicit calls
 
-`Right`/`Forward`/`Vertical` are metres per second; positive yaw is a right turn in
-degrees per second. Supply the committed presentation context: `Free`, `Carry`,
-`Shovel`, `Pickaxe`, `Push`, `Pull` or `Drag`. Ground contact and the animation-control
-flag come from the physical owner. The sample's default struct is suspended.
+| Control | Behavior |
+| --- | --- |
+| WASD / mouse | Move / look; measured displacement drives playback |
+| Shift / Alt | Sprint / walk, with carried/tool/hauling limits |
+| Ctrl / Space / B | Crouch / buffered short jump / slow brace |
+| F | Pick up; assist an existing tagged carry at the pickup cue |
+| E | Use the looked-at target's Operation; hold for valve/tool loops |
+| G / V | Release / place at the authored release cue |
+| T / Alt+T | Chest / underhand throw with authored default velocity |
+| C + mouse | Rotate held cargo |
+| Left mouse | Shovel work at a dig target while holding a shovel |
+| P / R | Point/ping / hold radio pose; pingEffect receives the hit position |
+| Tab | Read detached machine/material/control status |
+| Escape | Release cursor and cancel pending input actions |
 
-Standing blends idle, forward/back/side walks, RUN and SPRINT. Diagonals blend the
-corresponding axes. Forward gait transitions use the authored 0.63/1.4/2.6 m/s
-speeds; carrying uses 0.50/0.96 m/s. Tool, push, pull and drag speeds also use the
-authored values. Playback is bounded to 2.5x. Shared stride phase aligns the two
-strides in RUN/SPRINT with the one-stride walks. Turn playback uses the authored
-48 degrees per second. There are no per-frame arrays/lists in selection/playback.
+`WorkerController.StartAction(target, operation)` is the same bounded scene action
+entrypoint for a scripted host caller. It rejects downed, airborne, busy, distant
+or incompatible use. Rigidbody state, worker identity, hazard identity, tool grip,
+materials, recipes and control intentions remain explicit scene assignments.
+Radio here supplies the pose; the voice transport is still an open project decision.
 
-Vertical motion selects jump then fall; grounded contact after at least 0.1 seconds
-of air selects LAND for its imported duration. A new jump interrupts landing.
-Short grounding gaps do not trigger LAND. Carry/tool context resumes afterwards.
+## All 49 clip routes
 
-## Committed actions and physical handoff
+| Trigger/context | Exact clips |
+| --- | --- |
+| Free standing and forward motion | IDLE, WALK_F, RUN, SPRINT |
+| Backward/lateral motion and standing yaw | WALK_B, WALK_L, WALK_R, TURN_L, TURN_R |
+| Tools at rest/in motion | HOLD_SHOVEL, RUN_SHOVEL, HOLD_PICKAXE, RUN_PICKAXE |
+| Jump anticipation, flight and contact | JUMP, FALL, LAND |
+| Pickup, carry, placement/release/throws | PICKUP, CARRY_IDLE, CARRY_WALK, CARRY_RUN, PLACE, DROP, THROW_UNDER, THROW_OVER |
+| Cart/body custody | PUSH_IDLE, PUSH_WALK, PULL_WALK, DRAG_BODY |
+| Facility controls, service, signals | PRESS_BUTTON, PULL_LEVER, TURN_VALVE, HOLD_VALVE, OPEN, INSERT, CONNECT_PORT, POINT, RADIO |
+| Minor impact directions and safe physical recovery | STAGGER_F, STAGGER_B, STAGGER_L, STAGGER_R, GETUP_FRONT, GETUP_BACK |
+| Suit/cabinet workflow | SUIT_UP, LOCKER_EXIT, REANIM_IDLE, REANIM_JOLT, REANIM_EXIT |
+| Shovel work | SHOVEL_DIG |
 
-After the first animated sample, send an already authorized visual action:
+All names have a code route. This table is not proof of final imported-clip behavior.
+No additional takes are invented. Crouching is a procedural hip/leg IK overlay on
+current locomotion; it needs the seven assigned leg/hip transforms. Tool and hauling
+movement directions are limited to those authored. Grip alignment, procedural crouch,
+hands, capsule size, camera and ragdoll behavior require native review.
 
-```csharp
-animationDriver.TryPlayAction(MovementClip.PICKUP, visualEventSequence);
-// Held loops remain until a matching release or a newer action:
-animationDriver.StopAction(visualEventSequence);
-```
+## Calibration and authority
 
-One-shots end after the imported clip length; loops remain until stopped. Increasing
-nonzero sequences suppress duplicate and stale presentation events; a stale stop
-cannot cancel a replacement. This is local visual replay protection, not a network
-command admission system. Disable/re-enable clears the binding's sequence history;
-the world binder must reject old-epoch events before calling this component.
+Authored free speeds: forward walk/backward 0.63 m/s, sides 0.40, run 1.4 and sprint
+2.6. Tool run is 1.2; carry walk/run 0.50/0.96; push/pull/drag 0.60/0.50/0.33.
+Standing turns are authored at 48 degrees/s. RUN and SPRINT contain two strides.
+The shared gait clock divides actual velocity by the weighted stride-distance vector
+of the visible clips, including blend smoothing. This preserves the blended floor
+speed; the earlier average-frequency clock did not. Individual blended foot contacts
+still need native inspection; this is not a foot-locking guarantee.
 
-Airborne motion cancels an action. An `Animated=false` sample immediately stops the
-graph, disables the Animator and clears action/air/landing history. It retains the
-event high-water mark until unbinding. The physical owner must suspend animation
-**before** enabling ragdoll bodies, and disable those bodies **before** permitting
-animation/recovery. `GETUP_FRONT/BACK` only present an externally approved recovery;
-completion never changes health, claims or controllers. On disable the component
-destroys its graph, restores the previous root-motion setting, leaves the Animator
-disabled, and resets visual history. It has no subscriptions or static mutable state.
+A jump begins with the grounded anticipation pose and takes off at 7/14 of the
+imported duration. Coyote/buffer defaults are 0.10/0.15 s. Gravity, acceleration,
+capsule size, crouch height, jump height and sensitivity are Inspector settings.
+The imported length controls action timing. WorkerController.contactTimings overrides
+normalized interaction cues for final calibration **without modifying animations**.
+One-shot and loop clocks restart together with the action clock. A jolt returns to
+REANIM_IDLE until the host authorizes exit.
 
-The worker physical/health owner, Interaction custody owner and host workflow remain
-authoritative. No input, movement integrator, networking, actual ragdoll, grab/release,
-tool visibility or first-person camera binding is installed by this animation adapter.
+FacilitySceneHost composes one WorldSession. Commands use its current epoch, shared
+per-worker sequence and terminal receipts. Production/reaction outcomes, worker
+awareness/suit/recovery, control revisions and object claims stay in canonical rules.
+SceneTarget.Apply performs only the committed physical/cosmetic projection. Effects
+must not call back to mutate authoritative quantities or health.
 
-## Limits and verification
+Carrying applies bounded forces and keeps collisions with the map. Timeout,
+disconnect, knockdown, obstruction and generation-specific attachment failure clean
+up holds and restore collision pairs. Tagged two-person carrying keeps one primary
+and one helper under one generation; helper loss preserves the primary, primary loss
+or expiry frees both. Insertion requires the helper to release first. Neither actor
+can hold a second object. The two configured grip points apply separate force limits.
 
-The source has no crouch clips, directional carry/tool runs, pull/drag idle, or
-two-person carry animation. Pull/drag freeze their gripping gait pose at rest;
-carry/tool clips use forward-authored motion in other directions. Those are explicit
-art gaps, not invented animations. Full-body actions override locomotion, so a host
-must restrict motion during interactions where feet should remain fixed. Real grips,
-extra-bone transfer, foot contact, avatar compatibility and camera clipping require
-native inspection. The source clips' documented get-up/suit contacts remain.
+Recovery uses the ragdoll pelvis to find a floor and choose front/back get-up. The frozen bone pose blends into the get-up without evaluating an intermediate
+standing pose. The real standing capsule is checked before starting and again by IWorkerRecoveryPolicy
+before completing the current attempt. Blocked recovery remains Down. The scene OCRU
+adapter connects, jolts, waits, stabilizes and requests a cleared exit; disabled
+stations cancel their timer and return the patient to a downed physical state.
 
-Runtime assembly: `CriticalShift.Features.Workers.Unity`, depends on UnityEngine and
-base C# only. Editor assembly: `CriticalShift.Features.Workers.Editor`, depends on
-that runtime assembly and UnityEditor. All new source and folders have `.meta` files.
-No existing consumer/serialized identity was replaced or removed. Pure selector/tests
-are linked into the existing offline NUnit suite; there is one canonical implementation.
+## Validation and limits
 
-See [task and execution evidence](../../../../../validation/MOVEMENT_ANIMATIONS.md).
-Run `python runtime/dotnet/tools/verify.py` with .NET 8 for the offline checks.
-Native tests in `Tests/EditMode/WorkerAnimationBindingTests.cs` exercise library
-validation and ten Playables enable/suspend/disable cycles. They require the pinned
-activated Unity Editor; the foundation runner does not establish this feature's
-native acceptance. No gameplay gate, performance or human feel pass is claimed.
+See [the task record](../../../../../validation/MOVEMENT_ANIMATIONS.md) and
+[architecture](../../../../../../design/code-architecture/README.md). Offline
+selection/cue/control/custody tests use actual canonical C# source. Native library
+binding and physics fixtures are present but have not run here: there is no activated
+Unity Editor or imported finished character in this environment. No Player,
+multiplayer, frame-rate, visual/physics or game-feel acceptance is claimed.
+
+This is a host scene adapter. Networking, microphone/voice, final character/FBX import,
+map colliders and human animation review remain separate requirements. Existing
+rules do not yet define mining yield, medical cartridge inventory, OCRU resource
+costs, radiation/exposure zones or restraint gameplay. Dig/work effects and recovery
+are wired; those broader gameplay owners are not fabricated in cosmetic callbacks.

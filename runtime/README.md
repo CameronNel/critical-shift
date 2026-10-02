@@ -31,14 +31,14 @@ The successful workflow also packages `offline-scenario-runner.zip`: the actual 
 | `dotnet/src/CriticalShift.Features.*.Domain/` | Seven independent rule domains: Interaction, Session, Workers, Materials, Production, Reactor and Power |
 | `unity/Assets/CriticalShift/Application/ProcessLifetime.cs` | The single canonical local-process lifetime implementation, not the gameplay session owner |
 | `dotnet/src/CriticalShift.ProcessLifetime/` | Build project that links that exact process source; it contains no copied implementation |
-| `unity/Assets/CriticalShift/Bootstrap/` | WP-01 diagnostic bootstrap and optional native preparation/build code; not gameplay or map integration |
+| `unity/Assets/CriticalShift/Bootstrap/` | WP-01 diagnostic bootstrap plus the explicit FacilitySceneHost gameplay composition and scene binding editor tools |
 | `tools/` | Foundation static/evidence checks and optional native tooling |
 
 The foundation assembly was renamed from `CriticalShift.Application` to `CriticalShift.ProcessLifetime`, preserving its metadata GUID and C# type namespace. The gameplay assembly keeps `CriticalShift.Application`. Foundation references and checks were updated. The offline suite compiles both together and exercises multiple real gameplay sessions inside one process lifetime.
 
 The former narrow `tools/pure-tests/` harness was removed after its eight original assertions were linked into the normal offline NUnit suite. Their canonical source still also belongs to the original Unity EditMode test assembly. A passing offline run of that source is not a native Unity Test Runner pass.
 
-The application and seven gameplay domain DLLs built by the offline projects provide one future integration route. Do not copy these source files into another implementation or introduce a second mutable holder, material ledger, clock or power balance. The optional scenario package does not install DLLs into Unity. Native importer configuration and scene adapters remain future work.
+The Application and seven gameplay Domain DLLs are now built for Unity under `Assets/CriticalShift/Plugins/Rules` by `python runtime/tools/build_unity_rules.py`, with explicit importers and a source/binary hash manifest. Do not copy these source files into another implementation or introduce a second mutable holder, material ledger, clock or power balance. The optional scenario package does not install DLLs into Unity. The assignable scene adapters and setup workflow are documented in the [worker binding guide](unity/Assets/CriticalShift/Features/Workers/README.md); native import, physics and Player acceptance remain unverified.
 
 ## Contracts and useful entrypoints
 
@@ -52,17 +52,20 @@ The application and seven gameplay domain DLLs built by the offline projects pro
 
 PR #43 and PR #46 remain provenance for their contributions. Their earlier heads are not substitutes for this reconciled candidate. The old offline branch's root README and map state were not transplanted. The entire current `sections/` tree remains `06a41745022bcaee48d7ca3291b19f5febfcb673`.
 
-## Worker animation source
+## Worker movement and scene bindings
 
-The [worker animation adapter](unity/Assets/CriticalShift/Features/Workers/README.md)
-selects and blends Claude's 49 authored clips from the unmerged `claude/character-rig`
-branch. It uses actual local velocity and explicit carry/tool/haul context, matches
-authored gait speeds, handles visual actions, and suspends for physical ownership.
-Its editor tool binds imported clips by exact take name; FBX export/import and a
-physical worker binding are still required. The canonical selector and 26 NUnit
-cases run in the existing offline verifier; three native binding/lifecycle tests
-require Unity. See [scope and evidence](validation/MOVEMENT_ANIMATIONS.md). This
-source work does not advance a gameplay gate or establish native readiness.
+The [binding guide](unity/Assets/CriticalShift/Features/Workers/README.md) covers
+player movement, camera, crouch/jump, ragdoll recovery, object/tool/cart/body physics,
+shared carrying, facility controls and typed production/reactor bindings. Its scene
+setup tool wires explicit references and validates required assignments. All 49
+existing take names have code routes; unfinished animation sources and clip assets
+remain untouched. Inspector contact overrides accommodate the final calibration.
+
+The offline verifier executes 738 tests, including 34 movement/cue cases, eight
+facility-control cases and eight shared-carry cases. Eight native binding/physics
+cases exist but are NotRun here. The source/DLL manifest and metadata checks do not
+establish Unity compilation, imported animation compatibility, physical feel or
+Player readiness. See [task scope and evidence](validation/MOVEMENT_ANIMATIONS.md).
 
 ## Native foundation remains separately unverified
 
