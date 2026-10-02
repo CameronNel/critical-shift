@@ -397,8 +397,11 @@ crotch_f, crotch_b, armpit_b, eye), `FRAMES=0,4,...` for a contact sheet, `VIDEO
 twice, one-shots once with a hold), `RES=WxH`, `SAMPLES=N`, `HIDE=<object>`, `EXPORT=<dir>` for the FBX clips.
 
 Checked (headless bpy 5.0.1, Cycles CPU renders reviewed as contact sheets from a close three-quarter camera and the
-first-person eye, plus numeric checks): every clip builds and loops close; no tool vertex enters the suit; the eye
-never ends up inside a prop; legs stay within reach (at most 99.8 % extended).
+first-person eye, plus numeric checks): every clip builds and loops close; the eye never ends up inside a prop; legs
+stay within reach (at most 99.8 % extended); one shovel vertex touches the suit in `RUN_SHOVEL`. The last review
+looked at 8 frames of every clip from the close camera, the gaits and `OPEN` from the side, and 18 clips from the eye.
+It found nothing the numeric checks below miss. Two things to look at: in `OPEN` the hood meets the door as the body
+leans into it (touching, not inside), and in the first-person `TURN_VALVE` the mittens fill most of the lower view.
 
 Suit clipping, checked on the evaluated HZ-01 suit at every frame of every clip:
 - left against right trouser leg below 0.6 m, left against right boot, mittens against the coat and legs, and the
