@@ -1,8 +1,8 @@
 {
   "schema": "fuel-overhaul-cold-validation/1",
-  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F22ci.blend",
-  "sha256": "2cd961279e0a357029ea9be70af38dd602eda61297055ed9971729e179ffb2cc",
-  "build_manifest": "sections/fuel-corridor/production/checkpoints/F22ci_BUILD_MANIFEST.json",
+  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend",
+  "sha256": "def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe",
+  "build_manifest": "sections/fuel-corridor/production/checkpoints/F23ci_BUILD_MANIFEST.json",
   "recipe_sha256": "2af15cd9f6915334ed42bad8c53e73b49a18ef7ea043597b49d59c2041e31e19",
   "blender": "5.2.1 LTS",
   "status": "PASS",
@@ -18598,8 +18598,8 @@
     }
   ],
   "geometry_budget": {
-    "source_triangles": 1098814,
-    "evaluated_triangles": 1104094,
+    "source_triangles": 1098942,
+    "evaluated_triangles": 1104222,
     "mesh_objects": 356,
     "material_batch_upper_bound": 1505
   },
@@ -20022,12 +20022,12 @@
       "available": true
     },
     {
-      "name": "painted_plaster_wall_disp_2k.jpg",
+      "name": "metal_plate_disp_2k.jpg",
       "packed": true,
       "available": true
     },
     {
-      "name": "metal_plate_disp_2k.jpg",
+      "name": "painted_plaster_wall_disp_2k.jpg",
       "packed": true,
       "available": true
     },
