@@ -446,3 +446,12 @@ Hosted full review runs: [F16ci](https://github.com/CameronNel/critical-shift/ac
 [Rendered area index](REVIEW_INDEX.md), [builder critique](SELF_CRITIQUE_DETAILS.md) and [checklist](CHECKLIST.md) provide the reviewable handoff. The ordinary `blender --python open_map.py` launcher selects this fuel module; the canonical main and immutable R17 bytes remain untouched. Current main-link and dependency evidence report zero missing fuel IDs, with the 128 unrelated historical spawn/PPE warnings retained.
 
 The current-source preview encodes 240 frames at 24 fps for 10 seconds, with exact reuse of identical held-state PNGs. Native keys are checked every frame and in the linked map. Target-speed visual playback and Unity/runtime are unverified; these do not receive still-image art grades. Draft [PR70](https://github.com/CameronNel/critical-shift/pull/70) is updated; no agent merge.
+
+## F18ci hosted execution
+
+Native SHA256 e67b4c7e4fc6cbf1d989791040b88d9e515ba5abd0755853119401e8017c1fd4. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 1070382, "evaluated_triangles": 1075662, "mesh_objects": 356, "material_batch_upper_bound": 1500}.

@@ -1,9 +1,9 @@
 {
   "schema": "fuel-overhaul-cold-validation/1",
-  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F17ci.blend",
-  "sha256": "027ab74f9a3928204d7d3e5f2c1af736982aa41063b37078a6fd9db2efec8deb",
-  "build_manifest": "sections/fuel-corridor/production/checkpoints/F17ci_BUILD_MANIFEST.json",
-  "recipe_sha256": "4907d580baa67d66a12c02d8ce7598a07ef903de9ded16e8208f0c32a90f087b",
+  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F18ci.blend",
+  "sha256": "e67b4c7e4fc6cbf1d989791040b88d9e515ba5abd0755853119401e8017c1fd4",
+  "build_manifest": "sections/fuel-corridor/production/checkpoints/F18ci_BUILD_MANIFEST.json",
+  "recipe_sha256": "39f7ab0248c95e3d2bfd917ba72ff76311e0e898024c377de5123181d121bdec",
   "blender": "5.2.1 LTS",
   "status": "PASS",
   "failures": [],
@@ -10582,6 +10582,32 @@
         [
           0.0001499652862548828,
           [
+            -2.090038299560547,
+            10.52199935913086,
+            0.8953499794006348
+          ],
+          [
+            -2.090038299560547,
+            10.52199935913086,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
+            -2.117966651916504,
+            10.612022399902344,
+            0.8953499794006348
+          ],
+          [
+            -2.117966651916504,
+            10.612022399902344,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
             -2.056000232696533,
             10.56997299194336,
             0.8953499794006348
@@ -10589,32 +10615,6 @@
           [
             -2.056000232696533,
             10.56997299194336,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
-            -2.12400484085083,
-            10.564026832580566,
-            0.8953499794006348
-          ],
-          [
-            -2.12400484085083,
-            10.564026832580566,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
-            -2.0839619636535645,
-            10.617995262145996,
-            0.8953499794006348
-          ],
-          [
-            -2.0839619636535645,
-            10.617995262145996,
             0.8954999446868896
           ]
         ]
@@ -16635,9 +16635,9 @@
             3.7100000381469727
           ],
           [
-            6.2099995613098145,
+            6.209499835968018,
             11.227499961853027,
-            3.709500312805176
+            3.7100000381469727
           ]
         ],
         [
@@ -16648,9 +16648,9 @@
             3.7100000381469727
           ],
           [
-            6.2099995613098145,
+            6.209499835968018,
             11.229499816894531,
-            3.709500312805176
+            3.7100000381469727
           ]
         ],
         [
@@ -16661,9 +16661,9 @@
             3.7100000381469727
           ],
           [
-            6.2099995613098145,
+            6.209499835968018,
             11.372499465942383,
-            3.709500312805176
+            3.7100000381469727
           ]
         ]
       ],
@@ -18363,7 +18363,17 @@
   ],
   "dependencies": [
     {
+      "name": "painted_plaster_wall_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
       "name": "metal_plate_diff_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "metal_plate_disp_2k.jpg",
       "packed": true,
       "available": true
     },
@@ -18378,12 +18388,7 @@
       "available": true
     },
     {
-      "name": "painted_plaster_wall_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "metal_plate_disp_2k.jpg",
+      "name": "wood_table_worn_disp_2k.jpg",
       "packed": true,
       "available": true
     },
@@ -18394,11 +18399,6 @@
     },
     {
       "name": "painted_plaster_wall_rough_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "wood_table_worn_disp_2k.jpg",
       "packed": true,
       "available": true
     },
@@ -18432,6 +18432,404 @@
       "obstructions": []
     }
   ],
+  "fixture_lighting": {
+    "status": "PASS",
+    "world_ambient_strength": 0,
+    "powered_sources": 43,
+    "sources": [
+      {
+        "light": "FC | Bench practical pool",
+        "fixture": "FC | Bench practical",
+        "optic_materials": [
+          "FC | warm diffuser | FC | Bench practical"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 50.592002868652344
+      },
+      {
+        "light": "FC | Cartridge practical pool",
+        "fixture": "FC | Cartridge practical",
+        "optic_materials": [
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 17.0
+      },
+      {
+        "light": "FC | Staging main pool",
+        "fixture": "FC | Staging main",
+        "optic_materials": [
+          "FC | warm diffuser | FC | Staging main"
+        ],
+        "closest_optic_face_center_distance_m": 0.010999679400062195,
+        "energy_frame_1_w": 63.20000076293945
+      },
+      {
+        "light": "FC | Refinery boundary header reading pool",
+        "fixture": "FC | Refinery boundary header reading optic",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.004000186891745634,
+        "energy_frame_1_w": 3.4000000953674316
+      },
+      {
+        "light": "FC | Plant service header reading pool",
+        "fixture": "FC | Plant service header reading optic",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.004000186891745634,
+        "energy_frame_1_w": 3.4000000953674316
+      },
+      {
+        "light": "FC | Clean header reading pool",
+        "fixture": "FC | Clean service header reading optic",
+        "optic_materials": [
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.0035002231516700682,
+        "energy_frame_1_w": 3.059999942779541
+      },
+      {
+        "light": "FC | Freight drive task pool",
+        "fixture": "FC | Freight gate track and motor",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.0045003889980748625,
+        "energy_frame_1_w": 2.380000114440918
+      },
+      {
+        "light": "FC | Freight closed-leaf inspection pool",
+        "fixture": "FC | Freight leaf inspection hood",
+        "optic_materials": [
+          "FC | warm diffuser",
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.03157493648861938,
+        "energy_frame_1_w": 23.799999237060547
+      },
+      {
+        "light": "FC | Freight channel inspection uplight",
+        "fixture": "FC | Freight leaf inspection hood",
+        "optic_materials": [
+          "FC | warm diffuser",
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.008580007430981418,
+        "energy_frame_1_w": 4.079999923706055
+      },
+      {
+        "light": "FC | Freight lower-channel inspection pool 0",
+        "fixture": "FC | Freight lower-channel service optic",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.002000093445872817,
+        "energy_frame_1_w": 0.20400001108646393
+      },
+      {
+        "light": "FC | Freight lower-channel inspection pool 1",
+        "fixture": "FC | Freight lower-channel service optic",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.002000093445872817,
+        "energy_frame_1_w": 0.20400001108646393
+      },
+      {
+        "light": "FC | Freight lower-channel inspection pool 2",
+        "fixture": "FC | Freight lower-channel service optic",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.002000093445872817,
+        "energy_frame_1_w": 0.20400001108646393
+      },
+      {
+        "light": "FC | Freight lower-channel inspection pool 3",
+        "fixture": "FC | Freight lower-channel service optic",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.002000093445872817,
+        "energy_frame_1_w": 0.20400001108646393
+      },
+      {
+        "light": "FC | Delivery receipt task practical pool",
+        "fixture": "FC | Delivery receipt task practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 18.700000762939453
+      },
+      {
+        "light": "FC | Handover reading practical pool",
+        "fixture": "FC | Handover reading practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 22.100000381469727
+      },
+      {
+        "light": "FC | Interlock inspection practical pool",
+        "fixture": "FC | Interlock inspection practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.0029999018260221367,
+        "energy_frame_1_w": 22.100000381469727
+      },
+      {
+        "light": "FC | Plant flow inspection practical pool",
+        "fixture": "FC | Plant flow inspection practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 12.920000076293945
+      },
+      {
+        "light": "FC | Waste sealing task practical pool",
+        "fixture": "FC | Waste sealing task practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.0029999018260221367,
+        "energy_frame_1_w": 16.31999969482422
+      },
+      {
+        "light": "FC | Waste receipt inspection practical pool",
+        "fixture": "FC | Waste receipt inspection practical",
+        "optic_materials": [
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 20.399999618530273
+      },
+      {
+        "light": "FC | Filter bank reading practical pool",
+        "fixture": "FC | Filter bank reading practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 28.899999618530273
+      },
+      {
+        "light": "FC | Clean stock preparation practical pool",
+        "fixture": "FC | Clean stock preparation practical",
+        "optic_materials": [
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 25.5
+      },
+      {
+        "light": "FC | Clean log reading practical pool",
+        "fixture": "FC | Clean log reading practical",
+        "optic_materials": [
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 17.0
+      },
+      {
+        "light": "FC | Linen exchange practical pool",
+        "fixture": "FC | Linen exchange practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 16.31999969482422
+      },
+      {
+        "light": "FC | Reactor cooling inspection practical pool",
+        "fixture": "FC | Reactor cooling inspection practical",
+        "optic_materials": [
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 25.5
+      },
+      {
+        "light": "FC | Plant utility inspection practical pool",
+        "fixture": "FC | Plant utility inspection practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 11.899999618530273
+      },
+      {
+        "light": "FC | Freight front-support inspection pool",
+        "fixture": "FC | Freight drive inspection flood",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.002500226331408434,
+        "energy_frame_1_w": 25.5
+      },
+      {
+        "light": "FC | Entry fluorescent pool",
+        "fixture": "FC | Entry fluorescent",
+        "optic_materials": [
+          "FC | warm diffuser | FC | Entry fluorescent"
+        ],
+        "closest_optic_face_center_distance_m": 0.01100015630957271,
+        "energy_frame_1_w": 22.139999389648438
+      },
+      {
+        "light": "FC | Crossing fluorescent pool",
+        "fixture": "FC | Crossing fluorescent",
+        "optic_materials": [
+          "FC | cool diffuser | FC | Crossing fluorescent"
+        ],
+        "closest_optic_face_center_distance_m": 0.010999679400062195,
+        "energy_frame_1_w": 23.200000762939453
+      },
+      {
+        "light": "FC | Delivery fluorescent pool",
+        "fixture": "FC | Delivery fluorescent",
+        "optic_materials": [
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.010999679400062195,
+        "energy_frame_1_w": 31.0
+      },
+      {
+        "light": "FC | Reactor transfer fluorescent pool",
+        "fixture": "FC | Reactor transfer fluorescent",
+        "optic_materials": [
+          "FC | warm diffuser | FC | Reactor transfer fluorescent"
+        ],
+        "closest_optic_face_center_distance_m": 0.010999679400062195,
+        "energy_frame_1_w": 37.130001068115234
+      },
+      {
+        "light": "FC | Bypass fluorescent pool",
+        "fixture": "FC | Bypass fluorescent",
+        "optic_materials": [
+          "FC | cool diffuser | FC | Bypass fluorescent"
+        ],
+        "closest_optic_face_center_distance_m": 0.01100015630957271,
+        "energy_frame_1_w": 18.0
+      },
+      {
+        "light": "FC | North fluorescent pool",
+        "fixture": "FC | North fluorescent",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.01100015630957271,
+        "energy_frame_1_w": 16.0
+      },
+      {
+        "light": "FC | Clean fluorescent pool",
+        "fixture": "FC | Clean fluorescent",
+        "optic_materials": [
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.01100015630957271,
+        "energy_frame_1_w": 20.0
+      },
+      {
+        "light": "FC | Plant fluorescent pool",
+        "fixture": "FC | Plant fluorescent",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.01100015630957271,
+        "energy_frame_1_w": 35.70000076293945
+      },
+      {
+        "light": "FC | Entry side practical pool",
+        "fixture": "FC | Entry side practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.0030000209737295835,
+        "energy_frame_1_w": 18.700000762939453
+      },
+      {
+        "light": "FC | Bypass corner practical pool",
+        "fixture": "FC | Bypass corner practical",
+        "optic_materials": [
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 25.5
+      },
+      {
+        "light": "FC | East-turn practical pool",
+        "fixture": "FC | East-turn practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 30.600000381469727
+      },
+      {
+        "light": "FC | Extraction inspection practical pool",
+        "fixture": "FC | Extraction inspection practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 22.100000381469727
+      },
+      {
+        "light": "FC | Reactor approach practical pool",
+        "fixture": "FC | Reactor approach practical",
+        "optic_materials": [
+          "FC | cool diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 28.899999618530273
+      },
+      {
+        "light": "FC | Recess practical pool",
+        "fixture": "FC | Recess practical",
+        "optic_materials": [
+          "FC | warm diffuser"
+        ],
+        "closest_optic_face_center_distance_m": 0.003000020971361124,
+        "energy_frame_1_w": 21.079999923706055
+      },
+      {
+        "light": "FC | Transfer alarm beacon pool",
+        "fixture": "FC | Transfer alarm beacon",
+        "optic_materials": [
+          "FC | Transfer alarm beacon isolated lens"
+        ],
+        "closest_optic_face_center_distance_m": 0.02851221512466809,
+        "energy_frame_1_w": 12.600000381469727
+      },
+      {
+        "light": "FC | Waste alarm beacon pool",
+        "fixture": "FC | Waste alarm beacon",
+        "optic_materials": [
+          "FC | Waste alarm beacon isolated lens"
+        ],
+        "closest_optic_face_center_distance_m": 0.02851139710977151,
+        "energy_frame_1_w": 9.100000381469727
+      },
+      {
+        "light": "FC | Reactor alarm beacon pool",
+        "fixture": "FC | Reactor alarm beacon",
+        "optic_materials": [
+          "FC | Reactor alarm beacon isolated lens"
+        ],
+        "closest_optic_face_center_distance_m": 0.02851139710977151,
+        "energy_frame_1_w": 14.0
+      }
+    ],
+    "errors": [],
+    "scope": "Real emitting faces and emitter placement; readability and light falloff require actual image review."
+  },
   "temporal": {
     "status": "PASS",
     "range_inclusive": [

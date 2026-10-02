@@ -1,0 +1,55 @@
+{
+  "schema": "fuel-detail-view-evidence/1",
+  "scene": "sections/fuel-corridor/production/checkpoints/fuel_full_F18ci.blend",
+  "scene_sha256": "e67b4c7e4fc6cbf1d989791040b88d9e515ba5abd0755853119401e8017c1fd4",
+  "blender": "5.2.1 LTS",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "samples": 32,
+  "seed": 7,
+  "denoise": true,
+  "resolution": [
+    1280,
+    853
+  ],
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": -0.15000000596046448,
+  "frame": 1,
+  "scope": "Additional fixed closeups only; native lighting and visibility unchanged; full area set still required.",
+  "cameras": [
+    {
+      "name": "P02_PROCESS_JUNCTION",
+      "owner": "FC | Process distribution junction box",
+      "matrix_world": [
+        [
+          -0.006621832959353924,
+          0.1505744755268097,
+          -0.9885764718055725,
+          14.842000007629395
+        ],
+        [
+          -0.9999780654907227,
+          -0.0009970273822546005,
+          0.006546343211084604,
+          11.899999618530273
+        ],
+        [
+          7.43936041658344e-08,
+          0.9885981678962708,
+          0.15057776868343353,
+          1.5099999904632568
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 40,
+      "image": "P02_PROCESS_JUNCTION.png",
+      "sha256": "701073224aa4064f312ab7d6ac0cbf7ff572e994c735343b7ac643fc99209426"
+    }
+  ]
+}

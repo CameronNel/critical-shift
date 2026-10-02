@@ -1,0 +1,55 @@
+{
+  "schema": "fuel-detail-view-evidence/1",
+  "scene": "sections/fuel-corridor/production/checkpoints/fuel_full_F18ci.blend",
+  "scene_sha256": "e67b4c7e4fc6cbf1d989791040b88d9e515ba5abd0755853119401e8017c1fd4",
+  "blender": "5.2.1 LTS",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "samples": 32,
+  "seed": 7,
+  "denoise": true,
+  "resolution": [
+    1280,
+    853
+  ],
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": -0.15000000596046448,
+  "frame": 1,
+  "scope": "Additional fixed closeups only; native lighting and visibility unchanged; full area set still required.",
+  "cameras": [
+    {
+      "name": "P01_BENCH_POWER",
+      "owner": "FC | Bench weatherproof receptacle bank",
+      "matrix_world": [
+        [
+          0.008695448748767376,
+          -0.21241386234760284,
+          0.9771410822868347,
+          -0.9919993281364441
+        ],
+        [
+          0.9999622106552124,
+          0.001847094506956637,
+          -0.008497004397213459,
+          10.989999771118164
+        ],
+        [
+          9.454747207371383e-09,
+          0.9771780371665955,
+          0.21242189407348633,
+          1.350000023841858
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 46,
+      "image": "P01_BENCH_POWER.png",
+      "sha256": "5bc9aea8a857d1dca430f96b0c630315ed3fb1fa6b60a5ab3374fbad0cf8a6f8"
+    }
+  ]
+}
