@@ -1,0 +1,178 @@
+{
+  "status": "Passed (offline selection and existing verifier only)",
+  "baseline_commit": "75983b95efb99536b1cda1a5533d9b265a4c581f",
+  "tested_revision": "Working tree; exact source hashes below",
+  "branch": "feat/unity-movement-animations-20261002",
+  "authoring_branch": "claude/character-rig",
+  "authoring_revision": "6792f25d89430c5b1ff701d37957f88f3ae20e8a",
+  "authoring_take_name_parity": {
+    "status": "Passed",
+    "matched": 49
+  },
+  "runner": "python runtime/dotnet/tools/verify.py",
+  "sdk": "8.0.423",
+  "os": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "configuration": "Release",
+  "language": "C# 8.0",
+  "library_target": "netstandard2.1",
+  "started_utc": "2026-10-02T15:39:53.496807+00:00",
+  "finished_utc": "2026-10-02T15:40:09.067747+00:00",
+  "offline_tests": {
+    "executed": 714,
+    "passed": 714,
+    "failed": 0,
+    "skipped": 0
+  },
+  "movement_tests": {
+    "discovered": 26,
+    "executed": 26,
+    "passed": 26,
+    "failed": 0,
+    "skipped": 0
+  },
+  "guard_tests": {
+    "executed": 27,
+    "passed": 27,
+    "failed": 0,
+    "skipped": 0
+  },
+  "initial_guard_failure": {
+    "status": "Failed",
+    "setup_errors": 27,
+    "exception": "FileExistsError: dotnet/src already existed in fixture",
+    "cause": "Unresolved ../ link paths created project directories before copytree",
+    "repair": "Resolve canonical link paths before creating fixture directories; all 27 guards passed after correction"
+  },
+  "negative_controls": "Expected failing NUnit test rejected by process and result checks",
+  "scenario_negative_controls": "Assertion mismatch and empty script rejected",
+  "scenarios": {
+    "cleanup-and-trace": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 30,
+      "Assertions": 60
+    },
+    "pause-and-expired-recovery": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 32,
+      "Assertions": 60
+    },
+    "worker-recovery": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 50,
+      "Assertions": 112
+    },
+    "production-chain": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 32,
+      "Assertions": 74
+    },
+    "production-cancel": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 22,
+      "Assertions": 48
+    },
+    "production-deadline": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 10,
+      "Assertions": 32
+    },
+    "production-wet-jam": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 24,
+      "Assertions": 52
+    },
+    "production-cancel-attribution": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 22,
+      "Assertions": 78
+    },
+    "reactor-cooling-recovery": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 26,
+      "Assertions": 86
+    },
+    "reactor-reserve-contention": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 22,
+      "Assertions": 42
+    },
+    "reactor-deadline": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 14,
+      "Assertions": 44
+    },
+    "reactor-full-production-chain": {
+      "Status": "Passed",
+      "CompletedRuns": 2,
+      "CompletedSteps": 52,
+      "Assertions": 130
+    }
+  },
+  "report_safety": {
+    "status": "Passed",
+    "cases": [
+      "identical",
+      "parent-dot-alias",
+      "hardlink",
+      "symlink",
+      "symlinked-parent",
+      "existing-unrelated-report"
+    ],
+    "contract": "create-new only; existing paths are never overwritten"
+  },
+  "static_source": {
+    "status": "Passed",
+    "metadata_guids": 35,
+    "asmdefs": 8,
+    "csharp_files": 13,
+    "limits": "Not a resolved Unity graph or native compilation"
+  },
+  "native_checks": {
+    "status": "NotRun",
+    "tests": 3,
+    "reason": "No Unity Editor installed; authored FBX exports are uncommitted",
+    "editor_target": "6000.4.3f1 (39d1a88d4dd1)",
+    "import_and_player_acceptance": "Blocked"
+  },
+  "physics": "NotRun",
+  "multiplayer": "NotRun",
+  "performance": "NotRun",
+  "independent_review": "Pending",
+  "merged": false,
+  "raw_artifacts": "runtime/dotnet/artifacts/ (ignored); positive/positive.trx, negative/negative.trx, summary.json and per-phase logs",
+  "feature_source_sha256": {
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Editor/CriticalShift.Features.Workers.Editor.asmdef": "cbd13344e16a0f07b531107270e73888e11d159fc64d3a5af20838f599ba0953",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Editor/WorkerAnimationLibraryEditor.cs": "41889d4599e1ce752414de8b973a48f38b2923b9d79002437fd5e8d8b627be21",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/CriticalShift.Features.Workers.Tests.EditMode.asmdef": "87c05caced781f8526349b40c0d882886c04b0ba8df9dba8f07c0d606a4c082e",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/MovementAnimationTests.cs": "a361bd4c6e7f664d966669af0563f17ed9a2502bdb02b49c8b0dba6de38d723d",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/WorkerAnimationBindingTests.cs": "be092b2fb9d93d028c31ce56d86f24530fe732f3edca701610562c927d9fe2c2",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Unity/CriticalShift.Features.Workers.Unity.asmdef": "8f8e6201c814869abbedb182cff56a46fc6451684761b0c813a03dafcf0d6867",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Unity/MovementAnimationSelector.cs": "351671676461367c43c831180e2da31ccca6f60341d64080b9f85eb3a36e1f55",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Unity/MovementClips.cs": "5b478cbd5a347a2859ac458bd60b122cb012d0f60700a324b0b9e458c9af3450",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Unity/WorkerAnimationLibrary.cs": "c8dda429f250e8aaec175f58da57fbf506f2235c8343237f17c94ced1a60497f",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Unity/WorkerMovementAnimator.cs": "c82281b6659615b4609a5284d398f949f7cf3e1735f777cbb86b4ff90dc9864f"
+  },
+  "verified_linked_source_sha256": {
+    "../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/MovementAnimationTests.cs": "a361bd4c6e7f664d966669af0563f17ed9a2502bdb02b49c8b0dba6de38d723d",
+    "../unity/Assets/CriticalShift/Features/Workers/Unity/MovementAnimationSelector.cs": "351671676461367c43c831180e2da31ccca6f60341d64080b9f85eb3a36e1f55",
+    "../unity/Assets/CriticalShift/Features/Workers/Unity/MovementClips.cs": "5b478cbd5a347a2859ac458bd60b122cb012d0f60700a324b0b9e458c9af3450"
+  },
+  "verification_tool_sha256": {
+    "tests/CriticalShift.Offline.Tests/CriticalShift.Offline.Tests.csproj": "63e78883bb1786e0cb2147aa0f33dc34effc9ffaf3e31639710ef0fd69c3b493",
+    "tools/check_boundaries.py": "d5a863ec253d09e06ed42f0f2af6c2267a7f3ece05b9e701cac17421bbf23522",
+    "tools/expected-tests.json": "676f7abc0bc3318a29b038f25080d1618bb248e8b1ff5d597b9521c7e4efddbb",
+    "tools/test_guards.py": "426729ae4dfa2adbb74c37f07e5858f15428f2effe05f523db01793f836acb9f",
+    "tools/verify.py": "f6f7a9fdc86e7b9ae6c2c352a2182faa0e75c7b83ad56ca0225705a5c9eee82d"
+  }
+}

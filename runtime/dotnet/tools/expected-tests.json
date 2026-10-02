@@ -241,5 +241,21 @@
   "IdleSamplesPreserveReactorRevisionAndPendingCommand": 5,
   "IdleSamplesStillAdvanceTheInternalClockBeforeStarting": 2,
   "ObservableTickChangesStillInvalidateStaleCommands": 5,
-  "RepeatedSameClockSampleNeverChangesReactorRevision": 1
+  "RepeatedSameClockSampleNeverChangesReactorRevision": 1,
+  "AuthoredVelocitySelectsMatchingGait": 6,
+  "DiagonalMovementBlendsSidesAndMatchesActualSpeed": 1,
+  "ForwardGaitsBlendAtMeasuredMidpoints": 1,
+  "BlendsStayNormalizedAcrossVelocityGrid": 1,
+  "TurnDirectionUsesUnityYawConvention": 2,
+  "ContextPreservesGripAtRestAndInMotion": 4,
+  "MissingIdleFreezesHaulingPose": 2,
+  "JumpFallLandAndImmediateNewJumpFollowPhysicalObservations": 1,
+  "TinyGroundContactGapDoesNotStartLanding": 1,
+  "LandingFinishesAndReturnsToCurrentCarryContext": 1,
+  "ReplayedActionCannotRestartOrStopItsReplacement": 1,
+  "OneShotEndsButHeldActionWaitsForExplicitRelease": 1,
+  "PhysicsSuspensionCancelsActionWithoutAcceptingLateReplay": 1,
+  "AirborneMotionInterruptsActionAndRejectsNewAction": 1,
+  "InvalidSamplesAndTimingAreRejected": 1,
+  "ClipCatalogueHasExactly49ValidStableIds": 1
 }

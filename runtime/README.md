@@ -52,6 +52,18 @@ The application and seven gameplay domain DLLs built by the offline projects pro
 
 PR #43 and PR #46 remain provenance for their contributions. Their earlier heads are not substitutes for this reconciled candidate. The old offline branch's root README and map state were not transplanted. The entire current `sections/` tree remains `06a41745022bcaee48d7ca3291b19f5febfcb673`.
 
+## Worker animation source
+
+The [worker animation adapter](unity/Assets/CriticalShift/Features/Workers/README.md)
+selects and blends Claude's 49 authored clips from the unmerged `claude/character-rig`
+branch. It uses actual local velocity and explicit carry/tool/haul context, matches
+authored gait speeds, handles visual actions, and suspends for physical ownership.
+Its editor tool binds imported clips by exact take name; FBX export/import and a
+physical worker binding are still required. The canonical selector and 26 NUnit
+cases run in the existing offline verifier; three native binding/lifecycle tests
+require Unity. See [scope and evidence](validation/MOVEMENT_ANIMATIONS.md). This
+source work does not advance a gameplay gate or establish native readiness.
+
 ## Native foundation remains separately unverified
 
 The recorded Unity target remains 6000.4.3f1, revision 39d1a88d4dd1, Built-in rendering and Mono desktop support. The original source-only WP-01 work is documented in [WP01.md](validation/WP01.md) and its historical [execution-summary.json](validation/execution-summary.json). Those results belong to the revisions recorded there, not the renamed current foundation.

@@ -79,6 +79,19 @@ Working profile: `runtime/unity/`, Unity 6000.4.3f1 revision 39d1a88d4dd1, Built
 
 The prerequisite probe found no standard Unity CI activation secrets, and the connected workstation was offline. Native import/test/Player proof, native generated scene/settings and independent review therefore remain required. The official Unity release API reported support ending on 22 June 2026 for the selected editor; this task preserves the recorded selection instead of silently upgrading it. Record any later version change through D-01. No networking, gameplay UI/input, Steam, voice, persistence or physics-fixture package choice is made here; D-02 through D-09 remain open at their existing deadlines.
 
+### Movement animation source progress, 2 October 2026
+
+The user authorized Unity logic for existing animations. The bounded
+[worker adapter](../../runtime/unity/Assets/CriticalShift/Features/Workers/README.md)
+uses exact clip names, loop flags and gait speeds from unmerged `claude/character-rig`
+revision `6792f25d89430c5b1ff701d37957f88f3ae20e8a`. Its Playables graph is solely
+presentation; S01 records its writer. Runtime/editor dependencies follow A02.
+The only added package is Unity's built-in animation module `1.0.0`; existing
+framework pins and D-02/D-03 choices remain unchanged. The
+[task record](../../runtime/validation/MOVEMENT_ANIMATIONS.md) identifies checks,
+source hashes and native blockers. No FBX export, Avatar selection, physical recovery
+or gate acceptance is implied. Independent review remains pending.
+
 ## 4. Risk register
 
 Impact describes consequence if the risk occurs. Likelihood is not quantified: no current runtime evidence exists in this revision from which to derive probabilities.

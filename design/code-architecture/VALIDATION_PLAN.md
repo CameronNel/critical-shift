@@ -86,6 +86,17 @@ Counts below are starting acceptance fixtures to ratify before execution. Tests 
 
 MINE cases do not require implementing mining before the roadmap's small-mine milestone. Explicitly authorized isolated rule tests may precede integration; they do not make that milestone complete. SAVE cases likewise do not authorize premature full persistence.
 
+### Movement-animation source coverage, 2 October 2026
+
+The authorized worker visual adapter has 26 canonical NUnit cases for authored
+velocities, normalized directional blends, carry/tool/haul context, airborne/landing
+transitions, duplicate visual events, physics suspension, reset and invalid inputs.
+Three native EditMode cases cover missing/duplicate/wrong-loop clip bindings and ten
+Playable graph lifecycle cycles. See the [task evidence](../../runtime/validation/MOVEMENT_ANIMATIONS.md).
+Offline execution is not native animation/rig proof. Actual asset import, physical
+handoff/Player evidence and human feel remain required; PHYS-01 and production gates
+are not passed by these isolated presentation tests.
+
 ## V04. Multiplayer fixtures and convergence
 
 **Peer count includes the host:** two peers means one host and one client; four peers means one host and three clients. Use separate processes with recorded build/configuration hashes. Running four visual cameras in one local simulation is not a multiplayer test.
