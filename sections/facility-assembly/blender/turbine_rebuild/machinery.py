@@ -328,8 +328,8 @@ def controls(b):
         b.box((x, 23.55, 2.25), (.98, .8, .1), 'steel_dark', bev=.012)
     b.claim((-3.9, 22.8, 0), (-.7, 24.0, 2.4))
     duct(b, [(CX - 1.9, 20.0, AZ + .1), (CX - 2.5, 20.0, AZ + .1), (CX - 2.5, 20.0, 3.88), (-3.8, 20.0, 3.88), (-3.8, 24.25, 3.88)], .4, .3)
-    for zz in (1.3, 2.2, 3.1): b.box((CX - 2.5, 20.0, zz), (.52, .5, .06), 'pale_steel', bev=.01)                  # flange bands on the duct riser
-    for xx in (1.2, -.4, -2.2): b.box((xx, 20.0, 3.88), (.06, .5, .5), 'pale_steel', bev=.01)
+    for zz in (1.3, 2.2, 3.1): b.box((CX - 2.5, 20.0, zz), (.46, .46, .06), 'pale_steel', bev=.01)                  # flange bands on the duct riser
+    for xx in (1.2, -.4, -2.2): b.box((xx, 20.0, 3.88), (.06, .45, .35), 'pale_steel', bev=.01)
     b.box((-3.8, 24.5, 3.88), (.4, .6, .3), 'steel_light', bev=.012); b.box((-4.1, 24.85, 3.88), (.4, .6, .3), 'steel_light', (0, 0, -.9), bev=.012); b.box((-4.32, 25.0, 3.88), (.4, 1.0, .3), 'steel_mid', bev=.012)
     for y in (21.5, 23.0): hanger(b, (-3.8, y, 3.7), top=6.0)
     hanger(b, (-2.0, 20.0, 3.7), top=6.0); hanger(b, (0.8, 20.0, 3.7), top=6.0)
