@@ -1,15 +1,15 @@
 {
   "schema": "fuel-normal-map-launcher-validation/1",
-  "created_utc": "2026-10-02T10:04:13.341884+00:00",
+  "created_utc": "2026-10-02T12:55:50.988353+00:00",
   "status": "PASS",
   "launcher": "open_map.py",
   "canonical_map_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
   "frozen_R17_sha256": "4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937",
   "spawn_reference_sha256": "1964d3d16716730631af0d5c77bcc604a64455092142cc57c0283172a563a977",
-  "native_sha256": "0a13ff2fe1eadc8608223bd40810285a375a02edacfdfac615263cffe5196f87",
-  "recipe_sha256": "88857cf4e2d345469647886034c77b0de3fd35ac56f1c95296acd8569b569093",
+  "native_sha256": "650aec3f1e654e607de0442ae6f2fcf5544b99feb835ff1a709c2fb6b3641484",
+  "recipe_sha256": "68a838a61fd0f2a742389a90cbc04efe49bcc69a349e0660821d5c43377cceeb",
   "linked_module": "MODULE_fuel-corridor",
-  "module_objects": 495,
+  "module_objects": 501,
   "hidden_old_fuel_lights": 51,
   "old_cache_hidden": true,
   "main_cache_material_ids_resolved": 30,
@@ -42,6 +42,460 @@
   ],
   "saved_main": false,
   "source_bytes_unchanged": true,
+  "linked_animation_samples": [
+    {
+      "frame": 1,
+      "values": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 22.139999389648438,
+          "factor": 0.8199999773943866
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 63.20000076293945,
+          "factor": 0.7900000095367432
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 50.592002868652344,
+          "factor": 0.8000000241283818
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 23.200000762939453,
+          "factor": 0.800000026308257
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 18.0,
+          "factor": 0.75
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 37.130001068115234,
+          "factor": 0.790000022725856
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 12.600000381469727,
+          "factor": 0.7000000211927626
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 9.100000381469727,
+          "factor": 0.7000000293438251
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 14.0,
+          "factor": 0.7
+        }
+      ]
+    },
+    {
+      "frame": 18,
+      "values": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 3.240000009536743,
+          "factor": 0.1200000003532127
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 65.5999984741211,
+          "factor": 0.8199999809265137
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 50.592002868652344,
+          "factor": 0.8000000241283818
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 5.21999979019165,
+          "factor": 0.17999999276522932
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 18.0,
+          "factor": 0.75
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 37.130001068115234,
+          "factor": 0.790000022725856
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 12.600000381469727,
+          "factor": 0.7000000211927626
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 9.100000381469727,
+          "factor": 0.7000000293438251
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 14.0,
+          "factor": 0.7
+        }
+      ]
+    },
+    {
+      "frame": 29,
+      "values": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 20.520000457763672,
+          "factor": 0.76000001695421
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 9.600000381469727,
+          "factor": 0.12000000476837158
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 50.592002868652344,
+          "factor": 0.8000000241283818
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 22.90999984741211,
+          "factor": 0.7899999947383486
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 19.200000762939453,
+          "factor": 0.8000000317891439
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 37.130001068115234,
+          "factor": 0.790000022725856
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 15.685714721679688,
+          "factor": 0.8714285956488715
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 11.328571319580078,
+          "factor": 0.8714285630446214
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 17.428571701049805,
+          "factor": 0.8714285850524902
+        }
+      ]
+    },
+    {
+      "frame": 33,
+      "values": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 20.520000457763672,
+          "factor": 0.76000001695421
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 60.79999923706055,
+          "factor": 0.7599999904632568
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 11.383200645446777,
+          "factor": 0.18000000542888592
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 22.90999984741211,
+          "factor": 0.7899999947383486
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 19.200000762939453,
+          "factor": 0.8000000317891439
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 38.540000915527344,
+          "factor": 0.8200000194793052
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 16.350000381469727,
+          "factor": 0.9083333545260959
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 11.808333396911621,
+          "factor": 0.9083333382239709
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 18.16666603088379,
+          "factor": 0.9083333015441895
+        }
+      ]
+    },
+    {
+      "frame": 46,
+      "values": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 2.700000047683716,
+          "factor": 0.10000000176606355
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 60.79999923706055,
+          "factor": 0.7599999904632568
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 49.95960235595703,
+          "factor": 0.7900000162866577
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 22.90999984741211,
+          "factor": 0.7899999947383486
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 19.200000762939453,
+          "factor": 0.8000000317891439
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 38.540000915527344,
+          "factor": 0.8200000194793052
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 11.700000762939453,
+          "factor": 0.6500000423855252
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 8.450000762939453,
+          "factor": 0.6500000586876502
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 13.0,
+          "factor": 0.65
+        }
+      ]
+    },
+    {
+      "frame": 110,
+      "values": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 1.8899999856948853,
+          "factor": 0.06999999947018093
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 57.599998474121094,
+          "factor": 0.7199999809265136
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 48.062400817871094,
+          "factor": 0.7599999927614854
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 20.8799991607666,
+          "factor": 0.7199999710609173
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 18.959999084472656,
+          "factor": 0.7899999618530273
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 33.84000015258789,
+          "factor": 0.7200000032465509
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 14.985000610351562,
+          "factor": 0.8325000339084201
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 10.82249927520752,
+          "factor": 0.8324999442467322
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 16.650001525878906,
+          "factor": 0.8325000762939453
+        }
+      ]
+    },
+    {
+      "frame": 151,
+      "values": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 4.320000171661377,
+          "factor": 0.16000000635782877
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 60.0,
+          "factor": 0.75
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 45.53280258178711,
+          "factor": 0.7200000217155437
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 20.8799991607666,
+          "factor": 0.7199999710609173
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 18.239999771118164,
+          "factor": 0.7599999904632568
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 35.25,
+          "factor": 0.75
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 12.600000381469727,
+          "factor": 0.7000000211927626
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 9.100000381469727,
+          "factor": 0.7000000293438251
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 14.0,
+          "factor": 0.7
+        }
+      ]
+    },
+    {
+      "frame": 240,
+      "values": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 21.329999923706055,
+          "factor": 0.7899999971742984
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 63.20000076293945,
+          "factor": 0.7900000095367432
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 50.592002868652344,
+          "factor": 0.8000000241283818
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 23.200000762939453,
+          "factor": 0.800000026308257
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 18.0,
+          "factor": 0.75
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 37.130001068115234,
+          "factor": 0.790000022725856
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 12.600000381469727,
+          "factor": 0.7000000211927626
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 9.100000381469727,
+          "factor": 0.7000000293438251
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 14.0,
+          "factor": 0.7
+        }
+      ]
+    },
+    {
+      "frame": 241,
+      "values": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 22.139999389648438,
+          "factor": 0.8199999773943866
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 63.20000076293945,
+          "factor": 0.7900000095367432
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 50.592002868652344,
+          "factor": 0.8000000241283818
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 23.200000762939453,
+          "factor": 0.800000026308257
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 18.0,
+          "factor": 0.75
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 37.130001068115234,
+          "factor": 0.790000022725856
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 12.600000381469727,
+          "factor": 0.7000000211927626
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 9.100000381469727,
+          "factor": 0.7000000293438251
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 14.0,
+          "factor": 0.7
+        }
+      ]
+    }
+  ],
+  "map_fps": 24,
+  "map_fps_base": 1.0,
   "limits": [
     "No Unity build, performance, controller or continuous collision test."
   ]

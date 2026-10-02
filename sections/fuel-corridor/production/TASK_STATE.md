@@ -1,6 +1,6 @@
 # Fuel corridor overhaul state
 
-Phase: owner-requested eerie/rundown atmosphere revision in progress; F12 is a historical accepted checkpoint.
+Phase: gloomy/rundown Blender authoring revision delivered as F14ci; independent still-image gate passed. Target-speed playback and Unity/runtime remain unverified.
 Branch: `codex/fuel-corridor-overhaul-20261001` from `75983b9`.
 Source: `sections/facility-assembly/sources/fuel-corridor/module.blend`.
 Baseline SHA256: `f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c`.
@@ -12,8 +12,8 @@ using the actual reworked spawn reference as 100. These final two full cycles
 are materially stable; the bounded F12 closure repair changes the recipe and
 native bytes without a visible collateral art regression. Twelve full cycles
 were completed, exceeding the four-cycle minimum. Historical development notes
-below retain their original failures and pending states; the final F12 handoff
-at the end records the current evidence. No aesthetic score was overridden.
+below retain their original failures and pending states; the F12 handoff
+records the previous look; the F14ci handoff below records the current evidence. No aesthetic score was overridden.
 
 The baseline has 7,978 objects, 34 materials, 16 cameras, 3 packed images and no
 libraries. The task preserves exterior shell footprints/ports while replacing
@@ -381,3 +381,25 @@ All workers used the identical cold-checked native bytes.
 Independent visual review is pending; no art or Unity acceptance is claimed.
 
 Authoring geometry: {"source_triangles": 985390, "evaluated_triangles": 990670, "mesh_objects": 341, "material_batch_upper_bound": 1428}.
+
+## F14ci final gloomy/rundown handoff
+
+The latest reactor WIP PR54 informed the dark olive/charcoal atmosphere, restrained red alerts and localized green/amber practical pools. The craft reference remains the actual reworked spawn room. Eleven missing/broken tile locations have recessed combed beds, retained fragments and physical fracture layers; two open ceiling bays expose torn layers, bent panels, straps, rafters and hanging service leads. Selective traffic/contact wear and leakage sit on the existing physically surfaced rebuilt assemblies. Original wall and floor footprints, fixed cameras and interfaces remain unchanged.
+
+Pessimistic Luna independently opened all 19 F14ci fixed views plus the closed freight diagnostic and reference images: every one of the seven categories and nine areas scores 99. [F13ci](critics/luna-full-F13ci.md) and [F14ci](critics/luna-full-F14ci.md) are the two accepted, materially stable final full cycles for this mood. No historical score was inherited and no score was overridden. Fourteen full cycles are recorded across the complete overhaul; [rubric](RUBRIC.md) and [stability](F13_F14_STABILITY.json) preserve the evidence.
+
+Selected native SHA256: `650aec3f1e654e607de0442ae6f2fcf5544b99feb835ff1a709c2fb6b3641484`. Recipe SHA256: `68a838a61fd0f2a742389a90cbc04efe49bcc69a349e0660821d5c43377cceeb`. The existing linked source and archived `checkpoints/fuel_full_F14ci.blend` are byte-identical. Six construction inputs match their manifest fingerprints. Hosted [F14ci run37007562092](https://github.com/CameronNel/critical-shift/actions/runs/37007562092) passed build, cold checks, all fixed views and publication. Current and archived native/build/cold records agree. Authoring geometry is 985,390 source / 990,670 evaluated triangles, 341 meshes; these are not runtime performance results.
+
+Six failing practicals key both energy and isolated visible optic strength. Three mounted red beacons pulse slowly; the east fixture stays dead. The native playback range is 1–240 at 24 fps, with closure keys at 241. Cold QA evaluates all 241 frames and zero transform drift; the linked-map QA verifies nine sample frames including visible staging and bench failures. No Python drivers, handlers or auto-execution are needed. The [10-second native loop](renders/temporal/F14ci-entry-loop.mp4) encodes all 240 frames at 24 fps; its manifest preserves every evaluated state and frame mapping. 112 distinct states were rendered with the existing renderer; exact held duplicates reuse unedited PNG bytes. Preview resolution is 320×212 / 8 samples, separately labeled from full 1280×853 / 32-sample craft review. Event/boundary stills were inspected. No tool here can visually play the result at target speed, so cadence aesthetics remain unverified, as recorded in [TEMPORAL_VALIDATION.json](TEMPORAL_VALIDATION.json).
+
+The normal `open_map.py` launcher loads the selected module at its established placement, hides the old cache/51 fuel lights, resolves all 30 historical hidden-cache fuel material names and is repeat-install idempotent. [Actual assembled-map C03](renders/integration/F14ci_complete_main_C03_HERO.png) is paired with the final source in [MAIN_LINK_VALIDATION.json](MAIN_LINK_VALIDATION.json). [Dependency validation](MAIN_DEPENDENCY_VALIDATION.json) verifies byte-exact canonical main, immutable R17, spawn and all 11 current exterior libraries; zero missing fuel IDs. The 128 historical unrelated spawn/PPE ID warnings are retained without rewriting other sections. No canonical map or other-room native was saved.
+
+Successful local final commands, repository root / Blender 5.2.1 LTS:
+
+```sh
+blender -b -t 4 --factory-startup --disable-autoexec --python-exit-code 1 --python sections/fuel-corridor/blender/validate_live_map.py
+blender -b -t 4 --factory-startup --disable-autoexec --python-exit-code 1 --python open_fuel_overhaul.py -- --render C03_HERO --out sections/fuel-corridor/production/renders/integration/F14ci_complete_main_C03_HERO.png
+blender -b -t 4 --factory-startup --disable-autoexec --python-exit-code 1 --python sections/fuel-corridor/blender/render_flicker_preview.py -- sections/facility-assembly/sources/fuel-corridor/module.blend sections/fuel-corridor/production/renders/temporal/NEW-entry-loop
+```
+
+The preview command requires a fresh directory and ffmpeg/ffprobe. Original PNG sequence captures remain local; the durable MP4, manifest, native source and reproduction script are published. The F13 fixture-attribution correction and pre-final temporal drafts remain development evidence. [CHECKLIST.md](CHECKLIST.md) separates completed authoring checks from unavailable playback and unrun runtime gates. Published in [draft PR70](https://github.com/CameronNel/critical-shift/pull/70); no agent merge. Open the delivered live module through `blender --python open_map.py`; direct opening of the canonical map retains its historical render cache. Owner art approval, merge and Unity acceptance are separate.

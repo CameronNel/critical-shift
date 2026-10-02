@@ -1,0 +1,56 @@
+{
+  "schema": "fuel-temporal-authoring-handoff/1",
+  "created_utc": "2026-10-02T13:07:24.525976+00:00",
+  "native_sha256": "650aec3f1e654e607de0442ae6f2fcf5544b99feb835ff1a709c2fb6b3641484",
+  "recipe_sha256": "68a838a61fd0f2a742389a90cbc04efe49bcc69a349e0660821d5c43377cceeb",
+  "technical_status": "PASS",
+  "native_every_frame_evaluation": "COLD_VALIDATION.json",
+  "frames_evaluated": 241,
+  "closure_key_frame": 241,
+  "playback_frames": [
+    1,
+    240
+  ],
+  "fps": 24,
+  "fixture_count": 6,
+  "alarm_count": 3,
+  "main_linked_keys_checked_frames": [
+    1,
+    18,
+    29,
+    33,
+    46,
+    110,
+    151,
+    240,
+    241
+  ],
+  "main_fps": 24,
+  "main_fps_base": 1.0,
+  "preview_manifest": "renders/temporal/F14ci-entry-loop/PREVIEW_MANIFEST.json",
+  "preview_video": "sections/fuel-corridor/production/renders/temporal/F14ci-entry-loop.mp4",
+  "preview_video_sha256": "c6e626570e04be731028da245e08d71ec3b8e4b3bde7b74da311a733c8eb04bc",
+  "encoded_frames": 240,
+  "encoded_fps": 24,
+  "encoded_duration_seconds": 10,
+  "actual_rendered_distinct_states": 112,
+  "exact_identical_state_reuse": true,
+  "inspected_native_preview_frames": [
+    1,
+    28,
+    29,
+    31,
+    32,
+    33,
+    38,
+    240
+  ],
+  "event_still_observation": "Visible staging bar dims at frame29 and recovers by31; local independent route/task anchors remain. Bench keys add subtler secondary variation.",
+  "cadence_playback_review": {
+    "status": "NOT_RUN_CAPABILITY_UNAVAILABLE",
+    "reason": "No available tool can visually play the MP4 at target speed. Encoding/timing and native evaluation were checked; still inspection does not establish temporal rhythm."
+  },
+  "runtime_status": "NOT_RUN",
+  "source_native_saved_by_validation": false,
+  "scope": "Authoring animation and encoding evidence. No target-speed aesthetic playback, Unity, controller, collision or performance acceptance."
+}

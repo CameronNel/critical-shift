@@ -65,7 +65,7 @@ if atmo:
     # The actual linked collection must retain light and isolated optic keys.
     # Preserve the main scene's timeline; only evaluate in this disposable run.
     scene=bpy.context.scene;saved_frame=scene.frame_current
-    for frame in [1,18,46,110,151,240,241]:
+    for frame in [1,18,29,33,46,110,151,240,241]:
         scene.frame_set(frame);graph=bpy.context.evaluated_depsgraph_get();values=[]
         for record in atmo['flicker']+atmo.get('alarms',[]):
             obj=next(o for o in module.all_objects if o.name==record['light'])
@@ -92,6 +92,8 @@ report = {
     'repeat_install_idempotent': True, 'instance_matrix': matrix,
     'saved_main': False, 'source_bytes_unchanged': True,
     'linked_animation_samples': animation,
+    'map_fps': bpy.context.scene.render.fps,
+    'map_fps_base': bpy.context.scene.render.fps_base,
     'limits': ['No Unity build, performance, controller or continuous collision test.'],
 }
 (TASK / 'MAP_LAUNCHER_VALIDATION.json').write_text(json.dumps(report, indent=2) + '\n')

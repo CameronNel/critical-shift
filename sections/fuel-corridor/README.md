@@ -55,11 +55,19 @@ review bar are in [`scenery/OVERHAUL_BRIEF.md`](scenery/OVERHAUL_BRIEF.md).
 Native checkpoints, hashes, render settings, numerical checks and independent
 Luna reports are recorded under `production/`.
 
-The owner-requested gloomy/rundown revision is in progress. F12ci remains the
-historical accepted clean-room checkpoint; its 99 scores do not approve the new
-atmosphere. Latest reactor WIP PR54 is the mood reference, while the reworked
-spawn room remains the craft reference. See the production state for current
-native, fixed-view, temporal and independent-review status.
+The selected F14ci module follows the latest reactor WIP atmosphere: deeper
+dark intervals, sparse red warning lights, failing practicals, worn traffic
+surfaces, eleven physical missing/broken tile sites and two torn ceiling bays.
+Original wall/floor footprints and map interfaces remain fixed. Pessimistic
+Luna independently scores every category and area 99 for both final full
+still-image cycles; see [the final rubric](production/RUBRIC.md).
+
+The native light loop plays frames **1–240 at 24 fps**, with a closure key at
+241, without drivers or auto-run. Watch the [10-second preview](production/renders/temporal/F14ci-entry-loop.mp4)
+or inspect the [assembled-map render](production/renders/integration/F14ci_complete_main_C03_HERO.png).
+Every-frame technical evaluation and encoded timing pass. Target-speed visual
+playback could not be reviewed here; Unity/runtime behaviour is unverified.
+Preview provenance and reproduction are in the [temporal report](production/TEMPORAL_VALIDATION.json).
 
 Current acceptance is tracked in [`production/TASK_STATE.md`](production/TASK_STATE.md).
 Development-gate approval does not accept the whole corridor. Final visual
