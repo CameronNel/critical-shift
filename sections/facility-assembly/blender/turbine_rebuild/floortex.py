@@ -133,7 +133,7 @@ def generate(path_prefix, layout):
     PA = np.zeros((H, W), np.float32)
     for (x0, y0, x1, y1) in layout['paint']: rect(PA, *px(x0, y0), *px(x1, y1), 1.0, 1.2)
     PA *= np.clip((fine + .9 * low * 0 + gnoise(rng, 5) * .8) * .6 + .85, 0, 1) * np.clip(.6 + .8 * mid, 0, 1)
-    PA = np.clip(PA, 0, 1); alb = alb * (1 - PA[..., None]) + PA[..., None] * gold * (1 + .08 * mid[..., None]); rough = rough * (1 - PA) + .7 * PA
+    PA = np.clip(PA, 0, 1) * .7; alb = alb * (1 - PA[..., None]) + PA[..., None] * gold * (1 + .08 * mid[..., None]); rough = rough * (1 - PA) + .7 * PA
     # ---------- wetness and flow ----------
     Wm = np.zeros((H, W), np.float32); Dm = np.zeros((H, W), np.float32)
     for pts, w0, w1 in layout['flows']:
@@ -149,7 +149,7 @@ def generate(path_prefix, layout):
             xx = x + side * (w_ / 2 + .22)
             for (a, b) in layout['wet_runs']: seg_field(Dm, px(xx, a), px(xx, b), .14 * PXM, .6, 5.0)
     Dm = np.clip(blur(np.clip(Dm, 0, 1), 1.5), 0, 1); Wm = np.clip(blur(np.clip(Wm, 0, 1), 1.0), 0, 1)
-    alb *= (1 - .22 * Dm - .38 * Wm)[..., None]
+    alb *= (1 - .1 * Dm - .2 * Wm)[..., None]
     rough = rough * (1 - .3 * Dm) + .2 * .3 * Dm; rough = rough * (1 - Wm) + .035 * Wm
     height *= (1 - .55 * np.clip(Wm + .5 * Dm, 0, 1))
     # ---------- write ----------

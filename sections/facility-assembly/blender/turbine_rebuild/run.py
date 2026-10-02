@@ -174,13 +174,14 @@ def aim(o, frm, to):
     o.rotation_euler = (Vector(to) - Vector(frm)).to_track_quat('-Z', 'Y').to_euler()
 spot('LAMP_rotor', (machinery.CX, 11.25, 4.1), 1300, 62, (1.0, .66, .3), .4)
 aim(spot('WORK_rotor', (6.38, 7.36, 3.55), 1000, 42, (1.0, .5, .2), .3), (6.38, 7.36, 3.55), (4.6, 11.0, 2.2))                     # work lamp on its stand
-aim(spot('SPOT_desk', (8.0, 22.3, 4.8), 1300, 36, (1.0, .66, .32), .3), (8.0, 22.3, 4.8), (8.0, 23.4, .8))                    # lights the exposed gold blading
+aim(spot('SPOT_desk', (8.0, 22.3, 4.8), 2600, 32, (1.0, .66, .32), .3), (8.0, 22.3, 4.8), (8.0, 23.4, .8))                    # lights the exposed gold blading
 point('GLOW_coupling', (machinery.CX, 15.6, machinery.AZ + .35), 150, (1.0, .55, .18))
 for k, y in enumerate((5.0, 11.0, 18.0)):                                                      # warm floor uplights give the casings a rim
     aim(spot(f'UP_W{k}', (1.35, y, .2), 180, 42, AMBER, .3), (1.35, y, .2), (3.2, y, 2.2)); aim(spot(f'UP_E{k}', (7.65, y, .2), 180, 42, AMBER, .3), (7.65, y, .2), (6.0, y, 2.2))
 spot_c = spot('SPOT_consoles', (-1.6, 4.0, 4.6), 800, 44, (1.0, .62, .26)); aim(spot_c, (-1.6, 4.0, 4.6), (-3.0, 4.0, 1.2))
 aim(spot('SPOT_desks', (-1.1, 4.0, 2.6), 650, 40, (1.0, .62, .26), .35), (-1.1, 4.0, 2.6), (-3.0, 4.0, 1.0))
 aim(spot('POOL_A', (.9, 6.5, 4.6), 1800, 34, (1.0, .58, .24), .3), (.9, 6.5, 4.6), (.7, 6.5, 0)); aim(spot('POOL_K', (-.3, 3.6, 4.6), 1600, 34, (1.0, .58, .24), .3), (-.3, 3.6, 4.6), (-.5, 3.6, 0))
+aim(spot('POOL_C', (7.2, 13.4, 5.0), 1800, 34, (1.0, .58, .24), .3), (7.2, 13.4, 5.0), (7.4, 13.4, 0)); aim(spot('POOL_J', (.7, 12.5, 5.0), 1800, 34, (1.0, .58, .24), .3), (.7, 12.5, 5.0), (.6, 12.5, 0)); aim(spot('POOL_M', (6.0, 9.3, 4.2), 1500, 34, (1.0, .58, .24), .3), (6.0, 9.3, 4.2), (6.5, 9.6, 1.0))
 spot_b = spot('SPOT_bay', (-1.6, 17.0, 5.2), 420, 50, (1.0, .62, .26)); aim(spot_b, (-1.6, 17.0, 5.2), (-.9, 17.0, .8))
 for k, y in enumerate((9.0, 12.5, 16.0, 19.5)):                                                # wall washers reveal the west wall and lead the eye along it
     aim(spot(f'WASH_W{k}', (-3.25, y, 4.4), 110, 52, (1.0, .66, .32), .3), (-3.25, y, 4.4), (-4.0, y, 2.0))

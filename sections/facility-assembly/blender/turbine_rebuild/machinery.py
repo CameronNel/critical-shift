@@ -328,6 +328,8 @@ def controls(b):
         b.box((x, 23.55, 2.25), (.98, .8, .1), 'steel_dark', bev=.012)
     b.claim((-3.9, 22.8, 0), (-.7, 24.0, 2.4))
     duct(b, [(CX - 1.9, 20.0, AZ + .1), (CX - 2.5, 20.0, AZ + .1), (CX - 2.5, 20.0, 3.88), (-3.8, 20.0, 3.88), (-3.8, 24.25, 3.88)], .4, .3)
+    for zz in (1.3, 2.2, 3.1): b.box((CX - 2.5, 20.0, zz), (.52, .5, .06), 'pale_steel', bev=.01)                  # flange bands on the duct riser
+    for xx in (1.2, -.4, -2.2): b.box((xx, 20.0, 3.88), (.06, .5, .5), 'pale_steel', bev=.01)
     b.box((-3.8, 24.5, 3.88), (.4, .6, .3), 'steel_light', bev=.012); b.box((-4.1, 24.85, 3.88), (.4, .6, .3), 'steel_light', (0, 0, -.9), bev=.012); b.box((-4.32, 25.0, 3.88), (.4, 1.0, .3), 'steel_mid', bev=.012)
     for y in (21.5, 23.0): hanger(b, (-3.8, y, 3.7), top=6.0)
     hanger(b, (-2.0, 20.0, 3.7), top=6.0); hanger(b, (0.8, 20.0, 3.7), top=6.0)
@@ -340,6 +342,10 @@ def maintenance(b):
     for y in (14.6, 19.4):
         b.prism([(-.48, 0), (.48, 0), (.3, .58), (-.3, .58)], .24, 'steel_dark', (rx, y, 0), True, 'Y', bev=.025); b.box((rx, y, .6), (.62, .22, .05), 'orange_dark', bev=.01)
     b.cyl((rx, 17.0, rz + .14), .17, 5.8, 'steel_light', 'Y', 32, bev=.008)
+    for ye, sg in ((14.1, -1), (19.9, 1)):                                                                     # shaft end caps with hub bolts and a keyway
+        b.cyl((rx, ye + sg * .03, rz + .14), .21, .07, 'steel_dark', 'Y', 28, bev=.01); b.cyl((rx, ye + sg * .07, rz + .14), .12, .03, 'pale_steel', 'Y', 20, bev=.006)
+        for q in range(6): a = q * math.pi / 3; b.cyl((rx + .165 * math.cos(a), ye + sg * .07, rz + .14 + .165 * math.sin(a)), .018, .03, 'steel_light', 'Y', 8)
+        b.box((rx, ye + sg * -.3, rz + .14 + .17), (.05, .45, .025), 'trim_black', bev=.005)
     for i, yy in enumerate((15.3, 15.75, 16.2, 16.65, 17.1, 17.55, 18.0, 18.45)):
         R = .55 - .02 * abs(i - 3.5)
         b.cyl((rx, yy, rz + .14), R, .36, 'steel_mid' if i % 2 else 'pale_steel', 'Y', 48, bev=.01)
