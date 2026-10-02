@@ -15,36 +15,36 @@ BEV_MAX = 0.05                          # bevel modifier width; per-edge weight 
 
 # name: (hex, edge, dirt, noise, emissive)   edge>1 lightens edges (paint chipping), <1 darkens
 PALETTE = {
-    'wall_slate': ('2F3742', 1.06, .08, .030, 0),
-    'wall_slate_lt': ('38424F', 1.06, .06, .028, 0),
+    'wall_slate': ('2E2F33', 1.06, .08, .030, 0),
+    'wall_slate_lt': ('393A3E', 1.06, .06, .028, 0),
     'terra_a': ('20252B', .88, .05, .026, 0),
     'terra_b': ('1D2228', .88, .05, .028, 0),
     'terra_c': ('252A31', .88, .04, .024, 0),
     'terra_worn': ('2D3239', .90, .14, .045, 0),
-    'casing': ('7A8796', 1.10, .10, .040, 0),
-    'casing_dark': ('6A7787', 1.10, .14, .040, 0),
-    'hood_orange': ('59626D', 1.12, .08, .030, 0),
-    'sand': ('4A4F56', 1.06, .08, .030, 0),
-    'sand_dark': ('3A3F46', 1.08, .12, .035, 0),
-    'ivory': ('5D6670', 1.08, .08, .028, 0),
-    'ivory_warm': ('454D56', 1.06, .06, .025, 0),
-    'slate_blue': ('20262E', 1.14, .10, .030, 0),
-    'slate_dark': ('1C2025', 1.18, .10, .030, 0),
+    'casing': ('5B5E63', 1.10, .10, .040, 0),
+    'casing_dark': ('4A4D52', 1.10, .14, .040, 0),
+    'hood_orange': ('2F5750', 1.12, .08, .030, 0),
+    'sand': ('46423D', 1.06, .08, .030, 0),
+    'sand_dark': ('34312E', 1.08, .12, .035, 0),
+    'ivory': ('55524D', 1.08, .08, .028, 0),
+    'ivory_warm': ('3F3C38', 1.06, .06, .025, 0),
+    'slate_blue': ('26282B', 1.14, .10, .030, 0),
+    'slate_dark': ('1D1E21', 1.18, .10, .030, 0),
     'trim_black': ('101215', 1.30, .03, .020, 0),
     'charcoal': ('22262B', 1.25, .06, .030, 0),
-    'steel_dark': ('323A45', 1.30, .08, .040, 0),
-    'steel_mid': ('5A6674', 1.25, .08, .040, 0),
-    'steel_light': ('7C8A99', 1.15, .06, .035, 0),
-    'steel_worn': ('626C76', 1.40, .18, .060, 0),
+    'steel_dark': ('2B2D31', 1.30, .08, .040, 0),
+    'steel_mid': ('4A4C51', 1.25, .08, .040, 0),
+    'steel_light': ('686A6F', 1.15, .06, .035, 0),
+    'steel_worn': ('55575B', 1.40, .18, .060, 0),
     'orange': ('C79A3C', 1.18, .07, .028, 0),
     'orange_dark': ('8E692A', 1.18, .12, .035, 0),
     'orange_worn': ('A57F36', 1.40, .22, .060, 0),
-    'yellow': ('D8AB4A', 1.12, .07, .028, 0),
-    'yellow_worn': ('B08A3E', 1.35, .20, .055, 0),
+    'yellow': ('C99A36', 1.12, .07, .028, 0),
+    'yellow_worn': ('8F7030', 1.35, .20, .055, 0),
     'red':          ('C2392B', 1.12, .07, .028, 0),
     'red_dark':     ('8E2A20', 1.12, .10, .032, 0),
-    'concrete': ('3D434B', 1.04, .10, .045, 0),
-    'concrete_dark': ('2A3037', 1.04, .12, .050, 0),
+    'concrete': ('3A3A3C', 1.04, .10, .045, 0),
+    'concrete_dark': ('27272A', 1.04, .12, .050, 0),
     'tile_a':       ('B5AEA1', .88, .04, .022, 0),
     'tile_b':       ('ABA497', .88, .05, .024, 0),
     'tile_c':       ('BDB6A9', .88, .04, .020, 0),
@@ -61,8 +61,8 @@ PALETTE = {
     'wood':         ('4F4234', 1.12, .10, .040, 0),
     'wood_dark':    ('352C23', 1.12, .12, .040, 0),
     'paper':        ('E7E2D4', 1.0, .04, .025, 0),
-    'lagging': ('5B6672', 1.10, .10, .040, 0),
-    'lagging_dark': ('4F5965', 1.10, .14, .040, 0),
+    'lagging': ('4D4B47', 1.10, .10, .040, 0),
+    'lagging_dark': ('3F3D3A', 1.10, .14, .040, 0),
     'crack':        ('050607', 1.0, .0, .01, 0),
     'damp':         ('191D22', 1.0, .0, .02, 0),
     'floor_grime':  ('0F1114', 1.0, .0, .03, 0),
@@ -73,19 +73,24 @@ PALETTE = {
     'brass_blade':  ('94722F', 1.15, .10, .03, 0),
     'brass':        ('C79A3C', 1.15, .08, .035, 0),
     'oil': ('0F1113', 1.0, .0, .04, 0),
+    'oxide': ('6A3A2F', 1.12, .14, .06, 0),
+    'oxide_dark': ('4A2A24', 1.12, .16, .06, 0),
+    'teal': ('2F5750', 1.12, .10, .05, 0),
+    'teal_dark': ('1F3A36', 1.12, .12, .05, 0),
+    'grime_dark': ('151515', 1.0, .0, .04, 0),
     'chalk':        ('F2EFE6', 1.0, .02, .015, 0),
-    'green':        ('5C7A66', 1.12, .06, .028, 0),
-    'blue_panel': ('34404D', 1.12, .06, .028, 0),
+    'green':        ('3E6A5F', 1.12, .06, .028, 0),
+    'blue_panel': ('3A3A3D', 1.12, .06, .028, 0),
     'poster_a':     ('2B3C5A', 1.0, .0, .02, 0),
     'poster_b':     ('E8913A', 1.0, .0, .02, 0),
     'poster_c':     ('F0C95A', 1.0, .0, .02, 0),
     'glass':        ('1D2B36', 1.0, .0, .01, 0),
     # emissive swatches
-    'lamp': ('FFB45A', 1.0, 0., .01, 1),
-    'screen': ('FFA640', 1.0, 0., .02, 1),
-    'screen_cool':  ('BFE8FF', 1.0, 0., .02, 1),
-    'led_red':      ('FF4A33', 1.0, 0., .01, 1),
-    'led_green':    ('7DFF8A', 1.0, 0., .01, 1),
+    'lamp': ('FFA84A', 1.0, 0., .01, 1),
+    'screen': ('B8641C', 1.0, 0., .02, 1),
+    'screen_cool':  ('4A7C96', 1.0, 0., .02, 1),
+    'led_red':      ('D83A24', 1.0, 0., .01, 1),
+    'led_green':    ('2FA553', 1.0, 0., .01, 1),
 }
 # (roughness, metallic) overrides, default (.62, 0)
 PBR = {'crack': (.95, 0),
@@ -133,9 +138,15 @@ def make_atlas(path):
             e = np.minimum(np.minimum(u, 1 - u), np.minimum(v, 1 - v)); ef = np.clip(e / 0.10, 0, 1)[..., None]
             mul = (1 - ef) * edge + ef * 1.0
             shade = (1 - dirt * (1 - v[..., None]) ** 2) * (1 + .05 * (v[..., None] - .5))
-            grime = 1 + (vnoise(3) - .5) * nz * 6 + (vnoise(9) - .5) * nz * 3
+            grime = 1 + (vnoise(3) - .5) * nz * 14 + (vnoise(9) - .5) * nz * 7
             speck = 1 + (rng.random((CELL, CELL, 1)).astype(np.float32) - .5) * nz
             col = base * mul * shade * grime[..., None] * speck
+            sg = rng.random((1, 14)).astype(np.float32); sg = np.repeat(sg, CELL // 14 + 1, axis=1)[:, :CELL]; sg = np.repeat(sg, CELL, axis=0)    # vertical weathering streaks
+            streak = np.clip((sg - .45) * 2.2, 0, 1) * np.clip(1 - v, 0, 1) ** .7
+            col = col * (1 - .42 * streak[..., None])
+            if PBR.get(name, (.62, 0))[1] > .3 or name in ('concrete', 'concrete_dark', 'lagging'):
+                rm = np.clip((vnoise(6) - .62) * 5, 0, 1)                                                                                  # rust blooms on bare metal
+                col = col * (1 - .6 * rm[..., None]) + np.array([.11, .045, .02], np.float32) * rm[..., None]
         r, m = PBR.get(name, (.62, 0.0))
         rough = np.clip(r + (vnoise(5) - .5) * .18, .05, 1)
         cx, cy = i % GRID, i // GRID

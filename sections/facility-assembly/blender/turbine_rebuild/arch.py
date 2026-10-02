@@ -126,16 +126,16 @@ def crane(b, ybridge=10.0, zr=5.55):
     for x in (-3.35, 9.35):
         b.box((x, 12, zr), (.28, 23, .05), 'steel_dark', bev=.006); b.box((x, 12, zr + .22), (.05, 23, .38), 'steel_dark'); b.box((x, 12, zr + .43), (.28, 23, .05), 'steel_dark', bev=.006)
     for yb in (ybridge - .5, ybridge + .5):
-        b.box((3, yb, zr - .3), (12.7, .22, .5), 'yellow', bev=.012); b.box((3, yb, zr - .56), (12.7, .3, .04), 'steel_dark', bev=.006)
-        for i in range(13): b.box((-3.2 + i, yb, zr - .3), (.04, .235, .5), 'orange_dark')
+        b.box((3, yb, zr - .3), (12.7, .22, .5), 'steel_dark', bev=.012); b.box((3, yb, zr - .56), (12.7, .3, .04), 'steel_dark', bev=.006)
+        for i in range(13): b.box((-3.2 + i, yb, zr - .3), (.04, .235, .5), 'steel_mid')
     for x in (-3.35, 9.35):
-        b.box((x, ybridge, zr - .22), (.45, 1.5, .55), 'yellow_worn', bev=.015); b.reserve_box((x, ybridge, zr), (.5, 1.5, 1))
+        b.box((x, ybridge, zr - .22), (.45, 1.5, .55), 'oxide_dark', bev=.015); b.reserve_box((x, ybridge, zr), (.5, 1.5, 1))
         for dy in (-.6, .6): b.cyl((x, ybridge + dy, zr - .22), .12, .5, 'steel_dark', 'X', 20)
     tr = 4.6
-    b.box((tr, ybridge, zr - .78), (1.0, 1.3, .5), 'orange', bev=.02); b.box((tr, ybridge, zr - .45), (1.1, 1.5, .08), 'steel_dark', bev=.01)
+    b.box((tr, ybridge, zr - .78), (1.0, 1.3, .5), 'oxide', bev=.02); b.box((tr, ybridge, zr - .45), (1.1, 1.5, .08), 'steel_dark', bev=.01)
     b.cyl((tr, ybridge, zr - 1.1), .2, .3, 'steel_dark', 'Z', 24, bev=.008)
     for dx in (-.07, .07): b.rod((tr + dx, ybridge, zr - 1.2), (tr + dx, ybridge, zr - 2.3), .018, 'steel_mid', 10)
-    b.box((tr, ybridge, zr - 2.45), (.3, .22, .26), 'yellow', bev=.015)
+    b.box((tr, ybridge, zr - 2.45), (.3, .22, .26), 'oxide', bev=.015)
     b.sweep([(tr, ybridge, zr - 2.58), (tr, ybridge, zr - 2.8), (tr + .2, ybridge, zr - 2.95), (tr + .2, ybridge, zr - 3.15)], .028, 'steel_dark', 14, .12)   # hook
     b.sweep([(tr, ybridge + .65, zr - .6), (tr + .35, ybridge + 1.2, zr - 1.8), (tr + .5, ybridge + 1.4, 1.9)], .012, 'rubber', 8, .4)
     b.box((tr + .5, ybridge + 1.4, 1.75), (.14, .1, .28), 'red', bev=.012)
@@ -204,5 +204,4 @@ def build(b):
     for y in LAMP_Y:                                                                  # hooded pendant lamps
         for x in LAMP_X:
             b.cyl((x, y, 5.45), .38, .28, 'trim_black', 'Z', 36, r2=.09, bev=.01)
-            b.arc_shell((x, y, 5.31), .395, .36, .03, 0, 2 * math.pi, 'orange_dark', 36)                            # gold rim
             b.sphere((x, y, 5.3), .085, 'lamp', 14); b.rod((x, y, 5.59), (x, y, 6.06), .014, 'steel_dark', 10)

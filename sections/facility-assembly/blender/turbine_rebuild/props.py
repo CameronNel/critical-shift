@@ -108,9 +108,7 @@ def build(b):
         b.box((u, .32, .45), (.46, .46, .06), 'rubber', bev=.02) if False else None
         b.box((fu(8.0), .03, 1.9), (.9, .06, .5), 'trim_black', bev=.014); b.box((fu(8.0), .062, 1.9), (.82, .006, .42), 'yellow'); wt(b, 'TURBINE 02', fu(8.0), 2.0, .1, 'trim_black', .068); wt(b, 'CONTROL DESK', fu(8.0), 1.8, .06, 'trim_black', .068)
         for t, p in ((8.4, False),): socket(b, fu(t), .5, plug=p)
-    ux, uy = 8.0, 22.7                                                       # the chair, in front of the desk
-    b.cyl((ux, uy, .46), .22, .06, 'rubber', 'Z', 28, bev=.012); b.box((ux, uy - .2, .72), (.4, .06, .46), 'rubber', bev=.02); b.cyl((ux, uy, .24), .035, .42, 'steel_dark', 'Z', 12)
-    for a in range(5): b.box((ux + .17 * math.cos(a * 1.2566), uy + .17 * math.sin(a * 1.2566), .04), (.18, .04, .03), 'steel_dark', (0, 0, a * 1.2566), bev=.006)
+    import furniture; furniture.chair(b, 8.0, 22.65, math.pi / 2, 'steel_dark')                                       # operator chair in front of the desk
     # --- tidy storage: drum group, pallet with crates, gas cylinders in a rack ---
     for (x, y, c) in ((9.35, 22.4, 'red_dark'), (8.75, 22.9, 'orange_dark'), (9.4, 23.3, 'steel_dark')):
         b.box((x, y - .272, .5), (.3, .01, .26), 'chalk'); b.box((x, y - .278, .5), (.3, .006, .05), 'trim_black'); b.prism([(-.06, -.05), (.06, -.05), (0, .06)], .004, 'trim_black', (x, y - .28, .56), True, 'Y')

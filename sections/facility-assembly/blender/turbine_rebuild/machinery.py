@@ -267,35 +267,57 @@ def services(b):
 
 # ---------- controls ----------
 def controls(b):
-    b.use('MACH')
-    for k, yc in enumerate((4.5, 5.65, 6.8)):
-        b.box((-3.4, yc, .55), (.8, 1.08, 1.1), 'slate_blue', nb=True, bev=.02); b.box((-3.4, yc, .08), (.84, 1.12, .16), 'trim_black', nb=True, bev=.01)
-        b.box((-2.995, yc, .55), (.014, .88, .82), 'slate_dark', bev=.008); b.rod((-2.97, yc + .3, .4), (-2.97, yc + .3, .7), .012, 'steel_light', 10)
-        for i in range(4): b.box((-2.992, yc - .25, .3 + i * .05), (.01, .3, .012), 'trim_black')
-        b.box((-3.4, yc, 1.12), (.9, 1.1, .05), 'steel_dark', bev=.012)
-        b.box((-3.55, yc, 1.55), (.4, 1.06, .8), 'blue_panel', (0, -.45, 0), bev=.014)
-        for j in range(2):
-            yy = yc - .26 + .52 * j
-            gauge(b, (-3.36, yy, 1.62), 'X', .105)
-            b.box((-3.36, yy, 1.82), (.02, .15, .05), 'screen' if (j + k) % 2 else 'led_green', bev=.004); b.box((-3.345, yy, 1.5), (.01, .22, .035), 'chalk', (0, -.45, 0))
-        for i in range(3): b.cyl((-3.22, yc - .3 + i * .12, 1.25), .014, .05, 'steel_light', 'Z', 10); b.box((-3.22, yc - .3 + i * .12, 1.28), (.012, .012, .035), 'steel_dark')
-        b.rod((-3.2, yc + .25, 1.19), (-3.02, yc + .25, 1.38), .014, 'steel_dark', 10); b.sphere((-3.02, yc + .25, 1.4), .035, 'red', 12)
-    b.cyl((-3.1, 7.3, 1.17), .1, .05, 'yellow', 'Z', 24, bev=.006); b.cyl((-3.1, 7.3, 1.215), .065, .05, 'red', 'Z', 24, bev=.008)
-    for ya, yb_ in ((3.9, 5.8), (6.2, 7.3)): b.box((-3.9, (ya + yb_) / 2, 2.25), (.1, yb_ - ya, .92), 'trim_black', bev=.015)
-    cols = ['led_green', 'led_green', 'screen', 'led_green', 'led_red', 'led_green', 'screen', 'led_green']
+    """Three-unit operator station, pulled 0.7 m off the west wall and kept clear of the bay columns (y = 2, 6). Annunciator wall and sign sit between columns."""
+    import furniture
+    b.use('MACH'); cx = -2.95; slope = (.4, .76, -.05, 1.12)                                  # front edge (x,z) and rear edge (x,z) of the sloped panel
+    prof = [(-.4, 0), (.3, 0), (.3, .1), (.4, .1), (.4, .76), (-.05, 1.12), (-.4, 1.12)]
+    cols = ['led_green', 'screen', 'led_red', 'chalk', 'led_green', 'screen']
+    for k, yc in enumerate((2.95, 4.0, 5.05)):
+        b.prism(prof, .98, 'slate_blue', (cx, yc, 0), True, 'Y', bev=.02)
+        b.box((cx + .05, yc, .015), (.82, 1.0, .03), 'trim_black', bev=.008)                                                 # plinth
+        b.box((cx + .4, yc, .43), (.012, .86, .6), 'steel_dark', bev=.01)                                                    # front access doors
+        for dy in (-.215, .215): b.rod((cx + .41, yc + dy, .43), (cx + .41, yc + dy, .56), .012, 'brass', 8)
+        b.box((cx + .404, yc, .1), (.01, .9, .02), 'yellow_worn')                                                            # kick-plate stripe
+        for dy in (-.45, .45): b.box((cx, yc + dy, .56), (.82, .025, 1.1), 'trim_black', bev=.006)                          # unit dividers
+        b.box((cx - .2, yc, 1.22), (.4, .96, .2), 'slate_blue', bev=.02); b.box((cx - .385, yc, 1.52), (.04, .96, .42), 'trim_black', bev=.01)       # riser + monitor housing
+        sl = lambda t: (cx + slope[0] - (slope[0] - slope[2]) * t, slope[1] + (slope[3] - slope[1]) * t)                   # point on sloped panel, t = 0 front .. 1 rear
+        nrm = (.62, .78)
+        def on_panel(t, dy, size, sw, lift=.012):
+            px, pz = sl(t); b.box((px + nrm[0] * lift, yc + dy, pz + nrm[1] * lift), size, sw, (0, .675, 0), bev=.004)
+        on_panel(.5, 0, (.6, .86, .01), 'trim_black', .004)                                                                  # bezel plate
+        if k == 0:
+            for i in range(6): on_panel(.22, -.32 + i * .128, (.07, .07, .03), cols[i], .016)
+            for i in range(3): on_panel(.55, -.3 + i * .1, (.015, .07, .12), 'chalk', .02); on_panel(.55, -.3 + i * .1, (.04, .045, .02), 'red', .035)
+            for dy in (.2, .34): on_panel(.7, dy, (.055, .055, .03), 'steel_light', .018)
+            on_panel(.62, 0, (.016, .3, .004), 'chalk', .016); on_panel(.62, -.15, (.14, .016, .004), 'chalk', .016); on_panel(.62, .15, (.14, .016, .004), 'chalk', .016)   # mimic diagram
+        elif k == 1:
+            for i in range(8): on_panel(.3, -.35 + i * .1, (.025, .035, .06), 'steel_light', .03); on_panel(.3, -.35 + i * .1, (.04, .04, .018), cols[i % 6], .06)    # toggle switches
+            for i in range(2): on_panel(.7, -.22 + i * .44, (.1, .1, .028), 'trim_black', .018); on_panel(.7, -.22 + i * .44, (.012, .012, .08), 'chalk', .04)
+        else:
+            on_panel(.28, -.28, (.1, .1, .03), 'red', .02); on_panel(.28, -.28, (.14, .14, .01), 'yellow', .012)
+            for i in range(4): on_panel(.55, -.28 + i * .13, (.06, .06, .03), cols[(i + 2) % 6], .018)
+            on_panel(.72, .12, (.26, .1, .016), 'trim_black', .014); on_panel(.72, .12, (.2, .06, .01), 'screen', .02)
+        for j in range(2):                                                                                                   # two monitors per unit on the riser, tilted to the operator
+            yy = yc - .24 + .48 * j
+            b.box((cx - .335, yy, 1.58), (.05, .4, .27), 'trim_black', (0, -.22, 0), bev=.012)
+            b.box((cx - .309, yy, 1.58), (.008, .35, .22), 'screen' if (j + k) % 2 else 'screen_cool', (0, -.22, 0))
+            for q in range(3): b.box((cx - .304, yy - .06 + .0, 1.64 - q * .07), (.006, .22 - q * .04, .014), 'trim_black', (0, -.22, 0))
+        b.box((cx - .37, yc, 1.28), (.04, .96, .035), 'steel_light', bev=.006)                                              # stencilled unit tag strip
+        b.text(['UNIT 1  STEAM', 'UNIT 2  GOVERNOR', 'UNIT 3  TRIP'][k], (cx + .408, yc, .62), .05, 'chalk', math.pi / 2, math.pi / 2)
+    b.box((cx + .4, 4.0, .98), (.02, 3.1, .03), 'steel_light', bev=.004) if False else None
+    furniture.chair(b, -1.75, 5.75, math.pi + .6)                                                                                   # operator chair, facing the station
+    b.box((-2.45, 6.02, .74), (.5, .8, .04), 'wood_dark', bev=.01)                                                           # side shelf on the column face with a binder stack
+    for q in range(3): b.box((-2.45, 5.85 + q * .12, .79), (.3, .09, .06), ['red_dark', 'steel_mid', 'oxide'][q], bev=.008)
+    # annunciator wall (between columns y = 2 and 6) and sign above it
+    b.box((-3.9, 4.0, 2.35), (.1, 3.2, 1.05), 'trim_black', bev=.015)
+    cols8 = ['led_green', 'led_green', 'screen', 'led_green', 'led_red', 'led_green', 'screen', 'led_green']
     for i in range(8):
-        if abs(4.2 + i * .4 - 6.0) < .3: continue
-        for j in range(3): b.box((-3.842, 4.2 + i * .4, 1.95 + j * .3), (.014, .35, .25), 'trim_black', bev=.006); b.box((-3.835, 4.2 + i * .4, 1.95 + j * .3), (.02, .3, .2), cols[(i + j * 3) % 8], bev=.006); b.text(str(i * 3 + j + 1), (-3.82, 4.2 + i * .4, 1.95 + j * .3), .06, 'trim_black', math.pi / 2, math.pi / 2)
-    b.box((-3.9, 5.65, 3.02), (.1, 3.6, .46), 'orange', bev=.02); b.text('TURBINE CONTROL', (-3.84, 5.65, 3.02), .25, 'trim_black', math.pi / 2, math.pi / 2)
-    b.box((-2.2, 5.6, .72), (.8, 1.5, .05), 'steel_dark', bev=.012); b.box((-1.795, 5.6, .72), (.012, 1.5, .052), 'orange')
-    for dx in (-.35, .35):
-        for dy in (-.7, .7): b.box((-2.2 + dx, 5.6 + dy, .36), (.05, .05, .7), 'steel_dark', bev=.006)
-    b.box((-2.2, 5.3, .755), (.3, .22, .008), 'paper', (0, 0, .3)); b.box((-2.12, 6.0, .86), (.3, .02, .2), 'trim_black', bev=.008); b.box((-2.12, 6.0, .86), (.26, .005, .16), 'screen_cool')
-    b.box((-2.12, 6.0, .77), (.1, .08, .02), 'steel_dark', bev=.005); b.box((-2.38, 5.9, .755), (.36, .12, .015), 'charcoal', bev=.006)
-    b.cyl((-2.4, 5.2, .8), .035, .08, 'chalk', 'Z', 16)
-    b.cyl((-1.5, 5.6, .46), .22, .06, 'rubber', 'Z', 28, bev=.012); b.box((-1.3, 5.6, .72), (.06, .38, .46), 'rubber', bev=.02); b.cyl((-1.5, 5.6, .24), .035, .42, 'steel_dark', 'Z', 12)
-    for a in range(5): b.box((-1.5 + .17 * math.cos(a * 1.2566), 5.6 + .17 * math.sin(a * 1.2566), .04), (.18, .04, .03), 'steel_dark', (0, 0, a * 1.2566), bev=.006)
-    b.claim((-3.95, 3.8, 0), (-1.0, 7.5, 3.9))
+        for j in range(3):
+            yy = 2.64 + i * .4
+            b.box((-3.842, yy, 2.0 + j * .3), (.014, .35, .25), 'trim_black', bev=.006); b.box((-3.835, yy, 2.0 + j * .3), (.02, .3, .2), cols8[(i + j * 3) % 8], bev=.006); b.text(str(i * 3 + j + 1), (-3.82, yy, 2.0 + j * .3), .06, 'trim_black', math.pi / 2, math.pi / 2)
+    b.box((-3.9, 4.0, 4.2), (.1, 3.0, .5), 'oxide_dark', bev=.02); b.box((-3.846, 4.0, 4.2), (.012, 2.88, .4), 'trim_black', bev=.006)
+    b.text('TURBINE CONTROL', (-3.84, 4.0, 4.2), .22, 'chalk', math.pi / 2, math.pi / 2)
+    b.claim((-3.95, 2.3, 0), (-1.5, 5.7, 3.9))
     for k, x in enumerate((-3.35, -2.3, -1.25)):
         b.box((x, 23.55, 1.1), (.98, .8, 2.2), 'steel_mid', nb=True, bev=.025); b.box((x, 23.145, 1.1), (.9, .012, 2.1), 'steel_dark', bev=.01)
         b.box((x, 23.135, 1.55), (.62, .01, .5), 'chalk'); b.text(['PROT A', 'PROT B', 'EXCITER'][k], (x, 23.13, 1.55), .08, 'trim_black', 0, math.pi / 2)

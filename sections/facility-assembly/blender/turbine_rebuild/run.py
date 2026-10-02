@@ -32,7 +32,7 @@ def make_mats(grp):
         tex = nt.nodes.new('ShaderNodeTexImage'); tex.image = atlas; tex.interpolation = 'Linear'; tex.name = 'ALBEDO'; tex.location = (-250, 0)
         nt.links.new(uvn.outputs[0], tex.inputs[0])
         if emissive:
-            e = nt.nodes.new('ShaderNodeEmission'); e.inputs['Strength'].default_value = 4.5; e.location = (300, 0)
+            e = nt.nodes.new('ShaderNodeEmission'); e.inputs['Strength'].default_value = 2.6; e.location = (300, 0)
             nt.links.new(tex.outputs[0], e.inputs['Color']); nt.links.new(e.outputs[0], out.inputs['Surface'])
         else:
             p = nt.nodes.new('ShaderNodeBsdfPrincipled'); p.location = (300, 0)
@@ -161,7 +161,7 @@ def point(name, loc, power, color, radius=.1):
 AMBER, RED = (1.0, .58, .22), (1.0, .12, .06)
 n = 0
 for y in arch.LAMP_Y:
-    for x in arch.LAMP_X: spot(f'LAMP_{n:02d}', (x, y, 5.27), 1700, 76, (1.0, .60, .27), .16); n += 1
+    for x in arch.LAMP_X: spot(f'LAMP_{n:02d}', (x, y, 5.27), 2700, 56, (1.0, .60, .27), .12); n += 1
 def aim(o, frm, to):
     o.rotation_euler = (Vector(to) - Vector(frm)).to_track_quat('-Z', 'Y').to_euler()
 spot('LAMP_rotor', (machinery.CX, 11.25, 4.1), 1300, 62, (1.0, .66, .3), .4)
@@ -170,29 +170,29 @@ aim(spot('SPOT_desk', (8.0, 22.3, 4.8), 420, 42, (1.0, .66, .32), .3), (8.0, 22.
 point('GLOW_coupling', (machinery.CX, 15.6, machinery.AZ + .35), 150, (1.0, .55, .18))
 for k, y in enumerate((5.0, 11.0, 18.0)):                                                      # warm floor uplights give the casings a rim
     aim(spot(f'UP_W{k}', (1.35, y, .2), 180, 42, AMBER, .3), (1.35, y, .2), (3.2, y, 2.2)); aim(spot(f'UP_E{k}', (7.65, y, .2), 180, 42, AMBER, .3), (7.65, y, .2), (6.0, y, 2.2))
-spot_c = spot('SPOT_consoles', (-2.3, 5.65, 4.8), 520, 46, (1.0, .62, .26)); aim(spot_c, (-2.3, 5.65, 4.8), (-3.5, 5.65, 1.4))
+spot_c = spot('SPOT_consoles', (-1.6, 4.0, 4.6), 800, 44, (1.0, .62, .26)); aim(spot_c, (-1.6, 4.0, 4.6), (-3.0, 4.0, 1.2))
 spot_b = spot('SPOT_bay', (-1.6, 17.0, 5.2), 420, 50, (1.0, .62, .26)); aim(spot_b, (-1.6, 17.0, 5.2), (-.9, 17.0, .8))
 for k, y in enumerate((9.0, 12.5, 16.0, 19.5)):                                                # wall washers reveal the west wall and lead the eye along it
     aim(spot(f'WASH_W{k}', (-3.25, y, 4.4), 110, 52, (1.0, .66, .32), .3), (-3.25, y, 4.4), (-4.0, y, 2.0))
 point('RED_gen', (machinery.CX - 1.9, 20.0, machinery.AZ + 1.4), 45, RED, .05); point('RED_hood', (machinery.CX, 16.6, 4.0), 40, RED, .05)
-point('GLOW_consoles', (-3.1, 5.65, 1.9), 18, (1.0, .6, .25), .15)
+point('GLOW_consoles', (-2.6, 4.0, 1.9), 22, (1.0, .6, .25), .15)
 for nm, loc in (('RED_D01', (1.7, .25, 3.35)), ('RED_D02', (1.7, 23.75, 3.35))): point(nm, loc, 8, RED, .05)
 for nm, yy in (('PASS_D01', -.9), ('PASS_D02', 24.9)): point(nm, (0, yy, 2.5), 25, (1.0, .55, .25), .1)
 for k, yy in enumerate((4, 12, 20)):
-    d = bpy.data.lights.new(f'RIM_W{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 2.0, .6; d.energy = 450; d.color = (.40, .58, 1.0)
+    d = bpy.data.lights.new(f'RIM_W{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 2.0, .6; d.energy = 420; d.color = (.45, .58, .95)
     o = bpy.data.objects.new(f'RIM_W{k}', d); o.location = (-3.7, yy, 5.8); o.rotation_euler = (0, math.radians(50), 0); coll.objects.link(o)
-sun = bpy.data.lights.new('MOON_EAST', 'SUN'); sun.energy = 9.0; sun.angle = math.radians(2.0); sun.color = (.38, .55, 1.0)
+sun = bpy.data.lights.new('MOON_EAST', 'SUN'); sun.energy = 4.5; sun.angle = math.radians(2.0); sun.color = (.38, .55, 1.0)
 so = bpy.data.objects.new('MOON_EAST', sun); coll.objects.link(so)
 so.rotation_euler = Vector((-.62, .40, -.67)).to_track_quat('-Z', 'Y').to_euler()
 w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
-bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.04, .075, .18, 1); bg.inputs['Strength'].default_value = 2.3
+bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.05, .07, .12, 1); bg.inputs['Strength'].default_value = 1.15
 
 aim(spot('KEY_casing_E', (8.7, 12.0, 3.6), 650, 66, (.62, .74, 1.0), .5), (8.7, 12.0, 3.6), (5.2, 10.0, 1.6))          # cool key on the casing flank so it separates from the dark hall
 aim(spot('POOL_walk_E', (8.0, 13.8, 5.0), 2200, 38, (1.0, .6, .28), .25), (8.0, 13.8, 5.0), (7.6, 13.6, 1.0))             # warm pool on the walkway floor
 aim(spot('KEY2_casing_E', (8.7, 11.0, 1.2), 380, 70, (.62, .74, 1.0), .5), (8.7, 11.0, 1.2), (5.2, 9.0, .6))
 # cool/warm fills so silhouettes separate and shadows are not dead black (readability pass)
 for k, (fx, fy) in enumerate(((-.5, 5), (3, 12), (7.5, 19), (3, 21))):
-    d = bpy.data.lights.new(f'FILL_{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 5.0, 5.0; d.energy = 320; d.color = (.55, .68, 1.0)
+    d = bpy.data.lights.new(f'FILL_{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 5.0, 5.0; d.energy = 70; d.color = (.6, .68, .9)
     o = bpy.data.objects.new(f'FILL_{k}', d); o.location = (fx, fy, 6.0); coll.objects.link(o)
 # ---- named review cameras ----
 CAMS = {   # all positions are in open aisle space
@@ -200,7 +200,7 @@ CAMS = {   # all positions are in open aisle space
     'CAM_B_ne_high':       ((9.1, 23.0, 4.6), (-1, 6, 1.5)),
     'CAM_C_east_aisle':    ((7.7, 12.2, 1.8), (2.8, 20, 2.3)),
     'CAM_D_maintenance':   ((-3.2, 12.6, 1.65), (-.5, 19.5, 1.2)),
-    'CAM_E_controls':      ((2.2, 8.0, 1.65), (-3.8, 5.6, 1.6)),
+    'CAM_E_controls':      ((1.8, 4.0, 1.7), (-3.5, 4.0, 1.75)),
     'CAM_F_sw_high':       ((-2.4, 1.6, 4.2), (6, 16, 1.5)),
     'CAM_G_generator':     ((8.3, 15.0, 1.65), (4.6, 18.5, 2.2)),
     'CAM_H_roof':          ((1.0, 4.0, 1.65), (4.6, 14, 6.4)),
