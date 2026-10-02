@@ -372,3 +372,12 @@ change. Full F14 review and comparison to the complete F13 set remain pending;
 the final two full cycles must show no material regression before handoff.
 Thirteen complete full cycles are recorded, including the fresh atmosphere
 review; the protocol's four-cycle minimum remains exceeded.
+
+## F14ci hosted execution
+
+Native SHA256 650aec3f1e654e607de0442ae6f2fcf5544b99feb835ff1a709c2fb6b3641484. Cold validation PASS, zero failures.
+All 19 full views and the closed-leaf diagnostic are rendered and hash-verified.
+All workers used the identical cold-checked native bytes.
+Independent visual review is pending; no art or Unity acceptance is claimed.
+
+Authoring geometry: {"source_triangles": 985390, "evaluated_triangles": 990670, "mesh_objects": 341, "material_batch_upper_bound": 1428}.

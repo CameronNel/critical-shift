@@ -1,9 +1,9 @@
 {
   "schema": "fuel-overhaul-cold-validation/1",
-  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F13ci.blend",
-  "sha256": "c51f6f1fc397de024fa90cbb3acc3578501a8cb3ae660ea8b40a8a6f810ccf2a",
-  "build_manifest": "sections/fuel-corridor/production/checkpoints/F13ci_BUILD_MANIFEST.json",
-  "recipe_sha256": "febd101481ad3a760e35f965423602acd5399dd35c5d59d85798e62402e08ee6",
+  "file": "/home/runner/work/critical-shift/critical-shift/sections/fuel-corridor/production/checkpoints/fuel_full_F14ci.blend",
+  "sha256": "650aec3f1e654e607de0442ae6f2fcf5544b99feb835ff1a709c2fb6b3641484",
+  "build_manifest": "sections/fuel-corridor/production/checkpoints/F14ci_BUILD_MANIFEST.json",
+  "recipe_sha256": "68a838a61fd0f2a742389a90cbc04efe49bcc69a349e0660821d5c43377cceeb",
   "blender": "5.2.1 LTS",
   "status": "PASS",
   "failures": [],
@@ -10196,6 +10196,32 @@
         [
           0.0001499652862548828,
           [
+            -2.117966651916504,
+            10.612022399902344,
+            0.8953499794006348
+          ],
+          [
+            -2.117966651916504,
+            10.612022399902344,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
+            -2.056000232696533,
+            10.56997299194336,
+            0.8953499794006348
+          ],
+          [
+            -2.056000232696533,
+            10.56997299194336,
+            0.8954999446868896
+          ]
+        ],
+        [
+          0.0001499652862548828,
+          [
             -2.12400484085083,
             10.564026832580566,
             0.8953499794006348
@@ -10203,32 +10229,6 @@
           [
             -2.12400484085083,
             10.564026832580566,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
-            -2.0839619636535645,
-            10.617995262145996,
-            0.8953499794006348
-          ],
-          [
-            -2.0839619636535645,
-            10.617995262145996,
-            0.8954999446868896
-          ]
-        ],
-        [
-          0.0001499652862548828,
-          [
-            -2.090038299560547,
-            10.52199935913086,
-            0.8953499794006348
-          ],
-          [
-            -2.090038299560547,
-            10.52199935913086,
             0.8954999446868896
           ]
         ]
@@ -16057,9 +16057,9 @@
             3.7100000381469727
           ],
           [
-            6.2099995613098145,
+            6.209499835968018,
             11.227499961853027,
-            3.709500312805176
+            3.7100000381469727
           ]
         ],
         [
@@ -16070,9 +16070,9 @@
             3.7100000381469727
           ],
           [
-            6.2099995613098145,
+            6.209499835968018,
             11.229499816894531,
-            3.709500312805176
+            3.7100000381469727
           ]
         ],
         [
@@ -16083,9 +16083,9 @@
             3.7100000381469727
           ],
           [
-            6.2099995613098145,
+            6.209499835968018,
             11.372499465942383,
-            3.709500312805176
+            3.7100000381469727
           ]
         ]
       ],
@@ -17427,16 +17427,6 @@
       "available": true
     },
     {
-      "name": "painted_plaster_wall_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
-      "name": "metal_plate_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
       "name": "painted_plaster_wall_diff_2k.jpg",
       "packed": true,
       "available": true
@@ -17447,17 +17437,27 @@
       "available": true
     },
     {
-      "name": "wood_table_worn_disp_2k.jpg",
-      "packed": true,
-      "available": true
-    },
-    {
       "name": "metal_plate_rough_2k.jpg",
       "packed": true,
       "available": true
     },
     {
+      "name": "painted_plaster_wall_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "metal_plate_disp_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
       "name": "painted_plaster_wall_rough_2k.jpg",
+      "packed": true,
+      "available": true
+    },
+    {
+      "name": "wood_table_worn_disp_2k.jpg",
       "packed": true,
       "available": true
     },
@@ -17511,6 +17511,24 @@
             "factor": 0.8199999773943866,
             "optic_strengths": [
               0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -17583,6 +17601,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -17647,6 +17683,24 @@
             "factor": 0.8199999773943866,
             "optic_strengths": [
               0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -17719,6 +17773,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -17783,6 +17855,24 @@
             "factor": 0.8199999773943866,
             "optic_strengths": [
               0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -17855,6 +17945,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -17919,6 +18027,24 @@
             "factor": 0.8199999773943866,
             "optic_strengths": [
               0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -17991,6 +18117,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -18055,6 +18199,24 @@
             "factor": 0.8199999773943866,
             "optic_strengths": [
               0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -18127,6 +18289,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -18191,6 +18371,24 @@
             "factor": 0.8199999773943866,
             "optic_strengths": [
               0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -18263,6 +18461,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -18327,6 +18543,24 @@
             "factor": 0.8199999773943866,
             "optic_strengths": [
               0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -18399,6 +18633,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -18463,6 +18715,24 @@
             "factor": 0.8199999773943866,
             "optic_strengths": [
               0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -18535,6 +18805,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.299999237060547,
             "factor": 0.699999973691743,
@@ -18599,6 +18887,24 @@
             "factor": 0.7799999802200882,
             "optic_strengths": [
               0.5303999781608582
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -18671,6 +18977,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 5.21999979019165,
             "factor": 0.17999999276522932,
@@ -18735,6 +19059,24 @@
             "factor": 0.1200000003532127,
             "optic_strengths": [
               0.08160000294446945
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -18807,6 +19149,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 5.21999979019165,
             "factor": 0.17999999276522932,
@@ -18871,6 +19231,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -18943,6 +19321,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -19007,6 +19403,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -19079,6 +19493,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -19143,6 +19575,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -19215,6 +19665,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -19279,6 +19747,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 65.5999984741211,
+            "factor": 0.8199999809265137,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -19351,6 +19837,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 62.400001525878906,
+            "factor": 0.7800000190734864,
+            "optic_strengths": [
+              0.5303999781608582
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -19415,6 +19919,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 9.600000381469727,
+            "factor": 0.12000000476837158,
+            "optic_strengths": [
+              0.08160000294446945
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -19487,6 +20009,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 9.600000381469727,
+            "factor": 0.12000000476837158,
+            "optic_strengths": [
+              0.08160000294446945
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -19551,6 +20091,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 44.268001556396484,
+            "factor": 0.7000000060320954,
+            "optic_strengths": [
+              0.47600001096725464
             ],
             "matrix_drift": 0.0
           },
@@ -19623,6 +20181,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 44.268001556396484,
+            "factor": 0.7000000060320954,
+            "optic_strengths": [
+              0.47600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -19687,6 +20263,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 11.383200645446777,
+            "factor": 0.18000000542888592,
+            "optic_strengths": [
+              0.12240000069141388
             ],
             "matrix_drift": 0.0
           },
@@ -19759,6 +20353,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 11.383200645446777,
+            "factor": 0.18000000542888592,
+            "optic_strengths": [
+              0.12240000069141388
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -19823,6 +20435,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 11.383200645446777,
+            "factor": 0.18000000542888592,
+            "optic_strengths": [
+              0.12240000069141388
             ],
             "matrix_drift": 0.0
           },
@@ -19895,6 +20525,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 11.383200645446777,
+            "factor": 0.18000000542888592,
+            "optic_strengths": [
+              0.12240000069141388
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -19959,6 +20607,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 11.383200645446777,
+            "factor": 0.18000000542888592,
+            "optic_strengths": [
+              0.12240000069141388
             ],
             "matrix_drift": 0.0
           },
@@ -20031,6 +20697,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -20095,6 +20779,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -20167,6 +20869,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -20231,6 +20951,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -20303,6 +21041,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -20367,6 +21123,24 @@
             "factor": 0.76000001695421,
             "optic_strengths": [
               0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -20439,6 +21213,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -20503,6 +21295,24 @@
             "factor": 0.7700000339084201,
             "optic_strengths": [
               0.5235999822616577
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -20575,6 +21385,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -20639,6 +21467,24 @@
             "factor": 0.10000000176606355,
             "optic_strengths": [
               0.06800000369548798
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -20711,6 +21557,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -20775,6 +21639,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -20847,6 +21729,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -20911,6 +21811,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -20983,6 +21901,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -21047,6 +21983,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -21119,6 +22073,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -21183,6 +22155,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.79999923706055,
+            "factor": 0.7599999904632568,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -21255,6 +22245,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 61.599998474121094,
+            "factor": 0.7699999809265137,
+            "optic_strengths": [
+              0.5235999822616577
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.90999984741211,
             "factor": 0.7899999947383486,
@@ -21319,6 +22327,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 8.0,
+            "factor": 0.1,
+            "optic_strengths": [
+              0.06800000369548798
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -21391,6 +22417,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 8.0,
+            "factor": 0.1,
+            "optic_strengths": [
+              0.06800000369548798
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.780000686645508,
             "factor": 0.8200000236774313,
@@ -21455,6 +22499,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 8.0,
+            "factor": 0.1,
+            "optic_strengths": [
+              0.06800000369548798
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -21527,6 +22589,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.780000686645508,
             "factor": 0.8200000236774313,
@@ -21591,6 +22671,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -21663,6 +22761,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.780000686645508,
             "factor": 0.8200000236774313,
@@ -21727,6 +22843,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -21799,6 +22933,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.780000686645508,
             "factor": 0.8200000236774313,
@@ -21863,6 +23015,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -21935,6 +23105,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.780000686645508,
             "factor": 0.8200000236774313,
@@ -21999,6 +23187,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -22071,6 +23277,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.780000686645508,
             "factor": 0.8200000236774313,
@@ -22135,6 +23359,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -22207,6 +23449,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.780000686645508,
             "factor": 0.8200000236774313,
@@ -22271,6 +23531,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -22343,6 +23621,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.780000686645508,
             "factor": 0.8200000236774313,
@@ -22407,6 +23703,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.95960235595703,
+            "factor": 0.7900000162866577,
+            "optic_strengths": [
+              0.5372000336647034
             ],
             "matrix_drift": 0.0
           },
@@ -22479,6 +23793,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.6200008392334,
             "factor": 0.7800000289390827,
@@ -22543,6 +23875,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
             ],
             "matrix_drift": 0.0
           },
@@ -22615,6 +23965,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 3.4800000190734863,
             "factor": 0.12000000065770643,
@@ -22679,6 +24047,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
             ],
             "matrix_drift": 0.0
           },
@@ -22751,6 +24137,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -22815,6 +24219,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
             ],
             "matrix_drift": 0.0
           },
@@ -22887,6 +24309,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -22951,6 +24391,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
             ],
             "matrix_drift": 0.0
           },
@@ -23023,6 +24481,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -23087,6 +24563,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
             ],
             "matrix_drift": 0.0
           },
@@ -23159,6 +24653,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -23223,6 +24735,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
             ],
             "matrix_drift": 0.0
           },
@@ -23295,6 +24825,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -23359,6 +24907,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
             ],
             "matrix_drift": 0.0
           },
@@ -23431,6 +24997,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -23495,6 +25079,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 51.8568000793457,
+            "factor": 0.8199999794908754,
+            "optic_strengths": [
+              0.5576000213623047
             ],
             "matrix_drift": 0.0
           },
@@ -23567,6 +25169,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.32720184326172,
+            "factor": 0.7800000084449337,
+            "optic_strengths": [
+              0.5303999781608582
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -23631,6 +25251,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 7.588800430297852,
+            "factor": 0.12000000361925728,
+            "optic_strengths": [
+              0.08160000294446945
             ],
             "matrix_drift": 0.0
           },
@@ -23703,6 +25341,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 7.588800430297852,
+            "factor": 0.12000000361925728,
+            "optic_strengths": [
+              0.08160000294446945
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -23767,6 +25423,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -23839,6 +25513,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -23903,6 +25595,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -23975,6 +25685,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -24039,6 +25767,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -24111,6 +25857,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -24175,6 +25939,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -24247,6 +26029,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.040000915527344,
             "factor": 0.7600000315699084,
@@ -24311,6 +26111,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -24383,6 +26201,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.329999923706055,
             "factor": 0.7699999973691743,
@@ -24447,6 +26283,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -24519,6 +26373,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 2.9000000953674316,
             "factor": 0.10000000328853212,
@@ -24583,6 +26455,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -24655,6 +26545,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -24719,6 +26627,24 @@
             "factor": 0.7200000197799118,
             "optic_strengths": [
               0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -24791,6 +26717,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -24855,6 +26799,24 @@
             "factor": 0.7799999802200882,
             "optic_strengths": [
               0.5303999781608582
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -24927,6 +26889,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -24991,6 +26971,24 @@
             "factor": 0.06999999947018093,
             "optic_strengths": [
               0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -25063,6 +27061,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -25127,6 +27143,24 @@
             "factor": 0.06999999947018093,
             "optic_strengths": [
               0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -25199,6 +27233,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -25263,6 +27315,24 @@
             "factor": 0.06999999947018093,
             "optic_strengths": [
               0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -25335,6 +27405,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -25399,6 +27487,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.062400817871094,
+            "factor": 0.7599999927614854,
+            "optic_strengths": [
+              0.5167999863624573
             ],
             "matrix_drift": 0.0
           },
@@ -25471,6 +27577,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 48.694801330566406,
+            "factor": 0.7700000006032095,
+            "optic_strengths": [
+              0.5235999822616577
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -25535,6 +27659,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 57.599998474121094,
+            "factor": 0.7199999809265136,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 6.324000358581543,
+            "factor": 0.10000000301604772,
+            "optic_strengths": [
+              0.06800000369548798
             ],
             "matrix_drift": 0.0
           },
@@ -25607,6 +27749,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 62.400001525878906,
+            "factor": 0.7800000190734864,
+            "optic_strengths": [
+              0.5303999781608582
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 6.324000358581543,
+            "factor": 0.10000000301604772,
+            "optic_strengths": [
+              0.06800000369548798
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -25671,6 +27831,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 5.599999904632568,
+            "factor": 0.06999999880790711,
+            "optic_strengths": [
+              0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 6.324000358581543,
+            "factor": 0.10000000301604772,
+            "optic_strengths": [
+              0.06800000369548798
             ],
             "matrix_drift": 0.0
           },
@@ -25743,6 +27921,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 5.599999904632568,
+            "factor": 0.06999999880790711,
+            "optic_strengths": [
+              0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -25807,6 +28003,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 5.599999904632568,
+            "factor": 0.06999999880790711,
+            "optic_strengths": [
+              0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -25879,6 +28093,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 5.599999904632568,
+            "factor": 0.06999999880790711,
+            "optic_strengths": [
+              0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -25943,6 +28175,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 5.599999904632568,
+            "factor": 0.06999999880790711,
+            "optic_strengths": [
+              0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -26015,6 +28265,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 5.599999904632568,
+            "factor": 0.06999999880790711,
+            "optic_strengths": [
+              0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -26079,6 +28347,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -26151,6 +28437,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -26215,6 +28519,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -26287,6 +28609,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -26351,6 +28691,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -26423,6 +28781,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -26487,6 +28863,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -26559,6 +28953,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -26623,6 +29035,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -26695,6 +29125,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -26759,6 +29207,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -26831,6 +29297,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -26895,6 +29379,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -26967,6 +29469,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -27031,6 +29551,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -27103,6 +29641,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -27167,6 +29723,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -27239,6 +29813,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -27303,6 +29895,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -27375,6 +29985,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -27439,6 +30067,24 @@
             "factor": 0.75,
             "optic_strengths": [
               0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -27511,6 +30157,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -27575,6 +30239,24 @@
             "factor": 0.6499999717429832,
             "optic_strengths": [
               0.44200000166893005
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -27647,6 +30329,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -27711,6 +30411,24 @@
             "factor": 0.16000000635782877,
             "optic_strengths": [
               0.1088000014424324
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -27783,6 +30501,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -27847,6 +30583,24 @@
             "factor": 0.16000000635782877,
             "optic_strengths": [
               0.1088000014424324
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -27919,6 +30673,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -27983,6 +30755,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -28055,6 +30845,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -28119,6 +30927,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -28191,6 +31017,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 60.0,
+            "factor": 0.75,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -28255,6 +31099,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 52.0,
+            "factor": 0.65,
+            "optic_strengths": [
+              0.44200000166893005
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -28327,6 +31189,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 52.0,
+            "factor": 0.65,
+            "optic_strengths": [
+              0.44200000166893005
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -28391,6 +31271,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 52.0,
+            "factor": 0.65,
+            "optic_strengths": [
+              0.44200000166893005
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -28463,6 +31361,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 12.800000190734863,
+            "factor": 0.1600000023841858,
+            "optic_strengths": [
+              0.1088000014424324
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -28527,6 +31443,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 12.800000190734863,
+            "factor": 0.1600000023841858,
+            "optic_strengths": [
+              0.1088000014424324
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -28599,6 +31533,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 12.800000190734863,
+            "factor": 0.1600000023841858,
+            "optic_strengths": [
+              0.1088000014424324
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 20.8799991607666,
             "factor": 0.7199999710609173,
@@ -28663,6 +31615,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -28735,6 +31705,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 22.6200008392334,
             "factor": 0.7800000289390827,
@@ -28799,6 +31787,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -28871,6 +31877,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 2.0299999713897705,
             "factor": 0.06999999901344037,
@@ -28935,6 +31959,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -29007,6 +32049,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 2.0299999713897705,
             "factor": 0.06999999901344037,
@@ -29071,6 +32131,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -29143,6 +32221,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 2.0299999713897705,
             "factor": 0.06999999901344037,
@@ -29207,6 +32303,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -29279,6 +32393,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -29343,6 +32475,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -29415,6 +32565,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -29479,6 +32647,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -29551,6 +32737,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -29615,6 +32819,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -29687,6 +32909,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -29751,6 +32991,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 45.53280258178711,
+            "factor": 0.7200000217155437,
+            "optic_strengths": [
+              0.4896000027656555
             ],
             "matrix_drift": 0.0
           },
@@ -29823,6 +33081,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 49.32720184326172,
+            "factor": 0.7800000084449337,
+            "optic_strengths": [
+              0.5303999781608582
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -29887,6 +33163,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 4.42680025100708,
+            "factor": 0.0700000021112334,
+            "optic_strengths": [
+              0.047600001096725464
             ],
             "matrix_drift": 0.0
           },
@@ -29959,6 +33253,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 4.42680025100708,
+            "factor": 0.0700000021112334,
+            "optic_strengths": [
+              0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -30023,6 +33335,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 4.42680025100708,
+            "factor": 0.0700000021112334,
+            "optic_strengths": [
+              0.047600001096725464
             ],
             "matrix_drift": 0.0
           },
@@ -30095,6 +33425,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 4.42680025100708,
+            "factor": 0.0700000021112334,
+            "optic_strengths": [
+              0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -30159,6 +33507,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 4.42680025100708,
+            "factor": 0.0700000021112334,
+            "optic_strengths": [
+              0.047600001096725464
             ],
             "matrix_drift": 0.0
           },
@@ -30231,6 +33597,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 4.42680025100708,
+            "factor": 0.0700000021112334,
+            "optic_strengths": [
+              0.047600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -30295,6 +33679,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -30367,6 +33769,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -30431,6 +33851,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -30503,6 +33941,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -30567,6 +34023,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -30639,6 +34113,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -30703,6 +34195,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -30775,6 +34285,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -30839,6 +34367,24 @@
             "factor": 0.8000000141285084,
             "optic_strengths": [
               0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -30911,6 +34457,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -30975,6 +34539,24 @@
             "factor": 0.6999999858714916,
             "optic_strengths": [
               0.47600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -31047,6 +34629,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -31111,6 +34711,24 @@
             "factor": 0.18000000494497795,
             "optic_strengths": [
               0.12240000069141388
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -31183,6 +34801,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -31247,6 +34883,24 @@
             "factor": 0.18000000494497795,
             "optic_strengths": [
               0.12240000069141388
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -31319,6 +34973,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 21.75,
             "factor": 0.75,
@@ -31383,6 +35055,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -31455,6 +35145,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 18.850000381469727,
             "factor": 0.6500000131541285,
@@ -31519,6 +35227,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -31591,6 +35317,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 64.0,
+            "factor": 0.8,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 4.639999866485596,
             "factor": 0.15999999539605503,
@@ -31655,6 +35399,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 56.0,
+            "factor": 0.7,
+            "optic_strengths": [
+              0.47600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -31727,6 +35489,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 56.0,
+            "factor": 0.7,
+            "optic_strengths": [
+              0.47600001096725464
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 4.639999866485596,
             "factor": 0.15999999539605503,
@@ -31791,6 +35571,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 14.399999618530273,
+            "factor": 0.1799999952316284,
+            "optic_strengths": [
+              0.12240000069141388
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -31863,6 +35661,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 14.399999618530273,
+            "factor": 0.1799999952316284,
+            "optic_strengths": [
+              0.12240000069141388
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -31927,6 +35743,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 14.399999618530273,
+            "factor": 0.1799999952316284,
+            "optic_strengths": [
+              0.12240000069141388
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -31999,6 +35833,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 14.399999618530273,
+            "factor": 0.1799999952316284,
+            "optic_strengths": [
+              0.12240000069141388
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -32063,6 +35915,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 14.399999618530273,
+            "factor": 0.1799999952316284,
+            "optic_strengths": [
+              0.12240000069141388
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -32135,6 +36005,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -32199,6 +36087,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -32271,6 +36177,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -32335,6 +36259,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
             ],
             "matrix_drift": 0.0
           },
@@ -32407,6 +36349,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 47.43000030517578,
+            "factor": 0.7499999849197614,
+            "optic_strengths": [
+              0.5099999904632568
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -32471,6 +36431,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 41.10600280761719,
+            "factor": 0.6500000271444295,
+            "optic_strengths": [
+              0.44200000166893005
             ],
             "matrix_drift": 0.0
           },
@@ -32543,6 +36521,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 41.10600280761719,
+            "factor": 0.6500000271444295,
+            "optic_strengths": [
+              0.44200000166893005
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -32607,6 +36603,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 41.10600280761719,
+            "factor": 0.6500000271444295,
+            "optic_strengths": [
+              0.44200000166893005
             ],
             "matrix_drift": 0.0
           },
@@ -32679,6 +36693,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 10.118400573730469,
+            "factor": 0.16000000482567636,
+            "optic_strengths": [
+              0.1088000014424324
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -32743,6 +36775,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 10.118400573730469,
+            "factor": 0.16000000482567636,
+            "optic_strengths": [
+              0.1088000014424324
             ],
             "matrix_drift": 0.0
           },
@@ -32815,6 +36865,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 10.118400573730469,
+            "factor": 0.16000000482567636,
+            "optic_strengths": [
+              0.1088000014424324
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -32879,6 +36947,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -32951,6 +37037,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -33015,6 +37119,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -33087,6 +37209,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -33151,6 +37291,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -33223,6 +37381,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -33287,6 +37463,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -33359,6 +37553,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -33423,6 +37635,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -33495,6 +37725,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -33559,6 +37807,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -33631,6 +37897,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -33695,6 +37979,24 @@
             "factor": 0.7899999971742984,
             "optic_strengths": [
               0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },
@@ -33767,6 +38069,24 @@
             "matrix_drift": 0.0
           },
           {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
+            ],
+            "matrix_drift": 0.0
+          },
+          {
             "light": "FC | Crossing fluorescent pool",
             "energy_w": 23.200000762939453,
             "factor": 0.800000026308257,
@@ -33831,6 +38151,24 @@
             "factor": 0.8199999773943866,
             "optic_strengths": [
               0.5576000213623047
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Staging main pool",
+            "energy_w": 63.20000076293945,
+            "factor": 0.7900000095367432,
+            "optic_strengths": [
+              0.5372000336647034
+            ],
+            "matrix_drift": 0.0
+          },
+          {
+            "light": "FC | Bench practical pool",
+            "energy_w": 50.592002868652344,
+            "factor": 0.8000000241283818,
+            "optic_strengths": [
+              0.5440000295639038
             ],
             "matrix_drift": 0.0
           },

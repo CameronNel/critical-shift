@@ -2,16 +2,16 @@
   "stage": "full",
   "base_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
   "output": "sections/facility-assembly/sources/fuel-corridor/module.blend",
-  "sha256": "c51f6f1fc397de024fa90cbb3acc3578501a8cb3ae660ea8b40a8a6f810ccf2a",
+  "sha256": "650aec3f1e654e607de0442ae6f2fcf5544b99feb835ff1a709c2fb6b3641484",
   "recipe_inputs": {
     "sections/fuel-corridor/blender/build_overhaul.py": "2e17bc795175d529b5c373931d3ba212d8c029ffe8790ef2e81e8ec694aee5cb",
     "sections/fuel-corridor/blender/fuel_kit.py": "be28b3f0302c910167c3fa422f73fc5b0ef136b0c2fd7aa1ce4bc942f84279eb",
     "sections/fuel-corridor/blender/fuel_assets.py": "5b30a72616c746c25b64cae69dc88c6c924203c59dca698ea610c31376b7625c",
-    "sections/fuel-corridor/blender/fuel_atmosphere.py": "4bd310393755d5a79684e71b424a132fd33e2891785c1d1f5ef27f4f931008c6",
+    "sections/fuel-corridor/blender/fuel_atmosphere.py": "1990f575a675b2a4469bbe3ef76c847a45f6cebcb41efe1bea20e8a25b28ed77",
     "sections/spawn-room/blender/cozy_geo.py": "408c0eecc9a0dd534e9f5c8f0ace5442077db0c51b1dcbb299484f1ba59b4400",
     "sections/facility-assembly/sources/fuel-corridor/contracts/interface.json": "ce6ddfa16e0bbea71030e9c190f6507b8fa69fa2e489c548f3a04a3cd21a872e"
   },
-  "recipe_sha256": "febd101481ad3a760e35f965423602acd5399dd35c5d59d85798e62402e08ee6",
+  "recipe_sha256": "68a838a61fd0f2a742389a90cbc04efe49bcc69a349e0660821d5c43377cceeb",
   "main_cache_material_compatibility": {
     "brass": "brass",
     "chip": "chip",
@@ -135820,6 +135820,180 @@
           ]
         ],
         "energy_base_w": 27.0,
+        "period_frames": 240,
+        "channel_scope": "Individual light energy and isolated fixture optic emission; constant interpolation, Cycles repeat."
+      },
+      {
+        "fixture": "FC | Staging main",
+        "light": "FC | Staging main pool",
+        "optics": [
+          {
+            "material": "FC | warm diffuser | FC | Staging main",
+            "emission_base": 0.6800000071525574
+          }
+        ],
+        "keys": [
+          [
+            1,
+            0.79
+          ],
+          [
+            12,
+            0.82
+          ],
+          [
+            28,
+            0.78
+          ],
+          [
+            29,
+            0.12
+          ],
+          [
+            31,
+            0.76
+          ],
+          [
+            56,
+            0.77
+          ],
+          [
+            57,
+            0.1
+          ],
+          [
+            60,
+            0.72
+          ],
+          [
+            120,
+            0.78
+          ],
+          [
+            121,
+            0.07
+          ],
+          [
+            127,
+            0.75
+          ],
+          [
+            159,
+            0.65
+          ],
+          [
+            162,
+            0.16
+          ],
+          [
+            165,
+            0.8
+          ],
+          [
+            209,
+            0.7
+          ],
+          [
+            211,
+            0.18
+          ],
+          [
+            216,
+            0.79
+          ],
+          [
+            241,
+            0.79
+          ]
+        ],
+        "energy_base_w": 80.0,
+        "period_frames": 240,
+        "channel_scope": "Individual light energy and isolated fixture optic emission; constant interpolation, Cycles repeat."
+      },
+      {
+        "fixture": "FC | Bench practical",
+        "light": "FC | Bench practical pool",
+        "optics": [
+          {
+            "material": "FC | warm diffuser | FC | Bench practical",
+            "emission_base": 0.6800000071525574
+          }
+        ],
+        "keys": [
+          [
+            1,
+            0.8
+          ],
+          [
+            31,
+            0.7
+          ],
+          [
+            33,
+            0.18
+          ],
+          [
+            38,
+            0.79
+          ],
+          [
+            74,
+            0.82
+          ],
+          [
+            90,
+            0.78
+          ],
+          [
+            91,
+            0.12
+          ],
+          [
+            93,
+            0.76
+          ],
+          [
+            118,
+            0.77
+          ],
+          [
+            119,
+            0.1
+          ],
+          [
+            122,
+            0.72
+          ],
+          [
+            182,
+            0.78
+          ],
+          [
+            183,
+            0.07
+          ],
+          [
+            189,
+            0.75
+          ],
+          [
+            221,
+            0.65
+          ],
+          [
+            224,
+            0.16
+          ],
+          [
+            227,
+            0.8
+          ],
+          [
+            241,
+            0.8
+          ]
+        ],
+        "energy_base_w": 63.2400016784668,
         "period_frames": 240,
         "channel_scope": "Individual light energy and isolated fixture optic emission; constant interpolation, Cycles repeat."
       },
