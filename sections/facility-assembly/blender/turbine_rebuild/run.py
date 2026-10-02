@@ -161,7 +161,7 @@ def point(name, loc, power, color, radius=.1):
 AMBER, RED = (1.0, .58, .22), (1.0, .12, .06)
 n = 0
 for y in arch.LAMP_Y:
-    for x in arch.LAMP_X: spot(f'LAMP_{n:02d}', (x, y, 5.27), 2700, 56, (1.0, .60, .27), .12); n += 1
+    for x in arch.LAMP_X: spot(f'LAMP_{n:02d}', (x, y, 5.27), 2700, 56, (1.0, .55, .2), .12); n += 1
 def aim(o, frm, to):
     o.rotation_euler = (Vector(to) - Vector(frm)).to_track_quat('-Z', 'Y').to_euler()
 spot('LAMP_rotor', (machinery.CX, 11.25, 4.1), 1300, 62, (1.0, .66, .3), .4)
@@ -190,8 +190,8 @@ bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (.075, 
 aim(spot('KEY_casing_E', (8.7, 12.0, 3.6), 650, 66, (.62, .74, 1.0), .5), (8.7, 12.0, 3.6), (5.2, 10.0, 1.6))          # cool key on the casing flank so it separates from the dark hall
 aim(spot('POOL_walk_E', (8.0, 13.8, 5.0), 2200, 38, (1.0, .6, .28), .25), (8.0, 13.8, 5.0), (7.6, 13.6, 1.0))             # warm pool on the walkway floor
 aim(spot('KEY2_casing_E', (8.7, 11.0, 1.2), 380, 70, (.62, .74, 1.0), .5), (8.7, 11.0, 1.2), (5.2, 9.0, .6))
-for k, sx in enumerate((2.9, 6.3)):                                                                                # cool moonlit rim strips along the turbine tops so the hero casings keep an edge
-    o = area(f'RIMTOP_{k}', (sx, 14.0, 6.0), (.5, 14.0), 1500, (.86, .88, 1.0)); aim(o, (sx, 14.0, 6.0), (4.6, 14.0, 2.6))
+for k, yy in enumerate((7.0, 13.0, 19.0)):                                                                         # cool rim spots from the side walls (strips next to the trusses blew them out white)
+    aim(spot(f'RIM_E{k}', (9.3, yy, 5.1), 1300, 38, (.86, .88, 1.0), .4), (9.3, yy, 5.1), (4.9, yy, 2.5)); aim(spot(f'RIM_W{k}', (-.5, yy, 5.2), 1300, 38, (.86, .88, 1.0), .4), (-.5, yy, 5.2), (4.3, yy, 2.5))
 # cool/warm fills so silhouettes separate and shadows are not dead black (readability pass)
 for k, (fx, fy) in enumerate(((-.5, 5), (3, 12), (7.5, 19), (3, 21))):
     d = bpy.data.lights.new(f'FILL_{k}', 'AREA'); d.shape = 'RECTANGLE'; d.size, d.size_y = 5.0, 5.0; d.energy = 70; d.color = (.8, .84, .95)
@@ -216,7 +216,7 @@ CAMS = {   # all positions are in open aisle space
     'CAM_L_desk':          ((7.7, 19.8, 1.6), (8.4, 23.5, 1.0)),
 }
 for name, (loc, tgt) in CAMS.items():
-    cd = bpy.data.cameras.new(name); cd.lens = 24; co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
+    cd = bpy.data.cameras.new(name); cd.lens = {'CAM_E_controls': 18, 'CAM_K_door_d01': 19, 'CAM_J_north_back': 20, 'CAM_H_roof': 20}.get(name, 24); co = bpy.data.objects.new(name, cd); coll.objects.link(co); co.location = loc
     co.rotation_euler = (Vector(tgt) - Vector(loc)).to_track_quat('-Z', 'Y').to_euler()
 sc.camera = bpy.data.objects['CAM_A_entry_north']
 for _o in coll.objects:
