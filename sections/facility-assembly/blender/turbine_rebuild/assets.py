@@ -222,10 +222,10 @@ def desk(b, u):
     b.box((u + .36, .56, .775), (.2, .14, .04), 'trim_black', bev=.01); b.box((u + .36, .56, .805), (.22, .05, .026), 'trim_black', bev=.008)
 
 # ------------------------------------------------------------------ oil store
-def spill_pallet(b, cx, cy, w=1.42, d=.82):
+def spill_pallet(b, cx, cy, w=1.42, d=.82, rz=0.0):
     """polyethylene two-drum spill pallet: rounded sump, steel grating on corner posts, fork pockets, drain plug"""
     zt = .17
-    with b.push((cx, cy, 0), 0):
+    with b.push((cx, cy, 0), rz):
         b.box((0, 0, zt / 2), (w, d, zt), 'yellow', bev=.025)
         b.box((0, 0, zt - .004), (w - .08, d - .08, .012), 'backing')                                                           # sump well
         for sx in (-1, 1): b.box((sx * (w / 2 - .005), 0, .06), (.012, .24, .08), 'backing', bev=.004)                          # fork pockets
@@ -289,3 +289,10 @@ def carton(b, x, y, z, w, d, h, rz=0.0, label=True):
 
 def mallet(b, y, z, x=-3.752):
     b.rod((x, y, z - .3), (x, y, z), .013, 'wood', 8); b.cyl((x, y, z - .02), .032, .1, 'rubber', 'Y', 12, bev=.004); b.cyl((x, y, z - .02), .034, .008, 'steel_dark', 'Y', 12) 
+
+def chair_reactor(b, x, y, rz=0.0):
+    """The reactor control-room operator chair (chair_reactor.py: faces extracted from the reactor scene). Seat faces local +Y."""
+    import chair_reactor as CR
+    with b.push((x, y, 0), rz):
+        for f in CR.FABRIC: b.poly([tuple(p) for p in f], 'casing', fit=False)
+        for f in CR.IRON: b.poly([tuple(p) for p in f], 'trim_black', fit=False)

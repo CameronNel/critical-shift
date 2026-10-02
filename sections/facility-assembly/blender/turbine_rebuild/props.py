@@ -14,7 +14,8 @@ def puddle(b, x, y, rx, ry, sw, z=.0085, rot=0.0):
     ring = [((rx * math.cos(2 * math.pi * i / 28)) * c - (ry * math.sin(2 * math.pi * i / 28)) * s, (rx * math.cos(2 * math.pi * i / 28)) * s + (ry * math.sin(2 * math.pi * i / 28)) * c) for i in range(28)]
     b.prism(ring, .004, sw, (x, y, z), True, 'Z')
 
-DRUMS = [(8.98, 23.45, 0.0, .215), (9.58, 23.45, .8, .215)]   # (x, y, bung rotation, base z): built by drums.py (textured lathe objects) on the spill pallet
+OIL_X, OIL_Y = 9.46, 22.38    # oil store against the east wall, pallet long axis along Y
+DRUMS = [(OIL_X, OIL_Y - .3, 0.0, .215), (OIL_X, OIL_Y + .3, .8, .215)]   # (x, y, bung rotation, base z): built by drums.py (textured lathe objects) on the spill pallet
 
 def work_lamp(b, wx, wy, aim_to):
     """cage work lamp on a telescoping tripod"""
@@ -69,10 +70,9 @@ def build(b):
     # --- north wall: working desk, flammables sign ---
     (o, rz), fu = FR['N']
     with b.push(o, rz):
-        A.desk(b, fu(7.55))
-        A.sign_board(b, 'sign_desk', fu(7.55), 1.9, .82, .42, depth=.05)
-        A.socket(b, fu(8.05), .5)
-        b.decal('sign_flammable', (fu(9.28), .006, 1.7), rot=WALL, scale=1.05)
+        A.desk(b, fu(9.1))
+        A.sign_board(b, 'sign_desk', fu(9.1), 1.9, .82, .42, depth=.05)
+        A.socket(b, fu(9.6), .5)
     import machinery as MM                                                                           # nameplates on the generator and on the foundation rail
     b.box((MM.CX + 1.14, 18.95, MM.AZ + .05), (.04, 1.5, .46), 'trim_black', bev=.012); b.decal('nameplate_gen', (MM.CX + 1.1625, 18.95, MM.AZ + .05), rot=(math.pi / 2, 0, math.pi / 2))
     with b.push((6.45, 10.95, 0), math.pi / 2):                                                           # tag sign hung from the foundation rail, facing along the walkway
@@ -80,8 +80,11 @@ def build(b):
         for dy in (-.4, .4): b.rod((0, dy, 1.95), (0, dy, 2.05), .012, 'steel_dark', 8)
     b.rod((6.9, 10.95, 2.05), (7.08, 10.95, 2.05), .012, 'steel_dark', 8); b.rod((6.45, 10.95, 2.05), (6.9, 10.95, 2.05), .012, 'steel_dark', 8)
     # --- tidy storage: oil store on a spill pallet (drums are textured lathe objects, see drums.py), pallet with crate and case, gas cylinders in a rack ---
-    A.spill_pallet(b, 9.28, 23.45)
-    A.drum_pump(b, 8.98 + .125, 23.45 + .085, .215 + .848)
+    A.spill_pallet(b, OIL_X, OIL_Y, rz=math.pi / 2)
+    A.drum_pump(b, OIL_X + .125, OIL_Y - .3 + .085, .215 + .848)
+    (o, rz), fu = FR['E']
+    with b.push(o, rz): b.decal('sign_flammable', (fu(OIL_Y), .006, 1.7), rot=WALL, scale=1.05)
+    A.chair_reactor(b, 8.45, 22.5, -.55)                                                                 # operator chair at the desk (reactor control-room model)
     A.pallet(b, 6.8, 1.2, 1.0, 1.2); A.crate(b, 6.8, 1.2, .8, .6, .42, z0=.158); A.steel_case(b, 6.8, 1.2, .158 + .42 + .05, .5, .36, .26, rz=.15)
     with b.push((-3.55, 1.3, 0), math.pi / 2): A.gas_rack(b, 0, 0)
     # --- broken: a leaking pipe stub, a missing ceiling panel with dangling cable ---
