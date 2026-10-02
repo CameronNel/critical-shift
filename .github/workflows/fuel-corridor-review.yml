@@ -1,0 +1,76 @@
+name: Fuel corridor Blender review
+on:
+  push:
+    branches: [codex/fuel-corridor-overhaul-20261001]
+    paths:
+      - '.github/workflows/fuel-corridor-review.yml'
+      - 'sections/fuel-corridor/production/CI_RUN.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: fuel-corridor-review
+  cancel-in-progress: false
+jobs:
+  blender:
+    if: github.ref_name == 'codex/fuel-corridor-overhaul-20261001'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GIT_LFS_SKIP_SMUDGE: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare source and verify the selected dependency
+        run: python sections/fuel-corridor/blender/ci_overhaul.py prepare
+      - name: Install Blender libraries
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libxrender1 libxi6 libxfixes3 libxkbcommon0 libsm6 libgl1 fonts-dejavu-core
+      - name: Download and verify Blender
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/fuel-toolchain
+          cd /tmp/fuel-toolchain
+          V=5.2.1
+          curl -fL --retry 2 --connect-timeout 25 --max-time 300 "https://download.blender.org/release/Blender5.2/blender-${V}-linux-x64.tar.xz" -o "blender-${V}-linux-x64.tar.xz"
+          curl -fL --retry 2 --max-time 60 "https://download.blender.org/release/Blender5.2/blender-${V}.sha256" -o "blender-${V}.sha256"
+          rg "blender-${V}-linux-x64.tar.xz" "blender-${V}.sha256" | sha256sum --check -
+          tar -xf "blender-${V}-linux-x64.tar.xz"
+          echo "/tmp/fuel-toolchain/blender-${V}-linux-x64" >> "$GITHUB_PATH"
+          "./blender-${V}-linux-x64/blender" --background --factory-startup --python-expr "import bpy; print('VERIFIED_BLENDER', bpy.app.version_string)"
+      - name: Build, cold-check and render complete evidence
+        run: python sections/fuel-corridor/blender/ci_overhaul.py build
+      - name: Preserve native scene and checks
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuel-native-${{ env.FUEL_CYCLE }}
+          path: |
+            sections/facility-assembly/sources/fuel-corridor/module.blend
+            sections/fuel-corridor/production/BUILD_MANIFEST.json
+            sections/fuel-corridor/production/checkpoints/${{ env.FUEL_CYCLE }}_BUILD_MANIFEST.json
+            sections/fuel-corridor/production/checkpoints/${{ env.FUEL_CYCLE }}_COLD_VALIDATION.json
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Preserve review pixels and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuel-review-${{ env.FUEL_CYCLE }}
+          path: |
+            sections/fuel-corridor/production/ci/${{ env.FUEL_CYCLE }}
+            sections/fuel-corridor/production/renders/review/full-${{ env.FUEL_CYCLE }}
+            sections/fuel-corridor/production/renders/review/closed-${{ env.FUEL_CYCLE }}
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Publish only verified owned assets
+        if: success()
+        run: python sections/fuel-corridor/blender/ci_overhaul.py publish
