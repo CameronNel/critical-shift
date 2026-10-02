@@ -30,3 +30,14 @@ Their complete transforms/lenses and PNG hashes are in each render manifest.
 Temporal captures use the same named cameras at explicit frames and preserve
 24 fps / fps_base 1.0. Preview resolution/sample changes are labeled in their
 own manifests; previews do not replace full-resolution craft review.
+
+Four additional infrastructure closeups supplement the unchanged area set:
+`P01_BENCH_POWER`, `P02_PROCESS_JUNCTION`, `P03_REACTOR_INTERCOM` and
+`P04_FLOOR_STRAINER`. `blender/render_detail_proofs.py` fixes their offsets and
+aim points relative to the relevant assembly. They use the native frame-1
+lighting, materials, object visibility, exposure and full review settings.
+They do not save cameras into the editable native or replace any wide view.
+Each closeup's matrix, lens, image hash and source-native hash is recorded in
+`production/ci/<cycle>/details/<camera>/RENDER_MANIFEST.json`. The hosted
+assembler verifies all four images against the same native and settings as the
+19 full area views before publication.

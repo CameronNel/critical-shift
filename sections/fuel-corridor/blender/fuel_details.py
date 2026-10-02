@@ -66,8 +66,30 @@ def retained_lead():
                         (.305,-.145,-.012),(.305,-.15,.009)]),.005,mat('steel'),seg=12)
     b.tube(rounded_path([(.216,-.129,-.070),(.236,-.135,-.140),(.295,-.138,-.161),
                         (.437,-.128,-.161),(.462,-.122,-.140)]),.0055,rubber,seg=12)
-    b.lathe([(0,0),(.013,0),(.018,.006),(.018,.020),(.012,.028),(0,.028)],
-            (.462,-.122,-.140),mat('warm enamel'),seg=24,rot=FRONT)
+    # Park the free connector in a fabricated cradle. The cable enters the
+    # rear boot; a stepped grip surrounds a recessed three-contact insert.
+    cx,cy,cz=.462,-.122,-.140
+    b.lathe([(0,0),(.006,0),(.009,.003),(.010,.008),(.010,.014),
+             (.015,.018),(.015,.038),(.013,.042),(.010,.042),
+             (.010,.035),(0,.035)],(cx,cy,cz),rubber,seg=32,rot=FRONT)
+    for d in [.004,.008,.012]:
+        ring(b,.011,.002,(cx,cy-d,cz),rubber,axis='Y',seg=24)
+    for a in range(0,360,45):
+        angle=math.radians(a)
+        x=cx+.0147*math.cos(angle);z=cz+.0147*math.sin(angle)
+        b.tube([(x,cy-.019,z),(x,cy-.036,z)],.0017,
+               mat('navy enamel'),seg=8)
+    ring(b,.016,.003,(cx,cy-.037,cz),mat('steel'),axis='Y',seg=32)
+    b.cyl(.0095,.002,(cx,cy-.037,cz),mat('ink'),seg=32,axis='Y')
+    for a in [90,210,330]:
+        angle=math.radians(a);x=cx+.0055*math.cos(angle);z=cz+.0055*math.sin(angle)
+        ring(b,.0024,.0007,(x,cy-.038,z),mat('brass'),axis='Y',seg=16)
+        b.cyl(.0017,.0018,(x,cy-.038,z),mat('ink'),seg=12,axis='Y')
+    b.box((.052,.006,.052),(cx,-.003,cz),mat('dark steel'),.003)
+    for z in [cz-.018,cz+.018]:bolt(b,(cx,-.009,z),.003)
+    b.tube(rounded_path([(cx-.018,-.006,cz-.009),(cx-.018,cy-.024,cz-.009),
+                        (cx,cy-.029,cz-.019),(cx+.018,cy-.024,cz-.009),
+                        (cx+.018,-.006,cz-.009)]),.0025,mat('steel'),seg=10)
     return b
 
 
@@ -234,9 +256,11 @@ def install(mounted,walls,floors,wall_pos):
     record(1,'Weatherproof sockets',[outlet,sealed])
 
     lead=add(retained_lead(),'Bench retained work lead','FC | Infrastructure details',pos=outlet.location,
-             normal=(1,0,0),parent=outlet.name,family='moulded strain boot, sagged lead and supported retaining hook')
-    support(lead,[walls['Wall_W-2.2_0_1.2']],
-            [lead.matrix_world@Vector((.305,0,-.012))],(-1,0,0),'wall')
+             normal=(1,0,0),parent=outlet.name,
+             family='ribbed recessed-contact connector, strain boot, continuous sagged lead and wall-supported hook/cradle')
+    support(lead,[walls['Wall_W-2.2_0_1.2']]*2,
+            [lead.matrix_world@Vector(p) for p in [(.305,0,-.012),(.462,0,-.140)]],
+            (-1,0,0),'wall')
     record(2,'Retained work lead',[lead])
 
     saddles=[];pipe=B();centres=[]

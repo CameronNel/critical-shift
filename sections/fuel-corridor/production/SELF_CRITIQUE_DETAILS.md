@@ -72,3 +72,20 @@ F15d development cold validation passes with zero failures. These development
 images are labeled 768×512 / 16 samples and do not replace final full-area
 rendering or independent review. The F14 selected native remains paired with
 its original build manifest until the new hosted result is selected.
+
+## Full-quality F15 critique and repair
+
+I opened all 19 F15ci area views, the closed gate and four native-lit detail
+proofs at 1280×853 / 32 samples, paired with native SHA256
+`07dbbfd9153b0e732a31ce22a0342eff9dce33111f04b4af091ff55bc2a8b61b`.
+The new intercom is visible beside the jamb; conduit, junction leads and
+recessed grate have coherent mounting and terminations. The bench-power
+closeup nevertheless exposed a pale bead-like loose cable end. Pessimistic
+Luna independently identified the same craft defect. No score was overridden.
+
+The F16 repair replaces that cap with a stepped connector shell, raised grip
+ribs, recessed three-contact insert, brass contact rims and rear strain boot.
+A separate bolted cradle supports the connector and has its own explicit wall
+contact anchor. The F15 archived scene/images remain unchanged. The repaired
+source must pass a new cold check and actual closeup before two full, independently
+reviewed stable final cycles can qualify for handoff.

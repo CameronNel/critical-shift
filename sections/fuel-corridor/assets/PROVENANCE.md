@@ -1,7 +1,10 @@
 # Fuel overhaul source and material provenance
 
-All new geometry is authored for this corridor in `blender/fuel_assets.py` and
-`build_overhaul.py`. The task uses the repository's `spawn-room/blender/cozy_geo.py`
+All new geometry is authored for this corridor in `blender/fuel_assets.py`,
+`blender/fuel_details.py`, `blender/fuel_atmosphere.py` and `build_overhaul.py`.
+The infrastructure details, cable paths, cloth hems, gauge numerals and local
+fracture outlines are authored geometry; this pass adds no third-party props or
+new external texture downloads. The task uses the repository's `spawn-room/blender/cozy_geo.py`
 bmesh construction helpers; it does not import another room's prop meshes.
 
 The material pass copies nine images already packed in the current spawn-room
