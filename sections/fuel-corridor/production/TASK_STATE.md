@@ -114,3 +114,29 @@ The task is durably published in draft PR
 https://github.com/CameronNel/critical-shift/pull/70 through verified Git Data API
 blobs/tree/branch, with an exact match to the local committed tree. The draft is a
 development checkpoint and ongoing iteration continues on the same branch.
+
+## Full F4 review and F5 continuation
+
+Luna completed the fourth full review against the spawn reference: categories
+92 / 92 / 89 / 86 / 92 / 91 / 89; areas
+91 / 93 / 92 / 89 / 91 / 91 / 91 / 91 / 90. Every score remains below the
+strict >98 target. Four cycles are complete; two stable accepted final cycles
+have not been achieved.
+
+Factual challenges corrected the C07 sign attribution (dark ink, with a small
+distance read) and the inspection hood (above the closed diagnostic crop; its
+illumination improves leaf/glazing visibility). No scores were overridden.
+
+F5 rebuilds staging and the visible east-turn wall as true blind service bays,
+adds connected calibration/cooling assemblies, gives the clean route real ceramic
+courses, and replaces reactor/plant/clean door hardware and apertures with distinct
+construction. The plant hose reel, log placement, directed floor borders, formed
+reactor sheets and open freight header address route-specific review findings.
+The outer wall bounds and original review cameras remain protected.
+
+The cloud executor disconnected during the last repair. The procedural continuation
+has been recovered on this branch through the GitHub connector. Its new native
+build and cold/visual evidence are pending a bounded hosted Blender run. The
+published native remains the numerically verified F4 checkpoint until that run
+passes its cold checks and completes all render manifests. No final art acceptance
+is claimed.
