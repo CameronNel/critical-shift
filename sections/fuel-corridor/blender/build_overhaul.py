@@ -944,18 +944,30 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
                 light(name+' header reading pool',T@Vector((0,-.22,height+.337)),T@Vector((0,-.17,height+.26)),10,(1,.85,.68),size=ow-.18,shape='RECTANGLE',size_y=.08,parent=lamp.name)
     if state!='PASSAGE':
         ceiling_h=next(c['height'] for c in json.loads(CONTRACT.read_text())['floor_cells'] if c['id']==floorcell)
-        hh=ceiling_h-height-.34
+        head_base=height+(.12 if name=='Waste transfer' else .34)
+        hh=ceiling_h-head_base
         if hh>.045:
-            seal=B();sw=width+.08
+            # The waste portal is inset 0.50 m from its outer seam. Its upper
+            # closure must cover the full jamb width and meet the adjoining
+            # lining: the former 40 mm side allowance left an 80 mm sky slot.
+            seal=B();waste_head=name=='Waste transfer'
+            sw=width+(.30 if waste_head else .08)
+            closure_depth=.505 if waste_head else .10
+            closure_y=.2875 if waste_head else .085
             # Continuous folded lower/upper returns and removable roof pan bays.
-            for zz in [.012,hh-.012]:seal.box((sw,.10,.024),(0,.085,zz),mat('dark steel'),.002)
-            for xx in [-sw/2+.013,sw/2-.013]:seal.box((.026,.10,hh),(xx,.085,hh/2),mat('dark steel'),.002)
+            for zz in [.012,hh-.012]:seal.box((sw,closure_depth,.024),(0,closure_y,zz),mat('dark steel'),.002)
+            for xx in [-sw/2+.013,sw/2-.013]:seal.box((.026,closure_depth,hh),(xx,closure_y,hh/2),mat('dark steel'),.002)
+            if waste_head:
+                # Real full-depth end returns bridge the inset head to the
+                # unchanged concrete lining. A rear sheet closes the removable
+                # front-pan seams while leaving their physical reveals visible.
+                seal.box((sw-.026,.010,hh-.036),(0,.140,hh/2),mat('replacement enamel'),.002)
             for i in range(3):
                 xx=(i-1)*sw/3
                 seal.box((sw/3-.013,.025,hh-.036),(xx,.121,hh/2),mat('replacement enamel'),.003)
                 for xfix in [xx-sw/6+.047,xx+sw/6-.047]:
                     for zz in [.046,hh-.046]:bolt(seal,(xfix,.106,zz),.006)
-            add(seal,name+' folded roof closure','FC | Architecture',pos=T@Vector((0,0,height+.34)),normal=n,parent=o.name,family='folded roof-to-portal closure')
+            add(seal,name+' folded roof closure','FC | Architecture',pos=T@Vector((0,0,head_base)),normal=n,parent=o.name,family='folded roof-to-portal closure')
     return o
 
 def freight_mechanism(frame_ob):

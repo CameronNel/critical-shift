@@ -274,3 +274,13 @@ All workers used the identical cold-checked native bytes.
 Independent visual review is pending; no art or Unity acceptance is claimed.
 
 Authoring geometry: {"source_triangles": 956554, "evaluated_triangles": 961834, "mesh_objects": 338, "material_batch_upper_bound": 1399}.
+
+## F11ci independent acceptance and final map closure repair
+
+Fresh pessimistic Luna opened and independently hash-verified every actual F11ci view, the closed freight diagnostic and all four frozen spawn references. Each of seven categories and nine areas scores 99, with no substantiated defect in the standalone fixed views. See critics/luna-full-F11ci.md. F10/F11 provide two materially stable accepted standalone cycles; this does not waive the final assembled-map inspection. The critic correctly distinguishes native open freight views from the temporary closed diagnostic.
+
+The exact F11ci native passes the normal launcher and renders in the actual main map while main/R17/spawn and 11 required current exterior libraries remain byte-exact. All 30 hidden-cache fuel material IDs resolve, with zero missing fuel IDs; 128 historical unrelated spawn/PPE IDs remain warned. The final main image exposed a narrow bright strip beside the waste portal's upper closure. Source rays proved a real sightline outside, rather than a designed viewport.
+
+F12 completes only that existing closure: a wider folded pan covers its jambs, full-depth end/top/bottom returns bridge the 0.50 m inset to the original lining, a real rear sheet closes removable pan seams, and the backing overlaps the original header beam. The initial widened pan and short-return candidate still missed some rays, so they were not promoted. Final F12c candidate a96ff6d12dd333d9c3977bf19c2d9bac387e90e292c048cd7f19fafd0e021ecd, recipe 88857cf4e2d345469647886034c77b0de3fd35ac56f1c95296acd8569b569093, cold PASS0 and 30/30 sampled bright-strip rays hit actual corridor geometry. This is numerical development evidence, not visual acceptance.
+
+No material, light, camera, work assembly, protected core, route or portal contract changes. Hosted F12ci will rebuild that exact recipe, cold-open and render all 19 views plus the closed diagnostic. Independent full review, stability against F11 and actual repaired main-map pixel inspection are required before final handoff.
