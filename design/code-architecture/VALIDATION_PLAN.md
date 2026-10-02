@@ -93,10 +93,11 @@ velocities, normalized directional blends, carry/tool/haul context, airborne/lan
 transitions, duplicate visual events, physics suspension, reset and invalid inputs.
 Four native EditMode cases cover missing/duplicate/wrong-loop clip bindings, ten
 Playable graph lifecycle cycles and recovery priming without an idle-pose flash. See the [task evidence](../../runtime/validation/MOVEMENT_ANIMATIONS.md).
-The scene extension adds eight offline mechanics cases (stride distance, diagonal
-calibration, jump anticipation, jolt resumption, contact timing), eight control
-receipt/revision/lifecycle cases, and eight tagged shared-carry cases. Four native
-physical attachment/throw cases are written but NotRun. Editor binding validation
+The scene extension adds sixteen offline mechanics cases (stride distance, diagonal
+calibration, jump anticipation/cancellation, jolt resumption, contact timing, focus
+and held-input cancellation), eight control receipt/revision/lifecycle cases, and
+nine tagged shared-carry cases. Ten native physical attachment/throw/targeting cases
+are written but NotRun. Editor binding validation
 checks identity, required scene references and clip tables; it is not visual or
 physics acceptance. Native C# compilation, final 49-clip import/contacts, obstruction,
 joint forces, crouch IK, clearance and Player execution remain Blocked here.

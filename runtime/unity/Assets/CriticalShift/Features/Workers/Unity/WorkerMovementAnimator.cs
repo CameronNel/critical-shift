@@ -116,6 +116,7 @@ namespace CriticalShift.Features.Workers.Unity
 
         public float Duration(MovementClip clip) => Ready ? clips[(int)clip].length : 0;
         public bool BeginJump(bool allowCoyote = false) => Ready && selector.BeginJump(allowCoyote);
+        public void CancelJump() { selector?.CancelJump(); }
         public bool TryPlayAction(MovementClip clip, ulong sequence, MovementClip? resume = null) =>
             isActiveAndEnabled && Ready && selector.TryPlayAction(clip, sequence, resume);
 

@@ -61,8 +61,8 @@ setup tool wires explicit references and validates required assignments. All 49
 existing take names have code routes; unfinished animation sources and clip assets
 remain untouched. Inspector contact overrides accommodate the final calibration.
 
-The offline verifier executes 738 tests, including 34 movement/cue cases, eight
-facility-control cases and eight shared-carry cases. Eight native binding/physics
+The offline verifier executes 747 tests, including 42 movement/cue/input cases, eight
+facility-control cases and nine shared-carry cases. Fourteen native binding/physics
 cases exist but are NotRun here. The source/DLL manifest and metadata checks do not
 establish Unity compilation, imported animation compatibility, physical feel or
 Player readiness. See [task scope and evidence](validation/MOVEMENT_ANIMATIONS.md).

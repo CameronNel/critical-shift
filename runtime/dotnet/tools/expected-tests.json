@@ -281,5 +281,14 @@
   "HelperRenewalCannotBecomePrimaryOrLoseTheHelper": 1,
   "SharedCargoRequiresHelperReleaseBeforeMachineInsertion": 1,
   "HelperCannotCarryAnotherObjectOrReleaseANewGeneration": 1,
-  "AssistanceSharesTheCommandReceiptAndImpactCleanup": 1
+  "AssistanceSharesTheCommandReceiptAndImpactCleanup": 1,
+  "EscapeReleasesAndRecapturesInputWithoutConsumingAResumeClickAsAnAction": 1,
+  "FocusLossClearsHeldInputAndRequiresAnExplicitResume": 1,
+  "ReleasingInteractCannotBeMaskedByRadioOrPrimaryInput": 1,
+  "ReleasingRadioCannotBeMaskedByInteractOrPrimaryInput": 1,
+  "ReleasingPrimaryCannotBeMaskedByKeyboardInput": 1,
+  "ScriptedHeldActionDoesNotDependOnLocalKeys": 1,
+  "ShortLoopDoesNotQueueMissedWorkAfterAHitch": 1,
+  "CancelledJumpAnticipationReturnsToGroundedLocomotion": 1,
+  "HelperAttachmentReleaseIsFencedByReceiptAndGeneration": 1
 }

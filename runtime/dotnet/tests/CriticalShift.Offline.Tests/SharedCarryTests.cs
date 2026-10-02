@@ -80,5 +80,27 @@ namespace CriticalShift.Offline.Tests
             world.ApplyWorkerImpact(world.Epoch, helper, 1, WorkerImpact.Knockdown, 1000, Guid.NewGuid(), Guid.NewGuid());
             Assert.That(world.GetObject(item)!.HolderId, Is.EqualTo(primary)); Assert.That(world.GetObject(item)!.AssistantId, Is.Null);
         }
+        [Test]
+        public void HelperAttachmentReleaseIsFencedByReceiptAndGeneration()
+        {
+            var world = new WorldSession(new WorldSessionConfiguration(1, 10000), new Access());
+            world.RegisterConnection(primary, primary); world.RegisterConnection(helper, helper); world.RegisterObject(item, true); world.Start();
+            world.ExecuteInteraction(primary, new InteractionCommand(world.Epoch, 1, InteractionKind.Grab, item));
+            world.ExecuteInteraction(helper, new InteractionCommand(world.Epoch, 1, InteractionKind.Assist, item, 1, 1));
+            var release = new InteractionCommand(world.Epoch, 2, InteractionKind.Release, item, 0, 1);
+            Assert.That(world.ExecuteInteraction(helper, release).HasNewCommit, Is.True);
+            var claim = world.GetObject(item)!;
+            Assert.That(claim.HolderId, Is.EqualTo(primary)); Assert.That(claim.AssistantId, Is.Null);
+            Assert.That(claim.LeaseGeneration, Is.EqualTo(1));
+            world.ExecuteInteraction(helper, new InteractionCommand(world.Epoch, 3, InteractionKind.Assist, item, claim.Revision, 1));
+            Assert.That(world.ExecuteInteraction(helper, release).HasNewCommit, Is.False);
+            Assert.That(world.GetObject(item)!.AssistantId, Is.EqualTo(helper));
+            world.ExecuteInteraction(primary, new InteractionCommand(world.Epoch, 2, InteractionKind.Release, item, 0, 1));
+            claim = world.GetObject(item)!;
+            world.ExecuteInteraction(primary, new InteractionCommand(world.Epoch, 3, InteractionKind.Grab, item, claim.Revision));
+            var stale = world.ExecuteInteraction(helper, new InteractionCommand(world.Epoch, 4, InteractionKind.Release, item, 0, 1));
+            Assert.That(stale.Status, Is.EqualTo(InteractionStatus.StaleLease));
+            Assert.That(world.GetObject(item)!.HolderId, Is.EqualTo(primary));
+        }
     }
 }

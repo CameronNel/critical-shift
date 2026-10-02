@@ -92,6 +92,8 @@ namespace CriticalShift.Features.Workers.Unity
             return true;
         }
 
+        public void CancelJump() { jumpTime = -1; }
+
         public void Reset()
         {
             wasAirborne = wasAnimated = false;

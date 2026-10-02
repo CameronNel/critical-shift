@@ -18,7 +18,7 @@ Workers.Unity owns the CharacterController, camera, measured motion, Playables,
 crouch IK and ragdoll/recovery projection. FacilityPhysics.Unity owns bounded-force
 cargo/tool/cart/body attachments and conveyors. Interaction.Unity supplies scene
 control, machine and material bindings. Unity.Shared carries only explicit engine
-ports; Bootstrap composes one canonical WorldSession and real reach/clearance
+ports and stateless engine targeting queries; Bootstrap composes one canonical WorldSession and real reach/clearance
 policies. Controls gain an immutable Domain state and a typed Application command
 within the existing connection receipt stream. No health, material, power, machine,
 clock or custody owner is copied into a second Unity implementation.
@@ -44,7 +44,7 @@ Rigidbody/joints, material/recipe profiles and a compatible finished clip librar
 OCRU resource accounting, mining yield, voice and exposure/restraint owners are not
 present in the existing rules and are not invented by visual callbacks.
 
-The change exceeds the H05 size trigger because motor, scene ports, canonical
+The change exceeds the H06 size trigger because motor, scene ports, canonical
 command admission, physical projections and bindings form one executable scene
 path. Keeping these coordinated on the already authorized PR avoids shipping
 components with missing contracts/DLLs or unbound references. Independent cohesion
@@ -58,6 +58,20 @@ idle. Actual physical/visual acceptance remains blocked on native execution.
 
 ## Evidence
 
+The polishing pass on `752b69e` fixes cursor resumption after Escape/focus loss,
+initiating-key cancellation, destruction of an action target before its cue,
+cancelled jump anticipation and short-loop cue catch-up. Targeting excludes the
+worker/carried shape, retains solid obstruction and fails closed on a saturated
+64-hit buffer. Secondary-grip loss releases only the helper through the existing
+receipt stream; primary carry/push/pull mode changes preserve their accepted lease.
+Reachable-target prompts and expiring feedback improve the local interaction view.
+No canonical runtime rule or generated DLL changed in this pass.
+
+This is still a broad host-scene implementation draft, not the assign-and-play
+milestone. The 49/49 take routes are written. Finished-clip calibration, native
+compilation, physical behavior and human feel have no acceptance evidence here.
+The missing broader gameplay owners and D-02 remain open.
+
 Latest exact run and source hashes are in
 [movement-animation-evidence.json](movement-animation-evidence.json).
 The full offline verifier compiles canonical libraries and linked pure Unity logic
@@ -65,8 +79,13 @@ under C# 8 with .NET SDK 8.0.423. It checks exact NUnit discovery, 27 Python gua
 failing NUnit/scenario controls, repeated scenarios and report safety. Raw ignored
 results are under `runtime/dotnet/artifacts/`; they are not a Unity test run.
 
-Native tests: four animation binding/lifecycle EditMode cases and four physical
-attachment/throw tests exist but are **NotRun**. Roslyn syntax parsing and static
+The latest offline run passed 747/747 tests, including 42 linked movement/mechanics
+cases, eight control cases and nine shared-carry cases; no failures or skips.
+The 27 guards, intentional failing controls and twelve scenarios repeated twice
+also passed their declared checks. Prior runs remain recorded in Git/evidence history.
+
+Native tests: four animation binding/lifecycle EditMode cases and ten physical
+attachment/throw/targeting tests exist but are **NotRun**. Roslyn syntax parsing and static
 GUID/asmdef/manifest checks are narrower checks, not native API/assembly resolution.
 Unity compilation/import, final 49-clip contacts, PlayMode/Player, physics, shared
 carry feel, camera/crouch/ragdoll review, multiplayer and performance are **Blocked**

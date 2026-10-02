@@ -57,7 +57,8 @@ namespace CriticalShift.Features.Workers.Unity
             if (complete) return false;
             Time += delta;
             bool fire = Time >= nextCue;
-            if (fire) nextCue = repeat ? nextCue + duration : double.PositiveInfinity;
+            // One operation per visible frame. Missed loop cycles do not accumulate a burst of work.
+            if (fire) nextCue = repeat ? nextCue + (Math.Floor((Time - nextCue) / duration) + 1) * duration : double.PositiveInfinity;
             if (!repeat && Time >= duration) complete = true;
             return fire;
         }

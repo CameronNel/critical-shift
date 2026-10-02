@@ -23,6 +23,7 @@ LINKS = {
             {'Include': '../../../unity/Assets/CriticalShift/Unity/Shared/SceneOperation.cs', 'Link': 'SceneOperation.cs'},
             {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/GaitCalibration.cs', 'Link': 'GaitCalibration.cs'},
             {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerActionPlan.cs', 'Link': 'WorkerActionPlan.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerInputState.cs', 'Link': 'WorkerInputState.cs'},
             {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/WorkerMechanicsTests.cs', 'Link': 'WorkerMechanicsTests.cs'},],
 }
 ALLOWED = {REACTOR: set(), POWER: set(), PROCESS: set(), DOMAIN: set(), SESSION: set(), WORKERS: set(), MATERIALS: set(), PRODUCTION: set(),

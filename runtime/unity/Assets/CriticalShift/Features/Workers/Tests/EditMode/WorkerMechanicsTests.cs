@@ -83,5 +83,70 @@ namespace CriticalShift.Features.Workers.Tests
             Assert.Throws<ArgumentOutOfRangeException>(() => clock.Step(double.PositiveInfinity));
             Assert.Throws<ArgumentException>(() => GaitCalibration.Frequency(float.NaN, new float[49], Durations(), MovementPose.Free));
         }
+        [Test]
+        public void EscapeReleasesAndRecapturesInputWithoutConsumingAResumeClickAsAnAction()
+        {
+            var input = new WorkerInputState();
+            Assert.That(input.UpdateCapture(true, false), Is.True); Assert.That(input.Captured, Is.False);
+            Assert.That(input.UpdateCapture(false, false), Is.False);
+            Assert.That(input.UpdateCapture(false, true), Is.True); Assert.That(input.Captured, Is.True);
+            Assert.That(input.UpdateCapture(false, true), Is.False);
+            input.UpdateCapture(true, false);
+            Assert.That(input.UpdateCapture(true, false), Is.True); Assert.That(input.Captured, Is.True);
+        }
+        [Test]
+        public void FocusLossClearsHeldInputAndRequiresAnExplicitResume()
+        {
+            var input = new WorkerInputState(); input.BindHold(WorkerActionInput.Radio);
+            input.SetApplicationFocus(false);
+            Assert.That(input.Captured, Is.False); Assert.That(input.UpdateCapture(true, true), Is.False);
+            input.SetApplicationFocus(true);
+            Assert.That(input.Captured, Is.False); Assert.That(input.HoldReleased(false, false, false), Is.False);
+            Assert.That(input.UpdateCapture(false, true), Is.True);
+        }
+        [Test]
+        public void ReleasingInteractCannotBeMaskedByRadioOrPrimaryInput()
+        {
+            var input = new WorkerInputState(); input.BindHold(WorkerActionInput.Interact);
+            Assert.That(input.HoldReleased(true, false, false), Is.False);
+            Assert.That(input.HoldReleased(false, true, true), Is.True);
+        }
+        [Test]
+        public void ReleasingRadioCannotBeMaskedByInteractOrPrimaryInput()
+        {
+            var input = new WorkerInputState(); input.BindHold(WorkerActionInput.Radio);
+            Assert.That(input.HoldReleased(false, true, false), Is.False);
+            Assert.That(input.HoldReleased(true, false, true), Is.True);
+        }
+        [Test]
+        public void ReleasingPrimaryCannotBeMaskedByKeyboardInput()
+        {
+            var input = new WorkerInputState(); input.BindHold(WorkerActionInput.Primary);
+            Assert.That(input.HoldReleased(false, false, true), Is.False);
+            Assert.That(input.HoldReleased(true, true, false), Is.True);
+        }
+        [Test]
+        public void ScriptedHeldActionDoesNotDependOnLocalKeys()
+        {
+            var input = new WorkerInputState(); input.BindHold(WorkerActionInput.Script);
+            Assert.That(input.HoldReleased(false, false, false), Is.False);
+        }
+        [Test]
+        public void ShortLoopDoesNotQueueMissedWorkAfterAHitch()
+        {
+            var clock = new ActionCueClock(); clock.Begin(0.2, 0.5, true);
+            Assert.That(clock.Step(0.95), Is.True);
+            Assert.That(clock.Step(0.01), Is.False); Assert.That(clock.Step(0.13), Is.False);
+            Assert.That(clock.Step(0.02), Is.True);
+        }
+        [Test]
+        public void CancelledJumpAnticipationReturnsToGroundedLocomotion()
+        {
+            var selector = new MovementAnimationSelector(Durations()); var grounded = new MovementAnimationSample(0, 0, 0, true);
+            selector.Step(grounded, 0); selector.BeginJump(); selector.Step(grounded, 0.1f);
+            selector.CancelJump();
+            Assert.That(selector.Step(grounded, 0.1f)[0].Clip, Is.EqualTo(MovementClip.IDLE));
+            Assert.That(selector.BeginJump(), Is.True);
+        }
     }
 }

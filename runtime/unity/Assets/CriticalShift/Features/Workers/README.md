@@ -68,13 +68,24 @@ controller because WorkerMovementAnimator owns its manual Playables graph.
 | Left mouse | Shovel work at a dig target while holding a shovel |
 | P / R | Point/ping / hold radio pose; pingEffect receives the hit position |
 | Tab | Read detached machine/material/control status |
-| Escape | Release cursor and cancel pending input actions |
+| Escape | Release cursor and cancel pending input actions; Escape, Enter or a click resumes |
 
 `WorkerController.StartAction(target, operation)` is the same bounded scene action
 entrypoint for a scripted host caller. It rejects downed, airborne, busy, distant
 or incompatible use. Rigidbody state, worker identity, hazard identity, tool grip,
 materials, recipes and control intentions remain explicit scene assignments.
 Radio here supplies the pose; the voice transport is still an open project decision.
+Held actions end when their initiating key/button is released; unrelated held keys
+cannot prolong a valve, radio or digging action. Scripted loops use explicit
+`CancelSceneActions()`. Returning from application focus loss requires an explicit
+resume; the resume click is consumed before gameplay input. Reachable targets show
+a use/inspect prompt and feedback expires after 3.5 seconds.
+
+Look, ping and reach queries exclude the worker's own colliders and carried object,
+retain solid-wall obstruction, and use caller-owned 64-hit buffers. A saturated
+query cannot establish a target or clear reach. Changing a primary grip between
+carry/push/pull uses the existing accepted lease rather than trying to claim the
+same cart again.
 
 ## All 49 clip routes
 
@@ -114,6 +125,9 @@ The imported length controls action timing. WorkerController.contactTimings over
 normalized interaction cues for final calibration **without modifying animations**.
 One-shot and loop clocks restart together with the action clock. A jolt returns to
 REANIM_IDLE until the host authorizes exit.
+Cancelled jump anticipation clears both motor and visual jump state. Held action
+clocks skip missed loop cycles after a frame hitch instead of queuing a later burst
+of operations; one-shot cue crossings still execute once.
 
 FacilitySceneHost composes one WorldSession. Commands use its current epoch, shared
 per-worker sequence and terminal receipts. Production/reaction outcomes, worker
@@ -124,7 +138,8 @@ must not call back to mutate authoritative quantities or health.
 Carrying applies bounded forces and keeps collisions with the map. Timeout,
 disconnect, knockdown, obstruction and generation-specific attachment failure clean
 up holds and restore collision pairs. Tagged two-person carrying keeps one primary
-and one helper under one generation; helper loss preserves the primary, primary loss
+and one helper under one generation; helper loss, including a broken secondary
+grip, preserves the primary, primary loss
 or expiry frees both. Insertion requires the helper to release first. Neither actor
 can hold a second object. The two configured grip points apply separate force limits.
 

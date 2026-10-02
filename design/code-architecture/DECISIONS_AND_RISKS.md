@@ -100,8 +100,9 @@ The user explicitly authorized movement and interaction code for map assignment.
 D-03 is bounded here to Unity's built-in legacy keyboard/mouse input, using the
 physics and inputlegacy modules at `1.0.0`; no third-party input, UI or transport
 framework is selected. A02's existing Workers, Interaction, FacilityPhysics,
-Unity.Shared and Bootstrap roles host real consumers. Unity.Shared carries only
-scene ports; Bootstrap constructs a single canonical WorldSession. The canonical
+Unity.Shared and Bootstrap roles host real consumers. Unity.Shared carries
+scene ports and stateless engine-only targeting queries with caller-owned buffers;
+Bootstrap constructs a single canonical WorldSession. The canonical
 Application plus seven Domain libraries are built as .NET Standard 2.1 DLLs with
 explicit PluginImporter/asmdef references and a source hash manifest. No duplicate
 Unity rule source is introduced.
@@ -115,8 +116,10 @@ remain untouched, as explicitly required by the user. Contact defaults are
 provisional code configuration until final animation calibration is supplied.
 D-08 is bounded to tagged cargo/body objects with one primary and one helper under
 the same lease generation. Either participant occupies their one-object allowance;
-helper release/disconnect preserves the primary, while primary loss, timeout or
-attachment failure releases both. Slot insertion requires helper release first.
+helper release/disconnect or secondary-grip failure preserves the primary, while
+primary loss, timeout or primary-attachment failure releases both. Secondary-grip
+failure uses the helper's existing receipt-backed, generation-fenced Release
+command. Slot insertion requires helper release first.
 Host receipts fence assistance and stale releases; two force-limited grip points
 drive one authoritative Rigidbody. This does not select a transport: D-02 remains
 open. Recommissioning economy/medical-resource contracts are not present

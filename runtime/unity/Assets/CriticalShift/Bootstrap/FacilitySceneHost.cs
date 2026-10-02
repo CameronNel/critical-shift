@@ -19,6 +19,7 @@ namespace CriticalShift.Bootstrap
         private readonly Dictionary<Guid, WorkerController> actors = new Dictionary<Guid, WorkerController>();
         private readonly Dictionary<Guid, SceneTarget> entities = new Dictionary<Guid, SceneTarget>();
         private readonly Dictionary<Guid, long> sequences = new Dictionary<Guid, long>();
+        private readonly RaycastHit[] reachHits = new RaycastHit[64];
         private readonly Dictionary<string, long> impacts = new Dictionary<string, long>();
         private readonly Dictionary<Guid, FacilityControl> stations = new Dictionary<Guid, FacilityControl>();
         private readonly Dictionary<Guid, WorldTimerHandle> stationTimers = new Dictionary<Guid, WorldTimerHandle>();
@@ -117,17 +118,8 @@ namespace CriticalShift.Bootstrap
         public override bool CanUse(WorkerScenePort worker, SceneTarget target)
         {
             if (worker == null || target == null || !target.isActiveAndEnabled || !entities.TryGetValue(target.Id, out var bound) || bound != target) return false;
-            if (Held(worker) == target) return true;
-            Vector3 delta = target.Contact.position - worker.Eye.position;
-            if (delta.magnitude > target.Reach) return false;
-            var hits = Physics.RaycastAll(worker.Eye.position, delta.normalized, delta.magnitude,
-                obstructionMask, QueryTriggerInteraction.Ignore);
-            foreach (var hit in hits)
-            {
-                if (Array.IndexOf(worker.BodyColliders, hit.collider) >= 0) continue;
-                if (hit.collider.GetComponentInParent<SceneTarget>() != target) return false;
-            }
-            return true;
+            var held = Held(worker);
+            return held == target || SceneTargeting.CanReach(worker, held, target, obstructionMask, reachHits);
         }
         public override string Describe(SceneTarget target)
         {
@@ -236,6 +228,9 @@ namespace CriticalShift.Bootstrap
             var current = world.GetObject(item.Id);
             if (current == null || item.Body == null || (item.WorkerBody != null && !item.WorkerBody.Down)) return false;
             bool grab = operation == SceneOperation.Grab || operation == SceneOperation.Push || operation == SceneOperation.Pull || operation == SceneOperation.Drag;
+            // Changing push/pull/carry mode is a physical projection of the same accepted lease.
+            if (grab && current.HolderId == worker.Id && item.Holder == worker && current.LeaseGeneration == item.Generation)
+            { bool changed = item.Apply(worker, operation, item.Generation); reason = changed ? "" : "Could not change the grip."; return changed; }
             bool assist = grab && current.HolderId.HasValue && current.HolderId != worker.Id;
             var reply = Command(worker, item.Id, assist ? InteractionKind.Assist : grab ? InteractionKind.Grab : InteractionKind.Release,
                 grab ? current.Revision : 0, grab && !assist ? 0 : current.LeaseGeneration);
@@ -327,9 +322,18 @@ namespace CriticalShift.Bootstrap
         }
         private bool IsInStation(WorkerScenePort worker)
         { foreach (var station in stations.Values) if (station.Patient == worker) return true; return false; }
-        public override void AttachmentFailed(SceneTarget target, long generation)
+        public override void AttachmentFailed(SceneTarget target, long generation, WorkerScenePort assistant = null)
         {
             if (world == null) { target.ClearBinding(); return; }
+            if (assistant != null)
+            {
+                var claim = world.GetObject(target.Id);
+                if (!(target is CarryableObject item) || item.Assistant != assistant || claim?.AssistantId != assistant.Id ||
+                    claim.LeaseGeneration != generation || !actors.TryGetValue(assistant.Id, out var actor) || actor != assistant) return;
+                var release = Command(assistant, target.Id, InteractionKind.Release, lease: generation);
+                if (release.HasNewCommit) item.SynchronizeAssistant(null);
+                return;
+            }
             var reply = world.ReportAttachmentFailure(world.Epoch, target.Id, generation);
             if (reply.HasNewCommit || !Running) target.ClearBinding();
         }

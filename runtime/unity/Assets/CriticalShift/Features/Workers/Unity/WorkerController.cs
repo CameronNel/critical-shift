@@ -27,6 +27,8 @@ namespace CriticalShift.Features.Workers.Unity
         [SerializeField] private ContactTiming[] contactTimings = Array.Empty<ContactTiming>();
         [SerializeField] private UnityEvent<Vector3> pingEffect;
         private readonly ActionCueClock cueClock = new ActionCueClock();
+        private readonly WorkerInputState inputState = new WorkerInputState();
+        private readonly RaycastHit[] lookHits = new RaycastHit[64];
         private Collider[] colliders;
         private Vector3 planar, velocity;
         private MovementPose pose;
@@ -37,7 +39,9 @@ namespace CriticalShift.Features.Workers.Unity
         private float eyeHeight;
         private Vector3 headOffset;
         private ulong actionSequence;
-        private bool acting, heldAction, crouched, focused = true, station;
+        private bool acting, heldAction, crouched, station;
+        private double feedbackUntil;
+        private SceneTarget lookTarget;
         private long recoveryAttempt;
         private float recoveryRemaining, stationTime, reactionRemaining;
         public string LastFeedback { get; private set; }
@@ -62,13 +66,19 @@ namespace CriticalShift.Features.Workers.Unity
                 foreach (var renderer in localHeadMeshes) if (renderer != null) renderer.gameObject.layer = hiddenHeadLayer;
                 var camera = eye.GetComponent<Camera>();
                 if (camera != null) { camera.cullingMask &= ~(1 << hiddenHeadLayer); camera.fieldOfView = 60; }
-                SetCursor(true);
+                inputState.SetApplicationFocus(UnityEngine.Application.isFocused);
+                SetCursor(inputState.Captured);
             }
         }
 
         private void Update()
         {
+            bool captureChanged = localInput && inputState.UpdateCapture(Input.GetKeyDown(KeyCode.Escape),
+                Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return));
+            if (captureChanged) { SetCursor(inputState.Captured); CancelSceneActions(); }
+            if (Time.realtimeSinceStartupAsDouble >= feedbackUntil) LastFeedback = "";
             if (gateway == null || !gateway.Running || !movement.Ready) { CancelSceneActions(); return; }
+            lookTarget = null;
             float dt = Mathf.Min(Time.deltaTime, 0.1f);
             if (station) { TickStation(dt); return; }
             if (Down) { TickRecovery(dt); return; }
@@ -84,7 +94,7 @@ namespace CriticalShift.Features.Workers.Unity
                 return;
             }
             reactionRemaining = Mathf.Max(0, reactionRemaining - dt);
-            bool input = localInput && focused && gateway.CanAct(this) && reactionRemaining == 0;
+            bool input = localInput && inputState.Captured && !captureChanged && gateway.CanAct(this) && reactionRemaining == 0;
             Vector2 axes = input ? new Vector2(Key(KeyCode.D) - Key(KeyCode.A), Key(KeyCode.W) - Key(KeyCode.S)) : Vector2.zero;
             bool sprint = input && Input.GetKey(KeyCode.LeftShift), walk = input && Input.GetKey(KeyCode.LeftAlt);
             if (input)
@@ -97,6 +107,7 @@ namespace CriticalShift.Features.Workers.Unity
                 eye.localRotation = Quaternion.Euler(pitch, 0, 0);
                 SetCrouch(Input.GetKey(KeyCode.LeftControl));
                 if (Input.GetKeyDown(KeyCode.Space)) jumpBuffer = 0.15f;
+                lookTarget = LookTarget();
                 ReadActions();
             }
             else yawRate = 0;
@@ -166,35 +177,37 @@ namespace CriticalShift.Features.Workers.Unity
 
         private SceneTarget LookTarget()
         {
-            if (!Physics.Raycast(eye.position, eye.forward, out var hit, 2.5f, interactionMask, QueryTriggerInteraction.Ignore)) return null;
+            if (!SceneTargeting.Raycast(this, gateway.Held(this), eye.forward, 2.5f, interactionMask, lookHits, out var hit)) return null;
             return hit.collider.GetComponentInParent<SceneTarget>();
         }
         private void ReadActions()
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) { focused = false; SetCursor(false); CancelSceneActions(); return; }
+            if (heldAction && inputState.HoldReleased(Input.GetKey(KeyCode.E), Input.GetKey(KeyCode.R), Input.GetMouseButton(0))) CancelSceneActions();
             if (Input.GetKeyDown(KeyCode.G)) StartAction(gateway.Held(this), SceneOperation.Release);
             if (Input.GetKeyDown(KeyCode.V)) StartAction(gateway.Held(this), SceneOperation.Place);
             if (Input.GetKeyDown(KeyCode.T)) StartAction(gateway.Held(this), Input.GetKey(KeyCode.LeftAlt) ? SceneOperation.ThrowUnder : SceneOperation.ThrowOver);
-            if (Input.GetKeyDown(KeyCode.F)) StartAction(LookTarget(), SceneOperation.Grab);
-            if (Input.GetKeyDown(KeyCode.E)) { var t = LookTarget(); if (t != null) StartAction(t, t.Operation); }
+            if (Input.GetKeyDown(KeyCode.F)) StartAction(lookTarget, SceneOperation.Grab);
+            if (Input.GetKeyDown(KeyCode.E) && lookTarget != null) StartAction(lookTarget, lookTarget.Operation, WorkerActionInput.Interact);
             if (Input.GetKeyDown(KeyCode.P)) StartAction(null, SceneOperation.Point);
-            if (Input.GetKeyDown(KeyCode.Tab)) LastFeedback = gateway.Describe(LookTarget());
-            if (Input.GetKeyDown(KeyCode.R)) StartAction(null, SceneOperation.Radio);
-            if (Input.GetMouseButtonDown(0) && gateway.Held(this) != null) StartAction(LookTarget(), SceneOperation.Dig);
-            if (heldAction && !Input.GetKey(KeyCode.E) && !Input.GetKey(KeyCode.R) && !Input.GetMouseButton(0)) CancelSceneActions();
+            if (Input.GetKeyDown(KeyCode.Tab)) ShowFeedback(gateway.Describe(lookTarget));
+            if (Input.GetKeyDown(KeyCode.R)) StartAction(null, SceneOperation.Radio, WorkerActionInput.Radio);
+            if (Input.GetMouseButtonDown(0) && gateway.Held(this) != null) StartAction(lookTarget, SceneOperation.Dig, WorkerActionInput.Primary);
         }
 
-        public bool StartAction(SceneTarget target, SceneOperation value)
+        public bool StartAction(SceneTarget target, SceneOperation value) => StartAction(target, value, WorkerActionInput.Script);
+
+        private bool StartAction(SceneTarget target, SceneOperation value, WorkerActionInput source)
         {
             if (acting || station || jumpTime >= 0 || !Grounded || !gateway.CanAct(this)) return false;
             if (target == null && value != SceneOperation.Point && value != SceneOperation.Radio) return false;
             if (target != null && (!target.Supports(value) || !gateway.CanUse(this, target))) return false;
             if (value == SceneOperation.Push || value == SceneOperation.Pull || value == SceneOperation.Drag)
-            { bool ok = gateway.Execute(this, target, value, out var reason); LastFeedback = reason; return ok; }
+            { bool ok = gateway.Execute(this, target, value, out var reason); ShowFeedback(ok ? "" : reason); return ok; }
             plan = WorkerActionPlan.For(value);
             movement.ApplySample(new MovementAnimationSample(0, 0, 0, true, pose), 0);
             if (!movement.TryPlayAction(plan.Clip, ++actionSequence)) return false;
             actionTarget = target; operation = value; acting = true; heldAction = plan.Repeat;
+            inputState.BindHold(plan.Repeat ? source : WorkerActionInput.Script);
             float contactCue = plan.Cue;
             foreach (var timing in contactTimings) if (timing.operation == value) contactCue = timing.normalizedCue;
             cueClock.Begin(movement.Duration(plan.Clip), contactCue, plan.Repeat);
@@ -204,19 +217,20 @@ namespace CriticalShift.Features.Workers.Unity
         private void TickAction(float dt)
         {
             if (!acting) return;
-            if (!gateway.CanAct(this) || !Grounded || (actionTarget != null && !gateway.CanUse(this, actionTarget)))
+            bool requiresTarget = operation != SceneOperation.Point && operation != SceneOperation.Radio;
+            if (!gateway.CanAct(this) || !Grounded || (requiresTarget && (actionTarget == null || !gateway.CanUse(this, actionTarget))))
             { CancelSceneActions(); return; }
             if (cueClock.Step(dt))
             {
                 if (!gateway.Execute(this, actionTarget, operation, out var reason))
-                { LastFeedback = reason; CancelSceneActions(); return; }
+                { ShowFeedback(reason); CancelSceneActions(); return; }
                 if (operation == SceneOperation.Point)
                 {
-                    Vector3 point = Physics.Raycast(eye.position, eye.forward, out var hit, 30, interactionMask, QueryTriggerInteraction.Ignore) ? hit.point : eye.position + eye.forward * 10;
+                    Vector3 point = SceneTargeting.Raycast(this, gateway.Held(this), eye.forward, 30, interactionMask, lookHits, out var hit) ? hit.point : eye.position + eye.forward * 10;
                     pingEffect?.Invoke(point);
                 }
             }
-            if (cueClock.Complete) { acting = heldAction = false; actionTarget = null; }
+            if (cueClock.Complete) { acting = heldAction = false; actionTarget = null; inputState.ClearHold(); }
         }
 
         public override void SetHaulPose(SceneOperation? value)
@@ -231,6 +245,8 @@ namespace CriticalShift.Features.Workers.Unity
         public override void CancelSceneActions()
         {
             if (movement != null && acting) movement.StopAction(actionSequence);
+            if (movement != null && jumpTime >= 0) movement.CancelJump();
+            inputState.ClearHold(); jumpBuffer = 0;
             acting = heldAction = false; actionTarget = null; jumpTime = -1;
             if (!gateway || !gateway.Running) { planar = velocity = Vector3.zero; station = false; recoveryAttempt = 0; }
         }
@@ -304,10 +320,49 @@ namespace CriticalShift.Features.Workers.Unity
                 }
             }
         }
-        private void OnApplicationFocus(bool value) { focused = value; if (!value) CancelSceneActions(); if (localInput) SetCursor(value); }
+        private void OnApplicationFocus(bool value)
+        { inputState.SetApplicationFocus(value); if (!value) CancelSceneActions(); if (localInput) SetCursor(inputState.Captured); }
         private void OnDisable() { CancelSceneActions(); if (localInput) SetCursor(false); }
+        private void ShowFeedback(string message)
+        { LastFeedback = message; feedbackUntil = Time.realtimeSinceStartupAsDouble + 3.5; }
         private void OnGUI()
-        { if (localInput && !string.IsNullOrEmpty(LastFeedback)) GUI.Label(new Rect(16, Screen.height - 56, Screen.width - 32, 40), LastFeedback); }
+        {
+            if (!localInput || !enabled) return;
+            if (!inputState.Captured)
+            { GUI.Label(new Rect(16, Screen.height - 48, Screen.width - 32, 32), "Click, Enter or Escape to resume."); return; }
+            if (gateway == null || !gateway.Running || Down || station) return;
+            GUI.Label(new Rect(Screen.width / 2f - 5, Screen.height / 2f - 10, 20, 20), "+");
+            if (lookTarget != null && gateway.CanUse(this, lookTarget))
+            {
+                string prompt = lookTarget.name + "   E: " + ActionVerb(lookTarget.Operation) + "   Tab: Inspect";
+                if (lookTarget.Supports(SceneOperation.Grab)) prompt += "   F: Pick up / assist";
+                GUI.Label(new Rect(16, Screen.height - 96, Screen.width - 32, 32), prompt);
+            }
+            if (!string.IsNullOrEmpty(LastFeedback)) GUI.Label(new Rect(16, Screen.height - 56, Screen.width - 32, 40), LastFeedback);
+        }
+        private static string ActionVerb(SceneOperation value)
+        {
+            switch (value)
+            {
+                case SceneOperation.Grab: return "Pick up";
+                case SceneOperation.Push: return "Push";
+                case SceneOperation.Pull: return "Pull";
+                case SceneOperation.Drag: return "Drag";
+                case SceneOperation.Button: return "Press";
+                case SceneOperation.Lever: return "Pull lever";
+                case SceneOperation.ValveTurn: return "Hold to turn valve";
+                case SceneOperation.ValveHold: return "Hold valve";
+                case SceneOperation.Open: return "Open";
+                case SceneOperation.Insert: return "Insert container";
+                case SceneOperation.Connect: return "Connect";
+                case SceneOperation.Dig: return "Hold to dig";
+                case SceneOperation.Suit: return "Put on suit";
+                case SceneOperation.LockerExit: return "Leave locker";
+                case SceneOperation.Reanimation: return "Recommission worker";
+                case SceneOperation.Help: return "Help worker";
+                default: return "Use";
+            }
+        }
         private void SetCursor(bool value) { Cursor.lockState = value ? CursorLockMode.Locked : CursorLockMode.None; Cursor.visible = !value; }
     }
 }

@@ -44,15 +44,19 @@ namespace CriticalShift.FacilityPhysics.Unity
             (kind == CarryableKind.Body && value == SceneOperation.Drag);
         public override bool Apply(WorkerScenePort worker, SceneOperation value, long lease)
         {
-            if (body == null || gateway == null || (kind == CarryableKind.Body && (workerBody == null || !workerBody.Down))) return false;
+            if (body == null || gateway == null || worker == null || lease <= 0 || !Supports(value) ||
+                (kind == CarryableKind.Body && (workerBody == null || !workerBody.Down))) return false;
             if (value == SceneOperation.Grab || value == SceneOperation.Push || value == SceneOperation.Pull || value == SceneOperation.Drag)
             {
                 if (holder != null && holder != worker)
                 { if (!AllowAssistance || assistant != null || lease != generation) return false; SynchronizeAssistant(worker); return true; }
+                if (holder == worker)
+                {
+                    if (generation != lease) return false;
+                    SetPrimaryMode(worker, value); return true;
+                }
                 ClearBinding(); holder = worker; generation = lease; rotationOffset = Quaternion.identity;
-                hauling = value != SceneOperation.Grab;
-                worker.SetHaulPose(hauling ? value : kind == CarryableKind.Shovel ? SceneOperation.Dig :
-                    kind == CarryableKind.Pickaxe ? SceneOperation.Lever : SceneOperation.Grab);
+                SetPrimaryMode(worker, value);
                 foreach (var own in GetComponentsInChildren<Collider>()) foreach (var other in worker.BodyColliders)
                     if (own != other) Physics.IgnoreCollision(own, other, true);
                 body.WakeUp(); return true;
@@ -75,16 +79,19 @@ namespace CriticalShift.FacilityPhysics.Unity
             { gateway.AttachmentFailed(this, generation); return; }
             Vector3 point = objectGrip != null ? objectGrip.position : body.worldCenterOfMass;
             Vector3 target = holder.Grip.position;
+            if (Vector3.Distance(target, point) > breakDistance) { gateway.AttachmentFailed(this, generation); return; }
             if (assistant != null)
             {
                 Vector3 assistPoint = assistantObjectGrip != null ? assistantObjectGrip.position : point;
                 if (!gateway.CanAct(assistant) || Vector3.Distance(assistant.Grip.position, assistPoint) > breakDistance)
-                { gateway.AttachmentFailed(this, generation); return; }
-                Vector3 assistForce = (assistant.Grip.position - assistPoint) * spring - (body.GetPointVelocity(assistPoint) - assistant.Velocity) * damping;
-                body.AddForceAtPosition(Vector3.ClampMagnitude(Vector3.ClampMagnitude(assistForce, maximumAcceleration) * body.mass, maximumForce), assistPoint, ForceMode.Force);
+                    gateway.AttachmentFailed(this, generation, assistant);
+                else
+                {
+                    Vector3 assistForce = (assistant.Grip.position - assistPoint) * spring - (body.GetPointVelocity(assistPoint) - assistant.Velocity) * damping;
+                    body.AddForceAtPosition(Vector3.ClampMagnitude(Vector3.ClampMagnitude(assistForce, maximumAcceleration) * body.mass, maximumForce), assistPoint, ForceMode.Force);
+                }
             }
             Vector3 error = target - point;
-            if (error.magnitude > breakDistance) { gateway.AttachmentFailed(this, generation); return; }
             if (hauling) error.y = 0;
             Vector3 force = Vector3.ClampMagnitude(error * spring - (body.GetPointVelocity(point) - holder.Velocity) * damping, maximumAcceleration);
             body.AddForceAtPosition(Vector3.ClampMagnitude(force * body.mass, maximumForce), point, ForceMode.Force);
@@ -96,6 +103,12 @@ namespace CriticalShift.FacilityPhysics.Unity
                 if (angle > 180) angle -= 360;
                 body.AddTorque(Vector3.ClampMagnitude(axis * angle * Mathf.Deg2Rad * 10 - body.angularVelocity * 4, 20), ForceMode.Acceleration);
             }
+        }
+        private void SetPrimaryMode(WorkerScenePort worker, SceneOperation value)
+        {
+            hauling = value != SceneOperation.Grab;
+            worker.SetHaulPose(hauling ? value : kind == CarryableKind.Shovel ? SceneOperation.Dig :
+                kind == CarryableKind.Pickaxe ? SceneOperation.Lever : SceneOperation.Grab);
         }
         public void RotateGrip(float degrees) { rotationOffset *= Quaternion.Euler(0, degrees, 0); }
         public override void ClearBinding()
