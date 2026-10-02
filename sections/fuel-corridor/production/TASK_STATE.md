@@ -1,10 +1,19 @@
 # Fuel corridor overhaul state
 
-Phase: full-scene development and independent iteration.
+Phase: full visual and authoring-map validation complete; independent owner review/merge pending.
 Branch: `codex/fuel-corridor-overhaul-20261001` from `75983b9`.
 Source: `sections/facility-assembly/sources/fuel-corridor/module.blend`.
 Baseline SHA256: `f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c`.
 Baseline saved at `checkpoints/fuel_corridor_baseline.blend`.
+
+Current result: F12ci is the selected editable module. Pessimistic Luna's F11ci
+and F12ci full reviews each score all seven categories and all nine areas 99,
+using the actual reworked spawn reference as 100. These final two full cycles
+are materially stable; the bounded F12 closure repair changes the recipe and
+native bytes without a visible collateral art regression. Twelve full cycles
+were completed, exceeding the four-cycle minimum. Historical development notes
+below retain their original failures and pending states; the final F12 handoff
+at the end records the current evidence. No aesthetic score was overridden.
 
 The baseline has 7,978 objects, 34 materials, 16 cameras, 3 packed images and no
 libraries. The task preserves exterior shell footprints/ports while replacing
@@ -293,3 +302,28 @@ All workers used the identical cold-checked native bytes.
 Independent visual review is pending; no art or Unity acceptance is claimed.
 
 Authoring geometry: {"source_triangles": 956486, "evaluated_triangles": 961766, "mesh_objects": 338, "material_batch_upper_bound": 1399}.
+
+## F12ci final visual and authoring-map handoff
+
+The full hosted run [36991740812](https://github.com/CameronNel/critical-shift/actions/runs/36991740812) succeeded: native, six render groups and bounded publication. Root and the fresh pessimistic Luna reviewer opened the complete 19-view pack, closed freight diagnostic and all four frozen spawn references, rehashing the exact files. Earlier official artifact PNGs are byte-identical to the published files. All seven categories and all nine areas score 99. See [luna-full-F12ci.md](critics/luna-full-F12ci.md) and the preceding [F11ci report](critics/luna-full-F11ci.md). Both final full cycles are accepted and materially stable; the standards remain unchanged.
+
+Selected native SHA256: `0a13ff2fe1eadc8608223bd40810285a375a02edacfdfac615263cffe5196f87`.
+Recipe SHA256: `88857cf4e2d345469647886034c77b0de3fd35ac56f1c95296acd8569b569093`.
+The selected source and [archived F12ci checkpoint](checkpoints/fuel_full_F12ci.blend) are byte-identical; current and archived build/cold reports agree. Cold validation PASS, zero failures. All 49 protected exterior cores have zero bounds change; 14 floor footprints, original 16 cameras, 34 interface transforms, attachments, support contacts, packed dependencies and sampled nominal route envelopes pass their existing checks. Authoring measurements are 956,486 source / 961,766 evaluated triangles and 338 mesh objects; these are not runtime performance measurements.
+
+[F11_F12_STABILITY.json](F11_F12_STABILITY.json) compares all 20 matching frames, verifies identical camera transforms/lenses and available render settings, and records the single changed recipe input (`build_overhaul.py`). Its maximum per-view mean absolute RGB-channel difference is 0.442784 on an 8-bit scale. The record does not substitute for independent pixel inspection or aesthetic scores. Materials, lights, review cameras and work assemblies were not changed by the closure repair.
+
+The exact published F12ci native passes the normal `open_map.py` launcher, including identity placement, repeat-install idempotence, 495 linked objects, 51 old fuel lights hidden and all 30 historical hidden-cache fuel material names resolved. See [MAP_LAUNCHER_VALIDATION.json](MAP_LAUNCHER_VALIDATION.json). Root opened the [actual assembled-map C03 render](renders/integration/F12ci_complete_main_C03_HERO.png); the former bright slit is gone. [MAIN_LINK_VALIDATION.json](MAIN_LINK_VALIDATION.json) pairs that PNG and the selected native. The PNG SHA256 is `7c2645794d3792d416147c517a32d416fcd525112f2183b9803a41a11a5f93f2`. [F12ci_EDGE_RAY_VALIDATION.json](F12ci_EDGE_RAY_VALIDATION.json) records 30/30 targeted rays hitting actual corridor geometry.
+
+[MAIN_DEPENDENCY_VALIDATION.json](MAIN_DEPENDENCY_VALIDATION.json) verifies that canonical main, immutable R17, selected spawn and all 11 required current exterior libraries remain byte-exact. The map has zero missing fuel data IDs. Its 128 historical unrelated spawn/PPE ID warnings remain; this work does not accept every old map-linked cache or claim the whole map is warning-free. No canonical main or other room native was saved.
+
+Successful local final commands (repository root, Blender 5.2.1 LTS):
+
+```sh
+blender -b -t 4 --factory-startup --disable-autoexec --python-exit-code 1 --python sections/fuel-corridor/blender/validate_live_map.py
+blender -b -t 4 --disable-autoexec --python-exit-code 1 --python open_fuel_overhaul.py -- --render C03_HERO --out sections/fuel-corridor/production/renders/integration/F12ci_complete_main_C03_HERO.png
+```
+
+The hosted cold/native/view commands and exact logs remain under `ci/F12ci/`, along with the exact final normal-map, assembled-render and ray-check logs. Read-only pixel comparisons and the targeted geometry rays passed; no PNG was retouched. The initial incomplete F12a/F12b closure candidates remain local development evidence and were not promoted. F12c's full closure recipe was selected only after cold and sightline checks, then rebuilt into F12ci and independently reviewed.
+
+Published for independent review in [draft PR70](https://github.com/CameronNel/critical-shift/pull/70); no agent merge. Open the delivered module through `blender --python open_map.py`. Directly opening the canonical map file retains its historical cache. Visual/authoring acceptance does not certify Unity, motion/controllers, continuous collision, adjacent-room traversal or runtime performance. Owner art approval and merge remain separate.

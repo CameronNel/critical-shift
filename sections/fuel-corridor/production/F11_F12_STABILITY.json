@@ -1,0 +1,265 @@
+{
+  "schema": "fuel-fixed-view-stability/2",
+  "cycles": [
+    "F11ci",
+    "F12ci"
+  ],
+  "recipe_sha256": [
+    "1dbefb4c1d5dc85b33d2cc34f4619bb904b3e6c7f85264858503e2cb11af6311",
+    "88857cf4e2d345469647886034c77b0de3fd35ac56f1c95296acd8569b569093"
+  ],
+  "native_sha256": [
+    "4de5ea95e03bd21d10e1771b926bbc63c3405dae6cd58d88a3d156bb9bdc2b65",
+    "0a13ff2fe1eadc8608223bd40810285a375a02edacfdfac615263cffe5196f87"
+  ],
+  "recipe_inputs_identical": false,
+  "changed_recipe_inputs": [
+    "sections/fuel-corridor/blender/build_overhaul.py"
+  ],
+  "bounded_change": "Existing WASTE upper closure widened and boxed through the existing inset, backed and overlapped to remove a verified sky sightline. Materials, lighting, cameras and work assemblies unchanged.",
+  "camera_transforms_lenses_settings_identical": true,
+  "views_compared": 20,
+  "comparisons": [
+    {
+      "view": "C01_ENTRY",
+      "state": "full",
+      "sha256": [
+        "458102211d1b66a4b8cd9da76f9ec18bcdbed24390e207a736d1970942a5f2e9",
+        "d8466ca145d845e25fa2128d1837ceddb0ab066bc6e1bc79889705793febcfc0"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.013113643024618992,
+      "maximum_8bit_channel_difference": 46,
+      "changed_channels": 23820,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C02_PRIMARY_ROUTE",
+      "state": "full",
+      "sha256": [
+        "fdd85e679ef2414a56cd958b07f0bd37079f7e3b4d858344e8f9e4ab88dfe139",
+        "4d9937fdc38cc4a4741bc449f45a66323ce3d2c3d23355c81ff07627876360b5"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.051262700273544355,
+      "maximum_8bit_channel_difference": 82,
+      "changed_channels": 77498,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C03_HERO",
+      "state": "full",
+      "sha256": [
+        "a89f31b167add2269e57c8b6570c88d993b6ef5aff01ad170957409ce643ac7a",
+        "3a0057fdeaa4490a3969381d9fef542009739efdcf89450c0f4d4ba7c5615c18"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.050894819753810085,
+      "maximum_8bit_channel_difference": 100,
+      "changed_channels": 51366,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C04_REVERSE",
+      "state": "full",
+      "sha256": [
+        "46dc0a270e5258423c6a6a7bae85e6792abc67793f5ecdc8e96e56cfec76463c",
+        "ba1a8e693153cb8ff4cf4773863c60d67fc71a6fac9db7f1bbc58f81a89f23d0"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.002907019343493552,
+      "maximum_8bit_channel_difference": 3,
+      "changed_channels": 9498,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C05_EAST_TURN",
+      "state": "full",
+      "sha256": [
+        "8f12a128ff060f0689234476c04f0d585558a23305b46184869c4c935a92d83b",
+        "0adccbec41edd4a075e3cdd540a6863f4196ff8372d2556be318fe795016ec8d"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.29668174824150056,
+      "maximum_8bit_channel_difference": 148,
+      "changed_channels": 194505,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C06_REACTOR_THRESHOLD",
+      "state": "full",
+      "sha256": [
+        "f1379dcdfb12c690c9e1541d4c7b38171adcc930f434b5a154032efbfa1082af",
+        "7dc40d55bd69ddfd21bbafc8d9f35f9355c735f3df56395e77f5997628e5cded"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.02270112837045721,
+      "maximum_8bit_channel_difference": 7,
+      "changed_channels": 73817,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C07_BYPASS",
+      "state": "full",
+      "sha256": [
+        "7d9fe52c46208673dae65a75fe2bc573fe8263abcf7599d552a23cef25c28d9d",
+        "3a14fd65ae23f93e017121e92242a55e2be575e97e33e717b5099cb5f9f7ac92"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.002481743356779992,
+      "maximum_8bit_channel_difference": 4,
+      "changed_channels": 8080,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C08_SERVICE_JUNCTION",
+      "state": "full",
+      "sha256": [
+        "3c99107ec8937a8d0fe131122d2bde0ca00f4696d587af28133263164a2dfcb1",
+        "5aef448e511806d67bd354944d48b30a0a22dc016397bb385c24dfb7a28b1a4e"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.01798218298163345,
+      "maximum_8bit_channel_difference": 88,
+      "changed_channels": 36323,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C09_MATERIALS",
+      "state": "full",
+      "sha256": [
+        "c6d0d9f1e1816d64c390184130d2aab3a7b5fb29c1c04cfacf3cf0de3d57e254",
+        "937ed3fe60fd1b3e973ed07378092fa25013f53830cd2c7525f64b50f945a97b"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.44278404650254005,
+      "maximum_8bit_channel_difference": 110,
+      "changed_channels": 215682,
+      "total_channels": 3275520
+    },
+    {
+      "view": "C10_PLANT_HEADER",
+      "state": "full",
+      "sha256": [
+        "0c761a5fb4d7a5d60478c822ec0a47a51c129776c2abf44da7b1238fc79728e5",
+        "e953b4c90cceb040fd40182ee944b5ce8d1bfd85343f63af3241abcfda67af46"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0018455084994138335,
+      "maximum_8bit_channel_difference": 7,
+      "changed_channels": 5641,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D01_CARRIER_OPERATION",
+      "state": "full",
+      "sha256": [
+        "0124843d14c80314ec97b48f051562dfccd33e62acd7fd2352b6cf17e840aa32",
+        "31c9f263a7730c016f4a6e7d000174e582d9c45d5bf00d6f0b6c2f222921c5b4"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.3587015191481047,
+      "maximum_8bit_channel_difference": 128,
+      "changed_channels": 293815,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D02_WORKBENCH",
+      "state": "full",
+      "sha256": [
+        "038dc22a32f6d11bcf7b8ab4c0b20d50fec1b269eb46ce920443fd89a4c1fed9",
+        "c9b84fe9c9372060c3aae4730aed0b40a5c6146a41b785550be6cd73d61482fe"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.04513878712387651,
+      "maximum_8bit_channel_difference": 13,
+      "changed_channels": 144870,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D03_UTILITY",
+      "state": "full",
+      "sha256": [
+        "ebc7c807554a2fecf160ec524a1460c349534ff787212afe75b9b39524acd5ac",
+        "f56f84c368948b907f782f369df3f54d743264682957f028f0d414b2b3ff122a"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.04353476699882767,
+      "maximum_8bit_channel_difference": 4,
+      "changed_channels": 142379,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D04_REACTOR_WIDE",
+      "state": "full",
+      "sha256": [
+        "d63f34c5e01d4ac57a3472ba9dbc126d64789cfff9bd401c4714af60443e2ad5",
+        "b1156076119edf57029780fd423c4c18d99f2d4c52d5339593a409b285b55852"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.0510050312622118,
+      "maximum_8bit_channel_difference": 13,
+      "changed_channels": 165940,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D05_GATE_MECHANISM",
+      "state": "full",
+      "sha256": [
+        "c19a69f9095644c9c56ae018f7da3f1456abec8b32cdf18c086a587eedb76032",
+        "c04e75975c5bf7dc4fe76a9b13e70447aa3babf96cb1c392cbeb3b2636af8e75"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.04895711215318484,
+      "maximum_8bit_channel_difference": 13,
+      "changed_channels": 154339,
+      "total_channels": 3275520
+    },
+    {
+      "view": "D06_SERVICE_RECESS",
+      "state": "full",
+      "sha256": [
+        "2ba074b0d375831378303b22a8bcfd6838a0c67ec70fdf5d63a1e54c2c01aa99",
+        "ef522e313e530556f5f2480f345934825f53c444d302c80e849ede7fcc5a1972"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.04592431125439625,
+      "maximum_8bit_channel_difference": 11,
+      "changed_channels": 146197,
+      "total_channels": 3275520
+    },
+    {
+      "view": "E01_WASTE_APPROACH",
+      "state": "full",
+      "sha256": [
+        "df7f57714793fbd10932f9e2ca3245b661c52dda5c179c5c35369997bde481af",
+        "46379843960d30c92aef9c7d7e4b6850451bac48a660d51c967c1cd69aec6c19"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.10435991842516608,
+      "maximum_8bit_channel_difference": 158,
+      "changed_channels": 135039,
+      "total_channels": 3275520
+    },
+    {
+      "view": "E02_CLEAN_APPROACH",
+      "state": "full",
+      "sha256": [
+        "a0d6a22c1425634cc3a99428b0a223643e006f8dd84cc14043501bb0eccd80d4",
+        "7fc46ae59fac0b12ec9e5853f5592a21528942da09bd0e663eb01f6aeb20fa56"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.008652671942164908,
+      "maximum_8bit_channel_difference": 7,
+      "changed_channels": 27939,
+      "total_channels": 3275520
+    },
+    {
+      "view": "E03_FREIGHT_LEAF",
+      "state": "full",
+      "sha256": [
+        "6f98adf0e5efafd40598538ec05fec0ff75d5b2d1e1057269fd295b9835e6634",
+        "2bdf4b08ffd895a977f7a4888e05fe9412be2fb19743d51301dae47abcf7c9cd"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.019526975869480264,
+      "maximum_8bit_channel_difference": 15,
+      "changed_channels": 49709,
+      "total_channels": 3275520
+    },
+    {
+      "view": "E03_FREIGHT_LEAF",
+      "state": "closed",
+      "sha256": [
+        "05ec261bb4cceb258329af6aeb6d0afb7bfef56fd50fe8cbfb1a7f6d60bafe81",
+        "8b5f9c2e9e8c4705b49cf56eee4fffbb22f3abd46fe7a820d9e0e22154d95a22"
+      ],
+      "mean_absolute_8bit_channel_difference": 0.005090794744040641,
+      "maximum_8bit_channel_difference": 8,
+      "changed_channels": 16597,
+      "total_channels": 3275520
+    }
+  ],
+  "scope": "Read-only pixel comparisons; PNG bytes were never edited. This records a bounded geometry repair and numerical differences, not aesthetic acceptance or a Unity/runtime pass. Independent full visual review determines material stability."
+}
