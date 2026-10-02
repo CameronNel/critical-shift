@@ -115,3 +115,9 @@ unchanged. Cold validation samples three positions across each center joint at
 four heights to verify a physical barrier. Fresh actual-map captures must
 establish the visible result; a geometry test does not award a finish grade.
 Two new stable full review cycles are required after this repair.
+
+## Inset jamb finding in the incomplete F20 map pass
+
+All24 F20 native images and11 of19 actual-map images were opened by both reviewers. C05 exposed a tall bright gap around the right side of the closed waste frame. The camera and evaluated instance placement match; exact sample rays at the visible gap bypass the fuel boundary and first hit the exterior connection floor. The door sits0.50m inside the outer wall opening, and its shallow front frame lacked side returns across that depth. This is a real fabrication defect, not a new light or an accepted adjoining passage. [Unedited actual-map diagnostic](renders/integration/F20ci_waste_inset_jamb_gap.png), [paired rays and camera evidence](WASTE_JAMB_DIAGNOSIS.json), and [partial rejection](critics/luna-partial-F20ci.md) preserve the finding. No full score is assigned to incomplete F20/F21.
+
+All five closed boundary frames now have continuous steel backers, three retained enamel return skins per side and folded end trims joining the original outer lining. Upper closures also bridge the complete inset depth. The geometry stays in the existing frame/closure meshes; outer cores, floor footprints, leaves, interfaces, cameras, fixture powers and keys are unchanged. All120 lateral jamb samples and60 center-joint samples pass in the development draft. Actual-map proof and two new stable complete visual cycles remain required; geometry checks do not approve visible finish.

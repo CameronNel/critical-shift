@@ -809,8 +809,36 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
     else:b.box((width+.36,.28,.16),(0,-.005,height+.26),mat('dark steel'),.005)
     for x in [-width/2-.04,width/2+.04]:
         for z in [.3,height-.2]:bolt(b,(x,-.129,z),.008)
+    inset_return=None
+    if state=='CLOSED':
+        # The five boundary leaves sit inside the protected outer opening.
+        # A front U frame alone leaves an oblique sightline around its jambs.
+        # Full-depth folded returns join that frame to the concrete lining;
+        # the rear edges remain inside the original structural wall bounds.
+        rear=.495 if name in ['Refinery boundary','Reactor boundary'] else .555
+        plane=width/2+(.234 if name=='Reactor boundary' else .134)
+        front=.015;depth=rear-front
+        rh=height+(.135 if name=='Waste transfer' else .355)
+        for side in [-1,1]:
+            xx=side*plane
+            b.box((.018,depth,rh),(xx,(front+rear)/2,rh/2),mat('dark steel'),.0015)
+            # Three removable skins expose narrow physical reveals over a
+            # continuous backer, rather than opening slots through the jamb.
+            for bay in range(3):
+                ph=(rh-.080)/3;zz=.040+(bay+.5)*ph
+                face=xx-side*.013
+                b.box((.008,depth-.024,ph-.012),(face,(front+rear)/2,zz),mat('replacement enamel'),.002)
+                for yy in [front+.050,rear-.050]:
+                    for zfix in [zz-ph/2+.046,zz+ph/2-.046]:
+                        bolt(b,(face-side*.006,yy,zfix),.006,axis='NX' if side>0 else 'X')
+            for yy in [front+.007,rear-.007]:
+                b.box((.034,.014,rh),(xx-side*.009,yy,rh/2),mat('steel'),.002)
+        inset_return={'profile':'continuous steel backer with folded retained enamel skins',
+                      'half_span_m':plane,'front_m':front,'rear_m':rear,'height_m':rh,
+                      'scope':'Joins the inset frame to unchanged outer concrete; no new passage or lighting.'}
     o=add(b,name+' frame','FC | Doors',pos=pos,normal=n,target=FLOORS[floorcell],
         anchors=[(-width/2-.075,-.07,0),(width/2+.075,.09,0)],direction=(0,0,-1),kind='floor',family='manufactured portal frame')
+    if inset_return:o['fc_inset_jamb_returns']=json.dumps(inset_return)
     T=o.matrix_world
     for side in ([] if state=='PASSAGE' else [-1,1]):
         leaf=B();w=width/2-.016
@@ -976,16 +1004,18 @@ def portal(name,pos,n,width,height,coat='navy enamel',title='',state='CLOSED',fl
             # closure must cover the full jamb width and meet the adjoining
             # lining: the former 40 mm side allowance left an 80 mm sky slot.
             seal=B();waste_head=name=='Waste transfer'
-            sw=width+(.30 if waste_head else .08)
-            closure_depth=.505 if waste_head else .10
-            closure_y=.2875 if waste_head else .085
+            sw=width+((.49 if name=='Reactor boundary' else .30) if inset_return else .08)
+            rear=inset_return['rear_m'] if inset_return else None
+            closure_depth=rear-.015 if inset_return else .10
+            closure_y=(rear+.015)/2 if inset_return else .085
             # Continuous folded lower/upper returns and removable roof pan bays.
             for zz in [.012,hh-.012]:seal.box((sw,closure_depth,.024),(0,closure_y,zz),mat('dark steel'),.002)
             for xx in [-sw/2+.013,sw/2-.013]:seal.box((.026,closure_depth,hh),(xx,closure_y,hh/2),mat('dark steel'),.002)
-            if waste_head:
-                # Real full-depth end returns bridge the inset head to the
-                # unchanged concrete lining. A rear sheet closes the removable
-                # front-pan seams while leaving their physical reveals visible.
+            # Full-depth end returns and a continuous rear sheet join every
+            # inset closed portal to its unchanged outer lining. Front-pan
+            # reveals retain modeled depth without leaking through the head.
+            if inset_return:
+                seal.box((sw-.026,.010,hh-.036),(0,rear-.005,hh/2),mat('replacement enamel'),.002)
                 seal.box((sw-.026,.010,hh-.036),(0,.140,hh/2),mat('replacement enamel'),.002)
             for i in range(3):
                 xx=(i-1)*sw/3

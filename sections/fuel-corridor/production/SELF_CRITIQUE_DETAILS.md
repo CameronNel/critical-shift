@@ -174,3 +174,7 @@ The builder is repairing all five closed boundary portals with folded metal
 lips, retained fasteners and compressible rear seals. F18/F19 are development
 evidence, with new complete stable passes required before final acceptance.
 See [the lighting correction and seam repair](LIGHTING_CORRECTION.md).
+
+## Incomplete F20/F21 inspection and inset-jamb correction
+
+I opened all24 F20 native captures and all11 actual-map images produced before the pass was superseded, plus all24 F21 native captures. C05 in the actual map reveals a bright adjacent-space slot around the closed waste frame. A correct center overlap did not close the missing half-metre side return. The camera/evaluated transform check and exact rays confirm an around-jamb boundary opening. The native dark background concealed the same structural gap. I accepted the independent concern and added full-depth fabricated side and upper returns to all five closed boundary frames. F20/F21 remain incomplete development evidence and receive no accepted full grades. Fresh map proof and a complete stable final pair are pending.

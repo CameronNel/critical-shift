@@ -1,6 +1,6 @@
 # Fuel corridor overhaul state
 
-Phase: F20ci closed meeting-seal and fixture-lighting repair in progress; F18 failed the finish gate. Fresh full-map reviews and a stable final pair remain required.
+Phase: F22ci inset-jamb repair in progress; fresh complete native/map pair required. Prior F20/F21 incomplete passes are not accepted.
 Branch: `codex/fuel-corridor-overhaul-20261001` from `75983b9`.
 Source: `sections/facility-assembly/sources/fuel-corridor/module.blend`.
 Baseline SHA256: `f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c`.
