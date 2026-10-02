@@ -1,0 +1,15 @@
+00:00.732  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend"
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:59: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('CD | '+key);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF')
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:400: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bs=mat.node_tree.nodes.get('Principled BSDF') if mat.use_nodes else None
+Traceback (most recent call last):
+  File "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py", line 467, in <module>
+    if o.get('support_class')=='architectural' and name not in EXCEPTIONS and max(abs(o.dimensions[i]-rec['dimensions'][i]) for i in range(3))>1e-5:raise RuntimeError('Resized room architecture '+name)
+                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Resized room architecture P1 deep sign text
+
+Error: script failed, file: 'sections/facility-assembly/sources/compliance-dock/overhaul_dock.py', exiting.
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

@@ -594,6 +594,7 @@ def repair_printed_graphics():
     for o in S.objects:
         if o.type!='FONT':continue
         o.data.extrude=0;o.data.bevel_depth=0
+        if o.name in ORIGINAL:EXCEPTIONS[o.name]='Typography construction repair: flat printed ink replaces oversized 6mm glyph depth; concise operational copy may change glyph extent, original object world pose and physical room datums retained'
         o['print_contract']='Flat editable ink glyphs; typography scaled for actual evidence cameras; no thick microtype sides'
     edits={
         'Manifest header':('DUTY CLEARANCE',.024),
