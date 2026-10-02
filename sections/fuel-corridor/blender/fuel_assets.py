@@ -759,6 +759,85 @@ def cable_ladder(length=1.7):
         b.tube([(x-.006,-.068,.01),(x-.006,-.268,.01)],.002,mat('steel'),seg=8)
     return b
 
+def calibration_panel():
+    """Removable purge-test board with tapped gauges, valves and a live riser."""
+    b=B();frame(b,1.13,.93,.042,.027,-.0135,.465,mat('dark steel'),r=.034)
+    b.box((1.06,.018,.86),(0,-.038,.465),mat('warm enamel'),.005)
+    for x in [-.485,.485]:
+        for z in [.08,.85]:bolt(b,(x,-.05,z),.007)
+    for x in [-.28,.28]:
+        instrument_dial(b,x,-.057,.58,.098)
+        b.tube(rounded_path([(x,-.105,.49),(x,-.105,.27),(0,-.105,.27)]),.014,mat('brass'),seg=16)
+        for z in [.33,.45]:b.lathe([(0,0),(.028,0),(.028,.019),(.020,.028),(0,.028)],(x,-.105,z),mat('brass'),seg=6)
+    b.tube(rounded_path([(0,-.105,.27),(0,-.13,.37),(0,-.13,1.47)]),.018,mat('steel'),seg=20)
+    ring(b,.029,.026,(0,-.13,1.44),mat('brass'),seg=24)
+    for z in [.78,1.22]:
+        b.box((.060,.015,.105),(0,-.0075,z),mat('dark steel'),.003)
+        b.tube([(0,-.015,z),(0,-.125,z)],.007,mat('dark steel'),seg=12)
+    b.lathe([(0,0),(.025,0),(.039,.019),(.034,.051),(.014,.066),(0,.066)],(-.28,-.105,.33),mat('brass'),seg=28)
+    b.box((.13,.022,.033),(-.245,-.110,.40),mat('red'),.006,rot=Matrix.Rotation(.22,3,'Y'))
+    b.box((.62,.004,.076),(0,-.050,.825),mat('ink enamel'),.003)
+    for x in [-.28,.28]:b.box((.20,.004,.055),(x,-.051,.10),mat('navy enamel'),.003)
+    return b
+
+def coolant_heat_exchanger():
+    """Guarded, open fin stack, connected header, sump and analogue instruments."""
+    b=B();w=1.08;h=1.83
+    frame(b,w,h,.040,.028,-.014,h/2,mat('dark steel'),r=.035)
+    for x in [-.505,.505]:
+        polygon(b,[(0,0),(-.33,.035),(-.33,1.62),(-.27,h),(0,h)],.026,mat('oxide enamel'),pos=(x,0,0),rot=Matrix.Rotation(math.pi/2,3,'Y')@Matrix.Rotation(math.pi/2,3,'Z'),bevel=.002)
+    b.box((w,.31,.030),(0,-.16,.06),mat('oxide enamel'),.004)
+    b.box((w-.04,.008,.077),(0,-.306,.083),mat('steel'),.003)
+    for i in range(18):
+        z=.33+i*.061
+        b.box((.74,.193,.010),(0,-.171,z),mat('replacement enamel'),.0015)
+        b.box((.70,.005,.018),(0,-.27,z),mat('steel'),.001)
+    for x in [-.275,.275]:
+        b.tube([(x,-.13,.28),(x,-.13,1.54)],.022,mat('brass'),seg=20)
+        ring(b,.034,.023,(x,-.13,.29),mat('dark steel'),seg=24)
+        ring(b,.034,.023,(x,-.13,1.50),mat('dark steel'),seg=24)
+    b.box((.93,.023,.22),(0,-.308,1.65),mat('warm enamel'),.004)
+    instrument_dial(b,-.26,-.323,1.65,.070)
+    b.box((.42,.003,.07),(.17,-.322,1.66),mat('ink enamel'),.003)
+    for x in [-.42,-.14,.14,.42]:b.tube([(x,-.31,.21),(x,-.31,1.47)],.007,mat('dark steel'),seg=12)
+    for z in [.22,1.46]:b.tube([(-.45,-.31,z),(.45,-.31,z)],.008,mat('dark steel'),seg=12)
+    b.tube(rounded_path([(.275,-.13,1.52),(.275,-.13,1.90),(.18,-.13,1.94),(.18,-.13,3.29)]),.023,mat('steel'),seg=20)
+    for z in [1.94,3.27]:ring(b,.035,.025,(.18,-.13,z),mat('brass'),seg=24)
+    for z in [2.05,2.89]:
+        b.box((.073,.014,.13),(.18,-.007,z),mat('dark steel'),.003)
+        b.tube([(.18,-.014,z),(.18,-.13,z)],.007,mat('dark steel'),seg=12)
+    for x in [-.44,.44]:
+        for z in [.16,1.77]:bolt(b,(x,-.024,z),.009)
+    for v in b.bm.verts:v.co.y-=.012
+    for x in [-.44,.44]:
+        for z in [.16,1.77]:b.box((.075,.038,.10),(x,-.019,z),mat('dark steel'),.002)
+    return b
+
+def plant_hose_reel():
+    """Shallow formed reel, continuous wound hose, return crank and utility feed."""
+    b=B();rz=Matrix.Rotation(math.pi/2,3,'X')
+    b.box((.62,.018,.58),(0,-.009,.33),mat('warm enamel'),.009)
+    for x in [-.255,.255]:
+        for z in [.10,.55]:bolt(b,(x,-.023,z),.008)
+    b.lathe([(0,0),(.10,0),(.113,.013),(.113,.108),(.10,.12),(0,.12)],(0,-.025,.33),mat('dark steel'),seg=40,rot=rz)
+    for y in [-.04,-.147]:
+        b.lathe([(.105,0),(.273,0),(.296,.007),(.298,.018),(.285,.029),(.268,.032),(.105,.032),(.105,0)],(0,y,.33),mat('repaired blue enamel'),seg=48,rot=rz)
+    path=[]
+    for i in range(241):
+        ang=2*math.pi*6*i/240;r=.173+.049*i/240
+        path.append((r*math.cos(ang),-.077-.045*i/240,.33+r*math.sin(ang)))
+    b.tube(path,.009,mat('rubber'),seg=10)
+    b.tube(rounded_path([path[-1],(.242,-.12,.26),(.256,-.12,.05),(.19,-.12,-.12),(.11,-.11,-.13)]),.009,mat('rubber'),seg=12)
+    b.lathe([(0,0),(.018,0),(.021,.012),(.021,.033),(.015,.042),(0,.042)],(.11,-.11,-.14),mat('brass'),seg=6)
+    b.tube([(0,-.184,.33),(.16,-.184,.35),(.16,-.198,.42)],.012,mat('steel'),seg=12)
+    b.cyl(.018,.07,(.16,-.205,.43),mat('rubber'),seg=24)
+    b.tube(rounded_path([(-.10,-.08,.33),(-.16,-.08,.56),(-.22,-.08,.59),(-.22,-.08,1.55)]),.013,mat('brass'),seg=16)
+    for z in [.80,1.36]:
+        b.box((.055,.013,.10),(-.22,-.0065,z),mat('dark steel'),.003)
+        b.tube([(-.22,-.013,z),(-.22,-.08,z)],.007,mat('dark steel'),seg=12)
+    for v in b.bm.verts:v.co.y*=.70
+    return b
+
 def pipe_run(length=2.1,drop=.85):
     b=B();metal=mat('steel');r=.023;y=-.13
     path=rounded_path([(-length/2,0,0),(-length/2+.05,y*.65,0),(-length/2+.12,y,0),(length/2-.12,y,0),(length/2,y,-.10),(length/2,y,-drop)])
