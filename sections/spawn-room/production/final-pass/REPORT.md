@@ -75,6 +75,7 @@ Checks that ran on this pass:
 - Seven-camera Cycles comparison canonical vs optimised (960x540, 48 samples): mean absolute difference 0.0054 to 0.0086, at most 0.30% of pixels over 8%. Canonical renders are in `renders_90plus/`.
 - `module_optimised.blend` regenerated: 791 objects, 814 draw calls, 34 materials, 378,341 triangles, 20 lights, no library.
 - I looked at the post-pass Spawn, LockerDoor, LockerReverse, ExitReverse and Hero_A renders (all in `renders_90plus/`, including `VALIDATE_LockerReverse.png`). BriefingDoor and Material_A were compared by numbers only.
+- `VALIDATE_HallForward` (lighting plate 11 in `CAMERAS.md`) was missing from the first render set and is now rendered on the canonical module (`renders_90plus/VALIDATE_HallForward.png`, 960x540, 48 samples) and looked at against `renders_polish/VALIDATE_HallForward.png`. It is a close-up of the airlock door, so it shows only the airlock-end tube: the door is slightly darker than before (that tube went from 135 W to 105 W) but readable, with the scuffs, handles and gauge intact. It cannot show the hall falloff; the Spawn and ExitReverse views carry that. Not run through the canonical-vs-optimised comparison (that table has the seven cameras listed above).
 
 Not done: **not re-scored.** The critics have not seen these renders, so the 85 and 82 above still stand and the room is NOT accepted. The suits still read as the HZ-01 suit from PR #68, which the critics have not scored. Hall wear is unchanged; a 90 needs the critic rescore on the HZ-01 suit and these changes.
 
