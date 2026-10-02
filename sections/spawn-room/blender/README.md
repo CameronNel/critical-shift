@@ -184,6 +184,13 @@ not yet skinned to a skeleton or merged per outfit for Unity.
 
 ## Crew worker hazmat suit (outfit test)
 
+**2026-10-01 owner-reference revision:** `build_hazmat` now defaults to the yellow
+HZ-01 reference style. Open `crew_hazmat_reference.blend` for the wearable review
+scene, or the linked `hero_suit.blend` library for the empty locker suit. See
+[the source, commands and evidence](../production/hero-suit-reference/README.md).
+The original design and triangle table below are retained for `style="legacy"`;
+they do not describe the new hero authoring model or establish its runtime budget.
+
 `character_suit.py` builds a cute hazmat suit as pieces that each list the skin regions they cover (`cs_covers`);
 `equip(root)` hides those regions. Pieces: coverall (soft folds, waist gather, hem bunching), gloves, boots, hood with a
 big open face and a clear glass visor so the face decals show through, plus belt, zipper, straps, pack and tank, hose,

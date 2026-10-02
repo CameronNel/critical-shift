@@ -39,7 +39,7 @@ Must prove:
 - room reads as optional/social.
 
 ### VALIDATE_ExitReverse
-Near Geiger station looking back toward spawn.
+Near the exit looking back toward spawn (the Geiger station is not built: owner decision 2026-10-01, player HUD).
 
 Must prove:
 - reverse navigation remains coherent;
@@ -56,7 +56,7 @@ Integrity-chamber circulation edge.
 Briefing seating aisle.
 
 ### VALIDATE_Material_A
-Close/medium view containing wall, floor, painted equipment, rubber, paper and glass.
+Close/medium view containing wall, floor, painted equipment, rubber, paper and glass. Current framing: 26 mm from the locker-room door side across the changing bench toward the integrity chamber (wall, tile floor, locker, rubber mat, papers and notice board, chamber glass).
 
 Used specifically for anti-plastic review.
 

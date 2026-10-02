@@ -5,12 +5,17 @@
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
 
 
-**Current phase:** Specification complete; build not started  
-**Current overall score:** Not scored  
-**Cold-start status:** Not run  
-**Authoritative source:** ../blender/spawnroom.blend (future)
+**Current phase:** Built; final pass run, NOT accepted (see [final-pass/REPORT.md](final-pass/REPORT.md))
+**Current overall score:** Independent critics 85 and 82 of 100 on the earlier suit after the polish pass (needs >= 90); not re-scored with the HZ-01 suit
+**Cold-start status:** Not run
+**Authoritative source:** ../../facility-assembly/sources/spawn-room/module.blend (runtime derivative: module_optimised.blend)
 
 ## Completed
+
+- HZ-01 owner-reference suit revision on its own task branch: see
+  [the asset handoff](hero-suit-reference/README.md) and
+  [asset review state](hero-suit-reference/TASK_STATE.md). New asset approval and
+  runtime delivery remain pending; this does not advance room acceptance.
 - Detailed scenery specification
 - Build/self-review prompt
 - Production rubric
@@ -19,67 +24,12 @@
 - Automated support-contact validator and tagging convention
 
 ## Worst current visible defects
-No rendered build exists yet.
+Suits, Geiger drop and the polish pass (wear, doorway spill, bench posts, Material_A framing) are done; see [final-pass/REPORT.md](final-pass/REPORT.md). The critics still score 85 and 82. The 85 and 82 scores were taken on the earlier suit and predate the HZ-01 replacement (#68) and its locker LOD (#69); the HZ-01 suit's owner review and a critic rescore are pending (see [hero-suit-reference/TASK_STATE.md](hero-suit-reference/TASK_STATE.md)), so the old "toy mannequin" criticism is not a verdict on the current suit. Remaining from those critiques: even hall lighting with little falloff, subtle wear, large flat locker doors in LockerDoor/LockerReverse, low-poly plants and heavy signage, LockerDoor hiding one suit per side behind open doors, and the chamber-glass reflection reading as an artefact.
 
 ## Next actions
-1. Create the headless Blender build entrypoint.
-2. Establish metric blockout.
-3. Create fixed validation cameras.
-4. Create the CS_SUPPORT_REQUIRED and dressing support collections.
-5. Tag support-dependent props as they are created.
-6. Run validate_contacts.py with every dressing pass.
-7. Render baseline review set.
-8. Start formal scoring loop.
+1. Owner decisions: whether to cut or replace the plants; how much signage stays; door sizes or open angles for the locker cameras.
+2. Hall lighting falloff pass, if the owner wants more change to the approved lighting.
+3. Runtime: equip toggle and locker interaction (`final-pass/SUIT_EQUIP.md`), not built.
+4. Owner review of the HZ-01 suit, then re-run critics on the HZ-01 locker LOD (at least 4 cycles) and a cold start.
 
-## Last successful headless build command
-Not yet established.
-
-## Last successful render batch
-None.
-
-## Active checkpoint
-None.
-
-## Known regressions
-None.
-
-## Blockers
-None recorded.
-
-
-## Art-direction reset state — 2026-09-05
-
-**Current phase:** STYLE VALIDATION SLICE  
-**Previous visual pass:** REJECTED AS ART DIRECTION  
-**Useful legacy content:** gameplay dimensions/routes/interaction locations only, where still valid  
-**Expansion:** BLOCKED
-
-Primary defects to prevent:
-- repeated bevelled boxes;
-- plastic material sameness;
-- excessive signage;
-- flat lighting;
-- generic sci-fi devices;
-- toy-like PPE;
-- random filler;
-- procedural cleanliness.
-
-Next actions:
-1. build one wall + door + locker/PPE + bench slice;
-2. add 3–5 grounded human props;
-3. establish differentiated materials;
-4. light from actual practical fixtures;
-5. render fixed gameplay cameras;
-6. run contact validation;
-7. score `RUBRIC.md`;
-8. checkpoint only after pass.
-
-
-## Reference evidence required
-
-Before the next Blender build starts:
-- complete `REFERENCE_REVIEW.md`;
-- inspect `../art/SPAWN_REFERENCE_BIBLE.md`;
-- use the 00–27 numbered plates as the explicit visual baseline.
-
-The next checkpoint is not “full room improved.” It is “validation slice visibly matches the new reference library.”
+HZ-01 suit LOD: the locker library is reduced to 22,371 triangles per suit (from 114,094); see hero-suit-reference/README.md.

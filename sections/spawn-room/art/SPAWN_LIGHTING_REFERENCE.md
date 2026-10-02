@@ -69,7 +69,7 @@ Intent:
 Use:
 - slightly cooler/harder light;
 - stronger contrast around heavy door;
-- radiation checkpoint readable but secondary.
+- radiation checkpoint readable but secondary (superseded: not built in the room, owner decision 2026-10-01, player HUD).
 
 This transition should be felt before it is explained by text.
 

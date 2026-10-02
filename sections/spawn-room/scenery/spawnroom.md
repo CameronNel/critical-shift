@@ -5,6 +5,9 @@
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
 
 
+> [!NOTE]
+> **Owner decision (2026-10-01): the Geiger/radiation checkpoint is not built in the spawn room.** The radiation readout is a player-HUD element. Every Geiger/radiation-station requirement in this file is superseded for the room geometry; the exit, the airlock and the rest of the room are unchanged. Record: `production/final-pass/REPORT.md`.
+
 **File:** spawnroom.md  
 **Section:** Spawn Room  
 **Status:** Authoritative scenery specification  
@@ -732,6 +735,8 @@ Do not make the safe side suddenly horror-dark.
 ---
 
 # 12. Geiger / Radiation Check Station
+
+> **Superseded by owner decision (2026-10-01):** not built in the room; the radiation readout is part of the player HUD. Kept for reference if the checkpoint is ever reinstated.
 
 ## 12.1 Placement
 
