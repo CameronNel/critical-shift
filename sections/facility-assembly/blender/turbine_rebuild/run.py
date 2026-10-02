@@ -208,7 +208,7 @@ for k, (fx, fy) in enumerate(((-.5, 5), (3, 12), (7.5, 19), (3, 21))):
     o = bpy.data.objects.new(f'FILL_{k}', d); o.location = (fx, fy, 6.0); coll.objects.link(o)
 # ---- named review cameras ----
 CAMS = {   # all positions are in open aisle space
-    'CAM_A_entry_north':   ((0.7, 1.4, 1.65), (3.1, 14, 2.0)),
+    'CAM_A_entry_north':   ((0.9, 1.4, 1.65), (3.3, 14, 2.0)),
     'CAM_B_ne_high':       ((8.7, 22.7, 4.5), (.9, 6, 1.0)),
     'CAM_C_east_aisle':    ((7.7, 12.2, 1.8), (2.8, 20, 2.3)),
     'CAM_D_maintenance':   ((-3.2, 12.6, 1.65), (-.5, 19.5, 1.7)),

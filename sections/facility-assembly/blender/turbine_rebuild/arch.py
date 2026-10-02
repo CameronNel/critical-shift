@@ -109,7 +109,7 @@ def truss(b, y):
     b.box((3, y, 6.08), (14, .2, .16), 'steel_light', bev=.012); b.box((3, y, 7.12), (14, .2, .16), 'steel_light', bev=.012)
     for i in range(n):
         xa, xb, xc = x0 + i * st, x0 + (i + .5) * st, x0 + (i + 1) * st
-        b.rod((xa, y, 7.14), (xb, y, 6.06), .07, 'steel_mid', 12); b.rod((xb, y, 6.06), (xc, y, 7.14), .07, 'steel_mid', 12)
+        b.rod((xa, y, 7.14), (xb, y, 6.06), .07, 'steel_light', 12); b.rod((xb, y, 6.06), (xc, y, 7.14), .07, 'steel_light', 12)
     for i in range(n + 1): b.box((x0 + i * st, y, 6.6), (.05, .1, 1.0), 'steel_dark', bev=.005); b.box((x0 + i * st, y, 6.06), (.2, .2, .03), 'steel_light', bev=.006)
     b.box((x0 + .3, y, 6.1), (.5, .3, .04), 'steel_light', bev=.008); b.box((x1 - .3, y, 6.1), (.5, .3, .04), 'steel_light', bev=.008)
 
@@ -149,9 +149,9 @@ def door(b, frame, side_sign, label):
         b.box((0, .1, h + .13), (w + .48, .2, .26), 'trim_black', bev=.022)
         b.box((0, 0, -.01), (w, .3, .03), 'steel_worn', nb=True, bev=.006)
         for dx in (-.9, .9): b.flat((dx, .35), .12, .5, 'yellow', 0, z=.012)
-        b.box((0, .07, h + .55), (3.0, .05, .6), 'trim_black', bev=.012); b.text(label, (.2, .1, h + .55), .26, 'chalk', math.pi, math.pi / 2)
-        if label.startswith('ELECTRICAL'): b.prism([(.0, .16), (-.07, -.02), (-.01, -.02), (-.05, -.16), (.08, .03), (.01, .03)], .006, 'yellow', (-1.2, .098, h + .55), True, 'Y')
-        else: torus(b, (-1.2, .098, h + .55), .1, .014, 'yellow', 'Y', 24); b.cyl((-1.2, .098, h + .55), .035, .008, 'yellow', 'Y', 16)
+        b.box((0, .07, h + .6), (3.7, .05, .7), 'trim_black', bev=.012); b.text(label, (.2, .1, h + .6), .31, 'chalk', math.pi, math.pi / 2)
+        if label.startswith('ELECTRICAL'): b.prism([(.0, .16), (-.07, -.02), (-.01, -.02), (-.05, -.16), (.08, .03), (.01, .03)], .006, 'yellow', (-1.55, .098, h + .6), True, 'Y')
+        else: torus(b, (-1.55, .098, h + .6), .1, .014, 'yellow', 'Y', 24); b.cyl((-1.55, .098, h + .6), .035, .008, 'yellow', 'Y', 16)
         lx = side_sign * (w / 2 + .2 + 1.2)
         b.box((lx, .22, h / 2), (2.4, .08, h - .08), 'steel_mid', bev=.02)
         for dx in (-.6, .6): b.box((lx + dx, .27, h / 2 - .1), (1.0, .02, h - .6), 'steel_dark', bev=.012)

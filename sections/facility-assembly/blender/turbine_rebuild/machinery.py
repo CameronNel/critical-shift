@@ -86,7 +86,7 @@ def handrails(b, xa, xb, ya, yb, z1):
         n = int((yb - ya) / 2.0) + 1; ys = [ya + .12 + i * (yb - ya - .24) / n for i in range(n + 1)]
         for y in ys: b.cyl((xr, y, z1 + .55), .042, 1.1, 'trim_black', 'Z', 14, bev=.006); b.cyl((xr, y, z1 + .02), .1, .03, 'steel_dark', 'Z', 16, bev=.006); b.cyl((xr, y, z1 + 1.1), .05, .03, 'gold_paint', 'Z', 14, bev=.006)
         b.rod((xr, ys[0], z1 + 1.05), (xr, ys[-1], z1 + 1.05), .032, 'orange_dark', 12); b.rod((xr, ys[0], z1 + .55), (xr, ys[-1], z1 + .55), .024, 'trim_black', 12)
-        b.box((xr, (ya + yb) / 2, z1 + .06), (.012, yb - ya - .2, .1), 'trim_black')
+        b.box((xr, (ya + yb) / 2, z1 + .06), (.02, yb - ya - .2, .1), 'steel_light', bev=.004)
     for yr in (ya + .12, yb - .12):
         for (x0, x1) in ((xa + .12, CX - .95), (CX + .95, xb - .12)):
             for z in (z1 + .55, z1 + 1.05): b.rod((x0, yr, z), (x1, yr, z), .032 if z > z1 + .6 else .024, 'orange_dark' if z > z1 + .6 else 'trim_black', 12)
@@ -347,7 +347,7 @@ def maintenance(b):
             b.arc_shell((rx, yy, rz + .14), R + .27, R + .235, .22, 0, 2 * math.pi, 'steel_light', 36)                       # tip shroud so the blades read as a ring
             for k in range(24):
                 a = 2 * math.pi * k / 24
-                b.box((rx + (R + .05) * math.cos(a), yy, rz + .14 + (R + .05) * math.sin(a)), (.14, .24, .05), 'steel_dark', (0, -a, 0), bev=.004)
+                b.box((rx + (R + .05) * math.cos(a), yy, rz + .14 + (R + .05) * math.sin(a)), (.14, .24, .05), 'steel_mid', (0, -a, 0), bev=.004)
     for y in (15.5, 18.5): torus(b, (rx, y, rz + .74), .06, .012, 'yellow', 'X', 16)
     b.claim((-1.9, 14.2, 0), (.3, 19.7, 1.3))
     b.box((-3.35, 15.9, .46), (.7, 2.2, .07), 'steel_dark', bev=.014); b.box((-3.0, 15.9, .46), (.012, 2.2, .075), 'orange')
@@ -367,8 +367,4 @@ def maintenance(b):
             for dx in (0, .6): b.box((-3.7 + dx, y, 1.0), (.045, .045, 2.0), 'steel_dark', bev=.005)
         for i, z in enumerate((.1, .7, 1.3)): b.box((-3.45, yc + (.15 if i % 2 else -.15), z + .15), (.4, .4, .26), ['wood', 'steel_mid', 'orange'][i], bev=.01)
     b.claim((-3.9, 19.2, 0), (-3.0, 21.9, 2.2))
-    b.box((-2.4, 21.2, .45), (.6, .9, .05), 'steel_dark', bev=.01)
-    for dx in (-.25, .25):
-        for dy in (-.35, .35): b.cyl((-2.4 + dx, 21.2 + dy, .1), .08, .06, 'rubber', 'X', 20)
-    b.box((-2.4, 20.95, .6), (.3, .25, .3), 'orange', bev=.015)
     b.claim((-2.9, 20.6, 0), (-1.9, 22.0, 1.4))

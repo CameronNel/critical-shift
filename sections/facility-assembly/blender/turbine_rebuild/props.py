@@ -102,7 +102,7 @@ def build(b):
         for dx in (-.68, .68):
             for dy in (.08, .68): b.box((u + dx, dy, .36), (.05, .05, .7), 'steel_dark', bev=.006)
         b.box((u, .62, .775), (.4, .24, .012), 'charcoal', bev=.006)
-        b.box((u + .05, .68, .93), (.5, .03, .3), 'trim_black', bev=.012); b.box((u + .05, .700, .93), (.46, .006, .26), 'screen_dim'); b.box((u + .05, .704, .98), (.3, .004, .02), 'screen'); b.box((u + .05, .704, .93), (.36, .004, .02), 'screen'); b.box((u + .05, .704, .88), (.2, .004, .02), 'screen'); b.box((u + .05, .45, .0) if False else (u + .05, .4, .78), (.34, .14, .014), 'charcoal', bev=.005); b.box((u + .05, .68, .78), (.1, .08, .02), 'steel_dark'); b.box((u + .05, .68, .83), (.03, .03, .1), 'steel_dark')
+        b.box((u + .05, .68, .93), (.5, .03, .3), 'trim_black', bev=.012); b.box((u + .05, .700, .93), (.46, .006, .26), 'trim_black'); b.box((u + .05, .704, .98), (.3, .004, .02), 'screen'); b.box((u + .05, .704, .93), (.36, .004, .02), 'screen'); b.box((u + .05, .704, .88), (.2, .004, .02), 'screen'); b.box((u + .05, .45, .0) if False else (u + .05, .4, .78), (.34, .14, .014), 'charcoal', bev=.005); b.box((u + .05, .68, .78), (.1, .08, .02), 'steel_dark'); b.box((u + .05, .68, .83), (.03, .03, .1), 'steel_dark')
         b.box((u - .1, .35, .766), (.38, .14, .018), 'charcoal', bev=.008); b.cyl((u + .55, .3, .8), .04, .09, 'chalk', 'Z', 20, bev=.004)
         b.cyl((u - .55, .55, .765), .06, .03, 'steel_dark', 'Z', 20); b.sweep([(u - .55, .55, .78), (u - .55, .55, 1.05), (u - .4, .5, 1.15)], .008, 'steel_dark', 8, .1); b.box((u - .37, .49, 1.14), (.14, .08, .04), 'yellow', bev=.01)
         b.box((u, .32, .45), (.46, .46, .06), 'rubber', bev=.02) if False else None
@@ -120,7 +120,7 @@ def build(b):
     for (x, y, c, t1, t2) in ((9.3, 22.45, 'oxide', 'DIESEL', 'FLAMMABLE'), (8.75, 23.15, 'steel_dark', 'LUBE OIL', 'ISO 46')):
         b.cyl((x, y, .45), .27, .9, c, 'Z', 32, bev=.02)
         for z in (.2, .45, .7): b.cyl((x, y, z), .283, .045, 'trim_black', 'Z', 32, bev=.012)                      # rolled ribs
-        b.cyl((x, y, .9), .285, .05, 'steel_dark', 'Z', 32, bev=.012); b.cyl((x, y, .93), .22, .02, 'steel_mid', 'Z', 32)       # chime ring and recessed lid
+        b.cyl((x, y, .9), .285, .05, 'steel_light', 'Z', 32, bev=.012); b.cyl((x, y, .93), .22, .02, 'steel_mid', 'Z', 32)       # chime ring and recessed lid
         b.cyl((x + .1, y + .08, .945), .035, .025, 'steel_light', 'Z', 12); b.cyl((x - .1, y - .06, .945), .025, .02, 'steel_light', 'Z', 12)   # bungs
         b.box((x, y - .278, .5), (.34, .012, .34), 'trim_black', bev=.008); b.box((x, y - .286, .5), (.3, .006, .3), 'chalk')
         b.prism([(0, .095), (.095, 0), (0, -.095), (-.095, 0)], .004, 'yellow', (x, y - .291, .56), True, 'Y'); b.prism([(0, .05), (.03, -.03), (-.03, -.03)], .004, 'trim_black', (x, y - .295, .56), True, 'Y')
