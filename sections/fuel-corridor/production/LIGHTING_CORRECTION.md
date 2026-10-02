@@ -1,5 +1,7 @@
 # Fuel corridor fixture-lighting correction
 
+The selected F23ci corridor uses 43 powered sources at modeled emitting optics, with native World ambient zero and five global map helpers excluded from fuel receivers. Fabricated center overlaps and full-depth jamb returns seal the closed boundary portals. Fresh F22ci/F23ci native/map reviews pass the strict still-image gate; four current-source map dim states and eight preview event stills were opened for bounded readability checks. See the final evidence section below. Cadence and Unity/runtime remain unverified.
+
 The owner rejected the broad, unexplained fill in the F17 assembled-map image.
 F17's historical 99 scores do not approve this revision. Updated acceptance
 requires fresh actual renders, all-area review, and the existing strict >98 gate.
@@ -114,10 +116,32 @@ frame transforms, outer footprints, light powers and neighboring rooms remain
 unchanged. Cold validation samples three positions across each center joint at
 four heights to verify a physical barrier. Fresh actual-map captures must
 establish the visible result; a geometry test does not award a finish grade.
-Two new stable full review cycles are required after this repair.
+Two new complete stable full review cycles after this repair are recorded below.
 
 ## Inset jamb finding in the incomplete F20 map pass
 
 All24 F20 native images and11 of19 actual-map images were opened by both reviewers. C05 exposed a tall bright gap around the right side of the closed waste frame. The camera and evaluated instance placement match; exact sample rays at the visible gap bypass the fuel boundary and first hit the exterior connection floor. The door sits0.50m inside the outer wall opening, and its shallow front frame lacked side returns across that depth. This is a real fabrication defect, not a new light or an accepted adjoining passage. [Unedited actual-map diagnostic](renders/integration/F20ci_waste_inset_jamb_gap.png), [paired rays and camera evidence](WASTE_JAMB_DIAGNOSIS.json), and [partial rejection](critics/luna-partial-F20ci.md) preserve the finding. No full score is assigned to incomplete F20/F21.
 
 All five closed boundary frames now have continuous steel backers, three retained enamel return skins per side and folded end trims joining the original outer lining. Upper closures also bridge the complete inset depth. The geometry stays in the existing frame/closure meshes; outer cores, floor footprints, leaves, interfaces, cameras, fixture powers and keys are unchanged. All120 lateral jamb samples and60 center-joint samples pass in the development draft. Actual-map proof and two new stable complete visual cycles remain required; geometry checks do not approve visible finish.
+
+## Final complete visual evidence — F22ci / F23ci
+
+The builder and pessimistic Luna independently opened all 24 native and all 19
+actual assembled-map images in each final cycle. The same corrected receiver
+policy and recipe are used across the materially stable pair. The repaired
+waste, clean and plant meeting joints read as retained fabricated hardware;
+the around-jamb exterior glimpse and broad floor/service-wall wash are absent. Local real-fixture pools preserve
+readable routes, supported equipment, work surfaces and utility controls.
+Deliberate shadow intervals remain. The four fresh selected-source main dim
+states and eight native event/boundary stills were also opened by both reviewers.
+
+Selected native `def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe`. Current build/cold, archived files, normal
+launcher, actual-map hero and dependency evidence agree on these bytes. All 43
+powered sources are mapped to real modeled emitting optics, native World
+ambient is zero, and five global helper suns exclude all 421 fuel receivers.
+The physical outdoor sky and other rooms retain their existing lighting.
+
+[Fresh grades](RUBRIC.md), [all actual images](REVIEW_INDEX.md) and the
+[complete builder critique](SELF_CRITIQUE_DETAILS.md) supply the visual evidence.
+No technical check substitutes for a visual grade. Cadence and Unity/runtime
+remain unverified; these still-image reviews do not establish objective perfection.

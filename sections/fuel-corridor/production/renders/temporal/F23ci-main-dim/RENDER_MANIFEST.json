@@ -1,0 +1,302 @@
+{
+  "schema": "fuel-assembled-map-dim-state-evidence/1",
+  "created_utc": "2026-10-02T20:40:23.921848+00:00",
+  "native_sha256": "def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe",
+  "recipe_sha256": "2af15cd9f6915334ed42bad8c53e73b49a18ef7ea043597b49d59c2041e31e19",
+  "canonical_map_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+  "lighting_installer_sha256": "9e51c5a64220419197cddacd1d6bda900f880b5383da5acf152acbbc6f72b858",
+  "renderer_sha256": "3c03180a558e462b6839af7dfc2b50c902cf299d6d740623de3b767ca1680718",
+  "lighting_policy": {
+    "scope": "Fuel receivers only; no helper suns or sky-bounce lights illuminate the enclosed corridor.",
+    "map_world": "Original physical outdoor sky retained; no room ambient fill added.",
+    "excluded_map_helpers": [
+      {
+        "light": "VC | Southern sky bounce",
+        "receiver_collection": "INTEGRATION | Fuel daylight exclusions",
+        "fuel_receivers_excluded": 421,
+        "energy_retained": 0.2800000011920929,
+        "outside_fuel_receivers": "unchanged"
+      },
+      {
+        "light": "VC | Warm ground bounce",
+        "receiver_collection": "INTEGRATION | Fuel daylight exclusions",
+        "fuel_receivers_excluded": 421,
+        "energy_retained": 0.08399999886751175,
+        "outside_fuel_receivers": "unchanged"
+      },
+      {
+        "light": "Afternoon sun",
+        "receiver_collection": "INTEGRATION | Fuel daylight exclusions",
+        "fuel_receivers_excluded": 421,
+        "energy_retained": 1.7000000476837158,
+        "outside_fuel_receivers": "unchanged"
+      },
+      {
+        "light": "VC | Open sky fill",
+        "receiver_collection": "INTEGRATION | Fuel daylight exclusions",
+        "fuel_receivers_excluded": 421,
+        "energy_retained": 0.25200000405311584,
+        "outside_fuel_receivers": "unchanged"
+      },
+      {
+        "light": "VC | Cliff sky bounce",
+        "receiver_collection": "INTEGRATION | Fuel daylight exclusions",
+        "fuel_receivers_excluded": 421,
+        "energy_retained": 0.26600000262260437,
+        "outside_fuel_receivers": "unchanged"
+      }
+    ]
+  },
+  "source_saved": false,
+  "settings": {
+    "blender": "5.2.1 LTS",
+    "resolution": [
+      960,
+      640
+    ],
+    "samples": 32,
+    "seed": 7,
+    "denoise": true,
+    "engine": "CYCLES",
+    "device": "CPU",
+    "persistent_data": true,
+    "view_transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": -0.15
+  },
+  "scope": "Sampled still readability and local light response; no continuous cadence or runtime acceptance.",
+  "images": [
+    {
+      "camera": "C01_ENTRY",
+      "frame": 110,
+      "image": "sections/fuel-corridor/production/renders/temporal/F23ci-main-dim/C01_ENTRY_F0110.png",
+      "sha256": "f38bc28d67315871168dc2ffe1807204cfdbb9b269083a5c3294750faaf549e6",
+      "keyed_sources": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 1.8899999856948853,
+          "factor": 0.06999999947018093
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 57.599998474121094,
+          "factor": 0.7199999809265136
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 48.062400817871094,
+          "factor": 0.7599999927614854
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 20.8799991607666,
+          "factor": 0.7199999710609173
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 18.959999084472656,
+          "factor": 0.7899999618530273
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 33.84000015258789,
+          "factor": 0.7200000032465509
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 14.985000610351562,
+          "factor": 0.8325000339084201
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 10.82249927520752,
+          "factor": 0.8324999442467322
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 16.650001525878906,
+          "factor": 0.8325000762939453
+        }
+      ],
+      "failed_east_fixture": {
+        "light": "FC | East fluorescent pool",
+        "energy_w": 0,
+        "fixture": "FC | East fluorescent"
+      }
+    },
+    {
+      "camera": "C03_HERO",
+      "frame": 29,
+      "image": "sections/fuel-corridor/production/renders/temporal/F23ci-main-dim/C03_HERO_F0029.png",
+      "sha256": "137920519bc9f117a8f4932f2074fce29a0d1f1acdd34ca2b4aa35f63ef9069e",
+      "keyed_sources": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 20.520000457763672,
+          "factor": 0.76000001695421
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 9.600000381469727,
+          "factor": 0.12000000476837158
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 50.592002868652344,
+          "factor": 0.8000000241283818
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 22.90999984741211,
+          "factor": 0.7899999947383486
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 19.200000762939453,
+          "factor": 0.8000000317891439
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 37.130001068115234,
+          "factor": 0.790000022725856
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 15.685714721679688,
+          "factor": 0.8714285956488715
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 11.328571319580078,
+          "factor": 0.8714285630446214
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 17.428571701049805,
+          "factor": 0.8714285850524902
+        }
+      ],
+      "failed_east_fixture": {
+        "light": "FC | East fluorescent pool",
+        "energy_w": 0,
+        "fixture": "FC | East fluorescent"
+      }
+    },
+    {
+      "camera": "C05_EAST_TURN",
+      "frame": 1,
+      "image": "sections/fuel-corridor/production/renders/temporal/F23ci-main-dim/C05_EAST_TURN_F0001.png",
+      "sha256": "dfa0d876c04736462c914b203c0294a7a9f7a1ea003b54b6a4d2a810fd905020",
+      "keyed_sources": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 22.139999389648438,
+          "factor": 0.8199999773943866
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 63.20000076293945,
+          "factor": 0.7900000095367432
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 50.592002868652344,
+          "factor": 0.8000000241283818
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 23.200000762939453,
+          "factor": 0.800000026308257
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 18.0,
+          "factor": 0.75
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 37.130001068115234,
+          "factor": 0.790000022725856
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 12.600000381469727,
+          "factor": 0.7000000211927626
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 9.100000381469727,
+          "factor": 0.7000000293438251
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 14.0,
+          "factor": 0.7
+        }
+      ],
+      "failed_east_fixture": {
+        "light": "FC | East fluorescent pool",
+        "energy_w": 0,
+        "fixture": "FC | East fluorescent"
+      }
+    },
+    {
+      "camera": "C08_SERVICE_JUNCTION",
+      "frame": 1,
+      "image": "sections/fuel-corridor/production/renders/temporal/F23ci-main-dim/C08_SERVICE_JUNCTION_F0001.png",
+      "sha256": "7f19e57fb0652099c3e2620578ffc1a3d182c88472310b9f803a59564b7021ba",
+      "keyed_sources": [
+        {
+          "light": "FC | Entry fluorescent pool",
+          "energy_w": 22.139999389648438,
+          "factor": 0.8199999773943866
+        },
+        {
+          "light": "FC | Staging main pool",
+          "energy_w": 63.20000076293945,
+          "factor": 0.7900000095367432
+        },
+        {
+          "light": "FC | Bench practical pool",
+          "energy_w": 50.592002868652344,
+          "factor": 0.8000000241283818
+        },
+        {
+          "light": "FC | Crossing fluorescent pool",
+          "energy_w": 23.200000762939453,
+          "factor": 0.800000026308257
+        },
+        {
+          "light": "FC | Bypass fluorescent pool",
+          "energy_w": 18.0,
+          "factor": 0.75
+        },
+        {
+          "light": "FC | Reactor transfer fluorescent pool",
+          "energy_w": 37.130001068115234,
+          "factor": 0.790000022725856
+        },
+        {
+          "light": "FC | Transfer alarm beacon pool",
+          "energy_w": 12.600000381469727,
+          "factor": 0.7000000211927626
+        },
+        {
+          "light": "FC | Waste alarm beacon pool",
+          "energy_w": 9.100000381469727,
+          "factor": 0.7000000293438251
+        },
+        {
+          "light": "FC | Reactor alarm beacon pool",
+          "energy_w": 14.0,
+          "factor": 0.7
+        }
+      ],
+      "failed_east_fixture": {
+        "light": "FC | East fluorescent pool",
+        "energy_w": 0,
+        "fixture": "FC | East fluorescent"
+      }
+    }
+  ]
+}

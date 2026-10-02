@@ -1,6 +1,6 @@
 # Fuel corridor overhaul state
 
-Phase: F22ci inset-jamb repair in progress; fresh complete native/map pair required. Prior F20/F21 incomplete passes are not accepted.
+Phase: F23ci fixture-lighting repair delivered; independent still-image gate passed. Playback cadence and Unity/runtime unverified.
 Branch: `codex/fuel-corridor-overhaul-20261001` from `75983b9`.
 Source: `sections/facility-assembly/sources/fuel-corridor/module.blend`.
 Baseline SHA256: `f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c`.
@@ -13,7 +13,7 @@ are materially stable; the bounded F12 closure repair changes the recipe and
 native bytes without a visible collateral art regression. Twelve full cycles
 were completed, exceeding the four-cycle minimum. Historical development notes
 below retain their original failures and pending states; the F12 handoff
-records the previous look; the F14ci handoff below records the current evidence. No aesthetic score was overridden.
+records the previous look; later handoffs record successive revisions; the Phase and latest final handoff identify current evidence. No aesthetic score was overridden.
 
 The baseline has 7,978 objects, 34 materials, 16 cameras, 3 packed images and no
 libraries. The task preserves exterior shell footprints/ports while replacing
@@ -506,3 +506,17 @@ All workers used the identical cold-checked native bytes.
 Independent visual review is pending; no art or Unity acceptance is claimed.
 
 Authoring geometry: {"source_triangles": 1098942, "evaluated_triangles": 1104222, "mesh_objects": 356, "material_batch_upper_bound": 1505}.
+
+## F23ci final fixture-lighting handoff
+
+All nine areas were self-critiqued against 20 baseline captures, then re-rendered after ten detail families and localized repairs. The outlet/lead/conduit, cabinet glands, motor bond, intercom, captive bleed cap, flush grate, cloth hems and tied inspection tag are authored geometry. All outer footprints, interfaces, fixed area cameras and the existing gloomy lighting keys are preserved.
+
+Selected native SHA256 `def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe`; construction fingerprint `2af15cd9f6915334ed42bad8c53e73b49a18ef7ea043597b49d59c2041e31e19` across seven byte-exact inputs. Current and archived native/build/cold evidence agree. Geometry is 1,098,942 source /1,104,222 evaluated triangles and 356 meshes; no runtime budget acceptance is implied.
+
+Hosted full review runs: [F22ci](https://github.com/CameronNel/critical-shift/actions/runs/37051143655), [F23ci](https://github.com/CameronNel/critical-shift/actions/runs/37053598575). Each captured all 19 fixed views, closed gate and four full-quality detail proofs from identical per-cycle native bytes. [Pessimistic Luna reports](RUBRIC.md) independently clear every category and area above 98. 20 full cycles exist; the final two are materially stable in independent review. No score override was used.
+
+[Rendered area index](REVIEW_INDEX.md), [builder critique](SELF_CRITIQUE_DETAILS.md) and [checklist](CHECKLIST.md) provide the reviewable handoff. The ordinary `blender --python open_map.py` launcher selects this fuel module; the canonical main and immutable R17 bytes remain untouched. Current main-link and dependency evidence report zero missing fuel IDs, with the 128 unrelated historical spawn/PPE warnings retained.
+
+The current-source preview encodes 240 frames at 24 fps for 10 seconds, with exact reuse of identical held-state PNGs. Native keys are checked every frame and in the linked map. Target-speed visual playback and Unity/runtime are unverified; these do not receive still-image art grades. Draft [PR70](https://github.com/CameronNel/critical-shift/pull/70) is updated; no agent merge.
+
+Five closed boundary portals have full-depth retained folded jamb and roof returns, with all 120 lateral samples blocked. They also have bolted folded meeting lips and rear compressible seals. The native blocks all 60 sampled center-joint sightlines, and final actual-map images were reviewed for the visible fix. Fixture-lighting repair: room World ambient is zero and five map sun/bounce helpers exclude all 421 fuel receivers. All 43 powered emitters remain mapped to actual fabricated emitting optics. The canonical physical outdoor sky and other-room helper energies are unchanged. All 19 actual main-map views in each final cycle and four fresh dim-state captures were opened by builder and pessimistic reviewer; readable routes and local falloff were checked. Prior F17 lighting grades were not inherited. See [lighting correction](LIGHTING_CORRECTION.md).

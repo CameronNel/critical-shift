@@ -1,11 +1,6 @@
 # Fuel corridor self-critique and detail pass
 
-Final state: all nine areas were re-rendered, the ten selected detail families
-were built, and the visible connector defect was repaired. Independent
-F16ci/F17ci reports score every category and area 99, with a materially stable
-final pair. The [render index](REVIEW_INDEX.md) and [rubric](RUBRIC.md) link the
-actual evidence. The following entries retain the original critique and repair
-history.
+Current selected state: F23ci uses real modeled fixtures and bounded physical openings, with unmotivated ambient/map-helper fill removed and closed center/jamb joints sealed. Independent F22ci/F23ci reviews strictly exceed 98 in all seven categories and all nine areas; both complete native/map passes are materially stable. The [render index](REVIEW_INDEX.md), [rubric](RUBRIC.md) and latest complete critique below identify current evidence. The following entries retain the original critique and repair history.
 
 Baseline: selected F14ci native SHA256
 `650aec3f1e654e607de0442ae6f2fcf5544b99feb835ff1a709c2fb6b3641484`.
@@ -178,3 +173,43 @@ See [the lighting correction and seam repair](LIGHTING_CORRECTION.md).
 ## Incomplete F20/F21 inspection and inset-jamb correction
 
 I opened all24 F20 native captures and all11 actual-map images produced before the pass was superseded, plus all24 F21 native captures. C05 in the actual map reveals a bright adjacent-space slot around the closed waste frame. A correct center overlap did not close the missing half-metre side return. The camera/evaluated transform check and exact rays confirm an around-jamb boundary opening. The native dark background concealed the same structural gap. I accepted the independent concern and added full-depth fabricated side and upper returns to all five closed boundary frames. F20/F21 remain incomplete development evidence and receive no accepted full grades. Fresh map proof and a complete stable final pair are pending.
+
+## Complete fixture-lighting and closure inspection — F22ci / F23ci
+
+I opened all 24 actual native area/closed/detail captures and all 19 actual
+assembled-map captures in each fresh cycle, verifying each PNG against its
+manifest and exact archived native. The selected F23ci native is
+`def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe`, with the same seven-input construction fingerprint
+`2af15cd9f6915334ed42bad8c53e73b49a18ef7ea043597b49d59c2041e31e19` across the final pair. I also reopened the actual
+reworked spawn craft references; PR54 supplies mood only.
+
+- Entry/refinery: the visible sconces and damaged roof establish bounded pools and dark overhead intervals. C01/C04 retain route arrows, door identity and threshold detail. The bright vision-pane highlight is confined to glazing and does not wash the floor or service wall.
+- Staging/bench/cask/utilities: D01, C03 and C09 together expose carrier supports, wheel silhouettes and floor contact. D02/P01 show the retained electrical connector, grip, recessed contacts, strain boot and bolted cradle. Tools, cloth, radio and vice sit on credible supports. D03 retains the manifold, valves, numbered gauge and captive bleed cap beneath its real task optic. The gauge face is subdued in the 960×640 map proxy; its indices and needle resolve on inspection in the 1280×853 native close-up. I reopened both for this bounded readability limitation, and the reviewer assessed it against the unchanged spawn bar.
+- Freight gate: the motor, bond lead, rail, guard and mounting contacts read in D05. Open and closed E03 distinguish the passage from seated leaves; the existing freight astragal remains continuous. The floor route stays clear.
+- East turn: C05 preserves the worn arrows, return housing, failed east optic and reactor/waste destinations. Nearby live fixtures explain the remaining local pools. The shadowed turn is navigable.
+- Delivery/waste: E01 retains the arrival paperwork, handoff shelf, sealing station and local warning spill. Its repaired center joint reads as a fabricated folded meeting stile rather than a luminous slit.
+- Reactor adapter: C06/D04 show the paired portal, inspection hardware, check console and red warning optic. P03 exposes the intercom mounting and cable termination. Round-pane highlights remain confined to the glass.
+- Bypass/recess: C07/D06 retain a traceable route and a locally readable manifold, service hose and tied inspection tag. The darker recess edges preserve the requested ominous mood without erasing the passage.
+- Plant header: C10 shows pipe/valve construction, header identity, door hardware and a continuous sealed center joint. P04 confirms the flush rim and recessed open strainer bed. There is no broad unexplained floor-light patch.
+- North/clean: C08/E02 retain cooler practical pools, clean-stock cloth and bottles, wall stations, bounded staining and an open aisle. E02's closed center joint is covered by retained hardware, with no full-height bright slit.
+
+The F18 actual-map pass correctly failed for visible center-door slits.
+The incomplete F20 pass then exposed the separate around-jamb gap. The
+repair adds retained steel spines, folded painted overlaps and rear rubber
+seals inside the original left-leaf meshes. Full-depth retained jamb and roof returns also join the five inset frames to
+the unchanged outer lining. Fresh native and assembled-map images show both
+the center and around-jamb closure finish. All 60 center and120 lateral sampled
+sightlines are blocked, but
+that technical result awards no visual points. I found no further concrete
+visible defect in the two complete final passes. Pessimistic Luna's fresh
+grades and material-stability decision are recorded separately; no score
+override or inherited lighting approval was used.
+
+I opened current-source preview frames 1,28,29,31,32,33,38 and240 and all four
+actual-map dim captures. The light-drop and recovery stills retain route arrows,
+threshold silhouettes and local task pools. The map dim states retain the
+entry, staging, east-turn and clean-route functions under real emitting optics.
+The preview has 240 exact frame mappings at 24 fps over 10 seconds; every image and
+the video are hash-verified. These are bounded still-image and authoring checks.
+Target-speed perceived cadence and Unity/controller/collision/performance
+acceptance remain unverified.
