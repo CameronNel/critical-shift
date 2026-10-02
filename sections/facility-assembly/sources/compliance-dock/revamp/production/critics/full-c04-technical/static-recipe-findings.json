@@ -1,0 +1,63 @@
+{
+  "scope": "Current authored recipe only. Native not opened. No final score.",
+  "recipe_sha256": "bc188f8cf408e9821c12e38baf127567c71ecf8bc48bf44a2efd100dc63f48f0",
+  "P2_hanger_lower_flange_intersection": {
+    "rail_lower_flange_y_m": [
+      15.8,
+      16.08
+    ],
+    "rail_lower_flange_z_m": [
+      3.5,
+      3.52
+    ],
+    "hanger_y_m": [
+      15.8,
+      15.826
+    ],
+    "hanger_foot_z_m": 3.48,
+    "clipped_hanger_cross_section_relative_x_world_z": [
+      [
+        0.01884858286778588,
+        3.52
+      ],
+      [
+        0.022924291433892942,
+        3.5
+      ],
+      [
+        -0.022924291433892942,
+        3.5
+      ],
+      [
+        -0.01884858286778588,
+        3.52
+      ]
+    ],
+    "cross_section_area_m2": 0.0008354574860335723,
+    "intersection_volume_per_hanger_m3": 2.172189463687288e-05,
+    "hanger_count": 4,
+    "bore_bottom_z_m": 3.5515,
+    "interpretation": "A continuous solid hanger neck crosses the anchored C-rail lower flange. Real roller contact does not remove this intersection."
+  },
+  "key_cabinet_recipe": {
+    "shell_y_m": [
+      9.37,
+      9.52
+    ],
+    "interior_back_web_y_m": [
+      9.514,
+      9.52
+    ],
+    "stated_glass_rear_y_m": 9.475,
+    "bow_y_m": [
+      9.4775,
+      9.4805
+    ],
+    "hook_y_m": [
+      9.476,
+      9.514
+    ],
+    "interpretation": "Recipe predicts pane/bow separation and back-web hook engagement. Retained native pane still needs measurement."
+  },
+  "validator_limit": "Registered anchors can be substantiated by any assembly component; an internal physical load path is not proven by ancestry or this validator alone."
+}

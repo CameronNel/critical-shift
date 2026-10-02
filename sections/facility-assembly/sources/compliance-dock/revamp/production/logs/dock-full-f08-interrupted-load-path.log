@@ -1,0 +1,5 @@
+00:00.718  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend"
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:59: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('CD | '+key);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF')
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:400: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bs=mat.node_tree.nodes.get('Principled BSDF') if mat.use_nodes else None

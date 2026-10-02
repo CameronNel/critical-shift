@@ -28,13 +28,14 @@ def shell(name,loc,dims,axis,key,front_sign=-1,taper=.8,cut=.018,opening=.82):
     bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()
     return o
 
-def ring(name,loc,w,h,innerw,innerh,depth,axis,key):
+def ring(name,loc,w,h,innerw,innerh,depth,axis,key,cut=0):
     other=[k for k in range(3) if k!=axis];vs=[]
     for dd,width,height in [(-depth/2,w,h),(depth/2,w,h),(-depth/2,innerw,innerh),(depth/2,innerw,innerh)]:
-        for q in [(-width/2,-height/2),(width/2,-height/2),(width/2,height/2),(-width/2,height/2)]:
+        for q in octagon(width,height,cut) if cut else [(-width/2,-height/2),(width/2,-height/2),(width/2,height/2),(-width/2,height/2)]:
             v=list(loc);v[axis]+=dd;v[other[0]]+=q[0];v[other[1]]+=q[1];vs.append(v)
     fs=[]
-    for a,b in [(0,1),(1,3),(3,2),(2,0)]:fs.extend((a*4+i,a*4+(i+1)%4,b*4+(i+1)%4,b*4+i) for i in range(4))
+    n=8 if cut else 4
+    for a,b in [(0,1),(1,3),(3,2),(2,0)]:fs.extend((a*n+i,a*n+(i+1)%n,b*n+(i+1)%n,b*n+i) for i in range(n))
     o=mesh(name,vs,fs,key,0);bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free();return o
 
 def repair_screens():
@@ -495,7 +496,7 @@ def repair_second_review():
     S['second_full_review_repairs']='Distinct scanner/gate/cargo manufacture and paired check-in hierarchy; annular return bearings, seated lenses/inscription, linked731-A chain, continuing utilities/lockout; active fabric normalized after unwrap'
 
 
-def annular_bearing(name,loc,outer,inner,depth,axis,key,foot=False):
+def annular_bearing(name,loc,outer,inner,depth,axis,key,foot=False,split=False):
     # Closed bearing with a true journal bore. A cast hanger has a flat foot
     # seated on the door top; its eye and neck are ONE continuous solid.
     n=16;other=[k for k in range(3) if k!=axis];vs=[];fs=[]
@@ -506,30 +507,50 @@ def annular_bearing(name,loc,outer,inner,depth,axis,key,foot=False):
                 xx={7:.027,8:0,9:-.027}[j];zz=-.080
             q=list(loc);q[axis]+=dd;q[other[0]]+=xx;q[other[1]]+=zz;vs.append(q)
     for a,b in [(0,1),(1,3),(3,2),(2,0)]:
-        fs.extend((a*n+j,a*n+(j+1)%n,b*n+(j+1)%n,b*n+j) for j in range(n))
+        fs.extend((a*n+j,a*n+(j+1)%n,b*n+(j+1)%n,b*n+j) for j in range(n-1 if split else n))
+    if split:fs.extend([(0,n,3*n,2*n),(n-1,3*n-1,4*n-1,2*n-1)])
     o=mesh(name,vs,fs,key,0)
     bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()
-    o['bearing_contract']='Closed journal bore, 0.5mm radial running clearance; continuous cast hanger foot' if foot else 'Closed annular roller; 0.5mm radial running clearance'
+    o['bearing_contract']='Split C retaining ring in actual machined axle groove' if split else 'Closed journal bore, 0.5mm radial running clearance; continuous cast hanger foot' if foot else 'Closed annular roller; 0.5mm radial running clearance'
+    return o
+
+
+def arrival_captive_axle(xx):
+    # A single headed, grooved axle rather than intersecting shaft/head solids.
+    # Front shoulder seats on the hanger; split spring ring retains the wheel.
+    sections=[(15.842,.014),(15.847,.014),(15.847,.008),(15.970,.008),
+              (15.970,.0075),(15.972,.0075),(15.972,.008),(15.983,.008)]
+    n=12;vs=[(xx+r*sin(2*pi*j/n),yy,3.56+r*cos(2*pi*j/n)) for yy,r in sections for j in range(n)]
+    fs=[tuple(range(n-1,-1,-1)),tuple(range((len(sections)-1)*n,len(sections)*n))]
+    for k in range(len(sections)-1):
+        fs.extend((k*n+j,k*n+(j+1)%n,(k+1)*n+(j+1)%n,(k+1)*n+j) for j in range(n))
+    o=mesh('CD | P2 captive headed journal',vs,fs,'steel',0)
+    bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()
+    o['bearing_contract']='Continuous headed journal; head rear Y15.847 bears hanger front; actual reduced-radius groove Y15.970..15.972 captures split retaining ring'
     return o
 
 
 def repair_arrival_load_path():
     use_root('Arrival Gate P2')
-    # Retained header envelope now contains a real horizontal C rail; both
-    # bottom lips rest on the original jambs. No change to the usable aperture.
-    pts=[(15.8,3.5),(16.08,3.5),(16.08,3.7),(15.8,3.7),
-         (15.8,3.68),(16.06,3.68),(16.06,3.52),(15.8,3.52)]
+    # Enclosed bottom-slotted track positively captures the running trolley.
+    # Both flange strips bear on original jambs; hanger clears the real slot.
+    # Original head envelope and usable aperture remain identical.
+    pts=[(15.84,3.5),(15.8,3.5),(15.8,3.7),(16.08,3.7),(16.08,3.5),
+         (15.88,3.5),(15.88,3.52),(16.06,3.52),(16.06,3.68),
+         (15.82,3.68),(15.82,3.52),(15.84,3.52)]
     replace('P2 frame head lintel',profile('TEMP captured arrival rail',pts,4.92,0,(0,0,0),'steel',0),
-            'Original header becomes a closed C-section load rail within identical bounds; lower flange bears on both original jamb tops')
+            'Original header becomes enclosed bottom-slotted load track within identical bounds; lower flange strips bear on original jamb tops')
     for side in [-1,1]:
         leaf=S.objects['P2 blast leaf '+('west' if side<0 else 'east')]
         for xx in [side*.65,side*1.75]:
-            hanger=annular_bearing('CD | P2 cast leaf hanger',(xx,15.813,3.56),.019,.0085,.026,1,'steel',True)
+            hanger=annular_bearing('CD | P2 cast leaf hanger',(xx,15.860,3.56),.019,.0085,.026,1,'steel',True)
             reposition_parent(hanger,leaf)
-            shaft=cyl('CD | P2 hanger journal',(xx,15.90,3.56),.008,.195,'steel','Y',vertices=16,w=0)
+            shaft=arrival_captive_axle(xx)
             reposition_parent(shaft,leaf)
             wheel=annular_bearing('CD | P2 captured trolley roller',(xx,15.94,3.56),.04,.0085,.060,1,'charcoal')
             reposition_parent(wheel,leaf)
+            clip=annular_bearing('CD | P2 axle retaining spring',(xx,15.971,3.56),.012,.00765,.002,1,'steel',split=True)
+            reposition_parent(clip,leaf)
             # Flat hanger foot meets leaf Z3.48, eye captures the axle; roller
             # bottom Z3.52 rests on the anchored rail flange, not ancestry.
         for zz in [.20,3.20]:
@@ -547,7 +568,7 @@ def repair_key_cabinet():
     use_root('CD | Office key cabinet')
     replace('Office key box cabinet',shell('TEMP real glazed key cabinet',(-3,9.445,1.5),(.30,.15,.40),1,'charcoal',opening=.96,taper=1,cut=.003),
             'Hollow wall-mounted cabinet exposes retained glazing and real interior; original pose, outer front/back datums and wall support preserved')
-    ring('CD | Key pane retaining ledge',(-3,9.4775,1.5),.288,.384,.250,.350,.005,1,'steel')
+    ring('CD | Key pane retaining ledge',(-3,9.4775,1.5),.288,.384,.250,.350,.005,1,'steel',cut=.00288)
     # Pane rear is Y9.475: it sits on the real inner retaining ledge. Key hooks
     # extend from the hollow back web and retain actual separate key rings.
     for xx in [-3.075,-3,-2.925]:
@@ -557,7 +578,7 @@ def repair_key_cabinet():
         box('CD | Key tooth',(xx+.004,9.479,1.494),(.008,.003,.012),'brass',0)
     # Correct the inherited backward internal lettering through authored mesh
     # geometry, retaining its original object matrix/name rather than moving it.
-    box('CD | Key cabinet nameband',(-3,9.373,1.677),(.30,.006,.042),'charcoal',0)
+    profile('CD | Key cabinet nameband',octagon(.288,.036,.003),.002,1,(-3,9.371,1.674),'charcoal',0)
     label=txt('TEMP correctly facing key label','KEYS',(-3,9.3694,1.660),.035,'ivory',align='CENTER')
     label.data.extrude=0
     for o in list(bpy.context.selected_objects):o.select_set(False)
