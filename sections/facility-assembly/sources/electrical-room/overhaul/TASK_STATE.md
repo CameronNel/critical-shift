@@ -1,6 +1,42 @@
 # Electrical overhaul state
 
 Branch: `codex/electrical-room-overhaul-20261002`, based on current main `75983b9`.
+Phase: twelve full cycles complete; current accepted pair R11/R12. The owner
+rejected the prior pale palette. The source now uses gunmetal, darker mineral
+concrete, charcoal accents and functional orange/ochre safety colors, with rough
+dry finishes, localized damp sheen and authored contact wear. P1 was held for
+cloudy, matte concrete; the revised six-view P2 preflight cleared expansion.
+R11 and a separate fresh pessimistic Luna R12 review independently score99 in
+all seven categories against five actual reworked Spawn references=100. See
+`critics/R11.md` and `critics/R12-FRESH.md`. No numeric score override or lowered
+standard is used. Both inspect14 formal,11 supplemental and5 actual-map views.
+R12's11 supplements are transparently reused at identical source bytes.
+
+Current editable `../module.blend` is byte-identical to `checkpoints/full-R11.blend`,
+SHA-256 `eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df`.
+Exactly18 material definitions and selected existing practical powers change;
+all3177 object signatures, cameras, assignments and color management are preserved.
+R12 fresh saved-source/native/link checks pass. Final candidate SHA-256 is
+`623de76b39b9351afbc6cae3cd5d0aa15a49366748616b169670db078ede94c1`.
+Main map, R17, frozen accepted source, provenance and neighboring sources remain
+unchanged. The candidate retains exactly128 inherited missing Spawn-wrapper IDs,
+with26 legacy electrical material IDs compatible and zero new electrical defects.
+
+All fourteen same-source decoded RGB views match exactly. Of five actual-map
+views, 2 match exactly; the maximum measured channel difference is
+one 8-bit step. The raw comparison is retained and the fresh reviewer
+independently accepts visual stability. Eleven same-byte supplemental views
+are explicitly reused rather than counted as new R12 renders.
+
+The complete reviewed source, linked-map candidate and evidence are local on
+the task branch. Authenticated Git reads work with task network permission.
+Automatic approval review rejected the LFS upload pending explicit user
+authorization for the scoped payload and GitHub destination. No remote
+branch or PR is claimed. See overhaul/publication-status.json.
+Map-owner adoption/preview-control registration and engine runtime remain separate.
+
+## Previous art iteration history, before the owner palette correction
+
 Phase: ten full cycles complete. R9 and the separate fresh pessimistic Luna R10
 review independently score99 in all seven categories against reworked spawn=100.
 The final two full cycles are materially stable. Canonical module is byte-identical
@@ -20,8 +56,7 @@ Reference: the reworked spawn module and final-pass player-height renders, defin
 by the owner as 100. Required final scores: every category >98, no lowered standards.
 
 Baseline: `checkpoints/baseline.blend`, original portable module; four fixed-camera
-baseline captures and full object inventory under `renders/baseline/`. Canonical
-`../module.blend` now byte-matches approved R9. Main map, frozen
+baseline captures and full object inventory under `renders/baseline/`. At R10 acceptance, the canonical module byte-matched approved R9. Main map, frozen
 `../accepted.blend`, provenance and neighbors remain unchanged. Fourteen inherited
 camera transforms/lenses are preserved.
 
@@ -36,7 +71,7 @@ embedded Python3.13.13. CPU render, four threads, no GPU. Blender's cloud PulseA
 shutdown hangs after successful execution; scripts explicitly flush and terminate
 only after all intended outputs have completed. This does not suppress failures.
 
-Current source: `../module.blend`, identical to `checkpoints/full-R9b.blend`;
+Source at R10 acceptance: `../module.blend`, identical to `checkpoints/full-R9b.blend`;
 `validation-R10.json` source SHA-256 matches it and saved-source checks pass. Counts are in
 each revision's validation report. No measured engine performance claim.
 
@@ -46,7 +81,7 @@ independent owner review; do not self-merge. Runtime remains untested.
 The accepted art/evidence are committed locally as d424ad1. GitHub publication is
 blocked by the cloud proxy returning HTTP503 on uncached GitHub and LFS requests.
 Ten paused connection checks also fail. No successful push or PR creation is
-claimed; see publication-status.json. All reviewed files remain available locally.
+claimed; see publication-status-R10.json. All reviewed files remain available locally.
 
 Reviewed R9 source is `checkpoints/full-R9b.blend`, SHA-256
 `382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279`.

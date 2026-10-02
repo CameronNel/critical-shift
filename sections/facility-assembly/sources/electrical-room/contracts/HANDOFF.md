@@ -1,7 +1,7 @@
 # Electrical room overhaul — October 2026
 
 The current editable source is [../module.blend](../module.blend), promoted on
-`codex/electrical-room-overhaul-20261002` from the reviewed R9 checkpoint. Use the
+`codex/electrical-room-overhaul-20261002` from the reviewed R11 palette checkpoint. Use the
 current facility map and its selected portable modules; the older standalone E05
 handoff and placement proposals are historical. The room remains 11.0 ×16.4 ×4.8m
 with a 2.8 ×4.4 ×3.6m reserve bay.
@@ -10,24 +10,32 @@ with a 2.8 ×4.4 ×3.6m reserve bay.
 
 The [overhaul package](../overhaul/TASK_STATE.md) contains the fixed-camera renders,
 independent critiques, correction ledger, build scripts and hash-bound checks.
-Ten full review cycles are complete. R9 and the separate fresh pessimistic Luna
-R10 review score99 in all seven categories against
-reworked spawn=100 after the door/material work, rejection of weak floor patches,
-and final cable, glass-transmission and reserve-service lighting corrections.
-The current source is byte-identical to the reviewed R9 checkpoint. R10 saved-source
-validation, native checkout, bounded link audit and five actual-map captures pass.
-All fourteen unchanged-source decoded RGB views match exactly. Three assembled
-views match exactly; two differ in a few channel values by one8-bit step, recorded
-and independently judged visually immaterial. Final R9/R10 stability and fresh
-cold visual acceptance are complete; see critics/R9.md and critics/R10-FRESH.md
-in the overhaul package. The source-hash-bound floor close-up resolves the fresh
-reviewer's remaining finish question without a scene change. Supplemental six
-details and optical pair are explicitly reused at identical source bytes.
+The owner rejected the previous pale palette as too light and washed out. The
+current source uses cool gunmetal, charcoal accents, darker mineral concrete,
+saturated orange/ochre safety colors and localized roughness, damp sheen and wear.
+The first palette preflight was held for cloudy, matte concrete; the revised
+six-view preflight and complete R11 review pass. Twelve full cycles are complete.
+R11 and the separate fresh pessimistic Luna R12 review independently score99 in
+all seven categories against reworked Spawn=100. Each reviews14 formal views,
+11 supplemental views and5 actual-map views; R12 supplements are explicitly reused.
+The current module is byte-identical to reviewed R11, SHA-256
+`eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df`.
+Exactly18 existing material definitions and selected practical powers change;
+all3177 object signatures, cameras, assignments and color management are preserved.
+R12 saved-source, native checkout and bounded candidate-link checks pass.
+Prior R9/R10 pale-palette approval is historical and superseded.
 
-The accepted scene and evidence are committed locally as d424ad1 on the task
-branch. GitHub publication is blocked by cloud-proxy HTTP503 failures, including
-ten paused uncached connection checks. No published PR is claimed; the complete
-local source/candidate and reviews remain ready. See overhaul/publication-status.json.
+All fourteen same-source decoded RGB views match exactly. Of five actual-map
+views, 2 match exactly; the maximum measured channel difference is
+one 8-bit step. The raw comparison is retained and the fresh reviewer
+independently accepts visual stability. Eleven same-byte supplemental views
+are explicitly reused rather than counted as new R12 renders.
+
+The complete reviewed source, linked-map candidate and evidence are local on
+the task branch. Authenticated Git reads work with task network permission.
+Automatic approval review rejected the LFS upload pending explicit user
+authorization for the scoped payload and GitHub destination. No remote
+branch or PR is claimed. See overhaul/publication-status.json.
 
 The assembled render/link handoff is
 [facility_electrical_overhaul_candidate.blend](../../../blender/facility_electrical_overhaul_candidate.blend),

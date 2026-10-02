@@ -87,6 +87,17 @@ elif a.visual_repair_receipt:
                      and all(v['support_gap_m']<.00001 for v in rc['measured_jamb_contacts'])
                      and rc['existing_rack_support_roots_reused']==3
                      and rc['new_material_names']==['EOH | Reserve service LED diffuser'])
+    elif receipt.get('repair_kind')=='owner_palette_and_light_balance':
+        changes=receipt['declared_changes']
+        expected={'EOH | '+name for name in changes['material_profiles']}
+        expected.update('EOH | Leaf '+str(i)+' individual coating' for i in range(1,5))
+        bounded=(receipt['all_geometry_matrices_cameras_assignments_visibility_properties_unchanged']
+                 and receipt['color_management_unchanged']
+                 and receipt['all_other_material_definitions_unchanged']
+                 and receipt['all_other_lights_and_all_light_colors_unchanged']
+                 and set(receipt['changed_material_definitions'])==expected
+                 and changes['reserved_clear_route_is_dry']
+                 and changes['existing_authored_contact_wear_and_geometry_preserved'])
     else:
         bounded=(receipt['all_other_matrices_geometry_material_assignments_visibility_lights_unchanged']
                  and len(receipt['retired_original_decorative_wear'])==104

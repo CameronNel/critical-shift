@@ -1,0 +1,69 @@
+{
+  "repair_kind": "owner_palette_and_light_balance",
+  "input_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
+  "output_sha256": "eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df",
+  "declared_changes": {
+    "material_profiles": [
+      "cream",
+      "floor",
+      "route",
+      "enamel",
+      "slate",
+      "replacement",
+      "steel",
+      "zinc",
+      "oxide",
+      "ochre",
+      "redrubber",
+      "Coarse service epoxy",
+      "Floor contact history",
+      "Moulded reserve cell casing"
+    ],
+    "individual_leaf_profiles": 4,
+    "localized_damp_materials": [
+      "EOH | cream",
+      "EOH | floor"
+    ],
+    "practical_powers_watts": {
+      "Entry fluorescent light": 65,
+      "Rear hall practical light": 65,
+      "West task fluorescent light": 230,
+      "West rear practical light": 190,
+      "Transformer task practical light": 240,
+      "Transfer task practical light": 150,
+      "Reserve bay practical light": 200,
+      "EOH | Bench practical": 36
+    },
+    "world_strength": 0.035,
+    "exposure_unchanged": 0.0,
+    "reserved_clear_route_is_dry": true,
+    "existing_authored_contact_wear_and_geometry_preserved": true
+  },
+  "all_geometry_matrices_cameras_assignments_visibility_properties_unchanged": true,
+  "checked_objects": 3177,
+  "color_management_unchanged": true,
+  "changed_material_definitions": [
+    "EOH | Coarse service epoxy",
+    "EOH | Floor contact history",
+    "EOH | Leaf 1 individual coating",
+    "EOH | Leaf 2 individual coating",
+    "EOH | Leaf 3 individual coating",
+    "EOH | Leaf 4 individual coating",
+    "EOH | Moulded reserve cell casing",
+    "EOH | cream",
+    "EOH | enamel",
+    "EOH | floor",
+    "EOH | ochre",
+    "EOH | oxide",
+    "EOH | redrubber",
+    "EOH | replacement",
+    "EOH | route",
+    "EOH | slate",
+    "EOH | steel",
+    "EOH | zinc"
+  ],
+  "all_other_material_definitions_unchanged": true,
+  "all_other_lights_and_all_light_colors_unchanged": true,
+  "source_bytes_unchanged": true,
+  "scope": "Owner-directed material and existing practical-light finish. No object, topology, interface, placement, camera, material assignment, or color-management change."
+}

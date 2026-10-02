@@ -1,5 +1,14 @@
 # Electrical room overhaul
 
+Owner palette correction, 2 October 2026: the previous accepted review does not
+approve its pale color palette. The owner finds the room too light, washed out
+and bland, and requests gunmetal, wet concrete, dark accents, functional safety
+colors, rough surfaces and selective wear. This direction supersedes the earlier
+pale material choices. Keep the constructed assets and strict Spawn fidelity
+reference, with readable controls/routes and localized work lighting. Dampness is
+localized to mineral surfaces near walls; the protected central epoxy route stays
+dry. No blanket glossy film, noise-only finish or dark exposure trick.
+
 Owner request, 2 October 2026. Rework the existing `../module.blend`, which is the
 portable electrical source for the main map. The current map bakes its old
 interior into a local preview cache; a direct-link integration candidate is

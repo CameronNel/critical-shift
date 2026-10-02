@@ -2,25 +2,34 @@
 
 Branch: `codex/electrical-room-overhaul-20261002`, based on main75983b9.
 Current editable source: `../../module.blend` relative to this state file.
-The current source is byte-identical to reviewed R9, SHA-256
-`382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279`.
+The current source is byte-identical to reviewed R11 palette checkpoint, SHA-256
+`eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df`.
 
 Read [../HANDOFF.md](../HANDOFF.md) and the current
 [overhaul state](../../overhaul/TASK_STATE.md). Historical E05 scores and proposed
 neighbor placements are not acceptance evidence for this requested October work.
 
-Ten full review cycles are complete against reworked spawn=100. R9 and the
-separate fresh pessimistic Luna R10 review score99 in every category after the
-final cable/glass/reserve-lighting corrections. The reviewed source has been
-byte-promoted under the requested module edit scope. R10 saved-source/native and
-bounded candidate-link checks pass; all fourteen fresh source views are decoded
-pixel-identical. The five assembled views are independently judged materially
-stable, with the measured one-step differences in two images retained. Final
-two-cycle and fresh cold acceptance are complete. Submit through the task branch
-for independent PR review; do not self merge. Runtime remains untested.
-The accepted art commit is d424ad1. GitHub publication is blocked by cloud-proxy
-HTTP503 failures; no successful push or draft PR is claimed. Local reviewed files
-are intact. The overhaul publication-status.json records the failed handoff.
+The owner-requested palette replaces the previous pale colors with dark gunmetal,
+mineral concrete, charcoal accents and saturated orange/ochre safety colors.
+Roughness, localized damp response and authored contact wear remain controlled.
+P1 was held; the revised six-view P2 preflight passed. Twelve full cycles are
+complete. R11 and the separate fresh pessimistic Luna R12 review score99 in every
+category against actual reworked Spawn=100. The exact reviewed R11 bytes are
+promoted to the existing module; R12 saved-source/native and bounded link checks pass.
+Prior pale-palette R9/R10 approval is historical and superseded.
+
+All fourteen same-source decoded RGB views match exactly. Of five actual-map
+views, 2 match exactly; the maximum measured channel difference is
+one 8-bit step. The raw comparison is retained and the fresh reviewer
+independently accepts visual stability. Eleven same-byte supplemental views
+are explicitly reused rather than counted as new R12 renders.
+
+The complete reviewed source, linked-map candidate and evidence are local on
+the task branch. Authenticated Git reads work with task network permission.
+Automatic approval review rejected the LFS upload pending explicit user
+authorization for the scoped payload and GitHub destination. No remote
+branch or PR is claimed. See overhaul/publication-status.json.
+Do not self merge. Runtime remains untested.
 
 Original shell, floor, interfaces, utility/interaction anchors and fixed cameras
 are protected. The canonical source has no missing dependencies and retains the

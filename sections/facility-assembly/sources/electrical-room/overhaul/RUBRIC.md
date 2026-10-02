@@ -4,6 +4,10 @@ Reference: owner-defined reworked spawn room=100. Reviewer: pessimistic
 gpt-6-luna, high effort. Required outcome: every category>98 independently;
 integer99 is the minimum. No average compensates for a failing category.
 
+The owner rejects R9/R10's pale palette after those reviews. The new gunmetal,
+damp-concrete, dark-accent and safety-color finish is assessed anew. Earlier scores
+are retained as history and do not approve the new palette.
+
 Point allocation totals100: spatial20, construction20, machinery15,
 materials15, lighting10, story/dressing10, bounded technical10. Reviews report
 each category normalized to100 so the owner's per-category threshold applies
@@ -21,6 +25,8 @@ directly. A weighted overall score cannot override any category's failure.
 | R8 | 99 | 98 | 98 | 97 | 97 | 99 | 99 | Fresh review fails: cable construction, glazing transmission, reserve service lighting |
 | R9 | 99 | 99 | 99 | 99 | 99 | 99 | 99 | Complete independent visual iteration passes; exact source promoted |
 | R10 | 99 | 99 | 99 | 99 | 99 | 99 | 99 | Fresh pessimistic Luna independently passes; unchanged source and final R9/R10 pair materially stable |
+| R11 | 99 | 99 | 99 | 99 | 99 | 99 | 99 | New owner palette independently passes full30-image review; accepted with fresh R12 |
+| R12 | 99 | 99 | 99 | 99 | 99 | 99 | 99 | Separate fresh pessimistic Luna accepts complete cold packet and R11/R12 visual stability |
 
 Full reviews inspect all14 inherited cameras and use the actual assembled-map
 threshold cameras to establish adjoining context. Review prose and correction

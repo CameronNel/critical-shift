@@ -10,11 +10,12 @@ p.add_argument('--samples',type=int,default=24)
 p.add_argument('--width',type=int,default=1280)
 p.add_argument('--diagnostics',action='store_true',help='Supplemental close-ups; never replace the14 formal cameras')
 p.add_argument('--floor-proof',action='store_true',help='One read-only resolving floor view; never changes the saved scene')
+p.add_argument('--palette-proof',action='store_true',help='Read-only damp-to-dry concrete and rough-wall detail views')
 a=p.parse_args(sys.argv[sys.argv.index('--')+1:])
 out=Path(a.out).resolve(); out.mkdir(parents=True,exist_ok=True)
 scene=bpy.context.scene
 source=Path(bpy.data.filepath)
-if a.diagnostics or a.floor_proof:
+if a.diagnostics or a.floor_proof or a.palette_proof:
     diagnostic_views=[
         ('DG01_Rescue',(3.2,3.8,1.56),(4.02,.15,1.55),32),
         ('DG02_Lead_Storage',(2.5,13.3,1.45),(4.0,16.05,.85),35),
@@ -28,6 +29,12 @@ if a.diagnostics or a.floor_proof:
         diagnostic_views.append(('DG07_Probe_Junction',(-3.80,1.58,1.30),(-4.30,1.88,.887),65))
     if a.floor_proof:
         diagnostic_views=[('FP01_Route_Surface',(-.72,7.40,.48),(.10,8.75,.005),38)]
+    if a.palette_proof:
+        diagnostic_views=[
+            ('PF01_Damp_Concrete',(2.35,1.0,.48),(4.30,2.45,.005),38),
+            ('PF02_Rough_Wall',(3.15,14.95,1.60),(4.90,16.38,1.35),50),
+            ('PF03_Grazing_Damp_Response',(5.20,2.25,.45),(4.65,2.30,.005),40),
+        ]
     for name,pos,target,lens in diagnostic_views:
         data=bpy.data.cameras.new(name);o=bpy.data.objects.new(name,data)
         scene.collection.objects.link(o);o.location=pos
@@ -52,7 +59,7 @@ scene.render.image_settings.file_format='PNG';scene.render.use_file_extension=Tr
 views=sorted([o for o in scene.objects if o.type=='CAMERA'],key=lambda o:o.name)
 if a.views!='all': views=[o for o in views if o.name in a.views.split(',')]
 else:views=[o for o in views if o.name.startswith(('C','W'))]
-manifest={'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'blender':bpy.app.version_string,'embedded_python':sys.version,'samples':a.samples,'resolution':[scene.render.resolution_x,scene.render.resolution_y],'renderer':'Cycles CPU','purpose':'Read-only floor surface resolving view' if a.floor_proof else 'Supplemental diagnostic close-ups' if a.diagnostics else 'Fixed formal review views','views':[]}
+manifest={'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'blender':bpy.app.version_string,'embedded_python':sys.version,'samples':a.samples,'resolution':[scene.render.resolution_x,scene.render.resolution_y],'renderer':'Cycles CPU','purpose':'Read-only palette surface resolving views' if a.palette_proof else 'Read-only floor surface resolving view' if a.floor_proof else 'Supplemental diagnostic close-ups' if a.diagnostics else 'Fixed formal review views','views':[]}
 for o in views:
     scene.camera=o;scene.render.filepath=str(out/(o.name+'.png'));start=time.time()
     bpy.ops.render.render(write_still=True)

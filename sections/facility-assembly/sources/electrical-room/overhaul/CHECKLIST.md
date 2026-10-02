@@ -1,6 +1,16 @@
 # Electrical overhaul verification
 
-## Completion contract
+## Current owner palette gates
+
+- [x] Dark gunmetal/concrete/safety direction overrides the old pale palette.
+- [x] P1 visual hold recorded, then six-view P2 preflight independently approved.
+- [x] R11 source byte-matches P2; exact material/light change receipt and source validation pass.
+- [x] Complete full R11 formal14, supplemental11 and actual-map5 rendered review; all categories99.
+- [x] Every new final category independently above98 and final two cycles stable.
+- [x] Fresh cold source/native/map-link checks and final evidence integrity.
+- [x] Promote the accepted palette bytes and finish the updated handoff.
+
+## Prior completion contract, before the palette correction
 
 - [x] New task branch from current main; no self merge.
 - [x] Read shared headless and material skills and current map/art authorities.
@@ -21,7 +31,7 @@
 - [x] Actual-map five-view threshold/context evidence and bounded integration dependency checks.
 - [x] Canonical electrical module byte-promoted under the requested edit scope.
 - [x] Active checkout/provenance and final source/candidate delivery-integrity checks.
-- [ ] Bounded draft PR published for independent review; blocked by cloud proxy HTTP503 during Git/LFS upload. No self merge.
+- [ ] Bounded draft PR published for independent review; currently blocked by automatic approval review pending explicit publication authorization. Earlier proxy failures remain historical. No self merge.
 
 ## Evidence boundaries
 

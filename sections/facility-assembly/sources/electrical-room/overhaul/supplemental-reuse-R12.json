@@ -1,0 +1,25 @@
+{
+  "source_sha256": "eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df",
+  "same_source_bytes": true,
+  "reused_evidence": [
+    {
+      "kind": "diagnostics",
+      "directory": "sections/facility-assembly/sources/electrical-room/overhaul/renders/diagnostics-R11",
+      "manifest_sha256": "119cd18e36120d070ab71a75c4484a2fd9e5f97f7c7835e8ed8a1f59666e12fe",
+      "image_count": 6
+    },
+    {
+      "kind": "optical",
+      "directory": "sections/facility-assembly/sources/electrical-room/overhaul/renders/optical-R11",
+      "manifest_sha256": "797d9b3db164fcbe8c10ce470eb42066bd51696c086a8b5c893cb59cf8354433",
+      "image_count": 2
+    },
+    {
+      "kind": "palette-proof",
+      "directory": "sections/facility-assembly/sources/electrical-room/overhaul/renders/palette-proof-R11",
+      "manifest_sha256": "57a88d98e9698d511d3cdbbcfeb71b5548418a9723245cd161fe8cf65e627d5e",
+      "image_count": 3
+    }
+  ],
+  "scope": "Existing hash-valid supplemental evidence at identical source bytes. Formal14 and map5 are freshly captured for this cycle; reused details are explicitly not new renders."
+}

@@ -2,33 +2,36 @@
   "authorization": "Owner directly requested editing the existing electrical module on a new branch. Canonical whole-map ownership remains with map owner.",
   "base_commit": "75983b95efb99536b1cda1a5533d9b265a4c581f",
   "module_before_sha256": "10b37b1ca5c5abee8a3f781205327edcc8fb1ff23e9d41632e3c5579b0f08476",
-  "module_after_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
-  "approved_checkpoint_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
+  "module_after_sha256": "eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df",
+  "approved_checkpoint_sha256": "eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df",
   "byte_identical_promotion": true,
   "main_map_sha256_unchanged": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
   "frozen_accepted_sha256": "01447dce65a406afa84448e440176aefd37cdda702dc0a4cd51cee366c298dfd",
   "independent_review_receipts": [
-    "critics/R9.md",
-    "critics/R10-FRESH.md"
+    "critics/R11.md",
+    "critics/R12-FRESH.md"
   ],
-  "cold_final_cycle": "R10 accepted; fresh pessimistic gpt-6-luna independently scores99 in all seven categories",
-  "accepted_stable_pair": ["R9", "R10"],
-  "final_candidate_sha256": "132dde7f53a067b4eff75f1eabe7469991e053dff722499197011a78623a9a6d",
+  "cold_final_cycle": "R12",
+  "accepted_stable_pair": [
+    "R11",
+    "R12"
+  ],
+  "final_candidate_sha256": "623de76b39b9351afbc6cae3cd5d0aa15a49366748616b169670db078ede94c1",
   "final_evidence_receipts": [
-    "validation-R10.json",
-    "active-checkout-R10.json",
-    "R9-to-R10-render-comparison.json",
-    "supplemental-reuse-R10.json",
-    "integration-R10.json",
-    "candidate-audit-R10.json",
-    "context-R10.json",
-    "R9-to-R10-map-pixel-comparison.json",
-    "renders/floor-proof-R10/manifest.json",
-    "delivery-integrity.json"
+    "palette-R11.json",
+    "palette-promotion-R11.json",
+    "validation-R12.json",
+    "active-checkout-R12.json",
+    "integration-R12.json",
+    "candidate-audit-R12.json",
+    "context-R12.json",
+    "R11-to-R12-render-comparison.json",
+    "R11-to-R12-map-pixel-comparison.json",
+    "supplemental-reuse-R12.json"
   ],
   "formal14_decoded_pixels_identical": true,
   "map5_all_decoded_pixels_identical": false,
-  "map5_visual_stability": "Fresh reviewer inspected all five images; a few one-step8-bit channel differences in EI_C03/EI_W01 are visually immaterial. Exact receipt retained.",
+  "map5_visual_stability": "Independently assessed in critics/R12-FRESH.md from all five actual current candidate images and raw comparison.",
   "numeric_score_override_used": false,
   "promotion_history": [
     {
@@ -44,6 +47,21 @@
         "critics/R7.md"
       ],
       "subsequent_cold_visual_review": "R8 failed; recorded in critics/R8-FRESH.md"
+    },
+    {
+      "source_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
+      "reviews": [
+        "critics/R9.md",
+        "critics/R10-FRESH.md"
+      ],
+      "accepted_stable_pair": [
+        "R9",
+        "R10"
+      ],
+      "owner_palette_superseded": true
     }
-  ]
+  ],
+  "status": "palette_R11_R12_independently_accepted_cold_stable_local_delivery",
+  "approved_checkpoint": "checkpoints/full-R11.blend",
+  "map5_maximum_channel_difference_8bit": 1
 }

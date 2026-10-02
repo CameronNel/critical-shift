@@ -1,38 +1,38 @@
 {
   "scope": "Final delivery byte/hash and bounded evidence consistency only. Independent visual acceptance is recorded separately; no runtime or whole-map certification.",
-  "module_sha256": "382d38031655da0bec7eb19e925c59661a0199478f6e8d558eee148f54d9e279",
-  "candidate_sha256": "132dde7f53a067b4eff75f1eabe7469991e053dff722499197011a78623a9a6d",
+  "module_sha256": "eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df",
+  "candidate_sha256": "623de76b39b9351afbc6cae3cd5d0aa15a49366748616b169670db078ede94c1",
   "approved_checkpoint_byte_match": true,
   "evidence": [
     {
-      "directory": "renders/R9",
+      "directory": "renders/R11",
       "images": 14,
-      "manifest_sha256": "098b5f779b715bcfc84f029c4bf27a69171a53e5ea379cee606afe970a26d02f"
+      "manifest_sha256": "69022744c10748e25c923c2b26ff1acd04024157a85fbce2d3e770265b4551b3"
     },
     {
-      "directory": "renders/R10",
+      "directory": "renders/R12",
       "images": 14,
-      "manifest_sha256": "ea7e144241359796bbab771dd30cc60de4674d41274aaeecbd54bb3b4538c167"
+      "manifest_sha256": "a929cf7b6f0af7d361d0b723da26758b2e23a4b062afe4a552526b6b85110640"
     },
     {
-      "directory": "renders/diagnostics-R9",
+      "directory": "renders/diagnostics-R11",
       "images": 6,
-      "manifest_sha256": "fd2b0f7088936290611542f7d0c9a60790e822c752bc8df1a5e03be9f855c9bd"
+      "manifest_sha256": "119cd18e36120d070ab71a75c4484a2fd9e5f97f7c7835e8ed8a1f59666e12fe"
     },
     {
-      "directory": "renders/optical-R9",
+      "directory": "renders/optical-R11",
       "images": 2,
-      "manifest_sha256": "a05bee2e8a266f71d1e17decd2bad8ac12dce3fad628f82518fda1f50db2f309"
+      "manifest_sha256": "797d9b3db164fcbe8c10ce470eb42066bd51696c086a8b5c893cb59cf8354433"
     },
     {
-      "directory": "renders/map-R10",
+      "directory": "renders/palette-proof-R11",
+      "images": 3,
+      "manifest_sha256": "57a88d98e9698d511d3cdbbcfeb71b5548418a9723245cd161fe8cf65e627d5e"
+    },
+    {
+      "directory": "renders/map-R12",
       "images": 5,
-      "manifest_sha256": "f426b49df2522c84caf469400d5fce93bf4ebc5771fdb80c92e73c9729534631"
-    },
-    {
-      "directory": "renders/floor-proof-R10",
-      "images": 1,
-      "manifest_sha256": "f4424819a9272c56766f7d50951ad93de5bfc5982d1e02dbeeceedf2f1c4354c"
+      "manifest_sha256": "b18d032ef0ca3892d054cfef2a2028f26eb0ab120c3b24f4a093ea0c5c99ef0a"
     }
   ],
   "formal14_same_source_decoded_pixels_identical": true,

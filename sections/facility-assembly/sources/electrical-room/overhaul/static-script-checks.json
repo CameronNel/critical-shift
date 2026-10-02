@@ -1,7 +1,7 @@
 {
   "scope": "Python syntax and bash parser checks only; Blender behavioral and visual evidence are separate.",
   "python": "3.11.16",
-  "python_script_count": 27,
+  "python_script_count": 29,
   "scripts": [
     {
       "file": "scripts/audit_candidate.py",
@@ -9,15 +9,15 @@
     },
     {
       "file": "scripts/build.py",
-      "sha256": "347f8d54b865c549eff7441a133001ff3b91e38d808004456cbd71a6e1f7f4c3"
+      "sha256": "000f7d6e44d39894deea547bc380cf285fc528d5dc0924a7ef97c2ab72fc296d"
     },
     {
       "file": "scripts/capture.py",
-      "sha256": "34bdb13e2ce0b356021ee185152052aca210fb25f713d86e0c19795f4a82abb9"
+      "sha256": "1c059310eede81e9629550a4249bce701c78b7d716229061d543e2960c99486a"
     },
     {
       "file": "scripts/compare_captures.py",
-      "sha256": "3fa677693859888eadc12f7e70b7bf83acd2914d397d9a9b499b400ab48e78d4"
+      "sha256": "a09347470284df6c115d37b497596e010ec86cc2eaf988b419829d90e3892de2"
     },
     {
       "file": "scripts/compare_map_captures.py",
@@ -56,6 +56,10 @@
       "sha256": "2843d9ed07fe7eae987aab580972320c767a9e2df906a12260c6848666014dc1"
     },
     {
+      "file": "scripts/palette_finish.py",
+      "sha256": "46ddd0c31b6f0867bb9f312b31ed8a2ff7968b4c3cf7c82b62b643140ee27914"
+    },
+    {
       "file": "scripts/preserve_legacy.py",
       "sha256": "0d8e7975f0731dab3affb170a4ed88b88228ad6ea397df4fb56d337b0046e191"
     },
@@ -74,6 +78,10 @@
     {
       "file": "scripts/repair_lead_finish.py",
       "sha256": "1fa7e5cf869580cf071d51b95f506ef567021702e768fb8ee0763310f5f9e1f0"
+    },
+    {
+      "file": "scripts/repair_palette_finish.py",
+      "sha256": "6f0fae9804e1c2695b5d3b68b6c167f2a5848c291fa062e652a4961ae8ff5a4f"
     },
     {
       "file": "scripts/repair_reserve_finish.py",

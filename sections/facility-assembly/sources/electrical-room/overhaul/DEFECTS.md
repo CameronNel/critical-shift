@@ -1,5 +1,26 @@
 # Electrical overhaul correction ledger
 
+## Owner palette correction after R10
+
+- The owner rejects the prior pale, light, washed-out palette despite the earlier
+  independent quality scores. New direction: gunmetal, wet concrete, dark accents,
+  functional safety colors, rough texture and selective wear. Prior scores cannot
+  approve the new palette.
+- Palette-P1 preflight establishes the dark gunmetal/charcoal and safety hierarchy,
+  but Luna holds expansion: broad cloudy mineral fields still look matte rather
+  than selectively damp. Local switchgear face separation also needs attention.
+  See `critics/PALETTE-P1.md`; no full-cycle score is assigned to this preflight.
+- Palette-P2 targets quieter mineral color variation, two bounded side-floor
+  damp zones with satin response, retained physical use history and modest local
+  equipment spill. Saved-source checks pass. Luna inspects all three fixed views
+  and three resolving views, confirms localized damp reflection and rough relief,
+  and clears expansion in `critics/PALETTE-P2.md`. Full R11 independently passes
+  all seven categories at99 after all30 source/detail/map images are inspected;
+  `critics/R11.md` records the palette findings. Separate fresh R12 independently
+  scores99 in all seven categories after the complete cold source/map packet;
+  `critics/R12-FRESH.md` accepts final R11/R12 stability. No override is used.
+  The clear central route and original interfaces remain.
+
 ## R1 reviewer defects
 
 - Open portals appeared black in standalone evidence: actual-map R2 fixed cameras

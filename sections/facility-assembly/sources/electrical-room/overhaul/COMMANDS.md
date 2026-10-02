@@ -55,6 +55,17 @@ stage preserves every existing object/material definition and adds nine service
 strips with eighteen measured rack-jamb contacts. Fixtures reuse three registered
 rack roots; the final source still has59 registered support assemblies.
 
+The owner-directed palette stage is `palette_finish.py`, called last by the full
+builder. It changes selected existing material definitions and practical powers:
+gunmetal equipment, charcoal accents, dark mineral concrete, orange/yellow safety
+paint, fine relief and bounded damp response beside the walls. The central route
+stays dry. To apply it to the retained pre-palette `checkpoints/full-R9b.blend`, run
+`repair_palette_finish.py` with explicit `--output NEW_CHECKPOINT --receipt REPORT`.
+The wrapper asserts all3177 object geometry, matrices, cameras, assignments,
+visibility and properties unchanged; exactly18 existing material definitions
+change, and all other definitions, light colors and color management are checked.
+Never run this stage twice against a palette-finished source.
+
 Additional Blender scripts use the same executable and
 `-noaudio --background --disable-autoexec --python-exit-code 1 --python SCRIPT --`:
 
@@ -65,6 +76,9 @@ integration/audit scripts open their own explicit inputs.
 - `capture.py --out DIR --floor-proof --samples 24 --width 1280` adds one
   low oblique resolving view of the existing center-floor material. It never
   changes/saves the room and does not replace a formal or map camera.
+- `capture.py --out DIR --palette-proof --samples 24 --width 1280` adds three
+  temporary resolving cameras for damp/dry slab response and rough wall finish.
+  It reads the saved source, checks its byte hash unchanged and never saves.
 - `integrate_candidate.py --module MODULE --output CANDIDATE`
 - `audit_candidate.py --candidate CANDIDATE --module MODULE --out REPORT`
 - `optical_proof.py --out DIR` opens the provided saved source and creates a
@@ -92,7 +106,7 @@ Cold pixel comparison uses Python3.11 with `Pillow==11.3.0` in an isolated venv:
 ```sh
 python3.11 -m venv /tmp/electrical-qa
 /tmp/electrical-qa/bin/python -m pip install Pillow==11.3.0
-/tmp/electrical-qa/bin/python sections/facility-assembly/sources/electrical-room/overhaul/scripts/compare_captures.py --previous sections/facility-assembly/sources/electrical-room/overhaul/renders/R9 --cold sections/facility-assembly/sources/electrical-room/overhaul/renders/R10 --out /tmp/electrical-cold-comparison.json
+/tmp/electrical-qa/bin/python sections/facility-assembly/sources/electrical-room/overhaul/scripts/compare_captures.py --previous sections/facility-assembly/sources/electrical-room/overhaul/renders/R11 --cold sections/facility-assembly/sources/electrical-room/overhaul/renders/R12 --out /tmp/electrical-cold-comparison.json
 ```
 
 For the R3→R4 unused-material-ID transition, pass
@@ -108,10 +122,15 @@ R6→R7 uses `retired-floor-polygons-R7.json` through the same transition option
 declaring only the rejected new six-piece layer/root/material retirement. R7→R8
 comparison omits transition options and requires identical source hashes. R8→R9
 uses `visual-corrections-R9.json`, explicitly binding the cable/glass and additive
-reserve-lighting stages, and is a visual iteration. Final accepted R9→R10 cold
+reserve-lighting stages, and is a visual iteration. The earlier accepted R9→R10 cold
 repeat omits transition options and requires identical source hashes; all fourteen
 decoded RGB images are identical. No
 transition option credits visual improvement without review.
+
+For an owner palette iteration, use `--visual-repair-receipt palette-R11.json`
+with the complete bounded material/light receipt. The R10-to-R11 comparison
+records changed source bytes and measured pixel differences; it is not a cold
+repeat. The subsequent unchanged-source comparison must omit transition options.
 
 `compare_map_captures.py` separately verifies all five assembled-map images,
 using `--previous DIR --cold DIR --previous-integration RECEIPT
@@ -123,7 +142,7 @@ It reports every decoded-pixel difference without assigning visual acceptance.
 strict R7/R8 preflight fails on six channel values differing by one8-bit step in
 EI_W01 while its other four map views are identical; this result is not silently
 rounded to zero or substituted for the critic's visual review.
-The final R9/R10 assembled repeat records three identical images and two with
+The earlier R9/R10 assembled repeat records three identical images and two with
 a few one-step channel differences; the fresh critic independently finds no
 material visual regression. `R9-to-R10-map-pixel-comparison.json` records the exact
 measured result. It is not claimed as bit-exact for all five images.
@@ -140,7 +159,7 @@ git lfs pull --include="sections/facility-assembly/sources/electrical-room/**,se
 ```
 
 Whole-map context also requires the minimal map dependency set documented in
-MAP.md. Intermediate map-R2 through map-R7 and map-R9 files are local-only; the final map candidate is
+MAP.md. Intermediate map-R2 through map-R7, map-R9 and map-R11 files are local-only; the final map candidate is
 the committed assembled artifact.
 
 ## Repeat the final source/map checks
@@ -162,7 +181,7 @@ bash "$electrical_dir/run.sh" validate "$electrical_module" /tmp/electrical-sour
 ```
 
 Integration writes a new `integration-candidate.json` receipt in the overhaul
-folder. Preserve the reviewed final receipt (`integration-R10.json`); a newly generated
+folder. Preserve reviewed per-cycle integration receipts; a newly generated
 copy is a reproduction receipt, not replacement final acceptance. Audit compares
 current missing-ID identities to the recorded pre-promotion R3 snapshot, so it
 cannot normalize a source-promotion regression into a new baseline.
@@ -212,3 +231,17 @@ cannot normalize a source-promotion regression into a new baseline.
 
 Hash-bound manifests/validation and independent reviews are the acceptance
 evidence. Process success or a build/mesh count alone is not visual acceptance.
+
+## Current palette delivery
+
+Final pair R11/R12 uses canonical module SHA `eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df`.
+`R11-to-R12-render-comparison.json` verifies all14 decoded RGB captures match
+exactly at identical source bytes and camera/render settings.
+`R11-to-R12-map-pixel-comparison.json` retains the five actual candidate comparisons:
+2 images match exactly, maximum channel difference one 8-bit step.
+`critics/R12-FRESH.md` independently assesses visual stability. The final candidate
+SHA is `623de76b39b9351afbc6cae3cd5d0aa15a49366748616b169670db078ede94c1`. Same-byte supplemental11
+reuse is explicit in `supplemental-reuse-R12.json`; those are not new R12 renders.
+Publication remains blocked by automatic approval review pending explicit user
+authorization; current Git read connectivity works, and old proxy failures are
+retained only as history in `publication-status-R10.json`.

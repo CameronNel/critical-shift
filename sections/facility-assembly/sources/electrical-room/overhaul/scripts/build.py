@@ -157,6 +157,8 @@ if a.stage=='full':
     apply_vision_finish()
     from reserve_finish import apply as apply_reserve_finish
     apply_reserve_finish(k,m)
+    from palette_finish import apply as apply_palette_finish
+    apply_palette_finish()
 bpy.context.scene['electrical_overhaul_stage']=a.stage;bpy.context.scene['electrical_baseline_sha256']=baseline_sha
 bpy.context.scene['electrical_reference']='Reworked spawn module / final-pass renders; independent reference=100'
 bpy.context.view_layer.update()
