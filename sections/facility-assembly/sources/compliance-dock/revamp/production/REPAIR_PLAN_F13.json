@@ -1,0 +1,46 @@
+{
+  "revision": "f13",
+  "state": "RECIPES FROZEN; native build pending; no acceptance",
+  "basis": "FULL_CYCLE_06.json, independent strict Luna exact73.875 FAIL; C06-T01/T02/T03 and VCRIT-01/02",
+  "primary_author": "root",
+  "recipe_sha256": {
+    "overhaul_dock.py": "3b770eaf10ad776101ca8b41d047937a1c681ce49f4e610ea0ca2ddea38e7289",
+    "full_detail.py": "229e15095a0edf3a21c1a42284bc6907e9e9300826ad13cf51cfa9249054fe3a",
+    "full_repairs.py": "600b8155cd90d5cf2ca8a54afcf1c8ce2363961906fff5caee5a0c771a43deeb",
+    "render_dock.py": "61ea21ced7e674eac0be44af617422003099553ede92f0e91eb0b938e895f423"
+  },
+  "prior_native_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+  "repairs": [
+    "Glass notice bears on an actual steel backing and stepped clips on the preserved glazing; flat ink moved to visible front.",
+    "Four rear scanner rails and six seams seat on real rear skin; native read-only Luna preflight confirms support planes.",
+    "Guide shoes present separate exposed faces and bear on steel closure, with eight seated captive fixing heads. Static authoring geometry does not prove runtime gate physics/load capacity.",
+    "Scanner cast bridge has asymmetric drafted cheeks and matching column crowns; navy sensor columns differ from neutral steel roof flanges.",
+    "Arrival cassettes have real50mm stamped recesses through their backing into retained leaves, closed thickness and existing screw seats; separate actual contact guards before write.",
+    "Cargo entrance collars have120mm corner drafts and seated triangular gussets, retaining actual throat and original lifting seats.",
+    "Localized roof/conveyor/utility/arrival light reveals geometry; reduced scanner whiteout; original light world matrices retained.",
+    "Quiet floor/plaster response preserves actual route/contact wear; rust administrative spur differs from mustard worker/cart route; handover identifies M. Vale missing relief."
+  ],
+  "camera_rebaseline": {
+    "changed_ids": [
+      "C02_HERO_DOCK",
+      "C03_CHECKIN_COUNTER",
+      "C04_SCANNER_APPROACH",
+      "PLAYER_REVERSE"
+    ],
+    "reason": "Check-in context and worker-route reverse view; preserved original source cameras, changed disposable evidence recipe only",
+    "proof": "Render prior exact f12 native using frozen f13 renderer; old C6 frames retained, no same-camera C6 regression/stability claim"
+  },
+  "preflight": "probes/f13-luna-contact-preflight.json; evaluated f12 target surfaces and analytical proposed parts only, not saved f13 or art acceptance; captive fixing heads added after preflight",
+  "validation": {
+    "python_syntax": "PASS",
+    "canonical_native_build": "pending",
+    "actual_finished_supports": "pending",
+    "planning_limits": "pending; rejected before native save if450000tri/1150sub/36families exceeded",
+    "pixels": "pending",
+    "independent_full_review": "pending",
+    "luna99": "pending",
+    "final_cold_pixels": "pending"
+  },
+  "constraints": "Protected map/original module/approved spawn/frozen input/interface;1077 inherited world poses; fixed boundaries/apertures/equipment footprints; root sole author; PR66 remains draft until independently earned gate; no merge/map promotion",
+  "published_c6_commit": "6fe4fbec34f68bba672fbfaace2eeb4001dfd77c"
+}

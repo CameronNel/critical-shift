@@ -1,3 +1,7 @@
+## F13 build preparation — 3 October 2026
+
+F13 root-owned recipes are frozen and archived; native build is pending. Current authoritative native remains exact F12 SHA73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3. Latest completed full C6 strict Luna73.875 FAIL and all35renders/sixfresh reports are on actual GitHub6fe4fbec. REPAIR_PLAN_F13.json records actual contact repairs, deeper manufacturing forms, finish/light hierarchy and four explicitly rebased review cameras requiring an F12 source baseline. Narrow independent contact preflight found no definite new contact/aperture defect, but does not score the art or certify an F13 native. All readers released. Owner99/per-category>93/zero-critical/final-stability/cold-pixel gates remain unmet; PR66 stays draft, no merge or map promotion.
+
 # Compliance dock — persistent agent handoff
 
 Branch: `codex/compliance-dock-overhaul-20261001`. Draft PR: https://github.com/CameronNel/critical-shift/pull/66. One primary author, root. No merge or canonical-map promotion is authorized by this handoff.

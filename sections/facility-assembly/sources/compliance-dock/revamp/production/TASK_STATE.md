@@ -1,3 +1,7 @@
+## F13 build preparation — 3 October 2026
+
+F13 root-owned recipes are frozen and archived; native build is pending. Current authoritative native remains exact F12 SHA73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3. Latest completed full C6 strict Luna73.875 FAIL and all35renders/sixfresh reports are on actual GitHub6fe4fbec. REPAIR_PLAN_F13.json records actual contact repairs, deeper manufacturing forms, finish/light hierarchy and four explicitly rebased review cameras requiring an F12 source baseline. Narrow independent contact preflight found no definite new contact/aperture defect, but does not score the art or certify an F13 native. All readers released. Owner99/per-category>93/zero-critical/final-stability/cold-pixel gates remain unmet; PR66 stays draft, no merge or map promotion.
+
 # Current checkpoint — full cycle06 completed, repairs pending
 
 F12 native73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3. Luna exact73.875FAIL/3critical union, all35+4images/root/sixfresh critics complete and released. Source-only GitHubcold proofPASS; finalstability/coldpixels/runtime unverified. Six complete cycles. Root must repair measured C06T01notice/C06T02scanner/C06T03guide-shoe defects and dominantmanufacture/readability/finish/work-context. Protected1077poses/layout preserved;PR66DRAFT/no merge/promotion. FULL_CYCLE_06.json authoritative complete review.
