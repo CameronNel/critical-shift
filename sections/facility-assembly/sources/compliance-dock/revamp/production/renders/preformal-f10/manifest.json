@@ -1,0 +1,248 @@
+{
+  "source_sha256": "4e7c42ebf549059737ed961254818845927ef4d7bb1e9e7001002fcefd60e429",
+  "renderer_sha256": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.699999988079071,
+  "diagnostic": null,
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "C02_HERO_DOCK",
+      "label": "02 | INSPECTION / WIDE",
+      "group": "mandatory",
+      "inherited": null,
+      "position": [
+        0,
+        1.1,
+        2.1
+      ],
+      "target": [
+        1.2,
+        7.9,
+        1.8
+      ],
+      "lens": 20,
+      "camera_matrix_world": [
+        [
+          0.9847835302352905,
+          0.007543210871517658,
+          -0.17362156510353088,
+          0.0
+        ],
+        [
+          -0.17378534376621246,
+          0.042744845151901245,
+          -0.9838554263114929,
+          1.100000023841858
+        ],
+        [
+          -2.395402098898103e-09,
+          0.9990575313568115,
+          0.04340532049536705,
+          2.0999999046325684
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 20.0,
+      "projection": "PERSP",
+      "image_sha256": "2d74a0f010714e4720c33a607e0829a820c72519d5e748e6f6b25982fdc21e49",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C03_CHECKIN_COUNTER",
+      "label": "03 | CHECK-IN HATCH",
+      "group": "mandatory",
+      "inherited": "C03_CHECKIN_COUNTER",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -3.509999990463257
+        ],
+        [
+          0.0,
+          0.08715580403804779,
+          -0.9961947202682495,
+          2.299999952316284
+        ],
+        [
+          0.0,
+          0.9961947202682495,
+          0.08715580403804779,
+          1.25
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "7c8e94a735dbc4eea9a4d93be7a958054c99e51c505698bf480f37d103a43109",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C07_OFFICE_INTERIOR",
+      "label": "07 | STAFF OFFICE",
+      "group": "mandatory",
+      "inherited": "C07_OFFICE_INTERIOR",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          0.8191520571708679,
+          0.11925322562456131,
+          -0.5610424280166626,
+          -6.0
+        ],
+        [
+          -0.5735764503479004,
+          0.17031125724315643,
+          -0.8012515902519226,
+          4.199999809265137
+        ],
+        [
+          0.0,
+          0.9781476259231567,
+          0.2079116553068161,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "69dcef1c115094e478214fc2448d4269ca927b0ade7430c66fbc173025322a40",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "HERO_SCANNER",
+      "label": "19 | WORKER INSPECTION ARCH",
+      "group": "assets",
+      "inherited": null,
+      "position": [
+        -1.5,
+        2.95,
+        1.9
+      ],
+      "target": [
+        0,
+        7,
+        1.5
+      ],
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          0.9377487897872925,
+          0.03203023225069046,
+          -0.34583422541618347,
+          -1.5
+        ],
+        [
+          -0.34731432795524597,
+          0.08648144453763962,
+          -0.9337524771690369,
+          2.950000047683716
+        ],
+        [
+          -6.353343451337423e-08,
+          0.9957384467124939,
+          0.0922224298119545,
+          1.899999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 24.0,
+      "projection": "PERSP",
+      "image_sha256": "433c2d428cfd2352ff65996194f5ccddbf21233acdf5b95a7366019d15cc22d8",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "HERO_TROLLEY",
+      "label": "22 | COVERED TRANSFER TROLLEY",
+      "group": "assets",
+      "inherited": null,
+      "position": [
+        -3.4,
+        10.6,
+        1.65
+      ],
+      "target": [
+        -5.8,
+        13.2,
+        0.85
+      ],
+      "lens": 25,
+      "camera_matrix_world": [
+        [
+          0.734803318977356,
+          -0.14957912266254425,
+          0.6615815758705139,
+          -3.4000000953674316
+        ],
+        [
+          0.678280234336853,
+          0.16204394400119781,
+          -0.7167130708694458,
+          10.600000381469727
+        ],
+        [
+          2.5326002628389688e-08,
+          0.9753808975219727,
+          0.22052699327468872,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 25.0,
+      "projection": "PERSP",
+      "image_sha256": "2c3e2b074e1a44030c79bdd842359c513f1feb79425546c7736a2534d2cb327b",
+      "temporary_hidden_geometry": []
+    }
+  ],
+  "requested_view_count": 5
+}

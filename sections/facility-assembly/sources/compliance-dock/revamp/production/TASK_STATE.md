@@ -1,9 +1,11 @@
 # Compliance dock overhaul production state
 
-Branch `codex/compliance-dock-overhaul-20261001`, draft PR66. Sole author root. Phase: f09 saved and frozen; full cycle04 rendering and independent technical review. Full-room acceptance pending.
+Branch `codex/compliance-dock-overhaul-20261001`, draft PR66. Sole author root. Phase: f10 saved and archived; five preformal views completed and inspected. Full-room acceptance pending.
 
 
-Current source **f09**, SHA-256 `2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6`:1316objects/367216evaluatedtriangles/1148materialsubmeshes/36usedmaterialdatablocks. Full-cycle-04 complete:27beauty+8diagnostics actually opened, six fresh critics and root comparison. Independent GPT-6 Luna **86.25/100 FAIL**, categories87/84/86/83/87/93/78/92. Four full cycles now complete;99 gate, final-two stability and final cold-render equivalence remain unmet. F09 actual GitHub cold source-open from bdf0adf passed25native dependencies/119images. All source consumers released; next repair pass pending.
+Current source **f10**, SHA-256 `4e7c42ebf549059737ed961254818845927ef4d7bb1e9e7001002fcefd60e429`:1321objects/380224evaluatedtriangles/1150materialsubmeshes/36usedmaterialdatablocks. All planning targets pass, with zero submesh/material-family headroom. F10 static:7PASS/0failures/1classification warning/5unverified. Five preformal600p views completed and actually opened by root: paper and canvas response improve, but sensor pods are buried inside the solid original columns and the trolley frame remains too dark. Next repair must create actual column pockets and improve the physical custody-light path. Preformal views are not complete review cycles or independent acceptance.
+
+Latest complete review remains full-cycle-04:27beauty+8diagnostics actually opened, six fresh critics and root comparison. Independent GPT-6 Luna **86.25/100 FAIL**, categories87/84/86/83/87/93/78/92. Four full cycles complete;99 gate, final-two stability and final cold-render equivalence remain unmet. F09 actual GitHub cold source-open from bdf0adf passed25native dependencies/119images. All source consumers released. F10 native, four exact recipes, build-state and completed build/preview/static logs are archived; do not confuse recipe publication with independent acceptance.
 
 Read HANDOFF.md for reproducible commands and transfer details. Read build-state.json for the exact currently saved native; do not assume an in-progress build succeeded. Canonical map, selected dock, spawn, interface and frozen accepted input remain byte-identical. The main map still selects the original dock.
 
