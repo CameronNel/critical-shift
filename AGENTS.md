@@ -5,6 +5,40 @@
 When asked to "build on this map" or continue map/environment work, start with [MAP.md](MAP.md) and [MAP.json](MAP.json). Use their current full-map authoring scene and portable source modules. Do not start from an older standalone room branch or the historical A04 master. Run `git lfs pull` before opening Blender assets. This is an in-progress authoring map, not final art acceptance or a Unity build.
 
 
+## Map area status (as of 2026-10-03)
+
+Two labels, applied to the version that is on `main` today. **Ready for merge to map** means the room has an overhauled or accepted
+version on `main` that passed independent review at the repository's bar and its own validation, with its interface unchanged, so
+only the promotion step in [MAP.md](MAP.md) ("Overhauling a room", PR 2) remains. **Built but not ready** is everything else: it
+failed or never faced that review, has open defects, is unreviewed, or is an original build with no overhaul. "In map" says whether
+the assembled map ([facility_environment.blend](sections/facility-assembly/blender/facility_environment.blend)) shows the room today.
+Only the map owner promotes a room or edits the map file. This table is a record of evidence, not an approval; the owner can change a label.
+
+| Area | In map | Status | Evidence and caveats |
+|---|---|---|---|
+| spawn-room | Yes (linked from `sources/spawn-room/module.blend`) | **Ready for merge to map** | Quality reference the other rooms are scored against. Late polish PRs (#64, #67) describe themselves as "not accepted"; owner to confirm. |
+| refinery | No (additive `module_overhaul_R1.blend`) | **Ready for merge to map** | R24 reviewed 99.10, all 29 interfaces pass. The R25 finish (#76) is on top and **unreviewed**; R24 is the commit `87ef343`. |
+| electrical-room | No (candidate scene beside the map) | **Ready for merge to map** | R11 and R12 reviewed 99 in all seven categories. The T1 texture finish (#74) is on top and **unreviewed**; the reviewed file is `overhaul/checkpoints/full-R11.blend`. |
+| fuel-corridor | Launcher only (`open_map.py`); the canonical map file is unchanged | **Ready for merge to map** | F22ci and F23ci reviewed 99. The AAA finish (#77) is on top and **unreviewed**; F23ci is `production/checkpoints/fuel_full_F23ci.blend`. 678,692 triangles, decimation held as modifiers. |
+| turbine-room | No (original `module.blend`) | Built but not ready | Full rebuild merged (#63, `rebuild/turbine_room_v2_geo.blend`, not promoted). Its own agent review is about 79/100, no view above 84; the review is one model's opinion, not a human or Luna review. |
+| reactor-room | No (additive `module_overhaul_R1.blend`) | Built but not ready | Dark "dead shift" R1 merged unpromoted (#49). Control-room redo is open (#53, #54). No independent score found that meets the bar. |
+| medical-reanimation | No | Built but not ready | Overhaul R2 is in open draft #65; a finish (#78) was merged into its branch, unreviewed. No independent score found that meets the bar. |
+| compliance-dock | No | Built but not ready | Open draft #66 failed its gate (C9 88.625 against 99); a finish (#79) was merged into its branch, also unreviewed. Cloth chart distortion and shape-language and storytelling deductions remain. |
+| mine | Yes (original) | Built but not ready | Original delivery, Luna 92 to 95. No overhaul; not held to the 99 bar. |
+| cooling-plant | Yes (original) | Built but not ready | Original R10, Luna 91 to 95. No overhaul. |
+| condenser-bay | Yes (original) | Built but not ready | Original R34, Luna 91 to 94. No overhaul. |
+| waste-storage | Yes (original) | Built but not ready | Original W22, Luna 91 to 93. No overhaul. |
+| Exterior / terrain | Yes | Built but not ready | `MAP.json`: art acceptance REJECT, exterior categories below 93. |
+| Connections | Yes | Built but not ready | Built and walk-checked (A06) but not independently accepted; whole-map R17 review was lighting 90, materials 88, professional finish 82. |
+| Vertical access | Yes | Built but not ready | Same as Connections (A08 handoff); no separate acceptance record. |
+| Roof services | Yes | Built but not ready | Same as Connections (A13 handoff); no separate acceptance record. |
+| Facility network | Yes | Built but not ready | Same as Connections (A07 handoff); no separate acceptance record. |
+
+Notes for agents:
+- The finishes for refinery, electrical, fuel, reanimation and dock were merged on the owner's instruction **without independent review**, against the rule above that no agent merges its own work. Treat them as unreviewed until a review says otherwise, and never describe them as accepted.
+- Triangle counts: the fuel corridor (678,692), turbine rebuild (about 387k) and dock (398,352) are near or above 400k; include text curves when counting, as the room validators do.
+- When a room changes state, update this table in the same PR and cite the review or validation file.
+
 ## Start here
 
 Respect the current task's scope. A planning-only task changes documentation, not runtime/test code, Unity projects, packages, workflows, scenes/assets or repository settings. Proposed file paths and test names in a plan are not permission to implement them.
