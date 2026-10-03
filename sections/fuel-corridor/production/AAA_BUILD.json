@@ -1,0 +1,50 @@
+{
+  "revision": "Fuel AAA finish",
+  "materials": {
+    "floor": [
+      "FC | floor",
+      "FC | clean floor",
+      "FC | clean floor dark",
+      "FC | clean floor light",
+      "FC | floor border",
+      "FC | floor repair",
+      "floor"
+    ],
+    "wall": [
+      "FC | plaster",
+      "FC | warm plaster",
+      "FC | cool plaster"
+    ],
+    "paint": [
+      "FC | replacement enamel",
+      "FC | navy enamel",
+      "FC | warm enamel",
+      "FC | oxide enamel",
+      "FC | ochre enamel",
+      "FC | repaired blue enamel",
+      "FC | red",
+      "FC | mineral",
+      "FC | dark steel",
+      "FC | ink enamel"
+    ],
+    "metal": [
+      "FC | steel",
+      "FC | brass",
+      "darksteel"
+    ]
+  },
+  "bevels_to_single_segment": 49,
+  "font_objects_reduced_to_2": 64,
+  "meshes_collapse_decimated_to_0.36": 188,
+  "light_energies_unchanged": true,
+  "triangles_before_total_visible": [
+    2115734,
+    2115734
+  ],
+  "triangles_after_total_visible": [
+    678692,
+    678692
+  ],
+  "triangle_budget_requested": 700000,
+  "within_requested_budget": true
+}
