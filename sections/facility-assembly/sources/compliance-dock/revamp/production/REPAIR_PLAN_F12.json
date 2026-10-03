@@ -4,9 +4,9 @@
   "basis": "FULL_CYCLE_05.json; strict Luna74 FAIL plus actual G1-01 native measurements",
   "primary_author": "root",
   "recipe_sha256": {
-    "overhaul_dock.py": "2b557b74875d5d1f6c30fb47c58df72096fcab14651dd47f14888590e9e7b87f",
+    "overhaul_dock.py": "43eedde871e912a59f2557a3080420d1517cc9f92f7a183d357da2e3da9010a3",
     "full_detail.py": "b70fc3776320b1ea9eaa19335a8aeb88f8efc314d5698e5d7fcf54c5e294e0ad",
-    "full_repairs.py": "8dc7fa0a60e3b99596fe0811b96b959bf77da734012fa72b469c19a7694f7459",
+    "full_repairs.py": "17c30d76ff4dd92749acf36f87dce6c62384473f00cfa8eac41694f7c8b8691b",
     "render_dock.py": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57"
   },
   "repairs": [
@@ -30,5 +30,6 @@
     "final_cold_pixels": "pending"
   },
   "concept": "revamp/art/concept-f12/proposed-art-pass-CONCEPT-ONLY.png; generated proposal is not scored native evidence",
-  "constraints": "Protected map/selected original module/spawn/interface/accepted input unchanged;1077 inherited world poses protected; planning limits450000tri/1150sub/36families retained; PR66 draft until earned acceptance; no merge/promotion"
+  "constraints": "Protected map/selected original module/spawn/interface/accepted input unchanged;1077 inherited world poses protected; planning limits450000tri/1150sub/36families retained; PR66 draft until earned acceptance; no merge/promotion",
+  "interrupted_build": "Initial f12 saved an unaccepted native then failed final state recording. Immutable failed native/recipes/log retained; f11 restored. Retry corrects world mesh-centre selection and separates original preservation exceptions from new cosmetic metadata. Actual finished G1/fixing/pocket/jamb surfaces are guarded before save; independent validation still pending."
 }

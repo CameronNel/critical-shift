@@ -9,13 +9,7 @@ from mathutils.bvhtree import BVHTree
 def world_edit(o,fn,reason):
     inv=o.matrix_world.inverted()
     for v in o.data.vertices:v.co=inv@Vector(fn(o.matrix_world@v.co))
-    o.data.update();uv(o)
-    if o.name in ORIGINAL:EXCEPTIONS[o.name]=reason
-    else:o['construction_repair']=reason
-
-def mesh_centre_world(o):
-    pts=[o.matrix_world@v.co for v in o.data.vertices]
-    return Vector(tuple((min(p[i] for p in pts)+max(p[i] for p in pts))/2 for i in range(3)))
+    o.data.update();uv(o);EXCEPTIONS[o.name]=reason
 
 def shell(name,loc,dims,axis,key,front_sign=-1,taper=.8,cut=.018,opening=.82):
     # A closed manufactured shell with a real front aperture and interior wall.
@@ -370,7 +364,6 @@ def finish_full_repairs():
         for m in o.data.materials:
             for node in m.node_tree.nodes:
                 if node.type=='UVMAP':node.uv_map='CD_Fabric_Cut_1m'
-    verify_fifth_review_interfaces()
 
 def return_idler(name,loc,length,outer=.033,inner=.0085):
     # Closed annular tube: a running bearing clearance, not intersecting solids.
@@ -1007,7 +1000,7 @@ def cargo_manufactured_shoulders():
         mod=body.modifiers.new('True shield service rebate','BOOLEAN');mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cutter;bpy.ops.object.modifier_apply(modifier=mod.name)
         bpy.data.objects.remove(cutter,do_unlink=True)
         for o in list(S.objects):
-            if o.name.startswith('CD | Cargo service access cover') and abs(mesh_centre_world(o).y-y)<.01:o.location.x-=.009
+            if o.name.startswith('CD | Cargo service access cover') and abs(o.matrix_world.translation.y-y)<.01:o.location.x-=.009
             elif o.name.startswith('CD | Cargo captive cover screw') and abs(o.matrix_world.translation.y-y)<.25:o.location.x-=.009
     uv(body)
     # The heavy roof is dark baked enamel; the folded sides are oxidized steel.
@@ -1049,7 +1042,7 @@ def machine_construction_hierarchy():
         # field and actual rear skin on the panel. Fixings retain seated front.
         for o in list(S.objects):
             if not o.name.startswith('CD | G1 pressed panel bay') or o.parent!=panel_o:continue
-            zz=mesh_centre_world(o).z;vs=[]
+            zz=o.matrix_world.translation.z;vs=[]
             for yy,w,h,cut in [(front,.49,.46,.035),(front-.005,.49,.46,.035),(front-.005,.392,.340,.028),(front-.002,.368,.315,.025)]:
                 vs.extend((x+u,yy,zz+v) for u,v in octagon(w,h,cut))
             fs=[tuple(range(7,-1,-1)),tuple(range(24,32))]
@@ -1118,38 +1111,3 @@ def replace_inherited_support_witnesses():
             jamb=S.objects[f'{prefix} frame jamb {side}'];pts=[jamb.matrix_world@v.co for v in jamb.data.vertices];bottom=min(p.z for p in pts)
             x=(min(p.x for p in pts)+max(p.x for p in pts))/2;y=(min(p.y for p in pts)+max(p.y for p in pts))/2
             a=bpy.data.objects.new('CD | '+prefix+' measured jamb foot '+str(side),None);COL.objects.link(a);a.parent=root;a.location=(x,y,bottom);a['contact_anchor']=True;a['assembly_witness']=jamb.name;a['evidence_contract']='Actual world-space jamb-foot centre; native actual-child contact still independently measured; preserved original legacy seed transform'
-
-
-def verify_fifth_review_interfaces():
-    # Evaluate actual finished surfaces before any native write. These guards
-    # specifically reject the measured prior overlap/origin/seat failures;
-    # independent native criticism still supplies the acceptance score.
-    bpy.context.view_layer.update();checks=[]
-    def world_vertices(o):return [o.matrix_world@v.co for v in o.data.vertices]
-    def tree(o):return BVHTree.FromPolygons(world_vertices(o),[list(f.vertices) for f in o.data.polygons],all_triangles=False)
-    for j in [1,2,3]:
-        panel_o=S.objects[f'G1 leaf {j} panel'];pv=world_vertices(panel_o);front=min(p.y for p in pv)
-        bays=[o for o in S.objects if o.name.startswith('CD | G1 pressed panel bay') and o.parent==panel_o]
-        fixings=[o for o in S.objects if o.name.startswith('CD | G1 panel captive screw') and o.parent==panel_o]
-        if len(bays)!=2 or len(fixings)!=4:raise RuntimeError('Missing G1 bay/fixing surfaces before save')
-        for bay in bays:
-            vs=world_vertices(bay);back=max(p.y for p in vs)
-            if abs(back-front)>.000015 or min(p.z for p in vs)<min(p.z for p in pv)-.00001 or max(p.z for p in vs)>max(p.z for p in pv)+.00001:raise RuntimeError('G1 bay is buried, displaced or off its actual panel')
-            checks.append({'bay':bay.name,'actual_back_contact_m':back-front,'actual_z_bounds':[min(p.z for p in vs),max(p.z for p in vs)]})
-        targets=[tree(o) for o in bays]
-        for screw in fixings:
-            vs=world_vertices(screw);p=mesh_centre_world(screw);p.y=max(v.y for v in vs);hits=[t.ray_cast(p-Vector((0,.02,0)),Vector((0,1,0)),.06) for t in targets];hits=[h for h in hits if h[0] is not None]
-            if not hits or min(abs(h[3]-.02) for h in hits)>.00002:raise RuntimeError('G1 fixing misses its actual bay flange')
-    body=tree(S.objects['Lead tunnel main body'])
-    for o in S.objects:
-        if not o.name.startswith('CD | Cargo service access cover'):continue
-        p=mesh_centre_world(o);p.x=min(q.x for q in world_vertices(o));h=body.ray_cast(p+Vector((.02,0,0)),Vector((-1,0,0)),.06)
-        if h[0] is None or abs(h[3]-.02)>.00002:raise RuntimeError('Cargo service cover misses its real pocket floor')
-        checks.append({'cover':o.name,'actual_pocket_floor_gap_m':h[3]-.02})
-    for prefix in ['P2','D1','D2']:
-        for side in [-1,1]:
-            jamb=S.objects[f'{prefix} frame jamb {side}'];a=S.objects['CD | '+prefix+' measured jamb foot '+str(side)];p=a.matrix_world.translation;h=tree(jamb).ray_cast(p-Vector((0,0,.02)),Vector((0,0,1)),.04)
-            if h[0] is None or abs(h[3]-.02)>.00001:raise RuntimeError('Measured support witness misses actual jamb foot')
-            checks.append({'witness':a.name,'actual_jamb_contact_gap_m':h[3]-.02})
-    S['fifth_review_actual_interfaces']=json.dumps(checks,sort_keys=True)
-    print('F12_ACTUAL_INTERFACE_GUARDS_PASS',len(checks),flush=True)

@@ -138,10 +138,7 @@ def replace(name,new,reason):
         copy=old.modifiers.new(mod.name,mod.type)
         if mod.type=='BEVEL':copy.width=mod.width;copy.segments=mod.segments;copy.limit_method=mod.limit_method
         elif mod.type=='WEIGHTED_NORMAL':copy.keep_sharp=True;copy.weight=40
-    bpy.data.objects.remove(new,do_unlink=True);uv(old)
-    if name in ORIGINAL:EXCEPTIONS[name]=reason
-    else:old['construction_repair']=reason
-    return old
+    bpy.data.objects.remove(new,do_unlink=True);uv(old);EXCEPTIONS[name]=reason;return old
 
 def asset_root(name,target,anchors,direction=(0,0,-1)):
     return assembly('CD | '+name,target,anchors,direction)

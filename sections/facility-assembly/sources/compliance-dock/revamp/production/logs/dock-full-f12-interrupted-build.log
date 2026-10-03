@@ -1,0 +1,16 @@
+00:00.784  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend"
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:61: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('CD | '+key);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF')
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:402: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bs=mat.node_tree.nodes.get('Principled BSDF') if mat.use_nodes else None
+Traceback (most recent call last):
+  File "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py", line 483, in <module>
+    state={'stage':a.stage,'revision':a.revision,'source_sha256':sha(out),'source_saved':str(out),'editable_scene':S.name,'original_objects':len(ORIGINAL),'objects':len(S.objects),'evaluated_triangles':triangles,'authoring_material_submeshes':sum(len({p.material_index for p in o.data.polygons}) if o.type=='MESH' else 1 for o in S.objects if o.type in {'MESH','CURVE','FONT'}),'used_local_material_families':sorted({m.name for o in S.objects if o.type in {'MESH','CURVE','FONT'} for m in o.data.materials if m}),'intentional_construction_repairs':EXCEPTIONS,'inherited_matrices_unchanged':True,'combined_room_envelope_and_apertures_unchanged':True,'architectural_geometry_repairs':[n for n in EXCEPTIONS if S.objects[n].get('support_class')=='architectural'],'architectural_dimension_repairs':[n for n in EXCEPTIONS if S.objects[n].get('support_class')=='architectural' and max(abs(S.objects[n].dimensions[i]-BASE[n]['dimensions'][i]) for i in range(3))>1e-5],'approved_spawn_source_sha256':spawn['source_sha256'],'map_reference':str(map_path),'source_author':'root','runtime_performance_measured':False}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ~~~~~~~~~^^^
+KeyError: 'bpy_prop_collection[key]: key "CD | Scanner service collar" not found'
+Info: Saved as "module_overhaul_R1.blend"
+
+Error: script failed, file: 'sections/facility-assembly/sources/compliance-dock/overhaul_dock.py', exiting.
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit
