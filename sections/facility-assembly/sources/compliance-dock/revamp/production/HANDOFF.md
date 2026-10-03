@@ -1,3 +1,11 @@
+## Current F14 saved checkpoint — 3 October 2026
+
+Root F14 native SHA-256 `6e3ee923505d393c48aeb08bdf3e73ac32bd15e3c439487e64ce685cc519a135`,1323objects/395342evaluated triangles/1143material submeshes/35local families. Build exit0 with all110actual interface guards, including20new two-surface/clearance/bearing checks; exact native/state/four recipes in checkpoints/full-f14*. All1077original world poses/protected inputs preserved. New FONT labels are editable glyph meshes with exact regeneration metadata; original text objects retained. Static validation:7PASS/0failures/0warnings/5runtimepropertiesunverified. Four current preformal renders are pending. Incorrect --source validator invocation is preserved separately; corrected -b source /--output command PASS.
+
+Current recipe/newC02evidence camera is frozen. One exactoldF13 camera preflight original opened; wholehatch and scanner are visible. Full27oldF13 baseline under samef14renderer is running; source/C7 pixels/failed attempts retained. Latest completed acceptance remains C7exact81FAIL/zero-critical union and7completecycles, publishedactualGitHube797c66872f09fd577565c86811e7a50a61fd86b. No F14 art acceptance/new fullcycle yet. F14 source-only actualGitHub cold proof and final-two stability/27decodedcoldpixels remain pending; PR66DRAFT until independent99/all8>93/zero-critical and finalchecks; no merge/map promotion/runtime acceptance.
+
+## Recorded earlier checkpoint history
+
 ## Completed C7 and next repair — 3 October 2026
 
 Fresh independent GPT-6 Luna locked84/78/82/75/80/87/72, then received fresh technical90: exact648/8=81FAIL, no critical IDs. All six fresh critics individually inspected35current originals+4approved-spawn references and released all handles/processes. Seven complete full cycles; `FULL_CYCLE_07.json` is authoritative. Other disciplines spatial98/96, materials97/colour99, lighting97, story92.5; all disagreements retained. Static7PASS does not erase measured drum overlap147.869mm, exposed P1 reveal/head coplanarity or scanner crown/bridge3.904–9.180mm penetration. Root next repairs those actual meshes and substantial object-specific construction/material/work-context deductions.

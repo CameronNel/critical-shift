@@ -1,0 +1,43 @@
+{
+  "revision": "f14",
+  "state": "SAVED f14; static7PASS; current4preformal renders pending",
+  "basis": "FULL_CYCLE_07.json exact81FAIL, T8-01/T8-02/T8-03 and V01\u2013V05; all6fresh critics released",
+  "primary_author": "root",
+  "recipe_sha256": {
+    "overhaul_dock.py": "0208ba1f369fbf5412b45d52b1b8927a977515880368d24e16526601e8902711",
+    "full_detail.py": "d951213f81c0164e4f4e6673f2e5a5b4b7f85c961861f493450110cc880ea144",
+    "full_repairs.py": "14e5f4f50a88de03d5e33649a8b874bd36c0b10b540a74f046378a462d917d5c",
+    "render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+  },
+  "prior_native_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+  "repairs": [
+    "Corridor wall/ceiling tails butt at real south-wall rear Y-.28, removing exposed overlap while combined aperture/envelope retained.",
+    "Column tops are split at bridge slope breakpoint before fitting; two actual evaluated surface rays required.",
+    "Swaged compact handling drums within existing reservations preserve centers/tray Z.12/top Z.88 with nominal18mm separation, sealed top bungs; capacity is illustrative, not verified.",
+    "G1 rolled I-guide mast with separate closure and cast gearbox seated on actual front flange; original footprints and object poses retained.",
+    "Rear-office record gives specific M.Vale/14Hours/NoRelief at actual current600p camera, actual steel backing/fasteners/wall support. One handed-in glove at front of real desk.",
+    "Salvaged transformer door differs from its neighbor; persistent denied-part tag within existing service assembly.",
+    "Only new FONT glyphs convert to supported cosmetic meshes and batch; exact text/font/layout stored, all original objects/poses/FONT remain. New lettering families reuse existing physical-UV shader; no extra material family."
+  ],
+  "camera_rebaseline": {
+    "changed_ids": [
+      "C02_HERO_DOCK"
+    ],
+    "reason": "Move evidence viewpoint0.8m back to include entire co-leading hatch beside scanner; original source camera matrices/layout remain fixed",
+    "proof": "Full exact f13 source using frozenf14 renderer baseline pending; oldC7frames retained; no same-camera C7stability claim",
+    "preflight": "renders/full-f13-f14-camera-preflight,1complete exactoldF13 source frame, original opened; fullhatch and scanner co-leading; no source improvement claim"
+  },
+  "validation": {
+    "python_syntax": "PASS",
+    "canonical_native_build": "PASS exit0; all110 actual interface guards including20new actualtwo-surface checks",
+    "planning_limits": "PASS395342triangles/1143submeshes/35families",
+    "static": "PASS7checks/0failures/0warnings/5runtimepropertiesunverified, explicit frozencontracts/interface.json",
+    "pixels": "pending",
+    "independent_full_review": "pending",
+    "luna99": "pending",
+    "final_cold_pixels": "pending",
+    "typography": "31newFONT meshes converted with exact text/font/layout metadata; original1077objects/FONT/poses retained"
+  },
+  "constraints": "Protected map/original module/spawn/accepted input/contracts/interface;1077originalworldmatrices fixed; boundaries/apertures/equipment reservations fixed; root soleauthor; PR66DRAFT until earned gates; no merge/promotion/runtime claim",
+  "native_sha256": "6e3ee923505d393c48aeb08bdf3e73ac32bd15e3c439487e64ce685cc519a135"
+}

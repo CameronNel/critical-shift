@@ -1,0 +1,19 @@
+{
+  "attempts": [
+    {
+      "id": 1,
+      "script": "cylindrical-chart-attempt-01.py",
+      "log": "cylindrical-chart-attempt-01.log",
+      "result": "FAIL: overly exact radial coordinate binning excluded the extruded contour; no JSON output and no native write",
+      "exit_code": 1
+    },
+    {
+      "id": 2,
+      "script": "cylindrical-chart-preflight.py",
+      "log": "cylindrical-chart-preflight.log",
+      "result": "PASS isolated F13 meshes: each16sidefaces/16contour points, actual metric edges within1%; no canonical source change or visual acceptance",
+      "exit_code": 0
+    }
+  ],
+  "scope": "Root isolated chart experiment; not a review cycle or current source/art proof"
+}
