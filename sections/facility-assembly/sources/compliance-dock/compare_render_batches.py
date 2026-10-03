@@ -28,7 +28,7 @@ for name in sorted(set(left)&set(right)):
     li,ri=Image.open(lp).convert('RGBA'),Image.open(rp).convert('RGBA')
     if li.size!=ri.size:raise RuntimeError('Changed image dimensions: '+name)
     delta=ImageChops.difference(li,ri);extrema=delta.getextrema()
-    same_camera=all(l.get(k)==r.get(k) for k in ['camera_matrix_world','actual_lens_mm','projection','ortho_scale','temporary_hidden_geometry','label'])
+    same_camera=all(l.get(k)==r.get(k) for k in ['camera_matrix_world','actual_lens_mm','projection','ortho_scale_m','temporary_hidden_geometry','label'])
     records.append(dict(id=name,before_sha256=sha(lp),after_sha256=sha(rp),hashes_match_manifests=sha(lp)==l['image_sha256'] and sha(rp)==r['image_sha256'],same_camera=same_camera,identical_pixels=all(high==0 for low,high in extrema),max_channel_difference=max(high for low,high in extrema),mean_channel_difference=ImageStat.Stat(delta).mean))
 report=dict(before_source_sha256=before['source_sha256'],after_source_sha256=after['source_sha256'],same_source=before['source_sha256']==after['source_sha256'],same_settings=same_settings,complete=before['complete'] and after['complete'],same_view_set=set(left)==set(right),views=records,cold_comparison=a.cold,visual_acceptance=False)
 report['pass']=report['complete'] and report['same_view_set'] and same_settings and all(x['hashes_match_manifests'] and x['same_camera'] for x in records) and (not a.cold or report['same_source'] and all(x['identical_pixels'] for x in records))

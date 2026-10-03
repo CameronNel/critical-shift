@@ -365,7 +365,9 @@ def finish_full_repairs():
             if abs(verified/world_area-1)>1e-5:raise RuntimeError('Consumed fabric area normalization failed')
             o['fabric_uv_normalization']=json.dumps({'world_top_area_m2':world_area,'uv_top_area':verified,'factor':factor})
             o.select_set(False);o['fabric_uv_contract']='Continuous ANGLE_BASED top island; globally normalized one-metre surface area; sewn hem/thickness seams; physical face chart retained for metric audit'
-        if o.name!='Covered Trolley Draped Tarp':
+        if o.name in {'Chair seat cushion','Chair back lumbar','Chair back upper'}:
+            developed_upholstery_chart(o,cut)
+        elif o.name!='Covered Trolley Draped Tarp':
             continuous_textile_chart(o,cut)
         for m in o.data.materials:
             for node in m.node_tree.nodes:
@@ -948,6 +950,34 @@ def repair_scanner_pockets():
     S['scanner_pocket_construction']='Inner pocket floor X±.640005, pod rear X±.640; outer service seat X±.834995, cover back X±.835; outer column bounds and all inherited matrices retained'
 
 
+def developed_upholstery_chart(o,cut):
+    # Sewn rear/underside seam opens the shaped cushion into a continuous
+    # developed cloth chart. Planar projection stretched drafted return faces.
+    axis=2 if o.name=='Chair seat cushion' else 0
+    normal_matrix=o.matrix_world.to_3x3().inverted().transposed()
+    back={f.index:(normal_matrix@f.normal).normalized()[axis]<-.5 for f in o.data.polygons}
+    edges={}
+    for f in o.data.polygons:
+        for key in f.edge_keys:edges.setdefault(tuple(sorted(key)),[]).append(f.index)
+    for e in o.data.edges:
+        adjacent=edges[tuple(sorted(e.vertices))]
+        e.use_seam=len(adjacent)!=2 or back[adjacent[0]]!=back[adjacent[1]]
+    for selected in list(bpy.context.selected_objects):selected.select_set(False)
+    o.select_set(True);bpy.context.view_layer.objects.active=o;o.data.uv_layers.active=cut
+    bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT');bpy.ops.uv.unwrap(method='ANGLE_BASED',margin=.002);bpy.ops.object.mode_set(mode='OBJECT')
+    cut=o.data.uv_layers['CD_Fabric_Cut_1m'];o.data.calc_loop_triangles();world_area=0;uv_area=0
+    for tri in o.data.loop_triangles:
+        p=[o.matrix_world@o.data.vertices[v].co for v in tri.vertices];world_area+=(p[1]-p[0]).cross(p[2]-p[0]).length/2
+        u=[cut.data[i].uv.copy() for i in tri.loops];uv_area+=abs((u[1].x-u[0].x)*(u[2].y-u[0].y)-(u[1].y-u[0].y)*(u[2].x-u[0].x))/2
+    if uv_area<=0:raise RuntimeError('Collapsed developed upholstery chart')
+    factor=sqrt(world_area/uv_area)
+    values=[v.uv.copy()*factor for v in cut.data]
+    for i,v in enumerate(values):cut.data[i].uv=v
+    o.select_set(False);o.data.update()
+    o['fabric_uv_contract']='Continuous ANGLE_BASED cushion front/returns with actual rear sewn seam; uniform total surface area normalized to one-metre cut coordinates; independent physical face audit retained'
+    o['fabric_uv_normalization']=json.dumps({'world_surface_area_m2':world_area,'factor':factor})
+
+
 def continuous_textile_chart(o,cut):
     # Continuous metric planar projections on the broad sewn sheets. The
     # physical face charts remain the edge-length audit. No atlas/lightmap claim.
@@ -1158,6 +1188,11 @@ def repair_sixth_review():
                 if abs(c.x-x)<.01 and c.y>7:
                     replace(o.name,box('TEMP seated rear scanner seam',(x,7.183,c.z),(.15,.006,.012),'steel',.0003),'Rear module seam back Y7.180 on actual rear skin, within chamfer boundaries')
     use_root('Arrival Gate P2')
+    for closure in list(S.objects):
+        if not closure.name.startswith('CD | P2 folded vertical closure'):continue
+        c=mesh_centre_world(closure)
+        if abs(c.x)<.05:
+            world_edit(closure,lambda p:(min(p.x,0) if c.x<0 else max(p.x,0),p.y,p.z),'Opposing folded centre closures meet at X0 under retained seal without duplicated front patches; inherited leaves/matrices unchanged')
     for o in list(S.objects):
         if not o.name.startswith('CD | P2 captive guide shoe'):continue
         c=mesh_centre_world(o);parent=o.parent

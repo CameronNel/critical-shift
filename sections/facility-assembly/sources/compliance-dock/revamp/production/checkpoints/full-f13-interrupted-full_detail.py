@@ -379,7 +379,7 @@ def sixth_visual_construction():
         for z in [1.0,2.35]:
             base=next(o for o in S.objects if o.name.startswith('CD | Arrival leaf pressed cassette') and o.parent==leaf and abs(mesh_centre_world(o).z-z)<.01)
             inset=next(o for o in S.objects if o.name.startswith('CD | Arrival cassette die face') and o.parent==leaf and abs(mesh_centre_world(o).z-z)<.01)
-            cutter=profile('TEMP actual arrival stamping void',octagon(1.56002,.66002,.10),.05010,1,(side*1.15,15.76695,z),'wear',0)
+            cutter=profile('TEMP actual arrival stamping void',octagon(1.56002,.66002,.10),.05010,1,(side*1.15,15.76695,z),'navy',0)
             pocket(base,cutter,'Actual cassette opening');pocket(leaf,cutter,'Actual48mm deep die recess')
             bpy.data.objects.remove(cutter,do_unlink=True)
             vs=[]
@@ -461,20 +461,6 @@ def consolidate_new_details():
     groups={}
     for o in list(S.objects):
         if o.type!='MESH' or o.name in ORIGINAL or o.name in targets:continue
-        # Boolean cutters can append an unused material slot. Group by the
-        # materials actually used on faces, so identical cosmetic skins join.
-        # This changes neither visible shading nor protected original slots.
-        used=sorted({f.material_index for f in o.data.polygons})
-        if any(i>=len(o.data.materials) or not o.data.materials[i] for i in used):raise RuntimeError('Unassigned cosmetic material on '+o.name)
-        materials=[];remap={}
-        for i in used:
-            m=o.data.materials[i]
-            if m not in materials:materials.append(m)
-            remap[i]=materials.index(m)
-        indices=[remap[f.material_index] for f in o.data.polygons]
-        o.data.materials.clear()
-        for m in materials:o.data.materials.append(m)
-        for f,i in zip(o.data.polygons,indices):f.material_index=i
         key=(o.parent.name if o.parent else None,tuple(m.name for m in o.data.materials if m))
         groups.setdefault(key,[]).append(o)
     for (parent,mats),parts in groups.items():

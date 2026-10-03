@@ -1,13 +1,13 @@
 {
   "revision": "f13",
-  "state": "RECIPES FROZEN; native build pending; no acceptance",
+  "state": "RETRY RECIPES FROZEN; first build rejected before save; native remains f12",
   "basis": "FULL_CYCLE_06.json, independent strict Luna exact73.875 FAIL; C06-T01/T02/T03 and VCRIT-01/02",
   "primary_author": "root",
   "recipe_sha256": {
     "overhaul_dock.py": "3b770eaf10ad776101ca8b41d047937a1c681ce49f4e610ea0ca2ddea38e7289",
-    "full_detail.py": "229e15095a0edf3a21c1a42284bc6907e9e9300826ad13cf51cfa9249054fe3a",
-    "full_repairs.py": "600b8155cd90d5cf2ca8a54afcf1c8ce2363961906fff5caee5a0c771a43deeb",
-    "render_dock.py": "61ea21ced7e674eac0be44af617422003099553ede92f0e91eb0b938e895f423"
+    "full_detail.py": "46dc8ef667aaeba4fff51e1a2d2d6aadb74d4b0c8cef443b691103587b0e82eb",
+    "full_repairs.py": "7157ca15b3e86da7c555b48ad700dd9b6a73823255e6609bd3f744fc8d9a7a98",
+    "render_dock.py": "9fbae704a9a0db49d5848fd73004c0bdaf6c62455ba8db0043228a6f1b9adce2"
   },
   "prior_native_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
   "repairs": [
@@ -28,12 +28,15 @@
       "PLAYER_REVERSE"
     ],
     "reason": "Check-in context and worker-route reverse view; preserved original source cameras, changed disposable evidence recipe only",
-    "proof": "Render prior exact f12 native using frozen f13 renderer; old C6 frames retained, no same-camera C6 regression/stability claim"
+    "proof": "Render prior exact f12 native using frozen f13 renderer; old C6 frames retained, no same-camera C6 regression/stability claim",
+    "first_baseline": "renders/full-f12-f13-camera-baseline; complete27/sourcef12, first frozen renderer61ea;23decoded images match C6 exactly; all4rebased frames actually opened. C04 still cropped top, corrected before retry.",
+    "preflight_02": "renders/full-f12-f13-camera-preflight-02; complete2 current C02/C04 actual f12 source frames individually opened; no source art improvement claim",
+    "final_baseline": "renders/full-f12-f13-camera-baseline-02; pending complete27 actual f12 renders under retry renderer"
   },
   "preflight": "probes/f13-luna-contact-preflight.json; evaluated f12 target surfaces and analytical proposed parts only, not saved f13 or art acceptance; captive fixing heads added after preflight",
   "validation": {
     "python_syntax": "PASS",
-    "canonical_native_build": "pending",
+    "canonical_native_build": "first attempt FAIL before save; retry pending",
     "actual_finished_supports": "pending",
     "planning_limits": "pending; rejected before native save if450000tri/1150sub/36families exceeded",
     "pixels": "pending",
@@ -42,5 +45,13 @@
     "final_cold_pixels": "pending"
   },
   "constraints": "Protected map/original module/approved spawn/frozen input/interface;1077 inherited world poses; fixed boundaries/apertures/equipment footprints; root sole author; PR66 remains draft until independently earned gate; no merge/map promotion",
-  "published_c6_commit": "6fe4fbec34f68bba672fbfaace2eeb4001dfd77c"
+  "published_c6_commit": "6fe4fbec34f68bba672fbfaace2eeb4001dfd77c",
+  "first_build_attempt": "checkpoints/full-f13-interrupted-provenance.json; actual90interface checks passed, planning385180tri/1151sub/36families rejected before native save; no f13 art/current pixels/score existed",
+  "retry_changes": [
+    "Cutter uses surrounding wear family; new cosmetic grouping drops unused material slots while preserving actual face assignments.",
+    "Three upholstery pieces use developed ANGLE_BASED front/return charts with rear seams; exact isolated f12 probe shows max1.57429/1.55756/1.60256 and zero >2stretch or collapsed area.",
+    "Opposing new central closure skins trim at X0 under original seal, removing prior hidden duplicated front patches.",
+    "C02 viewpoint shows clerk and inspection sequence; C04 moves back to include actual header. Other25 view recipes unchanged from first f13 baseline."
+  ],
+  "retry_probe": "probes/f13-retry-preflight/result.json and attempts.json; raw first flawed probe retained, corrected second measurements; isolated clones only, no full scene acceptance"
 }

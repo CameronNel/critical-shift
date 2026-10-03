@@ -64,9 +64,9 @@ else:
     # R04 C05/C10 are inside solid geometry; C06 crops the opening and C09 faces
     # the entry rather than arrival. Rebase these before the formal comparison.
     rebased={
-        'C02_HERO_DOCK':((-1.8,.9,1.8),(-1.35,7.0,1.5),18),
+        'C02_HERO_DOCK':((0,1.1,1.8),(1.2,7.9,1.5),20),
         'C03_CHECKIN_COUNTER':((-4.8,.95,1.7),(-4.4,3.65,1.6),26),
-        'C04_SCANNER_APPROACH':((0,2.95,1.65),(0,7,1.45),24),
+        'C04_SCANNER_APPROACH':((0,3.4,1.65),(0,7,1.45),24),
         'C05_CONVEYOR_LEAD_TUNNEL':((2.95,4.15,1.65),(4.65,7.4,1.08),25),
         'C06_CART_GATE_G1':((2.3,4.2,1.65),(1.95,7,1.15),24),
         'C09_ARRIVAL_GATE_P2':((1.4,11.4,1.65),(0,15.8,1.85),24),
