@@ -1,3 +1,9 @@
+# Current continuation blocker — F18 pending, 3 October 2026
+
+The execution workspace became offline and exec-server transport recovery timed out before a full F18 rebuild. The authoritative GitHub candidate remains exact F17 with all35 C9 images and all six independent reviews. C9 exact88.625 FAIL; nine completed cycles. All six readers explicitly released. PR66 remainsDRAFT, owner99 gate false. No F18 native or pixel acceptance exists.
+
+Pending root-authored repair functions, guarded apply script, recovered numerical prototype results/failures and specific continuation instructions are in [f18-pending/CONTINUE.md](f18-pending/CONTINUE.md). Existing canonical recipes remain exactF17 on GitHub so source-only cold verification stays coherent. Apply pending code only after reading that continuation and validating baseline; do not mistake prototype evidence for saved art. Raw local prototype logs are inaccessible through the disconnected workspace, and recovered results are labeled accordingly.
+
 # Compliance dock: current agent handoff
 
 Branch: `codex/compliance-dock-overhaul-20261001`. Draft [PR66](https://github.com/CameronNel/critical-shift/pull/66). Root is the sole art/model author; independent critics are read-only. Preserve the selected module, assembled map, approved spawn, frozen inputs, interface, all1,077 original world poses, boundaries/openings/layout/equipment reservations. The additive scene is `COMPLIANCE_EDIT_LOCAL` in `module_overhaul_R1.blend`, with a read-only map link. No self-merge or map promotion.
