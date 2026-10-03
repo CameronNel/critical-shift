@@ -21,6 +21,8 @@ S=bpy.context.scene;S.name='COMPLIANCE_EDIT_LOCAL'
 BASE={o.name:{'matrix':[list(r) for r in o.matrix_world],'dimensions':list(o.dimensions)} for o in S.objects}
 ORIGINAL=set(BASE);EXCEPTIONS={};COL=None;ASM=None;MATERIALS={};CONTACTS=[]
 RECIPE_HASHES={name:sha(ROOT/name) for name in ['overhaul_dock.py','full_detail.py','full_repairs.py','render_dock.py'] if (ROOT/name).exists()}
+for name in ['revamp/art/fonts/DejaVuSansCondensed-Bold.ttf','revamp/art/fonts/LICENSE-DejaVu.txt']:
+    RECIPE_HASHES[name]=sha(ROOT/name)
 old=ROOT/'revamp/reference-tooling/original_build_dock.py'
 tree=ast.parse(old.read_text());defs=[n for n in tree.body if isinstance(n,ast.FunctionDef)]
 exec(compile(ast.Module(body=defs,type_ignores=[]),str(old),'exec'),globals())

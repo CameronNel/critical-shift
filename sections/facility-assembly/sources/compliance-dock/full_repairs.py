@@ -316,7 +316,7 @@ def repair_gate_construction():
 def repair_full_candidate():
     for n in ['Scanner portal column -1','Scanner portal column 1']:
         world_edit(S.objects[n],lambda q:(q.x,q.y,min(q.z,2.65)),'Inspection columns butt into header underside at Z2.65; remove duplicated front skin, same outer arch envelope/clearance')
-    repair_screens();repair_structure();repair_internal_bearing();repair_utilities();repair_tarp();repair_surfaces_story();repair_lighting();repair_gate_construction();repair_second_review();repair_third_review()
+    repair_screens();repair_structure();repair_internal_bearing();repair_utilities();repair_tarp();repair_surfaces_story();repair_lighting();repair_gate_construction();repair_second_review();repair_third_review();repair_fourth_review()
     S['first_full_cycle_repairs']='Actual internal mount contact, real screen apertures/frame pockets, continuous cloth/cut coordinates, purposeful wear/handover, fitted face keys'
 
 def finish_full_repairs():
@@ -715,3 +715,189 @@ def repair_third_review():
     repair_arrival_load_path();repair_key_cabinet();repair_working_surfaces()
     repair_personal_and_institutional_traces();repair_practical_hierarchy();repair_printed_graphics()
     S['third_full_review_repairs']='Actual captured P2 carriages and backing; hollow glazed key cabinet; flat readable ink and coherent custody731-A; mid-value gate leaves, selective contact wear, supported interrupted file/jacket and faded coercive duty poster; motivated cargo mouth and custody light'
+
+
+def shader_math(m,operation,*values):
+    node=m.node_tree.nodes.new('ShaderNodeMath');node.operation=operation
+    for i,value in enumerate(values):
+        if isinstance(value,(float,int)):node.inputs[i].default_value=value
+        else:m.node_tree.links.new(value,node.inputs[i])
+    return node.outputs[0]
+
+
+def repair_surface_character():
+    # These are changes to consumed families, not invisible unused materials.
+    # Large floor joints are shading relief only: the actual support datum is Z0.
+    floor=S.objects['Floor slab'].data.materials[0]
+    n=floor.node_tree.nodes;l=floor.node_tree.links;bs=n.get('Principled BSDF')
+    g=n.new('ShaderNodeNewGeometry');xyz=n.new('ShaderNodeSeparateXYZ');l.new(g.outputs['Position'],xyz.inputs[0])
+    masks=[]
+    for axis,period in [('X',2.8),('Y',3.2)]:
+        v=shader_math(floor,'FRACT',shader_math(floor,'DIVIDE',xyz.outputs[axis],period))
+        edge=shader_math(floor,'MINIMUM',v,shader_math(floor,'SUBTRACT',1,v))
+        masks.append(shader_math(floor,'LESS_THAN',edge,.0045/period))
+    joint=shader_math(floor,'MAXIMUM',*masks)
+    mix=n.new('ShaderNodeMixRGB');l.new(shader_math(floor,'MULTIPLY',joint,.58),mix.inputs[0]);l.new(bs.inputs['Base Color'].links[0].from_socket,mix.inputs[1]);mix.inputs[2].default_value=(.055,.051,.047,1);l.new(mix.outputs[0],bs.inputs['Base Color'])
+    bump=n.new('ShaderNodeBump');bump.inputs['Distance'].default_value=.0015;bump.inputs['Strength'].default_value=.65;l.new(shader_math(floor,'MULTIPLY',joint,-1),bump.inputs['Height'])
+    if bs.inputs['Normal'].is_linked:l.new(bs.inputs['Normal'].links[0].from_socket,bump.inputs['Normal'])
+    l.new(bump.outputs[0],bs.inputs['Normal'])
+    floor['surface_contract']='Authored 2.8x3.2m concrete pour joints, 9mm seam shading; no displaced support surface or new collision claim'
+    # Actual dragged cart wheels, shuffled boots and counter standing position.
+    for p,r,col,k in [((1.68,7.5,0),(.085,2.1,.012),(.075,.073,.067),.72),((2.18,8.1,0),(.09,2.8,.012),(.082,.077,.065),.66),((0,6.60,0),(.53,.80,.012),(.11,.099,.078),.66),((-3.47,3.01,0),(.64,.36,.012),(.095,.083,.073),.68),((.15,14.5,0),(1.35,.36,.012),(.12,.105,.084),.54)]:
+        material_patch(floor,p,r,col,k,True)
+    # The plaster echoes the spawn's warm/mauve neutral, dulled by the dock.
+    m=MATERIALS['plaster'];m.diffuse_color=(.455,.405,.385,1)
+    for node in m.node_tree.nodes:
+        if node.type=='VALTORGB':
+            for e,f in zip(node.color_ramp.elements,[.86,1.14]):e.color=(*(.455*f,.405*f,.385*f),1)
+        if node.type=='BUMP':node.inputs['Distance'].default_value=.0032;node.inputs['Strength'].default_value=.48
+        if node.type=='TEX_NOISE' and node.inputs['Scale'].default_value>100:node.inputs['Scale'].default_value=72
+    # Mid-frequency woven response is legible in 600p neutral diagnostics;
+    # broad dye variation remains quiet, avoiding photographic noise.
+    for key in ['cotton','fabric']:
+        m=MATERIALS[key];n=m.node_tree.nodes;l=m.node_tree.links;bs=n.get('Principled BSDF');bs.inputs['Sheen Weight'].default_value=.42;bs.inputs['Sheen Roughness'].default_value=.75
+        for node in n:
+            if node.type=='TEX_WAVE':node.inputs['Scale'].default_value=66 if node.bands_direction=='X' else 74
+            if node.type=='BUMP':node.inputs['Distance'].default_value=.0014;node.inputs['Strength'].default_value=.65
+        uvnode=n.new('ShaderNodeUVMap');uvnode.uv_map='CD_Fabric_Cut_1m'
+        noise=n.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=5.5;noise.inputs['Detail'].default_value=1;l.new(uvnode.outputs[0],noise.inputs['Vector'])
+        ramp=n.new('ShaderNodeValToRGB');ramp.color_ramp.elements[0].color=(.66,.66,.66,1);ramp.color_ramp.elements[1].color=(1.10,1.10,1.10,1);l.new(noise.outputs['Fac'],ramp.inputs[0])
+        mix=n.new('ShaderNodeMixRGB');mix.blend_type='MULTIPLY';mix.inputs[0].default_value=.8;l.new(bs.inputs['Base Color'].links[0].from_socket,mix.inputs[1]);l.new(ramp.outputs[0],mix.inputs[2]);l.new(mix.outputs[0],bs.inputs['Base Color'])
+    for key in ['blue','navy','wear']:
+        m=MATERIALS[key];n=m.node_tree.nodes;l=m.node_tree.links;bs=n.get('Principled BSDF')
+        g=n.new('ShaderNodeNewGeometry');noise=n.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=3.4;noise.inputs['Detail'].default_value=1;l.new(g.outputs['Position'],noise.inputs['Vector'])
+        rough=n.new('ShaderNodeMapRange');rough.inputs['To Min'].default_value=.58 if key=='blue' else .65;rough.inputs['To Max'].default_value=.84;l.new(noise.outputs['Fac'],rough.inputs['Value']);l.new(rough.outputs[0],bs.inputs['Roughness'])
+    for key,p,r,col in [('blue',(5.78,14.678,1.18),(.11,.014,.29),(.24,.245,.235)),('blue',(4.05,14.678,1.18),(.11,.014,.29),(.22,.225,.21)),('blue',(3.90,6.68,1.15),(.024,.32,.18),(.28,.28,.255)),('wear',(1.14,6.83,.25),(.16,.05,.15),(.12,.125,.12)),('navy',(.73,6.82,.22),(.12,.04,.18),(.24,.23,.21))]:material_patch(MATERIALS[key],p,r,col,.72,True)
+    # Lift the existing rubber impact insert, not all rubber curtain/wheel parts.
+    material_patch(MATERIALS['rubber'],(1.4,6.80,.86),(.35,.04,.64),(.042,.045,.046),.74,False)
+    material_patch(MATERIALS['Handled linoleum'],(-3.35,3.29,1.042),(.26,.12,.007),(.105,.092,.070),.66,True)
+    # Replace conspicuous thin added scar geometry with consumed surface wear.
+    for o in list(S.objects):
+        if o.name.startswith('CD | Counter handling scar'):bpy.data.objects.remove(o,do_unlink=True)
+
+
+def repair_manifest_writing_surface():
+    use_root('Checkin Counter Hatch')
+    # A tessellated corner curl cannot propagate across the large writing face.
+    # All retained font planes remain at Z1.054. The unprinted curled corner is
+    # north of every current glyph; the writing face is Z1.053 throughout.
+    nx,ny=21,28;vs=[];fs=[]
+    for layer in [0,1]:
+        for j in range(ny+1):
+            y=3.27+.28*j/ny
+            for i in range(nx+1):
+                x=-3.455+.21*i/nx
+                lift=.004*max(0,(x+3.285)/.040)*max(0,(y-3.51)/.040)
+                vs.append((x,y,(1.051 if layer==0 else 1.053)+lift))
+    count=(nx+1)*(ny+1)
+    for j in range(ny):
+        for i in range(nx):
+            q=j*(nx+1)+i;fs.extend([(q,q+nx+1,q+nx+2,q+1),(q+count,q+count+1,q+count+nx+2,q+count+nx+1)])
+    border=list(range(nx+1))+[j*(nx+1)+nx for j in range(1,ny+1)]+[ny*(nx+1)+i for i in range(nx-1,-1,-1)]+[j*(nx+1) for j in range(ny-1,0,-1)]
+    fs.extend((q,border[(k+1)%len(border)],border[(k+1)%len(border)]+count,q+count) for k,q in enumerate(border))
+    paper=replace('Counter manifest paper',mesh('TEMP planar writing face and isolated curl',vs,fs,'paper',0),'Tessellated 2mm paper sheet with isolated unprinted corner curl, flat Z1.053 writing surface under original Z1.054 glyphs; original name/matrix/layout preserved')
+    bm=bmesh.new();bm.from_mesh(paper.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(paper.data);bm.free()
+    font=bpy.data.fonts.load(str(ROOT/'revamp/art/fonts/DejaVuSansCondensed-Bold.ttf'));font.pack();font.filepath='//revamp/art/fonts/DejaVuSansCondensed-Bold.ttf'
+    for name in ['Manifest header','Manifest line 1','Manifest line 2','Manifest line 3','CD | Handover issue','CD | Handover incident','CD | Lockout task','Specimen tag text 1']:
+        o=S.objects.get(name)
+        if o and o.type=='FONT':o.data.font=font
+    for name,body,size,key in [('Manifest header','DUTY CLEARANCE',.020,'ink'),('Manifest line 1','SECTOR 04 / ARRIVAL',.013,'ink'),('Manifest line 2','CUSTODY 731-A',.014,'ink'),('Manifest line 3','HOLD / 731-A',.020,'coral')]:
+        o=S.objects[name];o.data.body=body;o.data.size=size;assign(o,key)
+    # Real ink rules and offset rejected-stamp frame, on the actual sheet.
+    for y in [3.477,3.433,3.400,3.367,3.314]:box('CD | Manifest printed rule',(-3.35,y,1.05302),(.186,.0007,.000025),'ink',0)
+    for x in [-3.445,-3.255]:box('CD | Manifest printed side rule',(x,3.3955,1.05302),(.0007,.163,.000025),'ink',0)
+    # The existing lower field is centred on its retained origin; frame is
+    # deliberately offset within the paper, denoting a processed hold docket.
+    o=S.objects['Manifest line 3'];yy=o.matrix_world.translation.y
+    for x in [-3.435,-3.265]:box('CD | Returned field border',(x,yy+.002,1.05306),(.0013,.027,.00004),'ink',0)
+    for y in [yy-.0115,yy+.0155]:box('CD | Returned field border',(-3.35,y,1.05306),(.17,.0013,.00004),'ink',0)
+    bpy.context.view_layer.update();verts=[paper.matrix_world@v.co for v in paper.data.vertices]
+    tree=BVHTree.FromPolygons(verts,[list(f.vertices) for f in paper.data.polygons],all_triangles=False)
+    dg=bpy.context.evaluated_depsgraph_get();checked=0;minimum=1
+    for name in ['Manifest header','Manifest line 1','Manifest line 2','Manifest line 3']:
+        o=S.objects[name];ev=o.evaluated_get(dg);me=ev.to_mesh()
+        try:
+            for v in me.vertices:
+                q=o.matrix_world@v.co;hit=tree.ray_cast(Vector((q.x,q.y,1.10)),Vector((0,0,-1)),.1)[0]
+                if hit is None:raise RuntimeError('Manifest glyph outside writing sheet: '+name)
+                gap=q.z-hit.z
+                if gap<-.000001 or gap>.00101:raise RuntimeError('Manifest glyph burial/support gap: '+name+' '+str(gap))
+                checked+=1;minimum=min(minimum,gap)
+        finally:ev.to_mesh_clear()
+    S['manifest_writing_verification']=json.dumps(dict(sampled_glyph_vertices=checked,minimum_ink_gap_m=minimum,zero_buried=True,retained_font_plane_z=1.054,flat_writing_plane_z=1.053))
+
+
+def repair_specific_machine_construction():
+    use_root('Person Scanner Arch')
+    # Individually drafted optical pods with true apertures and axial backing.
+    for side in [-1,1]:
+        for j in range(6):
+            z=.4+.36*j
+            replace(f'Sensor emitter {side}_{j}',shell('TEMP drafted optical aperture',(.63*side,7,z),(.020,.18,.24),0,'blue',front_sign=-side,taper=1,cut=.023,opening=.62),'Separate cast optical pod with actual aperture, retained original sensor position/matrix and scanner clearance')
+            annular_bearing('CD | Optical pod rear mounting sleeve',(.62875*side,7,z),.047,.0355,.0105,0,'steel')
+        # Inspection spines read as cast metal around dark service assemblies.
+        assign(S.objects['Scanner portal column '+str(side)],'wear')
+    use_root('Cargo Inspection Conveyor')
+    # A folded roof service channel articulates the actual shield housing while
+    # every side/rib/lifting-eye attachment retains the prior exterior surface.
+    pts=[(-.75,-.70),(-.60,-.70),(-.60,.30),(.60,.30),(.60,-.70),(.75,-.70),(.75,.70),(.53,.70),(.50,.66),(-.50,.66),(-.53,.70),(-.75,.70)]
+    replace('Lead tunnel main body',profile('TEMP shield with folded roof service channel',pts,2.30,1,(4.65,7.65,1.45),'blue',.002),'True open radiation shield with pressed roof service channel, retained envelope/aperture/side support surfaces and original matrix')
+    # Lifting stems at X4.05/5.25 remain on the full-height corner rails;
+    # the central roof depression never removes their actual bearing surface.
+    for y in [6.72,8.58]:
+        box('CD | Shield roof service seam',(4.65,y,2.1104),(.99,.006,.0008),'charcoal',0)
+    # Separate the operator display face from the black cuboid rear in the
+    # unchanged east-facing screen planes; no unsupported second console.
+    for j in [0,1]:
+        o=S.objects['Conveyor monitor housing '+str(j)]
+        for f in o.data.polygons:f.use_smooth=False
+
+
+def repair_interrupted_worker_trace():
+    use_root('Staff Desk Assembly')
+    o=S.objects['CD | Clerk folded work jacket'];vs=[o.matrix_world@v.co for v in o.data.vertices]
+    tree=BVHTree.FromPolygons(vs,[list(f.vertices) for f in o.data.polygons],all_triangles=False)
+    def z_at(x,y):
+        q=tree.ray_cast(Vector((x,y,.95)),Vector((0,0,-1)),.25)[0]
+        if q is None:raise RuntimeError('Missing folded jacket support')
+        return q.z
+    # Closed collar flaps bear over the folded jacket, giving it a garment read.
+    for side in [-1,1]:
+        xx=-3.92;points=[(xx+.014*side,6.418),(xx+.077*side,6.405),(xx+.055*side,6.350)]
+        vv=[(x,y,z_at(x,y)+.0002) for x,y in points]+[(x,y,z_at(x,y)+h) for (x,y),h in zip(points,[.006,.016,.012])]
+        q=mesh('CD | Folded jacket collar flap',vv,[(2,1,0),(3,4,5),(0,1,4,3),(1,2,5,4),(2,0,3,5)],'fabric',0)
+        bm=bmesh.new();bm.from_mesh(q.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(q.data);bm.free()
+    # Pocket hem conforms to the actual cloth rather than floating on a pad.
+    outer=[(-4.035,6.22),(-3.975,6.22),(-3.975,6.292),(-4.035,6.292)];inner=[(-4.032,6.223),(-3.978,6.223),(-3.978,6.289),(-4.032,6.289)]
+    vv=[(x,y,z_at(x,y)+dz) for dz in [.0001,.0016] for ringpts in [outer,inner] for x,y in ringpts];ff=[]
+    for i in range(4):
+        j=(i+1)%4;ff.extend([(i,j,j+4,i+4),(i+8,i+12,j+12,j+8),(i,i+8,j+8,j),(i+4,j+4,j+12,i+12)])
+    q=mesh('CD | Folded jacket pocket stitched hem',vv,ff,'fabric',0)
+    bm=bmesh.new();bm.from_mesh(q.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(q.data);bm.free()
+    # The interrupted case page now contains an actual completed field/grid.
+    for j in range(8):box('CD | Unfinished case printed rule',(-3.855,7.254-j*.023,.76502),(.237 if j<2 else .16,.0011,.00003),'ink',0)
+    for x in [-3.975,-3.795]:box('CD | Unfinished case field separator',(x,7.161,.76502),(.001,.195,.00003),'ink',0)
+    for name,body in [('CD | Handover issue','RELIEF CANCELLED'),('CD | Handover incident','14 HRS / 731-A HOLD'),('CD | Lockout task','NO SPARE PARTS')]:
+        if name in S.objects:S.objects[name].data.body=body
+    # Lift the existing transfer docket's critical ID contrast; remove the
+    # confusing yellow text response on its lower field without adding labels.
+    o=S.objects['Specimen tag text 3'];assign(o,'ink');o.data.body='RELEASE DENIED';o.data.size=.018
+
+
+def repair_checkin_discoverability():
+    root=asset_root('Arrival check-in cue','Office east corner south',[(-2.32,3.80,2.67)],(-1,0,0))
+    box('CD | Arrival check-in cue plate',(-2.313,3.80,2.67),(.014,.70,.30),'charcoal',.002)
+    o=txt('CD | Arrival check-in cue text','CHECK IN\n← COUNTER',(-2.3058,3.80,2.705),.065,'ivory',rot=(pi/2,0,pi/2),align='CENTER')
+    o.data.font=S.objects['Manifest header'].data.font;o.data.extrude=0;o.data.bevel_depth=0
+    # Static label reconciliation matches the validator's already-conservative
+    # architecture selection; these are not game collider assignments.
+    for o in S.objects:
+        if o.get('support_class')!='architectural' or o.type!='MESH':continue
+        b=[Vector(v) for v in o.bound_box];d=[max(v[k] for v in b)-min(v[k] for v in b) for k in range(3)]
+        if min(d)>=.05-1e-5 and math.prod(d)>=.015:
+            o['circulation_solid']=True;o['classification_scope']='Static authoring dimensional obstacle; runtime collider binding unverified'
+
+
+def repair_fourth_review():
+    repair_surface_character();repair_manifest_writing_surface();repair_specific_machine_construction();repair_interrupted_worker_trace();repair_checkin_discoverability()
+    S['fourth_full_review_repairs']='Planar written paper and packed bold operational ink; cast optical pods/real mounting sleeves, pressed shield roof service channel; consumed pour-joint/traffic/paint/canvas response; recognizable supported folded work garment and interrupted case; compact arrival-side check-in cue; source poses/boundaries retained'

@@ -24,9 +24,14 @@ for img in bpy.data.images:
     packed=bool(img.packed_file or img.packed_files)
     resolved=Path(bpy.path.abspath(img.filepath,library=img.library))
     images.append(dict(name=img.name,path=img.filepath,packed=packed,exists=resolved.is_file(),local=img.library is None))
-report=dict(source_sha256=a.expected,cold_open=True,source_unchanged=sha(source)==a.expected,scene=scene.name,objects=len(scene.objects),local_scene=scene.library is None,local_objects=all(o.library is None for o in scene.objects),libraries=libraries,file_images=images,recipe_sha256=json.loads(scene.get('recipe_sha256','{}')),runtime_verified=False)
+fonts=[]
+for font in bpy.data.fonts:
+    builtin=bool(getattr(font,'is_builtin',False)) or font.filepath in {'','<builtin>'}
+    resolved=Path(bpy.path.abspath(font.filepath,library=font.library)) if not builtin else None
+    fonts.append(dict(name=font.name,path=font.filepath,builtin=builtin,packed=bool(font.packed_file),exists=bool(resolved and resolved.is_file())))
+report=dict(source_sha256=a.expected,cold_open=True,source_unchanged=sha(source)==a.expected,scene=scene.name,objects=len(scene.objects),local_scene=scene.library is None,local_objects=all(o.library is None for o in scene.objects),libraries=libraries,file_images=images,fonts=fonts,recipe_sha256=json.loads(scene.get('recipe_sha256','{}')),runtime_verified=False)
 report['expected_library_count']=a.expected_libraries
-report['pass']=report['source_unchanged'] and report['local_scene'] and report['local_objects'] and len(libraries)==a.expected_libraries and all(x['exists'] and x['native_payload'] for x in libraries) and all(x['packed'] or x['exists'] for x in images)
+report['pass']=report['source_unchanged'] and report['local_scene'] and report['local_objects'] and len(libraries)==a.expected_libraries and all(x['exists'] and x['native_payload'] for x in libraries) and all(x['packed'] or x['exists'] for x in images) and all(x['builtin'] or x['packed'] or x['exists'] for x in fonts)
 Path(a.out).write_text(json.dumps(report,indent=2)+'\n')
 print('PORTABILITY',report['pass'],'objects',report['objects'],'libraries',len(libraries),'images',len(images),flush=True)
 if not report['pass']:raise RuntimeError('Cold dependency/editability check failed')

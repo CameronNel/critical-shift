@@ -292,15 +292,31 @@ def architectural_detail():
 def full_lighting():
     # Existing authored practical locations are immutable; energy is purpose-led.
     powers={'Warm Fluorescent SW':28,'Warm Fluorescent S-Mid':38,'Warm Fluorescent SE':32,
-        'Office Task Fluorescent':45,'Office Rear Fluorescent':20,'Scanner Overhead Key':90,
-        'Conveyor Hero Key':70,'Arrival Bay Key':78,'Bay Utility Key':60,
-        'Support Concealed Accent':28,'Ambient Fill Center':11,'Ceiling Wash 4.0':12,
+        'Office Task Fluorescent':25,'Office Rear Fluorescent':13,'Scanner Overhead Key':65,
+        'Conveyor Hero Key':85,'Arrival Bay Key':78,'Bay Utility Key':55,
+        'Support Concealed Accent':14,'Ambient Fill Center':11,'Ceiling Wash 4.0':12,
         'Ceiling Wash 11.0':10,'P2 Gate Amber Spotlight':12,'Lead Tunnel Hazard Spotlight':5,
         'G1 Gate Amber Downlight':5}
     for o in S.objects:
         if o.type!='LIGHT' or o.name.startswith('CD |'):continue
         o.data.energy=powers.get(o.name,10)
         if o.data.type=='AREA':o.data.color=(.64,.76,1) if o.name in ['Scanner Overhead Key','Conveyor Hero Key','Arrival Bay Key','Bay Utility Key'] else (1,.76,.52)
+        if o.name in ['Office Task Fluorescent','Office Rear Fluorescent','Support Concealed Accent']:
+            o.data.spread=1.20;o.data.size=.28;o.data.size_y=1.10
+    # New practicals may be retargeted; original lamp world matrices stay exact.
+    S.objects['CD | Inspection face practical'].data.energy=70
+    S.objects['CD | Scanner practical roof bounce'].data.energy=22
+    S.objects['CD | Custody transfer practical'].data.energy=26
+    S.objects['CD | Custody transfer practical'].rotation_euler=(Vector((-5.72,13.5,.47))-S.objects['CD | Custody transfer practical'].location).to_track_quat('-Z','Y').to_euler()
+    use_root('Staff Desk Assembly')
+    # An actual desk lamp directs a warm local pool over the interrupted shift.
+    box('CD | Desk lamp weighted foot',(-3.02,7.38,.769),(.10,.14,.018),'charcoal',.002)
+    profile('CD | Desk lamp folded upright',[(-.020,0),(.020,0),(.020,.22),(.11,.33),(.092,.346),(-.020,.235)],.030,0,(-3.02,7.38,.778),'charcoal',.0005)
+    shade=profile('CD | Desk lamp folded hood',[(-.10,-.055),(-.096,-.054),(-.079,.034),(.079,.034),(.096,-.054),(.10,-.055),(.083,.038),(-.083,.038)],.16,1,(-3.02,7.46,1.09),'charcoal',.0004)
+    for x in [-3.085,-2.955]:box('CD | Desk diffuser retaining clip',(x,7.46,1.10425),(.005,.030,.0395),'charcoal',.0002)
+    box('CD | Desk lamp fitted diffuser',(-3.02,7.46,1.083),(.14,.12,.003),'warm_lamp',0)
+    emitter=light('CD | Interrupted shift desk practical',(-3.04,7.46,1.0808),(-3.50,7.12,.765),5,(1,.79,.57),.14,.06)
+    reposition_parent(emitter,ASM)
     S['light_contract']='Inherited practical poses; localized warm clerk pool, cool inspection keys, dim storage; no runtime light-budget claim'
 
 def full_work():
