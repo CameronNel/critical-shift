@@ -1,0 +1,37 @@
+{
+  "source_sha256": "6e3ee923505d393c48aeb08bdf3e73ac32bd15e3c439487e64ce685cc519a135",
+  "source_unchanged": true,
+  "actual_mast_surface_queries": [
+    {
+      "label": "front shoe rear",
+      "query": [
+        3.0199999809265137,
+        6.802499771118164,
+        1.0
+      ],
+      "hit": [
+        3.0199999809265137,
+        6.829999923706055,
+        1.0
+      ],
+      "actual_gap_m": 0.027500152587890625
+    },
+    {
+      "label": "rear shoe front",
+      "query": [
+        3.0199999809265137,
+        7.197500228881836,
+        1.0
+      ],
+      "hit": [
+        3.0199999809265137,
+        7.170000076293945,
+        1.0
+      ],
+      "actual_gap_m": 0.027500152587890625
+    }
+  ],
+  "interpretation": "Mutually touching shoe/fixing islands are not a rooted support path. Measured F14 gap is additional root finding; independent C7 scores remain unchanged.",
+  "scene_mutated": false,
+  "native_written": false
+}

@@ -1,3 +1,11 @@
+## F14 published evidence and F15 preformal repair — 3 October 2026
+
+Actual GitHub commit96544fc8e3689aa48697b8db79372dae75cbf130/tree7f0964099095ec5248f713e7f2957b836abf2dcb contains exact F14 native/checkpoint/frozen recipes and static7PASS. Isolated actual GitHub cold-openPASS:1323objects,25exactrelative libraries,119packedimages; source6e3ee923... unchanged. This is source portability, not final27coldpixel acceptance.
+
+FourF14preformal600p originals individually opened; imageaudit preserves concrete findings. Full27immutableF13 camera baseline completed under current frozen38d50renderer. Root subsequent actualsurface probe measured27.500mm unsupported front/rear G1 shoe clusters despite internal keeper contacts. Original C7 independent81FAIL/zero-critical result retained. RootF15 builder now repairs actual heels/keeper seats and develops29actualpolygonal roller barrel charts in existing physical1m UV layer. No fullC8/visualimprovement/pass claim yet. Protected1077poses/map/originalmodule/spawn/interface remain fixed; sole root author. PR66DRAFT until99/all8>93/zero-critical/stablefinaltwo/actualGitHubcold27decodedpixel gates. No merge/map promotion; runtime unverified.
+
+## Prior checkpoint history
+
 ## Current F14 saved checkpoint — 3 October 2026
 
 Root F14 native SHA-256 `6e3ee923505d393c48aeb08bdf3e73ac32bd15e3c439487e64ce685cc519a135`,1323objects/395342evaluated triangles/1143material submeshes/35local families. Build exit0 with all110actual interface guards, including20new two-surface/clearance/bearing checks; exact native/state/four recipes in checkpoints/full-f14*. All1077original world poses/protected inputs preserved. New FONT labels are editable glyph meshes with exact regeneration metadata; original text objects retained. Static validation:7PASS/0failures/0warnings/5runtimepropertiesunverified. Four current preformal renders are pending. Incorrect --source validator invocation is preserved separately; corrected -b source /--output command PASS.
