@@ -13,6 +13,7 @@ namespace CriticalShift.Application
         private readonly SessionTimeline _timeline;
         private readonly WorldTimerQueue _timers;
         private readonly InteractionWorld _interaction;
+        private readonly HashSet<Guid> _downedHandles = new HashSet<Guid>();
         private readonly WorkerWorkflow _workers;
         private readonly SessionDiagnostics _diagnostics;
         private readonly long _recoveryCompletionWindowMilliseconds;
@@ -39,17 +40,21 @@ namespace CriticalShift.Application
                 configuration.ShiftDurationMilliseconds, configuration.AllowPause);
             _timers = new WorldTimerQueue(Epoch, configuration.TimerCapacity);
             _workers = new WorkerWorkflow(Epoch, configuration.MaxConnections, recovery, recoveryCompletionWindowMilliseconds);
-            _interaction = new InteractionWorld(Epoch, new RunningAccess(_timeline, _workers, access),
+            _interaction = new InteractionWorld(Epoch, new RunningAccess(_timeline, _workers, _downedHandles, access),
                 configuration.MaxObjects, configuration.MaxConnections,
                 configuration.ReceiptCapacity, configuration.LeaseMilliseconds);
             Production = new ProductionOperations(this, _interaction, configuration.MaxObjects, maxMachines, maxProductionCycles);
             _interaction.BindProduction(Production);
             Reactor = new ReactorOperations(this, _interaction);
             _interaction.BindReactor(Reactor);
+            Controls = new FacilityControlOperations(this);
+            _interaction.BindControls(Controls);
+            _bonks = new BonkOperations(this); _interaction.BindBonks(_bonks);
         }
 
         public ProductionOperations Production { get; }
         public ReactorOperations Reactor { get; }
+        public FacilityControlOperations Controls { get; }
 
         // Bounded setup transaction; public callers cannot submit arbitrary mutation delegates.
         internal void RegisterProduction(Action registration)
@@ -68,10 +73,15 @@ namespace CriticalShift.Application
             _timeline.ElapsedMilliseconds, _timeline.RemainingMilliseconds, _timers.Count,
             _interaction.RegisteredCount, _interaction.ActiveClaimCount, _interaction.ConnectedCount);
 
-        public void RegisterObject(Guid entityId)
+        public void RegisterObject(Guid entityId, bool allowAssistance = false, bool allowDownedGrip = false, bool allowBonk = false)
         {
             RequireIdle(); long next = NextRevision();
-            _interaction.RegisterObject(entityId); _revision = next;
+            if (allowBonk && (allowDownedGrip || allowAssistance)) throw new ArgumentException("Bonk shovels require exclusive ordinary custody.");
+            if (allowAssistance && allowDownedGrip) throw new ArgumentException("A fixed downed handle cannot be shared cargo.");
+            _interaction.RegisterObject(entityId, allowAssistance);
+            if (allowDownedGrip) _downedHandles.Add(entityId);
+            if (allowBonk) _bonks.Register(entityId);
+            _revision = next;
         }
         public void RegisterConnection(Guid connectionId, Guid actorId)
         {
@@ -167,6 +177,7 @@ namespace CriticalShift.Application
             if (!Configuration.AllowPause) return WorldControlStatus.PauseDisabled;
             long next = NextRevision();
             if (!_timeline.TryPause()) return WorldControlStatus.NoChange;
+            _bonks.CancelAll();
             _revision = next; return WorldControlStatus.Applied;
         }
 
@@ -274,7 +285,7 @@ namespace CriticalShift.Application
                 var released = _interaction.Disconnect(connectionId);
                 if (count != _interaction.ConnectedCount)
                 {
-                    if (actor.HasValue) { _workers.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value); }
+                    if (actor.HasValue) { _workers.Remove(actor.Value); _bonks.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value); }
                     _revision = next;
                     _diagnostics.Append(View, epoch, SessionTraceKind.Disconnected, actor ?? Guid.Empty,
                         released?.EntityId ?? Guid.Empty, changed: true);
@@ -338,7 +349,7 @@ namespace CriticalShift.Application
         private WorldAdvanceResult EmptyAdvance(bool ended) => new WorldAdvanceResult(View,
             Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), ended);
         private long NextRevision() => checked(_revision + 1);
-        private void StopOwnedResources() { Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
+        private void StopOwnedResources() { Controls.Stop(); Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); _downedHandles.Clear(); _bonks.Clear(); }
         private void FailClosed()
         {
             _timeline.Fault(); StopOwnedResources();
@@ -384,14 +395,20 @@ namespace CriticalShift.Application
             private readonly SessionTimeline _timeline;
             private readonly IInteractionAccessPolicy _inner;
             private readonly WorkerWorkflow _workers;
-            internal RunningAccess(SessionTimeline timeline, WorkerWorkflow workers, IInteractionAccessPolicy inner)
-            { _timeline = timeline; _workers = workers; _inner = inner; }
+            private readonly HashSet<Guid> _handles;
+            internal RunningAccess(SessionTimeline timeline, WorkerWorkflow workers, HashSet<Guid> handles, IInteractionAccessPolicy inner)
+            { _timeline = timeline; _workers = workers; _handles = handles; _inner = inner; }
             public AccessDecision Evaluate(Guid actorId, Guid entityId, InteractionKind kind)
             {
-                // Rejections use the existing receipt stream; pause cannot create a sequence gap.
-                // Release and host-approved renewal remain possible while simulation is paused.
+                if (kind == InteractionKind.GripHandle)
+                    return !_handles.Contains(entityId) ? AccessDecision.TargetUnavailable :
+                        !_workers.CanGripHandle(actorId) || _timeline.Phase != TimelinePhase.Running ? AccessDecision.ActorUnavailable :
+                        _inner.Evaluate(actorId, entityId, kind);
+                if (_handles.Contains(entityId))
+                    return kind == InteractionKind.Renew && _workers.CanGripHandle(actorId) ? _inner.Evaluate(actorId, entityId, kind) : AccessDecision.TargetUnavailable;
+                // Release bypasses access; paused renewal keeps a current validated lease alive.
                 return !_workers.CanInteract(actorId) ||
-                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production || kind == InteractionKind.Reactor) && _timeline.Phase != TimelinePhase.Running) ?
+                    ((kind == InteractionKind.Bonk || kind == InteractionKind.Grab || kind == InteractionKind.Assist || kind == InteractionKind.Production || kind == InteractionKind.Reactor || kind == InteractionKind.Control) && _timeline.Phase != TimelinePhase.Running) ?
                     AccessDecision.ActorUnavailable : _inner.Evaluate(actorId, entityId, kind);
             }
         }

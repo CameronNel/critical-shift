@@ -18,6 +18,8 @@ namespace CriticalShift.Application
         private readonly int _receiptCapacity;
         private ProductionOperations? _production;
         private ReactorOperations? _reactor;
+        private FacilityControlOperations? _controls;
+        private BonkOperations? _bonks;
         private bool _started;
         private bool _stopped;
         private bool _faulted;
@@ -56,7 +58,7 @@ namespace CriticalShift.Application
             }
         }
 
-        public void RegisterObject(Guid entityId) { RequireSetup(); _claims.Register(entityId); }
+        public void RegisterObject(Guid entityId, bool allowAssistance = false) { RequireSetup(); _claims.Register(entityId, allowAssistance); }
 
         public void RegisterConnection(Guid connectionId, Guid actorId)
         {
@@ -76,6 +78,8 @@ namespace CriticalShift.Application
 
         internal void BindProduction(ProductionOperations production) { RequireSetup(); _production = production; }
         internal void BindReactor(ReactorOperations reactor) { RequireSetup(); _reactor = reactor; }
+        internal void BindBonks(BonkOperations bonks) { RequireSetup(); _bonks = bonks; }
+        internal void BindControls(FacilityControlOperations controls) { RequireSetup(); _controls = controls; }
         internal void RegisterProductionSlot(Guid slot) { RequireSetup(); _claims.RegisterSlot(slot); }
         internal Guid? SlotOccupant(Guid slot) => _claims.GetSlotOccupant(slot);
         // Internal commit operations execute inside the already guarded/authorized command workflow.
@@ -196,9 +200,13 @@ namespace CriticalShift.Application
             }
             switch (command.Kind)
             {
+                case InteractionKind.Bonk: return _bonks?.Begin(actorId, command.EntityId, command.LeaseGeneration) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
+                case InteractionKind.Control: return _controls?.Apply(command.EntityId, command.Control!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Reactor: return _reactor?.Apply(actorId, command.EntityId, command.Reactor!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Production: return _production?.Apply(actorId, command.EntityId, command.Production!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
+                case InteractionKind.GripHandle:
                 case InteractionKind.Grab: return Map(_claims.TryGrab(command.EntityId, actorId, command.ExpectedRevision), true);
+                case InteractionKind.Assist: return Map(_claims.TryAssist(command.EntityId, actorId, command.ExpectedRevision, command.LeaseGeneration), true);
                 case InteractionKind.Release: return Map(_claims.TryRelease(command.EntityId, actorId, command.LeaseGeneration), true);
                 case InteractionKind.Renew: return Map(_claims.TryRenew(command.EntityId, actorId, command.LeaseGeneration), true);
                 default: throw new InvalidOperationException("An unvalidated interaction reached the domain.");
@@ -222,6 +230,7 @@ namespace CriticalShift.Application
                 case ClaimError.UnknownSlot: status = InteractionStatus.UnknownSlot; break;
                 case ClaimError.SlotOccupied: status = InteractionStatus.SlotOccupied; break;
                 case ClaimError.SlotEmpty: status = InteractionStatus.SlotEmpty; break;
+                case ClaimError.AssistanceDisabled: status = InteractionStatus.AssistanceDisabled; break;
                 case ClaimError.StoreStopped: status = InteractionStatus.WorldStopped; break;
                 default: throw new InvalidOperationException("Unmapped claim result.");
             }
@@ -230,7 +239,7 @@ namespace CriticalShift.Application
 
         private ObjectClaimView? Project(ClaimSnapshot? state) => state == null ? null :
             new ObjectClaimView(Epoch, state.EntityId, state.HolderId, state.Revision,
-                state.LeaseGeneration, state.ExpiresAtMilliseconds, state.IsRetired, state.SlotId);
+                state.LeaseGeneration, state.ExpiresAtMilliseconds, state.IsRetired, state.SlotId, state.AssistantId);
 
         private InteractionReply? Readiness(Guid epoch)
         {

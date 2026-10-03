@@ -79,7 +79,73 @@ Working profile: `runtime/unity/`, Unity 6000.4.3f1 revision 39d1a88d4dd1, Built
 
 The prerequisite probe found no standard Unity CI activation secrets, and the connected workstation was offline. Native import/test/Player proof, native generated scene/settings and independent review therefore remain required. The official Unity release API reported support ending on 22 June 2026 for the selected editor; this task preserves the recorded selection instead of silently upgrading it. Record any later version change through D-01. No networking, gameplay UI/input, Steam, voice, persistence or physics-fixture package choice is made here; D-02 through D-09 remain open at their existing deadlines.
 
+### Movement animation source progress, 2 October 2026
+
+The user authorized Unity logic for existing animations. The bounded
+[worker adapter](../../runtime/unity/Assets/CriticalShift/Features/Workers/README.md)
+uses exact clip names, loop flags and gait speeds from unmerged `claude/character-rig`
+revision `6792f25d89430c5b1ff701d37957f88f3ae20e8a`. Its Playables graph is solely
+presentation; S01 records its writer. Runtime/editor dependencies follow A02.
+The only added package is Unity's built-in animation module `1.0.0`; existing
+framework pins and D-02/D-03 choices remain unchanged. The
+[task record](../../runtime/validation/MOVEMENT_ANIMATIONS.md) identifies checks,
+source hashes and native blockers. No FBX export, Avatar selection, physical recovery
+or gate acceptance is implied. Independent review remains pending.
+
 ## 4. Risk register
+
+### 2 October 2026: assignable movement and scene interactions (PR 72 extension)
+
+The user explicitly authorized movement and interaction code for map assignment.
+D-03 is bounded here to Unity's built-in legacy keyboard/mouse input, using the
+physics and inputlegacy modules at `1.0.0`; no third-party input, UI or transport
+framework is selected. A02's existing Workers, Interaction, FacilityPhysics,
+Unity.Shared and Bootstrap roles host real consumers. Unity.Shared carries
+scene ports and stateless engine-only targeting queries with caller-owned buffers;
+Bootstrap constructs a single canonical WorldSession. The canonical
+Application plus seven Domain libraries are built as .NET Standard 2.1 DLLs with
+explicit PluginImporter/asmdef references and a source hash manifest. No duplicate
+Unity rule source is introduced.
+
+Facility controls gain a revisioned, receipt-backed Application command in the
+existing per-connection stream; switches, doors, valves and service connections
+have one logical owner. Unity owns their physical projection. Worker awareness,
+suit and recovery continue through existing WorkerWorkflow; production/reactor
+use their existing typed requests. Authoring animations, FBX exports and clips
+remain untouched, as explicitly required by the user. Contact defaults are
+provisional code configuration until final animation calibration is supplied.
+D-08 is bounded to tagged cargo/body objects with one primary and one helper under
+the same lease generation. Either participant occupies their one-object allowance;
+helper release/disconnect or secondary-grip failure preserves the primary, while
+primary loss, timeout or primary-attachment failure releases both. Secondary-grip
+failure uses the helper's existing receipt-backed, generation-fenced Release
+command. Slot insertion requires helper release first.
+Host receipts fence assistance and stale releases; two force-limited grip points
+drive one cargo Rigidbody or the represented worker’s actual pelvis under its jointed ragdoll. This does not select a transport: D-02 remains
+open. Recommissioning economy/medical-resource contracts are not present
+in the existing rules and are not implied by the scene recovery adapter.
+
+
+The ragdoll audit extension adds explicit 16-segment authoring, bounded joint/shape
+validation, animated-to-physics momentum handoff, fault latching and cleared recovery.
+D-03 gains local conscious-down crawl, brace, help feedback and handle controls.
+Registered fixed handles use the existing claim/lease workflow via GripHandle;
+normal Down interaction restrictions remain. This adds no second health or custody
+owner. S07 records the handoff and station fences. Cosmetic UnityEvents publish
+only after required transitions and cannot reenter the host Execute path.
+Native physics/Player/feel acceptance remains blocked; source review and offline
+checks do not close the networking decision or advance a roadmap gate.
+
+The user-authorized bonk shovel extension adds Unity's built-in audio module
+`1.0.0` to the manifest/lock for AudioSource and AudioClip. D-03 uses left-click
+for bonking and E for existing DigSite work. It introduces no external audio,
+animation, input or networking framework. The user subsequently selected Harrisando's
+CC0 pop-can recording to replace the synthesized tin sound; provenance and the
+high-quality-preview conversion are recorded with the audio asset. Procedural arm/grip motion preserves
+the unfinished animation assets. Swing admission/window/cooldown stay in Application;
+host contact queries and tool motion use the existing engine ports. Default timing,
+reach and impulse are implementation fixtures pending final rig/feel acceptance.
+See [bonk scope and evidence](../../runtime/validation/BONK_SHOVEL.md).
 
 Impact describes consequence if the risk occurs. Likelihood is not quantified: no current runtime evidence exists in this revision from which to derive probabilities.
 

@@ -48,12 +48,12 @@ namespace CriticalShift.Application
         });
 
         public void RegisterBatch(Guid container, Guid batchId, Guid origin, Guid cause,
-            MaterialKind kind, int units, int moisture = 0, int contamination = 0) => _world.RegisterProduction(() =>
+            MaterialKind kind, int units, int moisture = 0, int contamination = 0, bool allowAssistance = false) => _world.RegisterProduction(() =>
         {
             if (!Enum.IsDefined(typeof(MaterialKind), kind)) throw new ArgumentOutOfRangeException(nameof(kind));
             var batch = new BatchSnapshot(container, batchId, origin, cause, (BatchKind)(int)kind, units, moisture, contamination);
             _materials.ValidateRegistration(batch);
-            _interaction.RegisterObject(container);
+            _interaction.RegisterObject(container, allowAssistance);
             _materials.Register(batch);
         });
 
